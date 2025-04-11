@@ -1,9 +1,8 @@
 = Editing v2+ Content
 :toc:
 
-== TODO
-
-Write something the lets people know that the metadata about v291 origins is ultimately inconsequential
+// TODO
+// - Write something the lets people know that the metadata about v291 origins is ultimately inconsequential
 
 == Introduction
 
@@ -17,6 +16,7 @@ NOTE: Whitespace is not allowed in the names of directories.  If you need to cre
 
 == Workflow
 
+// TODO Highlight this so people know that this is important!
 === Selecting a Branch
 
 When you are editing v2+, the first thing you must do is to create a branch of this project.  If you have already created a branch for the set of changes you wish to make, please make sure that you check out that branch before continuing to make any changes.  It is *important* that you familiarize yourself with the instructions found on the xref:branch_management.adoc[Using Git Branches While Editing v2+] page.
@@ -29,13 +29,13 @@ GitHub includes an editor that may be used to edit files online.
 
 GitHub includes an easy-to-use editor right in the GitHub web application.  For information about using the tool please visit GitHub's documentation https://docs.github.com/en/codespaces/the-githubdev-web-based-editor[here].
 
-TODO
+// TODO
 
 ==== Using the github.dev web-based editor (VS Code)
 
 You have the option of using the GitHub's online VS Code IDE for editing v2+ content.  Using this editor will have steeper learning curve for those unfamiliar with VS Code.  Some of the advantages of using this tool are the ability to group changes across multiple files into a single commit and the ability to see a near-realtime rendering of AsciiDoc beside your editing window.  For more information about the github.dev web-based editor, please see the https://docs.github.com/en/codespaces/the-githubdev-web-based-editor[GitHub documentation].
 
-TODO - add further documentation
+// TODO - add further documentation
 
 ==== Using AsciiDoc with v2+
 
