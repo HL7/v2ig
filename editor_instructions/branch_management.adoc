@@ -1,6 +1,9 @@
 = Using Git Branches While Editing v2+
 :toc:
 
+.TODO
+* what happens if two people edit the same file concurrently on GitHub and both try to commit with different changes?
+
 == Branch Scope
 
 Ideally, a separate branch should be created for each set of changes that are logically related.  Ideally, any changes that are related to any given Jira ticket will all be made in a single branch.
