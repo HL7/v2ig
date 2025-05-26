@@ -460,7 +460,7 @@
         "id": "TCC.15",
         "path": "TCC.15",
         "short": "- TCC.15 - ",
-        "definition": "Definition: This field identifies the test the Test Criticality. The values in this field are used for decisions, which tests should be performed, in case of, e.g., insufficient specimen volume. +\n\nThe data type is CWE because its meaning is a coded value. However, in order to make the processing decisions easy the content can be a sequential number of the test sorted according to the criticality assigned by the lab. The lower numbers are more critical than higher numbers.",
+        "definition": "Definition: This field identifies the prioritization of the test to determine whether it is still to be performed in particular situations, such as having insufficient specimen volume.",
         "description": null,
         "code": [
           {
