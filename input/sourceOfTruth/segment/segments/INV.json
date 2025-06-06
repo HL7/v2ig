@@ -700,7 +700,8 @@
       {
         "id": "INV.23",
         "path": "INV.23",
-        "short": "INV.23",
+        "short": "INV-23",
+        "label": "SD Range",
         "definition": "This field is the SD Range related to the target analytical value (INV-20) for a particular test for a specific lot of a manufactured material. SD range for QC purposes are usually selected for their relevance to a reference (normal) range or to a clinically significant decision level.",
         "comment": "The 1^st^ component defines the value and the 2^nd^ component the measurement units.\n\nIf SD Range is defined neither Lower Range (INV-24) nor Upper Range (INV-25) should be defined.",
         "code": [
@@ -726,7 +727,8 @@
             {
         "id": "INV.24",
         "path": "INV.24",
-        "short": "INV.24",
+        "short": "INV-24",
+        "label": "Lower Range",
         "definition": "This field is the Lower Range related to the target analytical value (INV-20) for a particular test for a specific lot of a manufactured material. Lower Range for QC purposes are usually selected for their relevance to a reference (normal) range or to a clinically significant decision level.",
         "comment": "The 1^st^ component defines the value and the 2^nd^ component the measurement units.\n\nIf Lower Range is defined, Upper Range (INV-25) must also be defined, while SD Range (INV-23) shall not.",
         "code": [
@@ -752,7 +754,8 @@
             {
         "id": "INV.25",
         "path": "INV.25",
-        "short": "INV.25",
+        "short": "INV-25",
+        "label": "Upper Range",
         "definition": "This field is the Upper Range related to the target analytical value (INV-20) for a particular test for a specific lot of a manufactured material. Lower Range for QC purposes are usually selected for their relevance to a reference (normal) range or to a clinically significant decision level.",
         "comment": "The 1^st^ component defines the value and the 2^nd^ component the measurement units.\n\nIf Upper Range is defined, Lower Range (INV-24) must also be defined, while SD Range (INV-23) shall not.",
         "code": [
