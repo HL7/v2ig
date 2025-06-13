@@ -1,0 +1,1 @@
+Alias: $Segment = http://hl7.org/v2/StructureDefinition/Segment

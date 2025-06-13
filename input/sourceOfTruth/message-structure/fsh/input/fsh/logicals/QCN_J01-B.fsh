@@ -1,0 +1,21 @@
+Logical: QCN_J01-B
+Parent: V2MessageStructure
+Id: QCN_J01-B
+Title: "HL7 v2 QCN_J01-B Segment Definition"
+* ^meta.profile = "http://hl7.org/v2/StructureDefinition/MessageStructure-Profile"
+* ^type = "QCN_J01-B"
+* ^date = "2025-06-13T21:11:32Z"
+* . ^short = "QCN_J01-B"
+* . ^definition = "QCN_J01-B Message Structure"
+* 1-MSH 1..1 http://hl7.org/v2/StructureDefinition/MSH "Message Header" "Message Header"
+* 1-MSH ^extension.url = "http://hl7.org/fhir/StructureDefinition/v2-segment-status"
+* 1-MSH ^extension.valueCode = #A
+* 2-SFT 0..* http://hl7.org/v2/StructureDefinition/SFT "Software Segment" "Software Segment"
+* 2-SFT ^extension.url = "http://hl7.org/fhir/StructureDefinition/v2-segment-status"
+* 2-SFT ^extension.valueCode = #A
+* 3-UAC 0..1 http://hl7.org/v2/StructureDefinition/UAC "User Authentication Credential" "User Authentication Credential"
+* 3-UAC ^extension.url = "http://hl7.org/fhir/StructureDefinition/v2-segment-status"
+* 3-UAC ^extension.valueCode = #A
+* 4-QID 1..1 http://hl7.org/v2/StructureDefinition/QID "Query identification Segment" "Query identification Segment"
+* 4-QID ^extension.url = "http://hl7.org/fhir/StructureDefinition/v2-segment-status"
+* 4-QID ^extension.valueCode = #A

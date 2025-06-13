@@ -1,0 +1,1 @@
+Alias: $MessageStructure = http://hl7.org/v2/StructureDefinition/MessageStructure

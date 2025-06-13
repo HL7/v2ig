@@ -1,0 +1,8 @@
+canonical: http://hl7.org/v2
+fhirVersion: 5.0.0
+FSHOnly: true
+applyExtensionMetadataToRoot: false
+id: hl7.v2
+name: Hl7V2
+status: active
+version: 0.0.1
