@@ -3,14 +3,14 @@
 == Introduction
 [v291_section="16.2"]
 
-This topic contains the HL7 messaging specifications to support Claims and Reimbursement (CR) for the electronic exchange of health invoice (claim) data. The domain is intended for use by benefit group vendors, Third Party Administrators (TPA) and Payers who wish to develop software that is compliant with an international standard for the electronic exchange of claim data.
+This topic contains the HL7 messaging specifications to support Claims and Reimbursement (CR) for the electronic exchange of health invoice (claim) data. The topic is intended for use by benefit group vendors, Third Party Administrators (TPA) and Payers who wish to develop software that is compliant with an international standard for the electronic exchange of claim data.
 
-The content of this topic is not intended to be an alternative to or replacement for those ASC X12 standards mandated for use in this domain in the United States.
+The content of this topic is not intended to be an alternative to or replacement for those ASC X12 standards mandated for use in this topic in the United States.
 
 == General Use Cases / Background
 [v291_section="16.2.1"]
 
-The scope of the Claims and Reimbursement domain defines the HL7 messaging and technical standards for:
+The scope of the Claims and Reimbursement topic defines the HL7 messaging and technical standards for:
 
 * Electronic transmission of healthcare invoices, with supporting documents and reports, to authorized individuals and/or organizations;
 
@@ -24,7 +24,7 @@ The scope of the Claims and Reimbursement domain defines the HL7 messaging and t
 
 * Minimum data storage.
 
-As used in this document the domain of Claims and Reimbursement excludes:
+As used in this document the topic of Claims and Reimbursement excludes:
 
 * Payer and benefit group specific processing and implementation rules;
 
