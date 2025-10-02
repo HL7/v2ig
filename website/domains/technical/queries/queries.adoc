@@ -43,6 +43,8 @@ In HL7 v2, there is no formal assumption of client-server architecture, or of a 
 
 The Query Standard, like the HL7 v2 Standard in general, has been evolving since its inception in Version 2.1 with the introduction of a new methodology intended to supersede the previous generation of queries. Throughout the many iterations of the HL7 v2 Standard a wide variety of query modes have been defined, however very little real-world implementation of v2-based queries have been seen. For the purposes of understandability, the current version of this HL7 v2 standard includes only on the query pattern which has achieved widespread real-world usage. Implementers interested in other modes are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
 
+Alternatively, the HL7 Fast Healthcare Implementation Resources (FHIR) Standard also offers robust functionality for query-based workflows. Implementers are encouraged to explore the use of FHIR as a possible approach to implementing queries.
+
 === Query development methodology
 [v291_section="5.2.3"]
 
