@@ -13,7 +13,7 @@ The standard embraces the most common queries that are likely to occur. The foll
 
 * data that is not patient related, e.g., send the age specific normal values for serum protein.
 
-* data within a specified time range, e.g., send all serum glucose results, reported between January 1, 1998 through December 31, 1999, for patient #123456.
+* data within a specified time range, e.g., send all serum glucose results, reported between January 1, 2024 through December 31, 2024, for patient #123456.
 
 The variety of potential queries is almost unlimited. There was no attempt here to define a standard that would cover every possible query. This topic discusses general ways query/response exchanges are structured. 
 
