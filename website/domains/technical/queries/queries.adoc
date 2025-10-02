@@ -152,7 +152,376 @@ As of Version 2.9 Infrastructure and Messaging requires that Acknowledgment Chor
 
 == General Use Cases / Background
 
-include::general_use_case_background.adoc[leveloffset=+1]
+== QUERY/RESPONSE PROFILE
+[v291_section="5.3"]
+
+A *Query Profile* is a declaration which sets forth the name of the query supported by the Server, the logical structure of the information that can be queried, and the logical structure of what can be returned. The introduction of the Query/Response Profilefootnote:[Formerly known as the Conformance Statement, this artifact will be referred to throughout the rest of this document as the *Query Profile* to distinguish it from an implementor assertion of conformance to a particular profile. The Query Profile is understood to include the definition of the appropriate response message(s).] concept is not intended to imply system certification. It is intended to promote the definition and implementation of well-specified queries. As in previous versions, support for queries is not required for HL7 v2 conformance.
+
+In the introduction of a Query Profile, the data owner describes the data being made available and the purpose of the query. The data owner specifies the exact coded value for the Query Name which the Client SHALL use to invoke this query.
+
+The Query Grammar defines the exact segments the Client MAY send. For each field of those segments, the Query Profile SHALL define how the Server will interpret client values. (For example, the patient name field is interpreted as a regular expression match.)
+
+The Response Grammar defines the exact pattern of segments that the Server will return. Each Segment Pattern Response will specify its own pattern of segments. (For example, lab data queries will return patterns of OBR and OBX, while demographic queries might respond with patterns of PID, PV1,... segments.) 
+
+Note that in the case of an HL7-defined query, a specific section of the HL7 Standard will define a Query Profile. By contrast, in the case of a site defined query, the Query Profile is written by analysts and programmers of the Server application/system, and is available to the analysts and programmers of the Client application/system.
+
+=== Using the Query Profile
+[v291_section="5.3.1"]
+
+Critical to the proper usage of query/response pairs is the Query Profile concept. In the absence of a Query Profile, the Client might not be aware of the existence of a query, or might not know how to use it or what to expect from it. The Server advertises the existence of, and support for, a query by publishing a *_Query Profile*_. The Query Profile identifies the query, specifies what items can be queried and describes what the response will look like.
+
+=== Formal specification of the Query Profile
+[v291_section="5.3.2"]
+
+The Query Profile contains the following information:
+
+*_Query Profile ID:_* The unique identifier applying to this query's Query Profile. This value is transmitted as the first component of _QPD-1-Message query name_. 
+
+*_Formal Query Name:_* identifies a unique query or publication, e.g., PharmacyDispenseHistory.
+
+*_Query Trigger:_* identifies the trigger event for the query. Note that more than one Query Profile may map to the same generic trigger event (Q10 through Q15). If a non-generic trigger event is used, it should correspond to exactly one Query Profile. The use of Q for HL7-standard query trigger events is conventional; another letter may be used if the supply of Q triggers is exhausted. The assignment of a trigger event, while mandatory, is intended to facilitate processing rather than to identify a query uniquely. A query is uniquely identified by the value transmitted in _QPD-1-Message query name_. This value SHALL be the same in both the query and response messages, even though the trigger event for the query differs from the trigger event for the response.
+
+*_Response Trigger:_* Identifies the unique trigger event for the response. Note that more than one Query Profile may map to the same generic trigger event (K10 through K15). If a non-generic trigger event is used, it should correspond to exactly one Query Profile. The use of K for HL7-standard response trigger events is conventional; another letter may be used if the supply of K triggers is exhausted.
+
+*_Query Priority:_* Specifies if the query is immediate, deferred or selectable.
+
+*_Query Characteristics:_* Narrative describing general features of the query.
+
+*_Purpose:_* Describes the intent of query.
+
+*_Query Grammar:_* Defines the logical structure of what can be sent by the Client. The structure of this part of the Query Profile is very similar in appearance to a message syntax.
+
+*_Response Grammar:_* Defines the logical structure of what can be returned by the Server. The structure of this part of the Query Profile is very similar in appearance to a message syntax with two additional columns: Comment and Support Indicator.
+
+*_Data Model:_* The logical structure of the information that can be queried. This is not always included in the Query Profile.
+
+*_Input Parameter Field Specification and Commentary:_* Cites the allowable parameters that can be passed to the recipient. The structure of this part of the Query Profile is very similar in appearance to an HL7 Segment Attribute Table with several additional columns: ColName, Key/Search, Sort, MatchOp, SegmentFieldName, and Service Identifier Code. A QPD Input Parameters table and corresponding explanation table is always provided. These tables discuss all the fields of the QPD segment, including _QPD-1-Message query name_ and _QPD-2-Query tag_. If the query is a Query by Example, additional input parameters and explanation tables are provided for all the fields that may be populated in the example segments.
+
+*_Response Control:_* Specifies execution date and time, restrictions on amount of data, and query modality. This is not always included in the Query Profile.
+
+*_Output Specification and Commentary:_* Used for tabular and display response. 
+
+Note that in the case of an HL7-defined query, a specific section of the HL7 standard will define a Query Profile. The existence of a standard Query Profile for any given query does *not* mean that a system SHALL implement this particular query to be conformant to the HL7 Standard. However, systems that do implement the query SHALL follow the specifications as given in the Query Profile.
+
+Sites that wish to offer queries not specified by the Standard may create their own Query Profiles. By contrast to an HL7-standard query, in the case of a site defined query, the Query Profile is written by the Server, and is available to the analysts and programmers of the Client system to enable them to know the exact behavior of the Server.
+
+Input Parameter Specification and Input Field Description and Commentary are always included for the QPD segment. When the Query by Example variant is used, they are provided for the QBE as well. 
+
+For Query Profiles published in the HL7 Standard, each table includes the Query Profile ID in parentheses in the upper left-hand cell. This allows the table to be imported automatically into the HL7 database.
+
+==== Suggested steps for developing a Query Profile
+[v291_section="5.3.2.1"]
+
+____
+{empty}1) Before composing the Query Profile, express the query in ordinary English sentences.
+
+{empty}2) Transform the query into a mathematical or pseudo-language statement. A syntax such as SQL provides a useful mechanism.
+
+{empty}3) From the pseudo-statement, extract the parameters and the operations upon the parameters.
+
+{empty}4) Advertise the parameters in the Query Profile.
+
+{empty}5) Within the Query Profile, explain the operations that will be performed upon the parameters: relational conjunctions, equality/inequality, etc. Use examples to aid the user in understanding how the query might be invoked in specific instances.
+____
+
+==== Query Profile introduction
+[v291_section="5.3.2.2"]
+
+The Query Profile begins with a table that summarizes the characteristics and identifying information about the query to which the Query Profile applies.
+
+.Query Profile
+[width="100%",cols="39%,61%",options="header",]
+|===
+|Query Statement ID (Query ID=Znn): |Znn
+|Type: |
+|Query Name: |
+|Query Trigger (= MSH-9): |
+|Query Mode: |
+|Response Trigger (= MSH-9): |
+|Query Characteristics: |
+|Purpose: |
+|Response Characteristics: |
+|Based on Segment Pattern: |
+|===
+
+*Query Statement ID*: The unique identifier applying to this Query Profile. This value is transmitted as the first component of _QPD-1-Message query name_.
+
+*Type*: Usually *Query*
+
+*Query Name*: The name corresponding to the identifier in *Query Statement ID*. This value is transmitted as the second component of _QPD-1-Message query name_.
+
+*Query Trigger (= MSH-9)*: The exact value that the Client will transmit in the _MSH-9-Message type_ field of the query message.
+
+*Query Mode*: Whether the query may be sent in *Real time* (including Bolus) or in *Batch*; see section _5.5.6.3_, "_Interactive continuation of response messages_." The value *Both* indicates that both real-time/bolus and batch modes are acceptable.
+
+*Response Trigger (= MSH-9)*: The exact value that the Server will transmit in the _MSH-9-Message type_ field of the response message.
+
+*Query Characteristics*: Particular features of this query. This is free text intended to help the query implementor in selecting among queries.
+
+*Purpose*: The end result that this query is intended to accomplish. Free text.
+
+*Response Characteristics*: Particular features of this response. This is free text intended to help the query implementor in selecting among queries.
+
+*Based on Segment Pattern*: For queries that return a segment pattern response, this is the (non-query response) message type upon which the segment pattern is based.
+
+==== Query grammar
+[v291_section="5.3.2.3"]
+
+The Query Profile shows a query grammar. This is a brief model of the segments used in the query message.
+
+FIXME - QBP message definition is missing
+[tabset, "QBP^Znn^QBP_Qnn"]
+
+When the Query by Example variant is used, the Query Grammar shows the segments that may be used to transmit parameters and the order in which they appear. Segments used to transmit parameters are always sent immediately following the QPD segment.
+
+==== Response grammar
+[v291_section="5.3.2.4"]
+
+The Query Profile always shows a response grammar. If the query response is segment pattern, the response grammar should specify the segments, order, optionality, and repetition as do message specifications within the HL7 v2 Standard.
+
+FIXME - RSP message definition is missing
+[tabset, "RTB^Znn^RTB_Knn"]
+
+For Query Profiles published in the HL7 Standard, the Response Grammar table includes the Query Profile ID in parentheses in the upper left-hand cell. This allows the table to be imported automatically into the HL7 database.
+
+==== QPD input parameter specification
+[v291_section="5.3.2.6"]
+
+The Input Parameter Specification section of the Query Profile looks very much like an attribute table and is followed by a commentary on the fields. Each row of the QPD Input Parameter Specification specifies one user parameter within the QPD segment. Values for user parameters are transmitted in successive fields of the QPD segment, beginning at QPD-3.
+
+*QPD Input Parameter Specification*
+[width="100%",cols="11%,14%,8%,3%,6%,8%,3%,3%,8%,8%,9%,8%,11%",options="header",]
+|===
+|Field Seq (Query ID=Z99) |Name a|
+Key/
+
+Search
+
+|Sort |LEN |TYPE |Opt |Rep |Match Op |TBL |Segment Field Name |Service Identifier Code |Element Name
+| | | | | | | | | | | | |
+|===
+
+For Query Profiles published in the HL7 Standard, the Input Parameter Specification table includes the Query Profile ID in parentheses in the upper left-hand cell. This allows the table to be imported automatically into the HL7 database.
+
+The following is a description of the attributes of the above table.
+
+*Field Seq*: The ordinal number of the element being discussed. Sequence 1 is [.underline]#always# Message Query Name, and sequence 2 is [.underline]#always# Query Tag. Sequence 3 and above are reserved for user parameters.
+
+*Name*: the user-defined name for the element as will be used in the query. Example: MedicationDispensed. When *Name* is derived from an actual HL7 element (segment and field), the segment field name and element name appear in the columns headed by those names. When *Name* is not derived from an actual HL7 element (segment and field), the source system defines the values they expect in this field.
+
+*Key/Search*: This field identifies which element is the key and which elements are searchable. The key field is designated by a value of 'K'. A value of 'S' designates fields upon which an indexed search can be performed by the source. 'L' designates non-indexed fields. (Note that searching on a non-indexed field requires the Server to perform a linear scan of the data base.) If this column is left blank, the field may not be searched.
+
+*Sort*: valued as "Y" if the output of the query can be sorted on this field. This column should only be valued in Virtual Tables that are used as output specifications.
+
+*Len*: the maximum field length that will be transmitted by the source.
+
+*Type*: the data type of this user parameter. The values available for this field are described in Chapter 2, section 2.16 of this standard. 
+
+*Opt*: defines whether the field is required ('R'), optional ('O'), conditionally required ('C'), or required for backward compatibility ('B').
+
+*Rep*: valued as 'Y' if the field may repeat (i.e., be multiply valued).
+
+*Match Op*: the relational operator that will be applied against the value that the querying system specifies for this field. Note that these are defined by file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70209[_HL7 Table 0209 – Relatio__nal Operator_], a component of the QSC data type
+
+*TBL*: identifies the HL7 table from which the values are derived.
+
+*Segment Field Name*: identifies the HL7 segment and field from which the new definition is derived. This field will be blank if the Name is NOT derived from an actual HL7 segment and field.
+
+*Service Identifier Code:* a value of data type CWE that contains the applicable LOINC code, if it exists, or the applicable HL7 code, if it exists, if no Segment Field Name has been identified. If a Segment Field Name has been identified, this field is not populated.
+
+*Element Name*: the name of the element identified by Segment Field Name. This may also be a user-defined 'Z'-element.
+
+==== QPD input parameter field description and commentary
+[v291_section="5.3.2.7"]
+
+The QPD Input Parameter Field Description and Commentary provides a more detailed description of each of the fields transmitted in the QPD segment.
+[width="100%",cols="21%,11%,6%,62%",options="header",]
+|===
+|Input Parameter (Query ID=Znn) |Comp. Name |DT |Description
+|MessageQueryName | |CWE |SHALL be valued *Z99^WhoAmI^HL7nnnn*.
+|QueryTag | |ST |Unique to each query message instance.
+|InputItem... | |CX |
+|===
+
+*Input Parameter*: The name of the field whose value is being transmitted.
+
+*Comp. Name*: When the *Input Parameter* is of a composite data type (e.g._,_ XPN), this is the name of an individual component of the composite input parameter. Only those components that may be valued should be listed in this column.
+
+*DT*: The data type of the parameter or component.
+
+*Description*: A narrative description of the parameter or component and how it is to be used.
+
+==== QBE input parameter specification
+[v291_section="5.3.2.8"]
+
+In the Query by Example variant the Query Profile may specify that the client may use fields within actual message segments, such as the PID segment, to transmit parameter information. Where this is permitted, the Query Profile includes a "QBE Input Parameter Specification" table to specify which fields may be used to transmit the parameters.
+
+.*QBE Input Parameter Specification*
+[width="99%",cols="13%,14%,9%,3%,6%,7%,5%,5%,8%,6%,12%,12%",options="header",]
+|===
+|Segment Field Name (Query ID=Z99) |Name a|
+Key/
+
+Search
+
+|Sort |LEN |TYPE |Opt |Rep |Match Op |TBL |Service Identifier Code |Element Name
+| | | | | | | | | | | |
+|===
+
+Fields are indicated by their actual Segment Field Name, which specifies both segment and position. Except for this distinguishing feature, the remaining columns in this table are identical in meaning to their counterparts in the "_QPD input parameter specification_" in section _5.3.2.6_ above.
+
+Each row of the QBE Input Parameter Specification specifies one field that may be used to transmit user parameters within the example segment(s).
+
+==== QBE input parameter field description and commentary
+[v291_section="5.3.2.9"]
+
+The QPD Input Parameter Field Description and Commentary provides a more detailed description of each of the fields transmitted in the example segments sent in a Query by Example.
+
+.*QBE Input Parameter Field Description and Commentary*
+[width="100%",cols="17%,11%,8%,64%",]
+|===
+|Input Parameter (Query ID=Znn) |Comp. Name |DT |Description
+| | | |
+|===
+
+Fields are indicated by their actual Segment Field Name, which specifies both segment and position. Except for this distinguishing feature, the remaining columns in this table are identical in meaning to their counterparts in the "_QPD input parameter field description and commentary_" in section _5.3.2.7_ above.
+
+==== RCP input parameter field description and commentary
+[v291_section="5.3.2.10"]
+
+The RCP Input Parameter Field Description and Commentary provides a more detailed description of each of the fields transmitted in the RCP (Response Control Parameters) segment.
+
+.*RCP Response Control Parameter Field Description and Commentary*
+[width="100%",cols="19%,22%,11%,5%,5%,38%",options="header",]
+|===
+|Field Seq (Query ID=Znn) |Name |Com­po­nent Name |LEN |DT |Description
+| | | | | |
+|===
+
+*Field Seq*: The position within the RCP segment that the field occupies.
+
+*Name*: The name of the field whose value is being transmitted.
+
+*Component Name*: When the field referenced by *Name* is of a composite data type (e.g., XPN), this is the name of an individual component of the composite input parameter. Only those components that may be valued should be listed in this column.
+
+*LEN*: The maximum length of the field.
+
+*DT*: The data type of the parameter or component.
+
+*Description*: A narrative description of the parameter or component and how it is to be used.
+
+== QUERY/RESPONSE MESSAGE PAIRS
+[v291_section="5.4"]
+
+The query recommended for use in v 2.4 and later is the Query by Parameter (QBP). The query/response message pairs that follow in this section supersede the previous generation of original mode and enhanced queries that are described in previous versions of the HL7 v2 standard.
+
+All queries SHALL have a Query Name. The Query Name field, which is a CWE data type, uniquely identifies a Query Profile.
+
+The QBP allows for several variants in defining the selection criteria.
+
+The first variant, the Query by (Simple) Parameter, is to declare a sequence of one to many HL7 fields. Each of these fields will retain its data type as defined in the original HL7 usage. Each field corresponds to a parameter in the Query Profile.
+
+[NOTE]
+It is the responsibility of the Server to declare explicitly the purpose of the query, the meaning of each of the query parameters, and the relationships among the parameters. These declarations are made in the Query Profile.
+
+A second variant, the Query by Example, allows the specification of parameters within actual HL7 segments other than the QPD. For example, the Query Profile might permit the use of the PID segment to transmit specific patient identification parameters. Each such parameter is specified in *the QBE Input Parameter Specification* and *QBE Input Parameter Field Description and Commentary* tables.
+
+The difference in how parameters are passed in each of these variants is as follows:
+
+* Query by Simple Parameter passes each client value to the Server positionally using only the third and successive fields of the QPD segment.
+
+* Query by Example passes parameters using HL7 segments, such as PID, that are defined in the endpoint application chapters. The third and successive fields of the QPD segment also may be used in this variant.
+
+Each generic query has a specific message syntax, a unique trigger event, and a unique message structure. Each generic response also has a specific message syntax, a unique trigger event, and a unique message structure.
+
+There is also a generic message structure, to accommodate the specific detail needed in the Segment Pattern Response. The QBP_Q11 structure supports a Segment Pattern Response and contains the MSH, QPD, RCP, and DSC segments. Its default trigger event is Q11. A standard or site-defined query may use this trigger event or may specify a unique trigger event value in its Query Profile. If a unique trigger event value is chosen for a site-defined query, that value SHALL begin with Z.
+
+The queries may support both immediate and deferred response. This information is carried in the RCP segment along with the execution date and time.
+
+The query definition segment is echoed back in the response. This is particularly important in a continuation situation. Otherwise, the sender might conceivably have to manage a queue of queries.
+
+== AUXILIARY QUERY PROTOCOLS
+[v291_section="5.6"]
+
+This section discusses properties of queries that can be described as global properties. These properties enable the Client and Server to deal with timing and sizing issues and to handle exceptions.
+
+=== Immediate vs. deferred response
+[v291_section="5.6.1"]
+
+Responses to queries can be either immediate or deferred. In the immediate mode, the responding process gives the response immediately or in a short period during which the requesting process will wait for the response. In the deferred mode, the response is returned asynchronously, as a separate message pair. Also, a time interval for the deferred transaction may be specified.
+
+In the case of immediate mode query, the Server does NOT send a General Acknowledgement (ACK). The acknowledgement of the query is contained within the response message. In the case of deferred mode, the query is acknowledged immediately by an ACK. The Server sends the deferred response at the appropriate time. The Client acknowledges the response with an ACK. In short, the deferred query transaction consists of 2 "round trips."
+
+If an immediate mode query message is malformed, a negative ACK is immediately sent.
+
+Use cases for Deferred Response include:
+
+* Evaluate the query conditions at a certain point in time and then return the response. For example, "At 9 AM tomorrow, evaluate query and return response";
+
+* Produce a large report to be communicated to the Server at an off-peak hour. For example, a response which contains all admissions records for the month to be sent at 4:00 a.m., or a reference lab results listing to be sent at noon. A deferred response can benefit both Server and Client in such cases, especially where the generation, communication, and receipt of segments can all be done at times of otherwise low-volume processing.
+
+If the Query Profile indicates that the Server will support both immediate and deferred responses, then the Client may indicate the desired value of this property by sending it in the _RCP-1 Response priority_ field. If the Server supports only one response type, then the value specified by the Client SHALL agree. The Client indicates that an immediate response is desired by setting _RCP-1-Response priority_ to "I". The Client indicates that a deferred response is desired by setting _RCP-1-Response priority_ to "D".
+
+
+image::Query_Figure_2.png[response_pattern]
+
+=== Interactive continuation of response messages
+[v291_section="5.6.3"]
+
+The Interactive Continuation Protocol defines the methodology for the intentional transmission of a large query-response payload over multiple HL7 messages. Without this protocol, the response would be returned in a single large logical message. Implementers interested in this protocol are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
+
+=== Batch message as a query response
+[v291_section="5.6.4"]
+
+The HL7 query also can be used to query for a batch. Implementers interested in this approach are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
+
+=== Query error response
+[v291_section="5.6.5"]
+
+A query/response error can occur at 3 levels:
+
+* Communication failure (broken connection, timeout)
+
+* Malformed message (message reject)
+
+* Malformed query (application error)
+
+If the application receiving the query detects an error while processing the query, the preferred method of response is to return an Application Error (AE) or Application Reject (AR) condition in the _MSA-1-Acknowledgement code_ of the applicable query response message. Further description of the error code is to be included in _ERR-1-Error code and location_. Note that _MSA-6-Error condition_ is retained for backward compatibility for those applications not using the ERR segment. Thus far, this method is consistent with the methods used elsewhere for reporting errors in acknowledgement messages, irrespective of the type of message being acknowledged. In addition, because this is a query response, it is important to include the QAK segment because it specifies the query tag that will identify the particular query instance that was in error. This is of particular importance where a query response may span more than one message.
+
+The ERR segment supersedes _QAK-2-Query response status_.
+
+There are 3 common situations that can arise in a query error response:
+
+*Situation 1: Malformed Message*
+
+The query message itself is bad. The parser does not get to the actual query content. Something is wrong with the envelope, i.e., the message is malformed.
+
+The only response is a negative ACK message containing the MSH, MSA and the ERR. That is, the Server creates an ACK message with AR in _MSA-1-Acknowledgement code_ in the above sentence. The dialogue is ended.
+
+*Situation 2: Malformed Query*
+
+The query message got to the Server and is legitimate, but the Server cannot process the query for some reason, i.e., the query is malformed.
+
+The Response message indicates a negative acknowledgement and shows the problem in the ERR. The response message contains the MSH, MSA, ERR, QAK and the query defining segment if available. That is, the Server creates an ACK message with AE in _MSA-1-Acknowledgement code_ in the above sentence. The rest of the message is absent.
+
+Note that the continuation (DSC) segment is not sent or, if it is, its continuation pointer field (_DSC-1-Continuation pointer_) is null.
+
+[NOTE]
+The use of AE (application error) and AR (application reject) codes in _QAK-2-Query response status_ has been deprecated in favor of the ERR segment.
+
+*Situation 3: No data found*
+
+The query is well formed, but there is no data to be returned by the query. This is not strictly an error condition. This example clarifies the protocol to be followed.
+
+The Response message contains MSH, MSA, QAK, and query defining segment. The QAK would indicate "no records found". The rest of the message is absent, i.e., no blank rows or segments are sent.
+
+[NOTE]
+If the responding application successfully processes the query, but is unable to find any qualifying data, this is not an error condition. The responding application returns an Application Accept (AA) in the MSA segment of the query response message, but does not return any data segments. If the QAK segment is being used, the field _QAK-2-Query response_ status is valued with NF (no data found, no errors).
+
+== PUBLISH AND SUBSCRIBE
+[v291_section="5.7"]
+
+"Publish and subscribe" refers to the ability of one system, the "Publisher", to offer a data stream that can be sent to recipient systems upon subscription. Implementers interested in this functionality are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
 
 == Technical Specs
 
