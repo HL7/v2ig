@@ -41,7 +41,7 @@ In HL7 v2, there is no formal assumption of client-server architecture, or of a 
 === Evolution of the query standard
 [v291_section="5.2.2"]
 
-The Query Standard, like the HL7 v2 Standard in general, has been evolving since its inception in Version 2.1 with the introduction of a new methodology intended to supersede the previous generation of queries. Throughout the many iterations of the HL7 v2 Standard a wide variety of query modes have been defined, however very little real-world implementation of v2-based queries have been seen. For the purposes of understandability, the current version of this HL7 v2 standard includes only on the query pattern which has achieved widespread real-world usage. Implementers interested in other modes are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
+The Query Standard, like the HL7 v2 Standard in general, has been evolving since its inception in Version 2.1 with the introduction of a new methodology intended to supersede the previous generation of queries. Throughout the many iterations of the HL7 v2 Standard a wide variety of query modes have been defined, however very little real-world implementation of v2-based queries has been seen. In the interest of conciseness, this current version of the HL7 v2 standard includes only the query pattern which has achieved widespread real-world usage. Implementers interested in other modes are referred to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
 
 Alternatively, the HL7 Fast Healthcare Implementation Resources (FHIR) Standard also offers robust functionality for query-based workflows. Implementers are encouraged to explore the use of FHIR as a possible approach to implementing queries.
 
@@ -57,22 +57,22 @@ An institution, or data owner, decides that it would like to make information av
 {empty}3) As rows of human readable text ready to output to a screen or printer. 
 
 [NOTE]
-Only the use of traditional HL7 segment queries have achieved widespread usage. The remainder of this topic will focus on this representation of data. Implementers interested in either the rows and columns or human readable text are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
+Only the use of traditional HL7 segment queries has achieved widespread usage. The remainder of this topic will focus on this representation of data. Implementers interested in either the rows and columns or human readable text are referred to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
 
 Next, the data owner specifies exactly which input variables the Client can use to control the data that the Server agrees to return.
 
 The complete specification of what data are available, how the data will be returned, and what variables can be valued or constrained in a Query is called the Query Profile.
 
-The Query Profile concept is critical to the proper usage of the query/response pair. In the absence of a Query Profile, the Client would be unaware of the existence of the query, let alone how to use it or what to expect from it. The data owner advertises the existence of, and support for, a query by publishing a *_Query Profile_* which is a declaration which sets forth the name of the query supported by the Server, the logical structure of the information that can be queried, and the logical structure of what can be returned. The introduction of the Query Profile concept is not intended to imply system certification. It is intended to promote well-specified queries. As in previous versions, support for queries is not required for HL7 conformance.
+The Query Profile concept is critical to the proper usage of the query/response pair. In the absence of a Query Profile, the Client would be unaware of the existence of the query, let alone how to use it or what to expect from it. The data owner advertises the existence of, and support for, a query by publishing a Query Profile which is a declaration which sets forth the name of the query supported by the Server, the logical structure of the information that can be queried, and the logical structure of what can be returned. The introduction of the Query Profile concept is not intended to imply system certification. It is intended to promote well-specified queries. As in previous versions, support for queries is not required for HL7 conformance.
 
 The Query Profile has the following broad structure:
 
 * Introduction including title, trigger events, mode, characteristics and purpose
-* Query Grammar
-* Response Grammar
-* Input Specification and Commentary
-* Response Control
-* Output specifications and Commentary
+* Query grammar
+* Response grammar
+* Input specification and commentary
+* Response control
+* Output specifications and commentary
 
 === Response Format
 [v291_section="5.2.4"]
@@ -82,7 +82,7 @@ The first decision a data owner SHALL make in formulating a query is to decide w
 ==== Segment pattern response
 [v291_section="5.2.4.1"]
 
-Segment Pattern data responses reflect the traditional way of offering data within HL7. The Server responds to queries by returning a pattern of HL7 segments. For example, the core of a response to a query for Lab data might be defined by the following segment grammar where patient information will be returned in the PID segment and laboratory results in OBR and OBX segments:
+Segment pattern data responses reflect the traditional way of offering data within HL7. The Server responds to queries by returning a pattern of HL7 segments. For example, the core of a response to a query for Lab data might be defined by the following segment grammar where patient information will be returned in the PID segment and laboratory results in OBR and OBX segments:
 
 {PID 
 
@@ -97,7 +97,7 @@ In this style, the message returned by a Server is often a close approximation t
 === Query specification formats
 [v291_section="5.2.5"]
 
-The previous section explained the representation of data that are returned to a query client. This section discusses how the client may represent a query for information. HL7 now defines several basic variants for specifying a query.
+The previous section explained the representation of data that are returned to a query client. This section discusses how the client may represent a query for information. HL7 defines several basic variants for specifying a query.
 
 *_Query by Simple Parameter_*
 
@@ -113,7 +113,7 @@ The Query by Example (QBE) is an extension of Query by Parameter (QBP) in which 
 
 *_Query Using the QSC Variant:_*
 
-Implementers interested in the more complex QSC variant are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
+Implementers interested in the more complex QSC variant are referred to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
 
 ==== Expressing the same data using the variants
 [v291_section="5.2.5.1"]
@@ -170,7 +170,7 @@ Note that in the case of an HL7-defined query, a specific section of the HL7 Sta
 === Using the Query Profile
 [v291_section="5.3.1"]
 
-Critical to the proper usage of query/response pairs is the Query Profile concept. In the absence of a Query Profile, the Client might not be aware of the existence of a query, or might not know how to use it or what to expect from it. The Server advertises the existence of, and support for, a query by publishing a *_Query Profile*_. The Query Profile identifies the query, specifies what items can be queried and describes what the response will look like.
+Critical to the proper usage of query/response pairs is the Query Profile concept. In the absence of a Query Profile, the Client might not be aware of the existence of a query, or might not know how to use it or what to expect from it. The Server advertises the existence of, and support for, a query by publishing a Query Profile. The Query Profile identifies the query, specifies what items can be queried and describes what the response will look like.
 
 === Formal specification of the Query Profile
 [v291_section="5.3.2"]
@@ -523,7 +523,7 @@ If the responding application successfully processes the query, but is unable to
 == PUBLISH AND SUBSCRIBE
 [v291_section="5.7"]
 
-"Publish and subscribe" refers to the ability of one system, the "Publisher", to offer a data stream that can be sent to recipient systems upon subscription. Implementers interested in this functionality are refered to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
+"Publish and subscribe" refers to the ability of one system, the "Publisher", to offer a data stream that can be sent to recipient systems upon subscription. Implementers interested in this functionality are referred to previous versions of the v2 Standard available on the HL7 Standards-based Product Grid.
 
 == Technical Specs
 
