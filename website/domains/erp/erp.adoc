@@ -4,7 +4,7 @@
 
 The ERP Domain is comprised of the message sets related to Enterprise Resource Planning and the management of core business processes. This includes content previously documented in Chapter 13 (Clinical Lab Automation), Chapter 15 (Personnel Management), and Chapter 17 (Materials Management), as well as the portion of Chapter 4 (Orders) dealing with Supplies and the portion of Chapter 7 (Observations) dealing with Specimen Shipment Manifests.
 
-== ERP Subdomains
+== ERP Topics
 
 xref:materials_management/materials_management.adoc[Materials Management]
 
