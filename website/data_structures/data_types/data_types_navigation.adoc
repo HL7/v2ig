@@ -1,5 +1,12 @@
 = Data Types
 
-xref:complex/navigation.adoc[Complex Data Types]
+In a data type definition, square brackets, "[" and "]", are used to specify optional parts of a string. For instance, the format of a date field is “YYYY[MM[DD]]” which denotes that the field may contain four, six, or eight characters respectively. The characters may further constrain the possible contents of the string – this will be documented at the point of use.
 
 xref:primitive/navigation.adoc[Primitive Data Types]
+
+Primitive (or simple) data types are single elements with a primitive value
+
+xref:complex/navigation.adoc[Complex Data Types]
+
+Complex data types are re-usable clusters of elements
+
