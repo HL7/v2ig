@@ -7,10 +7,7 @@ This message is used to submit a HealthCare Services Invoice to a TPA/Payer for 
 
 This message can be used to submit a HealthCare Services Invoice or to resubmit a previously submitted HealthCare Services Invoice (in case it was not properly acknowledged the first time that it was submitted). This message cannot be used to update an Invoice (e.g., add or cancel Product/Service Line Items) or cancel a HealthCare Services Invoice. To cancel a HealthCare Services Invoice, use the EHC^E02 – Cancel HealthCare Services Invoice message. To update a HealthCare Services Invoice it must first be cancelled (see EHC^E02 – Cancel HealthCare Services Invoice) and then re–submitted using this message with new Invoice numbers.
 
-This message can also be used as a Pre-Determination message. This allows a Provider Application to submit a HealthCare Services Invoice to a Payer Application and run it through the Payer's edit and adjudication engine. The only difference between a Pre-Determination Invoice and a regular Invoice is the Payer will not pay the Pre-Determination Invoice. Setting the Invoice Control on IVC to "PD" identifies a Pre-Determination Invoice.
-
-[NOTE]
-that an EHC^E12 – Request Additional Information (pending) is a valid response for an EHC^E01 – Submit HealthCare Services Invoice. In this case, the interactions would be EHC^E01 -> EHC^E12 (pending).
+This message can also be used as a Pre-Determination message. This allows a Provider Application to submit a HealthCare Services Invoice to a Payer Application and run it through the Payer's edit and adjudication engine. The only difference between a Pre-Determination Invoice and a regular Invoice is the Payer will not pay the Pre-Determination Invoice. Setting the Invoice Control on IVC to "PD" identifies a Pre-Determination Invoice. Note that an EHC^E12 – Request Additional Information (pending) is a valid response for an EHC^E01 – Submit HealthCare Services Invoice. In this case, the interactions would be EHC^E01 -> EHC^E12 (pending).
 
 Processing Rules:
 
