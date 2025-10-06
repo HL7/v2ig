@@ -1,5 +1,7 @@
 = v2+ Editorial Navigation Home
 
+FIXME - do we want to have a page that just lists all the segments (if we already have it, it should be a link here too). Same thing with a message/event list.
+
 == Link to Data Types
 
 xref:data_structures/data_types/data_types_navigation.adoc[Data Types]
