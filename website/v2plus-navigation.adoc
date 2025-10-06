@@ -16,6 +16,6 @@ xref:domains/clinical/clinical.adoc[Clinical]
 
 xref:domains/financial/financial.adoc[Financial]
 
-xref:domains/erp/erp.adoc[ERP]
+xref:domains/erp/erp.adoc[Enterprise Resource Planning (ERP)]
 
 xref:domains/technical/technical.adoc[Technical]
