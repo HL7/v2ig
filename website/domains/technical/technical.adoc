@@ -2,7 +2,7 @@
 
 == Introduction
 
-FIXME
+The Technical Domain is comprised of the message sets related to technical aspects of the v2 Standard. This includes content previously documented in Chapter 5 (Queries), Chapter 8 (Master Files), and Chapter 14 (Application Management).
 
 == Technical Subdomains
 
