@@ -2,9 +2,9 @@
 
 == Introduction
 
-FIXME
+The Administration Domain is comprised of the message sets related to patient focused administrative workflows. This includes content previously documented in Chapter 3 (Patient Administration), Chapter 10 (Scheduling), and Chapter 11 (Patient Referrals), as well as the portion of Chapter 9 (Medical Records) dealing with Patient Consent.
 
-== Administration Subdomains
+== Administration Topics
 
 xref:referral/referral.adoc[Referral]
 
