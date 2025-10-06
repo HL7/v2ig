@@ -4,7 +4,7 @@
 
 The Financial Domain is comprised of the message sets related to patient accounting transactions and that support Claims and Reimbursement (CR) for the electronic exchange of health invoice (claim) data. This includes content previously documented in Chapter 6 (Financial Management) and Chapter 16 (Electronic Claims).
 
-== Financial Subdomains
+== Financial Topics
 
 xref:claims_and_reimbursements/claims_and_reimbursements.adoc[Claims And Reimbursements]
 
