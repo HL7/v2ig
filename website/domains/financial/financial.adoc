@@ -2,7 +2,7 @@
 
 == Introduction
 
-FIXME
+The Financial domain . This include content from Chapter 6 (Financial Management) and Chapter 16 (Electronic Claims).
 
 == Financial Subdomains
 
