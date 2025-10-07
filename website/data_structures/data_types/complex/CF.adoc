@@ -13,6 +13,7 @@ The components, primary and alternate, are defined as in the CE data type with t
 
 The Original Text component applies to the CF as a whole.
 
+FIXME - is there a better example (something more modern or likely to be used)
 [er7-example]
 OBX||CF|71020^CXR^99CPMC||79989^\H\Description:\N\\.sp\\ti+4\Heart is not enlarged. There is no evidence of pneumonia, effusion, pneumothorax or any masses. \.sp+3\\H\Impression:\N\\.sp\\.ti+4\Negative chest.^99CPMC
 
