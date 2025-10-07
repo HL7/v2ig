@@ -7,7 +7,7 @@
 :generated: Thu, 19 Sep 2024 15:32:55 -0600
 
 [NOTE]
-*Retained for backward compatibility only in version 2.7.* This is used only in the CD Channel Definition data type, which has been retained for backward compatibility only in v2.7.
+*Retained for backward compatibility only.* This is used only in the CD Channel Definition data type, which has been retained for backward compatibility only in v2.7.
 
 [datatype-definition]
 This data type identifies the corrections to channel sensitivity, the baseline, and the channel time skew when transmitting waveform results.
