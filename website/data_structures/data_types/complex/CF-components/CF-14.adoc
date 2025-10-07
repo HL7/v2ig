@@ -1,6 +1,9 @@
 == CF.14 - Coding System OID (ST)
 
 [datatype-definition]
+
+FIXME - presumably the reference to CNE.3 below should be CF.3. And the "####" values are messing with the formatting (may be a GitHub thing). Is the last sentence in the first paragraph actually true?
+
 This component contains the ISO Object Identifier (OID) for the coding system or value set named in CNE.3. The value for this component is 2.16.840.1.113883.12.#### where "####" is to be replaced by the HL7 table number in the case of an HL7 defined or user defined table. For externally defined code systems the OID registered in the HL7 OID registry SHALL be used.
 
 This component is required when _CF.1_ is populated and _CF.3_ is not populated. Both _CF.3_ and _CF.14_ may be populated.
