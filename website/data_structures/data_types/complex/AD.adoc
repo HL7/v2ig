@@ -7,7 +7,7 @@
 :generated: Thu, 19 Sep 2024 15:32:55 -0600
 
 [NOTE]
-*Retained for backward compatibility as of v2.6.* Used only in the LA1 data type. Replaced elsewhere by the XAD data type as of v2.3.
+*Retained for backward compatibility only.* Used only in the LA1 data type. Replaced elsewhere by the XAD data type as of v2.3.
 
 [datatype-definition]
 This data type specifies the address of a person, place or organization.
