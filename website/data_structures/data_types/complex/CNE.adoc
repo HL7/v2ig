@@ -12,7 +12,7 @@ Specifies a coded element and its associated detail. The CNE data type is used w
 The Original Text component applies to the CNE as a whole.
 
 [NOTE]
-The presence of two sets of equivalent codes in this data type is semantically different from a repetition of a CNE-type field. With repetition, several distinct codes (with distinct meanings) may be transmitted.
+The presence of multiple sets of equivalent codes in this data type is semantically different from a repetition of a CNE-type field. With repetition, several distinct codes (with distinct meanings) may be transmitted.
 
 [example]
 1: The drug must be coded and must be taken from the specified coding system. The coding system is an external coding system. Example is derived from _FT1-26_.
