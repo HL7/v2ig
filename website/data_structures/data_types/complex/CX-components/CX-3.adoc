@@ -3,7 +3,7 @@
 [datatype-definition]
 Contains the code identifying the check digit scheme employed.
 
-Refer to file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70061[_HL7 T__ab__le 00__61 - Check Digit Scheme_] for valid values.
+Refer to file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70061[_HL7 T__ab__le 0061 - Check Digit Scheme_] for valid values.
 
 The algorithm for calculating a Mod10 check digit is as follows:
 
