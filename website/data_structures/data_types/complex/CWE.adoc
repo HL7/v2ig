@@ -12,7 +12,7 @@ Specifies a coded element and its associated detail. The CWE data type is used w
 The Original Text component applies to the CWE as a whole.
 
 [NOTE]
-The presence of three sets of equivalent codes in this data type is semantically different from a repetition of a CWE-type field. With repetition, several distinct codes (with distinct meanings) may be transmitted.
+The presence of multiple sets of equivalent codes in this data type is semantically different from a repetition of a CWE-type field. With repetition, several distinct codes (with distinct meanings) may be transmitted.
 
 *Usage Notes:* The CWE data type should be used for coded fields with one or more of the following characteristics:
 
