@@ -1,5 +1,7 @@
 == CF.16 - Value Set Version ID (DTM)
 
+FIXME - this note seems like it would be more relevant at the CF data type level (and maybe the other coded data types too) rather than here
+
 [datatype-definition]
 This component carries the version for the value set identified by _CF.15_. The version is a date. The date is the date/time that the value set being used was published.
 
