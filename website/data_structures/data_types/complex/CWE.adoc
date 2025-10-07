@@ -74,7 +74,7 @@ Based on the code and descriptive text entered by the user on the sending system
 | | |Valued from HL7 Table 0353 (e.g., “U” for unknown) |Dollar |HL70353
 |===
 
-Notess:
+Notes:
 
 {empty}1. Where multiple valid options for sending the entered data exist, each alternative is depicted as a separate row.
 
