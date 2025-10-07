@@ -5,7 +5,7 @@ xref:AUI.adoc[AUI - Authorization Information] +
 xref:CCD.adoc[CCD - Charge Code and Date] +
 xref:CCP.adoc[CCP - Channel Calibration Parameters] (backwards compatible) +
 xref:CD.adoc[CD - Channel Definition] (backwards compatible) +
-xref:CF.adoc[CF - Coded Element with Formmatted Values] +
+xref:CF.adoc[CF - Coded Element with Formatted Values] +
 xref:CNE.adoc[CNE - Coded with No Exceptions] +
 xref:CNN.adoc[CNN - Composite ID Number and Name Simplified] (backwards compatible) +
 xref:CP.adoc[CP - Composite Price] +
@@ -40,12 +40,12 @@ xref:NR.adoc[NR - Numeric Range] +
 xref:OCD.adoc[OCD - Occurrence Code and Date] +
 xref:OG.adoc[OG - Observation Grouper] +
 xref:OSP.adoc[OSP - Occurrence Span Code and Date] +
-xref:PIP.adoc[PIP - Practition Institutional Privileges] +
+xref:PIP.adoc[PIP - Practitioner Institutional Privileges] +
 xref:PL.adoc[PL - Person Location] +
 xref:PLN.adoc[PLN - Practitioner License or Other ID Number] +
 xref:PPN.adoc[PPN - Performing Person Time Stamp] +
 xref:PRL.adoc[PRL - Parent Result Link] +
-xref:PT.adoc[PT - Procesing Type] +
+xref:PT.adoc[PT - Processing Type] +
 xref:PTA.adoc[PTA - Policy Type and Amount] +
 xref:QIP.adoc[QIP - Query Input Parameter List] +
 xref:QSC.adoc[QSC - Query Selection Criteria] +
@@ -68,6 +68,6 @@ xref:WVI.adoc[WVI - Channel Identifier] (backwards compatible) +
 xref:WVS.adoc[WVS - Waveform Source] (backwards compatible) +
 xref:XAD.adoc[XAD - Extended Address] +
 xref:XCN.adoc[XCN - Extended Composite ID Number and Name for Persons] +
-xref:XON.adoc[XON - Extended Composite Name and Idenficiation Number for Organizations] +
+xref:XON.adoc[XON - Extended Composite Name and Identification Number for Organizations] +
 xref:XPN.adoc[XPN - Extended Person Name] +
 xref:XTN.adoc[XTN - Extended Telecommunication Number] +
