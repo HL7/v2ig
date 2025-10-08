@@ -1,5 +1,5 @@
 == XON.4 - Identifier Check Digit
 
 [NOTE]
-*The XCN.7 component has been deprecated.* 
+*The XON.4 component has been deprecated.* 
 
