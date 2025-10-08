@@ -24,3 +24,4 @@ This data type is used to represent a series (array) of numeric values. A field 
 
 |\^2^3\^4~5^\^^8~9\^10~~17^18\^19^20|
 
+FIXME - a link to the HL7 Component Table is missing (as it is for the MA data type)
