@@ -57,6 +57,8 @@ Example 5: Home e-mail address. In this example, assume that a person has a prim
 |Communication Address |someone@somewhere.com
 |===
 
+FIXME - these fake email addresses should not be hyperlinks
+
 The field would be transmitted as follows:
 
 [er7]
