@@ -25,3 +25,4 @@ Example 2: 1 channel, 11 time-samples
 
 |0~1~2~3~4~5~6~7~8~9~10|
 
+FIXME - there is no HL7 Component Table linked here (presumably because it's a bit different in terms of ambiguity) but something should be here, if only an HTML table representation
