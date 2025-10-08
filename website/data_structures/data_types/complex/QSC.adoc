@@ -12,6 +12,8 @@ This field indicates the conditions that qualify the rows to be returned in the 
 [NOTE]
 This field conveys the same information as the "WHERE" clause in the corresponding SQL expression of the query, but is formatted differently.
 
+Example:
+
 [er7-example]
 |@PID.5.1\^EQ^EVANS|
 
