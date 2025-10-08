@@ -11,6 +11,8 @@ The structured numeric data type is used to unambiguously express numeric clinic
 
 If <num1> and <num2> are both non-null, then the separator/suffix must be non-null. If the separator is "-", the data range is inclusive; e.g., <num1> - <num2> defines a range of numbers x, such that: <num1> <=x<= <num2>.
 
+FIXME - need to make sure that in the final HTML, the <= characters are not converted to an arrow as they are in the GitHub Preview
+
 include::SN-components/SN-1.adoc[]
 
 include::SN-components/SN-2.adoc[]
