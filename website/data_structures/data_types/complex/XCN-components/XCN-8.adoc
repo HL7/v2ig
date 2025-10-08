@@ -1,7 +1,7 @@
 == XCN.8 - Source Table (CWE)
 
 [NOTE]
-*The XAD.12 component has been deprecated.*  See _XCN.9_ instead.
+*The XCN.8 component has been deprecated.*  See _XCN.9_ instead.
 
 file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70297[_User-defined Table 0297 – CN ID_] source is used as the HL7 identifier for the user-defined table of values for this component. Used to delineate the first component.
 
