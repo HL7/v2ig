@@ -7,5 +7,5 @@ An ID data type that declares the general type of data. Refer to file:///E:\V2\v
 The MIME media type values are case-insensitive, in accordance with RFC 2045.
 
 [NOTE]
-file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70191[_HL7 Table 0191- Type of Referenced Data_] is retained for backward compatibility as of v 2.6.*
+file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70191[_HL7 Table 0191- Type of Referenced Data_] is retained for backward compatibility as of v 2.6.
 
