@@ -1,5 +1,5 @@
 == PPN.8 - Source Table
 
 [NOTE]
-*The PPN.8 component has been deprecated.*  The reader is referred to _PPN.9_ instead.
+*The PPN.8 component has been deprecated.*  See _PPN.9 - Assigning Authority_.
 
