@@ -6,18 +6,13 @@
 :primitive: false
 :generated: Thu, 19 Sep 2024 15:32:58 -0600
 
-[NOTE]
-Replaces CN data type as of v 2.3.
+This data type is used extensively where there is a need to specify the ID number and name of a person.
 
-This data type is used extensively appearing in the PV1, ORC, RXO, RXE, OBR and SCH segments, as well as others, where there is a need to specify the ID number and name of a person.
-
-[example]
-without assigning authority and assigning facility:
+Example without assigning authority and assigning facility:
 
 |1234567\^Everyman^Adam\^A^III\^DR^\^ADT01^\^L^4\^M11^MR|
 
-[example]
-s with assigning authority and assigning facility:
+Examples with assigning authority and assigning facility:
 
 Dr. Harold Hippocrates’ provider ID was assigned by the Provider Master and was first issued at Good Health Hospital within the Community Health and Hospitals System. Since IS table values (first component of the HD) were not used for assigning authority and assigning facility, components 2 and 3 of the HD data type are populated and demoted to sub-components as follows:
 
