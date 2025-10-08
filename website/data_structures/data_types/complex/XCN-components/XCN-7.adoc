@@ -1,5 +1,5 @@
 == XCN.7 - Degree
 
 [NOTE]
-*The XAD.12 component has been deprecated.*  See _XCN.21 Professional Suffix._
+*The XCN.7 component has been deprecated.*  See _XCN.21 Professional Suffix._
 
