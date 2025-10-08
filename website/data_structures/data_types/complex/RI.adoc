@@ -7,10 +7,10 @@
 :generated: Thu, 19 Sep 2024 15:32:58 -0600
 
 [datatype-definition]
-contains the interval between repeated services.
+Contains the interval between repeated services.
 
 [NOTE]
-The reader is referred to the link:#a.2.67-rpt-repeat-pattern[_RPT – Repeat pattern_] data type, which provides a more rigorous framework for defining repeating time intervals.
+See  link:#a.2.67-rpt-repeat-pattern[_RPT – Repeat pattern_] data type, which provides a more rigorous framework for defining repeating time intervals.
 
 include::RI-components/RI-1.adoc[]
 
