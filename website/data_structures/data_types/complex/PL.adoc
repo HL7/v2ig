@@ -13,26 +13,18 @@ This data type is used to specify a patient location within a healthcare institu
 This data type contains several location identifiers that should be thought of in the following order from the most general to the most specific: facility, building, floor, point of care, room, bed. +
 Additional data about any location defined by these components can be added in the following components: person location type, location description and location status.
 
-[example]
-Nursing Unit
+Examples:
 
-A nursing unit at Community Hospital: 4 East, room 136, bed B
+Nursing Unit: A nursing unit at Community Hospital: 4 East, room 136, bed B
 
 4E^136^B^CommunityHospital^^N^^^
 
-[example]
-Clinic
-
-A clinic at University Hospitals: Internal Medicine Clinic located in the Briones building, 3^rd^ floor.
+Clinic: A clinic at University Hospitals: Internal Medicine Clinic located in the Briones building, 3^rd^ floor.
 
 InternalMedicine^^^UniversityHospitals^^C^Briones^3^
 
-[example]
-Home
+Home: The patient was treated at his home.
 
-The patient was treated at his home.
-
-[er7]
 ^^^^^H^^^
 
 include::PL-components/PL-1.adoc[]
