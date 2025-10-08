@@ -14,8 +14,7 @@ In a tabular response query, where the return data is known by column name, the 
 
 |LastName\^A~FirstName^A|
 
-[example]
-In a segment response query, where the return data is known by segment and offset, the SRT field would use segment field name notation:
+Example: In a segment response query, where the return data is known by segment and offset, the SRT field would use segment field name notation:
 
 |PID.3.1\^A~PID.3.2^A|
 
