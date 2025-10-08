@@ -3,7 +3,7 @@
 [datatype-definition]
 "-" or "+" or "/" or ":"
 
-.Examples:
+Examples:
 [width="100%",cols="24%,76%",options="header",]
 |===
 |\|>^100\| |(greater than 100)
@@ -13,5 +13,5 @@
 |===
 
 [NOTE]
-The value "." has been deprecated as of version 2.9 and will be withdrawn after two versions.*
+The value "." has been deprecated as of version 2.9.
 
