@@ -1,5 +1,5 @@
 == PPN.18 - Name Validity Range
 
 [NOTE]
-*The PPN.7 component has been deprecated.*  See link:#a.2.56.20-effective-date-dtm[_PPN.20 Effective Date_] and link:#a.2.56.21-expiration-date-dtm[_PPN.21 Expiration Date_].
+*The PPN.18 component has been deprecated.*  See link:#a.2.56.20-effective-date-dtm[_PPN.20 Effective Date_] and link:#a.2.56.21-expiration-date-dtm[_PPN.21 Expiration Date_].
 
