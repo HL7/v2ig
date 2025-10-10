@@ -6,27 +6,25 @@
 :primitive: false
 :generated: Thu, 19 Sep 2024 15:32:55 -0600
 
-As of v2.7 a third tuple, formerly known as triplet, has been added to the CWE data type. Additionally, 3 new components were added to each tuple such that each tuple now has a total of 7 components. The Original Text component applies to the CWE as a whole.
-
-[NOTE]
-The Vocabulary TC is the steward of the CWE data type.
-
 [datatype-definition]
 Specifies a coded element and its associated detail. The CWE data type is used when 1) more than one table may be applicable *or* 2) the specified HL7 or externally defined table may be extended with local values *or* 3) when text is in place, the code may be omitted.
 
-The presence of two sets of equivalent codes in this data type is semantically different from a repetition of a CWE-type field. With repetition, several distinct codes (with distinct meanings) may be transmitted.
+The Original Text component applies to the CWE as a whole.
 
-[#CWE_UsageNote .anchor]##*Usage Notes:* The CWE data type should be used for coded fields with one or more of the following characteristics:
+[NOTE]
+The presence of multiple sets of equivalent codes in this data type is semantically different from a repetition of a CWE-type field. With repetition, several distinct codes (with distinct meanings) may be transmitted.
 
-• The identifier code (CWE.1) component is optional
+*Usage Notes:* The CWE data type should be used for coded fields with one or more of the following characteristics:
 
-• The set of allowable values from which the identifier code is drawn may be extended on a site-specific basis
+* The identifier code (CWE.1) component is optional
 
-• An exception identifier code may be encountered; that is, a code that is not defined in the value set (either model or site-extended).
+* The set of allowable values from which the identifier code is drawn may be extended on a site-specific basis
+
+* An exception identifier code may be encountered; that is, a code that is not defined in the value set (either model or site-extended).
 
 This is in contrast to the CNE data type, which requires a code from a non-extendable value set be sent in the identifier code component (CNE.1) in all cases (except, of course, if the entire field is empty and defined as optional at the segment level).
 
-.The rules for populating CWE components are governed by the status of the identifier code:
+The rules for populating CWE components are governed by the status of the identifier code:
 [width="100%",cols="27%,24%,25%,24%",]
 |===
 |*Identifier Code Status* |*Identifier Code (CWE.1)* |*Descriptive Text (CWE.2)* |*Coding System (CWE.3)*
@@ -38,13 +36,13 @@ This is in contrast to the CNE data type, which requires a code from a non-exten
 
 As an example, consider “currency” codes where:
 
-• The model values are defined by the ISO 4217 value set,
+* The model values are defined by the ISO 4217 value set,
 
-• The value set is extended on site to include the code HL7 – “HL7 Drink Ticket”, and
+* The value set is extended on site to include the code HL7 – “HL7 Drink Ticket”, and
 
-• The data entry screen on the sending system does not enforce any edits for the currency code.
+* The data entry screen on the sending system does not enforce any edits for the currency code.
 
-.And so the value set used on site is:
+And so the value set used on site is:
 [width="100%",cols="33%,20%,47%",]
 |===
 |Identifier Code Status |Identifier Code |Descriptive Text
@@ -55,12 +53,12 @@ As an example, consider “currency” codes where:
 | |ZAR |South Africa, Rand
 | |ZMK |Zambia, Kwacha
 | |ZWD |Zimbabwe, Zimbabwe Dollars
-|Site-specific extension |HL7 |HL7 Events, Drink Ticket
+|Site-specific extension |HL7 |HL7 Drink Ticket
 |===
 
 Collectively, this value set must be referred to with a local coding system ID, because “HL7” does not exist in ISO 4217. According to the rules, the site assigns the coding system ID “99CUR” to the value set.
 
-.Based on the code and descriptive text entered by the user on the sending system, the CWE would be populated as follows:
+Based on the code and descriptive text entered by the user on the sending system, the CWE would be populated as follows:
 [width="99%",cols="15%,17%,20%,24%,24%",options="header",]
 |===
 |*Entered by user* | |*Sent in CWE* | |
@@ -76,8 +74,7 @@ Collectively, this value set must be referred to with a local coding system ID, 
 | | |Valued from HL7 Table 0353 (e.g., “U” for unknown) |Dollar |HL70353
 |===
 
-[NOTE]
-s:
+Notes:
 
 {empty}1. Where multiple valid options for sending the entered data exist, each alternative is depicted as a separate row.
 

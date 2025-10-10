@@ -9,9 +9,6 @@
 [datatype-definition]
 This data type specifies whether insurance certification is required for particular patient types, and the time window for obtaining the certification.
 
-[NOTE]
-Replaces the CM data type used in section 6.5.8.20 IN3-20, as of v2.5.
-
 include::ICD-components/ICD-1.adoc[]
 
 include::ICD-components/ICD-2.adoc[]

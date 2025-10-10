@@ -1,5 +1,5 @@
 == RMC.4 - Money or Percentage (MOP)
 
 [datatype-definition]
-specifies an amount that may be either currency or a percentage.
+Specifies an amount that may be either currency or a percentage.
 

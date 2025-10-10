@@ -9,9 +9,6 @@
 [datatype-definition]
 Transmits monetary information and the associated charge code for services performed.
 
-[NOTE]
-Replaces the CM data type used in sections 4.5.3.23 OBR-23 and 7.4.1.23- OBR-23 as of v 2.5.
-
 include::MOC-components/MOC-1.adoc[]
 
 include::MOC-components/MOC-2.adoc[]

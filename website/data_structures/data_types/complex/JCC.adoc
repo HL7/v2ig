@@ -6,13 +6,11 @@
 :primitive: false
 :generated: Thu, 19 Sep 2024 15:32:58 -0600
 
-[example]
-1: Codified job (where 1 represents the code for Administrator and F represents full time)
+Example 1: Codified job (where 1 represents the code for Administrator and F represents full time)
 
 |1\^F^Administrator|
 
-[example]
-2: Uncodified job (where job codes are not codified and PT represents part time)
+Example 2: Uncodified job (where job codes are not codified and PT represents part time)
 
 |\^PT^Analyst|.
 

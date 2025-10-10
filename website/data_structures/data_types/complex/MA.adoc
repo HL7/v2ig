@@ -13,18 +13,16 @@ This data type is used to represent channel-multiplexed waveform data. Assuming 
 
 Conversion of one format to another is often not possible or desirable in near-real-time applications. For example, a long-term EEG recording may go on for 24, 48, 72, or more hours and implementations cannot wait until the recording is ended to transmit the data because physicians need to review the waveforms as the recording is in progress; this is why it only makes sense to organize the data by the MA data type which sends the data one time sample after the next.
 
-[NOTE]
-that, visually, the NA and MA data types are indistinguable: they both appear as a series of numeric components. They are distinguished by context, particularly when used in _OBX.5_ where the data type is specified in _OBX.3_.
+Note that, visually, the NA and MA data types are indistinguable: they both appear as a series of numeric components. They are distinguished by context, particularly when used in _OBX.5_ where the data type is specified in _OBX.3_.
 
 Use Case: Commercial EEG instruments
 
-[example]
-*Example 1:* 3 channels (identical), 6 time-samples
+Example 1: 3 channels (identical), 6 time-samples
 
 |0\^0^0~1\^1^1~2\^2^2~3\^3^3~4\^4^4~5\^5^5|
 
-[example]
-*Example 2:* 1 channel, 11 time-samples
+Example 2: 1 channel, 11 time-samples
 
 |0~1~2~3~4~5~6~7~8~9~10|
 
+FIXME - there is no HL7 Component Table linked here (presumably because it's a bit different in terms of ambiguity) but something should be here, if only an HTML table representation

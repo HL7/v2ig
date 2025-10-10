@@ -7,9 +7,7 @@
 :generated: Thu, 19 Sep 2024 15:32:58 -0600
 
 [NOTE]
-Replaces PN data type as of v 2.3.
-
-*Internationalization Note:* In countries using ideographic or syllabic (phonetic) character sets, it is sometimes necessary to send the name in one or both of these formats, as well as an alphabetic format. The switching between the different character sets can be accomplished using a character set such as JIS X 0202 - ISO 2022 which provides an escape sequence for switching among different character sets and among single-byte and multi-byte character representations. When the name field is repeated, the different repetitions of the name may be represented by these different character sets. The details are as follows. (See also Section 2.9.2, “Escape sequences supporting multiple character sets for PN, XPN, XCN, XON, XAD, FT, ST and TX data types.”)
+In countries using ideographic or syllabic (phonetic) character sets, it is sometimes necessary to send the name in one or both of these formats, as well as an alphabetic format. The switching between the different character sets can be accomplished using a character set such as JIS X 0202 - ISO 2022 which provides an escape sequence for switching among different character sets and among single-byte and multi-byte character representations. When the name field is repeated, the different repetitions of the name may be represented by these different character sets. The details are as follows. (See also Section 2.9.2, “Escape sequences supporting multiple character sets for PN, XPN, XCN, XON, XAD, FT, ST and TX data types.”)
 
 HL7 supports the following standards for Japanese characters:
 
@@ -35,7 +33,7 @@ An application must specify which character sets it supports in the field _MSH-1
 
 For example, in many Japanese messages there is a mix of Romaji (i.e., Roman characters), Katakana (phonetic representation of foreign words), Hiragana (phonetic representation of Japanese words) and Kanji (pictographs). Such a message would require 4 character sets be specified in the MSH.
 
-.References for Internationalization of Name
+References for Internationalization of Name
 [width="100%",cols="7%,34%,59%",options="header",]
 |===
 | |Reference |Description
@@ -57,95 +55,78 @@ For example, in many Japanese messages there is a mix of Romaji (i.e., Roman cha
 
 Character Repertoires supported by DICOM are defined in Part 5, section 6.1. The DICOM Standard is available free on the Internet at http://medical.nema.org/[_http://medical.nema.org/_].
 
-[example]
 *Examples of names requiring only one iteration of the field where the XPN is applied:*
 
-[example]
-1: Adam A. Everyman III PhD
+Example 1: Adam A. Everyman III PhD
 
 |Everyman\^Adam^A\^III^DR\^^L\^^\^^\^^^PHD|
 
-[example]
-2: Ludwig van Beethoven
+Example 2: Ludwig van Beethoven
 
 |Beethoven&van\^Ludwig^\^^\^^L|
 
-[example]
-3: Hermann Egon Mayer zur alten Schildesche
+Example 3: Hermann Egon Mayer zur alten Schildesche
 
 |Mayer\^Hermann^Egon^zur alten Schildesche|
 
-[example]
-4: Sister Margot
+Example 4: Sister Margot
 
 |\^Margot^\^^Sister\^^C|
 
-[example]
-5: Dr Harold Henry Hippocrates AO. MBBS. ASCTS. A physician who holds an Honorarium, an academic degree and a board certificate. Professional suffixes are displayed as concatenated. (AO = Order of Australia (Honorarium), MBBS = Bachelor of Medicine and Bachelor of Surgery, ASCTS = Australian Society of Cardiothoracic Surgeons
+Example 5: Dr Harold Henry Hippocrates AO. MBBS. ASCTS. A physician who holds an Honorarium, an academic degree and a board certificate. Professional suffixes are displayed as concatenated. (AO = Order of Australia (Honorarium), MBBS = Bachelor of Medicine and Bachelor of Surgery, ASCTS = Australian Society of Cardiothoracic Surgeons
 
 |Hippocrates\^Harold^Henry\^^\^^L\^^\^^\^^^AO.MBBS.ASCTS|
 
-[example]
-6: Nancy N. Nightingale, RN, PHN, BSN, MSN. A registered nurse who is a Public Health Nurse with 2 academic degrees, BSN and MSN.
+Example 6: Nancy N. Nightingale, RN, PHN, BSN, MSN. A registered nurse who is a Public Health Nurse with 2 academic degrees, BSN and MSN.
 
 |Nightingale\^Nancy^N\^^\^^\^^\^^\^^^RN, PHN, BSN, MSN|
 
-[example]
-7: H.Horrace Helper Jr., RN, CNP. A registered nurse who is a certified nurse practitioner.
+Example 7: H.Horrace Helper Jr., RN, CNP. A registered nurse who is a certified nurse practitioner.
 
 |Helper\^H^Horrace\^Jr^\^^\^^\^^\^^^ RN, CNP|
 
-[example]
-8: Mevrouw Irma Jongeneel de Haas.
+Example 8: Mevrouw Irma Jongeneel de Haas.
 
 An individual whose birth name (geboortenaam) is de Haas and whose partner's name is Jongeneel.
 
 [er7]
-| Jongeneel-de Haas&de&Haas&&Jongeneel\^Irma^\^^Mevrouw\^^L |
+|Jongeneel-de Haas&de&Haas&&Jongeneel\^Irma^\^^Mevrouw\^^L|
 
 [example]
 *Examples of names requiring more than one iteration of the field where the XPN is applied:*
 
-[example]
-9: Herr Prof. Dr. med. Joachim W. Dudeck
+Example 9: Herr Prof. Dr. med. Joachim W. Dudeck
 
 |Dudeck\^Joachim^W.\^^Dr.med.\^^L\^^\^^\^^\^ MD ~Dudeck^J.W.\^^\^Herr Prof.Dr.^^D|
 
-[example]
-10: Herr Dr. Otto Graf Lambsdorff mdB a.D.
+Example 10: Herr Dr. Otto Graf Lambsdorff mdB a.D.
 
 According to German law “Adelstitel” like “Graf” or “Baron” belongs to the family name and therefore must be encoded in the family name field separated by blanks.
 
 [er7]
 |Graf Lambsdorff&Graf&Lambsdorff\^Otto^\^^Dr.\^^L~Graf Lambsdorff&Graf&Lambsdorff\^Otto^\^mdB a.D.^Herr Dr.\^^D|
 
-[example]
-11: Walter Kemper genannt (named) Mölleken
+Example 11: Walter Kemper genannt (named) Mölleken
 
 |Kemper\^Walter^\^^\^^L~Mölleken\^Walter^\^^\^^A|
 
-[example]
-12: Herr Dr. med. Dr. h.c. Egon Maier
+Example 12: Herr Dr. med. Dr. h.c. Egon Maier
 
 |Maier\^Egon^\^^Dr.med. Dr.h.c.\^^L\^^\^^\^^\^MD~Maier^Egon\^^\^Herr Dr.med. Dr.h.c^^D|
 
-[example]
-13: Herr Dipl.Ing. Egon Maier
+Example 13: Herr Dipl.Ing. Egon Maier
 
 |Maier\^Egon^\^^\^^L\^^\^^\^^\^ DIPL~Maier^Egon\^^\^Herr Dipl.Ing.^^D|
 
-[example]
-14: Frau Gerda Müller geb. Maier, verheiratet seit 16.2.2000
+Example 14: Frau Gerda Müller geb. Maier, verheiratet seit 16.2.2000
 
 |Müller\^Gerda^\^^Frau\^^L\^^\^^\^20000216~Maier^Gerda\^^\^Frau^^M|
 
-[example]
-15: President Adam A Everyman III, president from 1997 until 2001, aka Sonny Everyman
+Example 15: President Adam A Everyman III, president from 1997 until 2001, aka Sonny Everyman
 
 |Everyman\^Adam^A.\^III^President\^^L~\^^\^^Mr. President\^^D\^^\^^\^19970816^20010320~Everyman\^Sonny^\^^\^^A|
 
-[example]
-16: Michio Kimura
+Example 16: Michio Kimura
 
 This example doesn’t use title and degrees, but shows the repetition of this name for different purposes. The first iteration is the legal name in Kanji; the second, Katakana; the third, alphabetic.
 

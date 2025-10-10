@@ -1,5 +1,14 @@
 = Data Types
 
-xref:complex/navigation.adoc[Complex Data Types]
+HL7 v2 data types are the basic building blocks used to construct or restrict the contents of a data field. Segment definitions assign a data type to each field within the segment which define the value domain of the field – the possible values that it SHALL take.
+
+Data types MAY be either primitive or complex (also referred to as composite). Primitive data types consist of a series of characters as specified by the data type. Complex data types are made up of a series of components that are themselves assigned to a data type, which MAY again be either primitive or complex data types. In the case of complex data types, the components of a component are called sub-components, and they SHALL only be assigned primitive data types.
+
+Note that the data types do not specify how systems actually store data within an application. When fields are transmitted, they are sent as character strings as specified by the data type.
 
 xref:primitive/navigation.adoc[Primitive Data Types]
+
+xref:complex/navigation.adoc[Complex Data Types]
+
+[NOTE]
+In a data type definition, square brackets, "[" and "]", are used to specify optional parts of a string. For instance, the format of a date field is “YYYY[MM[DD]]” which denotes that the field may contain four, six, or eight characters respectively. The characters may further constrain the possible contents of the string – this will be documented at the point of use.

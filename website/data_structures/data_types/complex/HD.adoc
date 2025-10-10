@@ -9,8 +9,6 @@
 [datatype-definition]
 The basic definition of the HD is that it identifies an (administrative or system or application or other) entity that has responsibility for managing or assigning a defined set of instance identifiers (such as placer or filler number, patient identifiers, provider identifiers, etc.). This entity could be a particular health care application such as a registration system that assigns patient identifiers, a governmental entity such as a licensing authority that assigns professional identifiers or drivers’ license numbers, or a facility where such identifiers are assigned.
 
-The HD is designed to be a more powerful and more general replacement for the application identifier of HL7 versions 2.1 and 2.2. It adds two additional components, the <universal ID> and the <universal ID type> to the former application ID (which is renamed more generically to be the namespace ID).
-
 In the case where an HD identifies an entity that assigns/creates instance identifiers such as a particular patient registration system, it defines an "assigning authority". In the case where an HD identifies a location where instance identifiers are given out (although they may be created by another entity at another location) such as a particular "department of motor vehicles office location," it defines an "assigning facility". These two different uses of the HD appear in many of the extended data types.
 
 The "assigning authority" defined by the HD is similar in its role to the coding system (and version) part of the coded element data types: both identify a set of more discrete instance identifiers. The difference is that the set of HD-defined discrete instances contain identifiers of "real-world" things such as patient or clinical orders, while the coded element-defined set of discrete instances contains concept identifiers (codes).
@@ -24,48 +22,33 @@ If the first component for the HD data type is present, the second and third com
 
 This means that if all three components of the HD are valued, the entity identified by the first component is the same as the entity identified by components two and three taken together. However, implementers may choose, by site agreement, to specify that if all three components of the HD are valued, the first component defines a member in the set defined by the second and third components.
 
-[example]
-s:
+Examples:
 
-[example]
-1: ISO example with only the 2^nd^ and 3^rd^ components valued:
+Example 1: ISO example with only the 2^nd^ and 3^rd^ components valued:
 
 |\^2.16.840.1.113883.19^ISO|
 
 The syntax of the second component is defined by the ISO standard for object identifiers, not by HL7 (for which the second component is of the ST data type). Thus the periods (".") in the second component are part of the ISO syntax, and are legal by the definition of the HL7 ST data type.
 
-[example]
-2: A UUID example
+Example 2: A UUID example
 
 |\^478A0114-EBF0-7701-A023-6841FF05731A^UUID|
 
-[example]
-3: A DNS example
+Example 3: A DNS example
 
 |\^falcon.iupui.edu^DNS|
 
 *Local examples:*
 
-[example]
-4: Local use only: a HD that looks like an IS data type
+Example 4: Local use only: a HD that looks like an IS data type
 
 |LAB1|
 
-[er7]
 |RX.PIMS.SystemB.KP.CA.SCA|
 
-[NOTE]
-that the syntax of the first component is not defined by HL7 but by the site according to its own needs: the only requirement is that the first component’s structure is allowed by the HL7 string (ST) data type, which is used for values by the IS data type.
+Note that the syntax of the first component is not defined by HL7 but by the site according to its own needs: the only requirement is that the first component’s structure is allowed by the HL7 string (ST) data type, which is used for values by the IS data type.
 
-[example]
-5: Local identifier using components 2 and 3 only _[.underline]#(Deprecated as of v2.8 and will be withdrawn in V2.10)#_
-
-|\^RX.PIMS.SystemB.CA.SCA^M|
-
-An alternate way to encode the previous example, illustrating the use of the third component value of "M" (see file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70301[_HL7 Table 0301 - Universal ID type_] below) to identify a locally-defined identifier set. The second component has the same value as the previous example but is now defined to be a member of a set of allowable values defined by a site for the identifier set “M”. _[.underline]#The use of local coding schemes as Universal ID Types is deprecated as of v 2.8; assigning authorities should be identified with true Universal IDs.#_
-
-[example]
-6: local identifier and universal ID types:
+Example 5: local identifier and universal ID types:
 
 |LAB1\^2.16.840.1.113883.19.1.2.3.3.4.6.7^ISO|
 

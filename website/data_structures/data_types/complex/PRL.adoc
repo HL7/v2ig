@@ -15,9 +15,6 @@ We emphasize that this field does not take the entire result field from the pare
 
 This field is present only when the parent result is identified by _OBR-29 - Parent_ and the parent spawns child orders for each of many results. See Chapter 7, "Observations", for more details about this linkage.
 
-[NOTE]
-Replaces the CM data type used in sections 4.5.3.26 - OBR-26 and 7.4.1.26 - OBR-26 as of v 2.5.
-
 include::PRL-components/PRL-1.adoc[]
 
 include::PRL-components/PRL-2.adoc[]

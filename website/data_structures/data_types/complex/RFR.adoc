@@ -9,23 +9,19 @@
 [datatype-definition]
 Describes a reference range and its supporting detail.
 
-[NOTE]
-Replaces the CM data type used in sections 8.8.4.6 - OM2-6, 8.8.4.7 - OM2-7 and 8.8.4.8 - OM2-8 as of v 2.5.
+Examples:
 
-[example]
-s:
-
-{empty}a) A range that applies unconditionally, such as albumin, is transmitted as:
+A range that applies unconditionally, such as albumin, is transmitted as:
 
 [er7]
 |3.0&5.5|
 
-{empty}b) A normal range that depends on sex, such as Hgb, is transmitted as:
+A normal range that depends on sex, such as Hgb, is transmitted as:
 
 [er7]
 |13.5&18\^M~12.0 & 16^F|
 
-{empty}c) A normal range that depends on age, sex, and race (a concocted example) is:
+A normal range that depends on age, sex, and race (a concocted example) is:
 
 [er7]
 |10&13\^M^0&2\^^\^B11&13.5^M\^2&20^\^^B~12&14.5\^M^20&70\^^\^B~13&16.0^M\^70&^\^^B|

@@ -9,6 +9,9 @@
 [NOTE]
 DR cannot be legally expressed when embedded within another data type. Its use is constrained to a segment field.
 
+[NOTE]
+The DTM (time stamp) data type allows the specification of precision.
+
 include::DR-components/DR-1.adoc[]
 
 include::DR-components/DR-2.adoc[]
