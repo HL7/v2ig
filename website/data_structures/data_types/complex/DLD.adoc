@@ -1,4 +1,4 @@
-= (DLD) Data Type - discharge to location and date
+= DLD - Discharge to Location and Date
 :v291_section: 2A.2.17
 :v2type: 'Data Type'
 :code: DLD
