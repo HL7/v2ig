@@ -1,4 +1,4 @@
-= (SRT) Data Type - sort order
+= SRT - Sort Order
 :v291_section: 2A.2.75
 :v2type: 'Data Type'
 :code: SRT
