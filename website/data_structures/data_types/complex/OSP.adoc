@@ -1,4 +1,4 @@
-= (OSP) Data Type - occurrence span code and date
+= OSP - Occurrence Span Code and Date
 :v291_section: 2A.2.52
 :v2type: 'Data Type'
 :code: OSP
