@@ -1,4 +1,4 @@
-= (XAD) Data Type - extended address
+= XAD - Extended Address
 :v291_section: 2A.2.87
 :v2type: 'Data Type'
 :code: XAD
