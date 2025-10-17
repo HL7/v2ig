@@ -1,4 +1,4 @@
-= (PRL) Data Type - parent result link
+= PRL - Parent Result Link
 :v291_section: 2A.2.57
 :v2type: 'Data Type'
 :code: PRL
