@@ -1,4 +1,4 @@
-= (PTA) Data Type - policy type and amount
+= PTA - Policy Type and Amount
 :v291_section: 2A.2.59
 :v2type: 'Data Type'
 :code: PTA
