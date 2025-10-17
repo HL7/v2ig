@@ -1,4 +1,4 @@
-= (AD) Data Type - address
+= AD - Address
 :v291_section: 2A.2.1
 :v2type: 'Data Type'
 :code: AD
