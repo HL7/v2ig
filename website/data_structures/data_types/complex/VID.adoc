@@ -1,4 +1,4 @@
-= (VID) Data Type - version identifier
+= VI - Version Identifier
 :v291_section: 2A.2.83
 :v2type: 'Data Type'
 :code: VID
