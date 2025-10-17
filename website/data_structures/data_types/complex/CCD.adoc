@@ -1,4 +1,4 @@
-= (CCD) Data Type - charge code and date
+= CCD- Charge Code and Date
 :v291_section: 2A.2.3
 :v2type: 'Data Type'
 :code: CCD
