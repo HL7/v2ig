@@ -1,4 +1,4 @@
-= (ICD) Data Type - insurance certification definition
+= ICD - Insurance Certification Definition
 :v291_section: 2A.2.34
 :v2type: 'Data Type'
 :code: ICD
