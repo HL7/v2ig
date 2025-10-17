@@ -1,4 +1,4 @@
-= (DTN) Data Type - day type and number
+= DTN - Day Type and Number
 :v291_section: 2A.2.23
 :v2type: 'Data Type'
 :code: DTN
