@@ -1,4 +1,4 @@
-= (AUI) Data Type - authorization information
+= AUI - Authorization Information
 :v291_section: 2A.2.2
 :v2type: 'Data Type'
 :code: AUI
