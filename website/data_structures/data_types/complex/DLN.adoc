@@ -1,4 +1,4 @@
-= (DLN) Data Type - driver’s license number
+= DLN - Driver’s License Number
 :v291_section: 2A.2.18
 :v2type: 'Data Type'
 :code: DLN
