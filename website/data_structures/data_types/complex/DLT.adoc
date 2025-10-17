@@ -1,4 +1,4 @@
-= (DLT) Data Type - delta
+= DLT - Delta
 :v291_section: 2A.2.19
 :v2type: 'Data Type'
 :code: DLT
