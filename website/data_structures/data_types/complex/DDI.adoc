@@ -1,4 +1,4 @@
-= (DDI) Data Type - daily deductible information
+= DDI - Daily Deductible Information
 :v291_section: 2A.2.15
 :v2type: 'Data Type'
 :code: DDI
