@@ -1,4 +1,4 @@
-= (CSU) Data Type - channel sensitivity and units
+= CSU - Channel Sensitivity and Units
 :v291_section: 2A.2.12
 :v2type: 'Data Type'
 :code: CSU
