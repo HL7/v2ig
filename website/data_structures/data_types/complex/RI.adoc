@@ -1,4 +1,4 @@
-= (RI) Data Type - repeat interval
+= RI - Repeat Interval
 :v291_section: 2A.2.64
 :v2type: 'Data Type'
 :code: RI
