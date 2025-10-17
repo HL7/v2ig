@@ -1,4 +1,4 @@
-= (XTN) Data Type - extended telecommunication number
+= XTN - Extended Telecommunication Number
 :v291_section: 2A.2.91
 :v2type: 'Data Type'
 :code: XTN
