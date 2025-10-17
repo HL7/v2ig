@@ -1,4 +1,4 @@
-= (QSC) Data Type - query selection criteria
+= QSC - Query Selection Criteria
 :v291_section: 2A.2.61
 :v2type: 'Data Type'
 :code: QSC
