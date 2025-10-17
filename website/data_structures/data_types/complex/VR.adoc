@@ -1,4 +1,4 @@
-= (VR) Data Type - value range
+= VR - Value Range
 :v291_section: 2A.2.84
 :v2type: 'Data Type'
 :code: VR
