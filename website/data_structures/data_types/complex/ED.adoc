@@ -1,4 +1,4 @@
-= (ED) Data Type - encapsulated data
+= ED - Encapsulated Data
 :v291_section: 2A.2.24
 :v2type: 'Data Type'
 :code: ED
