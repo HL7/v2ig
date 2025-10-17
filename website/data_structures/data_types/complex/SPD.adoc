@@ -1,4 +1,4 @@
-= (SPD) Data Type - specialty description
+= SP - Specialty Description
 :v291_section: 2A.2.73
 :v2type: 'Data Type'
 :code: SPD
