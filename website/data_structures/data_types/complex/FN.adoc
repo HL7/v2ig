@@ -1,4 +1,4 @@
-= (FN) Data Type - family name
+= FN - Family Name
 :v291_section: 2A.2.30
 :v2type: 'Data Type'
 :code: FN
