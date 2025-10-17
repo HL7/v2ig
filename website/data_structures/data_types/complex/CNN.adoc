@@ -1,4 +1,4 @@
-= (CNN) Data Type - composite ID number and name simplified
+= CNN - Composite ID Number and Name Simplified
 :v291_section: 2A.2.9
 :v2type: 'Data Type'
 :code: CNN
