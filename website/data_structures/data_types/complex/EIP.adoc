@@ -1,4 +1,4 @@
-= (EIP) Data Type - entity identifier pair
+= EIP - Entity Identifier Pair
 :v291_section: 2A.2.26
 :v2type: 'Data Type'
 :code: EIP
