@@ -1,4 +1,4 @@
-= (MSG) Data Type - message type
+= MSG - Message Type
 :v291_section: 2A.2.44
 :v2type: 'Data Type'
 :code: MSG
