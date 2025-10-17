@@ -1,4 +1,4 @@
-= (XON) Data Type - extended composite name and identification number for organizations
+= XON - Extended Composite Name and Identification Number for Organizations
 :v291_section: 2A.2.89
 :v2type: 'Data Type'
 :code: XON
