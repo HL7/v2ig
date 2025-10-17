@@ -1,4 +1,4 @@
-= (UVC) Data Type - UB value code and amount
+= UV - UB Value Code and Amount
 :v291_section: 2A.2.81
 :v2type: 'Data Type'
 :code: UVC
