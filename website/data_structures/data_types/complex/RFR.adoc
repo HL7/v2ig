@@ -1,4 +1,4 @@
-= (RFR) Data Type - reference range
+= RFR - Reference Range
 :v291_section: 2A.2.63
 :v2type: 'Data Type'
 :code: RFR
