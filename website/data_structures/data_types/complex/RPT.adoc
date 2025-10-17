@@ -1,4 +1,4 @@
-= (RPT) Data Type - repeat pattern
+= RPT - Repeat Pattern
 :v291_section: 2A.2.67
 :v2type: 'Data Type'
 :code: RPT
