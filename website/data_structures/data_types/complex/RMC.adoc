@@ -1,4 +1,4 @@
-= (RMC) Data Type - room coverage
+= RMC - Room Coverage
 :v291_section: 2A.2.65
 :v2type: 'Data Type'
 :code: RMC
