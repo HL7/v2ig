@@ -1,4 +1,4 @@
-= (MA) Data Type - multiplexed array
+= MA - Multiplexed Array
 :v291_section: 2A.2.40
 :v2type: 'Data Type'
 :code: MA
