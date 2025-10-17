@@ -1,4 +1,4 @@
-= (PLN) Data Type - practitioner license or other Id number
+= PLN - Practitioner License or Other ID Number
 :v291_section: 2A.2.55
 :v2type: 'Data Type'
 :code: PLN
