@@ -1,4 +1,4 @@
-= (MOP) Data Type - money or percentage
+= MOP - Money or Percentage
 :v291_section: 2A.2.43
 :v2type: 'Data Type'
 :code: MOP
