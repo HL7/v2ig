@@ -1,4 +1,4 @@
-= (DIN) Data Type - date and institution name
+= DIN - Date and Institution Name
 :v291_section: 2A.2.16
 :v2type: 'Data Type'
 :code: DIN
