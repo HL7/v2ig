@@ -1,4 +1,4 @@
-= (DR) Data Type - date/time range
+= DR - Date/Time Range
 :v291_section: 2A.2.20
 :v2type: 'Data Type'
 :code: DR
