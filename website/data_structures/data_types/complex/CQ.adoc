@@ -1,4 +1,4 @@
-= (CQ) Data Type - composite quantity with units
+= CQ - Composite Quantity with Units
 :v291_section: 2A.2.11
 :v2type: 'Data Type'
 :code: CQ
