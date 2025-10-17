@@ -1,4 +1,4 @@
-= (WVI) Data Type - channel identifier
+= WVI - Channel Identifier
 :v291_section: 2A.2.85
 :v2type: 'Data Type'
 :code: WVI
