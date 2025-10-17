@@ -1,4 +1,4 @@
-= (JCC) Data Type - job code/class
+= JCC - Job Code/Class
 :v291_section: 2A.2.37
 :v2type: 'Data Type'
 :code: JCC
