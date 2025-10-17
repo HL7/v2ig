@@ -1,4 +1,4 @@
-= (QIP) Data Type - query input parameter list
+= QIP - Query Input Parameter List
 :v291_section: 2A.2.60
 :v2type: 'Data Type'
 :code: QIP
