@@ -1,4 +1,4 @@
-= (WVS) Data Type - waveform source
+= WVS - Waveform Source
 :v291_section: 2A.2.86
 :v2type: 'Data Type'
 :code: WVS
