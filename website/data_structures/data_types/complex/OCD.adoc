@@ -1,4 +1,4 @@
-= (OCD) Data Type - occurrence code and date
+= OCD - Occurrence Code and Date
 :v291_section: 2A.2.49
 :v2type: 'Data Type'
 :code: OCD
