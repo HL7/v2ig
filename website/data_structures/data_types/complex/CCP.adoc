@@ -1,4 +1,4 @@
-= (CCP) Data Type - channel calibration parameters
+= CCP - Channel Calibration Parameters
 :v291_section: 2A.2.4
 :v2type: 'Data Type'
 :code: CCP
