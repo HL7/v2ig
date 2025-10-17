@@ -1,4 +1,4 @@
-= (MOC) Data Type - money and charge code
+= MOC - Money and Charge Code
 :v291_section: 2A.2.42
 :v2type: 'Data Type'
 :code: MOC
