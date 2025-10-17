@@ -1,4 +1,4 @@
-= (PL) Data Type - person location
+= PL - Person Location
 :v291_section: 2A.2.54
 :v2type: 'Data Type'
 :code: PL
