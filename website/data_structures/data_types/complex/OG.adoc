@@ -1,4 +1,4 @@
-= (OG) Data Type - observation grouper
+= OG - Observation Grouper
 :v291_section: 2A.2.50
 :v2type: 'Data Type'
 :code: OG
