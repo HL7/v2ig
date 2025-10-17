@@ -1,4 +1,4 @@
-= (NDL) Data Type - name with date and location
+= NDL - Name with Date and Location
 :v291_section: 2A.2.46
 :v2type: 'Data Type'
 :code: NDL
