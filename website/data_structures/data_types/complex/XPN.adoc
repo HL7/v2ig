@@ -1,4 +1,4 @@
-= (XPN) Data Type - extended person name
+= XPN - Extended Person Name
 :v291_section: 2A.2.90
 :v2type: 'Data Type'
 :code: XPN
