@@ -26,12 +26,12 @@ In particular, there is no implication that a specific system SHALL support gene
 
 A query with its response should be thought of as a message pair. The following illustration shows the three generic models of message pairs: the *_declarative_*, *_interrogative,_* and *_imperative_*. Within each model, one system assumes the role of initiator and the other system assumes the role of responder. HL7 queries follow the "interrogative" style of messaging as described below.
 
-image::query_response_model.png[query_response_model]
+image::Query_Figure_1.png[query_response_model]
 
 [NOTE]
 All messaging in HL7 assumes a single basic paradigm using a point-to-point transmission of an initial message from a sender to a receiver, followed by a response or acknowledgement message from the receiver back to the sender. The response/acknowledgment message may be optional depending on several use cases that will be discussed below. The point-to-point transmission is defined independent of any particular technology or architecture.
 
-The *_declarative_* model is employed for distribution or broadcast of unsolicited *events* such as the ORU and RDS. *Clients* (*interested parties*) that desire information that resides on a *Server* or *data owner* may "subscribe" to be updated when new information is available on the Server. The Server initiates a transmission of event information. This transmission may be to a single Client, or may be a broadcast to multiple Clients. Each Client responds with an acknowledgement of receipt.
+The *_declarative_* model is employed for distribution or broadcast of unsolicited events such as the ORU and RDS. Clients (interested parties) that desire information that resides on a Server or data owner may "subscribe" to be updated when new information is available on the Server. The Server initiates a transmission of event information. This transmission may be to a single Client, or may be a broadcast to multiple Clients. Each Client responds with an acknowledgement of receipt.
 
 The *_interrogative_* model is employed for queries. A Client initiates a query (a request for data) to the Server. The Server processes the query, responds with a report of success or failure of the query to the Client, and further responds by delivering information requested by the query.
 
@@ -53,7 +53,7 @@ In these original mode queries, separate trigger events were used to differentia
 
 *Enhanced Mode Queries*
 
-In HL7 v 2.3, "enhanced mode queries" were introduced that attempted to provide for a much higher level of precision in queries. Four new ways of specifying a query were introduced in Version 2.3.
+In Version 2.3, "enhanced mode queries" were introduced that attempted to provide for a much higher level of precision in queries. Four new ways of specifying a query were introduced in Version 2.3.
 
 [IMPORTANT]
 ====
@@ -78,9 +78,9 @@ Also in Version 2.3, the use of the trigger event was moving closer to the defin
 
 *Version 2.4 Queries*
 
-Users of v 2.3 queries encountered some somewhat arbitrary limitations suggested by the v 2.3 standard. A close reading of the v 2.3 virtual table query wording made it appear that the only way a query could be specified by a QSC selection expression was if it returned tabular (RDT) results, and it seemed that query-by-parameter queries could not return tabular results.
+Users of Version 2.3 queries encountered some somewhat arbitrary limitations suggested by the Version 2.3 standard. A close reading of the Version 2.3 virtual table query wording made it appear that the only way a query could be specified by a QSC selection expression was if it returned tabular (RDT) results, and it seemed that query-by-parameter queries could not return tabular results.
 
-Versions of the HL7 standard after v 2.3.1 more cleanly separate how a query is specified from how the data is returned, and they emphasize the existence of a "Conformance Statement." HL7 continues to support the semantics of the Stored Procedure/Event Replay queries and the Virtual Table queries, but formulates the syntax more clearly using a single new query, the Query By Parameter (QBP).
+Versions of the HL7 standard after Version 2.3.1 more cleanly separate how a query is specified from how the data is returned, and they emphasize the existence of a "Conformance Statement." HL7 continues to support the semantics of the Stored Procedure/Event Replay queries and the Virtual Table queries, but formulates the syntax more clearly using a single new query, the Query By Parameter (QBP).
 
 The QBP query is intended to unify the semantics of the stored-procedure, event-replay and virtual-table queries within the framework of a precise conformance statement.
 
@@ -93,9 +93,9 @@ Version 2.5 introduced a new, use-case-based mechanism for conformance in Sectio
 
 *Compatibility with past versions*
 
-For backward compatibility, both the "original" and "enhanced" queries remain in the standard, but their description has been relegated to a "for backward compatibility only" section. The main part of this chapter is a complete and consistent explanation of the recommended approach to HL7 queries in Version 2.4 and later.
+For backward compatibility, both the "original" and "enhanced" queries remain in the standard, but their description has been relegated to a "for backward compatibility only" section. This topic is a complete and consistent explanation of the recommended approach to HL7 queries in Version 2.4 and later.
 
-As in versions of the standard prior to 2.4, the detailed domain content of the query and response messages is defined by the technical committees responsible for the functionally-specific chapters; the basic forms and methodology for queries and responses are defined in this chapter.
+As in versions of the standard prior to Version 2.4, the detailed domain content of the query and response messages is defined by the technical committees responsible for the functionally-specific chapters; the basic forms and methodology for queries and responses are defined in this topic.
 
 Sections _5.2.4_, "_Response format_," and _5.2.5_, "_Query specification formats_," discuss Response Formats and Query Specification Formats.
 
@@ -106,11 +106,11 @@ Typically, an individual HL7 conformant query would evolve as follows:
 
 An institution, or data owner, decides that it would like to make information available via a query. It decides precisely what data will be made available and how it will be offered. Knowing its own data, the data owner will define its query to return one of three representations of the data:
 
-{empty}1) As traditional HL7 segments. (See section _5.2.4.1_, "_Segment pattern response_.")
+* As traditional HL7 segments. (See section _5.2.4.1_, "_Segment pattern response_.")
 
-{empty}2) As rows and columns of data from a precisely defined Virtual Table. (See section _5.2.4.2_, "_Tabular response_.")
+* As rows and columns of data from a precisely defined Virtual Table. (See section _5.2.4.2_, "_Tabular response_.")
 
-{empty}3) As rows of human readable text ready to output to a screen or printer. (See section _5.2.4.3_, "_Display response_.")
+* As rows of human readable text ready to output to a screen or printer. (See section _5.2.4.3_, "_Display response_.")
 
 Next, the data owner specifies exactly which input variables the Client can use to control the data that the Server agrees to return.
 
@@ -118,7 +118,8 @@ The complete specification of what data are available, how the data will be retu
 
 The Query Profile concept is critical to the proper usage of the query/response pair. In the absence of a Query Profile, the Client would be unaware of the existence of the query, let alone how to use it or what to expect from it**_._** The data owner advertises the existence of, and support for, a query by publishing a *_Query Profile_*.
 
-.The Query Profile has the following broad structure:
+The Query Profile has the following broad structure:
+
 [width="100%",cols="100%",]
 |===
 |Introduction including title, trigger events, mode, characteristics and purpose
@@ -131,25 +132,21 @@ The Query Profile concept is critical to the proper usage of the query/response 
 
 *Query Profile*: A declaration which sets forth the name of the query supported by the Server, the logical structure of the information that can be queried, and the logical structure of what can be returned.
 
-Section 0, "_Note that the_ Vaccination Query related messages have been removed as these were deprecated and withdrawn as of v 2.8.
+The next section elaborates on the three styles of response data (segment pattern, tabular, and display) that a data owner may use to represent its data.
+
+The introduction of the Query Profile concept is not intended to imply system certification. It is intended to promote well-specified queries. As in previous versions, support for queries is not required for HL7 conformance.
 
 Acknowledgment Choreography
 
 As of Version 2.9 Infrastructure and Messaging requires that Acknowledgment Choreography be explicitly specified in MSH-15 and MSH-16. Because of the nature of the Query and Response Messaging pattern, the Response message is always an Application Acknowledgment. To specify this, the value in MSH-16 SHALL always be “AL” to indicate that there will always be an Application Acknowledgment to the Query Message. See Chapter 2 for more details on this subject.
 
-QUERY/RESPONSE PROFILE," will explain the Query Profile in detail.
-
-The next section elaborates on the three styles of response data (segment pattern, tabular, and display) that a data owner may use to represent its data.
-
-The introduction of the Query Profile concept is not intended to imply system certification. It is intended to promote well-specified queries. As in previous versions, support for queries is not required for HL7 conformance.
-
 === Response Format
 [v291_section="5.2.4"]
 
-.The first decision a data owner SHALL make in formulating a query is to decide which style of representing data is most appropriate for their needs.
+The first decision a data owner SHALL make in formulating a query is to decide which style of representing data is most appropriate for their needs. HL7 recognizes three main styles of representing responses to queries: *_tabular, segment pattern, or display_*. _Segment pattern_ and _tabular_ were previously known as _record-oriented_ as described in earlier versions of this Standard. _Segment pattern_ responses consist of a set of HL7 segments. Each query will define, in its Query Profile, the precise grammar of HL7 segments that it will return. Tabular responses return data as a set of rows, one RDT segment per row. Display queries return data in DSP segments. An HL7 conformant system interested in supporting queries will choose one or more of these styles before proceeding with a detailed design. 
+
 [width="100%",cols="19%,81%",]
 |===
-|HL7 recognizes three main styles of representing responses to queries: *_tabular, segment pattern, or display_*. _Segment pattern_ and _tabular_ were previously known as _record-oriented_ as described in earlier versions of this Standard. _Segment pattern_ responses consist of a set of HL7 segments. Each query will define, in its Query Profile, the precise grammar of HL7 segments that it will return. Tabular responses return data as a set of rows, one RDT segment per row. Display queries return data in DSP segments. An HL7 conformant system interested in supporting queries will choose one or more of these styles before proceeding with a detailed design. |
 |Tabular |The responding system formats the data in a relational format, as rows and columns.
 |Segment pattern |The responding system formats the data on the basis of an application-specific segment-oriented (record-oriented) message.
 |Display |The responding system formats the data in human readable format for direct outputting to a display device (in both original and enhanced modes).
@@ -298,55 +295,36 @@ Using the new modalities shown in the table, the variety and number of queries i
 === Summary chart of query/response pairs
 [v291_section="5.2.6"]
 
-.The following chart delineates the query/response messages defined in chapter 5:
+The following chart delineates the query/response messages defined in this topic:
+
 [width="100%",cols="25%,11%,12%,21%,16%,15%",options="header",]
 |===
 |Description |Query |Response |Response type |Defining segment(s) |Sec Ref
 |Cancel query |QCN | | | |5.4.6
 |Query By Parameter |QBP | | |QPD |5.4.1, 5.4.2, 5.4.3
-|Query, original Mode (withdrawn) |QRY | |Original mode (withdrawn) |QRD/QRF |
 |Display response | |RDY |Display |DSP |5.4.3
 |Response Segment Pattern | |RSP |Segment pattern | |5.4.1
 |Response tabular | |RTB |tabular |RDF/RDT |5.4.2
-|Unsolicited display message (withdrawn) |UDM | |Display (withdrawn) |URD/URS |
 |===
 
-.The following chart delineates the query/response messages defined in the functional chapters:
+The following chart delineates the query/response messages defined elsewhere in the standard:
+
 [width="100%",cols="24%,12%,12%,21%,16%,15%",options="header",]
 |===
 |Description |Query |Response |Response type |Defining +
 segment(s) |Sec Ref
-|ADT response (withdrawn) |QRY^A19 |ADR^A19 |Original mode (withdrawn) |QRD/QRF |
 |Allocate identifiers |QBP^Q24 |RSP^K24 |Segment pattern |QBP |3.3.59
-|Ancillary RPT (display) (for backward compatibility only) | |ARD |Original mode | |7
 |Find candidates |QBP^Q22 |RSP^K22 |Segment pattern |QBP |3.3.57
 |Get corresponding identifiers |QBP^Q23 |RSP^K23 |Segment pattern |QBP |3.3.58
 |Get person demographics |QBP^Q21 |RSP^K21 |Segment pattern |QBP |3.3.56
-|Order status query/ Order status response (withdrawn) |OSQ^Q06 |OSR^Q06 |Original mode (withdrawn) |QRD/QRF |
-|Pharmacy administration information (withdrawn) |QRY^Q27 |RAR^RAR |Original mode (withdrawn) |QRD/QRF |
 |Master files query |MFQ | |Original mode | |8.4.3
 |Master files query response | |MFR |Original mode | |8.43
 |Personnel information |QBP^Qnn |RSP^Knn |Segment pattern |QBP |15.3.7
-|Pharmacy dispense information (withdrawn) |QRY^Q28 |RDR^RDR |Original mode(withdrawn) |QRD/QRF |
-|Pharmacy dose information (withdrawn) |QRY^Q30 |RGR/RGR |Original mode (withdrawn) |QRD/QRF |
-|Pharmacy encoded order information (withdrawn) |QRY^Q29 |RER^RER |Original mode (withdrawn) |QRD/QRF |
-|Pharmacy prescription order response (withdrawn) |QRY^Q26 |ROR^ROR |Original mode (withdrawn) |QRD/QRF |
-|Request clinical information (withdrawn) |RQC^I05 | |Original mode (withdrawn) |QRD/QRF |
-|Results of observation, query for (withdrawn) |QRY^R02 |ORF^R04 |Original mode (withdrawn) |QRD/QRF |
-|Return Clinical Information (withdrawn) | |RCI^I05 |Original mode (withdrawn) |QRD/QRF |
-|Return Clinical List (withdrawn) | |RCL^I06 |Original mode (withdrawn) |QRD/QRF |
 |Return patient referral |RRI | |Original mode | |11.5
 |Return patient referral | |RRI |Original mode | |11.5
 |Schedule query |SQM | |Original mode | |10.5.3
 |Schedule query response | |SQR |Original mode | |10.5.3
 |===
-
-Note that the Vaccination Query related messages have been removed as these were deprecated and withdrawn as of v 2.8.
-
-=== Acknowledgment Choreography
-[v291_section="5.2.7"]
-
-As of Version 2.9 Infrastructure and Messaging requires that Acknowledgment Choreography be explicitly specified in MSH-15 and MSH-16. Because of the nature of the Query and Response Messaging pattern, the Response message is always an Application Acknowledgment. To specify this, the value in MSH-16 SHALL always be “AL” to indicate that there will always be an Application Acknowledgment to the Query Message. See Chapter 2 for more details on this subject.
 
 == General Use Cases / Background
 
