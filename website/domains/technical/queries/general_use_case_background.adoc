@@ -11,7 +11,7 @@ The Response Grammar defines the exact pattern of segments that the Server will 
 
 Note that in the case of an HL7-defined query, a specific section of the HL7 Standard will define a Query Profile. By contrast, in the case of a site defined query, the Query Profile is written by analysts and programmers of the Server application/system, and is available to the analysts and programmers of the Client application/system.
 
-Although the Query Profile was a new construct with Version 2.4, it may also be used with the previous generation queries.
+Although the Query Profile was a new construct with Version 2.3, it may also be used with the previous generation queries.
 
 [NOTE]
 Version 2.5 introduced a new, use-case-based mechanism for conformance in Chapter 2. Query implementers are encouraged to review and, where appropriate, adopt the profiling structures outlined in there. Current Query Profile structures are retained in here pending revision to the new structures in the next version of the Standard.
@@ -178,7 +178,7 @@ Note that in the case of an HL7-defined query, a specific section of the HL7 sta
 
 Sites that wish to offer queries not specified by the Standard may create their own Query Profiles. By contrast to an HL7-standard query, in the case of a site defined query, the Query Profile is written by the Server, and is available to the analysts and programmers of the Client system to enable them to know the exact behavior of the Server.
 
-Although the Query Profile was a new construct with version 2.4, it may also be used with the previous generation queries.
+Although the Query Profile was a new construct with version 2.3, it may also be used with the previous generation queries.
 
 Input Parameter Specification and Input Field Description and Commentary are always included for the QPD segment. When the Query by Example variant is used, they are provided for the QBE as well. An Output Specification and Commentary showing a Virtual Table is provided for queries that accommodate a tabular response.
 
@@ -917,7 +917,7 @@ Search
 == QUERY/RESPONSE MESSAGE PAIRS
 [v291_section="5.4"]
 
-The query recommended for use in v 2.4 and later is the Query by Parameter (QBP). The query/response message pairs that follow in this section supersede the previous generation of original mode and enhanced queries that are described in sections _5.10.2_, "_Original mode queries_," and, in v 2.6 and preceding, 5.10.3, "Originally Mode Deferred Access," and 5.10.4, "Other Query/Response Message Segments."
+The query recommended for use in version 2.3 and later is the Query by Parameter (QBP). The query/response message pairs that follow in this section supersede the previous generation of original mode and enhanced queries that are described in sections _5.10.2_, "_Original mode queries_," and, in v 2.6 and preceding, 5.10.3, "Originally Mode Deferred Access," and 5.10.4, "Other Query/Response Message Segments."
 
 All queries SHALL have a Query Name. The Query Name field, which is a CWE data type, uniquely identifies a Query Profile.
 
