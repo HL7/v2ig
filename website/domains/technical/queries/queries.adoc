@@ -5,7 +5,7 @@
 
 This topic defines the rules that apply to queries and to their responses. It also defines the unsolicited display messages because their message syntax is query-like in nature.
 
-Version 2.4 of the standard introduced new models for query and response messages. This topic pertains to those newer  query/response message pairs, including auxiliary protocols. 
+Version 2.3 of the standard introduced new models for query and response messages. This topic pertains to those newer  query/response message pairs, including auxiliary protocols. 
 
 The Standard embraces the most common queries that are likely to occur. These are defined by the functional chapters. The following represents typical examples of queries supported by the Standard:
 
@@ -43,7 +43,7 @@ In HL7 v2, there is no formal assumption of client-server architecture, or of a 
 === Evolution of the query standard
 [v291_section="5.2.2"]
 
-The Query Standard, like the HL7 Standard in general, has been evolving since its inception in Version 2.1. Version 2.4 introduced a new methodology intended to supersede the previous generation of queries.
+The Query Standard, like the HL7 Standard in general, has been evolving since its inception in Version 2.1. Version 2.3 introduced a new methodology intended to supersede the previous generation of queries.
 
 *Original Mode Queries*
 
@@ -76,7 +76,7 @@ In Version 2.3, "enhanced mode queries" were introduced that attempted to provid
 
 Also in Version 2.3, the use of the trigger event was moving closer to the definition set forth in chapter 2. Each offered query had its own trigger event. In Version 2.3.1 each response had its own trigger event.
 
-*Version 2.4 Queries*
+*Version 2.3 Queries*
 
 Users of Version 2.3 queries encountered some somewhat arbitrary limitations suggested by the Version 2.3 standard. A close reading of the Version 2.3 virtual table query wording made it appear that the only way a query could be specified by a QSC selection expression was if it returned tabular (RDT) results, and it seemed that query-by-parameter queries could not return tabular results.
 
@@ -89,13 +89,13 @@ The standard recognizes the continued use of the Original Mode queries (QRD/QRF)
 The bulk of the new material after Version 2.3.1 consists of defining a format for Conformance Statements, and giving examples of query design and use.
 
 [NOTE]
-Version 2.5 introduced a new, use-case-based mechanism for conformance in Section 2.12 of Chapter 2. Query implementers are encouraged to review and, where appropriate, adopt the profiling structures outlined in that section. Conformance Statement structures introduced in Version 2.4 have been renamed Query Profiles.
+Version 2.5 introduced a new, use-case-based mechanism for conformance in Section 2.12 of Chapter 2. Query implementers are encouraged to review and, where appropriate, adopt the profiling structures outlined in that section. Conformance Statement structures introduced in Version 2.3 have been renamed Query Profiles.
 
 *Compatibility with past versions*
 
-For backward compatibility, both the "original" and "enhanced" queries remain in the standard, but their description has been relegated to a "for backward compatibility only" section. This topic is a complete and consistent explanation of the recommended approach to HL7 queries in Version 2.4 and later.
+For backward compatibility, both the "original" and "enhanced" queries remain in the standard, but their description has been relegated to a "for backward compatibility only" section. This topic is a complete and consistent explanation of the recommended approach to HL7 queries in Version 2.3 and later.
 
-As in versions of the standard prior to Version 2.4, the detailed domain content of the query and response messages is defined by the technical committees responsible for the functionally-specific chapters; the basic forms and methodology for queries and responses are defined in this topic.
+As in versions of the standard prior to Version 2.3, the detailed domain content of the query and response messages is defined by the technical committees responsible for the functionally-specific chapters; the basic forms and methodology for queries and responses are defined in this topic.
 
 Sections _5.2.4_, "_Response format_," and _5.2.5_, "_Query specification formats_," discuss Response Formats and Query Specification Formats.
 
@@ -217,7 +217,7 @@ The first variant is called the Simple Parameter query. In the simple parameter 
 
 This is the most basic form of the query in which the Server specifies a fixed list of parameters in its Query Profile. (For example, the Server may direct the querying system to specify a medical record number, a beginning date, and an ending date.) When invoking the query, the Client passes a specific value for each parameter. This is analogous to invoking a stored procedure against a database.
 
-The parameter definition segment (i.e., the QPD) can be seen as a generalization of the QRD and QRF segments of the original mode query. Each field in the QRD and QRF corresponds to 1 parameter of the QPD instance. HL7 recommends that queries defined by QRD and QRF segments be recast as a version 2.4 or later Query By Parameter.
+The parameter definition segment (i.e., the QPD) can be seen as a generalization of the QRD and QRF segments of the original mode query. Each field in the QRD and QRF corresponds to 1 parameter of the QPD instance. HL7 recommends that queries defined by QRD and QRF segments be recast as a version 2.3 or later Query By Parameter.
 
 The obvious implementation gain is that the Server can simply map the input values to the parameters specified in the Query Profile. An already known function or procedure is called to evaluate the query and select data to be returned. The bulk of the work effort has already been invested in the development of this predefined function or procedure.
 
