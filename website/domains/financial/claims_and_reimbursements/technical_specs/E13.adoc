@@ -7,21 +7,21 @@ This message is used by a Provider to immediately respond to an EHC^E12 Request 
 
 The EHC^E13 message supports three types of response modalities:
 
-• Free-form ASCII text. This is generally brief, descriptive text that is formulated to be read by a human recipient.
+* Free-form ASCII text. This is generally brief, descriptive text that is formulated to be read by a human recipient.
 
-• Attachments. The primary content is a multimedia attachment containing the information that has been requested. Depending upon agreements between the Provider and Payer this attachment may contain human-readable information, codified data that can be manipulated by an application, or some combination of the two.
+* Attachments. The primary content is a multimedia attachment containing the information that has been requested. Depending upon agreements between the Provider and Payer this attachment may contain human-readable information, codified data that can be manipulated by an application, or some combination of the two.
 
-• Pre-defined responses. The Payer has posed both a question and a range of possible answers that the responder chooses from when formulating the reply. The question and answers are codified so that they can be manipulated by an application.
+* Pre-defined responses. The Payer has posed both a question and a range of possible answers that the responder chooses from when formulating the reply. The question and answers are codified so that they can be manipulated by an application.
 
 The structure of the EHC^E13 message closely follows that of the EHC^E12 request, which in turn is patterned on the Invoice or (Pre) Authorization which preceded the request for additional information. The hierarchical structural of the message indicates the context of the request for additional information and the data being supplied in the response. More specifically, the EHC^E12 request is formulated against a particular Product/Service Group (from the earlier Invoice or (Pre) Authorization Request) and may be further circumscribed by reference to a particular patient and/or Product/Service Line Item from within that Product/Service Group. The parameters set by the EHC^E12 request are re-iterated in the EHC^E13 response message so that the receiving system can interpret the return data in the appropriate context without necessarily having to refer to the original Invoice or (Pre) Authorization request.
 
 Parties to the Request for Additional Information and the Response:
 
-• The individual or organization that initiates the request for additional information is described as the "Placer". (Normally, this would be the individual in the Payer organization that has placed the Invoice or (Pre) Authorization Request in suspense pending the return of the additional information that is being requested.)
+* The individual or organization that initiates the request for additional information is described as the "Placer". (Normally, this would be the individual in the Payer organization that has placed the Invoice or (Pre) Authorization Request in suspense pending the return of the additional information that is being requested.)
 
-• The individual or organization that is responsible for the information being sent in reply is described as the "Filler". (Normally, the Primary Care Provider would be responsible for supplying the requested information however, in some cases the Payer and/or Provider may stipulate some other party as the Filler.)
+* The individual or organization that is responsible for the information being sent in reply is described as the "Filler". (Normally, the Primary Care Provider would be responsible for supplying the requested information however, in some cases the Payer and/or Provider may stipulate some other party as the Filler.)
 
-• The individual or organization that the response is to be directed to is described as the "Payer Contact".
+* The individual or organization that the response is to be directed to is described as the "Payer Contact".
 
 The EHC^E13 message uses the LOINC classification standard to describe the information being sent. Local codes are also supported. The message allows the use of free-form text to supplement the coding schemes if greater specificity is required.
 
