@@ -2,16 +2,26 @@
 
 == Introduction
 
-FIXME
+The v2+ Edition of the HL7 Version 2 standard is organized into 5 Domains each of which contains 1 or more topic areas. The content of the v2.9.1 Edition have been migrated to this new format. Chapter references are provided below to facilitate the transition for readers to the new organizational format.
 
-== Domains Subdomains
+== Domains 
 
 xref:administration/administration.adoc[Administration]
 
+Previously Chapter 3 (Patient Administration), Chapter 10 (Scheduling), and Chapter 11 (Patient Referrals), as well as the portion of Chapter 9 (Medical Records) dealing with Patient Consent.
+
 xref:clinical/clinical.adoc[Clinical]
 
-xref:erp/erp.adoc[Erp]
+Previously Chapter 4/4a (Orders), Chapter 7 (Observations), Chapter 9 (Medical Records), and Chapter 12 (Patient Care).
+
+xref:erp/erp.adoc[Enterprise Resource Planning (ERP)]
+
+Previously Chapter 13 (Clinical Lab Automation), Chapter 15 (Personnel Management), and Chapter 17 (Materials Management), as well as the portion of Chapter 4 (Orders) dealing with Supplies and the portion of Chapter 7 (Observations) dealing with Specimen Shipment Manifests.
 
 xref:financial/financial.adoc[Financial]
 
+Previously Chapter 6 (Financial Management) and Chapter 16 (Electronic Claims). 
+
 xref:technical/technical.adoc[Technical]
+
+Previously Chapter 5 (Queries), Chapter 8 (Master Files), and Chapter 14 (Application Management).
