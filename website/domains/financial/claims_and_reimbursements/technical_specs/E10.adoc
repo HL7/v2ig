@@ -7,8 +7,7 @@ This message is used to send edit and/or adjudication results for a HealthCare S
 
 This message is returned to a Provider Application each time an EHC^E01 – Submit HealthCare Services Invoice message is successfully processed by a Payer Application. As a minimum, the EHC^E10 – Edit/Adjudication Results message will contain the Payer Applications' Invoice number (Payer Invoice Number on IVC), status codes for each Product/Service Line Item in the Invoice and optionally, a tracking number for the Payer Application (Payer Tracking Number on PSL).
 
-[NOTE]
-that an EHC^E12 – Request Additional Information (pending) is a valid response for an EHC^E01 – Submit HealthCare Services Invoice. In this case, the interactions would be EHC^E01 -> EHC^E12 (pending). If the Payer Application is able to process the Invoice on-line, the EHC^E10 – Edit/Adjudication Results message will contain the Invoice Processing Results portion completely filled out, indicating the results of the adjudication (e.g., paid as submitted, paid partial, etc.).
+Note that an EHC^E12 – Request Additional Information (pending) is a valid response for an EHC^E01 – Submit HealthCare Services Invoice. In this case, the interactions would be EHC^E01 -> EHC^E12 (pending). If the Payer Application is able to process the Invoice on-line, the EHC^E10 – Edit/Adjudication Results message will contain the Invoice Processing Results portion completely filled out, indicating the results of the adjudication (e.g., paid as submitted, paid partial, etc.).
 
 Processing Rules:
 
