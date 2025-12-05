@@ -26,9 +26,9 @@ Chapter 9: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created,
 
 Chapter 10: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 11: Update Author: Craig Newman  Reviewer: Riki Merrick - Pull Request created (#16)  - Reviewed by Riki with comments (twice :O)
+Chapter 11: Update Author: Craig Newman  Reviewer: Riki Merrick - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 12: Update Author: Craig Newman  Reviewer: TBD - Pull Request created (#17) - Reviewed by Riki with comments
+Chapter 12: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
 Chapter 13: Update Author: Ralf Herzog  Reviewer:
 
@@ -36,7 +36,7 @@ Chapter 14: Update Author: Craig Newman  Reviewer: InM (Riki, Brian) - **Pull Re
 
 Chapter 15: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 16: Update Author: Craig Newman  Reviewer: TBD - Pull Request created (#20) - Reviewed by Riki with comments
+Chapter 16: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
 Chapter 17: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
