@@ -1,4 +1,4 @@
-= (VH) Data Type - visiting hours
+= VH - Visiting Hours
 :v291_section: 2A.2.82
 :v2type: 'Data Type'
 :code: VH

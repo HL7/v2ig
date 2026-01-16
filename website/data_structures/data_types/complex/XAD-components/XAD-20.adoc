@@ -3,6 +3,5 @@
 [datatype-definition]
 Descriptive information about the use of the address.
 
-[example]
-"Do not ring bell."
+Example: "Do not ring bell."
 

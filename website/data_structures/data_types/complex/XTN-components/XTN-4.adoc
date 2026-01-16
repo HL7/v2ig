@@ -1,6 +1,5 @@
 == XTN.4 - Communication Address (ST)
 
-[NOTE]
 This component is required if, and only allowed if, XTN.7 or XTN.12 are not populated.
 
 [NOTE]

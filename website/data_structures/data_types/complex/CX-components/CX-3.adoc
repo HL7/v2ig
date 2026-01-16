@@ -3,7 +3,7 @@
 [datatype-definition]
 Contains the code identifying the check digit scheme employed.
 
-Refer to file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70061[_HL7 T__ab__le 00__61 - Check Digit Scheme_] for valid values.
+Refer to file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70061[_HL7 T__ab__le 0061 - Check Digit Scheme_] for valid values.
 
 The algorithm for calculating a Mod10 check digit is as follows:
 
@@ -11,27 +11,27 @@ Assume you have an identifier - 12345. Take the odd digit positions, counting fr
 
 The algorithm for calculating a Mod11 check digit is as follows:
 
-.*Terms*
-[width="100%",cols="8%,5%,87%",]
-|===
-|d |= |digit of number starting from units digit, followed by 10’s position, followed by 100’s position, etc.
-|w |= |weight of digit position starting with the units position, followed by 10’s position, followed by 100’s position etc. Values for w = 2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7, etc. (repeats for each group of 6 digits)
-|c |= |check digit
-|===
+*Terms*
 
-.*Calculation*
-[width="100%",cols="18%,5%,77%",]
+d = digit of number starting from units digit, followed by 10’s position, followed by 100’s position, etc.
+
+w = weight of digit position starting with the units position, followed by 10’s position, followed by 100’s position etc. Values for w = 2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7, etc. (repeats for each group of 6 digits)
+
+c = check digit
+
+*Calculation*
+[width="100%",cols="20%,80%",]
 |===
-|(Step 1) m |= a|
+|(Step 1) m |
 sum of (d * w) for positions 1, 2, etc. starting with units digit
 
 for d = digit value starting with units position to highest order
 
 for w = weight value from 2 to 7 for every six positions starting with units digit
 
-|(Step 2) c1 |= |m mod 11
-|(Step 3) if c1 |= |0 then reset c1 = 1
-|(Step 4) |= |(11 - c1) mod 10
+|(Step 2) c1 |m mod 11
+|(Step 3) if c1 |0 then reset c1 = 1
+|(Step 4) |(11 - c1) mod 10
 |===
 
 [example]

@@ -3,3 +3,4 @@
 [datatype-definition]
 The numeric code assigned by the http://www.wordiq.com/definition/International_Telecommunication_Union[International Telecommunication Union] in standard http://www.wordiq.com/definition/E.164[E.164] to access telephone services in another country. For example, "+1" is the country code for the United States, "+49" is the code for Germany.
 
+FIXME - not sure what these hyperlinks are or where they came from (don't seem to be in the PDF v2.9.1)

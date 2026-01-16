@@ -1,4 +1,4 @@
-= (EI) Data Type - entity identifier
+= EI - Entity Identifier
 :v291_section: 2A.2.25
 :v2type: 'Data Type'
 :code: EI

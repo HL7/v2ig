@@ -1,4 +1,4 @@
-= (SAD) Data Type - street address
+= SAD - Street Address
 :v291_section: 2A.2.68
 :v2type: 'Data Type'
 :code: SAD

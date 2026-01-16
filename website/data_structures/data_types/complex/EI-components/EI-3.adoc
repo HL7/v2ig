@@ -3,3 +3,4 @@
 [datatype-definition]
 See Section _2A.2.33.2_, "_Universal ID (ST)_" for definition.
 
+FIXME - reuse the HD.2 text if possible

@@ -1,4 +1,4 @@
-= (CX) Data Type - extended composite ID with check digit
+= CX - Extended Composite ID with Check Digit
 :v291_section: 2A.2.14
 :v2type: 'Data Type'
 :code: CX

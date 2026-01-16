@@ -1,4 +1,4 @@
-= (PT) Data Type - processing type
+= PT - Processing Type
 :v291_section: 2A.2.58
 :v2type: 'Data Type'
 :code: PT

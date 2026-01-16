@@ -1,4 +1,4 @@
-= (OCD) Data Type - occurrence code and date
+= OCD - Occurrence Code and Date
 :v291_section: 2A.2.49
 :v2type: 'Data Type'
 :code: OCD
@@ -8,9 +8,6 @@
 
 [datatype-definition]
 The code and associated date defining a significant event relating to a bill that may affect payer processing.
-
-[NOTE]
-Replaces the CM data type used in sections 6.5.10.10 UB1-16 and 6.5.11.7 UB2-7, as of v 2.5.
 
 This data type carries data defined by CMS or other regulatory agencies. It corresponds to UB82 Fields 28‑32 and UB92 fields 32a, 32b, 33a, 33b, 34a, 34b, 35a, and 35b. Refer to a UB specification for additional information.
 

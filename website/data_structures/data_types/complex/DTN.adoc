@@ -1,4 +1,4 @@
-= (DTN) Data Type - day type and number
+= DTN - Day Type and Number
 :v291_section: 2A.2.23
 :v2type: 'Data Type'
 :code: DTN
@@ -8,9 +8,6 @@
 
 [datatype-definition]
 This data type specifies the type and number of days for which a certification is valid.
-
-[NOTE]
-Replaces the CM data type used in section 6.5.8.11 IN3-11, as of v2.5.
 
 include::DTN-components/DTN-1.adoc[]
 

@@ -1,73 +1,73 @@
 = Complex Data Types
 
-xref:AD.adoc[AD] +
-xref:AUI.adoc[AUI] +
-xref:CCD.adoc[CCD] +
-xref:CCP.adoc[CCP] +
-xref:CD.adoc[CD] +
-xref:CF.adoc[CF] +
-xref:CNE.adoc[CNE] +
-xref:CNN.adoc[CNN] +
-xref:CP.adoc[CP] +
-xref:CQ.adoc[CQ] +
-xref:CSU.adoc[CSU] +
-xref:CWE.adoc[CWE] +
-xref:CX.adoc[CX] +
-xref:DDI.adoc[DDI] +
-xref:DIN.adoc[DIN] +
-xref:DLD.adoc[DLD] +
-xref:DLN.adoc[DLN] +
-xref:DLT.adoc[DLT] +
-xref:DR.adoc[DR] +
-xref:DTN.adoc[DTN] +
-xref:ED.adoc[ED] +
-xref:EI.adoc[EI] +
-xref:EIP.adoc[EIP] +
-xref:ERL.adoc[ERL] +
-xref:FC.adoc[FC] +
-xref:FN.adoc[FN] +
-xref:HD.adoc[HD] +
-xref:ICD.adoc[ICD] +
-xref:JCC.adoc[JCC] +
-xref:MA.adoc[MA] +
-xref:MO.adoc[MO] +
-xref:MOC.adoc[MOC] +
-xref:MOP.adoc[MOP] +
-xref:MSG.adoc[MSG] +
-xref:NA.adoc[NA] +
-xref:NDL.adoc[NDL] +
-xref:NR.adoc[NR] +
-xref:OCD.adoc[OCD] +
-xref:OG.adoc[OG] +
-xref:OSP.adoc[OSP] +
-xref:PIP.adoc[PIP] +
-xref:PL.adoc[PL] +
-xref:PLN.adoc[PLN] +
-xref:PPN.adoc[PPN] +
-xref:PRL.adoc[PRL] +
-xref:PT.adoc[PT] +
-xref:PTA.adoc[PTA] +
-xref:QIP.adoc[QIP] +
-xref:QSC.adoc[QSC] +
-xref:RCD.adoc[RCD] +
-xref:RFR.adoc[RFR] +
-xref:RI.adoc[RI] +
-xref:RMC.adoc[RMC] +
-xref:RP.adoc[RP] +
-xref:RPT.adoc[RPT] +
-xref:SAD.adoc[SAD] +
-xref:SCV.adoc[SCV] +
-xref:SN.adoc[SN] +
-xref:SPD.adoc[SPD] +
-xref:SRT.adoc[SRT] +
-xref:UVC.adoc[UVC] +
-xref:VH.adoc[VH] +
-xref:VID.adoc[VID] +
-xref:VR.adoc[VR] +
-xref:WVI.adoc[WVI] +
-xref:WVS.adoc[WVS] +
-xref:XAD.adoc[XAD] +
-xref:XCN.adoc[XCN] +
-xref:XON.adoc[XON] +
-xref:XPN.adoc[XPN] +
-xref:XTN.adoc[XTN] +
+xref:AD.adoc[AD - Address] (backwards compatible) +
+xref:AUI.adoc[AUI - Authorization Information] +
+xref:CCD.adoc[CCD - Charge Code and Date] +
+xref:CCP.adoc[CCP - Channel Calibration Parameters] (backwards compatible) +
+xref:CD.adoc[CD - Channel Definition] (backwards compatible) +
+xref:CF.adoc[CF - Coded Element with Formatted Values] +
+xref:CNE.adoc[CNE - Coded with No Exceptions] +
+xref:CNN.adoc[CNN - Composite ID Number and Name Simplified] (backwards compatible) +
+xref:CP.adoc[CP - Composite Price] +
+xref:CQ.adoc[CQ - Composite Quantity with Unites] +
+xref:CSU.adoc[CSU - Channel Sensitivity and Units] (backwards compatible) +
+xref:CWE.adoc[CWE - Coded with Exceptions] +
+xref:CX.adoc[CX - Extended Composite ID with Check Digit] +
+xref:DDI.adoc[DDI - Daily Deductible Information] +
+xref:DIN.adoc[DIN - Date and Institution Name] +
+xref:DLD.adoc[DLD - Discharge to Location and Date] +
+xref:DLN.adoc[DLN - Driver's License Number] +
+xref:DLT.adoc[DLT - Delta] +
+xref:DR.adoc[DR - Date/Time Range] +
+xref:DTN.adoc[DTN - Day Type and Number] +
+xref:ED.adoc[ED - Encapsulated Data] +
+xref:EI.adoc[EI - Entity Identifier] +
+xref:EIP.adoc[EIP - Entity Identifier Pair] +
+xref:ERL.adoc[ERL - Message Location] +
+xref:FC.adoc[FC - Financial Class] +
+xref:FN.adoc[FN - Family Name] +
+xref:HD.adoc[HD - Hierarchic Designator] +
+xref:ICD.adoc[ICD - Insurance Certification Definition] +
+xref:JCC.adoc[JCC - Job Code/Class] +
+xref:MA.adoc[MA - Multiplexed Array] +
+xref:MO.adoc[MO - Money] +
+xref:MOC.adoc[MOC - Money and Charge Code] +
+xref:MOP.adoc[MOP - Money or Percentage] +
+xref:MSG.adoc[MSG - Message Type] +
+xref:NA.adoc[NA - Numeric Array] +
+xref:NDL.adoc[NDL - Name with Date and Location] (backwards compatible) +
+xref:NR.adoc[NR - Numeric Range] +
+xref:OCD.adoc[OCD - Occurrence Code and Date] +
+xref:OG.adoc[OG - Observation Grouper] +
+xref:OSP.adoc[OSP - Occurrence Span Code and Date] +
+xref:PIP.adoc[PIP - Practitioner Institutional Privileges] +
+xref:PL.adoc[PL - Person Location] +
+xref:PLN.adoc[PLN - Practitioner License or Other ID Number] +
+xref:PPN.adoc[PPN - Performing Person Time Stamp] +
+xref:PRL.adoc[PRL - Parent Result Link] +
+xref:PT.adoc[PT - Processing Type] +
+xref:PTA.adoc[PTA - Policy Type and Amount] +
+xref:QIP.adoc[QIP - Query Input Parameter List] +
+xref:QSC.adoc[QSC - Query Selection Criteria] +
+xref:RCD.adoc[RCD - Row Column Definition] +
+xref:RFR.adoc[RFR - Reference Range] +
+xref:RI.adoc[RI - Repeat Interval] +
+xref:RMC.adoc[RMC - Room Coverage] +
+xref:RP.adoc[RP - Reference Pointer] +
+xref:RPT.adoc[RPT - Repeat Pattern] +
+xref:SAD.adoc[SAD - Street Address] +
+xref:SCV.adoc[SCV - Scheduling Class Value Pair] +
+xref:SN.adoc[SN - Structured Numeric] +
+xref:SPD.adoc[SPD - Specialty Description] +
+xref:SRT.adoc[SRT - Sort Order] +
+xref:UVC.adoc[UVC - UB Value Code and Amount] +
+xref:VH.adoc[VH - Visiting Hours] +
+xref:VID.adoc[VID - Version Identifier] +
+xref:VR.adoc[VR - Value Range] +
+xref:WVI.adoc[WVI - Channel Identifier] (backwards compatible) +
+xref:WVS.adoc[WVS - Waveform Source] (backwards compatible) +
+xref:XAD.adoc[XAD - Extended Address] +
+xref:XCN.adoc[XCN - Extended Composite ID Number and Name for Persons] +
+xref:XON.adoc[XON - Extended Composite Name and Identification Number for Organizations] +
+xref:XPN.adoc[XPN - Extended Person Name] +
+xref:XTN.adoc[XTN - Extended Telecommunication Number] +
