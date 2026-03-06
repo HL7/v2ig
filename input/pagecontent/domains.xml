@@ -1,0 +1,19 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<p>The HL7 v2+ specification is organized into functional domains, each covering a specific area of healthcare information exchange.</p>
+
+<h3><a href="administration.html">Administration</a></h3>
+<p>Patient administration, referrals, and scheduling — covering patient registration, transfers, discharges, and appointment management.</p>
+
+<h3><a href="clinical.html">Clinical</a></h3>
+<p>Clinical data exchange including orders and results, laboratory, pharmacy, imaging, patient care, immunizations, blood bank, and more.</p>
+
+<h3><a href="financial.html">Financial</a></h3>
+<p>Financial management and claims/reimbursements — covering billing, invoicing, and insurance claim transactions.</p>
+
+<h3><a href="technical.html">Technical</a></h3>
+<p>Infrastructure and system-level messaging — application management, master file updates, and query/response patterns.</p>
+
+<h3><a href="erp.html">Enterprise Resource Planning (ERP)</a></h3>
+<p>Enterprise Resource Planning — lab automation, materials management, personnel management, and specimen shipment tracking.</p>
+
+</div>

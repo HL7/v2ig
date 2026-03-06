@@ -1,0 +1,168 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<div class="sect1">
+<h4 id="_introduction">Introduction</h4>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter currently supports document management. In the future, it is intended also to support the data exchange needs of applications supporting other medical record functions, including chart location and tracking, deficiency analysis, consents, and release of information. The main purpose of the medical record is to produce an accurate, legal, and legible document that serves as a comprehensive account of healthcare services provided to a patient.</p>
+</div>
+<div class="paragraph">
+<p>Document/reports supported in this chapter will meet the criteria as described in Chapter 7, "Observations" (section 7.2 – Purpose). The appropriate use of MDM messages versus ORU message has been clarified in 7.2.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h4 id="_assumptions">ASSUMPTIONS</h4>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within this section we have created a single message whose contents vary predicated on the trigger event. The following assumptions are made when the Medical Document Management (MDM) message is used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The application system is responsible for meeting all legal requirements (on the local, state, and federal levels) in the areas of document authentication, confidentiality, and retention.</p>
+</li>
+<li>
+<p>All documents are unique, and document numbers and file names are not reused.</p>
+</li>
+<li>
+<p>Documents may be associated with one or more orders.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each triggering event is listed below, along with the applicable form of the message exchange. The notation used to describe the sequence, optionality, and repetition of segments is described in Chapter 2, "Format for Defining Abstract Messages." There are two classes of events, those which contain notifications only, and those which contain both notifications and content (text contained in OBX segments).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Note that the event is encapsulated in MSH-9 and the event segment is deprecated for all MDM message cases as of version 2.5.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When -MSH-9 is valued, the value of EVN-1 must be the same.</p>
+</div>
+<div class="paragraph">
+<p>These triggering events are mainly associated with documents or entries that will be or have been transcribed. The types and appearance of the transcribed documents can vary greatly within a healthcare organization and between organizations. However, the main purpose of the transcription process is to document patient care or diagnostic results in a legible manner; these documents then become part of the legal medical record. The conceptual purpose of document notification is to facilitate updating the receiving system(s) with information from the source system(s), typically dictation or transcription systems, to indicate that an electronic document has been created or altered. The document notification message can be attached to an entire document (i.e., transcribed document) or can be transmitted stand-alone. In either case, the document notification is transmitted in the form of an unsolicited update or in response to a record-oriented query. A document notification message can be created under a variety of circumstances such as when: 1) dictation has been completed; 2) a document has been transcribed; or, 3) the status of a document has been changed, i.e., when a document has been authenticated.</p>
+</div>
+<div class="paragraph">
+<p>Also, the orders represented by the ORC/OBR segments must be wholly and exclusively satisfied by the TXA/OBX content. "Wholly satisfied" means there are no other orders related to the TXA/OBX content other than those specified by the ORC/OBR segments. "Exclusively satisfied" means that the actions described by the ORC/OBR segments do not contain actions not addressed by the TXA/OBX content. Thus, the TXA/OBX context must satisfy all instances of ORC/OBR as indicated by <em>ORC-7 Quantity/Timing,</em> <em>OBR-27 Quantity/Timing</em> or the TQ1/ TQ2 segments.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The placer order number may exist in the ORC, OBR and TXA. If valued in the ORC or OBR and the TXA is present, it should not be valued. If TXA is valued it should be ignored.</p>
+</li>
+<li>
+<p>The filler order number may exist in the ORC, OBR and TXA. If valued in the ORC or OBR and the TXA is present, it should not be valued. If TXA is valued it should be ignored.</p>
+</li>
+<li>
+<p>Generally the <em>OBR-32 Principal interpreter</em> and the <em>TXA –22.1 Authentication person</em> are conceptually the same. Normally only the <em>TXA-22.1</em> should be valued. If both are valued, the <em>TXA-22.1</em> takes precedence.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <em>OBR-35 Transcriptionist</em> and the <em>TXA –11 Transcriptionist</em> are conceptually the same. Normally only the <em>TXA-11</em> should be valued. If both are valued, the <em>TXA-11</em> takes precedence.</p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T01.html">Message - T01 Document</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T02.html">Message - T02 Document with Content</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T03.html">Message - T03 Document Status Change</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T04.html">Message - T04 Document Status Change with Content</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T05.html">Message - T05 Document Addendum</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T06.html">Message - T06 Document Addendum with Content</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T07.html">Message - T07 Document Edit</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T08.html">Message - T08 Document Edit with Content</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T09.html">Message - T09 Document Replacement</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T10.html">Message - T10 Document Replacement with Content</a></p>
+</div>
+<div class="paragraph">
+<p><a href="StructureDefinition-MDM-T11.html">Message - T11 Document Cancel</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h4 id="_examples">Examples</h4>
+<div class="sectionbody">
+<div class="sect2">
+<h5 id="_history_and_physical_exam">History and Physical Exam:</h5>
+<div class="paragraph">
+<p>The following is an example of an original transmission of a history and physical examination which has been authenticated prior to this message being initiated:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|...&lt;cr&gt;
+EVN|T02|19960215154405||04|097220^Seven^Henry^L^ ^Dr^MD^| &lt;cr&gt;
+PID|...&lt;cr&gt;
+PR1|...&lt;cr&gt;
+TXA|0001|HP^history &amp; physical|TX^text|19960213213000|099919^Everyman^Adam^A^ ^Mr^MS^|19960213153000|19960215134500||099919^Everyman^Adam^A^III^Mr^MS^|097220^Seven^Henry^L^ ^Dr^MD^|01234567^Contact^Carrie^C^Ms|1996021500001^transA|||example.doc|LA|UC|AV||AC|||||097220^Seven^Henry^L^ ^Dr^MD^| &lt;cr&gt;
+OBX|1|CE|2000.40^CHIEF COMPLAINT|| ... &lt;cr&gt;
+OBX|2|ST|2000.01^SOURCE||PATIENT &lt;cr&gt;
+OBX|3|TX|2000.02^PRESENT ILLNESS||SUDDEN ONSET OF CHEST PAIN. 2 DAYS, PTA ASSOCIATED WITH NAUSEA, VOMITING &amp; SOB. NO RELIEF WITH ANTACIDS OR NTG. NO OTHER SX. NOT PREVIOUSLY ILL.&lt;cr&gt;
+.
+.
+and so on.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h5 id="_document_folder">Document Folder</h5>
+<div class="paragraph">
+<p>Hospital A creates a psychiatric report. It sends a notification to hospital B.</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^~\&amp;|SENDAPP|SENDFAC|RECAPP|RECFAC|200411261008||MDM^T01^MDM_T01|167865|P|2.9
+EVN|T01|200811261007|200811261007|60012|10107
+PID|1|1011684|1011684||Jurgensen^Antoine^^||197710220000|F|||Hubertweg^^Stuttgart^^70173^DE|||||M|CAT||4390271065||||Karlsruhe|N||
+PV1|1|I|STATION^^^3200^^13372100|A^^301||||||||||||N|||0460005110||K|||||||||||||||||||||||200811160916|||||
+TXA|1|Psychiatric Disabilities Report|PDF|||||20081126100756 ||||570531^SENDFAC||||1081007_2874942_570531_26100756.PDF|DO|||||||PSY^psychiatric document^^1.2.4481222~WEB^web document^^1.2.4481223</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hospital B receives the document. Hospital A and B have negotiated the folder definitions in the form of a catalog (the exchange is out of scope of this document). Therefore, Hospital B knows the document should only be accessible to psychiatrists and should be available in the patient&#8217;s personal web access. This is only an example; document folder interpretation is up to the systems and out of scope of this proposal.</p>
+</div>
+</div>
+</div>
+</div>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>T01</td><td><a href="StructureDefinition-MDM-T01.html">MDM^T01</a></td><td>Document</td></tr>
+<tr><td>T02</td><td><a href="StructureDefinition-MDM-T02.html">MDM^T02</a></td><td>Document with Content</td></tr>
+<tr><td>T03</td><td><a href="StructureDefinition-MDM-T03.html">MDM^T03</a></td><td>Document Status Change</td></tr>
+<tr><td>T04</td><td><a href="StructureDefinition-MDM-T04.html">MDM^T04</a></td><td>Document Status Change with Content</td></tr>
+<tr><td>T05</td><td><a href="StructureDefinition-MDM-T05.html">MDM^T05</a></td><td>Document Addendum</td></tr>
+<tr><td>T06</td><td><a href="StructureDefinition-MDM-T06.html">MDM^T06</a></td><td>Document Addendum with Content</td></tr>
+<tr><td>T07</td><td><a href="StructureDefinition-MDM-T07.html">MDM^T07</a></td><td>Document Edit</td></tr>
+<tr><td>T08</td><td><a href="StructureDefinition-MDM-T08.html">MDM^T08</a></td><td>Document Edit with Content</td></tr>
+<tr><td>T09</td><td><a href="StructureDefinition-MDM-T09.html">MDM^T09</a></td><td>Document Replacement</td></tr>
+<tr><td>T10</td><td><a href="StructureDefinition-MDM-T10.html">MDM^T10</a></td><td>Document Replacement with Content</td></tr>
+<tr><td>T11</td><td><a href="StructureDefinition-MDM-T11.html">MDM^T11</a></td><td>Document Cancel</td></tr>
+</tbody>
+</table>
+</div>

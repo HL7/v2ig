@@ -1,0 +1,23 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<div class="sect1">
+<h4 id="_introduction">Introduction</h4>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The information in this chapter was relocated from Appendix C as of v2.4 of the standard. It had previously been entitled Network Management, and has been renamed to more accurately describe the purpose of the messages described herein. This chapter does not specify a protocol for managing networks, á la TCP/IP SNMP. Rather, its messages provide a means to manage HL7-supporting applications over a network.</p>
+</div>
+<div class="paragraph">
+<p>Because this chapter was originally named "Network Management," the messages and segments have labels beginning with the letter "N." These labels are retained for backward compatibility.</p>
+</div>
+<div class="paragraph">
+<p>As a technical chapter, this information is now normative with respect to the HL7 standard. It is anticipated that additional messages and message content will be added to this chapter in the near future.</p>
+</div>
+</div>
+</div>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>N02</td><td><a href="StructureDefinition-NMD-N02.html">NMD^N02</a></td><td>Application Management Data Message</td></tr>
+</tbody>
+</table>
+</div>

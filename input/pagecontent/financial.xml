@@ -1,0 +1,18 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<div class="sect1">
+<h4 id="_introduction">Introduction</h4>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FIXME</p>
+</div>
+</div>
+</div>
+<h3>Subdomains</h3>
+<table class="grid">
+<thead><tr><th>Subdomain</th><th>Events</th></tr></thead>
+<tbody>
+<tr><td><a href="financial-management.html">Financial Management</a></td><td>8</td></tr>
+<tr><td><a href="claims-and-reimbursements.html">Claims and Reimbursements</a></td><td>12</td></tr>
+</tbody>
+</table>
+</div>
