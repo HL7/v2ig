@@ -1,41 +1,45 @@
-This is just a draft.  Do we want to make assignments based on the historical chapters or based on the rearranged domains?  For the sake of just getting something started, here are the chapters...
+Chapter 1: Update Author: 
 
-Chapter 1:
+Chapter 2: Update Author: 
 
-Chapter 2:
+Chapter 2A: Update Author: 
 
-Chapter 2A:
+Chapter 2C: Update Author: 
 
-Chapter 2C:
+Chapter 3: Update Author: Riki Merrick  Reviewer:
 
-Chapter 3: Riki Merrick
+Chapter 4: Update Author: Hans Buitendijk  Reviewer:
 
-Chapter 4: Hans Buitendijk
+Chapter 4A: Update Author: Hans Buitendijk  Reviewer:
 
-Chapter 4A: Hans Buitendijk
+Chapter 5: Update Author: Craig Newman  Reviewer:
 
-Chapter 5:
+Chapter 6: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 6:
+Chapter 7 (General): Update Author: Hans Buitendijk  Reviewer:
 
-Chapter 7:
+Chapter 7 (Product Experience, Clinical Trials and Specimen Shipment): Update Author: Craig Newman  Reviewer: Riki Merrick - **Pull Request created (#12)** - Reviewed by Riki with comments
 
-Chapter 8:
+Chapter 8: Update Author: Craig Newman  Reviewer: Riki Merrick - Pull Request created (#13)- reviewed with comments
 
-Chapter 9:
+Chapter 9: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted**
 
-Chapter 10:
+Chapter 10: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 11:
+Chapter 11: Update Author: Craig Newman  Reviewer: Riki Merrick - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 12:
+Chapter 12: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 13: Ralf Herzog
+Chapter 13: Update Author: Ralf Herzog  Reviewer:
 
-Chapter 14:
+Chapter 14: Update Author: Craig Newman  Reviewer: InM (Riki, Brian) - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 15:
+Chapter 15: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 16:
+Chapter 16: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 17: Craig Newman (as of 8/11/2025)
+Chapter 17: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
+
+Net New - Addition of text to the general Domains page as well as the Navigation page for each individual domain: Update Author: Craig Newman  Reviewer: TBD - Pull Request created (#22)
+
+Net New - Complex data types: Update Author: Craig Newman  Reviewer: TBD - Pull Request created (#23)
