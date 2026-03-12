@@ -26,8 +26,8 @@
       {
         "id": "UAC.1",
         "path": "UAC.1",
-        "short": "UAC-1",
-        "definition": "This an identifier code for the type of user authentication credential. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70615[_HL7 Table 0615 – User Authentication Credential Type Code_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "User Authentication Credential Type Code",
+        "definition": "This an identifier code for the type of user authentication credential. Refer to {{v2-table:0615:User Authentication Credential Type Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -55,7 +55,7 @@
       {
         "id": "UAC.2",
         "path": "UAC.2",
-        "short": "UAC-2",
+        "short": "User Authentication Credential",
         "definition": "This is user credential data as supplied by the sender's operating platform. The content and structure of this is defined by other standards and contain no HL7-relevant data.",
         "code": [
           {
@@ -72,7 +72,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]

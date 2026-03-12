@@ -12,8 +12,10 @@ This data type is used for specifying an identifier with its associated administ
 [NOTE]
 The check digit and check digit scheme are null if ID is alphanumeric.
 
-[er7-example]
+[.er7-example]
+....
 |1234567\^4^M11\^ADT01^MR^University Hospital|
+....
 
 include::CX-components/CX-1.adoc[]
 

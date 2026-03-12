@@ -22,7 +22,7 @@
         "id": "VH",
         "path": "VH",
         "short": "visiting hours",
-        "definition": "Definition: This data type contains the hours when a patient location is open for visiting. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70267[_HL7 Table 0267 - Days of_ _the Week_] for valid values for the first two components.",
+        "definition": "Definition: This data type contains the hours when a patient location is open for visiting. Refer to {{v2-table:0267:Days of the Week}} for valid values for the first two components.",
         "min": 0,
         "max": "*"
       },
@@ -30,7 +30,7 @@
         "id": "VH.1",
         "path": "VH.1",
         "short": "Start Day Range",
-        "defintion": "*Definition:* Starting day of visiting hours range. See file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70267[_HL7 Table 0267 - Days of_ _the Week_] for valid values.\n",
+        "defintion": "*Definition:* Starting day of visiting hours range. See {{v2-table:0267:Days of the Week}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -66,7 +66,7 @@
         "id": "VH.2",
         "path": "VH.2",
         "short": "End Day Range",
-        "defintion": "*Definition:* Ending day of visiting hours range. Starting day of visiting hours range. See file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70267[_HL7 Table 0267 - Days of the Week_] for valid values.\n",
+        "defintion": "*Definition:* Ending day of visiting hours range. Starting day of visiting hours range. See {{v2-table:0267:Days of the Week}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

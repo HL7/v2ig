@@ -177,7 +177,7 @@
         "id": "XAD.6",
         "path": "XAD.6",
         "short": "Country",
-        "defintion": "*Definition:* This component specifies the country where the addressee is located. HL7 specifies that the 3-character (alphabetic) form of ISO 3166 be used for the country code. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70399[_HL7 Table_ _0399 – Count__ry Code_] for valid values.\n",
+        "defintion": "*Definition:* This component specifies the country where the addressee is located. HL7 specifies that the 3-character (alphabetic) form of ISO 3166 be used for the country code. Refer to {{v2-table:0399:Country Code}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -213,7 +213,7 @@
         "id": "XAD.7",
         "path": "XAD.7",
         "short": "Address Type",
-        "defintion": "*Definition:* This component specifies the kind or type of address. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70190[_HL7 Ta__ble 0190 - A__ddress Type_] for valid values.\n\n\n\n_XAD.7_ is required if there are multiple occurrences of XAD in a field.\n",
+        "defintion": "*Definition:* This component specifies the kind or type of address. Refer to {{v2-table:0190:Address Type}} for valid values.\n\n\n\n_XAD.7_ is required if there are multiple occurrences of XAD in a field.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -281,7 +281,7 @@
         "id": "XAD.9",
         "path": "XAD.9",
         "short": "County/Parish Code",
-        "defintion": "*Definition:* A code that represents the county in which the specified address resides. file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70289[_User-defined Table 0289 - County/parish_] is used as the HL7 identifier for the user-defined table of values for this component. When this component is used to represent the county (or parish), component 8 <other geographic designation> should not duplicate it (i.e., the use of <other geographic designation> to represent the county is allowed only for the purpose of backward compatibility, and should be discouraged in this and future versions of HL7).\n\n\n\nAllowable values: codes defined by government.\n",
+        "defintion": "*Definition:* A code that represents the county in which the specified address resides. {{v2-table:0289:County/parish}} is used as the HL7 identifier for the user-defined table of values for this component. When this component is used to represent the county (or parish), component 8 <other geographic designation> should not duplicate it (i.e., the use of <other geographic designation> to represent the county is allowed only for the purpose of backward compatibility, and should be discouraged in this and future versions of HL7).\n\n\n\nAllowable values: codes defined by government.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -304,7 +304,7 @@
         "id": "XAD.10",
         "path": "XAD.10",
         "short": "Census Tract",
-        "defintion": "*Definition:* A code that represents the census tract in which the specified address resides. file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70288[_User-defined Table 0288 - Census Tract_] is used as the HL7 identifier for the user-defined table of values for this component.\n\n\n\nAllowable Values: codes defined by government.\n",
+        "defintion": "*Definition:* A code that represents the census tract in which the specified address resides. {{v2-table:0288:Census Tract}} is used as the HL7 identifier for the user-defined table of values for this component.\n\n\n\nAllowable Values: codes defined by government.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -327,7 +327,7 @@
         "id": "XAD.11",
         "path": "XAD.11",
         "short": "Address Representation Code",
-        "defintion": "*Definition:* Different <name/address types> and representations of the same name/address should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* Also note that this new component remains in \"alphabetic\" representation with each repetition of the fields using these data types. I.e. even though the address may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70465[_HL7 Table 0465 – Name/address Representatio__n_] for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
+        "defintion": "*Definition:* Different <name/address types> and representations of the same name/address should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* Also note that this new component remains in \"alphabetic\" representation with each repetition of the fields using these data types. I.e. even though the address may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to {{v2-table:0465:Name/address Representation}} for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -439,7 +439,7 @@
         "id": "XAD.15",
         "path": "XAD.15",
         "short": "Expiration Reason",
-        "defintion": "*Definition:* This identifies why this address was marked as \"ended\". Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70616[User-defined Table 0616 – Address Expiration Reason] for valid values.\n",
+        "defintion": "*Definition:* This identifies why this address was marked as \"ended\". Refer to {{v2-table:0616:Address Expiration Reason}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -462,7 +462,7 @@
         "id": "XAD.16",
         "path": "XAD.16",
         "short": "Temporary Indicator",
-        "defintion": "*Definition:* If \"Y\" this indicates that the address is considered temporary. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 – Yes/No Indicator_].\n",
+        "defintion": "*Definition:* If \"Y\" this indicates that the address is considered temporary. Refer to {{v2-table:0136:Yes/No Indicator}}.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -498,7 +498,7 @@
         "id": "XAD.17",
         "path": "XAD.17",
         "short": "Bad Address Indicator",
-        "defintion": "*Definition:* If \"Y\", this indicates that it is not possible to contact the \"owning\" entity at this address. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 – Yes/No Indicator_].\n",
+        "defintion": "*Definition:* If \"Y\", this indicates that it is not possible to contact the \"owning\" entity at this address. Refer to {{v2-table:0136:Yes/No Indicator}}.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -534,7 +534,7 @@
         "id": "XAD.18",
         "path": "XAD.18",
         "short": "Address Usage",
-        "defintion": "*Definition:* This indicates how the address is intended to be used. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70617[_User-defined Table 0617 – Address Usage_] for valid values.\n",
+        "defintion": "*Definition:* This indicates how the address is intended to be used. Refer to {{v2-table:0617:Address Usage}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -666,7 +666,7 @@
         "id": "XAD.22",
         "path": "XAD.22",
         "short": "Protection Code",
-        "defintion": "*Definition:* Identifies that an address needs to be treated with special care or sensitivity.\n\n\n\nThe specific set of codes and appropriate handling of such addresses will vary by jurisdiction and is subject to site-specific negotiation. For example, a provider address marked as 'unlisted' might not be printed in an internal address listing. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70618[_User-defined Table 0618 – Protection Code_] for valid values.\n",
+        "defintion": "*Definition:* Identifies that an address needs to be treated with special care or sensitivity.\n\n\n\nThe specific set of codes and appropriate handling of such addresses will vary by jurisdiction and is subject to site-specific negotiation. For example, a provider address marked as 'unlisted' might not be printed in an internal address listing. Refer to {{v2-table:0618:Protection Code}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

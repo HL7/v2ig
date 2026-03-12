@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -72,7 +72,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -97,7 +97,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -122,7 +122,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -147,7 +147,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -156,7 +156,7 @@
         "id": "TCD.6",
         "path": "TCD.6",
         "short": "TCD-6",
-        "definition": "This field identifies whether or not automatic repeats are to be initiated for this particular specimen for this particular test code. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 -Yes/no Indicator_] for valid values.",
+        "definition": "This field identifies whether or not automatic repeats are to be initiated for this particular specimen for this particular test code. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -176,11 +176,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -198,7 +198,7 @@
         "id": "TCD.7",
         "path": "TCD.7",
         "short": "TCD-7",
-        "definition": "This field identifies whether or not automatic or manual reflex testing is to be initiated for this particular specimen. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 -Yes/no Indicator_] for valid values.",
+        "definition": "This field identifies whether or not automatic or manual reflex testing is to be initiated for this particular specimen. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -218,11 +218,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -240,7 +240,7 @@
         "id": "TCD.8",
         "path": "TCD.8",
         "short": "TCD-8",
-        "definition": "This field identifies the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70389[_HL7 Table 0389 – Analyte Repeat Status_] in Chapter 2C, Code Tables, for valid values.",
+        "definition": "This field identifies the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). Refer to {{v2-table:0389:Analyte Repeat Status}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "For purpose of this chapter we assume the following:\n\n• Repeated test without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).\n\n• Repeated test with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).\n\n• Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
         "code": [
           {
@@ -261,7 +261,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -286,7 +286,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -311,7 +311,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -341,7 +341,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

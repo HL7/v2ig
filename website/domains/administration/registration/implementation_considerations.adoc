@@ -69,7 +69,7 @@ NOTE: It is not the intent of the merge definition to define the application or 
 ===== Move
 [v291_section="3.6.2.1.3"]
 
-A "move" involves transferring one or more datasets (identified by a subordinate identifier) from one superior identifier at the next hierarchical level to another superior identifier at the next hierarchical level, while all identifiers involved retain their original value. An exception to retaining the original identifier value may occur if any of the subordinate source identifiers already exist under the target superior identifier. In this case the identifier value may have to be renumbered in order to be uniquely identified under the target superior identifier. (Refer to section _3.6.2.2.8_, "link:#_A45_-_move_visit information - visi[_A45 - Move visit information_]" for an illustration of this.)
+A "move" involves transferring one or more datasets (identified by a subordinate identifier) from one superior identifier at the next hierarchical level to another superior identifier at the next hierarchical level, while all identifiers involved retain their original value. An exception to retaining the original identifier value may occur if any of the subordinate source identifiers already exist under the target superior identifier. In this case the identifier value may have to be renumbered in order to be uniquely identified under the target superior identifier. (Refer to section _3.6.2.2.8_, "A45 - Move visit information" for an illustration of this.)
 
 A move event signals that a patient, account, or visit has been moved from one person, patient, or account, respectively, to another. All records at a subordinate level are also moved. For example, an A43 (move patient information - patient identifier list) event would be sent to signal that a medical records administrator has moved a medical record attached to an incorrect person to a correct person. The following figure graphically depicts the move event:
 
@@ -100,7 +100,7 @@ When patient/person identifiers are the target in merge, move, or change events,
 
 The list of identifiers can be aligned positionally in their respective segment fields and processed by the receiving system by virtue of their order. This is sometimes referred to as an "ordered pairwise" relationship and is described further in section _3.6.2.1.7_, "link:#ordered-pairwise-relationship[_Ordered pairwise relationship_]".
 
-Alternatively, the uniqueness of the identifiers included in the message is determined by the combination of identifier type and assigning authority. It is assumed that both sending system and receiving system can inspect both of these qualifiers as a message is constructed or processed to determine the "tightly coupled" relationship between the identifiers. This can be referred to as "identifier type/assigning authority" relationship and is described further in section _3.6.2.1.8_, "link:#_Identifier_type_/_assigning authori[_Identifier type/assigning authority relationship_]".
+Alternatively, the uniqueness of the identifiers included in the message is determined by the combination of identifier type and assigning authority. It is assumed that both sending system and receiving system can inspect both of these qualifiers as a message is constructed or processed to determine the "tightly coupled" relationship between the identifiers. This can be referred to as "identifier type/assigning authority" relationship and is described further in section _3.6.2.1.8_, "Identifier type/assigning authority relationship".
 
 The pairing of identifiers between the MRG segment fields and their associated identifiers in the PID or PV1 segment are defined below:
 
@@ -262,7 +262,8 @@ The intent of trigger events A40 (merge patient- patient identifier list), A41 (
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A40^ADT_A39\|00000003\|P\|2.8\|<cr>+
 EVN\|A40\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|MAIDENNAME^EVE\|....<cr>+
@@ -271,6 +272,7 @@ MRG\|MR2^^^XYZ<cr>
 |Before Merge |After Merge
 a|
 MR1 MR2
+....
 
 ACCT1 ACCT1
 
@@ -308,13 +310,15 @@ Since there could be a discrepancy in the demographic information between the tw
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A40^ADT_A39\|00000003\|P\|2.8\|<cr>+
 EVN\|A40\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|\|\|\|\|\|\|\|\|\|\|\|ACCT3<cr>+
 MRG\|MR2^^^XYZ\|\|ACCT1<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|\|\|\|\|\|\|\|\|\|\|\|ACCT4<cr>+
 MRG\|MR2^^^XYZ\|\|ACCT2<cr>
+....
 
 |
 |Before Merge |After Merge
@@ -363,11 +367,13 @@ This event illustrates the concept of a global merge as defined in Section _3.6.
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A41^ADT_A39\|00000005\|P\|2.8\|<cr>+
 EVN\|A41\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|19501010\|M\|\|\|123 NORTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT1<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT2<cr>
+....
 
 |
 |Before Merge |After Merge
@@ -423,7 +429,8 @@ This event illustrates the concept of a repeating segment merge as defined in _3
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A41^ADT_A39\|00000005\|P\|2.8\|<cr>+
 EVN\|A41\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|19501010\|F\|\|\|123 NORTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT1<cr>+
@@ -432,6 +439,7 @@ PV1\|1\|I\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|VISIT3<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|19501010\|F\|\|\|123 NORTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT1<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT2\|\|VISIT2
 PV1\|1\|I\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|VISIT4<cr>
+....
 
 |
 |Before Merge |After Merge
@@ -489,12 +497,14 @@ Since there could be a discrepancy in the demographic information between the tw
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A42^ADT_A39\|00000005\|P\|2.8\|<cr>+
 EVN\|A42\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYEWOMAN^EVE\|\|19501010\|F\|\|\|123 NORTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT1<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT1\|\|VISIT2<cr>+
 PV1\|1\|I\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|VISIT1<cr>
+....
 
 |
 |Before Merge |After Merge
@@ -529,11 +539,13 @@ VISIT1
 a|
 Example transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REPOSITORY\|ENT\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A43^ADT_A43\|0000009\|P\|2.8\|<cr>+
 EVN\|A43\|200301051530<cr>+
 PID\|1\|E2\|MR2^^^ABCHMO\|\|\|EVERYWOMAN^EVI\|....<cr>+
 MRG\|MR2^^^ABCHMO\|\|\|E1<cr>
+....
 
 |
 |Before Move |After Move
@@ -556,11 +568,13 @@ Implementation considerations: _PID-3 - Patient Identifier List_ and _MRG-1 - Pr
 
 The example above would be expressed as follows. In the following example, the assigning authority ENT1 represents an Enterprise and the PE identifier type code represents the Person's Enterprise number. The MR1 identifier is omitted from the message because it is not moved.
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REPOSITORY\|ENT\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A43^ADT_A43\|0000009\|P\|2.8\|<cr>+
 EVN\|A43\|200301051530<cr>+
 PID\|1\|\|E2^^^ENT1^PE~MR2^^^ABCHMO^MR\|\|\|EVERYWOMAN^EVI\|....<cr>+
 MRG\|E1^^^ENT1^PE~MR2^^^ABCHMO^MR\|. . .<cr>
+....
 
 |
 |===
@@ -577,11 +591,13 @@ MRG\|E1^^^ENT1^PE~MR2^^^ABCHMO^MR\|. . .<cr>
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A44^ADT_A43\|00000007\|P\|2.8\|<cr>+
 EVN\|A44\|200301051530<cr>+
 PID\|\|\|MR2^^^XYZ\|\|Everyman^Adam^A^JR\|\|19501010\|M\|\|\|123 EAST STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT2<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT2<cr>
+....
 
 |
 |Before Move |After Move
@@ -614,7 +630,8 @@ ACCT2
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A45^ADT_A45\|00000005\|P\|2.8\|<cr>+
 EVN\|A45\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|19501010\|M\|\|\|123 NORTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|X1<cr>+
@@ -622,6 +639,7 @@ MRG\|MR1^^^XYZ\|\|ACCT1\|\|96102<cr>+
 PV1\|\|O\|PT\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|96102<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT1\|\|96104<cr>+
 PV1\|\|O\|PT\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|96104<cr>
+....
 
 |
 |Before Move |After Move
@@ -668,7 +686,7 @@ X1
 a|
 In the above transaction/implementation, the application that generated the message assigns unique visit numbers.
 
-Implementation Considerations: In this scenario the repeating MRG/PV1 construct is used to indicate which visits are moved, as illustrated in the Example Transaction__. MRG-5 - Prior Visit Number__ and _PV1-19 - Visit Number_ are the same values because the visit numbers do not change. Refer to section link:#_Global_merge_and_move message const[_3.6.2.1.9_], "link:#_Global_merge_and_move message const[_Global merge and move message construct versus repeating segment message constructs&#44;_]" for additional information regarding message construct.
+Implementation Considerations: In this scenario the repeating MRG/PV1 construct is used to indicate which visits are moved, as illustrated in the Example Transaction__. MRG-5 - Prior Visit Number__ and _PV1-19 - Visit Number_ are the same values because the visit numbers do not change. Refer to section 3.6.2.1.9, "Global merge and move message construct versus repeating segment message constructs&#44;" for additional information regarding message construct.
 
 |
 |===
@@ -685,7 +703,8 @@ Implementation Considerations: In this scenario the repeating MRG/PV1 construct 
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A45^ADT_A45\|00000005\|P\|2.8\|<cr>+
 EVN\|A45\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYWOMAN^EVE\|\|19501010\|M\|\|\|123 NORTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|X1<cr>+
@@ -693,6 +712,7 @@ MRG\|MR1^^^XYZ\|\|ACCT1\|\|VISIT2<cr>+
 PV1\|\|O\|PT\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|VISIT4<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT1\|\|VISIT3<cr>+
 PV1\|\|O\|PT\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|VISIT5<cr>
+....
 
 |
 |Before Move |After Move
@@ -758,11 +778,13 @@ Implementation Considerations: If Visit Numbers are not unique (as implied by th
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A47\|00000002\|P\|2.8\|<cr>+
 EVN\|A47\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYMAN^ADAM\|\|19501010\|M\|\|\|987 SOUTH STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT1<cr>+
 MRG\|MR2^^^XYZ\|\|ACCT1<cr>
+....
 
 |
 |Before Change |After Change
@@ -791,11 +813,13 @@ ACCT1
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A49^ADT_A30\|00000006\|P\|2.8\|<cr>+
 EVN\|A49\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYMAN^ADAM\|\|19501010\|M\|\|\|123 SOUTH STREET^^NY^NY^10021\|\|(212)111-2222\|\|\|S\|CAT\|ACCT1<cr>+
 MRG\|MR1^^^XYZ\|\|X1<cr>
+....
 
 |
 |Before Change |After Change
@@ -824,12 +848,14 @@ ACCT1
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A50^ADT_A50\|00000006\|P\|2.8\|<cr>+
 EVN\|A50\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYMAN^ADAM\|\|19501010\|M\|\|\|123 SOUTH STREET^^NY^NY^10021\|\|(212)111-2222\|\|\|S\|CAT\|ACCT1<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT1\|\|VISIT2<cr>+
 PV1\|1\|O\|\|3\|\|\|99^BROWN^JERRY\|\|\|ONC\|\|\|\|1\|\|VIP\|99^BROWN^JERRY\|O/P\|VISIT1...<cr>
+....
 
 |
 |Before Change |After Change
@@ -862,12 +888,14 @@ VISIT1
 a|
 Example Transaction:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SECURITY\|ADT^A51^ADT_A50\|00000006\|P\|2.8\|<cr>+
 EVN\|A51\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ\|\|EVERYMAN^ADAM\|\|19501010\|M\|\|\|123 SOUTH STREET^^NY^NY^10021\|\|(212)111-2222\|\|\|S\|CAT\|ACCT1<cr>+
 MRG\|MR1^^^XYZ\|\|ACCT1\|\|\|AV2<cr>+
 PV1\|1\|O\|\|3\|\|\|99^BROWN^JERRY\|\|\|ONC\|\|\|\|1\|\|VIP\|99^BROWN^JERRY\|O/P\|V1\|SP\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|\|A\|\|\|\|\|19990902081010\|\|\|\|\|\|AV1<cr>
+....
 
 |
 |Before Change |After Change
@@ -904,19 +932,23 @@ AV1
 a|
 Example Transaction - Message 1:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A47^ADT_A30\|00000006\|P\|2.8\|<cr>+
 EVN\|A47\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ^MR\|\|EVERYMAN^ADAM\|\|19501010\|M\|\|\|123 SOUTH STREET^^NY^NY^10021\|\|(212)111-2222\|\|\|S\|CAT\|X1<cr>+
 MRG\|MR2^^^XYZ^MR\|<cr>
+....
 
 Example Transaction - Message 2:
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A49^ADT_A30\|00000006\|P\|2.5<cr>+
 EVN\|A49\|200301051530<cr>+
 PID\|\|\|MR1^^^XYZ^MR\|\|EVERYMAN^ADAM\|\|19501010\|M\|\|\|123 SOUTH STREET^^NY^NY^10021\|\|(212)111-2222\|\|\|S\|CAT\|ACCT1<cr>+
 MRG\|MR1^^^XYZ^MR\|\|X1<cr>
+....
 
 |
 |Before Change |After Change
@@ -945,19 +977,23 @@ ACCT1
 a|
 Example Transaction (Message 1):
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A44^ADT_A43\|00000007\|P\|2.8\|<cr>+
 EVN\|A44\|200301051530<cr>+
 PID\|\|\|MR2^^^XYZ^MR\|\|EVERYMAN^ADAM^A^JR\|\|19501010\|M\|\|\|123 EAST STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|ACCT1<cr>+
 MRG\|MR1^^^XYZ^MR\|\|ACCT1<cr>
+....
 
 Example Transaction (Message 2):
 
-[er7]
+[.er7]
+....
 MSH\|^~\&\|REGADT\|MCM\|RSP1P8\|MCM\|200301051530\|SEC\|ADT^A49^ADT_A30\|00000007\|P\|2.5<cr>+
 EVN\|A49\|200301051530<cr>+
 PID\|\|\|MR2^^^XYZ^MR\|\|EVERYMAN^ADAM^A^JR\|\|19501010\|M\|\|\|123 EAST STREET^^NY^NY^10021\|\|(212)111-3333\|\|\|S\|\|X1<cr>+
 MRG\|MR2^^^XYZ^MR\|\|ACCT1<cr>
+....
 
 |
 |Before Change |After Change
@@ -1133,7 +1169,8 @@ The species attribute is required for non-human patients. The breed and strain a
 
 *Example 1*: Mrs. EVERYWOMAN brings her 9 year old, female, spayed miniature poodle, Fluffy, into the Allstate University, Veterinary Medical Teaching Hospital to have skin growths removed. The poodle resides with Mrs. EVERYWOMAN in her apartment at 2222 Home Street, Apt 123, in Ann Arbor, MI 11111, Washtenaw County;
 
-[er7]
+[.er7]
+....
 MSH|^~\&||ALLSTATE UNIV VMTH|||200702171830||ADT^A04<cr>+
 PID|1||A83245^^^VMTH^MR^UCD||EVERYWOMAN^Fluffy^^^^^^D||19901001|S|||2222 Home St^Apt 123^Ann Arbor^MI^11111^USA^^^Washtenaw||||||||||||MI||||||||||||L-80700^Canine, NOS^SNM3|L-80832^Miniature Poodle, NOS^SNM3<cr>+
 NK1|1|EVERYWOMAN^EVE^M^^Mrs.^^L|O|2222 Home St^Apt 123^Ann Arbor^MI ^11111^USA^^^Washtenaw|(530) 555-4325^^^emeverywoman123@AOL.COM||CP|<cr>+
@@ -1141,11 +1178,14 @@ PV1|1|O||R|||0045^BARKER^BART^^Dr.^DVM||||||||||||||||||||||||||||||||||||199902
 OBX|1|NM|21611-9^Age^LN||9|yr<cr>+
 OBX|2|NM|3141-9^Body Weight^LN||16|lb<cr>
 // NOTE The second to last line of the above ER7 used to read "mailto:[mailto:]OBX|1|NM|21611-9^Age^LN||9|yr<cr>".  I am assuming that the mailto: bit was an error and I have removed it.  MF 20241022
+....
 
 *Example 2:* Over the Hill Horses owns the Morgan horse mare named Breeze that is referred by Dr. Equine of Foothill Veterinary Clinic for colic (acute abdominal pain) to the Allstate University, Veterinary Medical Teaching Hospital. The manager of the farm and contact person is Randall "Buck" Shins, who works at the farm headquarters in Ypsilanti, MI, 11111:
 
-[er7]
+[.er7]
+....
 MSH|^~\&||Foothill Veterinary Clinic||Allstate Univ VMTH|200702171830||ADT^A04<cr>+
 PID|1||N324256^^^^^Foothill Vet Clinic||^Breeze^^^^^^D|||F|||^^^MI^^^^^Lassen||||||||||||||||||19981123|Y|||||L-80400^Horse^SNM3|L-80431^Morgan horse^SNM3||BR<cr>+
 NK1|1||||||O|||||Over the Hill Horses|||||||||||||||||~Shins^Buck^^^Mr.^^N|(530)555-9843^^^Buckshins@OvertheHill.com|2222 Farm Rd ^Suite A^Ypsilanti^MI^11111^^^^Lassen+
 PV1|1|E||R|||^Equine^^^Dr.^DVM||||||||||||||||||||||||||||||||||||199903102013<cr>
+....

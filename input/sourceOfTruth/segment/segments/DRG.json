@@ -26,8 +26,8 @@
       {
         "id": "DRG.1",
         "path": "DRG.1",
-        "short": "DRG-1",
-        "definition": "This field contains the DRG for the transaction. Interim DRG's could be determined for an encounter. Refer to _file:///E:\\V2\\V29_CH02C_Tables.docx#HL70055[Externally-defined Table 0055 – Diagnosis Related G]roup_ in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Diagnostic Related Group",
+        "definition": "This field contains the DRG for the transaction. Interim DRG's could be determined for an encounter. Refer to {{v2-table:0055:Diagnosis Related Group}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -55,7 +55,7 @@
       {
         "id": "DRG.2",
         "path": "DRG.2",
-        "short": "DRG-2",
+        "short": "DRG Assigned Date/Time",
         "definition": "This field contains the time stamp to indicate the date and time that the DRG was assigned.",
         "code": [
           {
@@ -72,7 +72,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -80,8 +80,8 @@
       {
         "id": "DRG.3",
         "path": "DRG.3",
-        "short": "DRG-3",
-        "definition": "This field indicates if the DRG has been approved by a reviewing entity. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] for valid values.",
+        "short": "DRG Approval Indicator",
+        "definition": "This field indicates if the DRG has been approved by a reviewing entity. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y the DRG has been approved by a reviewing entity\n\nN the DRG has not been approved",
         "code": [
           {
@@ -102,11 +102,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -123,8 +123,8 @@
       {
         "id": "DRG.4",
         "path": "DRG.4",
-        "short": "DRG-4",
-        "definition": "This code indicates that the grouper results have been reviewed and approved. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70056[_User-defined Table 0056 - DRG Grouper Review Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "DRG Grouper Review Code",
+        "definition": "This code indicates that the grouper results have been reviewed and approved. Refer to {{v2-table:0056:DRG Grouper Review Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -144,7 +144,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -152,8 +152,8 @@
       {
         "id": "DRG.5",
         "path": "DRG.5",
-        "short": "DRG-5",
-        "definition": "Refers to the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70083[_User-defined Table 0083 - Outlier Type_] in Chapter 2C, code Tables, for suggested values.",
+        "short": "Outlier Type",
+        "definition": "Refers to the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Refer to {{v2-table:0083:Outlier Type}} in Chapter 2C, code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -173,7 +173,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -181,7 +181,7 @@
       {
         "id": "DRG.6",
         "path": "DRG.6",
-        "short": "DRG-6",
+        "short": "Outlier Days",
         "definition": "This field contains the number of days that have been approved as an outlier payment.",
         "code": [
           {
@@ -198,11 +198,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -210,7 +210,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -219,7 +219,7 @@
       {
         "id": "DRG.7",
         "path": "DRG.7",
-        "short": "DRG-7",
+        "short": "Outlier Cost",
         "definition": "This field contains the amount of money that has been approved for an outlier payment.",
         "code": [
           {
@@ -236,7 +236,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -244,8 +244,8 @@
       {
         "id": "DRG.8",
         "path": "DRG.8",
-        "short": "DRG-8",
-        "definition": "This field indicates the associated DRG Payor. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70229[_User-defined Table 0229 - DRG Payor_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "DRG Payor",
+        "definition": "This field indicates the associated DRG Payor. Refer to {{v2-table:0229:DRG Payor}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -265,7 +265,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -273,7 +273,7 @@
       {
         "id": "DRG.9",
         "path": "DRG.9",
-        "short": "DRG-9",
+        "short": "Outlier Reimbursement",
         "definition": "Where applicable, the outlier reimbursement amount indicates the part of the total reimbursement designated for reimbursement of outlier conditions (day or cost).",
         "code": [
           {
@@ -290,7 +290,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -298,8 +298,8 @@
       {
         "id": "DRG.10",
         "path": "DRG.10",
-        "short": "DRG-10",
-        "definition": "This field indicates if the DRG contains a confidential diagnosis. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Confidential Indicator",
+        "definition": "This field indicates if the DRG contains a confidential diagnosis. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the DRG contains a confidential diagnosis\n\nN the DRG does not contain a confidential diagnosis",
         "code": [
           {
@@ -320,11 +320,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -341,8 +341,8 @@
       {
         "id": "DRG.11",
         "path": "DRG.11",
-        "short": "DRG-11",
-        "definition": "This field indicates the type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG's), for example, exempt or non-exempt. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70415[_User-defined Table 0415 - DRG Transfer Type_] in Chapter 2C, code Tables, for suggested values.",
+        "short": "DRG Transfer Type",
+        "definition": "This field indicates the type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG's), for example, exempt or non-exempt. Refer to {{v2-table:0415:DRG Transfer Type}} in Chapter 2C, code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -362,7 +362,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -370,7 +370,7 @@
       {
         "id": "DRG.12",
         "path": "DRG.12",
-        "short": "DRG-12",
+        "short": "Name of Coder",
         "definition": "This field holds the name of the person (\"coder\") who supervised or undertook the determination of the DRG code.",
         "code": [
           {
@@ -387,7 +387,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -395,8 +395,8 @@
       {
         "id": "DRG.13",
         "path": "DRG.13",
-        "short": "DRG-13",
-        "definition": "This field indicates the grouper status in general. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70734[_Externally-defined Table 0734 - Grouper Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Grouper Status",
+        "definition": "This field indicates the grouper status in general. Refer to {{v2-table:0734:Grouper Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -416,7 +416,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -424,8 +424,8 @@
       {
         "id": "DRG.14",
         "path": "DRG.14",
-        "short": "DRG-14",
-        "definition": "This field indicates the PCCL (Patient Clinical Complexity Level) value for the calculated DRG as a single value. This value is calculated based on all individual CCL values calculated so far in relation to the basic DRG. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70728[_Externally-defined Table 0728 - CCL Value_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "PCCL Value Code",
+        "definition": "This field indicates the PCCL (Patient Clinical Complexity Level) value for the calculated DRG as a single value. This value is calculated based on all individual CCL values calculated so far in relation to the basic DRG. Refer to {{v2-table:0728:CCL Value}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -445,7 +445,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -453,7 +453,7 @@
       {
         "id": "DRG.15",
         "path": "DRG.15",
-        "short": "DRG-15",
+        "short": "Effective Weight",
         "definition": "This field contains the effective weight as calculated for this DRG. When exceeding the upper or lower trim point the effective weight is lower or higher.",
         "code": [
           {
@@ -470,11 +470,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -482,7 +482,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -491,7 +491,7 @@
       {
         "id": "DRG.16",
         "path": "DRG.16",
-        "short": "DRG-16",
+        "short": "Monetary Amount",
         "definition": "This field contains the monetary amount as calculated for this DRG, i.e., the sum of money the insurance company will pay.",
         "code": [
           {
@@ -508,7 +508,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -516,8 +516,8 @@
       {
         "id": "DRG.17",
         "path": "DRG.17",
-        "short": "DRG-17",
-        "definition": "This field contains the status of the patient concerning the financial aspects. It indicates whether the length of stay is normal or respectively shorter or longer than normal. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70739[_User-defined Table 0739 – DRG Status Patient_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Patient",
+        "definition": "This field contains the status of the patient concerning the financial aspects. It indicates whether the length of stay is normal or respectively shorter or longer than normal. Refer to {{v2-table:0739:DRG Status Patient}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field is also used along with DRG-23 and DRG-24 as an indication of whether a surcharge (long length of stay) or a discount (short length of stay) has been determined.",
         "code": [
           {
@@ -538,7 +538,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -546,7 +546,7 @@
       {
         "id": "DRG.18",
         "path": "DRG.18",
-        "short": "DRG-18",
+        "short": "Grouper Software Name",
         "definition": "This field contains the name of the software used for grouping.",
         "code": [
           {
@@ -563,11 +563,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -575,7 +575,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -584,7 +584,7 @@
       {
         "id": "DRG.19",
         "path": "DRG.19",
-        "short": "DRG-19",
+        "short": "Grouper Software Version",
         "definition": "This field contains the version information of the software used for grouping.",
         "code": [
           {
@@ -601,11 +601,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -613,7 +613,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -622,8 +622,8 @@
       {
         "id": "DRG.20",
         "path": "DRG.20",
-        "short": "DRG-20",
-        "definition": "This field contains the status of the DRG calculation regarding the financial aspects. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70742[_User-defined Table 0742 – DRG Status Financial Calculation_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Financial Calculation",
+        "definition": "This field contains the status of the DRG calculation regarding the financial aspects. Refer to {{v2-table:0742:DRG Status Financial Calculation}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -643,7 +643,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -651,7 +651,7 @@
       {
         "id": "DRG.21",
         "path": "DRG.21",
-        "short": "DRG-21",
+        "short": "Relative Discount/Surcharge",
         "definition": "There will be a discount/surcharge for the calculated price due to a very short stay, early referral or a very long stay. This field contains the discount or surcharge that is included in the final price.",
         "code": [
           {
@@ -668,7 +668,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -676,7 +676,7 @@
       {
         "id": "DRG.22",
         "path": "DRG.22",
-        "short": "DRG-22",
+        "short": "Basic Charge",
         "definition": "The basic charge is calculated as a multiplication of the relative weight with the base rate.",
         "code": [
           {
@@ -693,7 +693,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -701,7 +701,7 @@
       {
         "id": "DRG.23",
         "path": "DRG.23",
-        "short": "DRG-23",
+        "short": "Total Charge",
         "definition": "This field contains the total charge including surcharges or discounts.",
         "code": [
           {
@@ -718,7 +718,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -726,7 +726,7 @@
       {
         "id": "DRG.24",
         "path": "DRG.24",
-        "short": "DRG-24",
+        "short": "Discount/Surcharge",
         "definition": "This field contains the discount/surcharge as determined for this DRG. The addition/re­duction is indicated by _DRG-17 - Status Patient_.",
         "code": [
           {
@@ -743,7 +743,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -751,7 +751,7 @@
       {
         "id": "DRG.25",
         "path": "DRG.25",
-        "short": "DRG-25",
+        "short": "Calculated Days",
         "definition": "This field contains the number of days, for which a surcharge/discount has been determined. The addition/reduction is indicated by _DRG-17 - Status Patient_.",
         "code": [
           {
@@ -768,11 +768,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -780,7 +780,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -789,8 +789,8 @@
       {
         "id": "DRG.26",
         "path": "DRG.26",
-        "short": "DRG-26",
-        "definition": "This field contains the status of the use of the gender information for DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70749[_User-defined Table 0749 – DRG Grouping Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Gender",
+        "definition": "This field contains the status of the use of the gender information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -810,7 +810,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -818,8 +818,8 @@
       {
         "id": "DRG.27",
         "path": "DRG.27",
-        "short": "DRG-27",
-        "definition": "This field contains the status of the use of the age information for DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70749[_User-defined Table 0749 – DRG Grouping Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Age",
+        "definition": "This field contains the status of the use of the age information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -839,7 +839,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -847,8 +847,8 @@
       {
         "id": "DRG.28",
         "path": "DRG.28",
-        "short": "DRG-28",
-        "definition": "This field contains the status of the DRG calculation for the length of stay information. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70749[_User-defined Table 0749 – DRG Grouping Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Length of Stay",
+        "definition": "This field contains the status of the DRG calculation for the length of stay information. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -868,7 +868,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -876,8 +876,8 @@
       {
         "id": "DRG.29",
         "path": "DRG.29",
-        "short": "DRG-29",
-        "definition": "This field contains the status of the use of the same day information for DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70749[_User-defined Table 0749 – DRG Grouping Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Same Day Flag",
+        "definition": "This field contains the status of the use of the same day information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -897,7 +897,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -905,8 +905,8 @@
       {
         "id": "DRG.30",
         "path": "DRG.30",
-        "short": "DRG-30",
-        "definition": "This field contains the status of the use of the separation mode information for DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70749[_User-defined Table 0749 – DRG Grouping Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Separation Mode",
+        "definition": "This field contains the status of the use of the separation mode information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -926,7 +926,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -934,8 +934,8 @@
       {
         "id": "DRG.31",
         "path": "DRG.31",
-        "short": "DRG-31",
-        "definition": "This field contains the status of the use of the weight at birth information for DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70755[_User-defined Table 0755 – DRG Status Weight At Birth_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Weight at Birth",
+        "definition": "This field contains the status of the use of the weight at birth information for DRG determination. Refer to {{v2-table:0755:DRG Status Weight At Birth}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -955,7 +955,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -963,8 +963,8 @@
       {
         "id": "DRG.32",
         "path": "DRG.32",
-        "short": "DRG-32",
-        "definition": "This field contains the status of the use of the respiration minutes information for DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70757[_User-defined Table 0757 – DRG Status Respiration Minutes_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Respiration Minutes",
+        "definition": "This field contains the status of the use of the respiration minutes information for DRG determination. Refer to {{v2-table:0757:DRG Status Respiration Minutes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -984,7 +984,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -992,8 +992,8 @@
       {
         "id": "DRG.33",
         "path": "DRG.33",
-        "short": "DRG-33",
-        "definition": "This field contains the admission status for the DRG determination. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70759[_User-defined Table 0759 – Status Admission_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Status Admission",
+        "definition": "This field contains the admission status for the DRG determination. Refer to {{v2-table:0759:Status Admission}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1013,7 +1013,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

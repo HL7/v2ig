@@ -1,23 +1,34 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-  <!-- The spaces between the open and close "a" tag are mandatory.  (Cuz HTML renderers are dumb...) -->
   <a name="intro"> </a>
   <h3>Introduction</h3>
-	<p>
-    What is this IG about (in patient/non-expert friendly terms).
+  <p>
+    The HL7 v2+ specification defines the standard for electronic health data exchange between healthcare information systems. It is the most widely implemented healthcare interoperability standard in the world, used by over 95% of US healthcare organizations and extensively deployed internationally.
   </p>
-	<a name="technical"> </a>
-	<h3>Technical Overview</h3>
-	<p>
-    Additional detail/context setting for those who have significant background in the domain.  (Try to make as understandable as you can, but
-    set important context).
+  <p>
+    HL7 v2+ is the evolution of the HL7 Version 2.x messaging standard. It consolidates and updates the normative content from previous versions (2.1 through 2.9.1) into a single, continuously maintained specification. The "+" designation indicates that this specification is a living document that will be updated incrementally rather than through major version releases.
   </p>
+
+  <a name="technical"> </a>
+  <h3>Technical Overview</h3>
+  <p>
+    HL7 v2+ messages are composed of <b>segments</b>, which are logical groupings of related data fields. Segments are arranged according to <b>message structures</b> (abstract syntax trees) that define the valid composition and ordering of segments for each message type. Messages are triggered by healthcare <b>events</b> (such as a patient admission, an order being placed, or a result being reported).
+  </p>
+  <p>
+    Data within segments is typed using HL7 v2+ <b>data types</b>, which range from simple primitives (strings, numbers, dates) to complex composite types (extended person names, coded elements with exceptions, extended addresses).
+  </p>
+
   <a name="walkthrough"> </a>
   <p>
     The main sections of this IG are:
   </p>
   <ul>
-    <li>
-      TBD
-    </li>
+    <li><a href="domains.html">Domains</a> &#x2014; Functional groupings of related messaging capabilities (Administration, Clinical, Financial, Technical)</li>
+    <li><a href="message-structures.html">Message Structures</a> &#x2014; Abstract syntax trees defining the arrangement of segments within messages</li>
+    <li><a href="segment-definitions.html">Segment Definitions</a> &#x2014; The 192 segments that serve as building blocks for messages</li>
+    <li><a href="data-types.html">Data Types</a> &#x2014; Primitive and complex data types used in segment fields</li>
+    <li><a href="data-type-flavors.html">Data Type Flavors</a> &#x2014; Constrained variants of data types for specific use cases</li>
+    <li><a href="terminology.html">Terminology</a> &#x2014; Code systems and value sets referenced by the specification</li>
+    <li><a href="control.html">Control</a> &#x2014; Message processing rules, acknowledgment patterns, and infrastructure</li>
+    <li><a href="conformance.html">Conformance</a> &#x2014; Rules for specifying implementation profiles and compliance</li>
   </ul>
 </div>

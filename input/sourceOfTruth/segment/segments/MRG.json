@@ -26,8 +26,8 @@
       {
         "id": "MRG.1",
         "path": "MRG.1",
-        "short": "MRG-1",
-        "definition": "This field contains the prior patient identifier list. This field contains a list of potential \"old\" numbers to match. Only one old number can be merged with one new number in a transaction. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[HL7 Table 0061 - Check Digit Schem]e_ for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
+        "short": "Prior Patient Identifier List",
+        "definition": "This field contains the prior patient identifier list. This field contains a list of potential \"old\" numbers to match. Only one old number can be merged with one new number in a transaction. Refer to {{v2-table:0061:Check Digit Scheme}} for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -55,7 +55,7 @@
       {
         "id": "MRG.2",
         "path": "MRG.2",
-        "short": "MRG-2",
+        "short": "Prior Alternate Patient ID",
         "definition": "*The MRG-2 field was retained for backward compatibility only as of v 2.3.1 and withdrawn as of v 2.7. The reader is referred to section _3.4.10.1_, _MRG-1 Prior Patient Identifier List_* (CX) 00211**, instead.**",
         "code": [
           {
@@ -67,7 +67,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -75,8 +75,8 @@
       {
         "id": "MRG.3",
         "path": "MRG.3",
-        "short": "MRG-3",
-        "definition": "This field contains the prior patient account number. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[_HL7 Table 0061 - Check Digit Scheme_] for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
+        "short": "Prior Patient Account Number",
+        "definition": "This field contains the prior patient account number. Refer to {{v2-table:0061:Check Digit Scheme}} for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -96,7 +96,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -104,7 +104,7 @@
       {
         "id": "MRG.4",
         "path": "MRG.4",
-        "short": "MRG-4",
+        "short": "Prior Patient ID",
         "definition": "*The MRG-4 field was retained for backward compatibility only as of v 2.3.1 and withdrawn as of v 2.7. The reader is referred to section _3.4.10.1_, _MRG-1 Prior Patient Identifier List_* (CX) 00211**, instead.**",
         "code": [
           {
@@ -116,7 +116,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -124,8 +124,8 @@
       {
         "id": "MRG.5",
         "path": "MRG.5",
-        "short": "MRG-5",
-        "definition": "This field contains the prior visit number. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[_HL7 Table 0061 - Check Digit Scheme_] for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
+        "short": "Prior Visit Number",
+        "definition": "This field contains the prior visit number. Refer to {{v2-table:0061:Check Digit Scheme}} for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -145,7 +145,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -153,8 +153,8 @@
       {
         "id": "MRG.6",
         "path": "MRG.6",
-        "short": "MRG-6",
-        "definition": "This field contains the prior alternate visit number. Multiple alternate identifiers may be sent. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[_HL7 Table 0061 - Check Digit Scheme_] in Chapter 2C, Code Tables, for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
+        "short": "Prior Alternate Visit ID",
+        "definition": "This field contains the prior alternate visit number. Multiple alternate identifiers may be sent. Refer to {{v2-table:0061:Check Digit Scheme}} in Chapter 2C, Code Tables, for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -174,7 +174,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -182,8 +182,8 @@
       {
         "id": "MRG.7",
         "path": "MRG.7",
-        "short": "MRG-7",
-        "definition": "This field contains the prior name of the patient. This field is not used to change a patient name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70200[_HL7 Table 0200 - Name Type_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Prior Patient Name",
+        "definition": "This field contains the prior name of the patient. This field is not used to change a patient name. Refer to {{v2-table:0200:Name Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -203,7 +203,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

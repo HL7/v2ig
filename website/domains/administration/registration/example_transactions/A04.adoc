@@ -1,7 +1,8 @@
 === Register a patient - event A04 (nonadmitted patient)
 [v291_section="3.5.3"]
 
-[er7]
+[.er7]
+....
 MSH|^~\&|REGADT|GOOD HEALTH HOSPITAL|GHH LAB||200712311501||ADT^A04^ADT_A01|000001|P|2.8||||<cr>+
 EVN|A04|200701101500|200701101400|01||200701101410<cr>+
 PID|||191919^^^GOOD HEALTH HOSPITAL^MR^GOOD HEALTH HOSPITAL^^^USSSA^SS|253763|EVERYMAN^ADAM^A||19560129|M|||2222 HOME STREET^^ISHPEMING^MI^49849^""^||555-555-2004|555-555- 2004||S|C|10199925^^^GOOD HEALTH HOSPITAL^AN|371-66-9256||<cr>+
@@ -17,5 +18,6 @@ DG1|1|19||BIOPSY||00|<cr>+
 GT1|1||EVERYMAN^ADAM^A||2222 HOME STREET^^ISHPEMING^MI^49849^""^|444-33 3333|555-555-2004||||SE^SELF|444-33 3333||||AUTO CLINIC|2222 HOME STREET^^ISHPEMING^MI^49849^""|555-555-2004|<cr>+
 IN1|0|0|UA1|UARE INSURED, INC.|8888 INSURERS CIRCLE^^ISHPEMING^M149849^""^||555-555-3015|90||||||50 OK|<cr>+
 IN1|2|""|""<cr>
+....
 
 Patient Adam A. Everyman arrived at location O/R for surgery on January 10^th^, 2007 at 1410 for ambulatory surgery which was scheduled for January 10, 2007 at 1400. The visit event was recorded into the Good Health Hospital system on January 10, 2007 at 1500. It was sent to the interface engine (IFENG) at 1501.

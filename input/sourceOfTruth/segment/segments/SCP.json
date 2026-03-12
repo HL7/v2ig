@@ -26,7 +26,7 @@
       {
         "id": "SCP.1",
         "path": "SCP.1",
-        "short": "SCP-1",
+        "short": "Number Of Decontamination/Sterilization Devices",
         "definition": "The number of decontamination/sterilization devices recognized by the instrument-tracking system. The decontamination/sterilization device(s) would configure itself based on the data in this message.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -55,7 +55,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -64,8 +64,8 @@
       {
         "id": "SCP.2",
         "path": "SCP.2",
-        "short": "SCP-2",
-        "definition": "The method at which labor is calculated for use in tracking employee productivity. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70651[User-defined Table 0651 –Labor] Calculation Type_ in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Labor Calculation Type",
+        "definition": "The method at which labor is calculated for use in tracking employee productivity. Refer to {{v2-table:0651:Labor}} Calculation Type_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -85,7 +85,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -93,8 +93,8 @@
       {
         "id": "SCP.3",
         "path": "SCP.3",
-        "short": "SCP-3",
-        "definition": "The format of the date that is used to record date parameters of a decontamination/sterilization instance. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70653[_User-defined Table 0653 – Date Format_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Date Format",
+        "definition": "The format of the date that is used to record date parameters of a decontamination/sterilization instance. Refer to {{v2-table:0653:Date Format}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -114,7 +114,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -122,7 +122,7 @@
       {
         "id": "SCP.4",
         "path": "SCP.4",
-        "short": "SCP-4",
+        "short": "Device Number",
         "definition": "The number of the device (e.g., 01).",
         "code": [
           {
@@ -139,7 +139,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -147,7 +147,7 @@
       {
         "id": "SCP.5",
         "path": "SCP.5",
-        "short": "SCP-5",
+        "short": "Device Name",
         "definition": "The name of the device associated with the device number in SCP-4 (e.g., VAC)",
         "code": [
           {
@@ -164,11 +164,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -176,7 +176,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -185,7 +185,7 @@
       {
         "id": "SCP.6",
         "path": "SCP.6",
-        "short": "SCP-6",
+        "short": "Device Model Name",
         "definition": "The manufacturer's designated model name.",
         "code": [
           {
@@ -202,11 +202,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -214,7 +214,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -223,8 +223,8 @@
       {
         "id": "SCP.7",
         "path": "SCP.7",
-        "short": "SCP-7",
-        "definition": "The type of device, such as a steam sterilizer or gas sterilizer. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70657[User-defined Table 0657 – Device] Type_ in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Device Type",
+        "definition": "The type of device, such as a steam sterilizer or gas sterilizer. Refer to {{v2-table:0657:Device}} Type_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -244,7 +244,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -252,8 +252,8 @@
       {
         "id": "SCP.8",
         "path": "SCP.8",
-        "short": "SCP-8",
-        "definition": "A code assigned to a device to indicate if the sterilization load is built in the sub-sterile area adjacent to an Operating Room or the Central Processing Department (Central Supply). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70659[_User-defined Table 0659 – Lot Control_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Control",
+        "definition": "A code assigned to a device to indicate if the sterilization load is built in the sub-sterile area adjacent to an Operating Room or the Central Processing Department (Central Supply). Refer to {{v2-table:0659:Lot Control}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -273,7 +273,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

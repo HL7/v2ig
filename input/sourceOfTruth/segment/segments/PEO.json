@@ -26,7 +26,7 @@
       {
         "id": "PEO.1",
         "path": "PEO.1",
-        "short": "PEO-1",
+        "short": "Event Identifiers Used",
         "definition": "This field may be used to transmit the event identifier used by other entities for this event. The entry would typically contain a unique alphanumeric identifier assigned by an entity with the text component null or repeating the unique alphanumeric identifier followed by the organization's identifier. An event identifier might be GB1234^GB1234^PharmaGiant for example. Refer to Table 0678 - Event Identifiers Used in Chapter 2C for valid values.",
         "code": [
           {
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -55,7 +55,7 @@
       {
         "id": "PEO.2",
         "path": "PEO.2",
-        "short": "PEO-2",
+        "short": "Event Symptom/Diagnosis Code",
         "definition": "This field is the coded diagnosis or problem description which best describes the event. A text representation of the coded item should routinely be included. MEDDRA and WHO-ART are examples of appropriate coding schemes, as are the patient and device codes included in the FDA Center for Devices and Radiologic Health's coding manual for Form 3500A. Refer to Table 0679 - Event Symptom/Diagnosis Code in Chapter 2C for valid values.",
         "code": [
           {
@@ -76,7 +76,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -84,7 +84,7 @@
       {
         "id": "PEO.3",
         "path": "PEO.3",
-        "short": "PEO-3",
+        "short": "Event Onset Date/Time",
         "definition": "This field contains a report or best estimate of the date/time of onset of the event. The date/time can be recorded to any level of precision it is known (hour, day, month, year).",
         "code": [
           {
@@ -101,7 +101,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -109,7 +109,7 @@
       {
         "id": "PEO.4",
         "path": "PEO.4",
-        "short": "PEO-4",
+        "short": "Event Exacerbation Date/Time",
         "definition": "This field identifies the best estimate of the date/time the event was exacerbated.",
         "code": [
           {
@@ -126,7 +126,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -134,7 +134,7 @@
       {
         "id": "PEO.5",
         "path": "PEO.5",
-        "short": "PEO-5",
+        "short": "Event Improved Date/Time",
         "definition": "This field identifies the best estimate of the date/time the event improved.",
         "code": [
           {
@@ -151,7 +151,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -159,7 +159,7 @@
       {
         "id": "PEO.6",
         "path": "PEO.6",
-        "short": "PEO-6",
+        "short": "Event Ended Data/Time",
         "definition": "This field identifies the best estimate of the date/time the event resolved.",
         "code": [
           {
@@ -176,7 +176,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -184,7 +184,7 @@
       {
         "id": "PEO.7",
         "path": "PEO.7",
-        "short": "PEO-7",
+        "short": "Event Location Occurred Address",
         "definition": "This field identifies the location at which the event started. Often this will specify only the country in which the event started.",
         "code": [
           {
@@ -201,7 +201,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -209,8 +209,8 @@
       {
         "id": "PEO.8",
         "path": "PEO.8",
-        "short": "PEO-8",
-        "definition": "This field is contains a classification of the type of product experience this event is considered to represent. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70237[_HL7 Table 0237 - Event Qualification_] for valid values.",
+        "short": "Event Qualification",
+        "definition": "This field is contains a classification of the type of product experience this event is considered to represent. Refer to {{v2-table:0237:Event Qualification}} for valid values.",
         "comment": "Unexpected beneficial effects would not often be reported but are required by certain countries.",
         "code": [
           {
@@ -231,11 +231,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -252,8 +252,8 @@
       {
         "id": "PEO.9",
         "path": "PEO.9",
-        "short": "PEO-9",
-        "definition": "This field indicates whether the event was judged as serious. If the event did not meet the criteria for seriousness but the sender judges the event significant on other grounds, the event can be identified as significant [_but not serious_]. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70238[_HL7 Table 0238 - Event Seriousness_] for valid values.",
+        "short": "Event Serious",
+        "definition": "This field indicates whether the event was judged as serious. If the event did not meet the criteria for seriousness but the sender judges the event significant on other grounds, the event can be identified as significant [_but not serious_]. Refer to {{v2-table:0238:Event Seriousness}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -273,11 +273,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -294,8 +294,8 @@
       {
         "id": "PEO.10",
         "path": "PEO.10",
-        "short": "PEO-10",
-        "definition": "This field indicates whether the observed event was expected or unexpected as judged. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70239[_HL7 Table 0239 - Event Expected_] for valid values.",
+        "short": "Event Expected",
+        "definition": "This field indicates whether the observed event was expected or unexpected as judged. Refer to {{v2-table:0239:Event Expected}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -315,11 +315,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -336,8 +336,8 @@
       {
         "id": "PEO.11",
         "path": "PEO.11",
-        "short": "PEO-11",
-        "definition": "This field identifies the consequence of the [.underline]#event# on the patient. If the consequence of the event is not understood or not available, the patient outcome element may be used although neither is required. May be repeated if more than one is appropriate. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70240[_HL7 Table 0240 - Event Consequence_] for valid values.",
+        "short": "Event Outcome",
+        "definition": "This field identifies the consequence of the [.underline]#event# on the patient. If the consequence of the event is not understood or not available, the patient outcome element may be used although neither is required. May be repeated if more than one is appropriate. Refer to {{v2-table:0240:Event Consequence}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -357,11 +357,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -378,8 +378,8 @@
       {
         "id": "PEO.12",
         "path": "PEO.12",
-        "short": "PEO-12",
-        "comment": "When an event specific outcome is not available, the patient outcome element may be used to represent the patient's overall outcome if that information is known. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70241[_HL7 Table 0241 - Patient Outcome_] for valid values.",
+        "short": "Patient Outcome",
+        "comment": "When an event specific outcome is not available, the patient outcome element may be used to represent the patient's overall outcome if that information is known. Refer to {{v2-table:0241:Patient Outcome}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -399,11 +399,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -420,7 +420,7 @@
       {
         "id": "PEO.13",
         "path": "PEO.13",
-        "short": "PEO-13",
+        "short": "Event Description from Others",
         "definition": "This field contains a summary narrative text description of the event that occurred written by the sender. Note that laboratory results can be encoded as OBX segments rather then including them in the narrative. By representing clinical information in OBX segments rather than in the narrative, these data become much more useful and flexible.",
         "code": [
           {
@@ -437,11 +437,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -449,7 +449,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -458,7 +458,7 @@
       {
         "id": "PEO.14",
         "path": "PEO.14",
-        "short": "PEO-14",
+        "short": "Event Description from Original Reporter",
         "definition": "This field contains a summary narrative text description of the event provided by the original reporter. Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.",
         "code": [
           {
@@ -475,11 +475,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -487,7 +487,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -496,7 +496,7 @@
       {
         "id": "PEO.15",
         "path": "PEO.15",
-        "short": "PEO-15",
+        "short": "Event Description from Patient",
         "definition": "This field contains a summary narrative text description of the event obtained directly from the patient. Note that laboratory results can be encoded as OBX segments rather then including them in the narrative, which will allow the data to be more readily represented and manipulated.",
         "code": [
           {
@@ -513,11 +513,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -525,7 +525,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -534,7 +534,7 @@
       {
         "id": "PEO.16",
         "path": "PEO.16",
-        "short": "PEO-16",
+        "short": "Event Description from Practitioner",
         "definition": "This field contains a summary narrative text description of the event provided by the practitioner most familiar with the event. Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.",
         "code": [
           {
@@ -551,11 +551,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -563,7 +563,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -572,7 +572,7 @@
       {
         "id": "PEO.17",
         "path": "PEO.17",
-        "short": "PEO-17",
+        "short": "Event Description from Autopsy",
         "definition": "This field contains a summary narrative text description of the autopsy results. Note that laboratory results can be encoded as OBX segments rather then including them in the narrative.",
         "code": [
           {
@@ -589,11 +589,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -601,7 +601,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -610,7 +610,7 @@
       {
         "id": "PEO.18",
         "path": "PEO.18",
-        "short": "PEO-18",
+        "short": "Cause Of Death",
         "definition": "This field identifies the coded cause of death. May be repeated as necessary to list multiple contributing causes. A text description can be included by including text but no code or coding system. For example, if the cause of death is to be determined at autopsy but results are not yet available, the cause of death element could be ^Pending autopsy^. The date/time of death can be sent in the PID and the autopsy results sent in the event description from autopsy element of the PEO segment. Refer to Table 0680 - Cause Of Death in Chapter 2C for valid values.",
         "code": [
           {
@@ -631,7 +631,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -639,7 +639,7 @@
       {
         "id": "PEO.19",
         "path": "PEO.19",
-        "short": "PEO-19",
+        "short": "Primary Observer Name",
         "definition": "This field identifies the name of the person who initially described the event.",
         "code": [
           {
@@ -656,7 +656,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -664,7 +664,7 @@
       {
         "id": "PEO.20",
         "path": "PEO.20",
-        "short": "PEO-20",
+        "short": "Primary Observer Address",
         "definition": "This field identifies the address of the person who initially described the event.",
         "code": [
           {
@@ -681,7 +681,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -689,7 +689,7 @@
       {
         "id": "PEO.21",
         "path": "PEO.21",
-        "short": "PEO-21",
+        "short": "Primary Observer Telephone",
         "definition": "This field identifies the telephone number of the person who initially described the event.",
         "code": [
           {
@@ -706,7 +706,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -714,8 +714,8 @@
       {
         "id": "PEO.22",
         "path": "PEO.22",
-        "short": "PEO-22",
-        "definition": "This field contains the qualification of the primary observer which may assist in assessing the validity of the observations. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70242[_HL7 Table 0242 - Primary Observer's Qualification_] for valid values.",
+        "short": "Primary Observer's Qualification",
+        "definition": "This field contains the qualification of the primary observer which may assist in assessing the validity of the observations. Refer to {{v2-table:0242:Primary Observer's Qualification}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -735,11 +735,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -756,8 +756,8 @@
       {
         "id": "PEO.23",
         "path": "PEO.23",
-        "short": "PEO-23",
-        "definition": "This field contains the qualification of the health professional who confirmed the observation if the primary observer was not a health professional. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70242[_HL7 Table 0242 - Primary Observer's Qualification_] for valid values.",
+        "short": "Confirmation Provided By",
+        "definition": "This field contains the qualification of the health professional who confirmed the observation if the primary observer was not a health professional. Refer to {{v2-table:0242:Primary Observer's Qualification}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -777,11 +777,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -798,7 +798,7 @@
       {
         "id": "PEO.24",
         "path": "PEO.24",
-        "short": "PEO-24",
+        "short": "Primary Observer Aware Date/Time",
         "definition": "This field identifies the date/time the primary observer became aware of event.",
         "code": [
           {
@@ -815,7 +815,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -823,8 +823,8 @@
       {
         "id": "PEO.25",
         "path": "PEO.25",
-        "short": "PEO-25",
-        "definition": "Indicates whether or not the primary observer, if known to the sender, grants permission to disclose his or her identity to the product manufacturer for the purpose of further investigating the event. If the element is absent, the assumption should be made that permission is not granted. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70243[_HL7 Table 0243 - Identity May Be Divulged_] for valid values.",
+        "short": "Primary Observer's identity May Be Divulged",
+        "definition": "Indicates whether or not the primary observer, if known to the sender, grants permission to disclose his or her identity to the product manufacturer for the purpose of further investigating the event. If the element is absent, the assumption should be made that permission is not granted. Refer to {{v2-table:0243:Identity May Be Divulged}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -844,11 +844,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

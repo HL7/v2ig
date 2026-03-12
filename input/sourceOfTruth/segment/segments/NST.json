@@ -26,8 +26,8 @@
       {
         "id": "NST.1",
         "path": "NST.1",
-        "short": "NST-1",
-        "definition": "This field indicates the availability of statistics. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] for valid values.",
+        "short": "Statistics Available",
+        "definition": "This field indicates the availability of statistics. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "N - the responding application does not keep any statistics. If the value \"N\" is specified, the response message is used to signify to the initiating application that the communication link between the initiating application and the responding application is operational (and fields 2‑15 are empty in the response message).\n\nY - the responding application does keep statistics, fields 4 and 5 are required (and the response message contains one or more not empty or not unvalued fields in the range 2‑3, 6‑15).",
         "code": [
           {
@@ -48,11 +48,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -69,7 +69,7 @@
       {
         "id": "NST.2",
         "path": "NST.2",
-        "short": "NST-2",
+        "short": "Source Identifier",
         "definition": "This field identifies a particular lower level link (e.g., a port number).",
         "code": [
           {
@@ -86,7 +86,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -94,8 +94,8 @@
       {
         "id": "NST.3",
         "path": "NST.3",
-        "short": "NST-3",
-        "definition": "This field identifies (in certain systems) whether a lower level source identifier is an initiate or accept type. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70332[_HL7 Table 033__2 – Sou__rce Type_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Source Type",
+        "definition": "This field identifies (in certain systems) whether a lower level source identifier is an initiate or accept type. Refer to {{v2-table:0332:Source Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -115,7 +115,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -123,7 +123,7 @@
       {
         "id": "NST.4",
         "path": "NST.4",
-        "short": "NST-4",
+        "short": "Statistics Start",
         "definition": "This field contains the date/time stamp of the start of the collection of the statistics reported in fields 6‑15 of this segment. It is strongly recommended that this value include seconds.",
         "code": [
           {
@@ -140,7 +140,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -148,7 +148,7 @@
       {
         "id": "NST.5",
         "path": "NST.5",
-        "short": "NST-5",
+        "short": "Statistics End",
         "definition": "This field contains the date/time stamp of the end of the statistics collection period reported in fields 6‑15 of this segment. It is strongly recommended that this value include seconds.",
         "code": [
           {
@@ -165,7 +165,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -173,7 +173,7 @@
       {
         "id": "NST.6",
         "path": "NST.6",
-        "short": "NST-6",
+        "short": "Receive Character Count",
         "definition": "This field contains the number of characters received.",
         "code": [
           {
@@ -190,7 +190,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -198,7 +198,7 @@
       {
         "id": "NST.7",
         "path": "NST.7",
-        "short": "NST-7",
+        "short": "Send Character Count",
         "definition": "This field contains the number of characters sent.",
         "code": [
           {
@@ -215,7 +215,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -223,7 +223,7 @@
       {
         "id": "NST.8",
         "path": "NST.8",
-        "short": "NST-8",
+        "short": "Messages Received",
         "definition": "This field contains the number of messages received.",
         "code": [
           {
@@ -240,7 +240,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -248,7 +248,7 @@
       {
         "id": "NST.9",
         "path": "NST.9",
-        "short": "NST-9",
+        "short": "Messages Sent",
         "definition": "This field contains the number of messages sent.",
         "code": [
           {
@@ -265,7 +265,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -273,7 +273,7 @@
       {
         "id": "NST.10",
         "path": "NST.10",
-        "short": "NST-10",
+        "short": "Checksum Errors Received",
         "definition": "This field contains the number of messages received with checksum errors.",
         "code": [
           {
@@ -290,7 +290,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -298,7 +298,7 @@
       {
         "id": "NST.11",
         "path": "NST.11",
-        "short": "NST-11",
+        "short": "Length Errors Received",
         "definition": "This field contains the number of messages received with length errors.",
         "code": [
           {
@@ -315,7 +315,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -323,7 +323,7 @@
       {
         "id": "NST.12",
         "path": "NST.12",
-        "short": "NST-12",
+        "short": "Other Errors Received",
         "definition": "This field contains the number of \"other\" invalid messages received (excluding length and checksum errors).",
         "code": [
           {
@@ -340,7 +340,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -348,7 +348,7 @@
       {
         "id": "NST.13",
         "path": "NST.13",
-        "short": "NST-13",
+        "short": "Connect Timeouts",
         "definition": "This field contains the number of connect timeout errors.",
         "code": [
           {
@@ -365,7 +365,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -373,7 +373,7 @@
       {
         "id": "NST.14",
         "path": "NST.14",
-        "short": "NST-14",
+        "short": "Receive Timeouts",
         "definition": "This field contains the number of timeouts while waiting for a response to an initiated message.",
         "code": [
           {
@@ -390,7 +390,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -398,7 +398,7 @@
       {
         "id": "NST.15",
         "path": "NST.15",
-        "short": "NST-15",
+        "short": "Application control-level Errors",
         "definition": "This field contains the number of application control-level errors in response to an initiated message.",
         "code": [
           {
@@ -415,7 +415,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

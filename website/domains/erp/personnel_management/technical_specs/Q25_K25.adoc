@@ -32,10 +32,10 @@ Search
 |Sort |LEN |TYPE |Opt |Rep |Match Op |TBL |Segment Field Name |LOINC or HL7 code/ Domain |Element Name
 |1 |StaffIDCode |S |Y |60 |CX |O | |= | |STF.2 | |STF-2: Staff ID Code
 |2 |StaffName |S |Y |48 |XPN |O | |= | |STF.3 | |STF-3: Staff Name
-|3 |PractitionerCategory |S |Y |3 |IS |O |Y |in |link:#HL70186[0186] |PRA.3 | |PRA-3: Practitioner Category
-|4 |Language |S |Y |60 |CWE |O |Y |in |link:#HL70296[0296] |LAN.2 | |LAN-2: Language
-|5 |LanguageAbility | |Y |60 |CWE |C |Y |in |link:#_Hlt489245616[0403] |LAN.3 | |LAN-3: Language Ability
-|6 |LanguageProficiency | |Y |60 |CWE |C |Y |in |link:#_Hlt489245619[0404] |LAN.4 | |LAN-4: Language Proficiency
+|3 |PractitionerCategory |S |Y |3 |IS |O |Y |in |0186 |PRA.3 | |PRA-3: Practitioner Category
+|4 |Language |S |Y |60 |CWE |O |Y |in |0296 |LAN.2 | |LAN-2: Language
+|5 |LanguageAbility | |Y |60 |CWE |C |Y |in |0403 |LAN.3 | |LAN-3: Language Ability
+|6 |LanguageProficiency | |Y |60 |CWE |C |Y |in |0404 |LAN.4 | |LAN-4: Language Proficiency
 |===
 
 [width="100%",cols="19%,11%,6%,64%",options="header",]

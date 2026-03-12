@@ -30,7 +30,7 @@
         "id": "UVC.1",
         "path": "UVC.1",
         "short": "Value Code",
-        "defintion": "*Definition:* Specifies the National Uniform Billing Committee (NUBC) code itself.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70153[_External Table 0153 – Value Code_] for valid values. In the United States, values for this component need to come from National Uniform Billing Committee (NUBC); no extensions are allowed.\n\n\n\nOther realms should determine the precise set appropriate for their realm.\n",
+        "defintion": "*Definition:* Specifies the National Uniform Billing Committee (NUBC) code itself.\n\n\n\nRefer to {{v2-table:0153:Value Code}} for valid values. In the United States, values for this component need to come from National Uniform Billing Committee (NUBC); no extensions are allowed.\n\n\n\nOther realms should determine the precise set appropriate for their realm.\n",
         "min": 1,
         "max": "1",
         "type": [

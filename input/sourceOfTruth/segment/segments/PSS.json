@@ -26,7 +26,7 @@
       {
         "id": "PSS.1",
         "path": "PSS.1",
-        "short": "PSS-1",
+        "short": "Provider Product/Service Section Number",
         "definition": "Unique Product/Service Section Number assigned by the Provider Application.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "PSS.2",
         "path": "PSS.2",
-        "short": "PSS-2",
+        "short": "Payer Product/Service Section Number",
         "definition": "Unique Product/Service Section Number assigned by the Payer Application.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -76,7 +76,7 @@
       {
         "id": "PSS.3",
         "path": "PSS.3",
-        "short": "PSS-3",
+        "short": "Product/Service Section Sequence Number",
         "definition": "Unique sequence number for the Product/Service Section (3) – starts with 1, then 2, etc. for each unique Product/Service Section in this Invoice.",
         "code": [
           {
@@ -93,11 +93,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -114,7 +114,7 @@
       {
         "id": "PSS.4",
         "path": "PSS.4",
-        "short": "PSS-4",
+        "short": "Billed Amount",
         "definition": "Sum of all Product/Service Billed Amounts for all Product/Service Line Items for this Product/Service Section.",
         "code": [
           {
@@ -131,7 +131,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -139,7 +139,7 @@
       {
         "id": "PSS.5",
         "path": "PSS.5",
-        "short": "PSS-5",
+        "short": "Section Description or Heading",
         "definition": "Section description or heading.",
         "code": [
           {
@@ -156,11 +156,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -168,7 +168,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }

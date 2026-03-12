@@ -26,7 +26,7 @@
       {
         "id": "PCR.1",
         "path": "PCR.1",
-        "short": "PCR-1",
+        "short": "Implicated Product",
         "definition": "This field contains the coded identity of the product (drug, device, etc.) which is possibly causally related to the event. Includes the product identity number such as NDC, model or catalogue numbers. If a coded value is not available for the product a text description can be included as the second component of the CWE data. See Chapter 2 for a listing of some recognized coding systems for drugs and devices. Refer to Table 0670 - Implicated Product in Chapter 2C for valid values.",
         "code": [
           {
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -55,8 +55,8 @@
       {
         "id": "PCR.2",
         "path": "PCR.2",
-        "short": "PCR-2",
-        "definition": "This field indicates whether the product used was a generic or a branded product. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70249[_User-defined Table 0249 – Generic Product_] for suggested values.",
+        "short": "Generic Product",
+        "definition": "This field indicates whether the product used was a generic or a branded product. Refer to {{v2-table:0249:Generic Product}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -76,11 +76,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -88,7 +88,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -97,7 +97,7 @@
       {
         "id": "PCR.3",
         "path": "PCR.3",
-        "short": "PCR-3",
+        "short": "Product Class",
         "definition": "This field contains the coded classification of the implicated product. For drugs, this would usually be the drug class - calcium channel blocking agents for nifedipine, for example. For other products it would be the generic type of device, e.g., urinary catheter, cardiac pacemaker. If a coded value is not available for the class, a text description can be included. Refer to Table 0671 - Product Class in Chapter 2C for valid values.",
         "code": [
           {
@@ -118,7 +118,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -126,7 +126,7 @@
       {
         "id": "PCR.4",
         "path": "PCR.4",
-        "short": "PCR-4",
+        "short": "Total Duration Of Therapy",
         "definition": "This field represents the total duration of therapy with product listed. The treatment at the current dose and schedule are indicted in the quantity timing attribute of the RXE segment but the patient may have been treated for some time previously at a different dose or on a different schedule. The quantity in the second component of the CQ should be a time quantity.",
         "code": [
           {
@@ -143,7 +143,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -151,7 +151,7 @@
       {
         "id": "PCR.5",
         "path": "PCR.5",
-        "short": "PCR-5",
+        "short": "Product Manufacture Date",
         "definition": "This field indicates the date the product was manufactured.",
         "code": [
           {
@@ -168,7 +168,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -176,7 +176,7 @@
       {
         "id": "PCR.6",
         "path": "PCR.6",
-        "short": "PCR-6",
+        "short": "Product Expiration Date",
         "definition": "This field contains the expiration date indicated on the product packaging.",
         "code": [
           {
@@ -193,7 +193,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -201,7 +201,7 @@
       {
         "id": "PCR.7",
         "path": "PCR.7",
-        "short": "PCR-7",
+        "short": "Product Implantation Date",
         "definition": "If an implantable medical device, this field identifies the date device was implanted.",
         "code": [
           {
@@ -218,7 +218,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -226,7 +226,7 @@
       {
         "id": "PCR.8",
         "path": "PCR.8",
-        "short": "PCR-8",
+        "short": "Product Explantation Date",
         "definition": "If an implantable medical device and it was removed, the field identifies the date it was removed.",
         "code": [
           {
@@ -243,7 +243,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -251,8 +251,8 @@
       {
         "id": "PCR.9",
         "path": "PCR.9",
-        "short": "PCR-9",
-        "definition": "This field indicates whether the product was designed for a single use. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70244[_User-defined Table 0244 – Single Use Device_] for suggested values.",
+        "short": "Single Use Device",
+        "definition": "This field indicates whether the product was designed for a single use. Refer to {{v2-table:0244:Single Use Device}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -272,7 +272,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -280,7 +280,7 @@
       {
         "id": "PCR.10",
         "path": "PCR.10",
-        "short": "PCR-10",
+        "short": "Indication For Product Use",
         "definition": "This field contains coded representation of the problem or diagnosis for which the product was used. See Chapter 2 for some coding systems which might be chosen to transmit diagnoses or problems. Refer to Table 0672 - Indication For Product Use in Chapter 2C for valid values.",
         "code": [
           {
@@ -301,7 +301,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -309,8 +309,8 @@
       {
         "id": "PCR.11",
         "path": "PCR.11",
-        "short": "PCR-11",
-        "definition": "A product problem would exist if a product malfunction could lead to death or serious injury. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70245[_User-defined Table 0245 - Product Problem_] for suggested values.",
+        "short": "Product Problem",
+        "definition": "A product problem would exist if a product malfunction could lead to death or serious injury. Refer to {{v2-table:0245:Product Problem}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -330,7 +330,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -338,7 +338,7 @@
       {
         "id": "PCR.12",
         "path": "PCR.12",
-        "short": "PCR-12",
+        "short": "Product Serial/Lot Number",
         "definition": "This field is an alphanumeric descriptor which identifies the specific item or lot of drug. This descriptor would normally be obtained from the package labeling or item itself.",
         "code": [
           {
@@ -355,11 +355,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -367,7 +367,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -376,8 +376,8 @@
       {
         "id": "PCR.13",
         "path": "PCR.13",
-        "short": "PCR-13",
-        "definition": "This field indicates that the product is available for analysis. _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70246[User-defined Table 0246 -Product Available for Inspection]_ is used as the HL7 identifier for the user-defined table of values for this field. If the product was returned to the manufacturer, this would be indicated by including the date it was returned in the date product returned to manufacturer element.",
+        "short": "Product Available For Inspection",
+        "definition": "This field indicates that the product is available for analysis. {{v2-table:0246:Product Available for Inspection}}_ is used as the HL7 identifier for the user-defined table of values for this field. If the product was returned to the manufacturer, this would be indicated by including the date it was returned in the date product returned to manufacturer element.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -397,7 +397,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -405,7 +405,7 @@
       {
         "id": "PCR.14",
         "path": "PCR.14",
-        "short": "PCR-14",
+        "short": "Product Evaluation Performed",
         "definition": "This field indicates the type of product evaluation performed. The evaluation codes listed in SubPart B of the Coding Manual for FDA Form 3500A, \"Type of Evaluation Performed,\" may be used. If no codes are available, text may be sent in the second component of the field. Refer to Table 0673 - Product Evaluation Performed in Chapter 2C for valid values.",
         "code": [
           {
@@ -426,7 +426,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -434,8 +434,8 @@
       {
         "id": "PCR.15",
         "path": "PCR.15",
-        "short": "PCR-15",
-        "definition": "This field identifies the status of product evaluation. Subpart A Item H.3 of the Coding Manual for FDA Form 3500A may also be used. If no codes are available, text may be sent in the second component of the field. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70247[_HL7 Table 0247 - Status of Evaluation_] for valid values.",
+        "short": "Product Evaluation Status",
+        "definition": "This field identifies the status of product evaluation. Subpart A Item H.3 of the Coding Manual for FDA Form 3500A may also be used. If no codes are available, text may be sent in the second component of the field. Refer to {{v2-table:0247:Status of Evaluation}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -455,7 +455,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -463,7 +463,7 @@
       {
         "id": "PCR.16",
         "path": "PCR.16",
-        "short": "PCR-16",
+        "short": "Product Evaluation Results",
         "definition": "This field contains the results of the product evaluation. Refer to Table 0674 - Product Evaluation Results in Chapter 2C for valid values.",
         "code": [
           {
@@ -484,7 +484,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -492,8 +492,8 @@
       {
         "id": "PCR.17",
         "path": "PCR.17",
-        "short": "PCR-17",
-        "definition": "This field contains the source of the product evaluated. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70248[_HL7 Table 0248 - Product Source_] for valid values.",
+        "short": "Evaluated Product Source",
+        "definition": "This field contains the source of the product evaluated. Refer to {{v2-table:0248:Product Source}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -513,11 +513,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -534,7 +534,7 @@
       {
         "id": "PCR.18",
         "path": "PCR.18",
-        "short": "PCR-18",
+        "short": "Date Product Returned To Manufacturer",
         "definition": "If the product was returned to the manufacturer, this field contains the date it was returned.",
         "code": [
           {
@@ -551,7 +551,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -559,8 +559,8 @@
       {
         "id": "PCR.19",
         "path": "PCR.19",
-        "short": "PCR-19",
-        "definition": "This field identifies the qualification of the person operating the device when the event occurred. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70242[_HL7 Table 0242 - Primary Observer's Qualification_] for valid values.",
+        "short": "Device Operator Qualifications",
+        "definition": "This field identifies the qualification of the person operating the device when the event occurred. Refer to {{v2-table:0242:Primary Observer's Qualification}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -580,11 +580,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -601,8 +601,8 @@
       {
         "id": "PCR.20",
         "path": "PCR.20",
-        "short": "PCR-20",
-        "definition": "This field represents the assessment of relatedness of the product to the event. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70250[_HL7 Table 0250 - Relatedness Assessment_] for valid values.",
+        "short": "Relatedness Assessment",
+        "definition": "This field represents the assessment of relatedness of the product to the event. Refer to {{v2-table:0250:Relatedness Assessment}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -622,11 +622,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -643,8 +643,8 @@
       {
         "id": "PCR.21",
         "path": "PCR.21",
-        "short": "PCR-21",
-        "definition": "This field indicates the action taken as a result of the event. Segment may repeat if multiple categories of evidence are relevant. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70251[_HL7 Table 0251 - Action Taken in Response to the Event_] for valid values.",
+        "short": "Action Taken In Response To The Event",
+        "definition": "This field indicates the action taken as a result of the event. Segment may repeat if multiple categories of evidence are relevant. Refer to {{v2-table:0251:Action Taken in Response to the Event}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -664,11 +664,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -685,8 +685,8 @@
       {
         "id": "PCR.22",
         "path": "PCR.22",
-        "short": "PCR-22",
-        "definition": "This field contains observations made about the event which may bear on causality. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70252[_HL7 Table 0252 - Causality Observations_] for valid values. Segment may repeat if multiple categories of evidence are relevant.",
+        "short": "Event Causality Observations",
+        "definition": "This field contains observations made about the event which may bear on causality. Refer to {{v2-table:0252:Causality Observations}} for valid values. Segment may repeat if multiple categories of evidence are relevant.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -706,11 +706,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -727,8 +727,8 @@
       {
         "id": "PCR.23",
         "path": "PCR.23",
-        "short": "PCR-23",
-        "definition": "The patient identified in the PID segment, who experienced the event, might have been exposed to the potential causal product via an intermediary, e.g., a child might be exposed to a product through the placenta or in breast milk, or a transfusion recipient might be exposed via a blood product. If this is the case, the mechanism of product transmission is identified in this field, using the valid values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70253[_HL7 Table 0253 - Indirect Exposure Mechanism_]. If this field is populated, the identity of the person through whom the product was transmitted is contained in NK1 and RXE segments which follow.",
+        "short": "Indirect Exposure Mechanism",
+        "definition": "The patient identified in the PID segment, who experienced the event, might have been exposed to the potential causal product via an intermediary, e.g., a child might be exposed to a product through the placenta or in breast milk, or a transfusion recipient might be exposed via a blood product. If this is the case, the mechanism of product transmission is identified in this field, using the valid values in {{v2-table:0253:Indirect Exposure Mechanism}}. If this field is populated, the identity of the person through whom the product was transmitted is contained in NK1 and RXE segments which follow.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -748,11 +748,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

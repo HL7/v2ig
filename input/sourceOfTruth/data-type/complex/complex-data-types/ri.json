@@ -30,7 +30,7 @@
         "id": "RI.1",
         "path": "RI.1",
         "short": "Repeat Pattern",
-        "defintion": "*Definition:* The repeating frequency with which the treatment is to be administered. It is similar to the frequency and SIG code tables used in order entry systems.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70335[_User-de__fined Table 0335 - Repeat Pattern_] for suggested values.\n\n\n\nThe first component may repeat, with repeat values separated by a space. The repeats are interpreted as connected by logical ANDs.\n\n\n\nExample:\nTwice per day, every other day: BID QOD\n\n\n\nThree times per day, Monday Wednesday and Friday: TID QJ135\n\n\n\nBecause of this syntax, repeat values should never contain blanks.\n",
+        "defintion": "*Definition:* The repeating frequency with which the treatment is to be administered. It is similar to the frequency and SIG code tables used in order entry systems.\n\n\n\nRefer to {{v2-table:0335:Repeat Pattern}} for suggested values.\n\n\n\nThe first component may repeat, with repeat values separated by a space. The repeats are interpreted as connected by logical ANDs.\n\n\n\nExample:\nTwice per day, every other day: BID QOD\n\n\n\nThree times per day, Monday Wednesday and Friday: TID QJ135\n\n\n\nBecause of this syntax, repeat values should never contain blanks.\n",
         "min": 0,
         "max": "1",
         "type": [

@@ -1,5 +1,4 @@
 module V2FHIR
-  puts "I AM LOADED"
   module_function
   
   def escape_adoc(str)

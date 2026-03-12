@@ -121,7 +121,7 @@
         "id": "XON.6",
         "path": "XON.6",
         "short": "Assigning Authority",
-        "defintion": "*Definition:* The assigning authority is a unique identifier of the system (or organization or agency or department) that creates the data. Assigning authorities are unique across a given HL7 implementation. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70363[_User-defined Table 0363 - Assigning_ _Authorit__y_] for suggested values.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300_ _- Namespace ID_] (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment. +\n\n+\n\nBy site agreement, implementers may continue to use file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 – N__amespace ID_] for the first sub-component.\n",
+        "defintion": "*Definition:* The assigning authority is a unique identifier of the system (or organization or agency or department) that creates the data. Assigning authorities are unique across a given HL7 implementation. Refer to {{v2-table:0363:Assigning Authority}} for suggested values.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, {{v2-table:0300:Namespace ID}} (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment. +\n\n+\n\nBy site agreement, implementers may continue to use {{v2-table:0300:Namespace ID}} for the first sub-component.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -144,7 +144,7 @@
         "id": "XON.7",
         "path": "XON.7",
         "short": "Identifier Type Code",
-        "defintion": "*Definition:* A code corresponding to the type of identifier. In some cases, this code may be used as a qualifier to the \"Assigning authority\" component. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70203[_HL7 Table 0203 - Iden__tifier Typ__e_] for suggested values.\n",
+        "defintion": "*Definition:* A code corresponding to the type of identifier. In some cases, this code may be used as a qualifier to the \"Assigning authority\" component. Refer to {{v2-table:0203:Identifier Type}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -180,7 +180,7 @@
         "id": "XON.8",
         "path": "XON.8",
         "short": "Assigning Facility",
-        "defintion": "*Definition:* The place or location identifier where the identifier was first assigned to the person. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[User-defined Table 0300 - Namespace ID] (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n",
+        "defintion": "*Definition:* The place or location identifier where the identifier was first assigned to the person. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, {{v2-table:0300:Namespace ID}} (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -199,7 +199,7 @@
         "id": "XON.9",
         "path": "XON.9",
         "short": "Name Representation Code",
-        "defintion": "*Definition:* Different <name/address types> and representations of the same <name/address> should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* This new component remains in “alphabetic” representation with each repetition of the field using these data types, i.e. even though the name may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70465[_HL7 Table 0465 – Name/address Representation Code_] for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
+        "defintion": "*Definition:* Different <name/address types> and representations of the same <name/address> should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* This new component remains in “alphabetic” representation with each repetition of the field using these data types, i.e. even though the name may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to {{v2-table:0465:Name/address Representation Code}} for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
         "min": 0,
         "max": "1",
         "type": [

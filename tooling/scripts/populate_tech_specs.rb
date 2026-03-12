@@ -88,7 +88,7 @@ module V2FHIR
                 errors[:sections] << num
                 puts Rainbow(num).red
                 puts "Excel #{index + 2}: #{row}"
-                raise 'crap'
+                raise "Unrecognized section number format: #{num} (CSV row #{index + 2})"
               end
             end
           end

@@ -12,12 +12,12 @@ FIXME - I think these tables should be part of the I22 tab set stuff
 
 [width="99%",cols="33%,47%,9%,11%",options="header",]
 |===
-|[\{ GSfile:///D:\Eigene%20Dateien\2018\HL7\Standards\v2.9%20May\716%20-%20New.doc##NK1[P] }] |Person Gender and Sex | |3
+|[\{ GSP }] |Person Gender and Sex | |3
 |[\{ GSR }] |Recorded Gender and Sex | |3
 |[\{ GSC }] |Sex Parameter for Clinical Use | |3
 |[\{ |--- NEXT_OF_KIN begin | |
-|file:///D:\Eigene%20Dateien\2018\HL7\Standards\v2.9%20May\716%20-%20New.doc##NK1[NK1] |Next of Kin / Associated Parties | |3
-|[\{ file:///D:\Eigene%20Dateien\2018\HL7\Standards\v2.9%20May\716%20-%20New.doc##NK1[GSP] }] |Person Gender and Sex | |3
+|NK1 |Next of Kin / Associated Parties | |3
+|[\{ GSP }] |Person Gender and Sex | |3
 |[\{ GSR }] |Recorded Gender and Sex | |3
 |}] |--- NEXT_OF_KIN end | |
 |===

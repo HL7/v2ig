@@ -26,7 +26,7 @@
       {
         "id": "OH1.1",
         "path": "OH1.1",
-        "short": "OH1-1",
+        "short": "Set ID",
         "definition": "This field contains the number that identifies the OH1 segment instances in message structures where the OH1 segment repeats. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,8 +51,8 @@
       {
         "id": "OH1.2",
         "path": "OH1.2",
-        "short": "OH1-2",
-        "definition": "This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to file:///D:\\Eigene%20Dateien\\2018\\HL7\\Standards\\v2.9%20Jan%202019\\v29%20CH2C%20Table%200206[*_HL7 Table 0206 – Segment Action Code_*] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Action Code",
+        "definition": "This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -72,11 +72,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -93,8 +93,8 @@
       {
         "id": "OH1.3",
         "path": "OH1.3",
-        "short": "OH1-3",
-        "definition": "This field contains a code defining the employment status of a person during the associated time. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70957[_HL7 Table 0957 – Employment Status (ODH)_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Employment Status",
+        "definition": "This field contains a code defining the employment status of a person during the associated time. Refer to {{v2-table:0957:Employment Status (ODH)}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -114,7 +114,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -122,7 +122,7 @@
       {
         "id": "OH1.4",
         "path": "OH1.4",
-        "short": "OH1-4",
+        "short": "Employment Status Start Date",
         "definition": "This field asserts when the employment status began.",
         "code": [
           {
@@ -139,7 +139,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -147,7 +147,7 @@
       {
         "id": "OH1.5",
         "path": "OH1.5",
-        "short": "OH1-5",
+        "short": "Employment Status End Date",
         "definition": "This field asserts when the employment status ended. If employment status is current, Employment Status End Date should be empty.",
         "comment": "*Note:* The Employment Status End Date SHALL not be greater than the time the observation is made (OH1-6 Entered Date).",
         "code": [
@@ -165,7 +165,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -173,7 +173,7 @@
       {
         "id": "OH1.6",
         "path": "OH1.6",
-        "short": "OH1-6",
+        "short": "Entered Date",
         "definition": "This field records the date that the information was entered into the patient record.",
         "code": [
           {
@@ -190,7 +190,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -198,7 +198,7 @@
       {
         "id": "OH1.7",
         "path": "OH1.7",
-        "short": "OH1-7",
+        "short": "Employment Status Unique Identifier",
         "definition": "This field contains a value that uniquely identifies a single employment status for a person.",
         "code": [
           {
@@ -215,7 +215,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

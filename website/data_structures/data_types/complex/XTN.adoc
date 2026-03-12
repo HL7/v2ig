@@ -31,8 +31,10 @@
 
 The field would be transmitted as follows:
 
-[er7]
+[.er7]
+....
 ^WPN^PH^^^626^5551234^1234^333
+....
 
 .Example 3: speed dial. In this example, assume that a corporation's telephone system supports speed dialing numbers. For example, suppose that a corporation has a contract with a travel agency, whose external number is 1-610-555-1234. Since it is so frequently dialed, the company assigns a speed code: #6098. The components would be:
 [width="100%",cols="42%,58%",options="header",]
@@ -45,8 +47,10 @@ The field would be transmitted as follows:
 
 The field would be transmitted as follows:
 
-[er7]
+[.er7]
+....
 ^WPN^PH^^^610^5551234^^^#6098
+....
 
 .Example 4: home e-mail address. In this example, assume that a person has a primary home e-mail address such as someone@somewhere.com. The components would be:
 [width="100%",cols="56%,44%",options="header",]
@@ -59,8 +63,10 @@ The field would be transmitted as follows:
 
 The field would be transmitted as follows:
 
-[er7]
+[.er7]
+....
 ^PRN^Internet^someone@somewhere.com
+....
 
 .Example 5: work e-mail address. In this example, assume that a person has a work e-mail address such as someone@somewhere.com. The components would be:
 [width="100%",cols="54%,46%",options="header",]
@@ -73,8 +79,10 @@ The field would be transmitted as follows:
 
 The field would be transmitted as follows:
 
-[er7]
+[.er7]
+....
 ^WPN^Internet^someone@somewhere.com
+....
 
 include::XTN-components/XTN-1.adoc[]
 

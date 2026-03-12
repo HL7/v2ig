@@ -26,7 +26,7 @@
       {
         "id": "PSG.1",
         "path": "PSG.1",
-        "short": "PSG-1",
+        "short": "Provider Product/Service Group Number",
         "definition": "Unique Product/Service Group Number assigned by the Provider Application.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "PSG.2",
         "path": "PSG.2",
-        "short": "PSG-2",
+        "short": "Payer Product/Service Group Number",
         "definition": "Unique Product/Service Group Number assigned by the Payer Application",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -76,7 +76,7 @@
       {
         "id": "PSG.3",
         "path": "PSG.3",
-        "short": "PSG-3",
+        "short": "Product/Service Group Sequence Number",
         "definition": "Unique sequence number for the Product/Service Group (3) – starts with 1, then 2, etc. for each unique Product/Service Group in this Invoice.",
         "code": [
           {
@@ -93,11 +93,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -114,8 +114,8 @@
       {
         "id": "PSG.4",
         "path": "PSG.4",
-        "short": "PSG-4",
-        "definition": "Adjudicate all Product/Service Line Items together as a group (IPRs will be reported against the Product/Service Group). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 – Yes/No Indicator_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Adjudicate as Group",
+        "definition": "Adjudicate all Product/Service Line Items together as a group (IPRs will be reported against the Product/Service Group). Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -135,11 +135,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -156,7 +156,7 @@
       {
         "id": "PSG.5",
         "path": "PSG.5",
-        "short": "PSG-5",
+        "short": "Product/Service Group Billed Amount",
         "definition": "Sum of all Product/Service Billed Amounts for all Product/Service Line Items for this Product/Service Group.",
         "code": [
           {
@@ -173,7 +173,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -181,7 +181,7 @@
       {
         "id": "PSG.6",
         "path": "PSG.6",
-        "short": "PSG-6",
+        "short": "Product/Service Group Description",
         "definition": "Product/Service Group description or heading",
         "code": [
           {
@@ -198,11 +198,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -210,7 +210,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }

@@ -14,8 +14,10 @@ s:
 
 |123.7^kg| kilograms is an ISO unit
 
-[er7]
+[.er7]
+....
 |150^lb&&ANSI+| weight in pounds is a customary US unit defined within ANSI+.
+....
 
 include::CQ-components/CQ-1.adoc[]
 

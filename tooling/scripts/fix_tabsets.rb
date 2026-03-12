@@ -21,7 +21,7 @@ def fix_tabsets(dir, dry_run = false)
       end
       event_id = lines[2].slice(/(?<=Event )\w\w\w/)
       event_ids = lines[2].slice(/(?<=Events )\w\w\w and \w\w\w/)&.split(/\s+and\s+/)&.map(&:strip) unless event_id
-      raise if event_id == /var/i || event_ids&.first =~ /var/i
+      raise "Unexpected 'var' in event id from #{file}" if event_id =~ /var/i || event_ids&.first =~ /var/i
       unless event_id || event_ids
         puts lines
         raise "No event id in #{lines[2]} from #{file}" 
@@ -37,11 +37,9 @@ def fix_tabsets(dir, dry_run = false)
       end
       # puts File.basename(file)
       if dry_run
-        # next
         puts content
         puts
       else
-        raise
         File.open(file, 'w') { |f| f.puts content }
       end
       

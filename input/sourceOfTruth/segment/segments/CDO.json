@@ -26,7 +26,7 @@
       {
         "id": "CDO.1",
         "path": "CDO.1",
-        "short": "CDO-1",
+        "short": "Set ID – CDO",
         "definition": "For the first cumulative dose specification transmitted, the sequence number shall be 1; for the second cumulative dose, it shall be 2; and so on.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,8 +64,8 @@
       {
         "id": "CDO.2",
         "path": "CDO.2",
-        "short": "CDO-2",
-        "definition": "The Action Code indicates whether the cumulative dosage segment is intended to be added, deleted, updated, or did not change. If the field is not valued in any CDO segments for the order, the segments are considered to have been sent in snapshot mode. If some but not all CDO segments for the order do not have the action code valued, the default value is Add. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70206[_HL7 Table 0206 - Segment Action Code_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Action Code",
+        "definition": "The Action Code indicates whether the cumulative dosage segment is intended to be added, deleted, updated, or did not change. If the field is not valued in any CDO segments for the order, the segments are considered to have been sent in snapshot mode. If some but not all CDO segments for the order do not have the action code valued, the default value is Add. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -85,11 +85,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -106,7 +106,7 @@
       {
         "id": "CDO.3",
         "path": "CDO.3",
-        "short": "CDO-3",
+        "short": "Cumulative Dosage Limit",
         "definition": "The Cumulative Dosage indicates the total dosage that may be administered within the scope of this order or within the interval indicated in _CDO-4 Cumulative Dosage Time Interval_, if supplied",
         "code": [
           {
@@ -123,7 +123,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -131,9 +131,9 @@
       {
         "id": "CDO.4",
         "path": "CDO.4",
-        "short": "CDO-4",
+        "short": "Cumulative Dosage Limit Time Interval",
         "definition": "The Cumulative Dosage Time Interval indicates the interval over which the cumulative dosage in _CDO-3 Cumulative Dosage Limit_ is measured. If this field is not valued, the Cumulative Dosage Limit applies to the scope of the order.",
-        "comment": "Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70924[_HL7 Table 924 – Cumulative Dosage Limit UoM_] in Chapter 2C, Code Tables, for a list of suggested values, including applicable values from UCUM.",
+        "comment": "Refer to {{v2-table:924:Cumulative Dosage Limit UoM}} in Chapter 2C, Code Tables, for a list of suggested values, including applicable values from UCUM.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -153,7 +153,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

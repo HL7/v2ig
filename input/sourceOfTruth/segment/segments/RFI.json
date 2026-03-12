@@ -26,7 +26,7 @@
       {
         "id": "RFI.1",
         "path": "RFI.1",
-        "short": "RFI-1",
+        "short": "Request Date",
         "definition": "",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "RFI.2",
         "path": "RFI.2",
-        "short": "RFI-2",
+        "short": "Response Due Date",
         "definition": "The latest date by which the additional information is to be returned to requestor.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -76,8 +76,8 @@
       {
         "id": "RFI.3",
         "path": "RFI.3",
-        "short": "RFI-3",
-        "definition": "Code indicating if the Payer has obtained patient consent for release of information (1) – Optional. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 – Yes/No Indicator_] for suggested values.",
+        "short": "Patient Consent",
+        "definition": "Code indicating if the Payer has obtained patient consent for release of information (1) – Optional. Refer to {{v2-table:0136:Yes/No Indicator}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -97,11 +97,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -118,7 +118,7 @@
       {
         "id": "RFI.4",
         "path": "RFI.4",
-        "short": "RFI-4",
+        "short": "Date Additional Information Was Submitted",
         "definition": "The date on which the information was assembled for transmission to the Payer. Not necessarily the same as the message date.",
         "code": [
           {
@@ -135,7 +135,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -55,7 +55,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -65,7 +65,7 @@
         "id": "ECD.2",
         "path": "ECD.2",
         "short": "ECD-2",
-        "definition": "This field identifies the command that the component is to initiate. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70368[User-defined Table 0368 – Remote Control Comman]d_ in Chapter 2C, Code Tables, for valid values. Refer to LECIS standard for details.",
+        "definition": "This field identifies the command that the component is to initiate. Refer to {{v2-table:0368:Remote Control Command}} in Chapter 2C, Code Tables, for valid values. Refer to LECIS standard for details.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -85,7 +85,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -94,7 +94,7 @@
         "id": "ECD.3",
         "path": "ECD.3",
         "short": "ECD-3",
-        "definition": "This field identifies the mode of synchronization that is to be used in relation to the execution of the command. \"Y\" (Yes) means that the response is required immediately after execution; \"N\" (No) response is not required at all. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 – Yes/no Indicator_] for valid values.",
+        "definition": "This field identifies the mode of synchronization that is to be used in relation to the execution of the command. \"Y\" (Yes) means that the response is required immediately after execution; \"N\" (No) response is not required at all. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -114,11 +114,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -147,7 +147,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -173,7 +173,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

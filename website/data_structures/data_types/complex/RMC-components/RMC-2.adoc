@@ -3,5 +3,5 @@
 [datatype-definition]
 Specifies amount quantity type.
 
-Refer to file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70146[_User-defined Table 0146 – Amount Type_] for suggested values.
+Refer to {{v2-table:0146:Amount Type}} for suggested values.
 

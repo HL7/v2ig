@@ -15,7 +15,7 @@
       "valueCode" : "can-bind"
     }
   ],
-  "url" : "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+  "url" : "http://hl7.org/v2/StructureDefinition/v2-segment-status",
   "name" : "V2SegmentStatus",
   "title" : "HL7 v2 Segment Status Extension",
   "status" : "draft",
@@ -53,7 +53,7 @@
       {
         "id" : "Extension.url",
         "path" : "Extension.url",
-        "fixedUri" : "http://hl7.org/fhir/StructureDefinition/v2-segment-status"
+        "fixedUri" : "http://hl7.org/v2/StructureDefinition/v2-segment-status"
       },
       {
         "id" : "Extension.extension",

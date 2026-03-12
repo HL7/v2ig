@@ -26,8 +26,8 @@
       {
         "id": "MSA.1",
         "path": "MSA.1",
-        "short": "MSA-1",
-        "definition": "This field contains an acknowledgment code, see message processing rules. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70008[_HL7 Table 0008 - Acknowledgment Code_] for valid values.",
+        "short": "Acknowledgment Code",
+        "definition": "This field contains an acknowledgment code, see message processing rules. Refer to {{v2-table:0008:Acknowledgment Code}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,11 +47,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -68,7 +68,7 @@
       {
         "id": "MSA.2",
         "path": "MSA.2",
-        "short": "MSA-2",
+        "short": "Message Control ID",
         "definition": "This field contains the message control ID of the message sent by the sending system. It allows the sending system to associate this response with the message for which it is intended.",
         "code": [
           {
@@ -85,11 +85,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -102,7 +102,7 @@
             ]
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -110,7 +110,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -119,7 +119,7 @@
       {
         "id": "MSA.3",
         "path": "MSA.3",
-        "short": "MSA-3",
+        "short": "Text Message",
         "comment": "*Attention: The _MSA-3_ was deprecated as of v 2.4* and the detail was withdrawn and removed from the standard as of v 2.7**. The reader is referred to the ERR segment. The ERR segment allows for richer descriptions of the erroneous conditions.**",
         "code": [
           {
@@ -131,7 +131,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -139,7 +139,7 @@
       {
         "id": "MSA.4",
         "path": "MSA.4",
-        "short": "MSA-4",
+        "short": "Expected Sequence Number",
         "definition": "This optional numeric field is used in the sequence number protocol.",
         "code": [
           {
@@ -156,7 +156,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -164,7 +164,7 @@
       {
         "id": "MSA.5",
         "path": "MSA.5",
-        "short": "MSA-5",
+        "short": "Delayed Acknowledgment Type",
         "comment": "*Attention: The _MSA-5_ was deprecated as of v2.2* and the detail was withdrawn and removed from the standard as of v 2.5.",
         "code": [
           {
@@ -176,7 +176,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -184,7 +184,7 @@
       {
         "id": "MSA.6",
         "path": "MSA.6",
-        "short": "MSA-6",
+        "short": "Error Condition",
         "comment": "*Attention: The _MSA-3_ was deprecated as of v 2.4* and the detail was withdrawn and removed from the standard as of v 2.7**. The reader is referred to the ERR segment. The ERR segment allows for richer descriptions of the erroneous conditions.**",
         "code": [
           {
@@ -196,7 +196,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -204,7 +204,7 @@
       {
         "id": "MSA.7",
         "path": "MSA.7",
-        "short": "MSA-7",
+        "short": "Message Waiting Number",
         "definition": "If present, indicates the number of messages the Acknowledging Application has waiting on a queue for the Requesting Application. These messages would then need to be retrieved via a query. This facilitates receiving applications that cannot receive unsolicited message (i.e., polling).",
         "comment": "For example, if there are 3 low priority messages, 1 medium priority message and 1 high priority message, the message waiting number would be 5, because that is the total number of messages.\n\nUse Case: An application that is playing a \"requesting\" role has limited network access to a centralized application playing a receiving role. When the requesting application contacts the acknowledging application with a regular update or query message, the acknowledging application replies with the appropriate response message, along with an indication that there are urgent messages waiting. The requesting application submits a query to retrieve the queued messages.",
         "code": [
@@ -222,7 +222,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -230,9 +230,9 @@
       {
         "id": "MSA.8",
         "path": "MSA.8",
-        "short": "MSA-8",
+        "short": "Message Waiting Priority",
         "definition": "If present, indicates that the Sending Application has messages waiting on a queue for the Receiving Application. These messages would then need to be retrieved via a query. This facilitates receiving applications that cannot receive unsolicited messages (i.e., polling). The code specified identifies how important the most important waiting message is (and can govern how soon the receiving application is required to poll for the message).",
-        "comment": "For example, if there are 3 low priority messages, 1 medium priority message and 1 high priority message, the message waiting priority would be 'high', because that is the highest priority of any message waiting.\n\nWith some applications, there is no guarantee that the sending application will be running. The receiving application is therefore unable to submit unsolicited messages. To mitigate this, a polling approach is used where the receiving application requests any queued messages when it is connected. To avoid the network overhead of continuous polling, the sending application needs a way to indicate that there are queued messages awaiting retrieval. It is also useful to provide an indication of the importance of those messages to indicate how quickly they must be retrieved.\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70520[_HL7 Table 0520 - Message Waiting Priority_] in Chapter 2C, Code Tables, for valid values.\n\nSee MSA-7 above for Use Case.",
+        "comment": "For example, if there are 3 low priority messages, 1 medium priority message and 1 high priority message, the message waiting priority would be 'high', because that is the highest priority of any message waiting.\n\nWith some applications, there is no guarantee that the sending application will be running. The receiving application is therefore unable to submit unsolicited messages. To mitigate this, a polling approach is used where the receiving application requests any queued messages when it is connected. To avoid the network overhead of continuous polling, the sending application needs a way to indicate that there are queued messages awaiting retrieval. It is also useful to provide an indication of the importance of those messages to indicate how quickly they must be retrieved.\n\nRefer to {{v2-table:0520:Message Waiting Priority}} in Chapter 2C, Code Tables, for valid values.\n\nSee MSA-7 above for Use Case.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -252,11 +252,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

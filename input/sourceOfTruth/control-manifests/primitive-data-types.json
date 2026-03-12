@@ -12,52 +12,76 @@
   },
   "entry": [
     {
-      "code": "DT",
-      "display": "Date"
+      "item": {
+        "reference": "StructureDefinition/DT",
+        "display": "Date"
+      }
     },
     {
-      "code": "DTM",
-      "display": "Date/Time"
+      "item": {
+        "reference": "StructureDefinition/DTM",
+        "display": "Date/Time"
+      }
     },
     {
-      "code": "FT",
-      "display": "Formatted Text"
+      "item": {
+        "reference": "StructureDefinition/FT",
+        "display": "Formatted Text"
+      }
     },
     {
-      "code": "GTS",
-      "display": "General Timing Specification"
+      "item": {
+        "reference": "StructureDefinition/GTS",
+        "display": "General Timing Specification"
+      }
     },
     {
-      "code": "ID",
-      "display": "Coded Value for HL7-defined CodeSystems"
+      "item": {
+        "reference": "StructureDefinition/ID",
+        "display": "Coded Value for HL7-defined CodeSystems"
+      }
     },
     {
-      "code": "IS",
-      "display": "Coded Value for User-defined CodeSystems"
+      "item": {
+        "reference": "StructureDefinition/IS",
+        "display": "Coded Value for User-defined CodeSystems"
+      }
     },
     {
-      "code": "NM",
-      "display": "Numeric"
+      "item": {
+        "reference": "StructureDefinition/NM",
+        "display": "Numeric"
+      }
     },
     {
-      "code": "SI",
-      "display": "Sequence ID"
+      "item": {
+        "reference": "StructureDefinition/SI",
+        "display": "Sequence ID"
+      }
     },
     {
-      "code": "SNM",
-      "display": "String of Telephone Number Digits"
+      "item": {
+        "reference": "StructureDefinition/SNM",
+        "display": "String of Telephone Number Digits"
+      }
     },
     {
-      "code": "ST",
-      "display": "String"
+      "item": {
+        "reference": "StructureDefinition/ST",
+        "display": "String"
+      }
     },
     {
-      "code": "TM",
-      "display": "Time"
+      "item": {
+        "reference": "StructureDefinition/TM",
+        "display": "Time"
+      }
     },
     {
-      "code": "TX",
-      "display": "Text"
+      "item": {
+        "reference": "StructureDefinition/TX",
+        "display": "Text"
+      }
     }
   ]
 }

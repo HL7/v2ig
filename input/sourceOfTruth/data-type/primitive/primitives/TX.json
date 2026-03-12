@@ -1,51 +1,45 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "TX",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "TX",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/TX",
-  "version" : "0.0.1",
-  "name" : "V2_TX_Data_Type",
-  "title" : "HL7 v2 TX Data Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "string",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/string",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "url": "http://hl7.org/v2/StructureDefinition/TX",
+  "version": "0.0.1",
+  "name": "TX",
+  "title": "HL7 v2 TX Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/TX",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "String data intended for display or printing. Unlike the ST data type, leading whitespace is significant and should be preserved. The TX data type is used for free-text fields where the content is meant for human interpretation. Trailing whitespace may be removed.",
+  "differential": {
+    "element": [
       {
-        "id" : "string.id",
-        "path" : "string.id",
-        "max" : "0"
-      },
-      {
-        "id" : "string.extension",
-        "path" : "string.extension",
-        "max" : "0"
+        "id": "TX",
+        "path": "TX",
+        "short": "Text Data",
+        "definition": "String data intended for display or printing. Unlike the ST data type, leading whitespace is significant and should be preserved. Used for free-text fields where the content is meant for human interpretation.",
+        "min": 0,
+        "max": "*"
       }
     ]
   }

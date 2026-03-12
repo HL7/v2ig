@@ -62,7 +62,7 @@
         "id": "SRT.2",
         "path": "SRT.2",
         "short": "Sequencing",
-        "defintion": "*Definition:* Identifies how the field or parameter will be sorted; and, if sorted, whether the sort will be case sensitive (the default) or not. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70397[_HL7 Table 0__397 –_ _Sequencing_] for valid values\n",
+        "defintion": "*Definition:* Identifies how the field or parameter will be sorted; and, if sorted, whether the sort will be case sensitive (the default) or not. Refer to {{v2-table:0397:Sequencing}} for valid values\n",
         "min": 0,
         "max": "1",
         "type": [

@@ -15,7 +15,7 @@
       "valueCode" : "can-bind"
     }
   ],
-  "url" : "http://hl7.org/fhir/StructureDefinition/optionality",
+  "url" : "http://hl7.org/v2/StructureDefinition/optionality",
   "name" : "V2Optionality",
   "title" : "HL7 v2 Optionality Extension",
   "status" : "draft",
@@ -57,7 +57,7 @@
       {
         "id" : "Extension.url",
         "path" : "Extension.url",
-        "fixedUri" : "http://hl7.org/fhir/StructureDefinition/optionality"
+        "fixedUri" : "http://hl7.org/v2/StructureDefinition/optionality"
       },
       {
         "id" : "Extension.extension",

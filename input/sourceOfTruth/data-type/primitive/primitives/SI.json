@@ -1,57 +1,45 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "SI",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "SI",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/SI",
-  "version" : "0.0.1",
-  "name" : "SI",
-  "title" : "HL7 v2 SI Primtive Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME add from v2",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "integer",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/integer",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "url": "http://hl7.org/v2/StructureDefinition/SI",
+  "version": "0.0.1",
+  "name": "SI",
+  "title": "HL7 v2 SI Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/SI",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "A non-negative integer in the range of 0 to 9999. The SI (Sequence ID) data type is used to number repetitions of a segment or field within a message. The first repetition is numbered 1, the second 2, and so on. A value of 0 is used in certain fields to indicate that this segment is not included in the set.",
+  "differential": {
+    "element": [
       {
-        "id" : "integer",
-        "path" : "integer",
-        "minValueInteger" : 0,
-        "maxValueInteger" : 9999   
-      },
-      {
-        "id" : "integer.id",
-        "path" : "integer.id",
-        "max" : "0"
-      },
-      {
-        "id" : "integer.extension",
-        "path" : "integer.extension",
-        "max" : "0"
+        "id": "SI",
+        "path": "SI",
+        "short": "Sequence ID",
+        "definition": "A non-negative integer in the range of 0 to 9999, used to number repetitions of a segment or field within a message. The first repetition is numbered 1, the second 2, and so on. A value of 0 may indicate that the segment is not included in the set.",
+        "min": 0,
+        "max": "*"
       }
     ]
   }

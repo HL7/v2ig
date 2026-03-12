@@ -26,7 +26,7 @@
       {
         "id": "FAC.1",
         "path": "FAC.1",
-        "short": "FAC-1",
+        "short": "Facility ID-FAC",
         "definition": "This field contains the facility identifier.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,8 +51,8 @@
       {
         "id": "FAC.2",
         "path": "FAC.2",
-        "short": "FAC-2",
-        "definition": "This field contains the type of facility. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70331[_HL7 Table 0331 - Facility Type_] for valid values.",
+        "short": "Facility Type",
+        "definition": "This field contains the type of facility. Refer to {{v2-table:0331:Facility Type}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -72,11 +72,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -93,7 +93,7 @@
       {
         "id": "FAC.3",
         "path": "FAC.3",
-        "short": "FAC-3",
+        "short": "Facility Address",
         "definition": "This field contains the facility's address.",
         "code": [
           {
@@ -110,7 +110,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -118,7 +118,7 @@
       {
         "id": "FAC.4",
         "path": "FAC.4",
-        "short": "FAC-4",
+        "short": "Facility Telecommunication",
         "definition": "This field contains the facility's telecommunication information.",
         "code": [
           {
@@ -135,7 +135,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -143,7 +143,7 @@
       {
         "id": "FAC.5",
         "path": "FAC.5",
-        "short": "FAC-5",
+        "short": "Contact Person",
         "definition": "This field contains the primary contact person's name.",
         "code": [
           {
@@ -160,7 +160,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -168,7 +168,7 @@
       {
         "id": "FAC.6",
         "path": "FAC.6",
-        "short": "FAC-6",
+        "short": "Contact Title",
         "definition": "This field contains the primary contact person's title.",
         "code": [
           {
@@ -185,11 +185,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -197,7 +197,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -206,7 +206,7 @@
       {
         "id": "FAC.7",
         "path": "FAC.7",
-        "short": "FAC-7",
+        "short": "Contact Address",
         "definition": "This field contains the primary contact person's address.",
         "code": [
           {
@@ -223,7 +223,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -231,7 +231,7 @@
       {
         "id": "FAC.8",
         "path": "FAC.8",
-        "short": "FAC-8",
+        "short": "Contact Telecommunication",
         "definition": "This field contains the primary contact person's telecommunication information.",
         "code": [
           {
@@ -248,7 +248,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -256,7 +256,7 @@
       {
         "id": "FAC.9",
         "path": "FAC.9",
-        "short": "FAC-9",
+        "short": "Signature Authority",
         "definition": "This field contains the name of the individual with signature authority or who is responsible for the report.",
         "code": [
           {
@@ -273,7 +273,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -281,7 +281,7 @@
       {
         "id": "FAC.10",
         "path": "FAC.10",
-        "short": "FAC-10",
+        "short": "Signature Authority Title",
         "definition": "This field contains the title of the individual with signature authority or who is responsible for this report.",
         "code": [
           {
@@ -298,11 +298,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -310,7 +310,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -319,7 +319,7 @@
       {
         "id": "FAC.11",
         "path": "FAC.11",
-        "short": "FAC-11",
+        "short": "Signature Authority Address",
         "definition": "This field contains the address of the individual with signature authority or who is responsible for this report.",
         "code": [
           {
@@ -336,7 +336,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -344,7 +344,7 @@
       {
         "id": "FAC.12",
         "path": "FAC.12",
-        "short": "FAC-12",
+        "short": "Signature Authority Telecommunication",
         "definition": "This field contains the telecommunication information of the individual with signature authority of who is responsible for this report.",
         "code": [
           {
@@ -361,7 +361,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

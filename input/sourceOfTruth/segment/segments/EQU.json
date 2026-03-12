@@ -44,7 +44,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -69,7 +69,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -78,7 +78,7 @@
         "id": "EQU.3",
         "path": "EQU.3",
         "short": "EQU-3",
-        "definition": "This field identifies the status that the equipment was in at the time that the transaction was initiated. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70365[_HL7 Table 0365 – Equipment State_] in Chapter 2C, Code Tables, for valid values. The Equipment State is required in the ESU message and is optional otherwise.",
+        "definition": "This field identifies the status that the equipment was in at the time that the transaction was initiated. Refer to {{v2-table:0365:Equipment State}} in Chapter 2C, Code Tables, for valid values. The Equipment State is required in the ESU message and is optional otherwise.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -98,7 +98,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -107,7 +107,7 @@
         "id": "EQU.4",
         "path": "EQU.4",
         "short": "EQU-4",
-        "definition": "This field identifies the current state of control associated with the equipment. An equipment can either work autonomously ('Local' control state) or it can be controlled by another system, e.g., LAS computer ('Remote' control state). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70366[_HL7 Table 0366 – Local/Remote Control State_] in Chapter 2C, Code Tables, for valid values.",
+        "definition": "This field identifies the current state of control associated with the equipment. An equipment can either work autonomously ('Local' control state) or it can be controlled by another system, e.g., LAS computer ('Remote' control state). Refer to {{v2-table:0366:Local/Remote Control State}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -127,7 +127,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -136,7 +136,7 @@
         "id": "EQU.5",
         "path": "EQU.5",
         "short": "EQU-5",
-        "definition": "This field identifies the highest level of the alert state (e.g., highest alert severity) that is associated with the indicated equipment (e.g., processing event, inventory event, QC event). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70367[_HL7 Table 0367 – Alert Level_] in Chapter 2C, Code Tables, for valid values.",
+        "definition": "This field identifies the highest level of the alert state (e.g., highest alert severity) that is associated with the indicated equipment (e.g., processing event, inventory event, QC event). Refer to {{v2-table:0367:Alert Level}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -156,7 +156,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -181,7 +181,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

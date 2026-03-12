@@ -1,47 +1,46 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "SNM",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "SNM",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/SNM",
-  "version" : "0.0.1",
-  "name" : "V2_SNM_Data_Type",
-  "title" : "HL7 v2 SNM Data Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "string",
-  "baseDefinition" : "http://hl7.org/v2/StructureDefinition/ST",
-  "derivation" : "constraint",
-  "_comment" : [{
-    "differential" : {
-      "element" : [{
-        "id" : "ST.value",
-        "path" : "ST.value",
-        "regex" : "/^\\+?\\d+$/"
-      }]
-    }    
-  }]
+  "url": "http://hl7.org/v2/StructureDefinition/SNM",
+  "version": "0.0.1",
+  "name": "SNM",
+  "title": "HL7 v2 SNM Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/SNM",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "A string of telephone number digits consisting of an optional leading '+' character followed by one or more digit characters (0-9). No spaces, dashes, parentheses, or other formatting characters are permitted. The '+' prefix, when present, indicates an international dialing prefix.",
+  "differential": {
+    "element": [
+      {
+        "id": "SNM",
+        "path": "SNM",
+        "short": "String of Telephone Number Digits",
+        "definition": "A string of telephone number digits consisting of an optional leading '+' character followed by one or more digit characters (0-9). No spaces, dashes, parentheses, or other formatting characters are permitted.",
+        "min": 0,
+        "max": "*"
+      }
+    ]
+  }
 }

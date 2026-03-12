@@ -26,7 +26,7 @@
       {
         "id": "MCP.1",
         "path": "MCP.1",
-        "short": "MCP-1",
+        "short": "Set ID - MCP",
         "definition": "_MCP-1 - set ID - MCP_ contains the number that identifies this transaction. For the first occurrence the sequence number shall be 1, for the second occurrence it shall be 2, etc. The Set ID in the MCP segment is used to uniquely identify the segment. There are likely multiple instances of Universal Service Identifier, Diagnosis and Procedure code.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "MCP.2",
         "path": "MCP.2",
-        "short": "MCP-2",
+        "short": "Producer's Service/Test/Observation ID",
         "definition": "This field contains the producer's usual or preferred identification of the test or observation. Only three components should be included: <ID code>^<service text name/description>^<source list of code>. All components should be non-null.",
         "code": [
           {
@@ -81,7 +81,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -89,7 +89,7 @@
       {
         "id": "MCP.3",
         "path": "MCP.3",
-        "short": "MCP-3",
+        "short": "Universal Service Price Range – Low Value",
         "definition": "Specifies the lowest price for the Universal Service that needs to be disclosed on the payer notification to the patient (for example Medicare ABN). If there is a single price for this Universal Service Identifier, MCP-3 is not valued.",
         "comment": "Components:  <Quantity (NM)> ^ <Denomination (ID)>\n\nExample: MCP|||35.00^USD|75.00^USD",
         "code": [
@@ -107,7 +107,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -115,7 +115,7 @@
       {
         "id": "MCP.4",
         "path": "MCP.4",
-        "short": "MCP-4",
+        "short": "Universal Service Price Range – High Value",
         "definition": "Specifies the highest price for the Universal Service that needs to be disclosed on the payer notification to the patient (for example Medicare ABN). If there is a single price for this Universal Service Identifier, it is valued in this field.",
         "comment": "Components:  <Quantity (NM)> ^ <Denomination (ID)>\n\nExample of MCP-4 where price of test is $65.00 and there are no variants to the cost:\n\nMCP||||65.00^USD\n\nExample of MCP-3 and MCP-4 value when the price of test is variable and can range from $35.00 (low) to $75.00 (high)\n\nMCP||||$35.00^USD|75.00^USD",
         "code": [
@@ -133,7 +133,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -141,7 +141,7 @@
       {
         "id": "MCP.5",
         "path": "MCP.5",
-        "short": "MCP-5",
+        "short": "Reason for Universal Service Cost Range",
         "definition": "Specifies the reason for the interval between the lowest and the highest price for the Universal Service, for example additional testing (reflex test) that is added based on values of the initial test. There maybe some instances when the value between MCP-3 and MCP-4 is not significant enough to warrant a reason as defined by health authorities.",
         "comment": "Condition: This is conditionally required when MCP-3 is valued.",
         "code": [
@@ -159,7 +159,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]

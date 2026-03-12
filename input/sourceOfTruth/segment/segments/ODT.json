@@ -26,8 +26,8 @@
       {
         "id": "ODT.1",
         "path": "ODT.1",
-        "short": "ODT-1",
-        "definition": "This field defines the type of dietary tray. Refer To file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70160[HL7 Table 0160 - Tray Type] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Tray Type",
+        "definition": "This field defines the type of dietary tray. Refer To {{v2-table:0160:Tray Type}} in Chapter 2C, Code Tables, for valid entries.",
         "comment": "Tray specifications are useful for early and late tray delivery in cases where a patient undergoes a procedure during normal feeding times. Tray specifications can also be used for guest trays, no trays, and messages. The value MSG means the ODT segment does not specify the type of tray but provides additional information about an existing tray. This information is found in ODT-3-text instruction.",
         "code": [
           {
@@ -48,7 +48,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -56,7 +56,7 @@
       {
         "id": "ODT.2",
         "path": "ODT.2",
-        "short": "ODT-2",
+        "short": "Service Period",
         "definition": "When blank, the modifier applies to all service periods. This field allows you to designate one or more of the feeding periods during a day by combining the codes as needed. It can also combine with quantity/timing to give such information as which service period the order belongs with. This field is identical in meaning with ODS-2-service period. See section _4.8.1.2_, \"_ODS-2 Service Period_ (CWE) 00270,\" for further details. Refer to Table 0629 - Service Period in Chapter 2C for valid values.",
         "code": [
           {
@@ -77,7 +77,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -85,7 +85,7 @@
       {
         "id": "ODT.3",
         "path": "ODT.3",
-        "short": "ODT-3",
+        "short": "Text Instruction",
         "definition": "This field defines instructions associated with the tray. Example:",
         "comment": "|PLASTIC SILVERWARE|.",
         "code": [
@@ -103,11 +103,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -115,7 +115,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }

@@ -26,7 +26,7 @@
       {
         "id": "ILT.1",
         "path": "ILT.1",
-        "short": "ILT-1",
+        "short": "Set Id - ILT",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "ILT.2",
         "path": "ILT.2",
-        "short": "ILT-2",
+        "short": "Inventory  Number",
         "definition": "This field contains the lot number of the service item in inventory.",
         "comment": "*Note:* The lot number is the number printed on the label attached to the item or container holding the substance. If the substance is a vaccine, for example, and a diluent is required, a lot number may appear on the vial containing the diluent; however, any such identifier associated with a diluent is not the identifier of interest. The substance lot number should be reported, not that of the diluent.\n\nNote:",
         "code": [
@@ -82,11 +82,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -94,7 +94,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -103,7 +103,7 @@
       {
         "id": "ILT.3",
         "path": "ILT.3",
-        "short": "ILT-3",
+        "short": "Inventory Expiration Date",
         "definition": "This field contains the expiration date of the service item in inventory.",
         "comment": "*Note:* Expiration date does not always have a \"day\" component; therefore, such a date may be transmitted as YYYYMM.",
         "code": [
@@ -121,7 +121,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -129,7 +129,7 @@
       {
         "id": "ILT.4",
         "path": "ILT.4",
-        "short": "ILT-4",
+        "short": "Inventory Received Date",
         "definition": "This field contains the most recent date that the product in question was received into inventory.",
         "code": [
           {
@@ -146,7 +146,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -154,7 +154,7 @@
       {
         "id": "ILT.5",
         "path": "ILT.5",
-        "short": "ILT-5",
+        "short": "Inventory Received Quantity",
         "definition": "This field contains the quantity of this inventory item that was received on the date specific in _ILT-4 Inventory Received Date_ field.",
         "code": [
           {
@@ -171,11 +171,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -183,7 +183,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -192,8 +192,8 @@
       {
         "id": "ILT.6",
         "path": "ILT.6",
-        "short": "ILT-6",
-        "definition": "This field specifies the unit for the _Inventory Received Quantity_. See file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70818[_User-defined Table 0818 – Package_] as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Inventory Received Quantity Unit",
+        "definition": "This field specifies the unit for the _Inventory Received Quantity_. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -213,7 +213,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -221,7 +221,7 @@
       {
         "id": "ILT.7",
         "path": "ILT.7",
-        "short": "ILT-7",
+        "short": "Inventory Received Item Cost",
         "definition": "This field contains the per-unit cost of the inventory item at the time of receipt. _ILT-6 Inventory Received Quantity Unit_ field specifies the per-unit basis of this field.",
         "code": [
           {
@@ -238,7 +238,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -246,7 +246,7 @@
       {
         "id": "ILT.8",
         "path": "ILT.8",
-        "short": "ILT-8",
+        "short": "Inventory On Hand Date",
         "definition": "This field specifies the most recent date that an inventory count was performed for the inventory item.",
         "code": [
           {
@@ -263,7 +263,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -271,7 +271,7 @@
       {
         "id": "ILT.9",
         "path": "ILT.9",
-        "short": "ILT-9",
+        "short": "Inventory On Hand Quantity",
         "definition": "This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use.",
         "code": [
           {
@@ -288,11 +288,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -300,7 +300,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -309,8 +309,8 @@
       {
         "id": "ILT.10",
         "path": "ILT.10",
-        "short": "ILT-10",
-        "definition": "This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use. See file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70818[_User-defined Table 0818 – Package_] as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Inventory On Hand Quantity Unit",
+        "definition": "This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -330,7 +330,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

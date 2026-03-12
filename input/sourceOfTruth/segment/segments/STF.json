@@ -26,7 +26,7 @@
       {
         "id": "STF.1",
         "path": "STF.1",
-        "short": "STF-1",
+        "short": "Primary Key Value – STF",
         "definition": "For MFN Master File Notification, this field is required and must match _MFE-4 Primary Key Value_ to identify which entry is being referenced. For all other messages, this field should not be used. Refer to Table 0786 - Primary Key Value – STF in Chapter 2C for valid values.",
         "code": [
           {
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -55,8 +55,8 @@
       {
         "id": "STF.2",
         "path": "STF.2",
-        "short": "STF-2",
-        "definition": "This field contains the list of identifiers (one or more) used by the institution to identify this person. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[_HL7 Table 0061 - Check Digit Scheme_] (component 2), file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70203[_User-defined Table 0203 - Identifier Type_] (component 5) and file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70363[_User-defined Table 0363 - Assigning Authority_] (component 4) for valid values (see Chapter 2A). If a Staff Member has institution identifiers that are valid only in specific organization units, that Staff identifier should be recorded in the _ORG Practitioner Organization Unit_ segment.",
+        "short": "Staff Identifier List",
+        "definition": "This field contains the list of identifiers (one or more) used by the institution to identify this person. Refer to {{v2-table:0061:Check Digit Scheme}} (component 2), {{v2-table:0203:Identifier Type}} (component 5) and {{v2-table:0363:Assigning Authority}} (component 4) for valid values (see Chapter 2A). If a Staff Member has institution identifiers that are valid only in specific organization units, that Staff identifier should be recorded in the _ORG Practitioner Organization Unit_ segment.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -76,7 +76,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -84,7 +84,7 @@
       {
         "id": "STF.3",
         "path": "STF.3",
-        "short": "STF-3",
+        "short": "Staff Name",
         "definition": "This field contains the staff person's name. This field may repeat to transmit multiple names for the same person.",
         "code": [
           {
@@ -101,7 +101,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -109,8 +109,8 @@
       {
         "id": "STF.4",
         "path": "STF.4",
-        "short": "STF-4",
-        "definition": "This field contains a code identifying what type of staff. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70182[_User-defined Table 0182 - Staff type_] in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values. Values may include codes for staff, practitioner, referral agent or agency, etc. This field may repeat to allow for staff to be assigned multiple types.",
+        "short": "Staff Type",
+        "definition": "This field contains a code identifying what type of staff. Refer to {{v2-table:0182:Staff type}} in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values. Values may include codes for staff, practitioner, referral agent or agency, etc. This field may repeat to allow for staff to be assigned multiple types.",
         "comment": "Typically, this field would be populated with the most granular types that may be associated with the staff. If less granular typing or categorization of the staff is required in addition to the specific type(s) found in this field, the reader is referred to _STF-39 Generic Resource Type or Category_. Thus, while STF-4 may contain the code for a specific staff or practitioner type, STF-39 may contain \"staff\" or \"practitioner\". For further discussion of specific and generic types, the reader is referred to _STF-39 Generic Resource Type or Category_.",
         "code": [
           {
@@ -131,7 +131,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -139,8 +139,8 @@
       {
         "id": "STF.5",
         "path": "STF.5",
-        "short": "STF-5",
-        "definition": "This field contains the staff person's sex. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70001[_User-defined Table 0001 – Administrative Sex_] for suggested values.",
+        "short": "Administrative Sex",
+        "definition": "This field contains the staff person's sex. Refer to {{v2-table:0001:Administrative Sex}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -160,7 +160,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -168,7 +168,7 @@
       {
         "id": "STF.6",
         "path": "STF.6",
-        "short": "STF-6",
+        "short": "Date/Time of Birth",
         "definition": "This field contains a staff member's date and time of birth.",
         "code": [
           {
@@ -185,7 +185,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -193,8 +193,8 @@
       {
         "id": "STF.7",
         "path": "STF.7",
-        "short": "STF-7",
-        "definition": "This field indicates whether person is currently a valid staff member. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70183[HL7 Table 0183 - Active/Inactive]_ in Chapter 2C, Code Tables, for valid values. This table contains values for active or inactive.",
+        "short": "Active/Inactive Flag",
+        "definition": "This field indicates whether person is currently a valid staff member. Refer to {{v2-table:0183:Active/Inactive}}_ in Chapter 2C, Code Tables, for valid values. This table contains values for active or inactive.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -214,11 +214,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -235,8 +235,8 @@
       {
         "id": "STF.8",
         "path": "STF.8",
-        "short": "STF-8",
-        "definition": "This field contains the institution department to which this person reports or belongs. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70184[User-defined Table 0184 - Departmen]t_ in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values.",
+        "short": "Department",
+        "definition": "This field contains the institution department to which this person reports or belongs. Refer to {{v2-table:0184:Department}} in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -256,7 +256,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -264,7 +264,7 @@
       {
         "id": "STF.9",
         "path": "STF.9",
-        "short": "STF-9",
+        "short": "Hospital Service – STF",
         "definition": "This field contains the hospital or ancillary service with which this staff person is associated. Refer to E:\\\\V2\\\\v2.9 final Nov from Frank\\\\V29_CH02C_Tables.docx#HL70069[_User-defined Table 0069 - Hospital Service_] in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
@@ -285,7 +285,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -293,7 +293,7 @@
       {
         "id": "STF.10",
         "path": "STF.10",
-        "short": "STF-10",
+        "short": "Phone",
         "definition": "This field contains the staff person's phone number. This is a repeating field with a component for indicating which phone number is which.",
         "code": [
           {
@@ -310,7 +310,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -318,7 +318,7 @@
       {
         "id": "STF.11",
         "path": "STF.11",
-        "short": "STF-11",
+        "short": "Office/Home Address/Birthplace",
         "definition": "This field contains the office, and home address and/or place of birth of the staff person. This is a repeating field. The address type identifies the usage.",
         "code": [
           {
@@ -335,7 +335,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -343,8 +343,8 @@
       {
         "id": "STF.12",
         "path": "STF.12",
-        "short": "STF-12",
-        "definition": "This field contains the date when staff became active for an institution. This is a repeating field. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70537[_User-defined Table 0537 - Institution_] in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
+        "short": "Institution Activation Date",
+        "definition": "This field contains the date when staff became active for an institution. This is a repeating field. Refer to {{v2-table:0537:Institution}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -364,7 +364,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -372,8 +372,8 @@
       {
         "id": "STF.13",
         "path": "STF.13",
-        "short": "STF-13",
-        "definition": "This field contains the date when staff became inactive for an institution. This is a repeating field. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70537[_HL7 Table 0537 - Institution_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Institution Inactivation Date",
+        "definition": "This field contains the date when staff became inactive for an institution. This is a repeating field. Refer to {{v2-table:0537:Institution}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -393,7 +393,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -401,7 +401,7 @@
       {
         "id": "STF.14",
         "path": "STF.14",
-        "short": "STF-14",
+        "short": "Backup Person ID",
         "definition": "This field contains the _MFE-4 Primary Key Value_ of the master file entry that corresponds to the designated backup person for this staff person.",
         "code": [
           {
@@ -418,7 +418,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -426,7 +426,7 @@
       {
         "id": "STF.15",
         "path": "STF.15",
-        "short": "STF-15",
+        "short": "E-Mail Address",
         "definition": "*_This field has been retained for backward compatibility._* (It is now present in the fourth component of _STF-10 Phone_).",
         "code": [
           {
@@ -443,11 +443,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -455,7 +455,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -464,8 +464,8 @@
       {
         "id": "STF.16",
         "path": "STF.16",
-        "short": "STF-16",
-        "definition": "This field indicates which of a group of multiple phone numbers is the preferred method of contact for this person. Note that all values of this code refer to this segment's phone field, except for the value \"E,\" which refers to the E-mail address field. If more than one phone number of the preferred type exists in _STF-10-phone_, this field refers to the first such instance. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70185[_HL7 Table_ _0185 - Preferred Method of Contact_] in Chapter 2C, Code Tables, for valid values. This table contains values for beeper, cell phone etc.",
+        "short": "Preferred Method of Contact",
+        "definition": "This field indicates which of a group of multiple phone numbers is the preferred method of contact for this person. Note that all values of this code refer to this segment's phone field, except for the value \"E,\" which refers to the E-mail address field. If more than one phone number of the preferred type exists in _STF-10-phone_, this field refers to the first such instance. Refer to {{v2-table:0185:Preferred Method of Contact}} in Chapter 2C, Code Tables, for valid values. This table contains values for beeper, cell phone etc.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -485,7 +485,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -493,8 +493,8 @@
       {
         "id": "STF.17",
         "path": "STF.17",
-        "short": "STF-17",
-        "definition": "This field contains the staff member's marital status. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70002[_User-defined Table 0002 - Marital Status_] in Chapter 2C, Code Tables, for suggested values. Same values as those for _PID-16 Marital Status_.",
+        "short": "Marital Status",
+        "definition": "This field contains the staff member's marital status. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values. Same values as those for _PID-16 Marital Status_.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -514,7 +514,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -522,7 +522,7 @@
       {
         "id": "STF.18",
         "path": "STF.18",
-        "short": "STF-18",
+        "short": "Job Title",
         "definition": "This field contains a descriptive name of the staff member's occupation (e.g., Sr. Systems Analyst, Sr. Accountant).",
         "code": [
           {
@@ -539,11 +539,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -551,7 +551,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -560,8 +560,8 @@
       {
         "id": "STF.19",
         "path": "STF.19",
-        "short": "STF-19",
-        "definition": "This field contains the staff member's job code and employee classification. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70327[_User-defined Table 0327 - Job Code_] and file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70328[_User-defined Table 0328 - Employee Classification_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Job Code/Class",
+        "definition": "This field contains the staff member's job code and employee classification. Refer to {{v2-table:0327:Job Code}} and {{v2-table:0328:Employee Classification}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -581,7 +581,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -589,8 +589,8 @@
       {
         "id": "STF.20",
         "path": "STF.20",
-        "short": "STF-20",
-        "definition": "This field contains the code that indicates the staff member's employment status, e.g., full-time, part-time, self-employed, etc. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70066[_User-defined Table 0066 - Employment Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Employment Status Code",
+        "definition": "This field contains the code that indicates the staff member's employment status, e.g., full-time, part-time, self-employed, etc. Refer to {{v2-table:0066:Employment Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -610,7 +610,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -618,8 +618,8 @@
       {
         "id": "STF.21",
         "path": "STF.21",
-        "short": "STF-21",
-        "definition": "This field contains an indicator for whether the present institution is named as an additional insured on the staff member's auto insurance, especially for use when staff is a driver for the institution. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Additional Insured on Auto",
+        "definition": "This field contains an indicator for whether the present institution is named as an additional insured on the staff member's auto insurance, especially for use when staff is a driver for the institution. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y indicates that the institution is named as an additional insured\n\nN indicates that the institution is not named as an additional insured",
         "code": [
           {
@@ -640,11 +640,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -661,7 +661,7 @@
       {
         "id": "STF.22",
         "path": "STF.22",
-        "short": "STF-22",
+        "short": "Driver's License Number – Staff",
         "definition": "This field contains the driver's license information of staff, especially for use when staff is a driver for the institution. For state or province refer to official postal codes for that country; for country refer to ISO 3166 for codes.",
         "code": [
           {
@@ -678,7 +678,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -686,8 +686,8 @@
       {
         "id": "STF.23",
         "path": "STF.23",
-        "short": "STF-23",
-        "definition": "This field contains an indicator for whether the institution has on file a copy of the staff member's auto insurance, especially for use when staff is a driver for the institution. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Copy Auto Ins",
+        "definition": "This field contains an indicator for whether the institution has on file a copy of the staff member's auto insurance, especially for use when staff is a driver for the institution. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y indicates that the institution has a copy on file\n\nN indicates that the institution does not have a copy on file",
         "code": [
           {
@@ -708,11 +708,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -729,7 +729,7 @@
       {
         "id": "STF.24",
         "path": "STF.24",
-        "short": "STF-24",
+        "short": "Auto Ins Expires",
         "definition": "This field contains the date on which the staff member's driver's license expires, especially for use when staff is a driver for the institution.",
         "code": [
           {
@@ -746,7 +746,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -754,7 +754,7 @@
       {
         "id": "STF.25",
         "path": "STF.25",
-        "short": "STF-25",
+        "short": "Date Last DMV Review",
         "definition": "This field contains the date of the staff member's most recent Department of Motor Vehicles review, especially for use when staff is a driver for the institution.",
         "code": [
           {
@@ -771,7 +771,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -779,7 +779,7 @@
       {
         "id": "STF.26",
         "path": "STF.26",
-        "short": "STF-26",
+        "short": "Date Next DMV Review",
         "definition": "This field contains the date of the staff member's next Department of Motor Vehicles review, especially for use when staff is a driver for the institution.",
         "code": [
           {
@@ -796,7 +796,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -804,8 +804,8 @@
       {
         "id": "STF.27",
         "path": "STF.27",
-        "short": "STF-27",
-        "definition": "This field refers to the person's race. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70005[_User-defined Table 0005 - Race_] in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.",
+        "short": "Race",
+        "definition": "This field refers to the person's race. Refer to {{v2-table:0005:Race}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -825,7 +825,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -833,8 +833,8 @@
       {
         "id": "STF.28",
         "path": "STF.28",
-        "short": "STF-28",
-        "definition": "This field further defines the person's ancestry. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70189[_User-defined Table 0189 - Ethnic Group_] in Chapter 2C, Code Tables, for suggested values. The second couplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the United States, a current use is to report ethnicity in line with US federal standards for Hispanic origin.",
+        "short": "Ethnic Group",
+        "definition": "This field further defines the person's ancestry. Refer to {{v2-table:0189:Ethnic Group}} in Chapter 2C, Code Tables, for suggested values. The second couplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the United States, a current use is to report ethnicity in line with US federal standards for Hispanic origin.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -854,7 +854,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -862,8 +862,8 @@
       {
         "id": "STF.29",
         "path": "STF.29",
-        "short": "STF-29",
-        "definition": "This field contains an indicator for whether the re-activation of this record requires special approval. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Re-activation Approval Indicator",
+        "definition": "This field contains an indicator for whether the re-activation of this record requires special approval. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the re-activation requires approval\n\nN this re-activation does not require approval",
         "code": [
           {
@@ -884,11 +884,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -905,8 +905,8 @@
       {
         "id": "STF.30",
         "path": "STF.30",
-        "short": "STF-30",
-        "definition": "This field contains the staff person's current country of citizenship. HL7 recommends using ISO table 3166 as the suggested values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70171[_User-defined Table 0171 - Citizenship_] (in Chapter 2C, Code Tables).",
+        "short": "Citizenship",
+        "definition": "This field contains the staff person's current country of citizenship. HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0171:Citizenship}} (in Chapter 2C, Code Tables).",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -926,7 +926,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -934,7 +934,7 @@
       {
         "id": "STF.31",
         "path": "STF.31",
-        "short": "STF-31",
+        "short": "Date/Time of Death",
         "definition": "This field contains the date and time at which the staff person death occurred.",
         "code": [
           {
@@ -951,7 +951,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -959,8 +959,8 @@
       {
         "id": "STF.32",
         "path": "STF.32",
-        "short": "STF-32",
-        "definition": "This field indicates whether the staff person is deceased. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Death Indicator",
+        "definition": "This field indicates whether the staff person is deceased. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the staff person is deceased +\n\nN the staff person is not deceased",
         "code": [
           {
@@ -981,11 +981,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -1002,8 +1002,8 @@
       {
         "id": "STF.33",
         "path": "STF.33",
-        "short": "STF-33",
-        "definition": "This field specifies the relationship the staff person has with the institution for whom he/she provides services. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70538[_User–defined Table 0538 – Institution Relationship Type_] in Chapter 2C, Code Tables, for suggested values. This table contains values for employee, volunteer, etc.",
+        "short": "Institution Relationship Type Code",
+        "definition": "This field specifies the relationship the staff person has with the institution for whom he/she provides services. Refer to {{v2-table:0538:Institution Relationship Type}} in Chapter 2C, Code Tables, for suggested values. This table contains values for employee, volunteer, etc.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1023,7 +1023,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1031,7 +1031,7 @@
       {
         "id": "STF.34",
         "path": "STF.34",
-        "short": "STF-34",
+        "short": "Institution Relationship Period",
         "definition": "This field contains the period during which the staff person started and ended the relationship specified in _STF-33 Institution Relationship Type Code_.",
         "code": [
           {
@@ -1048,7 +1048,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1056,7 +1056,7 @@
       {
         "id": "STF.35",
         "path": "STF.35",
-        "short": "STF-35",
+        "short": "Expected Return Date",
         "definition": "This field contains the date on which an inactive staff member expects to return to work.",
         "code": [
           {
@@ -1073,7 +1073,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1081,8 +1081,8 @@
       {
         "id": "STF.36",
         "path": "STF.36",
-        "short": "STF-36",
-        "definition": "This field describes the organization unit in the General Ledger to which the staff member is currently assigned. It is sometimes referred to as the \"home\" cost center because it is the organization unit to which the staff member's regular costs are accrued. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70539[User-defined Table 0539 – Cost Center Code]_ in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
+        "short": "Cost Center Code",
+        "definition": "This field describes the organization unit in the General Ledger to which the staff member is currently assigned. It is sometimes referred to as the \"home\" cost center because it is the organization unit to which the staff member's regular costs are accrued. Refer to {{v2-table:0539:Cost Center Code}}_ in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1102,7 +1102,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1110,8 +1110,8 @@
       {
         "id": "STF.37",
         "path": "STF.37",
-        "short": "STF-37",
-        "definition": "This field describes whether or not this STF record represents an identifiable (i.e., real) human being or is a \"placeholder\" for one whose identity is not yet known. For example, work schedules may need to be created before the actual staff member has been hired, or appointments may be made with a floating resource who is not specifically known until the actual appointment date/time. Because these functions require a Staff Member ID code, it is important to distinguish whether or not the Staff Member is a real human resource or not. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] for valid values.",
+        "short": "Generic Classification Indicator",
+        "definition": "This field describes whether or not this STF record represents an identifiable (i.e., real) human being or is a \"placeholder\" for one whose identity is not yet known. For example, work schedules may need to be created before the actual staff member has been hired, or appointments may be made with a floating resource who is not specifically known until the actual appointment date/time. Because these functions require a Staff Member ID code, it is important to distinguish whether or not the Staff Member is a real human resource or not. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y indicates that the staff member is an identifiable human being\n\nN indicates that the staff member is not an identifiable human being",
         "code": [
           {
@@ -1132,11 +1132,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -1153,8 +1153,8 @@
       {
         "id": "STF.38",
         "path": "STF.38",
-        "short": "STF-38",
-        "definition": "This field contains the reason that the staff member is inactive. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70540[_User-defined Table 0540 – Inactive Reason Code_] in Chapter 2C, Code Tables, for suggested values. This table contains values for leave of absence, terminated, etc.",
+        "short": "Inactive Reason Code",
+        "definition": "This field contains the reason that the staff member is inactive. Refer to {{v2-table:0540:Inactive Reason Code}} in Chapter 2C, Code Tables, for suggested values. This table contains values for leave of absence, terminated, etc.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1174,7 +1174,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1182,8 +1182,8 @@
       {
         "id": "STF.39",
         "path": "STF.39",
-        "short": "STF-39",
-        "definition": "This field transmits a code that represents a high level categorization of resources. This is a companion field for the _STF-4 Staff Type_ and allows an institution or enterprise to impose [line-through]#a# one or more super category levels. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70771[_User-defined Table 0771 – Resource Type or Category_] in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values.",
+        "short": "Generic resource type or category",
+        "definition": "This field transmits a code that represents a high level categorization of resources. This is a companion field for the _STF-4 Staff Type_ and allows an institution or enterprise to impose [line-through]#a# one or more super category levels. Refer to {{v2-table:0771:Resource Type or Category}} in Chapter 2C, Code Tables, for suggested values. This table contains no suggested values.",
         "comment": "An enterprise might have more than one method to categorize or type resources at a high level. Therefore, this field can repeat.\n\nExample: An organization may define discreet staff types (e.g., Pediatric Oncologist, Gerontologist, Oncology Pharmacist, Pediatric Pharmacist, Critical Care Nurse, Nurse Case Manager – Cardiology) as well as broad categories (e.g., Physician, Pharmacist, Nurse, Pediatric, Oncology, Cardiology, Case Management, Nephrology). Employing STF-4 for the discreet terms and STF-39 for the more generic terms allows both the levels of granularity to be apply to the staff without confusing the specific types with generic types. Thus, one may see:\n\nExample: An organization may define discreet staff types (e.g., Pediatric Oncologist, Gerontologist, Oncology Pharmacist, Pediatric Pharmacist, Critical Care Nurse, Nurse Case Manager – Cardiology) as well as broad categories (e.g., Physician, Pharmacist, Nurse, Pediatric, Oncology, Cardiology, Case Management, Nephrology). Employing STF-4 for the discreet terms and STF-39 for the more generic terms allows both the levels of granularity to be apply to the staff without confusing the specific types with generic types. Thus, one may see:\n|===\n|STF-4 |STF-39\n|• Custodian |• Staff\n|• Non-clinical Nursing Supervisor |• Manager\n|• Pediatric Oncologist |• Physician ~ Pediatrics ~ Oncology\n|• Gerontologist |• Physician\n|• Oncology Pharmacist |• Pharmacist ~ Oncology\n|• Pediatric Pharmacist |• Pediatrics ~ Pharmacist\n|• Critical Care Nurse |• Nurse\n|• Nurse Case Manager – Cardiology |• Nurse ~ Cardiology ~ Case Management\n|===",
         "code": [
           {
@@ -1204,7 +1204,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1212,8 +1212,8 @@
       {
         "id": "STF.40",
         "path": "STF.40",
-        "short": "STF-40",
-        "definition": "This field contains the staff member's religion. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70006[_User-defined Table 0006 - Religion_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Religion",
+        "definition": "This field contains the staff member's religion. Refer to {{v2-table:0006:Religion}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1233,7 +1233,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1241,7 +1241,7 @@
       {
         "id": "STF.41",
         "path": "STF.41",
-        "short": "STF-41",
+        "short": "Signature",
         "definition": "Digital Signature of the staff member. The Digital Signature includes a seal concept and is verifiable.",
         "code": [
           {
@@ -1258,7 +1258,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

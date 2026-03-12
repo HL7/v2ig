@@ -26,7 +26,7 @@
       {
         "id": "BHS.1",
         "path": "BHS.1",
-        "short": "BHS-1",
+        "short": "Batch Field Separator",
         "definition": "This field contains the separator between the segment ID and the first real field, BHS-2 Batch Encoding Characters. As such it serves as the separator and defines the character to be used as a separator for the rest of the message. Recommended value is | (ASCII 124).",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "BHS.2",
         "path": "BHS.2",
-        "short": "BHS-2",
+        "short": "Batch Encoding Characters",
         "definition": "This field contains the five characters in the following order: the component separator, repetition separator, escape characters, subcomponent separator, and truncation character. Recommended values are ^~\\&# (ASCII 94, 126, 92, 38,and 35, respectively). See Section _2.4.4_, \"link:#message-delimiters[_Message delimiters_].\"",
         "code": [
           {
@@ -81,11 +81,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -102,7 +102,7 @@
       {
         "id": "BHS.3",
         "path": "BHS.3",
-        "short": "BHS-3",
+        "short": "Batch Sending Application",
         "definition": "This field uniquely identifies the sending application among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined.",
         "code": [
           {
@@ -119,7 +119,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -127,7 +127,7 @@
       {
         "id": "BHS.4",
         "path": "BHS.4",
-        "short": "BHS-4",
+        "short": "Batch Sending Facility",
         "definition": "This field contains the address of one of several occurrences of the same application within the sending system. Absent other considerations, the Medicare Provider ID might be used with an appropriate sub-identifier in the second component. Entirely site-defined.",
         "code": [
           {
@@ -144,7 +144,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -152,7 +152,7 @@
       {
         "id": "BHS.5",
         "path": "BHS.5",
-        "short": "BHS-5",
+        "short": "Batch Receiving Application",
         "definition": "This field uniquely identifies the receiving applications among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined.",
         "code": [
           {
@@ -169,7 +169,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -177,7 +177,7 @@
       {
         "id": "BHS.6",
         "path": "BHS.6",
-        "short": "BHS-6",
+        "short": "Batch Receiving Facility",
         "definition": "This field identifies the receiving application among multiple identical instances of the application running on behalf of different organizations. See comments _2.13.2.4_, \"_BHS-4 Batch Sending Facility (HD) 00084_.\" Entirely site-defined.",
         "code": [
           {
@@ -194,7 +194,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -202,7 +202,7 @@
       {
         "id": "BHS.7",
         "path": "BHS.7",
-        "short": "BHS-7",
+        "short": "Batch Creation Date/Time",
         "definition": "This field contains the date/time that the sending system created the message. If the time zone is specified, it will be used throughout the message as the default time zone.",
         "code": [
           {
@@ -219,7 +219,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -227,7 +227,7 @@
       {
         "id": "BHS.8",
         "path": "BHS.8",
-        "short": "BHS-8",
+        "short": "Batch Security",
         "definition": "In some applications of HL7, this field is used to implement security features. For codified expression of security tags using BHS-15 through BHS-17.",
         "code": [
           {
@@ -244,11 +244,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -256,7 +256,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -265,7 +265,7 @@
       {
         "id": "BHS.9",
         "path": "BHS.9",
-        "short": "BHS-9",
+        "short": "Batch Name/ID/Type",
         "definition": "This field can be used by the application processing the batch. It can have extra components if needed.",
         "comment": "*Note:* the text regarding \"extra components\" has been retained for backward compatibilityas of V2.5, but it is not currently an accepted format for the ST data type.",
         "code": [
@@ -283,11 +283,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -295,7 +295,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -304,7 +304,7 @@
       {
         "id": "BHS.10",
         "path": "BHS.10",
-        "short": "BHS-10",
+        "short": "Batch Comment",
         "definition": "This field is a comment field that is not further defined in the HL7 protocol.",
         "code": [
           {
@@ -321,11 +321,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -333,7 +333,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -342,7 +342,7 @@
       {
         "id": "BHS.11",
         "path": "BHS.11",
-        "short": "BHS-11",
+        "short": "Batch Control ID",
         "definition": "This field is used to uniquely identify a particular batch. It can be echoed back in BHS-12 Reference Batch Control ID if an answering batch is needed.",
         "code": [
           {
@@ -359,11 +359,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -371,7 +371,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -380,7 +380,7 @@
       {
         "id": "BHS.12",
         "path": "BHS.12",
-        "short": "BHS-12",
+        "short": "Reference Batch Control ID",
         "definition": "This field contains the value of BHS-11 Batch Control ID when this batch was originally transmitted. Not present if this batch is being sent for the first time. See definition for BHS-11 Batch Control ID.",
         "code": [
           {
@@ -397,11 +397,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -409,7 +409,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -418,7 +418,7 @@
       {
         "id": "BHS.13",
         "path": "BHS.13",
-        "short": "BHS-13",
+        "short": "Batch Sending Network Address",
         "definition": "Identifier of the network location the message was transmitted from. Identified by an OID or text string (e.g., URI). The reader is referred to the \"Report from the Joint W3C/IETF URI Planning Interest Group: Uniform Resource Identifiers (URIs), URLs, and Uniform Resource Names (URNs): Clarifications and Recommendations\".footnote:[The URI is: http://www.ietf.org/rfc/rfc3305.txt. Note: All IETF documents are available online, and RFCs are available through URIs using this format.]",
         "comment": "As with the Sending/Receiving Responsible Organization, the Sending Network Address provides a more detailed picture of the source of the message. This information is lower than the application layer, but is often useful/necessary for routing and identification purposes. This field SHALL only be populated when the underlying communication protocol does not support identification of sending network locations.\n\nThe specific values and usage must be site negotiated",
         "code": [
@@ -436,7 +436,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -444,7 +444,7 @@
       {
         "id": "BHS.14",
         "path": "BHS.14",
-        "short": "BHS-14",
+        "short": "Batch Receiving Network Address",
         "definition": "Identifier of the network location the message was transmitted to. Identified by an OID or text string. (e.g., URL).",
         "comment": "This is analogous with the Sending Network Address, however in the receiving role.\n\nThis field SHALL only be populated when the underlying communication protocol does not support identification receiving network locations.",
         "code": [
@@ -462,7 +462,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -470,7 +470,7 @@
       {
         "id": "BHS.15",
         "path": "BHS.15",
-        "short": "BHS-15",
+        "short": "Security Classification Tag",
         "definition": "This field defines the security classification (as defined by ISO/IEC 2382-8:1998(E/F)/ T-REC-X.812-1995) of an IT resource, in this case the message, which might be used to make access control decisions. It is conditionally required when MSH-27 or MSH-28 are used.",
         "comment": "Conditionality Predicate: Required if BHS-16 or BHS-17 or any contained FSH-16 or FSH-17 or MSH-26 or MSH-27 is valued, Optional if neither BHS-16 nor BHS-17 , nor any contained FSH-16 or FSH-17, nor MSH-26 nor MSH-27is valued.\"\n\nUse of this field supports the business requirement for declaring the level of confidentiality (classification) for a given message.\n\nRefer to Externally-defined HL7 Table 0952 – HL7 Confidentiality Code in Chapter 2C, Code Tables, for suggested values. Use of this table is recommended. The codes in this table are comprehensive, non-overlapping hierarchical codes: Very Restricted > Restricted > Normal > Moderate > Low > Unrestricted. Restrictions to a comprehensive, non-overlapping set of codes is required for purposes of access control system algorithms such as Bell–LaPadula Mode, which isl used to adjudicate access requests against privacy policies.",
         "code": [
@@ -492,7 +492,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -500,7 +500,7 @@
       {
         "id": "BHS.16",
         "path": "BHS.16",
-        "short": "BHS-16",
+        "short": "Security Handling Instructions",
         "definition": "This field is repeatable and conveys instructions to users and receivers for secure distribution, transmission, and storage; dictate obligations or mandated actions; specify any action prohibited by refrain policy such as dissemination controls; and stipulate the permissible purpose of use of an IT resource.",
         "comment": "Refer to HL7 Table 0953 – Security Control in Chapter 2C, Code Tables, for suggested values. –",
         "code": [
@@ -522,7 +522,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -530,7 +530,7 @@
       {
         "id": "BHS.17",
         "path": "BHS.17",
-        "short": "BHS-17",
+        "short": "Special Access Restriction Instructions",
         "definition": "Used to convey specific instructions about the protection of the patient's data , which must be rendered to end users in accordance with patient consent directive, organizational policy, or jurisdictional law. For example, in US law 42 CFR Part 2, disclosed information made with patient consent must include a renderable “Prohibition on re-disclosure” warning (§ 2.32[multiblock footnote omitted]) In addition, organizational policy MAY require that some or all of the ARV field privacy tag values be rendered to end users, e.g., marking a consult note with “Restricted Confidentiality” or with sensitivity tags such as “VIP” or “EMP” for employee of the organization.",
         "comment": "This field MAY also be used to specify instructions about the release of information to family and friends (e.g., \"Do not release information to patient's brother, Adam Everyman\"). These instructions could be in conjunction with other fields (as elected by the system).",
         "code": [
@@ -548,7 +548,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]

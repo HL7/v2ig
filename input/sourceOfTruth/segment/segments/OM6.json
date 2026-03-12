@@ -26,7 +26,7 @@
       {
         "id": "OM6.1",
         "path": "OM6.1",
-        "short": "OM6-1",
+        "short": "Sequence Number - Test/Observation Master File",
         "definition": "This field contains the same value as the sequence number of the associated OM1 segment.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -55,7 +55,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -64,7 +64,7 @@
       {
         "id": "OM6.2",
         "path": "OM6.2",
-        "short": "OM6-2",
+        "short": "Derivation Rule",
         "definition": "This field is used when there are patient variables that are derived from one or more other patient variables (e.g., creatinine clearance, ideal weight, maximum daily temperature, average glucose, framingham risk). This field contains the rules for deriving the value of this variable (i.e., nature code C, as given in _OM1-18 - Nature of Service/Test/Observation_). These can be described in terms of humanly understandable formulas or descriptions.",
         "comment": "When possible, however, they should be defined in terms of the Arden Syntax for specifying selection and transcendative functions and algebraic operations, ASTM E1460-92. Derivation rules that are represented in Arden Syntax should begin and end with an Arden slot delimiter (;;). Within this syntax, variables should be identified by _OM1-2 - Producer's Service/Test/Observation ID_. We recommend the use of the Arden Syntax because it permits the unambiguous specification of most such derived values and is a published standard for medical logic modules.",
         "code": [
@@ -82,7 +82,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

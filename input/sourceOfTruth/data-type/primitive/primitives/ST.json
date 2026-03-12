@@ -1,68 +1,45 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "ST",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "ST",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/ST",
-  "version" : "0.0.1",
-  "name" : "ST",
-  "title" : "HL7 v2 String Primitive Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME add from v2",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "string",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/string",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "url": "http://hl7.org/v2/StructureDefinition/ST",
+  "version": "0.0.1",
+  "name": "ST",
+  "title": "HL7 v2 ST Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/ST",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "A sequence of characters. The ST data type must include at least one non-whitespace character. Leading whitespace is not permitted. Trailing whitespace is permitted but will be removed. The HL7 v2 standard does not impose a maximum length for ST, but individual fields may specify length constraints.",
+  "differential": {
+    "element": [
       {
-        "id" : "string",
-        "path" : "string",
-        "constraint" : {
-          "key" : "st-1",
-          "severity" : "error",
-          "human" : {
-            "value" : "The value must include at least one non-whitespace character. Leading whitespace is forbidden."
-          },
-          "expression" : "string.value.matches('^\\S.*')"
-        }
-      },
-      {
-        "id" : "string.id",
-        "path" : "string.id",
-        "max" : "0"
-      },{
-        "id" : "string.extension",
-        "path" : "string.extension",
-        "max" : "0"
-      },{
-        "id" : "string.value",
-        "path" : "string.value",
-        "condition" : {
-          "value" : "st-1"
-        } 
+        "id": "ST",
+        "path": "ST",
+        "short": "String",
+        "definition": "A sequence of characters. The value must include at least one non-whitespace character. Leading whitespace is forbidden. Trailing whitespace may be present but is not significant.",
+        "min": 0,
+        "max": "*"
       }
     ]
   }

@@ -100,8 +100,10 @@ Character Repertoires supported by DICOM are defined in Part 5, section 6.1. The
 
 An individual whose birth name (geboortenaam) is de Haas and whose partner's name is Jongeneel.
 
-[er7]
+[.er7]
+....
 | Jongeneel-de Haas&de&Haas&&Jongeneel\^Irma^\^^Mevrouw\^^L |
+....
 
 [example]
 *Examples of names requiring more than one iteration of the field where the XPN is applied:*
@@ -116,8 +118,10 @@ An individual whose birth name (geboortenaam) is de Haas and whose partner's nam
 
 According to German law “Adelstitel” like “Graf” or “Baron” belongs to the family name and therefore must be encoded in the family name field separated by blanks.
 
-[er7]
+[.er7]
+....
 |Graf Lambsdorff&Graf&Lambsdorff\^Otto^\^^Dr.\^^L~Graf Lambsdorff&Graf&Lambsdorff\^Otto^\^mdB a.D.^Herr Dr.\^^D|
+....
 
 [example]
 11: Walter Kemper genannt (named) Mölleken

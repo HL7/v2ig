@@ -222,7 +222,7 @@
         "id": "CNN.7",
         "path": "CNN.7",
         "short": "Degree",
-        "defintion": "Used to specify an educational degree (e.g., MD). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70360[_User-defined Table 0360 – Degree/license/certificate_] in Chapter 2C, Code Tables, for suggested values.\n",
+        "defintion": "Used to specify an educational degree (e.g., MD). Refer to {{v2-table:0360:Degree/license/certificate}} in Chapter 2C, Code Tables, for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -258,7 +258,7 @@
         "id": "CNN.8",
         "path": "CNN.8",
         "short": "Source Table",
-        "defintion": "Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70297[_User-defined Table 0297 - CN ID source_] in Chapter 2C, Code Tables, for suggested values. Used to delineate the first component. If component 1 is valued, either _CNN.8_ or _CNN.9_, or both _CNN.10_ and _CNN.11_, must be valued.\n",
+        "defintion": "Refer to {{v2-table:0297:CN ID source}} in Chapter 2C, Code Tables, for suggested values. Used to delineate the first component. If component 1 is valued, either _CNN.8_ or _CNN.9_, or both _CNN.10_ and _CNN.11_, must be valued.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -294,7 +294,7 @@
         "id": "CNN.9",
         "path": "CNN.9",
         "short": "Assigning Authority - Namespace ID",
-        "defintion": "See section, _2A.2.14.4_, \"_Assigning Authority (HD)_\" for definition. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70363[_User-defined Table 0363 – Assigning Authority_] in Chapter 2C, Code Tables, for suggested values. Assigning Authority is normally expressed as an HD data type, but has been flattened to 3 components here (_CNN.9_, _CNN.10_ and _CNN.11_) in this data type so that it may be fully expressed. Also note that if additional components are added to the HD data type in the future, adjustment will need to be made accordingly to this data type.\n\n\n\nIf component 1 is valued, either _CNN.8_ or _CNN.9_, or both _CNN.10_ and _CNN.11_, must be valued.\n",
+        "defintion": "See section, _2A.2.14.4_, \"_Assigning Authority (HD)_\" for definition. Refer to {{v2-table:0363:Assigning Authority}} in Chapter 2C, Code Tables, for suggested values. Assigning Authority is normally expressed as an HD data type, but has been flattened to 3 components here (_CNN.9_, _CNN.10_ and _CNN.11_) in this data type so that it may be fully expressed. Also note that if additional components are added to the HD data type in the future, adjustment will need to be made accordingly to this data type.\n\n\n\nIf component 1 is valued, either _CNN.8_ or _CNN.9_, or both _CNN.10_ and _CNN.11_, must be valued.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -362,7 +362,7 @@
         "id": "CNN.11",
         "path": "CNN.11",
         "short": "Assigning Authority - Universal ID Type",
-        "defintion": "See section, _2A.2.14.4_, \"_Assigning Authority (HD)_\" for definition. If this component is a known UID refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70301[_HL7 Table 0301 - Universal ID type_] in Chapter 2C, Code Tables, for valid values.\n\n\n\nIf _CNN.10_ is valued, this component must be valued. If component 1 is valued, either _CNN.8_ or _CNN.9_, or both _CNN.10_ and _CNN.11_, must be valued.\n",
+        "defintion": "See section, _2A.2.14.4_, \"_Assigning Authority (HD)_\" for definition. If this component is a known UID refer to {{v2-table:0301:Universal ID type}} in Chapter 2C, Code Tables, for valid values.\n\n\n\nIf _CNN.10_ is valued, this component must be valued. If component 1 is valued, either _CNN.8_ or _CNN.9_, or both _CNN.10_ and _CNN.11_, must be valued.\n",
         "min": 0,
         "max": "1",
         "type": [

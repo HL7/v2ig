@@ -26,7 +26,7 @@
       {
         "id": "IVC.1",
         "path": "IVC.1",
-        "short": "IVC-1",
+        "short": "Provider Invoice Number",
         "definition": "Unique Invoice Number assigned by the Provider Application.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "IVC.2",
         "path": "IVC.2",
-        "short": "IVC-2",
+        "short": "Payer Invoice Number",
         "definition": "Unique Invoice Number assigned by the Payer Application.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -76,7 +76,7 @@
       {
         "id": "IVC.3",
         "path": "IVC.3",
-        "short": "IVC-3",
+        "short": "Contract/Agreement Number",
         "definition": "Contract/agreement number issued by Payer which must be specified in some circumstances by the Provider.",
         "code": [
           {
@@ -93,7 +93,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -101,8 +101,8 @@
       {
         "id": "IVC.4",
         "path": "IVC.4",
-        "short": "IVC-4",
-        "definition": "Code indicating what action is being performed by this message. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70553[_User-defined Table 0553 – Invoice Control Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Invoice Control",
+        "definition": "Code indicating what action is being performed by this message. Refer to {{v2-table:0553:Invoice Control Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -122,7 +122,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -130,8 +130,8 @@
       {
         "id": "IVC.5",
         "path": "IVC.5",
-        "short": "IVC-5",
-        "definition": "Code describing reason for this Invoice. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70554[_User-defined Table 0554 – Invoice Reason Codes_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Invoice Reason",
+        "definition": "Code describing reason for this Invoice. Refer to {{v2-table:0554:Invoice Reason Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -151,7 +151,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -159,8 +159,8 @@
       {
         "id": "IVC.6",
         "path": "IVC.6",
-        "short": "IVC-6",
-        "definition": "Code indicating the type of Invoice. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70555[_User-defined Table 0555 – Invoice Type_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Invoice Type",
+        "definition": "Code indicating the type of Invoice. Refer to {{v2-table:0555:Invoice Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -180,7 +180,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -188,7 +188,7 @@
       {
         "id": "IVC.7",
         "path": "IVC.7",
-        "short": "IVC-7",
+        "short": "Invoice Date/Time",
         "definition": "Date Invoice was created.",
         "code": [
           {
@@ -205,7 +205,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -213,7 +213,7 @@
       {
         "id": "IVC.8",
         "path": "IVC.8",
-        "short": "IVC-8",
+        "short": "Invoice Amount",
         "definition": "Sum total of Product/Service Billed Amount on PSL for all Product/Service Line Items for this Invoice.",
         "code": [
           {
@@ -230,7 +230,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -238,7 +238,7 @@
       {
         "id": "IVC.9",
         "path": "IVC.9",
-        "short": "IVC-9",
+        "short": "Payment Terms",
         "definition": "Terms for Payer payment of Invoice (e.g., 24% net 30 days).",
         "code": [
           {
@@ -255,11 +255,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -267,7 +267,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -276,7 +276,7 @@
       {
         "id": "IVC.10",
         "path": "IVC.10",
-        "short": "IVC-10",
+        "short": "Provider Organization",
         "definition": "Business organization that is responsible for the invoice (e.g., Provider organization, clinic organization).",
         "code": [
           {
@@ -293,7 +293,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -301,7 +301,7 @@
       {
         "id": "IVC.11",
         "path": "IVC.11",
-        "short": "IVC-11",
+        "short": "Payer Organization",
         "definition": "The business organization that is designated as Payer for this Invoice. This Payer may be the primary, secondary, tertiary Payer, depending on Insurance Information specified in the Invoice",
         "code": [
           {
@@ -318,7 +318,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -326,7 +326,7 @@
       {
         "id": "IVC.12",
         "path": "IVC.12",
-        "short": "IVC-12",
+        "short": "Attention",
         "definition": "Attention to individual in Payer Organization who needs to review this Invoice.",
         "code": [
           {
@@ -343,7 +343,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -351,8 +351,8 @@
       {
         "id": "IVC.13",
         "path": "IVC.13",
-        "short": "IVC-13",
-        "definition": "Can be set to indicate that this is the last Invoice for a particular Case, Claim and/or Encounter (1). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 – Yes/No Indicator_] for suggested values.",
+        "short": "Last Invoice Indicator",
+        "definition": "Can be set to indicate that this is the last Invoice for a particular Case, Claim and/or Encounter (1). Refer to {{v2-table:0136:Yes/No Indicator}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -372,11 +372,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -393,7 +393,7 @@
       {
         "id": "IVC.14",
         "path": "IVC.14",
-        "short": "IVC-14",
+        "short": "Invoice Booking Period",
         "definition": "Period in which the invoice must be booked.",
         "code": [
           {
@@ -410,7 +410,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -418,7 +418,7 @@
       {
         "id": "IVC.15",
         "path": "IVC.15",
-        "short": "IVC-15",
+        "short": "Origin",
         "definition": "Responsible Person for this specific invoice. For more structured output use CTD-Segment instead.",
         "code": [
           {
@@ -435,11 +435,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -447,7 +447,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -456,7 +456,7 @@
       {
         "id": "IVC.16",
         "path": "IVC.16",
-        "short": "IVC-16",
+        "short": "Invoice Fixed Amount",
         "definition": "Fixed Amount for this invoice.",
         "code": [
           {
@@ -473,7 +473,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -481,7 +481,7 @@
       {
         "id": "IVC.17",
         "path": "IVC.17",
-        "short": "IVC-17",
+        "short": "Special Costs",
         "definition": "Special costs for this invoice.",
         "code": [
           {
@@ -498,7 +498,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -506,7 +506,7 @@
       {
         "id": "IVC.18",
         "path": "IVC.18",
-        "short": "IVC-18",
+        "short": "Amount for Doctors Treatment",
         "definition": "Special amount for doctor's treatment.",
         "code": [
           {
@@ -523,7 +523,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -531,7 +531,7 @@
       {
         "id": "IVC.19",
         "path": "IVC.19",
-        "short": "IVC-19",
+        "short": "Responsible Physician",
         "definition": "Doctor who is responsible for this invoice.",
         "code": [
           {
@@ -548,7 +548,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -556,7 +556,7 @@
       {
         "id": "IVC.20",
         "path": "IVC.20",
-        "short": "IVC-20",
+        "short": "Cost Center",
         "definition": "Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room.",
         "code": [
           {
@@ -573,7 +573,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -581,7 +581,7 @@
       {
         "id": "IVC.21",
         "path": "IVC.21",
-        "short": "IVC-21",
+        "short": "Invoice Prepaid Amount",
         "definition": "Deposit paid to the service Provider prior to admission",
         "code": [
           {
@@ -598,7 +598,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -606,7 +606,7 @@
       {
         "id": "IVC.22",
         "path": "IVC.22",
-        "short": "IVC-22",
+        "short": "Total Invoice Amount without Prepaid Amount",
         "definition": "Total amount of Invoice without the prepaid deposit (IV-8 minus IVC-21).",
         "code": [
           {
@@ -623,7 +623,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -631,7 +631,7 @@
       {
         "id": "IVC.23",
         "path": "IVC.23",
-        "short": "IVC-23",
+        "short": "Total-Amount of VAT",
         "definition": "Total Amount of VAT included in the Total Invoice Amount (IVC-8)",
         "code": [
           {
@@ -648,7 +648,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -656,7 +656,7 @@
       {
         "id": "IVC.24",
         "path": "IVC.24",
-        "short": "IVC-24",
+        "short": "VAT-Rates applied",
         "definition": "Applied VAT Rates on Invoice. Multiple VAT-rates may be applied according to the type of service",
         "code": [
           {
@@ -673,11 +673,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -685,7 +685,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -694,8 +694,8 @@
       {
         "id": "IVC.25",
         "path": "IVC.25",
-        "short": "IVC-25",
-        "definition": "Code indicating the Benefit group. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70556[_User-defined Table 0556 – Benefit Group_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Benefit Group",
+        "definition": "Code indicating the Benefit group. Refer to {{v2-table:0556:Benefit Group}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -715,7 +715,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -723,7 +723,7 @@
       {
         "id": "IVC.26",
         "path": "IVC.26",
-        "short": "IVC-26",
+        "short": "Provider Tax ID",
         "definition": "The Tax ID of the Provider (general Tax identification number or VAT number).",
         "code": [
           {
@@ -740,11 +740,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -752,7 +752,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -761,7 +761,7 @@
       {
         "id": "IVC.27",
         "path": "IVC.27",
-        "short": "IVC-27",
+        "short": "Payer Tax ID",
         "definition": "The Tax ID of the Payer (general Tax identification number or VAT number)",
         "code": [
           {
@@ -778,11 +778,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -790,7 +790,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -799,8 +799,8 @@
       {
         "id": "IVC.28",
         "path": "IVC.28",
-        "short": "IVC-28",
-        "definition": "Code indicating the tax status of the provider. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70572[_User-defined Table 0572 – Tax status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Provider Tax Status",
+        "definition": "Code indicating the tax status of the provider. Refer to {{v2-table:0572:Tax status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -820,7 +820,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -828,8 +828,8 @@
       {
         "id": "IVC.29",
         "path": "IVC.29",
-        "short": "IVC-29",
-        "definition": "Code indicating the tax status of the payer. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70572[_User-defined Table 0572 – Tax status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Payer Tax Status",
+        "definition": "Code indicating the tax status of the payer. Refer to {{v2-table:0572:Tax status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -849,7 +849,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -857,7 +857,7 @@
       {
         "id": "IVC.30",
         "path": "IVC.30",
-        "short": "IVC-30",
+        "short": "Sales Tax ID",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -873,11 +873,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -885,7 +885,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }

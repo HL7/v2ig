@@ -26,8 +26,8 @@
       {
         "id": "ABS.1",
         "path": "ABS.1",
-        "short": "ABS-1",
-        "definition": "Identification number of the provider responsible for the discharge of the patient from his/her care. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70010[_User-defined Table 0010 - Physician ID_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Discharge Care Provider",
+        "definition": "Identification number of the provider responsible for the discharge of the patient from his/her care. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -55,8 +55,8 @@
       {
         "id": "ABS.2",
         "path": "ABS.2",
-        "short": "ABS-2",
-        "definition": "Medical code representing the patient's medical services when they are transferred. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70069[_User-defined Table 0069 - Hospital Service_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Transfer Medical Service Code",
+        "definition": "Medical code representing the patient's medical services when they are transferred. Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -76,7 +76,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -84,8 +84,8 @@
       {
         "id": "ABS.3",
         "path": "ABS.3",
-        "short": "ABS-3",
-        "definition": "Code representing the ranking of a patient's illness. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70421[_User-defi__ned Table 0421 - Severity of Ill__ness Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Severity of Illness Code",
+        "definition": "Code representing the ranking of a patient's illness. Refer to {{v2-table:0421:Severity of Illness Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -105,7 +105,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -113,7 +113,7 @@
       {
         "id": "ABS.4",
         "path": "ABS.4",
-        "short": "ABS-4",
+        "short": "Date/Time of Attestation",
         "definition": "Date/time that the medical record was reviewed and accepted.",
         "code": [
           {
@@ -130,7 +130,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -138,7 +138,7 @@
       {
         "id": "ABS.5",
         "path": "ABS.5",
-        "short": "ABS-5",
+        "short": "Attested By",
         "definition": "Identification number of the person (usually a provider) who reviewed and accepted the abstract of the medical record.",
         "code": [
           {
@@ -155,7 +155,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -163,8 +163,8 @@
       {
         "id": "ABS.6",
         "path": "ABS.6",
-        "short": "ABS-6",
-        "definition": "Code representing a patient's prioritization within the context of this abstract. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70422[_User-defined Table 0422 - Triage Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Triage Code",
+        "definition": "Code representing a patient's prioritization within the context of this abstract. Refer to {{v2-table:0422:Triage Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -184,7 +184,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -192,7 +192,7 @@
       {
         "id": "ABS.7",
         "path": "ABS.7",
-        "short": "ABS-7",
+        "short": "Abstract Completion Date/Time",
         "definition": "Date/time the abstraction was completed.",
         "code": [
           {
@@ -209,7 +209,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -217,7 +217,7 @@
       {
         "id": "ABS.8",
         "path": "ABS.8",
-        "short": "ABS-8",
+        "short": "Abstracted By",
         "definition": "Identification number of the person completing the Abstract.",
         "code": [
           {
@@ -234,7 +234,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -242,7 +242,7 @@
       {
         "id": "ABS.9",
         "path": "ABS.9",
-        "short": "ABS-9",
+        "short": "Case Category Code",
         "definition": "Code indicating the reason a non-urgent patient presents to the Emergency Room for treatment instead of a clinic or physician office. Refer to E:\\\\V2\\\\V29_CH02C_Tables.docx#HL70423[_User-defined Table 0423 - Case Category Code_] in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
@@ -263,7 +263,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -271,8 +271,8 @@
       {
         "id": "ABS.10",
         "path": "ABS.10",
-        "short": "ABS-10",
-        "definition": "Indicates if the delivery was by Caesarian Section. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Caesarian Section Indicator",
+        "definition": "Indicates if the delivery was by Caesarian Section. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Delivery was by Caesarian Section.\n\nN Delivery was not by Caesarian Section.",
         "code": [
           {
@@ -293,11 +293,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -314,8 +314,8 @@
       {
         "id": "ABS.11",
         "path": "ABS.11",
-        "short": "ABS-11",
-        "definition": "The gestation category code is used to indicate the status of the birth in relation to the gestation. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70424[_User-defined Table 0424 - Gestation Category Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Gestation Category Code",
+        "definition": "The gestation category code is used to indicate the status of the birth in relation to the gestation. Refer to {{v2-table:0424:Gestation Category Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -335,7 +335,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -343,7 +343,7 @@
       {
         "id": "ABS.12",
         "path": "ABS.12",
-        "short": "ABS-12",
+        "short": "Gestation Period - Weeks",
         "definition": "Newborn's gestation period expressed as a number of weeks.",
         "code": [
           {
@@ -360,11 +360,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -372,7 +372,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -381,8 +381,8 @@
       {
         "id": "ABS.13",
         "path": "ABS.13",
-        "short": "ABS-13",
-        "definition": "The newborn code is used to indicate whether the baby was born in or out of the facility. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70425[_User-defined Table 0425 - Newborn Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Newborn Code",
+        "definition": "The newborn code is used to indicate whether the baby was born in or out of the facility. Refer to {{v2-table:0425:Newborn Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -402,7 +402,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -410,8 +410,8 @@
       {
         "id": "ABS.14",
         "path": "ABS.14",
-        "short": "ABS-14",
-        "definition": "Indicates whether or not a newborn was stillborn. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Stillborn Indicator",
+        "definition": "Indicates whether or not a newborn was stillborn. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Stillborn.\n\nN Not stillborn.",
         "code": [
           {
@@ -432,11 +432,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

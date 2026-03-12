@@ -26,7 +26,7 @@
       {
         "id": "AFF.1",
         "path": "AFF.1",
-        "short": "AFF-1",
+        "short": "Set ID – AFF",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "AFF.2",
         "path": "AFF.2",
-        "short": "AFF-2",
+        "short": "Professional Organization",
         "definition": "This field contains the official name of the association promoting specific professional interests with which the staff member is affiliated.",
         "code": [
           {
@@ -81,7 +81,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -89,7 +89,7 @@
       {
         "id": "AFF.3",
         "path": "AFF.3",
-        "short": "AFF-3",
+        "short": "Professional Organization Address",
         "definition": "This field contains the postal address of the professional organization with which the Staff Member is associated.",
         "code": [
           {
@@ -106,7 +106,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -114,7 +114,7 @@
       {
         "id": "AFF.4",
         "path": "AFF.4",
-        "short": "AFF-4",
+        "short": "Professional Organization Affiliation Date Range",
         "definition": "This field contains the period the staff member started and ended membership in the professional organization.",
         "code": [
           {
@@ -131,7 +131,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -139,7 +139,7 @@
       {
         "id": "AFF.5",
         "path": "AFF.5",
-        "short": "AFF-5",
+        "short": "Professional Affiliation Additional Information",
         "definition": "This field contains miscellaneous additional information related to the staff member's membership in the professional organization.",
         "code": [
           {
@@ -156,11 +156,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -168,7 +168,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }

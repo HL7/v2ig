@@ -26,7 +26,7 @@
       {
         "id": "EDU.1",
         "path": "EDU.1",
-        "short": "EDU-1",
+        "short": "Set ID – EDU",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,8 +64,8 @@
       {
         "id": "EDU.2",
         "path": "EDU.2",
-        "short": "EDU-2",
-        "definition": "This field contains the standard classification awarded upon completion of a unified program of study. HL7 suggests using values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70360[_User-defined Table 0360 - Degree/License/Certificate_].",
+        "short": "Academic Degree",
+        "definition": "This field contains the standard classification awarded upon completion of a unified program of study. HL7 suggests using values in {{v2-table:0360:Degree/License/Certificate}}.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -85,7 +85,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -93,7 +93,7 @@
       {
         "id": "EDU.3",
         "path": "EDU.3",
-        "short": "EDU-3",
+        "short": "Academic Degree Program Date Range",
         "definition": "This field contains the date range when the academic degree program took place.",
         "code": [
           {
@@ -110,7 +110,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -118,7 +118,7 @@
       {
         "id": "EDU.4",
         "path": "EDU.4",
-        "short": "EDU-4",
+        "short": "Academic Degree Program Participation Date Range",
         "definition": "This field contains the date range during which the staff member participated in the academic degree program.",
         "code": [
           {
@@ -135,7 +135,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -143,7 +143,7 @@
       {
         "id": "EDU.5",
         "path": "EDU.5",
-        "short": "EDU-5",
+        "short": "Academic Degree Granted Date",
         "definition": "This field contains the date the academic degree was granted to the staff member.",
         "code": [
           {
@@ -160,7 +160,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -168,7 +168,7 @@
       {
         "id": "EDU.6",
         "path": "EDU.6",
-        "short": "EDU-6",
+        "short": "School",
         "definition": "This field contains the official name of the academic institution that granted the degree to the Staff Member.",
         "code": [
           {
@@ -185,7 +185,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -193,9 +193,9 @@
       {
         "id": "EDU.7",
         "path": "EDU.7",
-        "short": "EDU-7",
-        "definition": "This field contains the categorization of the academic institution that granted the degree to the Staff Member. HL7 suggests using values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70402[_User-defined Table 0402 – School Type_].",
-        "comment": "Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70402[_User-defined Table 0402 – School Type_] in Chapter 2C, Code Tables, for valid values. This table contains values for graduate, medical etc.",
+        "short": "School Type Code",
+        "definition": "This field contains the categorization of the academic institution that granted the degree to the Staff Member. HL7 suggests using values in {{v2-table:0402:School Type}}.",
+        "comment": "Refer to {{v2-table:0402:School Type}} in Chapter 2C, Code Tables, for valid values. This table contains values for graduate, medical etc.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -215,7 +215,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -223,7 +223,7 @@
       {
         "id": "EDU.8",
         "path": "EDU.8",
-        "short": "EDU-8",
+        "short": "School Address",
         "definition": "This field contains the postal address of the academic institution that granted the degree to the Staff Member.",
         "code": [
           {
@@ -240,7 +240,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -248,7 +248,7 @@
       {
         "id": "EDU.9",
         "path": "EDU.9",
-        "short": "EDU-9",
+        "short": "Major Field of Study",
         "definition": "This field contains the subject of academic study associated with the specific academic degree program pursued by the staff member as his/her area of specialization.",
         "code": [
           {
@@ -265,7 +265,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

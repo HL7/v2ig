@@ -28,3 +28,9 @@ Thumbs.db
 ################
 *.bak
 *.zip
+*.removed
+
+# Extracted V2.9.1 content (intermediate data) #
+#################################################
+/v291-extracted/
+/v2plus_docx/

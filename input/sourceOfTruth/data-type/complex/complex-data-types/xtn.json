@@ -42,7 +42,7 @@
         "id": "XTN.2",
         "path": "XTN.2",
         "short": "Telecommunication Use Code",
-        "defintion": "*Definition:* A code that represents a specific use of a telecommunication number. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70201[_HL7 Table 0201 - Telecommunication Use Code_] for valid values. This component along with _XTN.3_ describes the nature of the telecommunication data that follows. Best practice requires the population of _XTN.2_ when _XTN.4_ or _XTN.7_ is populated.\n",
+        "defintion": "*Definition:* A code that represents a specific use of a telecommunication number. Refer to {{v2-table:0201:Telecommunication Use Code}} for valid values. This component along with _XTN.3_ describes the nature of the telecommunication data that follows. Best practice requires the population of _XTN.2_ when _XTN.4_ or _XTN.7_ is populated.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -78,7 +78,7 @@
         "id": "XTN.3",
         "path": "XTN.3",
         "short": "Telecommunication Equipment Type",
-        "defintion": "*Definition:* A code that represents the type of telecommunication equipment. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70202[_HL7 Tabl__e 0202 - Telecommunication Equipment Type_] for valid values. This component along with _XTN.2_ describes the nature of the telecommunication data that follows and is necessary to accurately interpret it.\n",
+        "defintion": "*Definition:* A code that represents the type of telecommunication equipment. Refer to {{v2-table:0202:Telecommunication Equipment Type}} for valid values. This component along with _XTN.2_ describes the nature of the telecommunication data that follows and is necessary to accurately interpret it.\n",
         "min": 1,
         "max": "1",
         "type": [
@@ -440,7 +440,7 @@
         "id": "XTN.15",
         "path": "XTN.15",
         "short": "Expiration Reason",
-        "defintion": "*Definition:* Indicates why this contact number/e-mail was marked as \"ended\". Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70868[User-defined Table 0868 – Telecommunication Expiration Reason] for valid values.\n",
+        "defintion": "*Definition:* Indicates why this contact number/e-mail was marked as \"ended\". Refer to {{v2-table:0868:Telecommunication Expiration Reason}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -463,7 +463,7 @@
         "id": "XTN.16",
         "path": "XTN.16",
         "short": "Protection Code",
-        "defintion": "*Definition:* Indicates whether this information is considered sensitive or should be protected in some way. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70618[_User-defined table 0618 - Protection Code_] for suggested values.\n\n\n\nThe specific set of codes and appropriate handling of such telecommunications addresses will vary by jurisdiction and is subject to site-specific negotiation. For example, a provider address marked as 'unlisted' might not be printed in an internal address listing.\n",
+        "defintion": "*Definition:* Indicates whether this information is considered sensitive or should be protected in some way. Refer to {{v2-table:0618:Protection Code}} for suggested values.\n\n\n\nThe specific set of codes and appropriate handling of such telecommunications addresses will vary by jurisdiction and is subject to site-specific negotiation. For example, a provider address marked as 'unlisted' might not be printed in an internal address listing.\n",
         "min": 0,
         "max": "1",
         "type": [

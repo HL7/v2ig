@@ -26,7 +26,7 @@
       {
         "id": "ROL.1",
         "path": "ROL.1",
-        "short": "ROL-1",
+        "short": "Role Instance ID",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -42,7 +42,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -50,7 +50,7 @@
       {
         "id": "ROL.2",
         "path": "ROL.2",
-        "short": "ROL-2",
+        "short": "Action Code",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -70,11 +70,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -91,7 +91,7 @@
       {
         "id": "ROL.3",
         "path": "ROL.3",
-        "short": "ROL-3",
+        "short": "Role-ROL",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -111,7 +111,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -119,7 +119,7 @@
       {
         "id": "ROL.4",
         "path": "ROL.4",
-        "short": "ROL-4",
+        "short": "Role Person",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -135,7 +135,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -143,7 +143,7 @@
       {
         "id": "ROL.5",
         "path": "ROL.5",
-        "short": "ROL-5",
+        "short": "Role Begin Date/Time",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -159,7 +159,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -167,7 +167,7 @@
       {
         "id": "ROL.6",
         "path": "ROL.6",
-        "short": "ROL-6",
+        "short": "Role End Date/Time",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -183,7 +183,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -191,7 +191,7 @@
       {
         "id": "ROL.7",
         "path": "ROL.7",
-        "short": "ROL-7",
+        "short": "Role Duration",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -207,7 +207,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -215,7 +215,7 @@
       {
         "id": "ROL.8",
         "path": "ROL.8",
-        "short": "ROL-8",
+        "short": "Role Action Reason",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -231,7 +231,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -239,7 +239,7 @@
       {
         "id": "ROL.9",
         "path": "ROL.9",
-        "short": "ROL-9",
+        "short": "Provider Type",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -255,7 +255,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -263,7 +263,7 @@
       {
         "id": "ROL.10",
         "path": "ROL.10",
-        "short": "ROL-10",
+        "short": "Organization Unit Type",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -283,7 +283,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -291,7 +291,7 @@
       {
         "id": "ROL.11",
         "path": "ROL.11",
-        "short": "ROL-11",
+        "short": "Office/Home Address/Birthplace",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -307,7 +307,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -315,7 +315,7 @@
       {
         "id": "ROL.12",
         "path": "ROL.12",
-        "short": "ROL-12",
+        "short": "Phone",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -331,7 +331,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -339,7 +339,7 @@
       {
         "id": "ROL.13",
         "path": "ROL.13",
-        "short": "ROL-13",
+        "short": "Person's Location",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -355,7 +355,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]
@@ -363,7 +363,7 @@
       {
         "id": "ROL.14",
         "path": "ROL.14",
-        "short": "ROL-14",
+        "short": "Organization",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -379,7 +379,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "-"
           }
         ]

@@ -30,7 +30,7 @@
         "id": "RMC.1",
         "path": "RMC.1",
         "short": "Room Type",
-        "defintion": "*Definition:* Specifies the room type.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70145[_User-defined Table 0145 - Room Type_] for suggested values.\n",
+        "defintion": "*Definition:* Specifies the room type.\n\n\n\nRefer to {{v2-table:0145:Room Type}} for suggested values.\n",
         "min": 1,
         "max": "1",
         "type": [
@@ -53,7 +53,7 @@
         "id": "RMC.2",
         "path": "RMC.2",
         "short": "Amount Type",
-        "defintion": "*Definition:* Specifies amount quantity type.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70146[_User-defined Table 0146 – Amount Type_] for suggested values.\n",
+        "defintion": "*Definition:* Specifies amount quantity type.\n\n\n\nRefer to {{v2-table:0146:Amount Type}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [

@@ -1,48 +1,46 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "DT",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "DT",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/DT",
-  "version" : "0.0.1",
-  "name" : "V2_DT_Data_Type",
-  "title" : "HL7 v2 DT Data Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "date",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/date",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [{
-      "id" : "date.id",
-      "path" : "date.id",
-      "max" : "0"
-    },{
-      "id" : "date.extension",
-      "path" : "date.extension",
-      "max" : "0"
-    }]
+  "url": "http://hl7.org/v2/StructureDefinition/DT",
+  "version": "0.0.1",
+  "name": "DT",
+  "title": "HL7 v2 DT Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/DT",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "A date value in the format YYYY[MM[DD]]. The minimum precision is to the year (4 digits). Month and day components are optional but must appear in order. If month is present, it must be a valid month (01-12). If day is present, it must be a valid day for the given month and year.",
+  "differential": {
+    "element": [
+      {
+        "id": "DT",
+        "path": "DT",
+        "short": "Date",
+        "definition": "A date value in the format YYYY[MM[DD]]. The minimum precision is to the year (4 digits). Month and day components are optional but must appear in order.",
+        "min": 0,
+        "max": "*"
+      }
+    ]
   }
 }

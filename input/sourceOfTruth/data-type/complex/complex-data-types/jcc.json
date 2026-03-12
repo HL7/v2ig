@@ -30,7 +30,7 @@
         "id": "JCC.1",
         "path": "JCC.1",
         "short": "Job Code",
-        "defintion": "*Definition:* This component contains the person’s job code. file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70327[_User-defined Table 0__327 - Job Code_] is used as the HL7 identifier for the user-defined table of values for this component.\n",
+        "defintion": "*Definition:* This component contains the person’s job code. {{v2-table:0327:Job Code}} is used as the HL7 identifier for the user-defined table of values for this component.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -53,7 +53,7 @@
         "id": "JCC.2",
         "path": "JCC.2",
         "short": "Job Class",
-        "defintion": "*Definition:* This component contains the person’s employee classification. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70328[_User-defined Table 0328 - Employee Classification_] for suggested values.\n",
+        "defintion": "*Definition:* This component contains the person’s employee classification. Refer to {{v2-table:0328:Employee Classification}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [

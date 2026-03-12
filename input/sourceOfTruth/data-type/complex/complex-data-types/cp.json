@@ -49,7 +49,7 @@
         "id": "CP.2",
         "path": "CP.2",
         "short": "Price Type",
-        "defintion": "*Definition:* A coded value, data type ID. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70205[_HL7 Table 0205 – Price Type_] in Chapter 2C, Code Tables, for valid values.\n",
+        "defintion": "*Definition:* A coded value, data type ID. Refer to {{v2-table:0205:Price Type}} in Chapter 2C, Code Tables, for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -142,7 +142,7 @@
         "id": "CP.6",
         "path": "CP.6",
         "short": "Range Type",
-        "defintion": "*Definition:* Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70298[_HL7 Table 0298 - CP Range Type_] for valid values.\n",
+        "defintion": "*Definition:* Refer to {{v2-table:0298:CP Range Type}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

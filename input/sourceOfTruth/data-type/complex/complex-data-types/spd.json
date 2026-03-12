@@ -94,7 +94,7 @@
         "id": "SPD.3",
         "path": "SPD.3",
         "short": "Eligible or Certified",
-        "defintion": "*Definition:* Specifies the certification status. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70337[_HL7 Table 0337 – Certification Status_] for valid values.\n",
+        "defintion": "*Definition:* Specifies the certification status. Refer to {{v2-table:0337:Certification Status}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

@@ -13,7 +13,7 @@ This event and the message syntax do, however, allow for the specification of an
 
 Each superior identifier associated with this account identifier level should have the same value in both the PID and MRG segments.
 
-See sections link:#merging-patientperson-information[_3.6.2_], "link:#merging-patientperson-information[_Merging patient/person information_]," and link:#merge[_3.6.2.1.2_], "link:\l[_Merge_]," for a discussion of issues related to the implementation of merge messages.
+See sections link:#merging-patientperson-information[_3.6.2_], "link:#merging-patientperson-information[_Merging patient/person information_]," and link:#merge[_3.6.2.1.2_], "Merge," for a discussion of issues related to the implementation of merge messages.
 
 The fields included when this message is sent should be the fields pertinent to communicate this event. When other fields change, it is recommended that the A08 (update patient information) event be used in addition
 

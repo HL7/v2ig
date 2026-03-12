@@ -26,7 +26,7 @@
       {
         "id": "SHP.1",
         "path": "SHP.1",
-        "short": "SHP-1",
+        "short": "Shipment ID",
         "definition": "The shipment id is the identifier assigned by the shipment transportation provider that uniquely identifies this shipment from all other shipments by the same provider. The addressee for the shipment should be able to use this identifier to match a physical shipment with the electronic manifest for the shipment.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "SHP.2",
         "path": "SHP.2",
-        "short": "SHP-2",
+        "short": "Internal Shipment ID",
         "definition": "The internal shipment id is an identifier assigned to the shipment by the sender or addressee of the shipment. The field repeats allowing multiple identifiers to be transmitted.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -76,8 +76,8 @@
       {
         "id": "SHP.3",
         "path": "SHP.3",
-        "short": "SHP-3",
-        "definition": "The shipment status specifies where in the shipment process the package is at the time of messaging. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70905[_HL7 Table 0905 – Shipment Status_] for specific values:",
+        "short": "Shipment Status",
+        "definition": "The shipment status specifies where in the shipment process the package is at the time of messaging. Refer to {{v2-table:0905:Shipment Status}} for specific values:",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -97,7 +97,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -105,7 +105,7 @@
       {
         "id": "SHP.4",
         "path": "SHP.4",
-        "short": "SHP-4",
+        "short": "Shipment Status Date/Time",
         "definition": "The shipment status date/time carries the date and time the status in _SHP-3 Shipment Status_ occurred.",
         "code": [
           {
@@ -122,7 +122,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -130,7 +130,7 @@
       {
         "id": "SHP.5",
         "path": "SHP.5",
-        "short": "SHP-5",
+        "short": "Shipment Status Reason",
         "definition": "The shipment status reason is used to document the reason for the status in _SHP-3 Shipment Status_. This reason field is of particular importance when a shipment is rejected.",
         "code": [
           {
@@ -147,7 +147,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -155,8 +155,8 @@
       {
         "id": "SHP.6",
         "path": "SHP.6",
-        "short": "SHP-6",
-        "definition": "The shipment priority documents the priority the shipment has been given by the sender. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70906[_HL7 Table 0906 - ActPriority_] for specific values.",
+        "short": "Shipment Priority",
+        "definition": "The shipment priority documents the priority the shipment has been given by the sender. Refer to {{v2-table:0906:ActPriority}} for specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -176,7 +176,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -184,8 +184,8 @@
       {
         "id": "SHP.7",
         "path": "SHP.7",
-        "short": "SHP-7",
-        "definition": "The shipment confidentiality documents any confidentiality that may be associated with this particular shipment. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70907[_HL7 Table 0907 – Confidentiality_] for specific values.",
+        "short": "Shipment Confidentiality",
+        "definition": "The shipment confidentiality documents any confidentiality that may be associated with this particular shipment. Refer to {{v2-table:0907:Confidentiality}} for specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -205,7 +205,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -213,7 +213,7 @@
       {
         "id": "SHP.8",
         "path": "SHP.8",
-        "short": "SHP-8",
+        "short": "Number of Packages in Shipment",
         "definition": "The number of packages in shipment field documents the total number of separate packages that are contained in the shipment. This total should not include packages that are nested inside of one another. For instance if a shipment consisted of 3 separate boxes, this field would contain the value",
         "comment": "\"…|3|…\".",
         "code": [
@@ -231,11 +231,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -243,7 +243,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -252,8 +252,8 @@
       {
         "id": "SHP.9",
         "path": "SHP.9",
-        "short": "SHP-9",
-        "definition": "The shipment condition field allows the receiver of the shipment to document the condition of the shipment when it was received. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70544[_HL7 Table 0544 – Container Condition_] for suggested values. Many of the values found in Table 0544 are associated with values found in Table 0376 (Special Handling Codes). Values from Table 0376 have had an X placed in front of them, and the meaning of the code has been changed to indicate that the type of handling has failed during shipment. For instance if a handling code indicated that the shipment was to be kept at body temperature (C37), and the shipment arrived at some other temperature, the XC37 condition code would be used to indicate the shipment arrived with a temperature outside the range indicated by the handling code.",
+        "short": "Shipment Condition",
+        "definition": "The shipment condition field allows the receiver of the shipment to document the condition of the shipment when it was received. Refer to {{v2-table:0544:Container Condition}} for suggested values. Many of the values found in Table 0544 are associated with values found in Table 0376 (Special Handling Codes). Values from Table 0376 have had an X placed in front of them, and the meaning of the code has been changed to indicate that the type of handling has failed during shipment. For instance if a handling code indicated that the shipment was to be kept at body temperature (C37), and the shipment arrived at some other temperature, the XC37 condition code would be used to indicate the shipment arrived with a temperature outside the range indicated by the handling code.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -273,7 +273,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -281,8 +281,8 @@
       {
         "id": "SHP.10",
         "path": "SHP.10",
-        "short": "SHP-10",
-        "definition": "This describes how the shipment needs to be handled during transport. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70376[_User-defined Table 0376 – Special Handling Code_] for suggested values.",
+        "short": "Shipment Handling Code",
+        "definition": "This describes how the shipment needs to be handled during transport. Refer to {{v2-table:0376:Special Handling Code}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -302,7 +302,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -310,8 +310,8 @@
       {
         "id": "SHP.11",
         "path": "SHP.11",
-        "short": "SHP-11",
-        "definition": "This field contains any known or suspected hazards associated with this shipment, e.g., exceptionally infectious agent or blood from a hepatitis patient. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70489[_User-defined Table 0489 – Risk Codes_] for suggested values.",
+        "short": "Shipment Risk Code",
+        "definition": "This field contains any known or suspected hazards associated with this shipment, e.g., exceptionally infectious agent or blood from a hepatitis patient. Refer to {{v2-table:0489:Risk Codes}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -331,7 +331,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -339,8 +339,8 @@
       {
         "id": "SHP.12",
         "path": "SHP.12",
-        "short": "SHP-12",
-        "definition": "This field reveals the intent of the message. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70206[_HL7 Table 0206 - Segment Action Code_] for valid values.",
+        "short": "Action Code",
+        "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when SHP-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.",
         "code": [
           {
@@ -361,11 +361,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

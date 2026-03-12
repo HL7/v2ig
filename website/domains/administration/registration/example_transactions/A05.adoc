@@ -1,7 +1,8 @@
 === Pre-admit notification - event A05 (nonadmitted patient)
 [v291_section="3.5.2"]
 
-[er7]
+[.er7]
+....
 MSH|^~\&|REGADT|GOOD HEALTH HOSPITAL|GHH LAB||200701061000||ADT^A05^ADT_A05|000001|P|2.8||||<cr>+
 EVN|A05|200701061000|200701101400|01||200701061000<cr>+
 PID|1|| PATID1234^^^GOOD HEALTH HOSPITAL^MR^GOOD HEALTH HOSPITAL~123456789^^^USSSA^SS|253763|EVERYMAN^ADAM^A||19560129|M|||2222 HOME STREET^^ISHPEMING^MI^49849^""^||(555) 555‑2004|(555)555‑2004||S|C|99999^^^GOOD HEALTH HOSPITAL^AN|444-33-3333||<cr>+
@@ -17,6 +18,7 @@ DG1|1|19||BIOPSY||00<cr>+
 GT1|1||EVERYMAN^ADAM^A^""^""^""^""^||2222 HOME STREET ^ISHPEMING^MI^49849^""^|(555) 555‑2004|555 555‑2004||||SE^SELF|444-33 3333|||| |2222 HOME STREET^^ISHPEMING^MI^49849^""|555-555‑2004 |||||||||||||||||||||||||||||||||AUTO CLINIC<cr>+
 IN1|1|0|UA1|UARE INSURED, INC.|8888 INSURERS CIRCLE^^ISHPEMING^M1^49849^^||555-555-3015|90||||||50 OK<cr>+
 IN1|2|""|""<cr>
+....
 
 Patient Adam A. Everyman was pre-admitted on January 6^th^, 2007 for ambulatory surgery, which is scheduled for January 10, 2007 at 1400. As part of the pre-admission process, he specified two emergency contacts as well as employer, insurance, and guarantor information. He also was measured and weighed.
 

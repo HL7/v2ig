@@ -26,7 +26,7 @@
       {
         "id": "PDA.1",
         "path": "PDA.1",
-        "short": "PDA-1",
+        "short": "Death Cause Code",
         "definition": "This field is valued with the reason of the death.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "PDA.2",
         "path": "PDA.2",
-        "short": "PDA-2",
+        "short": "Death Location",
         "definition": "This field is valued with the place the death occurred.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -76,8 +76,8 @@
       {
         "id": "PDA.3",
         "path": "PDA.3",
-        "short": "PDA-3",
-        "definition": "This field indicates whether a death was officially certified or not. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/No Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Death Certified Indicator",
+        "definition": "This field indicates whether a death was officially certified or not. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y death has been certified\n\nN death has not been certified",
         "code": [
           {
@@ -98,11 +98,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -119,7 +119,7 @@
       {
         "id": "PDA.4",
         "path": "PDA.4",
-        "short": "PDA-4",
+        "short": "Death Certificate Signed Date/Time",
         "definition": "This field is valued with the date and time the death certificate was signed.",
         "code": [
           {
@@ -136,7 +136,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -144,7 +144,7 @@
       {
         "id": "PDA.5",
         "path": "PDA.5",
-        "short": "PDA-5",
+        "short": "Death Certified By",
         "definition": "This field is valued with the person who signed the death certificate.",
         "code": [
           {
@@ -161,7 +161,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -169,8 +169,8 @@
       {
         "id": "PDA.6",
         "path": "PDA.6",
-        "short": "PDA-6",
-        "definition": "This field indicates whether an autopsy was performed. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/No Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Autopsy Indicator",
+        "definition": "This field indicates whether an autopsy was performed. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y an autopsy was performed\n\nN an autopsy was not performed",
         "code": [
           {
@@ -191,11 +191,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -212,7 +212,7 @@
       {
         "id": "PDA.7",
         "path": "PDA.7",
-        "short": "PDA-7",
+        "short": "Autopsy Start and End Date/Time",
         "definition": "If an autopsy is performed, this field is valued with the date and time the autopsy was begun and completed",
         "code": [
           {
@@ -229,7 +229,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -237,7 +237,7 @@
       {
         "id": "PDA.8",
         "path": "PDA.8",
-        "short": "PDA-8",
+        "short": "Autopsy Performed By",
         "definition": "This field is valued with the authority who performed the autopsy.",
         "code": [
           {
@@ -254,7 +254,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -262,8 +262,8 @@
       {
         "id": "PDA.9",
         "path": "PDA.9",
-        "short": "PDA-9",
-        "definition": "This flag indicates whether the case/death has been assigned to the coroner/medical examiner for investigative purposed. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/No Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Coroner Indicator",
+        "definition": "This flag indicates whether the case/death has been assigned to the coroner/medical examiner for investigative purposed. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Has been assigned to the coroner.\n\nN Has not been assigned to the coroner.",
         "code": [
           {
@@ -284,11 +284,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

@@ -32,8 +32,10 @@ Home
 
 The patient was treated at his home.
 
-[er7]
+[.er7]
+....
 ^^^^^H^^^
+....
 
 include::PL-components/PL-1.adoc[]
 

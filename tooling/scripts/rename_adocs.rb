@@ -27,7 +27,7 @@ def rename_tech_specs_adocs(dir, dry_run = false)
   if files.size == 1
     sf = files.first
   else
-    raise "Nooooooo"
+    raise "Expected exactly 1 .adoc file in #{dir}, found #{files.size}: #{files.inspect}"
   end
   puts Rainbow(sf).mediumspringgreen
   found = false

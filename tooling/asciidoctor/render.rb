@@ -1,49 +1,22 @@
+require 'fileutils'
+
 module WriteAdoc
   module_function
-  
-  def render(filename)
+
+  def render(filename, output_dir: nil)
     str = File.read(filename)
-    # debug_file_str(str)
-    
-    local_html_file       = local_outputify(filename)
-    destination_html_file = destination_outputify(filename)
-    
-    # template_dir = File.expand_path('templates', __dir__)
-    
-    doc_attributes = {
-      'docinfo'    => 'shared',
-      'docinfodir' => git_dir,
-      'stylesdir'  => '/css',
-      'stylesheet' => 'v2.css',
-      'linkcss'    => '',
-      'copycss!'   => '',
-      'nothing'    => '',     
-    }
-    
-    # Asciidoctor.convert(str, doctype: :book, mkdirs:true, to_file: local_html_file, safe: :unsafe, attributes: doc_attributes, template_dirs: [template_dir], template_engine: 'haml', linkcss: true, copycss: true)
+
+    html_file = filename.sub(/\.adoc$/, '.html')
 
     Asciidoctor.convert(str,
-                        doctype: :book, 
-                        mkdirs:true, 
-                        to_file: local_html_file, 
-                        safe: :unsafe,
-                        attributes: doc_attributes, 
-                        # template_dirs: [template_dir],
-                        # template_engine: 'haml',
-                        # nothing: nil
-                        )
+                        doctype: :book,
+                        mkdirs: true,
+                        to_file: html_file,
+                        safe: :unsafe)
 
-    
-    FileUtils.cp(local_html_file, destination_html_file)
-    # Asciidoctor.convert(str, doctype: :book, mkdirs:true, to_file: html_file, safe: :unsafe, attributes: { })
-    
-    # puts "#{filename} --> #{destination_html_file}"
-    # Asciidoctor.convert_file(filename, doctype: :book, mkdirs:true, to_file: html_file, safe: :unsafe, attributes: { })
+    if output_dir
+      dest = File.join(output_dir, File.basename(html_file))
+      FileUtils.cp(html_file, dest)
+    end
   end
-  
-  def debug_file_str(str)
-    lines = str.split("\n")
-    lines.each { |l| puts Rainbow(l).orange if l =~ /\^/ }
-  end
-  
 end

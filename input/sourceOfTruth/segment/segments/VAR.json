@@ -26,7 +26,7 @@
       {
         "id": "VAR.1",
         "path": "VAR.1",
-        "short": "VAR-1",
+        "short": "Variance Instance ID",
         "definition": "This field contains the unique identifier of the specific variance record.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "VAR.2",
         "path": "VAR.2",
-        "short": "VAR-2",
+        "short": "Documented Date/Time",
         "definition": "This field contains the time stamp that identifies the timed occurrence of the variance documentation.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -76,7 +76,7 @@
       {
         "id": "VAR.3",
         "path": "VAR.3",
-        "short": "VAR-3",
+        "short": "Stated Variance Date/Time",
         "definition": "This field contains the time stamp that identifies a stated time of the variance which may be different than the time it was documented.",
         "code": [
           {
@@ -93,7 +93,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -101,7 +101,7 @@
       {
         "id": "VAR.4",
         "path": "VAR.4",
-        "short": "VAR-4",
+        "short": "Variance Originator",
         "definition": "This field contains the originator (person or system) documenting the variance.",
         "code": [
           {
@@ -118,7 +118,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -126,7 +126,7 @@
       {
         "id": "VAR.5",
         "path": "VAR.5",
-        "short": "VAR-5",
+        "short": "Variance Classification",
         "definition": "This field identifies a categorical set of variances. Classification may be used by applications for presentation and processing functions.",
         "code": [
           {
@@ -143,7 +143,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -151,7 +151,7 @@
       {
         "id": "VAR.6",
         "path": "VAR.6",
-        "short": "VAR-6",
+        "short": "Variance Description",
         "definition": "This field specifies the details of a variance. The content of the field is a string with optional formatting.",
         "code": [
           {
@@ -168,11 +168,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -180,7 +180,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }

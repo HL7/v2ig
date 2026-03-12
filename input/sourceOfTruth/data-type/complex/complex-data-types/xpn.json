@@ -189,7 +189,7 @@
         "id": "XPN.7",
         "path": "XPN.7",
         "short": "Name Type Code",
-        "defintion": "*Definition:* A code that represents the type of name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70200[_HL7 Table 0200 - Name Type_] for valid values.\n\n\n\n*NOTE:* The content of Legal Name is country specific. In the US the legal name is the same as the current married name.\n",
+        "defintion": "*Definition:* A code that represents the type of name. Refer to {{v2-table:0200:Name Type}} for valid values.\n\n\n\n*NOTE:* The content of Legal Name is country specific. In the US the legal name is the same as the current married name.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -225,7 +225,7 @@
         "id": "XPN.8",
         "path": "XPN.8",
         "short": "Name Representation Code",
-        "defintion": "*Definition:* Different <name/address types> and representations of the same <name/address> should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* This new component remains in \"alphabetic\" representation with each repetition of the field using these data types, i.e., even though the name may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70465[_HL7 Table 0465 – Name/ad__dress Representation_] for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
+        "defintion": "*Definition:* Different <name/address types> and representations of the same <name/address> should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* This new component remains in \"alphabetic\" representation with each repetition of the field using these data types, i.e., even though the name may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to {{v2-table:0465:Name/address Representation}} for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -261,7 +261,7 @@
         "id": "XPN.9",
         "path": "XPN.9",
         "short": "Name Context",
-        "defintion": "*Definition:* This component is used to designate the context in which a name is used. The main use case is in Australian healthcare for indigenous patients who prefer to use different names when attending different healthcare institutions. Another use case occurs in the US where health practitioners can be licensed under slightly different names and the reporting of the correct name is vital for administrative purposes. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70448[_User-defined T__able 0448 – Nam__e Context_] for suggested values.\n",
+        "defintion": "*Definition:* This component is used to designate the context in which a name is used. The main use case is in Australian healthcare for indigenous patients who prefer to use different names when attending different healthcare institutions. Another use case occurs in the US where health practitioners can be licensed under slightly different names and the reporting of the correct name is vital for administrative purposes. Refer to {{v2-table:0448:Name Context}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -296,7 +296,7 @@
         "id": "XPN.11",
         "path": "XPN.11",
         "short": "Name Assembly Order",
-        "defintion": "*Definition:* A code that represents the preferred display order of the components of this person name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70444[_HL7 0444 – Name Assembly Order_] for valid values.\n",
+        "defintion": "*Definition:* A code that represents the preferred display order of the components of this person name. Refer to {{v2-table:0444:Name Assembly Order}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -402,7 +402,7 @@
         "id": "XPN.15",
         "path": "XPN.15",
         "short": "Called By",
-        "defintion": "*Definition:* A \"called by\" name is the name that is preferred when a person is directly addressed; sometimes known as a nickname.\n\n\n\n*NOTE:* The called by component contains a name that could be categorized as a nickname using the name usage types in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70200[_HL7 Table 0200 - Name type_]. Its use is reserved for instances in which the nickname is a single name part that is provided in addition to a name that has some other type, such as legal. It is understood that the \"called by\" name is not part of the full name. Where a nickname has more parts, possibly including a family name, a different XPN with a type of nickname should instead be used.\n\n\n\nExample:\ns:\n\n\n\n• James Robert Smith is Called By Jim Bob\n\n\n\n• James Robert Smith is Called By JR\n\n\n\n• Peter Richard Smith is Called By Richard\n\n\n\n• Mary Margaret Elizabeth Jones is Called By Meg.\n",
+        "defintion": "*Definition:* A \"called by\" name is the name that is preferred when a person is directly addressed; sometimes known as a nickname.\n\n\n\n*NOTE:* The called by component contains a name that could be categorized as a nickname using the name usage types in {{v2-table:0200:Name type}}. Its use is reserved for instances in which the nickname is a single name part that is provided in addition to a name that has some other type, such as legal. It is understood that the \"called by\" name is not part of the full name. Where a nickname has more parts, possibly including a family name, a different XPN with a type of nickname should instead be used.\n\n\n\nExample:\ns:\n\n\n\n• James Robert Smith is Called By Jim Bob\n\n\n\n• James Robert Smith is Called By JR\n\n\n\n• Peter Richard Smith is Called By Richard\n\n\n\n• Mary Margaret Elizabeth Jones is Called By Meg.\n",
         "min": 0,
         "max": "1",
         "type": [

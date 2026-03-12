@@ -26,7 +26,7 @@
       {
         "id": "IN1.1",
         "path": "IN1.1",
-        "short": "IN1-1",
+        "short": "Set ID - IN1",
         "definition": "link:#in1-1-set-id-in1-si-00426[_IN1-1 - set ID - IN1_] contains the number that identifies this transaction. For the first occurrence the sequence number shall be 1, for the second occurrence it shall be 2, etc. The Set ID in the IN1 segment is used to aggregate the grouping of insurance segments. For example, a patient with two insurance plans would have two groupings of insurance segments. IN1, IN2, and IN3 segments for Insurance Plan A with set ID 1, followed by IN1, IN2, and IN3 segments for Insurance Plan B, with set ID 2. There is no set ID in the IN2 segment because it is contained in the IN1, IN2, IN3 grouping, and is therefore not needed. The set ID in the IN3 segment is provided because there can be multiple repetitions of the IN3 segment if there are multiple certifications for the same insurance plan, e.g., IN1 (Set ID 1), IN2, IN3 (Set ID 1), IN3 (Set ID 2), IN3 (Set ID 3)",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,8 +64,8 @@
       {
         "id": "IN1.2",
         "path": "IN1.2",
-        "short": "IN1-2",
-        "definition": "This field contains a unique identifier for the insurance plan. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70072[_User-defined Table 0072 - Insurance Plan ID_] in Chapter 2C, Code Tables, for suggested values. To eliminate a plan, the plan could be sent with Delete Indication values in each subsequent element. If the respective systems can support it, a Delete Indication value can be sent in the plan field.",
+        "short": "Health Plan ID",
+        "definition": "This field contains a unique identifier for the insurance plan. Refer to {{v2-table:0072:Insurance Plan ID}} in Chapter 2C, Code Tables, for suggested values. To eliminate a plan, the plan could be sent with Delete Indication values in each subsequent element. If the respective systems can support it, a Delete Indication value can be sent in the plan field.",
         "comment": "The assigning authority for _IN1-2, Health Plan ID_ is assumed to be the Entity named in _IN1-3, Insurance Company ID_.",
         "code": [
           {
@@ -86,7 +86,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -94,7 +94,7 @@
       {
         "id": "IN1.3",
         "path": "IN1.3",
-        "short": "IN1-3",
+        "short": "Insurance Company ID",
         "definition": "This field contains unique identifiers for the insurance company. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
@@ -111,7 +111,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -119,7 +119,7 @@
       {
         "id": "IN1.4",
         "path": "IN1.4",
-        "short": "IN1-4",
+        "short": "Insurance Company Name",
         "definition": "This field contains the name of the insurance company. Multiple names for the same insurance company may be sent in this field. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -136,7 +136,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -144,7 +144,7 @@
       {
         "id": "IN1.5",
         "path": "IN1.5",
-        "short": "IN1-5",
+        "short": "Insurance Company Address",
         "definition": "This field contains the address of the insurance company. Multiple addresses for the same insurance company may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -161,7 +161,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -169,7 +169,7 @@
       {
         "id": "IN1.6",
         "path": "IN1.6",
-        "short": "IN1-6",
+        "short": "Insurance Co Contact Person",
         "definition": "This field contains the name of the person who should be contacted at the insurance company. Multiple names for the same contact person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -186,7 +186,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -194,7 +194,7 @@
       {
         "id": "IN1.7",
         "path": "IN1.7",
-        "short": "IN1-7",
+        "short": "Insurance Co Phone Number",
         "definition": "This field contains the phone number of the insurance company. Multiple phone numbers for the same insurance company may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -211,7 +211,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -219,7 +219,7 @@
       {
         "id": "IN1.8",
         "path": "IN1.8",
-        "short": "IN1-8",
+        "short": "Group Number",
         "definition": "This field contains the group number of the insured's insurance.",
         "code": [
           {
@@ -236,11 +236,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -248,7 +248,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -257,7 +257,7 @@
       {
         "id": "IN1.9",
         "path": "IN1.9",
-        "short": "IN1-9",
+        "short": "Group Name",
         "definition": "This field contains the group name of the insured's insurance.",
         "code": [
           {
@@ -274,7 +274,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -282,7 +282,7 @@
       {
         "id": "IN1.10",
         "path": "IN1.10",
-        "short": "IN1-10",
+        "short": "Insured's Group Emp ID",
         "definition": "This field holds the group employer ID for the insured's insurance. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
@@ -299,7 +299,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -307,7 +307,7 @@
       {
         "id": "IN1.11",
         "path": "IN1.11",
-        "short": "IN1-11",
+        "short": "Insured's Group Emp Name",
         "definition": "This field contains the name of the employer that provides the employee's insurance. Multiple names for the same employer may be sent in this sequence Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -324,7 +324,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -332,7 +332,7 @@
       {
         "id": "IN1.12",
         "path": "IN1.12",
-        "short": "IN1-12",
+        "short": "Plan Effective Date",
         "definition": "This field contains the date that the insurance goes into effect.",
         "code": [
           {
@@ -349,7 +349,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -357,7 +357,7 @@
       {
         "id": "IN1.13",
         "path": "IN1.13",
-        "short": "IN1-13",
+        "short": "Plan Expiration Date",
         "definition": "This field indicates the last date of service that the insurance will cover or be responsible for.",
         "code": [
           {
@@ -374,7 +374,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -382,7 +382,7 @@
       {
         "id": "IN1.14",
         "path": "IN1.14",
-        "short": "IN1-14",
+        "short": "Authorization Information",
         "definition": "Based on the type of insurance, some coverage plans require that an authorization number or code be obtained prior to all non-emergency admissions, and within 48 hours of an emergency admission. Insurance billing would not be permitted without this number. The date and source of authorization are the components of this field.",
         "code": [
           {
@@ -399,7 +399,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -407,8 +407,8 @@
       {
         "id": "IN1.15",
         "path": "IN1.15",
-        "short": "IN1-15",
-        "definition": "This field contains the coding structure that identifies the various plan types, for example, Medicare, Medicaid, Blue Cross, HMO, etc. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70086[_User-defined Table 0086 - Plan ID_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Plan Type",
+        "definition": "This field contains the coding structure that identifies the various plan types, for example, Medicare, Medicaid, Blue Cross, HMO, etc. Refer to {{v2-table:0086:Plan ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -428,7 +428,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -436,7 +436,7 @@
       {
         "id": "IN1.16",
         "path": "IN1.16",
-        "short": "IN1-16",
+        "short": "Name Of Insured",
         "definition": "This field contains the name of the insured person. The insured is the person who has an agreement with the insurance company to provide healthcare services to persons covered by the insurance policy. Multiple names for the same insured person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -453,7 +453,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -461,8 +461,8 @@
       {
         "id": "IN1.17",
         "path": "IN1.17",
-        "short": "IN1-17",
-        "definition": "This field indicates the insured's relationship to the patient. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70063[_User-defined Table 0063 - Relationship_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Insured's Relationship To Patient",
+        "definition": "This field indicates the insured's relationship to the patient. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -482,7 +482,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -490,7 +490,7 @@
       {
         "id": "IN1.18",
         "path": "IN1.18",
-        "short": "IN1-18",
+        "short": "Insured's Date Of Birth",
         "definition": "This field contains the date of birth of the insured.",
         "code": [
           {
@@ -507,7 +507,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -515,7 +515,7 @@
       {
         "id": "IN1.19",
         "path": "IN1.19",
-        "short": "IN1-19",
+        "short": "Insured's Address",
         "definition": "This field contains the address of the insured person. The insured is the person who has an agreement with the insurance company to provide healthcare services to persons covered by an insurance policy. Multiple addresses for the same insured person may be in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -532,7 +532,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -540,8 +540,8 @@
       {
         "id": "IN1.20",
         "path": "IN1.20",
-        "short": "IN1-20",
-        "definition": "This field indicates whether the insured agreed to assign the insurance benefits to the healthcare provider. If so, the insurance will pay the provider directly. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70135[_User-defined Table 0135 - Assignment of Benefits_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Assignment Of Benefits",
+        "definition": "This field indicates whether the insured agreed to assign the insurance benefits to the healthcare provider. If so, the insurance will pay the provider directly. Refer to {{v2-table:0135:Assignment of Benefits}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -561,7 +561,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -569,8 +569,8 @@
       {
         "id": "IN1.21",
         "path": "IN1.21",
-        "short": "IN1-21",
-        "definition": "This field indicates whether this insurance works in conjunction with other insurance plans, or if it provides independent coverage and payment of benefits regardless of other insurance that might be available to the patient. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70173[_User-defined Table 0173 - Coordination of Benefits_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Coordination Of Benefits",
+        "definition": "This field indicates whether this insurance works in conjunction with other insurance plans, or if it provides independent coverage and payment of benefits regardless of other insurance that might be available to the patient. Refer to {{v2-table:0173:Coordination of Benefits}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -590,7 +590,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -598,7 +598,7 @@
       {
         "id": "IN1.22",
         "path": "IN1.22",
-        "short": "IN1-22",
+        "short": "Coord Of Ben. Priority",
         "definition": "If the insurance works in conjunction with other insurance plans, this field contains priority sequence. Values are: 1, 2, 3, etc.",
         "code": [
           {
@@ -615,11 +615,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -627,7 +627,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -636,8 +636,8 @@
       {
         "id": "IN1.23",
         "path": "IN1.23",
-        "short": "IN1-23",
-        "definition": "This field indicates whether the insurance company requires a written notice of admission from the healthcare provider. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Notice Of Admission Flag",
+        "definition": "This field indicates whether the insurance company requires a written notice of admission from the healthcare provider. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y written notice of admission required\n\nN no notice required",
         "code": [
           {
@@ -658,11 +658,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -679,7 +679,7 @@
       {
         "id": "IN1.24",
         "path": "IN1.24",
-        "short": "IN1-24",
+        "short": "Notice Of Admission Date",
         "definition": "If a notice is required, this field indicates the date that it was sent.",
         "code": [
           {
@@ -696,7 +696,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -704,8 +704,8 @@
       {
         "id": "IN1.25",
         "path": "IN1.25",
-        "short": "IN1-25",
-        "definition": "This field indicates whether this insurance carrier sends a report that indicates that the patient is eligible for benefits and whether it identifies those benefits. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Report Of Eligibility Flag",
+        "definition": "This field indicates whether this insurance carrier sends a report that indicates that the patient is eligible for benefits and whether it identifies those benefits. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y eligibility report is sent\n\nN no eligibility report is sent",
         "code": [
           {
@@ -726,11 +726,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -747,7 +747,7 @@
       {
         "id": "IN1.26",
         "path": "IN1.26",
-        "short": "IN1-26",
+        "short": "Report Of Eligibility Date",
         "definition": "This field indicates whether a report of eligibility (ROE) was received, and also indicates the date that it was received.",
         "code": [
           {
@@ -764,7 +764,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -772,8 +772,8 @@
       {
         "id": "IN1.27",
         "path": "IN1.27",
-        "short": "IN1-27",
-        "definition": "This field indicates whether the healthcare provider can release information about the patient, and what information can be released. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70093[_User-defined Table 0093 - Release Information_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Release Information Code",
+        "definition": "This field indicates whether the healthcare provider can release information about the patient, and what information can be released. Refer to {{v2-table:0093:Release Information}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -793,7 +793,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -801,7 +801,7 @@
       {
         "id": "IN1.28",
         "path": "IN1.28",
-        "short": "IN1-28",
+        "short": "Pre-Admit Cert (PAC)",
         "definition": "This field contains the pre‑admission certification code. If the admission must be certified before the admission, this is the code associated with the admission.",
         "code": [
           {
@@ -818,11 +818,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -830,7 +830,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -839,7 +839,7 @@
       {
         "id": "IN1.29",
         "path": "IN1.29",
-        "short": "IN1-29",
+        "short": "Verification Date/Time",
         "definition": "This field contains the date/time that the healthcare provider verified that the patient has the indicated benefits.",
         "code": [
           {
@@ -856,7 +856,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -864,7 +864,7 @@
       {
         "id": "IN1.30",
         "path": "IN1.30",
-        "short": "IN1-30",
+        "short": "Verification By",
         "definition": "Refers to the person who verified the benefits. Multiple names for the same insured person may be sent in this field Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -881,7 +881,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -889,8 +889,8 @@
       {
         "id": "IN1.31",
         "path": "IN1.31",
-        "short": "IN1-31",
-        "definition": "This field is used to further identify an insurance plan. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70098[_User-defined Table 0098 - Type of Agreement_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Type Of Agreement Code",
+        "definition": "This field is used to further identify an insurance plan. Refer to {{v2-table:0098:Type of Agreement}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -910,7 +910,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -918,8 +918,8 @@
       {
         "id": "IN1.32",
         "path": "IN1.32",
-        "short": "IN1-32",
-        "definition": "This field indicates whether the particular insurance has been billed and, if so, the type of bill. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70022[_User-defined Table 0022 - Billing Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Billing Status",
+        "definition": "This field indicates whether the particular insurance has been billed and, if so, the type of bill. Refer to {{v2-table:0022:Billing Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -939,7 +939,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -947,7 +947,7 @@
       {
         "id": "IN1.33",
         "path": "IN1.33",
-        "short": "IN1-33",
+        "short": "Lifetime Reserve Days",
         "definition": "This field contains the number of days left for a certain service to be provided or covered under an insurance policy.",
         "code": [
           {
@@ -964,11 +964,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -976,7 +976,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -985,7 +985,7 @@
       {
         "id": "IN1.34",
         "path": "IN1.34",
-        "short": "IN1-34",
+        "short": "Delay Before L.R. Day",
         "definition": "This field indicates the delay before lifetime reserve days.",
         "code": [
           {
@@ -1002,11 +1002,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1014,7 +1014,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -1023,8 +1023,8 @@
       {
         "id": "IN1.35",
         "path": "IN1.35",
-        "short": "IN1-35",
-        "definition": "This field contains optional information to further define the data in link:#in1-3-insurance-company-id-cx-00428[_IN1-3 - Insurance Company ID_]. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70042[_U__ser-defined Table 0042 - Company Plan Code_] in Chapter 2C, Code Tables, for suggested values. This table contains codes used to identify an insurance company plan uniquely.",
+        "short": "Company Plan Code",
+        "definition": "This field contains optional information to further define the data in link:#in1-3-insurance-company-id-cx-00428[_IN1-3 - Insurance Company ID_]. Refer to {{v2-table:0042:Company Plan Code}} in Chapter 2C, Code Tables, for suggested values. This table contains codes used to identify an insurance company plan uniquely.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1044,7 +1044,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1052,7 +1052,7 @@
       {
         "id": "IN1.36",
         "path": "IN1.36",
-        "short": "IN1-36",
+        "short": "Policy Number",
         "definition": "This field contains the individual policy number of the insured to uniquely identify this patient's plan. For special types of insurance numbers, there are also special fields in the IN2 segment for Medicaid, Medicare, Champus (i.e., link:#in2-6-medicare-health-ins-card-number-st-00477[_IN2-6 - Medicare Health Ins Card Number_], link:#in2-8-medicaid-case-number-st-00479[_IN2-8 - Medicaid Case Number_], link:#in2-10-military-id-number-st-00481[_IN2-10 - Military ID Number_]). But we recommend that this field (link:#in1-36-policy-number-st-00461[_IN1-36 - Policy Number_]) be filled even when the patient's insurance number is also passed in one of these other fields.",
         "code": [
           {
@@ -1069,11 +1069,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1081,7 +1081,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -1090,7 +1090,7 @@
       {
         "id": "IN1.37",
         "path": "IN1.37",
-        "short": "IN1-37",
+        "short": "Policy Deductible",
         "definition": "This field contains the amount specified by the insurance plan that is the responsibility of the guarantor (i.e., deductible, excess, etc.).",
         "code": [
           {
@@ -1107,7 +1107,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1115,7 +1115,7 @@
       {
         "id": "IN1.38",
         "path": "IN1.38",
-        "short": "IN1-38",
+        "short": "Policy Limit - Amount",
         "comment": "*Attention: _IN1-38 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
           {
@@ -1127,7 +1127,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -1135,7 +1135,7 @@
       {
         "id": "IN1.39",
         "path": "IN1.39",
-        "short": "IN1-39",
+        "short": "Policy Limit - Days",
         "definition": "This field contains the maximum number of days that the insurance policy will cover.",
         "code": [
           {
@@ -1152,11 +1152,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1164,7 +1164,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -1173,7 +1173,7 @@
       {
         "id": "IN1.40",
         "path": "IN1.40",
-        "short": "IN1-40",
+        "short": "Room Rate - Semi-Private",
         "comment": "*Attention: _IN1-40 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
           {
@@ -1185,7 +1185,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -1193,7 +1193,7 @@
       {
         "id": "IN1.41",
         "path": "IN1.41",
-        "short": "IN1-41",
+        "short": "Room Rate - Private",
         "comment": "*Attention: _IN1-41 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
           {
@@ -1205,7 +1205,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -1213,8 +1213,8 @@
       {
         "id": "IN1.42",
         "path": "IN1.42",
-        "short": "IN1-42",
-        "definition": "This field holds the employment status of the insured. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70066[_User-defined Table 0066 - Employment Status_] in Chapter 2C, Code Tables, for suggested values. This field contains UB92 field 64. For this field element, values from the US CMS UB92 and others are used.",
+        "short": "Insured's Employment Status",
+        "definition": "This field holds the employment status of the insured. Refer to {{v2-table:0066:Employment Status}} in Chapter 2C, Code Tables, for suggested values. This field contains UB92 field 64. For this field element, values from the US CMS UB92 and others are used.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1234,7 +1234,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1242,8 +1242,8 @@
       {
         "id": "IN1.43",
         "path": "IN1.43",
-        "short": "IN1-43",
-        "definition": "This field contains the gender of the insured. Refer to _file:///E:\\V2\\V29_CH02C_Tables.docx#HL70001[User-defined Table 0001 - Administrative Sex]_ in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Insured's Administrative Sex",
+        "definition": "This field contains the gender of the insured. Refer to {{v2-table:0001:Administrative Sex}}_ in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field has historically been used to variably exchange both sex and gender values and therefore this field is not clearly defined. This field is expected to continue to be used as it has been in existing implementations and use of this field is subject to local existing interpretation and/or implementation guides. The GSP and GSR segments should be used to exchange more rigorously defined sex or gender concept.",
         "code": [
           {
@@ -1264,7 +1264,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1272,7 +1272,7 @@
       {
         "id": "IN1.44",
         "path": "IN1.44",
-        "short": "IN1-44",
+        "short": "Insured's Employer's Address",
         "definition": "This field contains the address of the insured employee's employer. Multiple addresses for the same employer may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -1289,7 +1289,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1297,7 +1297,7 @@
       {
         "id": "IN1.45",
         "path": "IN1.45",
-        "short": "IN1-45",
+        "short": "Verification Status",
         "definition": "This field contains the status of this patient's relationship with this insurance carrier.",
         "code": [
           {
@@ -1314,11 +1314,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1326,7 +1326,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -1335,8 +1335,8 @@
       {
         "id": "IN1.46",
         "path": "IN1.46",
-        "short": "IN1-46",
-        "definition": "This field uniquely identifies the prior insurance plan when the plan ID changes. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70072[_User-defined Table 0072 - Insurance Plan ID_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Prior Insurance Plan ID",
+        "definition": "This field uniquely identifies the prior insurance plan when the plan ID changes. Refer to {{v2-table:0072:Insurance Plan ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1356,7 +1356,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1364,8 +1364,8 @@
       {
         "id": "IN1.47",
         "path": "IN1.47",
-        "short": "IN1-47",
-        "definition": "This field contains the coding structure that identifies the type of insurance coverage, or what types of services are covered for the purposes of a billing system. For example, a physician billing system will only want to receive insurance information for plans that cover physician/professional charges. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70309[_User-defined Table 0309 - Coverage Type_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Coverage Type",
+        "definition": "This field contains the coding structure that identifies the type of insurance coverage, or what types of services are covered for the purposes of a billing system. For example, a physician billing system will only want to receive insurance information for plans that cover physician/professional charges. Refer to {{v2-table:0309:Coverage Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1385,7 +1385,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1393,8 +1393,8 @@
       {
         "id": "IN1.48",
         "path": "IN1.48",
-        "short": "IN1-48",
-        "definition": "This field contains a code to describe the insured's disability. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70295[_User-defined Table 0295 - Handicap_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Handicap",
+        "definition": "This field contains a code to describe the insured's disability. Refer to {{v2-table:0295:Handicap}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1414,7 +1414,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1422,7 +1422,7 @@
       {
         "id": "IN1.49",
         "path": "IN1.49",
-        "short": "IN1-49",
+        "short": "Insured's ID Number",
         "definition": "This data element contains a healthcare institution's identifiers for the insured. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
@@ -1439,7 +1439,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1447,8 +1447,8 @@
       {
         "id": "IN1.50",
         "path": "IN1.50",
-        "short": "IN1-50",
-        "definition": "This field contains the code to indicate how the patient/subscriber authorization signature was obtained and how it is being retained by the provider. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70535[_User-defined Table 0535 - Signature Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Signature Code",
+        "definition": "This field contains the code to indicate how the patient/subscriber authorization signature was obtained and how it is being retained by the provider. Refer to {{v2-table:0535:Signature Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1468,7 +1468,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1476,7 +1476,7 @@
       {
         "id": "IN1.51",
         "path": "IN1.51",
-        "short": "IN1-51",
+        "short": "Signature Code Date",
         "definition": "The date the patient/subscriber authorization signature was obtained.",
         "code": [
           {
@@ -1493,7 +1493,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1501,7 +1501,7 @@
       {
         "id": "IN1.52",
         "path": "IN1.52",
-        "short": "IN1-52",
+        "short": "Insured's Birth Place",
         "definition": "This field contains the description of the insured's birth place, for example \"St. Francis Community Hospital of Lower South Side.\" The actual address is reported in _IN1-19 – Insured's Address_ with an identifier of \"N\".",
         "code": [
           {
@@ -1518,7 +1518,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1526,8 +1526,8 @@
       {
         "id": "IN1.53",
         "path": "IN1.53",
-        "short": "IN1-53",
-        "definition": "This field identifies the type of VIP for the insured. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70099[_User-defined Table 0099 – VIP Indicator_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "VIP Indicator",
+        "definition": "This field identifies the type of VIP for the insured. Refer to {{v2-table:0099:VIP Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1547,7 +1547,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1555,7 +1555,7 @@
       {
         "id": "IN1.54",
         "path": "IN1.54",
-        "short": "IN1-54",
+        "short": "External Health Plan Identifiers",
         "definition": "This field contains the external Health Plan Identifiers that correspond to the internal Health Plan ID in _IN1-2 – Health Plan ID_. The assigning authority and identifier type code are strongly recommended for al CX data types.",
         "code": [
           {
@@ -1572,7 +1572,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1580,8 +1580,8 @@
       {
         "id": "IN1.55",
         "path": "IN1.55",
-        "short": "IN1-55",
-        "definition": "The Insurance Action Code Defines the action to be taken for this insurance. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70206[_HL7 Table 0206 - Segment Action Code_] in Chapter 2C, Code Tables, for valid values. When this field is valued, the IN1, IN2, and IN3 are not in \"snapshot mode\", rather in \"action mode\".",
+        "short": "Insurance Action Code",
+        "definition": "The Insurance Action Code Defines the action to be taken for this insurance. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values. When this field is valued, the IN1, IN2, and IN3 are not in \"snapshot mode\", rather in \"action mode\".",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1601,11 +1601,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -1622,7 +1622,7 @@
       {
         "id": "IN1.56",
         "path": "IN1.56",
-        "short": "IN1-56",
+        "short": "Subsidized Health Program Beneficiary Identifier",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1638,7 +1638,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

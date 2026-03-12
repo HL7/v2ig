@@ -26,8 +26,8 @@
       {
         "id": "BLG.1",
         "path": "BLG.1",
-        "short": "BLG-1",
-        "definition": "This field specifies when to charge for the ordered service. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70100[HL7 Table 0100 – Invocation event] in Chapter 2C, Code Tables, for valid values.",
+        "short": "When to Charge",
+        "definition": "This field specifies when to charge for the ordered service. Refer to {{v2-table:0100:Invocation event}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,7 +47,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -55,8 +55,8 @@
       {
         "id": "BLG.2",
         "path": "BLG.2",
-        "short": "BLG-2",
-        "definition": "This field identifies someone or something other than the patient to be billed for this service. It is used in conjunction with BLG-3-account ID. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70122[HL7 Table 0122 – Charge Type] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Charge Type",
+        "definition": "This field identifies someone or something other than the patient to be billed for this service. It is used in conjunction with BLG-3-account ID. Refer to {{v2-table:0122:Charge Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -76,11 +76,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -97,8 +97,8 @@
       {
         "id": "BLG.3",
         "path": "BLG.3",
-        "short": "BLG-3",
-        "definition": "This field identifies the account to be billed. It is used in conjunction with BLG-2-charge type. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[HL7 Table 0061 – Check digit scheme] in Chapter 2C, Code Tables.",
+        "short": "Account ID",
+        "definition": "This field identifies the account to be billed. It is used in conjunction with BLG-2-charge type. Refer to {{v2-table:0061:Check digit scheme}} in Chapter 2C, Code Tables.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -114,7 +114,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -122,8 +122,8 @@
       {
         "id": "BLG.4",
         "path": "BLG.4",
-        "short": "BLG-4",
-        "definition": "This field explains the choice of and provides the clinical rationale for the selected charge type identified in BLG-2. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70475[User-defined Table 0475 – Charge Type Reason] in Chapter 2C, code Tables, for suggested values.",
+        "short": "Charge Type Reason",
+        "definition": "This field explains the choice of and provides the clinical rationale for the selected charge type identified in BLG-2. Refer to {{v2-table:0475:Charge Type Reason}} in Chapter 2C, code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -143,7 +143,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

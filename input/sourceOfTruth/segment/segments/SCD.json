@@ -26,7 +26,7 @@
       {
         "id": "SCD.1",
         "path": "SCD.1",
-        "short": "SCD-1",
+        "short": "Cycle Start Time",
         "definition": "The time that the load cycle begins.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "SCD.2",
         "path": "SCD.2",
-        "short": "SCD-2",
+        "short": "Cycle Count",
         "definition": "The number of cycles that have been completed.",
         "code": [
           {
@@ -68,11 +68,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -80,7 +80,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -89,7 +89,7 @@
       {
         "id": "SCD.3",
         "path": "SCD.3",
-        "short": "SCD-3",
+        "short": "Temp Max",
         "definition": "The maximum temperature achieved during a specific cycle.",
         "code": [
           {
@@ -106,7 +106,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -114,7 +114,7 @@
       {
         "id": "SCD.4",
         "path": "SCD.4",
-        "short": "SCD-4",
+        "short": "Temp Min",
         "definition": "The minimum temperature achieved during a specific cycle.",
         "code": [
           {
@@ -131,7 +131,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -139,7 +139,7 @@
       {
         "id": "SCD.5",
         "path": "SCD.5",
-        "short": "SCD-5",
+        "short": "Load Number",
         "definition": "A number assigned to the load by the anti-microbial device. This number is incremented by the machine per cycle during the day and reset at midnight.",
         "code": [
           {
@@ -156,11 +156,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -168,7 +168,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -177,7 +177,7 @@
       {
         "id": "SCD.6",
         "path": "SCD.6",
-        "short": "SCD-6",
+        "short": "Condition Time",
         "definition": "The actual amount of cycle time spent in the conditioning phase. For example, in a pre-vac sterilizer the condition phase is achieved by pulsing the machine six times to create a vacuum.",
         "code": [
           {
@@ -194,7 +194,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -202,7 +202,7 @@
       {
         "id": "SCD.7",
         "path": "SCD.7",
-        "short": "SCD-7",
+        "short": "Sterilize Time",
         "definition": "The actual amount of cycle time spent sterilizing supplies.",
         "code": [
           {
@@ -219,7 +219,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -227,7 +227,7 @@
       {
         "id": "SCD.8",
         "path": "SCD.8",
-        "short": "SCD-8",
+        "short": "Exhaust Time",
         "definition": "The actual amount of cycle time spent draining pressure from the sterilizer chamber.",
         "code": [
           {
@@ -244,7 +244,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -252,7 +252,7 @@
       {
         "id": "SCD.9",
         "path": "SCD.9",
-        "short": "SCD-9",
+        "short": "Total Cycle Time",
         "definition": "The sum of time spent in all phases of a cycle.",
         "code": [
           {
@@ -269,7 +269,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -277,8 +277,8 @@
       {
         "id": "SCD.10",
         "path": "SCD.10",
-        "short": "SCD-10",
-        "definition": "The status of a device. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70682[_User-defined Table 0682 – Device Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Device Status",
+        "definition": "The status of a device. Refer to {{v2-table:0682:Device Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -298,7 +298,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -306,7 +306,7 @@
       {
         "id": "SCD.11",
         "path": "SCD.11",
-        "short": "SCD-11",
+        "short": "Cycle Start Date/Time",
         "definition": "The date and time that the cycle started.",
         "code": [
           {
@@ -323,7 +323,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -331,7 +331,7 @@
       {
         "id": "SCD.12",
         "path": "SCD.12",
-        "short": "SCD-12",
+        "short": "Dry Time",
         "definition": "The amount of cycle time spent drying the load.",
         "code": [
           {
@@ -348,7 +348,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -356,7 +356,7 @@
       {
         "id": "SCD.13",
         "path": "SCD.13",
-        "short": "SCD-13",
+        "short": "Leak Rate",
         "definition": "The amount of pressure that the chamber can hold expressed as barometric pressure.",
         "code": [
           {
@@ -373,7 +373,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -381,7 +381,7 @@
       {
         "id": "SCD.14",
         "path": "SCD.14",
-        "short": "SCD-14",
+        "short": "Control Temperature",
         "definition": "Amount of overdrive above the sterilize temperature.",
         "code": [
           {
@@ -398,7 +398,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -406,7 +406,7 @@
       {
         "id": "SCD.15",
         "path": "SCD.15",
-        "short": "SCD-15",
+        "short": "Sterilizer Temperature",
         "definition": "The current temperature in the anti-microbial device.",
         "code": [
           {
@@ -423,7 +423,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -431,7 +431,7 @@
       {
         "id": "SCD.16",
         "path": "SCD.16",
-        "short": "SCD-16",
+        "short": "Cycle Complete Time",
         "definition": "The time of day that the cycle completed.",
         "code": [
           {
@@ -448,7 +448,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -456,7 +456,7 @@
       {
         "id": "SCD.17",
         "path": "SCD.17",
-        "short": "SCD-17",
+        "short": "Under Temperature",
         "definition": "The temperature reached during a cycle, which fell below the required temperature range.",
         "code": [
           {
@@ -473,7 +473,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -481,7 +481,7 @@
       {
         "id": "SCD.18",
         "path": "SCD.18",
-        "short": "SCD-18",
+        "short": "Over Temperature",
         "definition": "The temperature reached during a cycle, which exceeded the required temperature.",
         "code": [
           {
@@ -498,7 +498,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -506,8 +506,8 @@
       {
         "id": "SCD.19",
         "path": "SCD.19",
-        "short": "SCD-19",
-        "definition": "A notification that the cycle was aborted. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Abort Cycle",
+        "definition": "A notification that the cycle was aborted. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -527,7 +527,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -535,8 +535,8 @@
       {
         "id": "SCD.20",
         "path": "SCD.20",
-        "short": "SCD-20",
-        "definition": "A notification that the time, temperature, or pressure reached is invalid for a specific phase of a cycle. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Alarm",
+        "definition": "A notification that the time, temperature, or pressure reached is invalid for a specific phase of a cycle. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -556,7 +556,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -564,8 +564,8 @@
       {
         "id": "SCD.21",
         "path": "SCD.21",
-        "short": "SCD-21",
-        "definition": "A notification that the charge phase in the cycle has exceeded the maximum time allowed. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Long in Charge Phase",
+        "definition": "A notification that the charge phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -585,7 +585,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -593,8 +593,8 @@
       {
         "id": "SCD.22",
         "path": "SCD.22",
-        "short": "SCD-22",
-        "definition": "A notification that the exhaust phase in the cycle has exceeded the maximum time allowed. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Long in Exhaust Phase",
+        "definition": "A notification that the exhaust phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -614,7 +614,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -622,8 +622,8 @@
       {
         "id": "SCD.23",
         "path": "SCD.23",
-        "short": "SCD-23",
-        "definition": "A notification that the fast exhaust phase in the cycle has exceeded the maximum time allowed. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Long in Fast Exhaust Phase",
+        "definition": "A notification that the fast exhaust phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -643,7 +643,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -651,8 +651,8 @@
       {
         "id": "SCD.24",
         "path": "SCD.24",
-        "short": "SCD-24",
-        "definition": "An indicator that specific anti-microbial device parameters have been set to system defaults. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Reset",
+        "definition": "An indicator that specific anti-microbial device parameters have been set to system defaults. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -672,7 +672,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -680,7 +680,7 @@
       {
         "id": "SCD.25",
         "path": "SCD.25",
-        "short": "SCD-25",
+        "short": "Operator - Unload",
         "definition": "The name of the operator that unloaded the anti-microbial device.",
         "code": [
           {
@@ -697,7 +697,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -705,8 +705,8 @@
       {
         "id": "SCD.26",
         "path": "SCD.26",
-        "short": "SCD-26",
-        "definition": "An indicator that the door is open. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Door Open",
+        "definition": "An indicator that the door is open. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -726,7 +726,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -734,8 +734,8 @@
       {
         "id": "SCD.27",
         "path": "SCD.27",
-        "short": "SCD-27",
-        "definition": "A notification that an error was encountered while reading the cycle data for a specific cycle. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Reading Failure",
+        "definition": "A notification that an error was encountered while reading the cycle data for a specific cycle. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -755,7 +755,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -763,8 +763,8 @@
       {
         "id": "SCD.28",
         "path": "SCD.28",
-        "short": "SCD-28",
-        "definition": "The type of cycle that is being executed. A cycle type is a specific sterilization method used for a specific type of supply item. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70702[_User-defined Table 0702 – Cycle Type_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Cycle Type",
+        "definition": "The type of cycle that is being executed. A cycle type is a specific sterilization method used for a specific type of supply item. Refer to {{v2-table:0702:Cycle Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -784,7 +784,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -792,7 +792,7 @@
       {
         "id": "SCD.29",
         "path": "SCD.29",
-        "short": "SCD-29",
+        "short": "Thermal Rinse Time",
         "definition": "The amount of time spent in the thermal rinse phase of a decontamination cycle.",
         "code": [
           {
@@ -809,7 +809,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -817,7 +817,7 @@
       {
         "id": "SCD.30",
         "path": "SCD.30",
-        "short": "SCD-30",
+        "short": "Wash Time",
         "definition": "The amount of time spent in the wash phase of a decontamination cycle.",
         "code": [
           {
@@ -834,7 +834,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -842,7 +842,7 @@
       {
         "id": "SCD.31",
         "path": "SCD.31",
-        "short": "SCD-31",
+        "short": "Injection Rate",
         "definition": "The injection rate of a wash or dry agent.",
         "code": [
           {
@@ -859,7 +859,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -867,9 +867,9 @@
       {
         "id": "SCD.32",
         "path": "SCD.32",
-        "short": "SCD-32",
+        "short": "Procedure Code",
         "definition": "The unique identifier indicating the type of procedure performed on the patient with the supplies being sterilized.",
-        "comment": "Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70088[_HL7 Table 0088 – Procedure Code_] in Chapter 2C, Code Tables, for suggested values.\n\nAs of v2.6, the known applicable external coding systems include those in the referenced table. If the code set you are using is in this table, then you must use that designation.",
+        "comment": "Refer to {{v2-table:0088:Procedure Code}} in Chapter 2C, Code Tables, for suggested values.\n\nAs of v2.6, the known applicable external coding systems include those in the referenced table. If the code set you are using is in this table, then you must use that designation.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -889,7 +889,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -897,7 +897,7 @@
       {
         "id": "SCD.33",
         "path": "SCD.33",
-        "short": "SCD-33",
+        "short": "Patient Identifier List",
         "definition": "The unique identifier associating the patient with the supplies being sterilized.",
         "code": [
           {
@@ -914,7 +914,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -922,8 +922,8 @@
       {
         "id": "SCD.34",
         "path": "SCD.34",
-        "short": "SCD-34",
-        "definition": "The unique identifier associating the physician with the supplies being sterilized, used for the procedure and patient identified in this message. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70010[_User-defined Table 0010 - Physician ID_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Attending Doctor",
+        "definition": "The unique identifier associating the physician with the supplies being sterilized, used for the procedure and patient identified in this message. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -943,7 +943,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -951,7 +951,7 @@
       {
         "id": "SCD.35",
         "path": "SCD.35",
-        "short": "SCD-35",
+        "short": "Dilution Factor",
         "definition": "The dilution ratio of peracetic acid to water.",
         "code": [
           {
@@ -968,7 +968,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -976,7 +976,7 @@
       {
         "id": "SCD.36",
         "path": "SCD.36",
-        "short": "SCD-36",
+        "short": "Fill Time",
         "definition": "The amount of time spent in filling the sterilizer chamber with dilutant.",
         "code": [
           {
@@ -993,7 +993,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1001,7 +1001,7 @@
       {
         "id": "SCD.37",
         "path": "SCD.37",
-        "short": "SCD-37",
+        "short": "Inlet Temperature",
         "definition": "The temperature of the dilutant upon entering the sterilizer chamber.",
         "code": [
           {
@@ -1018,7 +1018,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

@@ -26,7 +26,7 @@
       {
         "id": "CER.1",
         "path": "CER.1",
-        "short": "CER-1",
+        "short": "Set ID – CER",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "CER.2",
         "path": "CER.2",
-        "short": "CER-2",
+        "short": "Serial Number",
         "definition": "The serial number uniquely identifies the attribute certificate within the scope of its issuer. This field contains the number and/or characters that identify the certificate held by the health professional.",
         "comment": "An attribute certificate is a data structure which certifies (either digitally or manually) that one or more attributes (e.g., descriptors, capabilities, qualifications, etc.) are associated with a particular entity as verified/certified by the attribute authority (e.g., Credentialing Organization (US), Physician Chamber \"Ärztekammer\" (D), Physicians Statutory Association \"Kassenärztliche Vereinigung\" (D)).",
         "code": [
@@ -82,11 +82,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -94,7 +94,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -103,7 +103,7 @@
       {
         "id": "CER.3",
         "path": "CER.3",
-        "short": "CER-3",
+        "short": "Version",
         "definition": "The version number differentiates among different versions of the attribute certificate.",
         "code": [
           {
@@ -120,11 +120,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -132,7 +132,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -141,7 +141,7 @@
       {
         "id": "CER.4",
         "path": "CER.4",
-        "short": "CER-4",
+        "short": "Granting Authority",
         "definition": "It specifies the authority that granted the certificate to the person.",
         "code": [
           {
@@ -158,7 +158,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -166,7 +166,7 @@
       {
         "id": "CER.5",
         "path": "CER.5",
-        "short": "CER-5",
+        "short": "Issuing Authority",
         "definition": "Specifies the authority that issued the certificate to the person.",
         "code": [
           {
@@ -183,7 +183,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -191,7 +191,7 @@
       {
         "id": "CER.6",
         "path": "CER.6",
-        "short": "CER-6",
+        "short": "Signature",
         "definition": "Digital Signature of the certifying authority. The Digital Signature includes a seal concept and is verifiable.",
         "code": [
           {
@@ -208,7 +208,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -216,8 +216,8 @@
       {
         "id": "CER.7",
         "path": "CER.7",
-        "short": "CER-7",
-        "definition": "ID of the country granting the certificate. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70399[_External Table 0399 – Country Code_] for valid values.",
+        "short": "Granting Country",
+        "definition": "ID of the country granting the certificate. Refer to {{v2-table:0399:Country Code}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -237,11 +237,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -258,8 +258,8 @@
       {
         "id": "CER.8",
         "path": "CER.8",
-        "short": "CER-8",
-        "definition": "State/province granting the certificate. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70347[_User-defined Table 0347 – State/Province_] for valid values (in Chapter 2)",
+        "short": "Granting State/Province",
+        "definition": "State/province granting the certificate. Refer to {{v2-table:0347:State/Province}} for valid values (in Chapter 2)",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -279,7 +279,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -287,8 +287,8 @@
       {
         "id": "CER.9",
         "path": "CER.9",
-        "short": "CER-9",
-        "definition": "County/parish granting the certificate. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70289[_User-defined Table 0289 – County/Parish_] for valid values (in Chapter 2).",
+        "short": "Granting County/Parish",
+        "definition": "County/parish granting the certificate. Refer to {{v2-table:0289:County/Parish}} for valid values (in Chapter 2).",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -308,7 +308,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -316,7 +316,7 @@
       {
         "id": "CER.10",
         "path": "CER.10",
-        "short": "CER-10",
+        "short": "Certificate Type",
         "definition": "This field specifies the certificate's classification, e.g., being a privilege, permission, or qualification certificate.",
         "code": [
           {
@@ -333,7 +333,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -341,7 +341,7 @@
       {
         "id": "CER.11",
         "path": "CER.11",
-        "short": "CER-11",
+        "short": "Certificate Domain",
         "definition": "This field specifies the subject area to which the certificate is applicable, e.g., administrative, medical, or nursing issues.",
         "code": [
           {
@@ -358,7 +358,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -366,7 +366,7 @@
       {
         "id": "CER.12",
         "path": "CER.12",
-        "short": "CER-12",
+        "short": "Subject ID",
         "definition": "This field expresses the identifier of the certificate's subject as used by the certifying body. (The subject is the owner of the certificate, e.g., person, organization, device, application, component.) If the certificate is expressed as a X.509 document this field is required.",
         "code": [
           {
@@ -383,7 +383,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -391,7 +391,7 @@
       {
         "id": "CER.13",
         "path": "CER.13",
-        "short": "CER-13",
+        "short": "Subject Name",
         "definition": "This field defines the name of the subject of the certificate as used by the certifying body.",
         "code": [
           {
@@ -408,11 +408,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -420,7 +420,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -429,7 +429,7 @@
       {
         "id": "CER.14",
         "path": "CER.14",
-        "short": "CER-14",
+        "short": "Subject Directory Attribute Extension",
         "definition": "In individual identity certificates, this Subject Directory Attribute extension MAY contain a Healthcare Professional Role attribute and may contain a Qualified Certificate Statement attribute. In addition, Subject Directory Attributes MAY contain other attributes not specified by this technical specification.",
         "code": [
           {
@@ -446,7 +446,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -454,7 +454,7 @@
       {
         "id": "CER.15",
         "path": "CER.15",
-        "short": "CER-15",
+        "short": "Subject Public Key Info",
         "definition": "This field contains the algorithm identifier. Referred to this field, the X.509 extension field MAY contain a Subject Public Key Identifier to identify the public key used in the Subject Public Key Info.",
         "comment": "X.509 is an ISO standard specifying certificates.",
         "code": [
@@ -472,7 +472,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -480,7 +480,7 @@
       {
         "id": "CER.16",
         "path": "CER.16",
-        "short": "CER-16",
+        "short": "Authority Key Identifier",
         "definition": "The Authority Key Identifier extension SHALL identify the public key to be used to verify the signature of the certificate. It enables distinct keys, used by one CA, to be distinguished (e.g., as key updating occurs).",
         "code": [
           {
@@ -497,7 +497,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -505,7 +505,7 @@
       {
         "id": "CER.17",
         "path": "CER.17",
-        "short": "CER-17",
+        "short": "Basic Constraint",
         "definition": "The Basic Constraints extension contains a boolean used to specify whether or not the subject can act as a CA (certificate authority), using the certified key to sign certificates.",
         "code": [
           {
@@ -526,11 +526,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -547,7 +547,7 @@
       {
         "id": "CER.18",
         "path": "CER.18",
-        "short": "CER-18",
+        "short": "CRL Distribution Point",
         "definition": "The Certificate Revocation List (CRL) Distribution Point extension SHALL identify the location of the associated CRL (or Authority Revocation List (ARL) for attribute certificates) in the PKI directory.",
         "code": [
           {
@@ -564,7 +564,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -572,8 +572,8 @@
       {
         "id": "CER.19",
         "path": "CER.19",
-        "short": "CER-19",
-        "definition": "This field contains the country for which the qualification is valid. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70399[_External Table 0399 – Country Code_] for valid values.",
+        "short": "Jurisdiction Country",
+        "definition": "This field contains the country for which the qualification is valid. Refer to {{v2-table:0399:Country Code}} for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -593,11 +593,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -614,8 +614,8 @@
       {
         "id": "CER.20",
         "path": "CER.20",
-        "short": "CER-20",
-        "definition": "This field contains the state for which the qualification is valid. HL7 suggests using values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70347[_User-defined Table 0347 – State/Province_].",
+        "short": "Jurisdiction State/Province",
+        "definition": "This field contains the state for which the qualification is valid. HL7 suggests using values in {{v2-table:0347:State/Province}}.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -635,7 +635,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -643,8 +643,8 @@
       {
         "id": "CER.21",
         "path": "CER.21",
-        "short": "CER-21",
-        "definition": "This field contains the county/parish for which the qualification is valid. HL7 suggests using values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70289[_User-defined Table 0289 – County/Parish_].",
+        "short": "Jurisdiction County/Parish",
+        "definition": "This field contains the county/parish for which the qualification is valid. HL7 suggests using values in {{v2-table:0289:County/Parish}}.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -664,7 +664,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -672,9 +672,9 @@
       {
         "id": "CER.22",
         "path": "CER.22",
-        "short": "CER-22",
-        "definition": "This field contains the breadth/extent of the jurisdiction where the qualification is valid. HL7 suggests using values in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70547[_User-defined Table 0547 – Jurisdictional Breadth_].",
-        "comment": "Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70547[_User-defined Table 0547 – Jurisdictional Breadth_] in Chapter 2C, Code Tables, for valid values. This table contains values for County, Parish, County etc.",
+        "short": "Jurisdiction Breadth",
+        "definition": "This field contains the breadth/extent of the jurisdiction where the qualification is valid. HL7 suggests using values in {{v2-table:0547:Jurisdictional Breadth}}.",
+        "comment": "Refer to {{v2-table:0547:Jurisdictional Breadth}} in Chapter 2C, Code Tables, for valid values. This table contains values for County, Parish, County etc.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -694,7 +694,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -702,7 +702,7 @@
       {
         "id": "CER.23",
         "path": "CER.23",
-        "short": "CER-23",
+        "short": "Granting Date",
         "definition": "This field contains the date when the certificate was granted.",
         "code": [
           {
@@ -719,7 +719,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -727,7 +727,7 @@
       {
         "id": "CER.24",
         "path": "CER.24",
-        "short": "CER-24",
+        "short": "Issuing Date",
         "definition": "This field contains the date/time when the certificate was issued.",
         "code": [
           {
@@ -744,7 +744,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -752,7 +752,7 @@
       {
         "id": "CER.25",
         "path": "CER.25",
-        "short": "CER-25",
+        "short": "Activation Date",
         "definition": "This field contains the date/time when the certificate became or will become active.",
         "code": [
           {
@@ -769,7 +769,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -777,7 +777,7 @@
       {
         "id": "CER.26",
         "path": "CER.26",
-        "short": "CER-26",
+        "short": "Inactivation Date",
         "definition": "This field contains the date/time when the certificate became or will become inactive.",
         "code": [
           {
@@ -794,7 +794,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -802,7 +802,7 @@
       {
         "id": "CER.27",
         "path": "CER.27",
-        "short": "CER-27",
+        "short": "Expiration Date",
         "definition": "This field contains the date/time when the certificate expires or will expire.",
         "code": [
           {
@@ -819,7 +819,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -827,7 +827,7 @@
       {
         "id": "CER.28",
         "path": "CER.28",
-        "short": "CER-28",
+        "short": "Renewal Date",
         "definition": "This field contains the date/time when the certificate must/will/ be / has been renewed.",
         "code": [
           {
@@ -844,7 +844,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -852,7 +852,7 @@
       {
         "id": "CER.29",
         "path": "CER.29",
-        "short": "CER-29",
+        "short": "Revocation Date",
         "definition": "This field contains the date/time when the certificate has been revoked.",
         "code": [
           {
@@ -869,7 +869,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -877,7 +877,7 @@
       {
         "id": "CER.30",
         "path": "CER.30",
-        "short": "CER-30",
+        "short": "Revocation Reason Code",
         "definition": "This field contains the reason for revoking the certificate (e.g., having been compromised, changes of conditions/environment, etc.)",
         "code": [
           {
@@ -894,7 +894,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -902,8 +902,8 @@
       {
         "id": "CER.31",
         "path": "CER.31",
-        "short": "CER-31",
-        "definition": "This field contains the state of the certificate held by the health professional, such as provisional, revoked, etc. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70536[_User-defined Table 0536 – Certificate Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Certificate Status Code",
+        "definition": "This field contains the state of the certificate held by the health professional, such as provisional, revoked, etc. Refer to {{v2-table:0536:Certificate Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -923,7 +923,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

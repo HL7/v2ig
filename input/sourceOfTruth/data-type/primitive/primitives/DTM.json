@@ -1,48 +1,46 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "DTM",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "DTM",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/DTM",
-  "version" : "0.0.1",
-  "name" : "V2_DTM_Data_Type",
-  "title" : "HL7 v2 DTM Data Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "dateTime",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/dateTime",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [{
-      "id" : "dateTime.id",
-      "path" : "dateTime.id",
-      "max" : "0"
-    },{
-      "id" : "dateTime.extension",
-      "path" : "dateTime.extension",
-      "max" : "0"
-    }]
+  "url": "http://hl7.org/v2/StructureDefinition/DTM",
+  "version": "0.0.1",
+  "name": "DTM",
+  "title": "HL7 v2 DTM Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/DTM",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "A date/time value in the format YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]. The minimum precision is to the year (4 digits). Additional precision components (month, day, hour, minute, second, fractional seconds) are optional but must appear in order. If a timezone offset (+/-ZZZZ) is present, it indicates the difference between the local time and UTC.",
+  "differential": {
+    "element": [
+      {
+        "id": "DTM",
+        "path": "DTM",
+        "short": "Date/Time",
+        "definition": "A date/time value in the format YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]. The minimum precision is to the year. Additional precision components are optional but must appear in order. A timezone offset (+/-ZZZZ) indicates the difference between local time and UTC.",
+        "min": 0,
+        "max": "*"
+      }
+    ]
   }
 }

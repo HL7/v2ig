@@ -37,7 +37,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -56,7 +56,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -75,7 +75,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -94,7 +94,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -126,7 +126,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -145,7 +145,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -164,7 +164,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -196,7 +196,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -215,7 +215,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -247,7 +247,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -279,7 +279,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -298,7 +298,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -330,7 +330,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -349,7 +349,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]
@@ -368,7 +368,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/v2-segment-status",
+            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
             "valueCode": "A"
           }
         ]

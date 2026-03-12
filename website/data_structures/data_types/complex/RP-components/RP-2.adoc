@@ -18,6 +18,8 @@ Referenced data may be obtained by a mechanism not defined in the HL7 standard. 
 [NOTE]
 the ampersands in the Pointer string are escaped to “\T\” to avoid conflict with the sub-component delimiter:
 
-[er7]
+[.er7]
+....
 |?requestType=WADO\T\study=1.2.840.113848.5.22.9220847989\T\series=1.2.840.113848.5.22.922084798.4\T\object=1.2.840.113848.5.22.922084798.4.5\^&https://www.pacs.poupon.edu/wado.jsp&URI^image^jpeg|
+....
 

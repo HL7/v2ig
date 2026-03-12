@@ -12,772 +12,1156 @@
   },
   "entry": [
     {
-      "code": "ADD",
-      "display": "Addendum"
+      "item": {
+        "reference": "StructureDefinition/ADD",
+        "display": "Addendum"
+      }
     },
     {
-      "code": "BHS",
-      "display": "Batch Header"
+      "item": {
+        "reference": "StructureDefinition/BHS",
+        "display": "Batch Header"
+      }
     },
     {
-      "code": "BTS",
-      "display": "Batch Trailer"
+      "item": {
+        "reference": "StructureDefinition/BTS",
+        "display": "Batch Trailer"
+      }
     },
     {
-      "code": "DSC",
-      "display": "Continuation Pointer"
+      "item": {
+        "reference": "StructureDefinition/DSC",
+        "display": "Continuation Pointer"
+      }
     },
     {
-      "code": "ERR",
-      "display": "Error"
+      "item": {
+        "reference": "StructureDefinition/ERR",
+        "display": "Error"
+      }
     },
     {
-      "code": "FHS",
-      "display": "File Header"
+      "item": {
+        "reference": "StructureDefinition/FHS",
+        "display": "File Header"
+      }
     },
     {
-      "code": "FTS",
-      "display": "File Trailer"
+      "item": {
+        "reference": "StructureDefinition/FTS",
+        "display": "File Trailer"
+      }
     },
     {
-      "code": "MSA",
-      "display": "Message Acknowledgment"
+      "item": {
+        "reference": "StructureDefinition/MSA",
+        "display": "Message Acknowledgment"
+      }
     },
     {
-      "code": "MSH",
-      "display": "Message Header"
+      "item": {
+        "reference": "StructureDefinition/MSH",
+        "display": "Message Header"
+      }
     },
     {
-      "code": "NTE",
-      "display": "Notes and Comments"
+      "item": {
+        "reference": "StructureDefinition/NTE",
+        "display": "Notes and Comments"
+      }
     },
     {
-      "code": "OVR",
-      "display": "Override"
+      "item": {
+        "reference": "StructureDefinition/OVR",
+        "display": "Override"
+      }
     },
     {
-      "code": "SFT",
-      "display": "Software"
+      "item": {
+        "reference": "StructureDefinition/SFT",
+        "display": "Software"
+      }
     },
     {
-      "code": "SGH",
-      "display": "Segment Group Header"
+      "item": {
+        "reference": "StructureDefinition/SGH",
+        "display": "Segment Group Header"
+      }
     },
     {
-      "code": "SGT",
-      "display": "Segment Group Trailer"
+      "item": {
+        "reference": "StructureDefinition/SGT",
+        "display": "Segment Group Trailer"
+      }
     },
     {
-      "code": "UAC",
-      "display": "User Authentication Credential"
+      "item": {
+        "reference": "StructureDefinition/UAC",
+        "display": "User Authentication Credential"
+      }
     },
     {
-      "code": "...",
-      "display": "Variable"
+      "item": {
+        "reference": "StructureDefinition/...",
+        "display": "Variable"
+      }
     },
     {
-      "code": "Hxx",
-      "display": "Any segment or segment group"
+      "item": {
+        "reference": "StructureDefinition/Hxx",
+        "display": "Any segment or segment group"
+      }
     },
     {
-      "code": "EVN",
-      "display": "Event Type"
+      "item": {
+        "reference": "StructureDefinition/EVN",
+        "display": "Event Type"
+      }
     },
     {
-      "code": "PID",
-      "display": "Patient Identification"
+      "item": {
+        "reference": "StructureDefinition/PID",
+        "display": "Patient Identification"
+      }
     },
     {
-      "code": "PV1",
-      "display": "Patient Visit"
+      "item": {
+        "reference": "StructureDefinition/PV1",
+        "display": "Patient Visit"
+      }
     },
     {
-      "code": "PV2",
-      "display": "Patient Visit - Additional Information"
+      "item": {
+        "reference": "StructureDefinition/PV2",
+        "display": "Patient Visit - Additional Information"
+      }
     },
     {
-      "code": "NK1",
-      "display": "Next of Kin / Associated Parties"
+      "item": {
+        "reference": "StructureDefinition/NK1",
+        "display": "Next of Kin / Associated Parties"
+      }
     },
     {
-      "code": "AL1",
-      "display": "Patient Allergy Information"
+      "item": {
+        "reference": "StructureDefinition/AL1",
+        "display": "Patient Allergy Information"
+      }
     },
     {
-      "code": "IAM",
-      "display": "Patient Adverse Reaction Information"
+      "item": {
+        "reference": "StructureDefinition/IAM",
+        "display": "Patient Adverse Reaction Information"
+      }
     },
     {
-      "code": "IAR",
-      "display": "Allergy Reaction"
+      "item": {
+        "reference": "StructureDefinition/IAR",
+        "display": "Allergy Reaction"
+      }
     },
     {
-      "code": "NPU",
-      "display": "Bed Status Update"
+      "item": {
+        "reference": "StructureDefinition/NPU",
+        "display": "Bed Status Update"
+      }
     },
     {
-      "code": "MRG",
-      "display": "Merge Patient Information"
+      "item": {
+        "reference": "StructureDefinition/MRG",
+        "display": "Merge Patient Information"
+      }
     },
     {
-      "code": "PD1",
-      "display": "Patient Additional Demographic"
+      "item": {
+        "reference": "StructureDefinition/PD1",
+        "display": "Patient Additional Demographic"
+      }
     },
     {
-      "code": "DB1",
-      "display": "Disability"
+      "item": {
+        "reference": "StructureDefinition/DB1",
+        "display": "Disability"
+      }
     },
     {
-      "code": "PDA",
-      "display": "Patient Death and Autopsy"
+      "item": {
+        "reference": "StructureDefinition/PDA",
+        "display": "Patient Death and Autopsy"
+      }
     },
     {
-      "code": "ARV",
-      "display": "Access Restrictions"
+      "item": {
+        "reference": "StructureDefinition/ARV",
+        "display": "Access Restrictions"
+      }
     },
     {
-      "code": "OH1",
-      "display": "Person Employment Status"
+      "item": {
+        "reference": "StructureDefinition/OH1",
+        "display": "Person Employment Status"
+      }
     },
     {
-      "code": "OH2",
-      "display": "Past or Present Job"
+      "item": {
+        "reference": "StructureDefinition/OH2",
+        "display": "Past or Present Job"
+      }
     },
     {
-      "code": "OH3",
-      "display": "Usual Work"
+      "item": {
+        "reference": "StructureDefinition/OH3",
+        "display": "Usual Work"
+      }
     },
     {
-      "code": "OH4",
-      "display": "Combat Zone Work"
+      "item": {
+        "reference": "StructureDefinition/OH4",
+        "display": "Combat Zone Work"
+      }
     },
     {
-      "code": "GSP",
-      "display": "Person Gender and Sex"
+      "item": {
+        "reference": "StructureDefinition/GSP",
+        "display": "Person Gender and Sex"
+      }
     },
     {
-      "code": "GSR",
-      "display": "Recorded Gender and Sex"
+      "item": {
+        "reference": "StructureDefinition/GSR",
+        "display": "Recorded Gender and Sex"
+      }
     },
     {
-      "code": "GSC",
-      "display": "Sex Parameter for Clinical Use"
+      "item": {
+        "reference": "StructureDefinition/GSC",
+        "display": "Sex Parameter for Clinical Use"
+      }
     },
     {
-      "code": "ORC",
-      "display": "Common Order"
+      "item": {
+        "reference": "StructureDefinition/ORC",
+        "display": "Common Order"
+      }
     },
     {
-      "code": "BLG",
-      "display": "Billing"
+      "item": {
+        "reference": "StructureDefinition/BLG",
+        "display": "Billing"
+      }
     },
     {
-      "code": "OBR",
-      "display": "Observation Request"
+      "item": {
+        "reference": "StructureDefinition/OBR",
+        "display": "Observation Request"
+      }
     },
     {
-      "code": "TQ1",
-      "display": "Timing/Quantity"
+      "item": {
+        "reference": "StructureDefinition/TQ1",
+        "display": "Timing/Quantity"
+      }
     },
     {
-      "code": "TQ2",
-      "display": "Timing/Quantity Relationship"
+      "item": {
+        "reference": "StructureDefinition/TQ2",
+        "display": "Timing/Quantity Relationship"
+      }
     },
     {
-      "code": "IPC",
-      "display": "Imaging Procedure Control"
+      "item": {
+        "reference": "StructureDefinition/IPC",
+        "display": "Imaging Procedure Control"
+      }
     },
     {
-      "code": "ODS",
-      "display": "dietary orders, supplements, and preferences"
+      "item": {
+        "reference": "StructureDefinition/ODS",
+        "display": "dietary orders, supplements, and preferences"
+      }
     },
     {
-      "code": "ODT",
-      "display": "diet tray instructions"
+      "item": {
+        "reference": "StructureDefinition/ODT",
+        "display": "diet tray instructions"
+      }
     },
     {
-      "code": "RQD",
-      "display": "Requisition Detail"
+      "item": {
+        "reference": "StructureDefinition/RQD",
+        "display": "Requisition Detail"
+      }
     },
     {
-      "code": "RQ1",
-      "display": "Requisition Detail-1"
+      "item": {
+        "reference": "StructureDefinition/RQ1",
+        "display": "Requisition Detail-1"
+      }
     },
     {
-      "code": "BPO",
-      "display": "Blood Product Order"
+      "item": {
+        "reference": "StructureDefinition/BPO",
+        "display": "Blood Product Order"
+      }
     },
     {
-      "code": "BPX",
-      "display": "Blood Product Dispense Status"
+      "item": {
+        "reference": "StructureDefinition/BPX",
+        "display": "Blood Product Dispense Status"
+      }
     },
     {
-      "code": "BTX",
-      "display": "Blood Product Transfusion/Disposition"
+      "item": {
+        "reference": "StructureDefinition/BTX",
+        "display": "Blood Product Transfusion/Disposition"
+      }
     },
     {
-      "code": "DON",
-      "display": "Donation"
+      "item": {
+        "reference": "StructureDefinition/DON",
+        "display": "Donation"
+      }
     },
     {
-      "code": "BUI",
-      "display": "Blood Unit information"
+      "item": {
+        "reference": "StructureDefinition/BUI",
+        "display": "Blood Unit information"
+      }
     },
     {
-      "code": "RXO",
-      "display": "Pharmacy/Treatment Order"
+      "item": {
+        "reference": "StructureDefinition/RXO",
+        "display": "Pharmacy/Treatment Order"
+      }
     },
     {
-      "code": "RXR",
-      "display": "Pharmacy/Treatment Route"
+      "item": {
+        "reference": "StructureDefinition/RXR",
+        "display": "Pharmacy/Treatment Route"
+      }
     },
     {
-      "code": "RXC",
-      "display": "Pharmacy/Treatment Component Order"
+      "item": {
+        "reference": "StructureDefinition/RXC",
+        "display": "Pharmacy/Treatment Component Order"
+      }
     },
     {
-      "code": "RXE",
-      "display": "Pharmacy/Treatment Encoded Order"
+      "item": {
+        "reference": "StructureDefinition/RXE",
+        "display": "Pharmacy/Treatment Encoded Order"
+      }
     },
     {
-      "code": "RXD",
-      "display": "Pharmacy/Treatment Dispense"
+      "item": {
+        "reference": "StructureDefinition/RXD",
+        "display": "Pharmacy/Treatment Dispense"
+      }
     },
     {
-      "code": "RXG",
-      "display": "Pharmacy/Treatment Give"
+      "item": {
+        "reference": "StructureDefinition/RXG",
+        "display": "Pharmacy/Treatment Give"
+      }
     },
     {
-      "code": "RXA",
-      "display": "Pharmacy/Treatment Administration"
+      "item": {
+        "reference": "StructureDefinition/RXA",
+        "display": "Pharmacy/Treatment Administration"
+      }
     },
     {
-      "code": "RXV",
-      "display": "Pharmacy/Treatment Infusion"
+      "item": {
+        "reference": "StructureDefinition/RXV",
+        "display": "Pharmacy/Treatment Infusion"
+      }
     },
     {
-      "code": "CDO",
-      "display": "Cumulative Dosage"
+      "item": {
+        "reference": "StructureDefinition/CDO",
+        "display": "Cumulative Dosage"
+      }
     },
     {
-      "code": "DSP",
-      "display": "Display Data"
+      "item": {
+        "reference": "StructureDefinition/DSP",
+        "display": "Display Data"
+      }
     },
     {
-      "code": "QAK",
-      "display": "Query Acknowledgment"
+      "item": {
+        "reference": "StructureDefinition/QAK",
+        "display": "Query Acknowledgment"
+      }
     },
     {
-      "code": "QID",
-      "display": "Query Identification"
+      "item": {
+        "reference": "StructureDefinition/QID",
+        "display": "Query Identification"
+      }
     },
     {
-      "code": "QPD",
-      "display": "Query Parameter Definition"
+      "item": {
+        "reference": "StructureDefinition/QPD",
+        "display": "Query Parameter Definition"
+      }
     },
     {
-      "code": "QRI",
-      "display": "Query Response Instance"
+      "item": {
+        "reference": "StructureDefinition/QRI",
+        "display": "Query Response Instance"
+      }
     },
     {
-      "code": "RCP",
-      "display": "Response Control Parameter"
+      "item": {
+        "reference": "StructureDefinition/RCP",
+        "display": "Response Control Parameter"
+      }
     },
     {
-      "code": "RDF",
-      "display": "Table Row Definition"
+      "item": {
+        "reference": "StructureDefinition/RDF",
+        "display": "Table Row Definition"
+      }
     },
     {
-      "code": "RDT",
-      "display": "Table Row Data"
+      "item": {
+        "reference": "StructureDefinition/RDT",
+        "display": "Table Row Data"
+      }
     },
     {
-      "code": "FT1",
-      "display": "Financial Transaction"
+      "item": {
+        "reference": "StructureDefinition/FT1",
+        "display": "Financial Transaction"
+      }
     },
     {
-      "code": "DG1",
-      "display": "Diagnosis"
+      "item": {
+        "reference": "StructureDefinition/DG1",
+        "display": "Diagnosis"
+      }
     },
     {
-      "code": "DRG",
-      "display": "Diagnosis Related Group"
+      "item": {
+        "reference": "StructureDefinition/DRG",
+        "display": "Diagnosis Related Group"
+      }
     },
     {
-      "code": "PR1",
-      "display": "Procedures"
+      "item": {
+        "reference": "StructureDefinition/PR1",
+        "display": "Procedures"
+      }
     },
     {
-      "code": "GT1",
-      "display": "Guarantor"
+      "item": {
+        "reference": "StructureDefinition/GT1",
+        "display": "Guarantor"
+      }
     },
     {
-      "code": "IN1",
-      "display": "Insurance"
+      "item": {
+        "reference": "StructureDefinition/IN1",
+        "display": "Insurance"
+      }
     },
     {
-      "code": "IN2",
-      "display": "Insurance Additional Information"
+      "item": {
+        "reference": "StructureDefinition/IN2",
+        "display": "Insurance Additional Information"
+      }
     },
     {
-      "code": "IN3",
-      "display": "Insurance Additional Information, Certification"
+      "item": {
+        "reference": "StructureDefinition/IN3",
+        "display": "Insurance Additional Information, Certification"
+      }
     },
     {
-      "code": "ACC",
-      "display": "Accident"
+      "item": {
+        "reference": "StructureDefinition/ACC",
+        "display": "Accident"
+      }
     },
     {
-      "code": "UB1",
-      "display": "Uniform Billing 1"
+      "item": {
+        "reference": "StructureDefinition/UB1",
+        "display": "Uniform Billing 1"
+      }
     },
     {
-      "code": "UB2",
-      "display": "UB92 Data"
+      "item": {
+        "reference": "StructureDefinition/UB2",
+        "display": "UB92 Data"
+      }
     },
     {
-      "code": "ABS",
-      "display": "Abstract"
+      "item": {
+        "reference": "StructureDefinition/ABS",
+        "display": "Abstract"
+      }
     },
     {
-      "code": "BLC",
-      "display": "Blood Code"
+      "item": {
+        "reference": "StructureDefinition/BLC",
+        "display": "Blood Code"
+      }
     },
     {
-      "code": "RMI",
-      "display": "Risk Management Incident"
+      "item": {
+        "reference": "StructureDefinition/RMI",
+        "display": "Risk Management Incident"
+      }
     },
     {
-      "code": "GP1",
-      "display": "Grouping/Reimbursement - Visit"
+      "item": {
+        "reference": "StructureDefinition/GP1",
+        "display": "Grouping/Reimbursement - Visit"
+      }
     },
     {
-      "code": "GP2",
-      "display": "Grouping/Reimbursement - Procedure Line Item"
+      "item": {
+        "reference": "StructureDefinition/GP2",
+        "display": "Grouping/Reimbursement - Procedure Line Item"
+      }
     },
     {
-      "code": "OBX",
-      "display": "Observation/Result"
+      "item": {
+        "reference": "StructureDefinition/OBX",
+        "display": "Observation/Result"
+      }
     },
     {
-      "code": "SPM",
-      "display": "Specimen"
+      "item": {
+        "reference": "StructureDefinition/SPM",
+        "display": "Specimen"
+      }
     },
     {
-      "code": "PRT",
-      "display": "Participation Information"
+      "item": {
+        "reference": "StructureDefinition/PRT",
+        "display": "Participation Information"
+      }
     },
     {
-      "code": "CSR",
-      "display": "Clinical Study Registration"
+      "item": {
+        "reference": "StructureDefinition/CSR",
+        "display": "Clinical Study Registration"
+      }
     },
     {
-      "code": "CSP",
-      "display": "Clinical Study Phase"
+      "item": {
+        "reference": "StructureDefinition/CSP",
+        "display": "Clinical Study Phase"
+      }
     },
     {
-      "code": "CSS",
-      "display": "Clinical Study Data Schedule"
+      "item": {
+        "reference": "StructureDefinition/CSS",
+        "display": "Clinical Study Data Schedule"
+      }
     },
     {
-      "code": "CTI",
-      "display": "Clinical Trial Identification"
+      "item": {
+        "reference": "StructureDefinition/CTI",
+        "display": "Clinical Trial Identification"
+      }
     },
     {
-      "code": "PES",
-      "display": "Product Experience Sender"
+      "item": {
+        "reference": "StructureDefinition/PES",
+        "display": "Product Experience Sender"
+      }
     },
     {
-      "code": "PEO",
-      "display": "Product Experience Observation"
+      "item": {
+        "reference": "StructureDefinition/PEO",
+        "display": "Product Experience Observation"
+      }
     },
     {
-      "code": "PCR",
-      "display": "Possible Causal Relationship"
+      "item": {
+        "reference": "StructureDefinition/PCR",
+        "display": "Possible Causal Relationship"
+      }
     },
     {
-      "code": "PSH",
-      "display": "Product Summary Header"
+      "item": {
+        "reference": "StructureDefinition/PSH",
+        "display": "Product Summary Header"
+      }
     },
     {
-      "code": "PDC",
-      "display": "Product Detail Country"
+      "item": {
+        "reference": "StructureDefinition/PDC",
+        "display": "Product Detail Country"
+      }
     },
     {
-      "code": "FAC",
-      "display": "Facility"
+      "item": {
+        "reference": "StructureDefinition/FAC",
+        "display": "Facility"
+      }
     },
     {
-      "code": "SHP",
-      "display": "Shipment"
+      "item": {
+        "reference": "StructureDefinition/SHP",
+        "display": "Shipment"
+      }
     },
     {
-      "code": "PAC",
-      "display": "Shipment Package"
+      "item": {
+        "reference": "StructureDefinition/PAC",
+        "display": "Shipment Package"
+      }
     },
     {
-      "code": "MFI",
-      "display": "Master File Identification"
+      "item": {
+        "reference": "StructureDefinition/MFI",
+        "display": "Master File Identification"
+      }
     },
     {
-      "code": "MFE",
-      "display": "Master File Entry"
+      "item": {
+        "reference": "StructureDefinition/MFE",
+        "display": "Master File Entry"
+      }
     },
     {
-      "code": "MFA",
-      "display": "Master File Acknowledgment"
+      "item": {
+        "reference": "StructureDefinition/MFA",
+        "display": "Master File Acknowledgment"
+      }
     },
     {
-      "code": "OM1",
-      "display": "General"
+      "item": {
+        "reference": "StructureDefinition/OM1",
+        "display": "General"
+      }
     },
     {
-      "code": "OM2",
-      "display": "Numeric Observation"
+      "item": {
+        "reference": "StructureDefinition/OM2",
+        "display": "Numeric Observation"
+      }
     },
     {
-      "code": "OM3",
-      "display": "Categorical Service/Test/Observation"
+      "item": {
+        "reference": "StructureDefinition/OM3",
+        "display": "Categorical Service/Test/Observation"
+      }
     },
     {
-      "code": "OM4",
-      "display": "Observations That Require Specimens"
+      "item": {
+        "reference": "StructureDefinition/OM4",
+        "display": "Observations That Require Specimens"
+      }
     },
     {
-      "code": "OM5",
-      "display": "Observation Batteries (Sets)"
+      "item": {
+        "reference": "StructureDefinition/OM5",
+        "display": "Observation Batteries (Sets)"
+      }
     },
     {
-      "code": "OM6",
-      "display": "Observations that are Calculated from Other Observations"
+      "item": {
+        "reference": "StructureDefinition/OM6",
+        "display": "Observations that are Calculated from Other Observations"
+      }
     },
     {
-      "code": "OM7",
-      "display": "Additional Basic Attributes"
+      "item": {
+        "reference": "StructureDefinition/OM7",
+        "display": "Additional Basic Attributes"
+      }
     },
     {
-      "code": "OMC",
-      "display": "Supporting Clinical Information"
+      "item": {
+        "reference": "StructureDefinition/OMC",
+        "display": "Supporting Clinical Information"
+      }
     },
     {
-      "code": "PM1",
-      "display": "Payer Master File"
+      "item": {
+        "reference": "StructureDefinition/PM1",
+        "display": "Payer Master File"
+      }
     },
     {
-      "code": "MCP",
-      "display": "Master File Coverage Policy"
+      "item": {
+        "reference": "StructureDefinition/MCP",
+        "display": "Master File Coverage Policy"
+      }
     },
     {
-      "code": "DPS",
-      "display": "Diagnosis and Procedure Code"
+      "item": {
+        "reference": "StructureDefinition/DPS",
+        "display": "Diagnosis and Procedure Code"
+      }
     },
     {
-      "code": "LOC",
-      "display": "Location Identification"
+      "item": {
+        "reference": "StructureDefinition/LOC",
+        "display": "Location Identification"
+      }
     },
     {
-      "code": "LCH",
-      "display": "Location Characteristic"
+      "item": {
+        "reference": "StructureDefinition/LCH",
+        "display": "Location Characteristic"
+      }
     },
     {
-      "code": "LRL",
-      "display": "Location Relationship"
+      "item": {
+        "reference": "StructureDefinition/LRL",
+        "display": "Location Relationship"
+      }
     },
     {
-      "code": "LDP",
-      "display": "Location Department"
+      "item": {
+        "reference": "StructureDefinition/LDP",
+        "display": "Location Department"
+      }
     },
     {
-      "code": "LCC",
-      "display": "Location Charge Code"
+      "item": {
+        "reference": "StructureDefinition/LCC",
+        "display": "Location Charge Code"
+      }
     },
     {
-      "code": "CDM",
-      "display": "Charge Description Master"
+      "item": {
+        "reference": "StructureDefinition/CDM",
+        "display": "Charge Description Master"
+      }
     },
     {
-      "code": "PRC",
-      "display": "Pricing"
+      "item": {
+        "reference": "StructureDefinition/PRC",
+        "display": "Pricing"
+      }
     },
     {
-      "code": "CM0",
-      "display": "Clinical Study Master"
+      "item": {
+        "reference": "StructureDefinition/CM0",
+        "display": "Clinical Study Master"
+      }
     },
     {
-      "code": "CM1",
-      "display": "Clinical Study Phase Master"
+      "item": {
+        "reference": "StructureDefinition/CM1",
+        "display": "Clinical Study Phase Master"
+      }
     },
     {
-      "code": "CM2",
-      "display": "Clinical Study Schedule Master"
+      "item": {
+        "reference": "StructureDefinition/CM2",
+        "display": "Clinical Study Schedule Master"
+      }
     },
     {
-      "code": "DMI",
-      "display": "DRG Master File Information"
+      "item": {
+        "reference": "StructureDefinition/DMI",
+        "display": "DRG Master File Information"
+      }
     },
     {
-      "code": "CTR",
-      "display": "Contract Master Outbound"
+      "item": {
+        "reference": "StructureDefinition/CTR",
+        "display": "Contract Master Outbound"
+      }
     },
     {
-      "code": "CON",
-      "display": "Consent"
+      "item": {
+        "reference": "StructureDefinition/CON",
+        "display": "Consent"
+      }
     },
     {
-      "code": "TXA",
-      "display": "Transcription Document Header"
+      "item": {
+        "reference": "StructureDefinition/TXA",
+        "display": "Transcription Document Header"
+      }
     },
     {
-      "code": "ARQ",
-      "display": "Appointment Request"
+      "item": {
+        "reference": "StructureDefinition/ARQ",
+        "display": "Appointment Request"
+      }
     },
     {
-      "code": "SCH",
-      "display": "Schedule Activity Information"
+      "item": {
+        "reference": "StructureDefinition/SCH",
+        "display": "Schedule Activity Information"
+      }
     },
     {
-      "code": "RGS",
-      "display": "Resource Group"
+      "item": {
+        "reference": "StructureDefinition/RGS",
+        "display": "Resource Group"
+      }
     },
     {
-      "code": "AIS",
-      "display": "Appointment Information - Service"
+      "item": {
+        "reference": "StructureDefinition/AIS",
+        "display": "Appointment Information - Service"
+      }
     },
     {
-      "code": "AIG",
-      "display": "Appointment Information - General Resource"
+      "item": {
+        "reference": "StructureDefinition/AIG",
+        "display": "Appointment Information - General Resource"
+      }
     },
     {
-      "code": "AIL",
-      "display": "Appointment Information - Location Resource"
+      "item": {
+        "reference": "StructureDefinition/AIL",
+        "display": "Appointment Information - Location Resource"
+      }
     },
     {
-      "code": "AIP",
-      "display": "Appointment Information - Personnel Resource"
+      "item": {
+        "reference": "StructureDefinition/AIP",
+        "display": "Appointment Information - Personnel Resource"
+      }
     },
     {
-      "code": "APR",
-      "display": "Appointment Preferences"
+      "item": {
+        "reference": "StructureDefinition/APR",
+        "display": "Appointment Preferences"
+      }
     },
     {
-      "code": "RF1",
-      "display": "Referral Information"
+      "item": {
+        "reference": "StructureDefinition/RF1",
+        "display": "Referral Information"
+      }
     },
     {
-      "code": "AUT",
-      "display": "Authorization Information"
+      "item": {
+        "reference": "StructureDefinition/AUT",
+        "display": "Authorization Information"
+      }
     },
     {
-      "code": "PRD",
-      "display": "provider data"
+      "item": {
+        "reference": "StructureDefinition/PRD",
+        "display": "provider data"
+      }
     },
     {
-      "code": "CTD",
-      "display": "Contact Data"
+      "item": {
+        "reference": "StructureDefinition/CTD",
+        "display": "Contact Data"
+      }
     },
     {
-      "code": "GOL",
-      "display": "Goal Detail"
+      "item": {
+        "reference": "StructureDefinition/GOL",
+        "display": "Goal Detail"
+      }
     },
     {
-      "code": "PRB",
-      "display": "Problem Detail"
+      "item": {
+        "reference": "StructureDefinition/PRB",
+        "display": "Problem Detail"
+      }
     },
     {
-      "code": "PTH",
-      "display": "Pathway"
+      "item": {
+        "reference": "StructureDefinition/PTH",
+        "display": "Pathway"
+      }
     },
     {
-      "code": "VAR",
-      "display": "Variance"
+      "item": {
+        "reference": "StructureDefinition/VAR",
+        "display": "Variance"
+      }
     },
     {
-      "code": "REL",
-      "display": "Clinical Relationship"
+      "item": {
+        "reference": "StructureDefinition/REL",
+        "display": "Clinical Relationship"
+      }
     },
     {
-      "code": "EQU",
-      "display": "Equipment Detail"
+      "item": {
+        "reference": "StructureDefinition/EQU",
+        "display": "Equipment Detail"
+      }
     },
     {
-      "code": "ISD",
-      "display": "Interaction Status Detail"
+      "item": {
+        "reference": "StructureDefinition/ISD",
+        "display": "Interaction Status Detail"
+      }
     },
     {
-      "code": "SAC",
-      "display": "Specimen Container Detail"
+      "item": {
+        "reference": "StructureDefinition/SAC",
+        "display": "Specimen Container Detail"
+      }
     },
     {
-      "code": "INV",
-      "display": "Inventory Detail"
+      "item": {
+        "reference": "StructureDefinition/INV",
+        "display": "Inventory Detail"
+      }
     },
     {
-      "code": "ECD",
-      "display": "Equipment Command"
+      "item": {
+        "reference": "StructureDefinition/ECD",
+        "display": "Equipment Command"
+      }
     },
     {
-      "code": "ECR",
-      "display": "Equipment Command Response"
+      "item": {
+        "reference": "StructureDefinition/ECR",
+        "display": "Equipment Command Response"
+      }
     },
     {
-      "code": "NDS",
-      "display": "Notification Detail"
+      "item": {
+        "reference": "StructureDefinition/NDS",
+        "display": "Notification Detail"
+      }
     },
     {
-      "code": "CNS",
-      "display": "Clear Notification"
+      "item": {
+        "reference": "StructureDefinition/CNS",
+        "display": "Clear Notification"
+      }
     },
     {
-      "code": "TCC",
-      "display": "Test Code Configuration"
+      "item": {
+        "reference": "StructureDefinition/TCC",
+        "display": "Test Code Configuration"
+      }
     },
     {
-      "code": "TCD",
-      "display": "Test Code Detail"
+      "item": {
+        "reference": "StructureDefinition/TCD",
+        "display": "Test Code Detail"
+      }
     },
     {
-      "code": "SID",
-      "display": "Substance Identifier"
+      "item": {
+        "reference": "StructureDefinition/SID",
+        "display": "Substance Identifier"
+      }
     },
     {
-      "code": "EQP",
-      "display": "Equipment Log/Service"
+      "item": {
+        "reference": "StructureDefinition/EQP",
+        "display": "Equipment Log/Service"
+      }
     },
     {
-      "code": "DST",
-      "display": "Transport Destination"
+      "item": {
+        "reference": "StructureDefinition/DST",
+        "display": "Transport Destination"
+      }
     },
     {
-      "code": "NCK",
-      "display": "System Clock"
+      "item": {
+        "reference": "StructureDefinition/NCK",
+        "display": "System Clock"
+      }
     },
     {
-      "code": "NSC",
-      "display": "Application Status Change"
+      "item": {
+        "reference": "StructureDefinition/NSC",
+        "display": "Application Status Change"
+      }
     },
     {
-      "code": "NST",
-      "display": "Application Control-Level Statistics"
+      "item": {
+        "reference": "StructureDefinition/NST",
+        "display": "Application Control-Level Statistics"
+      }
     },
     {
-      "code": "AFF",
-      "display": "Professional Affiliation"
+      "item": {
+        "reference": "StructureDefinition/AFF",
+        "display": "Professional Affiliation"
+      }
     },
     {
-      "code": "CER",
-      "display": "Certificate Detail"
+      "item": {
+        "reference": "StructureDefinition/CER",
+        "display": "Certificate Detail"
+      }
     },
     {
-      "code": "EDU",
-      "display": "Educational Detail"
+      "item": {
+        "reference": "StructureDefinition/EDU",
+        "display": "Educational Detail"
+      }
     },
     {
-      "code": "LAN",
-      "display": "Language Detail"
+      "item": {
+        "reference": "StructureDefinition/LAN",
+        "display": "Language Detail"
+      }
     },
     {
-      "code": "ORG",
-      "display": "Practitioner Organization Unit"
+      "item": {
+        "reference": "StructureDefinition/ORG",
+        "display": "Practitioner Organization Unit"
+      }
     },
     {
-      "code": "PRA",
-      "display": "Practitioner Detail"
+      "item": {
+        "reference": "StructureDefinition/PRA",
+        "display": "Practitioner Detail"
+      }
     },
     {
-      "code": "ROL",
-      "display": "Role"
+      "item": {
+        "reference": "StructureDefinition/ROL",
+        "display": "Role"
+      }
     },
     {
-      "code": "STF",
-      "display": "Staff Identification"
+      "item": {
+        "reference": "StructureDefinition/STF",
+        "display": "Staff Identification"
+      }
     },
     {
-      "code": "RFI",
-      "display": "Request for Information"
+      "item": {
+        "reference": "StructureDefinition/RFI",
+        "display": "Request for Information"
+      }
     },
     {
-      "code": "IVC",
-      "display": "Invoice"
+      "item": {
+        "reference": "StructureDefinition/IVC",
+        "display": "Invoice"
+      }
     },
     {
-      "code": "PYE",
-      "display": "Payee Information"
+      "item": {
+        "reference": "StructureDefinition/PYE",
+        "display": "Payee Information"
+      }
     },
     {
-      "code": "PSS",
-      "display": "Product/Service Section"
+      "item": {
+        "reference": "StructureDefinition/PSS",
+        "display": "Product/Service Section"
+      }
     },
     {
-      "code": "PSG",
-      "display": "Product/Service Group"
+      "item": {
+        "reference": "StructureDefinition/PSG",
+        "display": "Product/Service Group"
+      }
     },
     {
-      "code": "PSL",
-      "display": "Product/Service Line Item"
+      "item": {
+        "reference": "StructureDefinition/PSL",
+        "display": "Product/Service Line Item"
+      }
     },
     {
-      "code": "ADJ",
-      "display": "Adjustment"
+      "item": {
+        "reference": "StructureDefinition/ADJ",
+        "display": "Adjustment"
+      }
     },
     {
-      "code": "PMT",
-      "display": "Payment Information"
+      "item": {
+        "reference": "StructureDefinition/PMT",
+        "display": "Payment Information"
+      }
     },
     {
-      "code": "IPR",
-      "display": "Invoice Processing Results"
+      "item": {
+        "reference": "StructureDefinition/IPR",
+        "display": "Invoice Processing Results"
+      }
     },
     {
-      "code": "IIM",
-      "display": "Inventory Item Master"
+      "item": {
+        "reference": "StructureDefinition/IIM",
+        "display": "Inventory Item Master"
+      }
     },
     {
-      "code": "ITM",
-      "display": "Material Item"
+      "item": {
+        "reference": "StructureDefinition/ITM",
+        "display": "Material Item"
+      }
     },
     {
-      "code": "STZ",
-      "display": "Sterilization Parameter"
+      "item": {
+        "reference": "StructureDefinition/STZ",
+        "display": "Sterilization Parameter"
+      }
     },
     {
-      "code": "VND",
-      "display": "Purchasing Vendor"
+      "item": {
+        "reference": "StructureDefinition/VND",
+        "display": "Purchasing Vendor"
+      }
     },
     {
-      "code": "PKG",
-      "display": "Packaging"
+      "item": {
+        "reference": "StructureDefinition/PKG",
+        "display": "Packaging"
+      }
     },
     {
-      "code": "PCE",
-      "display": "Patient Charge Cost Center Exception"
+      "item": {
+        "reference": "StructureDefinition/PCE",
+        "display": "Patient Charge Cost Center Exception"
+      }
     },
     {
-      "code": "IVT",
-      "display": "Material Location"
+      "item": {
+        "reference": "StructureDefinition/IVT",
+        "display": "Material Location"
+      }
     },
     {
-      "code": "ILT",
-      "display": "Material Lot"
+      "item": {
+        "reference": "StructureDefinition/ILT",
+        "display": "Material Lot"
+      }
     },
     {
-      "code": "SCP",
-      "display": "Sterilizer Configuration"
+      "item": {
+        "reference": "StructureDefinition/SCP",
+        "display": "Sterilizer Configuration"
+      }
     },
     {
-      "code": "SLT",
-      "display": "Sterilization Lot"
+      "item": {
+        "reference": "StructureDefinition/SLT",
+        "display": "Sterilization Lot"
+      }
     },
     {
-      "code": "SDD",
-      "display": "Sterilization Device Data"
+      "item": {
+        "reference": "StructureDefinition/SDD",
+        "display": "Sterilization Device Data"
+      }
     },
     {
-      "code": "SCD",
-      "display": "Anti-Microbial Cycle Data"
+      "item": {
+        "reference": "StructureDefinition/SCD",
+        "display": "Anti-Microbial Cycle Data"
+      }
     },
     {
-      "code": "DEV",
-      "display": "Device"
+      "item": {
+        "reference": "StructureDefinition/DEV",
+        "display": "Device"
+      }
     }
   ]
 }

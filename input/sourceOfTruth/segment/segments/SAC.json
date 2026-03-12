@@ -44,7 +44,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -70,7 +70,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -96,7 +96,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -121,7 +121,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -146,7 +146,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -166,7 +166,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -191,7 +191,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -200,7 +200,7 @@
         "id": "SAC.8",
         "path": "SAC.8",
         "short": "SAC-8",
-        "definition": "This field identifies the status of the unique container in which the specimen resides at the time that the transaction was initiated. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70370[_HL7 Table 0370 - Container Status_] in Chapter 2C, Code Tables, for valid values. The equipment specific container status should be sent as _<alternate identifier>_ as needed.",
+        "definition": "This field identifies the status of the unique container in which the specimen resides at the time that the transaction was initiated. Refer to {{v2-table:0370:Container Status}} in Chapter 2C, Code Tables, for valid values. The equipment specific container status should be sent as _<alternate identifier>_ as needed.",
         "comment": "The container states are relevant for the exchange of information among devices (within the LAS). Not all of them are relevant for information transfer between the LAS and the LIS.",
         "code": [
           {
@@ -221,7 +221,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -230,7 +230,7 @@
         "id": "SAC.9",
         "path": "SAC.9",
         "short": "SAC-9",
-        "definition": "This field identifies the type of the carrier (see section _13.1.3_, \"_Glossary_\"). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70378[_User-defined Table 0378 – Carrier Type_] in Chapter 2C, Code Tables, for suggested values. Because the geometry can be different, the carrier type should, if possible, express the number of positions in the carrier.",
+        "definition": "This field identifies the type of the carrier (see section _13.1.3_, \"_Glossary_\"). Refer to {{v2-table:0378:Carrier Type}} in Chapter 2C, Code Tables, for suggested values. Because the geometry can be different, the carrier type should, if possible, express the number of positions in the carrier.",
         "comment": "The definition assumes hierarchical nesting using the following phrases: container is located in a carrier; carrier is located in a tray.",
         "code": [
           {
@@ -251,7 +251,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -277,7 +277,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -302,7 +302,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -311,7 +311,7 @@
         "id": "SAC.12",
         "path": "SAC.12",
         "short": "SAC-12",
-        "definition": "This field identifies the type of the tray (see section _13.1.3_, \"_Glossary_\"). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70379[_User-defined Table 0379 – Tray Type_] in chapter 2C for suggested values. Because the geometry can be different, the tray type should if possible express the number of positions in the tray.",
+        "definition": "This field identifies the type of the tray (see section _13.1.3_, \"_Glossary_\"). Refer to {{v2-table:0379:Tray Type}} in chapter 2C for suggested values. Because the geometry can be different, the tray type should if possible express the number of positions in the tray.",
         "comment": "The definition assumes hierarchical nesting using the following phrases: container is located in a carrier, carrier is located in a tray.",
         "code": [
           {
@@ -332,7 +332,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -357,7 +357,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -382,7 +382,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -411,7 +411,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -437,11 +437,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -449,7 +449,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -475,11 +475,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -487,7 +487,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -513,11 +513,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -525,7 +525,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -551,11 +551,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -563,7 +563,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -593,7 +593,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -618,11 +618,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -630,7 +630,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -656,11 +656,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -668,7 +668,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -694,11 +694,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -706,7 +706,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -736,7 +736,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -745,7 +745,7 @@
         "id": "SAC.25",
         "path": "SAC.25",
         "short": "SAC-25",
-        "definition": "This field identifies the type of the separator that is being used (e.g., gel separator in the container – not to be confused with the communication separators). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70380[_User-defined Table 0380 – SeparatorType_] in Chapter 2C, Code Tables, for suggested values. It is recommended that the first table entry be \"NO\" meaning \"No Separator.\"",
+        "definition": "This field identifies the type of the separator that is being used (e.g., gel separator in the container – not to be confused with the communication separators). Refer to {{v2-table:0380:SeparatorType}} in Chapter 2C, Code Tables, for suggested values. It is recommended that the first table entry be \"NO\" meaning \"No Separator.\"",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -765,7 +765,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -774,7 +774,7 @@
         "id": "SAC.26",
         "path": "SAC.26",
         "short": "SAC-26",
-        "definition": "This field indicates the type of cap that is to be used with this container for decapping, piercing or other mechanisms. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70381[_User-defined Table 0381 – Cap Type_] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "This field indicates the type of cap that is to be used with this container for decapping, piercing or other mechanisms. Refer to {{v2-table:0381:Cap Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -794,7 +794,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -803,7 +803,7 @@
         "id": "SAC.27",
         "path": "SAC.27",
         "short": "SAC-27",
-        "definition": "This field identifies any additives introduced to the specimen before or at the time of collection. These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen. It is a repetitive field. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70371[_HL7 Table 0371 – Additive/Preservative_] for valid values. 'The value set can be extended with user specific values.",
+        "definition": "This field identifies any additives introduced to the specimen before or at the time of collection. These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen. It is a repetitive field. Refer to {{v2-table:0371:Additive/Preservative}} for valid values. 'The value set can be extended with user specific values.",
         "comment": "When the SPM (Specimen) segment is sent together with the SAC segment the additive attribute value from the SPM segment can be included in this field of the SAC.",
         "code": [
           {
@@ -824,7 +824,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -833,7 +833,7 @@
         "id": "SAC.28",
         "path": "SAC.28",
         "short": "SAC-28",
-        "definition": "This field identifies the specimen component, e.g., supernatant, sediment, etc. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70372[_User-defined Table 0372 – Specimen Component_] in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
+        "definition": "This field identifies the specimen component, e.g., supernatant, sediment, etc. Refer to {{v2-table:0372:Specimen Component}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -853,7 +853,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -879,7 +879,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -888,7 +888,7 @@
         "id": "SAC.30",
         "path": "SAC.30",
         "short": "SAC-30",
-        "definition": "This field identifies the specimen treatment performed during lab processing. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70373[_User-defined Table 03__73 – Treatment_] in chapter 2C for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
+        "definition": "This field identifies the specimen treatment performed during lab processing. Refer to {{v2-table:0373:Treatment}} in chapter 2C for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -908,7 +908,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -933,7 +933,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -958,11 +958,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -970,7 +970,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -1001,7 +1001,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1026,11 +1026,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1038,7 +1038,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -1069,7 +1069,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1094,11 +1094,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1106,7 +1106,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -1137,7 +1137,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1162,11 +1162,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1174,7 +1174,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -1204,7 +1204,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1213,7 +1213,7 @@
         "id": "SAC.40",
         "path": "SAC.40",
         "short": "SAC-40",
-        "definition": "This field describes the specimen contaminant identifier that is associated with the specimen in this container. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70374[_User-defined Table 0374 – System Induced Contaminants_] in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
+        "definition": "This field describes the specimen contaminant identifier that is associated with the specimen in this container. Refer to {{v2-table:0374:System Induced Contaminants}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1233,7 +1233,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1242,7 +1242,7 @@
         "id": "SAC.41",
         "path": "SAC.41",
         "short": "SAC-41",
-        "definition": "This field describes the drug interference identifier that is associated with the specimen. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70382[_User-defined Table 0382 – Drug Interference_] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "This field describes the drug interference identifier that is associated with the specimen. Refer to {{v2-table:0382:Drug Interference}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1262,7 +1262,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1271,7 +1271,7 @@
         "id": "SAC.42",
         "path": "SAC.42",
         "short": "SAC-42",
-        "definition": "This field describes the artificial blood identifier that is associated with the specimen. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70375[_User-defined Table 0375 – Artificial Blood_] in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
+        "definition": "This field describes the artificial blood identifier that is associated with the specimen. Refer to {{v2-table:0375:Artificial Blood}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1291,7 +1291,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1300,7 +1300,7 @@
         "id": "SAC.43",
         "path": "SAC.43",
         "short": "SAC-43",
-        "definition": "This field describes any special handling considerations that are associated with the specimen in the specific container (e.g., centrifugation). This describes how the specimen needs to be stored during collection, in transit, and upon receipt. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70376[_User-defined Table 0376 – Special Handling Code_] in Chapter 2C, Code Tables, for valid values. 'The value set can be extended with user specific values.",
+        "definition": "This field describes any special handling considerations that are associated with the specimen in the specific container (e.g., centrifugation). This describes how the specimen needs to be stored during collection, in transit, and upon receipt. Refer to {{v2-table:0376:Special Handling Code}} in Chapter 2C, Code Tables, for valid values. 'The value set can be extended with user specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1320,7 +1320,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1329,7 +1329,7 @@
         "id": "SAC.44",
         "path": "SAC.44",
         "short": "SAC-44",
-        "definition": "This field describes other environmental factors that are associated with the specimen in a specific container, e.g., atmospheric exposure. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70377[_User-defined Table 0377 – Other Environmental Factors_] in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
+        "definition": "This field describes other environmental factors that are associated with the specimen in a specific container, e.g., atmospheric exposure. Refer to {{v2-table:0377:Other Environmental Factors}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1349,7 +1349,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1374,7 +1374,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1399,7 +1399,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1428,7 +1428,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1457,7 +1457,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1487,7 +1487,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

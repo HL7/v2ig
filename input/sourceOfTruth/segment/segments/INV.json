@@ -27,7 +27,7 @@
         "id": "INV.1",
         "path": "INV.1",
         "short": "INV-1",
-        "definition": "Unique identifier for the substance that is in inventory. This is a manufacturer-specific identifier. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70451[_User-defined Table 0451 – Substance Identifier_] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "Unique identifier for the substance that is in inventory. This is a manufacturer-specific identifier. Refer to {{v2-table:0451:Substance Identifier}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field is conditional. It is optional in queries INR^U14 and required in all other messages. Absence of this field in a query means that the result shall be not filtered on inventory item ID.",
         "code": [
           {
@@ -48,7 +48,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -57,7 +57,7 @@
         "id": "INV.2",
         "path": "INV.2",
         "short": "INV-2",
-        "definition": "The status of the inventoried item. The status indicates the current status of the substance. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70383[_HL7 Table 0383 – Substance Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "The status of the inventoried item. The status indicates the current status of the substance. Refer to {{v2-table:0383:Substance Status}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field is conditional. It is optional in queries INR^U14 and required in all other messages. Absence of this field in a query means that the result shall be not filtered on inventory item status.",
         "code": [
           {
@@ -78,7 +78,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -87,7 +87,7 @@
         "id": "INV.3",
         "path": "INV.3",
         "short": "INV-3",
-        "definition": "The type of substance. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70384[_HL7 Table 0384 – Substance Type_] in chapter 2C for suggested values.",
+        "definition": "The type of substance. Refer to {{v2-table:0384:Substance Type}} in chapter 2C for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -107,7 +107,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -136,7 +136,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -165,7 +165,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -194,7 +194,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -219,11 +219,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -231,7 +231,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -257,11 +257,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -269,7 +269,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -295,11 +295,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -307,7 +307,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -333,11 +333,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -345,7 +345,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -375,7 +375,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -400,7 +400,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -425,7 +425,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -445,7 +445,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -474,7 +474,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -499,11 +499,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -511,7 +511,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -521,7 +521,7 @@
         "id": "INV.17",
         "path": "INV.17",
         "short": "INV-17",
-        "definition": "This field identifies the manufacturer of this substance. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70385[_User-defined Table 0385 – Manufacturer Identifier_] in Chapter 2C, Code Tables, for suggested values. Relevant external code systems may be used, e.g., HIBCC Manufacturers Labeler ID Code (LIC), UPC, NDC, etc.",
+        "definition": "This field identifies the manufacturer of this substance. Refer to {{v2-table:0385:Manufacturer Identifier}} in Chapter 2C, Code Tables, for suggested values. Relevant external code systems may be used, e.g., HIBCC Manufacturers Labeler ID Code (LIC), UPC, NDC, etc.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -541,7 +541,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -550,7 +550,7 @@
         "id": "INV.18",
         "path": "INV.18",
         "short": "INV-18",
-        "definition": "This field identifies the supplier of this substance. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70386[User-defined Table 0386 – Supplier Identifie]r_ in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "This field identifies the supplier of this substance. Refer to {{v2-table:0386:Supplier Identifier}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -570,7 +570,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -580,7 +580,7 @@
         "path": "INV.19",
         "short": "INV-19",
         "definition": "This field is the duration of time that the calibration/usability of the substance is stable. The duration is used to calculate the date/time when this calibration is no longer valid by adding this \"On board stability time\" (INV-19) to the \"First used date / time\" (INV-13).",
-        "comment": "The 1^st^ component defines the time quantity and the 2^nd^ component the time units (see file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70255[_HL7 Table 0255 – Duration Categories_]). Recommended accuracy is \"minutes\", \"hours\" and \"days\".",
+        "comment": "The 1^st^ component defines the time quantity and the 2^nd^ component the time units (see {{v2-table:0255:Duration Categories}}). Recommended accuracy is \"minutes\", \"hours\" and \"days\".",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -596,7 +596,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -622,7 +622,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -652,7 +652,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -678,7 +678,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]

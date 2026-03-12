@@ -26,8 +26,8 @@
       {
         "id": "PRB.1",
         "path": "PRB.1",
-        "short": "PRB-1",
-        "definition": "This field contains the intent of the message. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70287[_HL7 Table 0287 – Problem/Goal Action Code_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Action Code",
+        "definition": "This field contains the intent of the message. Refer to {{v2-table:0287:Problem/Goal Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -47,11 +47,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -68,7 +68,7 @@
       {
         "id": "PRB.2",
         "path": "PRB.2",
-        "short": "PRB-2",
+        "short": "Action Date/Time",
         "definition": "This field contains the date/time that the operation represented by the action code was performed.",
         "code": [
           {
@@ -85,7 +85,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -93,7 +93,7 @@
       {
         "id": "PRB.3",
         "path": "PRB.3",
-        "short": "PRB-3",
+        "short": "Problem ID",
         "definition": "This field identifies the problem. This is the identifier from an institution's master list of problems.",
         "code": [
           {
@@ -110,7 +110,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -118,7 +118,7 @@
       {
         "id": "PRB.4",
         "path": "PRB.4",
-        "short": "PRB-4",
+        "short": "Problem Instance ID",
         "definition": "This field contains the identifier assigned by an initiating system to an instance of a problem.",
         "comment": "*Note:* It is required that this value remain unique over time. This instance ID identifies a specific instance for a specific patient and is unique across all patients. See entity ID data type description in Chapter 2.",
         "code": [
@@ -136,7 +136,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -144,7 +144,7 @@
       {
         "id": "PRB.5",
         "path": "PRB.5",
-        "short": "PRB-5",
+        "short": "Episode of Care ID",
         "definition": "This field uniquely identifies the episode of care to which this problem applies. (See note under \"Ongoing issues.\")",
         "comment": "*Note:* It is required that this field be unique over time.",
         "code": [
@@ -162,7 +162,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -170,7 +170,7 @@
       {
         "id": "PRB.6",
         "path": "PRB.6",
-        "short": "PRB-6",
+        "short": "Problem List Priority",
         "definition": "This field prioritizes this problem on a list that is maintained for the individual.",
         "code": [
           {
@@ -187,7 +187,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -195,7 +195,7 @@
       {
         "id": "PRB.7",
         "path": "PRB.7",
-        "short": "PRB-7",
+        "short": "Problem Established Date/Time",
         "definition": "This field contains the date/time when the corresponding problem was initially identified by the caregiver.",
         "code": [
           {
@@ -212,7 +212,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -220,7 +220,7 @@
       {
         "id": "PRB.8",
         "path": "PRB.8",
-        "short": "PRB-8",
+        "short": "Anticipated Problem Resolution Date/Time",
         "definition": "This field contains the estimated date/time for resolving the stated problem.",
         "code": [
           {
@@ -237,7 +237,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -245,7 +245,7 @@
       {
         "id": "PRB.9",
         "path": "PRB.9",
-        "short": "PRB-9",
+        "short": "Actual Problem Resolution Date/Time",
         "definition": "This field contains the date/time that the problem was actually resolved.",
         "code": [
           {
@@ -262,7 +262,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -270,7 +270,7 @@
       {
         "id": "PRB.10",
         "path": "PRB.10",
-        "short": "PRB-10",
+        "short": "Problem Classification",
         "definition": "This field indicates the kind of problem. This field can be used to categorize problems so that they may be managed and viewed independently within different applications (e.g., admission, final, post-operative, pre-operative, outpatient, discharge, etc.).",
         "code": [
           {
@@ -287,7 +287,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -295,7 +295,7 @@
       {
         "id": "PRB.11",
         "path": "PRB.11",
-        "short": "PRB-11",
+        "short": "Problem Management Discipline",
         "definition": "This field indicates the category of caregiver with responsibility for managing this specific problem (e.g., care team, nursing, medicine, respiratory therapy, occupational therapy, dietary, etc.). This is a repeating field to allow identification of all disciplines that may have the responsibility for this problem.",
         "code": [
           {
@@ -312,7 +312,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -320,7 +320,7 @@
       {
         "id": "PRB.12",
         "path": "PRB.12",
-        "short": "PRB-12",
+        "short": "Problem Persistence",
         "definition": "This field contains the perseverance of a problem (e.g., acute, chronic, etc.).",
         "code": [
           {
@@ -337,7 +337,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -345,7 +345,7 @@
       {
         "id": "PRB.13",
         "path": "PRB.13",
-        "short": "PRB-13",
+        "short": "Problem Confirmation Status",
         "definition": "This field contains the verification status of a problem (e.g., confirmed, differential, provisional, rule-out, etc.).",
         "code": [
           {
@@ -362,7 +362,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -370,7 +370,7 @@
       {
         "id": "PRB.14",
         "path": "PRB.14",
-        "short": "PRB-14",
+        "short": "Problem Life Cycle Status",
         "definition": "This field contains the current status of the problem at this particular date/time (e.g., active, active-improving, active-stable, active-worsening, inactive, resolved, etc.).",
         "code": [
           {
@@ -387,7 +387,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -395,7 +395,7 @@
       {
         "id": "PRB.15",
         "path": "PRB.15",
-        "short": "PRB-15",
+        "short": "Problem Life Cycle Status Date/Time",
         "definition": "This field indicates the effective date/time of the current problem life cycle status.",
         "code": [
           {
@@ -412,7 +412,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -420,7 +420,7 @@
       {
         "id": "PRB.16",
         "path": "PRB.16",
-        "short": "PRB-16",
+        "short": "Problem Date of Onset",
         "definition": "This field contains the date/time when the problem began.",
         "code": [
           {
@@ -437,7 +437,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -445,7 +445,7 @@
       {
         "id": "PRB.17",
         "path": "PRB.17",
-        "short": "PRB-17",
+        "short": "Problem Onset Text",
         "definition": "This field allows for a textual representation of the time when the problem began.",
         "code": [
           {
@@ -462,11 +462,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -474,7 +474,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -483,7 +483,7 @@
       {
         "id": "PRB.18",
         "path": "PRB.18",
-        "short": "PRB-18",
+        "short": "Problem Ranking",
         "definition": "This field contains a user-defined prioritization of a problem (e.g., numeric ranking, or the use of words such as \"primary,\" \"secondary,\" etc.).",
         "code": [
           {
@@ -500,7 +500,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -508,7 +508,7 @@
       {
         "id": "PRB.19",
         "path": "PRB.19",
-        "short": "PRB-19",
+        "short": "Certainty of Problem",
         "definition": "This field contains a qualitative representation of the certainty of a problem (e.g., HI - high, LO - low, ME - medium, etc.).",
         "code": [
           {
@@ -525,7 +525,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -533,7 +533,7 @@
       {
         "id": "PRB.20",
         "path": "PRB.20",
-        "short": "PRB-20",
+        "short": "Probability of Problem (0-1)",
         "definition": "This field contains a quantitative or numeric representation of the certainty that the problem exists for this patient. This field has a valid range of 0 to 1. For example, a healthcare provider may be 75% (.75) sure that the problem has been correctly identified.",
         "comment": "*Note*: We have provided for two different representations of the certainty of the problem due to varying representations in applications.",
         "code": [
@@ -551,11 +551,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -563,7 +563,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -572,7 +572,7 @@
       {
         "id": "PRB.21",
         "path": "PRB.21",
-        "short": "PRB-21",
+        "short": "Individual Awareness of Problem",
         "definition": "This field contains the individual's comprehension of the problem (e.g., full, marginal, partial, etc.).",
         "code": [
           {
@@ -589,7 +589,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -597,7 +597,7 @@
       {
         "id": "PRB.22",
         "path": "PRB.22",
-        "short": "PRB-22",
+        "short": "Problem Prognosis",
         "definition": "This field contains the prognosis for the individual's problem (e.g., good, poor, etc.).",
         "code": [
           {
@@ -614,7 +614,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -622,7 +622,7 @@
       {
         "id": "PRB.23",
         "path": "PRB.23",
-        "short": "PRB-23",
+        "short": "Individual Awareness of Prognosis",
         "definition": "This field contains the individual's comprehension of the prognosis for the problem (e.g., full, marginal, partial, etc.).",
         "code": [
           {
@@ -639,7 +639,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -647,7 +647,7 @@
       {
         "id": "PRB.24",
         "path": "PRB.24",
-        "short": "PRB-24",
+        "short": "Family/Significant Other Awareness of Problem/Prognosis",
         "definition": "This field indicates the individual's family or significant other's comprehension of the actual problem/prognosis.",
         "code": [
           {
@@ -664,11 +664,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -676,7 +676,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -685,7 +685,7 @@
       {
         "id": "PRB.25",
         "path": "PRB.25",
-        "short": "PRB-25",
+        "short": "Security/Sensitivity",
         "definition": "This field contains information about the level of security and/or sensitivity surrounding the problem (e.g., highly sensitive, not sensitive, sensitive, etc.).",
         "code": [
           {
@@ -702,7 +702,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -710,8 +710,8 @@
       {
         "id": "PRB.26",
         "path": "PRB.26",
-        "short": "PRB-26",
-        "definition": "This field indicates the severity of the Problem. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70836[_User-defined Table 0836- Problem Severity_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Problem Severity",
+        "definition": "This field indicates the severity of the Problem. Refer to {{v2-table:0836:Problem Severity}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -731,7 +731,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -739,8 +739,8 @@
       {
         "id": "PRB.27",
         "path": "PRB.27",
-        "short": "PRB-27",
-        "definition": "This field indicates from whose perspective this problem was identified. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70838[_User-defined Table 0838 - Problem Perspective_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Problem Perspective",
+        "definition": "This field indicates from whose perspective this problem was identified. Refer to {{v2-table:0838:Problem Perspective}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -760,7 +760,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -768,9 +768,9 @@
       {
         "id": "PRB.28",
         "path": "PRB.28",
-        "short": "PRB-28",
+        "short": "Mood Code",
         "definition": "This field indicates the Mood of the Problem. It allows expression of the context of the problem.",
-        "comment": "*Note:* As Mood Code changes the meaning of the segment it must only be used in new messages as of v2.6.\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70725[HL7 Table 0725 - Mood Codes] in Chapter 2C, Code Tables, for allowed values.",
+        "comment": "*Note:* As Mood Code changes the meaning of the segment it must only be used in new messages as of v2.6.\n\nRefer to {{v2-table:0725:Mood Codes}} in Chapter 2C, Code Tables, for allowed values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -790,7 +790,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]

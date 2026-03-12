@@ -237,7 +237,7 @@
         "id": "PPN.9",
         "path": "PPN.9",
         "short": "Assigning Authority",
-        "defintion": "*Definition:* The assigning authority is a unique identifier of the system (or organization or agency of department) that creates the data. It is a HD data type. file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70363[_User-defined Table 0363 – Assigning Auth__ority_] is used as the HL7 identifier for the user-defined table of values for the first sub-component of the HD component, <namespace ID>.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 - Name__space ID_] (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n\n\n\nBy site agreement, implementors may continue to use file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 – Name__space ID_] for the first sub-component.\n\n\n\n*Attention:* _As of v 2.7, the Assigning Authority is conditional._ It is required if _PPN.1_ is populated and neither _PPN.23_ nor _PPN.24_ are populated. All 3 components may be populated. No assumptions can be safely made based on position or sequence. Best practice is to send an OID in this component when populated.\n\n\n\nThe reader is referred to the _PPN.23_ and the _PPN.24_ if there is a need to transmit values with semantic meaning for an assigning jurisdiction or assigning department or agency in addition to, or instead of, an assigning authority. However, all 3 components may be valued. If, in so doing, it is discovered that the values in _PPN.23_ and/or _PPN.24_ conflict with _PPN.9_, the user would look to the Message Profile or other implementation agreement for a statement as to which takes precedence.\n",
+        "defintion": "*Definition:* The assigning authority is a unique identifier of the system (or organization or agency of department) that creates the data. It is a HD data type. {{v2-table:0363:Assigning Authority}} is used as the HL7 identifier for the user-defined table of values for the first sub-component of the HD component, <namespace ID>.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, {{v2-table:0300:Namespace ID}} (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n\n\n\nBy site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first sub-component.\n\n\n\n*Attention:* _As of v 2.7, the Assigning Authority is conditional._ It is required if _PPN.1_ is populated and neither _PPN.23_ nor _PPN.24_ are populated. All 3 components may be populated. No assumptions can be safely made based on position or sequence. Best practice is to send an OID in this component when populated.\n\n\n\nThe reader is referred to the _PPN.23_ and the _PPN.24_ if there is a need to transmit values with semantic meaning for an assigning jurisdiction or assigning department or agency in addition to, or instead of, an assigning authority. However, all 3 components may be valued. If, in so doing, it is discovered that the values in _PPN.23_ and/or _PPN.24_ conflict with _PPN.9_, the user would look to the Message Profile or other implementation agreement for a statement as to which takes precedence.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -260,7 +260,7 @@
         "id": "PPN.10",
         "path": "PPN.10",
         "short": "Name Type Code",
-        "defintion": "*Definition:* A code that represents the type of name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70200[_HL7 Table 0__200 - Nam__e Type_] for valid values (see Section _2A.2.90_, “_XPN - extended person name_”).\n",
+        "defintion": "*Definition:* A code that represents the type of name. Refer to {{v2-table:0200:Name Type}} for valid values (see Section _2A.2.90_, “_XPN - extended person name_”).\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -328,7 +328,7 @@
         "id": "PPN.12",
         "path": "PPN.12",
         "short": "Check Digit Scheme",
-        "defintion": "*Definition:* Contains the code identifying the check digit scheme employed.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[_HL7 Table_ _0061 - Check Digi__t Scheme_] for valid values.\n",
+        "defintion": "*Definition:* Contains the code identifying the check digit scheme employed.\n\n\n\nRefer to {{v2-table:0061:Check Digit Scheme}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -364,7 +364,7 @@
         "id": "PPN.13",
         "path": "PPN.13",
         "short": "Identifier Type Code",
-        "defintion": "*Definition:* A code corresponding to the type of identifier. In some cases, this code may be used as a qualifier to the \"Assigning authority\" component. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70203[_HL7 Table 0203 - Identifier Typ__e_] for suggested values.\n",
+        "defintion": "*Definition:* A code corresponding to the type of identifier. In some cases, this code may be used as a qualifier to the \"Assigning authority\" component. Refer to {{v2-table:0203:Identifier Type}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -400,7 +400,7 @@
         "id": "PPN.14",
         "path": "PPN.14",
         "short": "Assigning Facility",
-        "defintion": "*Definition:* The place or location identifier where the identifier was first assigned to the patient. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 - Namesp__ace I__D_] (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n",
+        "defintion": "*Definition:* The place or location identifier where the identifier was first assigned to the patient. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, {{v2-table:0300:Namespace ID}} (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -474,7 +474,7 @@
         "id": "PPN.17",
         "path": "PPN.17",
         "short": "Name Context",
-        "defintion": "*Definition:* This component is used to designate the context in which a name is used. The main use case is in Australian healthcare: indigenous patients who prefer to use different names when attending different healthcare institutions. Another use case occurs in the US where health practitioners can be licensed under slightly different names and the reporting of the correct name is vital for administrative purposes. Refer to chapter 3, section 3.4.2.6 for more detailed information on how to use this table. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70448[_User-__defined Table 0448 – Name Context_] for suggested values.\n",
+        "defintion": "*Definition:* This component is used to designate the context in which a name is used. The main use case is in Australian healthcare: indigenous patients who prefer to use different names when attending different healthcare institutions. Another use case occurs in the US where health practitioners can be licensed under slightly different names and the reporting of the correct name is vital for administrative purposes. Refer to chapter 3, section 3.4.2.6 for more detailed information on how to use this table. Refer to {{v2-table:0448:Name Context}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -509,7 +509,7 @@
         "id": "PPN.19",
         "path": "PPN.19",
         "short": "Name Assembly Order",
-        "defintion": "*Definition:* A code that represents the preferred display order of the components of this person name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70444[_HL7 Table 0444 – Name Ass__embl__y Order_] for valid values.\n",
+        "defintion": "*Definition:* A code that represents the preferred display order of the components of this person name. Refer to {{v2-table:0444:Name Assembly Order}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -685,7 +685,7 @@
         "id": "PPN.26",
         "path": "PPN.26",
         "short": "Security Check Scheme",
-        "defintion": "*Definition:* This component is used to transmit information intended to validate the veracity of the supplied identifier or the presenter of the identifier. For example, this component may be used to ensure that the presenter of a credit card is an authorized user of that card.\n\n\n\nRefer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70904[HL7 Table 0904 - Security Check Scheme]_ for valid values.\n",
+        "defintion": "*Definition:* This component is used to transmit information intended to validate the veracity of the supplied identifier or the presenter of the identifier. For example, this component may be used to ensure that the presenter of a credit card is an authorized user of that card.\n\n\n\nRefer to {{v2-table:0904:Security Check Scheme}}_ for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

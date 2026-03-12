@@ -26,7 +26,7 @@
       {
         "id": "CM2.1",
         "path": "CM2.1",
-        "short": "CM2-1",
+        "short": "Set ID- CM2",
         "definition": "This field contains a number that uniquely identifies this transaction for the purpose of adding, changing, or deleting the transaction. For those messages that permit segments to repeat, the Set ID field is used to identify the repetitions.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "CM2.2",
         "path": "CM2.2",
-        "short": "CM2-2",
+        "short": "Scheduled Time Point",
         "definition": "This field should correspond to the scheduled time point coding system in Chapter 7, section 7.8.3.1, \"Study scheduled time point.\"",
         "code": [
           {
@@ -81,7 +81,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -89,7 +89,7 @@
       {
         "id": "CM2.3",
         "path": "CM2.3",
-        "short": "CM2-3",
+        "short": "Description of Time Point",
         "definition": "This field contains a brief explanation so recipients will understand what the time point represents.",
         "code": [
           {
@@ -106,11 +106,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -118,7 +118,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -127,7 +127,7 @@
       {
         "id": "CM2.4",
         "path": "CM2.4",
-        "short": "CM2-4",
+        "short": "Events Scheduled This Time Point",
         "definition": "This field contains a study-specific event. Coding systems may be developed for this field or applications may use facility-wide or standardized orders and procedures coding systems. This enables integration of procedures or events ordered for clinical trials with medical order entry systems.",
         "code": [
           {
@@ -144,7 +144,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]

@@ -274,10 +274,12 @@ As we have seen, this variant requires an exact parameter specification.
 
 The client system transmits a QBP query message in the following format:
 
-[er7]
+[.er7]
+....
 MSH|^~\&|FEH.IVR|HUHA.CSC|HUHA.DEMO||199902031135-0600||QBP^Z58^QBP_Q13|1|D|2.8
 QPD|Z58^Pat Parm Qry 2|Q502|111069999
 RCP|I
+....
 
 The names of the input and output fields are not specified in the query message, but by the Query Profile, identified by _QPD-1-message query name_. The _MSH-9.2-trigger event_ and the _QPD-1-message query name_ are this query's only distinguishing elements. The requesting system SHALL refer to this query's Query Profile to learn more about the input and output fields.
 
@@ -288,10 +290,12 @@ Just as in the Simple Parameter variant, the Query by Example requires an exact 
 
 The client system transmits a Query by Example in the following format.
 
-[er7]
+[.er7]
+....
 MSH|^~\&|FEH.IVR|HUHA.CSC|HUHA.DEMO||199902031135-0600||QBP^Z58^QBP_Q13|1|D|2.8
 QPD|Z58^Pat Parm Qry 2|Q502
 RCP|I
+....
 
 Parameters used in this query are specified in the Query Profile.
 
@@ -302,10 +306,12 @@ In contrast, the Complex Expression variant allows flexible input specifications
 
 If the above Simple Parameter variant were to be stated as a Complex Expression, it might look like this.
 
-[er7]
+[.er7]
+....
 MSH|^~\&|FEH.IVR|HUHA.CSC|HUHA.DEMO||199902031135-0600||QBP^Q13^QBP_Q13|1|D|2.8
 QPD|Z999^Pat Sel Qry 1|Q501|@MedicalRecordNo^EQ^111069999
 RCP|I
+....
 
 Note the explicit statement of the input field name in _QPD-3-user parameters_. Also, note that this query might be used to specify and request other fields, depending upon the specification of what is permitted by the server system's Query Profile.
 [width="100%",cols="36%,64%",]

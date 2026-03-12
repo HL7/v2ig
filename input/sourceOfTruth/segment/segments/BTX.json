@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -82,7 +82,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -112,7 +112,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -142,7 +142,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -152,7 +152,7 @@
         "path": "BTX.5",
         "short": "BTX-5",
         "definition": "This field contains the code and/or text to identify a commercial product. Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets.",
-        "comment": "Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, free text without a code must be preceded by a component delimiter. Free text can be utilized if no update is to occur. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70512[User-Defined Table 0512 - Commercial Product] in Chapter 2C, Code Tables, for suggested values.\n\nThis field is required for commercial blood products and is not applicable to blood component messages.",
+        "comment": "Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, free text without a code must be preceded by a component delimiter. Free text can be utilized if no update is to occur. Refer to {{v2-table:0512:Commercial Product}} in Chapter 2C, Code Tables, for suggested values.\n\nThis field is required for commercial blood products and is not applicable to blood component messages.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -172,7 +172,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -198,7 +198,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -224,7 +224,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -249,11 +249,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -261,7 +261,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -287,11 +287,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -299,7 +299,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -329,7 +329,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -338,7 +338,7 @@
         "id": "BTX.11",
         "path": "BTX.11",
         "short": "BTX-11",
-        "definition": "This field indicates the current status of the specified blood product as indicated by the placer. For example, the placer may return the blood product to the transfusion service unused because an IV could not be started. The blood component may have been entered, but the line was clogged and could not be used, in which case the component must be wasted. A final status would indicate that the product has actually been \"transfused.\" Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70513[HL7 Table 0513 - Blood Product Transfusion/Disposition Status] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "This field indicates the current status of the specified blood product as indicated by the placer. For example, the placer may return the blood product to the transfusion service unused because an IV could not be started. The blood component may have been entered, but the line was clogged and could not be used, in which case the component must be wasted. A final status would indicate that the product has actually been \"transfused.\" Refer to {{v2-table:0513:Blood Product Transfusion/Disposition Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -358,7 +358,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -367,7 +367,7 @@
         "id": "BTX.12",
         "path": "BTX.12",
         "short": "BTX-12",
-        "definition": "The most commonly used message status values in a BTX will be preliminary and final. A status is considered preliminary until a blood product has reached a final disposition for the patient. For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary. When the product is dispensed to the patient, that status would also be considered preliminary. However, once the product is transfused, the status would be considered final. The status of a blood product (BTX-11) can continue to change and the previous result should be overwritten until it reaches a final status (BTX-12). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70511[HL7 Table 0511 – BP Observation Status Codes Interpretation] in Chapter 2C, Code Tables, for valid entries.",
+        "definition": "The most commonly used message status values in a BTX will be preliminary and final. A status is considered preliminary until a blood product has reached a final disposition for the patient. For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary. When the product is dispensed to the patient, that status would also be considered preliminary. However, once the product is transfused, the status would be considered final. The status of a blood product (BTX-11) can continue to change and the previous result should be overwritten until it reaches a final status (BTX-12). Refer to {{v2-table:0511:BP Observation Status Codes Interpretation}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -387,11 +387,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -425,7 +425,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -450,7 +450,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -475,7 +475,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -500,7 +500,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -525,7 +525,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -534,7 +534,7 @@
         "id": "BTX.18",
         "path": "BTX.18",
         "short": "BTX-18",
-        "definition": "This field contains the type of adverse reaction that the recipient of the blood product experienced. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70514[User-Defined Table 0514 - Transfusion Adverse Reaction] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "This field contains the type of adverse reaction that the recipient of the blood product experienced. Refer to {{v2-table:0514:Transfusion Adverse Reaction}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -554,7 +554,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -563,7 +563,7 @@
         "id": "BTX.19",
         "path": "BTX.19",
         "short": "BTX-19",
-        "definition": "This field contains the reason that the transfusion of the blood product was interrupted. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70515[User-Defined Table 0515 - Transfusion Interrupted Reason] in Chapter 2C, Code Tables, for suggested values.",
+        "definition": "This field contains the reason that the transfusion of the blood product was interrupted. Refer to {{v2-table:0515:Transfusion Interrupted Reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -583,7 +583,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -608,7 +608,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -617,7 +617,7 @@
         "id": "BTX.21",
         "path": "BTX.21",
         "short": "BTX-21",
-        "definition": "This field reveals the intent of the message. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70206[HL7 Table 0206 - Segment Action Code] for valid values.",
+        "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when an BTX is uniquely identified sufficiently within the specific implementation using BTX-20 or BTX-3 as agreed to by the trading partners in accordance with Chapter 2, Section 2.10.4.2.",
         "code": [
           {
@@ -638,11 +638,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

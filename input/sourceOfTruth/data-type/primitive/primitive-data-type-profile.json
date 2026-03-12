@@ -3,13 +3,13 @@
   "url" : "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile",
   "id" : "primitive-data-type-profile",
   "version" : "0.0.1",
-  "name" : "V2DataTypeDefinition",
-  "title" : " HL7 v2 Data Type Definition",
+  "name" : "V2PrimitiveDataTypeProfile",
+  "title" : "HL7 v2 Primitive Data Type Definition",
   "status" : "active",
   "kind" : "resource",
   "abstract" : false,
   "type" : "StructureDefinition",
-  "description" : "Rules that are true for all primitive type definitions",
+  "description" : "Rules that are true for all primitive data type definitions",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/StructureDefinition",
   "derivation" : "constraint",
   "differential" : {
@@ -25,7 +25,7 @@
       {
         "id" : "StructureDefinition.kind",
         "path" : "StructureDefinition.kind",
-        "fixedCode" : "primitive-type"
+        "fixedCode" : "logical"
       },
       {
         "id" : "StructureDefinition.abstract",
@@ -33,9 +33,22 @@
         "fixedBoolean" : false
       },
       {
+        "id" : "StructureDefinition.type",
+        "path" : "StructureDefinition.type",
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/v2/ValueSet/primitive-data-types"
+        }
+      },
+      {
+        "id" : "StructureDefinition.baseDefinition",
+        "path" : "StructureDefinition.baseDefinition",
+        "fixedCanonical" : "http://hl7.org/v2/StructureDefinition/primitive-data-type"
+      },
+      {
         "id" : "StructureDefinition.derivation",
         "path" : "StructureDefinition.derivation",
-        "fixedCode" : "constraint"
+        "fixedCode" : "specialization"
       }
     ]
   }

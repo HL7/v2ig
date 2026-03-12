@@ -81,7 +81,7 @@
         "id": "DLT.3",
         "path": "DLT.3",
         "short": "Change Computation",
-        "defintion": "*Definition:* Specifies if the change is computed as a percent change or as an absolute change. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70523[_HL7 Table 0523 - Computation Type_] for valid values.\n",
+        "defintion": "*Definition:* Specifies if the change is computed as a percent change or as an absolute change. Refer to {{v2-table:0523:Computation Type}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

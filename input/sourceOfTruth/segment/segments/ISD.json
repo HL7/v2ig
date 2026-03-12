@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -52,7 +52,7 @@
         "id": "ISD.2",
         "path": "ISD.2",
         "short": "ISD-2",
-        "definition": "This field specifies the type of interaction. If the interaction is performed as the result of a previous command, then the interaction type as specified in file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70368[_User-defined Table 0368 - Remote Control command_] should be used.",
+        "definition": "This field specifies the type of interaction. If the interaction is performed as the result of a previous command, then the interaction type as specified in {{v2-table:0368:Remote Control command}} should be used.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -72,7 +72,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -81,7 +81,7 @@
         "id": "ISD.3",
         "path": "ISD.3",
         "short": "ISD-3",
-        "definition": "This field transfers the state of the interaction. If the interaction is performed as the result of a previous command, then the interaction state should be one of the Command Responses (Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70387[_User-defined Table 0387 – Command Response_]). If the interaction is not performed as a result of a command (e.g., periodically time triggered automatic maintenance) then this state is interaction specific, and should refer to either the LECIS state transitions for interactions or a user or equipment specific table.",
+        "definition": "This field transfers the state of the interaction. If the interaction is performed as the result of a previous command, then the interaction state should be one of the Command Responses (Refer to {{v2-table:0387:Command Response}}). If the interaction is not performed as a result of a command (e.g., periodically time triggered automatic maintenance) then this state is interaction specific, and should refer to either the LECIS state transitions for interactions or a user or equipment specific table.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -101,7 +101,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]

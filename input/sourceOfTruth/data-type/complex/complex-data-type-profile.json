@@ -58,7 +58,7 @@
           "key" : "complex-data-type-profile-2",
           "severity" : "error",
           "human" : "The component name must be an integer that matches the offset",
-          "expression" : "matches('^[A-Z]{2,3}(\\.\\d+)?$')"
+          "expression" : "matches('^[A-Z]{2,3}([.][0-9]+)?$')"
         }]
       },
       {

@@ -26,7 +26,7 @@
       {
         "id": "IVT.1",
         "path": "IVT.1",
-        "short": "IVT-1",
+        "short": "Set Id – IVT",
         "definition": "This field contains a sequential number that identifies this segment within a given Material Location segment group. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "IVT.2",
         "path": "IVT.2",
-        "short": "IVT-2",
+        "short": "Inventory Location Identifier",
         "definition": "This field contains the code identifying an inventory supply location that stocks or purchases this item.",
         "code": [
           {
@@ -81,7 +81,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -89,7 +89,7 @@
       {
         "id": "IVT.3",
         "path": "IVT.3",
-        "short": "IVT-3",
+        "short": "Inventory Location Name",
         "definition": "This field contains the name of the inventory supply location identified in _IVT-2, Inventory Location Identifier_.",
         "code": [
           {
@@ -106,11 +106,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -118,7 +118,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -127,7 +127,7 @@
       {
         "id": "IVT.4",
         "path": "IVT.4",
-        "short": "IVT-4",
+        "short": "Source Location Identifier",
         "definition": "This field contains the code identifying the source location that purchases and stocks items in addition to filling supply requests for the location specified in _IVT-2, Inventory Location Identifier_. For example, IVT-2 may be considered Central Supply, an inventory location that issues to departments. _IVT-3, Inventory Location Name_, may be considered General Stores, a supply location that most items are received into when delivered to the healthcare facility. General Stores would then replenish the Central Supply inventory. Central Supply would then issue supplies to departments based on requests for supplies.",
         "code": [
           {
@@ -144,7 +144,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -152,7 +152,7 @@
       {
         "id": "IVT.5",
         "path": "IVT.5",
-        "short": "IVT-5",
+        "short": "Source Location Name",
         "definition": "This field contains the name of the source supply location identified in _IVT-4, Source Location Identifier_.",
         "code": [
           {
@@ -169,11 +169,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -181,7 +181,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -190,8 +190,8 @@
       {
         "id": "IVT.6",
         "path": "IVT.6",
-        "short": "IVT-6",
-        "definition": "This field contains the status that applies to the inventory supply item for the inventory location specified in IVT-2. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70625[_User-defined Table 0625 – Item Status Codes_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Item Status",
+        "definition": "This field contains the status that applies to the inventory supply item for the inventory location specified in IVT-2. Refer to {{v2-table:0625:Item Status Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -211,7 +211,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -219,7 +219,7 @@
       {
         "id": "IVT.7",
         "path": "IVT.7",
-        "short": "IVT-7",
+        "short": "Bin Location Identifier",
         "definition": "A unique code assigned to a bin location located within the inventory location in IVT-2, where the inventory supply item may be stored.",
         "code": [
           {
@@ -236,7 +236,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -244,8 +244,8 @@
       {
         "id": "IVT.8",
         "path": "IVT.8",
-        "short": "IVT-8",
-        "definition": "This field contains the primary packaging unit by which the item can be requisitioned or ordered to replenish the inventory supply item for the corresponding inventory location specified in _IVT-2, Inventory Location Identifier_. See file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70818[_User-defined Table 0818 – Package_] as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Order Packaging",
+        "definition": "This field contains the primary packaging unit by which the item can be requisitioned or ordered to replenish the inventory supply item for the corresponding inventory location specified in _IVT-2, Inventory Location Identifier_. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -265,7 +265,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -273,8 +273,8 @@
       {
         "id": "IVT.9",
         "path": "IVT.9",
-        "short": "IVT-9",
-        "definition": "This field contains the primary issue packaging unit by which the inventory supply item can be issued to departments or other locations by the corresponding inventory location specified in IVT-2. See file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70818[_User-defined Table 0818 – Package_] as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Issue Packaging",
+        "definition": "This field contains the primary issue packaging unit by which the inventory supply item can be issued to departments or other locations by the corresponding inventory location specified in IVT-2. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -290,7 +290,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -298,7 +298,7 @@
       {
         "id": "IVT.10",
         "path": "IVT.10",
-        "short": "IVT-10",
+        "short": "Default Inventory Asset Account",
         "definition": "This field contains the general ledger number for the default inventory asset account used in journal transactions associated with items stored in this inventory location. The account includes all elements of a general ledger account (a fully qualified general ledger account number). All elements may include a corporation, department/cost center account, and expense account.",
         "code": [
           {
@@ -315,7 +315,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -323,8 +323,8 @@
       {
         "id": "IVT.11",
         "path": "IVT.11",
-        "short": "IVT-11",
-        "definition": "This field indicates whether the item is patient chargeable at this inventory location. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator Table_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Patient Chargeable Indicator",
+        "definition": "This field indicates whether the item is patient chargeable at this inventory location. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -344,7 +344,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -352,8 +352,8 @@
       {
         "id": "IVT.12",
         "path": "IVT.12",
-        "short": "IVT-12",
-        "definition": "This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient's bill or charge labels) and the name of the coding system that assigned the charge code. Refer to _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70132[User-defined Table 0132 – Transaction Codes]_ in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Transaction Code",
+        "definition": "This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient's bill or charge labels) and the name of the coding system that assigned the charge code. Refer to {{v2-table:0132:Transaction Codes}}_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -373,7 +373,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -381,7 +381,7 @@
       {
         "id": "IVT.13",
         "path": "IVT.13",
-        "short": "IVT-13",
+        "short": "Transaction Amount - Unit",
         "definition": "This field contains the dollar amount charged to patients for this single inventory supply item.",
         "code": [
           {
@@ -398,7 +398,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -406,8 +406,8 @@
       {
         "id": "IVT.14",
         "path": "IVT.14",
-        "short": "IVT-14",
-        "definition": "This field contains an indicator of the level of importance of an item considered for this inventory location, such as an indicator signifying whether the item is considered critical for this inventory location. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70634[_User-defined Table 0634 – Item Importance Codes_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Item Importance Code",
+        "definition": "This field contains an indicator of the level of importance of an item considered for this inventory location, such as an indicator signifying whether the item is considered critical for this inventory location. Refer to {{v2-table:0634:Item Importance Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -427,7 +427,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -435,8 +435,8 @@
       {
         "id": "IVT.15",
         "path": "IVT.15",
-        "short": "IVT-15",
-        "definition": "This field contains an indicator that identifies whether the item is regularly stocked in this inventory location. Stock items are ordered regularly as part of the healthcare organization's inventory replenishment cycle. If the item is not regularly stocked in this inventory location (non-stock item), the item is available to be ordered from this inventory location if requested by a department. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator Table_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Stocked Item Indicator",
+        "definition": "This field contains an indicator that identifies whether the item is regularly stocked in this inventory location. Stock items are ordered regularly as part of the healthcare organization's inventory replenishment cycle. If the item is not regularly stocked in this inventory location (non-stock item), the item is available to be ordered from this inventory location if requested by a department. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -456,7 +456,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -464,8 +464,8 @@
       {
         "id": "IVT.16",
         "path": "IVT.16",
-        "short": "IVT-16",
-        "definition": "This field contains an indicator signifying whether the inventory supply item is purchased on consignment. If the item is purchased on consignment, the healthcare organization does not pay for the inventory supply item until it is used. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator Table_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Consignment Item Indicator",
+        "definition": "This field contains an indicator signifying whether the inventory supply item is purchased on consignment. If the item is purchased on consignment, the healthcare organization does not pay for the inventory supply item until it is used. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -485,7 +485,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -493,8 +493,8 @@
       {
         "id": "IVT.17",
         "path": "IVT.17",
-        "short": "IVT-17",
-        "definition": "This field contains an indicator signifying that the inventory supply item is reusable, for example, after sterilization. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator Table_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Reusable Item Indicator",
+        "definition": "This field contains an indicator signifying that the inventory supply item is reusable, for example, after sterilization. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -514,7 +514,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -522,7 +522,7 @@
       {
         "id": "IVT.18",
         "path": "IVT.18",
-        "short": "IVT-18",
+        "short": "Reusable Cost",
         "definition": "This field contains the issue cost charged to a department or patient for a reusable item. This cost is calculated based on the cost of reprocessing the item. Examples of reusable items are linens, restraints, and procedure packs (custom for specific procedures).",
         "code": [
           {
@@ -539,7 +539,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -547,7 +547,7 @@
       {
         "id": "IVT.19",
         "path": "IVT.19",
-        "short": "IVT-19",
+        "short": "Substitute Item Identifier",
         "definition": "The substitute item is an item that is recommended as a substitute for the corresponding item in ITM-1.",
         "code": [
           {
@@ -564,7 +564,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -572,7 +572,7 @@
       {
         "id": "IVT.20",
         "path": "IVT.20",
-        "short": "IVT-20",
+        "short": "Latex-Free Substitute Item Identifier",
         "definition": "The latex-free substitute item is an item that is latex-free, recommended as a substitute for the corresponding item in the _ITM-1_ segment when a latex-free item is needed.",
         "code": [
           {
@@ -589,7 +589,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -597,8 +597,8 @@
       {
         "id": "IVT.21",
         "path": "IVT.21",
-        "short": "IVT-21",
-        "definition": "This field contains the method used to calculate a recommendation for when and how much of an inventory supply item to reorder. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70642[_User-defined Table 0642 – Reorder Theory Codes_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Recommended Reorder Theory",
+        "definition": "This field contains the method used to calculate a recommendation for when and how much of an inventory supply item to reorder. Refer to {{v2-table:0642:Reorder Theory Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -618,7 +618,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -626,7 +626,7 @@
       {
         "id": "IVT.22",
         "path": "IVT.22",
-        "short": "IVT-22",
+        "short": "Recommended Safety Stock Days",
         "definition": "This field contains the number of days for stock to be kept on-hand to cushion against a stock-out for this item.",
         "code": [
           {
@@ -643,11 +643,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -655,7 +655,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -664,7 +664,7 @@
       {
         "id": "IVT.23",
         "path": "IVT.23",
-        "short": "IVT-23",
+        "short": "Recommended Maximum Days Inventory",
         "definition": "This field contains the maximum number of days of inventory to have on-hand at any one point in time. This value is used in calculations of recommended order quantities",
         "code": [
           {
@@ -681,11 +681,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -693,7 +693,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -702,7 +702,7 @@
       {
         "id": "IVT.24",
         "path": "IVT.24",
-        "short": "IVT-24",
+        "short": "Recommended Order Point",
         "definition": "This field contains the on-hand quantity referencing the recommended level of inventory at which the item should be re-ordered.",
         "code": [
           {
@@ -719,11 +719,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -731,7 +731,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -740,7 +740,7 @@
       {
         "id": "IVT.25",
         "path": "IVT.25",
-        "short": "IVT-25",
+        "short": "Recommended Order Amount",
         "definition": "This field contains the quantity that the system should recommend to order when the on-hand quantity is equal to or less than the reorder point. The quantity should be set at the Order Unit of Measure.",
         "code": [
           {
@@ -757,11 +757,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -769,7 +769,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -778,8 +778,8 @@
       {
         "id": "IVT.26",
         "path": "IVT.26",
-        "short": "IVT-26",
-        "definition": "This field contains an indicator that determines whether on-hands inventory will be decremented when performing Preference List Issues. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70532[_HL7 Table 0532 - Expanded Yes/no Indicator Table_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Operating Room Par Level Indicator",
+        "definition": "This field contains an indicator that determines whether on-hands inventory will be decremented when performing Preference List Issues. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "If valued with a 'Y', this indicates to the system that the item to be issued is contained in an OR Par Level area (in an actual Operating Room) and not an Operating Room inventory area; therefore, on-hands of the Operation Room inventory area will not be decremented. If valued with a 'N', the item is contained in an Operating Room inventory location and on-hands will be decremented when performing Preference List Issues.",
         "code": [
           {
@@ -800,7 +800,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

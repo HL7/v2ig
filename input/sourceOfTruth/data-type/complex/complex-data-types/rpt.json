@@ -30,7 +30,7 @@
         "id": "RPT.1",
         "path": "RPT.1",
         "short": "Repeat Pattern Code",
-        "defintion": "*Definition:* A code representing the repeat pattern defined by the other components of this data type. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70335[_User-defined Table 0335 – Repeat Pattern_] for suggested values.\n",
+        "defintion": "*Definition:* A code representing the repeat pattern defined by the other components of this data type. Refer to {{v2-table:0335:Repeat Pattern}} for suggested values.\n",
         "min": 1,
         "max": "1",
         "type": [
@@ -53,7 +53,7 @@
         "id": "RPT.2",
         "path": "RPT.2",
         "short": "Calendar Alignment",
-        "defintion": "*Definition:* Specifies an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from “the 5^th^ of every month”). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70527[_HL7 Table 0527 - Calendar Alignment_] for valid values.\n",
+        "defintion": "*Definition:* Specifies an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from “the 5^th^ of every month”). Refer to {{v2-table:0527:Calendar Alignment}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -89,7 +89,7 @@
         "id": "RPT.3",
         "path": "RPT.3",
         "short": "Phase Range Begin Value",
-        "defintion": "*Definition:* Used for Calendar aligned repeat patterns to determine the amount of time from the beginning of particular _RPT.2 - Calendar Alignment_ to the beginning of the phase. If Calendar Alignment is DW (days of week), then this would be the offset from the beginning of the week.\n\n\n\nIf Phase Range Begin Value is populated, but Phase Range End Value is not populated, then this component defines when the period (RPT.5, 6) begins.\n\n\n\nIf both Phase Range Begin Value and Phase Range End Value are populated, then this component defines the earliest point in time at which the period (RPT.5, 6) will begin.\n\n\n\nThe units of measure for this component are derived from the Calendar Alignment value in RPT.2. See _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70527[HL7 Table 0527 - Calendar Alignment]_ for the units of measure associated with a particular calendar alignment.\n",
+        "defintion": "*Definition:* Used for Calendar aligned repeat patterns to determine the amount of time from the beginning of particular _RPT.2 - Calendar Alignment_ to the beginning of the phase. If Calendar Alignment is DW (days of week), then this would be the offset from the beginning of the week.\n\n\n\nIf Phase Range Begin Value is populated, but Phase Range End Value is not populated, then this component defines when the period (RPT.5, 6) begins.\n\n\n\nIf both Phase Range Begin Value and Phase Range End Value are populated, then this component defines the earliest point in time at which the period (RPT.5, 6) will begin.\n\n\n\nThe units of measure for this component are derived from the Calendar Alignment value in RPT.2. See {{v2-table:0527:Calendar Alignment}}_ for the units of measure associated with a particular calendar alignment.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -121,7 +121,7 @@
         "id": "RPT.4",
         "path": "RPT.4",
         "short": "Phase Range End Value",
-        "defintion": "*Definition:* Used for Calendar aligned repeat patterns to determine the amount of time from the beginning of particular _RPT.2 - Calendar Alignment_ to the end of the phase.\n\n\n\nIf Phase Range End Value is populated, but Phase Range Begin Value is not populated, then this component defines when the timing period (RPT.5, 6) begins.\n\n\n\nIf both Phase Range Begin Value and Phase Range End Value are populated, then this component defines the latest point in time at which the period (RPT.5, 6) will begin.\n\n\n\nThe units of measure for this component are derived from the Calendar Alignment value in RPT.2. See _file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70527[HL7 Table 0527 - Calendar Alignment]_ for the units of measure associated with a particular calendar alignment.\n",
+        "defintion": "*Definition:* Used for Calendar aligned repeat patterns to determine the amount of time from the beginning of particular _RPT.2 - Calendar Alignment_ to the end of the phase.\n\n\n\nIf Phase Range End Value is populated, but Phase Range Begin Value is not populated, then this component defines when the timing period (RPT.5, 6) begins.\n\n\n\nIf both Phase Range Begin Value and Phase Range End Value are populated, then this component defines the latest point in time at which the period (RPT.5, 6) will begin.\n\n\n\nThe units of measure for this component are derived from the Calendar Alignment value in RPT.2. See {{v2-table:0527:Calendar Alignment}}_ for the units of measure associated with a particular calendar alignment.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -204,7 +204,7 @@
         "id": "RPT.7",
         "path": "RPT.7",
         "short": "Institution Specified Time",
-        "defintion": "*Definition:* A code that indicates whether the exact timing is up to the party executing the schedule (e.g., to distinguish “every 8 hours” from “3 times a day”). Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/No Indicator_] for valid values.\n\n\n\n• Y - exact timing up to party executing schedule.\n\n\n\n• N - exact timing as specified.\n",
+        "defintion": "*Definition:* A code that indicates whether the exact timing is up to the party executing the schedule (e.g., to distinguish “every 8 hours” from “3 times a day”). Refer to {{v2-table:0136:Yes/No Indicator}} for valid values.\n\n\n\n• Y - exact timing up to party executing schedule.\n\n\n\n• N - exact timing as specified.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -240,7 +240,7 @@
         "id": "RPT.8",
         "path": "RPT.8",
         "short": "Event",
-        "defintion": "*Definition:* A code for a common (periodical) activity of daily living. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70528[_HL7 Table 0528 - Event-Related Period_] for valid values.\n",
+        "defintion": "*Definition:* A code for a common (periodical) activity of daily living. Refer to {{v2-table:0528:Event-Related Period}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [

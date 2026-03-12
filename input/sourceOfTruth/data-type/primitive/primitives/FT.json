@@ -1,47 +1,46 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "FT",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "FT",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/FT",
-  "version" : "0.0.1",
-  "name" : "V2_FT_Data_Type",
-  "title" : "HL7 v2 FT Data Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "string",
-  "baseDefinition" : "http://hl7.org/v2/StructureDefinition/TX",
-  "derivation" : "constraint",
-  "_comment" : [{
-    "differential" : {
-      "element" : [{
-        "id" : "string.value",
-        "path" : "string.value",
-        "regex" : "0"
-      }]
-    }    
-  }]
+  "url": "http://hl7.org/v2/StructureDefinition/FT",
+  "version": "0.0.1",
+  "name": "FT",
+  "title": "HL7 v2 FT Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/FT",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "String data intended for display purposes, which may contain formatting commands enclosed in escape sequences as defined in Section 2.7 of the HL7 v2 standard. The FT data type is derived from the TX (text) data type and supports embedded formatting instructions such as highlighting, custom character sets, and line breaks (.br). The formatting escape sequences use the escape character defined in MSH-2.",
+  "differential": {
+    "element": [
+      {
+        "id": "FT",
+        "path": "FT",
+        "short": "Formatted Text",
+        "definition": "String data intended for display purposes, which may contain formatting commands enclosed in escape sequences as defined in Section 2.7 of the HL7 v2 standard. Supports embedded formatting instructions such as highlighting, custom character sets, and line breaks (.br).",
+        "min": 0,
+        "max": "*"
+      }
+    ]
+  }
 }

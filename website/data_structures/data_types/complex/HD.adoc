@@ -51,8 +51,10 @@ The syntax of the second component is defined by the ISO standard for object ide
 
 |LAB1|
 
-[er7]
+[.er7]
+....
 |RX.PIMS.SystemB.KP.CA.SCA|
+....
 
 [NOTE]
 that the syntax of the first component is not defined by HL7 but by the site according to its own needs: the only requirement is that the first component’s structure is allowed by the HL7 string (ST) data type, which is used for values by the IS data type.
@@ -62,7 +64,7 @@ that the syntax of the first component is not defined by HL7 but by the site acc
 
 |\^RX.PIMS.SystemB.CA.SCA^M|
 
-An alternate way to encode the previous example, illustrating the use of the third component value of "M" (see file:///E:\V2\v2.9%20final%20Nov%20from%20Frank\V29_CH02C_Tables.docx#HL70301[_HL7 Table 0301 - Universal ID type_] below) to identify a locally-defined identifier set. The second component has the same value as the previous example but is now defined to be a member of a set of allowable values defined by a site for the identifier set “M”. _[.underline]#The use of local coding schemes as Universal ID Types is deprecated as of v 2.8; assigning authorities should be identified with true Universal IDs.#_
+An alternate way to encode the previous example, illustrating the use of the third component value of "M" (see {{v2-table:0301:Universal ID type}} below) to identify a locally-defined identifier set. The second component has the same value as the previous example but is now defined to be a member of a set of allowable values defined by a site for the identifier set “M”. _[.underline]#The use of local coding schemes as Universal ID Types is deprecated as of v 2.8; assigning authorities should be identified with true Universal IDs.#_
 
 [example]
 6: local identifier and universal ID types:

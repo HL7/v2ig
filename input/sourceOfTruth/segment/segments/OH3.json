@@ -26,7 +26,7 @@
       {
         "id": "OH3.1",
         "path": "OH3.1",
-        "short": "OH3-1",
+        "short": "Set ID",
         "definition": "This field contains the sequence number used to identify the OH3 segment instances in message structures where the OH3 segment repeats. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc. If the subject of the OH3 segment changes (e.g. Patient vs Next of Kin) the Set ID sequence will be reset.",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -51,8 +51,8 @@
       {
         "id": "OH3.2",
         "path": "OH3.2",
-        "short": "OH3-2",
-        "definition": "This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to file:///D:\\Eigene%20Dateien\\2018\\HL7\\Standards\\v2.9%20Jan%202019\\v29%20CH2C%20Table%200206[HL7 Table 0206 – Segment Action Code] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Action Code",
+        "definition": "This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -72,11 +72,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -93,8 +93,8 @@
       {
         "id": "OH3.3",
         "path": "OH3.3",
-        "short": "OH3-3",
-        "definition": "This field contains a code defining the occupation a person has held for the longest time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been continuous time. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70958[_HL7 Table 0958 – Occupation Code_] in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Occupation CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186",
+        "short": "Occupation",
+        "definition": "This field contains a code defining the occupation a person has held for the longest time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been continuous time. Refer to {{v2-table:0958:Occupation Code}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Occupation CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -114,7 +114,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -122,8 +122,8 @@
       {
         "id": "OH3.4",
         "path": "OH3.4",
-        "short": "OH3-4",
-        "definition": "This field contains a code defining the industry a person has worked in for the longest time while in the usual occupation. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70955[_HL7 Table 0955 – Industry Code_] in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Industry CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187",
+        "short": "Industry",
+        "definition": "This field contains a code defining the industry a person has worked in for the longest time while in the usual occupation. Refer to {{v2-table:0955:Industry Code}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Industry CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -143,7 +143,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -151,7 +151,7 @@
       {
         "id": "OH3.5",
         "path": "OH3.5",
-        "short": "OH3-5",
+        "short": "Usual Occupation Duration (years)",
         "definition": "This field asserts the number of years that the person has been working in the usual occupation. Decimals shall be used to indicate a duration shorter than 1 year.",
         "code": [
           {
@@ -168,7 +168,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -176,7 +176,7 @@
       {
         "id": "OH3.6",
         "path": "OH3.6",
-        "short": "OH3-6",
+        "short": "Start year",
         "definition": "This field identifies the year that the person began work in their usual occupation.",
         "code": [
           {
@@ -193,7 +193,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -201,7 +201,7 @@
       {
         "id": "OH3.7",
         "path": "OH3.7",
-        "short": "OH3-7",
+        "short": "Entered Date",
         "definition": "This field records the date that the information was entered into the patient record.",
         "code": [
           {
@@ -218,7 +218,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -226,7 +226,7 @@
       {
         "id": "OH3.8",
         "path": "OH3.8",
-        "short": "OH3-8",
+        "short": "Work Unique Identifier",
         "definition": "This field contains a value the uniquely identifies a single work for a person.",
         "code": [
           {
@@ -243,7 +243,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

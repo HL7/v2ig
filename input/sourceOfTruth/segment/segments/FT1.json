@@ -26,7 +26,7 @@
       {
         "id": "FT1.1",
         "path": "FT1.1",
-        "short": "FT1-1",
+        "short": "Set ID - FT1",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment the sequence number shall be 1, for the second occurrence it shall be 2, etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "FT1.2",
         "path": "FT1.2",
-        "short": "FT1-2",
+        "short": "Transaction ID",
         "definition": "This field contains a number assigned by the sending system for control purposes. The number can be returned by the receiving system to identify errors.",
         "code": [
           {
@@ -81,11 +81,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -102,7 +102,7 @@
       {
         "id": "FT1.3",
         "path": "FT1.3",
-        "short": "FT1-3",
+        "short": "Transaction Batch ID",
         "definition": "This field uniquely identifies the batch in which this transaction belongs.",
         "code": [
           {
@@ -119,11 +119,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -140,7 +140,7 @@
       {
         "id": "FT1.4",
         "path": "FT1.4",
-        "short": "FT1-4",
+        "short": "Transaction Date",
         "definition": "This field contains the date/time or date/time range of the transaction. For example, this field would be used to identify the date a procedure, item, or test was conducted or used. It may be defaulted to today's date. To specify a single point in time, only the first component is valued. When the second component is valued, the field specifies a time interval during which the transaction took place.",
         "code": [
           {
@@ -157,7 +157,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -165,7 +165,7 @@
       {
         "id": "FT1.5",
         "path": "FT1.5",
-        "short": "FT1-5",
+        "short": "Transaction Posting Date",
         "definition": "This field contains the date of the transaction that was sent to the financial system for posting.",
         "code": [
           {
@@ -182,7 +182,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -190,8 +190,8 @@
       {
         "id": "FT1.6",
         "path": "FT1.6",
-        "short": "FT1-6",
-        "definition": "This field contains the code that identifies the type of transaction. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70017[_User-de__f__ined Table 0017 - Transaction Ty__pe_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Transaction Type",
+        "definition": "This field contains the code that identifies the type of transaction. Refer to {{v2-table:0017:Transaction Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -211,7 +211,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -219,8 +219,8 @@
       {
         "id": "FT1.7",
         "path": "FT1.7",
-        "short": "FT1-7",
-        "definition": "This field contains the code assigned by the institution for the purpose of uniquely identifying the transaction based on the Transaction Type (FT1-6). For example, this field would be used to uniquely identify a procedure, supply item, or test for charges, or to identify the payment medium for payments. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70132[_User-__defined Table 0132 - Transaction Code_] in Chapter 2C, Code Tables, for suggested values. See Chapter 7 for a discussion of the universal service ID for charges.",
+        "short": "Transaction Code",
+        "definition": "This field contains the code assigned by the institution for the purpose of uniquely identifying the transaction based on the Transaction Type (FT1-6). For example, this field would be used to uniquely identify a procedure, supply item, or test for charges, or to identify the payment medium for payments. Refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values. See Chapter 7 for a discussion of the universal service ID for charges.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -240,7 +240,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -248,7 +248,7 @@
       {
         "id": "FT1.8",
         "path": "FT1.8",
-        "short": "FT1-8",
+        "short": "Transaction Description",
         "comment": "*Attention: FT__1-8 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.__*",
         "code": [
           {
@@ -260,7 +260,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -268,7 +268,7 @@
       {
         "id": "FT1.9",
         "path": "FT1.9",
-        "short": "FT1-9",
+        "short": "Transaction Description - Alt",
         "comment": "*Attention: FT__1-9 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.__*",
         "code": [
           {
@@ -280,7 +280,7 @@
         "max": 1,
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
           }
         ]
@@ -288,7 +288,7 @@
       {
         "id": "FT1.10",
         "path": "FT1.10",
-        "short": "FT1-10",
+        "short": "Transaction Quantity",
         "definition": "This field contains the quantity of items associated with this transaction.",
         "code": [
           {
@@ -305,11 +305,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -317,7 +317,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -326,7 +326,7 @@
       {
         "id": "FT1.11",
         "path": "FT1.11",
-        "short": "FT1-11",
+        "short": "Transaction Amount - Extended",
         "definition": "This field contains the amount of a transaction. It may be left blank if the transaction is automatically priced. Total price for multiple items.",
         "code": [
           {
@@ -343,7 +343,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -351,7 +351,7 @@
       {
         "id": "FT1.12",
         "path": "FT1.12",
-        "short": "FT1-12",
+        "short": "Transaction Amount - Unit",
         "definition": "This field contains the unit price of a transaction. Price of a single item.",
         "code": [
           {
@@ -368,7 +368,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -376,8 +376,8 @@
       {
         "id": "FT1.13",
         "path": "FT1.13",
-        "short": "FT1-13",
-        "definition": "This field contains the department code that controls the transaction code described above. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70049[_User-defined Table 0049 - Department C__ode_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Department Code",
+        "definition": "This field contains the department code that controls the transaction code described above. Refer to {{v2-table:0049:Department Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -397,7 +397,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -405,8 +405,8 @@
       {
         "id": "FT1.14",
         "path": "FT1.14",
-        "short": "FT1-14",
-        "definition": "This field contains the identifier of the primary insurance plan with which this transaction should be associated. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70072[_User-defined Table 0072 - Insurance P__l__an ID_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Health Plan ID",
+        "definition": "This field contains the identifier of the primary insurance plan with which this transaction should be associated. Refer to {{v2-table:0072:Insurance Plan ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -426,7 +426,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -434,7 +434,7 @@
       {
         "id": "FT1.15",
         "path": "FT1.15",
-        "short": "FT1-15",
+        "short": "Insurance Amount",
         "definition": "This field contains the amount to be posted to the insurance plan referenced above.",
         "code": [
           {
@@ -451,7 +451,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -459,7 +459,7 @@
       {
         "id": "FT1.16",
         "path": "FT1.16",
-        "short": "FT1-16",
+        "short": "Assigned Patient Location",
         "definition": "This field contains the current patient location. This can be the location of the patient when the charge item was ordered or when the charged service was rendered. For the current assigned patient location, use _PV1-3 - Assigned Patient Location._",
         "code": [
           {
@@ -476,7 +476,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -484,8 +484,8 @@
       {
         "id": "FT1.17",
         "path": "FT1.17",
-        "short": "FT1-17",
-        "definition": "This field contains the code used to select the appropriate fee schedule to be used for this transaction posting. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70024[_User-defined Table 0024 - Fee Schedule_] in chapter 2C, Code Tables, for suggested values.",
+        "short": "Fee Schedule",
+        "definition": "This field contains the code used to select the appropriate fee schedule to be used for this transaction posting. Refer to {{v2-table:0024:Fee Schedule}} in chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -505,7 +505,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -513,8 +513,8 @@
       {
         "id": "FT1.18",
         "path": "FT1.18",
-        "short": "FT1-18",
-        "definition": "This field contains the type code assigned to the patient for this episode of care (visit or stay). Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70018[_User-defined Table 0018 - Patient Type_] in Chapter 2C, Code Tables, for suggested values. This is for use when the patient type for billing purposes is different than the visit patient type in _PV1-18 - Patient Type_.",
+        "short": "Patient Type",
+        "definition": "This field contains the type code assigned to the patient for this episode of care (visit or stay). Refer to {{v2-table:0018:Patient Type}} in Chapter 2C, Code Tables, for suggested values. This is for use when the patient type for billing purposes is different than the visit patient type in _PV1-18 - Patient Type_.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -534,7 +534,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -542,8 +542,8 @@
       {
         "id": "FT1.19",
         "path": "FT1.19",
-        "short": "FT1-19",
-        "definition": "This field contains the primary diagnosis code for billing purposes. ICD9‑CM is assumed for all diagnosis codes. This is the most current diagnosis code that has been assigned to the patient. ICD10 can also be used. The name of coding system (third component) indicates which coding system is used. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70051[_User-defined Table 0051 - Diagnosis Co__de_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Diagnosis Code - FT1",
+        "definition": "This field contains the primary diagnosis code for billing purposes. ICD9‑CM is assumed for all diagnosis codes. This is the most current diagnosis code that has been assigned to the patient. ICD10 can also be used. The name of coding system (third component) indicates which coding system is used. Refer to {{v2-table:0051:Diagnosis Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -563,7 +563,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -571,8 +571,8 @@
       {
         "id": "FT1.20",
         "path": "FT1.20",
-        "short": "FT1-20",
-        "definition": "This field contains the composite number/name of the person/group that performed the test/procedure/transaction, etc. This is the service provider. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70084[_User-defined Table 0084 - Performed by_] in Chapter 2C, Code Tables, for suggested values. As of v 2.7, if _XCN.1 - ID Number_ is populated, then the _XCN.13 - Identifier Type Code_ and the _XCN.9 - Assigning Authority_ or _XCN.22 - Assigning Jurisdiction_ or _XCN.23 - Assigning Agency or Department_ are required. If _XCN.2 - Family Name_ is populated, then the _XCN.10 - Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated.",
+        "short": "Performed By Code",
+        "definition": "This field contains the composite number/name of the person/group that performed the test/procedure/transaction, etc. This is the service provider. Refer to {{v2-table:0084:Performed by}} in Chapter 2C, Code Tables, for suggested values. As of v 2.7, if _XCN.1 - ID Number_ is populated, then the _XCN.13 - Identifier Type Code_ and the _XCN.9 - Assigning Authority_ or _XCN.22 - Assigning Jurisdiction_ or _XCN.23 - Assigning Agency or Department_ are required. If _XCN.2 - Family Name_ is populated, then the _XCN.10 - Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -592,7 +592,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -600,7 +600,7 @@
       {
         "id": "FT1.21",
         "path": "FT1.21",
-        "short": "FT1-21",
+        "short": "Ordered By Code",
         "definition": "This field contains the composite number/name of the person/group that ordered the test/ procedure/transaction, etc. As of v 2.7, if _XCN.1 - ID Number_ is populated, then the _XCN.13 - Identifier Type Code_ and the _XCN.9 - Assigning Authority_ or _XCN.22 - Assigning Jurisdiction_ or _XCN.23 - Assigning Agency or Department_ are required. If _XCN.2 - Family Name_ is populated, then the _XCN.10 - Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated. .",
         "code": [
           {
@@ -617,7 +617,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -625,7 +625,7 @@
       {
         "id": "FT1.22",
         "path": "FT1.22",
-        "short": "FT1-22",
+        "short": "Unit Cost",
         "definition": "This field contains the unit cost of transaction. The cost of a single item.",
         "code": [
           {
@@ -642,7 +642,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -650,7 +650,7 @@
       {
         "id": "FT1.23",
         "path": "FT1.23",
-        "short": "FT1-23",
+        "short": "Filler Order Number",
         "definition": "This field is used when the billing system is requesting observational reporting justification for a charge. This is the number used by a filler to uniquely identify a result. See Chapter 4 for a complete description.",
         "code": [
           {
@@ -667,7 +667,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -675,7 +675,7 @@
       {
         "id": "FT1.24",
         "path": "FT1.24",
-        "short": "FT1-24",
+        "short": "Entered By Code",
         "definition": "This field identifies the composite number/name of the person who entered the insurance information.",
         "code": [
           {
@@ -692,7 +692,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -700,8 +700,8 @@
       {
         "id": "FT1.25",
         "path": "FT1.25",
-        "short": "FT1-25",
-        "definition": "This field contains a unique identifier assigned to the procedure, if any, associated with the charge. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70088[_Externally-defined Table 0088 - Procedure Code_] in Chapter 2C, Code Tables, for suggested values. This field is a coded data type for compatibility with clinical and ancillary systems.",
+        "short": "Procedure Code",
+        "definition": "This field contains a unique identifier assigned to the procedure, if any, associated with the charge. Refer to {{v2-table:0088:Procedure Code}} in Chapter 2C, Code Tables, for suggested values. This field is a coded data type for compatibility with clinical and ancillary systems.",
         "comment": "As of v 2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.\n\nProcedure Code Coding Systems (from HL7 Table 0396)\n\nProcedure Code Coding Systems (from HL7 Table 0396)\n|===\n|Code |Description |Comment / Source\n|C4 |CPT-4 |American Medical Association, P.O. Box 10946, Chicago IL 60610.\n|C5 |CPT-5 |(under development – same contact as above)\n|HCPCS |CMS (formerly HCFA) Common Procedure Coding System |HCPCS: contains codes for medical equipment, injectable drugs, transportation services, and other services not found in CPT4.\n|HPC |CMS (formerly HCFA )Procedure Codes (HCPCS) |Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.footnote:[The HCPCS code is divided into three \"levels.\" Level I includes the entire CPT-4 code by reference. Level II includes the American Dental Association’s Current Dental Terminology (CDT-2) code by reference. Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers. The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers. +\n+\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, http://www.ntis.gov[www.ntis.gov]) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to its contractors.]\n|I10P |ICD-10 Procedure Codes |Procedure Coding System (ICD-10-PCS.) See http://www/hcfa.gov/stats/icd10.icd10.htm for more information.\n|===",
         "code": [
           {
@@ -722,7 +722,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -730,8 +730,8 @@
       {
         "id": "FT1.26",
         "path": "FT1.26",
-        "short": "FT1-26",
-        "definition": "This field contains the procedure code modifier to the procedure code reported in link:#ft1-25-procedure-code-cne-00393[_FT1-25 - Procedure Code_], when applicable. Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA. Multiple modifiers may be reported. The modifiers are sequenced in priority according to user entry. This is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70340[_Externally-defined Table 0340 - Procedure Code Modifier_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Procedure Code Modifier",
+        "definition": "This field contains the procedure code modifier to the procedure code reported in link:#ft1-25-procedure-code-cne-00393[_FT1-25 - Procedure Code_], when applicable. Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA. Multiple modifiers may be reported. The modifiers are sequenced in priority according to user entry. This is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement. Refer to {{v2-table:0340:Procedure Code Modifier}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "Usage Rule: This field can only be used if link:#ft1-25-procedure-code-cne-00393[_FT1-25 - Procedure Code_] contains certain procedure codes that require a modifier in order to be billed or performed. For example, HCPCS codes that require a modifier to be precise.\n\nAs of v 2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.\n\nProcedure Code Modifier Coding Systems (From HL7 Table 0396)\n\nProcedure Code Modifier Coding Systems (From HL7 Table 0396)\n|===\n|Code |Description |Comment / Source\n|CPTM |CPT Modifier Code |Available for the AMA at the address listed for CPT above. These codes are found in Appendix A of CPT 2000 Standard Edition. (CPT 2000 Standard Edition, American Medical Association, Chicago, IL).\n|HPC |CMS (formerly HCFA )Procedure Codes (HCPCS) |Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.footnote:[The HCPCS code is divided into three \"levels.\" Level I includes the entire CPT-4 code by reference. Level II includes the American Dental Association’s Current Dental Terminology (CDT-2) code by reference. Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers. The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers. +\n+\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, http://www.ntis.gov[www.ntis.gov]) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to its contractors.]\n|I10P |ICD-10 Procedure Codes |Procedure Coding System (ICD-10-PCS.) See http://www/hcfa.gov/stats/icd10.icd10.htm for more information.\n|I9C |ICD-9CM |Commission on Professional and Hospital Activities, 1968 Green Road, Ann Arbor, MI 48105 (includes all procedures and diagnostic tests).\n|ICD10AM |ICD-10 Australian modification |\n|ICD10CA |ICD-10 Canada |\n|===",
         "code": [
           {
@@ -752,7 +752,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -760,8 +760,8 @@
       {
         "id": "FT1.27",
         "path": "FT1.27",
-        "short": "FT1-27",
-        "definition": "This field indicates the status of the patient's or the patient's representative's consent for responsibility to pay for potentially uninsured services. This element is introduced to satisfy CMS Medical Necessity requirements for outpatient services. This element indicates (a) whether the associated diagnosis codes for the service are subject to medical necessity procedures, (b) whether, for this type of service, the patient has been informed that they may be responsible for payment for the service, and (c) whether the patient agrees to be billed for this service. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70339[_User-defined Table 0339 - Advanced Beneficiary Notice Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Advanced Beneficiary Notice Code",
+        "definition": "This field indicates the status of the patient's or the patient's representative's consent for responsibility to pay for potentially uninsured services. This element is introduced to satisfy CMS Medical Necessity requirements for outpatient services. This element indicates (a) whether the associated diagnosis codes for the service are subject to medical necessity procedures, (b) whether, for this type of service, the patient has been informed that they may be responsible for payment for the service, and (c) whether the patient agrees to be billed for this service. Refer to {{v2-table:0339:Advanced Beneficiary Notice Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -781,7 +781,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -789,8 +789,8 @@
       {
         "id": "FT1.28",
         "path": "FT1.28",
-        "short": "FT1-28",
-        "definition": "This field is used to document why the procedure found in link:#ft1-25-procedure-code-cne-00393[_FT1-25 - Procedure Code_] is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary. The reason may be coded or it may be a free text entry. This field is intended to provide financial systems information on who to bill for duplicate procedures. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70476[_User-Defined Table 0476 – Medically Necessary Duplicate Procedure Reason_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Medically Necessary Duplicate Procedure Reason",
+        "definition": "This field is used to document why the procedure found in link:#ft1-25-procedure-code-cne-00393[_FT1-25 - Procedure Code_] is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary. The reason may be coded or it may be a free text entry. This field is intended to provide financial systems information on who to bill for duplicate procedures. Refer to {{v2-table:0476:Medically Necessary Duplicate Procedure Reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -810,7 +810,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -818,8 +818,8 @@
       {
         "id": "FT1.29",
         "path": "FT1.29",
-        "short": "FT1-29",
-        "definition": "This field has been defined for NDC codes that are required by HIPAA for electronic claims for Pharmacy charges. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70549[_Externally-defined Table 0549- NDC Codes_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "NDC Code",
+        "definition": "This field has been defined for NDC codes that are required by HIPAA for electronic claims for Pharmacy charges. Refer to {{v2-table:0549:NDC Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "If a system supports multiple NDC codes for a charge, this information will be sent in OBX segments. FT1-29 and FT1-43 can be used for single NDC codes and quantities instead of using OBX.",
         "code": [
           {
@@ -840,7 +840,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -848,7 +848,7 @@
       {
         "id": "FT1.30",
         "path": "FT1.30",
-        "short": "FT1-30",
+        "short": "Payment Reference ID",
         "definition": "The payment reference number of the payment medium reported in link:#ft1-7-transaction-code-cwe-00361[_FT1-7 - Transaction Code_].",
         "code": [
           {
@@ -865,7 +865,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -873,7 +873,7 @@
       {
         "id": "FT1.31",
         "path": "FT1.31",
-        "short": "FT1-31",
+        "short": "Transaction Reference Key",
         "definition": "The reference key linking the payment to the corresponding charge in an e-claim. This field should contain the link:#ft1-1-set-id-ft1-si-00355[_FT1-1 - Set ID FT1_] that identifies the charge corresponding to the payment. This field is repeating to allow a payment to be posted against multiple charges.",
         "code": [
           {
@@ -890,11 +890,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -911,7 +911,7 @@
       {
         "id": "FT1.32",
         "path": "FT1.32",
-        "short": "FT1-32",
+        "short": "Performing Facility",
         "definition": "This field contains the name of the Facility where the service is performed by the Provider Person/Group identified in _FT1-20 – Performed By Code_.",
         "code": [
           {
@@ -928,7 +928,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -936,7 +936,7 @@
       {
         "id": "FT1.33",
         "path": "FT1.33",
-        "short": "FT1-33",
+        "short": "Ordering Facility",
         "definition": "This field contains the name of the Facility where the service is ordered by the Ordering Provider/Group identified in _FT1-21 – Ordered By Code_.",
         "code": [
           {
@@ -953,7 +953,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -961,7 +961,7 @@
       {
         "id": "FT1.34",
         "path": "FT1.34",
-        "short": "FT1-34",
+        "short": "Item Number",
         "definition": "This field contains the Item Number for a product. If valued, this field will override the value in the Service Catalog. Item Number (along with Model Number) can be seen as a supplemental number for specific equipment or inventory-related charges.",
         "code": [
           {
@@ -978,7 +978,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -986,7 +986,7 @@
       {
         "id": "FT1.35",
         "path": "FT1.35",
-        "short": "FT1-35",
+        "short": "Model Number",
         "definition": "This field contains the Model Number for a product. If valued, this field will override the value in the Service Catalog. Model Number (along with Item Number) can be seen as a supplemental number for specific equipment or inventory-related charges.",
         "code": [
           {
@@ -1003,11 +1003,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1015,7 +1015,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -1024,7 +1024,7 @@
       {
         "id": "FT1.36",
         "path": "FT1.36",
-        "short": "FT1-36",
+        "short": "Special Processing Code",
         "definition": "This field contains a Special Processing Code that is available in reimbursement expressions. If valued, this field will override the value in the Service Catalog.",
         "code": [
           {
@@ -1041,7 +1041,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1049,7 +1049,7 @@
       {
         "id": "FT1.37",
         "path": "FT1.37",
-        "short": "FT1-37",
+        "short": "Clinic Code",
         "definition": "This field contains the state specific or payer specific type of service or place of service.",
         "code": [
           {
@@ -1066,7 +1066,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1074,7 +1074,7 @@
       {
         "id": "FT1.38",
         "path": "FT1.38",
-        "short": "FT1-38",
+        "short": "Referral Number",
         "definition": "This field contains the Referral Number associated with the charge.",
         "code": [
           {
@@ -1091,7 +1091,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1099,7 +1099,7 @@
       {
         "id": "FT1.39",
         "path": "FT1.39",
-        "short": "FT1-39",
+        "short": "Authorization Number",
         "definition": "This field contains an authorization number assigned to the referral charge.",
         "code": [
           {
@@ -1116,7 +1116,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1124,7 +1124,7 @@
       {
         "id": "FT1.40",
         "path": "FT1.40",
-        "short": "FT1-40",
+        "short": "Service Provider Taxonomy Code",
         "definition": "This field contains the Taxonomy code for the Service Provider. It allows the provider to identify their specialty category for the particular service.",
         "code": [
           {
@@ -1141,7 +1141,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1149,8 +1149,8 @@
       {
         "id": "FT1.41",
         "path": "FT1.41",
-        "short": "FT1-41",
-        "definition": "This field contains the Revenue Code for the charge. If valued, this field will override the value in the Service Catalog. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70456[_User-defined Table 0456 – Revenue Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Revenue Code",
+        "definition": "This field contains the Revenue Code for the charge. If valued, this field will override the value in the Service Catalog. Refer to {{v2-table:0456:Revenue Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1170,7 +1170,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1178,7 +1178,7 @@
       {
         "id": "FT1.42",
         "path": "FT1.42",
-        "short": "FT1-42",
+        "short": "Prescription Number",
         "definition": "This field contains the prescription number as assigned by the pharmacy or treatment application. Equivalent in uniqueness to the pharmacy/treatment filler order number. At some sites, this may be the pharmacy or treatment system (internal) sequential form. At other sites, this may be an external form.",
         "code": [
           {
@@ -1195,7 +1195,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1203,7 +1203,7 @@
       {
         "id": "FT1.43",
         "path": "FT1.43",
-        "short": "FT1-43",
+        "short": "NDC Qty and UOM",
         "definition": "This field contains the Drug Code Quantity and the Units of Measurement for the corresponding NDC-Code in _FT1-29 – NDC Code_.",
         "code": [
           {
@@ -1220,7 +1220,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1228,7 +1228,7 @@
       {
         "id": "FT1.44",
         "path": "FT1.44",
-        "short": "FT1-44",
+        "short": "DME Certificate of Medical Necessity Transmission Code",
         "definition": "This code defines the timing, transmission method, or format by which a DME Certificate of Medical Necessity report is to be sent for the service.",
         "comment": "For the US realm, the ANSI ASC X12 PWK DMERC CMN Indicator Segment, reference element PWK02, listed below is suggested to map to the X12 837 values:\n\nFor the US realm, the ANSI ASC X12 PWK DMERC CMN Indicator Segment, reference element PWK02, listed below is suggested to map to the X12 837 values:\n|===\n|AB |Previously Submitted to Payer\n|AD |Certification Included in this Claim\n|AF |Narrative Segment Included in this Claim\n|AG |No Documentation is Required\n|NS |Not Specified\n|===",
         "code": [
@@ -1246,7 +1246,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1254,7 +1254,7 @@
       {
         "id": "FT1.45",
         "path": "FT1.45",
-        "short": "FT1-45",
+        "short": "DME Certification Type Code",
         "definition": "This code identifies the type of certification for the durable medical equipment service.",
         "comment": "For the US realm, the ANSI ASC X12 CR3 Durable Medical Equipment Certification Segment, reference element CR301, listed below is suggested to map to the X12 837 values:\n\nFor the US realm, the ANSI ASC X12 CR3 Durable Medical Equipment Certification Segment, reference element CR301, listed below is suggested to map to the X12 837 values:\n|===\n|I |Initial\n|R |Renewal\n|S |Revised\n|===",
         "code": [
@@ -1272,7 +1272,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1280,7 +1280,7 @@
       {
         "id": "FT1.46",
         "path": "FT1.46",
-        "short": "FT1-46",
+        "short": "DME Duration Value",
         "definition": "This is the length of time, in months, the durable medical equipment is needed.",
         "code": [
           {
@@ -1297,7 +1297,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1305,7 +1305,7 @@
       {
         "id": "FT1.47",
         "path": "FT1.47",
-        "short": "FT1-47",
+        "short": "DME Certification Revision Date",
         "definition": "This is the durable medical equipment certification revision/recertification date. It is required when the DME Certification Type Code is set to Renewal or Revised.",
         "code": [
           {
@@ -1322,7 +1322,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1330,7 +1330,7 @@
       {
         "id": "FT1.48",
         "path": "FT1.48",
-        "short": "FT1-48",
+        "short": "DME Initial Certification Date",
         "definition": "This is durable medical equipment initial certification date. It is used to indicate the beginning of therapy and the DME Certification Type Code is set to Initial.",
         "code": [
           {
@@ -1347,7 +1347,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1355,7 +1355,7 @@
       {
         "id": "FT1.49",
         "path": "FT1.49",
-        "short": "FT1-49",
+        "short": "DME Last Certification Date",
         "definition": "This is the durable medical equipment last certification date. This is required if it is necessary to include supporting documentation in an electronic form for Medicare DMERC claims for which the provider is required to obtain a Certificate of Medical Necessity (CMN) from the physician.",
         "code": [
           {
@@ -1372,7 +1372,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1380,7 +1380,7 @@
       {
         "id": "FT1.50",
         "path": "FT1.50",
-        "short": "FT1-50",
+        "short": "DME Length of Medical Necessity Days",
         "definition": "This is the length of duration, in days, of medical necessity for the purchased or rental durable medical equipment service.",
         "code": [
           {
@@ -1397,7 +1397,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1405,7 +1405,7 @@
       {
         "id": "FT1.51",
         "path": "FT1.51",
-        "short": "FT1-51",
+        "short": "DME Rental Price",
         "definition": "This is the rental price of the durable medical equipment.",
         "code": [
           {
@@ -1422,7 +1422,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1430,7 +1430,7 @@
       {
         "id": "FT1.52",
         "path": "FT1.52",
-        "short": "FT1-52",
+        "short": "DME Purchase Price",
         "definition": "This is the purchase price for the durable medical equipment.",
         "code": [
           {
@@ -1447,7 +1447,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1455,7 +1455,7 @@
       {
         "id": "FT1.53",
         "path": "FT1.53",
-        "short": "FT1-53",
+        "short": "DME Frequency Code",
         "definition": "This is the frequency or type of payment for the rental of durable medical equipment.",
         "comment": "For the US realm, the ANSI ASC X12 SV5 Durable Medical Equipment Service Segment, reference element SV506, listed below is suggested to map to the X12 837 values:\n\nFor the US realm, the ANSI ASC X12 SV5 Durable Medical Equipment Service Segment, reference element SV506, listed below is suggested to map to the X12 837 values:\n|===\n|1 |Weekly\n|4 |Monthly\n|6 |Daily\n|===",
         "code": [
@@ -1473,7 +1473,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1481,8 +1481,8 @@
       {
         "id": "FT1.54",
         "path": "FT1.54",
-        "short": "FT1-54",
-        "definition": "This field indicates if the DME Condition Codes apply to the service. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[HL7 Table 0136 - Yes/no Indicator] for valid values. A \"Y\" value indicates the condition codes apply. An \"N\" value indicates the condition codes do not apply.",
+        "short": "DME Certification Condition Indicator",
+        "definition": "This field indicates if the DME Condition Codes apply to the service. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values. A \"Y\" value indicates the condition codes apply. An \"N\" value indicates the condition codes do not apply.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1498,7 +1498,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1506,7 +1506,7 @@
       {
         "id": "FT1.55",
         "path": "FT1.55",
-        "short": "FT1-55",
+        "short": "DME Condition Indicator Code",
         "definition": "This the condition indicator code for durable medical equipment. It is used on the claim service line when this information is necessary for adjudication. Two occurrences are supported.",
         "comment": "For the US realm, the ANSI ASC X12 CRC DMERC Condition Indicator Segment, reference element CRC03, listed below is suggested to map to the X12 837 values:\n\nFor the US realm, the ANSI ASC X12 CRC DMERC Condition Indicator Segment, reference element CRC03, listed below is suggested to map to the X12 837 values:\n|===\n|38 |Certification signed by the physician is on file at the supplier’s office\n|ZV |Replacement Item\n|===",
         "code": [
@@ -1524,7 +1524,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1532,8 +1532,8 @@
       {
         "id": "FT1.56",
         "path": "FT1.56",
-        "short": "FT1-56",
-        "definition": "This field contains the reason why the service has been performed. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70964[_User-defined Table HL70964 –Service Reason Code_] for suggested values.",
+        "short": "Service Reason Code",
+        "definition": "This field contains the reason why the service has been performed. Refer to {{v2-table:0964:Service Reason Code}} for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1553,7 +1553,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

@@ -16,8 +16,10 @@ Replaces the CM data type used in sections 6.5.10.10 UB1-10 and 6.5.11.6 UB2-6, 
 
 The most common semi-private room rate is used in instances where the patient is placed in a private room at their request but their insurance only covers a semi-private room rate, which can be calculated using the 01-most common semi-private room rate.
 
-[er7-example]
+[.er7-example]
+....
 |01&most common semi private rate&NUBC^750&USD|
+....
 
 include::UVC-components/UVC-1.adoc[]
 

@@ -63,6 +63,6 @@ module V2plusProcessors
   end
 
   def messages_dir
-    check_ig_dir(File.join(sourceOfTruth_dir, 'event'))
+    check_ig_dir(File.join(sourceOfTruth_dir, 'message'))
   end
 end

@@ -26,7 +26,7 @@
       {
         "id": "GT1.1",
         "path": "GT1.1",
-        "short": "GT1-1",
+        "short": "Set ID - GT1",
         "definition": "_GT1-1 - Set ID_ contains a number that identifies this transaction. For the first occurrence of the segment the sequence shall be 1, for the second occurrence it shall be 2, etc.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -64,7 +64,7 @@
       {
         "id": "GT1.2",
         "path": "GT1.2",
-        "short": "GT1-2",
+        "short": "Guarantor Number",
         "definition": "This field contains the primary identifier, or other identifiers, assigned to the guarantor. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
@@ -81,7 +81,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -89,7 +89,7 @@
       {
         "id": "GT1.3",
         "path": "GT1.3",
-        "short": "GT1-3",
+        "short": "Guarantor Name",
         "definition": "This field contains the name of the guarantor. Multiple names for the same guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "comment": "Beginning with version 2.3, if the guarantor is an organization, send a Delete Indication value (\"\") in link:#gt1-3-guarantor-name-xpn-00407[_GT1-3 - Guarantor Name_] and put the organization name in link:#gt1-21-guarantor-organization-name-xon-00425[_GT1-21 - Guarantor Organization Name_]. Either guarantor name or guarantor organization name is required.",
         "code": [
@@ -107,7 +107,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -115,7 +115,7 @@
       {
         "id": "GT1.4",
         "path": "GT1.4",
-        "short": "GT1-4",
+        "short": "Guarantor Spouse Name",
         "definition": "This field contains the name of the guarantor's spouse. Multiple names for the same guarantor spouse may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -132,7 +132,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -140,7 +140,7 @@
       {
         "id": "GT1.5",
         "path": "GT1.5",
-        "short": "GT1-5",
+        "short": "Guarantor Address",
         "definition": "This field contains the guarantor's address. Multiple addresses for the same person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -157,7 +157,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -165,7 +165,7 @@
       {
         "id": "GT1.6",
         "path": "GT1.6",
-        "short": "GT1-6",
+        "short": "Guarantor Ph Num – Home",
         "definition": "This field contains the guarantor's home phone number. All personal phone numbers for the guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated. .",
         "code": [
           {
@@ -182,7 +182,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -190,7 +190,7 @@
       {
         "id": "GT1.7",
         "path": "GT1.7",
-        "short": "GT1-7",
+        "short": "Guarantor Ph Num – Business",
         "definition": "This field contains the guarantor's business phone number. All business phone numbers for the guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -207,7 +207,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -215,7 +215,7 @@
       {
         "id": "GT1.8",
         "path": "GT1.8",
-        "short": "GT1-8",
+        "short": "Guarantor Date/Time Of Birth",
         "definition": "This field contains the guarantor's date of birth.",
         "code": [
           {
@@ -232,7 +232,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -240,8 +240,8 @@
       {
         "id": "GT1.9",
         "path": "GT1.9",
-        "short": "GT1-9",
-        "definition": "This field contains the guarantor's gender. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70001[_User-defined Table 0001 - Administrative Sex_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Administrative Sex",
+        "definition": "This field contains the guarantor's gender. Refer to {{v2-table:0001:Administrative Sex}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field has historically been used to variably exchange both sex and gender values and therefore this field is not clearly defined. This field is expected to continue to be used as it has been in existing implementations and use of this field is subject to local existing interpretation and/or implementation guides. The GSP and GSR segments should be used to exchange more rigorously defined sex or gender concept.",
         "code": [
           {
@@ -262,7 +262,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -270,8 +270,8 @@
       {
         "id": "GT1.10",
         "path": "GT1.10",
-        "short": "GT1-10",
-        "definition": "This field indicates the type of guarantor, e.g., individual, institution, etc. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70068[_User-defined Table 0068 - Guarantor Type_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Type",
+        "definition": "This field indicates the type of guarantor, e.g., individual, institution, etc. Refer to {{v2-table:0068:Guarantor Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -291,7 +291,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -299,8 +299,8 @@
       {
         "id": "GT1.11",
         "path": "GT1.11",
-        "short": "GT1-11",
-        "definition": "This field indicates the relationship of the guarantor with the patient, e.g., parent, child, etc. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70063[_User-defined Table 0063 - Relationship_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Relationship",
+        "definition": "This field indicates the relationship of the guarantor with the patient, e.g., parent, child, etc. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -320,7 +320,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -328,7 +328,7 @@
       {
         "id": "GT1.12",
         "path": "GT1.12",
-        "short": "GT1-12",
+        "short": "Guarantor SSN",
         "definition": "This field contains the guarantor's social security number.",
         "code": [
           {
@@ -345,11 +345,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -357,7 +357,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -366,7 +366,7 @@
       {
         "id": "GT1.13",
         "path": "GT1.13",
-        "short": "GT1-13",
+        "short": "Guarantor Date - Begin",
         "definition": "This field contains the date that the guarantor becomes responsible for the patient's account.",
         "code": [
           {
@@ -383,7 +383,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -391,7 +391,7 @@
       {
         "id": "GT1.14",
         "path": "GT1.14",
-        "short": "GT1-14",
+        "short": "Guarantor Date - End",
         "definition": "This field contains the date that the guarantor stops being responsible for the patient's account.",
         "code": [
           {
@@ -408,7 +408,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -416,7 +416,7 @@
       {
         "id": "GT1.15",
         "path": "GT1.15",
-        "short": "GT1-15",
+        "short": "Guarantor Priority",
         "definition": "This field is used to determine the order in which the guarantors are responsible for the patient's account.",
         "comment": "\"1\" = primary guarantor\n\n\"2\" = secondary guarantor, etc.",
         "code": [
@@ -434,11 +434,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -455,7 +455,7 @@
       {
         "id": "GT1.16",
         "path": "GT1.16",
-        "short": "GT1-16",
+        "short": "Guarantor Employer Name",
         "definition": "This field contains the name of the guarantor's employer, if the employer is a person. When the guarantor's employer is an organization, use link:#gt1-51-guarantor-employers-organization-name-xon-01299[_GT1-51 - Guarantor Employer's Organization Name_]. Multiple names for the same person may be sent in this field, not multiple employers. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -472,7 +472,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -480,7 +480,7 @@
       {
         "id": "GT1.17",
         "path": "GT1.17",
-        "short": "GT1-17",
+        "short": "Guarantor Employer Address",
         "definition": "This field contains the guarantor's employer's address. Multiple addresses for the same employer may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -497,7 +497,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -505,7 +505,7 @@
       {
         "id": "GT1.18",
         "path": "GT1.18",
-        "short": "GT1-18",
+        "short": "Guarantor Employer Phone Number",
         "definition": "This field contains the guarantor's employer's phone number. Multiple phone numbers for the same employer may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated. .",
         "code": [
           {
@@ -522,7 +522,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -530,7 +530,7 @@
       {
         "id": "GT1.19",
         "path": "GT1.19",
-        "short": "GT1-19",
+        "short": "Guarantor Employee ID Number",
         "definition": "This field contains the guarantor's employee number. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
           {
@@ -547,7 +547,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -555,8 +555,8 @@
       {
         "id": "GT1.20",
         "path": "GT1.20",
-        "short": "GT1-20",
-        "definition": "This field contains the code that indicates the guarantor's employment status. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70066[_User-Defin__ed Table 0066 - Employment Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Employment Status",
+        "definition": "This field contains the code that indicates the guarantor's employment status. Refer to {{v2-table:0066:Employment Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -576,7 +576,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -584,7 +584,7 @@
       {
         "id": "GT1.21",
         "path": "GT1.21",
-        "short": "GT1-21",
+        "short": "Guarantor Organization Name",
         "definition": "This field contains the name of the guarantor when the guarantor is an organization. Multiple names for the same guarantor may be sent in this field, not multiple guarantors. .Specification of meaning based on sequence is deprecated",
         "comment": "Beginning with version 2.3, if the guarantor is a person, send a Delete Indication value (\"\") in link:#gt1-21-guarantor-organization-name-xon-00425[_GT1-21 - Guarantor Organization Name_] and put the person name in link:#gt1-3-guarantor-name-xpn-00407[_GT1-3 - Guarantor Name_]. Either guarantor person name or guarantor organization name is required.",
         "code": [
@@ -602,7 +602,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -610,8 +610,8 @@
       {
         "id": "GT1.22",
         "path": "GT1.22",
-        "short": "GT1-22",
-        "definition": "Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values. This field indicates whether or not a system should suppress printing of the guarantor's bills.",
+        "short": "Guarantor Billing Hold Flag",
+        "definition": "Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values. This field indicates whether or not a system should suppress printing of the guarantor's bills.",
         "comment": "Y a system should suppress printing of guarantor's bills\n\nN a system should not suppress printing of guarantor's bills",
         "code": [
           {
@@ -632,11 +632,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -653,8 +653,8 @@
       {
         "id": "GT1.23",
         "path": "GT1.23",
-        "short": "GT1-23",
-        "definition": "This field contains the guarantor's credit rating. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70341[_User-defined Table 0341 - Guarantor Credit Rating Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Credit Rating Code",
+        "definition": "This field contains the guarantor's credit rating. Refer to {{v2-table:0341:Guarantor Credit Rating Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -674,7 +674,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -682,7 +682,7 @@
       {
         "id": "GT1.24",
         "path": "GT1.24",
-        "short": "GT1-24",
+        "short": "Guarantor Death Date And Time",
         "definition": "This field is used to indicate the date and time at which the guarantor's death occurred.",
         "code": [
           {
@@ -699,7 +699,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -707,8 +707,8 @@
       {
         "id": "GT1.25",
         "path": "GT1.25",
-        "short": "GT1-25",
-        "definition": "This field indicates whether or not the guarantor is deceased. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Guarantor Death Flag",
+        "definition": "This field indicates whether or not the guarantor is deceased. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the guarantor is deceased\n\nN the guarantor is living",
         "code": [
           {
@@ -729,11 +729,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -750,8 +750,8 @@
       {
         "id": "GT1.26",
         "path": "GT1.26",
-        "short": "GT1-26",
-        "definition": "This field contains user-defined codes that indicate which adjustments should be made to this guarantor's charges. For example, when the hospital agrees to adjust this guarantor's charges to a sliding scale. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70218[_User-defined Table 0218 - Patient Charge Adjustment_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Charge Adjustment Code",
+        "definition": "This field contains user-defined codes that indicate which adjustments should be made to this guarantor's charges. For example, when the hospital agrees to adjust this guarantor's charges to a sliding scale. Refer to {{v2-table:0218:Patient Charge Adjustment}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "Example: This field would contain the value used for sliding-fee scale processing.",
         "code": [
           {
@@ -772,7 +772,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -780,7 +780,7 @@
       {
         "id": "GT1.27",
         "path": "GT1.27",
-        "short": "GT1-27",
+        "short": "Guarantor Household Annual Income",
         "definition": "This field contains the combined annual income of all members of the guarantor's household.",
         "code": [
           {
@@ -797,7 +797,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -805,7 +805,7 @@
       {
         "id": "GT1.28",
         "path": "GT1.28",
-        "short": "GT1-28",
+        "short": "Guarantor Household Size",
         "definition": "This field specifies the number of people living at the guarantor's primary residence.",
         "code": [
           {
@@ -822,11 +822,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -834,7 +834,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -843,7 +843,7 @@
       {
         "id": "GT1.29",
         "path": "GT1.29",
-        "short": "GT1-29",
+        "short": "Guarantor Employer ID Number",
         "definition": "This is a code that uniquely identifies the guarantor's employer when the employer is a person. It may be a user-defined code or a code defined by a government agency (Federal Tax ID#).",
         "comment": "When further breakdowns of employer information are needed, such as a division or plant, it is recommended that the coding scheme incorporate the relationships (e.g., define separate codes for each division). The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -861,7 +861,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -869,8 +869,8 @@
       {
         "id": "GT1.30",
         "path": "GT1.30",
-        "short": "GT1-30",
-        "definition": "This field contains the marital status of the guarantor. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70002[_User-defined Table 0002 - Marital Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Guarantor Marital Status Code",
+        "definition": "This field contains the marital status of the guarantor. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -890,7 +890,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -898,7 +898,7 @@
       {
         "id": "GT1.31",
         "path": "GT1.31",
-        "short": "GT1-31",
+        "short": "Guarantor Hire Effective Date",
         "definition": "This field contains the date that the guarantor's employment began.",
         "code": [
           {
@@ -915,7 +915,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -923,7 +923,7 @@
       {
         "id": "GT1.32",
         "path": "GT1.32",
-        "short": "GT1-32",
+        "short": "Employment Stop Date",
         "definition": "This field indicates the date on which the guarantor's employment with a particular employer ended.",
         "code": [
           {
@@ -940,7 +940,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -948,8 +948,8 @@
       {
         "id": "GT1.33",
         "path": "GT1.33",
-        "short": "GT1-33",
-        "definition": "Identifies the specific living conditions of the guarantor. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70223[_User-defined Table 0223 - Living Dependency_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Living Dependency",
+        "definition": "Identifies the specific living conditions of the guarantor. Refer to {{v2-table:0223:Living Dependency}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -969,7 +969,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -977,8 +977,8 @@
       {
         "id": "GT1.34",
         "path": "GT1.34",
-        "short": "GT1-34",
-        "definition": "Identifies the transient state of mobility for the guarantor. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70009[_User-defined Table 0009 - Ambulatory Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Ambulatory Status",
+        "definition": "Identifies the transient state of mobility for the guarantor. Refer to {{v2-table:0009:Ambulatory Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -998,7 +998,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1006,8 +1006,8 @@
       {
         "id": "GT1.35",
         "path": "GT1.35",
-        "short": "GT1-35",
-        "definition": "This field contains the code to identify the guarantor's citizenship. HL7 recommends using ISO table 3166 as the suggested values in file:///E:\\V2\\V29_CH02C_Tables.docx#HL70171[_User-defined Table 0171 - Citizenship_] in Chapter 2C, Code Tables.",
+        "short": "Citizenship",
+        "definition": "This field contains the code to identify the guarantor's citizenship. HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0171:Citizenship}} in Chapter 2C, Code Tables.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1027,7 +1027,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1035,8 +1035,8 @@
       {
         "id": "GT1.36",
         "path": "GT1.36",
-        "short": "GT1-36",
-        "definition": "This field identifies the guarantor's primary speaking language. HL7 recommends using ISO table 639 as the suggested values in _file:///E:\\V2\\V29_CH02C_Tables.docx#HL70296[User-defined Table 0296 - Primary Language]_ defined in Chapter 2C, Code Tables.",
+        "short": "Primary Language",
+        "definition": "This field identifies the guarantor's primary speaking language. HL7 recommends using ISO table 639 as the suggested values in {{v2-table:0296:Primary Language}}_ defined in Chapter 2C, Code Tables.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1056,7 +1056,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1064,8 +1064,8 @@
       {
         "id": "GT1.37",
         "path": "GT1.37",
-        "short": "GT1-37",
-        "definition": "This field identifies the situation in which the person lives at his residential address. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70220[_User-defined Table 0220 - Living Arrangement_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Living Arrangement",
+        "definition": "This field identifies the situation in which the person lives at his residential address. Refer to {{v2-table:0220:Living Arrangement}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1085,7 +1085,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1093,8 +1093,8 @@
       {
         "id": "GT1.38",
         "path": "GT1.38",
-        "short": "GT1-38",
-        "definition": "This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for a guarantor. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70215[_User-defined Table 0215 - Publicity Code_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Publicity Code",
+        "definition": "This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for a guarantor. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1114,7 +1114,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1122,8 +1122,8 @@
       {
         "id": "GT1.39",
         "path": "GT1.39",
-        "short": "GT1-39",
-        "definition": "This field identifies the guarantor's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70136[_HL7 Table 0136 - Yes/no Indicator_] for valid values.",
+        "short": "Protection Indicator",
+        "definition": "This field identifies the guarantor's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y restrict access\n\nN do not restrict access",
         "code": [
           {
@@ -1144,11 +1144,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -1165,8 +1165,8 @@
       {
         "id": "GT1.40",
         "path": "GT1.40",
-        "short": "GT1-40",
-        "definition": "This field indicates whether the guarantor is currently a student, and whether the guarantor is a full-time or part-time student. This field does not indicate the degree level (high school, college) of the student, or his/her field of study (accounting, engineering, etc.). Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70231[_User-defined Table 0231- Student Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Student Indicator",
+        "definition": "This field indicates whether the guarantor is currently a student, and whether the guarantor is a full-time or part-time student. This field does not indicate the degree level (high school, college) of the student, or his/her field of study (accounting, engineering, etc.). Refer to {{v2-table:0231:Student Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1186,7 +1186,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1194,8 +1194,8 @@
       {
         "id": "GT1.41",
         "path": "GT1.41",
-        "short": "GT1-41",
-        "definition": "This field indicates the type of religion practiced by the guarantor. Refer to _file:///E:\\V2\\V29_CH02C_Tables.docx#HL70006[User-defined Table 0006 - Religion]_ in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Religion",
+        "definition": "This field indicates the type of religion practiced by the guarantor. Refer to {{v2-table:0006:Religion}}_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1215,7 +1215,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1223,7 +1223,7 @@
       {
         "id": "GT1.42",
         "path": "GT1.42",
-        "short": "GT1-42",
+        "short": "Mother's Maiden Name",
         "definition": "This field indicates the guarantor's mother's maiden name.",
         "code": [
           {
@@ -1240,7 +1240,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1248,8 +1248,8 @@
       {
         "id": "GT1.43",
         "path": "GT1.43",
-        "short": "GT1-43",
-        "definition": "This field contains a code that identifies the nation or national grouping to which the person belongs. This may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). HL7 recommends using ISO table 3166 as suggested values in _file:///E:\\V2\\V29_CH02C_Tables.docx#HL70212[User-defined Table 0212 - Nationality]_ in Chapter 2C, Code Tables.",
+        "short": "Nationality",
+        "definition": "This field contains a code that identifies the nation or national grouping to which the person belongs. This may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). HL7 recommends using ISO table 3166 as suggested values in {{v2-table:0212:Nationality}}_ in Chapter 2C, Code Tables.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1269,7 +1269,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1277,8 +1277,8 @@
       {
         "id": "GT1.44",
         "path": "GT1.44",
-        "short": "GT1-44",
-        "definition": "This field contains the guarantor's ethnic group. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70189[_User-defined Table 0189 - Ethnic Group_] in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.",
+        "short": "Ethnic Group",
+        "definition": "This field contains the guarantor's ethnic group. Refer to {{v2-table:0189:Ethnic Group}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1298,7 +1298,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1306,7 +1306,7 @@
       {
         "id": "GT1.45",
         "path": "GT1.45",
-        "short": "GT1-45",
+        "short": "Contact Person's Name",
         "definition": "This field contains the name of the person who should be contacted regarding the guarantor bills, etc. This may be someone other than the guarantor. (E.g., Contact guarantor's wife regarding all bills - guarantor lives out of country.)",
         "comment": "This is a repeating field that allows for multiple names for the same person. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1324,7 +1324,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1332,7 +1332,7 @@
       {
         "id": "GT1.46",
         "path": "GT1.46",
-        "short": "GT1-46",
+        "short": "Contact Person's Telephone Number",
         "definition": "This field contains the telephone number of the guarantor (person) to contact regarding guarantor bills, etc. Multiple phone numbers for that person may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -1349,7 +1349,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1357,8 +1357,8 @@
       {
         "id": "GT1.47",
         "path": "GT1.47",
-        "short": "GT1-47",
-        "definition": "This field contains a user-defined code that identifies the reason for contacting the guarantor, for example, to phone the guarantor if payments are late. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70222[_User-defined Table 0222 - Contact reason_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Contact Reason",
+        "definition": "This field contains a user-defined code that identifies the reason for contacting the guarantor, for example, to phone the guarantor if payments are late. Refer to {{v2-table:0222:Contact reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1378,7 +1378,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1386,8 +1386,8 @@
       {
         "id": "GT1.48",
         "path": "GT1.48",
-        "short": "GT1-48",
-        "definition": "Identifies the guarantor relationship to the contact person specified above. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70063[_User-defined Table 0063 - Relationship_] in Chapter 2C, Code Tables, for suggested values. Examples include wife, attorney, power of attorney, self, and organization.",
+        "short": "Contact Relationship",
+        "definition": "Identifies the guarantor relationship to the contact person specified above. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values. Examples include wife, attorney, power of attorney, self, and organization.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1407,7 +1407,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1415,7 +1415,7 @@
       {
         "id": "GT1.49",
         "path": "GT1.49",
-        "short": "GT1-49",
+        "short": "Job Title",
         "definition": "This field contains a descriptive name of the guarantor's occupation (e.g., Sr. Systems Analyst, Sr. Accountant).",
         "code": [
           {
@@ -1432,11 +1432,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1444,7 +1444,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -1453,7 +1453,7 @@
       {
         "id": "GT1.50",
         "path": "GT1.50",
-        "short": "GT1-50",
+        "short": "Job Code/Class",
         "definition": "This field contains the guarantor's job code and employee classification.",
         "code": [
           {
@@ -1470,7 +1470,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1478,7 +1478,7 @@
       {
         "id": "GT1.51",
         "path": "GT1.51",
-        "short": "GT1-51",
+        "short": "Guarantor Employer's Organization Name",
         "definition": "This field contains the name of the guarantor's employer when the guarantor's employer is an organization. When the guarantor's employer is a person, use link:#gt1-16-guarantor-employer-name-xpn-00420[_GT1-16 - Guarantor Employer Name_]. Multiple names for the same guarantor may be sent in this field Specification of meaning based on sequence is deprecated.",
         "code": [
           {
@@ -1495,7 +1495,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1503,8 +1503,8 @@
       {
         "id": "GT1.52",
         "path": "GT1.52",
-        "short": "GT1-52",
-        "definition": "This field contains a code to describe the guarantor's disability. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70295[_User-defined Table 0295 - Handicap_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Handicap",
+        "definition": "This field contains a code to describe the guarantor's disability. Refer to {{v2-table:0295:Handicap}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1524,7 +1524,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1532,8 +1532,8 @@
       {
         "id": "GT1.53",
         "path": "GT1.53",
-        "short": "GT1-53",
-        "definition": "This field contains a code that identifies the guarantor's current job status. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70311[_User-defined Table 0311 - Job Status_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Job Status",
+        "definition": "This field contains a code that identifies the guarantor's current job status. Refer to {{v2-table:0311:Job Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1553,7 +1553,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1561,7 +1561,7 @@
       {
         "id": "GT1.54",
         "path": "GT1.54",
-        "short": "GT1-54",
+        "short": "Guarantor Financial Class",
         "definition": "This field contains the financial class (FC) assigned to the guarantor for the purpose of identifying sources of reimbursement. It can be different than that of the patient. When the FC of the guarantor is different than the FC of the patient, and the guarantor's coverage for that patient has been exhausted, the source of reimbursement falls back onto the FC of the patient.",
         "code": [
           {
@@ -1578,7 +1578,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1586,8 +1586,8 @@
       {
         "id": "GT1.55",
         "path": "GT1.55",
-        "short": "GT1-55",
-        "definition": "This field refers to the guarantor's race. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70005[_User-defined Table 0005 - Race_] in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.",
+        "short": "Guarantor Race",
+        "definition": "This field refers to the guarantor's race. Refer to {{v2-table:0005:Race}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1607,7 +1607,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -1615,7 +1615,7 @@
       {
         "id": "GT1.56",
         "path": "GT1.56",
-        "short": "GT1-56",
+        "short": "Guarantor Birth Place",
         "definition": "This field contains the description of the guarantor's birth place, for example \"St. Francis Community Hospital of Lower South Side.\" The actual address is reported in link:#gt1-5-guarantor-address-xad-00409[_GT1-5 – Guarantor Address_] with an identifier of \"N\".",
         "code": [
           {
@@ -1632,11 +1632,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -1644,7 +1644,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -1653,8 +1653,8 @@
       {
         "id": "GT1.57",
         "path": "GT1.57",
-        "short": "GT1-57",
-        "definition": "This field identifies the type of VIP for the guarantor. Refer to file:///E:\\V2\\V29_CH02C_Tables.docx#HL70099[_User-defined Table 0099 – VIP Indicator_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "VIP Indicator",
+        "definition": "This field identifies the type of VIP for the guarantor. Refer to {{v2-table:0099:VIP Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -1674,7 +1674,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

@@ -26,7 +26,7 @@
       {
         "id": "DON.1",
         "path": "DON.1",
-        "short": "DON-1",
+        "short": "Donation Identification Number - DIN",
         "definition": "This field contains a unique identifier, Donation Identification Number (DIN), for the specific donation and is therefore mandatory except when using an eligibility message type in which only DON-9, DON-10, and DON-11 are populated. DON-2 Donation Type (CNE) 03341",
         "code": [
           {
@@ -43,7 +43,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -51,7 +51,7 @@
       {
         "id": "DON.2",
         "path": "DON.2",
-        "short": "DON-2",
+        "short": "Donation Type",
         "definition": "The type of donation. This element is mandatory except when using an eligibility message type in which only DON-9, DON-10, and DON-11 are populated. The values for this field are defined in Table RT008 - Type of Donation or Collection in 6th Position of Product Code in the ISBT 128 Standard Technical Specification, which is maintained by ICCBBA. Link: _http://iccbba.org/technicalspecification.pdf._ Table 5 Data Structure 002.",
         "code": [
           {
@@ -68,7 +68,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           }
         ]
@@ -76,7 +76,7 @@
       {
         "id": "DON.3",
         "path": "DON.3",
-        "short": "DON-3",
+        "short": "Phlebotomy Start Date/Time",
         "definition": "The start date and time of the phlebotomy.",
         "code": [
           {
@@ -93,7 +93,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -101,7 +101,7 @@
       {
         "id": "DON.4",
         "path": "DON.4",
-        "short": "DON-4",
+        "short": "Phlebotomy End Date/Time",
         "definition": "The end date and time of the phlebotomy.",
         "code": [
           {
@@ -118,7 +118,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -126,7 +126,7 @@
       {
         "id": "DON.5",
         "path": "DON.5",
-        "short": "DON-5",
+        "short": "Donation Duration",
         "definition": "The duration of the phlebotomy or the length of time that elapsed between the phlebotomy start date and time and the phlebotomy end date and time.",
         "code": [
           {
@@ -143,7 +143,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -151,8 +151,8 @@
       {
         "id": "DON.6",
         "path": "DON.6",
-        "short": "DON-6",
-        "definition": "The duration units. The duration units and duration are restricted to minutes and seconds. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70932[HL7-Defined Table 0932 – Donation Duration Units] in Chapter 2C, Code Tables, for valid entries__.__",
+        "short": "Donation Duration Units",
+        "definition": "The duration units. The duration units and duration are restricted to minutes and seconds. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to {{v2-table:0932:Donation Duration Units}} in Chapter 2C, Code Tables, for valid entries__.__",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -172,7 +172,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -180,8 +180,8 @@
       {
         "id": "DON.7",
         "path": "DON.7",
-        "short": "DON-7",
-        "definition": "The procedure(s) intended to be performed on the donor. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70933[HL7-Defined Table 0933 – Intended Procedure Type] in Chapter 2C, Code Tables, for valid entries__.__",
+        "short": "Intended Procedure Type",
+        "definition": "The procedure(s) intended to be performed on the donor. Refer to {{v2-table:0933:Intended Procedure Type}} in Chapter 2C, Code Tables, for valid entries__.__",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -201,7 +201,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -209,8 +209,8 @@
       {
         "id": "DON.8",
         "path": "DON.8",
-        "short": "DON-8",
-        "definition": "The actual procedure(s) performed on the donor. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70933[HL7-Defined Table 0933 – Intended Procedure Type] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Actual Procedure Type",
+        "definition": "The actual procedure(s) performed on the donor. Refer to {{v2-table:0933:Intended Procedure Type}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -230,7 +230,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -238,8 +238,8 @@
       {
         "id": "DON.9",
         "path": "DON.9",
-        "short": "DON-9",
-        "definition": "Is the Donor eligible for donation? Yes or No. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[HL7 Table 0136 -Yes/No Indicator] as defined in Chapter 2C, Code Tables.",
+        "short": "Donor Eligibility Flag",
+        "definition": "Is the Donor eligible for donation? Yes or No. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -259,7 +259,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -267,8 +267,8 @@
       {
         "id": "DON.10",
         "path": "DON.10",
-        "short": "DON-10",
-        "definition": "The procedure(s) for which the donor is eligible. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70933[HL7-Defined Table 0933 – Intended Procedure Type] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Donor Eligibility Procedure Type",
+        "definition": "The procedure(s) for which the donor is eligible. Refer to {{v2-table:0933:Intended Procedure Type}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -288,7 +288,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -296,7 +296,7 @@
       {
         "id": "DON.11",
         "path": "DON.11",
-        "short": "DON-11",
+        "short": "Donor Eligibility Date",
         "definition": "The date and time on which the donor is eligible to donate.",
         "code": [
           {
@@ -313,7 +313,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -321,8 +321,8 @@
       {
         "id": "DON.12",
         "path": "DON.12",
-        "short": "DON-12",
-        "definition": "Was the donation process interrupted after it began? Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70923[HL7-Defined Table 0923 – Process Interruption] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Process Interruption",
+        "definition": "Was the donation process interrupted after it began? Refer to {{v2-table:0923:Process Interruption}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -342,7 +342,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -350,8 +350,8 @@
       {
         "id": "DON.13",
         "path": "DON.13",
-        "short": "DON-13",
-        "definition": "Reason that the donation process was interrupted. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70935[HL7-Defined Table 0935 – Process Interruption Reason] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Process Interruption Reason",
+        "definition": "Reason that the donation process was interrupted. Refer to {{v2-table:0935:Process Interruption Reason}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -371,7 +371,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -379,8 +379,8 @@
       {
         "id": "DON.14",
         "path": "DON.14",
-        "short": "DON-14",
-        "definition": "Indicates whether there is a problem or issue with the phlebotomy itself. This may be due to an incorrect needle procedure, needle defect, tube blockage, problem with the apheresis machine, or improper action by the phlebotomist. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70925[HL7-Defined Table 0925 – Phlebotomy Issue] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Phlebotomy Issue",
+        "definition": "Indicates whether there is a problem or issue with the phlebotomy itself. This may be due to an incorrect needle procedure, needle defect, tube blockage, problem with the apheresis machine, or improper action by the phlebotomist. Refer to {{v2-table:0925:Phlebotomy Issue}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -400,7 +400,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -408,8 +408,8 @@
       {
         "id": "DON.15",
         "path": "DON.15",
-        "short": "DON-15",
-        "definition": "If this donation has an intended recipient (directed, dedicated, designated), is the intended recipient a blood relative of the donor? Yes or No. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[HL7 Table 0136 -Yes/No Indicator] as defined in Chapter 2C, Code Tables.",
+        "short": "Intended Recipient Blood Relative",
+        "definition": "If this donation has an intended recipient (directed, dedicated, designated), is the intended recipient a blood relative of the donor? Yes or No. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -429,7 +429,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -437,7 +437,7 @@
       {
         "id": "DON.16",
         "path": "DON.16",
-        "short": "DON-16",
+        "short": "Intended Recipient Name",
         "definition": "If this is donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s name.",
         "code": [
           {
@@ -454,7 +454,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -462,7 +462,7 @@
       {
         "id": "DON.17",
         "path": "DON.17",
-        "short": "DON-17",
+        "short": "Intended Recipient DOB",
         "definition": "If this donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s date of birth.",
         "code": [
           {
@@ -479,7 +479,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -487,7 +487,7 @@
       {
         "id": "DON.18",
         "path": "DON.18",
-        "short": "DON-18",
+        "short": "Intended Recipient Facility",
         "definition": "If this donation has an intended recipient (autologous, directed, dedicated, designated), the facility where the intended recipient is expected to receive the transfusion.",
         "code": [
           {
@@ -504,7 +504,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -512,7 +512,7 @@
       {
         "id": "DON.19",
         "path": "DON.19",
-        "short": "DON-19",
+        "short": "Intended Recipient Procedure Date",
         "definition": "If this donation has an intended recipient (autologous, directed, dedicated, designated), the date the intended recipient is expected to receive the transfusion.",
         "code": [
           {
@@ -529,7 +529,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -537,7 +537,7 @@
       {
         "id": "DON.20",
         "path": "DON.20",
-        "short": "DON-20",
+        "short": "Intended Recipient Ordering Provider",
         "definition": "If this is donation has an intended recipient (autologous, directed, dedicated, designated), the provider who ordered the directed donation for the intended recipient.",
         "code": [
           {
@@ -554,7 +554,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -562,8 +562,8 @@
       {
         "id": "DON.21",
         "path": "DON.21",
-        "short": "DON-21",
-        "definition": "Whether the phlebotomy was successful, not drawn, or unsuccessful, and if unsuccessful, the extent to which it was unsuccessful. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70926[HL7-Defined Table 0926 – Phlebotomy Status] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Phlebotomy Status",
+        "definition": "Whether the phlebotomy was successful, not drawn, or unsuccessful, and if unsuccessful, the extent to which it was unsuccessful. Refer to {{v2-table:0926:Phlebotomy Status}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -583,7 +583,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -591,8 +591,8 @@
       {
         "id": "DON.22",
         "path": "DON.22",
-        "short": "DON-22",
-        "definition": "The arm(s) stuck for the donation. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70927[HL7-Defined Table 0927 – Arm Stick] in Chapter 2C, Code Tables, for valid entries.",
+        "short": "Arm Stick",
+        "definition": "The arm(s) stuck for the donation. Refer to {{v2-table:0927:Arm Stick}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -612,7 +612,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -620,7 +620,7 @@
       {
         "id": "DON.23",
         "path": "DON.23",
-        "short": "DON-23",
+        "short": "Bleed Start Phlebotomist",
         "definition": "The Phlebotomist who starts the blood flow into the container.",
         "code": [
           {
@@ -637,7 +637,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -645,7 +645,7 @@
       {
         "id": "DON.24",
         "path": "DON.24",
-        "short": "DON-24",
+        "short": "Bleed End Phlebotomist",
         "definition": "The Phlebotomist who ends the blood flow into the container.",
         "code": [
           {
@@ -662,7 +662,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -670,7 +670,7 @@
       {
         "id": "DON.25",
         "path": "DON.25",
-        "short": "DON-25",
+        "short": "Aphaeresis Type Machine",
         "definition": "The type of aphaeresis machine, if used, for the donation. It will be the specific product name of the machine (e.g. Trima, Amicus, Alyx, Symal, etc.).",
         "code": [
           {
@@ -687,11 +687,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -699,7 +699,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -708,7 +708,7 @@
       {
         "id": "DON.26",
         "path": "DON.26",
-        "short": "DON-26",
+        "short": "Aphaeresis Machine Serial Number",
         "definition": "The serial number of the aphaeresis machine, if used, for the donation.",
         "code": [
           {
@@ -725,11 +725,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -737,7 +737,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": true
+                "valueInteger": 1
               }
             ]
           }
@@ -746,8 +746,8 @@
       {
         "id": "DON.27",
         "path": "DON.27",
-        "short": "DON-27",
-        "definition": "Did the donor have any adverse reaction during the donation procedure? Yes or No. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70136[HL7 Table 0136 -Yes/No Indicator] as defined in Chapter 2C, Code Tables. If this element is valued \"Y\"es, there should be OBX segments following the Donation segment which details the adverse reactions.",
+        "short": "Donor Reaction",
+        "definition": "Did the donor have any adverse reaction during the donation procedure? Yes or No. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables. If this element is valued \"Y\"es, there should be OBX segments following the Donation segment which details the adverse reactions.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -767,7 +767,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -775,7 +775,7 @@
       {
         "id": "DON.28",
         "path": "DON.28",
-        "short": "DON-28",
+        "short": "Final Review Staff ID",
         "definition": "The Staff member conducting the final review and reconciliation of all documentation created during the collection process.",
         "code": [
           {
@@ -792,7 +792,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -800,7 +800,7 @@
       {
         "id": "DON.29",
         "path": "DON.29",
-        "short": "DON-29",
+        "short": "Final Review Date/Time",
         "definition": "The date and time a final review of all documentation and labeling of the blood material is completed.",
         "code": [
           {
@@ -817,7 +817,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -825,7 +825,7 @@
       {
         "id": "DON.30",
         "path": "DON.30",
-        "short": "DON-30",
+        "short": "Number of Tubes Collected",
         "definition": "The number of samples collected during the donation which will be used for subsequent testing.",
         "code": [
           {
@@ -842,7 +842,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -850,7 +850,7 @@
       {
         "id": "DON.31",
         "path": "DON.31",
-        "short": "DON-31",
+        "short": "Donation Sample Identifier",
         "definition": "The sample identifier for the sample collected during a donation for the purpose of testing. This is a field for sample or specimen identifiers.",
         "code": [
           {
@@ -867,7 +867,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -875,7 +875,7 @@
       {
         "id": "DON.32",
         "path": "DON.32",
-        "short": "DON-32",
+        "short": "Donation Accept Staff",
         "definition": "The staff member who reviewed all the intake materials, assessments and determined the donor can undergo a donation procedure at this time.",
         "code": [
           {
@@ -892,7 +892,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -900,7 +900,7 @@
       {
         "id": "DON.33",
         "path": "DON.33",
-        "short": "DON-33",
+        "short": "Donation Material Review Staff",
         "definition": "The staff member who performs review on all documentation subsequent to donation procedure.",
         "code": [
           {
@@ -917,7 +917,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
           }
         ]
@@ -925,8 +925,8 @@
       {
         "id": "DON.34",
         "path": "DON.34",
-        "short": "DON-34",
-        "definition": "This field reveals the intent of the message. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70206[HL7 Table 0206 - Segment Action Code] for valid values.",
+        "short": "Action Code",
+        "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when an DON is uniquely identified sufficiently within the specific implementation using DON-1 in accordance with Chapter 2, Section 2.10.4.2.",
         "code": [
           {
@@ -947,11 +947,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",

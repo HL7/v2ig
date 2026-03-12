@@ -26,7 +26,7 @@
       {
         "id": "QAK.1",
         "path": "QAK.1",
-        "short": "QAK-1",
+        "short": "Query Tag",
         "definition": "This field may be valued by the initiating system to identify the query, and may be used to match response messages to the originating query. If it is valued, the responding system is required to echo it back as the first field in the query acknowledgment segment (QAK). This field differs from _MSA-2-message control ID_ in that its value remains constant for each message (i.e., all continuation messages) associated with the query, whereas _MSA-2-Message control ID_ may vary with each continuation message, since it is associated with each individual message, not the query as a whole. _QAK-1-Query tag_ is not conditional on the presence of the _QRD-1-Query ID_ field in the original mode queries; in the original mode queries _QAK-1-Query tag_ is not used.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -55,7 +55,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -64,8 +64,8 @@
       {
         "id": "QAK.2",
         "path": "QAK.2",
-        "short": "QAK-2",
-        "definition": "This field allows the responding system to return a precise response status. It is especially useful in the case where no data is found that matches the query parameters, but where there is also no error. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70208[_HL7 Table 0208 – Query Response Status_] in Chapter 2C, Code Tables, for valid values.",
+        "short": "Query Response Status",
+        "definition": "This field allows the responding system to return a precise response status. It is especially useful in the case where no data is found that matches the query parameters, but where there is also no error. Refer to {{v2-table:0208:Query Response Status}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -85,11 +85,11 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/length",
+            "url": "http://hl7.org/v2/StructureDefinition/length",
             "extension": [
               {
                 "url": "min",
@@ -106,8 +106,8 @@
       {
         "id": "QAK.3",
         "path": "QAK.3",
-        "short": "QAK-3",
-        "definition": "This field contains the name of the query. These names are assigned by the function-specific chapters of this specification. Site-specific event replay query names begin with the letter \"Z.\" Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70471[_User defined table 0471 – Query name_] in Chapter 2C, Code Tables, for suggested values.",
+        "short": "Message Query Name",
+        "definition": "This field contains the name of the query. These names are assigned by the function-specific chapters of this specification. Site-specific event replay query names begin with the letter \"Z.\" Refer to {{v2-table:0471:Query name}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
           {
             "system": "http://hl7.org/v2/CodeSystem/DataElements",
@@ -127,7 +127,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -135,7 +135,7 @@
       {
         "id": "QAK.4",
         "path": "QAK.4",
-        "short": "QAK-4",
+        "short": "Hit Count Total",
         "definition": "This field, when used, contains the total number of records found by the Server that matched the query. For tabular responses, this is the number of rows found. For other response types, the Query Profile defines the meaning of a \"hit.\"",
         "code": [
           {
@@ -152,11 +152,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -164,7 +164,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -173,7 +173,7 @@
       {
         "id": "QAK.5",
         "path": "QAK.5",
-        "short": "QAK-5",
+        "short": "This payload",
         "definition": "This field, when used, contains the total number of matching records that the Server sent in the current response. Where the continuation protocol is used to transmit the response in partial installments, this number will differ from the value sent in _QAK-4-Hit count total_.",
         "code": [
           {
@@ -190,11 +190,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -202,7 +202,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -211,7 +211,7 @@
       {
         "id": "QAK.6",
         "path": "QAK.6",
-        "short": "QAK-6",
+        "short": "Hits remaining",
         "definition": "This field, when used, contains the number of matching records found by the Server that have yet to be sent. It is only meaningful when the Server uses the continuation protocol to transmit partial responses.",
         "code": [
           {
@@ -228,11 +228,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -240,7 +240,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }

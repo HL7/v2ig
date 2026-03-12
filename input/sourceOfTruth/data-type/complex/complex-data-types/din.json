@@ -49,7 +49,7 @@
         "id": "DIN.2",
         "path": "DIN.2",
         "short": "Institution Name",
-        "defintion": "*Definition:* Specifies the institution where a staff member is or was active. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70531[_User-De__fined Table 0531 - Institution_] for suggested values.\n",
+        "defintion": "*Definition:* Specifies the institution where a staff member is or was active. Refer to {{v2-table:0531:Institution}} for suggested values.\n",
         "min": 1,
         "max": "1",
         "type": [

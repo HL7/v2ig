@@ -26,7 +26,7 @@
       {
         "id": "OM5.1",
         "path": "OM5.1",
-        "short": "OM5-1",
+        "short": "Sequence Number - Test/Observation Master File",
         "definition": "This field contains the same value as the sequence number of the associated OM1 segment.",
         "code": [
           {
@@ -43,11 +43,11 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           },
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/conformance-length",
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
             "extension": [
               {
                 "url": "length",
@@ -55,7 +55,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueInteger": false
+                "valueInteger": 0
               }
             ]
           }
@@ -64,7 +64,7 @@
       {
         "id": "OM5.2",
         "path": "OM5.2",
-        "short": "OM5-2",
+        "short": "Test/Observations Included Within an Ordered Test Battery",
         "definition": "This field contains the codes and names of all tests/observations included within a single battery (nature code P, as described in _OM1-18 - Nature of Service/Test/Observation_), a single functional procedure (nature code F), or a given superset (nature code S). When a segment includes a list of component elements, the sending system should be sure that the segments defining all of the components are sent before the segment that references them. An entry in this list can itself be a battery. Refer to Table 0662 - Test/Observations Included Within an Ordered Test Battery in Chapter 2C for valid values.",
         "comment": "The individual service/test/observation code should be recorded as type CWE, i.e., in the standard format for coded observation identifiers. Multiple observations should be separated by repeat delimiters. In the US, it is recommended that, within a single occurrence of OM5-2 Tests/Observations included within an Orders Test Battery, these child observations be identified with LOINC codes as well as by the producer’s local identifier. Examples of code systems used may be LOINC (emerging as the global standard for observation identifiers), JLAC10, or SNOMED CT.\n\nIf the definition segment defined serum electrolytes, this field might look like the following:\n\n2951-2^SODIUM^LN~\n\n2823-3^POTASSIUM^LN~\n\n2075-0^CHLORIDE^LN~\n\n2028-9^CARBON DIOXIDE^LN\n\nFor S (superset) parameters, this field contains the batteries that are included within the \"super\" battery. For example, ROUTINES might be defined as:\n\n402^Electrolytes~352^Urinalysis~432^CBC~520^SMA12",
         "code": [
@@ -86,7 +86,7 @@
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]
@@ -94,7 +94,7 @@
       {
         "id": "OM5.3",
         "path": "OM5.3",
-        "short": "OM5-3",
+        "short": "Observation ID Suffixes",
         "definition": "This field contains the tests or procedures that produce a type which uses observation ID suffixes following the service/test/observation ID code. This field lists the possible options. For example, a chest X-ray may use the suffixes IMP, REC, DEV, or others. Each of the expected suffixes should be listed here.",
         "code": [
           {
@@ -111,7 +111,7 @@
         ],
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/optionality",
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
           }
         ]

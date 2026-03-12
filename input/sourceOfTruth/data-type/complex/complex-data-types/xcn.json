@@ -221,7 +221,7 @@
         "id": "XCN.8",
         "path": "XCN.8",
         "short": "Source Table",
-        "defintion": "*Attention*: _Retained for backwards compatibility only as of v 2.7_. The reader is referred to _XCN.9_ instead.\n\n\n\nfile:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70297[_User-de__fined Table 0297 – CN ID_] source is used as the HL7 identifier for the user-defined table of values for this component. Used to delineate the first component.\n",
+        "defintion": "*Attention*: _Retained for backwards compatibility only as of v 2.7_. The reader is referred to _XCN.9_ instead.\n\n\n\n{{v2-table:0297:CN ID}} source is used as the HL7 identifier for the user-defined table of values for this component. Used to delineate the first component.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -244,7 +244,7 @@
         "id": "XCN.9",
         "path": "XCN.9",
         "short": "Assigning Authority",
-        "defintion": "*Definition:* The assigning authority is a unique identifier of the system (or organization or agency of department) that creates the data. file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70363[_User-defined Table 0363 – Assig__ning Authority_] is used as the HL7 identifier for the user-defined table of values for the first sub-component of the HD component, <namespace ID>.\n\n\n\nAs of v 2.7, the Assigning Authority is conditional. It is required if _XCN.1_ is populated and neither _XCN.22_ nor _XCN.23_ are populated. All 3 components may be populated. No assumptions can be safely made based on position or sequence. Best practice is to send an OID in this component when populated.\n\n\n\nThe reader is referred to _XCN.22_ and _XCN.23_ if there is a need to transmit values with semantic meaning for an assigning jurisdiction or assigning department or agency in addition to, or instead of, an assigning authority. However, all 3 components may be valued. If, in so doing, it is discovered that the values in _XCN.22_ and/or _XCN.23_ conflict with _XCN.9_, the user would look to the Message Profile or other implementation agreement for a statement as to which takes precedence.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 - Namespa__ce I__D_] (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n\n\n\nBy site agreement, implementors may continue to use file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 – Namespace ID_] for the first sub-component.\n",
+        "defintion": "*Definition:* The assigning authority is a unique identifier of the system (or organization or agency of department) that creates the data. {{v2-table:0363:Assigning Authority}} is used as the HL7 identifier for the user-defined table of values for the first sub-component of the HD component, <namespace ID>.\n\n\n\nAs of v 2.7, the Assigning Authority is conditional. It is required if _XCN.1_ is populated and neither _XCN.22_ nor _XCN.23_ are populated. All 3 components may be populated. No assumptions can be safely made based on position or sequence. Best practice is to send an OID in this component when populated.\n\n\n\nThe reader is referred to _XCN.22_ and _XCN.23_ if there is a need to transmit values with semantic meaning for an assigning jurisdiction or assigning department or agency in addition to, or instead of, an assigning authority. However, all 3 components may be valued. If, in so doing, it is discovered that the values in _XCN.22_ and/or _XCN.23_ conflict with _XCN.9_, the user would look to the Message Profile or other implementation agreement for a statement as to which takes precedence.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, {{v2-table:0300:Namespace ID}} (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n\n\n\nBy site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first sub-component.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -267,7 +267,7 @@
         "id": "XCN.10",
         "path": "XCN.10",
         "short": "Name Type Code",
-        "defintion": "*Definition:* A code that represents the type of name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70200[_HL7 Table 0200 - Nam__e Type_] for valid values. See Section _2A.2.90.7_, \"_Name Type Code (ID)_\".\n\n\n\nAs of v 2.7, _XCN.10_ is conditional. It is required if _XCN.2_ is populated.\n",
+        "defintion": "*Definition:* A code that represents the type of name. Refer to {{v2-table:0200:Name Type}} for valid values. See Section _2A.2.90.7_, \"_Name Type Code (ID)_\".\n\n\n\nAs of v 2.7, _XCN.10_ is conditional. It is required if _XCN.2_ is populated.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -335,7 +335,7 @@
         "id": "XCN.12",
         "path": "XCN.12",
         "short": "Check Digit Scheme",
-        "defintion": "*Definition:* Contains the code identifying the check digit scheme employed.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70061[_HL7 T__able 0061 - Check Digit Scheme_] for valid values.\n",
+        "defintion": "*Definition:* Contains the code identifying the check digit scheme employed.\n\n\n\nRefer to {{v2-table:0061:Check Digit Scheme}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -407,7 +407,7 @@
         "id": "XCN.14",
         "path": "XCN.14",
         "short": "Assigning Facility",
-        "defintion": "*Definition:* The place or location identifier where the identifier was first assigned to the person. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70300[_User-defined Table 0300 - Nam__espace ID_] (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n",
+        "defintion": "*Definition:* The place or location identifier where the identifier was first assigned to the person. This component is not an inherent part of the identifier but rather part of the history of the identifier: as part of this data type, its existence is a convenience for certain intercommunicating systems.\n\n\n\n*NOTE:* When the HD data type is used in a given segment as a component of a field of another data type, {{v2-table:0300:Namespace ID}} (referenced by the first sub-component of the HD component) may be re-defined (given a different user-defined table number and name) by the technical committee responsible for that segment.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -426,7 +426,7 @@
         "id": "XCN.15",
         "path": "XCN.15",
         "short": "Name Representation Code",
-        "defintion": "*Definition:* Different <name/address types> and representations of the same <name/address> should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* This new component remains in “alphabetic” representation with each repetition of the field using these data types. I.e., even though the name may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70465[_HL7 Table 0465 – Name/address Representation_] for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
+        "defintion": "*Definition:* Different <name/address types> and representations of the same <name/address> should be described by repeating of this field, with different values of the <name/address type> and/or <name/address representation> component.\n\n\n\n*NOTE:* This new component remains in “alphabetic” representation with each repetition of the field using these data types. I.e., even though the name may be represented in an ideographic character set, this component will remain represented in an alphabetic character set.\n\n\n\nRefer to {{v2-table:0465:Name/address Representation}} for valid values.\n\n\n\nIn general this component provides an indication of the representation provided by the data item. It does not necessarily specify the character sets used. Thus, even though the representation might provide an indication of what to expect, the sender is still free to encode the contents using whatever character set is desired. This component provides only hints for the receiver, so it can make choices regarding what it has been sent and what it is capable of displaying.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -462,7 +462,7 @@
         "id": "XCN.16",
         "path": "XCN.16",
         "short": "Name Context",
-        "defintion": "*Definition:* This component is used to designate the context in which a name is used. The main use case is in Australian healthcare for indigenous patients who prefer to use different names when attending different healthcare institutions. Another use case occurs in the US where health practitioners can be licensed under slightly different names and the reporting of the correct name is vital for administrative purposes. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70448[_User-defined Table 0448 – Name Context_] for suggested values.\n",
+        "defintion": "*Definition:* This component is used to designate the context in which a name is used. The main use case is in Australian healthcare for indigenous patients who prefer to use different names when attending different healthcare institutions. Another use case occurs in the US where health practitioners can be licensed under slightly different names and the reporting of the correct name is vital for administrative purposes. Refer to {{v2-table:0448:Name Context}} for suggested values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -497,7 +497,7 @@
         "id": "XCN.18",
         "path": "XCN.18",
         "short": "Name Assembly Order",
-        "defintion": "*Definition:* A code that represents the preferred display order of the components of this person name. Refer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70444[_HL7 Table 0444 - Name Assembly Order_] for valid values.\n",
+        "defintion": "*Definition:* A code that represents the preferred display order of the components of this person name. Refer to {{v2-table:0444:Name Assembly Order}} for valid values.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -699,7 +699,7 @@
         "id": "XCN.25",
         "path": "XCN.25",
         "short": "Security Check Scheme",
-        "defintion": "*Definition:* This component is used to transmit information intended to validate the veracity of the supplied identifier or the presenter of the identifier. For example, this component may be used to ensure that the presenter of a credit card is an authorized user of that card.\n\n\n\nRefer to file:///E:\\V2\\v2.9%20final%20Nov%20from%20Frank\\V29_CH02C_Tables.docx#HL70904[_HL7 Table 0904 - Security Check Scheme_] for valid values\n",
+        "defintion": "*Definition:* This component is used to transmit information intended to validate the veracity of the supplied identifier or the presenter of the identifier. For example, this component may be used to ensure that the presenter of a credit card is an authorized user of that card.\n\n\n\nRefer to {{v2-table:0904:Security Check Scheme}} for valid values\n",
         "min": 0,
         "max": "1",
         "type": [

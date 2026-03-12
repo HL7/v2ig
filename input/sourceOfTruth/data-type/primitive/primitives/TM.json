@@ -1,49 +1,46 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "TM",
-  "meta" : {
-    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  "resourceType": "StructureDefinition",
+  "id": "TM",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile"
+    ]
   },
-
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
-      "valueString" : "FIXME.DataTypes"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "normative"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
-      "valueCode" : "4.0.0"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-      "valueCode" : "inm"
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
     }
   ],
-  "url" : "http://hl7.org/v2/StructureDefinition/TM",
-  "version" : "0.0.1",
-  "name" : "V2_TM_Data_Type",
-  "title" : "HL7 v2 TM Data Type",
-  "status" : "active",
-  "date" : "2024-06-01T12:00:00+11:00",
-  "description" : "FIXME",
-  "kind" : "primitive-type",
-  "abstract" : false,
-  "type" : "string",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/string",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [{
-      "id" : "string.id",
-      "path" : "string.id",
-      "max" : "0"
-    },{
-      "id" : "string.extension",
-      "path" : "string.extension",
-      "max" : "0"
-    }]
+  "url": "http://hl7.org/v2/StructureDefinition/TM",
+  "version": "0.0.1",
+  "name": "TM",
+  "title": "HL7 v2 TM Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "type": "http://hl7.org/v2/StructureDefinition/TM",
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "derivation": "specialization",
+  "description": "A time value in the format HH[MM[SS[.S[S[S[S]]]]]][+/-ZZZZ]. The minimum precision is to the hour (2 digits, 00-23). Minute, second, and fractional second components are optional but must appear in order. Up to four digits of fractional seconds are supported. An optional timezone offset (+/-ZZZZ) indicates the difference between local time and UTC.",
+  "differential": {
+    "element": [
+      {
+        "id": "TM",
+        "path": "TM",
+        "short": "Time",
+        "definition": "A time value in the format HH[MM[SS[.S[S[S[S]]]]]][+/-ZZZZ]. The minimum precision is to the hour (2 digits, 00-23). Minute, second, and fractional second components are optional but must appear in order. An optional timezone offset (+/-ZZZZ) indicates the difference between local time and UTC.",
+        "min": 0,
+        "max": "*"
+      }
+    ]
   }
 }
