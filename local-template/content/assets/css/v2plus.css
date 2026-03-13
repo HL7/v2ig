@@ -53,5 +53,20 @@
 }
 
 #segment-footer > .container {
-background-color: #005a8c !important; 
+background-color: #005a8c !important;
+}
+
+/* HL7 Attribute Table (segment definition) */
+.v2-segment-table .v2-col-seq,
+.v2-segment-table .v2-col-mono {
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+}
+
+.v2-segment-table tr.v2-field-withdrawn td {
+  color: #999;
+}
+
+.v2-segment-table .v2-muted {
+  color: #999;
 }

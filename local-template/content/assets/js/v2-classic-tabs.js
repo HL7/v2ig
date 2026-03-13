@@ -77,9 +77,10 @@
     sourceDiv.parentNode.removeChild(sourceDiv);
   }
 
-  // Add tabs in order: Message Structure, then ACK Choreography
+  // Add tabs in order: Message Structure, ACK Choreography, HL7 Attribute Table
   addTab('v2-classic-content', 'tabs-classic', 'Message Structure');
   addTab('v2-ack-content', 'tabs-ack', 'ACK Choreography');
+  addTab('v2-segment-content', 'tabs-segment-def', 'HL7 Attribute Table');
 
   // Refresh the jQuery UI tabs widget to pick up changes
   try {
