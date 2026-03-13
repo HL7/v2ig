@@ -29,6 +29,14 @@ OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'input', 'pagecontent')
 ANOMALY_LOG_PATH = os.path.join(PROJECT_ROOT, 'tooling', 'scripts',
                                 'generate_message_pages_anomalies.log')
 RUBY_PATH = '/home/claude/ruby/arm64/bin/ruby'
+RUBY_ENV = {
+    'LD_LIBRARY_PATH': '/home/claude/ruby/arm64/lib',
+    'GEM_HOME': '/tmp/gems',
+    'GEM_PATH': '/tmp/gems',
+    'PATH': os.environ.get('PATH', ''),
+    'LANG': 'en_US.UTF-8',
+    'LC_ALL': 'en_US.UTF-8',
+}
 
 
 class AnomalyLog:
@@ -352,14 +360,15 @@ def convert_adoc_to_html(adoc_text):
 
     try:
         result = subprocess.run(
-            [RUBY_PATH, '-e',
+            [RUBY_PATH, '-E', 'utf-8:utf-8', '-e',
              "require 'asciidoctor'; "
-             "text = File.read(ARGV[0]); "
+             "text = File.read(ARGV[0], encoding: 'utf-8'); "
              "html = Asciidoctor.convert(text, safe: :safe, "
              "header_footer: false, backend: 'html5'); "
              "puts html",
              tmp_adoc],
-            capture_output=True, text=True, timeout=30
+            capture_output=True, text=True, timeout=30,
+            env=RUBY_ENV
         )
         if result.returncode != 0:
             print(f"  WARNING: Asciidoctor error: {result.stderr.strip()}", file=sys.stderr)
@@ -591,12 +600,16 @@ def render_segment_table(structure_id, msg_id, anomalies):
     # Build Classic bracket notation view
     classic_table = render_classic_structure(parsed)
 
-    # The classic content is placed in a hidden div that tabs.js will
-    # discover and inject into the Formal Views tab set as the first tab.
+    # Build a display name from the file_id (e.g. ADT_A01-A → ADT_A01)
+    display_name = file_id.rsplit('-', 1)[0] if '-' in file_id else file_id
+
+    # The classic content is placed in a hidden div that v2-classic-tabs.js
+    # will discover and inject into the Formal Views tab set.
     table_html = (
-        '<h3>Message Structure</h3>\n'
-        f'<p>Structure: <a href="StructureDefinition-{file_id}.html">{file_id}</a></p>\n'
         f'<div id="v2-classic-content" style="display:none;">\n'
+        f'<p>The full structure definition for '
+        f'<a href="StructureDefinition-{file_id}.html">{display_name}</a> '
+        f'is available on its own page.</p>\n'
         f'{classic_table}\n'
         f'</div>'
     )
@@ -644,6 +657,32 @@ def render_ack_table(ack_choreography, message_type):
         '</tbody>\n'
         '</table>\n'
         '</div>'
+    )
+
+
+def render_structure_intro(file_id, anomalies):
+    """Render intro content for a MessageStructure page.
+
+    Generates a hidden div with the classic bracket notation table,
+    which v2-classic-tabs.js will inject as a tab in the Formal Views.
+    Returns HTML string or empty string if parsing fails.
+    """
+    filepath = os.path.join(MSG_STRUCTURES_DIR, f'{file_id}.json')
+    if not os.path.exists(filepath):
+        return ''
+
+    data = load_json(filepath)
+    parsed = _parse_elements(data)
+
+    if not parsed:
+        return ''
+
+    classic_table = render_classic_structure(parsed)
+
+    return (
+        f'<div id="v2-classic-content" style="display:none;">\n'
+        f'{classic_table}\n'
+        f'</div>'
     )
 
 
@@ -797,13 +836,41 @@ def main():
             f'or the matching Message JSON may be missing or may use a '
             f'different event code.')
 
+    # Generate intro files for MessageStructure pages
+    print('\nGenerating MessageStructure intro files...')
+    structure_files = glob.glob(os.path.join(MSG_STRUCTURES_DIR, '*.json'))
+    struct_intro_count = 0
+    for sf in sorted(structure_files):
+        struct_id = os.path.basename(sf).replace('.json', '')
+
+        # If subset is specified, only process structures referenced by
+        # subset messages (match by structure prefix, e.g. ADT_A01)
+        if subset:
+            # Check if any subset message references this structure
+            prefix = struct_id.rsplit('-', 1)[0] if '-' in struct_id else struct_id
+            matched = any(
+                prefix.replace('_', '-') in mid or mid.replace('-', '_') in prefix
+                for mid in subset
+            )
+            if not matched:
+                continue
+
+        struct_html = render_structure_intro(struct_id, anomalies)
+        if struct_html:
+            intro_path = os.path.join(
+                OUTPUT_DIR, f'StructureDefinition-{struct_id}-intro.xml')
+            write_xml_file(intro_path, struct_html)
+            struct_intro_count += 1
+            print(f'  {struct_id}')
+
     # Write anomaly log
     anomalies.write(ANOMALY_LOG_PATH)
     log_rel = os.path.relpath(ANOMALY_LOG_PATH, PROJECT_ROOT)
 
     print(f'\nDone!')
-    print(f'  Intro files written: {intro_count}')
-    print(f'  Notes files written: {notes_count}')
+    print(f'  Message intro files written: {intro_count}')
+    print(f'  Message notes files written: {notes_count}')
+    print(f'  MessageStructure intro files written: {struct_intro_count}')
     print(f'  Anomalies found: {len(anomalies.entries)}')
     if anomalies.entries:
         print(f'  Anomaly breakdown:')
