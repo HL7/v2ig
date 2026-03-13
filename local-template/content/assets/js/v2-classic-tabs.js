@@ -1,15 +1,18 @@
 // v2-classic-tabs.js
-// Discovers hidden content divs injected by generate_message_pages.py and
+// Discovers hidden content divs injected by page generators and
 // adds them as tabs in the Formal Views jQuery UI tab set (#tabs).
 //
 // Handles:
-//   #v2-classic-content  → "Message Structure" tab (inserted before Statistics)
-//   #v2-ack-content      → "ACK Choreography" tab (inserted after Message Structure)
+//   #v2-ack-content      → "ACK Choreography" tab (inserted before Statistics)
+//   #v2-segment-content  → "HL7 Attribute Table" tab (inserted before Statistics)
 //
-// Also removes the "All" tab from the tab set.
+// Also removes the "All" tab and "Key Elements" tab from the tab set.
 //
-// Target tab order:
-//   Key Elements | Differential | Snapshot | Message Structure | ACK Choreography | Statistics/References
+// Target tab order (message pages):
+//   Differential | Snapshot | ACK Choreography | Statistics/References
+//
+// Target tab order (segment pages):
+//   Differential | Snapshot | HL7 Attribute Table | Statistics/References
 //
 // This script runs AFTER tabs.js has initialized the jQuery UI tabs widget.
 // It must be loaded after jQuery, jQuery UI, and tabs.js.
@@ -21,21 +24,21 @@
   var tabList = tabsDiv.querySelector('ul');
   if (!tabList) return;
 
-  // Inject CSS for classic notation styling
-  if (document.getElementById('v2-classic-content')) {
-    var style = document.createElement('style');
-    style.textContent =
-      '.v2-classic-notation { font-family: "Courier New", Courier, monospace; white-space: nowrap; }' +
-      'tr.v2-classic-group { background-color: #f0f0f0; }';
-    document.head.appendChild(style);
-  }
-
   // Remove the "All" tab and its panel
   var allPanel = document.getElementById('tabs-all');
   if (allPanel) allPanel.parentNode.removeChild(allPanel);
   var allLinks = tabList.querySelectorAll('a[href="#tabs-all"]');
   for (var i = 0; i < allLinks.length; i++) {
     var li = allLinks[i].parentNode;
+    li.parentNode.removeChild(li);
+  }
+
+  // Remove the "Key Elements" tab and its panel
+  var kePanel = document.getElementById('tabs-key');
+  if (kePanel) kePanel.parentNode.removeChild(kePanel);
+  var keLinks = tabList.querySelectorAll('a[href="#tabs-key"]');
+  for (var i = 0; i < keLinks.length; i++) {
+    var li = keLinks[i].parentNode;
     li.parentNode.removeChild(li);
   }
 
@@ -77,8 +80,7 @@
     sourceDiv.parentNode.removeChild(sourceDiv);
   }
 
-  // Add tabs in order: Message Structure, ACK Choreography, HL7 Attribute Table
-  addTab('v2-classic-content', 'tabs-classic', 'Message Structure');
+  // Add tabs in order: ACK Choreography, HL7 Attribute Table
   addTab('v2-ack-content', 'tabs-ack', 'ACK Choreography');
   addTab('v2-segment-content', 'tabs-segment-def', 'HL7 Attribute Table');
 

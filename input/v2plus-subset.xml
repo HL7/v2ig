@@ -6,7 +6,7 @@
   </extension> 
   <url value="http://somewhere.org/fhir/uv/v2plus/ImplementationGuide/hl7.other.uv.v2plus"/>
   <!-- This version will propagate to all artifacts unless the "propagate-version" extension is overridden -->
-  <version value="0.0.0"/>
+  <version value="2026"/>
   <name value="V2Plus"/>
   <title value="HL7 v2+ Specification"/>
   <status value="draft"/>
@@ -144,12 +144,12 @@
             </page>
             <page>
               <name value="master-files.html"/>
-              <title value="Master Files (22 events)"/>
+              <title value="Master Files (17 events)"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="queries.html"/>
-              <title value="Queries (7 events)"/>
+              <title value="Queries (6 events)"/>
               <generation value="html"/>
             </page>
         </page>
@@ -349,7 +349,7 @@
       <value value="http://hl7.org/v2/ValueSet/segment-status"/>
     </parameter>
 
-    <!-- Segment resources (subset for demo) -->
+    <!-- Segment resources (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -366,7 +366,7 @@
       <value value="input/sourceOfTruth/segment/segments-subset"/>
     </parameter>
 
-    <!-- Message resources (subset for demo) -->
+    <!-- Message resources (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -383,7 +383,7 @@
       <value value="input/sourceOfTruth/message/messages-subset"/>
     </parameter>
 
-    <!-- Message Structure resources (subset for demo) -->
+    <!-- Message Structure resources (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -400,7 +400,7 @@
       <value value="input/sourceOfTruth/message-structure/message_structures-subset"/>
     </parameter>
 
-    <!-- Event resources (subset for demo) -->
+    <!-- Event resources (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>

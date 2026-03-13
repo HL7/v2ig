@@ -602,11 +602,10 @@ SESSION HANDOFF TEMPLATE (copy this for each handoff):
 
 ### Current State
 - Branch: `feature/006-sd-injection`
-- Last commit: `c143dc3 Add HL7 Attribute Table tab for segment pages`
-- Uncommitted: v2plus.xml directory fix + Varies.json id fix
+- Last commit: `85246d7 Fix full build: v2plus.xml directories, Varies.json id, domain pages`
+- All changes committed and pushed to `origin/feature/006-sd-injection`
 - Tests: Not run (no test infrastructure yet)
 - Full build output in `/workspace/output/` (26,236 files)
-- Cannot push — no SSH key in container
 
 ### Next Steps
 1. Commit and push uncommitted changes (v2plus.xml, Varies.json)
@@ -616,9 +615,9 @@ SESSION HANDOFF TEMPLATE (copy this for each handoff):
 5. Cross-reference verification in full build output
 
 ### Open Questions / Blockers
-- No SSH key in container — cannot push to GitHub
 - QA report (qa.json, qa.html) lost when Jekyll re-runs manually — need to copy from temp before Jekyll or re-run full build cleanly
 - Some message pages show "FIXME" text — need to investigate source
+- GitHub auth workaround applied: credential helper script + SSH→HTTPS remote conversion (see `docs/moshpit-github-auth.md`)
 
 ### Relevant Context
 - **CRITICAL CORRECTION**: Previous handoff stated "v2plus.xml and v2plus-full.xml are identical" — this was WRONG. Both pointed to `-subset` directories. Fixed now.
@@ -626,3 +625,6 @@ SESSION HANDOFF TEMPLATE (copy this for each handoff):
 - Varies.json had `"id": "..."` which generated files with literal `...` in filenames, breaking Jekyll's Liquid include syntax
 - Jekyll can be re-run manually: `cd temp/pages && jekyll build --destination /workspace/output`
 - Full build takes ~3.5 hours (vs 18.5 min for subset)
+
+## Session 2026-03-13 — Session continuity redesign, message page simplification, build safety
+Restructured UADF session handoff protocol (SESSION-HANDOFF.md overwritten, JOURNAL.md append-only archive). Removed Message Structure and Key Elements tabs from message page Formal Views per stakeholder decision; added prominent structure link in intro text. Changed IG version to "2026". Created subset/full build separation: `ig.ini` defaults to subset (safe), `ig-full.ini` for full builds. Branch: `feature/006-sd-injection`. No commits (changes uncommitted).

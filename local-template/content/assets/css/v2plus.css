@@ -56,6 +56,15 @@
 background-color: #005a8c !important;
 }
 
+/* Message Structure link on message pages */
+.v2-structure-link {
+  font-size: 1.1em;
+  margin: 0.8em 0;
+  padding: 0.5em 0.8em;
+  background-color: #f0f6fa;
+  border-left: 3px solid #005a8c;
+}
+
 /* HL7 Attribute Table (segment definition) */
 .v2-segment-table .v2-col-seq,
 .v2-segment-table .v2-col-mono {

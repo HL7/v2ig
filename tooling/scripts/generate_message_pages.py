@@ -414,14 +414,10 @@ def render_classic_structure(parsed_elements):
     )
 
 
-def render_segment_table(structure_id, msg_id, anomalies):
-    """Render message structure content for the intro fragment.
+def render_structure_link(structure_id, msg_id, anomalies):
+    """Render a prominent link to the MessageStructure page for the intro.
 
-    Returns HTML string with:
-    - A visible summary heading and link to the MessageStructure page
-    - A hidden div (#v2-classic-content) containing the classic bracket
-      notation table. This div is picked up by tabs.js and injected into
-      the Formal Views jQuery UI tab set at render time.
+    Returns an HTML paragraph linking to the MessageStructure page.
     Returns empty string if the MessageStructure file is not found.
     """
     file_id = structure_ref_to_file_id(structure_id)
@@ -431,34 +427,18 @@ def render_segment_table(structure_id, msg_id, anomalies):
             'MISSING_MESSAGE_STRUCTURE', msg_id,
             f'Message references MessageStructure "{structure_id}" but '
             f'the expected file {os.path.relpath(filepath, PROJECT_ROOT)} '
-            f'does not exist. The Message page will have no segment table. '
+            f'does not exist. The Message page will have no structure link. '
             f'Either the structure reference in the Message JSON is wrong, '
             f'or the MessageStructure JSON file is missing.')
         return ''
 
-    data = load_json(filepath)
-    parsed = _parse_elements(data)
-
-    if not parsed:
-        return ''
-
-    # Build Classic bracket notation view
-    classic_table = render_classic_structure(parsed)
-
     # Build a display name from the file_id (e.g. ADT_A01-A → ADT_A01)
     display_name = file_id.rsplit('-', 1)[0] if '-' in file_id else file_id
 
-    # The classic content is placed in a hidden div that v2-classic-tabs.js
-    # will discover and inject into the Formal Views tab set.
-    table_html = (
-        f'<div id="v2-classic-content" style="display:none;">\n'
-        f'<p>The full structure definition for '
-        f'<a href="StructureDefinition-{file_id}.html">{display_name}</a> '
-        f'is available on its own page.</p>\n'
-        f'{classic_table}\n'
-        f'</div>'
+    return (
+        f'<p class="v2-structure-link"><b>Message Structure:</b> '
+        f'<a href="StructureDefinition-{file_id}.html">{display_name}</a></p>'
     )
-    return table_html
 
 
 def render_ack_table(ack_choreography, message_type):
@@ -630,11 +610,11 @@ def main():
                 f'created at website/domains/<domain>/technical_specs/'
                 f'{trigger}.adoc')
 
-        # Render MessageStructure segment table
+        # Render link to MessageStructure page
         if structure_ref:
-            seg_table = render_segment_table(structure_ref, msg_id, anomalies)
-            if seg_table:
-                intro_parts.append(seg_table)
+            structure_link = render_structure_link(structure_ref, msg_id, anomalies)
+            if structure_link:
+                intro_parts.insert(0, structure_link)
 
         # Render ACK choreography table
         ack_table = render_ack_table(msg['ack_choreography'], msg['message_type'])
