@@ -363,7 +363,7 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
-      <value value="input/sourceOfTruth/segment/segments-subset"/>
+      <value value="input/sourceOfTruth/segment/segments"/>
     </parameter>
 
     <!-- Message resources (subset for demo) -->
@@ -380,7 +380,7 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
-      <value value="input/sourceOfTruth/message/messages-subset"/>
+      <value value="input/sourceOfTruth/message/messages"/>
     </parameter>
 
     <!-- Message Structure resources (subset for demo) -->
@@ -397,7 +397,7 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
-      <value value="input/sourceOfTruth/message-structure/message_structures-subset"/>
+      <value value="input/sourceOfTruth/message-structure/message_structures"/>
     </parameter>
 
     <!-- Event resources (subset for demo) -->
@@ -414,7 +414,7 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
-      <value value="input/sourceOfTruth/event/events-subset"/>
+      <value value="input/sourceOfTruth/event/events"/>
     </parameter>
 
     <!-- special-url entries for segment resources -->

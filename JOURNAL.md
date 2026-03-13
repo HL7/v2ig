@@ -539,19 +539,90 @@ SESSION HANDOFF TEMPLATE (copy this for each handoff):
 
 ### Completed This Session
 - [What was accomplished]
+...
+-->
+
+## Session Handoff - 2026-03-13 01:10 UTC
+
+### Completed This Session
+- Created `tooling/scripts/v2_utils.py` — shared utilities extracted from generate_message_pages.py (load_json, escape_xml, html5_to_xhtml, convert_adoc_to_html, write_xml_file, AnomalyLog, path constants)
+- Refactored `tooling/scripts/generate_message_pages.py` to import from v2_utils
+- Created `tooling/scripts/generate_segment_pages.py` — generates HL7 Attribute Table (Seq, Name, DataType, Usage, Cardinality, Vocabulary, Item#, Length, C.LEN, Flags) as a hidden div injected as a Formal Views tab
+- Updated `local-template/content/assets/js/v2-classic-tabs.js` — added segment tab injection
+- Updated `local-template/content/assets/css/v2plus.css` — added segment table styling (monospace columns, withdrawn field muting)
+- Ran subset IG build and verified: PID and MSH segment pages render the HL7 Attribute Table tab correctly with all columns, links, and withdrawn field styling
+- Committed: `c143dc3 Add HL7 Attribute Table tab for segment pages`
+- Copied `output/` to `output-subset/` (2,718 files) per user request
+- Ran `generate_domain_pages.py` which regenerated 31 domain/subdomain pages (modified but uncommitted)
+- Updated SESSION-HANDOFF.md with full build procedure
 
 ### Current State
-- Branch: `feature/xxx`
-- Last checkpoint: `GREEN: xxx passes`
-- Tests: All passing / N failing
+- Branch: `feature/006-sd-injection`
+- Last checkpoint: `c143dc3 Add HL7 Attribute Table tab for segment pages`
+- Tests: Not run (no test infrastructure yet)
+- Uncommitted changes: 31 regenerated domain pages from generate_domain_pages.py run, plus many untracked scratch/screenshot files
+- **Not pushed** — no SSH key in container. Needs manual `git push origin feature/006-sd-injection`
 
 ### Next Steps
-1. [Immediate next action]
-2. [Following action]
+1. **Push the branch** (needs SSH key or manual push)
+2. **Run full preprocessing** — `generate_segment_pages.py` (no --subset) for all 192 segments, `generate_message_pages.py` (no --subset) for all messages
+3. **Run full IG build** — `java -jar input-cache/publisher.jar -ig ig.ini -no-sushi` (v2plus.xml is already the full config)
+4. **Diagnose full build errors** — subset had 11,682 validation errors, many from missing cross-references that full build should resolve
+5. **Testing infrastructure** — Set up pytest for v2_utils.py, generate_segment_pages.py, generate_message_pages.py
 
 ### Open Questions / Blockers
-- [Anything unresolved]
+- No SSH key in container — cannot push to GitHub
+- Full build duration unknown (subset takes ~18.5 min with ~83 resources; full has ~1,700)
+- ORU-R01 has an illegal `<script>` tag in its intro that IG Publisher flags — needs investigation
 
 ### Relevant Context
-- [Anything the next session needs that isn't obvious from files]
--->
+- `v2plus.xml` and `v2plus-full.xml` are identical — the IG is already configured for full build, no file swap needed
+- Data quality fixes (valueInteger booleans, extension URL namespace) already applied to ALL source files, not just subset
+- `template/` is gitignored and regenerated every build from `fhir.base.template` + `local-template/` overlay — never edit template/ directly
+- Asciidoctor gem needs reinstall on fresh container: `GEM_HOME=/tmp/gems /home/claude/ruby/arm64/bin/gem install asciidoctor`
+- The `generate_message_pages.py` needs Asciidoctor for AsciiDoc narrative conversion; `generate_segment_pages.py` does not need it
+
+## Session Handoff - 2026-03-13 09:15 UTC
+
+### Completed This Session
+- Fixed `v2plus.xml` to point to full resource directories (was pointing to `-subset` dirs)
+- Fixed `Varies.json` id from `"..."` to `"Varies"` (caused Jekyll build failure)
+- Ran full IG build with 8GB heap (`-Xmx8g`):
+  - All phases completed: resource loading (14 min), template/HTML (2h 8min), spreadsheets (1h 8min)
+  - Jekyll failed due to `...` in filenames from Varies.json — re-ran manually after deleting offending files
+  - Final output: 26,236 files (16,005 HTML pages) in `/workspace/output/`
+- Verified all custom tabs render correctly in full build:
+  - PID segment: HL7 Attribute Table tab with all 40 fields
+  - ADT-A01 message: Message Structure tab with bracket notation and segment hyperlinks
+- Previous session work (already committed as `c143dc3`):
+  - Created `v2_utils.py` shared utilities module
+  - Created `generate_segment_pages.py` for HL7 Attribute Table generation
+  - Updated `generate_message_pages.py` to import from `v2_utils`
+  - Added segment tab to `v2-classic-tabs.js` and CSS to `v2plus.css`
+
+### Current State
+- Branch: `feature/006-sd-injection`
+- Last commit: `c143dc3 Add HL7 Attribute Table tab for segment pages`
+- Uncommitted: v2plus.xml directory fix + Varies.json id fix
+- Tests: Not run (no test infrastructure yet)
+- Full build output in `/workspace/output/` (26,236 files)
+- Cannot push — no SSH key in container
+
+### Next Steps
+1. Commit and push uncommitted changes (v2plus.xml, Varies.json)
+2. Set up pytest infrastructure for v2_utils.py, generate_segment_pages.py, generate_message_pages.py
+3. Analyze full build validation errors (need to re-run with QA report preserved)
+4. Review "FIXME" placeholders on message pages
+5. Cross-reference verification in full build output
+
+### Open Questions / Blockers
+- No SSH key in container — cannot push to GitHub
+- QA report (qa.json, qa.html) lost when Jekyll re-runs manually — need to copy from temp before Jekyll or re-run full build cleanly
+- Some message pages show "FIXME" text — need to investigate source
+
+### Relevant Context
+- **CRITICAL CORRECTION**: Previous handoff stated "v2plus.xml and v2plus-full.xml are identical" — this was WRONG. Both pointed to `-subset` directories. Fixed now.
+- Full build REQUIRES `-Xmx8g` Java heap flag — default 3-4GB causes OOM during spreadsheet generation
+- Varies.json had `"id": "..."` which generated files with literal `...` in filenames, breaking Jekyll's Liquid include syntax
+- Jekyll can be re-run manually: `cd temp/pages && jekyll build --destination /workspace/output`
+- Full build takes ~3.5 hours (vs 18.5 min for subset)

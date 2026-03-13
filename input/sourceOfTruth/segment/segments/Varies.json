@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/v2/StructureDefinition/Varies",
-  "id": "...",
+  "id": "Varies",
   "meta": {
     "profile": [
       "http://hl7.org/v2/StructureDefinition/Segment-Profile"
