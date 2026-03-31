@@ -628,3 +628,89 @@ SESSION HANDOFF TEMPLATE (copy this for each handoff):
 
 ## Session 2026-03-13 — Session continuity redesign, message page simplification, build safety
 Restructured UADF session handoff protocol (SESSION-HANDOFF.md overwritten, JOURNAL.md append-only archive). Removed Message Structure and Key Elements tabs from message page Formal Views per stakeholder decision; added prominent structure link in intro text. Changed IG version to "2026". Created subset/full build separation: `ig.ini` defaults to subset (safe), `ig-full.ini` for full builds. Branch: `feature/006-sd-injection`. No commits (changes uncommitted).
+
+## Session 2026-03-30 — V2 Vocabulary Extraction and Comparison
+
+### Objective
+Three-way comparison of V2 terminology: CH02C Word doc (published standard) vs Frank Oemig's terminology IG vs UTG/THO. Standards-level audit to identify gaps and path for merging good content into THO.
+
+### Completed
+1. **CH02C Vocabulary Extraction** — Built `tooling/scripts/extract_v291_vocabulary.py`. Extracted all 797 code tables from CH02C_Tables.docx. Each table includes concept domain, code system (OID/name), value set (OID/URI), table metadata, and coded content. Output: `v291-extracted/vocabulary/` (797 JSON files) + `v291-extracted/vocabulary-index.json`. Stats: 415 tables with codes, 5,540 total codes, 437 with code system OIDs.
+
+2. **Colleague IG Analysis** — Cloned `frankoemig/hl7.v2.terminology.v291` to `/workspace/hl7.v2.terminology.v291/`. Contains 374 CodeSystems + 378 ValueSets. Table numbers in `codesystem-tableNo` extension. URL pattern: `http://terminology.hl7.org/v2plusvocab/CodeSystem/{id}`. Known issues: placeholder version history, German designations, 27 codes added beyond V2.9.1 (mostly German coding systems).
+
+3. **Two-Way Comparison** — Built `tooling/scripts/compare_vocabulary.py` with status normalization (D↔inactive, B↔backward, N↔new, R↔retired are equivalent). Reports at `v291-extracted/vocabulary-comparison-report.{json,md}`. Key findings:
+   - Colleague's 374 tables are a perfect subset of CH02C's 797
+   - 41 tables with coded content missing from colleague (notable: 0125 Value Type/78 codes, 0203 Identifier Type/140 codes)
+   - 382 missing tables expected (concept-domain-only, external)
+   - 340 codes in CH02C not in colleague (49 tables)
+   - 174 codes in colleague not in CH02C (8 tables, mostly German additions in 0396)
+   - 29 real display name differences, 52 truncations
+   - Zero genuine status mismatches after normalization
+
+### Not Completed
+- **UTG/THO integration** — UTG repo symlink didn't work in container (host path). User restarting container with proper bind mount. Script is ready: `python3 tooling/scripts/compare_vocabulary.py --utg /workspace/utg`
+- **No commits made** — extraction scripts and comparison output are untracked
+
+### Installed Packages
+- `python-docx` (pip, --break-system-packages) — needed for CH02C extraction
+- `lxml` — installed as dependency of python-docx
+
+### How to Resume
+1. Read `SESSION-HANDOFF.md` — has full context on what to do next
+2. Verify UTG is accessible: `ls /workspace/utg/input/sourceOfTruth/v2/codeSystems/`
+3. Run three-way comparison: `python3 tooling/scripts/compare_vocabulary.py --utg /workspace/utg`
+4. If UTG path structure differs, adjust `load_utg_data()` in compare_vocabulary.py
+
+---
+
+## Session Handoff - 2026-03-31 14:12 UTC
+
+### Completed This Session
+
+- **Three-way vocabulary comparison (UTG integration)**: Updated `compare_vocabulary.py` to parse UTG's XML CodeSystem and ValueSet files (the script previously only handled JSON). Also added parsing of `v2-tables.xml` — the master catalog of 628 V2 tables known to UTG.
+- **Full three-way comparison run**: CH02C (797 tables) vs Frank Oemig's IG (374 CodeSystems) vs UTG (416 CodeSystems). Key findings: 367 tables in all three sources, 7 in CH02C+Frank but not UTG, 31 in CH02C+UTG but not Frank, 18 UTG-only, 1237 code-level differences across 123 tables.
+- **Multi-view HTML report** (`generate_html_report.py`): Built a standalone HTML report with three views:
+  - **View A: By Problem Type** — status disagreements (123), missing codes (consolidated three-way presence table with 1059 discrepancies), display name differences, metadata differences
+  - **View B: By Table** — index with color-coded issue badges, per-table detail sections
+  - **View C: By Source Gap** — UTG gaps (7 missing tables, 181 missing codes), Frank's gaps (41 tables), Frank's additions, UTG-only content
+- **Live hyperlinks**: Table numbers link to published versions on `terminology.hl7.org` (THO) and `build.fhir.org/ig/frankoemig/hl7.v2.terminology.v291/` (Frank's IG)
+- **Methodology annex**: Describes table matching, code comparison, status normalization, display name comparison, and metadata comparison methods. Section headers link to relevant methodology descriptions.
+- **Concept domain analysis**: Identifies 356 concept-domain-only tables in CH02C, flags 1 (table 0133) that has a CodeSystem in UTG despite being concept-domain-only.
+- No commits made — all output is in gitignored `v291-extracted/` directory and untracked scripts
+
+### Current State
+- Branch: `feature/006-sd-injection`
+- Last checkpoint: `3e92d55` — Remove Message Structure tab, add structure link, version 2026, subset/full build separation
+- Tests: Not applicable (analysis/reporting scripts)
+- Uncommitted/untracked: comparison scripts in `tooling/scripts/`, extraction output in `v291-extracted/` (gitignored), Frank's cloned IG in `hl7.v2.terminology.v291/`
+
+### Key Files
+| File | Purpose |
+|------|---------|
+| `tooling/scripts/compare_vocabulary.py` | Three-way comparison engine (CH02C vs Frank vs UTG) |
+| `tooling/scripts/generate_html_report.py` | Multi-view HTML report generator |
+| `tooling/scripts/extract_v291_vocabulary.py` | CH02C Word doc → JSON extraction |
+| `v291-extracted/vocabulary-comparison-report.html` | The HTML report (1.75 MB, standalone) |
+| `v291-extracted/vocabulary-comparison-report.json` | Machine-readable comparison data |
+| `v291-extracted/vocabulary-index.json` | CH02C extraction index (797 tables) |
+
+### Next Steps
+1. **User review of HTML report** — iterate on presentation, accuracy, and content based on feedback
+2. **Commit analysis scripts** — `tooling/scripts/compare_vocabulary.py`, `generate_html_report.py`, and `extract_v291_vocabulary.py` should be committed once stable
+3. **Investigate v3-/FHIR-prefixed code systems** — some CH02C tables reference `v3-*` or FHIR code systems rather than `v2-*` patterns; need to verify these are properly handled in the comparison
+4. **UTG concept domains CodeSystem** — located at `http://terminology.hl7.org/CodeSystem/conceptdomains` in `/workspace/utg/input/sourceOfTruth/unified/codeSystems/conceptdomains.xml`; could be cross-referenced with CH02C concept-domain-only tables
+5. **Community-facing report** — once the user is satisfied with the content, finalize for presentation to V2 Management Group and Terminology Services Management Group
+
+### Open Questions / Blockers
+- Some CH02C tables reference v3- or FHIR-prefixed code systems (e.g., table 0823 references `v3-NullFlavor`). The comparison currently only matches `v2-XXXX` patterns — these cross-references are captured in CH02C extraction but not yet used for matching UTG artifacts
+- The `frank_v2_vocab_291` directory at `/workspace/frank_v2_vocab_291/` exists but its relationship to `/workspace/v2ig/hl7.v2.terminology.v291/` is unclear — may be a duplicate or different version
+- Status disagreements where UTG marks codes as `active` while CH02C says `D` (deprecated) — 32 instances; these need committee review to determine authoritative status
+
+### Relevant Context
+- **Audience**: V2 Management Group and Terminology Services Management Group — all domain experts
+- **User role**: Project lead for V2+ IG publication; will present the report to the groups
+- The report is iterative — expect multiple rounds of refinement
+- "Frank" = Frank Oemig, maintains the V2.9.1 terminology IG
+- THO = terminology.hl7.org, UTG = the repo that builds THO (Unified Terminology Governance)
+- The end goal is getting good content from Frank's IG into THO

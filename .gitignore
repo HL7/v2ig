@@ -32,5 +32,9 @@ Thumbs.db
 
 # Extracted V2.9.1 content (intermediate data) #
 #################################################
-/v291-extracted/
+/v291-extracted/*
+# But track the comparison reports (final output)
+!/v291-extracted/vocabulary-comparison-report.html
+!/v291-extracted/vocabulary-comparison-report.json
+!/v291-extracted/vocabulary-comparison-report.md
 /v2plus_docx/
