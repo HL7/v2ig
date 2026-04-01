@@ -714,3 +714,44 @@ Three-way comparison of V2 terminology: CH02C Word doc (published standard) vs F
 - "Frank" = Frank Oemig, maintains the V2.9.1 terminology IG
 - THO = terminology.hl7.org, UTG = the repo that builds THO (Unified Terminology Governance)
 - The end goal is getting good content from Frank's IG into THO
+
+---
+
+## Session Handoff — 2026-04-01
+
+### Completed This Session
+- Established test infrastructure for V2 IG persistent tooling (Python + Ruby)
+- Created `test/test_helpers.py` with shared path setup and `load_fixture()` helper
+- Created JSON fixtures: `test/fixtures/segments/MSH.json` (3 fields with length, conformance-length, vocabulary) and `test/fixtures/segments/PID-minimal.json` (5 fields, 2 withdrawn)
+- Wrote 116 Python tests across 4 files:
+  - `test_v2_utils.py` (25 tests): `escape_xml`, `html5_to_xhtml`, `AnomalyLog`
+  - `test_generate_segment_pages.py` (45 tests): `get_extension`, `get_sub_extension`, `parse_segment_fields`, `format_*`, `render_segment_table`
+  - `test_generate_message_pages.py` (24 tests): `structure_ref_to_file_id`, `_bracket_wrap`, `_parse_elements`, `render_ack_table`
+  - `test_generate_pagecontent.py` (22 tests): `extract_title`, `extract_front_matter`, `basic_adoc_to_html`
+- Wrote 18 Ruby minitest tests in `tooling/test/test_helpers_module.rb` for `is_hl7_er7`, `has_er7?`, `has_message_identifier?`
+- Created `tooling/test/test_helper.rb` (minitest setup), `tooling/test/Rakefile` (rake runner)
+- Created `run_tests.sh` top-level runner (Python + Ruby, gracefully skips Ruby if not installed)
+- Commit: `a2fa1e7` — "Add test infrastructure for V2 IG persistent tooling"
+
+### Current State
+- Branch: `feature/006-sd-injection`
+- Last checkpoint: `a2fa1e7` — Add test infrastructure for V2 IG persistent tooling
+- Tests: All 116 new Python tests passing; 18 Ruby tests written but Ruby not installed in container; 2 pre-existing failures in `test_build_registry` and `test_pattern_matcher` (unrelated to this work)
+
+### Next Steps
+1. **Tier 2 tests** — Add tests requiring filesystem I/O: `generate_domain_pages.py`, `unresolved_report.py`, `convert_adoc_to_html` (integration test with Ruby subprocess)
+2. **Fix pre-existing test failures** — `test_build_registry.test_message_structures_present` (419 vs 418 count drift) and `test_pattern_matcher.test_master_files_skips_er7` (2 ER7 matches leaking)
+3. **Install Ruby in container** — Add to `.claude-dev/provision.sh` so Ruby minitest tests run in CI
+4. **Add more Ruby tests** — Cover `caret_pre_processor.rb`, `tabset_block_processor.rb`, `data_types.rb`
+5. **CI integration** — Wire `run_tests.sh` into GitHub Actions
+
+### Open Questions / Blockers
+- Ruby is not installed in the current container and we lack root access to `apt-get install` — Ruby tests are written and correct but cannot be verified until Ruby is available
+- The `conformance-length` URL guard in `parse_segment_fields` uses `'conformance' not in url` — this works today but is fragile if new extensions are added with 'conformance' in the URL
+- Pre-existing test count drift in `test_build_registry` suggests a new message structure JSON was added without updating the expected count
+
+### Relevant Context
+- Fixture URLs use the real V2 pattern `http://hl7.org/v2/StructureDefinition/...` (NOT the FHIR `http://hl7.org/fhir/StructureDefinition/v2-...` pattern that appears in some documentation)
+- The `_bracket_wrap` and `_parse_elements` functions have leading underscores (private convention) — tests import them directly since they contain the core logic
+- `max_card == '0'` in the real data means "unbounded repeating" and renders as `*` in segment tables — the PID fixture uses this pattern for PID.3 and PID.5
+- The plan called for `generate_domain_pages.py` tests but that was explicitly deferred to Tier 2
