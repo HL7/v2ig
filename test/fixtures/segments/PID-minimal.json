@@ -1,0 +1,111 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PID",
+  "name": "PID",
+  "title": "Patient Identification",
+  "status": "active",
+  "kind": "logical",
+  "differential": {
+    "element": [
+      {
+        "id": "PID",
+        "path": "PID",
+        "short": "Patient Identification",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "PID.1",
+        "path": "PID.1",
+        "short": "Set ID - PID",
+        "min": 0,
+        "max": "1",
+        "type": [{"code": "SI"}],
+        "extension": [
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
+            "valueCode": "O"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/length",
+            "extension": [
+              {"url": "min", "valueInteger": 1},
+              {"url": "max", "valueInteger": 4}
+            ]
+          }
+        ],
+        "code": [{"system": "http://hl7.org/v2/CodeSystem/DataElements", "code": 104}]
+      },
+      {
+        "id": "PID.2",
+        "path": "PID.2",
+        "short": "Patient ID",
+        "min": 0,
+        "max": "1",
+        "type": [],
+        "extension": [
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
+            "valueCode": "W"
+          }
+        ],
+        "code": [{"system": "http://hl7.org/v2/CodeSystem/DataElements", "code": 105}]
+      },
+      {
+        "id": "PID.3",
+        "path": "PID.3",
+        "short": "Patient Identifier List",
+        "min": 1,
+        "max": "0",
+        "type": [{"code": "CX"}],
+        "extension": [
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
+            "valueCode": "R"
+          }
+        ],
+        "code": [{"system": "http://hl7.org/v2/CodeSystem/DataElements", "code": 106}]
+      },
+      {
+        "id": "PID.4",
+        "path": "PID.4",
+        "short": "Alternate Patient ID",
+        "min": 0,
+        "max": "1",
+        "type": [],
+        "extension": [
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
+            "valueCode": "B"
+          }
+        ],
+        "code": [{"system": "http://hl7.org/v2/CodeSystem/DataElements", "code": 107}]
+      },
+      {
+        "id": "PID.5",
+        "path": "PID.5",
+        "short": "Patient Name",
+        "min": 1,
+        "max": "0",
+        "type": [{"code": "XPN"}],
+        "extension": [
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/optionality",
+            "valueCode": "R"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {"url": "length", "valueInteger": 250},
+              {"url": "noTruncate", "valueInteger": 0}
+            ]
+          }
+        ],
+        "code": [{"system": "http://hl7.org/v2/CodeSystem/DataElements", "code": 108}],
+        "binding": {
+          "valueSet": "http://terminology.hl7.org/ValueSet/v2-0200"
+        }
+      }
+    ]
+  }
+}
