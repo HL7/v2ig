@@ -1,0 +1,15 @@
+{
+  "resourceType" : "StructureDefinition",
+  "url" : "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "id" : "primitive-data-type",
+  "version" : "0.0.1",
+  "name" : "V2PrimitiveDataType",
+  "title" : "HL7 v2 Primitive Data Type",
+  "status" : "active",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://hl7.org/v2/StructureDefinition/primitive-data-type",
+  "description" : "Abstract base for all HL7 v2 primitive data types. Primitive data types carry a single atomic value with no sub-components.",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization"
+}

@@ -234,17 +234,9 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
-      <value value="input/sourceOfTruth/data-type"/>
+      <value value="input/sourceOfTruth/meta-resources"/>
     </parameter>
-    
-    <parameter>
-      <code>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-      <code value="path-resource"/>
-      </code>
-      <value value="input/sourceOfTruth/data-type/complex"/>
-    </parameter>
-    
+
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -258,17 +250,9 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
-      <value value="input/sourceOfTruth/data-type/primitive"/>
-    </parameter>
-
-    <parameter>
-      <code>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-      <code value="path-resource"/>
-      </code>
       <value value="input/sourceOfTruth/data-type/primitive/primitive-data-types"/>
     </parameter>
-    
+
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -349,15 +333,7 @@
       <value value="http://hl7.org/v2/ValueSet/segment-status"/>
     </parameter>
 
-    <!-- Segment resources (SUBSET for development) -->
-    <parameter>
-      <code>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-      <code value="path-resource"/>
-      </code>
-      <value value="input/sourceOfTruth/segment"/>
-    </parameter>
-
+    <!-- Segment instances (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -366,15 +342,7 @@
       <value value="input/sourceOfTruth/segment/segments-subset"/>
     </parameter>
 
-    <!-- Message resources (SUBSET for development) -->
-    <parameter>
-      <code>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-      <code value="path-resource"/>
-      </code>
-      <value value="input/sourceOfTruth/message"/>
-    </parameter>
-
+    <!-- Message instances (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -383,15 +351,7 @@
       <value value="input/sourceOfTruth/message/messages-subset"/>
     </parameter>
 
-    <!-- Message Structure resources (SUBSET for development) -->
-    <parameter>
-      <code>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-      <code value="path-resource"/>
-      </code>
-      <value value="input/sourceOfTruth/message-structure"/>
-    </parameter>
-
+    <!-- Message Structure instances (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
@@ -400,15 +360,7 @@
       <value value="input/sourceOfTruth/message-structure/message_structures-subset"/>
     </parameter>
 
-    <!-- Event resources (SUBSET for development) -->
-    <parameter>
-      <code>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-      <code value="path-resource"/>
-      </code>
-      <value value="input/sourceOfTruth/event"/>
-    </parameter>
-
+    <!-- Event instances (SUBSET for development) -->
     <parameter>
       <code>
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
