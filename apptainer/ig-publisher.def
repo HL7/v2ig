@@ -1,0 +1,95 @@
+Bootstrap: docker
+From: debian:12-slim
+
+%labels
+    Author HL7 V2+ IG Team
+    Description FHIR IG Publisher with Ruby/Jekyll/Asciidoctor for V2+ builds
+
+%post
+    apt-get update && apt-get install -y --no-install-recommends \
+        curl ca-certificates \
+        gcc g++ make \
+        libssl-dev libffi-dev libyaml-dev zlib1g-dev libreadline-dev \
+        python3 python3-pip \
+        git \
+        && rm -rf /var/lib/apt/lists/*
+
+    ##########################################################################
+    # Java 17 (Eclipse Temurin)
+    ##########################################################################
+    mkdir -p /opt/jdk
+    ARCH=$(dpkg --print-architecture)
+    if [ "$ARCH" = "amd64" ]; then
+        JDK_ARCH="x64"
+    else
+        JDK_ARCH="$ARCH"
+    fi
+    curl -fsSL "https://api.adoptium.net/v3/binary/latest/17/ga/linux/${JDK_ARCH}/jdk/hotspot/normal/eclipse" \
+        -o /tmp/jdk.tar.gz
+    tar xzf /tmp/jdk.tar.gz -C /opt/jdk --strip-components=1
+    rm /tmp/jdk.tar.gz
+
+    ##########################################################################
+    # Ruby 3.2.6 (from source — prebuilt binaries often have issues)
+    ##########################################################################
+    mkdir -p /tmp/ruby-build
+    curl -fsSL "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.6.tar.gz" \
+        -o /tmp/ruby-build/ruby.tar.gz
+    tar xzf /tmp/ruby-build/ruby.tar.gz -C /tmp/ruby-build
+    cd /tmp/ruby-build/ruby-3.2.6
+    ./configure --prefix=/opt/ruby --disable-install-doc --with-openssl-dir=/usr > /dev/null 2>&1
+    make -j$(nproc) > /dev/null 2>&1
+    make install > /dev/null 2>&1
+    cd /
+    rm -rf /tmp/ruby-build
+
+    ##########################################################################
+    # Ruby gems — Jekyll, Asciidoctor, and dependencies
+    ##########################################################################
+    export PATH="/opt/ruby/bin:$PATH"
+    export GEM_HOME="/opt/gems"
+    gem install jekyll asciidoctor rainbow --no-document
+    gem install activesupport:7.2.3 connection_pool:2.5.5 minitest:5.27.0 \
+        concurrent-ruby i18n --no-document
+
+    ##########################################################################
+    # Python packages
+    ##########################################################################
+    pip install --break-system-packages python-docx
+
+    ##########################################################################
+    # Jekyll wrapper script (IG Publisher looks for 'jekyll' on PATH)
+    ##########################################################################
+    mkdir -p /opt/bin
+    cat > /opt/bin/jekyll << 'WRAPPER'
+#!/usr/bin/env bash
+export GEM_HOME="/opt/gems"
+export GEM_PATH="/opt/gems:/opt/ruby/lib/ruby/gems/3.2.0"
+exec /opt/ruby/bin/ruby -r rubygems /opt/gems/bin/jekyll "$@"
+WRAPPER
+    chmod +x /opt/bin/jekyll
+
+%environment
+    export PATH="/opt/bin:/opt/jdk/bin:/opt/ruby/bin:$PATH"
+    export JAVA_HOME="/opt/jdk"
+    export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
+    export GEM_HOME="/opt/gems"
+    export GEM_PATH="/opt/gems:/opt/ruby/lib/ruby/gems/3.2.0"
+
+%runscript
+    echo "=== IG Publisher Container ==="
+    echo "Java:  $(java -version 2>&1 | head -1)"
+    echo "Ruby:  $(ruby --version)"
+    echo "Jekyll: $(jekyll --version 2>/dev/null || echo 'not on PATH')"
+    echo ""
+    echo "Usage:"
+    echo "  apptainer exec ig-publisher.sif java -Xmx8g -jar input-cache/publisher.jar -ig ig.ini -no-sushi"
+    echo ""
+    exec "$@"
+
+%test
+    java -version
+    ruby --version
+    /opt/bin/jekyll --version
+    python3 -c "import docx; print('python-docx OK')"
+    echo "All checks passed."

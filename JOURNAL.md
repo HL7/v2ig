@@ -717,6 +717,41 @@ Three-way comparison of V2 terminology: CH02C Word doc (published standard) vs F
 
 ---
 
+## Session Handoff - 2026-04-02
+
+### Completed This Session
+
+- **Apptainer container for remote IG Publisher builds**: Created `apptainer/ig-publisher.def` (Debian 12, Java 17, Ruby 3.2.6 from source, Jekyll, Asciidoctor). Fixed `getcwd` error by adding `cd /` before `rm -rf /tmp/ruby-build`. Image built and tested on NIST postproc-g.nist.gov.
+- **Remote build script**: `apptainer/remote-build.sh` — one-command rsync + build + fetch for subset and full builds. Uses `--delete` on rsync and `-tx n/a` to skip terminology server.
+- **Fixed IG Publisher duplicate resource scanning**: IG Publisher does NOT recurse into subdirectories for `path-resource`. Both `v2plus.xml` and `v2plus-subset.xml` had parent AND child paths listed, causing double-loading. Moved 24 parent-level JSON files (profiles, CodeSystems, ValueSets) to `input/sourceOfTruth/meta-resources/` and updated both XML files to list only leaf directories + meta-resources.
+- **Full build completed on postproc-g**: 28,215 files, 16,021 HTML pages, 8,805 StructureDefinition pages, 2.4GB output. Dramatically faster than 3.5-hour container build.
+- **SSH key infrastructure**: Added `.ssh-keys/` to `.gitignore`, updated `provision.sh` to auto-install keys from `.ssh-keys/` directory. Not needed for postproc-g (uses Kerberos) but available for future use.
+
+### Current State
+- Branch: `feature/006-sd-injection`
+- Last checkpoint: `dc8c44b` — Add session handoff: test infrastructure for persistent tooling
+- Tests: Not run (infrastructure changes)
+- **UNCOMMITTED**: .gitignore, v2plus.xml, v2plus-subset.xml, 24 moved JSON files, apptainer/ directory, provision.sh updates
+
+### Next Steps
+1. **Commit build infrastructure changes** — the meta-resources move and XML updates are critical, they fix a build-breaking bug
+2. **Time the full build on postproc-g** — need a measurement
+3. **Test subset build locally** — verify v2plus-subset.xml changes work in container
+4. **Continue vocabulary comparison work** — report review, committee presentation prep
+
+### Open Questions / Blockers
+- postproc-g uses Kerberos auth — remote builds must run from Mac host, not from container
+- IG Publisher `path-resource` behavior: confirmed non-recursive, each leaf directory must be listed explicitly
+- Missing domain pages (patient-administration, observation, order-entry) in output — need AsciiDoc preprocessing step
+
+### Relevant Context
+- postproc-g.nist.gov: 128-core AMD EPYC 7H12, 1TB RAM, 100Gbps — NIST HPC resource
+- Apptainer (not Docker/Podman) required on postproc-g — no sudo access
+- Container image already built at `~/ig-publisher.sif` on postproc-g
+- The `--delete` flag in rsync means stale files get cleaned up automatically on sync
+
+---
+
 ## Session Handoff — 2026-04-01
 
 ### Completed This Session

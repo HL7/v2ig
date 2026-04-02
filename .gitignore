@@ -1,3 +1,7 @@
+# SSH keys (never commit) #
+############################
+/.ssh-keys/
+
 # Temporary folders #
 #####################
 temp
