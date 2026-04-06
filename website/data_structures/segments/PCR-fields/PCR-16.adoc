@@ -1,0 +1,4 @@
+== PCR.16 - Product Evaluation Results (CWE)
+
+[segment-definition]
+This field contains the results of the product evaluation. Refer to Table 0674 - Product Evaluation Results in Chapter 2C for valid values.

@@ -1,0 +1,4 @@
+== PCR.9 - Single Use Device (CWE)
+
+[segment-definition]
+This field indicates whether the product was designed for a single use. Refer to {{v2-table:0244:Single Use Device}} for suggested values.

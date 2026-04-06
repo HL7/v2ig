@@ -1,0 +1,4 @@
+== PV2.39 - Recreational Drug Use Code (CWE)
+
+[segment-definition]
+This field indicates what recreational drugs the patient uses. It is used for the purpose of room assignment. Refer to {{v2-table:0431:Recreational Drug Use Code}} in Chapter 2C, Code Tables, for suggested values.

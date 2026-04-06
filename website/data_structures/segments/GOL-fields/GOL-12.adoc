@@ -1,0 +1,4 @@
+== GOL.12 - Current Goal Review Date/Time (DTM)
+
+[segment-definition]
+This field contains the date/time of the current review of the goal.

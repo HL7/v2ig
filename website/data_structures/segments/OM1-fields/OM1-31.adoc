@@ -1,0 +1,7 @@
+== OM1.31 - Observations Required to Interpret this Observation (CWE)
+
+[segment-definition]
+This field contains the list of variables that the diagnostic service needs to interpret the results of an ordered study. The observations specified here should be sent to the diagnostic service as OBX segments along with the order (OBR) segment. Separate multiple items by repeat delimiters. Refer to Table 0639 - Observations Required to Interpret this Observation in Chapter 2C for valid values.
+
+[segment-comment]
+*Note: This field is deprecated and retained for backward compatibility as of v 2.8.2. See OMC Segment.*

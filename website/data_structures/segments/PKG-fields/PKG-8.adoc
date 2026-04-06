@@ -1,0 +1,4 @@
+== PKG.8 - Global Trade Item Number (CWE)
+
+[segment-definition]
+This field contains the GTIN assigned to an item by the item manufacturer used for unique supply item identification by unit of measure within the GS1 standard.

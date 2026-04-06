@@ -1,0 +1,22 @@
+= (EVN) Segment - Event Type
+:v2type: 'Segment'
+:code: EVN
+:name: Event Type
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::EVN-fields/EVN-1.adoc[]
+
+include::EVN-fields/EVN-2.adoc[]
+
+include::EVN-fields/EVN-3.adoc[]
+
+include::EVN-fields/EVN-4.adoc[]
+
+include::EVN-fields/EVN-5.adoc[]
+
+include::EVN-fields/EVN-6.adoc[]
+
+include::EVN-fields/EVN-7.adoc[]

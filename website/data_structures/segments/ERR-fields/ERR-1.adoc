@@ -1,0 +1,7 @@
+== ERR.1 - Error Code and Location
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+Attention: The ERR-1 field *was deprecated in V2.4 and is withdrawn in V2.7*. Please refer to ERR-2 and ERR-3 instead.

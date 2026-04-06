@@ -1,0 +1,4 @@
+== AUT.16 - Clinical Service (CWE)
+
+[segment-definition]
+The authorization clinical service provides a means of categorizing the authorization. This is especially valuable for differentiating authorizations that do not have specific procedure codes associated with them. Refer to Table 0573 - Clinical Service in Chapter 2C for valid values.

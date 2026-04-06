@@ -1,0 +1,4 @@
+== PSL.9 - Product/Service Code Description (ST)
+
+[segment-definition]
+Text describing Product/Service Code in PSL.

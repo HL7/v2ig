@@ -1,0 +1,4 @@
+== ILT.7 - Inventory Received Item Cost (MO)
+
+[segment-definition]
+This field contains the per-unit cost of the inventory item at the time of receipt. _ILT-6 Inventory Received Quantity Unit_ field specifies the per-unit basis of this field.

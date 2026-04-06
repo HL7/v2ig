@@ -1,0 +1,4 @@
+== TQ1.11 - Text instruction (TX)
+
+[segment-definition]
+This field is a full text version of the instruction (optional).

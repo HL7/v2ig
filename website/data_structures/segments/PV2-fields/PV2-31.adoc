@@ -1,0 +1,4 @@
+== PV2.31 - Recurring Service Code (CWE)
+
+[segment-definition]
+This field indicates whether the treatment is continuous. Refer to {{v2-table:0219:Recurring Service}} in Chapter 2C, Code Tables, for suggested values.

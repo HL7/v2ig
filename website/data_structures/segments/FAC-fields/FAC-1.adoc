@@ -1,0 +1,4 @@
+== FAC.1 - Facility ID-FAC (EI)
+
+[segment-definition]
+This field contains the facility identifier.

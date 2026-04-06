@@ -1,0 +1,30 @@
+= (VND) Segment - Purchasing Vendor
+:v2type: 'Segment'
+:code: VND
+:name: Purchasing Vendor
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::VND-fields/VND-1.adoc[]
+
+include::VND-fields/VND-2.adoc[]
+
+include::VND-fields/VND-3.adoc[]
+
+include::VND-fields/VND-4.adoc[]
+
+include::VND-fields/VND-5.adoc[]
+
+include::VND-fields/VND-6.adoc[]
+
+include::VND-fields/VND-7.adoc[]
+
+include::VND-fields/VND-8.adoc[]
+
+include::VND-fields/VND-9.adoc[]
+
+include::VND-fields/VND-10.adoc[]
+
+include::VND-fields/VND-11.adoc[]

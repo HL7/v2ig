@@ -1,0 +1,4 @@
+== PDC.2 - Country (CWE)
+
+[segment-definition]
+This field contains the country to which this product detail is relevant. ISO 3166 provides a list of country codes that may be used. Refer to Table 0675 - Country in Chapter 2C for valid values.

@@ -1,0 +1,30 @@
+= (RXC) Segment - Pharmacy/Treatment Component Order
+:v2type: 'Segment'
+:code: RXC
+:name: Pharmacy/Treatment Component Order
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::RXC-fields/RXC-1.adoc[]
+
+include::RXC-fields/RXC-2.adoc[]
+
+include::RXC-fields/RXC-3.adoc[]
+
+include::RXC-fields/RXC-4.adoc[]
+
+include::RXC-fields/RXC-5.adoc[]
+
+include::RXC-fields/RXC-6.adoc[]
+
+include::RXC-fields/RXC-7.adoc[]
+
+include::RXC-fields/RXC-8.adoc[]
+
+include::RXC-fields/RXC-9.adoc[]
+
+include::RXC-fields/RXC-10.adoc[]
+
+include::RXC-fields/RXC-11.adoc[]

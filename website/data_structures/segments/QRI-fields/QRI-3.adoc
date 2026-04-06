@@ -1,0 +1,9 @@
+== QRI.3 - Algorithm Descriptor (CWE)
+
+[segment-definition]
+This field contains a text value indicating the name or identity of the specific search algorithm to which the _RCP-5 Search confidence threshold_ and the _QRI-1 Candidate confidence_ refer. Note that there are sometimes significant differences among the algorithms in their numeric scales (e.g., one is 0-100, another might be 10 – 20) as well as their meanings of the same value (two algorithms with an 80% match might not return the same records). Refer to {{v2-table:0393:Match algorithms}}_ in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+Example: |MATCHWARE_1.2^^HL70393| or |LINKSOFT_2.01^^HL70393|
+
+One use of this optional field is in Patient Look-up transactions where the searching system employs a numeric algorithm for determining potential matches to patient/person look-ups.

@@ -1,0 +1,4 @@
+== REL.16 - Separability Indicator (ID)
+
+[segment-definition]
+This field indicates whether source and target can be interpreted independently. Refer to {{v2-table:0136:Yes/no Indicator}}, as defined in Chapter 2C, Code Tables.

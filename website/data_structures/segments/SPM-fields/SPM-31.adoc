@@ -1,0 +1,4 @@
+== SPM.31 - Other Specimen ID (CX)
+
+[segment-definition]
+This field contains other identifier(s) for the specimen as referenced in an application. Normally this field is used to carry additional identifiers for the specimen in addition to those identified in _SPM-2, Specimen ID_. In may cases other applications involved in the collection, transportation or testing of the specimen will assign additional specimen identifiers. This field allows communication of those other specimen identifiers.

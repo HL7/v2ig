@@ -1,0 +1,7 @@
+== MSH.27 - Security Handling Instructions (CWE)
+
+[segment-definition]
+This field is repeatable and conveys instructions to users and receivers for secure distribution, transmission, and storage; dictate obligations or mandated actions; specify any action prohibited by refrain policy such as dissemination controls; and stipulate the permissible purpose of use of an IT resource.
+
+[segment-comment]
+Refer to _Externally define HL7 Table 0953 – Security Control_ in Chapter 2C, Code Tables, for suggested values.

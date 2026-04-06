@@ -1,0 +1,4 @@
+== PV1.3 - Assigned Patient Location (PL)
+
+[segment-definition]
+This field contains the patient's initial assigned location or the location to which the patient is being moved. The first component may be the nursing station for inpatient locations, or clinic or department, for locations other than inpatient. For canceling a transaction or discharging a patient, the current location (after the cancellation event or before the discharge event) should be in this field. If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.

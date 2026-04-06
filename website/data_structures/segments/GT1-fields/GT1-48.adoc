@@ -1,0 +1,4 @@
+== GT1.48 - Contact Relationship (CWE)
+
+[segment-definition]
+Identifies the guarantor relationship to the contact person specified above. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values. Examples include wife, attorney, power of attorney, self, and organization.

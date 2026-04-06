@@ -1,0 +1,4 @@
+== IVC.12 - Attention (XCN)
+
+[segment-definition]
+Attention to individual in Payer Organization who needs to review this Invoice.

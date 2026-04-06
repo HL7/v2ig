@@ -1,0 +1,4 @@
+== PV2.1 - Prior Pending Location (PL)
+
+[segment-definition]
+This field is required for cancel pending transfer (A26) messages. In all other events it is optional.

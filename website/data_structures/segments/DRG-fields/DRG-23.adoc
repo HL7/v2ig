@@ -1,0 +1,4 @@
+== DRG.23 - Total Charge (MO)
+
+[segment-definition]
+This field contains the total charge including surcharges or discounts.

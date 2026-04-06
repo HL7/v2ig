@@ -1,0 +1,9 @@
+== PM1.17 - Patient Name Required (ID)
+
+[segment-definition]
+This field indicates whether this insurance carrier requires a patient name on all requests. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y Patient’s name Required
+
+N Patient’s name Not Required

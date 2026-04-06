@@ -1,0 +1,9 @@
+== MCP.3 - Universal Service Price Range – Low Value (MO)
+
+[segment-definition]
+Specifies the lowest price for the Universal Service that needs to be disclosed on the payer notification to the patient (for example Medicare ABN). If there is a single price for this Universal Service Identifier, MCP-3 is not valued.
+
+[segment-comment]
+Components:  <Quantity (NM)> ^ <Denomination (ID)>
+
+Example: MCP|||35.00^USD|75.00^USD

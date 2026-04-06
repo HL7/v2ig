@@ -1,0 +1,4 @@
+== BUI.9 - BUI-9 (ST)
+
+[segment-definition]
+The lot number for the collection bag container as assigned by the container manufacturer.

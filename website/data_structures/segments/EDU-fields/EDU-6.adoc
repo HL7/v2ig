@@ -1,0 +1,4 @@
+== EDU.6 - School (XON)
+
+[segment-definition]
+This field contains the official name of the academic institution that granted the degree to the Staff Member.

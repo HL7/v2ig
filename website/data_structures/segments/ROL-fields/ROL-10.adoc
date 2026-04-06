@@ -1,0 +1,4 @@
+== ROL.10 - Organization Unit Type (CWE)
+
+[segment-definition]
+// TODO: Add field definition

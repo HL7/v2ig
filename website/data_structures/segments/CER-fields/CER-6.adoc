@@ -1,0 +1,4 @@
+== CER.6 - Signature (ED)
+
+[segment-definition]
+Digital Signature of the certifying authority. The Digital Signature includes a seal concept and is verifiable.

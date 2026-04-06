@@ -1,0 +1,7 @@
+== PRT.6 - Person Provider Type (CWE)
+
+[segment-definition]
+This field contains a code identifying the provider type for the participating person. This attribute correlates to the following master file attribute: _STF-4 Staff Type_. Coded values from the correlated master file table are used; the user defined master file table is used as the coding system for this attribute. For example, if you are using values from _STF-2 Staff Type_, the coding system would be HL70182 which is the table number for the user defined Staff Type table. This field is included in this segment to support international requirements. When ROL is used in an encounter message, it is not intended as a master file update.
+
+[segment-comment]
+Condition: This field may only be valued if _PRT-5 Person_ is valued.

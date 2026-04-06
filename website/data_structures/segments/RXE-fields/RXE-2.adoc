@@ -1,0 +1,13 @@
+== RXE.2 - Give Code (CWE)
+
+[segment-definition]
+This field identifies the medical substance or treatment that has been ordered to be given to the patient, as encoded by the pharmacy or treatment supplier; it is equivalent to _OBR-4-universal service ID_ in function. In the RXE segment, this give code must be fully encoded. The dispense fields, which define the units and amount of what is to be issued to the patient (see _RXE-10-dispense amount_ and _RXE-11-dispense units_ below) do not necessarily correlate with the instructions of what amount is to be "given" or administered with each dose, and may or may not be specified with the order. For example, the "give" part of the order may convey the field-representation of _give 250 mg of Ampicillin_, while the request to dispense part of the order may convey _issue 30 tablets of generic equivalent for this outpatient prescription_.
+
+[segment-comment]
+The coding system used is conditional on both the nature of the medical substance or treatment ordered and site-specific implementation considerations. For vaccines, {{v2-table:0292:Vaccines Administered}} is the preferred coding system. For non-vaccine products, the coding system may be a local implementation of {{v2-table:0479:Pharmaceutical Substances}} or an external coding system. Examples of external coding systems include, but are not limited to, National Drug Codes (NDC), Medispan Generic Product Identifier (MGPI), Drug Descriptor Identifier (DDID), and other drug codes listed in {{v2-table:0396:Coding Systems}}. The following examples illustrate some code tables other than User-defined Table 0479:
+
+NDC: 0006915404^Norvasc 10mg Tabs^NDC
+
+DDID: 015189^Norvasc 10mg Tabs^DDID
+
+CVX (HL70292): 30^HBIG^CVX

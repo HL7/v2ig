@@ -1,0 +1,9 @@
+== PM1.20 - Workman's Comp Indicator (ID)
+
+[segment-definition]
+This field indicates whether this insurance carrier requires workman compensation to be identified. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y Workman compensation idenfication Required
+
+N Workman compensation idenfication Not Required

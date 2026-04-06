@@ -1,0 +1,13 @@
+== PSL.13 - Product/Service Unit Cost (CP)
+
+[segment-definition]
+This field contains the cost per unit either in monetary amount or in points.
+
+[segment-comment]
+Examples:
+
+{empty}1. Qty * cost/unit = gross amount
+
+{empty}2. Qty * cost/unit * factor = gross amount
+
+{empty}3. Qty * cost/point * factor * points = gross amount

@@ -1,0 +1,16 @@
+= (PCE) Segment - Patient Charge Cost Center Exception
+:v2type: 'Segment'
+:code: PCE
+:name: Patient Charge Cost Center Exception
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PCE-fields/PCE-1.adoc[]
+
+include::PCE-fields/PCE-2.adoc[]
+
+include::PCE-fields/PCE-3.adoc[]
+
+include::PCE-fields/PCE-4.adoc[]

@@ -1,0 +1,4 @@
+== CER.3 - Version (ST)
+
+[segment-definition]
+The version number differentiates among different versions of the attribute certificate.

@@ -1,0 +1,4 @@
+== IN3.15 - Certification Contact (ST)
+
+[segment-definition]
+This field contains the name of the party contacted at the certification agency who granted the certification and communicated the certification number.

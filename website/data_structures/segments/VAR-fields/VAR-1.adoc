@@ -1,0 +1,4 @@
+== VAR.1 - Variance Instance ID (EI)
+
+[segment-definition]
+This field contains the unique identifier of the specific variance record.

@@ -1,0 +1,9 @@
+== PDA.6 - Autopsy Indicator (ID)
+
+[segment-definition]
+This field indicates whether an autopsy was performed. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y an autopsy was performed
+
+N an autopsy was not performed

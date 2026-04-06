@@ -1,0 +1,4 @@
+== PID.7 - Date/Time of Birth (DTM)
+
+[segment-definition]
+This field contains the patient's date and time of birth.

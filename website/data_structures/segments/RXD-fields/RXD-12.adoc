@@ -1,0 +1,7 @@
+== RXD.12 - Total Daily Dose (CQ)
+
+[segment-definition]
+This field contains the total daily dose being dispensed as expressed in terms of the actual dispense units.
+
+[segment-comment]
+*Note:* The next two fields are equivalent to the corresponding fields of the RXE segment. They are included (optionally) in the RXD so that it may "stand alone" as a dispense result instruction segment.

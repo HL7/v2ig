@@ -1,0 +1,4 @@
+== ORC.28 - Confidentiality Code (CWE)
+
+[segment-definition]
+This field contains information about the level of security and/or sensitivity surrounding the order (e.g., highly sensitive, not sensitive, sensitive, etc.). Refer to {{v2-table:0177:Confidentiality Code}} in Chapter 2C, Code Tables, for allowed values. The specific treatment of data with a particular confidentiality level is subject to site-specific negotiation.

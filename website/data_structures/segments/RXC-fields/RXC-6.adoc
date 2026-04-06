@@ -1,0 +1,4 @@
+== RXC.6 - Component Strength Units (CWE)
+
+[segment-definition]
+Use when _RXC-2-component code_ does not specify the strength. This is the unit of the strength, used in combination with _RXC-5-component strength_. Refer to Table 0699 - Component Strength Units in Chapter 2C for valid values.*Note:* These units can be a "compound quantity;" i.e., the units may express a quantity per unit of time. For example, micrograms per hour (micg/h) is an acceptable value. These compound units are contained in the ISO+ table. See Chapter 7 for full definition of ISO+ units.

@@ -1,0 +1,7 @@
+== SPM.2 - Specimen Identifier (EIP)
+
+[segment-definition]
+This field contains a unique identifier for the specimen as referenced by the Placer application, the Filler application, or both.
+
+[segment-comment]
+This field is not required, as there are use cases in which a unique specimen identifier may not exist. In the first scenario, a placer application may initiate an observation request against an existing specimen without uniquely identifying the specimen. Additionally, in the case of the TCU_U10 message structure, used in Automated equipment test code settings messages, the SPM segment is used to define required characteristics of the specimen. As such, TCU_U10 uses SPM to define a virtual specimen, and a specific specimen identifier would not exist. Filler applications would be expected to assign a Specimen Identifier and populate this field accordingly.

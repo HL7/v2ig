@@ -1,0 +1,4 @@
+== IN1.56 - Subsidized Health Program Beneficiary Identifier (CX)
+
+[segment-definition]
+// TODO: Add field definition

@@ -1,0 +1,4 @@
+== OBX.16 - Responsible Observer (XCN)
+
+[segment-definition]
+*_Retained for backwards compatibility as of v 2.7 only. This field is now represented through the PRT segment._* When required, this field contains the identifier of the individual directly responsible for the observation (i.e., the person who either performed or verified it). In a nursing service, the observer is usually the professional who performed the observation (e.g., took the blood pressure). In a laboratory, the observer is the technician who performed or verified the analysis. The code for the observer is recorded as a CWE data type. If the code is sent as a local code, it should be unique and unambiguous when combined with _OBX-15-producer ID_.

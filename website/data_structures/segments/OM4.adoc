@@ -1,0 +1,44 @@
+= (OM4) Segment - Observations That Require Specimens
+:v2type: 'Segment'
+:code: OM4
+:name: Observations That Require Specimens
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::OM4-fields/OM4-1.adoc[]
+
+include::OM4-fields/OM4-2.adoc[]
+
+include::OM4-fields/OM4-3.adoc[]
+
+include::OM4-fields/OM4-4.adoc[]
+
+include::OM4-fields/OM4-5.adoc[]
+
+include::OM4-fields/OM4-6.adoc[]
+
+include::OM4-fields/OM4-7.adoc[]
+
+include::OM4-fields/OM4-8.adoc[]
+
+include::OM4-fields/OM4-9.adoc[]
+
+include::OM4-fields/OM4-10.adoc[]
+
+include::OM4-fields/OM4-11.adoc[]
+
+include::OM4-fields/OM4-12.adoc[]
+
+include::OM4-fields/OM4-13.adoc[]
+
+include::OM4-fields/OM4-14.adoc[]
+
+include::OM4-fields/OM4-15.adoc[]
+
+include::OM4-fields/OM4-16.adoc[]
+
+include::OM4-fields/OM4-17.adoc[]
+
+include::OM4-fields/OM4-18.adoc[]

@@ -1,0 +1,4 @@
+== SCD.33 - Patient Identifier List (CX)
+
+[segment-definition]
+The unique identifier associating the patient with the supplies being sterilized.

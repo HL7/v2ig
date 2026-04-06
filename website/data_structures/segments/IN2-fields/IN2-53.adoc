@@ -1,0 +1,4 @@
+== IN2.53 - Insured's Contact Person Phone Number (XTN)
+
+[segment-definition]
+This field contains the telephone number for the contact person for the insured. Multiple phone numbers for the same person may be sent in this contact, not multiple contacts. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

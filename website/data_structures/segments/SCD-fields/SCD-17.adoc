@@ -1,0 +1,4 @@
+== SCD.17 - Under Temperature (CQ)
+
+[segment-definition]
+The temperature reached during a cycle, which fell below the required temperature range.

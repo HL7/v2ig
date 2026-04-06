@@ -1,0 +1,4 @@
+== INV.4 - INV-4 (CWE)
+
+[segment-definition]
+Identifies the inventory container, e.g., unique identifier of a specific package instance of a specific substance. This is a manufacturer-specific identifier.Refer to Table 0599 - Inventory Container Identifier in Chapter 2C for valid values.

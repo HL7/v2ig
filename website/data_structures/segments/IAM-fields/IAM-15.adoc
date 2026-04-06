@@ -1,0 +1,4 @@
+== IAM.15 - Relationship to Patient Code (CWE)
+
+[segment-definition]
+This field contains the personal relationship that the person reporting the allergy has to the patient. It uses the same table as that used by NK1-3. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values. Examples include: brother, sister, mother, father, friend, spouse, etc.

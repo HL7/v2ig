@@ -1,0 +1,4 @@
+== SAC.22 - SAC-22 (NM)
+
+[segment-definition]
+This field identifies the current specimen volume available for use in this container in the units specified below.

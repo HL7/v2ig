@@ -1,0 +1,4 @@
+== BPX.4 - BPX-4 (DTM)
+
+[segment-definition]
+This field indicates the date and time that the status of the blood component was changed. For example, if the blood component had a status, of "RD" (Ready to Dispense), the date and time in this field would indicate the date and time that component was made ready to dispense by the filler system.

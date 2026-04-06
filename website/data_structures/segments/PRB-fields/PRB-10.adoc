@@ -1,0 +1,4 @@
+== PRB.10 - Problem Classification (CWE)
+
+[segment-definition]
+This field indicates the kind of problem. This field can be used to categorize problems so that they may be managed and viewed independently within different applications (e.g., admission, final, post-operative, pre-operative, outpatient, discharge, etc.).

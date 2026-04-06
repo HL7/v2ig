@@ -1,0 +1,4 @@
+== PR1.13 - Consent Code (CWE)
+
+[segment-definition]
+This field contains the type of consent that was obtained for permission to treat the patient. Refer to {{v2-table:0059:Consent Code}} in Chapter 2C, Code Tables, for suggested values.

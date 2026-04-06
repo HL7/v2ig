@@ -1,0 +1,4 @@
+== NTE.1 - Set ID - NTE (SI)
+
+[segment-definition]
+This field MAY be used where multiple NTE segments are included in a message. Their numbering must be described in the application message definition.

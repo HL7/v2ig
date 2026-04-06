@@ -1,0 +1,4 @@
+== FT1.40 - Service Provider Taxonomy Code (CWE)
+
+[segment-definition]
+This field contains the Taxonomy code for the Service Provider. It allows the provider to identify their specialty category for the particular service.

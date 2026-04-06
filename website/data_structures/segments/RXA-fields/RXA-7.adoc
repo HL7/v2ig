@@ -1,0 +1,4 @@
+== RXA.7 - Administered Units (CWE)
+
+[segment-definition]
+This field is conditional because it is required if the administered amount code does not imply units. This field must be in simple units that reflect the actual quantity of the substance administered. It does not include compound units. Refer to Table 0689 - Administered Units in Chapter 2C for valid values.

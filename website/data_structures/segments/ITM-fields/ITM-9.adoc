@@ -1,0 +1,4 @@
+== ITM.9 - Manufacturer Catalog Number (ST)
+
+[segment-definition]
+This field contains the catalog assigned to the item by the manufacturer.

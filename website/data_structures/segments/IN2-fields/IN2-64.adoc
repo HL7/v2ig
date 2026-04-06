@@ -1,0 +1,4 @@
+== IN2.64 - Insured's Employer Phone Number (XTN)
+
+[segment-definition]
+The value of this field represents the insured's employer's telephone number. Multiple phone numbers may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

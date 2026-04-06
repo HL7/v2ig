@@ -1,0 +1,4 @@
+== ACC.13 - Accident Identifier (EI)
+
+[segment-definition]
+This field contains the identifier of the accident report assigned by a jurisdiction that is required in the insurance accident claim.

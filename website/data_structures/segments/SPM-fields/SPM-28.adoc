@@ -1,0 +1,7 @@
+== SPM.28 - Container Condition (CWE)
+
+[segment-definition]
+In chain of custody cases where specimens are moved from lab to lab, the status of the container that the specimen is shipped in must be recorded at each receipt. If the container is compromised in any way (seal broken, container cracked or leaking, etc) then this needs to be recorded for legal reasons.
+
+[segment-comment]
+Refer to {{v2-table:0544:Container Condition}} for suggested values.

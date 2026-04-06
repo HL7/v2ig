@@ -1,0 +1,50 @@
+= (BTX) Segment - Blood Product Transfusion/Disposition
+:v2type: 'Segment'
+:code: BTX
+:name: Blood Product Transfusion/Disposition
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::BTX-fields/BTX-1.adoc[]
+
+include::BTX-fields/BTX-2.adoc[]
+
+include::BTX-fields/BTX-3.adoc[]
+
+include::BTX-fields/BTX-4.adoc[]
+
+include::BTX-fields/BTX-5.adoc[]
+
+include::BTX-fields/BTX-6.adoc[]
+
+include::BTX-fields/BTX-7.adoc[]
+
+include::BTX-fields/BTX-8.adoc[]
+
+include::BTX-fields/BTX-9.adoc[]
+
+include::BTX-fields/BTX-10.adoc[]
+
+include::BTX-fields/BTX-11.adoc[]
+
+include::BTX-fields/BTX-12.adoc[]
+
+include::BTX-fields/BTX-13.adoc[]
+
+include::BTX-fields/BTX-14.adoc[]
+
+include::BTX-fields/BTX-15.adoc[]
+
+include::BTX-fields/BTX-16.adoc[]
+
+include::BTX-fields/BTX-17.adoc[]
+
+include::BTX-fields/BTX-18.adoc[]
+
+include::BTX-fields/BTX-19.adoc[]
+
+include::BTX-fields/BTX-20.adoc[]
+
+include::BTX-fields/BTX-21.adoc[]

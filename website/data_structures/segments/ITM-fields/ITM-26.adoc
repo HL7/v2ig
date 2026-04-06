@@ -1,0 +1,4 @@
+== ITM.26 - Track Department Usage Indicator (CNE)
+
+[segment-definition]
+This field contains an indicator signifying whether the usage figures are tracked for this item by department. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

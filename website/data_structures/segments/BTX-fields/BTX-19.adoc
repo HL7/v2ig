@@ -1,0 +1,4 @@
+== BTX.19 - BTX-19 (CWE)
+
+[segment-definition]
+This field contains the reason that the transfusion of the blood product was interrupted. Refer to {{v2-table:0515:Transfusion Interrupted Reason}} in Chapter 2C, Code Tables, for suggested values.

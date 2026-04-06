@@ -1,0 +1,4 @@
+== IVT.19 - Substitute Item Identifier (EI)
+
+[segment-definition]
+The substitute item is an item that is recommended as a substitute for the corresponding item in ITM-1.

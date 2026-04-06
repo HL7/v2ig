@@ -1,0 +1,11 @@
+== PD1.12 - Protection Indicator (ID)
+
+[segment-definition]
+*From V2.6 onward, this field has been retained for backward compatibility only.* Use the ARV segment instead. This field identifies the patient's protection that determines, in turn, whether access to information about this person should be kept from users who do not have adequate authority for the patient. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y protect access to information
+
+N normal access
+
+Refer to _PV2-22 - Visit Protection Indicator_ for visit level code.

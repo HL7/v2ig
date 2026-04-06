@@ -1,0 +1,4 @@
+== STF.7 - Active/Inactive Flag (ID)
+
+[segment-definition]
+This field indicates whether person is currently a valid staff member. Refer to {{v2-table:0183:Active/Inactive}}_ in Chapter 2C, Code Tables, for valid values. This table contains values for active or inactive.

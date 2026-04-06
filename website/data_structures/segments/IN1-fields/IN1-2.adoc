@@ -1,0 +1,7 @@
+== IN1.2 - Health Plan ID (CWE)
+
+[segment-definition]
+This field contains a unique identifier for the insurance plan. Refer to {{v2-table:0072:Insurance Plan ID}} in Chapter 2C, Code Tables, for suggested values. To eliminate a plan, the plan could be sent with Delete Indication values in each subsequent element. If the respective systems can support it, a Delete Indication value can be sent in the plan field.
+
+[segment-comment]
+The assigning authority for _IN1-2, Health Plan ID_ is assumed to be the Entity named in _IN1-3, Insurance Company ID_.

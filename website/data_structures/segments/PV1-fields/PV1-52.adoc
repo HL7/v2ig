@@ -1,0 +1,4 @@
+== PV1.52 - Other Healthcare Provider
+
+[segment-definition]
+*The PV1-52 field was retained for backward compatibility only as of v 2.4 and withdrawn as of v 2.7.* The reader is advised to use the PRT segment to communicate providers not specified elsewhere. Refer to Chapter 7 for the definition of the PRT segment.

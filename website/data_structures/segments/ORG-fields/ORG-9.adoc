@@ -1,0 +1,4 @@
+== ORG.9 - Effective Date Range (DR)
+
+[segment-definition]
+This field contains the date range in which the practitioner started and ended working at the specific organization unit in the specific practicing specialty category.

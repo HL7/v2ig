@@ -1,0 +1,4 @@
+== IAM.23 - Initially Recorded by Person (XCN)
+
+[segment-definition]
+This field identifies the user that created the entry in the record stating the allergy (e.g. ...| S12345^Smith^John^J^III^DR^MD|...).

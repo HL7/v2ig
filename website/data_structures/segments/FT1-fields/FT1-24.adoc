@@ -1,0 +1,4 @@
+== FT1.24 - Entered By Code (XCN)
+
+[segment-definition]
+This field identifies the composite number/name of the person who entered the insurance information.

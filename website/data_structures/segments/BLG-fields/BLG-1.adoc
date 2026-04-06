@@ -1,0 +1,4 @@
+== BLG.1 - When to Charge (CCD)
+
+[segment-definition]
+This field specifies when to charge for the ordered service. Refer to {{v2-table:0100:Invocation event}} in Chapter 2C, Code Tables, for valid values.

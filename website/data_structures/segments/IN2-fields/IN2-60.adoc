@@ -1,0 +1,4 @@
+== IN2.60 - Policy Source (CWE)
+
+[segment-definition]
+This user-defined field identifies how the policy information got established. Refer to {{v2-table:0313:Policy Source}} in Chapter 2C, Code Tables, for suggested values.

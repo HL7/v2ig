@@ -1,0 +1,4 @@
+== IVT.17 - Reusable Item Indicator (CNE)
+
+[segment-definition]
+This field contains an indicator signifying that the inventory supply item is reusable, for example, after sterilization. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.

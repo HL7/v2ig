@@ -1,0 +1,4 @@
+== REL.4 - Source Information Instance Identifier (EI)
+
+[segment-definition]
+This field contains the Instance ID of the Source Segment.

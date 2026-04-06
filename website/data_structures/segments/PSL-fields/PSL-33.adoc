@@ -1,0 +1,4 @@
+== PSL.33 - Side of body (CWE)
+
+[segment-definition]
+Left / right. Refer to {{v2-table:0894:Side of Body}} in Chapter 2C, Code Tables, for suggested values.

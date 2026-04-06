@@ -1,0 +1,4 @@
+== ERR.11 - Override Reason Code (CWE)
+
+[segment-definition]
+Provides a list of potential override codes that can be used to override enforcement of the application rule that generated the error. Refer to {{v2-table:0519:Override Reason}} in Chapter 2C, Code Tables, for suggested values.

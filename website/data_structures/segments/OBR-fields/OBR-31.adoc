@@ -1,0 +1,7 @@
+== OBR.31 - Reason for Study (CWE)
+
+[segment-definition]
+This field is the code or text using the conventions for coded fields given in the Control chapter (Chapter 2). This is required for some studies to obtain proper reimbursement.
+
+[segment-comment]
+Refer {{v2-table:0951:Reason for Study}} in Chapter 2C, Code Tables__.__

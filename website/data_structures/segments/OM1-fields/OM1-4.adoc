@@ -1,0 +1,11 @@
+== OM1.4 - Specimen Required (ID)
+
+[segment-definition]
+This field contains a flag indicating whether or not at least one specimen is required for the service/test/observation. Refer to {{v2-table:0136:Yes/no Indicator}} as defined in Chapter 2C, Code Tables.
+
+[segment-comment]
+Y one or more specimens are required to obtain this observation
+
+N a specimen is not required
+
+When a specimen is required, segment OM4 will usually be included (one per specimen is required).

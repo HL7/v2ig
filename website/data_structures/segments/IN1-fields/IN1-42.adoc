@@ -1,0 +1,4 @@
+== IN1.42 - Insured's Employment Status (CWE)
+
+[segment-definition]
+This field holds the employment status of the insured. Refer to {{v2-table:0066:Employment Status}} in Chapter 2C, Code Tables, for suggested values. This field contains UB92 field 64. For this field element, values from the US CMS UB92 and others are used.

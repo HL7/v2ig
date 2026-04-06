@@ -1,0 +1,4 @@
+== OBX.30 - Observation Sub-Type (ID)
+
+[segment-definition]
+The result sub-type provides further classification of OBX-29 Observation Type. This may aid in the grouping of OBX-segments. See {{v2-table:0937:Observation Sub-Type}} in Chapter 2C, Code Tables, for a set of valid values.

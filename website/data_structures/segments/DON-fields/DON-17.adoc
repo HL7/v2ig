@@ -1,0 +1,4 @@
+== DON.17 - Intended Recipient DOB (DTM)
+
+[segment-definition]
+If this donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s date of birth.

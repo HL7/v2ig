@@ -1,0 +1,4 @@
+== DON.11 - Donor Eligibility Date (DTM)
+
+[segment-definition]
+The date and time on which the donor is eligible to donate.

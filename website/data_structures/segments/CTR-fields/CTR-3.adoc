@@ -1,0 +1,4 @@
+== CTR.3 - Contract Status (CWE)
+
+[segment-definition]
+The status (useful for determining whether the contract price should be used for ordering) that applies to the contract. Refer to {{v2-table:0536:Certificate Status}} in Chapter 2C, Code Tables, for suggested values.

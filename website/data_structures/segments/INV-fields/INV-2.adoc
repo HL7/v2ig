@@ -1,0 +1,7 @@
+== INV.2 - INV-2 (CWE)
+
+[segment-definition]
+The status of the inventoried item. The status indicates the current status of the substance. Refer to {{v2-table:0383:Substance Status}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+This field is conditional. It is optional in queries INR^U14 and required in all other messages. Absence of this field in a query means that the result shall be not filtered on inventory item status.

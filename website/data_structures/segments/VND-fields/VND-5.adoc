@@ -1,0 +1,4 @@
+== VND.5 - Primary Vendor Indicator (CNE)
+
+[segment-definition]
+This field contains an indicator to communicate whether this purchasing vendor is the primary vendor used to place orders for inventory supply item. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

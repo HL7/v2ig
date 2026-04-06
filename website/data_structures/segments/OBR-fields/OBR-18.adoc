@@ -1,0 +1,4 @@
+== OBR.18 - Placer Field 1 (ST)
+
+[segment-definition]
+This field is user field #1. Text sent by the placer will be returned with the results.

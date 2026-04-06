@@ -1,0 +1,4 @@
+== OM1.11 - Preferred Long Name for the Observation (ST)
+
+[segment-definition]
+This field contains the fully-specified name for the observation or battery. It may include the full (unabbreviated) multiple-word names and contain up to 200 characters. It should be as scientifically precise as possible.

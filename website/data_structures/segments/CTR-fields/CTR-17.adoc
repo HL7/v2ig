@@ -1,0 +1,4 @@
+== CTR.17 - Parent of Corporation (XON)
+
+[segment-definition]
+This field contains the parent of the corporation sent in CTR-17 such as an integrated delivery network.

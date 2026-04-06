@@ -1,0 +1,4 @@
+== PV1.19 - Visit Number (CX)
+
+[segment-definition]
+For backward compatibility, a NM data type may be sent, but HL7 recommends that new implementations use the CX data type**.** This field contains the unique number assigned to each patient visit. The assigning authority and identifier type code are strongly recommended for all CX data types.

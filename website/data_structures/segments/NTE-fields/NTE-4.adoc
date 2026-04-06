@@ -1,0 +1,7 @@
+== NTE.4 - Comment Type (CWE)
+
+[segment-definition]
+This field contains a value to identify the type of comment text being sent in the specific comment record. Refer to {{v2-table:0364:Comment Type}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+Note: A field already exists on the NTE record that identifies the Sources of Comment (e.g., ancillary, placer, other). However some applications need to support other types of comment text (e.g., instructions, reason, remarks, etc.). A separate NTE segment can be used for each type of comment (e.g., instructions are on one NTE and remarks on another NTE).

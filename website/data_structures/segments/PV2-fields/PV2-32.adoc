@@ -1,0 +1,9 @@
+== PV2.32 - Billing Media Code (ID)
+
+[segment-definition]
+This field indicates if the account is to be rejected from tape billing. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y reject account from tape billing
+
+N normal processing

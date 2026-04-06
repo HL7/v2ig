@@ -1,0 +1,4 @@
+== DRG.16 - Monetary Amount (MO)
+
+[segment-definition]
+This field contains the monetary amount as calculated for this DRG, i.e., the sum of money the insurance company will pay.

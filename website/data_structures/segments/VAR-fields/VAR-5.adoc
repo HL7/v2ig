@@ -1,0 +1,4 @@
+== VAR.5 - Variance Classification (CWE)
+
+[segment-definition]
+This field identifies a categorical set of variances. Classification may be used by applications for presentation and processing functions.

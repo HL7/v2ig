@@ -1,0 +1,7 @@
+== RQ1.6 - Taxable (ID)
+
+[segment-definition]
+This field indicates whether this item is subject to tax.
+
+[segment-comment]
+In general, non-stock requisitioned items will be printed by the receiving application and then processed by a human. In other words, the human will use the information to call the vendor or manufacturer to get pricing and other related purchasing information before placing the order with an outside vendor. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables.

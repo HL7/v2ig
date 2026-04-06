@@ -1,0 +1,34 @@
+= (ORG) Segment - Practitioner Organization Unit
+:v2type: 'Segment'
+:code: ORG
+:name: Practitioner Organization Unit
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ORG-fields/ORG-1.adoc[]
+
+include::ORG-fields/ORG-2.adoc[]
+
+include::ORG-fields/ORG-3.adoc[]
+
+include::ORG-fields/ORG-4.adoc[]
+
+include::ORG-fields/ORG-5.adoc[]
+
+include::ORG-fields/ORG-6.adoc[]
+
+include::ORG-fields/ORG-7.adoc[]
+
+include::ORG-fields/ORG-8.adoc[]
+
+include::ORG-fields/ORG-9.adoc[]
+
+include::ORG-fields/ORG-10.adoc[]
+
+include::ORG-fields/ORG-11.adoc[]
+
+include::ORG-fields/ORG-12.adoc[]
+
+include::ORG-fields/ORG-13.adoc[]

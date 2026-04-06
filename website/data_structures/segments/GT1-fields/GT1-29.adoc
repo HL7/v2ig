@@ -1,0 +1,7 @@
+== GT1.29 - Guarantor Employer ID Number (CX)
+
+[segment-definition]
+This is a code that uniquely identifies the guarantor's employer when the employer is a person. It may be a user-defined code or a code defined by a government agency (Federal Tax ID#).
+
+[segment-comment]
+When further breakdowns of employer information are needed, such as a division or plant, it is recommended that the coding scheme incorporate the relationships (e.g., define separate codes for each division). The assigning authority and identifier type code are strongly recommended for all CX data types.

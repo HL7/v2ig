@@ -1,0 +1,4 @@
+== ADJ.1 - Provider Adjustment Number (EI)
+
+[segment-definition]
+Unique Adjustment Number assigned by the Provider Application.

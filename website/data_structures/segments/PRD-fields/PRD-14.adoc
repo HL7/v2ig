@@ -1,0 +1,4 @@
+== PRD.14 - Provider Organization Method of Contact (CWE)
+
+[segment-definition]
+This field contains the preferred method to use when communicating with the provider if provider is an organization. Refer to {{v2-table:0185:Preferred Method of Contact}} in Chapter 2C, "Code Tables", for suggested values.

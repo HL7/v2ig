@@ -1,0 +1,4 @@
+== PV1.54 - Service Episode Identifier (CX)
+
+[segment-definition]
+This field contains the identifier of a Service Episode in or for which the visit occurs.

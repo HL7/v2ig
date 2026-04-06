@@ -1,0 +1,4 @@
+== TCD.5 - TCD-5 (SN)
+
+[segment-definition]
+This field represents the rest concentration of the measured test in the diluent. It is the value that is to be used for calculation of the concentration of pre-diluted specimens for this particular test code.

@@ -1,0 +1,56 @@
+= (PRT) Segment - Participation Information
+:v2type: 'Segment'
+:code: PRT
+:name: Participation Information
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PRT-fields/PRT-1.adoc[]
+
+include::PRT-fields/PRT-2.adoc[]
+
+include::PRT-fields/PRT-3.adoc[]
+
+include::PRT-fields/PRT-4.adoc[]
+
+include::PRT-fields/PRT-5.adoc[]
+
+include::PRT-fields/PRT-6.adoc[]
+
+include::PRT-fields/PRT-7.adoc[]
+
+include::PRT-fields/PRT-8.adoc[]
+
+include::PRT-fields/PRT-9.adoc[]
+
+include::PRT-fields/PRT-10.adoc[]
+
+include::PRT-fields/PRT-11.adoc[]
+
+include::PRT-fields/PRT-12.adoc[]
+
+include::PRT-fields/PRT-13.adoc[]
+
+include::PRT-fields/PRT-14.adoc[]
+
+include::PRT-fields/PRT-15.adoc[]
+
+include::PRT-fields/PRT-16.adoc[]
+
+include::PRT-fields/PRT-17.adoc[]
+
+include::PRT-fields/PRT-18.adoc[]
+
+include::PRT-fields/PRT-19.adoc[]
+
+include::PRT-fields/PRT-20.adoc[]
+
+include::PRT-fields/PRT-21.adoc[]
+
+include::PRT-fields/PRT-22.adoc[]
+
+include::PRT-fields/PRT-23.adoc[]
+
+include::PRT-fields/PRT-24.adoc[]

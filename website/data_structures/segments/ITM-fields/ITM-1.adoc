@@ -1,0 +1,4 @@
+== ITM.1 - Item Identifier (EI)
+
+[segment-definition]
+The Item Identifier is a unique code assigned to the material item by the Item Inventory Master catalog software application to identify the item.

@@ -1,0 +1,9 @@
+== EQU.1 - EQU-1 (EI)
+
+[segment-definition]
+This field identifies the equipment. This is the identifier from an institution's master list of equipment. The <namespace ID> identifies the institution.
+
+[segment-comment]
+The Equipment Instance Identifier shall be unique, meaning that the “Entity Identifier” component shall be unique within the Namespace ID that should accommodate hierarchical representation of equipment (recursive hierarchy like in "Russian dolls", e.g., a sub-module embedded in a module assembled in a system being a member of a cluster).
+
+If this attribute repeats, all instances must represent the same device.

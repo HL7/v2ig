@@ -1,0 +1,4 @@
+== CSR.8 - Study Authorizing Provider (XCN)
+
+[segment-definition]
+This field contains the healthcare provider, generally the attending physician, who is accountable that the patient is eligible for the trial and has signed an informed consent. National standard healthcare provider codes should be used when they exist. This field is required for the patient registration trigger event (C01).

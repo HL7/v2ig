@@ -1,0 +1,4 @@
+== RXD.6 - Actual Dosage Form (CWE)
+
+[segment-definition]
+The dosage form indicates the manner in which the medication/treatment is aggregated for dispensing, e.g., tablets, capsules, suppositories. In some cases, this information is implied by the dispense/give code in _RXD-2-dispense/give code._ Use this field when the give code and the dispense code do not specify the dosage form. Refer to Table 0705 - Actual Dosage Form in Chapter 2C for valid values.

@@ -1,0 +1,12 @@
+= (DST) Segment - Transport Destination
+:v2type: 'Segment'
+:code: DST
+:name: Transport Destination
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::DST-fields/DST-1.adoc[]
+
+include::DST-fields/DST-2.adoc[]

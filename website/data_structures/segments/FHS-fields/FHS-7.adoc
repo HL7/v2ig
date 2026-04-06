@@ -1,0 +1,4 @@
+== FHS.7 - File Creation Date/Time (DTM)
+
+[segment-definition]
+This field has the same definition as the corresponding field in the MSH segment.

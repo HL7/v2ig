@@ -1,0 +1,4 @@
+== PAC.4 - Position in Parent Package (NA)
+
+[segment-definition]
+The position in parent package field is used when it is important to communicate specifically where in the parent package this package resides. Each position is identified with a position number. The NA (numeric array) data type is used to allow, if necessary, to transfer multiple axis information, e.g., 2-dimensional tray (X^Y).

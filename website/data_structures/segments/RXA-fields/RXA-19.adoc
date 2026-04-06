@@ -1,0 +1,4 @@
+== RXA.19 - Indication (CWE)
+
+[segment-definition]
+This field contains the identifier of the condition or problem for which the drug/treatment was prescribed. May repeat if multiple indications are relevant. Refer to Table 0694 - Indication in Chapter 2C for valid values.

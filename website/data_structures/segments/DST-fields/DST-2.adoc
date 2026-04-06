@@ -1,0 +1,7 @@
+== DST.2 - DST-2 (CWE)
+
+[segment-definition]
+This field identifies the route for transport of a specific container. . Refer to _User-defined Table 0944 – Transport Route_ in Chapter 2C, Code Tables; there are no suggested values.
+
+[segment-comment]
+Each repetion indicates the device to which the sample needs to be moved along the route.

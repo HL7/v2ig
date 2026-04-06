@@ -1,0 +1,7 @@
+== PV1.39 - Servicing Facility (CWE)
+
+[segment-definition]
+This field is used in a multiple facility environment, e.g., multiple campuses or buildings, to indicate the healthcare facility with which this visit is associated. Refer to {{v2-table:0115:Servicing Facility}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+An optional sixth component, the facility ID, may be valued in each individual location field in PV1, instead of placing it here.

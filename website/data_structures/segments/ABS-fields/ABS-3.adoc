@@ -1,0 +1,4 @@
+== ABS.3 - Severity of Illness Code (CWE)
+
+[segment-definition]
+Code representing the ranking of a patient's illness. Refer to {{v2-table:0421:Severity of Illness Code}} in Chapter 2C, Code Tables, for suggested values.

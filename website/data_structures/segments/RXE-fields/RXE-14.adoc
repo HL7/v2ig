@@ -1,0 +1,7 @@
+== RXE.14 - Pharmacist/Treatment Supplier's Verifier ID (XCN)
+
+[segment-definition]
+*_This field is retained for backward compatibility only as of v 27._* The reader is referred to the PRT segment described in chapter 7.
+
+[segment-comment]
+This field contains the provider ID of Pharmacist/treatment supplier's verifier. Use if required by the pharmacy or treatment application or site on orders (or some subgroup of orders). If the person referenced in this field is also referenced in PRT segment, they must contain the same information. However, if there is a difference, then PRT segment takes precedence.

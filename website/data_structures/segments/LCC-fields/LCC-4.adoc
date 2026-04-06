@@ -1,0 +1,4 @@
+== LCC.4 - Charge Code (CWE)
+
+[segment-definition]
+This field contains the repeating coded entry for codes identifying how the use of this location is to be charged. For cross-referencing beds master files with the charge master files, or for generating charges when a patient is assigned to a bed. These should be the same set of values used in _FT1-7 -Transaction Code_. Refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,7 @@
+== PV2.45 - Advance Directive Code (CWE)
+
+[segment-definition]
+This field indicates the patient's instructions to the healthcare facility. Refer to {{v2-table:0435:Advance Directive Code}} in Chapter 2C, Code Tables, for suggested values. See also _PD1-15 - Advance Directive Code_. This field is required if _PV2-50 - Advance Directive Last Verified Date_ is valued.
+
+[segment-comment]
+*Note:* for details about specific consent refer to the Consent (CON) segment in chapter 9.

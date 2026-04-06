@@ -1,0 +1,4 @@
+== PID.29 - Patient Death Date and Time (DTM)
+
+[segment-definition]
+This field contains the date and time at which the patient death occurred.

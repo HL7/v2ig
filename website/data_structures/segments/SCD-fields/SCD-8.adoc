@@ -1,0 +1,4 @@
+== SCD.8 - Exhaust Time (CQ)
+
+[segment-definition]
+The actual amount of cycle time spent draining pressure from the sterilizer chamber.

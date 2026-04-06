@@ -1,0 +1,4 @@
+== LOC.6 - Location Phone (XTN)
+
+[segment-definition]
+This field contains the phone number within the patient location, if any. For example, the room or bed phone for use by the patient.

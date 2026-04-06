@@ -1,0 +1,4 @@
+== LOC.8 - Location Equipment (CWE)
+
+[segment-definition]
+This repeating field indicates what types of equipment are built in. Applies only to room or bed locations. If _LOC-3 - Location Type_ indicates that this is a room, this will be the equipment in the room which can be used by more than one bed. If _LOC-3 - Location Type_ indicates this is a bed, this will be the bedside devices available to this bed. Refer to {{v2-table:0261:Location Equipment}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== SCD.34 - Attending Doctor (XCN)
+
+[segment-definition]
+The unique identifier associating the physician with the supplies being sterilized, used for the procedure and patient identified in this message. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.

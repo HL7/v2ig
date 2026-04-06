@@ -1,0 +1,7 @@
+== PES.12 - Event Report Source (ID)
+
+[segment-definition]
+This field identifies the source from which the sender learned about the event. Multiple sources may be reported by repeating the element.
+
+[segment-comment]
+If the source of the report is a clinical trial, the CSR and CSP segments can be included to define the study. Refer to {{v2-table:0235:Report Source}} for valid values.

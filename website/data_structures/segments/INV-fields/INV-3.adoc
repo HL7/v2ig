@@ -1,0 +1,4 @@
+== INV.3 - INV-3 (CWE)
+
+[segment-definition]
+The type of substance. Refer to {{v2-table:0384:Substance Type}} in chapter 2C for suggested values.

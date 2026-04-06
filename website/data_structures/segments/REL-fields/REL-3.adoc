@@ -1,0 +1,4 @@
+== REL.3 - This Relationship Instance Identifier (EI)
+
+[segment-definition]
+This field contains the instance identifier of this relationship.

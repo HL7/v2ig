@@ -1,0 +1,4 @@
+== AUT.20 - Number of Schedule Treatments/Units (CQ)
+
+[segment-definition]
+The scheduled treatments is the amount of time, in days or visits that the patient has planned treatments scheduled The duration of "days" is reserved for inpatient authorizations.

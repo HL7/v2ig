@@ -1,0 +1,4 @@
+== AUT.23 - Authorized Provider (XON)
+
+[segment-definition]
+This represents the organization to which the patient was referred, or that is authorized to perform the procedure(s). The authorized provider represents the organization recognized by the insurance carrier that is authorized to perform the services for the patient specified on the authorization.

@@ -1,0 +1,4 @@
+== GSR.4 - Recorded Gender or Sex (CWE)
+
+[segment-definition]
+This field contains the sex or gender property for the individual from a document or other record. Refer to {{v2-table:0001:}} _Administrative Sex_ in Chapter 2C, Code Tables, for suggested values.

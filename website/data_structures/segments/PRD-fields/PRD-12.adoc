@@ -1,0 +1,4 @@
+== PRD.12 - Provider Organization Location Information (PL)
+
+[segment-definition]
+This field contains the location details of the provider if it is an organization.

@@ -1,0 +1,9 @@
+== IN2.19 - Baby Coverage (ID)
+
+[segment-definition]
+Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y Baby coverage
+
+N No baby coverage

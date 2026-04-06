@@ -1,0 +1,4 @@
+== IIM.1 - Primary Key Value - IIM (CWE)
+
+[segment-definition]
+This field contains the code assigned by the institution for the purpose of uniquely identifying an inventoried item. It is the identifying key value, and must match _MFE-4 Primary Key Value - MFE_.

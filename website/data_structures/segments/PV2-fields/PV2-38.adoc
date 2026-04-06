@@ -1,0 +1,4 @@
+== PV2.38 - Mode of Arrival Code (CWE)
+
+[segment-definition]
+Identifies how the patient was brought to the healthcare facility. Refer to {{v2-table:0430:Mode of Arrival Code}} in Chapter 2C, Code Tables, for suggested values.

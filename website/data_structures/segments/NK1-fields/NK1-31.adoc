@@ -1,0 +1,7 @@
+== NK1.31 - Contact Person's Telephone Number (XTN)
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*Attention:* The NK1-31 field was retained for backward compatibility as of v2.7 and withdrawn as of v 2.9 The reader is referred to section _3.4.5.41 NK-41 Contact Person’s Telecommunication Information_ instead. This field contains the telephone numbers of the contact person depending on the value of the relationship defined in _NK1-3 - Relationship_. This field is typically needed when the NK1 is an organization. The primary telephone number must be sent in the first sequence. If the primary telephone number is not sent, then a repeat delimiter must be sent in the first sequence. Refer to {{v2-table:0201:Telecommunication Use Code}} and {{v2-table:0202:Telecommunication Equipment Type}} in Chapter 2C, Code Tables, for valid values.

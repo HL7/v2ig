@@ -1,0 +1,4 @@
+== UB2.3 - Condition Code (24-30) (CWE)
+
+[segment-definition]
+This field contains a code reporting conditions that may affect payer processing; for example, the condition is related to employment (Patient covered by insurance not reflected here, treatment of non-terminal condition for hospice patient). The code in this field can repeat up to seven times to correspond to Uniform Billing form locators 24-30. Refer to {{v2-table:0043:Condition Code}} in Chapter 2C, Code Tables, for suggested values. Refer to a UB specification for additional information. This field is defined by CMS or other regulatory agencies.

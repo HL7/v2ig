@@ -1,0 +1,9 @@
+== OBX.20 - Observation Site (CWE)
+
+[segment-definition]
+This field typically contains the body site(s) where the measurement being reported was obtained. This field should not be used for a specimen source or specimen collection site.
+
+[segment-comment]
+This information is of particular importance if the clinical meaning of a value is modified either directly by the site (for example, is the temperature central or peripheral?) or if the site of one measurement impacts the value of another measurement (for example, is the finger SpO2 probe on the same arm as the NIBP cuff?). In most cases these observations are performed directly upon the patient and do not involve a specimen.
+
+Any nationally recognized coding system might be used for this field including SNOMED or MDC; alternatively the {{v2-table:0163:Body Site}} may be used. Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.

@@ -1,0 +1,4 @@
+== CER.24 - Issuing Date (DTM)
+
+[segment-definition]
+This field contains the date/time when the certificate was issued.

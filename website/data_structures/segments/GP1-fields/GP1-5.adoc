@@ -1,0 +1,4 @@
+== GP1.5 - Outlier Cost (CP)
+
+[segment-definition]
+This field contains the amount that exceeds the outlier limitation as defined by APC regulations. This field is analogous to link:#drg-7-outlier-cost-cp-00387[_DRG-7 - Outlier Cost_]; however, the definition in this field note supersedes the DRG-7 definition.

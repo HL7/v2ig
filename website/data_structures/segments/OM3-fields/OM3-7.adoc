@@ -1,0 +1,4 @@
+== OM3.7 - Value Type (ID)
+
+[segment-definition]
+This field contains the allowed data type for a single categorical observation (code A or C in _OM1-18 - Nature of Observation_). Refer to {{v2-table:0125:Value Type}} in Chapter 2C, Code Tables, for valid values.

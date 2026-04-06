@@ -1,0 +1,4 @@
+== IN2.70 - Insured Employer Organization Name and ID (XON)
+
+[segment-definition]
+This field indicates the name of the insured's employer, or the organization that purchased the insurance for the insured, if the employer is an organization. Multiple names and identifiers for the same organization may be sent in this field, not multiple organizations. Specification of meaning based on sequence is deprecated.

@@ -1,0 +1,4 @@
+== IN2.44 - Insured's Employment Start Date (DT)
+
+[segment-definition]
+This field indicates the date on which the insured's employment with a particular employer began.

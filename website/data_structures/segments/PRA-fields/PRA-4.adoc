@@ -1,0 +1,7 @@
+== PRA.4 - Provider Billing (ID)
+
+[segment-definition]
+This field indicates how provider services are billed. Refer to {{v2-table:0187:Provider Billing}} for valid values.
+
+[segment-comment]
+Refer to {{v2-table:0187:Provider Billing}} for valid values. This table contains values for provider or institutional billing.

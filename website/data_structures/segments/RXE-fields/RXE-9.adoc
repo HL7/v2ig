@@ -1,0 +1,4 @@
+== RXE.9 - Substitution Status (ID)
+
+[segment-definition]
+Refer to {{v2-table:0167:Substitution Status}} in Chapter 2C, Code Tables, for valid values. If a substitution has been made, and a record of the original requested give code (_RXO-1-requested give code_) is needed, the optional RXO segment can be included in the RDE message.

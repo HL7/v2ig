@@ -1,0 +1,4 @@
+== CER.7 - Granting Country (ID)
+
+[segment-definition]
+ID of the country granting the certificate. Refer to {{v2-table:0399:Country Code}} for valid values.

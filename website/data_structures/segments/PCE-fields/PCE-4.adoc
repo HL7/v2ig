@@ -1,0 +1,4 @@
+== PCE.4 - Transaction Amount - Unit (CP)
+
+[segment-definition]
+The price that a department charges to a patient for this inventory supply item when using the Patient Charge Billing code present in this segment.

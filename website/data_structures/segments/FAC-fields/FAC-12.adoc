@@ -1,0 +1,4 @@
+== FAC.12 - Signature Authority Telecommunication (XTN)
+
+[segment-definition]
+This field contains the telecommunication information of the individual with signature authority of who is responsible for this report.

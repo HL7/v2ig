@@ -1,0 +1,38 @@
+= (PDC) Segment - Product Detail Country
+:v2type: 'Segment'
+:code: PDC
+:name: Product Detail Country
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PDC-fields/PDC-1.adoc[]
+
+include::PDC-fields/PDC-2.adoc[]
+
+include::PDC-fields/PDC-3.adoc[]
+
+include::PDC-fields/PDC-4.adoc[]
+
+include::PDC-fields/PDC-5.adoc[]
+
+include::PDC-fields/PDC-6.adoc[]
+
+include::PDC-fields/PDC-7.adoc[]
+
+include::PDC-fields/PDC-8.adoc[]
+
+include::PDC-fields/PDC-9.adoc[]
+
+include::PDC-fields/PDC-10.adoc[]
+
+include::PDC-fields/PDC-11.adoc[]
+
+include::PDC-fields/PDC-12.adoc[]
+
+include::PDC-fields/PDC-13.adoc[]
+
+include::PDC-fields/PDC-14.adoc[]
+
+include::PDC-fields/PDC-15.adoc[]

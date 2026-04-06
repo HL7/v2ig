@@ -1,0 +1,7 @@
+== OBR.10 - Collector Identifier * (XCN)
+
+[segment-definition]
+*_This field is retained for backward compatibility only as of v 2.7._* The reader is referred to the PRT segment described in Chapter 7.
+
+[segment-comment]
+When a specimen is required for the study, this field will identify the person, department, or facility that collected the specimen. Either name or ID code, or both, may be present. If the person referenced in this field is also referenced in PRT segment, they must contain the same information. However, if there is a difference, then PRT segment takes precedence.

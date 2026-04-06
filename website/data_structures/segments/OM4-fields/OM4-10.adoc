@@ -1,0 +1,4 @@
+== OM4.10 - Normal Collection Volume (CQ)
+
+[segment-definition]
+This field contains the normal specimen volume required by the lab. This is the amount used by the normal methods and provides enough specimens to repeat the procedure at least once if needed. The default unit is milliliters (ml).

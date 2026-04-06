@@ -1,0 +1,4 @@
+== OM2.2 - Units of Measure (CWE)
+
+[segment-definition]
+This field contains the single tests/observations (those with a nature code of A or C, as described in _OM1-18 - Nature of Service/Test/Observation_) that have numeric values. This field contains their customary units of measure. Use of UCUM is strongly recommended as one of the specified units (either alone or in addition to the local units).

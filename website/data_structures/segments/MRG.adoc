@@ -1,0 +1,22 @@
+= (MRG) Segment - Merge Patient Information
+:v2type: 'Segment'
+:code: MRG
+:name: Merge Patient Information
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::MRG-fields/MRG-1.adoc[]
+
+include::MRG-fields/MRG-2.adoc[]
+
+include::MRG-fields/MRG-3.adoc[]
+
+include::MRG-fields/MRG-4.adoc[]
+
+include::MRG-fields/MRG-5.adoc[]
+
+include::MRG-fields/MRG-6.adoc[]
+
+include::MRG-fields/MRG-7.adoc[]

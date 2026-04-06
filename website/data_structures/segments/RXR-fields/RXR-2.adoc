@@ -1,0 +1,7 @@
+== RXR.2 - Administration Site (CWE)
+
+[segment-definition]
+This field contains the site of the administration route. When using a post-coordinated code table in this field, RXR-6 Administration Site may be used to modify the meaning of this field.
+
+[segment-comment]
+Refer to {{v2-table:0550:Body}} _Parts_ in Chapter 2C, Code Tables, for valid values. Other appropriate external code sets (e.g., SNOMED) may also be employed.

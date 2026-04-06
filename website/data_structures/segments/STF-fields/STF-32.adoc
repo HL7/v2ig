@@ -1,0 +1,9 @@
+== STF.32 - Death Indicator (ID)
+
+[segment-definition]
+This field indicates whether the staff person is deceased. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the staff person is deceased +
+
+N the staff person is not deceased

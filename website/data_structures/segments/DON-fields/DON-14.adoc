@@ -1,0 +1,4 @@
+== DON.14 - Phlebotomy Issue (CNE)
+
+[segment-definition]
+Indicates whether there is a problem or issue with the phlebotomy itself. This may be due to an incorrect needle procedure, needle defect, tube blockage, problem with the apheresis machine, or improper action by the phlebotomist. Refer to {{v2-table:0925:Phlebotomy Issue}} in Chapter 2C, Code Tables, for valid entries.

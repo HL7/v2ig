@@ -1,0 +1,4 @@
+== PDC.5 - Generic Name (CWE)
+
+[segment-definition]
+This field contains the name generically used to identify the product. Refer to Table 0676 - Generic Name in Chapter 2C for valid values.

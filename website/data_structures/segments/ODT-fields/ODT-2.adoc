@@ -1,0 +1,4 @@
+== ODT.2 - Service Period (CWE)
+
+[segment-definition]
+When blank, the modifier applies to all service periods. This field allows you to designate one or more of the feeding periods during a day by combining the codes as needed. It can also combine with quantity/timing to give such information as which service period the order belongs with. This field is identical in meaning with ODS-2-service period. See section _4.8.1.2_, "_ODS-2 Service Period_ (CWE) 00270," for further details. Refer to Table 0629 - Service Period in Chapter 2C for valid values.

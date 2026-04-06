@@ -1,0 +1,4 @@
+== IN1.55 - Insurance Action Code (ID)
+
+[segment-definition]
+The Insurance Action Code Defines the action to be taken for this insurance. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values. When this field is valued, the IN1, IN2, and IN3 are not in "snapshot mode", rather in "action mode".

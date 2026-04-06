@@ -1,0 +1,7 @@
+== AIP.2 - Segment Action code (ID)
+
+[segment-definition]
+This field contains the action to be taken when updating or modifying information in this segment from previously sent interface transactions. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+This field is conditionally required. It is required for all updating or modifying trigger events.

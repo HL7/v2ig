@@ -1,0 +1,4 @@
+== OM3.6 - Critical Text/Codes for Categorical Observations (CWE)
+
+[segment-definition]
+This field contains the list of coded results that are critically abnormal for this observation. Refer to Table 0656 - Critical Text/Codes for Categorical Observations in Chapter 2C for valid values.

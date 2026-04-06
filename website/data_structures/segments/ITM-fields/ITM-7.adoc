@@ -1,0 +1,4 @@
+== ITM.7 - Manufacturer Identifier (EI)
+
+[segment-definition]
+This field identifies the identifying code of the manufacturer of the item.

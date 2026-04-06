@@ -1,0 +1,4 @@
+== EDU.9 - Major Field of Study (CWE)
+
+[segment-definition]
+This field contains the subject of academic study associated with the specific academic degree program pursued by the staff member as his/her area of specialization.

@@ -1,0 +1,4 @@
+== QAK.3 - Message Query Name (CWE)
+
+[segment-definition]
+This field contains the name of the query. These names are assigned by the function-specific chapters of this specification. Site-specific event replay query names begin with the letter "Z." Refer to {{v2-table:0471:Query name}} in Chapter 2C, Code Tables, for suggested values.

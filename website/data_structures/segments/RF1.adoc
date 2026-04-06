@@ -1,0 +1,58 @@
+= (RF1) Segment - Referral Information
+:v2type: 'Segment'
+:code: RF1
+:name: Referral Information
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::RF1-fields/RF1-1.adoc[]
+
+include::RF1-fields/RF1-2.adoc[]
+
+include::RF1-fields/RF1-3.adoc[]
+
+include::RF1-fields/RF1-4.adoc[]
+
+include::RF1-fields/RF1-5.adoc[]
+
+include::RF1-fields/RF1-6.adoc[]
+
+include::RF1-fields/RF1-7.adoc[]
+
+include::RF1-fields/RF1-8.adoc[]
+
+include::RF1-fields/RF1-9.adoc[]
+
+include::RF1-fields/RF1-10.adoc[]
+
+include::RF1-fields/RF1-11.adoc[]
+
+include::RF1-fields/RF1-12.adoc[]
+
+include::RF1-fields/RF1-13.adoc[]
+
+include::RF1-fields/RF1-14.adoc[]
+
+include::RF1-fields/RF1-15.adoc[]
+
+include::RF1-fields/RF1-16.adoc[]
+
+include::RF1-fields/RF1-17.adoc[]
+
+include::RF1-fields/RF1-18.adoc[]
+
+include::RF1-fields/RF1-19.adoc[]
+
+include::RF1-fields/RF1-20.adoc[]
+
+include::RF1-fields/RF1-21.adoc[]
+
+include::RF1-fields/RF1-22.adoc[]
+
+include::RF1-fields/RF1-23.adoc[]
+
+include::RF1-fields/RF1-24.adoc[]
+
+include::RF1-fields/RF1-25.adoc[]

@@ -1,0 +1,4 @@
+== CER.30 - Revocation Reason Code (CWE)
+
+[segment-definition]
+This field contains the reason for revoking the certificate (e.g., having been compromised, changes of conditions/environment, etc.)

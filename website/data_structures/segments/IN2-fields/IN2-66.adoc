@@ -1,0 +1,9 @@
+== IN2.66 - Suspend Flag (ID)
+
+[segment-definition]
+This field indicates whether charges should be suspended for a patient. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y charges should be suspended
+
+N charges should NOT be suspended

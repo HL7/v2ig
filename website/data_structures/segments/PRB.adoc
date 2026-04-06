@@ -1,0 +1,64 @@
+= (PRB) Segment - Problem Detail
+:v2type: 'Segment'
+:code: PRB
+:name: Problem Detail
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PRB-fields/PRB-1.adoc[]
+
+include::PRB-fields/PRB-2.adoc[]
+
+include::PRB-fields/PRB-3.adoc[]
+
+include::PRB-fields/PRB-4.adoc[]
+
+include::PRB-fields/PRB-5.adoc[]
+
+include::PRB-fields/PRB-6.adoc[]
+
+include::PRB-fields/PRB-7.adoc[]
+
+include::PRB-fields/PRB-8.adoc[]
+
+include::PRB-fields/PRB-9.adoc[]
+
+include::PRB-fields/PRB-10.adoc[]
+
+include::PRB-fields/PRB-11.adoc[]
+
+include::PRB-fields/PRB-12.adoc[]
+
+include::PRB-fields/PRB-13.adoc[]
+
+include::PRB-fields/PRB-14.adoc[]
+
+include::PRB-fields/PRB-15.adoc[]
+
+include::PRB-fields/PRB-16.adoc[]
+
+include::PRB-fields/PRB-17.adoc[]
+
+include::PRB-fields/PRB-18.adoc[]
+
+include::PRB-fields/PRB-19.adoc[]
+
+include::PRB-fields/PRB-20.adoc[]
+
+include::PRB-fields/PRB-21.adoc[]
+
+include::PRB-fields/PRB-22.adoc[]
+
+include::PRB-fields/PRB-23.adoc[]
+
+include::PRB-fields/PRB-24.adoc[]
+
+include::PRB-fields/PRB-25.adoc[]
+
+include::PRB-fields/PRB-26.adoc[]
+
+include::PRB-fields/PRB-27.adoc[]
+
+include::PRB-fields/PRB-28.adoc[]

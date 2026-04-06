@@ -1,0 +1,4 @@
+== FT1.14 - Health Plan ID (CWE)
+
+[segment-definition]
+This field contains the identifier of the primary insurance plan with which this transaction should be associated. Refer to {{v2-table:0072:Insurance Plan ID}} in Chapter 2C, Code Tables, for suggested values.

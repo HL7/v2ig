@@ -1,0 +1,4 @@
+== BUI.3 - BUI-3 (CWE)
+
+[segment-definition]
+The type of blood unit. For donations, this is the type blood unit being described. This element defines which of the types from the referenced table are being described. Refer to {{v2-table:0566:Blood Unit Type}} in Chapter 2C, Code Tables, for valid entries.

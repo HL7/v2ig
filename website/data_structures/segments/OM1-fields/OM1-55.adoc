@@ -1,0 +1,4 @@
+== OM1.55 - Test Category (CWE)
+
+[segment-definition]
+This field may be used to organize tests for display or other user defined purpose. For example, tests might be categorized by disease state, such as molecular tests for solid tumors; example categories are: breast, colorectal, lung, and melanoma.

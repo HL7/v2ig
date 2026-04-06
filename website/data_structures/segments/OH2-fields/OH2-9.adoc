@@ -1,0 +1,4 @@
+== OH2.9 - Work Schedule (CWE)
+
+[segment-definition]
+This field contains a code defining the work schedule associated with the job of a person recorded in this segment. Describes an individual's typical arrangement of working hours for a job. For example, work schedule may capture that an individual typically works a regular day shift, evening shift, or night shift. It can also specify if an individual has another type of schedule such as a rotating shift, split shift, etc. In healthcare settings, knowledge of a patient's typical work schedule may assist in diagnosis of healthcare issues related to irregular work hours or sleep patterns. It may also assist in determining appropriate treatment and prevention plans that will coordinate with the patient's work schedule. Refer to {{v2-table:0954:Work Schedule Code}} in Chapter 2C, Code Tables, for suggested values.

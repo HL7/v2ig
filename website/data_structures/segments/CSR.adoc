@@ -1,0 +1,42 @@
+= (CSR) Segment - Clinical Study Registration
+:v2type: 'Segment'
+:code: CSR
+:name: Clinical Study Registration
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CSR-fields/CSR-1.adoc[]
+
+include::CSR-fields/CSR-2.adoc[]
+
+include::CSR-fields/CSR-3.adoc[]
+
+include::CSR-fields/CSR-4.adoc[]
+
+include::CSR-fields/CSR-5.adoc[]
+
+include::CSR-fields/CSR-6.adoc[]
+
+include::CSR-fields/CSR-7.adoc[]
+
+include::CSR-fields/CSR-8.adoc[]
+
+include::CSR-fields/CSR-9.adoc[]
+
+include::CSR-fields/CSR-10.adoc[]
+
+include::CSR-fields/CSR-11.adoc[]
+
+include::CSR-fields/CSR-12.adoc[]
+
+include::CSR-fields/CSR-13.adoc[]
+
+include::CSR-fields/CSR-14.adoc[]
+
+include::CSR-fields/CSR-15.adoc[]
+
+include::CSR-fields/CSR-16.adoc[]
+
+include::CSR-fields/CSR-17.adoc[]

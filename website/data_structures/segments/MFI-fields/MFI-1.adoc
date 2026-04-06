@@ -1,0 +1,4 @@
+== MFI.1 - Master File Identifier (CWE)
+
+[segment-definition]
+This field is a CWE data type that identifies a standard HL7 master file. This table may be extended by local agreement during implementation to cover site-specific master files (z-master files). HL7 recommends use of the HL7 assigned table number as the master file identifier code if one is not specified in Table 0175. For example, a master file of Marital Status codes would be identified by HL70002 as the _MFI-1 - Master file identifier_. Refer to {{v2-table:0175:Master File Identifier Code}} in Chapter 2C, Code Tables, for valid values.

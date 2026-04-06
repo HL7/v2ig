@@ -1,0 +1,4 @@
+== INV.10 - INV-10 (NM)
+
+[segment-definition]
+This field is the consumption that is used each time the equipment uses this substance.

@@ -1,0 +1,9 @@
+== BTX.5 - BTX-5 (CWE)
+
+[segment-definition]
+This field contains the code and/or text to identify a commercial product. Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets.
+
+[segment-comment]
+Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, free text without a code must be preceded by a component delimiter. Free text can be utilized if no update is to occur. Refer to {{v2-table:0512:Commercial Product}} in Chapter 2C, Code Tables, for suggested values.
+
+This field is required for commercial blood products and is not applicable to blood component messages.

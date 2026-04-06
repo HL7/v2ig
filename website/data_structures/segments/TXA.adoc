@@ -1,0 +1,70 @@
+= (TXA) Segment - Transcription Document Header
+:v2type: 'Segment'
+:code: TXA
+:name: Transcription Document Header
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::TXA-fields/TXA-1.adoc[]
+
+include::TXA-fields/TXA-2.adoc[]
+
+include::TXA-fields/TXA-3.adoc[]
+
+include::TXA-fields/TXA-4.adoc[]
+
+include::TXA-fields/TXA-5.adoc[]
+
+include::TXA-fields/TXA-6.adoc[]
+
+include::TXA-fields/TXA-7.adoc[]
+
+include::TXA-fields/TXA-8.adoc[]
+
+include::TXA-fields/TXA-9.adoc[]
+
+include::TXA-fields/TXA-10.adoc[]
+
+include::TXA-fields/TXA-11.adoc[]
+
+include::TXA-fields/TXA-12.adoc[]
+
+include::TXA-fields/TXA-13.adoc[]
+
+include::TXA-fields/TXA-14.adoc[]
+
+include::TXA-fields/TXA-15.adoc[]
+
+include::TXA-fields/TXA-16.adoc[]
+
+include::TXA-fields/TXA-17.adoc[]
+
+include::TXA-fields/TXA-18.adoc[]
+
+include::TXA-fields/TXA-19.adoc[]
+
+include::TXA-fields/TXA-20.adoc[]
+
+include::TXA-fields/TXA-21.adoc[]
+
+include::TXA-fields/TXA-22.adoc[]
+
+include::TXA-fields/TXA-23.adoc[]
+
+include::TXA-fields/TXA-24.adoc[]
+
+include::TXA-fields/TXA-25.adoc[]
+
+include::TXA-fields/TXA-26.adoc[]
+
+include::TXA-fields/TXA-27.adoc[]
+
+include::TXA-fields/TXA-28.adoc[]
+
+include::TXA-fields/TXA-29.adoc[]
+
+include::TXA-fields/TXA-30.adoc[]
+
+include::TXA-fields/TXA-31.adoc[]

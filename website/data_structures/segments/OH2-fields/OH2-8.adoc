@@ -1,0 +1,7 @@
+== OH2.8 - Job End Date (DT)
+
+[segment-definition]
+This field asserts when the job ended. If the job is current, Job End Date shall be empty.
+
+[segment-comment]
+*Note:* The Employment Status End Date SHALL not be greater than the date noted in OH2-3 Entered Date.

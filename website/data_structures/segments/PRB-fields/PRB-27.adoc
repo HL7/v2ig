@@ -1,0 +1,4 @@
+== PRB.27 - Problem Perspective (CWE)
+
+[segment-definition]
+This field indicates from whose perspective this problem was identified. Refer to {{v2-table:0838:Problem Perspective}} in Chapter 2C, Code Tables, for suggested values.

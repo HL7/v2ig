@@ -1,0 +1,4 @@
+== ERR.12 - Help Desk Contact Point (XTN)
+
+[segment-definition]
+Lists phone, e-mail, fax, and other relevant numbers for helpdesk support related to the specified error.

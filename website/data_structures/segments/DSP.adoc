@@ -1,0 +1,18 @@
+= (DSP) Segment - Display Data
+:v2type: 'Segment'
+:code: DSP
+:name: Display Data
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::DSP-fields/DSP-1.adoc[]
+
+include::DSP-fields/DSP-2.adoc[]
+
+include::DSP-fields/DSP-3.adoc[]
+
+include::DSP-fields/DSP-4.adoc[]
+
+include::DSP-fields/DSP-5.adoc[]

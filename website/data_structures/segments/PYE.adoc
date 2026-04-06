@@ -1,0 +1,22 @@
+= (PYE) Segment - Payee Information
+:v2type: 'Segment'
+:code: PYE
+:name: Payee Information
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PYE-fields/PYE-1.adoc[]
+
+include::PYE-fields/PYE-2.adoc[]
+
+include::PYE-fields/PYE-3.adoc[]
+
+include::PYE-fields/PYE-4.adoc[]
+
+include::PYE-fields/PYE-5.adoc[]
+
+include::PYE-fields/PYE-6.adoc[]
+
+include::PYE-fields/PYE-7.adoc[]

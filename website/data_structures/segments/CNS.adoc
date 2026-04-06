@@ -1,0 +1,20 @@
+= (CNS) Segment - Clear Notification
+:v2type: 'Segment'
+:code: CNS
+:name: Clear Notification
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CNS-fields/CNS-1.adoc[]
+
+include::CNS-fields/CNS-2.adoc[]
+
+include::CNS-fields/CNS-3.adoc[]
+
+include::CNS-fields/CNS-4.adoc[]
+
+include::CNS-fields/CNS-5.adoc[]
+
+include::CNS-fields/CNS-6.adoc[]

@@ -1,0 +1,4 @@
+== STF.38 - Inactive Reason Code (CWE)
+
+[segment-definition]
+This field contains the reason that the staff member is inactive. Refer to {{v2-table:0540:Inactive Reason Code}} in Chapter 2C, Code Tables, for suggested values. This table contains values for leave of absence, terminated, etc.

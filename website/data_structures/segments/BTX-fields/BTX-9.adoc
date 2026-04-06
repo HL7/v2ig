@@ -1,0 +1,4 @@
+== BTX.9 - BTX-9 (NM)
+
+[segment-definition]
+This field contains the amount (volume) associated with each blood component or commercial product. When included in this segment, it may be used to indicate the volume of the blood component or product that was actually transfused.

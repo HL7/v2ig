@@ -1,0 +1,4 @@
+== PSH.8 - Quantity Distributed Method (ID)
+
+[segment-definition]
+This field is used for measuring the quantity distributed. An explanation of the method used for estimation can be included in _PSH-9 Quantity Distributed Comment_. Refer to {{v2-table:0329:Quantity Method}} for valid values.

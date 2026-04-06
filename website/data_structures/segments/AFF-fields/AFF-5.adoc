@@ -1,0 +1,4 @@
+== AFF.5 - Professional Affiliation Additional Information (ST)
+
+[segment-definition]
+This field contains miscellaneous additional information related to the staff member's membership in the professional organization.

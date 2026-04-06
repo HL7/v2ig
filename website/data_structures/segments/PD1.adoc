@@ -1,0 +1,54 @@
+= (PD1) Segment - Patient Additional Demographic
+:v2type: 'Segment'
+:code: PD1
+:name: Patient Additional Demographic
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PD1-fields/PD1-1.adoc[]
+
+include::PD1-fields/PD1-2.adoc[]
+
+include::PD1-fields/PD1-3.adoc[]
+
+include::PD1-fields/PD1-4.adoc[]
+
+include::PD1-fields/PD1-5.adoc[]
+
+include::PD1-fields/PD1-6.adoc[]
+
+include::PD1-fields/PD1-7.adoc[]
+
+include::PD1-fields/PD1-8.adoc[]
+
+include::PD1-fields/PD1-9.adoc[]
+
+include::PD1-fields/PD1-10.adoc[]
+
+include::PD1-fields/PD1-11.adoc[]
+
+include::PD1-fields/PD1-12.adoc[]
+
+include::PD1-fields/PD1-13.adoc[]
+
+include::PD1-fields/PD1-14.adoc[]
+
+include::PD1-fields/PD1-15.adoc[]
+
+include::PD1-fields/PD1-16.adoc[]
+
+include::PD1-fields/PD1-17.adoc[]
+
+include::PD1-fields/PD1-18.adoc[]
+
+include::PD1-fields/PD1-19.adoc[]
+
+include::PD1-fields/PD1-20.adoc[]
+
+include::PD1-fields/PD1-21.adoc[]
+
+include::PD1-fields/PD1-22.adoc[]
+
+include::PD1-fields/PD1-23.adoc[]

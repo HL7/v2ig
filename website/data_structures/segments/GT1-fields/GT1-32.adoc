@@ -1,0 +1,4 @@
+== GT1.32 - Employment Stop Date (DT)
+
+[segment-definition]
+This field indicates the date on which the guarantor's employment with a particular employer ended.

@@ -1,0 +1,4 @@
+== PRC.8 - Maximum Quantity (NM)
+
+[segment-definition]
+This field contains the maximum number of identical charges allowed on one patient account for this CDM entry.

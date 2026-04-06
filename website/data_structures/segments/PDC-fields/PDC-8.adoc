@@ -1,0 +1,4 @@
+== PDC.8 - Other Identifier (ST)
+
+[segment-definition]
+This field contains any other identifier used to for the product.

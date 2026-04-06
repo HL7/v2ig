@@ -1,0 +1,4 @@
+== STF.3 - Staff Name (XPN)
+
+[segment-definition]
+This field contains the staff person's name. This field may repeat to transmit multiple names for the same person.

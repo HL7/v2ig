@@ -1,0 +1,9 @@
+== PRT.7 - Organization Unit Type (CWE)
+
+[segment-definition]
+This field identifies the environment in which the participant acts in the role specified in _PRT-3 Action Reason_. In the case of a person, the environment is not the specialty for the provider. The specialty information for the provider is defined in the PRA segment.
+
+[segment-comment]
+This attribute is included in the PRT segment to allow communication of this data when the participant information may not have been communicated previously in a master file or to provide better context. Refer to {{v2-table:0406:Organization unit type}}. This field is included in this segment to support international requirements, and is not intended as a master file update.
+
+Condition: This field may only be valued if PRT-5 Person is valued.

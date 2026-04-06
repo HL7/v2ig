@@ -1,0 +1,4 @@
+== BPX.19 - BPX-19 (XAD)
+
+[segment-definition]
+This field contains the actual address of the location to which the blood product was actually dispensed.

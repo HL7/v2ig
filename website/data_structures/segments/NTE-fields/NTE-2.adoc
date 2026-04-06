@@ -1,0 +1,4 @@
+== NTE.2 - Source of Comment (ID)
+
+[segment-definition]
+This field is used when source of comment must be identified. This table MAY be extended locally during implementation. Refer to {{v2-table:0105:Source of Comment}} in Chapter 2C, Code Tables, for valid values.

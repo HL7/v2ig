@@ -1,0 +1,4 @@
+== ARQ.16 - Placer Contact Phone Number (XTN)
+
+[segment-definition]
+This field contains the phone number used to contact the placer contact person.

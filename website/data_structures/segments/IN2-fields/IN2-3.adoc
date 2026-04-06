@@ -1,0 +1,4 @@
+== IN2.3 - Insured's Employer's Name and ID (XCN)
+
+[segment-definition]
+This field contains the name and ID of the insured's employer or the person who purchased the insurance for the insured, if the employer is a person. Multiple names and identifiers for the same person may be sent in this field, not multiple persons Specification of meaning based on sequence is deprecated. When the employer is an organization use link:#in2-70-insured-employer-organization-name-and-id-xon-00810[_IN2-70 - Insured Employer Organization Name and ID_].

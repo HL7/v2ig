@@ -1,0 +1,4 @@
+== PES.4 - Sender Telephone (XTN)
+
+[segment-definition]
+This field contains the telephone number of the message sender to which telephone communications regarding the experience being reported should be directed. An electronic mail address can be specified in this field.

@@ -1,0 +1,28 @@
+= (GSR) Segment - Recorded Gender and Sex
+:v2type: 'Segment'
+:code: GSR
+:name: Recorded Gender and Sex
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::GSR-fields/GSR-1.adoc[]
+
+include::GSR-fields/GSR-2.adoc[]
+
+include::GSR-fields/GSR-3.adoc[]
+
+include::GSR-fields/GSR-4.adoc[]
+
+include::GSR-fields/GSR-5.adoc[]
+
+include::GSR-fields/GSR-6.adoc[]
+
+include::GSR-fields/GSR-7.adoc[]
+
+include::GSR-fields/GSR-8.adoc[]
+
+include::GSR-fields/GSR-9.adoc[]
+
+include::GSR-fields/GSR-10.adoc[]

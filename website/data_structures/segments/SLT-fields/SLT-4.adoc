@@ -1,0 +1,4 @@
+== SLT.4 - Item Identifier (EI)
+
+[segment-definition]
+The Item Identifier is a unique code assigned to the material item by the Instrument-tracking software application to identify the item being sterilized or decontaminated.

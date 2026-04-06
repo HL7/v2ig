@@ -1,0 +1,4 @@
+== PEO.20 - Primary Observer Address (XAD)
+
+[segment-definition]
+This field identifies the address of the person who initially described the event.

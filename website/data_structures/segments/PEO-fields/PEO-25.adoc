@@ -1,0 +1,4 @@
+== PEO.25 - Primary Observer's identity May Be Divulged (ID)
+
+[segment-definition]
+Indicates whether or not the primary observer, if known to the sender, grants permission to disclose his or her identity to the product manufacturer for the purpose of further investigating the event. If the element is absent, the assumption should be made that permission is not granted. Refer to {{v2-table:0243:Identity May Be Divulged}} for valid values.

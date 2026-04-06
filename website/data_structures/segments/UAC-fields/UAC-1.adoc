@@ -1,0 +1,4 @@
+== UAC.1 - User Authentication Credential Type Code (CWE)
+
+[segment-definition]
+This an identifier code for the type of user authentication credential. Refer to {{v2-table:0615:User Authentication Credential Type Code}} in Chapter 2C, Code Tables, for valid values.

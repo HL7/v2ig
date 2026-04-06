@@ -1,0 +1,4 @@
+== IN2.52 - Insured's Contact Person's Name (XPN)
+
+[segment-definition]
+This field contains the contact person for the insured.

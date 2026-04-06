@@ -1,0 +1,4 @@
+== ABS.7 - Abstract Completion Date/Time (DTM)
+
+[segment-definition]
+Date/time the abstraction was completed.

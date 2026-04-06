@@ -1,0 +1,4 @@
+== BPX.20 - BPX-20 (XCN)
+
+[segment-definition]
+This is the person who picked up and transported the blood component(s) or commercial product(s). The code for the receiver is as a XCN data type. This field can be free text. In this case, the receiver's name must be the second through fourth components of the field.

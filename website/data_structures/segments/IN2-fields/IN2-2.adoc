@@ -1,0 +1,4 @@
+== IN2.2 - Insured's Social Security Number (ST)
+
+[segment-definition]
+This field contains the social security number of the insured.

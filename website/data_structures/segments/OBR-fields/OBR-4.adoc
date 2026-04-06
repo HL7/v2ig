@@ -1,0 +1,4 @@
+== OBR.4 - Universal Service Identifier (CWE)
+
+[segment-definition]
+This field contains the identifier code for the requested observation/test/battery. The identifier can come from either a local coding system or industry standards. Examples may be LOINC (emerging as the global standard for observation identifiers), JLAC10, or SNOMED CT. Refer to Table 0612 - Universal Service Identifier in Chapter 2C for valid values.

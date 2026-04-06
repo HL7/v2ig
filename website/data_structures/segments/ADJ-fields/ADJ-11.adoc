@@ -1,0 +1,4 @@
+== ADJ.11 - Adjustment Action (CWE)
+
+[segment-definition]
+Action requested of party that receives this adjustment. Refer to {{v2-table:0569:Adjustment Action}} in Chapter 2C, Code Tables, for suggested values.

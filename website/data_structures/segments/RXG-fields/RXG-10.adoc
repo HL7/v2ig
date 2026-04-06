@@ -1,0 +1,7 @@
+== RXG.10 - Substitution Status (ID)
+
+[segment-definition]
+Refer to {{v2-table:0167:Substitution Status}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+*Note:* The next two fields are equivalent to the corresponding fields of the RXE segment. They are included (optionally) in the RXG so that it may "stand alone" as a "give" instruction segment.

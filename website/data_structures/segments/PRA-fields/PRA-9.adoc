@@ -1,0 +1,7 @@
+== PRA.9 - Institution (CWE)
+
+[segment-definition]
+This field contains the institution the practitioner began or intends to begin practicing at (e.g., at hospital, at physician organization, at managed care network). Refer to {{v2-table:0537:Institution}} for valid values.
+
+[segment-comment]
+Refer to {{v2-table:0537:Institution}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.

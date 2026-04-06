@@ -1,0 +1,4 @@
+== FT1.39 - Authorization Number (CX)
+
+[segment-definition]
+This field contains an authorization number assigned to the referral charge.

@@ -1,0 +1,4 @@
+== ARQ.20 - Entered By Phone Number (XTN)
+
+[segment-definition]
+This field contains the phone number used to contact the _ARQ-19-Entered by Person_.

@@ -1,0 +1,4 @@
+== IN3.17 - Appeal Reason (CWE)
+
+[segment-definition]
+This field contains the reason that an appeal was made on a non-concur for certification. Refer to {{v2-table:0345:Appeal Reason}} in Chapter 2C, Code Tables, for suggested values.

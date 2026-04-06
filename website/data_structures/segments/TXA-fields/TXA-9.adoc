@@ -1,0 +1,4 @@
+== TXA.9 - Originator Code/Name (XCN)
+
+[segment-definition]
+This field identifies the person who originated (i.e., dictated) the document. The document originator may differ from the person responsible for authenticating the document.

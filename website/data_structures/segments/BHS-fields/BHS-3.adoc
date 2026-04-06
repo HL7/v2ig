@@ -1,0 +1,4 @@
+== BHS.3 - Batch Sending Application (HD)
+
+[segment-definition]
+This field uniquely identifies the sending application among all other applications within the network enterprise. The network enterprise consists of all those applications that participate in the exchange of HL7 messages within the enterprise. Entirely site-defined.

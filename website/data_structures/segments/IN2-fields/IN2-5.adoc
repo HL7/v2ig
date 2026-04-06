@@ -1,0 +1,4 @@
+== IN2.5 - Mail Claim Party (CWE)
+
+[segment-definition]
+This field contains the party to which the claim should be mailed. Refer to {{v2-table:0137:Mail Claim Party}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== PSL.1 - Provider Product/Service Line Item Number (EI)
+
+[segment-definition]
+Unique Product/Service Line Item Number assigned by the Provider Application.

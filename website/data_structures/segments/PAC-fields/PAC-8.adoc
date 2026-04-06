@@ -1,0 +1,4 @@
+== PAC.8 - Package Risk Code (CWE)
+
+[segment-definition]
+This field contains any known or suspected hazards associated with this package, e.g., exceptionally infectious agent or blood from a hepatitis patient. Refer to {{v2-table:0489:Risk Codes}} for suggested values.

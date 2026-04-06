@@ -1,0 +1,4 @@
+== PCR.15 - Product Evaluation Status (CWE)
+
+[segment-definition]
+This field identifies the status of product evaluation. Subpart A Item H.3 of the Coding Manual for FDA Form 3500A may also be used. If no codes are available, text may be sent in the second component of the field. Refer to {{v2-table:0247:Status of Evaluation}} for valid values.

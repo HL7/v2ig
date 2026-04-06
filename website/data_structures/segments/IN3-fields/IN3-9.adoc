@@ -1,0 +1,4 @@
+== IN3.9 - Certification Begin Date (DT)
+
+[segment-definition]
+This field contains the date that this certification begins.

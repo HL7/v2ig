@@ -1,0 +1,50 @@
+= (CTR) Segment - Contract Master Outbound
+:v2type: 'Segment'
+:code: CTR
+:name: Contract Master Outbound
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CTR-fields/CTR-1.adoc[]
+
+include::CTR-fields/CTR-2.adoc[]
+
+include::CTR-fields/CTR-3.adoc[]
+
+include::CTR-fields/CTR-4.adoc[]
+
+include::CTR-fields/CTR-5.adoc[]
+
+include::CTR-fields/CTR-6.adoc[]
+
+include::CTR-fields/CTR-7.adoc[]
+
+include::CTR-fields/CTR-8.adoc[]
+
+include::CTR-fields/CTR-9.adoc[]
+
+include::CTR-fields/CTR-10.adoc[]
+
+include::CTR-fields/CTR-11.adoc[]
+
+include::CTR-fields/CTR-12.adoc[]
+
+include::CTR-fields/CTR-13.adoc[]
+
+include::CTR-fields/CTR-14.adoc[]
+
+include::CTR-fields/CTR-15.adoc[]
+
+include::CTR-fields/CTR-16.adoc[]
+
+include::CTR-fields/CTR-17.adoc[]
+
+include::CTR-fields/CTR-18.adoc[]
+
+include::CTR-fields/CTR-19.adoc[]
+
+include::CTR-fields/CTR-20.adoc[]
+
+include::CTR-fields/CTR-21.adoc[]

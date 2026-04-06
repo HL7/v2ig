@@ -1,0 +1,4 @@
+== CTR.2 - Contract Description (ST)
+
+[segment-definition]
+The Contract Description is a description of the contract identified in CTR-1.

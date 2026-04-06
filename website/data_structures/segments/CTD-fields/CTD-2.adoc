@@ -1,0 +1,4 @@
+== CTD.2 - Contact Name (XPN)
+
+[segment-definition]
+This field contains the name of the contact person identified in this segment. Generally, this field will describe a person or provider associated with the referral. If this contact name is a physician, you may refer to the _CTD-7-Contact identifiers_ (section ) for the physician identifier.

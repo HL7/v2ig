@@ -1,0 +1,4 @@
+== ACC.3 - Accident Location (ST)
+
+[segment-definition]
+This field contains the location of the accident.

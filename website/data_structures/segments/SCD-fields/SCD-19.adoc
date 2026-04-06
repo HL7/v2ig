@@ -1,0 +1,4 @@
+== SCD.19 - Abort Cycle (CNE)
+
+[segment-definition]
+A notification that the cycle was aborted. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

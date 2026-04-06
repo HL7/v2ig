@@ -1,0 +1,4 @@
+== SDD.1 - Number (EI)
+
+[segment-definition]
+A unique number associated with an instance of a sterilization/decontamination cycle assigned by the instrument-tracking system.

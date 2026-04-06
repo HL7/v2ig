@@ -1,0 +1,4 @@
+== VND.3 - Vendor Name (ST)
+
+[segment-definition]
+This field contains the name of the vendor identified in _VND-2_.

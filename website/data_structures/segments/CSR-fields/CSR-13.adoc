@@ -1,0 +1,4 @@
+== CSR.13 - Stratum for Study Randomization (CWE)
+
+[segment-definition]
+Many studies have stratified randomization schemas. The strata codes must be developed for each clinical trial. This field is important for statistical analysis of the study results. The second and third repetitions will correspond to the second and third repetitions of _CSR-11 Study Randomization Date/Time_ and _CSR-12 Randomized Study Arm_, if they exist. Refer to Table 0592 - Stratum for Study Randomization in Chapter 2C for valid values.

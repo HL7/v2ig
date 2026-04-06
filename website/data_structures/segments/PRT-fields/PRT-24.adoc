@@ -1,0 +1,4 @@
+== PRT.24 - Contact Identifiers (PLN)
+
+[segment-definition]
+This field contains the contact identifier to use when communicating particularly when the contact is a person or organization This is typically used in combination with PRT-5 Person, and/or PRT-8 Organization. This repeating field contains the contact's unique identifiers such as UPIN, Medicare and Medicaid numbers.

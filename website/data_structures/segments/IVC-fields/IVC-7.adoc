@@ -1,0 +1,4 @@
+== IVC.7 - Invoice Date/Time (DTM)
+
+[segment-definition]
+Date Invoice was created.

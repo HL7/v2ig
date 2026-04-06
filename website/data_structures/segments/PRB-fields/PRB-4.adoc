@@ -1,0 +1,7 @@
+== PRB.4 - Problem Instance ID (EI)
+
+[segment-definition]
+This field contains the identifier assigned by an initiating system to an instance of a problem.
+
+[segment-comment]
+*Note:* It is required that this value remain unique over time. This instance ID identifies a specific instance for a specific patient and is unique across all patients. See entity ID data type description in Chapter 2.

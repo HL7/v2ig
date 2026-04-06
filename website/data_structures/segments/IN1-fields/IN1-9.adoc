@@ -1,0 +1,4 @@
+== IN1.9 - Group Name (XON)
+
+[segment-definition]
+This field contains the group name of the insured's insurance.

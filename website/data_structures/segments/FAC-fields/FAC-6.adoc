@@ -1,0 +1,4 @@
+== FAC.6 - Contact Title (ST)
+
+[segment-definition]
+This field contains the primary contact person's title.

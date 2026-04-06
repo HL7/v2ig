@@ -1,0 +1,4 @@
+== PDA.2 - Death Location (PL)
+
+[segment-definition]
+This field is valued with the place the death occurred.

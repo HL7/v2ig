@@ -1,0 +1,4 @@
+== PSL.36 - Internal Scaling Factor PP (NM)
+
+[segment-definition]
+Internal Scaling Factor for the amount of the professional part of the service.

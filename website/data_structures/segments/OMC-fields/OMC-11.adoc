@@ -1,0 +1,7 @@
+== OMC.11 - Answer Choices (CWE)
+
+[segment-definition]
+Allowed coded answers to be sent in HL7 file (CWE.1) and/or display Text for Ordering system to present to provider (CWE.2). Refer to Table 0665 - Answer Choices in Chapter 2C for valid values.
+
+[segment-comment]
+The condition is valued only if OMC-9 is valued 'CWE' or 'CNE'.

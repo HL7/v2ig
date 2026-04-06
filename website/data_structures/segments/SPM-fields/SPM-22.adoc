@@ -1,0 +1,4 @@
+== SPM.22 - Specimen Quality (CWE)
+
+[segment-definition]
+The degree or grade of excellence of the specimen at receipt. The filler populates this attribute. Refer to {{v2-table:0491:Specimen Quality}} for suggested entries.

@@ -1,0 +1,4 @@
+== ROL.4 - Role Person (XCN)
+
+[segment-definition]
+// TODO: Add field definition

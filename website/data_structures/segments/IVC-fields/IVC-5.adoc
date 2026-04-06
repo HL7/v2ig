@@ -1,0 +1,4 @@
+== IVC.5 - Invoice Reason (CWE)
+
+[segment-definition]
+Code describing reason for this Invoice. Refer to {{v2-table:0554:Invoice Reason Codes}} in Chapter 2C, Code Tables, for suggested values.

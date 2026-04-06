@@ -1,0 +1,4 @@
+== SCD.1 - Cycle Start Time (TM)
+
+[segment-definition]
+The time that the load cycle begins.

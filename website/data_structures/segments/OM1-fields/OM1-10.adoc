@@ -1,0 +1,4 @@
+== OM1.10 - Preferred Short Name or Mnemonic for the Observation (ST)
+
+[segment-definition]
+This field contains the name that can be used in space-limited reports (e.g., specimen labels) to identify the observation for the convenience of human readers. The name can contain up to eight characters.

@@ -1,0 +1,4 @@
+== BUI.6 - BUI-6 (NM)
+
+[segment-definition]
+The volume of the blood unit collected.

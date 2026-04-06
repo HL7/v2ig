@@ -1,0 +1,4 @@
+== OH2.10 - Average Hours worked per Day (NM)
+
+[segment-definition]
+This field asserts the average hours worked per day for the job of a person recorded in this segment.

@@ -1,0 +1,4 @@
+== INV.18 - INV-18 (CWE)
+
+[segment-definition]
+This field identifies the supplier of this substance. Refer to {{v2-table:0386:Supplier Identifier}} in Chapter 2C, Code Tables, for suggested values.

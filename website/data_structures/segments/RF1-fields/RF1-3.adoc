@@ -1,0 +1,4 @@
+== RF1.3 - Referral Type (CWE)
+
+[segment-definition]
+This field contains the type of referral. It is loosely associated with a clinical specialty or type of resource. Refer to {{v2-table:0281:Referral Type}} in Chapter 2C, Code Tables, for suggested values.

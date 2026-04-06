@@ -1,0 +1,4 @@
+== OH3.6 - Start year (DT)
+
+[segment-definition]
+This field identifies the year that the person began work in their usual occupation.

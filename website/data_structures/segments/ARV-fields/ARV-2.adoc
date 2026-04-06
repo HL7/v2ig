@@ -1,0 +1,4 @@
+== ARV.2 - Access Restriction Action Code (CNE)
+
+[segment-definition]
+This field contains a code defining the action to be taken for this segment. It allows access restriction information to be sent to delete or update previously sent access restrictions. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.

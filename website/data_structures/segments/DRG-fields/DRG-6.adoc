@@ -1,0 +1,4 @@
+== DRG.6 - Outlier Days (NM)
+
+[segment-definition]
+This field contains the number of days that have been approved as an outlier payment.

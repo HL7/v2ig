@@ -1,0 +1,4 @@
+== CTR.7 - Contract Originator Name (XPN)
+
+[segment-definition]
+This field contains the name of the person who created the contract.

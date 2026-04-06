@@ -1,0 +1,18 @@
+= (GP1) Segment - Grouping/Reimbursement - Visit
+:v2type: 'Segment'
+:code: GP1
+:name: Grouping/Reimbursement - Visit
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::GP1-fields/GP1-1.adoc[]
+
+include::GP1-fields/GP1-2.adoc[]
+
+include::GP1-fields/GP1-3.adoc[]
+
+include::GP1-fields/GP1-4.adoc[]
+
+include::GP1-fields/GP1-5.adoc[]

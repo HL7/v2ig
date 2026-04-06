@@ -1,0 +1,4 @@
+== ROL.6 - Role End Date/Time (DTM)
+
+[segment-definition]
+// TODO: Add field definition

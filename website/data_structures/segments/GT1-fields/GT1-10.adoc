@@ -1,0 +1,4 @@
+== GT1.10 - Guarantor Type (CWE)
+
+[segment-definition]
+This field indicates the type of guarantor, e.g., individual, institution, etc. Refer to {{v2-table:0068:Guarantor Type}} in Chapter 2C, Code Tables, for suggested values.

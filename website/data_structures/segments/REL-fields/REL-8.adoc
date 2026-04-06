@@ -1,0 +1,4 @@
+== REL.8 - Asserting Organization (XON)
+
+[segment-definition]
+This field contains the Identifier details of the Organization that asserted the relationship.

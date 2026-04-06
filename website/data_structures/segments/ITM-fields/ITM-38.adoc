@@ -1,0 +1,4 @@
+== ITM.38 - Field Level Event Code (ID)
+
+[segment-definition]
+The event code related to the item in ITM.1. Refer to _HL7 Table 0180 – Master File Action Code table_ in Chapter 2, Code Tables, for valid values.

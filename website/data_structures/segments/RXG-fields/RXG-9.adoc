@@ -1,0 +1,4 @@
+== RXG.9 - Administration Notes (CWE)
+
+[segment-definition]
+This field contains notes to the person administering the medication/treatment (may include the ordering provider's original notes, as well as any notes from the formulary or the pharmacy or treatment supplier). If coded, a user-defined table must be used. If free text, place a null in the first component and the text in the second, e.g., |^this is a free text administration note|. Refer to Table 0737 - Administration Notes in Chapter 2C for valid values.

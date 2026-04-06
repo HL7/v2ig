@@ -1,0 +1,4 @@
+== RXV.2 - Bolus Type (ID)
+
+[segment-definition]
+This field identifies the type of bolus being ordered. See {{v2-table:0917:Bolus Type}} in Chapter 2C, Code Tables, for example values.

@@ -1,0 +1,36 @@
+= (PRD) Segment - provider data
+:v2type: 'Segment'
+:code: PRD
+:name: provider data
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PRD-fields/PRD-1.adoc[]
+
+include::PRD-fields/PRD-2.adoc[]
+
+include::PRD-fields/PRD-3.adoc[]
+
+include::PRD-fields/PRD-4.adoc[]
+
+include::PRD-fields/PRD-5.adoc[]
+
+include::PRD-fields/PRD-6.adoc[]
+
+include::PRD-fields/PRD-7.adoc[]
+
+include::PRD-fields/PRD-8.adoc[]
+
+include::PRD-fields/PRD-9.adoc[]
+
+include::PRD-fields/PRD-10.adoc[]
+
+include::PRD-fields/PRD-11.adoc[]
+
+include::PRD-fields/PRD-12.adoc[]
+
+include::PRD-fields/PRD-13.adoc[]
+
+include::PRD-fields/PRD-14.adoc[]

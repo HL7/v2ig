@@ -1,0 +1,4 @@
+== CON.18 - Language Translated To (CWE)
+
+[segment-definition]
+Identifies the language the consent material must be translated to. Refer to {{v2-table:0296:Primary Language}}_ which contains no suggested values. This table may be populated with values similar to those that may be found in _ISO table 639 – Language Codes._

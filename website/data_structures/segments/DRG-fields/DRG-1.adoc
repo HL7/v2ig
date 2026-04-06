@@ -1,0 +1,4 @@
+== DRG.1 - Diagnostic Related Group (CNE)
+
+[segment-definition]
+This field contains the DRG for the transaction. Interim DRG's could be determined for an encounter. Refer to {{v2-table:0055:Diagnosis Related Group}} in Chapter 2C, Code Tables, for suggested values.

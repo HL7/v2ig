@@ -1,0 +1,4 @@
+== PMT.6 - Payment/Remittance Amount (CP)
+
+[segment-definition]
+Sum total of all Product/Service Paid Amount on PSL for this Payment/Remittance Advice, net of any Adjustments to Payee.

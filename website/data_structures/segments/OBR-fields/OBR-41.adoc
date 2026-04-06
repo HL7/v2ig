@@ -1,0 +1,4 @@
+== OBR.41 - Transport Arranged (ID)
+
+[segment-definition]
+This field is an indicator of whether transport arrangements are known to have been made. Refer to {{v2-table:0224:Transport Arranged}} in Chapter 2C, Code Tables, for valid codes.

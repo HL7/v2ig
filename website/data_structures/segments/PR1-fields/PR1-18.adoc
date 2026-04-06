@@ -1,0 +1,4 @@
+== PR1.18 - Tissue Type Code (CWE)
+
+[segment-definition]
+Code representing type of tissue removed from a patient during this procedure. Refer to {{v2-table:0417:Tissue Type Code}} in Chapter 2C, Code Tables, for suggested values.

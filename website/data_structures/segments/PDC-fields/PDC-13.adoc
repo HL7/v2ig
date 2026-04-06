@@ -1,0 +1,4 @@
+== PDC.13 - Expected Shelf Life (CQ)
+
+[segment-definition]
+This field contains the shelf life of the product expected by the manufacturer. This will usually be in months or years.

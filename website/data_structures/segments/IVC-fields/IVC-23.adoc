@@ -1,0 +1,4 @@
+== IVC.23 - Total-Amount of VAT (CP)
+
+[segment-definition]
+Total Amount of VAT included in the Total Invoice Amount (IVC-8)

@@ -1,0 +1,7 @@
+== RXD.31 - Dispense to Pharmacy Address (XAD)
+
+[segment-definition]
+*_This field is retained for backward compatibility only as of v 27._* The information formerly communicated using this field should now be communicated using the PRT segment. The reader is referred to chapter 7 for a description of that segment.
+
+[segment-comment]
+This field specifies the address of the dispensing facility or the patient's location where the dispensing will occur.

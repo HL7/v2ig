@@ -1,0 +1,4 @@
+== NST.15 - Application control-level Errors (NM)
+
+[segment-definition]
+This field contains the number of application control-level errors in response to an initiated message.

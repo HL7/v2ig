@@ -1,0 +1,9 @@
+== PID.31 - Identity Unknown Indicator (ID)
+
+[segment-definition]
+This field indicates whether or not the patient's/person's identity is known. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the patient's/person's identity is unknown
+
+N the patient's/person's identity is known

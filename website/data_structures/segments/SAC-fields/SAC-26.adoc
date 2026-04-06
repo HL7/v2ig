@@ -1,0 +1,4 @@
+== SAC.26 - SAC-26 (CWE)
+
+[segment-definition]
+This field indicates the type of cap that is to be used with this container for decapping, piercing or other mechanisms. Refer to {{v2-table:0381:Cap Type}} in Chapter 2C, Code Tables, for suggested values.

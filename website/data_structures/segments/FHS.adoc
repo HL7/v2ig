@@ -1,0 +1,42 @@
+= (FHS) Segment - File Header
+:v2type: 'Segment'
+:code: FHS
+:name: File Header
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::FHS-fields/FHS-1.adoc[]
+
+include::FHS-fields/FHS-2.adoc[]
+
+include::FHS-fields/FHS-3.adoc[]
+
+include::FHS-fields/FHS-4.adoc[]
+
+include::FHS-fields/FHS-5.adoc[]
+
+include::FHS-fields/FHS-6.adoc[]
+
+include::FHS-fields/FHS-7.adoc[]
+
+include::FHS-fields/FHS-8.adoc[]
+
+include::FHS-fields/FHS-9.adoc[]
+
+include::FHS-fields/FHS-10.adoc[]
+
+include::FHS-fields/FHS-11.adoc[]
+
+include::FHS-fields/FHS-12.adoc[]
+
+include::FHS-fields/FHS-13.adoc[]
+
+include::FHS-fields/FHS-14.adoc[]
+
+include::FHS-fields/FHS-15.adoc[]
+
+include::FHS-fields/FHS-16.adoc[]
+
+include::FHS-fields/FHS-17.adoc[]

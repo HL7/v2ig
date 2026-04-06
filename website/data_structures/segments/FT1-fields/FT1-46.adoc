@@ -1,0 +1,4 @@
+== FT1.46 - DME Duration Value (NM)
+
+[segment-definition]
+This is the length of time, in months, the durable medical equipment is needed.

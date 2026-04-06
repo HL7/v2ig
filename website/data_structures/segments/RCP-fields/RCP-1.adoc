@@ -1,0 +1,4 @@
+== RCP.1 - Query Priority (ID)
+
+[segment-definition]
+This field contains the time frame in which the response is expected. Refer to {{v2-table:0091:Query priority}} in Chapter 2C, Code Tables, for valid values. Table values and subsequent fields specify time frames for response.

@@ -1,0 +1,4 @@
+== NK1.14 - Marital Status (CWE)
+
+[segment-definition]
+This field contains the next of kin/associated party's marital status. Refer to _E:\\V2\\v2.9 final Nov from Frank\\V29_CH02C_Tables.docx#HL70002[User-defined Table 0002 - Marital Status]_ in Chapter 2C, Code Tables, for suggested values.

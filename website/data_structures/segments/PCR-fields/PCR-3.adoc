@@ -1,0 +1,4 @@
+== PCR.3 - Product Class (CWE)
+
+[segment-definition]
+This field contains the coded classification of the implicated product. For drugs, this would usually be the drug class - calcium channel blocking agents for nifedipine, for example. For other products it would be the generic type of device, e.g., urinary catheter, cardiac pacemaker. If a coded value is not available for the class, a text description can be included. Refer to Table 0671 - Product Class in Chapter 2C for valid values.

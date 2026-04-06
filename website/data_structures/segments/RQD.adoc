@@ -1,0 +1,28 @@
+= (RQD) Segment - Requisition Detail
+:v2type: 'Segment'
+:code: RQD
+:name: Requisition Detail
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::RQD-fields/RQD-1.adoc[]
+
+include::RQD-fields/RQD-2.adoc[]
+
+include::RQD-fields/RQD-3.adoc[]
+
+include::RQD-fields/RQD-4.adoc[]
+
+include::RQD-fields/RQD-5.adoc[]
+
+include::RQD-fields/RQD-6.adoc[]
+
+include::RQD-fields/RQD-7.adoc[]
+
+include::RQD-fields/RQD-8.adoc[]
+
+include::RQD-fields/RQD-9.adoc[]
+
+include::RQD-fields/RQD-10.adoc[]

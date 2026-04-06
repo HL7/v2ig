@@ -1,0 +1,4 @@
+== NK1.4 - Address (XAD)
+
+[segment-definition]
+This field contains the address of the next of kin/associated party. Multiple addresses are allowed for the same person. As of v2.7 the "primary mailing address" constraint as the first sequence has been removed. Primary Mailing Address is not an entry in either _XAD.7 – Address Type_ or in _XAD.18 – Address Usage_.

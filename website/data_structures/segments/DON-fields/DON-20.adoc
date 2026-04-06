@@ -1,0 +1,4 @@
+== DON.20 - Intended Recipient Ordering Provider (XPN)
+
+[segment-definition]
+If this is donation has an intended recipient (autologous, directed, dedicated, designated), the provider who ordered the directed donation for the intended recipient.

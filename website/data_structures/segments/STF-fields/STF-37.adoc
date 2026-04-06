@@ -1,0 +1,9 @@
+== STF.37 - Generic Classification Indicator (ID)
+
+[segment-definition]
+This field describes whether or not this STF record represents an identifiable (i.e., real) human being or is a "placeholder" for one whose identity is not yet known. For example, work schedules may need to be created before the actual staff member has been hired, or appointments may be made with a floating resource who is not specifically known until the actual appointment date/time. Because these functions require a Staff Member ID code, it is important to distinguish whether or not the Staff Member is a real human resource or not. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.
+
+[segment-comment]
+Y indicates that the staff member is an identifiable human being
+
+N indicates that the staff member is not an identifiable human being

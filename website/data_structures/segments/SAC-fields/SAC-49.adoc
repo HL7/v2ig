@@ -1,0 +1,7 @@
+== SAC.49 - SAC-49 (CWE)
+
+[segment-definition]
+This field is a coded representation of the way the container type is commonly referenced in an organization, in order to aid in ensuring the appropriate container is used. Examples include “Red Top” (for tubes/vials), “Wet Mount” (for slides), etc. Frequently these values will be locally defined and meaning may vary by supplier. Refer to User-Defined Table 0969 for suggested values.
+
+[segment-comment]
+In many cases this is a shorthand way to express a combination of other container attributes, for example the combination of SAC-47 (Container Form) of “Tube/vial” + SAC-48 (Container Material) of “Glass” + SAC-27 (Additive) of “EDTA” may be referenced commonly in an organization as a “Lavender Top”.

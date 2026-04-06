@@ -1,0 +1,4 @@
+== PEO.11 - Event Outcome (ID)
+
+[segment-definition]
+This field identifies the consequence of the [.underline]#event# on the patient. If the consequence of the event is not understood or not available, the patient outcome element may be used although neither is required. May be repeated if more than one is appropriate. Refer to {{v2-table:0240:Event Consequence}} for valid values.

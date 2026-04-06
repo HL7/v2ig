@@ -1,0 +1,4 @@
+== DON.1 - Donation Identification Number - DIN (EI)
+
+[segment-definition]
+This field contains a unique identifier, Donation Identification Number (DIN), for the specific donation and is therefore mandatory except when using an eligibility message type in which only DON-9, DON-10, and DON-11 are populated. DON-2 Donation Type (CNE) 03341

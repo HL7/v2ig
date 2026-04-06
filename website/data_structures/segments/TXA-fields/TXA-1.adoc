@@ -1,0 +1,4 @@
+== TXA.1 - Set ID- TXA (SI)
+
+[segment-definition]
+This field contains a number that uniquely identifies this transaction for the purpose of adding, changing, or deleting the transaction.

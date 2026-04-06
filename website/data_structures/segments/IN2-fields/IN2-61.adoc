@@ -1,0 +1,4 @@
+== IN2.61 - Patient Member Number (CX)
+
+[segment-definition]
+This field contains an identifying number assigned by the payor for each individual covered by the insurance policy issued to the insured. For example, each individual family member may have a different member number from the insurance policy number issued to the head of household. The assigning authority and identifier type code are strongly recommended for all CX data types.

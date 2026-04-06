@@ -1,0 +1,4 @@
+== CER.13 - Subject Name (ST)
+
+[segment-definition]
+This field defines the name of the subject of the certificate as used by the certifying body.

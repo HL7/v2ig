@@ -1,0 +1,4 @@
+== GP2.3 - Charge (CP)
+
+[segment-definition]
+This field contains the amount charged for the specific individual line item (HCPC/CPT). This field is the same as UB92 Form Locator 56. This field is defined by CMS or other regulatory agencies.

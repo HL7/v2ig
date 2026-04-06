@@ -1,0 +1,15 @@
+== SPM.4 - Specimen Type (CWE)
+
+[segment-definition]
+This field describes the precise nature of the entity that will be the source material for the observation.
+
+[segment-comment]
+Any physical entity that may have observations made about it may qualify as a specimen. The entry in this attribute describes the specific entity as precisely as possible, whether that is a complex organism (e.g., an ostrich) or a specific cellular mass (e.g., a specific muscle biopsy).
+
+A nationally recognized coding system is to be used for this field. Valid coding sources for this field include:
+
+• {{v2-table:0487:Specimen Type}} (replaces {{v2-table:0070:Specimen source codes}})
+
+• SNOMED, etc.
+
+• Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.

@@ -1,0 +1,36 @@
+= (AIG) Segment - Appointment Information - General Resource
+:v2type: 'Segment'
+:code: AIG
+:name: Appointment Information - General Resource
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::AIG-fields/AIG-1.adoc[]
+
+include::AIG-fields/AIG-2.adoc[]
+
+include::AIG-fields/AIG-3.adoc[]
+
+include::AIG-fields/AIG-4.adoc[]
+
+include::AIG-fields/AIG-5.adoc[]
+
+include::AIG-fields/AIG-6.adoc[]
+
+include::AIG-fields/AIG-7.adoc[]
+
+include::AIG-fields/AIG-8.adoc[]
+
+include::AIG-fields/AIG-9.adoc[]
+
+include::AIG-fields/AIG-10.adoc[]
+
+include::AIG-fields/AIG-11.adoc[]
+
+include::AIG-fields/AIG-12.adoc[]
+
+include::AIG-fields/AIG-13.adoc[]
+
+include::AIG-fields/AIG-14.adoc[]

@@ -1,0 +1,7 @@
+== PRT.19 - Device Lot Number (ST)
+
+[segment-definition]
+Alphanumeric string that identifies the device’s production lot number.
+
+[segment-comment]
+Example: |123ABC|

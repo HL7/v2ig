@@ -1,0 +1,4 @@
+== SAC.36 - SAC-36 (NM)
+
+[segment-definition]
+This field is the index identifier that is being used to describe the Icterus Index of the specimen.

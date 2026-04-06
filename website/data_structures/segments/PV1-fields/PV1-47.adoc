@@ -1,0 +1,4 @@
+== PV1.47 - Total Charges (NM)
+
+[segment-definition]
+This field contains the total visit charges.

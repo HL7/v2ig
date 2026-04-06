@@ -1,0 +1,11 @@
+== RDF.2 - Column Description (RCD)
+
+[segment-definition]
+Each repetition of this field consists of three components:
+
+[segment-comment]
+The segment field name that identifies the field occupying the column. The segment field name SHALL agree with the column name as it appears in the Query Profile. Use of the @ sign as prefix to the column name is optional.
+
+The 2 or 3 character HL7 data type, as defined in Chapter 2. Refer to {{v2-table:0440:Data types}} in Chapter 2C, Code Tables, for valid values.
+
+The maximum width of the column, as dictated by the responding system. (This may vary from the HL7-defined maximum field length.)

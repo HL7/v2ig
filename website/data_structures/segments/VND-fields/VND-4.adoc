@@ -1,0 +1,4 @@
+== VND.4 - Vendor Catalog Number (EI)
+
+[segment-definition]
+This field contains the catalog number assigned to the item by a purchasing vendor.

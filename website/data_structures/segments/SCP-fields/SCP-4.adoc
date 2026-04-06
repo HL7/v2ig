@@ -1,0 +1,4 @@
+== SCP.4 - Device Number (EI)
+
+[segment-definition]
+The number of the device (e.g., 01).

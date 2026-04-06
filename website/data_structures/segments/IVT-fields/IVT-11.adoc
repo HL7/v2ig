@@ -1,0 +1,4 @@
+== IVT.11 - Patient Chargeable Indicator (CNE)
+
+[segment-definition]
+This field indicates whether the item is patient chargeable at this inventory location. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.

@@ -1,0 +1,4 @@
+== MSH.12 - Version ID (VID)
+
+[segment-definition]
+This field is matched by the receiving system to its own version to be sure the message will be interpreted correctly. Beginning with Version 2.3.1, it has two additional "internationalization" components, for use by HL7 international affiliates. The <internationalization code> is CE data type (using the ISO country codes where appropriate) which represents the HL7 affiliate. The <internal version ID> is used if the HL7 Affiliate has more than a single 'local' version associated with a single US version. The <international version ID> has a CE data type, since the table values vary for each HL7 Affiliate. Refer to {{v2-table:0104:Version ID}} in Chapter 2C, Code Tables, for valid values.

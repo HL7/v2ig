@@ -1,0 +1,4 @@
+== GSC.8 - Comment (TX)
+
+[segment-definition]
+This field contains a free text comment pertaining to the Sex Parameter for Clinical Use.

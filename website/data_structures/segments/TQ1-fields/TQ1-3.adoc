@@ -1,0 +1,9 @@
+== TQ1.3 - Repeat Pattern (RPT)
+
+[segment-definition]
+The repeating frequency with which the treatment is to be administered. It is similar to the frequency and SIG code tables used in order entry systems.
+
+[segment-comment]
+This field may be repeated to build up more complex repeat patterns. For example, daily at bedtime can be represent as "|QD~HS|".
+
+When the quantity timing specification must change to a different repeat pattern after some period of time, a new TQ1 segment must be used to show the new repeat pattern. Note that the end date of the current TQ1 will show when the current timing specification ends, and the start date of the next TQ1 shows when the new timing specification begins. The Conjunction field, TQ1-12 determines if the next TQ1 segment is to be performed sequentially or in parallel.

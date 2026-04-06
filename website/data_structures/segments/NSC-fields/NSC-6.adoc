@@ -1,0 +1,4 @@
+== NSC.6 - New CPU (ST)
+
+[segment-definition]
+This field contains a site-specific name for the new CPU.

@@ -1,0 +1,7 @@
+== RXD.2 - Dispense/Give Code (CWE)
+
+[segment-definition]
+This field identifies the medical substance or treatment ordered to be given to the patient; it is equivalent to _OBR-4-Universal Service ID_. See the RXE segment for a complete definition of the _RXE-2-give code_. If the substance dispensed is a vaccine, CVX codes may be used to code this field (see {{v2-table:0292:Vaccines Administered}} in Chapter 2C, Code Tables).
+
+[segment-comment]
+*Note:* The contents of RXD-2-dispense/give code should be compatible with the comparable field in the RXE (RXE-2-give code). The RDS message refers ONLY to the dispensing of the drug or treatment by the pharmacy or treatment supplier.

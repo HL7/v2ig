@@ -1,0 +1,4 @@
+== PD1.5 - Student Indicator (CWE)
+
+[segment-definition]
+This field indicates if the patient is currently a student or not, and whether the patient is a full-time or a part-time student. This field does not indicate the student's degree level (high school, college, elementary) or the student's field of study (accounting, engineering, etc.). Refer to {{v2-table:0231:Student Status}} in chapter 2C, for suggested values.

@@ -1,0 +1,7 @@
+== OM4.7 - Additive (CWE)
+
+[segment-definition]
+This field contains the codes that should be those provided by NCCLSfootnote:[NCCLS Document H1-A3: Evacuated tubes for blood specimen collection -- Third Edition, Volume 11, Number 9, Approved standard. July 1991.]. Refer to {{v2-table:0371:Additive/Preservative}} in Chapter 2C, Code Tables, for valid values. The table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.
+
+[segment-comment]
+This table was not specified in previous versions and thus sites may choose to use other site-specific tables.

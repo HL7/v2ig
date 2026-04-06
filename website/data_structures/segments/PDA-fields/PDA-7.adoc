@@ -1,0 +1,4 @@
+== PDA.7 - Autopsy Start and End Date/Time (DR)
+
+[segment-definition]
+If an autopsy is performed, this field is valued with the date and time the autopsy was begun and completed

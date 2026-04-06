@@ -1,0 +1,7 @@
+== ODT.1 - Tray Type (CWE)
+
+[segment-definition]
+This field defines the type of dietary tray. Refer To {{v2-table:0160:Tray Type}} in Chapter 2C, Code Tables, for valid entries.
+
+[segment-comment]
+Tray specifications are useful for early and late tray delivery in cases where a patient undergoes a procedure during normal feeding times. Tray specifications can also be used for guest trays, no trays, and messages. The value MSG means the ODT segment does not specify the type of tray but provides additional information about an existing tray. This information is found in ODT-3-text instruction.

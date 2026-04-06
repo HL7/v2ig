@@ -1,0 +1,4 @@
+== IN2.35 - Living Arrangement (CWE)
+
+[segment-definition]
+This field indicates the situation in which the insured person lives at his primary residence. Refer to {{v2-table:0220:Living Arrangement}} in Chapter 2C, Code Tables, for suggested values.

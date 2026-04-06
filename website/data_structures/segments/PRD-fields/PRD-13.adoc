@@ -1,0 +1,4 @@
+== PRD.13 - Provider Organization Communication Information (XTN)
+
+[segment-definition]
+This field contains information, such as the phone number or electronic mail address, used to communicate with the provider if it is an organization.

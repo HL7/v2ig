@@ -1,0 +1,4 @@
+== DRG.21 - Relative Discount/Surcharge (MO)
+
+[segment-definition]
+There will be a discount/surcharge for the calculated price due to a very short stay, early referral or a very long stay. This field contains the discount or surcharge that is included in the final price.

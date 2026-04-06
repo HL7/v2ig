@@ -1,0 +1,7 @@
+== IPR.4 - IPR Status (CWE)
+
+[segment-definition]
+Processing status for the Product/Service Group (if Adjudicate as Group = "Y") or Product/Service Line Item. Refer to {{v2-table:0571:Invoice Processing Results Status}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+The referenced status codes represent status codes for an IPR (Invoice Processing Result).

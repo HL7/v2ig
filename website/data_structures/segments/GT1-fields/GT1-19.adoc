@@ -1,0 +1,4 @@
+== GT1.19 - Guarantor Employee ID Number (CX)
+
+[segment-definition]
+This field contains the guarantor's employee number. The assigning authority and identifier type code are strongly recommended for all CX data types.

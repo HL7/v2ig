@@ -1,0 +1,7 @@
+== PRC.4 - Valid Patient Classes (CWE)
+
+[segment-definition]
+This field contains the patient types for which this charge description is valid. For example, Inpatient, Outpatient, Series, Clinic, ER, Ambulatory, Observation, etc. These values should be the same set of values as those used for _PV1-3 - Patient Class_, which is site defined. Use only when the price is not valid for all patient types, that is, a null value indicates that this pricing is valid for all patient classes. Refer to {{v2-table:0004:Patient Class}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+When two PRC segments are sent the same key values but with different valid patient classes, the second is sent in addition to the first, not to replace the first. The effective unique identifier is the charge code (_PRC-1 - PRC Primary Key_) plus the facility ID (_PRC-2 - Facility ID_) plus the department (_PRC-3 - Department_) plus the patient class (_PRC-4 - Valid Patient Classes_). Multiple patient classes can be sent in the same segment to indicate that those patient classes use the same pricing.

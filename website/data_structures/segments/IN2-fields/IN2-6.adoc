@@ -1,0 +1,4 @@
+== IN2.6 - Medicare Health Ins Card Number (ST)
+
+[segment-definition]
+This field contains the Medicare Health Insurance Number (HIN), defined by CMS or other regulatory agencies.

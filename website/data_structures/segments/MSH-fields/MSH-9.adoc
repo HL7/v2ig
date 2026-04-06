@@ -1,0 +1,13 @@
+== MSH.9 - Message Type (MSG)
+
+[segment-definition]
+This field contains the message type, trigger event, and the message structure ID for the message.
+
+[segment-comment]
+Refer to {{v2-table:0076:Message Type}} in Chapter 2C, Code Tables, for valid values for the message type code. This table contains values such as ACK, ADT, ORM, ORU etc.
+
+Refer to {{v2-table:0003:Event Type}} in Chapter 2C, Code Tables, for valid values for the trigger event. This table contains values like A01, O01, R01 etc.
+
+Refer to {{v2-table:0354:Message Structure}} in Chapter 2C, Code Tables, for valid values for the message structure. This table contains values such as ADT_A01, ORU_R01, SIU_S12, etc.
+
+The receiving system uses this field to recognize the data segments, and possibly, the application to which to route this message. For certain queries, which could have more than a single response event type, the second component MAY, in the response message, vary to indicate the response event type. See the discussion of the display query variants in chapter 5.

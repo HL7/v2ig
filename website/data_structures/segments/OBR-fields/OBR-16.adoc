@@ -1,0 +1,4 @@
+== OBR.16 - Ordering Provider
+
+[segment-definition]
+*_This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9._* The reader is referred ot the PRT segment as described in Chapter 7.

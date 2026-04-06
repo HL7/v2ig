@@ -1,0 +1,4 @@
+== PAC.6 - Package Condition (CWE)
+
+[segment-definition]
+The package condition field describes the condition of the package at the time of the message. Refer to {{v2-table:0544:Container Condition}} for suggested values.

@@ -1,0 +1,4 @@
+== GSR.10 - Comment (TX)
+
+[segment-definition]
+This field contains a free text explanation about the context or source of the recorded sex or gender value.

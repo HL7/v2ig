@@ -1,0 +1,28 @@
+= (ILT) Segment - Material Lot
+:v2type: 'Segment'
+:code: ILT
+:name: Material Lot
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ILT-fields/ILT-1.adoc[]
+
+include::ILT-fields/ILT-2.adoc[]
+
+include::ILT-fields/ILT-3.adoc[]
+
+include::ILT-fields/ILT-4.adoc[]
+
+include::ILT-fields/ILT-5.adoc[]
+
+include::ILT-fields/ILT-6.adoc[]
+
+include::ILT-fields/ILT-7.adoc[]
+
+include::ILT-fields/ILT-8.adoc[]
+
+include::ILT-fields/ILT-9.adoc[]
+
+include::ILT-fields/ILT-10.adoc[]

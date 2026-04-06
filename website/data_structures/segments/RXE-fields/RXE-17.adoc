@@ -1,0 +1,4 @@
+== RXE.17 - Number of Refills/Doses Dispensed (NM)
+
+[segment-definition]
+Number of refills remaining. This field is conditional because it is required when a prescription is dispensed to an outpatient. It is not relevant to inpatient treatment orders.

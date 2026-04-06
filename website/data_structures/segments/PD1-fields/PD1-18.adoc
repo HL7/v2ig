@@ -1,0 +1,4 @@
+== PD1.18 - Publicity Code Effective Date (DT)
+
+[segment-definition]
+This is the effective date for _PD1-11 - Publicity Code_.

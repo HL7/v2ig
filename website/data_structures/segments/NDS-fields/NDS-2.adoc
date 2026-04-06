@@ -1,0 +1,4 @@
+== NDS.2 - NDS-2 (DTM)
+
+[segment-definition]
+This field is the date/time of the notifications.

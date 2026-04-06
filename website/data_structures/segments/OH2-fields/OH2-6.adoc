@@ -1,0 +1,4 @@
+== OH2.6 - Work Classification (CWE)
+
+[segment-definition]
+This field contains a code defining the work classification associated with the job of a person recorded in this segment. Refer to {{v2-table:0959:Work Classification Code}} in Chapter 2C, Code Tables, for suggested values.

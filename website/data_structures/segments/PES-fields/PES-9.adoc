@@ -1,0 +1,4 @@
+== PES.9 - Sender Aware Date/Time (DTM)
+
+[segment-definition]
+This field identifies the date the sender became aware of the event.

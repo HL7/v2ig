@@ -1,0 +1,4 @@
+== PMT.12 - ESR-Code-Line (ST)
+
+[segment-definition]
+Invoice Reference used with electronic banking methods.

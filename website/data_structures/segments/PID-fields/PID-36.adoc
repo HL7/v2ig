@@ -1,0 +1,15 @@
+== PID.36 - Breed Code (CWE)
+
+[segment-definition]
+*From v 2.8 onward, this field has been retained for backward compatibility only.* The specific breed of animal. This field, unlike Species and Strain is specific to animals and cannot be generally used for all living organisms. SNOMED is the recommended coding system. Refer to {{v2-table:0447:Breed Code}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+Conditionality Rule: This field must be valued if _PID-37 - Strain_ is valued.
+
+For example, (showing primary and alternative coding systems, using locally defined "American Kennel Club" nomenclature):
+
+...|L-80733^ Staffordshire bull terrier^SNM3^^American Staffordshire Terrier^99AKC|...
+
+...|L-80900^Weimaraner^SNM3|...
+
+...|L-80439^Peruvian Paso Horse^SNM3|...

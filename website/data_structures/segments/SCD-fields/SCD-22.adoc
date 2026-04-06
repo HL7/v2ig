@@ -1,0 +1,4 @@
+== SCD.22 - Long in Exhaust Phase (CNE)
+
+[segment-definition]
+A notification that the exhaust phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

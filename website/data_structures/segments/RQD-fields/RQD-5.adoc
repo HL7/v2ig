@@ -1,0 +1,4 @@
+== RQD.5 - Requisition Quantity (NM)
+
+[segment-definition]
+This field contains the quantity requisitioned for this item.

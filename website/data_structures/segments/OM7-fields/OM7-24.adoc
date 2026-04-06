@@ -1,0 +1,4 @@
+== OM7.24 - Primary Key Value - CDM (CWE)
+
+[segment-definition]
+Allows the ability to associate a Service/Test/Observation item with a CIM (charge item master). This field contains the corresponding value of CDM-1 for the CIM being linked to. It is possible to allow multiple charge items to a single Service/Test/Observation item.

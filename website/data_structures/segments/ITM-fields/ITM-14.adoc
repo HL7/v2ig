@@ -1,0 +1,4 @@
+== ITM.14 - Stocked Item Indicator (CNE)
+
+[segment-definition]
+This field contains an indicator signifying whether the item is stocked in any inventory location in the healthcare organization. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

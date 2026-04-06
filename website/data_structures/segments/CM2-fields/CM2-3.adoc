@@ -1,0 +1,4 @@
+== CM2.3 - Description of Time Point (ST)
+
+[segment-definition]
+This field contains a brief explanation so recipients will understand what the time point represents.

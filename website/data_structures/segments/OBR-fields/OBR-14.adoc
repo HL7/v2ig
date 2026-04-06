@@ -1,0 +1,7 @@
+== OBR.14 - Specimen Received Date/Time *
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*Attention: _The OBR-14 element was retained for backward compatibility only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7. See SPM in Chapter 7._*

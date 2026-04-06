@@ -1,0 +1,4 @@
+== SCD.4 - Temp Min (CQ)
+
+[segment-definition]
+The minimum temperature achieved during a specific cycle.

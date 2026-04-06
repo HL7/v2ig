@@ -1,0 +1,4 @@
+== IN1.22 - Coord Of Ben. Priority (ST)
+
+[segment-definition]
+If the insurance works in conjunction with other insurance plans, this field contains priority sequence. Values are: 1, 2, 3, etc.

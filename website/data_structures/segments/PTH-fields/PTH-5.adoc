@@ -1,0 +1,4 @@
+== PTH.5 - Pathway Life Cycle Status (CWE)
+
+[segment-definition]
+This field contains an application-specific set of state identifiers (e.g., Active, Suspended, Complete, Canceled, Delayed, Scheduled).

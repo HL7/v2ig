@@ -1,0 +1,4 @@
+== FT1.11 - Transaction Amount - Extended (CP)
+
+[segment-definition]
+This field contains the amount of a transaction. It may be left blank if the transaction is automatically priced. Total price for multiple items.

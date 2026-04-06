@@ -1,0 +1,9 @@
+== DRG.10 - Confidential Indicator (ID)
+
+[segment-definition]
+This field indicates if the DRG contains a confidential diagnosis. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the DRG contains a confidential diagnosis
+
+N the DRG does not contain a confidential diagnosis

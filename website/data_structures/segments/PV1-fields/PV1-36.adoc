@@ -1,0 +1,11 @@
+== PV1.36 - Discharge Disposition (CWE)
+
+[segment-definition]
+This field contains the disposition of the patient at time of discharge (i.e., discharged to home, expired, etc.). Refer to {{v2-table:0112:Discharge Disposition}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 17. Refer to _External Table UB04FL17 Patient Discharge Status_ for valid values.
+
+[segment-comment]
+Examples:
+
+US: |01^ Discharged to home or self care (routine discharge)^UB04FL17^^^^2008, v 2.0|
+
+*Usage Note:* NUBC does not supply a null value for this field.

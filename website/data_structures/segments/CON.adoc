@@ -1,0 +1,58 @@
+= (CON) Segment - Consent
+:v2type: 'Segment'
+:code: CON
+:name: Consent
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CON-fields/CON-1.adoc[]
+
+include::CON-fields/CON-2.adoc[]
+
+include::CON-fields/CON-3.adoc[]
+
+include::CON-fields/CON-4.adoc[]
+
+include::CON-fields/CON-5.adoc[]
+
+include::CON-fields/CON-6.adoc[]
+
+include::CON-fields/CON-7.adoc[]
+
+include::CON-fields/CON-8.adoc[]
+
+include::CON-fields/CON-9.adoc[]
+
+include::CON-fields/CON-10.adoc[]
+
+include::CON-fields/CON-11.adoc[]
+
+include::CON-fields/CON-12.adoc[]
+
+include::CON-fields/CON-13.adoc[]
+
+include::CON-fields/CON-14.adoc[]
+
+include::CON-fields/CON-15.adoc[]
+
+include::CON-fields/CON-16.adoc[]
+
+include::CON-fields/CON-17.adoc[]
+
+include::CON-fields/CON-18.adoc[]
+
+include::CON-fields/CON-19.adoc[]
+
+include::CON-fields/CON-20.adoc[]
+
+include::CON-fields/CON-21.adoc[]
+
+include::CON-fields/CON-22.adoc[]
+
+include::CON-fields/CON-23.adoc[]
+
+include::CON-fields/CON-24.adoc[]
+
+include::CON-fields/CON-25.adoc[]

@@ -1,0 +1,7 @@
+== BPO.2 - BP Universal Service Identifier (CWE)
+
+[segment-definition]
+This field contains the identifier code for the requested blood product. This can be based on local and/or "universal" codes. We recommend the "universal" procedure identifier. The structure of this CWE data type is described in the control section. The preferred coding system is the _ISBT 128 Product Code._ _Refer to Table 0575 - BP Universal Service Identifier in Chapter 2C for valid values._
+
+[segment-comment]
+Blood Product Orders for commercial products, such as Rh Immune Globulin or Factor VIII concentrate, are not at this time defined in an international or national coding system as are blood products. Therefore, locally defined codes can be used for the Universal Service Identifier for commercial products.

@@ -1,0 +1,4 @@
+== CSS.2 - Study Scheduled Patient Time Point (DTM)
+
+[segment-definition]
+This field contains the date/time that the scheduled time point should occur for this patient. The date/time may be used for a reference in reviewing the actual dates on which scheduled items that follow in OBR segments occur for the patient. The time component is optional.

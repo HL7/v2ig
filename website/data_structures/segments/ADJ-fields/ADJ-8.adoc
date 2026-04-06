@@ -1,0 +1,4 @@
+== ADJ.8 - Adjustment Description (ST)
+
+[segment-definition]
+Description of adjustment, such as client instructions.

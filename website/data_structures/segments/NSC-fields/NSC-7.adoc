@@ -1,0 +1,4 @@
+== NSC.7 - New Fileserver (ST)
+
+[segment-definition]
+This field contains a site-specific name for the new fileserver or file system used by this application.

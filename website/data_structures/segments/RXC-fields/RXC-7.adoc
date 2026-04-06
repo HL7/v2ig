@@ -1,0 +1,4 @@
+== RXC.7 - Supplementary Code (CWE)
+
+[segment-definition]
+This field accommodates the identification of any codes that might be associated with the pharmaceutical or other treatment substance. Common codes include: the Generic Product Identifier (GPI), Generic Code Number_Sequence Number (GCN_SEQNO), National Drug Code (NDC)_._ _Refer to Table 0700 - Supplementary Code in Chapter 2C for valid values._

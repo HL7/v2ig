@@ -1,0 +1,4 @@
+== OBX.33 - Observation Related Specimen Identifier (EIP)
+
+[segment-definition]
+This field contains the unique identifier for the specimen as referenced by the Placer application, the Filler application, or both in the SPM segment that describes the specimen this observation is related to, allowing an explicit linkage between the two.

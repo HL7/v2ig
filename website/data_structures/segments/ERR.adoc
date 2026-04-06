@@ -1,0 +1,32 @@
+= (ERR) Segment - Error
+:v2type: 'Segment'
+:code: ERR
+:name: Error
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ERR-fields/ERR-1.adoc[]
+
+include::ERR-fields/ERR-2.adoc[]
+
+include::ERR-fields/ERR-3.adoc[]
+
+include::ERR-fields/ERR-4.adoc[]
+
+include::ERR-fields/ERR-5.adoc[]
+
+include::ERR-fields/ERR-6.adoc[]
+
+include::ERR-fields/ERR-7.adoc[]
+
+include::ERR-fields/ERR-8.adoc[]
+
+include::ERR-fields/ERR-9.adoc[]
+
+include::ERR-fields/ERR-10.adoc[]
+
+include::ERR-fields/ERR-11.adoc[]
+
+include::ERR-fields/ERR-12.adoc[]

@@ -1,0 +1,4 @@
+== REL.9 - Assertor Address (XAD)
+
+[segment-definition]
+This field contains the address of the Person or Organization that asserted the relationship.

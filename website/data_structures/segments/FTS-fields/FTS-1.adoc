@@ -1,0 +1,4 @@
+== FTS.1 - File Batch Count (NM)
+
+[segment-definition]
+This field contains the number of batches contained in this file.

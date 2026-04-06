@@ -1,0 +1,4 @@
+== FAC.8 - Contact Telecommunication (XTN)
+
+[segment-definition]
+This field contains the primary contact person's telecommunication information.

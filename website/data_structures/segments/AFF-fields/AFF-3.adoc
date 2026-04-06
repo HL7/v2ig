@@ -1,0 +1,4 @@
+== AFF.3 - Professional Organization Address (XAD)
+
+[segment-definition]
+This field contains the postal address of the professional organization with which the Staff Member is associated.

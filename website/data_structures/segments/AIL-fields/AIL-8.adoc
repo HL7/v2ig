@@ -1,0 +1,7 @@
+== AIL.8 - Start Date/Time Offset Units (CNE)
+
+[segment-definition]
+This field contains a code describing the units of time used for expressing the _AIL-7 Start Date/Time Offset_ field. This field should be valued according to the recommendations made in Chapters 2 and 7. If this field is not valued, the ISO base unit of seconds (code "_s_") will be assumed. Refer to Chapter 7, Figures 7-6 through 7-9, for a list of ISO+ and ANS+ unit codes.
+
+[segment-comment]
+This field is conditionally required. If a value for _AIL-7 Start Date/Time Offset_ is provided, then a value is required for this field.

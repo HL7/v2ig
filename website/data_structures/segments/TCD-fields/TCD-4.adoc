@@ -1,0 +1,4 @@
+== TCD.4 - TCD-4 (SN)
+
+[segment-definition]
+This field is the value that is to be used as the factor for a particular specimen that is delivered to the automated system as pre-diluted for this particular test code.

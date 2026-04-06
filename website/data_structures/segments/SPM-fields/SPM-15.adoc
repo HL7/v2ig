@@ -1,0 +1,7 @@
+== SPM.15 - Specimen Handling Code (CWE)
+
+[segment-definition]
+This describes how the specimen and/or container need to be handled from the time of collection through the initiation of testing. As this field is not required, no assumptions can be made as to meaning when this field is not populated.
+
+[segment-comment]
+Refer to {{v2-table:0376:Special Handling Code}} for suggested values.

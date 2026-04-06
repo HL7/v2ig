@@ -1,0 +1,4 @@
+== DG1.6 - Diagnosis Type (CWE)
+
+[segment-definition]
+This field contains a code that identifies the type of diagnosis being sent. Refer to {{v2-table:0052:Diagnosis Type}} in Chapter 2C, Code Tables, for suggested values. This field should no longer be used to indicate "DRG" because the DRG fields have moved to the new DRG segment.

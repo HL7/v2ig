@@ -1,0 +1,4 @@
+== ADJ.13 - Provider Product/Service Line Item Number Cross Reference (EI)
+
+[segment-definition]
+Unique Provider Product/Service Line Item Number assigned by the Provider Application that is referenced by this Payer Adjustment; used for groups with multiple line items that need to be singled out by a Payer Adjustment.

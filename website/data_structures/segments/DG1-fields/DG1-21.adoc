@@ -1,0 +1,4 @@
+== DG1.21 - Diagnosis Action Code (ID)
+
+[segment-definition]
+This field defines the action to be taken for this diagnosis. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, "Code Tables", for valid values. This field is required for the update diagnosis/procedures (P12) message. In all other events it is optional.

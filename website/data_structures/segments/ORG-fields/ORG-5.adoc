@@ -1,0 +1,4 @@
+== ORG.5 - Practitioner Org Unit Identifier (CX)
+
+[segment-definition]
+This field contains an identification code used by the institution to identify this person at this specific organization unit. If the person is identified with the same code at all organization units, then this data should be coded in _STF-2 Staff ID Codes_.

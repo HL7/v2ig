@@ -1,0 +1,7 @@
+== TQ2.6 - Sequence Condition Code (ID)
+
+[segment-definition]
+Defines the relationship between the start/end of the related service request(s) (from TQ2-3, TQ2-4, or TQ2-5) and the current service request from ORC-2, 3 or 4. See {{v2-table:0504:Sequence Condition Code}} in Chapter 2C Code Tables, for allowed values.
+
+[segment-comment]
+Conditional Rule: Either this field or TQ2-10 must be present.

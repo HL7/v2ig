@@ -1,0 +1,4 @@
+== INV.7 - INV-7 (NM)
+
+[segment-definition]
+This field identifies the initial quantity of the substance in inventory.

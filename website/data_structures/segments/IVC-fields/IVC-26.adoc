@@ -1,0 +1,4 @@
+== IVC.26 - Provider Tax ID (ST)
+
+[segment-definition]
+The Tax ID of the Provider (general Tax identification number or VAT number).

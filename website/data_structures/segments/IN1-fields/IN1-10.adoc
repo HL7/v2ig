@@ -1,0 +1,4 @@
+== IN1.10 - Insured's Group Emp ID (CX)
+
+[segment-definition]
+This field holds the group employer ID for the insured's insurance. The assigning authority and identifier type code are strongly recommended for all CX data types.

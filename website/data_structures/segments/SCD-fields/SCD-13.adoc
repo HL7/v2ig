@@ -1,0 +1,4 @@
+== SCD.13 - Leak Rate (CQ)
+
+[segment-definition]
+The amount of pressure that the chamber can hold expressed as barometric pressure.

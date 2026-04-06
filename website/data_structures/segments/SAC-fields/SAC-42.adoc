@@ -1,0 +1,4 @@
+== SAC.42 - SAC-42 (CWE)
+
+[segment-definition]
+This field describes the artificial blood identifier that is associated with the specimen. Refer to {{v2-table:0375:Artificial Blood}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.

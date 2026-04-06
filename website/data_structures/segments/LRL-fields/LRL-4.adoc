@@ -1,0 +1,4 @@
+== LRL.4 - Location Relationship ID (CWE)
+
+[segment-definition]
+This field contains an identifier code to show WHICH relationship is being communicated with this segment. Refer to {{v2-table:0325:Location Relationship ID}} for suggested values.

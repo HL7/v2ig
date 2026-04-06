@@ -1,0 +1,4 @@
+== DB1.3 - Disabled Person Identifier (CX)
+
+[segment-definition]
+This is the identifier (or identifiers) for the person whose disability information is sent on the segment. The assigning authority and identifier type code are strongly recommended for all CX data types.

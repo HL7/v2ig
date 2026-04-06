@@ -1,0 +1,4 @@
+== IN2.22 - Special Coverage Approval Name (XPN)
+
+[segment-definition]
+This field contains the name of the individual who approves any special coverage. Multiple names for the same person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

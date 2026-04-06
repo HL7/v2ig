@@ -1,0 +1,4 @@
+== BHS.11 - Batch Control ID (ST)
+
+[segment-definition]
+This field is used to uniquely identify a particular batch. It can be echoed back in BHS-12 Reference Batch Control ID if an answering batch is needed.

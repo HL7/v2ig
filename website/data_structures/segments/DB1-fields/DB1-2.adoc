@@ -1,0 +1,4 @@
+== DB1.2 - Disabled Person Code (CWE)
+
+[segment-definition]
+The value of this field indicates to which person the disability information relates in the message. For example, if the value is PT, the disability information relates to the patient. Refer to {{v2-table:0334:Disabled Person Code}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,36 @@
+= (ABS) Segment - Abstract
+:v2type: 'Segment'
+:code: ABS
+:name: Abstract
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ABS-fields/ABS-1.adoc[]
+
+include::ABS-fields/ABS-2.adoc[]
+
+include::ABS-fields/ABS-3.adoc[]
+
+include::ABS-fields/ABS-4.adoc[]
+
+include::ABS-fields/ABS-5.adoc[]
+
+include::ABS-fields/ABS-6.adoc[]
+
+include::ABS-fields/ABS-7.adoc[]
+
+include::ABS-fields/ABS-8.adoc[]
+
+include::ABS-fields/ABS-9.adoc[]
+
+include::ABS-fields/ABS-10.adoc[]
+
+include::ABS-fields/ABS-11.adoc[]
+
+include::ABS-fields/ABS-12.adoc[]
+
+include::ABS-fields/ABS-13.adoc[]
+
+include::ABS-fields/ABS-14.adoc[]

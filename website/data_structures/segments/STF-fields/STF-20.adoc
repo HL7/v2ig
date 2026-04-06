@@ -1,0 +1,4 @@
+== STF.20 - Employment Status Code (CWE)
+
+[segment-definition]
+This field contains the code that indicates the staff member's employment status, e.g., full-time, part-time, self-employed, etc. Refer to {{v2-table:0066:Employment Status}} in Chapter 2C, Code Tables, for suggested values.

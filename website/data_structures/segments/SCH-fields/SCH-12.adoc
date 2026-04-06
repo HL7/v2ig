@@ -1,0 +1,4 @@
+== SCH.12 - Placer Contact Person (XCN)
+
+[segment-definition]
+This field identifies the person responsible for requesting the scheduling of a requested appointment. Most often, this person will be the same person responsible for executing the appointment.

@@ -1,0 +1,7 @@
+== GT1.26 - Guarantor Charge Adjustment Code (CWE)
+
+[segment-definition]
+This field contains user-defined codes that indicate which adjustments should be made to this guarantor's charges. For example, when the hospital agrees to adjust this guarantor's charges to a sliding scale. Refer to {{v2-table:0218:Patient Charge Adjustment}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+Example: This field would contain the value used for sliding-fee scale processing.

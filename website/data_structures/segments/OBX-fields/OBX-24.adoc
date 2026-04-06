@@ -1,0 +1,7 @@
+== OBX.24 - Performing Organization Address (XAD)
+
+[segment-definition]
+*_Retained for backwards compatibility as of v 2.7 only. This field is now represented through the PRT segment._* This field contains the address of the organization/service responsible for performing the service.
+
+[segment-comment]
+For labs, this field specifies the address of the laboratory that produced the test result described in this OBX segment. It should be reported explicitly when the test results are produced at outside laboratories, for example. This information supports CLIA regulations in the US.

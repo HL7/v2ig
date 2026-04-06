@@ -1,0 +1,4 @@
+== PRD.2 - Provider Name (XPN)
+
+[segment-definition]
+This field contains the name of the provider identified in this segment. Generally, this field will describe a physician associated with the referral. However, it is not limited to physicians. If the provider is an organization then _PRD-10 – Provider Organization Name and Identifier_ will be used. This field may contain the name of any valid healthcare provider associated with this referral. If this Provider Name is a physician's name, you may refer to _PRD-7-Provider identifiers_ for the physician identifier.

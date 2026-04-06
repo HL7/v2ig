@@ -1,0 +1,4 @@
+== OM4.2 - Derived Specimen (ID)
+
+[segment-definition]
+This field contains the codes that identify the parents and children for diagnostic studies—especially in microbiology—where the initial specimen (e.g., blood) is processed to produce results (e.g., the identity of the bacteria grown out of the culture). The process also produces new "specimens" (e.g., pure culture of staphylococcus, and E. coli), and these are studied by a second order process (bacterial sensitivities). The parents (e.g., blood culture) and children (e.g., penicillin MIC) are identified in such cases. Refer to {{v2-table:0170:Derived Specimen}} in Chapter 2C, Code Tables, for valid values:

@@ -1,0 +1,4 @@
+== PCR.8 - Product Explantation Date (DTM)
+
+[segment-definition]
+If an implantable medical device and it was removed, the field identifies the date it was removed.

@@ -1,0 +1,4 @@
+== LCH.4 - Location Characteristic ID (CWE)
+
+[segment-definition]
+This field contains an identifier code to show WHICH characteristic is being communicated with this segment. Refer to {{v2-table:0324:Location Characteristic ID}} in Chapter 2C, Code Tables, for suggested values.

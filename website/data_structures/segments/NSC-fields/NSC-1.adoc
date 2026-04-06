@@ -1,0 +1,4 @@
+== NSC.1 - Application Change Type (CWE)
+
+[segment-definition]
+This field contains the type of change being requested (if NMR query) or announced (if NMD unsolicited update). Refer to {{v2-table:0409:Application Change Type}} in Chapter 2C, Code Tables, for suggested values. It is assumed that "new" version starts up with no loss or duplication of data as old one is shutting down (if possible).

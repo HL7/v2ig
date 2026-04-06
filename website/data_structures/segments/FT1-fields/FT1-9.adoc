@@ -1,0 +1,7 @@
+== FT1.9 - Transaction Description - Alt
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*Attention: FT__1-9 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.__*

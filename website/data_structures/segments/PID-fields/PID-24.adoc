@@ -1,0 +1,9 @@
+== PID.24 - Multiple Birth Indicator (ID)
+
+[segment-definition]
+This field indicates whether the patient was part of a multiple birth. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the patient was part of a multiple birth
+
+N the patient was a single birth

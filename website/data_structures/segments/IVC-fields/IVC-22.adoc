@@ -1,0 +1,4 @@
+== IVC.22 - Total Invoice Amount without Prepaid Amount (CP)
+
+[segment-definition]
+Total amount of Invoice without the prepaid deposit (IV-8 minus IVC-21).

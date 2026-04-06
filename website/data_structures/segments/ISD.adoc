@@ -1,0 +1,14 @@
+= (ISD) Segment - Interaction Status Detail
+:v2type: 'Segment'
+:code: ISD
+:name: Interaction Status Detail
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ISD-fields/ISD-1.adoc[]
+
+include::ISD-fields/ISD-2.adoc[]
+
+include::ISD-fields/ISD-3.adoc[]

@@ -1,0 +1,32 @@
+= (PMT) Segment - Payment Information
+:v2type: 'Segment'
+:code: PMT
+:name: Payment Information
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PMT-fields/PMT-1.adoc[]
+
+include::PMT-fields/PMT-2.adoc[]
+
+include::PMT-fields/PMT-3.adoc[]
+
+include::PMT-fields/PMT-4.adoc[]
+
+include::PMT-fields/PMT-5.adoc[]
+
+include::PMT-fields/PMT-6.adoc[]
+
+include::PMT-fields/PMT-7.adoc[]
+
+include::PMT-fields/PMT-8.adoc[]
+
+include::PMT-fields/PMT-9.adoc[]
+
+include::PMT-fields/PMT-10.adoc[]
+
+include::PMT-fields/PMT-11.adoc[]
+
+include::PMT-fields/PMT-12.adoc[]

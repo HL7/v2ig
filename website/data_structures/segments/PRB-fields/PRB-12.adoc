@@ -1,0 +1,4 @@
+== PRB.12 - Problem Persistence (CWE)
+
+[segment-definition]
+This field contains the perseverance of a problem (e.g., acute, chronic, etc.).

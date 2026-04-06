@@ -1,0 +1,22 @@
+= (RCP) Segment - Response Control Parameter
+:v2type: 'Segment'
+:code: RCP
+:name: Response Control Parameter
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::RCP-fields/RCP-1.adoc[]
+
+include::RCP-fields/RCP-2.adoc[]
+
+include::RCP-fields/RCP-3.adoc[]
+
+include::RCP-fields/RCP-4.adoc[]
+
+include::RCP-fields/RCP-5.adoc[]
+
+include::RCP-fields/RCP-6.adoc[]
+
+include::RCP-fields/RCP-7.adoc[]

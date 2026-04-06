@@ -1,0 +1,4 @@
+== IIM.6 - Inventory Location (CWE)
+
+[segment-definition]
+This field contains the location of the inventory. As an implementation consideration, this location can have a range of specificity. The location can be very general, e.g., a facility where the inventory is warehoused, or very specific, e.g., a shelf location.

@@ -1,0 +1,26 @@
+= (NTE) Segment - Notes and Comments
+:v2type: 'Segment'
+:code: NTE
+:name: Notes and Comments
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::NTE-fields/NTE-1.adoc[]
+
+include::NTE-fields/NTE-2.adoc[]
+
+include::NTE-fields/NTE-3.adoc[]
+
+include::NTE-fields/NTE-4.adoc[]
+
+include::NTE-fields/NTE-5.adoc[]
+
+include::NTE-fields/NTE-6.adoc[]
+
+include::NTE-fields/NTE-7.adoc[]
+
+include::NTE-fields/NTE-8.adoc[]
+
+include::NTE-fields/NTE-9.adoc[]

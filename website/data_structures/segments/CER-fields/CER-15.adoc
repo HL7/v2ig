@@ -1,0 +1,7 @@
+== CER.15 - Subject Public Key Info (CWE)
+
+[segment-definition]
+This field contains the algorithm identifier. Referred to this field, the X.509 extension field MAY contain a Subject Public Key Identifier to identify the public key used in the Subject Public Key Info.
+
+[segment-comment]
+X.509 is an ISO standard specifying certificates.

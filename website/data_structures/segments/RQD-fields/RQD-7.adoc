@@ -1,0 +1,4 @@
+== RQD.7 - Cost Center Account Number (CX)
+
+[segment-definition]
+This field contains the general ledger cost center account number associated with a department that may issue or charge for this item. Refer to {{v2-table:0319:Department Cost Center}} in Chapter 2C, Code Tables, for valid values.

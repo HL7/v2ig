@@ -1,0 +1,4 @@
+== IN1.45 - Verification Status (ST)
+
+[segment-definition]
+This field contains the status of this patient's relationship with this insurance carrier.

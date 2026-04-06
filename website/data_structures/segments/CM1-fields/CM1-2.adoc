@@ -1,0 +1,4 @@
+== CM1.2 - Study Phase Identifier (CWE)
+
+[segment-definition]
+This field should correspond to the study phase ID coding system in Chapter 7, section 7.7.2.1, "Study Phase ID."

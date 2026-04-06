@@ -1,0 +1,4 @@
+== ECD.2 - ECD-2 (CWE)
+
+[segment-definition]
+This field identifies the command that the component is to initiate. Refer to {{v2-table:0368:Remote Control Command}} in Chapter 2C, Code Tables, for valid values. Refer to LECIS standard for details.

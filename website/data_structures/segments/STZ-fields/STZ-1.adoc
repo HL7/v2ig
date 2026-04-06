@@ -1,0 +1,4 @@
+== STZ.1 - Sterilization Type (CWE)
+
+[segment-definition]
+This field contains the type of sterilization used for sterilizing the inventory supply item in the ITM segment. Refer to {{v2-table:0806:Sterilization Type}} in Chapter 2C, Code Tables, for suggested values.

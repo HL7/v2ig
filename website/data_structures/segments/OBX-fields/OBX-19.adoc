@@ -1,0 +1,4 @@
+== OBX.19 - Date/Time of the Analysis (DTM)
+
+[segment-definition]
+This field is used to transfer the time stamp associated with generation of the analytical result by the instrument specified in Equipment Instance Identifier (see above).

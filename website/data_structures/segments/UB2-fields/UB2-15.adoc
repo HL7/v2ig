@@ -1,0 +1,4 @@
+== UB2.15 - Uniform Billing Locator 57 (sational) (ST)
+
+[segment-definition]
+Defined by Uniform Billing CMS specification.

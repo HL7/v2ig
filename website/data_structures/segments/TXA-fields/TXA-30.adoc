@@ -1,0 +1,4 @@
+== TXA.30 - Document Event (CWE)
+
+[segment-definition]
+This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. Refer to {{v2-table:0833:Document Event}} in Chapter 2C for suggested values.

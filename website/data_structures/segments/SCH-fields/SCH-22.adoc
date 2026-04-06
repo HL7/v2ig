@@ -1,0 +1,4 @@
+== SCH.22 - Entered by Location (PL)
+
+[segment-definition]
+This field contains a code that identifies the location of the entered by person.

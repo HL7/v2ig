@@ -1,0 +1,7 @@
+== OVR.2 - Business Rule Override Code (CWE)
+
+[segment-definition]
+Indicates the reason for the business rule override. Refer to {{v2-table:0521:Override Code}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+If users are allowed to override business rules in an application, the user will typically need to provide a reason why the rule is being overridden. The Override Code field in this segment will provide the mechanism to transmit a coded reason.

@@ -1,0 +1,4 @@
+== RGS.1 - Set ID - RGS (SI)
+
+[segment-definition]
+This field contains a number that uniquely identifies the information represented by this segment in this transaction for the purposes of addition, change or deletion.

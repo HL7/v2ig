@@ -1,0 +1,4 @@
+== FT1.37 - Clinic Code (CWE)
+
+[segment-definition]
+This field contains the state specific or payer specific type of service or place of service.

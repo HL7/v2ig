@@ -1,0 +1,4 @@
+== SCD.26 - Door Open (CNE)
+
+[segment-definition]
+An indicator that the door is open. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

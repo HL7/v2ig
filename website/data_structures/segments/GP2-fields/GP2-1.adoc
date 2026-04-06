@@ -1,0 +1,4 @@
+== GP2.1 - Revenue Code (CWE)
+
+[segment-definition]
+This field identifies a specific ancillary service for each HCPC/CPT This field is the same as UB92 Form Locator 42 "Revenue Code". Refer to {{v2-table:0456:Revenue Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.

@@ -1,0 +1,4 @@
+== RDT.1 - RDT-1 (Varies)
+
+[segment-definition]
+This field is a requested field. Fields occur in the position order defined for the query or table (unless overridden by an optional RDF segment on a stored procedure request or Virtual Table query message), separated by field delimiters.

@@ -1,0 +1,4 @@
+== LDP.10 - Visiting Hours (VH)
+
+[segment-definition]
+This field contains the hours when this location is open for visiting. Refer to {{v2-table:0267:Days of the Week}} in Chapter 2C, Code Tables, for valid values for the first two components.

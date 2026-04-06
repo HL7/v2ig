@@ -1,0 +1,4 @@
+== STF.36 - Cost Center Code (CWE)
+
+[segment-definition]
+This field describes the organization unit in the General Ledger to which the staff member is currently assigned. It is sometimes referred to as the "home" cost center because it is the organization unit to which the staff member's regular costs are accrued. Refer to {{v2-table:0539:Cost Center Code}}_ in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.

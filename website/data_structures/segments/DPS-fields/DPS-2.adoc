@@ -1,0 +1,4 @@
+== DPS.2 - Procedure Code (CWE)
+
+[segment-definition]
+This field contains the procedure code for procedure, if any, associated with this charge description. Repeating field allows for different procedure coding systems such as CPT4, ASTM, ICD9. Coded entry made up of code plus coding schema. See Externally Defined Table 0941 – Procedure Code.

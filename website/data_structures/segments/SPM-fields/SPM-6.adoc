@@ -1,0 +1,4 @@
+== SPM.6 - Specimen Additives (CWE)
+
+[segment-definition]
+This field identifies any additives introduced to the specimen before or at the time of collection. These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen. Refer to {{v2-table:0371:Additive/Preservative}} for valid values. When multiple additives are introduced and valid individual additive codes exist but a valid value for the combination does not exist, repeating the field with individual values is most appropriate.

@@ -1,0 +1,4 @@
+== PSL.6 - Product/Service Line Item Status (CWE)
+
+[segment-definition]
+Processing status for the Product/Service Code. Refer to {{v2-table:0559:Product/Service Status}} in Chapter 2C, Code Tables, for suggested values.

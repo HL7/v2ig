@@ -1,0 +1,4 @@
+== IN1.32 - Billing Status (CWE)
+
+[segment-definition]
+This field indicates whether the particular insurance has been billed and, if so, the type of bill. Refer to {{v2-table:0022:Billing Status}} in Chapter 2C, Code Tables, for suggested values.

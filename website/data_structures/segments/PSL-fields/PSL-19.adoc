@@ -1,0 +1,4 @@
+== PSL.19 - Health Document Reference Identifier (EI)
+
+[segment-definition]
+Health Documents (electronic or paper) that support this Product/Service Line Item. This includes such health documents as forms used to register a claim with a Payer, reports, medical images, etc.

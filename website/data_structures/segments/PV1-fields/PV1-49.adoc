@@ -1,0 +1,4 @@
+== PV1.49 - Total Payments (NM)
+
+[segment-definition]
+This field contains the total payments for visit.

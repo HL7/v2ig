@@ -1,0 +1,4 @@
+== PSL.17 - Product/Service Clarification Code Type (CWE)
+
+[segment-definition]
+Additional codes describing the Product/Service Code on PSL – examples are Northern Allowance, Data Center Numbers, Sequence Numbers; repeats with Product/Service Clarification Code Value. Refer to {{v2-table:0561:Product/Services Clarification Codes}} in Chapter 2C, Code Tables, for suggested values.

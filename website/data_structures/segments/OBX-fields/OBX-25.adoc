@@ -1,0 +1,7 @@
+== OBX.25 - Performing Organization Medical Director (XCN)
+
+[segment-definition]
+*_Retained for backwards compatibility as of v 2.7 only. This field is now represented through the PRT segment._* This field contains the medical director of the organization/service responsible for performing the service.
+
+[segment-comment]
+For labs, this field specifies the medical director of the laboratory that produced the test result described in this OBX segment. This field is different than OBX-16 in that OBX-16 identifies the individual who performed the lab test (made the observation) whereas this field identifies the individual who is the medical director of the organization responsible for the result. It should be reported explicitly when the test results are produced at outside laboratories, for example. This information supports CLIA regulations in the US.

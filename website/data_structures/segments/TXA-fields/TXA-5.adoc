@@ -1,0 +1,4 @@
+== TXA.5 - Primary Activity Provider Code/Name (XCN)
+
+[segment-definition]
+This field contains the name of the person identified in the document as being responsible for performing the procedure or activity. This field includes the code and name (if available) of the caregiver. This field is conditional based upon the presence of a value in link:#txa-4-activity-datetime-dtm-00917[TXA-4-Activity Date/Time].

@@ -1,0 +1,4 @@
+== PCR.11 - Product Problem (CWE)
+
+[segment-definition]
+A product problem would exist if a product malfunction could lead to death or serious injury. Refer to {{v2-table:0245:Product Problem}} for suggested values.

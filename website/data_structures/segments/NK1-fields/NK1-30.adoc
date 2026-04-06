@@ -1,0 +1,7 @@
+== NK1.30 - Contact Person's Name (XPN)
+
+[segment-definition]
+This field contains one or more of the names of the person to contact, depending on the value of the relationship defined in _NK1-3 - Relationship_. This field is typically needed when the NK1 is an organization. The _XPN.7 Name Type Code_, and not the order, conveys how the name should be interpreted. As of v2.7, Name Type Code is required. Refer to {{v2-table:0200:Name Type}} in Chapter 2C, Code Tables, for valid values. Specification of meaning based on sequence is deprecated.
+
+[segment-comment]
+In addition to allowing repetition of this field for transmitting multiple names with different Name Type Codes, repetition also allows for representing the same name in different character sets based on the value in _XPN.8 Name Representation Code_.

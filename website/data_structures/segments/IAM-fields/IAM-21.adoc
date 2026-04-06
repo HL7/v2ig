@@ -1,0 +1,7 @@
+== IAM.21 - Inactivated by Person (XCN)
+
+[segment-definition]
+This field identifies the user that inactivated the record entry about the patient’s allergy
+
+[segment-comment]
+(e.g. ...| S12345^Smith^John^J^III^DR^MD|...).

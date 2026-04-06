@@ -1,0 +1,7 @@
+== PSL.16 - Product/Service Billed Amount (CP)
+
+[segment-definition]
+Amount that is being billed for this Product/Service Code on PSL, = Product/Service Gross Amount + sum of all Product/Service Adjustments on ADJ for this Product/Service Line Item.
+
+[segment-comment]
+\= Product/Service Gross Amount + sum of all Product/Service Adjustments on ADJ

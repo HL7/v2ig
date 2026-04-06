@@ -1,0 +1,4 @@
+== OM7.15 - Consent Interval Quantity (NM)
+
+[segment-definition]
+This field specifies the period of time for which a consent is valid for a specific service item.

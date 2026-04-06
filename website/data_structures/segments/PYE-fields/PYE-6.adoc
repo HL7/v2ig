@@ -1,0 +1,7 @@
+== PYE.6 - Payee Address (XAD)
+
+[segment-definition]
+Conditional or empty: if Payee Type = ("PERS", "PPER), then Required, else Not Permitted.
+
+[segment-comment]
+Address for payee. If not specified, then Payer will use address on file for this Payee, if applicable. If Payee is an individual, then this address can be used to send a check.

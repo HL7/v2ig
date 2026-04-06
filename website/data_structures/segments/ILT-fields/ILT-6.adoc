@@ -1,0 +1,4 @@
+== ILT.6 - Inventory Received Quantity Unit (CWE)
+
+[segment-definition]
+This field specifies the unit for the _Inventory Received Quantity_. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.

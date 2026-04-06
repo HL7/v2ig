@@ -1,0 +1,4 @@
+== ABS.6 - Triage Code (CWE)
+
+[segment-definition]
+Code representing a patient's prioritization within the context of this abstract. Refer to {{v2-table:0422:Triage Code}} in Chapter 2C, Code Tables, for suggested values.

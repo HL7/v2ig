@@ -1,0 +1,4 @@
+== ERR.7 - Diagnostic Information (TX)
+
+[segment-definition]
+Information that MAY be used by help desk or other support personnel to diagnose a problem.

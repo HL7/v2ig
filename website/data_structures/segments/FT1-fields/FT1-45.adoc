@@ -1,0 +1,14 @@
+== FT1.45 - DME Certification Type Code (CWE)
+
+[segment-definition]
+This code identifies the type of certification for the durable medical equipment service.
+
+[segment-comment]
+For the US realm, the ANSI ASC X12 CR3 Durable Medical Equipment Certification Segment, reference element CR301, listed below is suggested to map to the X12 837 values:
+
+For the US realm, the ANSI ASC X12 CR3 Durable Medical Equipment Certification Segment, reference element CR301, listed below is suggested to map to the X12 837 values:
+|===
+|I |Initial
+|R |Renewal
+|S |Revised
+|===

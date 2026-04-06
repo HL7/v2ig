@@ -1,0 +1,4 @@
+== IN1.28 - Pre-Admit Cert (PAC) (ST)
+
+[segment-definition]
+This field contains the pre‑admission certification code. If the admission must be certified before the admission, this is the code associated with the admission.

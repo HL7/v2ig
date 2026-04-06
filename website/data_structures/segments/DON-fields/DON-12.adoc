@@ -1,0 +1,4 @@
+== DON.12 - Process Interruption (CNE)
+
+[segment-definition]
+Was the donation process interrupted after it began? Refer to {{v2-table:0923:Process Interruption}} in Chapter 2C, Code Tables, for valid entries.

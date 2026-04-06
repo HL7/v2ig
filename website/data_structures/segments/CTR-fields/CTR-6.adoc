@@ -1,0 +1,4 @@
+== CTR.6 - Contract Owner Name (XPN)
+
+[segment-definition]
+This field contains the name of the person who manages the contract.

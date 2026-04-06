@@ -1,0 +1,4 @@
+== CSS.3 - Study Quality Control Codes (CWE)
+
+[segment-definition]
+In clinical settings, the *actual* date of a treatment or procedure may vary considerably from the *due* date. Various coding systems may be used to evaluate the adherence to the schedule or acceptability of the data. Coding systems will vary among trials. Refer to Table 0596 - Study Quality Control Codes in Chapter 2C for valid values.

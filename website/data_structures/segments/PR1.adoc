@@ -1,0 +1,58 @@
+= (PR1) Segment - Procedures
+:v2type: 'Segment'
+:code: PR1
+:name: Procedures
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PR1-fields/PR1-1.adoc[]
+
+include::PR1-fields/PR1-2.adoc[]
+
+include::PR1-fields/PR1-3.adoc[]
+
+include::PR1-fields/PR1-4.adoc[]
+
+include::PR1-fields/PR1-5.adoc[]
+
+include::PR1-fields/PR1-6.adoc[]
+
+include::PR1-fields/PR1-7.adoc[]
+
+include::PR1-fields/PR1-8.adoc[]
+
+include::PR1-fields/PR1-9.adoc[]
+
+include::PR1-fields/PR1-10.adoc[]
+
+include::PR1-fields/PR1-11.adoc[]
+
+include::PR1-fields/PR1-12.adoc[]
+
+include::PR1-fields/PR1-13.adoc[]
+
+include::PR1-fields/PR1-14.adoc[]
+
+include::PR1-fields/PR1-15.adoc[]
+
+include::PR1-fields/PR1-16.adoc[]
+
+include::PR1-fields/PR1-17.adoc[]
+
+include::PR1-fields/PR1-18.adoc[]
+
+include::PR1-fields/PR1-19.adoc[]
+
+include::PR1-fields/PR1-20.adoc[]
+
+include::PR1-fields/PR1-21.adoc[]
+
+include::PR1-fields/PR1-22.adoc[]
+
+include::PR1-fields/PR1-23.adoc[]
+
+include::PR1-fields/PR1-24.adoc[]
+
+include::PR1-fields/PR1-25.adoc[]

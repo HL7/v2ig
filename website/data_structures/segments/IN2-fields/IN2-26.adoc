@@ -1,0 +1,4 @@
+== IN2.26 - Payor Subscriber ID (CX)
+
+[segment-definition]
+Subscriber Identifier assigned by the Payer.

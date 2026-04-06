@@ -1,0 +1,4 @@
+== PKG.9 - Contract Price (MO)
+
+[segment-definition]
+This field contains the contract price of this item UOM for the vendor sent in VND.

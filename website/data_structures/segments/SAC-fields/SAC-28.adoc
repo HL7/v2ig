@@ -1,0 +1,4 @@
+== SAC.28 - SAC-28 (CWE)
+
+[segment-definition]
+This field identifies the specimen component, e.g., supernatant, sediment, etc. Refer to {{v2-table:0372:Specimen Component}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.

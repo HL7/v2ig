@@ -1,0 +1,4 @@
+== IPR.3 - Payer Cross Reference Identifier (EI)
+
+[segment-definition]
+Cross reference to Payer Product/Service Group Number or Payer Product/Service Line Item Number from original Invoice.

@@ -1,0 +1,4 @@
+== PDA.1 - Death Cause Code (CWE)
+
+[segment-definition]
+This field is valued with the reason of the death.

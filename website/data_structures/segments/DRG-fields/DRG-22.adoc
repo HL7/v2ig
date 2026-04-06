@@ -1,0 +1,4 @@
+== DRG.22 - Basic Charge (MO)
+
+[segment-definition]
+The basic charge is calculated as a multiplication of the relative weight with the base rate.

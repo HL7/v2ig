@@ -1,0 +1,36 @@
+= (ROL) Segment - Role
+:v2type: 'Segment'
+:code: ROL
+:name: Role
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ROL-fields/ROL-1.adoc[]
+
+include::ROL-fields/ROL-2.adoc[]
+
+include::ROL-fields/ROL-3.adoc[]
+
+include::ROL-fields/ROL-4.adoc[]
+
+include::ROL-fields/ROL-5.adoc[]
+
+include::ROL-fields/ROL-6.adoc[]
+
+include::ROL-fields/ROL-7.adoc[]
+
+include::ROL-fields/ROL-8.adoc[]
+
+include::ROL-fields/ROL-9.adoc[]
+
+include::ROL-fields/ROL-10.adoc[]
+
+include::ROL-fields/ROL-11.adoc[]
+
+include::ROL-fields/ROL-12.adoc[]
+
+include::ROL-fields/ROL-13.adoc[]
+
+include::ROL-fields/ROL-14.adoc[]

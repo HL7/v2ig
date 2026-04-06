@@ -1,0 +1,4 @@
+== IN2.17 - Military Retire Date (DT)
+
+[segment-definition]
+This field is defined by CMS or other regulatory agencies.

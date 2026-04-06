@@ -1,0 +1,9 @@
+== ACC.5 - Accident Job Related Indicator (ID)
+
+[segment-definition]
+This field indicates if the accident was related to a job. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the accident was job related
+
+N the accident was not job related

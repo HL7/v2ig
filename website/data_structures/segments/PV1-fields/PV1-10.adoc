@@ -1,0 +1,4 @@
+== PV1.10 - Hospital Service (CWE)
+
+[segment-definition]
+This field contains the treatment or type of surgery that the patient is scheduled to receive. It is a required field with trigger events A01 (admit/visit notification), A02 (transfer a patient), A14 (pending admit), A15 (pending transfer). Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.

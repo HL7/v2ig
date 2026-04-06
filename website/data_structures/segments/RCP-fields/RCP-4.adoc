@@ -1,0 +1,4 @@
+== RCP.4 - Execution and Delivery Time (DTM)
+
+[segment-definition]
+Specifies the time the response is to be returned. This field is only valued when _RCP-1-Query priority_ contains the value *D* (Deferred).

@@ -1,0 +1,4 @@
+== ITM.23 - Freight Charge Indicator (CNE)
+
+[segment-definition]
+This field contains an indicator signifying whether freight is an allowable charge to be allocated to the line of an invoice containing the item. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

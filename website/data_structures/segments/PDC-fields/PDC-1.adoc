@@ -1,0 +1,4 @@
+== PDC.1 - Manufacturer/Distributor (XON)
+
+[segment-definition]
+This field contains the identity of the manufacturer/distributor.

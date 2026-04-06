@@ -1,0 +1,4 @@
+== DON.28 - Final Review Staff ID (XPN)
+
+[segment-definition]
+The Staff member conducting the final review and reconciliation of all documentation created during the collection process.

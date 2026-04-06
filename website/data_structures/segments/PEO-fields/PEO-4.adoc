@@ -1,0 +1,4 @@
+== PEO.4 - Event Exacerbation Date/Time (DTM)
+
+[segment-definition]
+This field identifies the best estimate of the date/time the event was exacerbated.

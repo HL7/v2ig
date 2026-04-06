@@ -1,0 +1,4 @@
+== CNS.6 - CNS-6 (CWE)
+
+[segment-definition]
+This field contains the ending notification code that is to be cleared (see _13.3.7.4_, "_NDS-4 Notification Code (CWE) 01401_"). If empty, then only notification with Starting Notification Code will be cleared. Refer to Table 0586 - Ending Notification Code in Chapter 2C for valid values.

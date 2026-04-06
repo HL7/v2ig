@@ -1,0 +1,4 @@
+== CDO.1 - Set ID – CDO (SI)
+
+[segment-definition]
+For the first cumulative dose specification transmitted, the sequence number shall be 1; for the second cumulative dose, it shall be 2; and so on.

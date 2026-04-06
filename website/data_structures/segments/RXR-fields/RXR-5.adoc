@@ -1,0 +1,4 @@
+== RXR.5 - Routing Instruction (CWE)
+
+[segment-definition]
+This field provides instruction on administration routing, especially in cases where more than one route of administration is possible. A typical case would be designating which IV line should be used when more than one IV line is a possible route for injection. Refer to Table 0766 - Routing Instruction in Chapter 2C for valid values.

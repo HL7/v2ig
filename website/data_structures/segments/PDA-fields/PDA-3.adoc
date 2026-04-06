@@ -1,0 +1,9 @@
+== PDA.3 - Death Certified Indicator (ID)
+
+[segment-definition]
+This field indicates whether a death was officially certified or not. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y death has been certified
+
+N death has not been certified

@@ -1,0 +1,13 @@
+== TCD.8 - TCD-8 (CWE)
+
+[segment-definition]
+This field identifies the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). Refer to {{v2-table:0389:Analyte Repeat Status}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+For purpose of this chapter we assume the following:
+
+• Repeated test without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "Panic" or mechanical failures).
+
+• Repeated test with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).
+
+• Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).

@@ -1,0 +1,4 @@
+== CTR.1 - Contract Identifier (EI)
+
+[segment-definition]
+The Contract Identifier is a unique code assigned to the contract by the manufacturer or distributor to identify the contract.

@@ -1,0 +1,4 @@
+== DON.10 - Donor Eligibility Procedure Type (CNE)
+
+[segment-definition]
+The procedure(s) for which the donor is eligible. Refer to {{v2-table:0933:Intended Procedure Type}} in Chapter 2C, Code Tables, for valid entries.

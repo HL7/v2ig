@@ -1,0 +1,4 @@
+== NST.2 - Source Identifier (ST)
+
+[segment-definition]
+This field identifies a particular lower level link (e.g., a port number).

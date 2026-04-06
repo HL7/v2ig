@@ -1,0 +1,4 @@
+== IN2.29 - Policy Type/Amount (PTA)
+
+[segment-definition]
+This field contains the policy type (e.g., ancillary, major medical) and amount (e.g., amount, percentage, limit) covered by the insurance. Use this field instead of link:#in1-38-policy-limit-amount-00463[_IN1-38 - Policy Limit - Amount_].

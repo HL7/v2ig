@@ -1,0 +1,16 @@
+= (BLG) Segment - Billing
+:v2type: 'Segment'
+:code: BLG
+:name: Billing
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::BLG-fields/BLG-1.adoc[]
+
+include::BLG-fields/BLG-2.adoc[]
+
+include::BLG-fields/BLG-3.adoc[]
+
+include::BLG-fields/BLG-4.adoc[]

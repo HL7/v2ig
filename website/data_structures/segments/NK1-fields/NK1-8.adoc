@@ -1,0 +1,4 @@
+== NK1.8 - Start Date (DT)
+
+[segment-definition]
+This field contains the start date of the contact role.

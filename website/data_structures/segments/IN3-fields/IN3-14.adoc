@@ -1,0 +1,4 @@
+== IN3.14 - Physician Reviewer (XCN)
+
+[segment-definition]
+This field contains the physician who works with and reviews cases that are pending physician review for the certification agency. Multiple names for the same person may be sent in this sequence. Specification of meaning based on sequence is deprecated. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.

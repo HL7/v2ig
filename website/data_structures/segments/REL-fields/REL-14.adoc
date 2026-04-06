@@ -1,0 +1,4 @@
+== REL.14 - Priority No (NM)
+
+[segment-definition]
+This field contains the priority number as used, for example, in relative ordering, plans, and workflows.

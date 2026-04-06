@@ -1,0 +1,4 @@
+== FAC.7 - Contact Address (XAD)
+
+[segment-definition]
+This field contains the primary contact person's address.

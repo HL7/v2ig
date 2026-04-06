@@ -1,0 +1,4 @@
+== ADJ.7 - Adjustment Reason PA (CWE)
+
+[segment-definition]
+Reason for this adjustment. Codes used to explain a Provider adjustment to a Product/Service Group or Product/Service Line Item by a Provider. Refer to {{v2-table:0565:Provider Adjustment Reason Code}} in Chapter 2C, Code Tables, for suggested values.

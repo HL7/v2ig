@@ -1,0 +1,4 @@
+== PSL.31 - Role Executing Physician (CWE)
+
+[segment-definition]
+Account role of the physician, for example only billing for the professional part, the technical part or both. Refer to {{v2-table:0881:Role Executing Physician}} in Chapter 2C, Code Tables, for suggested values.

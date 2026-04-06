@@ -1,0 +1,4 @@
+== MSH.13 - Sequence Number (NM)
+
+[segment-definition]
+A non‑delete indicator value in this field implies that the sequence number protocol is in use. This numeric field is incremented by one for each subsequent value.

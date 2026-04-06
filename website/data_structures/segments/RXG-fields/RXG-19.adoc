@@ -1,0 +1,7 @@
+== RXG.19 - Substance  Number (ST)
+
+[segment-definition]
+This field contains the lot number of the medical substance administered.
+
+[segment-comment]
+*Note:* The lot number is the number printed on the label attached to the container holding the substance and on the packaging which houses the container. If the substance is a vaccine, for example, and a diluent is required, a lot number may appear on the vial containing the diluent; however, any such identifier associated with a diluent is not the identifier of interest. The substance lot number should be reported, not that of the diluent.

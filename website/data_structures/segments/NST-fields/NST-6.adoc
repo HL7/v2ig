@@ -1,0 +1,4 @@
+== NST.6 - Receive Character Count (NM)
+
+[segment-definition]
+This field contains the number of characters received.

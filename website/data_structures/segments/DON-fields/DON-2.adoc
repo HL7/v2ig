@@ -1,0 +1,4 @@
+== DON.2 - Donation Type (CNE)
+
+[segment-definition]
+The type of donation. This element is mandatory except when using an eligibility message type in which only DON-9, DON-10, and DON-11 are populated. The values for this field are defined in Table RT008 - Type of Donation or Collection in 6th Position of Product Code in the ISBT 128 Standard Technical Specification, which is maintained by ICCBBA. Link: _http://iccbba.org/technicalspecification.pdf._ Table 5 Data Structure 002.

@@ -1,0 +1,4 @@
+== VND.1 - Set Id – VND (SI)
+
+[segment-definition]
+This field contains a sequential number that identifies this segment within a given PURCHASING_VENDOR segment group. For the first occurrence of the segment in a given group, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.

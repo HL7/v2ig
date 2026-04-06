@@ -1,0 +1,4 @@
+== PRC.18 - Charge on Indicator (CWE)
+
+[segment-definition]
+This field contains the user-defined table of values which indicates when a charge for services or procedures should be accrued. Refer to {{v2-table:0269:Charge On Indicator}} in Chapter 2C, Code Tables, for suggested values.

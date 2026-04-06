@@ -1,0 +1,4 @@
+== OM2.8 - Absolute Range for Ordinal and Continuous Observations (RFR)
+
+[segment-definition]
+This field applies only to single tests/observations with a nature code of A or C (see _OM1-18 - Nature of Service/Test/Observation_). It defines the range of possible results. Results outside this range are not possible. The field should be recorded in the same format as the normal and critical ranges.

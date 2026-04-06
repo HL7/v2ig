@@ -1,0 +1,7 @@
+== TCC.3 - TCC-3
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*_Attention: As of version 2.5 this field was deprecated and retained for backward compatibility only and withdrawn as of v2.7._*

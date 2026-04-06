@@ -1,0 +1,22 @@
+= (GSP) Segment - Person Gender and Sex
+:v2type: 'Segment'
+:code: GSP
+:name: Person Gender and Sex
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::GSP-fields/GSP-1.adoc[]
+
+include::GSP-fields/GSP-2.adoc[]
+
+include::GSP-fields/GSP-3.adoc[]
+
+include::GSP-fields/GSP-4.adoc[]
+
+include::GSP-fields/GSP-5.adoc[]
+
+include::GSP-fields/GSP-6.adoc[]
+
+include::GSP-fields/GSP-7.adoc[]

@@ -1,0 +1,4 @@
+== MSH.10 - Message Control ID (ST)
+
+[segment-definition]
+This field contains a number or other identifier that uniquely identifies the message. The receiving system echoes this ID back to the sending system in the Message acknowledgment segment (MSA).

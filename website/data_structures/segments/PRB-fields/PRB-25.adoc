@@ -1,0 +1,4 @@
+== PRB.25 - Security/Sensitivity (CWE)
+
+[segment-definition]
+This field contains information about the level of security and/or sensitivity surrounding the problem (e.g., highly sensitive, not sensitive, sensitive, etc.).

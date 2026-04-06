@@ -1,0 +1,4 @@
+== PSL.32 - Medical Role Executing Physician (CWE)
+
+[segment-definition]
+The role of the Physician ("self-employed" or "employed"). Refer to {{v2-table:0882:Medical Role Executing Physician}} in Chapter 2C, Code Tables, for suggested values.

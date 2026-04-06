@@ -1,0 +1,7 @@
+== IN1.41 - Room Rate - Private
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*Attention: _IN1-41 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*

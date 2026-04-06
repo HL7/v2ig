@@ -1,0 +1,4 @@
+== PV1.8 - Referring Doctor (XCN)
+
+[segment-definition]
+This field contains the referring physician information. Multiple names and identifiers for the same physician may be sent. The field sequences are not used to indicate multiple referring doctors. As of v 2.7 if _XCN.1 ID Number_ is populated, then the _XCN.13 Identifier Type Code_ and the _XCN.9 Assigning Authority_ or _XCN.22 Assigning Jurisdiction_ or _XCN.23 Assigning Agency or Department_ are required. If _XCN.2 Family Name_ is populated, then the _XCN.10 Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated. Depending on local agreements, either the ID or the name may be absent from this field. Refer to {{v2-table:0010:Physician ID}}_ in Chapter 2C, Code Tables, for suggested values.

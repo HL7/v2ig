@@ -1,0 +1,4 @@
+== VND.8 - Contract Adjustment (MOP)
+
+[segment-definition]
+This field contains the markup amount for this contract item and vendor combination.

@@ -1,0 +1,7 @@
+== PR1.14 - Procedure Priority (NM)
+
+[segment-definition]
+This field contains a number that identifies the significance or priority of the procedure code. Refer to {{v2-table:0418:Procedure Priority}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+*Note*: As of v 2.7, the data type has been changed to numeric. The meaning of the values remain the same as those in {{v2-table:0418:Procedure Priority}}, The value 0 conveys that this procedure is not included in the ranking. The value 1 means that this is the primary procedure. Values 2-99 convey ranked secondary procedures.

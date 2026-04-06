@@ -1,0 +1,4 @@
+== SPM.24 - Specimen Condition (CWE)
+
+[segment-definition]
+A mode or state of being that describes the nature of the specimen. Refer to {{v2-table:0493:Specimen Condition}} for suggested entries.

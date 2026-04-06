@@ -1,0 +1,4 @@
+== PD1.17 - Immunization Registry Status Effective Date (DT)
+
+[segment-definition]
+This field indicates the effective date for the immunization registry status reported in _PD1-16 - Immunization Registry Status_.

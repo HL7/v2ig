@@ -1,0 +1,4 @@
+== CER.4 - Granting Authority (XON)
+
+[segment-definition]
+It specifies the authority that granted the certificate to the person.

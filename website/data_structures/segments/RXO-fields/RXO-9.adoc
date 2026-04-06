@@ -1,0 +1,4 @@
+== RXO.9 - Allow Substitutions (ID)
+
+[segment-definition]
+Coded values indicate whether substitutions are allowed, and, if yes, what type of substitutions. Refer to {{v2-table:0161:Allow Substitution}} in Chapter 2C, Code Tables, for valid codes.

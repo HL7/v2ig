@@ -1,0 +1,4 @@
+== SPM.20 - Specimen Availability (ID)
+
+[segment-definition]
+This describes whether the specimen, as it exists, is currently available to use in an analysis. Refer to {{v2-table:0136:Yes/No Indicator}} for valid values.

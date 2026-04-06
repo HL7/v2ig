@@ -1,0 +1,4 @@
+== IVC.17 - Special Costs (CP)
+
+[segment-definition]
+Special costs for this invoice.

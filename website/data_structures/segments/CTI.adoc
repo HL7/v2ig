@@ -1,0 +1,16 @@
+= (CTI) Segment - Clinical Trial Identification
+:v2type: 'Segment'
+:code: CTI
+:name: Clinical Trial Identification
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CTI-fields/CTI-1.adoc[]
+
+include::CTI-fields/CTI-2.adoc[]
+
+include::CTI-fields/CTI-3.adoc[]
+
+include::CTI-fields/CTI-4.adoc[]

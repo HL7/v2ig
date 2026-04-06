@@ -1,0 +1,9 @@
+== GT1.22 - Guarantor Billing Hold Flag (ID)
+
+[segment-definition]
+Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values. This field indicates whether or not a system should suppress printing of the guarantor's bills.
+
+[segment-comment]
+Y a system should suppress printing of guarantor's bills
+
+N a system should not suppress printing of guarantor's bills

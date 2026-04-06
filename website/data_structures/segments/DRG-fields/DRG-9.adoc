@@ -1,0 +1,4 @@
+== DRG.9 - Outlier Reimbursement (CP)
+
+[segment-definition]
+Where applicable, the outlier reimbursement amount indicates the part of the total reimbursement designated for reimbursement of outlier conditions (day or cost).

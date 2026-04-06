@@ -1,0 +1,4 @@
+== IN2.4 - Employer Information Data (CWE)
+
+[segment-definition]
+This field contains the required employer information data for UB82 form locator 71. Refer to {{v2-table:0139:Employer Information Data}} in Chapter 2C, Code Tables, for suggested values.

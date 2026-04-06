@@ -1,0 +1,7 @@
+== RXO.26 - Requested Drug Strength Volume Units (CWE)
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+Description: This field indicates the volumetric unit associated with _RXO-25 Requested Drug Strength Volume_. See example in RXO-25. Refer to Table 0764 - Requested Drug Strength Volume Units in Chapter 2C for valid values.

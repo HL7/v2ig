@@ -1,0 +1,4 @@
+== PV1.37 - Discharged to Location (DLD)
+
+[segment-definition]
+This field indicates the healthcare facility to which the patient was discharged and the date. Refer to {{v2-table:0113:Discharged to Location}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== NK1.33 - Next of Kin/Associated Party's Identifiers (CX)
+
+[segment-definition]
+This field contains the identifiers for the next of kin/associated party, for example, Social Security Number, driver's license, etc. The assigning authority and identifier type code are strongly recommended for all CX data types.

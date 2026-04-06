@@ -1,0 +1,4 @@
+== TXA.20 - Document Storage Status (ID)
+
+[segment-definition]
+This optional field identifies the storage status of the document. Refer to {{v2-table:0275:Document Storage Status}} for valid values.

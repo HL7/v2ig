@@ -1,0 +1,4 @@
+== DON.18 - Intended Recipient Facility (XON)
+
+[segment-definition]
+If this donation has an intended recipient (autologous, directed, dedicated, designated), the facility where the intended recipient is expected to receive the transfusion.

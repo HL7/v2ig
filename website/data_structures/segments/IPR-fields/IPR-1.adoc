@@ -1,0 +1,4 @@
+== IPR.1 - IPR Identifier (EI)
+
+[segment-definition]
+Unique IPR Number assigned by the Payer Application.

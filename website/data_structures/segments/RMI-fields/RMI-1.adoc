@@ -1,0 +1,4 @@
+== RMI.1 - Risk Management Incident Code (CWE)
+
+[segment-definition]
+A code depicting the incident that occurred during a patient's stay. Refer to {{v2-table:0427:Risk Management Incident Code}} in Chapter 2C, Code Tables, for suggested values.

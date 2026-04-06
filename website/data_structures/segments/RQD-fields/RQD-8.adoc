@@ -1,0 +1,4 @@
+== RQD.8 - Item Natural Account Code (CWE)
+
+[segment-definition]
+This field contains the accounting code that identifies this item in order to charge for this item. {{v2-table:0320:Item Natural Account Code}} in Chapter 2C, Code Tables, is used as the HL7 identifier for the user-defined table of values for this field.

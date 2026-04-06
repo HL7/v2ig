@@ -1,0 +1,4 @@
+== IVC.16 - Invoice Fixed Amount (CP)
+
+[segment-definition]
+Fixed Amount for this invoice.

@@ -1,0 +1,4 @@
+== PRB.26 - Problem Severity (CWE)
+
+[segment-definition]
+This field indicates the severity of the Problem. Refer to {{v2-table:0836:Problem Severity}} in Chapter 2C, Code Tables, for suggested values.

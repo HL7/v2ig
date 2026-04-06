@@ -1,0 +1,4 @@
+== MFA.6 - Primary Key Value Type - MFA (ID)
+
+[segment-definition]
+This field contains the HL7 data type of _MFA-5 - Primary Key Value - MFA_. The valid HL7 data types are listed in {{v2-table:0355:Primary Key Value Type}} in Chapter 2C, Code Tables.

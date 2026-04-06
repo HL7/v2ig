@@ -1,0 +1,4 @@
+== BLC.1 - Blood Product Code (CWE)
+
+[segment-definition]
+This field reports the blood product code. Refer to {{v2-table:0426:Blood Product Code}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== PES.6 - Sender Sequence Number (NM)
+
+[segment-definition]
+This field contains sequentially assigned integer values which distinguish messages which share the same sender event identification element. 0 for initial report, 1 for second, and so on.

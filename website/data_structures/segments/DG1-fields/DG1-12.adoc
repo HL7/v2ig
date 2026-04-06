@@ -1,0 +1,7 @@
+== DG1.12 - Outlier Days
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*Attention: _DG1-12 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*

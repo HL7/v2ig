@@ -1,0 +1,4 @@
+== DRG.33 - Status Admission (CWE)
+
+[segment-definition]
+This field contains the admission status for the DRG determination. Refer to {{v2-table:0759:Status Admission}} in Chapter 2C, Code Tables, for suggested values.

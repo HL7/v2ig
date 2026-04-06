@@ -1,0 +1,4 @@
+== INV.6 - INV-6 (CWE)
+
+[segment-definition]
+Identifies the position (e.g., index) on the carrier. Refer to Table 0601 - Position on Carrier in Chapter 2C for valid values.

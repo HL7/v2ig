@@ -1,0 +1,10 @@
+= (ADD) Segment - Addendum
+:v2type: 'Segment'
+:code: ADD
+:name: Addendum
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::ADD-fields/ADD-1.adoc[]

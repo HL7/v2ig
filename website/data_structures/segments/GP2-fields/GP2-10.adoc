@@ -1,0 +1,4 @@
+== GP2.10 - Packaging Status Code (CWE)
+
+[segment-definition]
+This field contains the packaging status of the service. A status indicator of N may accompany this, unless it is part of a partial hospitalization. Refer to {{v2-table:0469:Packaging Status Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.

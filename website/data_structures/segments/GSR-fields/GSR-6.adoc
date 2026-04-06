@@ -1,0 +1,4 @@
+== GSR.6 - Source Document Type for Recorded Sex or Gender (CWE)
+
+[segment-definition]
+This field contains the source document where this sex or gender property is recorded. E.g., national ID card, birth certificate, passport, patient medical record. Refer to User-defined Table _0826 Document Gender Type (for gender uses)_ for suggested values.

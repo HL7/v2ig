@@ -1,0 +1,38 @@
+= (TCC) Segment - Test Code Configuration
+:v2type: 'Segment'
+:code: TCC
+:name: Test Code Configuration
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::TCC-fields/TCC-1.adoc[]
+
+include::TCC-fields/TCC-2.adoc[]
+
+include::TCC-fields/TCC-3.adoc[]
+
+include::TCC-fields/TCC-4.adoc[]
+
+include::TCC-fields/TCC-5.adoc[]
+
+include::TCC-fields/TCC-6.adoc[]
+
+include::TCC-fields/TCC-7.adoc[]
+
+include::TCC-fields/TCC-8.adoc[]
+
+include::TCC-fields/TCC-9.adoc[]
+
+include::TCC-fields/TCC-10.adoc[]
+
+include::TCC-fields/TCC-11.adoc[]
+
+include::TCC-fields/TCC-12.adoc[]
+
+include::TCC-fields/TCC-13.adoc[]
+
+include::TCC-fields/TCC-14.adoc[]
+
+include::TCC-fields/TCC-15.adoc[]

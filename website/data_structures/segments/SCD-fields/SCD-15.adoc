@@ -1,0 +1,4 @@
+== SCD.15 - Sterilizer Temperature (CQ)
+
+[segment-definition]
+The current temperature in the anti-microbial device.

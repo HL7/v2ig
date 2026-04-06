@@ -1,0 +1,4 @@
+== PRD.5 - Provider Communication Information (XTN)
+
+[segment-definition]
+This field contains information, such as the phone number or electronic mail address, used to communicate with the provider or organization.

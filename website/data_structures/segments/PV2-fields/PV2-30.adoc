@@ -1,0 +1,4 @@
+== PV2.30 - Patient Charge Adjustment Code (CWE)
+
+[segment-definition]
+This field contains a user-defined code that indicates which adjustments should be made to this patient's charges. Refer to {{v2-table:0218:Patient Charge Adjustment}} in in chapter 2C, for suggested values. This field is the same as _GT1-26 - Guarantor Charge Adjustment Code_.

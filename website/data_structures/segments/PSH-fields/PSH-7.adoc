@@ -1,0 +1,4 @@
+== PSH.7 - Quantity Distributed (CQ)
+
+[segment-definition]
+This field is used to send the number of units of the product which was distributed during the reporting interval. The second component can be used to specify the units for the quantity.

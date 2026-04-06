@@ -1,0 +1,4 @@
+== ORC.6 - Response Flag (ID)
+
+[segment-definition]
+This field allows the placer (sending) application to determine the amount of information to be returned from the filler. Sometimes the requested level of response may not be possible immediately, but when it is possible, the filler (receiving) application must send the information. When the field is null, D is the default value of the field. Refer to {{v2-table:0121:Response flag}} in Chapter 2C, Code Tables, for valid entries.

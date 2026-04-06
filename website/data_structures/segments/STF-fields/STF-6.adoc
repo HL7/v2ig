@@ -1,0 +1,4 @@
+== STF.6 - Date/Time of Birth (DTM)
+
+[segment-definition]
+This field contains a staff member's date and time of birth.

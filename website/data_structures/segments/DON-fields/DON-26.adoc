@@ -1,0 +1,4 @@
+== DON.26 - Aphaeresis Machine Serial Number (ST)
+
+[segment-definition]
+The serial number of the aphaeresis machine, if used, for the donation.

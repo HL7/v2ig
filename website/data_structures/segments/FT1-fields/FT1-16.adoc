@@ -1,0 +1,4 @@
+== FT1.16 - Assigned Patient Location (PL)
+
+[segment-definition]
+This field contains the current patient location. This can be the location of the patient when the charge item was ordered or when the charged service was rendered. For the current assigned patient location, use _PV1-3 - Assigned Patient Location._

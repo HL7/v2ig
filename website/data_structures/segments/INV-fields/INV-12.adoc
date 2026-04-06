@@ -1,0 +1,4 @@
+== INV.12 - INV-12 (DTM)
+
+[segment-definition]
+This field is the expiration date/time of the substance.

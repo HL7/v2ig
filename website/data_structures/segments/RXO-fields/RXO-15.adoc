@@ -1,0 +1,9 @@
+== RXO.15 - Pharmacist/Treatment Supplier's Verifier ID (XCN)
+
+[segment-definition]
+This field is the provider ID of the pharmacist/treatment supplier verifier. Use if required by the pharmacy or treatment application or site on orders (or some subgroup of orders), in addition to _ORC-11-verified by_.
+
+[segment-comment]
+Example:
+
+The site requires a "verified by" provider (such as a nurse) and a "verifying pharmacist/treatment supplier" on the order. In this case the first field, _ORC-11-verified by_, is already present; but the second field, _RXO-15-pharmacist/treatment supplier's verifier ID_, is needed.

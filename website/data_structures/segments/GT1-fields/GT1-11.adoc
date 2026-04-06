@@ -1,0 +1,4 @@
+== GT1.11 - Guarantor Relationship (CWE)
+
+[segment-definition]
+This field indicates the relationship of the guarantor with the patient, e.g., parent, child, etc. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.

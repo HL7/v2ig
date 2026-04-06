@@ -1,0 +1,4 @@
+== TCD.6 - TCD-6 (ID)
+
+[segment-definition]
+This field identifies whether or not automatic repeats are to be initiated for this particular specimen for this particular test code. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.

@@ -1,0 +1,4 @@
+== SAC.11 - SAC-11 (NA)
+
+[segment-definition]
+This field identifies the position of the container in the carrier (e.g., 1...3...). The sub-components allow, if necessary, to transfer multiple axis information, e.g., 2-dimensional carrier (X^Y).

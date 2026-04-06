@@ -1,0 +1,4 @@
+== CTR.13 - Group Purchasing Organization (XON)
+
+[segment-definition]
+This field contains the identifier which identifies the GPO organization.

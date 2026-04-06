@@ -1,0 +1,70 @@
+= (CER) Segment - Certificate Detail
+:v2type: 'Segment'
+:code: CER
+:name: Certificate Detail
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CER-fields/CER-1.adoc[]
+
+include::CER-fields/CER-2.adoc[]
+
+include::CER-fields/CER-3.adoc[]
+
+include::CER-fields/CER-4.adoc[]
+
+include::CER-fields/CER-5.adoc[]
+
+include::CER-fields/CER-6.adoc[]
+
+include::CER-fields/CER-7.adoc[]
+
+include::CER-fields/CER-8.adoc[]
+
+include::CER-fields/CER-9.adoc[]
+
+include::CER-fields/CER-10.adoc[]
+
+include::CER-fields/CER-11.adoc[]
+
+include::CER-fields/CER-12.adoc[]
+
+include::CER-fields/CER-13.adoc[]
+
+include::CER-fields/CER-14.adoc[]
+
+include::CER-fields/CER-15.adoc[]
+
+include::CER-fields/CER-16.adoc[]
+
+include::CER-fields/CER-17.adoc[]
+
+include::CER-fields/CER-18.adoc[]
+
+include::CER-fields/CER-19.adoc[]
+
+include::CER-fields/CER-20.adoc[]
+
+include::CER-fields/CER-21.adoc[]
+
+include::CER-fields/CER-22.adoc[]
+
+include::CER-fields/CER-23.adoc[]
+
+include::CER-fields/CER-24.adoc[]
+
+include::CER-fields/CER-25.adoc[]
+
+include::CER-fields/CER-26.adoc[]
+
+include::CER-fields/CER-27.adoc[]
+
+include::CER-fields/CER-28.adoc[]
+
+include::CER-fields/CER-29.adoc[]
+
+include::CER-fields/CER-30.adoc[]
+
+include::CER-fields/CER-31.adoc[]

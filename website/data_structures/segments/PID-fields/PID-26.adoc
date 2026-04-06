@@ -1,0 +1,11 @@
+== PID.26 - Citizenship (CWE)
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+This field contains the information related to a person's country citizenship. For country citizenship HL7 recommends using ISO table 3166. For a local definition, {{v2-table:0171:Citizenship}} in Chapter 2C, Code Tables, should be used.
+
+This field repeats since persons can be citizens of more than one country. The Name of Coding System component(s) of the CWE datatype should be used to identify the table from which citizenship membership is drawn.
+
+In the Netherlands, this field is used for "Nationaliteit".

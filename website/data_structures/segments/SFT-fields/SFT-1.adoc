@@ -1,0 +1,4 @@
+== SFT.1 - Software Vendor Organization (XON)
+
+[segment-definition]
+Organization identification information for the software vendor that created this transaction. The purpose of this field, along with the remaining fields in this segment, is to provide a more complete picture of applications that are sending HL7 messages. The Software Vendor Organization field would allow the identification of the vendor who is responsible for maintaining the application.

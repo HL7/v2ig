@@ -1,0 +1,4 @@
+== SCP.1 - Number Of Decontamination/Sterilization Devices (NM)
+
+[segment-definition]
+The number of decontamination/sterilization devices recognized by the instrument-tracking system. The decontamination/sterilization device(s) would configure itself based on the data in this message.

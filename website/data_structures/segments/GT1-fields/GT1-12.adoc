@@ -1,0 +1,4 @@
+== GT1.12 - Guarantor SSN (ST)
+
+[segment-definition]
+This field contains the guarantor's social security number.

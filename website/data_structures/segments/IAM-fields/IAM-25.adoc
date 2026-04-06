@@ -1,0 +1,4 @@
+== IAM.25 - Modified by Person (XCN)
+
+[segment-definition]
+This field identifies the user that modified the allergy (e.g. ...|S12345^Smith^John^J^III^DR^MD|...).

@@ -1,0 +1,4 @@
+== PV1.38 - Diet Type (CWE)
+
+[segment-definition]
+This field indicates a special diet type for a patient. Refer to {{v2-table:0114:Diet Type}} in Chapter 2C, Code Tables, for suggested values.

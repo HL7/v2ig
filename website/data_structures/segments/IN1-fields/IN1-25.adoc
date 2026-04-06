@@ -1,0 +1,9 @@
+== IN1.25 - Report Of Eligibility Flag (ID)
+
+[segment-definition]
+This field indicates whether this insurance carrier sends a report that indicates that the patient is eligible for benefits and whether it identifies those benefits. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y eligibility report is sent
+
+N no eligibility report is sent

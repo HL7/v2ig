@@ -1,0 +1,7 @@
+== PRC.3 - Department (CWE)
+
+[segment-definition]
+This field contains the department of the facility which accrues revenue/cost for this type of charge. When pricing is different for different departments within the same facility, this will indicate for which department the following pricing information is valid. Use only when the price is not the same for all departments, that is, a null value indicates that this pricing is valid for all departments.
+
+[segment-comment]
+When two PRC segments are sent the same key values but with different departments, the second is sent in addition to the first, not to replace the first. The effective unique identifier is the charge code _(PRC-1 - Primary Key - PRC_) plus the facility ID (_PRC-2 - Facility ID_) plus the department (_PRC-3 - Department_). Multiple departments can be sent in the same segment to indicate that those departments use the same pricing. Refer to {{v2-table:0184:Department}} in Chapter 2C, Code Tables, for suggested values.

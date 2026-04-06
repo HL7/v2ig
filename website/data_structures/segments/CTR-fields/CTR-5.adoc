@@ -1,0 +1,4 @@
+== CTR.5 - Expiration Date (DTM)
+
+[segment-definition]
+Definition: The Expiration Date is the date that the contract becomes unavailable to purchase from.

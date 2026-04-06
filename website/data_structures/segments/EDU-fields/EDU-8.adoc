@@ -1,0 +1,4 @@
+== EDU.8 - School Address (XAD)
+
+[segment-definition]
+This field contains the postal address of the academic institution that granted the degree to the Staff Member.

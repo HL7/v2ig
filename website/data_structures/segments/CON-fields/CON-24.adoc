@@ -1,0 +1,4 @@
+== CON.24 - Consenter ID (XPN)
+
+[segment-definition]
+Identification of the individual(s) who is (are) consenting.

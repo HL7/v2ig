@@ -1,0 +1,4 @@
+== PAC.5 - Package Type (CWE)
+
+[segment-definition]
+The package type field identifies the type of container. See {{v2-table:0908:Package Type}} for values.

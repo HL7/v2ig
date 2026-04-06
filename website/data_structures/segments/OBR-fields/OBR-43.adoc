@@ -1,0 +1,4 @@
+== OBR.43 - Planned Patient Transport Comment (CWE)
+
+[segment-definition]
+This field is the code or free text comments on special requirements for the transport of the patient to the diagnostic service department. If coded, requires a user-defined table. Refer to Table 0621 - Planned Patient Transport Comment in Chapter 2C for valid values.

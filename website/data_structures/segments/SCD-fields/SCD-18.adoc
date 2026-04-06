@@ -1,0 +1,4 @@
+== SCD.18 - Over Temperature (CQ)
+
+[segment-definition]
+The temperature reached during a cycle, which exceeded the required temperature.

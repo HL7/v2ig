@@ -1,0 +1,4 @@
+== PES.2 - Sender Individual Name (XCN)
+
+[segment-definition]
+This field contains the name of the contact individual. If sent by an organization, the individuals in the organization who serve as primary contact points correspondence regarding this event.

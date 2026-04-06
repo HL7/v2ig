@@ -1,0 +1,4 @@
+== CTR.15 - Actual Markup (MOP)
+
+[segment-definition]
+This field contains the actual percentage (markup or discount) applied to each item’s Product Cost.

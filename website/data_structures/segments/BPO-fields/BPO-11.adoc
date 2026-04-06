@@ -1,0 +1,4 @@
+== BPO.11 - BP Requested Dispense To Location (PL)
+
+[segment-definition]
+This field contains the inpatient or outpatient location to which the blood component is to be dispensed. The default dispense to location is the current census location for the patient.

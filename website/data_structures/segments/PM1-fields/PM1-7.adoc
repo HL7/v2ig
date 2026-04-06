@@ -1,0 +1,4 @@
+== PM1.7 - Group Number (ST)
+
+[segment-definition]
+This field contains the group number of the insured's insurance.

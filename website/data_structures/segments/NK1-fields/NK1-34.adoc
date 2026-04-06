@@ -1,0 +1,4 @@
+== NK1.34 - Job Status (CWE)
+
+[segment-definition]
+This field identifies the next of kin/associated party's job status. Refer to {{v2-table:0311:Job Status}} in Chapter 2C, Code Tables, for suggested values.

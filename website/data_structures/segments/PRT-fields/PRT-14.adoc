@@ -1,0 +1,7 @@
+== PRT.14 - Address (XAD)
+
+[segment-definition]
+This field contains addresses associated with the participation. The address can repeat to indicate alternate addresses or an alternate expression of the same address.
+
+[segment-comment]
+Condition: The address must be present if the Participation is Performing Organization Medical Director.

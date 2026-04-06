@@ -1,0 +1,4 @@
+== CON.25 - Relationship to Subject (CWE)
+
+[segment-definition]
+Identification of the relationship of the consenter to the subject. Receivers are required to inspect the Coding System component of the CWE data type to accurately interpret the meaning of the code. Senders transmitting messages to Receivers on earlier version of the standard may elect to negotiate business rules to ensure that expected data is not lost. HL7 does not assign positional meaning to user-defined codes. Refer to {{v2-table:0548:Signatory's Relationship to Subject}} for suggested values.

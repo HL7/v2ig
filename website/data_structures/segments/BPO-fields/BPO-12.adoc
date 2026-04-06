@@ -1,0 +1,4 @@
+== BPO.12 - BP Requested Dispense To Address (XAD)
+
+[segment-definition]
+This field contains the actual address of the location to which the blood component is to be dispensed. The default dispense to location is the current census location for the patient.

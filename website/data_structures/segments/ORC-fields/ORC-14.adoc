@@ -1,0 +1,4 @@
+== ORC.14 - Call Back Phone Number (XTN)
+
+[segment-definition]
+This field contains the telephone number to call for clarification of a request or other information regarding the order. ORC-14-call back phone number is the same as OBR-17-order callback phone number.

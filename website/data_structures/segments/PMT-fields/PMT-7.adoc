@@ -1,0 +1,4 @@
+== PMT.7 - Check Number (EI)
+
+[segment-definition]
+Unique check number from the Payer's application system.

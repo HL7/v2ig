@@ -1,0 +1,4 @@
+== STF.27 - Race (CWE)
+
+[segment-definition]
+This field refers to the person's race. Refer to {{v2-table:0005:Race}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.

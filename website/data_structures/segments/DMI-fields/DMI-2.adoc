@@ -1,0 +1,4 @@
+== DMI.2 - Major Diagnostic Category (CNE)
+
+[segment-definition]
+This field indicates the determined Major Diagnostic Category (MDC) value. Refer to {{v2-table:0118:Major Diagnostic Category}} in Chapter 2C, Code Tables, for suggested values.

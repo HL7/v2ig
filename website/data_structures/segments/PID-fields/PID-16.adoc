@@ -1,0 +1,4 @@
+== PID.16 - Marital Status (CWE)
+
+[segment-definition]
+This field contains the patient's marital (civil) status. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values.

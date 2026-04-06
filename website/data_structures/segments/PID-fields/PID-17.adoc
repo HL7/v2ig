@@ -1,0 +1,4 @@
+== PID.17 - Religion (CWE)
+
+[segment-definition]
+This field contains the patient's religion. Refer to {{v2-table:0006:Religion}} in Chapter 2C, Code Tables, for suggested values.

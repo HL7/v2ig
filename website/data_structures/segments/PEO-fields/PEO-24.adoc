@@ -1,0 +1,4 @@
+== PEO.24 - Primary Observer Aware Date/Time (DTM)
+
+[segment-definition]
+This field identifies the date/time the primary observer became aware of event.

@@ -1,0 +1,4 @@
+== BTS.1 - Batch Message Count (ST)
+
+[segment-definition]
+This field contains the count of the individual messages contained within the batch.

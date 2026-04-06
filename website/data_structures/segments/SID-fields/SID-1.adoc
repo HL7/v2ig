@@ -1,0 +1,7 @@
+== SID.1 - SID-1 (CWE)
+
+[segment-definition]
+This field identifies the application/method used for the analysis. Refer to Table 0783 - Application/Method Identifier in Chapter 2C for valid values.
+
+[segment-comment]
+Example: GLUCOSE is an orderable test. GLUCOSE can be analyzed using various applications/methods, which have manufacturer specific identifiers.

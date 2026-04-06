@@ -1,0 +1,7 @@
+== PYE.4 - Payee Identification List (XON)
+
+[segment-definition]
+Conditional or empty: if Payee Type in list ("PPER", "ORG"), then Required, else Not Permitted.
+
+[segment-comment]
+Payee or Business Arrangement identification information; up to 5; defined by Payer/Provider agreement.

@@ -1,0 +1,4 @@
+== DRG.32 - Status Respiration Minutes (CWE)
+
+[segment-definition]
+This field contains the status of the use of the respiration minutes information for DRG determination. Refer to {{v2-table:0757:DRG Status Respiration Minutes}} in Chapter 2C, Code Tables, for suggested values.

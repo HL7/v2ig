@@ -1,0 +1,4 @@
+== PKG.6 - Future Item Price (CP)
+
+[segment-definition]
+This field contains a future price for the item based on the packaging unit in PKG-2.

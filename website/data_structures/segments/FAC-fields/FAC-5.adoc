@@ -1,0 +1,4 @@
+== FAC.5 - Contact Person (XCN)
+
+[segment-definition]
+This field contains the primary contact person's name.

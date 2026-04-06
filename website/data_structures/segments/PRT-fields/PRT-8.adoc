@@ -1,0 +1,9 @@
+== PRT.8 - Organization (XON)
+
+[segment-definition]
+The organization that is involved in the participation. If _PRT-5 Person_ is valued, it reflects the affiliation of the individual participating as identified in _PRT-4 Role of Participation_. Otherwise the organization is directly participating as identified in _PRT-4 Role of Participation_.
+
+[segment-comment]
+If this attribute repeats, all instances must represent the same organization.
+
+Condition: At least one of the PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.

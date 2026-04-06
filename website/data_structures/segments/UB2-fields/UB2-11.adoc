@@ -1,0 +1,4 @@
+== UB2.11 - Uniform Billing Locator 31 (national) (ST)
+
+[segment-definition]
+Defined by CMS or other regulatory agencies.

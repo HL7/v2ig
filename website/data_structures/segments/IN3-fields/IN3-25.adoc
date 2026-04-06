@@ -1,0 +1,4 @@
+== IN3.25 - Second Opinion Physician (XCN)
+
+[segment-definition]
+This field contains an identifier and name of the physician who provided the second opinion. Multiple names and identifiers for the same person may be sent in this sequence. Specification of meaning based on sequence is deprecated. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.

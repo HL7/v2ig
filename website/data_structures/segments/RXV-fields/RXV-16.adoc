@@ -1,0 +1,4 @@
+== RXV.16 - Max Dose per Time (CQ)
+
+[segment-definition]
+This field contains the time unit expression of the lock out parameter. For example, if the ordered max dose per time is 4 hours, this field format is "4^h&hours&UCUM".

@@ -1,0 +1,4 @@
+== INV.17 - INV-17 (CWE)
+
+[segment-definition]
+This field identifies the manufacturer of this substance. Refer to {{v2-table:0385:Manufacturer Identifier}} in Chapter 2C, Code Tables, for suggested values. Relevant external code systems may be used, e.g., HIBCC Manufacturers Labeler ID Code (LIC), UPC, NDC, etc.

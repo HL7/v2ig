@@ -1,0 +1,4 @@
+== CTD.5 - Contact Communication Information (XTN)
+
+[segment-definition]
+This field contains the information, such as the phone number or electronic mail address, used to communicate with the contact person or organization.

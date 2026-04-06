@@ -1,0 +1,4 @@
+== DON.21 - Phlebotomy Status (CNE)
+
+[segment-definition]
+Whether the phlebotomy was successful, not drawn, or unsuccessful, and if unsuccessful, the extent to which it was unsuccessful. Refer to {{v2-table:0926:Phlebotomy Status}} in Chapter 2C, Code Tables, for valid entries.

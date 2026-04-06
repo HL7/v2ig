@@ -1,0 +1,4 @@
+== PSL.14 - Number of Items per Unit (NM)
+
+[segment-definition]
+Number of items in each unit – for Services, this should be set to 1.

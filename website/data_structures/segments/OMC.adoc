@@ -1,0 +1,34 @@
+= (OMC) Segment - Supporting Clinical Information
+:v2type: 'Segment'
+:code: OMC
+:name: Supporting Clinical Information
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::OMC-fields/OMC-1.adoc[]
+
+include::OMC-fields/OMC-2.adoc[]
+
+include::OMC-fields/OMC-3.adoc[]
+
+include::OMC-fields/OMC-4.adoc[]
+
+include::OMC-fields/OMC-5.adoc[]
+
+include::OMC-fields/OMC-6.adoc[]
+
+include::OMC-fields/OMC-7.adoc[]
+
+include::OMC-fields/OMC-8.adoc[]
+
+include::OMC-fields/OMC-9.adoc[]
+
+include::OMC-fields/OMC-10.adoc[]
+
+include::OMC-fields/OMC-11.adoc[]
+
+include::OMC-fields/OMC-12.adoc[]
+
+include::OMC-fields/OMC-13.adoc[]

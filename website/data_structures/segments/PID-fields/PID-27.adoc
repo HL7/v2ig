@@ -1,0 +1,4 @@
+== PID.27 - Veterans Military Status (CWE)
+
+[segment-definition]
+This field contains the military status assigned to a veteran. Refer to {{v2-table:0172:Veterans Military Status}} in Chapter 2C, Code Tables, for suggested values.

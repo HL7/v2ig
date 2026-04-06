@@ -1,0 +1,4 @@
+== IN2.33 - Citizenship (CWE)
+
+[segment-definition]
+This field contains the code that identifies the insured's citizenship. HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0171:Citizenship}}_ defined in Chapter 2C, Code Tables.

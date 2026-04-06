@@ -1,0 +1,4 @@
+== PRD.7 - Provider Identifiers (PLN)
+
+[segment-definition]
+This repeating field contains the provider's unique identifiers such as UPIN, Medicare and Medicaid numbers. Refer to {{v2-table:0338:Practitioner ID Number Type}} (in Chapter 2C, "Code Tables") for suggested values.

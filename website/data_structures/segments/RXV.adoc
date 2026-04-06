@@ -1,0 +1,52 @@
+= (RXV) Segment - Pharmacy/Treatment Infusion
+:v2type: 'Segment'
+:code: RXV
+:name: Pharmacy/Treatment Infusion
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::RXV-fields/RXV-1.adoc[]
+
+include::RXV-fields/RXV-2.adoc[]
+
+include::RXV-fields/RXV-3.adoc[]
+
+include::RXV-fields/RXV-4.adoc[]
+
+include::RXV-fields/RXV-5.adoc[]
+
+include::RXV-fields/RXV-6.adoc[]
+
+include::RXV-fields/RXV-7.adoc[]
+
+include::RXV-fields/RXV-8.adoc[]
+
+include::RXV-fields/RXV-9.adoc[]
+
+include::RXV-fields/RXV-10.adoc[]
+
+include::RXV-fields/RXV-11.adoc[]
+
+include::RXV-fields/RXV-12.adoc[]
+
+include::RXV-fields/RXV-13.adoc[]
+
+include::RXV-fields/RXV-14.adoc[]
+
+include::RXV-fields/RXV-15.adoc[]
+
+include::RXV-fields/RXV-16.adoc[]
+
+include::RXV-fields/RXV-17.adoc[]
+
+include::RXV-fields/RXV-18.adoc[]
+
+include::RXV-fields/RXV-19.adoc[]
+
+include::RXV-fields/RXV-20.adoc[]
+
+include::RXV-fields/RXV-21.adoc[]
+
+include::RXV-fields/RXV-22.adoc[]

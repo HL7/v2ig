@@ -1,0 +1,4 @@
+== PID.25 - Birth Order (NM)
+
+[segment-definition]
+When a patient was part of a multiple birth, a value (number) indicating the patient's birth order is entered in this field.

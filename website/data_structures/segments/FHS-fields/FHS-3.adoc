@@ -1,0 +1,4 @@
+== FHS.3 - File Sending Application (HD)
+
+[segment-definition]
+This field has the same definition as the corresponding field in the MSH segment.

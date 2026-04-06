@@ -1,0 +1,4 @@
+== CSR.3 - Institution Registering the Patient (CWE)
+
+[segment-definition]
+This field distinguishes the institution where registration occurred. The legal approval to give patients access to a trial lies with the Internal Review Board for the institution. Universal healthcare provider facility codes should be used when they exist. Currently coding systems must be devised by users. Refer to Table 0589 - Institution Registering the Patient in Chapter 2C for valid values.

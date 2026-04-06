@@ -1,0 +1,16 @@
+== FT1.44 - DME Certificate of Medical Necessity Transmission Code (CWE)
+
+[segment-definition]
+This code defines the timing, transmission method, or format by which a DME Certificate of Medical Necessity report is to be sent for the service.
+
+[segment-comment]
+For the US realm, the ANSI ASC X12 PWK DMERC CMN Indicator Segment, reference element PWK02, listed below is suggested to map to the X12 837 values:
+
+For the US realm, the ANSI ASC X12 PWK DMERC CMN Indicator Segment, reference element PWK02, listed below is suggested to map to the X12 837 values:
+|===
+|AB |Previously Submitted to Payer
+|AD |Certification Included in this Claim
+|AF |Narrative Segment Included in this Claim
+|AG |No Documentation is Required
+|NS |Not Specified
+|===

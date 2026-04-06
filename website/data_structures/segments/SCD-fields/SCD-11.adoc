@@ -1,0 +1,4 @@
+== SCD.11 - Cycle Start Date/Time (DTM)
+
+[segment-definition]
+The date and time that the cycle started.

@@ -1,0 +1,4 @@
+== RFI.3 - Patient Consent (ID)
+
+[segment-definition]
+Code indicating if the Payer has obtained patient consent for release of information (1) – Optional. Refer to {{v2-table:0136:Yes/No Indicator}} for suggested values.

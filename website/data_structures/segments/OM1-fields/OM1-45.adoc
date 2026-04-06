@@ -1,0 +1,7 @@
+== OM1.45 - Relationship Modifier (CWE)
+
+[segment-definition]
+This optional attribute provides a mechanism for classifying observations according to the subject, in relation to the patient whose results might be stored with as "patient" data. It is standard practice, for example, to report values for controls, donors, and blood product units as well as the patient's own values, and store them in the patient's record. (This may not be the best way to model such information, but it is the way it is usually reported.) This should be valued when two values (e.g., one for patient and one for a blood product unit) could otherwise be confused.
+
+[segment-comment]
+The default value is "Patient," and if not specified, this value is assumed. The persons sub-component can refer to {{v2-table:0258:Relationship Modifier}} in Chapter 2C, Code Tables, for valid values.

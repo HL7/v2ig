@@ -1,0 +1,4 @@
+== IAM.2 - Allergen Type Code (CWE)
+
+[segment-definition]
+This field indicates a general allergy category (drug, food, pollen, etc.). Refer to {{v2-table:0127:Allergen Type}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== ACC.7 - Entered By (XCN)
+
+[segment-definition]
+This field identifies the person entering the accident information.

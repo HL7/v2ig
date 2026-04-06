@@ -1,0 +1,4 @@
+== DON.7 - Intended Procedure Type (CNE)
+
+[segment-definition]
+The procedure(s) intended to be performed on the donor. Refer to {{v2-table:0933:Intended Procedure Type}} in Chapter 2C, Code Tables, for valid entries__.__

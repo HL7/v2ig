@@ -1,0 +1,4 @@
+== CON.17 - Translator Assistance Indicator (ID)
+
+[segment-definition]
+Identifies whether translation was (or will be) required to obtain informed consent from the subject. Refer to table {{v2-table:0136:Yes/No Indicator.}}

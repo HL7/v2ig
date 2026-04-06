@@ -1,0 +1,4 @@
+== SCD.7 - Sterilize Time (CQ)
+
+[segment-definition]
+The actual amount of cycle time spent sterilizing supplies.

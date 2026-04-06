@@ -1,0 +1,4 @@
+== IN2.31 - Living Dependency (CWE)
+
+[segment-definition]
+This field identifies the specific living conditions for the insured. Refer to {{v2-table:0223:Living Dependency}} in Chapter 2C, Code Tables, for suggested values.

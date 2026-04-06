@@ -1,0 +1,4 @@
+== IN1.13 - Plan Expiration Date (DT)
+
+[segment-definition]
+This field indicates the last date of service that the insurance will cover or be responsible for.

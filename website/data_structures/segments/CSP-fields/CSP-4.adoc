@@ -1,0 +1,4 @@
+== CSP.4 - Study Phase Evaluability (CWE)
+
+[segment-definition]
+This field contains the disposition of the patient's data for this phase interval for quality control and data analysis purposes. The set of codes will vary across clinical trials. An example answer set: *Complete, Adverse Events Only, Outcome Only, None, Unknown*. Refer to Table 0588 - Study Phase Evaluability in Chapter 2C for valid values.

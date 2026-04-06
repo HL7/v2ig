@@ -1,0 +1,4 @@
+== PKG.3 - Default Order Unit Of Measure Indicator (CNE)
+
+[segment-definition]
+This field contains an indicator that determines whether or not the unit of measure present in the PKG-2 is considered the default Order unit of measure. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

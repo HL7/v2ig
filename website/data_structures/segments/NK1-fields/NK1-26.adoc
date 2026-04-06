@@ -1,0 +1,4 @@
+== NK1.26 - Mother's Maiden Name (XPN)
+
+[segment-definition]
+This field indicates the maiden name of the next of kin/associated party's mother.

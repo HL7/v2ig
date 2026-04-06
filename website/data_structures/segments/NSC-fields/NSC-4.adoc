@@ -1,0 +1,7 @@
+== NSC.4 - Current Application (HD)
+
+[segment-definition]
+This field contains a site-specific name used to identify the "current" application process for interfacing with lower level protocols. To be used in conjunction with the sending/receiving system and facility values in the MSH. Entirely site-defined. {{v2-table:0361:Sending/Receiving Application}} is used as the user-defined table of values for the first component.
+
+[segment-comment]
+*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.

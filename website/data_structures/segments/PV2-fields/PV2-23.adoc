@@ -1,0 +1,4 @@
+== PV2.23 - Clinic Organization Name (XON)
+
+[segment-definition]
+This field contains the organization name or sub-unit and identifier that is associated with the (visit) episode of care. For example, the Allergy or Oncology Clinic within the healthcare facility might be named.

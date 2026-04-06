@@ -1,0 +1,7 @@
+== OH1.5 - Employment Status End Date (DT)
+
+[segment-definition]
+This field asserts when the employment status ended. If employment status is current, Employment Status End Date should be empty.
+
+[segment-comment]
+*Note:* The Employment Status End Date SHALL not be greater than the time the observation is made (OH1-6 Entered Date).

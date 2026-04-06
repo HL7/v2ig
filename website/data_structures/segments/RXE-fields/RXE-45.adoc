@@ -1,0 +1,4 @@
+== RXE.45 - Pharmacy Phone Number (XTN)
+
+[segment-definition]
+This field contains the telecommunication contact information for the pharmacy. Repetitions may be supplied for various device types or use codes, or multiple instances of the same type or use. This concept also exists as RXO-36 and RXD-34 to support pharmacy contact information in the context of the order, the encoded order and the dispense.

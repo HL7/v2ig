@@ -1,0 +1,4 @@
+== IN1.50 - Signature Code (CWE)
+
+[segment-definition]
+This field contains the code to indicate how the patient/subscriber authorization signature was obtained and how it is being retained by the provider. Refer to {{v2-table:0535:Signature Code}} in Chapter 2C, Code Tables, for suggested values.

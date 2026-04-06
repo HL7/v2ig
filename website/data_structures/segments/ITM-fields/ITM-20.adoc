@@ -1,0 +1,4 @@
+== ITM.20 - Approved To Buy Quantity (NM)
+
+[segment-definition]
+This field contains the quantity of this item that can be purchased within a user-defined time frame (e.g., one year) at the order unit of measure.

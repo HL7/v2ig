@@ -1,0 +1,4 @@
+== CER.10 - Certificate Type (CWE)
+
+[segment-definition]
+This field specifies the certificate's classification, e.g., being a privilege, permission, or qualification certificate.

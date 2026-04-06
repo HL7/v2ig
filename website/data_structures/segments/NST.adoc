@@ -1,0 +1,38 @@
+= (NST) Segment - Application Control-Level Statistics
+:v2type: 'Segment'
+:code: NST
+:name: Application Control-Level Statistics
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::NST-fields/NST-1.adoc[]
+
+include::NST-fields/NST-2.adoc[]
+
+include::NST-fields/NST-3.adoc[]
+
+include::NST-fields/NST-4.adoc[]
+
+include::NST-fields/NST-5.adoc[]
+
+include::NST-fields/NST-6.adoc[]
+
+include::NST-fields/NST-7.adoc[]
+
+include::NST-fields/NST-8.adoc[]
+
+include::NST-fields/NST-9.adoc[]
+
+include::NST-fields/NST-10.adoc[]
+
+include::NST-fields/NST-11.adoc[]
+
+include::NST-fields/NST-12.adoc[]
+
+include::NST-fields/NST-13.adoc[]
+
+include::NST-fields/NST-14.adoc[]
+
+include::NST-fields/NST-15.adoc[]

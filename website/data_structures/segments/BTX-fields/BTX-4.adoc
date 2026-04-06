@@ -1,0 +1,7 @@
+== BTX.4 - BTX-4 (CNE)
+
+[segment-definition]
+This field indicates the ABO/Rh blood group of the blood component. The preferred values for the blood group are the specified values in _Table 3A - Encodation of ABO/Rh Blood Group_ in the _ISBT 128 Application Specification_. Refer to Table 0583 - BC Blood Group in Chapter 2C for valid values.
+
+[segment-comment]
+This field is required for blood components and certain commercial products (such as solvent detergent plasma).

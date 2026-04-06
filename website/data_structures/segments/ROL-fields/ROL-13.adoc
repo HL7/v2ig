@@ -1,0 +1,4 @@
+== ROL.13 - Person's Location (PL)
+
+[segment-definition]
+// TODO: Add field definition

@@ -1,0 +1,4 @@
+== IVC.6 - Invoice Type (CWE)
+
+[segment-definition]
+Code indicating the type of Invoice. Refer to {{v2-table:0555:Invoice Type}} in Chapter 2C, Code Tables, for suggested values.

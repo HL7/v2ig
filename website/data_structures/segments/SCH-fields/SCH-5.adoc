@@ -1,0 +1,7 @@
+== SCH.5 - Schedule ID (CWE)
+
+[segment-definition]
+This field contains an identifier code for the schedule in which this appointment is (or will be) booked. This field is provided for instances in which filler applications maintain multiple schedules, and when a particular resource or set of resources is controlled by more than one of those schedules.
+
+[segment-comment]
+This field is provided on the SCH segment for informational purposes to applications fulfilling the placer, querying and auxiliary roles.

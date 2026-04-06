@@ -1,0 +1,4 @@
+== PSH.11 - Quantity in Use Method (ID)
+
+[segment-definition]
+This field contains the method used for measuring the quantity in use. An explanation of the method used for estimation can be included in _PSH-12-quantity in use comment_. Refer to {{v2-table:0329:Quantity Method}} for valid values.

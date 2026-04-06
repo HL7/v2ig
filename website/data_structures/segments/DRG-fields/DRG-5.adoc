@@ -1,0 +1,4 @@
+== DRG.5 - Outlier Type (CWE)
+
+[segment-definition]
+Refers to the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Refer to {{v2-table:0083:Outlier Type}} in Chapter 2C, code Tables, for suggested values.

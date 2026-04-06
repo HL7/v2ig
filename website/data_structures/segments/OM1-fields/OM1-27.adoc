@@ -1,0 +1,7 @@
+== OM1.27 - Outside Site(s) Where Observation May Be Performed (CWE)
+
+[segment-definition]
+This field contains the identification(s) of the outside service(s) that produce(s) the observation. The format of this CWE field uses the producer ID (as defined in _OM1-5 - Producer ID_) and the name of the service separated by component delimiters. An example is ...|39221^ACME lab^MC|... If multiple services are used, they should be separated by repeat delimiter(s). Refer to Table 0638 - Outside Site(s) Where Observation May Be Performed in Chapter 2C for valid values.
+
+[segment-comment]
+*Note: This field is deprecated and retained for backward compatibility as of v 2.8.*

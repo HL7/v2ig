@@ -1,0 +1,4 @@
+== CON.23 - Non-subject Consenter Reason (CWE)
+
+[segment-definition]
+Identifies why consent was granted by a person other than the subject of the consent. Refer to {{v2-table:0502:Non-Subject Consenter Reason}} for suggested values.

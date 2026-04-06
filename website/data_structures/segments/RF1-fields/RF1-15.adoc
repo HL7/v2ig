@@ -1,0 +1,4 @@
+== RF1.15 - Number of Authorized Treatments/Units (CQ)
+
+[segment-definition]
+The authorized duration is the amount of time, in days or visits, that the patient has been authorized for treatment for this referral. The duration of "days" is reserved for inpatient authorizations.

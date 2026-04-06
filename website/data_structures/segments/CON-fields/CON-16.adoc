@@ -1,0 +1,4 @@
+== CON.16 - Subject Competence Indicator (ID)
+
+[segment-definition]
+Identifies whether the subject was deemed competent to provide consent. Refer to table {{v2-table:0136:Yes/No Indicator.}}

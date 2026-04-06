@@ -1,0 +1,4 @@
+== IN1.31 - Type Of Agreement Code (CWE)
+
+[segment-definition]
+This field is used to further identify an insurance plan. Refer to {{v2-table:0098:Type of Agreement}} in Chapter 2C, Code Tables, for suggested values.

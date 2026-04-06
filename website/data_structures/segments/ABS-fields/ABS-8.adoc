@@ -1,0 +1,4 @@
+== ABS.8 - Abstracted By (XCN)
+
+[segment-definition]
+Identification number of the person completing the Abstract.

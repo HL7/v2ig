@@ -1,0 +1,4 @@
+== FHS.6 - File Receiving Facility (HD)
+
+[segment-definition]
+This field has the same definition as the corresponding field in the MSH segment.

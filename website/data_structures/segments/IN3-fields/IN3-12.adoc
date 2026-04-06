@@ -1,0 +1,4 @@
+== IN3.12 - Non-Concur Code/Description (CWE)
+
+[segment-definition]
+This field contains the non-concur code and description for a denied request. Refer to {{v2-table:0233:Non-Concur Code/Description}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== VAR.4 - Variance Originator (XCN)
+
+[segment-definition]
+This field contains the originator (person or system) documenting the variance.

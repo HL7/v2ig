@@ -1,0 +1,4 @@
+== PSH.6 - Quantity Manufactured (CQ)
+
+[segment-definition]
+This field is used to send the number of units of the product manufactured during the reporting interval. The second component can be used to specify the units for the quantity.

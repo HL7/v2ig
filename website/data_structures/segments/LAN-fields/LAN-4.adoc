@@ -1,0 +1,7 @@
+== LAN.4 - Language Proficiency Code (CWE)
+
+[segment-definition]
+This field contains the level of knowledge the Staff Member possesses with respect to the language ability. HL7 suggests using values in {{v2-table:0404:Language Proficiency}}.
+
+[segment-comment]
+[#_Hlt489245619 .anchor]####Refer to {{v2-table:0404:Language Proficiency}} in Chapter 2C, Code Tables, for valid values. This table contains values for excellent, poor, fair etc.

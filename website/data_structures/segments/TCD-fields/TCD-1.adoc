@@ -1,0 +1,4 @@
+== TCD.1 - TCD-1 (CWE)
+
+[segment-definition]
+This field identifies the test code that information is being transmitted about. Refer to Table 0789 - Universal Service Identifier in Chapter 2C for valid values.

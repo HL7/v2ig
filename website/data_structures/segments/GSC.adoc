@@ -1,0 +1,24 @@
+= (GSC) Segment - Sex Parameter for Clinical Use
+:v2type: 'Segment'
+:code: GSC
+:name: Sex Parameter for Clinical Use
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::GSC-fields/GSC-1.adoc[]
+
+include::GSC-fields/GSC-2.adoc[]
+
+include::GSC-fields/GSC-3.adoc[]
+
+include::GSC-fields/GSC-4.adoc[]
+
+include::GSC-fields/GSC-5.adoc[]
+
+include::GSC-fields/GSC-6.adoc[]
+
+include::GSC-fields/GSC-7.adoc[]
+
+include::GSC-fields/GSC-8.adoc[]

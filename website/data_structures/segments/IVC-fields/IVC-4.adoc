@@ -1,0 +1,4 @@
+== IVC.4 - Invoice Control (CWE)
+
+[segment-definition]
+Code indicating what action is being performed by this message. Refer to {{v2-table:0553:Invoice Control Code}} in Chapter 2C, Code Tables, for suggested values.

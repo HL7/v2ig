@@ -1,0 +1,4 @@
+== EQP.1 - EQP-1 (CWE)
+
+[segment-definition]
+This field identifies the type of event of the message. Refer to {{v2-table:0450:Event Type}} in Chapter 2C, Code Tables, for valid values.

@@ -1,0 +1,7 @@
+== ORG.2 - Organization Unit Code (CWE)
+
+[segment-definition]
+This field contains the hierarchical components of the organization unit, as defined by the institution. Refer to {{v2-table:0405:Organization Unit}} for suggested values.
+
+[segment-comment]
+Refer to {{v2-table:0405:Organization Unit}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.

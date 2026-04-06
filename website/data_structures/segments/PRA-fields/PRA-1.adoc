@@ -1,0 +1,4 @@
+== PRA.1 - Primary Key Value - PRA (CWE)
+
+[segment-definition]
+For MFN Master File Notification, this field is required and must match _MFE-4 Primary Key Value_ to identify which entry is being referenced. For all other messages, this field should not be used. Refer to Table 0681 - Primary Key Value - PRA in Chapter 2C for valid values.

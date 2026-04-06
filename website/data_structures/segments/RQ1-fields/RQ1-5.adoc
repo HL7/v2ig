@@ -1,0 +1,4 @@
+== RQ1.5 - Vendor Catalog (ST)
+
+[segment-definition]
+This field is the vendor's catalog number, name, or code for this item. This field is conditional because either RQ1-2-manufacturer ID and RQ1-3-manufacturer's catalog or RQ1-4-vendor ID and RQ1-5-vendor catalog must be valued.

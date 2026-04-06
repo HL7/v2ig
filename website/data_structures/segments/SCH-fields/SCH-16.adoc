@@ -1,0 +1,7 @@
+== SCH.16 - Filler Contact Person (XCN)
+
+[segment-definition]
+This field identifies the person responsible for the scheduling of the requested appointment. Most often, this person will be the same person responsible for maintaining the schedule and for reviewing appointment requests.
+
+[segment-comment]
+This field should not have been made required but is retained as such for reasons of backward compatibility.

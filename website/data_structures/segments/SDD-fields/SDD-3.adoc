@@ -1,0 +1,4 @@
+== SDD.3 - Device Name (ST)
+
+[segment-definition]
+The name of the device associated with the device number in SDD-2 (e.g., 01 VAC).

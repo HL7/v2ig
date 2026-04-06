@@ -1,0 +1,4 @@
+== PSL.44 - Total Amount Professional Part + Technical Part (CP)
+
+[segment-definition]
+Total Amount of the cost of this service (Professional plus technical part)

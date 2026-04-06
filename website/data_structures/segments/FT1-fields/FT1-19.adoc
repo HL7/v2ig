@@ -1,0 +1,4 @@
+== FT1.19 - Diagnosis Code - FT1 (CWE)
+
+[segment-definition]
+This field contains the primary diagnosis code for billing purposes. ICD9‑CM is assumed for all diagnosis codes. This is the most current diagnosis code that has been assigned to the patient. ICD10 can also be used. The name of coding system (third component) indicates which coding system is used. Refer to {{v2-table:0051:Diagnosis Code}} in Chapter 2C, Code Tables, for suggested values.

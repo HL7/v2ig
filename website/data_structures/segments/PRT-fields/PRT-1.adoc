@@ -1,0 +1,9 @@
+== PRT.1 - Participation Instance ID (EI)
+
+[segment-definition]
+This field contains a unique identifier of the specific participation record.
+
+[segment-comment]
+In the case of waypoints tracked for a shipment, it identifies the waypoint.
+
+Condition: The identifier is required when known, but there are times we may only know a name but do not have an identifier.

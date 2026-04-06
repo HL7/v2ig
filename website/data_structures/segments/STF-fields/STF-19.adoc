@@ -1,0 +1,4 @@
+== STF.19 - Job Code/Class (JCC)
+
+[segment-definition]
+This field contains the staff member's job code and employee classification. Refer to {{v2-table:0327:Job Code}} and {{v2-table:0328:Employee Classification}} in Chapter 2C, Code Tables, for suggested values.

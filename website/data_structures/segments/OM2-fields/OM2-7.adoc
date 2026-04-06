@@ -1,0 +1,4 @@
+== OM2.7 - Critical Range for Ordinal and Continuous Observations (RFR)
+
+[segment-definition]
+This field applies only to single tests/observations (i.e., a nature code of A or C, as described in _OM1-18 - Nature of Service/Test/Observation_) with numeric results). When a critical range is defined for such observations, it should be recorded here in the same format as the normal range (see _OM2-6 - Reference (Normal) Range - Ordinal and Continuous Observations_).

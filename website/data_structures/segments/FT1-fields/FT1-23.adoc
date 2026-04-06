@@ -1,0 +1,4 @@
+== FT1.23 - Filler Order Number (EI)
+
+[segment-definition]
+This field is used when the billing system is requesting observational reporting justification for a charge. This is the number used by a filler to uniquely identify a result. See Chapter 4 for a complete description.

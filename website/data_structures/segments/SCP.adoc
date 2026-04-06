@@ -1,0 +1,24 @@
+= (SCP) Segment - Sterilizer Configuration
+:v2type: 'Segment'
+:code: SCP
+:name: Sterilizer Configuration
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::SCP-fields/SCP-1.adoc[]
+
+include::SCP-fields/SCP-2.adoc[]
+
+include::SCP-fields/SCP-3.adoc[]
+
+include::SCP-fields/SCP-4.adoc[]
+
+include::SCP-fields/SCP-5.adoc[]
+
+include::SCP-fields/SCP-6.adoc[]
+
+include::SCP-fields/SCP-7.adoc[]
+
+include::SCP-fields/SCP-8.adoc[]

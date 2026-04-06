@@ -1,0 +1,4 @@
+== MCP.2 - Producer's Service/Test/Observation ID (CWE)
+
+[segment-definition]
+This field contains the producer's usual or preferred identification of the test or observation. Only three components should be included: <ID code>^<service text name/description>^<source list of code>. All components should be non-null.

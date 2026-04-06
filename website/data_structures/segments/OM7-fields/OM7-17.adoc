@@ -1,0 +1,4 @@
+== OM7.17 - Consent Waiting Period Quantity (NM)
+
+[segment-definition]
+This field contains the time period between the time the consent is signed and the procedure can be performed.

@@ -1,0 +1,4 @@
+== RXD.4 - Actual Dispense Amount (NM)
+
+[segment-definition]
+This field indicates the amount dispensed.

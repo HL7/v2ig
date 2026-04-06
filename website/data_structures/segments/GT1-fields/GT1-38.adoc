@@ -1,0 +1,4 @@
+== GT1.38 - Publicity Code (CWE)
+
+[segment-definition]
+This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for a guarantor. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values.

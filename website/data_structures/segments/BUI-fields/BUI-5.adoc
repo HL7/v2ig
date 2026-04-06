@@ -1,0 +1,4 @@
+== BUI.5 - BUI-5 (CNE)
+
+[segment-definition]
+The unit of measure for the weight of the blood unit. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to {{v2-table:0929:Weight Units}} in Chapter 2C, Code Tables, for valid entries.

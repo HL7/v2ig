@@ -1,0 +1,7 @@
+== SAC.2 - SAC-2 (EI)
+
+[segment-definition]
+This field identifies the laboratory accession (see section _13.1.3_, "_Glossary_"). This identifier is assigned by the information system of the laboratory performing the tests.
+
+[segment-comment]
+An accession identifier can refer to more than one container. A Container Identifier (see below) is a Unique Identifier for that container.

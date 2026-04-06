@@ -1,0 +1,14 @@
+= (QRI) Segment - Query Response Instance
+:v2type: 'Segment'
+:code: QRI
+:name: Query Response Instance
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::QRI-fields/QRI-1.adoc[]
+
+include::QRI-fields/QRI-2.adoc[]
+
+include::QRI-fields/QRI-3.adoc[]

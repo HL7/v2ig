@@ -1,0 +1,4 @@
+== IN3.31 - Online Verification Result Check Digit (ST)
+
+[segment-definition]
+This field contains the check digit for the online verification of the insurance information. This field is required if IN3-28 is populated.

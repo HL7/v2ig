@@ -1,0 +1,39 @@
+== LCH.5 - Location Characteristic Value - LCH (CWE)
+
+[segment-definition]
+This field contains the value of the above field's characteristic. The expected coded values for this field will depend upon the previous field. For example, if the previous field is SMK, IMP, INF, the values would be "Y" or "N".
+
+[segment-comment]
+When LCH-4-location characteristic ID contains "SHA"- Shadow, refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values for _LRL-5 - Organizational Location Relationship Value_.
+
+Y not a real bed, but a temporary holding location that does not physically exist in the census
+
+N this is a real bed
+
+When _LCH-4 - Location Characteristic ID_ contains "PRL"- Privacy level (CWE), then _LRL-5 - Organizational Location Relationship Value_ indicates how the room is set up and intended to be used, disregarding different uses under special circumstances. Refer to {{v2-table:0262:Privacy Level}} in Chapter 2C, Code Tables, for suggested values.
+
+When _LCH-4 - Location Characteristic ID_ contains "LCR"- Level of care, then _LRL-5 - Organizational Location Relationship Value_ contains the code which indicates what severity of the patient's medical condition which this location is designed to handle. This indicates how the room is set up and intended to be used, disregarding different uses under special circumstances. Refer to {{v2-table:0263:Level of Care}} in Chapter 2C, Code Tables, for suggested values.
+
+When _LCH-4 - Location Characteristic ID_ contains "IFD"- Infectious disease, refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values for _LRL-5 - Organizational Location Relationship Value_.
+
+Y patients with infectious diseases can be admitted to this location, that is, this location can be used for isolation
+
+N this location cannot be used for isolation
+
+When _LCH-4 - Location Characteristic ID_ contains "SMO"- Smoking, refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values for _LRL-5 - Organizational Location Relationship Value_.
+
+Y this is a smoking location
+
+N this is a non-smoking location
+
+When _LCH-4 - Location Characteristic ID_ contains "IMP"- Implant, refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values for _LRL-5 - Organizational Location Relationship Value_.
+
+Y this location can be used by radiation implant patients
+
+N this location can not be used by radiation implant patients
+
+When _LCH-4 - Location Characteristic ID_ contains "LIC"- Licensed, refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values for _LRL-5 - Organizational Location Relationship Value_.
+
+Y this location is licensed
+
+N this location is not licensed

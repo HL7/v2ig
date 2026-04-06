@@ -1,0 +1,4 @@
+== OBR.30 - Transportation Mode (ID)
+
+[segment-definition]
+This field identifies how (or whether) to transport a patient, when applicable. Refer to {{v2-table:0124:Transportation Mode}} in Chapter 2C, Code Tables, for valid codes.

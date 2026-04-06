@@ -1,0 +1,7 @@
+== OH2.13 - Employer Address (XAD)
+
+[segment-definition]
+This field asserts the address of the employer organization for the job of a person recorded in this segment. This field shall be populated with the address of the employer rather than the site that the employee works.
+
+[segment-comment]
+The field may repeat.

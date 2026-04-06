@@ -1,0 +1,4 @@
+== SDD.2 - Device Number (EI)
+
+[segment-definition]
+The number of the device (e.g., 01 VAC).

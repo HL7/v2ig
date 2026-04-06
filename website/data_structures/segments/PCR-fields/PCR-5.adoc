@@ -1,0 +1,4 @@
+== PCR.5 - Product Manufacture Date (DTM)
+
+[segment-definition]
+This field indicates the date the product was manufactured.

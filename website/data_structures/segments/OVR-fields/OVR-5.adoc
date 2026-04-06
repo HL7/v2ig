@@ -1,0 +1,7 @@
+== OVR.5 - Override Authorized By (XCN)
+
+[segment-definition]
+Identifies the health services provider who accepts professional responsibility for overriding the business rule. This field SHOULD be left empty if the recording and responsible health care provider is the same as who entered the override.
+
+[segment-comment]
+In some cases, a business rule override might be entered by a data entry clerk on behalf of a health service provider who carries professional responsibility for the decision to override the rule. In order to represent this scenario, the segment must have a field identifying who is responsible for the override decision, in addition to the person recording the override.

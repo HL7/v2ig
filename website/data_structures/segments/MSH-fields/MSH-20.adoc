@@ -1,0 +1,4 @@
+== MSH.20 - Alternate Character Set Handling Scheme (ID)
+
+[segment-definition]
+When any alternative character sets are used (as specified in the second or later iterations of link:#_MSH-18___Character Set   (ID)   006[MSH-18 Character Set]), and if any special handling scheme is needed, this component is to specify the scheme used, according to {{v2-table:0356:Alternate Character Set Handling Scheme}} as defined in Chapter 2C, Code Tables,.

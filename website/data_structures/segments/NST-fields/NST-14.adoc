@@ -1,0 +1,4 @@
+== NST.14 - Receive Timeouts (NM)
+
+[segment-definition]
+This field contains the number of timeouts while waiting for a response to an initiated message.

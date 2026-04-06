@@ -1,0 +1,4 @@
+== IN3.8 - Operator (XCN)
+
+[segment-definition]
+This field contains the name party who is responsible for sending this certification information. Multiple names for the same person may be sent in this sequence. Specification of meaning based on sequence is deprecated.

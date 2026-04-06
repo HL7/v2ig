@@ -1,0 +1,4 @@
+== PKG.11 - Vendor Catalog Number (EI)
+
+[segment-definition]
+This field contains the vendor catalog number of the item UM sent in sequence 3 (Default Order Unit of Measure).

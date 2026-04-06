@@ -1,0 +1,4 @@
+== BPX.21 - BPX-21 (XCN)
+
+[segment-definition]
+This field identifies the individual who is dispensing the blood component or commercial product.

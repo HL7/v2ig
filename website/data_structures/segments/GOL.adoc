@@ -1,0 +1,52 @@
+= (GOL) Segment - Goal Detail
+:v2type: 'Segment'
+:code: GOL
+:name: Goal Detail
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::GOL-fields/GOL-1.adoc[]
+
+include::GOL-fields/GOL-2.adoc[]
+
+include::GOL-fields/GOL-3.adoc[]
+
+include::GOL-fields/GOL-4.adoc[]
+
+include::GOL-fields/GOL-5.adoc[]
+
+include::GOL-fields/GOL-6.adoc[]
+
+include::GOL-fields/GOL-7.adoc[]
+
+include::GOL-fields/GOL-8.adoc[]
+
+include::GOL-fields/GOL-9.adoc[]
+
+include::GOL-fields/GOL-10.adoc[]
+
+include::GOL-fields/GOL-11.adoc[]
+
+include::GOL-fields/GOL-12.adoc[]
+
+include::GOL-fields/GOL-13.adoc[]
+
+include::GOL-fields/GOL-14.adoc[]
+
+include::GOL-fields/GOL-15.adoc[]
+
+include::GOL-fields/GOL-16.adoc[]
+
+include::GOL-fields/GOL-17.adoc[]
+
+include::GOL-fields/GOL-18.adoc[]
+
+include::GOL-fields/GOL-19.adoc[]
+
+include::GOL-fields/GOL-20.adoc[]
+
+include::GOL-fields/GOL-21.adoc[]
+
+include::GOL-fields/GOL-22.adoc[]

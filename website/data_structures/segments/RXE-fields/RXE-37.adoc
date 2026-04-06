@@ -1,0 +1,4 @@
+== RXE.37 - Pharmaceutical Substance Alternative (CWE)
+
+[segment-definition]
+This field specifies a pharmaceutical substance that is in the formulary that could be prescribed in lieu of the substance being prescribed. In the case where the specified medication is non-formulary this field would contain therapeutic alternatives that are on the formulary. Refer to Table 0730 - Pharmaceutical Substance Alternative in Chapter 2C for valid values.

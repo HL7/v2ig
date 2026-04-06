@@ -1,0 +1,4 @@
+== SAC.20 - SAC-20 (CWE)
+
+[segment-definition]
+This field is the unit identifier that is being used to describe the diameter, height and deltas of the container. If the units are ISO+ units, they should be recorded as single case abbreviations. If the units are ANS+ or L (local), the units and the source code table must be recorded, except that in this case, component delimiters should be replaced by subcomponent delimiters. The default unit is millimeters (mm), which should be assumed if no units are reported. Refer to Table 0775 - Container Height/Diameter/Delta Units in Chapter 2C for valid values.

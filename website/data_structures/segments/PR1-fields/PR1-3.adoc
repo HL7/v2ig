@@ -1,0 +1,4 @@
+== PR1.3 - Procedure Code (CNE)
+
+[segment-definition]
+This field contains a unique identifier assigned to the procedure. Refer to {{v2-table:0088:Procedure Code}} in Chapter 2C, Code Tables, for suggested values. This field is a CNE data type for compatibility with clinical and ancillary systems.

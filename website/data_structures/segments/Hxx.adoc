@@ -1,0 +1,8 @@
+= (Hxx) Segment - Any segment or segment group
+:v2type: 'Segment'
+:code: Hxx
+:name: Any segment or segment group
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition

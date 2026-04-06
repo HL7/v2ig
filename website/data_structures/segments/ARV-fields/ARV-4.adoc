@@ -1,0 +1,4 @@
+== ARV.4 - Access Restriction Reason (CWE)
+
+[segment-definition]
+This field is used to convey the reason for the restricted access. Repeat of the Access Restriction Reason is allowed to accommodate communication of multiple reasons for an access restriction. Refer to {{v2-table:0719:Access Restriction Reason Code}} in Chapter 2C, Code Tables, for suggested values.

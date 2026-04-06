@@ -1,0 +1,4 @@
+== DON.6 - Donation Duration Units (CNE)
+
+[segment-definition]
+The duration units. The duration units and duration are restricted to minutes and seconds. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to {{v2-table:0932:Donation Duration Units}} in Chapter 2C, Code Tables, for valid entries__.__

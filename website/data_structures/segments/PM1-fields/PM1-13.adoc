@@ -1,0 +1,9 @@
+== PM1.13 - Patient Relationship Required (ID)
+
+[segment-definition]
+This field indicates whether this insurance carrier requires the patient’s Relationship to insured. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y Patient’s relationship to insured Required
+
+N Patient’s relationship to insured Not Required

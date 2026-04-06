@@ -1,0 +1,12 @@
+= (QID) Segment - Query Identification
+:v2type: 'Segment'
+:code: QID
+:name: Query Identification
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::QID-fields/QID-1.adoc[]
+
+include::QID-fields/QID-2.adoc[]

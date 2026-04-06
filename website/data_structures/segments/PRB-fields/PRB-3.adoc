@@ -1,0 +1,4 @@
+== PRB.3 - Problem ID (CWE)
+
+[segment-definition]
+This field identifies the problem. This is the identifier from an institution's master list of problems.

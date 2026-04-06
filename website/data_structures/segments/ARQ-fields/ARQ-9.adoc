@@ -1,0 +1,7 @@
+== ARQ.9 - Appointment Duration (NM)
+
+[segment-definition]
+This field contains the amount of time being requested for the appointment. In cases of requests for repeating appointments, this field describes the duration of one instance of the appointment. If this field is unvalued, then the institution's standard duration for the type of appointment requested will be assumed.
+
+[segment-comment]
+The appointment duration field must contain a positive, non-zero number. A negative number or zero (0) is nonsensical in the context of a duration.

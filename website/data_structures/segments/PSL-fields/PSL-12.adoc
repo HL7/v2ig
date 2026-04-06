@@ -1,0 +1,4 @@
+== PSL.12 - Product/Service Quantity (CQ)
+
+[segment-definition]
+Amount that has been negotiated for this Product/Service Code on PSL between a Provider and Payer for each unit. Refer to {{v2-table:0560:Quantity Units}} in Chapter 2C, Code Tables, for valid values.

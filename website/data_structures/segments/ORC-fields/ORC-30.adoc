@@ -1,0 +1,7 @@
+== ORC.30 - Enterer Authorization Mode (CNE)
+
+[segment-definition]
+This field indicates the form of authorization a recorder had from the responsible practitioner to create or change an order. Refer to {{v2-table:0483:Authorization Mode}} in Chapter 2C, Code Tables, for suggested values.
+
+[segment-comment]
+• To be harmonized to Participation.mode_cd in version 3.

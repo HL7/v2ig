@@ -1,0 +1,7 @@
+== IAM.3 - Allergen Code/Mnemonic/Description (CWE)
+
+[segment-definition]
+This field uniquely identifies a particular allergen. This element may conform to some external, standard coding system (that must be identified), or it may conform to local, largely textual or mnemonic descriptions.
+
+[segment-comment]
+If a system maintains allergen codes as its unique identifier for a particular allergy, and two systems have agreed to process the IAM using update mode, then this field can be used as the unique identifier instead of _IAM-8 - Allergy Unique Identifier_. This does not preclude using allergen codes for unique identifiers for snapshot processing.

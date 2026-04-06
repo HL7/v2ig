@@ -1,0 +1,26 @@
+= (PDA) Segment - Patient Death and Autopsy
+:v2type: 'Segment'
+:code: PDA
+:name: Patient Death and Autopsy
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PDA-fields/PDA-1.adoc[]
+
+include::PDA-fields/PDA-2.adoc[]
+
+include::PDA-fields/PDA-3.adoc[]
+
+include::PDA-fields/PDA-4.adoc[]
+
+include::PDA-fields/PDA-5.adoc[]
+
+include::PDA-fields/PDA-6.adoc[]
+
+include::PDA-fields/PDA-7.adoc[]
+
+include::PDA-fields/PDA-8.adoc[]
+
+include::PDA-fields/PDA-9.adoc[]

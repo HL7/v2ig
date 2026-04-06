@@ -1,0 +1,4 @@
+== PTH.2 - Pathway ID (CWE)
+
+[segment-definition]
+This field contains the pathway master data identifier associated with the referenced problem or goal. Examples: open heart pathway, new diabetic, total hip replace.

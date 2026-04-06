@@ -1,0 +1,4 @@
+== GT1.42 - Mother's Maiden Name (XPN)
+
+[segment-definition]
+This field indicates the guarantor's mother's maiden name.

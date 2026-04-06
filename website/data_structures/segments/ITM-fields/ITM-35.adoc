@@ -1,0 +1,4 @@
+== ITM.35 - Manufacturer Contact Name (XPN)
+
+[segment-definition]
+This field contains the name of the contact person associated to the manufacturer of this item.

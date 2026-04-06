@@ -1,0 +1,4 @@
+== PYE.2 - Payee Type (CWE)
+
+[segment-definition]
+Type of Payee (e.g., Organization, Person). Refer to {{v2-table:0557:Payee Type}} in Chapter 2C, Code Tables, for suggested values.

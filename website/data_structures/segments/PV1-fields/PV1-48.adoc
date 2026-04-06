@@ -1,0 +1,4 @@
+== PV1.48 - Total Adjustments (NM)
+
+[segment-definition]
+This field contains the total adjustments for visit.

@@ -1,0 +1,4 @@
+== IAM.29 - Modified by Organization (XON)
+
+[segment-definition]
+This field contains the name of the organization that modified the allergy (e.g., a General Hospital).

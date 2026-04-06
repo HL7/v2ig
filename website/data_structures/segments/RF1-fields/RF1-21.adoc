@@ -1,0 +1,4 @@
+== RF1.21 - Source Text (ST)
+
+[segment-definition]
+The source text allows a user to capture information (such as the name) of the person contacted regarding the specific referral.

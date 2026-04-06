@@ -1,0 +1,4 @@
+== SCD.9 - Total Cycle Time (CQ)
+
+[segment-definition]
+The sum of time spent in all phases of a cycle.

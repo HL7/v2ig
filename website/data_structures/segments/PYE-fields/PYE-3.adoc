@@ -1,0 +1,7 @@
+== PYE.3 - Payee Relationship to Invoice (Patient) (CWE)
+
+[segment-definition]
+Conditional or empty: if Payee Type in list ("PERS", "PPER"), then Required, else Not Permitted.
+
+[segment-comment]
+For Person Payee Types, the relationship to Invoice. Refer to {{v2-table:0558:Payee Relationship to Invoice}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== IVC.18 - Amount for Doctors Treatment (CP)
+
+[segment-definition]
+Special amount for doctor's treatment.

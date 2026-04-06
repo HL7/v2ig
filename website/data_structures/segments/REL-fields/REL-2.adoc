@@ -1,0 +1,4 @@
+== REL.2 - Relationship Type (CWE)
+
+[segment-definition]
+This field contains the type of the relationship. Refer to User-defined Table 0948 – Relationship Type, as defined in Chapter 2C, Code Tables for suggested values.

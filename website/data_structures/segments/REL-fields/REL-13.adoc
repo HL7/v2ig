@@ -1,0 +1,7 @@
+== REL.13 - Certainty of Relationship (CWE)
+
+[segment-definition]
+This field contains the certainty of existence of the relationship.
+
+[segment-comment]
+NOTE that there are no suggested values for this coded element.

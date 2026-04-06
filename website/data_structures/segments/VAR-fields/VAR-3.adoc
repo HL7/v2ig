@@ -1,0 +1,4 @@
+== VAR.3 - Stated Variance Date/Time (DTM)
+
+[segment-definition]
+This field contains the time stamp that identifies a stated time of the variance which may be different than the time it was documented.

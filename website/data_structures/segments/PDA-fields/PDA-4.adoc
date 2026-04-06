@@ -1,0 +1,4 @@
+== PDA.4 - Death Certificate Signed Date/Time (DTM)
+
+[segment-definition]
+This field is valued with the date and time the death certificate was signed.

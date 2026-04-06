@@ -1,0 +1,4 @@
+== PRD.3 - Provider Address (XAD)
+
+[segment-definition]
+This field contains the mailing address of the provider identified in this segment. One of the key components to completing the "circle of care" and provider/institution bonding is the issuance of follow‑up correspondence to the referring provider.

@@ -1,0 +1,4 @@
+== GT1.24 - Guarantor Death Date And Time (DTM)
+
+[segment-definition]
+This field is used to indicate the date and time at which the guarantor's death occurred.

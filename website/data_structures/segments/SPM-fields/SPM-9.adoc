@@ -1,0 +1,11 @@
+== SPM.9 - Specimen Source Site Modifier (CWE)
+
+[segment-definition]
+This field contains modifying or qualifying description(s) about the specimen source site
+
+[segment-comment]
+The use of this attribute is to modify, qualify or further specify, the entity described by _SPM-8 – Specimen Source Site_. This is particularly useful when the code set used in _SPM-8_ does not provide the precision required to fully describe the site from which the specimen originated. For example, if the specimen source site was precisely described as 'left radial vein' but the code set employed only provided 'radial vein,' this attribute could be employed to add the modifier 'left.'
+
+Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.
+
+Refer to {{v2-table:0542:Specimen Source Type Modifier}} for suggested values.

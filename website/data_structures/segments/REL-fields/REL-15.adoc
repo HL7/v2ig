@@ -1,0 +1,4 @@
+== REL.15 - Priority  Sequence No (rel preference for consideration) (NM)
+
+[segment-definition]
+This field contains the priority sequence number as used, for example, in relative preference for consideration.

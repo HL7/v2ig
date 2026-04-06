@@ -1,0 +1,4 @@
+== DRG.24 - Discount/Surcharge (MO)
+
+[segment-definition]
+This field contains the discount/surcharge as determined for this DRG. The addition/re­duction is indicated by _DRG-17 - Status Patient_.

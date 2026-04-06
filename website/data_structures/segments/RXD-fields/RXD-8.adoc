@@ -1,0 +1,4 @@
+== RXD.8 - Number of Refills Remaining (NM)
+
+[segment-definition]
+This field is conditional because it is required when a prescription is dispensed to an outpatient. It is not relevant to inpatient treatment orders.

@@ -1,0 +1,4 @@
+== AUT.19 - Number of Used Treatments/Units (CQ)
+
+[segment-definition]
+The used duration is the amount of time, in days or visits that the patient has used of the originally authorized duration. The duration of "days" is reserved for inpatient authorizations.

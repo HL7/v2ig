@@ -1,0 +1,4 @@
+== TCC.8 - TCC-8 (NM)
+
+[segment-definition]
+This field is the value that is to be used as the threshold for initiating inventory warning-level messages.

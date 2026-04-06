@@ -1,0 +1,4 @@
+== ADJ.2 - Payer Adjustment Number (EI)
+
+[segment-definition]
+Unique Adjustment Number assigned by the Payer Application.

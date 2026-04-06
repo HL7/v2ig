@@ -1,0 +1,4 @@
+== IN1.6 - Insurance Co Contact Person (XPN)
+
+[segment-definition]
+This field contains the name of the person who should be contacted at the insurance company. Multiple names for the same contact person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

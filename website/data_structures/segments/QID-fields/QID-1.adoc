@@ -1,0 +1,4 @@
+== QID.1 - Query Tag (ST)
+
+[segment-definition]
+This field identifies the instance of a query.

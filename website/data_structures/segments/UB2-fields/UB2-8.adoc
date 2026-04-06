@@ -1,0 +1,4 @@
+== UB2.8 - Occurrence Span Code/Dates (36) (OSP)
+
+[segment-definition]
+// TODO: Add field definition

@@ -1,0 +1,4 @@
+== RXG.33 - Dispense Units (CWE)
+
+[segment-definition]
+This field contains the units for the dispense amount as encoded by the pharmacy or treatment supplier. This field is required if the units are not implied by the actual dispense code. This must be in simple units that reflect the actual quantity of the substance dispensed. It does not include compound units. Refer to Table 0746 - Dispense Units in Chapter 2C for valid values.

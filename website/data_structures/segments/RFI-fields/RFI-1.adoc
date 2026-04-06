@@ -1,0 +1,4 @@
+== RFI.1 - Request Date (DTM)
+
+[segment-definition]
+// TODO: Add field definition

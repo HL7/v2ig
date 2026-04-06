@@ -1,0 +1,4 @@
+== SCD.31 - Injection Rate (CQ)
+
+[segment-definition]
+The injection rate of a wash or dry agent.

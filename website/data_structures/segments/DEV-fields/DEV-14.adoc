@@ -1,0 +1,7 @@
+== DEV.14 - Safety Characteristics (CWE)
+
+[segment-definition]
+This field a safety characteristic of a device, e.g., latex safety, MRI safety.
+
+[segment-comment]
+See Externally HL7 defined 0963 in Chapter 2C for a suggested values.

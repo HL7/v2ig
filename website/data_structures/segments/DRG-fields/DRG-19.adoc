@@ -1,0 +1,4 @@
+== DRG.19 - Grouper Software Version (ST)
+
+[segment-definition]
+This field contains the version information of the software used for grouping.

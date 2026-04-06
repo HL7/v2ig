@@ -1,0 +1,4 @@
+== PRC.16 - Active/Inactive Flag (ID)
+
+[segment-definition]
+This indicates whether this is a usable CDM entry. Refer to {{v2-table:0183:Active/Inactive}} in Chapter 2C, Code Tables, for valid values.

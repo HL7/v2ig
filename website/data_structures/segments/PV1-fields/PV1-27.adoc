@@ -1,0 +1,4 @@
+== PV1.27 - Contract Period (NM)
+
+[segment-definition]
+This field specifies the duration of the contract for user-defined periods.

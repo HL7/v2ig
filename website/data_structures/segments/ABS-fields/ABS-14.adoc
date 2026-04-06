@@ -1,0 +1,9 @@
+== ABS.14 - Stillborn Indicator (ID)
+
+[segment-definition]
+Indicates whether or not a newborn was stillborn. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y Stillborn.
+
+N Not stillborn.

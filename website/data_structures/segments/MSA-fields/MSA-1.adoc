@@ -1,0 +1,4 @@
+== MSA.1 - Acknowledgment Code (ID)
+
+[segment-definition]
+This field contains an acknowledgment code, see message processing rules. Refer to {{v2-table:0008:Acknowledgment Code}} for valid values.

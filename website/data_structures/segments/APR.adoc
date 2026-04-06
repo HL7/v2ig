@@ -1,0 +1,18 @@
+= (APR) Segment - Appointment Preferences
+:v2type: 'Segment'
+:code: APR
+:name: Appointment Preferences
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::APR-fields/APR-1.adoc[]
+
+include::APR-fields/APR-2.adoc[]
+
+include::APR-fields/APR-3.adoc[]
+
+include::APR-fields/APR-4.adoc[]
+
+include::APR-fields/APR-5.adoc[]

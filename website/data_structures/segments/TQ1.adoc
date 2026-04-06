@@ -1,0 +1,36 @@
+= (TQ1) Segment - Timing/Quantity
+:v2type: 'Segment'
+:code: TQ1
+:name: Timing/Quantity
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::TQ1-fields/TQ1-1.adoc[]
+
+include::TQ1-fields/TQ1-2.adoc[]
+
+include::TQ1-fields/TQ1-3.adoc[]
+
+include::TQ1-fields/TQ1-4.adoc[]
+
+include::TQ1-fields/TQ1-5.adoc[]
+
+include::TQ1-fields/TQ1-6.adoc[]
+
+include::TQ1-fields/TQ1-7.adoc[]
+
+include::TQ1-fields/TQ1-8.adoc[]
+
+include::TQ1-fields/TQ1-9.adoc[]
+
+include::TQ1-fields/TQ1-10.adoc[]
+
+include::TQ1-fields/TQ1-11.adoc[]
+
+include::TQ1-fields/TQ1-12.adoc[]
+
+include::TQ1-fields/TQ1-13.adoc[]
+
+include::TQ1-fields/TQ1-14.adoc[]

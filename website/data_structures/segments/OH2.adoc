@@ -1,0 +1,44 @@
+= (OH2) Segment - Past or Present Job
+:v2type: 'Segment'
+:code: OH2
+:name: Past or Present Job
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::OH2-fields/OH2-1.adoc[]
+
+include::OH2-fields/OH2-2.adoc[]
+
+include::OH2-fields/OH2-3.adoc[]
+
+include::OH2-fields/OH2-4.adoc[]
+
+include::OH2-fields/OH2-5.adoc[]
+
+include::OH2-fields/OH2-6.adoc[]
+
+include::OH2-fields/OH2-7.adoc[]
+
+include::OH2-fields/OH2-8.adoc[]
+
+include::OH2-fields/OH2-9.adoc[]
+
+include::OH2-fields/OH2-10.adoc[]
+
+include::OH2-fields/OH2-11.adoc[]
+
+include::OH2-fields/OH2-12.adoc[]
+
+include::OH2-fields/OH2-13.adoc[]
+
+include::OH2-fields/OH2-14.adoc[]
+
+include::OH2-fields/OH2-15.adoc[]
+
+include::OH2-fields/OH2-16.adoc[]
+
+include::OH2-fields/OH2-17.adoc[]
+
+include::OH2-fields/OH2-18.adoc[]

@@ -1,0 +1,52 @@
+= (BPX) Segment - Blood Product Dispense Status
+:v2type: 'Segment'
+:code: BPX
+:name: Blood Product Dispense Status
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::BPX-fields/BPX-1.adoc[]
+
+include::BPX-fields/BPX-2.adoc[]
+
+include::BPX-fields/BPX-3.adoc[]
+
+include::BPX-fields/BPX-4.adoc[]
+
+include::BPX-fields/BPX-5.adoc[]
+
+include::BPX-fields/BPX-6.adoc[]
+
+include::BPX-fields/BPX-7.adoc[]
+
+include::BPX-fields/BPX-8.adoc[]
+
+include::BPX-fields/BPX-9.adoc[]
+
+include::BPX-fields/BPX-10.adoc[]
+
+include::BPX-fields/BPX-11.adoc[]
+
+include::BPX-fields/BPX-12.adoc[]
+
+include::BPX-fields/BPX-13.adoc[]
+
+include::BPX-fields/BPX-14.adoc[]
+
+include::BPX-fields/BPX-15.adoc[]
+
+include::BPX-fields/BPX-16.adoc[]
+
+include::BPX-fields/BPX-17.adoc[]
+
+include::BPX-fields/BPX-18.adoc[]
+
+include::BPX-fields/BPX-19.adoc[]
+
+include::BPX-fields/BPX-20.adoc[]
+
+include::BPX-fields/BPX-21.adoc[]
+
+include::BPX-fields/BPX-22.adoc[]

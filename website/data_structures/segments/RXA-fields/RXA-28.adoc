@@ -1,0 +1,4 @@
+== RXA.28 - Administered-at Address (XAD)
+
+[segment-definition]
+This field specifies the address of the location where the drug or treatment was administered.

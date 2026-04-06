@@ -1,0 +1,4 @@
+== GT1.2 - Guarantor Number (CX)
+
+[segment-definition]
+This field contains the primary identifier, or other identifiers, assigned to the guarantor. The assigning authority and identifier type code are strongly recommended for all CX data types.

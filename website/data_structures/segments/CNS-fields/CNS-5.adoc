@@ -1,0 +1,4 @@
+== CNS.5 - CNS-5 (CWE)
+
+[segment-definition]
+This field contains the starting notification code that is to be cleared (see _13.3.7.4_, "_NDS-4 Notification Code (CWE) 01401_").Refer to Table 0585 - Starting Notification Code in Chapter 2C for valid values.

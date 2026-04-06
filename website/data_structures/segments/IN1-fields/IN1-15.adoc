@@ -1,0 +1,4 @@
+== IN1.15 - Plan Type (CWE)
+
+[segment-definition]
+This field contains the coding structure that identifies the various plan types, for example, Medicare, Medicaid, Blue Cross, HMO, etc. Refer to {{v2-table:0086:Plan ID}} in Chapter 2C, Code Tables, for suggested values.

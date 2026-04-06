@@ -1,0 +1,4 @@
+== PRB.19 - Certainty of Problem (CWE)
+
+[segment-definition]
+This field contains a qualitative representation of the certainty of a problem (e.g., HI - high, LO - low, ME - medium, etc.).

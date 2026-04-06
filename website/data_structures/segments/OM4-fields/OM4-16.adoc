@@ -1,0 +1,4 @@
+== OM4.16 - Specimen Preference (ID)
+
+[segment-definition]
+This field indicates whether the Specimen/Attribute is Preferred or alternate for collection of the specimen. There can only be one occurrence of a Preferred or Alternate Specimen/Attribute for the code referenced in _OM4-6 Specimen_. For example, if two OM4 segments are received for specimen type of Serum, only one can be marked as Preferred. Refer to {{v2-table:0920:Preferred Specimen/Attribute Status}} in Chapter 2C, Code Tables, for suggested values.

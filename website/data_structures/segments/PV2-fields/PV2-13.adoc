@@ -1,0 +1,4 @@
+== PV2.13 - Referral Source Code (XCN)
+
+[segment-definition]
+This field contains the name and the identification numbers of the person or organization that made the referral. This person/organization is not the same as the referring doctor. For example, Adam Everyman referred me to the Clinic (or to Dr. Everywoman at the Clinic).

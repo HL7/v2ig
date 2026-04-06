@@ -1,0 +1,7 @@
+== BPX.13 - BPX-13 (DTM)
+
+[segment-definition]
+This field specifies the date and time that the blood product expires. The blood product is no longer considered acceptable once the expiration date has been reached unless cleared by the transfusion service medical staff.
+
+[segment-comment]
+This field applies to blood components as well as commercial products. There are a few commercial products that have no expiration date. Therefore, the field is not required for those specific products.

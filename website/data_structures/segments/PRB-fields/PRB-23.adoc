@@ -1,0 +1,4 @@
+== PRB.23 - Individual Awareness of Prognosis (CWE)
+
+[segment-definition]
+This field contains the individual's comprehension of the prognosis for the problem (e.g., full, marginal, partial, etc.).

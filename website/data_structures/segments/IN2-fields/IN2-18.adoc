@@ -1,0 +1,9 @@
+== IN2.18 - Military Non-Avail Cert On File (ID)
+
+[segment-definition]
+Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y Certification on file
+
+N Certification not on file

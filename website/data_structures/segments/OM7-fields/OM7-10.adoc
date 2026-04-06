@@ -1,0 +1,4 @@
+== OM7.10 - Test/Service Default Frequency (CWE)
+
+[segment-definition]
+This field indicates the default frequency (how often) the service would be ordered for or performed on.

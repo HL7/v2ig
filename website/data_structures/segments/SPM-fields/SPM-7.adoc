@@ -1,0 +1,7 @@
+== SPM.7 - Specimen Collection Method (CWE)
+
+[segment-definition]
+Describes the procedure or process by which the specimen was collected.
+
+[segment-comment]
+Any nationally recognized coding system might be used for this field including SNOMED; alternatively the {{v2-table:0488:Specimen Collection Method}} may be used. Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.

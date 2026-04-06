@@ -1,0 +1,4 @@
+== DON.32 - Donation Accept Staff (XCN)
+
+[segment-definition]
+The staff member who reviewed all the intake materials, assessments and determined the donor can undergo a donation procedure at this time.

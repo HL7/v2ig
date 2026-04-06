@@ -1,0 +1,4 @@
+== GT1.6 - Guarantor Ph Num – Home (XTN)
+
+[segment-definition]
+This field contains the guarantor's home phone number. All personal phone numbers for the guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated. .

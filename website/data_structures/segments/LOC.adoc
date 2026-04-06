@@ -1,0 +1,26 @@
+= (LOC) Segment - Location Identification
+:v2type: 'Segment'
+:code: LOC
+:name: Location Identification
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::LOC-fields/LOC-1.adoc[]
+
+include::LOC-fields/LOC-2.adoc[]
+
+include::LOC-fields/LOC-3.adoc[]
+
+include::LOC-fields/LOC-4.adoc[]
+
+include::LOC-fields/LOC-5.adoc[]
+
+include::LOC-fields/LOC-6.adoc[]
+
+include::LOC-fields/LOC-7.adoc[]
+
+include::LOC-fields/LOC-8.adoc[]
+
+include::LOC-fields/LOC-9.adoc[]

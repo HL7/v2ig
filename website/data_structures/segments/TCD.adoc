@@ -1,0 +1,30 @@
+= (TCD) Segment - Test Code Detail
+:v2type: 'Segment'
+:code: TCD
+:name: Test Code Detail
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::TCD-fields/TCD-1.adoc[]
+
+include::TCD-fields/TCD-2.adoc[]
+
+include::TCD-fields/TCD-3.adoc[]
+
+include::TCD-fields/TCD-4.adoc[]
+
+include::TCD-fields/TCD-5.adoc[]
+
+include::TCD-fields/TCD-6.adoc[]
+
+include::TCD-fields/TCD-7.adoc[]
+
+include::TCD-fields/TCD-8.adoc[]
+
+include::TCD-fields/TCD-9.adoc[]
+
+include::TCD-fields/TCD-10.adoc[]
+
+include::TCD-fields/TCD-11.adoc[]

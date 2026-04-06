@@ -1,0 +1,7 @@
+== OM1.16 - Observation Producing Department/Section (CWE)
+
+[segment-definition]
+This field permits the sorting of observation orders and values by the providing service's department/section. It provides "source oriented" reporting when required. Free text may be used instead of these codes, but in that case, they should be recorded as the second "component" of the field to distinguish them from the standard codes. Multiple codes in this field are separated by repeat delimiters. Refer to Table 0636 - Observation Producing Department/Section in Chapter 2C for valid values.
+
+[segment-comment]
+*Note: This field is deprecated and retained for backward compatibility as of v 2.8.*

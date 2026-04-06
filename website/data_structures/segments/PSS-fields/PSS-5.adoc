@@ -1,0 +1,4 @@
+== PSS.5 - Section Description or Heading (ST)
+
+[segment-definition]
+Section description or heading.

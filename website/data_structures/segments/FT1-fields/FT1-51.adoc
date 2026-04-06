@@ -1,0 +1,4 @@
+== FT1.51 - DME Rental Price (MO)
+
+[segment-definition]
+This is the rental price of the durable medical equipment.

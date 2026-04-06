@@ -1,0 +1,14 @@
+= (OM5) Segment - Observation Batteries (Sets)
+:v2type: 'Segment'
+:code: OM5
+:name: Observation Batteries (Sets)
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::OM5-fields/OM5-1.adoc[]
+
+include::OM5-fields/OM5-2.adoc[]
+
+include::OM5-fields/OM5-3.adoc[]

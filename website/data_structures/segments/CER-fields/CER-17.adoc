@@ -1,0 +1,4 @@
+== CER.17 - Basic Constraint (ID)
+
+[segment-definition]
+The Basic Constraints extension contains a boolean used to specify whether or not the subject can act as a CA (certificate authority), using the certified key to sign certificates.

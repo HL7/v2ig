@@ -1,0 +1,4 @@
+== UB2.13 - Uniform Billing Locator 49 (national) (ST)
+
+[segment-definition]
+This field is defined by CMS or other regulatory agencies. This field may repeat up to twenty-three times.

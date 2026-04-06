@@ -1,0 +1,4 @@
+== OBR.9 - Collection Volume * (CQ)
+
+[segment-definition]
+Deprecated in version 2.9 in favor of SPM-12.

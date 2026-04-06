@@ -1,0 +1,9 @@
+== PV2.19 - Retention Indicator (ID)
+
+[segment-definition]
+This field allows the user to control the financial and demographic purge processes at the visit. It is used to preserve demographic and financial data on specific, high priority visits. Refer to {{v2-table:0136:Yes/No Indicator}} for valid values.
+
+[segment-comment]
+Y retain data
+
+N normal purge processing

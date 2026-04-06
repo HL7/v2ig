@@ -1,0 +1,7 @@
+== ARV.8 - Security Handling Instructions (CWE)
+
+[segment-definition]
+This field is repeatable and conveys instructions to users and receivers for secure distribution, transmission, and storage; dictates obligations or mandated actions; specifies any action prohibited by refrain policy such as dissemination controls; and stipulates the permissible purpose of use of an IT resource. It is used where MSH-27 or MSH-28, which may be the compliation of all Security Handling Instructions across all labels, are used, but differ from the appliable ones for the data identified in this ARV segment.
+
+[segment-comment]
+Refer to Externally-defined Table 0953 – Security Label Handling Instructions in Chapter 2C, Code Tables, for suggested values. – Use of this table is recommended.

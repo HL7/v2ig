@@ -1,0 +1,7 @@
+== RXE.35 - Controlled Substance Schedule (CWE)
+
+[segment-definition]
+This field specifies the class of the drug or other substance if its usage is controlled by legislation. In the USA, such legislation includes the federal Controlled Substance Act (CSA) or a State Uniform Controlled Substance Act. Refer to {{v2-table:0477:Controlled Substance Schedule}} in Chapter 2C, Code Tables, for valid values for USA usage. Other countries should create their own versions of this table.
+
+[segment-comment]
+Because some jurisdictions may extend the list of drugs in a particular class and may create an additional schedule, table 0477 is user-defined.

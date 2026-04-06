@@ -1,0 +1,4 @@
+== MSH.8 - Security (ST)
+
+[segment-definition]
+In some applications of HL7, this field is used to implement security features. For codified expression of security tags use MSH-26 through MSH-29.

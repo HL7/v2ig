@@ -1,0 +1,7 @@
+== LRL.6 - Patient Location Relationship Value (PL)
+
+[segment-definition]
+This field is conditional on the value of _LRL-4 - Location Relationship ID_. When _LRL-4 -Location Relationship ID_ contains "ALI"- Location aliases or "PAR"- Parent location this field holds the value of the associated patient location.
+
+[segment-comment]
+When _LRL-4 - Location Relationship ID_ contains "PAR"- Parent, this field holds the value of the parent location to allow for nested entries. For example, a bed entry can point to its containing room or nurse unit. The value for the parent location should match the _LOC-1 - Primary Key Value - LOC_ of the parent entry. Not intended to be used for multiple designations of the same physical location, but for identifying the larger physical locations (supersets) which include this physical location as a subset.

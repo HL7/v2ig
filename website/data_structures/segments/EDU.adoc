@@ -1,0 +1,26 @@
+= (EDU) Segment - Educational Detail
+:v2type: 'Segment'
+:code: EDU
+:name: Educational Detail
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::EDU-fields/EDU-1.adoc[]
+
+include::EDU-fields/EDU-2.adoc[]
+
+include::EDU-fields/EDU-3.adoc[]
+
+include::EDU-fields/EDU-4.adoc[]
+
+include::EDU-fields/EDU-5.adoc[]
+
+include::EDU-fields/EDU-6.adoc[]
+
+include::EDU-fields/EDU-7.adoc[]
+
+include::EDU-fields/EDU-8.adoc[]
+
+include::EDU-fields/EDU-9.adoc[]

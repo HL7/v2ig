@@ -1,0 +1,4 @@
+== AUT.8 - Requested Number of Treatments (CQ)
+
+[segment-definition]
+This field contains the _requested_ number of times that the treatment may be administered to the patient without obtaining additional authorization.

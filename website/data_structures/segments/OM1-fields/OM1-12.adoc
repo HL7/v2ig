@@ -1,0 +1,11 @@
+== OM1.12 - Orderability (ID)
+
+[segment-definition]
+This field indicates whether or not a service/test/observation is an orderable code. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the service/test/observation is an orderable code
+
+N the service/test/observation is not orderable
+
+For example, blood differential count is usually an orderable "test," MCV, contained within the differential count, is usually not independently orderable.

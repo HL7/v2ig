@@ -1,0 +1,4 @@
+== PSL.15 - Product/Service Gross Amount (CP)
+
+[segment-definition]
+= Product/Service Quantity * Product/Service Unit Cost

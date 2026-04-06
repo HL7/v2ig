@@ -1,0 +1,4 @@
+== SAC.40 - SAC-40 (CWE)
+
+[segment-definition]
+This field describes the specimen contaminant identifier that is associated with the specimen in this container. Refer to {{v2-table:0374:System Induced Contaminants}} in Chapter 2C, Code Tables, for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.

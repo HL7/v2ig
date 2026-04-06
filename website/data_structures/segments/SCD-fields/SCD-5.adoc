@@ -1,0 +1,4 @@
+== SCD.5 - Load Number (NM)
+
+[segment-definition]
+A number assigned to the load by the anti-microbial device. This number is incremented by the machine per cycle during the day and reset at midnight.

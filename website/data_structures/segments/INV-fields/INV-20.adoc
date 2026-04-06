@@ -1,0 +1,7 @@
+== INV.20 - INV-20 (CQ)
+
+[segment-definition]
+This field is the target analytical value for a particular test for a specific lot of a manufactured material. Target values for QC purposes are usually selected for their relevance to a reference (normal) range or to a clinically significant decision level.
+
+[segment-comment]
+The 1^st^ component defines the value and the 2^nd^ component the measurement units.

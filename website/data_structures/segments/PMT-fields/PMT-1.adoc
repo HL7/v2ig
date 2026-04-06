@@ -1,0 +1,4 @@
+== PMT.1 - Payment/Remittance Advice Number (EI)
+
+[segment-definition]
+Unique Payment/Remittance Advice number for the sending Network Application ID.

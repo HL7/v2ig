@@ -1,0 +1,4 @@
+== CNS.2 - CNS-2 (NM)
+
+[segment-definition]
+This field contains the ending notification reference number that is to be cleared. If empty, then only notification with Starting Notification Reference Number will be cleared.

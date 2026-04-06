@@ -1,0 +1,4 @@
+== TXA.29 - Document Class (CWE)
+
+[segment-definition]
+The code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow). Refer to {{v2-table:0832:Document Class}} in Chapter 2C for suggested values.

@@ -1,0 +1,4 @@
+== SHP.2 - Internal Shipment ID (EI)
+
+[segment-definition]
+The internal shipment id is an identifier assigned to the shipment by the sender or addressee of the shipment. The field repeats allowing multiple identifiers to be transmitted.

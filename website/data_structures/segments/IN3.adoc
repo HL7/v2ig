@@ -1,0 +1,70 @@
+= (IN3) Segment - Insurance Additional Information, Certification
+:v2type: 'Segment'
+:code: IN3
+:name: Insurance Additional Information, Certification
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::IN3-fields/IN3-1.adoc[]
+
+include::IN3-fields/IN3-2.adoc[]
+
+include::IN3-fields/IN3-3.adoc[]
+
+include::IN3-fields/IN3-4.adoc[]
+
+include::IN3-fields/IN3-5.adoc[]
+
+include::IN3-fields/IN3-6.adoc[]
+
+include::IN3-fields/IN3-7.adoc[]
+
+include::IN3-fields/IN3-8.adoc[]
+
+include::IN3-fields/IN3-9.adoc[]
+
+include::IN3-fields/IN3-10.adoc[]
+
+include::IN3-fields/IN3-11.adoc[]
+
+include::IN3-fields/IN3-12.adoc[]
+
+include::IN3-fields/IN3-13.adoc[]
+
+include::IN3-fields/IN3-14.adoc[]
+
+include::IN3-fields/IN3-15.adoc[]
+
+include::IN3-fields/IN3-16.adoc[]
+
+include::IN3-fields/IN3-17.adoc[]
+
+include::IN3-fields/IN3-18.adoc[]
+
+include::IN3-fields/IN3-19.adoc[]
+
+include::IN3-fields/IN3-20.adoc[]
+
+include::IN3-fields/IN3-21.adoc[]
+
+include::IN3-fields/IN3-22.adoc[]
+
+include::IN3-fields/IN3-23.adoc[]
+
+include::IN3-fields/IN3-24.adoc[]
+
+include::IN3-fields/IN3-25.adoc[]
+
+include::IN3-fields/IN3-26.adoc[]
+
+include::IN3-fields/IN3-27.adoc[]
+
+include::IN3-fields/IN3-28.adoc[]
+
+include::IN3-fields/IN3-29.adoc[]
+
+include::IN3-fields/IN3-30.adoc[]
+
+include::IN3-fields/IN3-31.adoc[]

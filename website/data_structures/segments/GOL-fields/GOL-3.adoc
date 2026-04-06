@@ -1,0 +1,4 @@
+== GOL.3 - Goal ID (CWE)
+
+[segment-definition]
+This field identifies the goal. This is the identifier from an institution's master list of goals.

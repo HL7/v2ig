@@ -1,0 +1,4 @@
+== DRG.28 - Status Length of Stay (CWE)
+
+[segment-definition]
+This field contains the status of the DRG calculation for the length of stay information. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.

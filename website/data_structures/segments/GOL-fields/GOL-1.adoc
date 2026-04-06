@@ -1,0 +1,4 @@
+== GOL.1 - Action Code (ID)
+
+[segment-definition]
+The action code field gives the intent of the problem or goal. Refer to {{v2-table:0287:Problem/Goal Action Code}} in Chapter 2C, Code Tables, for valid values.

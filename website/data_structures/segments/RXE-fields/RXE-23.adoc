@@ -1,0 +1,4 @@
+== RXE.23 - Give Rate Amount (ST)
+
+[segment-definition]
+This field contains the rate at which the substance should be administered.

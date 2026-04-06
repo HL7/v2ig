@@ -1,0 +1,4 @@
+== PCR.21 - Action Taken In Response To The Event (ID)
+
+[segment-definition]
+This field indicates the action taken as a result of the event. Segment may repeat if multiple categories of evidence are relevant. Refer to {{v2-table:0251:Action Taken in Response to the Event}} for valid values.

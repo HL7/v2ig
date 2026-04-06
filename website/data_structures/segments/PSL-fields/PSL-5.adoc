@@ -1,0 +1,4 @@
+== PSL.5 - Payer Tracking ID (EI)
+
+[segment-definition]
+Identifier for this Product/Service Line Item assigned by the Payer Application. This will be echoed on all interactions between participants for this Product/Service Line Item.

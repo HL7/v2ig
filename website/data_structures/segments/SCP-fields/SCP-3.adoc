@@ -1,0 +1,4 @@
+== SCP.3 - Date Format (CWE)
+
+[segment-definition]
+The format of the date that is used to record date parameters of a decontamination/sterilization instance. Refer to {{v2-table:0653:Date Format}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== BTX.11 - BTX-11 (CWE)
+
+[segment-definition]
+This field indicates the current status of the specified blood product as indicated by the placer. For example, the placer may return the blood product to the transfusion service unused because an IV could not be started. The blood component may have been entered, but the line was clogged and could not be used, in which case the component must be wasted. A final status would indicate that the product has actually been "transfused." Refer to {{v2-table:0513:Blood Product Transfusion/Disposition Status}} in Chapter 2C, Code Tables, for suggested values.

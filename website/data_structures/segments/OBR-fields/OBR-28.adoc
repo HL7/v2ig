@@ -1,0 +1,4 @@
+== OBR.28 - Result Copies To
+
+[segment-definition]
+*_This field was retained for backward compatibility only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9._* Additional capabilities are now available through thePRT segment following the OBR using the "RCT" (Results Copy To) value in PRT-4 (Participation) from {{v2-table:912:Participation}} in Chapter 2C, Code Tables, and referencing the appropriate participant information using other PRT Fields. The PRT segment is further described in Chapter 7 Section 7.3.4 "PRT – Participation Information Segment".

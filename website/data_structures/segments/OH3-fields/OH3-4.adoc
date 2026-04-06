@@ -1,0 +1,4 @@
+== OH3.4 - Industry (CWE)
+
+[segment-definition]
+This field contains a code defining the industry a person has worked in for the longest time while in the usual occupation. Refer to {{v2-table:0955:Industry Code}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Industry CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187

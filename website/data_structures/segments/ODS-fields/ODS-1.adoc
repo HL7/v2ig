@@ -1,0 +1,4 @@
+== ODS.1 - Type (ID)
+
+[segment-definition]
+This field specifies type of diet. Refer To {{v2-table:0159:Diet Code Specification Type}} in Chapter 2C, Code Tables, for valid entries.

@@ -1,0 +1,4 @@
+== BPO.9 - BP Intended Dispense From Address (XAD)
+
+[segment-definition]
+This field contains the actual address of the location from which the blood component is to be dispensed.

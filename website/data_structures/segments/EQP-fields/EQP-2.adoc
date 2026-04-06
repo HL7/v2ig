@@ -1,0 +1,4 @@
+== EQP.2 - EQP-2 (ST)
+
+[segment-definition]
+This field is the physical file name that is being used to store information about the transmitted log and/or service event.

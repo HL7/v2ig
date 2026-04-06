@@ -1,0 +1,4 @@
+== STF.11 - Office/Home Address/Birthplace (XAD)
+
+[segment-definition]
+This field contains the office, and home address and/or place of birth of the staff person. This is a repeating field. The address type identifies the usage.

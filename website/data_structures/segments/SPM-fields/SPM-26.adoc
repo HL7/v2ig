@@ -1,0 +1,4 @@
+== SPM.26 - Number of Specimen Containers (NM)
+
+[segment-definition]
+This field identifies the number of containers for a given sample. For sample receipt verification purposes; may be different from the total number of samples that accompany the order.

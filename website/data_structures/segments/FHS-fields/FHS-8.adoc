@@ -1,0 +1,4 @@
+== FHS.8 - File Security (ST)
+
+[segment-definition]
+This field has the same definition as the corresponding field in the MSH segment.

@@ -1,0 +1,42 @@
+= (DEV) Segment - Device
+:v2type: 'Segment'
+:code: DEV
+:name: Device
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::DEV-fields/DEV-1.adoc[]
+
+include::DEV-fields/DEV-2.adoc[]
+
+include::DEV-fields/DEV-3.adoc[]
+
+include::DEV-fields/DEV-4.adoc[]
+
+include::DEV-fields/DEV-5.adoc[]
+
+include::DEV-fields/DEV-6.adoc[]
+
+include::DEV-fields/DEV-7.adoc[]
+
+include::DEV-fields/DEV-8.adoc[]
+
+include::DEV-fields/DEV-9.adoc[]
+
+include::DEV-fields/DEV-10.adoc[]
+
+include::DEV-fields/DEV-11.adoc[]
+
+include::DEV-fields/DEV-12.adoc[]
+
+include::DEV-fields/DEV-13.adoc[]
+
+include::DEV-fields/DEV-14.adoc[]
+
+include::DEV-fields/DEV-15.adoc[]
+
+include::DEV-fields/DEV-16.adoc[]
+
+include::DEV-fields/DEV-17.adoc[]

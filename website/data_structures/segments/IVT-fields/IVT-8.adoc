@@ -1,0 +1,4 @@
+== IVT.8 - Order Packaging (CWE)
+
+[segment-definition]
+This field contains the primary packaging unit by which the item can be requisitioned or ordered to replenish the inventory supply item for the corresponding inventory location specified in _IVT-2, Inventory Location Identifier_. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.

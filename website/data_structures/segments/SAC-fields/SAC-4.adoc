@@ -1,0 +1,4 @@
+== SAC.4 - SAC-4 (EI)
+
+[segment-definition]
+If this field is filled in, it identifies the primary container from which this specimen came. For primary samples this field is empty; for aliquot samples this field should contain the identifier of primary container.

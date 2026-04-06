@@ -1,0 +1,26 @@
+= (NSC) Segment - Application Status Change
+:v2type: 'Segment'
+:code: NSC
+:name: Application Status Change
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::NSC-fields/NSC-1.adoc[]
+
+include::NSC-fields/NSC-2.adoc[]
+
+include::NSC-fields/NSC-3.adoc[]
+
+include::NSC-fields/NSC-4.adoc[]
+
+include::NSC-fields/NSC-5.adoc[]
+
+include::NSC-fields/NSC-6.adoc[]
+
+include::NSC-fields/NSC-7.adoc[]
+
+include::NSC-fields/NSC-8.adoc[]
+
+include::NSC-fields/NSC-9.adoc[]

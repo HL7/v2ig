@@ -1,0 +1,4 @@
+== OM7.22 - Formulary Status (CWE)
+
+[segment-definition]
+This field indicates whether or not the service (pharmaceutical) is in the formulary. Refer to {{v2-table:0473:Formulary Status}} in Chapter 2C, Code Tables, for valid values.

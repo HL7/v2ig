@@ -1,0 +1,4 @@
+== SGT.1 - Set ID – SGT (SI)
+
+[segment-definition]
+For the first segment group transmitted, the sequence number SHALL be 1; for the second , it SHALL be 2; and so on.

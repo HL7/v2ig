@@ -1,0 +1,4 @@
+== CER.21 - Jurisdiction County/Parish (CWE)
+
+[segment-definition]
+This field contains the county/parish for which the qualification is valid. HL7 suggests using values in {{v2-table:0289:County/Parish}}.

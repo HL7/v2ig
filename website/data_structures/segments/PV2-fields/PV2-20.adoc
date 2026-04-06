@@ -1,0 +1,4 @@
+== PV2.20 - Expected Number of Insurance Plans (NM)
+
+[segment-definition]
+This field contains the number of insurance plans that may provide coverage for this visit.

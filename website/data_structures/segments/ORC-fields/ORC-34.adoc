@@ -1,0 +1,7 @@
+== ORC.34 - Order Workflow Profile (CWE)
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+The Order Workflow Profile references/represents the information necessary to define the workflow variant when that is not fully described through the use of ORC-1 Order Control and MSH-21 Message Profile. This enables contributing systems to apply locally agreed to rules. See {{v2-table:0934:Order Workflow Profile}} for a list of suggested values.

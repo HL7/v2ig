@@ -1,0 +1,4 @@
+== PSL.22 - Related Product/Service Code Indicator (CWE)
+
+[segment-definition]
+Two Product /Service Line Items (PSL-7) may be in a relation to each other. One could be an addition to another. In this case this field contains the Code of PSL-7 of the "master" Product/Service Line Item. Refer to {{v2-table:0879:Product/Service Code}} in Chapter 2C, Code Tables, for suggested values.

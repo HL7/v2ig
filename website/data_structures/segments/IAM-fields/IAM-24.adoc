@@ -1,0 +1,4 @@
+== IAM.24 - Initially Recorded Date/Time (DTM)
+
+[segment-definition]
+The date and time that this allergy entry was created by the _IAM-23 Created by Person_.

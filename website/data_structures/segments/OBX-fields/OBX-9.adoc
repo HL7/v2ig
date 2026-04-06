@@ -1,0 +1,4 @@
+== OBX.9 - Probability (NM)
+
+[segment-definition]
+This field contains the probability of a result being true for results with categorical values. It mainly applies to discrete coded results. It is a decimal number represented as an ASCII string that must be between 0 and 1, inclusive.

@@ -1,0 +1,4 @@
+== ROL.12 - Phone (XTN)
+
+[segment-definition]
+// TODO: Add field definition

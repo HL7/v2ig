@@ -1,0 +1,4 @@
+== CON.2 - Consent Type (CWE)
+
+[segment-definition]
+This field describes what the subject is consenting to, i.e., what type of service, surgical procedure, information access/release or other event. For values see {{v2-table:0496:Consent Type.}}

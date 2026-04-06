@@ -1,0 +1,4 @@
+== PMT.9 - Payee Transit Number (ST)
+
+[segment-definition]
+Personal ID of the payee used in financial transaction.

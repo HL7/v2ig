@@ -1,0 +1,4 @@
+== IN2.27 - Eligibility Source (CWE)
+
+[segment-definition]
+Identifies the source of information about the insured's eligibility for benefits. Refer to User-defined Table 0144 - Eligibility Source in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== NK1.25 - Religion (CWE)
+
+[segment-definition]
+This field indicates the type of religion practiced by the next of kin/associated party. Refer to {{v2-table:0006:Religion}} in Chapter 2C, Code Tables, for suggested values.

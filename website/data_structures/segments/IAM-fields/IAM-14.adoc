@@ -1,0 +1,4 @@
+== IAM.14 - Reported By (XPN)
+
+[segment-definition]
+This field contains the name of the person reporting the allergy to a caregiver at the time reported in _IAM-14 - Reported Date/Time_.

@@ -1,0 +1,4 @@
+== TCC.5 - TCC-5 (SN)
+
+[segment-definition]
+This field is the value that is to be used as the default factor for automatically diluting a specimen in case of rerun for this particular test code.

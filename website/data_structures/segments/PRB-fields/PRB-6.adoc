@@ -1,0 +1,4 @@
+== PRB.6 - Problem List Priority (NM)
+
+[segment-definition]
+This field prioritizes this problem on a list that is maintained for the individual.

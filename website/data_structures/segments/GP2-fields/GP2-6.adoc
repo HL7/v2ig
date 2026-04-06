@@ -1,0 +1,4 @@
+== GP2.6 - OCE Edit Code (CWE)
+
+[segment-definition]
+This field contains the edit that results from the processing of HCPCS/CPT procedures for a line item HCPCS/CPT, after evaluating all the codes, revenue codes, and modifiers. Refer to E:\\V2\\V29_CH02C_Tables.docx#HL70458[_User-defined Table 0458 -_ _OCE Edit Code_] in Chapter 2C, Code Tables, for suggested values.

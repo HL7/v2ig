@@ -1,0 +1,4 @@
+== ECR.1 - ECR-1 (CWE)
+
+[segment-definition]
+This field identifies the response of the previously issued command. Refer to {{v2-table:0387:Command Response}} in Chapter 2C, Code Tables, for valid values.

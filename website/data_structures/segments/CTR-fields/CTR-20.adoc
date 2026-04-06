@@ -1,0 +1,7 @@
+== CTR.20 - Class of Trade (CWE)
+
+[segment-definition]
+This field contains an indicator signifying whether the purchasing channel such as a hospital or retail, etc.
+
+[segment-comment]
+Refer to {{v2-table:0947:Supplier Type Class of Trade}} in Chapter 2C, Code Tables, for suggested values.

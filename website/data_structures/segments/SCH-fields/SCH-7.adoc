@@ -1,0 +1,4 @@
+== SCH.7 - Appointment Reason (CWE)
+
+[segment-definition]
+This field contains an identifier code for the reason that the appointment is to take place. This field may contain a Universal Service ID describing the observation/test/battery/procedure or other activity that is to take place during the requested appointment, similar to the Universal Service ID defined for the OBR segment in the Order Entry chapter (Chapter 4). It may also contain a site-specific code describing a pre-defined set of reasons that an appointment may be set to occur. This code can be based on local and/or universal codes. The use of universal codes is recommended. Refer to {{v2-table:0276:Appointment Reason Codes}} in Chapter 2C, Code Tables, for suggested values.

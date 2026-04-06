@@ -1,0 +1,4 @@
+== PSG.1 - Provider Product/Service Group Number (EI)
+
+[segment-definition]
+Unique Product/Service Group Number assigned by the Provider Application.

@@ -1,0 +1,4 @@
+== CDO.3 - Cumulative Dosage Limit (CQ)
+
+[segment-definition]
+The Cumulative Dosage indicates the total dosage that may be administered within the scope of this order or within the interval indicated in _CDO-4 Cumulative Dosage Time Interval_, if supplied

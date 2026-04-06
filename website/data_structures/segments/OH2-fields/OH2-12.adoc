@@ -1,0 +1,4 @@
+== OH2.12 - Employer Organization (XON)
+
+[segment-definition]
+This field asserts the name and or identifier of the employer organization for the job of a person recorded in this segment.

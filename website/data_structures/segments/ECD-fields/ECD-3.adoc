@@ -1,0 +1,4 @@
+== ECD.3 - ECD-3 (ID)
+
+[segment-definition]
+This field identifies the mode of synchronization that is to be used in relation to the execution of the command. "Y" (Yes) means that the response is required immediately after execution; "N" (No) response is not required at all. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.

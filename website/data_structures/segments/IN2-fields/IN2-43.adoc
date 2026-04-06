@@ -1,0 +1,4 @@
+== IN2.43 - Marital Status (CWE)
+
+[segment-definition]
+This field contains the insured's marital status. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,0 +1,4 @@
+== IN1.33 - Lifetime Reserve Days (NM)
+
+[segment-definition]
+This field contains the number of days left for a certain service to be provided or covered under an insurance policy.

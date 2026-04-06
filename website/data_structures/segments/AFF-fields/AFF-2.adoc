@@ -1,0 +1,4 @@
+== AFF.2 - Professional Organization (XON)
+
+[segment-definition]
+This field contains the official name of the association promoting specific professional interests with which the staff member is affiliated.

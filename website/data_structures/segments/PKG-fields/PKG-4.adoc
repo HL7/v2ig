@@ -1,0 +1,4 @@
+== PKG.4 - Package Quantity (NM)
+
+[segment-definition]
+This field contains the number of units present within a unit of measure.

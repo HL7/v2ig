@@ -1,0 +1,4 @@
+== EQP.3 - EQP-3 (DTM)
+
+[segment-definition]
+This field is the date/time that the event started.

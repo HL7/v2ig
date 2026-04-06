@@ -1,0 +1,4 @@
+== PV1.24 - Contract Code (CWE)
+
+[segment-definition]
+This field identifies the type of contract entered into by the healthcare facility and the guarantor for the purpose of settling outstanding account balances. Refer to {{v2-table:0044:Contract Code}} in Chapter 2C, Code Tables, for suggested values.

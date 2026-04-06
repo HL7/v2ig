@@ -1,0 +1,4 @@
+== CM0.8 - Last Accrual Date (DT)
+
+[segment-definition]
+This field contains the status information on the patient registration activity for quality control and operations purposes.

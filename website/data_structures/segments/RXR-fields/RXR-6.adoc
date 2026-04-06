@@ -1,0 +1,9 @@
+== RXR.6 - Administration Site Modifier (CWE)
+
+[segment-definition]
+This field contains a modifier which modifies the meaning of _RXR-2 Administration Site_.
+
+[segment-comment]
+The code table used in this field is dependent upon the code table used in _RXR-2 Administration site_. If RXR-2 employs {{v2-table:0550:Body}} _Parts_, then this field may only be populated with values from {{v2-table:0495:Body Parts Modifier}}. In the case of other code sets (e.g., SNOMED) in RXR-2, RXR-6 may only be populated if modifiers are defined within, or related to, that code set.
+
+Condition Rule: This field may only be populated if _RXR-2 Administration Site_ is populated. This field is not required if RXR-2 is populated.

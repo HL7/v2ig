@@ -1,0 +1,7 @@
+== ITM.27 - Procedure Code (CNE)
+
+[segment-definition]
+This field contains a unique identifier assigned to the service item, if any, associated with the charge. In the United States this is often the HCPCS code. Refer to Externally defined Table 0088 - Procedure code for suggested values. This field is a CNE data type for compatibility with clinical and ancillary systems. Refer to {{v2-table:0088:Procedure Coding Systems}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.

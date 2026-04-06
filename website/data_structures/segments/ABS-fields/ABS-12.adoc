@@ -1,0 +1,4 @@
+== ABS.12 - Gestation Period - Weeks (NM)
+
+[segment-definition]
+Newborn's gestation period expressed as a number of weeks.

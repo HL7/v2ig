@@ -1,0 +1,4 @@
+== PES.1 - Sender Organization Name (XON)
+
+[segment-definition]
+This field contains the name of the organization sending the message. Coded lists of manufacturers such as that from the World Health Organization database might be used in the component of the coded name to identify the source code type. If sent from an individual, this field may not be sent.

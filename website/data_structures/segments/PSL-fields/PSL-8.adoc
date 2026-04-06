@@ -1,0 +1,4 @@
+== PSL.8 - Product/Service Code Modifier (CWE)
+
+[segment-definition]
+Additional optional modifier(s) for the Product/Service Code (e.g., after hours – evening, after hours – weekend); repeats up to 5 times. Refer to {{v2-table:0880:Product/Service Code Modifier}} in Chapter 2C, Code Tables, for suggested values.

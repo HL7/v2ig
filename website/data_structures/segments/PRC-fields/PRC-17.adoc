@@ -1,0 +1,4 @@
+== PRC.17 - Cost (MO)
+
+[segment-definition]
+This field contains the institution's calculation of how much it costs to provide this item, that is, what the institution had to pay for the material plus any specified payment expenditure, effort or loss due to performing or providing the chargeable item.

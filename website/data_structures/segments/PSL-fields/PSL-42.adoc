@@ -1,0 +1,4 @@
+== PSL.42 - External Scaling Factor Technical Part (NM)
+
+[segment-definition]
+External Scaling Factor for the amount of the technical part of the service.

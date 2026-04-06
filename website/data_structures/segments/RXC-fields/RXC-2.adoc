@@ -1,0 +1,4 @@
+== RXC.2 - Component Code (CWE)
+
+[segment-definition]
+This field is equivalent to _OBR-4-universal service ID_. It defines the base or component in the same manner as the give and dispense codes. As with the give and dispense codes, it may contain text only, code only, text + code, or text + code + units (implied or explicit). As with the give and dispense codes, if _RXC-4-component units_ is present, this overrides the units implied by the code. If only text is present, the pharmacy or treatment application must include a manual review or reentering of the component drug or treatment. Refer to Table 0697 - Component Code in Chapter 2C for valid values.

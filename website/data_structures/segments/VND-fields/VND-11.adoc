@@ -1,0 +1,4 @@
+== VND.11 - Pricing Tier Level (CWE)
+
+[segment-definition]
+This field contains the tier level at which this contract is priced for the vendor sent in this segment. Pricing Tier level determines the price of the item on the contract. Tier Level can be assigned to an IDN or at a corporation level and is typically based on volume purchased (determined by $ or a %). The larger the volume purchased, the lower priced tier level is assigned to the contract. This value can change over the life of the contract if purchasing volume changes after initial contract signing.Example 01^Tier One, 02^Tier 2, etc No HL7 table is defined here, because it needs to be defined by trading partner agreement, including the identification of code system to use.

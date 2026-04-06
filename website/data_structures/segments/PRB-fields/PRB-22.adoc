@@ -1,0 +1,4 @@
+== PRB.22 - Problem Prognosis (CWE)
+
+[segment-definition]
+This field contains the prognosis for the individual's problem (e.g., good, poor, etc.).

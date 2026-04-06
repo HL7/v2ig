@@ -1,0 +1,4 @@
+== SCP.2 - Labor Calculation Type (CWE)
+
+[segment-definition]
+The method at which labor is calculated for use in tracking employee productivity. Refer to {{v2-table:0651:Labor}} Calculation Type_ in Chapter 2C, Code Tables, for suggested values.

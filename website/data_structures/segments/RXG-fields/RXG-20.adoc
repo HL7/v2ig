@@ -1,0 +1,7 @@
+== RXG.20 - Substance Expiration Date (DTM)
+
+[segment-definition]
+This field contains the expiration date of the medical substance administered.
+
+[segment-comment]
+*Note*: Vaccine expiration date does not always have a "day" component; therefore, such a date may be transmitted as YYYYMM.

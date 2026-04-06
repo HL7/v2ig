@@ -1,0 +1,4 @@
+== IN2.25 - Payor ID (CX)
+
+[segment-definition]
+// TODO: Add field definition

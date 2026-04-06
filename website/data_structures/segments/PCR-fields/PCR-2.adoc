@@ -1,0 +1,4 @@
+== PCR.2 - Generic Product (IS)
+
+[segment-definition]
+This field indicates whether the product used was a generic or a branded product. Refer to {{v2-table:0249:Generic Product}} for suggested values.

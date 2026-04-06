@@ -1,0 +1,4 @@
+== OBR.38 - Transport Logistics of Collected Sample * (CWE)
+
+[segment-definition]
+This field is the means by which a sample reaches the diagnostic service provider. This information is to aid the lab in scheduling or interpretation of results. Possible answers: routine transport van, public postal service, etc. If coded, requires a user-defined table. Refer to Table 0614 - Transport Logistics of Collected Sample in Chapter 2C for valid values.

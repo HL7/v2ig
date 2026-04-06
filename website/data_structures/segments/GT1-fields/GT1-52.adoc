@@ -1,0 +1,4 @@
+== GT1.52 - Handicap (CWE)
+
+[segment-definition]
+This field contains a code to describe the guarantor's disability. Refer to {{v2-table:0295:Handicap}} in Chapter 2C, Code Tables, for suggested values.

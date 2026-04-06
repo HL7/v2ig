@@ -1,0 +1,4 @@
+== IN1.16 - Name Of Insured (XPN)
+
+[segment-definition]
+This field contains the name of the insured person. The insured is the person who has an agreement with the insurance company to provide healthcare services to persons covered by the insurance policy. Multiple names for the same insured person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

@@ -1,0 +1,4 @@
+== PV1.11 - Temporary Location (PL)
+
+[segment-definition]
+This field contains a location other than the assigned location required for a temporary period of time (e.g., OR, operating theatre, etc.). If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.

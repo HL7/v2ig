@@ -1,0 +1,7 @@
+== PYE.5 - Payee Person Name (XPN)
+
+[segment-definition]
+Conditional or empty: if Payee Type = ("PERS", "PPER), then Required, else Not Permitted.
+
+[segment-comment]
+Individual's name; may be a patient's name or other individual.

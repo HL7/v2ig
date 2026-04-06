@@ -1,0 +1,4 @@
+== UB2.9 - Uniform Billing Locator 2 (state) (ST)
+
+[segment-definition]
+This field contains an occurrence span code and an associated date. This field can repeat up to two times to represent/contain Uniform Billing form locators 36a and 36b. This field is defined by CMS or other regulatory agencies.

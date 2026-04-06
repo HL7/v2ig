@@ -1,0 +1,4 @@
+== ABS.13 - Newborn Code (CWE)
+
+[segment-definition]
+The newborn code is used to indicate whether the baby was born in or out of the facility. Refer to {{v2-table:0425:Newborn Code}} in Chapter 2C, Code Tables, for suggested values.

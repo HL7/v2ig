@@ -1,0 +1,4 @@
+== IN2.12 - Military Organization (ST)
+
+[segment-definition]
+This field is defined by CMS or other regulatory agencies.

@@ -1,0 +1,7 @@
+== OMC.13 - Number of Decimals (NM)
+
+[segment-definition]
+For numeric answers the number of digits after the decimal.
+
+[segment-comment]
+The field is valued only if OMC-9 is valued 'NM' or 'SN'.

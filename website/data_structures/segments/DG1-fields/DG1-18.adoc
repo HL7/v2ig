@@ -1,0 +1,9 @@
+== DG1.18 - Confidential Indicator (ID)
+
+[segment-definition]
+This field indicates whether the diagnosis is confidential. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, "Code Tables", for valid values.
+
+[segment-comment]
+Y the diagnosis is a confidential diagnosis
+
+N the diagnosis does not contain a confidential diagnosis

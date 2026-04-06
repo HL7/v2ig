@@ -1,0 +1,7 @@
+== TXA.28 - Creating Specialty (CWE)
+
+[segment-definition]
+This field identifies the specialty of the provider which created this document. Refer to Table 0792 - Creating Specialty in Chapter 2C for valid values.
+
+[segment-comment]
+*Note*: There are no suggested values for speciality.

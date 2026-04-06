@@ -1,0 +1,4 @@
+== RF1.1 - Referral Status (CWE)
+
+[segment-definition]
+This field contains the status of the referral as defined by either the referred-to or the referred-by provider. Refer to {{v2-table:0283:Referral Status}} in Chapter 2C, Code Tables, for suggested values.

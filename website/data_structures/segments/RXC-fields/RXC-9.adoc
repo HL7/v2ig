@@ -1,0 +1,4 @@
+== RXC.9 - Component Drug Strength Volume Units (CWE)
+
+[segment-definition]
+This field indicates the volumetric unit associated with _RXC-8 Component Drug Strength Volume_. See example in RXC-8. Refer to Table 0701 - Component Drug Strength Volume Units in Chapter 2C for valid values.

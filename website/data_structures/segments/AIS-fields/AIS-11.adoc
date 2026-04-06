@@ -1,0 +1,4 @@
+== AIS.11 - Placer Supplemental Service Information (CWE)
+
+[segment-definition]
+This field contains supplemental service and/or logistical information sent from the placer system to the filler system for the universal procedure code reported in field AIS-3. This field will be used to provide scheduling information detail that is not available in other, specific fields in the AIS segment. Multiple supplemental service information elements may be reported. Refer to {{v2-table:0411:Supplemental Service Information Values}}_ in Chapter 2C, Code Tables, for valid values.

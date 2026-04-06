@@ -1,0 +1,32 @@
+= (LDP) Segment - Location Department
+:v2type: 'Segment'
+:code: LDP
+:name: Location Department
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::LDP-fields/LDP-1.adoc[]
+
+include::LDP-fields/LDP-2.adoc[]
+
+include::LDP-fields/LDP-3.adoc[]
+
+include::LDP-fields/LDP-4.adoc[]
+
+include::LDP-fields/LDP-5.adoc[]
+
+include::LDP-fields/LDP-6.adoc[]
+
+include::LDP-fields/LDP-7.adoc[]
+
+include::LDP-fields/LDP-8.adoc[]
+
+include::LDP-fields/LDP-9.adoc[]
+
+include::LDP-fields/LDP-10.adoc[]
+
+include::LDP-fields/LDP-11.adoc[]
+
+include::LDP-fields/LDP-12.adoc[]

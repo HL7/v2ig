@@ -1,0 +1,4 @@
+== PSH.13 - Number of Product Experience Reports Filed by Facility (NM)
+
+[segment-definition]
+The field contains the number of product experience reports filed by facility.

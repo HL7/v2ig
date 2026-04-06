@@ -1,0 +1,4 @@
+== ROL.1 - Role Instance ID (EI)
+
+[segment-definition]
+// TODO: Add field definition

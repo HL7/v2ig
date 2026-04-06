@@ -1,0 +1,4 @@
+== RXV.8 - PCA Dose Amount (NM)
+
+[segment-definition]
+This field contains the order’s PCA dose amount. Example: if the ordered bolus is 3 mg, this field contains the value of 3.

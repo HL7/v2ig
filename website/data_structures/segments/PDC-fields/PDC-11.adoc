@@ -1,0 +1,4 @@
+== PDC.11 - Marketing Approval ID (ST)
+
+[segment-definition]
+This field contains the designation or description of the marketing basis.

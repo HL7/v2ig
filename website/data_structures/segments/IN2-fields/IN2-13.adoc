@@ -1,0 +1,4 @@
+== IN2.13 - Military Station (ST)
+
+[segment-definition]
+This field is defined by CMS or other regulatory agencies.

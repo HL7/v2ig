@@ -1,0 +1,4 @@
+== AUT.27 - Source Phone (XTN)
+
+[segment-definition]
+The authorization source phone number allows a user to capture the phone number of the person contacted regarding the specific authorization.

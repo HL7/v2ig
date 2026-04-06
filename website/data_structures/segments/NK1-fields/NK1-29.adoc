@@ -1,0 +1,4 @@
+== NK1.29 - Contact Reason (CWE)
+
+[segment-definition]
+This field identifies how the contact should be used (e.g., contact employer if patient is unable to work). Refer to {{v2-table:0222:Contact Reason}} in Chapter 2C, Code Tables, for suggested values.

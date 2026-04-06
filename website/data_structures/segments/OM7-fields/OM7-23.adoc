@@ -1,0 +1,9 @@
+== OM7.23 - Special Order Indicator (ID)
+
+[segment-definition]
+This field indicates whether or not the service (pharmaceutical) is a special order. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y This is a special order.
+
+N This is not a special order

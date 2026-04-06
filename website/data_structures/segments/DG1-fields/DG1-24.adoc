@@ -1,0 +1,9 @@
+== DG1.24 - DRG Grouping Usage (ID)
+
+[segment-definition]
+This field identifies whether this particular diagnosis has been used for the DRG determination. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values. The values have the following meaning for this field:
+
+[segment-comment]
+Y Yes - Indicates that the diagnosis has been used for the DRG determination
+
+N No – Indicates that the diagnosis has not been used for the DRG determination

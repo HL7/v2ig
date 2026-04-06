@@ -1,0 +1,20 @@
+= (PSG) Segment - Product/Service Group
+:v2type: 'Segment'
+:code: PSG
+:name: Product/Service Group
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::PSG-fields/PSG-1.adoc[]
+
+include::PSG-fields/PSG-2.adoc[]
+
+include::PSG-fields/PSG-3.adoc[]
+
+include::PSG-fields/PSG-4.adoc[]
+
+include::PSG-fields/PSG-5.adoc[]
+
+include::PSG-fields/PSG-6.adoc[]

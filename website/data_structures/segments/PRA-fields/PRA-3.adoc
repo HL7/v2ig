@@ -1,0 +1,7 @@
+== PRA.3 - Practitioner Category (CWE)
+
+[segment-definition]
+This field contains the category of practitioner. Refer to {{v2-table:0186:Practitioner Category}} for suggested values. Values may include codes for staff physician, courtesy physician, resident, physician assistant, physical therapist, psychiatrist, psychologist, pharmacist, registered nurse, licensed practical nurse, licensed vocational nurse, nurse practitioner, etc. If the provider works in different Practitioner Categories in different organization units, then this information should be recorded separately in ORG-6,7,8.
+
+[segment-comment]
+[#HL70186 .anchor]####Refer to {{v2-table:0186:Practitioner Category}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.

@@ -1,0 +1,4 @@
+== FT1.52 - DME Purchase Price (MO)
+
+[segment-definition]
+This is the purchase price for the durable medical equipment.

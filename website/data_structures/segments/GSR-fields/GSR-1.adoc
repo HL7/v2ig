@@ -1,0 +1,4 @@
+== GSR.1 - Set ID (SI)
+
+[segment-definition]
+This field contains the sequence number used to identify the GSR segment instances in a message.

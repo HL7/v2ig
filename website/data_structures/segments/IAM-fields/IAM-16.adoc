@@ -1,0 +1,4 @@
+== IAM.16 - Alert Device Code (CWE)
+
+[segment-definition]
+This field describes any type of allergy alert device the patient may be carrying or wearing. Refer to {{v2-table:0437:Alert Device}} in Chapter 2C, Code Tables, for suggested values.

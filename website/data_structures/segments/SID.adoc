@@ -1,0 +1,16 @@
+= (SID) Segment - Substance Identifier
+:v2type: 'Segment'
+:code: SID
+:name: Substance Identifier
+:generated: Mon, 06 Apr 2026 17:54:56 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::SID-fields/SID-1.adoc[]
+
+include::SID-fields/SID-2.adoc[]
+
+include::SID-fields/SID-3.adoc[]
+
+include::SID-fields/SID-4.adoc[]

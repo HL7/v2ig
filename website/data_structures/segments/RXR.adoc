@@ -1,0 +1,20 @@
+= (RXR) Segment - Pharmacy/Treatment Route
+:v2type: 'Segment'
+:code: RXR
+:name: Pharmacy/Treatment Route
+:generated: Mon, 06 Apr 2026 17:54:55 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::RXR-fields/RXR-1.adoc[]
+
+include::RXR-fields/RXR-2.adoc[]
+
+include::RXR-fields/RXR-3.adoc[]
+
+include::RXR-fields/RXR-4.adoc[]
+
+include::RXR-fields/RXR-5.adoc[]
+
+include::RXR-fields/RXR-6.adoc[]

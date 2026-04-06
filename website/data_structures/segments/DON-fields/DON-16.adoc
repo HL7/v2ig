@@ -1,0 +1,4 @@
+== DON.16 - Intended Recipient Name (XPN)
+
+[segment-definition]
+If this is donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s name.

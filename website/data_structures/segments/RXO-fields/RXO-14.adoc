@@ -1,0 +1,7 @@
+== RXO.14 - Ordering Provider's DEA Number
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+Attention: This field was retained for backward compatibilty only as of v 2.7 and the detail was withdrawn and removed from the standard as of v 2.9. The reader is referred to the PRT segment described in Chapter 7.

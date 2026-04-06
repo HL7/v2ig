@@ -1,0 +1,4 @@
+== LOC.2 - Location Description (ST)
+
+[segment-definition]
+This field contains the optional free text description of the location, to elaborate upon LOC primary key value.

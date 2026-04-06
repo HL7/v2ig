@@ -1,0 +1,4 @@
+== RFI.2 - Response Due Date (DTM)
+
+[segment-definition]
+The latest date by which the additional information is to be returned to requestor.

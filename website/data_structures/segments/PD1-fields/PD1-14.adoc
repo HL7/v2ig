@@ -1,0 +1,4 @@
+== PD1.14 - Place of Worship (XON)
+
+[segment-definition]
+The patient's place of worship. For example, the patient attends the First Baptist Church of Atlanta.

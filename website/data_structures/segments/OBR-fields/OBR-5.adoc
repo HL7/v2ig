@@ -1,0 +1,7 @@
+== OBR.5 - Priority
+
+[segment-definition]
+// TODO: Add field definition
+
+[segment-comment]
+*Attention: _The OBR-5 element was retained for backward compatibility only as of v 2.4 and the detail was withdrawn and removed from the standard as of v 2.7._*

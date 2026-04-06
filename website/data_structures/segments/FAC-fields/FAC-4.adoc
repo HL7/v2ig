@@ -1,0 +1,4 @@
+== FAC.4 - Facility Telecommunication (XTN)
+
+[segment-definition]
+This field contains the facility's telecommunication information.

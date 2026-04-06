@@ -1,0 +1,9 @@
+== PV2.35 - Military Non-Availability Code (ID)
+
+[segment-definition]
+This field indicates whether a patient has permission to use a non-military healthcare facility for treatment. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
+
+[segment-comment]
+Y the patient has permission to use a non-military healthcare facility
+
+N the patient does not have permissions to use a non-military healthcare facility

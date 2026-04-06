@@ -1,0 +1,4 @@
+== STZ.2 - Sterilization Cycle (CWE)
+
+[segment-definition]
+This field contains the sterilization cycle used for sterilization of the inventory supply item. The AAMI Standard defines steam sterilization cycles – cycle names: pressure, temperature, dry time. Refer to _SCD-28 Cycle Type_ (CWE) 02131 which references {{v2-table:0702:Cycle Type}} in Chapter 2C, Code Tables, providing suggested values.

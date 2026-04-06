@@ -1,0 +1,4 @@
+== IN2.45 - Employment Stop Date (DT)
+
+[segment-definition]
+This field indicates the date on which the person's employment with a particular employer ended.

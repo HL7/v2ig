@@ -1,0 +1,4 @@
+== PSL.7 - Product/Service Code (CWE)
+
+[segment-definition]
+Code describing the service that was delivered/received. Refer to {{v2-table:0879:Product/Service Code}} in Chapter 2C, Code Tables, for suggested values.

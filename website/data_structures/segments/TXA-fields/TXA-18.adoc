@@ -1,0 +1,4 @@
+== TXA.18 - Document Confidentiality Status (ID)
+
+[segment-definition]
+This is an optional field which identifies the degree to which special confidentiality protection should be applied to this information. The assignment of data elements to these categories is left to the discretion of the healthcare organization. Refer to {{v2-table:0272:Document Confidentiality Status}} for valid values.

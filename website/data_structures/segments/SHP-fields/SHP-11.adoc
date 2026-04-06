@@ -1,0 +1,4 @@
+== SHP.11 - Shipment Risk Code (CWE)
+
+[segment-definition]
+This field contains any known or suspected hazards associated with this shipment, e.g., exceptionally infectious agent or blood from a hepatitis patient. Refer to {{v2-table:0489:Risk Codes}} for suggested values.

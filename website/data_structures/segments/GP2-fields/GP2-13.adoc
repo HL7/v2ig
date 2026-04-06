@@ -1,0 +1,4 @@
+== GP2.13 - Co-Pay Amount (CP)
+
+[segment-definition]
+This field contains the patient's Co-pay amount for the line item.

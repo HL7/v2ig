@@ -1,0 +1,4 @@
+== ADJ.5 - Adjustment Amount (CP)
+
+[segment-definition]
+Adjustment amount, such as taxes, deductibles, previously paid amount.

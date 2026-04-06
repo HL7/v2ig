@@ -1,0 +1,4 @@
+== NST.3 - Source Type (ID)
+
+[segment-definition]
+This field identifies (in certain systems) whether a lower level source identifier is an initiate or accept type. Refer to {{v2-table:0332:Source Type}} in Chapter 2C, Code Tables, for valid values.

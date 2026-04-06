@@ -1,0 +1,4 @@
+== FT1.12 - Transaction Amount - Unit (CP)
+
+[segment-definition]
+This field contains the unit price of a transaction. Price of a single item.

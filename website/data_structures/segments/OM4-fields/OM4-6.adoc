@@ -1,0 +1,4 @@
+== OM4.6 - Specimen (CWE)
+
+[segment-definition]
+Describes the specimen from an appropriate controlled vocabulary. If multiple kinds of specimen are associated with this observation (as in the case for a creatinine clearance), multiple segments may be included, one for each specimen type. Refer to Table 0660 - Specimen in Chapter 2C for valid values.

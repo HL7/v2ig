@@ -1,0 +1,4 @@
+== PCR.4 - Total Duration Of Therapy (CQ)
+
+[segment-definition]
+This field represents the total duration of therapy with product listed. The treatment at the current dose and schedule are indicted in the quantity timing attribute of the RXE segment but the patient may have been treated for some time previously at a different dose or on a different schedule. The quantity in the second component of the CQ should be a time quantity.

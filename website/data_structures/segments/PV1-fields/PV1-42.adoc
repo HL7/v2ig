@@ -1,0 +1,4 @@
+== PV1.42 - Pending Location (PL)
+
+[segment-definition]
+This field indicates the point of care, room, bed, healthcare facility ID, and bed status to which the patient may be moved. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient. If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.

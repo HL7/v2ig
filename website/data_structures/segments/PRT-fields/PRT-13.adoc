@@ -1,0 +1,4 @@
+== PRT.13 - Qualitative Duration (CWE)
+
+[segment-definition]
+This field contains the qualitative length of time for participation (e.g., until the next assessment, four days, until discharge, etc.).

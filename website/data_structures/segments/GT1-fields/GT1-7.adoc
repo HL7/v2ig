@@ -1,0 +1,4 @@
+== GT1.7 - Guarantor Ph Num – Business (XTN)
+
+[segment-definition]
+This field contains the guarantor's business phone number. All business phone numbers for the guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

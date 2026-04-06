@@ -1,0 +1,4 @@
+== NPU.1 - Bed Location (PL)
+
+[segment-definition]
+This field contains the bed location that is a valid bed location.

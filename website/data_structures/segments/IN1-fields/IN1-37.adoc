@@ -1,0 +1,4 @@
+== IN1.37 - Policy Deductible (CP)
+
+[segment-definition]
+This field contains the amount specified by the insurance plan that is the responsibility of the guarantor (i.e., deductible, excess, etc.).

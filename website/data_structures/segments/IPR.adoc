@@ -1,0 +1,24 @@
+= (IPR) Segment - Invoice Processing Results
+:v2type: 'Segment'
+:code: IPR
+:name: Invoice Processing Results
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::IPR-fields/IPR-1.adoc[]
+
+include::IPR-fields/IPR-2.adoc[]
+
+include::IPR-fields/IPR-3.adoc[]
+
+include::IPR-fields/IPR-4.adoc[]
+
+include::IPR-fields/IPR-5.adoc[]
+
+include::IPR-fields/IPR-6.adoc[]
+
+include::IPR-fields/IPR-7.adoc[]
+
+include::IPR-fields/IPR-8.adoc[]

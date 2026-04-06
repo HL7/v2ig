@@ -1,0 +1,4 @@
+== PEO.2 - Event Symptom/Diagnosis Code (CWE)
+
+[segment-definition]
+This field is the coded diagnosis or problem description which best describes the event. A text representation of the coded item should routinely be included. MEDDRA and WHO-ART are examples of appropriate coding schemes, as are the patient and device codes included in the FDA Center for Devices and Radiologic Health's coding manual for Form 3500A. Refer to Table 0679 - Event Symptom/Diagnosis Code in Chapter 2C for valid values.

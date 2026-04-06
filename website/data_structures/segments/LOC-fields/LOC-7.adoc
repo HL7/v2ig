@@ -1,0 +1,4 @@
+== LOC.7 - License Number (CWE)
+
+[segment-definition]
+This field contains the multiple license numbers for the facility. Refer to {{v2-table:0461:License Number}} in Chapter 2C, Code Tables, for suggested values.

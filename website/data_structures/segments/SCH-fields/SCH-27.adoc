@@ -1,0 +1,7 @@
+== SCH.27 - Filler Order Number (EI)
+
+[segment-definition]
+This field is the order number assigned by the filler application for the order associated with this scheduling filler response.
+
+[segment-comment]
+This field is described in detail in Chapter 4, Orders, section 4.5.1.3. It is conditionally mandatory depending on the presence of the placer order number (section _10.6.2.26_). This conditionally mandatory requirement addresses the concern that a Scheduling system cannot and should not create or fill an order. Therefore, an order must have been accepted by the order filler application before scheduling the resources associated with that order.

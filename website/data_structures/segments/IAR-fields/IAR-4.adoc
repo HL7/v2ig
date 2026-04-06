@@ -1,0 +1,4 @@
+== IAR.4 - Management (ST)
+
+[segment-definition]
+This field contains a textual description of the actions that were performed in response to the reaction.

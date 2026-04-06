@@ -1,0 +1,7 @@
+== SAC.8 - SAC-8 (CWE)
+
+[segment-definition]
+This field identifies the status of the unique container in which the specimen resides at the time that the transaction was initiated. Refer to {{v2-table:0370:Container Status}} in Chapter 2C, Code Tables, for valid values. The equipment specific container status should be sent as _<alternate identifier>_ as needed.
+
+[segment-comment]
+The container states are relevant for the exchange of information among devices (within the LAS). Not all of them are relevant for information transfer between the LAS and the LIS.

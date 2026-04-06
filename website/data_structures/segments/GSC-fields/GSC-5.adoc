@@ -1,0 +1,4 @@
+== GSC.5 - Validity Period (DR)
+
+[segment-definition]
+This field asserts the time frame during which this value applies to the patient context. May be just an initial dateTime.

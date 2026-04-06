@@ -1,0 +1,9 @@
+== IPC.5 - Modality (CWE)
+
+[segment-definition]
+The type of equipment requested to acquire data during performance of a Procedure Step. The acquired data will be used to create the images for the Imaging Study corresponding to the Requested Procedure.
+
+[segment-comment]
+This field is a case of the CE data type. Refer to {{v2-table:0910:Acquisition Modality}} in Chapter 2C, Code Tables, for valid values, and to DICOM Standard Part 3 for further details on DICOM Attribute (0008,0060) that conveys information identical to component one of this field.
+
+A limit of sixteen (16) characters for the first component is required to allow compatibility with DICOM. The third component of this field, if present, shall have the value of "DCM" (see {{v2-table:0396:Coding Systems}} in Chapter 2C, Code Tables).

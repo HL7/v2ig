@@ -1,0 +1,38 @@
+= (IIM) Segment - Inventory Item Master
+:v2type: 'Segment'
+:code: IIM
+:name: Inventory Item Master
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::IIM-fields/IIM-1.adoc[]
+
+include::IIM-fields/IIM-2.adoc[]
+
+include::IIM-fields/IIM-3.adoc[]
+
+include::IIM-fields/IIM-4.adoc[]
+
+include::IIM-fields/IIM-5.adoc[]
+
+include::IIM-fields/IIM-6.adoc[]
+
+include::IIM-fields/IIM-7.adoc[]
+
+include::IIM-fields/IIM-8.adoc[]
+
+include::IIM-fields/IIM-9.adoc[]
+
+include::IIM-fields/IIM-10.adoc[]
+
+include::IIM-fields/IIM-11.adoc[]
+
+include::IIM-fields/IIM-12.adoc[]
+
+include::IIM-fields/IIM-13.adoc[]
+
+include::IIM-fields/IIM-14.adoc[]
+
+include::IIM-fields/IIM-15.adoc[]

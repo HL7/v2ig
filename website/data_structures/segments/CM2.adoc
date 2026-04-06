@@ -1,0 +1,16 @@
+= (CM2) Segment - Clinical Study Schedule Master
+:v2type: 'Segment'
+:code: CM2
+:name: Clinical Study Schedule Master
+:generated: Mon, 06 Apr 2026 17:54:54 +0000
+
+[segment-definition]
+// TODO: Add segment definition
+
+include::CM2-fields/CM2-1.adoc[]
+
+include::CM2-fields/CM2-2.adoc[]
+
+include::CM2-fields/CM2-3.adoc[]
+
+include::CM2-fields/CM2-4.adoc[]

@@ -1,0 +1,4 @@
+== AUT.9 - Authorized Number of Treatments (CQ)
+
+[segment-definition]
+This field contains the number of times that the authorized treatment may be administered to the patient without obtaining additional authorization.

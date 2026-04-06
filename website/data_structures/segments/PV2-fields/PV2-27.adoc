@@ -1,0 +1,4 @@
+== PV2.27 - Expected Discharge Disposition (CWE)
+
+[segment-definition]
+This field describes what the patient's disposition is expected to be at the end of the visit. Refer to {{v2-table:0112:Discharge Disposition}} in Chapter 2C, Code Tables, for suggested values.

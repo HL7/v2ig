@@ -1,0 +1,4 @@
+== CON.22 - Consent Non-disclosure Reason (CWE)
+
+[segment-definition]
+Identifies why the subject did not receive full disclosure. . Refer to {{v2-table:0501:Consent Non-Disclosure Reason}} for suggested values.
