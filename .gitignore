@@ -7,7 +7,34 @@
 temp
 template
 output
+output-subset
 fsh-generated
+
+# Build artifacts #
+###################
+build.log
+*.log
+__pycache__/
+
+# Screenshots (scratch) #
+##########################
+*.png
+
+# External repos (cloned, not submodules) #
+############################################
+/hl7.v2.terminology.v291/
+/utg
+
+# Scratch / working files #
+############################
+/scratch/
+/compare_message_structures.py
+
+# IDE / tool state #
+#####################
+.playwright-mcp/
+.index.db
+.index.json
 
 # HTML generated from AsciiDoc
 ##############################

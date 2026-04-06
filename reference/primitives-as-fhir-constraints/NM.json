@@ -1,0 +1,61 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "NM",
+  "meta" : {
+    "profile" : [ "http://hl7.org/v2/StructureDefinition/primitive-data-type-profile" ]
+  },
+
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
+      "valueString" : "FIXME.DataTypes"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "normative"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode" : "4.0.0"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "inm"
+    }
+  ],
+  "url" : "http://hl7.org/v2/StructureDefinition/NM",
+  "version" : "0.0.1",
+  "name" : "NM",
+  "title" : "HL7 v2 Numeric Primitive Type",
+  "status" : "active",
+  "date" : "2024-06-01T12:00:00+11:00",
+  "description" : "FIXME add from v2",
+  "kind" : "primitive-type",
+  "abstract" : false,
+  "type" : "decimal",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/decimal",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "decimal",
+        "path" : "decimal",
+        "constraint" : {
+          "key" : "nm-1",
+          "severity" : "error",
+          "human" : "At least one digit is required. Any value containing a decimal point must include one digit to the left of the decimal point. The leftmost character may be a '+' or '-'. The total length of the value must be between 1 and 16 characters. Note that while the v2 definition of Numeric allows a preceding '+' symbol, the FHIR decimal data type does not. For compatibility with FHIR data types and the FHIR IG Publisher, this data type derives from the FHIR decimal type.",
+          "expression" : "decimal.value.matches('^(?=.{1,16}$)([+-]?[0-9]+([.][0-9][0-9]*)?)$')"
+        }
+      },
+      {
+        "id" : "decimal.id",
+        "path" : "decimal.id",
+        "max" : "0"
+      },{
+        "id" : "decimal.extension",
+        "path" : "decimal.extension",
+        "max" : "0"
+      }
+    ]
+  }
+}
