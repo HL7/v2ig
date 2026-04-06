@@ -1,0 +1,41 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>The LOC, LCH, LRL, LDP, and LCC segments must be preceded by the MFI and MFE segments, as described in Section 8.5, "GENERAL MASTER FILE SEGMENTS." In the following message, the <em>MFI-1 - Master File Identifier</em> field should equal "LOC"</p>
+</div>
+<div class="paragraph">
+<p>When the LCH segment appears immediately following the LOC segment, it communicates characteristics which are the same across multiple departments that may use the same room. When the LCH segment appears immediately following the LDP segment, it communicates characteristics which differ for different departments that may use the same room.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-MFN_M05.html">MFN_M05</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Mf Location begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MFE.html">MFE</a></td><td>Master File Entry</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-LOC.html">LOC</a></td><td>Patient Location Master</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-LCH.html">LCH</a> }]</td><td>Location Characteristic</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-LRL.html">LRL</a> }]</td><td>Location Relationship</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Mf Loc Dept begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-LDP.html">LDP</a></td><td>Location Department</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-LCH.html">LCH</a> }]</td><td>Location Characteristic</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-LCC.html">LCC</a> }]</td><td>Location Charge Code</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Mf Loc Dept end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Location end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-MFK-M05.html">MFK^M05</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-M05.html">ACK^M05</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-MFK-M05.html">MFK^M05</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

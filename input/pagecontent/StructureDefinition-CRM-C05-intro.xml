@@ -1,0 +1,44 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>Event C05 - Patient enters phase of clinical trial</p>
+</div>
+<div class="paragraph">
+<p>The data are entered in a clinical trials or other patient data system and broadcast to other facility systems such as order entry, pharmacy, accounting, and nursing systems. They can be transmitted in batch mode or broadcast to outside-facility computer systems, including diagnostic and patient management systems. It is assumed that proper routing and security mechanisms are in place.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-CRM_C01.html">CRM_C01</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient Visit end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-CSR.html">CSR</a></td><td>Clinical Study Registration</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CSP.html">CSP</a> }]</td><td>Clinical Study Phase</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Patient end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-C05.html">ACK^C05</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-C05.html">ACK^C05</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-C05.html">ACK^C05</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

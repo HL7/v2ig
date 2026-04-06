@@ -1,0 +1,14 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Diagnostic Related Group</td><td class="v2-col-mono"><a href="StructureDefinition-CNE.html">CNE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0055">0055</a></td><td class="v2-col-mono">00382</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Major Diagnostic Category</td><td class="v2-col-mono"><a href="StructureDefinition-CNE.html">CNE</a></td><td>C</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0118">0118</a></td><td class="v2-col-mono">00381</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Lower and Upper Trim Points</td><td class="v2-col-mono"><a href="StructureDefinition-NR.html">NR</a></td><td>C</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02231</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Average Length of Stay</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>C</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02232</td><td class="v2-col-mono"></td><td class="v2-col-mono">5</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq">5</td><td>Relative Weight</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>C</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02233</td><td class="v2-col-mono"></td><td class="v2-col-mono">7</td><td class="v2-col-mono">=</td></tr>
+</tbody>
+</table>
+</div>
+</div>

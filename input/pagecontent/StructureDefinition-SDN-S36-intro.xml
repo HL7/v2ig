@@ -1,0 +1,32 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>This message is sent from a filler application to notify other applications that anti-microbial device data has been generated. The information in the SDN segment and the other detail segments as appropriate describe the detail of a device during a sterilization or decontamination cycle.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SDR_S31-B.html">SDR_S31</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential Segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Microbial Device Data begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-SDD.html">SDD</a></td><td>Sterilization Device</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-SCD.html">SCD</a> }]</td><td>Sterilization Cycle</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Microbial Device Data end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-S36.html">ACK^S36</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-S36.html">ACK^S36</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-S36.html">ACK^S36</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

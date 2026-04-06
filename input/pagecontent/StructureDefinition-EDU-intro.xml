@@ -1,0 +1,18 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Set ID – EDU</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01448</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Academic Degree</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0360">0360</a></td><td class="v2-col-mono">01449</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Academic Degree Program Date Range</td><td class="v2-col-mono"><a href="StructureDefinition-DR.html">DR</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01597</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Academic Degree Program Participation Date Range</td><td class="v2-col-mono"><a href="StructureDefinition-DR.html">DR</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01450</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">5</td><td>Academic Degree Granted Date</td><td class="v2-col-mono"><a href="StructureDefinition-DT.html">DT</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01451</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">6</td><td>School</td><td class="v2-col-mono"><a href="StructureDefinition-XON.html">XON</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01452</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">7</td><td>School Type Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0402">0402</a></td><td class="v2-col-mono">01453</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">8</td><td>School Address</td><td class="v2-col-mono"><a href="StructureDefinition-XAD.html">XAD</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01454</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">9</td><td>Major Field of Study</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">01885</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

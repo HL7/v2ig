@@ -1,0 +1,45 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>The A38 event is sent when an A05 (pre-admit a patient) event is cancelled, either because of erroneous entry of the A05 event or because of a decision not to pre-admit the patient after all.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ADT_A38.html">ADT_A38</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-DB1.html">DB1</a> }]</td><td>Disability Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Observation end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-DG1.html">DG1</a> }]</td><td>Diagnosis Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DRG.html">DRG</a> ]</td><td>Diagnosis Related Group</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-A38.html">ACK^A38</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-A38.html">ACK^A38</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-A38.html">ACK^A38</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

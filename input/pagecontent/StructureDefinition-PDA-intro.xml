@@ -1,0 +1,18 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Death Cause Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">01574</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Death Location</td><td class="v2-col-mono"><a href="StructureDefinition-PL.html">PL</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01575</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Death Certified Indicator</td><td class="v2-col-mono"><a href="StructureDefinition-ID.html">ID</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0136">0136</a></td><td class="v2-col-mono">01576</td><td class="v2-col-mono">1</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Death Certificate Signed Date/Time</td><td class="v2-col-mono"><a href="StructureDefinition-DTM.html">DTM</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01577</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">5</td><td>Death Certified By</td><td class="v2-col-mono"><a href="StructureDefinition-XCN.html">XCN</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01578</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">6</td><td>Autopsy Indicator</td><td class="v2-col-mono"><a href="StructureDefinition-ID.html">ID</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0136">0136</a></td><td class="v2-col-mono">01579</td><td class="v2-col-mono">1</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">7</td><td>Autopsy Start and End Date/Time</td><td class="v2-col-mono"><a href="StructureDefinition-DR.html">DR</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01580</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">8</td><td>Autopsy Performed By</td><td class="v2-col-mono"><a href="StructureDefinition-XCN.html">XCN</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01581</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">9</td><td>Coroner Indicator</td><td class="v2-col-mono"><a href="StructureDefinition-ID.html">ID</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0136">0136</a></td><td class="v2-col-mono">01582</td><td class="v2-col-mono">1</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

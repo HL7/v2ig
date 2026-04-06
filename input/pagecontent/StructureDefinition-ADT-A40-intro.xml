@@ -1,0 +1,52 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>A merge has been done at the patient identifier list level. That is, two <em>PID-3 - Patient Identifier List</em> identifiers have been merged into one.</p>
+</div>
+<div class="paragraph">
+<p>An A40 event is used to signal a merge of records for a patient that was incorrectly filed under two different identifiers. The "incorrect source identifier" identified in the MRG segment (<em>MRG-1 - Prior Patient Identifier List</em>) is to be merged with the required "correct target identifier" of the same "identifier type code" component identified in the PID segment (<em>PID-3 - Patient Identifier List</em>). The "incorrect source identifier" would then logically never be referenced in future transactions. It is noted that some systems may still physically keep this "incorrect identifier" for audit trail purposes or other reasons associated with database index implementation requirements.</p>
+</div>
+<div class="paragraph">
+<p>The identifiers involved in identifying the patients may or may not have accounts, which may or may not have visits. An A40 (merge patient-patient identifier list) event is intended for merging patient records without merging other subordinate identifiers. Any other subordinate identifiers that were previously associated with the "incorrect source identifier" are now associated with the "correct target identifier." Specification of these other subordinate identifiers is not required.</p>
+</div>
+<div class="paragraph">
+<p>This event and the message syntax do, however, allow for the specification of any other "new subordinate identifiers" (in addition to the <em>PID-3 - Patient Identifier List</em> identifier). For those environments that may require changes to these other subordinate identifiers because of the A40 (merge patient-patient identifier list) event, it is required that the old and new identifiers be a "tightly coupled" pair.</p>
+</div>
+<div class="paragraph">
+<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em></a>, "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#merge"><em>3.6.2.1.2</em></a>, "<a href="#merge"><em>Merge</em></a>," for a discussion of issues related to the implementation of merge messages.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other fields change, it is recommended that the A31 (update person information) event be used for person level updates and A08 (update patient information) event for patient level updates.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ADT_A39-A.html">ADT_A39</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MRG.html">MRG</a></td><td>Merge Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV1.html">PV1</a> ]</td><td>Patient Visit</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Patient end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-A40.html">ACK^A40</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-A40.html">ACK^A40</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-A40.html">ACK^A40</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

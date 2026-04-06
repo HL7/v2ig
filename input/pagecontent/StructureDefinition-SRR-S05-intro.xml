@@ -1,0 +1,56 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SRR_S01.html">SRR_S01</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Schedule begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-SCH.html">SCH</a></td><td>Schedule Activity Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-TQ1.html">TQ1</a> }]</td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for the SCH</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV1.html">PV1</a> ]</td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-DG1.html">DG1</a> }]</td><td>Diagnosis</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Patient end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Resources begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-RGS.html">RGS</a></td><td>Resource Group Segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Service begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-AIS.html">AIS</a></td><td>Appointment Information - Service</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for the RGS</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Service end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- General Resource begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-AIG.html">AIG</a></td><td>Appointment Information - General Resource</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for the AIG</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- General Resource end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Location Resource begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-AIL.html">AIL</a></td><td>Appointment Information - Location Resource</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for the AIL</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Location Resource end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Personnel Resource begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-AIP.html">AIP</a></td><td>Appointment Information - Personnel Resource</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for the AIP</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Personnel Resource end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Resources end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Schedule end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-S05.html">ACK^S05</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

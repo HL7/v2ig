@@ -1,0 +1,18 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-RF1.html">RF1</a></td><td>Referral Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Provider Contact begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PRD.html">PRD</a></td><td>Provider Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Provider Contact end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-REL.html">REL</a> }]</td><td>Relationship</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
+</div>

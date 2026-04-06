@@ -1,0 +1,11 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Sequence Number - Test/Observation Master File</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00586</td><td class="v2-col-mono"></td><td class="v2-col-mono">4</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">2</td><td>Derivation Rule</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00657</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,8 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="sect2">
+<h5 id="_mfk_use_note">MFK Use Note</h5>
+<div class="paragraph">
+<p>The MFA segment carries acknowledgment information for the corresponding MFE segment (identified by MFA-5 - Primary Key Value - MFA). Fields <em>MFE-4 - Primary Key Value - MFE</em> and <em>MFA-5 - Primary Key Value - MFA</em> provide the link between the corresponding segments.</p>
+</div>
+</div>
+</div>

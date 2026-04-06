@@ -1,0 +1,75 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Provider begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PRD.html">PRD</a></td><td>Provider Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Provider end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Patient Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Patient Visit end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Goal begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-GOL.html">GOL</a></td><td>Detail Goal</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes &amp; Comments &amp; Comments (Goal Comments)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Goal)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Goal Participation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-ROL.html">ROL</a></td><td>For backwards compatibility only as of V2.9</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PRT.html">PRT</a></td><td>Participation (Goal)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Participation)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Goal Participation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Pathway begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PTH.html">PTH</a></td><td>Detail Pathway</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Pathway)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Pathway end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes &amp; Comments (Observation/Result Comments)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Problem begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PRB.html">PRB</a></td><td>Detail Problem</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes &amp; Comments (Problem Comments)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Problem)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Problem Participation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-ROL.html">ROL</a></td><td>For backwards compatibility only as of V2.9</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PRT.html">PRT</a></td><td>Participation (Problem)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Participation)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Problem Participation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Problem Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes &amp; Comments (Observation/Result Comments)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Problem Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Problem end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Order Detail begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         --- --- Choice begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-OBR.html">OBR</a> ]</td><td>Order Detail Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-Hxx.html">Hxx</a> ]</td><td>etc.</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         --- --- Choice end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes (Order Detail Comments)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Order)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Order Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes &amp; Comments (Observation Comments)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-VAR.html">VAR</a> }]</td><td>Variance (Observation/Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Order Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Order Detail end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Goal end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>

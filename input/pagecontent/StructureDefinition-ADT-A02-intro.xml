@@ -1,0 +1,31 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A02.html">ADT_A02</a></p>
+<div class="paragraph">
+<p>An A02 event is issued as a result of the patient changing his or her assigned physical location.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition. If the transfer function of your Patient Administration system allows demographics to change at the same time as the transfer (for example an address change), we recommend (but do not require) sending two messages (an A02 followed by an A08). This A02 event can be used with admitted and non-admitted patients.</p>
+</div>
+<div class="paragraph">
+<p>The new patient location should appear in <em>PV1-3 - Assigned Patient Location</em> while the old patient location should appear in <em>PV1-6 - Prior Patient Location</em>. For example, an A02 event can be used to notify: laboratory, radiology, pathology that the patient has changed location and test results should be redirected; pharmacy that drugs should be redirected for the patient; dietary that the meals should be delivered to a different location; the clinical repository that a transfer has taken place for the Electronic Medical Record.</p>
+</div>
+<div class="paragraph">
+<p>If the patient is going to a temporary location (such as the O/R, X-RAY, LIMBO, the HALLWAY) it is recommended that the A09 (patient departing-tracking) and A10 (patient arriving-tracking) events be used instead of A02. It is recommended that A02 be used only for a real change in the census bed in the Patient Administration system.</p>
+</div>
+<div class="paragraph">
+<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
+</div>
+<div class="paragraph">
+<p>The PRT – Participation Information Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>–PRT-11 - Begin Date/Time</em> and the <em>–PRT-12 - End Date/Time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-A02.html">ACK^A02</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-A02.html">ACK^A02</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-A02.html">ACK^A02</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

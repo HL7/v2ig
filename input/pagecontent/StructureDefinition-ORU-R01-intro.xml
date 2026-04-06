@@ -1,0 +1,28 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ORU_R01-A.html">ORU_R01</a></p>
+<div class="paragraph">
+<p>The ORU message is for transmitting observational results, including lab, clinical or other observations, to other systems.. The OUL message is designed to accommodate the laboratory processes of laboratory automation systems.</p>
+</div>
+<div class="paragraph">
+<p>With the segment (OBX) defined in this chapter, and the OBR defined in Chapter 4, one can construct almost any clinical report as a multi-level hierarchy, with the PID segment defined in Chapter 3 at the upper level, an order record (OBR) at the next level with one or more observation records (OBX), followed by the specimen information (SPM) and one or more observations (OBX) directly associated with the specimen.</p>
+</div>
+<div class="paragraph">
+<p>One result segment (OBX) is transmitted for each component of a diagnostic report, such as an EKG or obstetrical ultrasound or electrolyte battery.</p>
+</div>
+<div class="paragraph">
+<p>The CTD segment in this trigger is used to transmit temporary patient contact details specific to this order.</p>
+</div>
+<div class="paragraph">
+<p>The Device segment (DEV) provides additional device information for a device referenced in one or more of the PRT segments in the message (using PRT-10 Participation Device to match DEV-2 Unique Device Identifier or PRT-22 Participation Device Type using DEV-3 Device Type).</p>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-R01.html">ACK^R01</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-R01.html">ACK^R01</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-R01.html">ACK^R01</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

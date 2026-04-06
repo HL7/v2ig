@@ -1,0 +1,20 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The ORC is permitted but not required in this message. Any information that could be included in either the ORC or the OBR must be included in the OBR on reporting. Notice also that the ORU (and the QRY) messages accommodate reports about many patients.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Many report headers (OBR) may be sent beneath each patient segment, with many separate observation segments (OBX) related to the order / observation request beneath each OBR. OBX segments that are related to specimens immediately follow the SPM segments. Note segments (NTE) may be inserted at different locations in the message. The note segment applies to the entity that immediately precedes it, i.e., the patient if it follows the PID segment, the observation request if it follows the OBR segment, and the individual result if it follows the OBX segment.</p>
+</div>
+<div class="paragraph">
+<p>There is not supposed to be an Application Level acknowledgement to an Application Level Acknowledgement message. In Enhanced Mode, MSH-16 SHALL always be set to NE (Never).</p>
+</div>
+</div>

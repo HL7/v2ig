@@ -1,0 +1,13 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Set ID – PCE</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02228</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Account Number</td><td class="v2-col-mono"><a href="StructureDefinition-CX.html">CX</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0319">0319</a></td><td class="v2-col-mono">00281</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Transaction Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0132">0132</a></td><td class="v2-col-mono">00361</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Transaction Amount - Unit</td><td class="v2-col-mono"><a href="StructureDefinition-CP.html">CP</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00366</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

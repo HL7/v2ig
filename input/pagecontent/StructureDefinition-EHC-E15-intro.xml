@@ -1,0 +1,77 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>This message is used to send a payment/ remittance advice to a Payee for the payment of HealthCare Services Invoices and/or other adjustments. The Payment/Remittance Advice can be sent to the originating Provider Application (Network Application ID) or alternately to the Payee&#8217;s Network Application ID, depending on how the Payee has been configured by the Payer. If a Payment/Remittance Advice is paid by check, it typically has a 1 to 1 correspondence with a check number. However, there are occasions when one check number covers multiple Payment/Remittance Advices. This message does not enforce a 1 to 1 relationship between check number and Payment/Remittance Advice. That is, the same check number (Check Number on PMT) can be used on multiple Payment/Remittance Advices.</p>
+</div>
+<div class="paragraph">
+<p>A Payment/Remittance Advice may not be generated if a Payee is a Person and not an organization (Payee Type on PYE = "PERS" or "PPER").</p>
+</div>
+<div class="paragraph">
+<p>Once an EHC^E15 message is prepared (which may be on a regular basis such as monthly or bi-weekly), it is either sent to the Provider Application (if the Provider Application is able to receive unsolicited results) or stored on a queue for the Provider Application. If left on a queue for the Provider Application, then the QBP^E99 message must be used by the Provider Application to poll the Payer Application for the EHC^E15.</p>
+</div>
+<div class="paragraph">
+<p>Processing Rules:</p>
+</div>
+<div class="paragraph">
+<p>1) The Provider Application and the Payer Application must uniquely identify each Invoice, Product/Service Group, Product/Service Line Item and Adjustment.<br/>
+These numbers appear as a pair on the IVC, PSG, PSL and ADJ segments and must be echoed on any subsequent interactions for the Invoice, group or line item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>2) The Provider Application and/or Payer Application may also supply a tracking number for each Product/Service Line Item it processes, specified as the Provider Tracking Number or Payer Tracking Number.<br/>
+The Provider Tracking Number and Payer Tracking Number must be echoed on any subsequent inter­actions for the Product/Service Line Item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>3) The Payer Application must uniquely identify each Payment/Remittance Advice. The unique Payment/Remittance Advice identifier must be specified as Payment/Remittance Advice Number on PMT.</p>
+</div>
+<div class="paragraph">
+<p>4) At least one of Payment/Remittance Detail Information or Adjustment(s) to Payee block must be specified with this message (see EHC^E15 – Message Summary for details) to describe the details of the Payment/Remittance Advice.</p>
+</div>
+<div class="paragraph">
+<p>5) The Payment/Remittance Amount on PMT must equal to the sum of all Adjudicated/Paid Amount for all IPR segments PLUS the sum of all Adjudication/Paid Amounts for all ADJ segments in the Payment/Re­mittance Advice, excluding information adjustment types (Adjustment Category on ADJ = "IN").</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-EHC_E15.html">EHC_E15</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Payment Remittance Header Info begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PMT.html">PMT</a></td><td>Payment Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PYE.html">PYE</a></td><td>Payee Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Payment Remittance Header Info end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Payment Remittance Detail Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IPR.html">IPR</a></td><td>Invoice Processing Results</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Product Service Section begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Product Service Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Psl Item Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSL.html">PSL</a></td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ADJ.html">ADJ</a> }]</td><td>Adjustment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Psl Item Info end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Product Service Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Product Service Section end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Payment Remittance Detail Info end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Adjustment Payee begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-ADJ.html">ADJ</a></td><td>Adjustment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PRT.html">PRT</a> ]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Adjustment Payee end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-E15.html">ACK^E15</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-E15.html">ACK^E15</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-E15.html">ACK^E15</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

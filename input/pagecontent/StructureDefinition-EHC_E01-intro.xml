@@ -1,0 +1,70 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Submit begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PYE.html">PYE</a> ]</td><td>Payee Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-AUT.html">AUT</a> ]</td><td>Authorization Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-LOC.html">LOC</a> }]</td><td>Location Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Product Service Section begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Product Service Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-LOC.html">LOC</a> }]</td><td>Location Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Patient Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PID.html">PID</a></td><td>Person Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSC.html">GSC</a> ]</td><td>*Sex Parameter for Clinical Use*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV1.html">PV1</a> ]</td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ACC.html">ACC</a> }]</td><td>Accident</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               { --- Insurance begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">                  <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">                  [ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">                  [ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">                  [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Info</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               } --- Insurance end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               [{ --- Diagnosis begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">                  <a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">                  [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               }] --- Diagnosis end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Patient Info end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            { --- Product Service Line Item begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PSL.html">PSL</a></td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ADJ.html">ADJ</a> }]</td><td>Adjustment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-AUT.html">AUT</a> ]</td><td>Authorization Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-LOC.html">LOC</a> }]</td><td>Location Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            } --- Product Service Line Item end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Procedure begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PR1.html">PR1</a></td><td>Procedures</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Procedure end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-IPR.html">IPR</a> }]</td><td>Invoice Processing Results</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Product Service Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Product Service Section end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Submit end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>

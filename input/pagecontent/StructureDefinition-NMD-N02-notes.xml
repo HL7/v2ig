@@ -1,0 +1,14 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Because this message pair does not have an application acknowledgement, the value in MSH-16 does not affect the choreography
+</td>
+</tr>
+</table>
+</div>
+</div>

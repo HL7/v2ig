@@ -1,0 +1,25 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-MFK_M01-A.html">MFK_M01</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Acknowledgment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-MFA.html">MFA</a> }]</td><td>Master File ACK segment</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-M13.html">ACK^M13</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

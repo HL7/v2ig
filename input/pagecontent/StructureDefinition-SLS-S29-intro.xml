@@ -1,0 +1,22 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SLR_S28-B.html">SLR_S28</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-SLT.html">SLT</a> }</td><td>Sterilization Lot</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-S29.html">ACK^S29</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

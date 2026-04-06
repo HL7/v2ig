@@ -1,0 +1,143 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11%;"/>
+<col style="width: 14%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 6%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 3%;"/>
+<col style="width: 8%;"/>
+<col style="width: 8%;"/>
+<col style="width: 9%;"/>
+<col style="width: 8%;"/>
+<col style="width: 11%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field Seq.</th>
+<th class="tableblock halign-left valign-top">Field Name</th>
+<th class="tableblock halign-left valign-top">Key/
+
+Search</th>
+<th class="tableblock halign-left valign-top">Sort</th>
+<th class="tableblock halign-left valign-top">LEN</th>
+<th class="tableblock halign-left valign-top">TYPE</th>
+<th class="tableblock halign-left valign-top">Opt</th>
+<th class="tableblock halign-left valign-top">Rep</th>
+<th class="tableblock halign-left valign-top">Match Op</th>
+<th class="tableblock halign-left valign-top">TBL</th>
+<th class="tableblock halign-left valign-top">Segment Field Name</th>
+<th class="tableblock halign-left valign-top">LOINC or HL7 Code/Domain</th>
+<th class="tableblock halign-left valign-top">Element Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DomainToAllocateIn</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID-3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Identifier</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 19%;"/>
+<col style="width: 11%;"/>
+<col style="width: 6%;"/>
+<col style="width: 64%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Input Parameter</th>
+<th class="tableblock halign-left valign-top">Comp. Name</th>
+<th class="tableblock halign-left valign-top">DT</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DomainToAllocateIn ()</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components: &lt;ID (ST)&gt; ^ &lt;check digit (ST)&gt; ^ &lt;code identifying the check digit scheme employed (ID)&gt; ^ &lt; assigning authority (HD)&gt; ^ &lt;identifier type code (IS)&gt; ^ &lt; assigning facility (HD)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This parameter specifies in which domains to allocate identifiers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|<sup>^</sup>GOOD HEALTH HOSPITAL|&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only the following components should be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DomainToAllocateIn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assigning Authority</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID.3.4 must be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DomainToAllocateIn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier type code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Following is an example of a Q24/K24 query/response pair of messages. First is the query:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^~\&amp;|CLINREG|WESTCLIN|HOSPMPI|HOSP|199912121135-0600||QBP^Q24^QBP_Q21|1|D|2.5
+QPD|Q24^Allocate Identifiers^HL7nnnn|111069|^^^WEST CLINIC~^^^SOUTH LAB|
+RCP||I|</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query is asking for identifiers from WEST CLINIC and SOUTH LAB to be reserved and returned. Here is a sample response:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^~\&amp;|HOSPMPI|HOSP|CLINREG|WESTCLIN|199912121135-0600||RSP^K24^RSP_K23|1|D|2.5|
+MSA|AA|8699|
+QAK|111069|OK|Q24^Allocate Identifiers^HL7nnnn|1|
+QPD|A56^Allocate Identifiers^HL7nnn|111069|^^^WEST CLINIC~^^^SOUTH LAB|
+PID|||624335A^^^WEST CLINIC~564325^^^SOUTH LAB|</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The PID segment returned does not include any person demographics as the identifiers are not yet "attached" to any person record. Presumably the querying system would eventually send back to the MPI an <em>A28 Add person information</em> to create a person record for the identifiers or an <em>A24 Link patient information</em> to link the identifiers to an existing person record.
+</td>
+</tr>
+</table>
+</div>
+</div>

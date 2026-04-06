@@ -1,0 +1,11 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>OMB use notes</p>
+</div>
+<div class="paragraph">
+<p>The NTE segment(s) can be included in the OMB message in four places; in each place the NTE refers to the segment that it follows. In particular, the NTEs following the MSH refer only to the message header; the NTEs following the blood product order segment apply to the service defined by that ORC and blood product order segment.</p>
+</div>
+<div class="paragraph">
+<p>The PID segment is required if and only if new orders are being entered and they are related to a particular patient. For non-patient-related orders the PID segment is never included.</p>
+</div>
+</div>

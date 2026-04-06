@@ -1,0 +1,20 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Set Id – VND</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02217</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Vendor Identifier</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02218</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Vendor Name</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02276</td><td class="v2-col-mono"></td><td class="v2-col-mono">999</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">4</td><td>Vendor Catalog Number</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02219</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">5</td><td>Primary Vendor Indicator</td><td class="v2-col-mono"><a href="StructureDefinition-CNE.html">CNE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0532">0532</a></td><td class="v2-col-mono">02220</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">6</td><td>Corporation</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">02420</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">7</td><td>Primary Contact</td><td class="v2-col-mono"><a href="StructureDefinition-XCN.html">XCN</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02421</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">8</td><td>Contract Adjustment</td><td class="v2-col-mono"><a href="StructureDefinition-MOP.html">MOP</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02422</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">9</td><td>Associated Contract ID</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">02423</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">10</td><td>Class of Trade</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">02424</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">11</td><td>Pricing Tier Level</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02425</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

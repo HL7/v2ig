@@ -1,0 +1,21 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Payment/Remittance Advice Number</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02018</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Payment/Remittance Effective Date/Time</td><td class="v2-col-mono"><a href="StructureDefinition-DTM.html">DTM</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02019</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Payment/Remittance Expiration Date/Time</td><td class="v2-col-mono"><a href="StructureDefinition-DTM.html">DTM</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02020</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Payment Method</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0570">0570</a></td><td class="v2-col-mono">02021</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">5</td><td>Payment/Remittance Date/Time</td><td class="v2-col-mono"><a href="StructureDefinition-DTM.html">DTM</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02022</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">6</td><td>Payment/Remittance Amount</td><td class="v2-col-mono"><a href="StructureDefinition-CP.html">CP</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02023</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">7</td><td>Check Number</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02024</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">8</td><td>Payee Bank Identification</td><td class="v2-col-mono"><a href="StructureDefinition-XON.html">XON</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02025</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">9</td><td>Payee Transit Number</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02026</td><td class="v2-col-mono"></td><td class="v2-col-mono">4</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">10</td><td>Payee Bank Account ID</td><td class="v2-col-mono"><a href="StructureDefinition-CX.html">CX</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02027</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">11</td><td>Payment Organization</td><td class="v2-col-mono"><a href="StructureDefinition-XON.html">XON</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02028</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">12</td><td>ESR-Code-Line</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">02029</td><td class="v2-col-mono"></td><td class="v2-col-mono">100</td><td class="v2-col-mono">#</td></tr>
+</tbody>
+</table>
+</div>
+</div>

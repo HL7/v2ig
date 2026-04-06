@@ -1,0 +1,26 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The RXCs which follow the RXO may not be fully encoded, but those that follow the RXE must be fully encoded.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The NTE segment(s) following the PD1 segment are intended to communicate notes and comments relative to the patient.</p>
+</div>
+<div class="paragraph">
+<p>The NTE segment(s) following the RXO segment are intended to communicate notes and comments relative to the pharmacy/treatment order.</p>
+</div>
+<div class="paragraph">
+<p>The NTE segment(s) following the RXE segment are intended to communicate notes and comments relative to the encoded order.</p>
+</div>
+<div class="paragraph">
+<p>The NTE segment(s) following the RXC segment are intended to communicate notes and comments relative to the component(s).</p>
+</div>
+</div>

@@ -1,0 +1,37 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+
+  <h3>HL7 v2+ Segment Definitions</h3>
+  <p>Segments are the fundamental building blocks of HL7 v2+ messages. Each segment contains a logically related group of data fields. A segment is identified by a unique three-character code (e.g., MSH, PID, OBX).</p>
+
+  <p>Each segment definition specifies:</p>
+  <ul>
+    <li>The fields contained in the segment, in order</li>
+    <li>The data type of each field</li>
+    <li>Optionality (Required, Optional, Conditional, etc.)</li>
+    <li>Cardinality (how many repetitions are allowed)</li>
+    <li>Length constraints</li>
+    <li>Value set bindings for coded fields</li>
+  </ul>
+
+  <h4>Representative Segments (Demo Subset)</h4>
+  <p>The following segments are included in this demo build as representative examples:</p>
+
+  <table class="grid">
+    <thead>
+      <tr><th>Segment</th><th>Name</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>Present in every HL7 v2 message. Contains metadata about the message including sending/receiving applications, message type, and encoding characters.</td></tr>
+      <tr><td><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>Contains information about the trigger event that initiated the message.</td></tr>
+      <tr><td><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>Contains patient demographic information including identifiers, name, date of birth, sex, race, address, and phone numbers.</td></tr>
+      <tr><td><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>Contains visit-specific information such as assigned patient location, attending doctor, visit number, and admission type.</td></tr>
+      <tr><td><a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin</td><td>Contains information about the patient's next of kin or associated parties.</td></tr>
+      <tr><td><a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>Contains a single clinical observation or result, including the observation identifier, value, units, and reference range.</td></tr>
+      <tr><td><a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis</td><td>Contains patient diagnosis information including diagnosis code, type, and description.</td></tr>
+      <tr><td><a href="StructureDefinition-AL1.html">AL1</a></td><td>Allergy Information</td><td>Contains patient allergy information including allergen type, code, severity, and reaction.</td></tr>
+    </tbody>
+  </table>
+
+  <p><i>The full v2+ specification includes 192 segment definitions. This demo build includes a representative subset to demonstrate the publication pipeline.</i></p>
+
+</div>

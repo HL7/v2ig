@@ -1,0 +1,123 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>The R40 trigger event is used for observation reports that include an alertable condition, i.e., for which some timely human or application intervention in patient care may be indicated by the findings. The ORA^R41 provides the application level response to the ORU^R40.</p>
+</div>
+<div class="paragraph">
+<p>The ORU^R40 message is outside of the order-fulfilling cycle of the ORU and OUL messages with other trigger events, and is supplemental to those order-fulfilling observations. As such, the results conveyed in the ORU^R40 do not replace, edit, or override the results of messages with other trigger events.</p>
+</div>
+<div class="paragraph">
+<p>The ORU^R40 message represents a unitary alert, which is to be acknowledged as a whole by an ORA message. Multiple alerts requiring separate acknowledgement must be sent as individual messages.</p>
+</div>
+<div class="paragraph">
+<p>The ORDER_OBSERVATION Segment Group which has OBR-49 value A (Alert provider when abnormal) conveys the alert observation(s). One or more OBX segments in this Segment Group will typically have OBX-8 Interpretation Codes value of LL. HH, or AA. At least one OBR segment shall have OBR-49 value A. Other ORDER_OBSERVATION Segment Groups within the message shall be considered supporting information for the alert observation(s).</p>
+</div>
+<div class="paragraph">
+<p>An alert observation report may simply replicate observations conveyed in another observation message, e.g., sent in an ORU^R01 (the source observation). In such an instance the ORDER_OBSERVATION Segment Group shall replicate the OBR (and ORC, if present) of the source observation.</p>
+</div>
+<div class="paragraph">
+<p>An alert observation reporting application may also derive a new alertable observation, e.g., from a combination of other observations from multiple orders, processed by a clinical decision support rule set. In this case, the ORDER_OBSERVATION Segment Group with the alertable observation may use an OBR representing the "order" for clinical decision support, with this instance uniquely identified in the OBR-51 Observation Group ID. Supporting source observations may be conveyed in subsequent ORDER_OBSERVATION Segment Groups in the message using their original OBR information.</p>
+</div>
+<div class="paragraph">
+<p>If the reporting application can identify a preferred recipient for the alert, that may be conveyed in the PRT segment related to the OBR or OBX (with PRT-4 value RCT "Results Copies To"). This recipient may not be the same as the recipient(s) identified in a source observation. There is no expectation that the reporting application will <em>a priori</em> know a preferred recipient, nor that the receiving application will deliver the alert to the identified recipient (e.g., it may be delivered to an "on-call" clinician in lieu of the identified recipient).</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ORU_R01-B.html">ORU_R01</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient Result begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OH1.html">OH1</a> }]</td><td>Employment Status</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OH2.html">OH2</a> }]</td><td>Past or Present Job</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-OH3.html">OH3</a> ]</td><td>Usual Work</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OH4.html">OH4</a> }]</td><td>Combat Zone Work</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Next Of Kin begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin/Associated Parties</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-OH2.html">OH2</a> }]</td><td>Past or Present Job</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-OH3.html">OH3</a> ]</td><td>Usual Work</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Next Of Kin end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Patient Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation (for Patient ID)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (Observation Participation)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Patient Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Visit end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Insurance begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-IN3.html">IN3</a> ]</td><td>Insurance Additional Information, Certification</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Insurance end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Order Observation begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Common Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-ORC.html">ORC</a></td><td>Order common</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for common order)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Order Document begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation containing Document</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-TXA.html">TXA</a></td><td>Transcription Document Header</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Order Document end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Common Order end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observations Request</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Observation Participation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-DEV.html">DEV</a> }]</td><td>Device</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Observation Participation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Timing Qty begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Timing Qty end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation related to OBR</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (Observation Participation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         { <a href="StructureDefinition-NTE.html">NTE</a> }</td><td>Notes and comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Observation end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-FT1.html">FT1</a> }]</td><td>Financial Transaction</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-CTI.html">CTI</a> }</td><td>Clinical Trial Identification</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Specimen begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Specimen Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation (for Patient ID)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (Observation Participation)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Specimen Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Specimen end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Order Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Device begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-DEV.html">DEV</a></td><td>Device (for Participation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Observation/Result</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Device end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Patient Result end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>Continuation Pointer</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ORA-R41.html">ORA^R41</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-R40.html">ACK^R40</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ORA-R41.html">ORA^R41</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

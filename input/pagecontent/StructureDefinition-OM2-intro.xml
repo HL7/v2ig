@@ -1,0 +1,19 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Sequence Number - Test/Observation Master File</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00586</td><td class="v2-col-mono"></td><td class="v2-col-mono">4</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">2</td><td>Units of Measure</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0648">0648</a></td><td class="v2-col-mono">00627</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Range of Decimal Precision</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">00628</td><td class="v2-col-mono"></td><td class="v2-col-mono">10</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">4</td><td>Corresponding SI Units of Measure</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0649">0649</a></td><td class="v2-col-mono">00629</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">5</td><td>SI Conversion Factor</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00630</td><td class="v2-col-mono"></td><td class="v2-col-mono">60</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">6</td><td>Reference (Normal) Range for Ordinal and Continuous Observations</td><td class="v2-col-mono"><a href="StructureDefinition-RFR.html">RFR</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">00631</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">7</td><td>Critical Range for Ordinal and Continuous Observations</td><td class="v2-col-mono"><a href="StructureDefinition-RFR.html">RFR</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">00632</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">8</td><td>Absolute Range for Ordinal and Continuous Observations</td><td class="v2-col-mono"><a href="StructureDefinition-RFR.html">RFR</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00633</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">9</td><td>Delta Check Criteria</td><td class="v2-col-mono"><a href="StructureDefinition-DLT.html">DLT</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">00634</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">10</td><td>Minimum Meaningful Increments</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00635</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

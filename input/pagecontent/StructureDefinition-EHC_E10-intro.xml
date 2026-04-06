@@ -1,0 +1,34 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-classic-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Invoice Processing Results Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IPR.html">IPR</a></td><td>Invoice Processing Results</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PYE.html">PYE</a></td><td>Payee</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Product Service Section begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Product Service Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Product Service Line Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSL.html">PSL</a></td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ADJ.html">ADJ</a> }]</td><td>Adjustment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Product Service Line Info end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Product Service Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Product Service Section end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Invoice Processing Results Info end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,20 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Set ID - CM0</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01010</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Sponsor Study ID</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01011</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Alternate Study ID</td><td class="v2-col-mono"><a href="StructureDefinition-EI.html">EI</a></td><td>O</td><td class="v2-col-mono">[0..3]</td><td></td><td class="v2-col-mono">01036</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Title of Study</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01013</td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq">5</td><td>Chairman of Study</td><td class="v2-col-mono"><a href="StructureDefinition-XCN.html">XCN</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">01014</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">6</td><td>Last IRB Approval Date</td><td class="v2-col-mono"><a href="StructureDefinition-DT.html">DT</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01015</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">7</td><td>Total Accrual to Date</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01016</td><td class="v2-col-mono"></td><td class="v2-col-mono">8</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">8</td><td>Last Accrual Date</td><td class="v2-col-mono"><a href="StructureDefinition-DT.html">DT</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01017</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">9</td><td>Contact for Study</td><td class="v2-col-mono"><a href="StructureDefinition-XCN.html">XCN</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">01018</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">10</td><td>Contact's Telephone Number</td><td class="v2-col-mono"><a href="StructureDefinition-XTN.html">XTN</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01019</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">11</td><td>Contact's Address</td><td class="v2-col-mono"><a href="StructureDefinition-XAD.html">XAD</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">01020</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+</tbody>
+</table>
+</div>
+</div>

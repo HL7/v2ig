@@ -1,0 +1,195 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11%;"/>
+<col style="width: 14%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 6%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 3%;"/>
+<col style="width: 8%;"/>
+<col style="width: 8%;"/>
+<col style="width: 9%;"/>
+<col style="width: 8%;"/>
+<col style="width: 11%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field Seq.</th>
+<th class="tableblock halign-left valign-top">Field Name</th>
+<th class="tableblock halign-left valign-top">Key/
+
+Search</th>
+<th class="tableblock halign-left valign-top">Sort</th>
+<th class="tableblock halign-left valign-top">LEN</th>
+<th class="tableblock halign-left valign-top">TYPE</th>
+<th class="tableblock halign-left valign-top">Opt</th>
+<th class="tableblock halign-left valign-top">Rep</th>
+<th class="tableblock halign-left valign-top">Match Op</th>
+<th class="tableblock halign-left valign-top">TBL</th>
+<th class="tableblock halign-left valign-top">Segment Field Name</th>
+<th class="tableblock halign-left valign-top">LOINC or HL7 Code/Domain</th>
+<th class="tableblock halign-left valign-top">ElementName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PersonIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">250</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID-3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Identifier List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID-3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Identifier List</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 19%;"/>
+<col style="width: 11%;"/>
+<col style="width: 6%;"/>
+<col style="width: 64%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Input Parameter</th>
+<th class="tableblock halign-left valign-top">Comp. Name</th>
+<th class="tableblock halign-left valign-top">DT</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PersonIdentifier ()</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components: &lt;ID (ST)&gt; ^ &lt;check digit (ST)&gt; ^ &lt;code identifying the check digit scheme employed (ID)&gt; ^ &lt; assigning authority (HD)&gt; ^ &lt;identifier type code (IS)&gt; ^ &lt; assigning facility (HD)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The combination of values for <em>PersonIdentifier.ID, and PersonIdentifier.AssigningAuthority,</em> are intended to identify a person uniquely. The <em>PersonIdentifier.IDTypeCode</em> is useful for further filtering or to supply uniqueness in the event that the assigning authority may have more than one coding system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|112234<sup>^</sup>GOOD HEALTH HOSPITAL|&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only one PID.3 may be specified, only 1 segment pattern will be returned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PersonIdentifier.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID.3.1must be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PersonIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assigning Authority</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID.3.4 must be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PersonIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier type code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components: &lt;ID (ST)&gt; ^ &lt;check digit (ST)&gt; ^ &lt;code identifying the check digit scheme employed (ID)&gt; ^ &lt; assigning authority (HD)&gt; ^ &lt;identifier type code (IS)&gt; ^ &lt; assigning facility (HD)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This parameter restricts the set of domains for which identifiers are returned in PID-3. If this is not specified, then identifiers for all known domains shall be returned. It does not restrict the search for the person.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|<sup>^</sup>GOOD HEALTH HOSPITAL~<sup>^</sup>SOUTH LAB|&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only the following components should be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assigning Authority</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID.3.4 must be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier type code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Following is an example of a Q21/K21 query/response pair of messages. First is the query:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^~\&amp;|CLINREG|WESTCLIN|HOSPMPI|HOSP|199912121135-0600||QBP^Q21^QBP_Q21|1|D|2.5+
+QPD|Q21^Get Person Demographics^HL7nnn|111069|112234^^^GOOD HEALTH HOSPITAL|^^^ GOOD HEALTH HOSPITAL~^^^SOUTH LAB|+
+RCP|I|</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query is asking for demographics for the person identified by the identifier 112234 from the assigning authority GOOD HEALTH HOSPITAL. With the demographics, we want identifiers returned for the person from the assigning authorities GOOD HEALTH HOSPITAL and SOUTH LAB. Here is a sample response:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^~\&amp;|HOSPMPI|HOSP|CLINREG|WESTCLIN|199912121135-0600||RSP^K21^RSP_K21|1|D|2.5|+
+MSA|AA|8699|+
+QAK|111069|OK|Q21^Get Person Demographics^HL7nnn|1|+
+QPD|Q21^Get Person Demographics^HL7nnn|111069|112234^^^GOOD HEALTH HOSPITAL|^^^ GOOD HEALTH HOSPITAL~^^^SOUTH LAB|+
+PID|||112234^^^GOOD HEALTH HOSPITAL~98223^^^SOUTH LAB||Everyman^Adam||19600614|M||C|2101 Webster # 106^^Oakland^CA^94612|+
+QRI|100|</pre>
+</div>
+</div>
+</div>

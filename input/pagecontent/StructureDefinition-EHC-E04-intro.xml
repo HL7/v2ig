@@ -1,0 +1,56 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>This message is used to submit a single Re-Assess HealthCare Services Invoice Request to a TPA/Payer for processing. The Re-Assess HealthCare Services Invoice Request is used by a Provider, to request review of a previously adjudicated HealthCare Services Invoice, with optional specification of a Product/Service Line Item within that Invoice. Note that the HealthCare Services Invoice need not necessarily be sent to a TPA/Payer using the EHC^E01 – Submit HealthCare Services Invoice: it may be manually submitted.</p>
+</div>
+<div class="paragraph">
+<p>Adjudication for a HealthCare Services Invoice may be re-assessed either because background information, such as a Provider&#8217;s billing rate may have changed or if some of the adjudication rules have changed since original adjudication of the Invoice.</p>
+</div>
+<div class="paragraph">
+<p>This message cannot be used to change or delete information from the HealthCare Services Invoice. The only information allowed in this message are Provider Invoice Number and Payer Invoice Number, and optional notes to assist in the re-assessment by the TPA/Payer.</p>
+</div>
+<div class="paragraph">
+<p>Processing Rules:</p>
+</div>
+<div class="paragraph">
+<p>1) The Provider Application and the Payer Application must uniquely identify each Invoice, Product/Service Group, Product/Service Line Item and Adjustment.<br/>
+These numbers appear as a pair on the IVC, PSG, PSL and ADJ segments and must be echoed on any subsequent interactions for the Invoice, group or line item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>2) The Provider Application and/or Payer Application may also supply a tracking number for each Product/Service Line Item it processes, specified as the Provider Tracking Number or Payer Tracking Number.<br/>
+The Provider Tracking Number and Payer Tracking Number must be echoed on any subsequent interactions for the Product/Service Line Item between the Provider Application and Payer Application.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-EHC_E04.html">EHC_E04</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Reassessment Request Info begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Product Service Section begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Product Service Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PSL.html">PSL</a> }]</td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Product Service Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Product Service Section end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Reassessment Request Info end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-E04.html">ACK^E04</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-E04.html">ACK^E04</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-E04.html">ACK^E04</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,71 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>This message is used to send edit and/or adjudication results for a HealthCare Services Invoice. Edit/Adjudication results are sent to the same Network Application ID that originated the Invoice, which was specified as the Sending Application on MSH on the original HealthCare Services Invoice.</p>
+</div>
+<div class="paragraph">
+<p>This message is returned to a Provider Application each time an EHC^E01 – Submit HealthCare Services Invoice message is successfully processed by a Payer Application. As a minimum, the EHC^E10 – Edit/Adjudication Results message will contain the Payer Applications' Invoice number (Payer Invoice Number on IVC), status codes for each Product/Service Line Item in the Invoice and optionally, a tracking number for the Payer Application (Payer Tracking Number on PSL).</p>
+</div>
+<div class="paragraph">
+<p>Note that an EHC^E12 – Request Additional Information (pending) is a valid response for an EHC^E01 – Submit HealthCare Services Invoice. In this case, the interactions would be EHC^E01 &#8594; EHC^E12 (pending). If the Payer Application is able to process the Invoice on-line, the EHC^E10 – Edit/Adjudication Results message will contain the Invoice Processing Results portion completely filled out, indicating the results of the adjudication (e.g., paid as submitted, paid partial, etc.).</p>
+</div>
+<div class="paragraph">
+<p>Processing Rules:</p>
+</div>
+<div class="paragraph">
+<p>1) The Provider Application and the Payer Application must uniquely identify each Invoice, Product/Service Group, Product/Service Line Item and Adjustment.<br/>
+These numbers appear as a pair on the IVC, PSG, PSL and ADJ segments and must be echoed on any subsequent interactions for the Invoice, group or line item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>2) The Provider Application and/or Payer Application may also supply a tracking number for each Product/Service Line Item it processes, specified as the Provider Tracking Number or Payer Tracking Number.<br/>
+The Provider Tracking Number and Payer Tracking Number must be echoed on any subsequent interactions for the Product/Service Line Item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>3) The EHC^E10 – Edit/Adjudication Results message must only report against one HealthCare Services Invoice within a message. In other words, each IPR in this message must have the same Provider Invoice Number on IVC and the same Payer Invoice Number for all repetitions of the IVC segment in this message.</p>
+</div>
+<div class="paragraph">
+<p>4) The Provider Invoice Number on IVC must be the same as the Provider Invoice Number on IVC as specified on the EHC^E01 input message. In other words, this message must be used to respond to the incoming EHC^E01 and not a previous EHC^E01 HealthCare Services Invoice. Only IPRs for the Invoice specified on the EHC^E01 may be included in the EHC^E10 response.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-EHC_E10.html">EHC_E10</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Invoice Processing Results Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IPR.html">IPR</a></td><td>Invoice Processing Results</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PYE.html">PYE</a></td><td>Payee</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Product Service Section begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Product Service Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Product Service Line Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSL.html">PSL</a></td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ADJ.html">ADJ</a> }]</td><td>Adjustment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Product Service Line Info end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Product Service Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Product Service Section end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Invoice Processing Results Info end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-E10.html">ACK^E10</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-E10.html">ACK^E10</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-E10.html">ACK^E10</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

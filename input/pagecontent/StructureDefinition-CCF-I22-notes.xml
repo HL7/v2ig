@@ -1,0 +1,929 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>FIXME - I think these tables should be part of the I22 tab set stuff</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 33%;"/>
+<col style="width: 47%;"/>
+<col style="width: 9%;"/>
+<col style="width: 11%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">[\{ GSP }]</th>
+<th class="tableblock halign-left valign-top">Person Gender and Sex</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{ GSR }]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recorded Gender and Sex</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{ GSC }]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sex Parameter for Clinical Use</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- NEXT_OF_KIN begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NK1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Next of Kin / Associated Parties</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{ GSP }]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Person Gender and Sex</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{ GSR }]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recorded Gender and Sex</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- NEXT_OF_KIN end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;"/>
+<col style="width: 47%;"/>
+<col style="width: 9%;"/>
+<col style="width: 11%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">[\{</th>
+<th class="tableblock halign-left valign-top">--- INSURANCE begin</th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IN1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insurance</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[IN2]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insurance Additional Info.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[IN3]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insurance Additional Info – Cert.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- INSURANCE end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- APPOINTMENT_HISTORY begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schedule Activity Information</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCES begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RGS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource Group Segment</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCE_DETAIL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCE_OBJECT begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AIS|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Appointment Information - Service</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AIG|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Appointment Information – General Resource</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AIL|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Appointment Information – Location</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Appointment Information – Personnel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCE_OBJECT end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCE_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCE_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCE_DETAIL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- RESOURCES end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- APPOINTMENT_HISTORY end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ORC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common Order</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY_DETAIL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY_OBJECT begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}] |</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ODS|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dietary Order, Suppl., Prefer.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PR1|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RF1|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Referral Information</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AL1|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allergy Information</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient adverse reaction information</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ACC|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accident Information</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RMI|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk Management Incident</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DB1|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disability Information</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DG1|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Diagnosis</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DRG|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Diagnosis Related Group</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Death and Autopsy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY_OBJECT end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY_DETAIL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_CLINICAL_HISTORY begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_CLINICAL_HISTORY_OBJECT begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROL|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For backwards compatibility only as of V2.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRT|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation (CLINICAL_HISTORY)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider Data (CLINICAL_HISTORY)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_CLINICAL_HISTORY_OBJECT end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (CLINICAL_HISTORY)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_CLINICAL_HISTORY end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{CTI}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clinical Trial Identification</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- CLINICAL_HISTORY end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PATIENT_VISITS begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PV1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Visit</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[PV2]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Visit – Additional Info.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PATIENT_VISITS end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_HISTORY begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ORC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common Order</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ORDER_DETAIL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RXO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Order</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{RXR}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Route</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{RXC}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Component (for RXO)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ORDER_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ORDER_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ORDER_DETAIL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ENCODING_DETAIL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RXE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Encoded Order</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{RXR}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Route</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{RXC}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Component (for RXE)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ENCODING_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ENCODING_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ENCODING_DETAIL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ADMINISTRATION_DETAIL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RXA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Administration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RXR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pharmacy/Treatment Route</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ADMINISTRATION_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ADMINISTRATION_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_ADMINISTRATION_DETAIL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{CTI}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clinical Trial Identification</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- MEDICATION_HISTORY end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PROBLEM begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Problem</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (Problem)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PROBLEM begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PROBLEM_OBJECT begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROL|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For backwards compatibility only as of V2.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRT|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation (Problem Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider Data (Problem Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PROBLEM_OBJECT end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (Problem Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PROBLEM end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PROBLEM_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PROBLEM_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PROBLEM end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- GOAL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Goal</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (Goal)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_GOAL begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_GOAL_OBJECT begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROL|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For backwards compatibility only as of V2.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRT|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation (Goal Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider Data (Goal Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_GOAL_OBJECT end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (Goal Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_GOAL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- GOAL_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- GOAL_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- GOAL end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PATHWAY begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PTH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pathway</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (Pathway)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PATHWAY begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PATHWAY_OBJECT begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROL|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For backwards compatibility only as of V2.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRT|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation (Pathway Participation)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider Data (Pathway Participation)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PATHWAY_OBJECT end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{VAR}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variance (Pathway Participation)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PARTICIPATION_PATHWAY end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PATHWAY_OBSERVATION begin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observation/Result</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{PRT}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PATHWAY_OBSERVATION end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--- PATHWAY end</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[{REL}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relationship</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+</tbody>
+</table>
+</div>

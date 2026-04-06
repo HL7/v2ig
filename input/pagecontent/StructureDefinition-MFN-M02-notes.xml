@@ -1,0 +1,14 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+As of v2.5, the PRA and ORG segments in the MFN^M02 are repeatable. HL7 does not give semantic meaning to the first instance of either. Refer to section 2.8.2.d in Chapter 2.
+</td>
+</tr>
+</table>
+</div>
+</div>

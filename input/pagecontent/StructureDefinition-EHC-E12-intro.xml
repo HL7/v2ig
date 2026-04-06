@@ -1,0 +1,93 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>A Payer or TPA uses this message to request additional information in support of an Invoice or a (Pre) Authorization Request. Normally, this request would be sent following receipt of an E01 or E20 message. However, it can also be sent following receipt of an E04 Re-Assess HealthCare Services Invoice Request. In this latter case the request for additional information still has as its object the original invoice (which is now under review) rather than the Re-assessment request per se.</p>
+</div>
+<div class="paragraph">
+<p>The E12 can only be used to initiate a request for information and cannot be used to modify, place on hold or cancel an earlier request. This message cannot be used to convey information on the status of a claim and/or adjudication results (i.e., cannot be used in place of an E10 Edit/Adjudication Results message).</p>
+</div>
+<div class="paragraph">
+<p>The scope of the request for additional information is defined through the inclusion of contextual data from the original Invoice or (Pre) Authorization Request. By specifying a particular Product/Service Group, patient and/or Product/Service Line item the requested information (e.g., a discharge narrative) is deemed to apply to those particular service events and not to any others which may have been part of the original Invoice or (Pre) Authorization Request.</p>
+</div>
+<div class="paragraph">
+<p>In terms of absolute limits the E12 request is restricted to a single Product/Service Group from the original Invoice or (Pre) Authorization Request. Thereafter, the context can be more narrowly defined by inclusion of patient and/or Product/Service Line item information from within the same Product/Service Group. Thus, if a particular P/S Line Item is included, the message recipient must interpret this to mean that the request is related to that one line item. If the P/S Line Item is excluded the request is related to any and all line items in the original Product/Service Group. Similarly for patients: identification of a particular patient restricts the request to that patient alone, whereas omission of patient information means that the request applies to any and all patients identified in the original Product/Service Group.</p>
+</div>
+<div class="paragraph">
+<p>The E12 message is restricted to zero or one patients and to zero or one Product/Service Line items. One consequence of these limits is that a Payer requiring information about a variety of patients or products/services from an original invoice may have to generate multiple (E12) requests.</p>
+</div>
+<div class="paragraph">
+<p>The E12 message requires the use of LOINC classification standard to describe the information being requested (as do the E13/14 response messages). The codified request can also be supplemented by free-form text if greater specificity is required.</p>
+</div>
+<div class="paragraph">
+<p>This message supports the use of pre-defined responses. That is, the sender specifies both the request as well as a range of possible answers for the recipient to choose from. This is an optional usage that is designed for real-time environments in which the Payer employs an adjudication engine to both solicit the additional information and manage the responses.</p>
+</div>
+<div class="paragraph">
+<p>Processing Rules:</p>
+</div>
+<div class="paragraph">
+<p>1) The Payer application must have already received an Invoice, (Pre) Authorization Request or Re-assessment request before a Request for Additional Information can be issued.</p>
+</div>
+<div class="paragraph">
+<p>2) The Payer Application must uniquely identify each request. The Payer Application specifies its unique Request number as the Placer Order Number in the OBR segment. The number is comprised of the Payer Application&#8217;s NAID + a unique sequence number.</p>
+</div>
+<div class="paragraph">
+<p>3) Interpretative Rule: Patient Consent. If Patient Consent in the RFI segment is marked "Y" (Yes) the Payer is signifying possession of proof of patient consent for release of confidential information.</p>
+</div>
+<div class="paragraph">
+<p>4) This request message is restricted to zero or one patients. If information is required for multiple patients in an original invoice or (pre) authorization request, a separate message is required for each individual.</p>
+</div>
+<div class="paragraph">
+<p>5) Interpretative Rule: If the optional PID segment is omitted, the receiving system will interpret this to mean that the information request applies to any and all patients associated with the Product/Service Group in the original Invoice or (Pre) Authorization request. (See E01 message for rules governing the construction of Product/Service Groups.)</p>
+</div>
+<div class="paragraph">
+<p>6) The Provider Organization, as identified in the IVC segment is normally responsible for responding to the request for additional information. However, the sender may identify an alternate individual or department as responsible for responding to the Request for Additional Information using the CTD segment of the Information Request. In such a case the Kept for backwards compatibility only. PRT and ROL should not both be used. field must be set to "FL" = Filler.</p>
+</div>
+<div class="paragraph">
+<p>7) All data supplied in the IVC, PSG, and PID segments must be identical to that in the original invoice or (pre) authorization request.</p>
+</div>
+<div class="paragraph">
+<p>8) With the exception of "Payer Tracking Number" and "Product/Service Line Item Status" all data supplied in the PSL segment must be identical to that in the original invoice or (pre) authorization request.</p>
+</div>
+<div class="paragraph">
+<p>9) Interpretive Rule<em>:</em> Inclusion of Product/Service Line item information implies that the request is directly related to the Product/Service described in PSL. Omitting this optional segment implies that the request is related to all product/service line items in the original Product/Service Group. (See E01 message for rules governing the construction of Product/Service Groups.)</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-EHC_E12.html">EHC_E12</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-RFI.html">RFI</a></td><td>Request for Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PID.html">PID</a> ]</td><td>Person Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-GSC.html">GSC</a> ]</td><td>*Sex Parameter for Clinical Use*</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PSL.html">PSL</a> }]</td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Request begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-NTE.html">NTE</a> ]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Observation Results</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Request end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-E12.html">ACK^E12</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-E12.html">ACK^E12</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-E12.html">ACK^E12</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

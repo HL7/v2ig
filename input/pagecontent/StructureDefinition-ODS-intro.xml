@@ -1,0 +1,13 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div id="v2-segment-content" style="display:none;">
+<table class="grid v2-segment-table">
+<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<tbody>
+<tr><td class="v2-col-seq">1</td><td>Type</td><td class="v2-col-mono"><a href="StructureDefinition-ID.html">ID</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0159">0159</a></td><td class="v2-col-mono">00269</td><td class="v2-col-mono">1</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Service Period</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..10]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0627">0627</a></td><td class="v2-col-mono">00270</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Diet, Supplement, or Preference Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..20]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0628">0628</a></td><td class="v2-col-mono">00271</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">4</td><td>Text Instruction</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..2]</td><td></td><td class="v2-col-mono">00272</td><td class="v2-col-mono"></td><td class="v2-col-mono">80</td><td class="v2-col-mono">=</td></tr>
+</tbody>
+</table>
+</div>
+</div>

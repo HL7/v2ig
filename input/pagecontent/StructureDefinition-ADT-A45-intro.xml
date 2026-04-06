@@ -1,0 +1,49 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>A move has been done at the visit identifier level. That is, a <em>PV1-19 - Visit Number</em> or <em>PV1-50 - Alternate Visit ID</em> associated with one account identifier (<em>PID-18 - Patient Account Number</em>) has been moved to another account identifier.</p>
+</div>
+<div class="paragraph">
+<p>An A45 event is used to signal a move of records identified by the <em>MRG-5 - Prior Visit Number</em> or the <em>MRG-6 - Prior Alternate Visit ID</em> from the "incorrect source account identifier" identified in the MRG segment (<em>MRG-3 - Prior Patient Account Number</em>) to the "correct target account identifier" identified in the PID segment (<em>PID-18 - Patient Account Number</em>).</p>
+</div>
+<div class="paragraph">
+<p>This event and the message syntax do allow for the specification of "new identifiers" (<em>PV1-19 - Visit Number</em>, or <em>PV1-50 - Alternate Visit ID</em>), which may be application and/or implementation-specific and therefore require site negotiation.</p>
+</div>
+<div class="paragraph">
+<p>All of the identifiers superior to the visit number or alternate visit ID should be valued in both the MRG segment and the PID segments. In this message, the account number and <em>PID-3 - Patient Identifier List</em> are superior to the visit number and alternate visit ID.</p>
+</div>
+<div class="paragraph">
+<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em>&#44;</a> "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#move"><em>3.6.2.1.3</em></a>, "<a href="#move"><em>Move</em></a>," for a discussion of issues related to the implementation of move messages. The fields included when this message is sent should be the fields pertinent to communicate this event. When demographic data in other fields change, it is recommended that the A08 (update patient information) event be used in conjunction with this message. However, all PID data associated with the "correct target visit ID" are treated as updated information.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ADT_A45.html">ADT_A45</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Merge Info begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MRG.html">MRG</a></td><td>Merge Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Merge Info end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-A45.html">ACK^A45</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-A45.html">ACK^A45</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-A45.html">ACK^A45</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

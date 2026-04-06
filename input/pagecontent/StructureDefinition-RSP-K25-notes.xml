@@ -1,0 +1,220 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11%;"/>
+<col style="width: 14%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 6%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 3%;"/>
+<col style="width: 8%;"/>
+<col style="width: 8%;"/>
+<col style="width: 9%;"/>
+<col style="width: 8%;"/>
+<col style="width: 11%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Fld. Seq.</th>
+<th class="tableblock halign-left valign-top">ColName</th>
+<th class="tableblock halign-left valign-top">Key/
+
+Search</th>
+<th class="tableblock halign-left valign-top">Sort</th>
+<th class="tableblock halign-left valign-top">LEN</th>
+<th class="tableblock halign-left valign-top">TYPE</th>
+<th class="tableblock halign-left valign-top">Opt</th>
+<th class="tableblock halign-left valign-top">Rep</th>
+<th class="tableblock halign-left valign-top">Match Op</th>
+<th class="tableblock halign-left valign-top">TBL</th>
+<th class="tableblock halign-left valign-top">Segment Field Name</th>
+<th class="tableblock halign-left valign-top">LOINC or HL7 code/ Domain</th>
+<th class="tableblock halign-left valign-top">Element Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StaffIDCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STF.2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STF-2: Staff ID Code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StaffName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">48</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XPN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STF.3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STF-3: Staff Name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PractitionerCategory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0186</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRA.3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRA-3: Practitioner Category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CWE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0296</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LAN.2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LAN-2: Language</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LanguageAbility</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CWE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0403</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LAN.3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LAN-3: Language Ability</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LanguageProficiency</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CWE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LAN.4</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LAN-4: Language Proficiency</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 19%;"/>
+<col style="width: 11%;"/>
+<col style="width: 6%;"/>
+<col style="width: 64%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Input Parameter</th>
+<th class="tableblock halign-left valign-top">Comp Name</th>
+<th class="tableblock halign-left valign-top">DT</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StaffIDCode</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components: &lt;ID (ST)&gt; ^ &lt;check digit (ST)&gt; ^ &lt;code identifying the check digit scheme employed (ID)&gt; ^ &lt;assigning authority (HD)&gt; ^ &lt;identifier type code (IS)&gt; ^ &lt;assigning facility (HD)&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This field contains a personnel identification code or institution user number, used by the institution to identify the requested person.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field is not valued, all values for this field are considered to be a match.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following components may be specified:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field, STF.2.1, is not valued, all values for this field are considered to be a match.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assigning Authority</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field, STF.2.4, is not valued, all values for this field are considered to be a match.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier type code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field, STF.2.5, is not valued, all values for this field are considered to be a match.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StaffName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XPN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field is not valued, all values for this field are considered to be a match.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PractitionerCategory</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field is not valued, all values for this field are considered to be a match. If this field contains multiple values, the Server will record a match for any of the match values specified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Language</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CWE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this field is not valued, all values for this field are considered to be a match. If this field contains multiple values, the Server will record a match for any of the match values specified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LanguageAbility</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CWE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Server will evaluate this field only if the Language field is specified; otherwise, this field will be ignored. If this field is not valued, all values for this field are considered to be a match. If this field contains multiple values, the Server will record a match for any of the match values specified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LanguageProficiency</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CWE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Server will evaluate this field only if the Language field is specified; otherwise, this field will be ignored. If this field is not valued, all values for this field are considered to be a match. If this field contains multiple values, the Server will record a match for any of the match values specified.</p></td>
+</tr>
+</tbody>
+</table>
+</div>

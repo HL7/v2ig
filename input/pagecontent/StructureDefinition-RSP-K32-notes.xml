@@ -1,0 +1,271 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11%;"/>
+<col style="width: 14%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 6%;"/>
+<col style="width: 8%;"/>
+<col style="width: 3%;"/>
+<col style="width: 3%;"/>
+<col style="width: 8%;"/>
+<col style="width: 8%;"/>
+<col style="width: 9%;"/>
+<col style="width: 8%;"/>
+<col style="width: 11%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field Seq.</th>
+<th class="tableblock halign-left valign-top">Field Name</th>
+<th class="tableblock halign-left valign-top">Key/
+
+Search</th>
+<th class="tableblock halign-left valign-top">Sort</th>
+<th class="tableblock halign-left valign-top">LEN</th>
+<th class="tableblock halign-left valign-top">TYPE</th>
+<th class="tableblock halign-left valign-top">Opt</th>
+<th class="tableblock halign-left valign-top">Rep</th>
+<th class="tableblock halign-left valign-top">Match Op</th>
+<th class="tableblock halign-left valign-top">TBL</th>
+<th class="tableblock halign-left valign-top">Segment Field Name</th>
+<th class="tableblock halign-left valign-top">LOINC or HL7 Code/Domain</th>
+<th class="tableblock halign-left valign-top">ElementName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Demographics / Visit Fields</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SearchConfidenceThreshold</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AlgorithmName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AlgorithmVersion</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AlgorithmDescription</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID-3</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Patient Identifier List</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 19%;"/>
+<col style="width: 11%;"/>
+<col style="width: 6%;"/>
+<col style="width: 64%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Input Parameter</th>
+<th class="tableblock halign-left valign-top">Comp. Name</th>
+<th class="tableblock halign-left valign-top">DT</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Demographics/VisitFields</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components: &lt;segment field name (ST)&gt; ^ &lt;value1 (ST) &amp; value2 (ST) &amp; value3 (ST&#8230;&#8203;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components may be any fields in the PID, PD1, PV1 and/or PV2. If subcomponents of fields need to be specified, each subcomponent should be listed separately.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|@PID.5.1<sup>SMITH<sub>@PV1.3.2</sub></sup><sub>389</sub>&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SearchConfidenceThreshold</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the minimum match confidence for candidates to be returned for the query. The value instructs the queried system to return no records (PID segments) for persons whose “match weight” on the lookup was lower than the user-defined value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: |80|</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AlgorithmName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies the specific algorithm the queried system should use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: |MATCHWARE|</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AlgorithmVersion</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies the specific algorithm version the queried system should use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: |1.2|</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AlgorithmDescription</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the algorithm the queried system should use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components: &lt;ID (ST)&gt; ^ &lt;check digit (ST)&gt; ^ &lt;code identifying the check digit scheme employed (ID)&gt; ^ &lt; assigning authority (HD)&gt; ^ &lt;identifier type code (IS)&gt; ^ &lt; assigning facility (HD)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This parameter restricts the set of domains for which identifiers are returned in PID-3. If this is not specified, then identifiers for all known domains shall be returned. It does not restrict the search for persons.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|<sup>^</sup>METRO HOSPITAL~<sup>^</sup>SOUTH LAB|&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only the following components should be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assigning Authority</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID.3.4 must be valued.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WhatDomainsReturned</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier type code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Following is an example of a Q25/K25 query/response pair of messages. First is the query:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^&amp;~\|CLINREG|WESTCLIN|HOSPMPI|HOSP|199912121135-0600||QBP^Q25^QBP_Q21|8702|D|2.6
+QPD|Q25^Find Candidates Including Visit Information^HL70471|111069|@PID.5.1^SMITH~@PV1.3.2^389 |80|MATCHWARE|1.2||^^^METRO HOSPITAL
+RCP||I|20^RD</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This query is asking for a list of persons matching the name SMITH who are recorded as being in Room 389. Candidates with a match level above 80 using the algorithm Matchware version 1.2 should be returned. The returned records should include identifiers for assigning authority METRO HOSPITAL. The RCP segment specifies that the number of matches should be limited to 20. Here is a sample response:</p>
+</div>
+<div class="literalblock er7">
+<div class="content">
+<pre>MSH|^&amp;~\|HOSPMPI|HOSP|CLINREG|WESTCLIN|200412121135-0600||RSP^K25^RSP_K25|H352357509|D|2.6
+MSA|AA|8702
+QAK|111069|OK|Q25^Find Candidates Including Visit Information^HL70471|1
+QPD|Q25^Find Candidates Including Visit Information^HL70471|111069|@PID.5.1^SMITH~ @PID.5.2^JOHN~@PID.8^M|80|MATCHWARE|1.2||^^^METRO HOSPITAL
+PID|||66785^^^METRO HOSPITAL||Smith^John||19630423|M||C|N2378 South Street^^Madison^WI^53711
+PV1||I|W^389^1^METRO HOSPITAL^^^^3||||12345^MORGAN^REX^J^^^MD^0010^METRO HOSPITAL^L||67890^GRAINGER^LUCY^X^^^MD^0010^METRO HOSPITAL^L|MED|||||A0||13579^POTTER^SHERMAN^T^^^MD^0010^METRO HOSPITAL^L
+QRI|95||MATCHWARE 1.2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>One candidate was returned. Notice the 1 at the end of the QAK segment signifying the number of matches. The group of segments includes a PID, PV1, and QRI segment; the QRI segment gives a confidence factor for the candidate.</p>
+</div>
+</div>

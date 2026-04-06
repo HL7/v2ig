@@ -1,0 +1,98 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>The primary application of the PEX message is to transfer information related to an adverse event occurring while a patient was exposed to a product. The P08 event is an unsolicited update of an individual product experience report.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-PEX_P07.html">PEX_P07</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Visit end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Experience begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PES.html">PES</a></td><td>Product Experience Sender</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Pex Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PEO.html">PEO</a></td><td>Product Experience Observation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Pex Cause begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PCR.html">PCR</a></td><td>Potential Causal Relationship</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Rx Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-RXE.html">RXE</a></td><td>Pharmacy/Treatment Encoded Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Pharmacy/Treatment)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            { --- Timing Qty begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            } --- Timing Qty end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-RXR.html">RXR</a> }]</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Rx Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Rx Administration begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-RXA.html">RXA</a></td><td>Pharmacy/Treatment Administration</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-RXR.html">RXR</a> ]</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Pharmacy Administration)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Rx Administration end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRB.html">PRB</a> }]</td><td>Detail problem segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Observation end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Associated Person begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-NK1.html">NK1</a></td><td>Associated parties segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            [ --- Associated Rx Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-RXE.html">RXE</a></td><td>Pharmacy/Treatment Encoded Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Pharmacy/Treatment)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               { --- Nk1 Timing Qty begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">                  <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">                  [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               } --- Nk1 Timing Qty end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-RXR.html">RXR</a> }]</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            ] --- Associated Rx Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Associated Rx Admin begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-RXA.html">RXA</a></td><td>Pharmacy/Treatment Administration</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-RXR.html">RXR</a> ]</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Pharmacy Administration)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Associated Rx Admin end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRB.html">PRB</a> }]</td><td>Detail Problem Segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Associated Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Results Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Associated Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Associated Person end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Study begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-CSR.html">CSR</a></td><td>Clinical study registration</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-CSP.html">CSP</a> }]</td><td>Clinical study phase segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Study end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Pex Cause end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Pex Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Experience end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-P08.html">ACK^P08</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-P08.html">ACK^P08</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-P08.html">ACK^P08</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

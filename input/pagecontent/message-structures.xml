@@ -1,0 +1,43 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+
+  <h3>HL7 v2+ Message Structures</h3>
+  <p>Message structures define the arrangement and ordering of segments within an HL7 v2+ message. They specify which segments are required, optional, or repeating, and how segments are grouped together.</p>
+
+  <p>A message structure is the abstract syntax tree (AST) that defines the valid composition of segments for a particular message type. Multiple trigger events may share the same message structure.</p>
+
+  <h4>Example: ADT_A01 Message Structure</h4>
+  <p>The ADT_A01 message structure is used for the Admit/Visit Notification event (A01). It is one of the most widely implemented message structures in HL7 v2 and illustrates the typical pattern of an ADT message:</p>
+
+  <pre>
+  MSH            Message Header (Required)
+  ARV            Access Restrictions (Optional, Repeating)
+  SFT            Software Segment (Optional, Repeating)
+  UAC            User Authentication Credential (Optional)
+  EVN            Event Type (Required)
+  PID            Patient Identification (Required)
+  PD1            Additional Demographics (Optional)
+  OH1-OH4        Occupational Health segments (Optional)
+  ARV            Access Restrictions (Optional, Repeating)
+  ROL            Role (Deprecated - use PRT)
+  PRT            Participation (Optional, Repeating)
+  NK1            Next of Kin (Optional, Repeating)
+  PV1            Patient Visit (Required)
+  PV2            Patient Visit - Additional Info (Optional)
+  ...            Additional segment groups
+  </pre>
+
+  <h4>Representative Message Structures (Demo Subset)</h4>
+  <table class="grid">
+    <thead>
+      <tr><th>Structure</th><th>Description</th><th>Used By Events</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="StructureDefinition-ADT_A01-A.html">ADT_A01</a></td><td>ADT Message Structure for Admit/Visit</td><td>A01, A04, A08, A13</td></tr>
+      <tr><td><a href="StructureDefinition-ADT_A02.html">ADT_A02</a></td><td>ADT Message Structure for Transfer</td><td>A02, A12, A21, A22, A32, A33</td></tr>
+      <tr><td><a href="StructureDefinition-ORU_R01-A.html">ORU_R01</a></td><td>Observation Result/Unsolicited</td><td>R01</td></tr>
+    </tbody>
+  </table>
+
+  <p><i>The full v2+ specification includes 419 message structure definitions. This demo build includes a representative subset.</i></p>
+
+</div>

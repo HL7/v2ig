@@ -1,0 +1,60 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+<div class="paragraph">
+<p>An A61 event is used as a result of a change in the consulting physician(s) for the treatment of a patient.</p>
+</div>
+<div class="paragraph">
+<p>When other important fields change, it is recommended that the A08 (update patient information) event be used in addition. If the Patient Administration system allows demographics to change at the same time (for example an address change), two messages (an A61 followed by an A08) should be sent.</p>
+</div>
+<div class="paragraph">
+<p>The new consulting doctor(s) of the patient should appear in the <em>PV1-9 - Consulting Doctor</em> and may appear in a role segment per new consulting physician.</p>
+</div>
+<div class="paragraph">
+<p>If a consulting doctor stops being consulting doctor for this patient-visit, the end date/time can be sent in the <em>PRT-12 - End Date/Time</em>.</p>
+</div>
+<div class="paragraph">
+<p>For example, an A61 event can be used to notify the billing system that doctors' fees for being a consulting doctor, should be billed to the new doctor(s) starting from the timestamp in the message.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that field <em>EVN-6 - Event Occurred</em> contains the date/time the event actually occurred to the patient.</p>
+</div>
+<div class="paragraph">
+<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
+</div>
+<div class="paragraph">
+<p>The PRT – Participation Information Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>PRT-11 - Participation Begin Date/Time</em> and the <em>PRT-12 - Participation End Date/Time</em> in the PRT segment, with the applicable <em>PRT-4 - PArticipation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ADT_A61-A.html">ADT_A61</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
+<div id="v2-ack-content" style="display:none;">
+<table class="grid">
+<thead><tr><th>Mode</th><th>Response</th></tr></thead>
+<tbody>
+<tr><td>Original Mode</td><td><a href="StructureDefinition-ACK-A61.html">ACK^A61</a></td></tr>
+<tr><td>Enhanced Mode: Immediate</td><td><a href="StructureDefinition-ACK-A61.html">ACK^A61</a></td></tr>
+<tr><td>Enhanced Mode: Application</td><td><a href="StructureDefinition-ACK-A61.html">ACK^A61</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>

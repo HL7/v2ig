@@ -1,0 +1,46 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+
+  <h3>HL7 v2+ Control</h3>
+  <p>The Control chapter defines the fundamental message processing rules, acknowledgment patterns, and infrastructure segments used across all HL7 v2+ domains.</p>
+
+  <h4>Message Processing</h4>
+  <p>HL7 v2+ defines two primary modes of message exchange:</p>
+  <ul>
+    <li><b>Original Mode</b> &#x2014; The sending system transmits a message and waits for an acknowledgment (ACK) from the receiving system before sending additional messages.</li>
+    <li><b>Enhanced Mode</b> &#x2014; Provides more granular control over acknowledgment, separating accept acknowledgment (confirming receipt) from application acknowledgment (confirming processing).</li>
+  </ul>
+
+  <h4>Acknowledgment Choreography</h4>
+  <p>Each trigger event defines its acknowledgment choreography, specifying:</p>
+  <ul>
+    <li>Whether an immediate ACK is expected</li>
+    <li>What message type is returned as the response</li>
+    <li>Whether original mode and/or enhanced mode acknowledgment is supported</li>
+  </ul>
+
+  <h4>Infrastructure Segments</h4>
+  <p>The MSH (Message Header) segment is present in every HL7 v2+ message and defines critical metadata including:</p>
+  <ul>
+    <li>Encoding characters and field separator</li>
+    <li>Sending and receiving application/facility identifiers</li>
+    <li>Message type, trigger event, and message structure</li>
+    <li>Processing ID, version, and character sets</li>
+  </ul>
+
+  <h4>Trigger Events</h4>
+  <p>Trigger events represent real-world occurrences in a healthcare setting that initiate the exchange of messages. Examples include:</p>
+  <table class="grid">
+    <thead>
+      <tr><th>Event</th><th>Description</th><th>Domain</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="StructureDefinition-A01.html">A01</a></td><td>Admit/Visit Notification</td><td>Registration</td></tr>
+      <tr><td><a href="StructureDefinition-A04.html">A04</a></td><td>Register a Patient</td><td>Registration</td></tr>
+      <tr><td><a href="StructureDefinition-A08.html">A08</a></td><td>Update Patient Information</td><td>Registration</td></tr>
+      <tr><td><a href="StructureDefinition-R01.html">R01</a></td><td>Unsolicited Observation Message</td><td>Orders/Results</td></tr>
+    </tbody>
+  </table>
+
+  <p><i>The full v2+ specification defines 356 trigger events. This demo build includes a representative subset.</i></p>
+
+</div>
