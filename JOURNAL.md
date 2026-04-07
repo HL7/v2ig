@@ -790,3 +790,54 @@ Three-way comparison of V2 terminology: CH02C Word doc (published standard) vs F
 - The `_bracket_wrap` and `_parse_elements` functions have leading underscores (private convention) — tests import them directly since they contain the core logic
 - `max_card == '0'` in the real data means "unbounded repeating" and renders as `*` in segment tables — the PID fixture uses this pattern for PID.3 and PID.5
 - The plan called for `generate_domain_pages.py` tests but that was explicitly deferred to Tier 2
+
+---
+
+## Session Handoff - 2026-04-07
+
+### Completed This Session
+
+1. **Segment AsciiDoc source-of-truth layer** — Created 3,104 AsciiDoc files (192 root + 2,912 field files) in `website/data_structures/segments/`, mirroring the existing data type pattern. Backfilled 2,787 field definitions and 756 comments from FHIR JSON. Root definitions (all null) and 125 missing field definitions get `// TODO:` placeholders.
+
+2. **Backfill script** — `tooling/scripts/backfill_segment_adoc.py`: one-time JSON→AsciiDoc generator. Handles withdrawn fields, zero-field segments (Hxx, Varies), mixed-case IDs, and `[segment-comment]` blocks.
+
+3. **Injection script** — `tooling/scripts/inject_segment_definitions.py`: ongoing AsciiDoc→JSON pipeline. Extracts `[segment-definition]` and `[segment-comment]` blocks, injects into FHIR JSON `definition` and `comment` fields. Idempotent — round-trip verified: 0 changes across all 192 segments.
+
+4. **Tests** — 41 tests in `test/test_inject_segment_definitions.py` covering extraction, backfill generators, round-trip on real data (PID, MSH, DG1, Hxx), and edit detection.
+
+5. **Committed accumulated infrastructure** — 86 files from sessions 2-7 that were never committed (tooling scripts, test suites, docs, subset resources, reference backups).
+
+6. **Updated .gitignore** — Added coverage for screenshots, build logs, output-subset, __pycache__, scratch/, external repos.
+
+7. **Committed generated pagecontent** — 1,039 StructureDefinition-*-intro.xml files.
+
+**Commits:**
+- `81cfee3` — Add accumulated project infrastructure from sessions 2-7
+- `97f83d8` — Add segment AsciiDoc source-of-truth layer with injection pipeline
+- `09cfdb1` — Add generated StructureDefinition intro pages for segments and messages
+
+All pushed to `origin/feature/006-sd-injection`.
+
+### Current State
+- Branch: `feature/006-sd-injection`
+- Last checkpoint: `09cfdb1` — Add generated StructureDefinition intro pages
+- Tests: 41 new tests passing; 107 pre-existing tests (2 with known drift)
+- Working tree: clean, all pushed
+
+### Next Steps
+1. **Review earlier V2+ publication** — User is restarting container with bind mounts to an earlier incarnation of the V2+ publication (different workflow/tools). Look at its styling and layout for ideas to incorporate into current IG output.
+2. **Populate root definitions** — 192 segments have `// TODO:` root definitions that need real content
+3. **Populate missing field definitions** — 125 fields across 34 segments need definitions (potentially from Word docs, but user wants to review any Word-sourced content before injection)
+4. **`short` field name injection** — Needs team discussion on approach (didn't work in a previous attempt)
+5. **Domain pages** — patient-administration, observation, order-entry still missing from output
+
+### Open Questions / Blockers
+- The `short` (field name) injection pattern needs team input — user explicitly deferred this
+- Any Word-doc-sourced field definitions need a review list before injection (user concerned about data quality issues like sequence/clause number mismatches)
+- No SSH key in container — pushes require the `GITHUB_PERSONAL_ACCESS_TOKEN` env var (currently set, remote configured)
+
+### Relevant Context
+- **Segment AsciiDoc pattern**: `website/data_structures/segments/{SEG}.adoc` + `{SEG}-fields/{SEG}-{N}.adoc` with `[segment-definition]` and `[segment-comment]` block markers — same conventions as data type `[datatype-definition]` blocks
+- **Key difference from data types**: Segment JSON uses correctly-spelled `definition` (not the `defintion` typo in data type components)
+- **Audit findings**: All 2,912 field names (`short`) already match V2.9.1 extracted data — zero field-level mismatches. 33 root-level name mismatches are cosmetic (en-dash vs hyphen, case, "Segment" suffix)
+- **Earlier V2+ publication**: User is bind-mounting this into the container for next session — expect to analyze its styling/layout and adapt ideas to the current IG template
