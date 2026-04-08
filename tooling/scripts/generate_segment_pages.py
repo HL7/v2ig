@@ -325,10 +325,8 @@ def main():
 
     # Find all segment JSON files
     segment_files = sorted(glob.glob(os.path.join(SEGMENTS_DIR, '*.json')))
-    print(f'Found {len(segment_files)} segment files')
-
     if subset:
-        print(f'Processing subset: {", ".join(sorted(subset))}')
+        print(f'  Processing subset: {", ".join(sorted(subset))}')
 
     intro_count = 0
 
@@ -337,8 +335,6 @@ def main():
 
         if subset and segment_id not in subset:
             continue
-
-        print(f'Processing {segment_id}...')
 
         data = load_json(filepath)
         fields = parse_segment_fields(data, segment_id, anomalies)
@@ -361,13 +357,9 @@ def main():
     anomalies.write(ANOMALY_LOG_PATH, script_name='generate_segment_pages.py')
     log_rel = os.path.relpath(ANOMALY_LOG_PATH, PROJECT_ROOT)
 
-    print(f'\nDone!')
-    print(f'  Segment intro files written: {intro_count}')
-    print(f'  Anomalies found: {len(anomalies.entries)}')
+    print(f'  {intro_count} segment intro files written')
     if anomalies.entries:
-        print(f'  Anomaly breakdown:')
-        print(anomalies.summary())
-        print(f'  Full anomaly log: {log_rel}')
+        print(f'  {len(anomalies.entries)} anomalies (see {log_rel})')
 
 
 if __name__ == '__main__':

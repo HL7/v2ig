@@ -1,3 +1,5 @@
+/* === V2+ Color Overrides === */
+
 .navbar {
   position: relative;
   min-height: 40px;
@@ -78,4 +80,102 @@ background-color: #005a8c !important;
 
 .v2-segment-table .v2-muted {
   color: #999;
+}
+
+/* === Homepage Diagram (Layered Architecture) === */
+
+#diagram {
+  margin-bottom: 2em;
+  padding: 0.75em 0.25em 0.25em;
+  background-color: #ffffe6;
+  border-radius: 6px;
+  border: 2px solid #005a8c;
+}
+
+#diagram p {
+  margin: 0;
+}
+
+#diagram .level-text {
+  padding: 0.4em 0.5em;
+}
+
+#diagram .box {
+  margin: 0 0.5em 0.75em;
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: #f7f7f7;
+}
+
+#diagram .box .head {
+  height: 44px;
+  padding: 6px;
+  font-weight: bold;
+  border-radius: inherit;
+  background-color: white;
+}
+
+#diagram .box .head a {
+  display: inline-block;
+  min-height: 32px;
+  padding-left: 38px;
+  line-height: 32px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 32px 32px;
+}
+
+#diagram .box .head a span {
+  display: inline-block;
+  line-height: 1.4em;
+}
+
+#diagram .box .content {
+  margin: 0;
+  padding: 0.5em 0.75em;
+}
+
+#diagram .box .content span {
+  display: inline-block;
+  line-height: 1.4em;
+}
+
+#diagram .box_row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#diagram .box_one > p {
+  display: table-cell;
+  min-width: 10em;
+  flex: 1 1 10em;
+}
+
+#diagram .box_one .head {
+  width: 25%;
+}
+
+#diagram .box_one .content {
+  flex: 4 1 10em;
+  line-height: 32px;
+  border-left: 1px solid grey;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#diagram .box_more {
+  border-spacing: 0.75em;
+  border-collapse: separate;
+}
+
+#diagram .box_more .box {
+  display: table-cell;
+  flex: 1 1 8em;
+  min-height: 9em;
+}
+
+#diagram .box_more .box .head {
+  border-bottom: 1px solid grey;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }

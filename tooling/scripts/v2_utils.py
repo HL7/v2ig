@@ -44,15 +44,15 @@ ADOC_BASE_DIR = os.path.join(PROJECT_ROOT, 'website', 'domains')
 # Ruby / Asciidoctor environment
 # ---------------------------------------------------------------------------
 
-RUBY_PATH = '/home/claude/ruby/arm64/bin/ruby'
-RUBY_ENV = {
-    'LD_LIBRARY_PATH': '/home/claude/ruby/arm64/lib',
-    'GEM_HOME': '/tmp/gems',
-    'GEM_PATH': '/tmp/gems',
-    'PATH': os.environ.get('PATH', ''),
+import shutil as _shutil
+RUBY_PATH = _shutil.which('ruby') or '/home/claude/ruby/arm64/bin/ruby'
+# Inherit the current environment so Apptainer/rbenv/system gem paths work,
+# then layer on safe defaults for encoding.
+RUBY_ENV = dict(os.environ)
+RUBY_ENV.update({
     'LANG': 'en_US.UTF-8',
     'LC_ALL': 'en_US.UTF-8',
-}
+})
 
 # ---------------------------------------------------------------------------
 # Regex patterns for AsciiDoc processing
@@ -219,17 +219,9 @@ def html5_to_xhtml(html):
         new_level = min(level + 2, 6)
         return f'<{tag_start}h{new_level}'
     html = re.sub(r'<(/?)h([1-3])(?=[\s>])', _shift_heading, html)
-    # Fix overlapping sup/sub tags that Asciidoctor can produce
-    html = re.sub(
-        r'<sup>([^<]*)<sub>([^<]*)</sup>([^<]*)</sub>',
-        r'<sup>\1<sub>\2</sub></sup><sub>\3</sub>',
-        html
-    )
-    html = re.sub(
-        r'<sub>([^<]*)<sup>([^<]*)</sub>([^<]*)</sup>',
-        r'<sub>\1<sup>\2</sup></sub><sup>\3</sup>',
-        html
-    )
+    # Strip <sub>/<sup> tags — artifacts of Asciidoctor interpreting
+    # ER7 ^ and ~ characters as superscript/subscript markup.
+    html = re.sub(r'</?su[bp]>', '', html)
     return html
 
 

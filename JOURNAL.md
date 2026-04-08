@@ -841,3 +841,62 @@ All pushed to `origin/feature/006-sd-injection`.
 - **Key difference from data types**: Segment JSON uses correctly-spelled `definition` (not the `defintion` typo in data type components)
 - **Audit findings**: All 2,912 field names (`short`) already match V2.9.1 extracted data — zero field-level mismatches. 33 root-level name mismatches are cosmetic (en-dash vs hyphen, case, "Segment" suffix)
 - **Earlier V2+ publication**: User is bind-mounting this into the container for next session — expect to analyze its styling/layout and adapt ideas to the current IG template
+
+---
+
+## Session Handoff - 2026-04-07/08
+
+### Completed This Session
+
+1. **Homepage layered architecture diagram** — Rewrote `index.xml` with the v2plusDemo-style diagram showing 7 levels (Foundation, Vocabulary, Building Blocks, Domains, Conformance, Tech Spec, Core Profiles). Domain hierarchy matches `website/domains/` directory structure (Administration, Clinical, Financial, Technical, ERP). All 45 links verified against existing pagecontent files. All 11 icon images verified. Vocabulary section links to THO (CodeSystems, ValueSets, Concept Domains).
+
+2. **Diagram CSS** — Added flexbox-based box layout CSS to `v2plus.css` from v2plusDemo's `modules.css`. Removed `max-width` constraint so diagram fills page width.
+
+3. **Data types page with search** — Replaced Jekyll `{% include %}` lists with static tables showing Code + Name for all 12 primitives and 71 complex types. Names sourced from v291 extracted data. Added per-column filter inputs.
+
+4. **Segments page with search** — Replaced demo subset table with full listing of all 191 segments (code + name). Added per-column filter.
+
+5. **Message structures page with search** — Replaced demo subset with full listing of all 418 message structures. Added filter.
+
+6. **Table filter JS** — Created `v2-table-filter.js` adapted from THO's `table.js`. Supports multiple filtered tables per page. Included via `_append.fragment-css.html` on all pages.
+
+7. **Terminology page** — Expanded with links to THO CodeSystems and ValueSets pages, plus TODO for governance details.
+
+8. **Preprocessing pipeline on postproc-g** — Moved all preprocessing (segment pages, message pages, domain pages) to run remotely inside Apptainer container. Created standalone `tooling/preprocess.sh` for future CI/CD portability. Build script now does: sync → preprocess on remote → IG Publisher → fetch output.
+
+9. **Build script improvements** — Subset output goes to `output-subset/`, full to `output/`. Added `fetch-subset`, `fetch-full`, `preprocess` commands. Removed verbose rsync output, added `--info=progress2`. Added section headers for preprocessing steps.
+
+10. **Ruby/gem path fixes** — Changed hardcoded `/home/claude/ruby/` paths to `shutil.which('ruby')` with fallback. Fixed `generate_domain_pages.py` to pass `GEM_HOME`/`GEM_PATH` to subprocess for Asciidoctor. Fixed `RUBY_ENV` in `v2_utils.py` to inherit environment.
+
+11. **XHTML fixes** — Replaced broken sup/sub tag overlap fix with complete strip of `<sub>`/`<sup>` tags (artifacts of ER7 `^`/`~` in AsciiDoc prose). Added XML validation in `xhtml_wrapper()` — invalid XML from AsciiDoc conversion gets stripped, keeping only machine-generated content (event tables).
+
+12. **Version** — Changed IG version from `2026` to `2026.0.0` in both `v2plus.xml` and `v2plus-subset.xml`.
+
+13. **Quieted preprocessing output** — Removed per-file progress lines from all three generator scripts. Only section headers and summary counts printed.
+
+### Current State
+- Branch: `feature/006-sd-injection`
+- Last checkpoint: `fa5652e6` (prior session) — changes from this session uncommitted
+- Tests: Not run (infrastructure and content changes)
+- Full build: **completed successfully** on postproc-g (~54 min)
+- Working tree: 48 modified files + 2 new files, uncommitted
+
+### Next Steps
+1. **Review the full build output** — Check index page diagram, data types/segments/message structures tables with filters, domain pages with AsciiDoc content
+2. **Commit this session's work** — 50 files spanning index page, listing pages, preprocessing pipeline, build script, XHTML fixes
+3. **Fix AsciiDoc content quality** — 15 domain .adoc files have ER7 examples outside code blocks (carets/tildes interpreted as markup). These pages currently render without their AsciiDoc prose (fallback to event table only). Fix by wrapping ER7 in code blocks.
+4. **Push to origin**
+5. **Continue styling work** — Further align with v2plusDemo look and feel
+
+### Open Questions / Blockers
+- The `*.png` rsync exclude prevents images from reaching postproc-g on a fresh clone. Images are currently there from prior syncs. Would need to handle this for a clean CI/CD setup.
+- 15 domain pages have AsciiDoc content stripped due to ER7 carets producing invalid XML. The content exists in the .adoc files but doesn't render. Need to wrap ER7 examples in code blocks.
+- IG Publisher validation produces thousands of `could not be resolved` errors for message cross-references — these are pre-existing and not caused by this session's changes.
+- `generate_domain_pages.py` updates `v2plus.xml` (full build config) but NOT `v2plus-subset.xml`. If domain structure changes, subset config needs manual update.
+
+### Relevant Context
+- **THO search widget**: terminology.hl7.org uses a custom `table.js` with `.filtered-table` class, `.filter-input` inputs, `.data-row` rows, and `.table-filter-summary` count. We adapted this pattern. No DataTables dependency.
+- **Preprocessing runs on postproc-g**: No Ruby/Python needed on local Mac. The Apptainer container has Python 3, Ruby 3.2.6, Asciidoctor, and Jekyll.
+- **`tooling/preprocess.sh`** is the standalone entry point for preprocessing. Designed for CI/CD portability. Has `--skip-domain-pages` flag for environments without Ruby.
+- **Build times**: Full build ~54 min on postproc-g (128-core AMD EPYC). Subset ~20 min.
+- **rsync progress**: Uses `--info=progress2` which requires rsync 3.1+. User installed rsync 3.4 via Homebrew on Mac.

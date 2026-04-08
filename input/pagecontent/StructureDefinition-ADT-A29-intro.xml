@@ -1,35 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<div class="paragraph">
-<p>An A29 event can be used to delete all demographic information related to a given person. This event "undoes" an A28 (add person information) event. The information from the A28 event is deleted. This event is used, for example, when adding the information was performed in error, or when another record already exists for the person, or when one wants to purge the person from the database. When this event occurs, all visit and account level data for this person is also purged.</p>
-</div>
-<div class="paragraph">
-<p>To maintain backward compatibility with previous releases, the PV1 segment is required. However, a "pseudo-optional" PV1 can be achieved by valuing <em>PV1-2 - Patient Class</em> to N - not applicable.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-ADT_A21-G.html">ADT_A21</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-DB1.html">DB1</a> }]</td><td>Disability Information</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Observation end</td><td></td><td></td></tr>
-</tbody>
-</table>
-</div>
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A21-G.html">ADT_A21</a></p>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

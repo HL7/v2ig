@@ -1,37 +1,207 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 
   <h3>HL7 v2+ Segment Definitions</h3>
-  <p>Segments are the fundamental building blocks of HL7 v2+ messages. Each segment contains a logically related group of data fields. A segment is identified by a unique three-character code (e.g., MSH, PID, OBX).</p>
+  <p>Segments are the fundamental building blocks of HL7 v2+ messages. Each segment contains a logically related group of data fields and is identified by a unique three-character code.</p>
 
-  <p>Each segment definition specifies:</p>
-  <ul>
-    <li>The fields contained in the segment, in order</li>
-    <li>The data type of each field</li>
-    <li>Optionality (Required, Optional, Conditional, etc.)</li>
-    <li>Cardinality (how many repetitions are allowed)</li>
-    <li>Length constraints</li>
-    <li>Value set bindings for coded fields</li>
-  </ul>
-
-  <h4>Representative Segments (Demo Subset)</h4>
-  <p>The following segments are included in this demo build as representative examples:</p>
-
-  <table class="grid">
+  <p class="table-filter-summary"> </p>
+  <table class="grid filtered-table">
     <thead>
-      <tr><th>Segment</th><th>Name</th><th>Description</th></tr>
+      <tr><th>Code</th><th>Name</th></tr>
+      <tr><td><input size="6" type="text" class="filter-input"/></td><td><input size="30" type="text" class="filter-input"/></td></tr>
     </thead>
     <tbody>
-      <tr><td><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>Present in every HL7 v2 message. Contains metadata about the message including sending/receiving applications, message type, and encoding characters.</td></tr>
-      <tr><td><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>Contains information about the trigger event that initiated the message.</td></tr>
-      <tr><td><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>Contains patient demographic information including identifiers, name, date of birth, sex, race, address, and phone numbers.</td></tr>
-      <tr><td><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>Contains visit-specific information such as assigned patient location, attending doctor, visit number, and admission type.</td></tr>
-      <tr><td><a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin</td><td>Contains information about the patient's next of kin or associated parties.</td></tr>
-      <tr><td><a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>Contains a single clinical observation or result, including the observation identifier, value, units, and reference range.</td></tr>
-      <tr><td><a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis</td><td>Contains patient diagnosis information including diagnosis code, type, and description.</td></tr>
-      <tr><td><a href="StructureDefinition-AL1.html">AL1</a></td><td>Allergy Information</td><td>Contains patient allergy information including allergen type, code, severity, and reaction.</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ABS.html">ABS</a></td><td>Abstract</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ACC.html">ACC</a></td><td>Accident</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ADD.html">ADD</a></td><td>Addendum</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ADJ.html">ADJ</a></td><td>Adjustment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AFF.html">AFF</a></td><td>Professional Affiliation</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AIG.html">AIG</a></td><td>Appointment Information – General Resource</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AIL.html">AIL</a></td><td>Appointment Information – Location Resource</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AIP.html">AIP</a></td><td>Appointment Information – Personnel Resource</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AIS.html">AIS</a></td><td>Appointment Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AL1.html">AL1</a></td><td>Patient Allergy Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-APR.html">APR</a></td><td>Appointment Preferences</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ARQ.html">ARQ</a></td><td>Appointment Request</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ARV.html">ARV</a></td><td>Access Restriction</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-AUT.html">AUT</a></td><td>Authorization Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BHS.html">BHS</a></td><td>Batch Header</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BLC.html">BLC</a></td><td>Blood Code</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BLG.html">BLG</a></td><td>Billing</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BPO.html">BPO</a></td><td>Blood product order</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BPX.html">BPX</a></td><td>BPX</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BTS.html">BTS</a></td><td>Batch Trailer</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BTX.html">BTX</a></td><td>BTX</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-BUI.html">BUI</a></td><td>BUI</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CDM.html">CDM</a></td><td>Charge Description Master</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CDO.html">CDO</a></td><td>Cumulative Dosage</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CER.html">CER</a></td><td>Certificate Detail</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CM0.html">CM0</a></td><td>Clinical Study Master</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CM1.html">CM1</a></td><td>Clinical Study Phase Master</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CM2.html">CM2</a></td><td>Clinical Study Schedule Master</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CNS.html">CNS</a></td><td>CNS</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CON.html">CON</a></td><td>Consent Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CSP.html">CSP</a></td><td>Clinical Study Phase</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CSR.html">CSR</a></td><td>Clinical Study Registration</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CSS.html">CSS</a></td><td>Clinical Study Data Schedule Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CTD.html">CTD</a></td><td>Contact Data</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CTI.html">CTI</a></td><td>Clinical Trial Identification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-CTR.html">CTR</a></td><td>Contract Master Outbound</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DB1.html">DB1</a></td><td>Disability</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DEV.html">DEV</a></td><td>Device</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DMI.html">DMI</a></td><td>DRG Master File Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DON.html">DON</a></td><td>Donation</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DPS.html">DPS</a></td><td>Diagnosis and Procedure Code Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DRG.html">DRG</a></td><td>Diagnosis Related Group</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DSC.html">DSC</a></td><td>Continuation Pointer</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DSP.html">DSP</a></td><td>Display Data</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-DST.html">DST</a></td><td>DST</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ECD.html">ECD</a></td><td>ECD</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ECR.html">ECR</a></td><td>ECR</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-EDU.html">EDU</a></td><td>Educational Detail</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-EQP.html">EQP</a></td><td>EQP</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-EQU.html">EQU</a></td><td>EQU</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ERR.html">ERR</a></td><td>Error</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-FAC.html">FAC</a></td><td>Facility</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-FHS.html">FHS</a></td><td>File Header</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-FT1.html">FT1</a></td><td>Financial Transaction</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-FTS.html">FTS</a></td><td>File Trailer</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GOL.html">GOL</a></td><td>Goal Detail</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GP1.html">GP1</a></td><td>Grouping/Reimbursement - Visit</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GP2.html">GP2</a></td><td>Grouping/Reimbursement - Procedure Line Item</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GSC.html">GSC</a></td><td>Sex Parameter for Clinical Use</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GSP.html">GSP</a></td><td>Person Gender and Sex</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GSR.html">GSR</a></td><td>Recorded Gender and Sex</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-GT1.html">GT1</a></td><td>Guarantor</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IAM.html">IAM</a></td><td>Patient Adverse Reaction Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IAR.html">IAR</a></td><td>allergy reaction</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IIM.html">IIM</a></td><td>Inventory Item Master</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ILT.html">ILT</a></td><td>Material</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IN2.html">IN2</a></td><td>Insurance Additional Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IN3.html">IN3</a></td><td>Insurance Additional Information, Certification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-INV.html">INV</a></td><td>INV</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IPC.html">IPC</a></td><td>Imaging Procedure Control Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IPR.html">IPR</a></td><td>Invoice Processing Results</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ISD.html">ISD</a></td><td>ISD</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ITM.html">ITM</a></td><td>Material Item</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-IVT.html">IVT</a></td><td>Material Location</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-LAN.html">LAN</a></td><td>Language Detail</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-LCC.html">LCC</a></td><td>Location Charge Code</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-LCH.html">LCH</a></td><td>Location Characteristic</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-LDP.html">LDP</a></td><td>Location Department</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-LOC.html">LOC</a></td><td>Location Identification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-LRL.html">LRL</a></td><td>Location Relationship</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MCP.html">MCP</a></td><td>Master File Coverage</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MFA.html">MFA</a></td><td>Master File Acknowledgment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MFE.html">MFE</a></td><td>Master File Entry</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MRG.html">MRG</a></td><td>Merge Patient Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NCK.html">NCK</a></td><td>System Clock</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NDS.html">NDS</a></td><td>NDS</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin / Associated Parties</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NPU.html">NPU</a></td><td>Bed Status Update</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NSC.html">NSC</a></td><td>Application Status Change</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NST.html">NST</a></td><td>Application control level statistics</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-NTE.html">NTE</a></td><td>Notes and Comments</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ODS.html">ODS</a></td><td>Dietary Orders, Supplements, and Preferences</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ODT.html">ODT</a></td><td>Diet Tray Instructions</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OH1.html">OH1</a></td><td>Person Employment Status</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OH2.html">OH2</a></td><td>Past or Present Job</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OH3.html">OH3</a></td><td>Usual Work</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OH4.html">OH4</a></td><td>Combat Zone Work</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM1.html">OM1</a></td><td>General Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM2.html">OM2</a></td><td>Numeric Observation</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM3.html">OM3</a></td><td>Categorical Service/Test/Observation</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM4.html">OM4</a></td><td>Observations that Require Specimens</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM5.html">OM5</a></td><td>Observation Batteries (Sets)</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM6.html">OM6</a></td><td>Observations that are Calculated from Other Observations</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OM7.html">OM7</a></td><td>Additional Basic Attributes</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OMC.html">OMC</a></td><td>Supporting Clinical Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ORG.html">ORG</a></td><td>Practitioner Organization Unit</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-OVR.html">OVR</a></td><td>Override Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipment Package</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PCE.html">PCE</a></td><td>Patient Charge Cost Center Exceptions</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PCR.html">PCR</a></td><td>Possible Causal Relationship</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PD1.html">PD1</a></td><td>Patient Additional Demographic</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PDA.html">PDA</a></td><td>Patient Death and Autopsy</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PDC.html">PDC</a></td><td>Product Detail Country</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PEO.html">PEO</a></td><td>Product Experience Observation</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PES.html">PES</a></td><td>Product Experience Sender</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PKG.html">PKG</a></td><td>Item Packaging</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PM1.html">PM1</a></td><td>Payer Master File</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PMT.html">PMT</a></td><td>Payment Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PR1.html">PR1</a></td><td>Procedures</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PRA.html">PRA</a></td><td>Practitioner Detail</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PRB.html">PRB</a></td><td>Problem Details</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PRC.html">PRC</a></td><td>Pricing</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PRD.html">PRD</a></td><td>Provider Data</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PRT.html">PRT</a></td><td>Participation Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PSH.html">PSH</a></td><td>Product Summary Header</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PSL.html">PSL</a></td><td>Product/Service Line Item</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PTH.html">PTH</a></td><td>Pathway</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PV2.html">PV2</a></td><td>Patient Visit - Additional Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-PYE.html">PYE</a></td><td>Payee Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-QAK.html">QAK</a></td><td>Query Acknowledgment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-QID.html">QID</a></td><td>Query Identification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-QRI.html">QRI</a></td><td>Query Response Instance</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RCP.html">RCP</a></td><td>Response Control Parameter</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RDF.html">RDF</a></td><td>Table Row Definition</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RDT.html">RDT</a></td><td>Table Row Data</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-REL.html">REL</a></td><td>Clinical Relationship Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RF1.html">RF1</a></td><td>Referral Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RFI.html">RFI</a></td><td>Request for Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RGS.html">RGS</a></td><td>Resource Group</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RMI.html">RMI</a></td><td>Risk Management Incident</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-ROL.html">ROL</a></td><td>Role</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RQ1.html">RQ1</a></td><td>Requisition Detail-1</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RQD.html">RQD</a></td><td>Requisition Detail</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXA.html">RXA</a></td><td>Pharmacy/Treatment Administration</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXC.html">RXC</a></td><td>Pharmacy/Treatment Component Order</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXD.html">RXD</a></td><td>Pharmacy/Treatment Dispense</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXE.html">RXE</a></td><td>Pharmacy/Treatment Encoded Order</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXG.html">RXG</a></td><td>Pharmacy/Treatment Give</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXO.html">RXO</a></td><td>Pharmacy/Treatment Order</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXR.html">RXR</a></td><td>RXR</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-RXV.html">RXV</a></td><td>Pharmacy/Treatment Infusion</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SAC.html">SAC</a></td><td>SAC</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SCD.html">SCD</a></td><td>Anti-Microbial Cycle Data</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SCH.html">SCH</a></td><td>Scheduling Activity Information</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SCP.html">SCP</a></td><td>Sterilizer Configuration (Anti-Microbial Devices)</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SDD.html">SDD</a></td><td>Sterilization Device Data</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SFT.html">SFT</a></td><td>Software Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SGH.html">SGH</a></td><td>Segment Group Header</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SGT.html">SGT</a></td><td>Segment Group Trailer</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SID.html">SID</a></td><td>SID</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SLT.html">SLT</a></td><td>Sterilization</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-STF.html">STF</a></td><td>Staff Identification</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-STZ.html">STZ</a></td><td>Sterilization Parameter</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-TCC.html">TCC</a></td><td>TCC</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-TCD.html">TCD</a></td><td>TCD</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-TQ2.html">TQ2</a></td><td>Timing/Quantity Relationship</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-TXA.html">TXA</a></td><td>Transcription Document Header</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-UAC.html">UAC</a></td><td>User Authentication Credential Segment</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-UB1.html">UB1</a></td><td>Uniform Billing Data 1</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-UB2.html">UB2</a></td><td>Uniform Billing Data 2</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-VAR.html">VAR</a></td><td>Variance</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-VND.html">VND</a></td><td>Purchasing Vendor</td></tr>
+      <tr class="data-row"><td><a href="StructureDefinition-Varies.html">Varies</a></td><td>Varies</td></tr>
     </tbody>
   </table>
-
-  <p><i>The full v2+ specification includes 192 segment definitions. This demo build includes a representative subset to demonstrate the publication pipeline.</i></p>
 
 </div>

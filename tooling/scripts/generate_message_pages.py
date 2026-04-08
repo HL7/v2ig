@@ -525,13 +525,8 @@ def main():
 
     anomalies = AnomalyLog()
 
-    print('Loading messages...')
     messages = find_non_ack_messages(subset)
-    print(f'  Found {len(messages)} non-ACK messages')
-
-    print('Building .adoc index...')
     adoc_index, all_adoc_files = build_adoc_index(anomalies)
-    print(f'  Indexed {len(adoc_index)} event codes from .adoc files')
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -550,7 +545,7 @@ def main():
         if trigger:
             all_trigger_events.add(trigger)
 
-        print(f'Processing {msg_id} (event={trigger}, structure={structure_ref})...')
+        # Per-message progress removed for cleaner output
 
         # Log messages missing a trigger event
         if not trigger:
@@ -675,21 +670,13 @@ def main():
                 OUTPUT_DIR, f'StructureDefinition-{struct_id}-intro.xml')
             write_xml_file(intro_path, struct_html)
             struct_intro_count += 1
-            print(f'  {struct_id}')
-
     # Write anomaly log
     anomalies.write(ANOMALY_LOG_PATH, script_name='generate_message_pages.py')
     log_rel = os.path.relpath(ANOMALY_LOG_PATH, PROJECT_ROOT)
 
-    print(f'\nDone!')
-    print(f'  Message intro files written: {intro_count}')
-    print(f'  Message notes files written: {notes_count}')
-    print(f'  MessageStructure intro files written: {struct_intro_count}')
-    print(f'  Anomalies found: {len(anomalies.entries)}')
+    print(f'  {intro_count} message intros, {notes_count} notes, {struct_intro_count} structure intros')
     if anomalies.entries:
-        print(f'  Anomaly breakdown:')
-        print(anomalies.summary())
-        print(f'  Full anomaly log: {log_rel}')
+        print(f'  {len(anomalies.entries)} anomalies (see {log_rel})')
 
 
 if __name__ == '__main__':

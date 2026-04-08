@@ -4,8 +4,9 @@ set -euo pipefail
 # Remote IG Publisher build on postproc-g via Apptainer
 #
 # Usage:
-#   ./apptainer/remote-build.sh              # subset build (default, ~20 resources)
+#   ./apptainer/remote-build.sh              # subset build (default)
 #   ./apptainer/remote-build.sh full         # full build (~1,700 resources)
+#   ./apptainer/remote-build.sh preprocess   # sync + preprocess only (no IG build)
 #   ./apptainer/remote-build.sh setup        # one-time: build the Apptainer image
 
 REMOTE="postproc-g.nist.gov"
@@ -30,6 +31,18 @@ RSYNC_EXCLUDES=(
     --exclude='*.sif'
 )
 
+sync_to_remote() {
+    echo "--- Syncing project to ${REMOTE}... ---"
+    rsync -az --info=progress2 "${RSYNC_EXCLUDES[@]}" "${LOCAL_DIR}/" "${REMOTE}:${REMOTE_DIR}/"
+    echo ""
+}
+
+run_remote_preprocessing() {
+    echo "--- Running preprocessing on ${REMOTE}... ---"
+    ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} bash tooling/preprocess.sh"
+    echo ""
+}
+
 case "$MODE" in
     setup)
         echo "=== Building Apptainer image on ${REMOTE} ==="
@@ -41,45 +54,67 @@ case "$MODE" in
         echo "=== Image built. You can now run: $0 subset ==="
         ;;
 
+    preprocess)
+        sync_to_remote
+        run_remote_preprocessing
+        echo "=== Done. Preprocessing complete on ${REMOTE}. ==="
+        ;;
+
     subset)
         echo "=== Subset build (ig.ini) ==="
         echo ""
-        echo "--- Syncing project to ${REMOTE}... ---"
-        rsync -avz "${RSYNC_EXCLUDES[@]}" "${LOCAL_DIR}/" "${REMOTE}:${REMOTE_DIR}/"
-        echo ""
+        sync_to_remote
+        run_remote_preprocessing
         echo "--- Running IG Publisher (subset)... ---"
         ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} java -jar input-cache/publisher.jar -ig ig.ini -no-sushi -tx n/a"
         echo ""
-        echo "--- Fetching output... ---"
-        mkdir -p "${LOCAL_DIR}/output"
-        rsync -avz "${REMOTE}:${REMOTE_DIR}/output/" "${LOCAL_DIR}/output/"
+        echo "--- Fetching output to output-subset/... ---"
+        mkdir -p "${LOCAL_DIR}/output-subset"
+        rsync -az --info=progress2 "${REMOTE}:${REMOTE_DIR}/output/" "${LOCAL_DIR}/output-subset/"
         echo ""
-        echo "=== Done. Output at: ${LOCAL_DIR}/output/ ==="
+        echo "=== Done. Output at: ${LOCAL_DIR}/output-subset/ ==="
         ;;
 
     full)
         echo "=== Full build (ig-full.ini) ==="
-        echo "This will process ~1,700 resources. Could take a while even on postproc-g."
         echo ""
-        echo "--- Syncing project to ${REMOTE}... ---"
-        rsync -avz "${RSYNC_EXCLUDES[@]}" "${LOCAL_DIR}/" "${REMOTE}:${REMOTE_DIR}/"
-        echo ""
+        sync_to_remote
+        run_remote_preprocessing
         echo "--- Running IG Publisher (full)... ---"
         ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} java -Xmx64g -jar input-cache/publisher.jar -ig ig-full.ini -no-sushi -tx n/a"
         echo ""
-        echo "--- Fetching output... ---"
+        echo "--- Fetching output to output/... ---"
         mkdir -p "${LOCAL_DIR}/output"
-        rsync -avz "${REMOTE}:${REMOTE_DIR}/output/" "${LOCAL_DIR}/output/"
+        rsync -az --info=progress2 "${REMOTE}:${REMOTE_DIR}/output/" "${LOCAL_DIR}/output/"
+        echo ""
+        echo "=== Done. Output at: ${LOCAL_DIR}/output/ ==="
+        ;;
+
+    fetch-subset)
+        echo "--- Fetching output to output-subset/... ---"
+        mkdir -p "${LOCAL_DIR}/output-subset"
+        rsync -az --info=progress2 "${REMOTE}:${REMOTE_DIR}/output/" "${LOCAL_DIR}/output-subset/"
+        echo ""
+        echo "=== Done. Output at: ${LOCAL_DIR}/output-subset/ ==="
+        ;;
+
+    fetch-full)
+        echo "--- Fetching output to output/... ---"
+        mkdir -p "${LOCAL_DIR}/output"
+        rsync -az --info=progress2 "${REMOTE}:${REMOTE_DIR}/output/" "${LOCAL_DIR}/output/"
         echo ""
         echo "=== Done. Output at: ${LOCAL_DIR}/output/ ==="
         ;;
 
     *)
-        echo "Usage: $0 {setup|subset|full}"
+        echo "Usage: $0 {setup|subset|full|preprocess|fetch-subset|fetch-full}"
         echo ""
-        echo "  setup   — Build the Apptainer image on ${REMOTE} (one-time)"
-        echo "  subset  — Sync, build subset IG, fetch output (default)"
-        echo "  full    — Sync, build full IG, fetch output"
+        echo "  setup        — Build the Apptainer image on ${REMOTE} (one-time)"
+        echo "  subset       — Sync, preprocess, build subset IG, fetch output (default)"
+        echo "  full         — Sync, preprocess, build full IG, fetch output"
+        echo "  preprocess   — Sync + preprocess only (no IG build)"
+        echo "  fetch-subset — Fetch subset output from ${REMOTE} to output-subset/"
+        echo "  fetch-full   — Fetch full output from ${REMOTE} to output/"
         exit 1
         ;;
 esac

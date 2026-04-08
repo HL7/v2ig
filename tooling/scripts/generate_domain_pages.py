@@ -19,6 +19,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from xml.etree import ElementTree as ET
 from collections import defaultdict
 from xml.etree import ElementTree as ET
 
@@ -27,7 +28,8 @@ MESSAGES_DIR = os.path.join(PROJECT_ROOT, 'input', 'sourceOfTruth', 'message', '
 DOMAINS_DIR = os.path.join(PROJECT_ROOT, 'website', 'domains')
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'input', 'pagecontent')
 V2PLUS_XML = os.path.join(PROJECT_ROOT, 'input', 'v2plus.xml')
-RUBY_PATH = '/home/claude/ruby/arm64/bin/ruby'
+import shutil
+RUBY_PATH = shutil.which('ruby') or '/home/claude/ruby/arm64/bin/ruby'
 
 # Domain/subdomain structure with display names and page name overrides.
 # Page names default to subdomain_key with underscores replaced by hyphens.
@@ -214,17 +216,10 @@ def html5_to_xhtml(html):
         new_level = min(level + 2, 6)
         return f'<{tag_start}h{new_level}'
     html = re.sub(r'<(/?)h([1-3])(?=[\s>])', _shift_heading, html)
-    # Fix overlapping sup/sub tags
-    html = re.sub(
-        r'<sup>([^<]*)<sub>([^<]*)</sup>([^<]*)</sub>',
-        r'<sup>\1<sub>\2</sub></sup><sub>\3</sub>',
-        html
-    )
-    html = re.sub(
-        r'<sub>([^<]*)<sup>([^<]*)</sub>([^<]*)</sup>',
-        r'<sub>\1<sup>\2</sup></sub><sup>\3</sup>',
-        html
-    )
+    # Strip <sub>/<sup> tags — these are artifacts of Asciidoctor interpreting
+    # ER7 ^ and ~ characters as superscript/subscript markup. The V2 domain
+    # content doesn't use intentional sub/sup formatting.
+    html = re.sub(r'</?su[bp]>', '', html)
     return html
 
 
@@ -255,9 +250,12 @@ def convert_adoc_to_html(adoc_text, base_dir=None):
             "header_footer: false, backend: 'html5'); "
             "puts html"
         )
+        env = dict(os.environ)
+        env.setdefault('GEM_HOME', '/opt/gems')
+        env.setdefault('GEM_PATH', '/opt/gems:/opt/ruby/lib/ruby/gems/3.2.0')
         result = subprocess.run(
             [RUBY_PATH, '-e', ruby_script, tmp_adoc],
-            capture_output=True, text=True, timeout=30
+            capture_output=True, text=True, timeout=30, env=env
         )
         if result.returncode != 0:
             print(f"  WARNING: Asciidoctor error: {result.stderr.strip()}", file=sys.stderr)
@@ -360,8 +358,13 @@ def fix_xref_links(html, event_to_msg):
 
 
 def xhtml_wrapper(content):
-    """Wrap content in the XHTML div required by IG Publisher."""
-    return (
+    """Wrap content in the XHTML div required by IG Publisher.
+
+    Validates the result as XML. If content produces invalid XML,
+    strips the AsciiDoc-converted portions and keeps only the
+    machine-generated parts (event table, subdomain table).
+    """
+    xml = (
         '<div xmlns="http://www.w3.org/1999/xhtml"'
         ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
         ' xsi:schemaLocation="http://hl7.org/fhir'
@@ -369,6 +372,24 @@ def xhtml_wrapper(content):
         f'{content}\n'
         '</div>\n'
     )
+    # Validate — if broken, return without AsciiDoc content
+    try:
+        ET.fromstring(xml)
+    except ET.ParseError as e:
+        print(f'  WARNING: Invalid XML in generated page, stripping AsciiDoc content: {e}',
+              file=sys.stderr)
+        # Keep only the <h3> and <table> elements (machine-generated, known-good)
+        safe_parts = re.findall(r'(<h3>.*?</h3>|<table\b.*?</table>)', content, re.DOTALL)
+        safe_content = '\n'.join(safe_parts)
+        xml = (
+            '<div xmlns="http://www.w3.org/1999/xhtml"'
+            ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
+            ' xsi:schemaLocation="http://hl7.org/fhir'
+            ' ../../input-cache/schemas/r5/fhir-single.xsd">\n'
+            f'{safe_content}\n'
+            '</div>\n'
+        )
+    return xml
 
 
 def render_event_table(events):
@@ -593,14 +614,8 @@ def update_v2plus_xml(domain_structure, subdomain_events):
 
 
 def main():
-    print('Building event-to-message mapping...')
     event_to_msg = build_event_to_message_map()
-    print(f'  Found {len(event_to_msg)} event-to-message mappings')
-
-    print('Building event-to-subdomain mapping...')
     event_to_subdomain = build_event_to_subdomain_map()
-
-    print('Building subdomain events...')
     subdomain_events = build_subdomain_events(event_to_subdomain, event_to_msg)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -608,7 +623,6 @@ def main():
     files_written = 0
 
     # 1. Generate domains overview page
-    print('\nGenerating domains.xml (overview)...')
     overview = generate_domains_overview()
     with open(os.path.join(OUTPUT_DIR, 'domains.xml'), 'w', encoding='utf-8') as f:
         f.write(overview)
@@ -616,7 +630,6 @@ def main():
 
     # 2. Generate domain landing pages
     for domain_key, domain_name, subdomains in DOMAIN_STRUCTURE:
-        print(f'Generating {domain_key}.xml...')
         page = generate_domain_page(domain_key, domain_name, subdomains,
                                     subdomain_events)
         with open(os.path.join(OUTPUT_DIR, f'{domain_key}.xml'), 'w',
@@ -628,7 +641,6 @@ def main():
     for domain_key, domain_name, subdomains in DOMAIN_STRUCTURE:
         for sd_key, sd_name, page_override, adoc_override in subdomains:
             page = subdomain_page_name(sd_key, page_override)
-            print(f'Generating {page}.xml...')
             events = subdomain_events.get((domain_key, sd_key), [])
             content = generate_subdomain_page(
                 domain_key, sd_key, sd_name,
@@ -639,17 +651,11 @@ def main():
             files_written += 1
 
     # 4. Update v2plus.xml
-    print('\nUpdating v2plus.xml page hierarchy...')
-    if update_v2plus_xml(DOMAIN_STRUCTURE, subdomain_events):
-        print('  v2plus.xml updated successfully')
-    else:
-        print('  WARNING: v2plus.xml update failed')
+    if not update_v2plus_xml(DOMAIN_STRUCTURE, subdomain_events):
+        print('  WARNING: v2plus.xml page hierarchy update failed', file=sys.stderr)
 
-    # Summary
     total_events = sum(len(v) for v in subdomain_events.values())
-    print(f'\nDone!')
-    print(f'  Files written: {files_written}')
-    print(f'  Total linked events: {total_events}')
+    print(f'  {files_written} domain/subdomain pages, {total_events} linked events')
 
 
 if __name__ == '__main__':

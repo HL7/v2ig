@@ -1,4 +1,35 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+
   <h3>HL7 v2+ Terminology</h3>
-  <p>HL7 v2+ defines code systems and value sets used across messages, segments, and data types.</p>
+  <p>
+    HL7 v2+ uses coded values extensively throughout its messages, segments, and data types. The vocabulary artifacts (code systems and value sets) for V2 are published and maintained at
+    <a href="https://terminology.hl7.org">terminology.hl7.org</a> (THO &#8212; the HL7 Terminology server)
+    under the Unified Terminology Governance (UTG) process.
+  </p>
+
+  <h4>V2 Code Systems</h4>
+  <p>
+    Code systems define the set of valid coded values for HL7-defined tables (ID data type) and user-defined tables (IS data type).
+    The complete list of V2 code systems is available at:
+  </p>
+  <ul>
+    <li><a href="https://terminology.hl7.org/en/codesystems-v2.html">V2 CodeSystems on THO</a></li>
+  </ul>
+
+  <h4>V2 Value Sets</h4>
+  <p>
+    Value sets bind code systems to specific data elements in the V2 specification, defining which codes are valid for a given field.
+    The complete list of V2 value sets is available at:
+  </p>
+  <ul>
+    <li><a href="https://terminology.hl7.org/en/valuesets-v2.html">V2 ValueSets on THO</a></li>
+  </ul>
+
+  <h4>Terminology Governance</h4>
+  <p>
+    V2 terminology is managed through the HL7 Unified Terminology Governance (UTG) process.
+    Proposals for new codes, code system changes, and value set modifications follow the UTG workflow.
+  </p>
+  <!-- TODO: Add more detail about the terminology governance process, concept domains, and how V2 tables map to FHIR CodeSystem/ValueSet resources -->
+
 </div>

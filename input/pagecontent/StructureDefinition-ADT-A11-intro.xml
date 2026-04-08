@@ -1,41 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<div class="paragraph">
-<p>For "admitted" patients, the A11 event is sent when an A01 (admit/visit notification) event is cancelled, either because of an erroneous entry of the A01 event, or because of a decision not to admit the patient after all.</p>
-</div>
-<div class="paragraph">
-<p>For "non-admitted" patients, the A11 event is sent when an A04 (register a patient) event is cancelled, either because of an erroneous entry of the A04 event, or because of a decision not to check the patient in for the visit after all. To cancel an A05 (pre-admit a patient) event, use the A38 (cancel pre-admit), which was new for Version 2.3 of this Standard.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
-</div>
-<div class="paragraph">
-<p><strong>Attention: The DG1 segment was retained for backward compatibility only as of v2.4 and was withdrawn and removed from this message structure as of v2.7.</strong></p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-ADT_A09-C.html">ADT_A09</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-DB1.html">DB1</a> }]</td><td>Disability Information</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Observation end</td><td></td><td></td></tr>
-</tbody>
-</table>
-</div>
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A09-C.html">ADT_A09</a></p>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,34 +1,208 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-  <a name="intro"> </a>
-  <h3>Introduction</h3>
-  <p>
-    The HL7 v2+ specification defines the standard for electronic health data exchange between healthcare information systems. It is the most widely implemented healthcare interoperability standard in the world, used by over 95% of US healthcare organizations and extensively deployed internationally.
-  </p>
-  <p>
-    HL7 v2+ is the evolution of the HL7 Version 2.x messaging standard. It consolidates and updates the normative content from previous versions (2.1 through 2.9.1) into a single, continuously maintained specification. The "+" designation indicates that this specification is a living document that will be updated incrementally rather than through major version releases.
-  </p>
 
-  <a name="technical"> </a>
-  <h3>Technical Overview</h3>
-  <p>
-    HL7 v2+ messages are composed of <b>segments</b>, which are logical groupings of related data fields. Segments are arranged according to <b>message structures</b> (abstract syntax trees) that define the valid composition and ordering of segments for each message type. Messages are triggered by healthcare <b>events</b> (such as a patient admission, an order being placed, or a result being reported).
-  </p>
-  <p>
-    Data within segments is typed using HL7 v2+ <b>data types</b>, which range from simple primitives (strings, numbers, dates) to complex composite types (extended person names, coded elements with exceptions, extended addresses).
-  </p>
+  <p>HL7 v2+ is a standard for health care data exchange, built as a successor of HL7 v2.x, and published by HL7&#174;.</p>
 
-  <a name="walkthrough"> </a>
+  <div id="diagram">
+
+    <p class="level-text">
+      <a href="control.html"><b>Introduction to the HL7 v2+ Standard</b></a>
+    </p>
+
+    <!-- Level 1: Foundation -->
+    <p class="level-text"><b>Level 1</b> &#8212; Basic framework on which the specification is built.</p>
+    <div class="box_row box_more" id="foundation">
+      <div class="box">
+        <p class="head">
+          <a href="control.html" style="background-image: url('assets/images/foundation.png');">
+            Foundation
+          </a>
+        </p>
+        <p class="content">
+          <span><a href="control.html">Control</a> (Messaging)</span>
+        </p>
+      </div>
+      <div class="box" id="encoding">
+        <p class="head">
+          <a href="control.html" style="background-image: url('assets/images/workflow.png');">
+            <span>Encoding</span>
+          </a>
+        </p>
+        <p class="content">
+          Abstract Message Syntax (AMS)<br/>
+          Encoding Rules (ER7)<br/>
+          XML Encoding
+        </p>
+      </div>
+      <div class="box" id="transport">
+        <p class="head">
+          <a href="control.html" style="background-image: url('assets/images/linked-data.png');">
+            Transport
+          </a>
+        </p>
+        <p class="content">
+          HLLP<br/>
+          MLLP<br/>
+          HTTP
+        </p>
+      </div>
+    </div>
+
+    <!-- Level 2: Vocabulary -->
+    <p class="level-text"><b>Level 2</b> &#8212; Vocabulary</p>
+    <div class="box box_row box_one" id="v2-terminology">
+      <p class="head">
+        <a href="terminology.html" style="background-image: url('assets/images/terminology.png');">
+          <span>Terminology (Tables)</span>
+        </a>
+      </p>
+      <p class="content">
+        <a href="https://terminology.hl7.org/en/codesystems-v2.html">CodeSystems</a>,&#160;
+        <a href="https://terminology.hl7.org/en/valuesets-v2.html">ValueSets</a>,&#160;
+        <a href="https://terminology.hl7.org/en/CodeSystem-conceptdomains.html">Concept Domains</a>
+      </p>
+    </div>
+
+    <!-- Level 3: Building Blocks -->
+    <p class="level-text"><b>Level 3</b> &#8212; Building Blocks</p>
+    <div class="box box_row box_one" id="v2-building-blocks">
+      <p class="head">
+        <a href="technical.html" style="background-image: url('assets/images/index.png');">
+          <span>Technical</span>
+        </a>
+      </p>
+      <p class="content">
+        <a href="data-types.html">Data Types</a> &gt;
+        <a href="segment-definitions.html">Segments</a> &gt;
+        <a href="message-structures.html">Message Structures</a>
+      </p>
+    </div>
+
+    <!-- Level 4: Domains -->
+    <p class="level-text"><b>Level 4</b> &#8212; Domains</p>
+    <div class="box_row box_more" id="domains">
+      <div class="box" id="v2-administration">
+        <p class="head">
+          <a href="administration.html" style="background-image: url('assets/images/administration.jpg');">
+            Administration
+          </a>
+        </p>
+        <p class="content">
+          <a href="registration.html">Registration (ADT)</a><br/>
+          <a href="referral.html">Referral</a><br/>
+          <a href="scheduling.html">Scheduling</a>
+        </p>
+      </div>
+      <div class="box" id="v2-clinical">
+        <p class="head">
+          <a href="clinical.html" style="background-image: url('assets/images/clinical.png');">
+            Clinical
+          </a>
+        </p>
+        <p class="content">
+          <a href="general-orders-and-results.html">General Orders</a><br/>
+          <a href="laboratory.html">Laboratory</a><br/>
+          <a href="pharmacy.html">Pharmacy</a><br/>
+          <a href="imaging.html">Imaging</a><br/>
+          <a href="patient-care.html">Patient Care</a><br/>
+          <a href="immunizations.html">Immunizations</a><br/>
+          <a href="blood-bank.html">Blood Bank</a><br/>
+          <a href="medical-records.html">Medical Records</a><br/>
+          <a href="clinical-trials.html">Clinical Trials</a><br/>
+          <a href="dietary.html">Dietary</a><br/>
+          <a href="product-experience.html">Product Experience</a><br/>
+          <a href="clinical-supply.html">Supply</a>
+        </p>
+      </div>
+      <div class="box" id="v2-financial">
+        <p class="head">
+          <a href="financial.html" style="background-image: url('assets/images/financial.png');">
+            Financial
+          </a>
+        </p>
+        <p class="content">
+          <a href="financial-management.html">Financial Management</a><br/>
+          <a href="claims-and-reimbursements.html">Claims &amp; Reimbursement</a>
+        </p>
+      </div>
+      <div class="box" id="v2-technical">
+        <p class="head">
+          <a href="technical.html" style="background-image: url('assets/images/secpriv.jpg');">
+            Technical
+          </a>
+        </p>
+        <p class="content">
+          <a href="application-management.html">Application Mngmt</a><br/>
+          <a href="master-files.html">Master Files</a><br/>
+          <a href="queries.html">Queries</a>
+        </p>
+      </div>
+      <div class="box" id="v2-erp">
+        <p class="head">
+          <a href="erp.html" style="background-image: url('assets/images/medication.png');">
+            ERP
+          </a>
+        </p>
+        <p class="content">
+          <a href="lab-automation.html">Lab Automation</a><br/>
+          <a href="materials-management.html">Materials Mngmt</a><br/>
+          <a href="personnel-management.html">Personnel Mngmt</a><br/>
+          <a href="specimen-shipment-manifest.html">Specimen Shipment</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Level 5: Conformance -->
+    <p class="level-text"><b>Level 5</b> &#8212; Conformance</p>
+    <div class="box box_row box_one" id="v2-conformance">
+      <p class="head">
+        <a href="conformance.html" style="background-image: url('assets/images/conformance.jpg');">
+          Conformance
+        </a>
+      </p>
+      <p class="content">
+        <a href="conformance.html">Introduction</a>&#160;&#160;
+        Profile Levels&#160;&#160;
+        Message Profiles&#160;&#160;
+        Constraints&#160;&#160;
+        Vocabulary Constraints
+      </p>
+    </div>
+
+    <!-- Levels 6-7: Future -->
+    <p class="level-text"><b>Level 6</b> &#8212; Implementable Technology Specification</p>
+    <p class="level-text"><b>Level 7</b> &#8212; Core Profiles</p>
+    <div class="box_row box_more" id="implementable-technology-specification">
+      <div class="box" id="datatype-flavors">
+        <p class="head">
+          <a href="data-type-flavors.html" style="background-image: url('assets/images/index.png');">
+            Data Type Flavors
+          </a>
+        </p>
+        <p class="content">TBD: Official data type flavor profiles.</p>
+      </div>
+      <div class="box" id="ig-registry">
+        <p class="head">
+          <a href="index.html" style="background-image: url('assets/images/index.png');">
+            Implementation Guide Registry
+          </a>
+        </p>
+        <p class="content">TBD: List of implementation guides with hyperlinks.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <a name="overview"> </a>
+  <h3>About HL7 v2+</h3>
   <p>
-    The main sections of this IG are:
+    V2+ is an initiative to modernize the widespread, dependable V2 standard. It gives implementers worldwide a new and modern way to access and use the specifications. The initiative makes it easier for HL7 to develop and maintain the V2 standard as the workhorse specification of worldwide healthcare data exchange.
   </p>
   <ul>
-    <li><a href="domains.html">Domains</a> &#x2014; Functional groupings of related messaging capabilities (Administration, Clinical, Financial, Technical)</li>
-    <li><a href="message-structures.html">Message Structures</a> &#x2014; Abstract syntax trees defining the arrangement of segments within messages</li>
-    <li><a href="segment-definitions.html">Segment Definitions</a> &#x2014; The 192 segments that serve as building blocks for messages</li>
-    <li><a href="data-types.html">Data Types</a> &#x2014; Primitive and complex data types used in segment fields</li>
-    <li><a href="data-type-flavors.html">Data Type Flavors</a> &#x2014; Constrained variants of data types for specific use cases</li>
-    <li><a href="terminology.html">Terminology</a> &#x2014; Code systems and value sets referenced by the specification</li>
-    <li><a href="control.html">Control</a> &#x2014; Message processing rules, acknowledgment patterns, and infrastructure</li>
-    <li><a href="conformance.html">Conformance</a> &#x2014; Rules for specifying implementation profiles and compliance</li>
+    <li>Enhanced navigation allowing users to move more easily through content from technical or workflow perspectives</li>
+    <li>Common look and feel with other HL7 published standards</li>
+    <li>More consistent content accessible from different locations in the standard</li>
+    <li>New ways to represent cardinality and usage of elements</li>
+    <li>Better integration with UTG terminology and conformance methodology</li>
   </ul>
+
 </div>
