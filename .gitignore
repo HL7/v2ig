@@ -2,6 +2,10 @@
 ############################
 /.ssh-keys/
 
+# IG Publisher trigger file (only on the build branch) #
+#########################################################
+/ig.ini
+
 # Temporary folders #
 #####################
 temp

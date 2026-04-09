@@ -8,7 +8,7 @@ export JAVA_HOME="/home/claude/jdk"
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 
 echo "=== SUBSET BUILD ==="
-echo "Using ig.ini -> v2plus-subset.xml"
+echo "Using ig-subset.ini -> v2plus-subset.xml"
 echo ""
 
-java -jar input-cache/publisher.jar -ig ig.ini -no-sushi "$@"
+java -jar input-cache/publisher.jar -ig ig-subset.ini -no-sushi "$@"

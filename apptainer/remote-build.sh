@@ -66,7 +66,7 @@ case "$MODE" in
         sync_to_remote
         run_remote_preprocessing
         echo "--- Running IG Publisher (subset)... ---"
-        ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} java -jar input-cache/publisher.jar -ig ig.ini -no-sushi -tx n/a"
+        ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} java -jar input-cache/publisher.jar -ig ig-subset.ini -no-sushi -tx n/a"
         echo ""
         echo "--- Fetching output to output-subset/... ---"
         mkdir -p "${LOCAL_DIR}/output-subset"
