@@ -60,6 +60,25 @@ case "$MODE" in
         echo "=== Done. Preprocessing complete on ${REMOTE}. ==="
         ;;
 
+    preprocess-fetch)
+        sync_to_remote
+        run_remote_preprocessing
+        echo "--- Fetching preprocessed files back... ---"
+        rsync -az --info=progress2 \
+            "${REMOTE}:${REMOTE_DIR}/input/pagecontent/" "${LOCAL_DIR}/input/pagecontent/"
+        rsync -az --info=progress2 \
+            "${REMOTE}:${REMOTE_DIR}/input/includes/" "${LOCAL_DIR}/input/includes/"
+        rsync -az --info=progress2 \
+            --include='*.png' --include='*.gif' --exclude='*' \
+            "${REMOTE}:${REMOTE_DIR}/input/images/" "${LOCAL_DIR}/input/images/"
+        rsync -az --info=progress2 \
+            "${REMOTE}:${REMOTE_DIR}/input/v2plus.xml" "${LOCAL_DIR}/input/v2plus.xml"
+        rsync -az --info=progress2 \
+            "${REMOTE}:${REMOTE_DIR}/input/v2plus-subset.xml" "${LOCAL_DIR}/input/v2plus-subset.xml"
+        echo ""
+        echo "=== Done. Preprocessed files fetched to local. ==="
+        ;;
+
     subset)
         echo "=== Subset build (ig.ini) ==="
         echo ""
@@ -107,14 +126,15 @@ case "$MODE" in
         ;;
 
     *)
-        echo "Usage: $0 {setup|subset|full|preprocess|fetch-subset|fetch-full}"
+        echo "Usage: $0 {setup|subset|full|preprocess|preprocess-fetch|fetch-subset|fetch-full}"
         echo ""
-        echo "  setup        — Build the Apptainer image on ${REMOTE} (one-time)"
-        echo "  subset       — Sync, preprocess, build subset IG, fetch output (default)"
-        echo "  full         — Sync, preprocess, build full IG, fetch output"
-        echo "  preprocess   — Sync + preprocess only (no IG build)"
-        echo "  fetch-subset — Fetch subset output from ${REMOTE} to output-subset/"
-        echo "  fetch-full   — Fetch full output from ${REMOTE} to output/"
+        echo "  setup            — Build the Apptainer image on ${REMOTE} (one-time)"
+        echo "  subset           — Sync, preprocess, build subset IG, fetch output (default)"
+        echo "  full             — Sync, preprocess, build full IG, fetch output"
+        echo "  preprocess       — Sync + preprocess only (no IG build)"
+        echo "  preprocess-fetch — Sync, preprocess on ${REMOTE}, fetch preprocessed files back"
+        echo "  fetch-subset     — Fetch subset output from ${REMOTE} to output-subset/"
+        echo "  fetch-full       — Fetch full output from ${REMOTE} to output/"
         exit 1
         ;;
 esac
