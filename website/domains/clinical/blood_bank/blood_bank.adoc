@@ -38,7 +38,7 @@ The donation service messages facilitate communications between typical system c
 
 Additionally, the graphic also depicts a flow of information through those systems during a donation process.
 
-image::extracted-media/media/image10.jpeg[]
+image::image10.jpeg[]
 
 === Actors
 [v291_section="4.16.3"]

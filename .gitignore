@@ -19,6 +19,11 @@ __pycache__/
 # Screenshots (scratch) #
 ##########################
 *.png
+# But keep images in these tracked directories
+!local-template/content/assets/ico/*.png
+!input/images/*.png
+!input/images/*.jpg
+!input/images/*.jpeg
 
 # External repos (cloned, not submodules) #
 ############################################

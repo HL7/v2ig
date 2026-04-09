@@ -39,17 +39,17 @@
           <generation value="html"/>
             <page>
               <name value="registration.html"/>
-              <title value="Registration (Patient Administration) (59 events)"/>
+              <title value="Registration (Patient Administration)"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="referral.html"/>
-              <title value="Referral (16 events)"/>
+              <title value="Referral"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="scheduling.html"/>
-              <title value="Scheduling (26 events)"/>
+              <title value="Scheduling"/>
               <generation value="html"/>
             </page>
         </page>
@@ -59,62 +59,62 @@
           <generation value="html"/>
             <page>
               <name value="general-orders-and-results.html"/>
-              <title value="General Orders and Results (10 events)"/>
+              <title value="General Orders and Results"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="laboratory.html"/>
-              <title value="Laboratory (9 events)"/>
+              <title value="Laboratory"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="pharmacy.html"/>
-              <title value="Pharmacy (8 events)"/>
+              <title value="Pharmacy"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="imaging.html"/>
-              <title value="Imaging / Radiology (0 events)"/>
+              <title value="Imaging / Radiology"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="patient-care.html"/>
-              <title value="Patient Care (12 events)"/>
+              <title value="Patient Care"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="immunizations.html"/>
-              <title value="Immunizations (1 event)"/>
+              <title value="Immunizations"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="blood-bank.html"/>
-              <title value="Blood Bank (13 events)"/>
+              <title value="Blood Bank"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="medical-records.html"/>
-              <title value="Medical Records / Information Management (11 events)"/>
+              <title value="Medical Records / Information Management"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="clinical-trials.html"/>
-              <title value="Clinical Trials (12 events)"/>
+              <title value="Clinical Trials"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="dietary.html"/>
-              <title value="Dietary (1 event)"/>
+              <title value="Dietary"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="product-experience.html"/>
-              <title value="Product Experience (2 events)"/>
+              <title value="Product Experience"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="clinical-supply.html"/>
-              <title value="Supply (2 events)"/>
+              <title value="Supply"/>
               <generation value="html"/>
             </page>
         </page>
@@ -124,12 +124,12 @@
           <generation value="html"/>
             <page>
               <name value="financial-management.html"/>
-              <title value="Financial Management (8 events)"/>
+              <title value="Financial Management"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="claims-and-reimbursements.html"/>
-              <title value="Claims and Reimbursements (12 events)"/>
+              <title value="Claims and Reimbursements"/>
               <generation value="html"/>
             </page>
         </page>
@@ -139,17 +139,17 @@
           <generation value="html"/>
             <page>
               <name value="application-management.html"/>
-              <title value="Application Management (1 event)"/>
+              <title value="Application Management"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="master-files.html"/>
-              <title value="Master Files (17 events)"/>
+              <title value="Master Files"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="queries.html"/>
-              <title value="Queries (6 events)"/>
+              <title value="Queries"/>
               <generation value="html"/>
             </page>
         </page>
@@ -159,27 +159,27 @@
           <generation value="html"/>
             <page>
               <name value="lab-automation.html"/>
-              <title value="Lab Automation (6 events)"/>
+              <title value="Lab Automation"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="materials-management.html"/>
-              <title value="Materials Management (10 events)"/>
+              <title value="Materials Management"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="personnel-management.html"/>
-              <title value="Personnel Management (10 events)"/>
+              <title value="Personnel Management"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="specimen-shipment-manifest.html"/>
-              <title value="Specimen Shipment Manifest (1 event)"/>
+              <title value="Specimen Shipment Manifest"/>
               <generation value="html"/>
             </page>
             <page>
               <name value="erp-supply.html"/>
-              <title value="Supply (0 events)"/>
+              <title value="Supply"/>
               <generation value="html"/>
             </page>
         </page>

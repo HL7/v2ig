@@ -184,13 +184,13 @@ These structures support all original mode and enhanced mode responses, as well 
 
 Segment Pattern data responses reflect the traditional way of offering data within HL7. The Server responds to queries by returning a pattern of HL7 segments. For example, the core of a response to a query for Lab data might be defined by the following segment grammar:
 
-\{PID
-
-OBR
-
-{empty}[\{OBX}]
-
+....
+{
+  PID
+  OBR
+  [{OBX}]
 }
+....
 
 For example, patient information will be returned in the PID segment and laboratory results in OBR and OBX segments. In this style, the message returned by a Server is often a close approximation to an existing unsolicited update HL7 message.
 

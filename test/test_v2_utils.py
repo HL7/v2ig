@@ -91,9 +91,13 @@ class TestHtml5ToXhtml(unittest.TestCase):
         result = html5_to_xhtml("<h3>Deep</h3>")
         self.assertIn("<h5", result)
 
-    def test_h4_unchanged(self):
-        """h4 and above are not shifted (regex only matches h1-h3)."""
-        self.assertIn("<h4", html5_to_xhtml("<h4>Stay</h4>"))
+    def test_h4_shifted(self):
+        """h4 is shifted to h6 (capped at h6)."""
+        self.assertIn("<h6", html5_to_xhtml("<h4>Shifted</h4>"))
+
+    def test_h5_capped_at_h6(self):
+        """h5 is capped at h6 (can't go beyond h6)."""
+        self.assertIn("<h6", html5_to_xhtml("<h5>Capped</h5>"))
 
     def test_no_changes_needed(self):
         clean = "<p>Hello world</p>"

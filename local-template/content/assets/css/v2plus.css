@@ -1,3 +1,20 @@
+/* === Fix self-closing anchor tags from IG Publisher XSLT === */
+/* The XSLT generates <a name="1"/> which browsers parse as unclosed <a> tags.
+   Bootstrap styles ALL <a> elements blue, so unclosed anchors turn subsequent
+   content into blue underlined text. This rule neutralizes anchors without href. */
+a:not([href]) {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* === Domain Page Images === */
+/* AsciiDoc sources inherited wrong width/height from Word conversion.
+   Let images render at natural aspect ratio, constrained to page width. */
+.container img:not([src*="icon"]):not([src*="logo"]) {
+  max-width: 100%;
+  height: auto;
+}
+
 /* === V2+ Color Overrides === */
 
 .navbar {

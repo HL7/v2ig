@@ -209,17 +209,24 @@ def html5_to_xhtml(html):
     html = re.sub(r'<(br|hr|img|col)(\s[^>]*)?>(?!/)', r'<\1\2/>', html)
     # Escape bare &
     html = re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)', '&amp;', html)
-    # Downshift headings: h1->h3, h2->h4, h3->h5
+    # Downshift headings by 1 level: h1->h2, h2->h3, h3->h4, etc.
+    # AsciiDoc title (= Title → h1) is stripped before conversion, so content
+    # starts at == (h2). IG Publisher pagecontent expects h3 as top-level
+    # content heading (h2 is the page title). So h2+1=h3 is correct.
     def _shift_heading(m):
         tag_start = m.group(1)
         level = int(m.group(2))
-        new_level = min(level + 2, 6)
+        new_level = min(level + 1, 6)
         return f'<{tag_start}h{new_level}'
-    html = re.sub(r'<(/?)h([1-3])(?=[\s>])', _shift_heading, html)
+    html = re.sub(r'<(/?)h([1-6])(?=[\s>])', _shift_heading, html)
     # Strip <sub>/<sup> tags — these are artifacts of Asciidoctor interpreting
     # ER7 ^ and ~ characters as superscript/subscript markup. The V2 domain
     # content doesn't use intentional sub/sup formatting.
     html = re.sub(r'</?su[bp]>', '', html)
+    # Strip explicit width/height from <img> tags — the AsciiDoc sources
+    # inherited wrong dimensions from Word conversion. CSS max-width handles
+    # sizing instead.
+    html = re.sub(r'\s+(?:width|height)="[^"]*"', '', html)
     return html
 
 
@@ -532,9 +539,10 @@ def generate_subdomain_page(domain_key, subdomain_key, subdomain_name,
     return xhtml_wrapper('\n'.join(parts))
 
 
-def update_v2plus_xml(domain_structure, subdomain_events):
-    """Update v2plus.xml to add nested page entries under domains.html."""
-    with open(V2PLUS_XML, 'r', encoding='utf-8') as f:
+def update_v2plus_xml(domain_structure, subdomain_events, xml_path=None):
+    """Update v2plus.xml (or given path) with nested page entries under domains.html."""
+    xml_path = xml_path or V2PLUS_XML
+    with open(xml_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
     # Build the replacement XML for the domains page entry
@@ -557,14 +565,11 @@ def update_v2plus_xml(domain_structure, subdomain_events):
 
         for sd_key, sd_name, page_override, _ in subdomains:
             page = subdomain_page_name(sd_key, page_override)
-            events = subdomain_events.get((domain_key, sd_key), [])
-            count = len(events)
-            title = f'{sd_name} ({count} event{"s" if count != 1 else ""})'
             indent4 = '            '
             indent5 = '              '
             page_lines.append(f'{indent4}<page>')
             page_lines.append(f'{indent5}<name value="{page}.html"/>')
-            page_lines.append(f'{indent5}<title value="{escape_xml(title)}"/>')
+            page_lines.append(f'{indent5}<title value="{escape_xml(sd_name)}"/>')
             page_lines.append(f'{indent5}<generation value="html"/>')
             page_lines.append(f'{indent4}</page>')
 
@@ -608,9 +613,28 @@ def update_v2plus_xml(domain_structure, subdomain_events):
 
     content = content[:block_start] + '\n' + new_domains_block + content[block_end:]
 
-    with open(V2PLUS_XML, 'w', encoding='utf-8') as f:
+    with open(xml_path, 'w', encoding='utf-8') as f:
         f.write(content)
     return True
+
+
+def copy_domain_images():
+    """Copy images from website/domains/ to input/images/ for IG Publisher.
+
+    AsciiDoc image:: directives reference images relative to the .adoc file.
+    When converted to XHTML pagecontent, the <img src="name.png"/> tags
+    need images served from the IG output root. IG Publisher copies
+    input/images/* to the output directory.
+    """
+    images_dir = os.path.join(PROJECT_ROOT, 'input', 'images')
+    os.makedirs(images_dir, exist_ok=True)
+    count = 0
+    for ext in ('*.png', '*.jpg', '*.jpeg', '*.gif', '*.svg', '*.tiff'):
+        for img_path in glob.glob(os.path.join(DOMAINS_DIR, '**', ext), recursive=True):
+            dest = os.path.join(images_dir, os.path.basename(img_path))
+            shutil.copy2(img_path, dest)
+            count += 1
+    return count
 
 
 def main():
@@ -650,12 +674,19 @@ def main():
                 f.write(content)
             files_written += 1
 
-    # 4. Update v2plus.xml
+    # 4. Update v2plus.xml and v2plus-subset.xml
     if not update_v2plus_xml(DOMAIN_STRUCTURE, subdomain_events):
         print('  WARNING: v2plus.xml page hierarchy update failed', file=sys.stderr)
+    subset_xml = os.path.join(PROJECT_ROOT, 'input', 'v2plus-subset.xml')
+    if os.path.exists(subset_xml):
+        if not update_v2plus_xml(DOMAIN_STRUCTURE, subdomain_events, subset_xml):
+            print('  WARNING: v2plus-subset.xml page hierarchy update failed', file=sys.stderr)
+
+    # 5. Copy domain images to input/images/
+    images_copied = copy_domain_images()
 
     total_events = sum(len(v) for v in subdomain_events.values())
-    print(f'  {files_written} domain/subdomain pages, {total_events} linked events')
+    print(f'  {files_written} domain/subdomain pages, {total_events} linked events, {images_copied} images copied')
 
 
 if __name__ == '__main__':

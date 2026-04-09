@@ -218,7 +218,7 @@ def html5_to_xhtml(html):
         level = int(m.group(2))
         new_level = min(level + 2, 6)
         return f'<{tag_start}h{new_level}'
-    html = re.sub(r'<(/?)h([1-3])(?=[\s>])', _shift_heading, html)
+    html = re.sub(r'<(/?)h([1-6])(?=[\s>])', _shift_heading, html)
     # Strip <sub>/<sup> tags — artifacts of Asciidoctor interpreting
     # ER7 ^ and ~ characters as superscript/subscript markup.
     html = re.sub(r'</?su[bp]>', '', html)
