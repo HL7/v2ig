@@ -9,8 +9,9 @@ a:not([href]) {
 
 /* === Domain Page Images === */
 /* AsciiDoc sources inherited wrong width/height from Word conversion.
-   Let images render at natural aspect ratio, constrained to page width. */
-.container img:not([src*="icon"]):not([src*="logo"]) {
+   Let images render at natural aspect ratio, constrained to page width.
+   Only target images inside the main page content area, not header/nav logos. */
+#segment-content img {
   max-width: 100%;
   height: auto;
 }

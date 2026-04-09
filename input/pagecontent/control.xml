@@ -28,19 +28,7 @@
   </ul>
 
   <h4>Trigger Events</h4>
-  <p>Trigger events represent real-world occurrences in a healthcare setting that initiate the exchange of messages. Examples include:</p>
-  <table class="grid">
-    <thead>
-      <tr><th>Event</th><th>Description</th><th>Domain</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><a href="StructureDefinition-A01.html">A01</a></td><td>Admit/Visit Notification</td><td>Registration</td></tr>
-      <tr><td><a href="StructureDefinition-A04.html">A04</a></td><td>Register a Patient</td><td>Registration</td></tr>
-      <tr><td><a href="StructureDefinition-A08.html">A08</a></td><td>Update Patient Information</td><td>Registration</td></tr>
-      <tr><td><a href="StructureDefinition-R01.html">R01</a></td><td>Unsolicited Observation Message</td><td>Orders/Results</td></tr>
-    </tbody>
-  </table>
-
-  <p><i>The full v2+ specification defines 356 trigger events. This demo build includes a representative subset.</i></p>
+  <p>Trigger events represent real-world occurrences in a healthcare setting that initiate the exchange of messages. Each trigger event defines a specific message type and acknowledgment choreography.</p>
+  <p>See the <a href="events.html">complete list of trigger events</a> for all events defined in the v2+ specification.</p>
 
 </div>

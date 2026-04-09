@@ -185,6 +185,11 @@
         </page>
       </page>
       <page>
+        <name value="events.html"/>
+        <title value="V2+ Trigger Events"/>
+        <generation value="html"/>
+      </page>
+      <page>
         <name value="message-structures.html"/>
         <title value="V2+ Message Structures"/>
         <generation value="html"/>
