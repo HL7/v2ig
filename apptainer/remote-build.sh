@@ -27,7 +27,7 @@ RSYNC_EXCLUDES=(
     --exclude='utg'
     --exclude='v2plus_docx'
     --exclude='.claude*'
-    --exclude='*.png'
+    --exclude='Scratch'
     --exclude='*.sif'
 )
 
