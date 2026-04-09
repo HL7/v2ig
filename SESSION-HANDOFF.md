@@ -3,40 +3,28 @@
 > This file is overwritten each session. For stable project knowledge, see MEMORY.md (auto-loaded).
 > For full project history, see JOURNAL.md.
 
-## Last Session: 2026-04-07/08
+## Last Session: 2026-04-09
 
-## ACTIVE: Homepage Diagram, Listing Pages with Search, Preprocessing Pipeline
+## ACTIVE: Styling fixes, events page, favicon, heading numbering
 
 ### What Was Built This Session
 
-1. **Homepage layered architecture diagram** — v2plusDemo-style 7-level diagram in `index.xml`
-2. **Filterable listing pages** — Data types (12+71), Segments (191), Message Structures (418) with THO-style search
-3. **Table filter JS** — `v2-table-filter.js` adapted from THO's `table.js`
-4. **Preprocessing on postproc-g** — `tooling/preprocess.sh` runs inside Apptainer container
-5. **Build script overhaul** — subset→`output-subset/`, full→`output/`, rsync progress, preprocessing integrated
-6. **XHTML fixes** — Strip ER7-induced `<sub>`/`<sup>` tags, XML validation with fallback
-7. **Version** — `2026` → `2026.0.0`
+1. **Blue hyperlink fix** — CSS `a:not([href])` neutralizes IG Publisher's broken self-closing anchors
+2. **Heading shift fix** — Changed +2 to +1; IG Publisher expects h3 as top-level pagecontent heading
+3. **Events listing page** — `events.xml` with 356 searchable events (code, message, description)
+4. **Favicon** — V2+ favicon via `_append.fragment-css.html` override (ico/ dir not merged by IG Publisher)
+5. **Image pipeline** — `copy_domain_images()` copies 29 images; strips bad Word-inherited dimensions; CSS max-width
+6. **Logo fix** — Scoped image CSS to `#segment-content` only
+7. **Control page** — Removed "demo build" text, linked to events page
+8. **Message structure formatting** — 2 inline structures wrapped in literal blocks
 
-### Uncommitted
-- 48 modified + 2 new files on `feature/006-sd-injection`
-- Full build completed successfully on postproc-g
+### Commits
+- `2f458aef` — Fix blue hyperlinks, clause numbering, image sizing, and add favicon
+- `769457d5` — Add events listing page, fix favicon, fix logo sizing, update control page
 
-### Next Session: Review Build Output + Commit
+### Next Session: Run Build + Review
 
-1. **Review the rendered output** — index page diagram, listing pages, domain pages
-2. **Commit and push** all changes
-3. **Fix 15 domain .adoc files** with ER7 outside code blocks (content currently stripped)
-4. **Continue styling** — further alignment with v2plusDemo
-
-### Key Files
-
-| File | Purpose |
-|------|---------|
-| `input/pagecontent/index.xml` | Homepage with layered architecture diagram |
-| `input/pagecontent/data-types.xml` | Data types listing with filter |
-| `input/pagecontent/segment-definitions.xml` | Segments listing with filter |
-| `input/pagecontent/message-structures.xml` | Message structures listing with filter |
-| `local-template/content/assets/js/v2-table-filter.js` | Table filter JS |
-| `local-template/content/assets/css/v2plus.css` | V2+ styles including diagram CSS |
-| `tooling/preprocess.sh` | Standalone preprocessing script (CI/CD ready) |
-| `apptainer/remote-build.sh` | Remote build orchestration |
+1. **Rebuild** to verify all fixes (heading numbers, favicon, images, events page)
+2. **Review heading depth** — h6 ceiling affects deeply nested AsciiDoc content
+3. **Continue styling** — compare with v2plusDemo
+4. **Segment root definitions** — 192 segments with `// TODO:` placeholders
