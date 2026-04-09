@@ -99,7 +99,7 @@ Search</th>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|112234<sup>^</sup>GOOD HEALTH HOSPITAL|&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|112234^GOOD HEALTH HOSPITAL|&#8230;&#8203;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -147,7 +147,7 @@ Search</th>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example: |<sup>^</sup>GOOD HEALTH HOSPITAL~<sup>^</sup>SOUTH LAB|</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: |^GOOD HEALTH HOSPITAL~^SOUTH LAB|</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>

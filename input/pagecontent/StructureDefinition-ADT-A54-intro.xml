@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A54-A.html">ADT_A54</a></p>
 <div class="paragraph">
 <p>An A54 event is issued as a result of a change in the attending doctor responsible for the treatment of a patient.</p>
 </div>
@@ -13,30 +14,6 @@
 </div>
 <div class="paragraph">
 <p>To communicate the begin and end date of the attending, referring, or admitting doctor, use the <em>PRT-11 - Begin Date/Time</em> and the <em>PRT-12 - End Date/time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment. Use "UP" in <em>PRT-2 - Action Code</em>.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-ADT_A54-A.html">ADT_A54</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

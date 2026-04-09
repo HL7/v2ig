@@ -1,4 +1,54 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<div class="sect1">
+<h3 id="_introduction">Introduction</h3>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Personnel Management topic provides for the transmission of new or updated administration information about individual healthcare practitioners and supporting staff members. Since many systems (e.g., security, scheduling, orders, etc.), must be able to closely monitor changes in certain information regarding individual healthcare practitioners, the Personnel Management transaction set is used to clearly identify these events. For example, it is important to a Security System to be aware of when a staff member was hired or specific role has been terminated. Prior to Version 2.4, master file updates were the only method to update this information. However, when any of these changes are reported as master file update notifications, it is not obvious which of the data has been changed, and is cumbersome to process efficiently. It should be noted that Personnel Management functions that do not affect healthcare administration (e.g., benefits) are not addressed in this topic.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h3 id="_general_use_cases_background">General Use Cases / Background</h3>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generally, information is entered into a Personnel Management system and passed to other systems requiring individual healthcare practitioner data either in the form of an unsolicited update or a response to a record-oriented query.</p>
+</div>
+<div class="sect2">
+<h4 id="_trigger_events">Trigger Events</h4>
+<div class="paragraph">
+<p>Each trigger event is documented below, along with the applicable form of the message exchange.</p>
+</div>
+<div class="paragraph">
+<p>The trigger events that follow are served by the unsolicited Personnel Management update (PMU) and General Acknowledgment (ACK) response.</p>
+</div>
+<div class="paragraph">
+<p>The information that is included in any of these trigger event transactions can be more than the minimum necessary to communicate that event. Any of the fields occurring in the segments listed for the message can be used. A few or many fields can be used as agreed upon during implementation. However, please note, that when the contents of a field change for a field that is not necessarily related to the trigger event, it is a matter for implementation negotiation as to whether the receiving systems can capture this changed data.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h3 id="_examples">Examples</h3>
+<div class="sectionbody">
+<div class="sect2">
+<h4 id="_add_personnel_record_event_b01">Add Personnel Record - Event B01</h4>
+<div class="paragraph">
+<p>MSH|~\&amp;|HL7REG|UH|HL7LAB|CH|202502280700||PMUB01^PMU_B01|MSGID002|P|2.8
+EVN|B01|202502280700
+STF||U2246^PLW111223333^USSSASS|HIPPOCRATESHAROLDHJRDRM.D.|P|M|19511004|A|ICU|MED|(555)555-1003X345CO(555)555-3334CH~(555)555-1345X789CB|1003 HEALTHCARE DRIVE^SUITE 200ANNARBORMI98199U.S.A.^H~3029 HEALTHCARE DRIVE^^ANN ARBOR, MI98198U.S.A.O|19890125DOCTORSAREUS MEDICAL SCHOOL&amp;L01||PMF88123453334|<a href="mailto:74160.2326@COMPUSERV.COM">74160.2326@COMPUSERV.COM</a>|B
+GSP|1|S||76691-5^Gender identityLN|446151000124109Identifies as male gender^SCT|20210101
+GSP|2|S||90778-2^Personal pronouns – ReportedLN|LA29518-0he/him/his/his/himself^LN|20210101
+PRA||^HIPPOCRATES FAMILY PRACTICE|ST|I|OB/GYN^STATE BOARD OF OBSTETRICS AND GYNECOLOGYC19790123|1234887609UPIN1234987CTYMECOSTA223987654TAX1234987757DEA12394433879MDDCA|ADMIT&amp;&amp;ADTMED&amp;&amp;L219941231~DISCH&amp;&amp;ADTMED&amp;&amp;L2^19941231
+AFF|1|AMERICAN MEDICAL ASSOCIATION|123 MAIN STREET^^OUR TOWNCA98765U.S.A.M |20200101
+LAN|1|ESLSPANISHISO639|1READHL70403|1EXCELLENTHL70404
+LAN|2|ESLSPANISHISO639|2WRITEHL70403|2GOODHL70404
+LAN|3|FREFRENCHISO639|3SPEAKHL70403|3FAIRHL70404
+EDU|1|BA^BACHELOR OF ARTSHL70360|1981090119850601|20010901^19850601|20050701|YALE UNIVERSITYL|UHL70402|456 CONNECTICUT AVENUE^^NEW HAVENCO87654U.S.A.M
+EDU|2|MD^DOCTOR OF MEDICINEHL70360|1985090119890601|20050901^19890601|20090701|HARVARD MEDICAL SCHOOLL|MHL70402|123 MASSACHUSETTS AVENUE^CAMBRIDGEMA76543U.S.A.^M</p>
+</div>
+</div>
+</div>
+</div>
 <h3>Messages and Events</h3>
 <table class="grid">
 <thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>

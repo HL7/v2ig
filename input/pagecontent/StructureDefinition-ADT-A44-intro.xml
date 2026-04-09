@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A44-A.html">ADT_A44</a></p>
 <div class="paragraph">
 <p>A move has been done at the account identifier level. That is, a <em>PID-18 - Patient Account Number</em> associated with one <em>PID-3 - Patient Identifier List</em> has been moved to another patient identifier list.</p>
 </div>
@@ -22,28 +23,6 @@
 </div>
 <div class="paragraph">
 <p>The fields included when this message is sent should be the fields pertinent to communicate this event. When demographic data in other fields change, it is recommended that the A08 (update patient information) event be used in conjunction with this message. However, all PID data associated with the "account number" are treated as updated information.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-ADT_A44-A.html">ADT_A44</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>B</td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MRG.html">MRG</a></td><td>Merge Information</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Patient end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

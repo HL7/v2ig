@@ -1,39 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RQI_I01-C.html">RQI_I01</a></p>
 <div class="paragraph">
 <p>This trigger event occurs when the inquirer specifies a request for a listing of patient names. This event differs from event I02 (request/receipts of patient selection display list) in that it returns the patient list in repeating PID segments instead of repeating DSP segments.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-RQI_I01-C.html">RQI_I01</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Provider begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PRD.html">PRD</a></td><td>Provider Data</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Provider end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Next Of Kin begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin / Associated Parties</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Next Of Kin end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Guarantor+Insurance begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GT1.html">GT1</a> }]</td><td>Guarantor</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Insurance begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Info</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-IN3.html">IN3</a> ]</td><td>Insurance Add'l Info - Cert</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Insurance end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Guarantor+Insurance end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

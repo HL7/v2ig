@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QBP_Q21-E.html">QBP_Q21</a></p>
 <div class="paragraph">
 <p>This query/response is designed for interaction between a client system and an MPI (Master Person Index). The query consists of a set of demographic and/or visit attribute values for a person, and the response is the list of candidates considered by the MPI to match that set.</p>
 </div>
@@ -25,7 +26,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBP<sup>Q32</sup>QBP_Q21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ32QBP_Q21</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
@@ -33,7 +34,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSP<sup>K32</sup>RSP_K25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK32RSP_K25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
@@ -45,20 +46,6 @@
 </tr>
 </tbody>
 </table>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-QBP_Q21-E.html">QBP_Q21</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-RCP.html">RCP</a></td><td>Response Control Parameters</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>Continuation Pointer</td><td>A</td></tr>
-</tbody>
-</table>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

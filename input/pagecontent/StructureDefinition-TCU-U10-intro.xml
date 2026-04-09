@@ -1,21 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-TCU_U10-A.html">TCU_U10</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-EQU.html">EQU</a></td><td>Equipment Detail</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Test Configuration begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-SPM.html">SPM</a> ]</td><td>Specimen</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-TCC.html">TCC</a> }</td><td>Test Code Configuration</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Test Configuration end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role Detail</td><td>B</td></tr>
-</tbody>
-</table>
-</div>
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-TCU_U10-A.html">TCU_U10</a></p>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

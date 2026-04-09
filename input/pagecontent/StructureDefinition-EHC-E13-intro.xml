@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-EHC_E13.html">EHC_E13</a></p>
 <div class="paragraph">
 <p>This message is used by a Provider to immediately respond to an EHC^E12 Request for Additional Information, in other words an automated response. The EHC^E13 message cannot be sent unsolicited.</p>
 </div>
@@ -74,42 +75,6 @@ If these fields are null the receiving system assumes that the Filler produced t
 </div>
 <div class="paragraph">
 <p>8) Informative Rule: Document Confidentiality Status on TXA. When this optional field is completed it indicates that the Payer is to restrict access to the attached document according to the Payer&#8217;s established policies and/or in accordance with prior business agreements between the Provider and Payer.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-EHC_E13.html">EHC_E13</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-RFI.html">RFI</a></td><td>Request for Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-CTD.html">CTD</a> }</td><td>Contact Data</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PID.html">PID</a> ]</td><td>Person Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-GSC.html">GSC</a> ]</td><td>*Sex Parameter for Clinical Use*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PSL.html">PSL</a> ]</td><td>Product/Service Line Item</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Request begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-NTE.html">NTE</a> ]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Response begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation Result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-NTE.html">NTE</a> ]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-TXA.html">TXA</a> ]</td><td>Transcription Document Header</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Response end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Request end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

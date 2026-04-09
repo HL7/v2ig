@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M15.html">MFN_M15</a></p>
 <div class="paragraph">
 <p>This section is concerned with describing a master file message that should be used to communicate information that relates to the inventory of items that can be used to perform an ordered service. While an order specifies a service that is represented in an Other Observation/Service Item master file, this message is concerned with communicating attributes of those orderable items (for example lot number and expiration date) that are represented in the Other Observation/Service Item master file. These attributes are more granular than can be represented in the Other Observation/Service Item master file as there may be multiple items in inventory that meet the characteristics of the Service Item but have different specific characteristics, e.g., multiple lots of a vaccine.</p>
 </div>
@@ -6,23 +7,7 @@
 <p>Each MFE/IIM structure describes a specific set of lot, expiration date, location, etc. for a Service Item. Multiple instances of MFE/IIM could be used to describe the same Service Item lot at multiple locations, or a location with multiple lots of the same Service Item.</p>
 </div>
 <div class="paragraph">
-<p>This message is not intended to act as a complete inventory management system. Various inventory management concepts, e.g., PAR levels, invoice and purchase order tracking, are intentionally not supported. The message is intended to synchronize limited orderable item attributes, e.g., quantity on hand, lot number, expiration date, between communicating systems. Such systems may include a Pharmacy Application and a Nurse-based dispensing system. While the Pharmacy application may define the service items (communicated in [MFN<sup>M12</sup>MFN_12] Other Observation/Service Item master file Messages), the dispensing system would communicate the lot numbers, expiration date and quantity on hand for service items in inventory using the Inventory Item Master file message.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-MFN_M15.html">MFN_M15</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Mf Inv Item begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MFE.html">MFE</a></td><td>Master File Entry</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IIM.html">IIM</a></td><td>Inventory Item Master</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Inv Item end</td><td></td><td></td></tr>
-</tbody>
-</table>
+<p>This message is not intended to act as a complete inventory management system. Various inventory management concepts, e.g., PAR levels, invoice and purchase order tracking, are intentionally not supported. The message is intended to synchronize limited orderable item attributes, e.g., quantity on hand, lot number, expiration date, between communicating systems. Such systems may include a Pharmacy Application and a Nurse-based dispensing system. While the Pharmacy application may define the service items (communicated in [MFNM12MFN_12] Other Observation/Service Item master file Messages), the dispensing system would communicate the lot numbers, expiration date and quantity on hand for service items in inventory using the Inventory Item Master file message.</p>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

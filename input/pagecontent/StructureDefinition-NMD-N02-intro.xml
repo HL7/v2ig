@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-NMD_N02.html">NMD_N02</a></p>
 <div class="paragraph">
 <p>The N02 event signifies when an unsolicited update (UU) Application Management Data message (NMD) is created by on application to transmit application management information to other applications. In this case, the initiating application sends an NMD message as an unsolicited update (UU) containing application management information to a receiving application, which responds with a generic acknowledgement message (ACK).</p>
 </div>
@@ -7,31 +8,6 @@
 </div>
 <div class="paragraph">
 <p>Because the N02/ACK pair does not incorporate an application acknowledgement, the value in MSH-16 of the N02 event message does not affect the choreography</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-NMD_N02.html">NMD_N02</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Clock And Stats With Notes begin</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Clock begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-NCK.html">NCK</a></td><td>System Clock</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for NCK</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Clock end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- App Stats begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-NST.html">NST</a></td><td>Application control-level Statistics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for NST</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- App Stats end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- App Status begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-NSC.html">NSC</a></td><td>Application Status Change</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for NSC</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- App Status end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Clock And Stats With Notes end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

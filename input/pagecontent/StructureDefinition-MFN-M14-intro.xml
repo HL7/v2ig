@@ -1,22 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_Znn.html">MFN_Znn</a></p>
 <div class="paragraph">
 <p>The MFN Site defined master file notification transaction is used where the master file is not a simple one (as defined for MFN^M13) and is not a transaction type currently defined by HL7, but rather requires one or more HL7 and/or 'Z' segments to carry the master file information.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-MFN_Znn.html">MFN_Znn</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Mf Site Defined begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MFE.html">MFE</a></td><td>Master File Entry</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-....html">...</a></td><td>One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Site Defined end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

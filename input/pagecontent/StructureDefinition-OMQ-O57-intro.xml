@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OMQ_O57.html">OMQ_O57</a></p>
 <div class="paragraph">
 <p>The purpose of this message is to enable communication of orders using a CDA document type to convey the content of the order (e.g., prescription, lab tests, etc.) while the message infrastructure enables appropriate state management.</p>
 </div>
@@ -10,98 +11,6 @@
 </div>
 <div class="paragraph">
 <p>When one wants to convey with the detailed order message a supporting document, such as a CDA, one can transmit that document using the OBX associated with the ORC/OBR(s) using OBX-11 = "O" Order Detail Description Only, using either OBX-2 = "ED" or "RP".</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-OMQ_O57.html">OMQ_O57</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Header)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Patient begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Patient ID)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NK1.html">NK1</a> }]</td><td>Next of Kin/Associated Parties</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient Visit begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit- Additional Info</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient Visit end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Insurance begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-IN3.html">IN3</a> ]</td><td>Insurance Additional Information, Certification</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Insurance end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-GT1.html">GT1</a> ]</td><td>Guarantor</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Patient end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Order begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Common Order)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation containing document</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-TXA.html">TXA</a></td><td>Transcription Document Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-DG1.html">DG1</a> }]</td><td>Diagnosis</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Results)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Observation end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Prior Result begin</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Patient Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification – previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics – previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Prior)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatitbilitty only as of V2.9.</td><td>B</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Patient Prior end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Patient Visit Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit – previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit Add. Info – previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit Prior)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Patient Visit Prior end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information - previous result</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Order Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order - previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBR.html">OBR</a></td><td>Order Detail - previous result</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Timing Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Timing Prior end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments - previous result</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Observation Participation Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PRT.html">PRT</a></td><td>Participation (for Order Prior) - previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-DEV.html">DEV</a> }]</td><td>Device</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Observation Participation Prior end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data - previous result</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Observation Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result - previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Oservation Prior)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments - previous result</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Observation Prior end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Order Prior end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Prior Result end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-FT1.html">FT1</a> }]</td><td>Financial Transaction</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CTI.html">CTI</a> }]</td><td>Clinical Trial Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-BLG.html">BLG</a> ]</td><td>Billing Segment</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Order end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

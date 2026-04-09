@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OSM_R26.html">OSM_R26</a></p>
 <div class="paragraph">
 <p>The OSM^R26 Unsolicited Specimen Shipment Manifest message is used to communicate the contents of a specimen shipment to a specimen receiver (typically a laboratory). The message documents details regarding the following:</p>
 </div>
@@ -45,74 +46,6 @@ The Participation (PRT) segment following the Specimen (SPM) segment is used to 
 </div>
 <div class="paragraph">
 <p>The Observation/Result (OBX) segment in the PATIENT_VISIT_OBSERVATION segment group is used to document observations regarding the visit.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-OSM_R26.html">OSM_R26</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-ARV.html">ARV</a> }</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Shipment begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation (for Shipment)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Shipping Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (Additional Shipping Information)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Shipping Observation)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Shipping Observation end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Package begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Shipping Package)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Specimen begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Specimen)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Specimen Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (For Specimen)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Specimen Observation)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Specimen Observation end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Container begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-SAC.html">SAC</a></td><td>Container Information</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Container Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (For Container)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Container Observation Result)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Container Observation end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Container end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Subject Person Or Animal Identification begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification (For Person/Animal)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compability only as of V2.9.</td><td>B</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Patient Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (For Patient)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Patient Observation end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Next Of Kin begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin/Associated Parties (For Person/Animal)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Next Of Kin end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Subject Person Or Animal Identification end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Subject Population Or Location Identification begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit (For Population/Location)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Patient Visit Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (For Visit)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit Observation)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Patient Visit Observation end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-PID.html">PID</a> ]</td><td>Patient Identification (For Population)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient)</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Next Of Kin begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin/Associated Parties (For Population/Location)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Next Of Kin end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Subject Population Or Location Identification end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Specimen end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Package end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Shipment end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

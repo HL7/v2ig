@@ -1,5 +1,14 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A12.html">ADT_A12</a></p>
+<div class="paragraph">
+<p>The A12 event is sent when an A02 (transfer a patient) event is cancelled, either because of erroneous entry of the A02 event or because of a decision not to transfer the patient after all. <em>PV1-3 - Assigned Patient Location</em> must show the location of the patient prior to the original transfer.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) even be used in addition.</p>
+</div>
+<div class="paragraph">
+<p><strong>Attention: The DG1 segment was retained for backward compatibility only as of v2.4 and was withdrawn and removed from this message structure as of v2.7.</strong></p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

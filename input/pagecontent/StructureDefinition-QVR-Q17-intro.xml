@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QVR_Q17.html">QVR_Q17</a></p>
 <div class="paragraph">
 <p>The Query for Previous Events is like a Query by Parameter with a Segment Pattern Response except that the response consists of zero to many messages of the type defined in the Query Profile rather than a single response message containing multiple iterations of the segment pattern. While the messages sent in response to a QVR will reflect events which occurred in the past, the time stamp in the message header will reflect the time the message is actually constructed (current time). It is also similar to the previous generation VQQ/RQQ Event Replay.</p>
 </div>
@@ -28,23 +29,6 @@ If there is a concern that it will be difficult to distinguish these messages fr
 </div>
 <div class="paragraph">
 <p>The QVR message segments are identical to those of the QBP. A QVR Query Profile may use either the QSC or query by example syntactic variants as well as the query by simple parameter.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-QVR_Q17.html">QVR_Q17</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Event Definition Segment</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Qbp begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-....html">...</a> ]</td><td>Optional query by example segments</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Qbp end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-RCP.html">RCP</a></td><td>Response Control Parameters</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>Continuation Pointer</td><td>A</td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

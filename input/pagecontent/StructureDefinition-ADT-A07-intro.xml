@@ -1,5 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A06-B.html">ADT_A06</a></p>
+<div class="paragraph">
+<p>An A07 event is sent when a patient who was admitted changes his/her status to "no longer admitted" but is still being seen for this episode of care. This event changes a patient from an "admitted" to a "non-admitted" status. The new patient location should appear in <em>PV1-3 - Assigned Patient Location</em>, while the old patient location (if different) should appear in <em>PV1-6 - Prior Patient Location</em>.</p>
+</div>
+<div class="paragraph">
+<p>It will be left to implementation negotiation to determine whether disparate systems merely change the patient class, or close and open a new account. The current active account number should appear in field <em>PID-18 - Patient Account Number</em>; the prior account number can be included optionally in <em>MRG-3 - Prior Patient Account Number</em>. This arrangement is not intended to be a type of merge. The MRG segment is used here only for <em>MRG-3 - Prior Patient Account Number</em>. <em>PV1-19 - Visit Number</em> may also be changed during this event.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
+</div>
+<div class="paragraph">
+<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
+</div>
+<div class="paragraph">
+<p>The PRT – Participation Information Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin and end date of the provider, use the <em>–PRT-11 - Begin Date/Time</em> and the <em>–PRT-12 - End Date/Time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

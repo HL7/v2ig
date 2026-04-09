@@ -1,5 +1,26 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A01-D.html">ADT_A01</a></p>
+<div class="paragraph">
+<p>The A13 event is sent when an A03 (discharge/end visit) event is cancelled, either because of erroneous entry of the A03 event or because of a decision not to discharge or end the visit of the patient after all. <em>PV1-3 - Assigned Patient Location</em> should reflect the location of the patient after the cancellation has been processed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This location may be different from the patient&#8217;s location prior to the erroneous discharge. Prior Location could be used to show the location of the patient prior to the erroneous discharge.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
+</div>
+<div class="paragraph">
+<p>The PRT - Participation Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>–PRT-11 - Begin Date/Time</em> and the <em>–PRT-12 - End Date/Time</em> in the ROL, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

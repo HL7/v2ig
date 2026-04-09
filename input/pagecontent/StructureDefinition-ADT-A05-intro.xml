@@ -1,5 +1,14 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A05-A.html">ADT_A05</a></p>
+<div class="paragraph">
+<p>An A05 event is sent when a patient undergoes the pre-admission process. During this process, episode-related data is collected in preparation for a patient&#8217;s visit or stay in a healthcare facility. For example, a pre-admit may be performed prior to inpatient or outpatient surgery so that lab tests can be performed prior to the surgery. This event can also be used to pre-register a non-admitted patient.</p>
+</div>
+<div class="paragraph">
+<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
+</div>
+<div class="paragraph">
+<p>The PRT - Participation Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Visit level providers (corresponding to the PV1 data) are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>–PRT-11 - Begin Date/Time</em> and the <em>–PRT-12 - End Date/Time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 15 for the definition of the PRT segment.</p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

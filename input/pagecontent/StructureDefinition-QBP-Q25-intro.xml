@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QBP_Q21-F.html">QBP_Q21</a></p>
 <div class="paragraph">
 <p>The following trigger event is served by the following Conformance Statement: Another application determines a need for Personnel data about a person and sends a query to a system providing this information.</p>
 </div>
@@ -24,7 +25,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBP<sup>Q25</sup>QBP_Q21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ25QBP_Q21</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
@@ -32,7 +33,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSP<sup>K25</sup>RSP_K25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK25RSP_K25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>

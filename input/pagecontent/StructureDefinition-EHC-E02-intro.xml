@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-EHC_E02.html">EHC_E02</a></p>
 <div class="paragraph">
 <p>This message is used to cancel one HealthCare Services Invoices or one Product/Service Group in an Invoice or one Product/Service Line Item in an Invoice that have previously been submitted to a TPA/Payer for processing and payment. Invoice Control codes are used to indicate the specific action being requested of the Payer (CN for Cancel Invoice, CG for Cancel Product/Service Group and CI for Cancel Product/Service Line Item). An Invoice that is cancelled must be marked as cancel only and not purged from the Payer Application&#8217;s database.</p>
 </div>
@@ -29,7 +30,7 @@ The Provider Tracking Number and Payer Tracking Number must be echoed on any sub
 <p>5) Provider reference numbers and Payer reference numbers must exist on Payer Application&#8217;s database and must point to the same Invoice, Product/Service Group or Product/Service Line Item, otherwise an error must be generated (mismatched Invoice and/or Product/Service Line Item).</p>
 </div>
 <div class="paragraph">
-<p>6) Product/Service Clarification Codes: Each Product/Service Line Item allows a number of clarification codes to be specified. These are specified as 2 fields: Product/Service Clarification Code Type and Product/Service Clarification Code Value. Both of these fields repeat within the PSL segment and must repeat the same number of times. For example, if 2 clarification codes are specified, then 2 repetitions of each field is required, the first repetition corresponding to the 1<sup>st</sup> clarification code, the second repetition corresponding to the 2<sup>nd</sup> clarification code.</p>
+<p>6) Product/Service Clarification Codes: Each Product/Service Line Item allows a number of clarification codes to be specified. These are specified as 2 fields: Product/Service Clarification Code Type and Product/Service Clarification Code Value. Both of these fields repeat within the PSL segment and must repeat the same number of times. For example, if 2 clarification codes are specified, then 2 repetitions of each field is required, the first repetition corresponding to the 1st clarification code, the second repetition corresponding to the 2nd clarification code.</p>
 </div>
 <div class="paragraph">
 <p>7) To cancel an Invoice, use Invoice Control Code on IVC of "CN". In addition, the following fields must be supplied and must match the original Invoice submitted:<br/>
@@ -69,32 +70,6 @@ PSL.Billed Amount</p>
 </div>
 <div class="paragraph">
 <p>10) This message must not be used to cancel a Product/Service Line Item in a Product/Service Group which was submitted with Adjudicated as Group = "Y".</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-EHC_E02.html">EHC_E02</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Secondary Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Cancel begin</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PYE.html">PYE</a></td><td>Payee Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Product Service Section begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSS.html">PSS</a></td><td>DESCRIPTION NEEDED</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Psg begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PSL.html">PSL</a> }]</td><td>Product/Service Line Item</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Psg end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Product Service Section end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Cancel end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">

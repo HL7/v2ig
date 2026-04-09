@@ -1,5 +1,26 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A03.html">ADT_A03</a></p>
+<div class="paragraph">
+<p>An A03 event signals the end of a patient&#8217;s stay in a healthcare facility. It signals that the patient&#8217;s status has changed to "discharged" and that a discharge date has been recorded. The patient is no longer in the facility. The patient&#8217;s location prior to discharge should be entered in <em>PV1-3 - Assigned Patient Location</em>.</p>
+</div>
+<div class="paragraph">
+<p>An A03 event can be sent to notify: the pharmacy that the patient&#8217;s stay has ended and that entitlement to drugs has changed accordingly; the nursing system that the patient has been discharged and that the care plan can be completed; the extended care or home health system that the patient has been discharged and that the new extended care or home health admission assessment can be scheduled; the finance system that the patient billing period has ended; and/or the clinical repository that discharge has taken place for the EMR.</p>
+</div>
+<div class="paragraph">
+<p>For non-admitted patients, an A03 event signals the end of a patient&#8217;s visit to a healthcare facility. It could be used to signal the end of a visit for a one-time or recurring outpatient who is not assigned to a bed. It could also be used to signal the end of a visit to the Emergency Room. <em>PV1-45 - Discharge Date/Time</em> can be used for the visit end date/time.</p>
+</div>
+<div class="paragraph">
+<p>When an account&#8217;s start and end dates span a period greater than any particular visit, the P06 (end account) event should be used to transmit information about the closing of an account. To indicate that a patient has expired, use an A03 event with the <em>PID-29 - Patient Death Date and Time</em> and <em>PID-30 - Patient Death Indicator</em> filled in.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. The optional allergy, next-of-kin, insurance and guarantor fields should be sent when required to support advanced notification for pending extended care or home health admission requirements (such as scheduling of a nursing assessment in preparation for completion of the extended care plan). When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
+</div>
+<div class="paragraph">
+<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
+</div>
+<div class="paragraph">
+<p>The PRT - Participation Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin date and end date of the provider, use the <em>–PRT-11 - Begin Date/Time</em> and the <em>–PRT-12 - End Date/Time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Particpation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QBP_O33.html">QBP_O33</a></p>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. This query/response is designed for interaction between a registration system and the system which contains the Donor Book of Record. The query consists of query parameters which assist in determining if the Donor already has a record in the Donor Book or Record system. The query parameters are minimal and number of elements returned in the query response for each candidate is minimal.</caption>
 <colgroup>
@@ -22,7 +23,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBP<sup>Q33</sup>QBP_Q33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ33QBP_Q33</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
@@ -30,7 +31,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSP<sup>K33</sup>RSP_K33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK33RSP_K33</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
@@ -42,19 +43,6 @@
 </tr>
 </tbody>
 </table>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-QBP_O33.html">QBP_O33</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-RCP.html">RCP</a></td><td>Response Control Parameters</td><td>A</td></tr>
-</tbody>
-</table>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

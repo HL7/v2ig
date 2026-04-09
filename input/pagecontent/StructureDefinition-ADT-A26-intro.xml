@@ -1,5 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A21-E.html">ADT_A21</a></p>
+<div class="paragraph">
+<p>The A26 event is sent when an A15 (pending transfer) event is cancelled, either because of erroneous entry of the A15 event or because of a decision not to transfer the patient after all.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

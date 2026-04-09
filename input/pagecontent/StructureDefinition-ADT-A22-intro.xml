@@ -1,5 +1,14 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A21-B.html">ADT_A21</a></p>
+<div class="paragraph">
+<p>An A22 event is sent to notify systems that an admitted patient has returned to the healthcare institution after a temporary "leave of absence." It is used for systems in which a bed is still assigned to the patient, and it takes their current admitted patient activities off of "hold" status. For example, it is used to notify dietary services and laboratory systems when the patient returns from a weekend trip to his/her home.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
+</div>
+<div class="paragraph">
+<p>As there is no specific field for the LOA start date/time, it is recommended that field <em>EVN-6 - Event Occurred</em> contain the date/time the patient actually returned from LOA. <em>PV2-47 - Expected LOA Return Date/Time</em> is used to communicate the date/time the patient was expected to return from LOA.</p>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,4 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
+<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-EHC_E01.html">EHC_E01</a></p>
 <div class="paragraph">
 <p>This message is used to submit a HealthCare Services Invoice to a TPA/Payer for processing and payment. A HealthCare Services Invoice may have 1 or more Product/Service Line Items (detail lines), grouped as a Product/Service Group. Each Product/Service Line Item represents a specific fee item. Refer to the beginning of this section for more information on the structure of a HealthCare Services Invoice.</p>
 </div>
@@ -53,82 +54,13 @@ Provider Information, if required by the Payer, must be specified with the Produ
 The Product/Service Billed Amount on PSL should be the amount the Provider is billing and should include all adjustments and all unit cost multipliers.</p>
 </div>
 <div class="paragraph">
-<p>10) Product/Service Clarification Codes: Each Product/Service Line Item allows a number of clarification codes to be specified. These are specified as 2 fields: Product/Service Clarification Code Type and Product/Service Clarification Code Value. Both of these fields repeat within the PSL segment and must repeat the same number of times. For example, if 2 clarification codes are specified, then 2 repetitions of each field is required, the first repetition corresponding to the 1<sup>st</sup> clarification code, the second repetition corresponding to the 2<sup>nd</sup> clarification code.</p>
+<p>10) Product/Service Clarification Codes: Each Product/Service Line Item allows a number of clarification codes to be specified. These are specified as 2 fields: Product/Service Clarification Code Type and Product/Service Clarification Code Value. Both of these fields repeat within the PSL segment and must repeat the same number of times. For example, if 2 clarification codes are specified, then 2 repetitions of each field is required, the first repetition corresponding to the 1st clarification code, the second repetition corresponding to the 2nd clarification code.</p>
 </div>
 <div class="paragraph">
 <p>11) Re-submitting an Invoice: If an Invoice or component is resubmitted with corrections (this rule does not apply to Invoices re-submitted in whole, without modification, due to network problems, etc.), new Invoice, Product/Service Group and Product/Service Line Items must be specified (for the subsequent Invoice).</p>
 </div>
 <div class="paragraph">
 <p>12) A single group cannot have both multiple Patients and multiple Product/Service Line Items for the same Product/Service Group. In this situation, the multiple Patient and Product/Service Line Item must be split into multiple Product/Service Groups.</p>
-</div>
-<div id="v2-classic-content" style="display:none;">
-<p>The full structure definition for <a href="StructureDefinition-EHC_E01.html">EHC_E01</a> is available on its own page.</p>
-<table class="grid">
-<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Submit begin</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PYE.html">PYE</a> ]</td><td>Payee Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-AUT.html">AUT</a> ]</td><td>Authorization Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-LOC.html">LOC</a> }]</td><td>Location Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Product Service Section begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Product Service Group begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-LOC.html">LOC</a> }]</td><td>Location Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Patient Info begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PID.html">PID</a></td><td>Person Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSC.html">GSC</a> ]</td><td>*Sex Parameter for Clinical Use*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV1.html">PV1</a> ]</td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ACC.html">ACC</a> }]</td><td>Accident</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">               { --- Insurance begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">                  <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">                  [ <a href="StructureDefinition-GSP.html">GSP</a> ]</td><td>*Person Gender and Sex*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">                  [ <a href="StructureDefinition-GSR.html">GSR</a> ]</td><td>*Recorded Gender and Sex*</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">                  [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Info</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">               } --- Insurance end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">               [{ --- Diagnosis begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">                  <a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">                  [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">               }] --- Diagnosis end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Observation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Patient Info end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            { --- Product Service Line Item begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PSL.html">PSL</a></td><td>Product/Service Line Item</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ADJ.html">ADJ</a> }]</td><td>Adjustment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-AUT.html">AUT</a> ]</td><td>Authorization Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-LOC.html">LOC</a> }]</td><td>Location Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            } --- Product Service Line Item end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Procedure begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PR1.html">PR1</a></td><td>Procedures</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Procedure end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-IPR.html">IPR</a> }]</td><td>Invoice Processing Results</td><td>A</td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Product Service Group end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Product Service Section end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
-<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Submit end</td><td></td><td></td></tr>
-</tbody>
-</table>
 </div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
