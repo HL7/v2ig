@@ -1,7 +1,0 @@
-== TQ1.2 - Quantity (CQ)
-
-[segment-definition]
-This field specifies the numeric quantity of the service that should be provided at each service interval. For example, if two blood cultures are to be obtained every 4 hours, the quantity would be '2', or if three units of blood are to be typed and cross-matched, the quantity would be '3'. The default value for this field is '1'.
-
-[segment-comment]
-If multiple identical services are to be requested, it is strongly recommended that multiple service requests be placed, giving each service request its own unique placer/filler number.

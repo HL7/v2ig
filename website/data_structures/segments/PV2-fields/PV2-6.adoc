@@ -1,4 +1,0 @@
-== PV2.6 - Patient Valuables Location (ST)
-
-[segment-definition]
-This field indicates the location of the patient's valuables.

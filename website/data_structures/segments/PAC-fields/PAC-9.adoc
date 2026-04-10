@@ -1,7 +1,0 @@
-== PAC.9 - Action Code (ID)
-
-[segment-definition]
-This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.
-
-[segment-comment]
-The action code can only be used when PAC-2 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.

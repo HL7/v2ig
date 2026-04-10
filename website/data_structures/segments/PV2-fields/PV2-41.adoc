@@ -1,4 +1,0 @@
-== PV2.41 - Precaution Code (CWE)
-
-[segment-definition]
-This field indicates non-clinical precautions that need to be taken with the patient. Refer to {{v2-table:0433:Precaution Code}} in Chapter 2C, Code Tables, for suggested values.

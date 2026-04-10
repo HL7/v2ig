@@ -1,7 +1,0 @@
-== AIG.13 - Allow Substitution Code (CWE)
-
-[segment-definition]
-This field contains a code indicating whether the identified resource can be substituted with an equivalent resource by the filler application. Refer to {{v2-table:0279:Allow Substitution Codes}} for suggested codes.
-
-[segment-comment]
-This field is conditionally required. It is required for all request messages. It is optional for all unsolicited transactions, and for all query messages.

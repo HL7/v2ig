@@ -1,4 +1,0 @@
-== PV2.29 - First Similar Illness Date (DT)
-
-[segment-definition]
-This field is used to determine if the patient has a pre-existing condition.

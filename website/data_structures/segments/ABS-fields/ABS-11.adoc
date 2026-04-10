@@ -1,4 +1,0 @@
-== ABS.11 - Gestation Category Code (CWE)
-
-[segment-definition]
-The gestation category code is used to indicate the status of the birth in relation to the gestation. Refer to {{v2-table:0424:Gestation Category Code}} in Chapter 2C, Code Tables, for suggested values.

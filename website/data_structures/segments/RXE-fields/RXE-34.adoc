@@ -1,7 +1,0 @@
-== RXE.34 - Give Drug Strength Volume Units (CWE)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-Description: This field indicates the volumetric unit associated with _RXE-33 Give Drug Strength Volume_. See example in RXE-33. Refer to Table 0729 - Give Drug Strength Volume Units in Chapter 2C for valid values.

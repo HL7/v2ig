@@ -1,4 +1,0 @@
-== GOL.17 - Goal Evaluation Comment (ST)
-
-[segment-definition]
-This field contains the comments associated with the goal evaluation. Examples of comments that might be entered in this field include: a reason for delay in achieving goal, or a clinical footnote about progress made towards the goal, etc.

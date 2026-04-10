@@ -1,4 +1,0 @@
-== IVT.24 - Recommended Order Point (NM)
-
-[segment-definition]
-This field contains the on-hand quantity referencing the recommended level of inventory at which the item should be re-ordered.

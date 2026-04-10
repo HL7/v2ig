@@ -1,4 +1,0 @@
-== PAC.7 - Package Handling Code (CWE)
-
-[segment-definition]
-This describes how the package needs to be handled during transport. Refer to {{v2-table:0376:Special Handling Code}} for suggested values.

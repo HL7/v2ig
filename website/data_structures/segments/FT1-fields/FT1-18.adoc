@@ -1,4 +1,0 @@
-== FT1.18 - Patient Type (CWE)
-
-[segment-definition]
-This field contains the type code assigned to the patient for this episode of care (visit or stay). Refer to {{v2-table:0018:Patient Type}} in Chapter 2C, Code Tables, for suggested values. This is for use when the patient type for billing purposes is different than the visit patient type in _PV1-18 - Patient Type_.

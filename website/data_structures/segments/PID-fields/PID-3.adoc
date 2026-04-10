@@ -1,4 +1,0 @@
-== PID.3 - Patient Identifier List (CX)
-
-[segment-definition]
-This field contains the list of identifiers (one or more) used by the healthcare facility to uniquely identify a patient (e.g., medical record number, billing number, birth registry, national unique individual identifier, etc.). In Canada, the Canadian Provincial Healthcare Number should be sent in this field. The arbitrary term of "internal ID" has been removed from the name of this field for clarity.

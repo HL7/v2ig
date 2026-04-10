@@ -1,3 +1,0 @@
-==== RXE field definitions
-[v291_section="4A.4.4.0"]
-

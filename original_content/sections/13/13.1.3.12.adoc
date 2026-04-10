@@ -1,5 +1,0 @@
-==== Bottom of tube:
-[v291_section="13.1.3.12"]
-
-See Bottom of container.
-

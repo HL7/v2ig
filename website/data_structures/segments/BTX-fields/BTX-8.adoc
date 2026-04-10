@@ -1,4 +1,0 @@
-== BTX.8 - BTX-8 (NM)
-
-[segment-definition]
-This field indicates the number of blood components or commercial products to which the message refers.

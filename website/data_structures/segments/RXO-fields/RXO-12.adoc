@@ -1,4 +1,0 @@
-== RXO.12 - Requested Dispense Units (CWE)
-
-[segment-definition]
-This field identifies the units for the dispense amount. This must be in simple units that reflect the actual quantity of the substance to be dispensed. It does not include compound units. See above note. Refer to Table 0754 - Requested Dispense Units in Chapter 2C for valid values.

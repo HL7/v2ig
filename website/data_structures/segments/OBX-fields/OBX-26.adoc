@@ -1,7 +1,0 @@
-== OBX.26 - Patient Results Release Category (ID)
-
-[segment-definition]
-This field contains instructions on whether to share the results with the patient, and if so how.
-
-[segment-comment]
-Valid values are provided in {{v2-table:0909:Patient Results Release Categorization Scheme}}.

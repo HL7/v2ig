@@ -1,4 +1,0 @@
-== PD1.6 - Handicap (CWE)
-
-[segment-definition]
-This field indicates the nature of the patient's permanent handicapped condition (e.g., deaf, blind). A handicapped condition is defined as a physical or mental disability that is permanent. Transient handicapped conditions should be sent in the ambulatory status. Refer to {{v2-table:0295:Handicap}} in Chapter 2C, Code Tables, for suggested values.

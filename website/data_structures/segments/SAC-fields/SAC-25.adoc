@@ -1,4 +1,0 @@
-== SAC.25 - SAC-25 (CWE)
-
-[segment-definition]
-This field identifies the type of the separator that is being used (e.g., gel separator in the container – not to be confused with the communication separators). Refer to {{v2-table:0380:SeparatorType}} in Chapter 2C, Code Tables, for suggested values. It is recommended that the first table entry be "NO" meaning "No Separator."

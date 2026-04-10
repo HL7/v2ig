@@ -1,4 +1,0 @@
-== SCD.29 - Thermal Rinse Time (CQ)
-
-[segment-definition]
-The amount of time spent in the thermal rinse phase of a decontamination cycle.

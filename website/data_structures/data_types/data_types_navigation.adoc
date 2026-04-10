@@ -1,5 +1,0 @@
-= Data Types
-
-xref:complex/navigation.adoc[Complex Data Types]
-
-xref:primitive/navigation.adoc[Primitive Data Types]

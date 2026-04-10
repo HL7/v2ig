@@ -1,4 +1,0 @@
-== FT1.10 - Transaction Quantity (NM)
-
-[segment-definition]
-This field contains the quantity of items associated with this transaction.

@@ -1,4 +1,0 @@
-== PR1.23 - Treating Organizational Unit (PL)
-
-[segment-definition]
-This field contains information about the organizational unit that has performed the procedure.

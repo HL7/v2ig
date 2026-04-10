@@ -1,4 +1,0 @@
-== GP2.9 - Payment Adjustment Code (CWE)
-
-[segment-definition]
-This field contains any payment adjustment due to drugs or medical devices. Refer to {{v2-table:0468:Payment Adjustment Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies

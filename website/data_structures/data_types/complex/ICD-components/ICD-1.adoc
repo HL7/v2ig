@@ -1,5 +1,0 @@
-== ICD.1 - Certification Patient Type (CWE)
-
-[datatype-definition]
-Specifies the category or type of patient for which this certification is requested. Refer to {{v2-table:0150:User-defined Table 0150_ _- Certification patient type}} for suggested values.
-

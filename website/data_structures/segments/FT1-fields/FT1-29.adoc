@@ -1,7 +1,0 @@
-== FT1.29 - NDC Code (CWE)
-
-[segment-definition]
-This field has been defined for NDC codes that are required by HIPAA for electronic claims for Pharmacy charges. Refer to {{v2-table:0549:NDC Codes}} in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-If a system supports multiple NDC codes for a charge, this information will be sent in OBX segments. FT1-29 and FT1-43 can be used for single NDC codes and quantities instead of using OBX.

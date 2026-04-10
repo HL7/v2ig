@@ -1,4 +1,0 @@
-== RXE.43 - Deliver-to Address (XAD)
-
-[segment-definition]
-This field specifies the address, either mailing or physical, to which the prescription should be mailed or delivered.

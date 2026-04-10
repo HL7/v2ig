@@ -1,7 +1,0 @@
-== ORG.3 - Organization Unit Type Code (CWE)
-
-[segment-definition]
-This field contains a code indicating the classification of the organization unit. HL7 suggests using values in {{v2-table:0474:Organization Unit Type}}.
-
-[segment-comment]
-Refer to {{v2-table:0474:Organization Unit Type}} in Chapter 2C, Code Tables, for valid values. This table contains values for department, facility etc.

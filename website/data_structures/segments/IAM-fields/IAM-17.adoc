@@ -1,4 +1,0 @@
-== IAM.17 - Allergy Clinical Status Code (CWE)
-
-[segment-definition]
-This field indicates the verification status for the allergy. Refer to {{v2-table:0438:Allergy Clinical Status}} in Chapter 2C, Code Tables, for suggested values.

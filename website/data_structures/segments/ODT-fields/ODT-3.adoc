@@ -1,7 +1,0 @@
-== ODT.3 - Text Instruction (ST)
-
-[segment-definition]
-This field defines instructions associated with the tray. Example:
-
-[segment-comment]
-|PLASTIC SILVERWARE|.

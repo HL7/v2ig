@@ -1,4 +1,0 @@
-== STF.16 - Preferred Method of Contact (CWE)
-
-[segment-definition]
-This field indicates which of a group of multiple phone numbers is the preferred method of contact for this person. Note that all values of this code refer to this segment's phone field, except for the value "E," which refers to the E-mail address field. If more than one phone number of the preferred type exists in _STF-10-phone_, this field refers to the first such instance. Refer to {{v2-table:0185:Preferred Method of Contact}} in Chapter 2C, Code Tables, for valid values. This table contains values for beeper, cell phone etc.

@@ -1,4 +1,0 @@
-== GT1.4 - Guarantor Spouse Name (XPN)
-
-[segment-definition]
-This field contains the name of the guarantor's spouse. Multiple names for the same guarantor spouse may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

@@ -1,9 +1,0 @@
-== OBX.32 - Observation Value Absent Reason (CWE)
-
-[segment-definition]
-This field reports the reason(s) why there is no value reported in the Observation Value (OBX-5) field. This field can be used when _OBX-5-Observation Value_ is empty.
-
-[segment-comment]
-See {{v2-table:0960:Observation Value Absent Reason}} for valid values.
-
-Condition: This field must be blank if OBX-5, Observation Value, is valued.

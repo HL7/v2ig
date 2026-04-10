@@ -1,4 +1,0 @@
-== SHP.4 - Shipment Status Date/Time (DTM)
-
-[segment-definition]
-The shipment status date/time carries the date and time the status in _SHP-3 Shipment Status_ occurred.

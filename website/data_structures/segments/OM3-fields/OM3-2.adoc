@@ -1,4 +1,0 @@
-== OM3.2 - Preferred Coding System (CWE)
-
-[segment-definition]
-This field contains the observations whose categorical responses are taken from a specified table of codes (e.g., CWE data types). Record the preferred coding system for these responses as observations (e.g., ICD10, HGVS, ISCN, SNOMED CT). Refer to Table 0650 - Preferred Coding System in Chapter 2C for valid values.

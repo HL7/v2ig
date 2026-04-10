@@ -1,4 +1,0 @@
-== PID.11 - Patient Address (XAD)
-
-[segment-definition]
-This field contains the address of the patient. Multiple addresses for the same person may be sent. As of v2.7 the "primary mailing address" constraint as the first sequence has been removed...

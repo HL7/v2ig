@@ -1,7 +1,0 @@
-== MFA.4 - MFN Record Level Error Return (CWE)
-
-[segment-definition]
-This field contains the status of the requested update. Site-defined table, specific to each master file being updated via this transaction.
-
-[segment-comment]
-Refer to {{v2-table:0181:MFN Record-level Error Return}} in Chapter 2C, Code Tables, for suggested values. All such tables will have at least the following two return code values: "S" for successful and "U" for unsuccessful.

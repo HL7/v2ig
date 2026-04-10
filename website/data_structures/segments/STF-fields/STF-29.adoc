@@ -1,9 +1,0 @@
-== STF.29 - Re-activation Approval Indicator (ID)
-
-[segment-definition]
-This field contains an indicator for whether the re-activation of this record requires special approval. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y the re-activation requires approval
-
-N this re-activation does not require approval

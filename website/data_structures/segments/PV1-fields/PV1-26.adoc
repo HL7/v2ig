@@ -1,4 +1,0 @@
-== PV1.26 - Contract Amount (NM)
-
-[segment-definition]
-This field contains the amount to be paid by the guarantor each period according to the contract.

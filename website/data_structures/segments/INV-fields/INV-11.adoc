@@ -1,4 +1,0 @@
-== INV.11 - INV-11 (CWE)
-
-[segment-definition]
-This field is the units of measure of the available quantity. If the units are ISO+ units, they should be recorded as single case abbreviations. If the units are ANS+ or L (local), the units and the source code table must be recorded, except that in this case, component delimiters should be replaced by sub-component delimiters. For example, "l" indicates liters, whereas pt&&ANS+ indicates pints (ANSI units). The default unit is milliliters (ml), which should be assumed if no units are reported. Refer to Table 0602 - Quantity Units in Chapter 2C for valid values.

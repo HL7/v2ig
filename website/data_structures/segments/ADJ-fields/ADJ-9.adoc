@@ -1,4 +1,0 @@
-== ADJ.9 - Original Value (NM)
-
-[segment-definition]
-Original value of data item noted in this adjustment.

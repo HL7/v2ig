@@ -1,5 +1,0 @@
-== VH.2 - End Day Range (ID)
-
-[datatype-definition]
-Ending day of visiting hours range. Starting day of visiting hours range. See {{v2-table:0267:Days of the Week}} for valid values.
-

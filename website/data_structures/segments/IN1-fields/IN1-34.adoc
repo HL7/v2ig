@@ -1,4 +1,0 @@
-== IN1.34 - Delay Before L.R. Day (NM)
-
-[segment-definition]
-This field indicates the delay before lifetime reserve days.

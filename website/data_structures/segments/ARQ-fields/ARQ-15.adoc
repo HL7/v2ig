@@ -1,4 +1,0 @@
-== ARQ.15 - Placer Contact Person (XCN)
-
-[segment-definition]
-This field identifies the person responsible for requesting the scheduling of a requested appointment. This person could be the same person responsible for executing the actual appointment, or it could be the provider requesting that an appointment be made on behalf of the patient, with another provider.

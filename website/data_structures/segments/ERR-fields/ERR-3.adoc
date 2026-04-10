@@ -1,4 +1,0 @@
-== ERR.3 - HL7 Error Code (CWE)
-
-[segment-definition]
-Identifies the HL7 (communications) error code. Refer to {{v2-table:0357:Message Error Condition Codes}} in Chapter 2C, Code Tables, for valid values.

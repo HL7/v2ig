@@ -1,4 +1,0 @@
-== FT1.36 - Special Processing Code (CWE)
-
-[segment-definition]
-This field contains a Special Processing Code that is available in reimbursement expressions. If valued, this field will override the value in the Service Catalog.

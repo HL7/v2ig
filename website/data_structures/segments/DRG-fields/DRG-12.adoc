@@ -1,4 +1,0 @@
-== DRG.12 - Name of Coder (XPN)
-
-[segment-definition]
-This field holds the name of the person ("coder") who supervised or undertook the determination of the DRG code.

@@ -1,4 +1,0 @@
-== AUT.25 - Source Text (ST)
-
-[segment-definition]
-The authorization source text allows a user to capture information (such as the name) of the person contacted regarding the specific authorization.

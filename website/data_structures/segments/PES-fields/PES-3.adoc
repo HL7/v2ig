@@ -1,4 +1,0 @@
-== PES.3 - Sender Address (XAD)
-
-[segment-definition]
-This field contains the postal address of the message sender to which correspondence regarding the experience being reported should be directed.

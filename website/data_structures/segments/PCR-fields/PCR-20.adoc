@@ -1,4 +1,0 @@
-== PCR.20 - Relatedness Assessment (ID)
-
-[segment-definition]
-This field represents the assessment of relatedness of the product to the event. Refer to {{v2-table:0250:Relatedness Assessment}} for valid values.

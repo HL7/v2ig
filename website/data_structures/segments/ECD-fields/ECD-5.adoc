@@ -1,7 +1,0 @@
-== ECD.5 - ECD-5 (TX)
-
-[segment-definition]
-This field identifies the parameters of the command (if they are not included in a separate segment(s)).
-
-[segment-comment]
-*Note:* Elements of this segment (or other elements not defined here) may be required for certain vendor-specific equipment such as centrifuges, aliquoters, sorters, uncappers, recappers, automated storage units, etc.

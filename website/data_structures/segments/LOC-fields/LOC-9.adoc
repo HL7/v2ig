@@ -1,4 +1,0 @@
-== LOC.9 - Location Service Code (CWE)
-
-[segment-definition]
-This field categorizes the types of services provided by the location. Refer to {{v2-table:0442:Location Service Code}} in Chapter 2C, Code Tables, for suggested values.

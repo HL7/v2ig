@@ -1,4 +1,0 @@
-== CON.12 - Consent Discussion Date/Time (DTM)
-
-[segment-definition]
-Identifies the time when consent was discussed with the subject. This should only be specified if this differs from the time the consent decision is made.

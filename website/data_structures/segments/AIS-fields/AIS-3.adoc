@@ -1,4 +1,0 @@
-== AIS.3 - Universal Service Identifier (CWE)
-
-[segment-definition]
-This field contains an identifier code for a service to be scheduled. This field may contain a universal service identifier describing the observation/test/battery/procedure or other activity that is to be performed during the requested appointment, similar to the universal service identifier defined for the OBR segment in the Order Entry chapter (Chapter 4). This code can be based on local and/or universal codes. The use of universal codes is recommended.

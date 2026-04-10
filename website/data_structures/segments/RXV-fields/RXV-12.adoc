@@ -1,4 +1,0 @@
-== RXV.12 - Max Dose Amount (NM)
-
-[segment-definition]
-This field contains the order’s maximum dose amount. For example, if the ordered bolus is 50 mg, this field contains the value of 50.

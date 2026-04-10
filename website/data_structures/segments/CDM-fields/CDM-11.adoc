@@ -1,4 +1,0 @@
-== CDM.11 - Contract Number (CX)
-
-[segment-definition]
-This field contains any contract number pertaining to this chargeable item; for example, supplier contract or service contract.

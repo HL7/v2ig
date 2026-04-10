@@ -1,4 +1,0 @@
-== ADJ.12 - Provider Adjustment Number Cross Reference (EI)
-
-[segment-definition]
-Unique Provider Adjustment Number assigned by the Provider Application that is referenced by this Payer Adjustment.

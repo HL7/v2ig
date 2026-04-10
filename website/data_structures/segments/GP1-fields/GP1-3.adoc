@@ -1,4 +1,0 @@
-== GP1.3 - Overall Claim Disposition Code (CWE)
-
-[segment-definition]
-This field identifies the final status of the claim. The codes listed as examples are not an exhaustive or current list, refer to OPPS Final Rule. Refer to {{v2-table:0457:Overall Claim Disposition}} _Code_ in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.

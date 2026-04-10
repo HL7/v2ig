@@ -1,4 +1,0 @@
-== PSH.10 - Quantity in Use (CQ)
-
-[segment-definition]
-This field is used to send the number of units of the product which were in use during the reporting interval. The second component can be used to specify the units for the quantity.

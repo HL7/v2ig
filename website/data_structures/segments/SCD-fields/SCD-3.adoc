@@ -1,4 +1,0 @@
-== SCD.3 - Temp Max (CQ)
-
-[segment-definition]
-The maximum temperature achieved during a specific cycle.

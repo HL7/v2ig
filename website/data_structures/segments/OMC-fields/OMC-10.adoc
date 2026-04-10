@@ -1,9 +1,0 @@
-== OMC.10 - Multiple Answers Allowed (ID)
-
-[segment-definition]
-This field indicates if multiple answers are allowed, which may impact EHR system display and selection functionality. Refer to _HL7 Table 0136 – Yes/no Indicator_ for valid values.
-
-[segment-comment]
-Y Multiple Answers Allowed
-
-N Single Answer only Allowed

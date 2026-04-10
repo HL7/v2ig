@@ -1,4 +1,0 @@
-== PRB.13 - Problem Confirmation Status (CWE)
-
-[segment-definition]
-This field contains the verification status of a problem (e.g., confirmed, differential, provisional, rule-out, etc.).

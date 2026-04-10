@@ -1,3 +1,0 @@
-==== SCD Field Definitions
-[v291_section="17.8.4.0"]
-

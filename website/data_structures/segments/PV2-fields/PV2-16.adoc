@@ -1,4 +1,0 @@
-== PV2.16 - Purge Status Code (CWE)
-
-[segment-definition]
-This field contains the purge status code for the account. It is used by the application program to determine purge processing. Refer to {{v2-table:0213:Purge Status Code}} in Chapter 2C, Code Tables, for suggested values.

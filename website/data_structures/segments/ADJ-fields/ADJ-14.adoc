@@ -1,4 +1,0 @@
-== ADJ.14 - Adjustment Date (DTM)
-
-[segment-definition]
-Date/Time adjustment was made. May also be synonymous with Adjudication Date.

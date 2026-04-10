@@ -1,7 +1,0 @@
-== ORG.6 - Health Care Provider Type Code (CWE)
-
-[segment-definition]
-This field contains the major grouping of the service or occupation of the practitioner at a specific organization unit, for example, Behavioral Health & Social Service. HL7 suggests using values derived from the ANSI ASC X12 Health Care Provider Taxonomy, Level 1 - Type.
-
-[segment-comment]
-Refer to {{v2-table:0452:Health Care Provider Type Code}} in Chapter 2C, Code Tables, for valid values.

@@ -1,8 +1,0 @@
-= (Varies) Segment - Variable
-:v2type: 'Segment'
-:code: Varies
-:name: Variable
-:generated: Mon, 06 Apr 2026 17:54:56 +0000
-
-[segment-definition]
-// TODO: Add segment definition

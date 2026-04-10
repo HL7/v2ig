@@ -1,5 +1,0 @@
-== JCC.1 - Job Code (CWE)
-
-[datatype-definition]
-This component contains the person’s job code. {{v2-table:0327:Job Code}} is used as the HL7 identifier for the user-defined table of values for this component.
-

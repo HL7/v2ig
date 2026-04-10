@@ -1,4 +1,0 @@
-== CTR.4 - Effective Date (DTM)
-
-[segment-definition]
-The Effective Date is the date that the contract becomes available to purchase from.

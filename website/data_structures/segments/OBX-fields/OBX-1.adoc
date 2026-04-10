@@ -1,4 +1,0 @@
-== OBX.1 - Set ID – OBX (SI)
-
-[segment-definition]
-This field contains the sequence number. For compatibility with ASTM.

@@ -1,4 +1,0 @@
-== IVT.13 - Transaction Amount - Unit (CP)
-
-[segment-definition]
-This field contains the dollar amount charged to patients for this single inventory supply item.

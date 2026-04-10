@@ -1,4 +1,0 @@
-== SPM.14 - Specimen Description (ST)
-
-[segment-definition]
-This is a text field that allows additional information *specifically about the specimen* to be sent in the message

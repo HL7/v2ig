@@ -1,4 +1,0 @@
-== TXA.23 - Distributed Copies (Code and Name of Recipient(s) ) (XCN)
-
-[segment-definition]
-This field identifies the persons who received a copy of this document.

@@ -1,4 +1,0 @@
-== RXG.4 - Give Code (CWE)
-
-[segment-definition]
-This field is the identifier of the medical substance/treatment ordered to be given to the patient; it is equivalent to _OBR-4-Universal service ID_ in function. See the RXE segment for a complete definition of the _RXE-2-Give code_. If the substance given is a vaccine, CVX codes may be used to code this field (see {{v2-table:0292:Vaccines administered}} in Chapter 2C, Code Tables).

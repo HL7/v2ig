@@ -1,4 +1,0 @@
-== RXV.19 - Syringe Model Number (CWE)
-
-[segment-definition]
-This field contains the model number of the syringe containing the ordered medication.

@@ -1,4 +1,0 @@
-== PRC.6 - Formula (ST)
-
-[segment-definition]
-This field contains the mathematical formula to apply to _PRC-5 - Price_ in order to compute total price. The syntax of this formula must conform to Arden Syntax rules.

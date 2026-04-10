@@ -1,9 +1,0 @@
-== TQ1.13 - Occurrence duration (CQ)
-
-[segment-definition]
-This field contains the duration for which a single performance of a service is requested. The quantity component of this field must be a positive, non-zero number when populated. The units component is constrained to be units of time.
-
-[segment-comment]
-Example: Whirlpool twenty minutes three times per day for three days. Twenty minutes is the occurrence duration.
-
-TQ1|1||TID|||3^d&&ANS+||||||20^min&&ANS+|9<cr>

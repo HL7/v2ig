@@ -1,9 +1,0 @@
-== PV2.15 - Employment Illness Related Indicator (ID)
-
-[segment-definition]
-This field specifies whether a patient's illness was job-related. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y the patient's illness was job-related
-
-N the patient's illness was not job-related

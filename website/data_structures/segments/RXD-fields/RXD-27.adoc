@@ -1,4 +1,0 @@
-== RXD.27 - Packaging/Assembly Location (CWE)
-
-[segment-definition]
-This field identifies the pharmacy which packaged/assembled request. Refer to Table 0712 - Packaging/Assembly Location in Chapter 2C for valid values.

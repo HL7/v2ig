@@ -1,4 +1,0 @@
-== PV2.4 - Transfer Reason (CWE)
-
-[segment-definition]
-This field contains the short description of the reason for a patient location change.

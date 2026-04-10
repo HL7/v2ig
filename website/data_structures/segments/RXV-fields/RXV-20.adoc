@@ -1,4 +1,0 @@
-== RXV.20 - Syringe Size (NM)
-
-[segment-definition]
-This field contains the syringe’s numeric total volume size.

@@ -1,4 +1,0 @@
-== ERR.9 - Inform Person Indicator (CWE)
-
-[segment-definition]
-A code to indicate who (if anyone) SHOULD be informed of the error. This field MAY also be used to indicate that a particular person SHOULD NOT be informed of the error (e.g., Do not inform patient). Refer to {{v2-table:0517:Inform Person Code}} in Chapter 2C, Code Tables, for suggested values.

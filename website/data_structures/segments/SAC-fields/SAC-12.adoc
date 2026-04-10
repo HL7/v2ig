@@ -1,7 +1,0 @@
-== SAC.12 - SAC-12 (CWE)
-
-[segment-definition]
-This field identifies the type of the tray (see section _13.1.3_, "_Glossary_"). Refer to {{v2-table:0379:Tray Type}} in chapter 2C for suggested values. Because the geometry can be different, the tray type should if possible express the number of positions in the tray.
-
-[segment-comment]
-The definition assumes hierarchical nesting using the following phrases: container is located in a carrier, carrier is located in a tray.

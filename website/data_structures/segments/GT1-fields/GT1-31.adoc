@@ -1,4 +1,0 @@
-== GT1.31 - Guarantor Hire Effective Date (DT)
-
-[segment-definition]
-This field contains the date that the guarantor's employment began.

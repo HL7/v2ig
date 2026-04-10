@@ -1,3 +1,0 @@
-=== MFN message with enhanced Mode Application-Level Acknowledgment
-[v291_section="8.6.3"]
-

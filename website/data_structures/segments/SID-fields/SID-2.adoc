@@ -1,4 +1,0 @@
-== SID.2 - SID-2 (ST)
-
-[segment-definition]
-This field specifies the lot number assigned by the manufacturer during production of the substance.

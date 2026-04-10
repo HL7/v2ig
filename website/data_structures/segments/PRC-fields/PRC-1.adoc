@@ -1,4 +1,0 @@
-== PRC.1 - Primary Key Value - PRC (CWE)
-
-[segment-definition]
-This field contains the code assigned by the institution for the purpose of uniquely identifying the thing that can be charged. The key field of the entry. For example, this field would be used to uniquely identify a procedure, item, or test for charging purposes. Probably the same set of values as used in _FT1-7 - Transaction Code_ in financial messages. Must match _MFE-4 - Primary Key - MFE_ and _CDM-1 - Primary Key - CDM_. Refer to {{v2-table:0132:Transaction code}} in Chapter 2C, Code Tables, for suggested values. See Chapter 7 for discussion of the universal service ID.

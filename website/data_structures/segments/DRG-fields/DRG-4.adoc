@@ -1,4 +1,0 @@
-== DRG.4 - DRG Grouper Review Code (CWE)
-
-[segment-definition]
-This code indicates that the grouper results have been reviewed and approved. Refer to {{v2-table:0056:DRG Grouper Review Code}} in Chapter 2C, Code Tables, for suggested values.

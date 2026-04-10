@@ -1,4 +1,0 @@
-== GT1.46 - Contact Person's Telephone Number (XTN)
-
-[segment-definition]
-This field contains the telephone number of the guarantor (person) to contact regarding guarantor bills, etc. Multiple phone numbers for that person may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

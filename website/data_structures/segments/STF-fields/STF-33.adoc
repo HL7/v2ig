@@ -1,4 +1,0 @@
-== STF.33 - Institution Relationship Type Code (CWE)
-
-[segment-definition]
-This field specifies the relationship the staff person has with the institution for whom he/she provides services. Refer to {{v2-table:0538:Institution Relationship Type}} in Chapter 2C, Code Tables, for suggested values. This table contains values for employee, volunteer, etc.

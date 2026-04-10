@@ -1,4 +1,0 @@
-== PSL.3 - Product/Service Line Item Sequence Number (SI)
-
-[segment-definition]
-Unique sequence number for the Product/Service Line Item – starts with 1, then 2, etc. for each unique Product/Service Line Item in this Invoice.

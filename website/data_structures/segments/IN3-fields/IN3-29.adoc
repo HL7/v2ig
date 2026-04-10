@@ -1,4 +1,0 @@
-== IN3.29 - Online Verification Result (CWE)
-
-[segment-definition]
-This field contains the result of the online verification. Refer to {{v2-table:0970:Online Verification Result}} in Chapter 2C, Code Tables, for suggested values. This field is required if IN3-28 is populated.

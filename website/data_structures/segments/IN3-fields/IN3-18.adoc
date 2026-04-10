@@ -1,4 +1,0 @@
-== IN3.18 - Certification Agency (CWE)
-
-[segment-definition]
-This field contains the certification agency. Refer to {{v2-table:0346:Certification Agency}} in Chapter 2C, Code Tables, for suggested values.

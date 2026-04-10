@@ -1,4 +1,0 @@
-== SAC.21 - SAC-21 (NM)
-
-[segment-definition]
-This field indicates the capacity of the container in the units specified below.

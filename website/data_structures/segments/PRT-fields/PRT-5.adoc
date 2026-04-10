@@ -1,9 +1,0 @@
-== PRT.5 - Person (XCN)
-
-[segment-definition]
-This field contains the identity of the person who is represented in the participation that is being transmitted.
-
-[segment-comment]
-If this attribute repeats, all instances must represent the same person.
-
-Condition: At least one of PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.

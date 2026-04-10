@@ -1,4 +1,0 @@
-== AUT.13 - Authorization Referral Type (CWE)
-
-[segment-definition]
-The authorization/referral type distinguishes the content of the segment as pertaining to an authorization vs a referral vs other types. Refer to Table 0551 - Authorization Referral Type in Chapter 2C for valid values.

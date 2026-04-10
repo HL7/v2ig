@@ -1,4 +1,0 @@
-== DON.24 - Bleed End Phlebotomist (XPN)
-
-[segment-definition]
-The Phlebotomist who ends the blood flow into the container.

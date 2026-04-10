@@ -1,4 +1,0 @@
-== CDM.2 - Charge Code Alias (CWE)
-
-[segment-definition]
-This field contains an alternative charge code. For example, points to another charge description master entry in cases where one code supersedes or overrides another code. Repeating field allows for different codes used by different systems which should be handled as if they were the same; for example, the general ledger code may differ from the billing code. Or, in a multi-facility environment which does facility-specific pricing, there may be more than one of these master file entries for one charge description, each with a different facility. Refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values.

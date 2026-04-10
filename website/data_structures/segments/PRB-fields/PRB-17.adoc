@@ -1,4 +1,0 @@
-== PRB.17 - Problem Onset Text (ST)
-
-[segment-definition]
-This field allows for a textual representation of the time when the problem began.

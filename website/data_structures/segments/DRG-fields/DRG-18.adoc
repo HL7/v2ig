@@ -1,4 +1,0 @@
-== DRG.18 - Grouper Software Name (ST)
-
-[segment-definition]
-This field contains the name of the software used for grouping.

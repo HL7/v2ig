@@ -1,4 +1,0 @@
-== IIM.12 - Inventory On Hand Quantity (NM)
-
-[segment-definition]
-This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _IIM-11 Inventory on Hand Date_. No adjustment has been made for subsequent use.

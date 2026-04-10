@@ -1,7 +1,0 @@
-== XTN.16 - Protection Code (CWE)
-
-[datatype-definition]
-Indicates whether this information is considered sensitive or should be protected in some way. Refer to {{v2-table:0618:Protection Code}} for suggested values.
-
-The specific set of codes and appropriate handling of such telecommunications addresses will vary by jurisdiction and is subject to site-specific negotiation. For example, a provider address marked as 'unlisted' might not be printed in an internal address listing.
-

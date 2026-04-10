@@ -1,4 +1,0 @@
-== FT1.32 - Performing Facility (XON)
-
-[segment-definition]
-This field contains the name of the Facility where the service is performed by the Provider Person/Group identified in _FT1-20 – Performed By Code_.

@@ -1,7 +1,0 @@
-== MCP.5 - Reason for Universal Service Cost Range (ST)
-
-[segment-definition]
-Specifies the reason for the interval between the lowest and the highest price for the Universal Service, for example additional testing (reflex test) that is added based on values of the initial test. There maybe some instances when the value between MCP-3 and MCP-4 is not significant enough to warrant a reason as defined by health authorities.
-
-[segment-comment]
-Condition: This is conditionally required when MCP-3 is valued.

@@ -1,4 +1,0 @@
-== OBR.17 - Order Callback Phone Number (XTN)
-
-[segment-definition]
-This field contains the telephone number for reporting a status or a result using the standard format with extension and/or beeper number when applicable.

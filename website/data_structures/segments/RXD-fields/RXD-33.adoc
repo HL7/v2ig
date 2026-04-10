@@ -1,4 +1,0 @@
-== RXD.33 - Dispense Type (CWE)
-
-[segment-definition]
-This is the type of dispensing event that occurred. Refer to {{v2-table:0484:Dispense Type}} for suggested values.

@@ -1,4 +1,0 @@
-== RMI.3 - Incident Type Code (CWE)
-
-[segment-definition]
-A code depicting a classification of the incident type. Refer to {{v2-table:0428:Incident Type Code}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== OM1.14 - Coded Representation of Method (CWE)
-
-[segment-definition]
-This field contains the method(s) used to produce the observation and should be recorded in a computer-understandable (coded) form here. This field should report the same method(s) reported in narrative in the following field. More than one method may be listed, but only if they produce results that are clinically indistinguishable. Multiple methods must be separated by repeat delimiters. Refer to Table 0635 - Coded Representation of Method in Chapter 2C for valid values.

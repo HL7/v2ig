@@ -1,4 +1,0 @@
-== CTD.7 - Contact Identifiers (PLN)
-
-[segment-definition]
-This repeating field contains the contact's unique identifiers such as UPIN, Medicare and Medicaid numbers. Refer to {{v2-table:0338:Practitioner ID Number Type}}_ (see Chapter 2, "Code Tables") for suggested values.

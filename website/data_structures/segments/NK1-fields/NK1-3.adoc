@@ -1,4 +1,0 @@
-== NK1.3 - Relationship (CWE)
-
-[segment-definition]
-This field contains the actual personal relationship that the next of kin/associated party has to the patient. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.

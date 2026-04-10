@@ -1,4 +1,0 @@
-== SCD.20 - Alarm (CNE)
-
-[segment-definition]
-A notification that the time, temperature, or pressure reached is invalid for a specific phase of a cycle. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

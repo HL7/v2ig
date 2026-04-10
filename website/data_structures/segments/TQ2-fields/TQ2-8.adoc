@@ -1,4 +1,0 @@
-== TQ2.8 - Sequence Condition Time Interval (CQ)
-
-[segment-definition]
-Defines the interval of time between the start/end of the related service request(s) and the start/end of the current service request. The unit's component is constrained to units of time. If this field is not populated, then there should be no interruption between start/ending the current service request, and the related service request(s).

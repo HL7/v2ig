@@ -1,4 +1,0 @@
-== OM1.24 - Processing Time (NM)
-
-[segment-definition]
-This field contains the usual length of time (in minutes) between the start of a test process and its completion.

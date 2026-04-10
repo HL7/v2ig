@@ -1,4 +1,0 @@
-== PCR.10 - Indication For Product Use (CWE)
-
-[segment-definition]
-This field contains coded representation of the problem or diagnosis for which the product was used. See Chapter 2 for some coding systems which might be chosen to transmit diagnoses or problems. Refer to Table 0672 - Indication For Product Use in Chapter 2C for valid values.

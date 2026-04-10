@@ -1,4 +1,0 @@
-== IAM.11 - Onset Date (DT)
-
-[segment-definition]
-This field contains the actual date of the first reaction.

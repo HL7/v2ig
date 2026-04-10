@@ -1,5 +1,0 @@
-=== Queries
-[v291_section="2.2.5"]
-
-Query documentation including messages, segments, special protocols, implementation considerations and examples have been moved to chapter 5. The unsolicited display messages were also moved because their message syntax is query-like in nature.
-

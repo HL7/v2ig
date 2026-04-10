@@ -1,3 +1,0 @@
-==== STZ Field Definitions
-[v291_section="17.5.3.0"]
-

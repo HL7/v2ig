@@ -1,4 +1,0 @@
-== MFA.3 - Event Completion Date/Time (DTM)
-
-[segment-definition]
-This field may be required or optional depending on the site specifications for the given master file, master file event, and receiving facility.

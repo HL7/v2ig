@@ -1,4 +1,0 @@
-== ADJ.15 - Responsible Organization (XON)
-
-[segment-definition]
-Business organization that is responsible for the adjustment (e.g., Payer organization); can be used for a Payment/Remittance Advice for 1 Payee from multiple Payers.

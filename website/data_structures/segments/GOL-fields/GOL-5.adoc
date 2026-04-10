@@ -1,7 +1,0 @@
-== GOL.5 - Episode of Care ID (EI)
-
-[segment-definition]
-This field uniquely identifies the episode of care to which this goal applies. See note under "Ongoing issues."
-
-[segment-comment]
-*Note*: Based on application use, this field is required to be unique over time.

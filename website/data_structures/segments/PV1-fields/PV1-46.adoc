@@ -1,4 +1,0 @@
-== PV1.46 - Current Patient Balance (NM)
-
-[segment-definition]
-This field contains the visit balance due.

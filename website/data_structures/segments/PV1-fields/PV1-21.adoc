@@ -1,4 +1,0 @@
-== PV1.21 - Charge Price Indicator (CWE)
-
-[segment-definition]
-This field contains the code used to determine which price schedule is to be used for room and bed charges. Refer to {{v2-table:0032:Charge/Price Indicator}} in Chapter 2C, Code Tables, for suggested values.

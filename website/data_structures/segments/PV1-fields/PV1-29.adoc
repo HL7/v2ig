@@ -1,4 +1,0 @@
-== PV1.29 - Transfer to Bad Debt Code (CWE)
-
-[segment-definition]
-This field indicates that the account was transferred to bad debts and gives the reason. Refer to {{v2-table:0110:Transfer to Bad Debt Code}} in Chapter 2C, Code Tables, for suggested values.

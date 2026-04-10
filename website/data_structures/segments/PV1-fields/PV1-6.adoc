@@ -1,4 +1,0 @@
-== PV1.6 - Prior Patient Location (PL)
-
-[segment-definition]
-This field contains the prior patient location if the patient is being transferred. The old location is null if the patient is new. If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.

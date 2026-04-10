@@ -1,4 +1,0 @@
-== CSR.7 - Person Performing Study Registration (XCN)
-
-[segment-definition]
-This field contains the healthcare facility employee who actually phoned, submitted a form, or interactively registered the patient on the clinical trial. This is generally done under authorization from the attending physician or a principal or collaborating investigator.

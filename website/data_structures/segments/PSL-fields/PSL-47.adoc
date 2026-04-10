@@ -1,4 +1,0 @@
-== PSL.47 - Validation (ID)
-
-[segment-definition]
-Service line item has passed an approved validator software (yes/no). For reason see PSL-48. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values.

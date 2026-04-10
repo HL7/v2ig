@@ -1,5 +1,0 @@
-== XON.1 - Organization Name (ST)
-
-[datatype-definition]
-The name of the specified organization.
-

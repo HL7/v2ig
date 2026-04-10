@@ -1,4 +1,0 @@
-== PSG.3 - Product/Service Group Sequence Number (SI)
-
-[segment-definition]
-Unique sequence number for the Product/Service Group (3) – starts with 1, then 2, etc. for each unique Product/Service Group in this Invoice.

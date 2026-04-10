@@ -1,4 +1,0 @@
-== RXO.23 - Total Daily Dose (CQ)
-
-[segment-definition]
-This field contains the total daily dose for this particular pharmaceutical as expressed in terms of actual dispense units.

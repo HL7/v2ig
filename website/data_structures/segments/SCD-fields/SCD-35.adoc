@@ -1,4 +1,0 @@
-== SCD.35 - Dilution Factor (SN)
-
-[segment-definition]
-The dilution ratio of peracetic acid to water.

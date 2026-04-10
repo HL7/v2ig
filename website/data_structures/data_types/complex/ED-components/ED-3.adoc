@@ -1,7 +1,0 @@
-== ED.3 - Data Subtype (ID)
-
-[datatype-definition]
-Identical to “subtype” component in the reference pointer (RP) data type. See Section _2A.2.66.4_, "_Subtype (ID)_".
-
-Refer to {{v2-table:0291:Subtype of Referenced Data}} for valid values.
-

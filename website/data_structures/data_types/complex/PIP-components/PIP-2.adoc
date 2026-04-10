@@ -1,5 +1,0 @@
-== PIP.2 - Privilege Class (CWE)
-
-[datatype-definition]
-Specifies the class category of institutional privilege. Refer to {{v2-table:0526:Privilege Class}} for suggested values.
-

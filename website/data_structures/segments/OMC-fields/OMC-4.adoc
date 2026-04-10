@@ -1,4 +1,0 @@
-== OMC.4 - Clinical Information Request (CWE)
-
-[segment-definition]
-This field contains a variable that the diagnostic service needs to interpret the results of an ordered study. Where the observations specified here should be sent is specified in the OMC-6 (Communication Location). Refer to Table 0664 - Clinical Information Request in Chapter 2C for valid values.

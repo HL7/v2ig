@@ -1,5 +1,0 @@
-== RFR.2 - Sex (CWE)
-
-[datatype-definition]
-This component specifies the clinically relevant sex for which the reference range is valid. This may be the Sex Parameter for Clinical Use concept (refer to _{{v2-table:0001:Sex}} Parameter for Clinical Use_ in Chapter 2C for suggested values) or some other representation of a clinically relevent sex. For backwards compatibility purposes only, implementers may also refer to {{v2-table:0001:Administrative Sex}} in Chapter 2C for additional valuesBecause multiple tables may potentially be used in this component, inclusion of the Name of the Coding System component of the CWE data type is critical so that the receiving system can appropriately interpret the received code.
-

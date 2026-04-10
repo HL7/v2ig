@@ -1,4 +1,0 @@
-== GT1.16 - Guarantor Employer Name (XPN)
-
-[segment-definition]
-This field contains the name of the guarantor's employer, if the employer is a person. When the guarantor's employer is an organization, use link:#gt1-51-guarantor-employers-organization-name-xon-01299[_GT1-51 - Guarantor Employer's Organization Name_]. Multiple names for the same person may be sent in this field, not multiple employers. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

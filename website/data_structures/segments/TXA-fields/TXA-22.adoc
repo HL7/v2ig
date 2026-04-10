@@ -1,7 +1,0 @@
-== TXA.22 - Authentication Person, Time Stamp (set) (PPN)
-
-[segment-definition]
-This field contains a set of components describing by whom and when authentication was performed (either manually or electronically). The Date/Time Action Performed component describes the date/time of the authentication (Authentication Time Stamp). The remaining components identify the person performing the authentication (Authentication Person). If either of the Authenticating Person or the Authentication Time Stamp is valued as non-null, then both must be valued as non-null.
-
-[segment-comment]
-TXA-22 - Condition: If TXA-22 is valued and the corresponding OBR segment is present in the message OBR-32 must be blank. If OBR-32 is valued while TXA-22 is valued, OBR-32 shall be ignored. See message definitions including TXA for further guidanceon which ORC/OBR pairs to consider.

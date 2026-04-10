@@ -1,4 +1,0 @@
-== DON.4 - Phlebotomy End Date/Time (DTM)
-
-[segment-definition]
-The end date and time of the phlebotomy.

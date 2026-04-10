@@ -1,1 +1,0 @@
-This section is in both in ERP and in Clinical.  Please see the files in domains/clinical/supply for the source.

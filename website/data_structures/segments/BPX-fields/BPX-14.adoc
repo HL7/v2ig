@@ -1,4 +1,0 @@
-== BPX.14 - BPX-14 (NM)
-
-[segment-definition]
-This field indicates the number of blood components or commercial products to which this message refers.

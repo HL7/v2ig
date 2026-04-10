@@ -1,4 +1,0 @@
-== CDM.12 - Contract Organization (XON)
-
-[segment-definition]
-This field contains the organization with which there is a contractual arrangement for providing the service or material used for this chargeable item.

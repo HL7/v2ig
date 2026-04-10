@@ -1,4 +1,0 @@
-== GP2.11 - Expected CMS Payment Amount (CP)
-
-[segment-definition]
-This field contains the calculated dollar amount that CMS is expected to pay for the line item.

@@ -1,4 +1,0 @@
-== IN2.62 - Guarantor's Relationship to Insured (CWE)
-
-[segment-definition]
-This field specifies the relationship of the guarantor to the insurance subscriber. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.

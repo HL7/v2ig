@@ -1,3 +1,0 @@
-==== SGT field definitions
-[v291_section="2.13.14.0"]
-

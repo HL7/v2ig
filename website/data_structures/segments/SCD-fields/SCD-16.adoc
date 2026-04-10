@@ -1,4 +1,0 @@
-== SCD.16 - Cycle Complete Time (TM)
-
-[segment-definition]
-The time of day that the cycle completed.

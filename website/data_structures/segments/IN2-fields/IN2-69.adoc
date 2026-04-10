@@ -1,4 +1,0 @@
-== IN2.69 - Insured Organization Name and ID (XON)
-
-[segment-definition]
-This field indicates the name of the insured if the insured/subscriber is an organization. Multiple names for the insured may be sent in this sequence, not multiple insured people Specification of meaning based on sequence is deprecated.

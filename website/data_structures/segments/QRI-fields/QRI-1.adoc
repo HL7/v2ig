@@ -1,9 +1,0 @@
-== QRI.1 - Candidate Confidence (NM)
-
-[segment-definition]
-This field contains a numeric value indicating the match weight or confidence level associated with the record.
-
-[segment-comment]
-Example: |0.88| or |12.32|
-
-One use of this optional field is in Patient Look-up transactions where the searching system employs a numeric algorithm for determining potential matches to patient/person look-ups.

@@ -1,4 +1,0 @@
-== IVC.3 - Contract/Agreement Number (EI)
-
-[segment-definition]
-Contract/agreement number issued by Payer which must be specified in some circumstances by the Provider.

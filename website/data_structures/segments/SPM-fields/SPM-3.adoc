@@ -1,7 +1,0 @@
-== SPM.3 - Specimen Parent IDs (EIP)
-
-[segment-definition]
-This field contains the identifiers for the specimen or specimens that contributed to the specimen that is described by the segment instance.
-
-[segment-comment]
-If this field repeats, then _SPM-11-Specimen Role_ should be valued with "L" (pooled). The repetitions of this field then carry the specimen IDs of the parent specimens contributing to the pool.

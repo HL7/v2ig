@@ -1,4 +1,0 @@
-== PSL.43 - Amount Technical Part (CP)
-
-[segment-definition]
-Total Amount for the technical part of this service.

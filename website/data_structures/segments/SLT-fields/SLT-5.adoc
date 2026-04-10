@@ -1,4 +1,0 @@
-== SLT.5 - Bar Code (ST)
-
-[segment-definition]
-The special identification code, printed as a set of vertical bars of differing widths, used on instruments to identify them and provide for rapid, error-free input by a barcode scanning device. The coding can include numbers, letters or a combination of both.

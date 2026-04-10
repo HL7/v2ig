@@ -1,4 +1,0 @@
-== NK1.18 - Ambulatory Status (CWE)
-
-[segment-definition]
-This field identifies the transient rate of mobility for the next of kin/associated party. Refer to {{v2-table:0009:Ambulatory Status}} in Chapter 2C, Code Tables for suggested values.

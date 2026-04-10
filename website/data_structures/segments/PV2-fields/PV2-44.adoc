@@ -1,4 +1,0 @@
-== PV2.44 - Organ Donor Code (CWE)
-
-[segment-definition]
-This field indicates whether the patient wants to donate his/her organs and whether an organ donor card or similar documentation is on file with the healthcare organization. Refer to E:\\V2\\v2.9 final Nov from Frank\\V29_CH02C_Tables.docx#HL70316[_User-defined Table 0316 - Organ Donor Code_] in Chapter 2C, Code Tables, for suggested values. See also _PD1-8 - Organ Donor_.

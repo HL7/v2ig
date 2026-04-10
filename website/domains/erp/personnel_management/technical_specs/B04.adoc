@@ -1,9 +1,0 @@
-= Message - B04 Activate Practicing Person
-:v291_section: "15.3.4"
-:v2_section_name: "PMU/ACK – Activate Practicing Person (Event B04)"
-:generated: "Thu, 01 Aug 2024 15:25:17 -0600"
-
-An event B04 signals that a staff member is available for work (e.g., schedules can be created) and has a relationship with the institution. This message applies to STF-7.
-
-[tabset]
-B04

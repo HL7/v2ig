@@ -1,4 +1,0 @@
-== OH2.17 - Job Unique Identifier (EI)
-
-[segment-definition]
-This field contains a value the uniquely identifies a single job for a person.

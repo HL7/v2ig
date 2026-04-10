@@ -1,4 +1,0 @@
-== DB1.6 - Disability End Date (DT)
-
-[segment-definition]
-This field specifies the ending date of the person's disability.

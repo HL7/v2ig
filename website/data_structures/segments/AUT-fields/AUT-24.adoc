@@ -1,4 +1,0 @@
-== AUT.24 - Authorized Health Professional (XCN)
-
-[segment-definition]
-The authorized HP represents the specific health professional being authorized to perform the services for the patient. This is a less frequently used field, as most often the authorization is for a group/organization and not a specific HP within that group.

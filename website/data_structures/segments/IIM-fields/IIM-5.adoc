@@ -1,4 +1,0 @@
-== IIM.5 - Inventory Manufacturer Name (CWE)
-
-[segment-definition]
-This field contains the manufacturer of the service item in inventory.

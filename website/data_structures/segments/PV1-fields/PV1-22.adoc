@@ -1,4 +1,0 @@
-== PV1.22 - Courtesy Code (CWE)
-
-[segment-definition]
-This field indicates whether the patient will be extended certain special courtesies. Refer to {{v2-table:0045:Courtesy Code}} in Chapter 2C, Code Tables, for suggested values.

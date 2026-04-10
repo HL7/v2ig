@@ -1,7 +1,0 @@
-== MSA.3 - Text Message
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*Attention: The _MSA-3_ was deprecated as of v 2.4* and the detail was withdrawn and removed from the standard as of v 2.7**. The reader is referred to the ERR segment. The ERR segment allows for richer descriptions of the erroneous conditions.**

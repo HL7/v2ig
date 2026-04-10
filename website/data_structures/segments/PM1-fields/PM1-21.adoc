@@ -1,9 +1,0 @@
-== PM1.21 - Bill Type Required (ID)
-
-[segment-definition]
-This field indicates whether this insurance carrier requires subscribers bill type. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y Subscribers bill type Required
-
-N Subscribers bill type Not Required

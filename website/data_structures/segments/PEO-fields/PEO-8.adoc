@@ -1,7 +1,0 @@
-== PEO.8 - Event Qualification (ID)
-
-[segment-definition]
-This field is contains a classification of the type of product experience this event is considered to represent. Refer to {{v2-table:0237:Event Qualification}} for valid values.
-
-[segment-comment]
-Unexpected beneficial effects would not often be reported but are required by certain countries.

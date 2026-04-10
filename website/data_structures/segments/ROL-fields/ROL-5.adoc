@@ -1,4 +1,0 @@
-== ROL.5 - Role Begin Date/Time (DTM)
-
-[segment-definition]
-// TODO: Add field definition

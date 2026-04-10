@@ -1,4 +1,0 @@
-== IVC.25 - Benefit Group (CWE)
-
-[segment-definition]
-Code indicating the Benefit group. Refer to {{v2-table:0556:Benefit Group}} in Chapter 2C, Code Tables, for suggested values.

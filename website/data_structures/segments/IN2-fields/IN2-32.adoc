@@ -1,4 +1,0 @@
-== IN2.32 - Ambulatory Status (CWE)
-
-[segment-definition]
-This field identifies the insured's state of mobility. Refer to {{v2-table:0009:Ambulatory Status}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== DON.30 - Number of Tubes Collected (NM)
-
-[segment-definition]
-The number of samples collected during the donation which will be used for subsequent testing.

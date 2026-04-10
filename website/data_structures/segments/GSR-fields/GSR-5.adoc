@@ -1,4 +1,0 @@
-== GSR.5 - Source Document Field Label (CWE)
-
-[segment-definition]
-This field contains the label of the source field on the document. From a data modeling perspective this is similar to the use of GSP-4 (Gender Harmony Concept), when there is a formal definition for the source field, for example in an EHR-s or in an electronic data exchange object. For paper documents this will be just the words and can be represented in any characters set. For example, on a Russian identity card it could be ‘Пол’, which would be populated in the original text component of the CWE datatype. Refer to User-defined table HL7 0824 - _Recorded Sex Or Gender Type_ in Chapter 2 C, for suggested values.

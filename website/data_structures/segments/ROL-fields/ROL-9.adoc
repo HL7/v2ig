@@ -1,4 +1,0 @@
-== ROL.9 - Provider Type (CWE)
-
-[segment-definition]
-// TODO: Add field definition

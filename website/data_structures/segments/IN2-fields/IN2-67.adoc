@@ -1,9 +1,0 @@
-== IN2.67 - Copay Limit Flag (ID)
-
-[segment-definition]
-This field indicates if the patient has reached the co-pay limit so that no more co-pay charges should be calculated for the patient. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y the patient is at or exceeds the co-pay limit
-
-N the patient is under the co-pay limit

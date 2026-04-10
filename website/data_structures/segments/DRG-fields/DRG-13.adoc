@@ -1,4 +1,0 @@
-== DRG.13 - Grouper Status (CWE)
-
-[segment-definition]
-This field indicates the grouper status in general. Refer to {{v2-table:0734:Grouper Status}} in Chapter 2C, Code Tables, for suggested values.

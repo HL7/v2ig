@@ -1,4 +1,0 @@
-== IIM.9 - Inventory Received Quantity Unit (CWE)
-
-[segment-definition]
-This field specifies the unit for _IIM-8 Inventory Received Quantity_ and _IIM-10 Inventory Received Item Cost_.

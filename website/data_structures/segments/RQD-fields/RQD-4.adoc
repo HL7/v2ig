@@ -1,7 +1,0 @@
-== RQD.4 - Hospital Item Code (CWE)
-
-[segment-definition]
-This field contains the identifier and description that uniquely identify the item on all applications in the hospital. The identifier is usually controlled by the hospital financial application in the charge description master file. This field is conditional because at least one of the three fields – RQD-2-item code-internal, RQD-3-item code-external or RQD-4-hospital item code _--_ must be valued. Refer to Table 0686 - Hospital Item Code in Chapter 2C for valid values.
-
-[segment-comment]
-*Note:* At least one of the three fields 4.11.1.2 through 4.11.1.4 must be non-null.

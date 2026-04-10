@@ -1,3 +1,0 @@
-==== SPM field definitions
-[v291_section="7.4.3.0"]
-

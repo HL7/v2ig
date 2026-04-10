@@ -1,7 +1,0 @@
-== ITM.16 - Approving Regulatory Agency (XON)
-
-[segment-definition]
-This field contains a code indicating the regulatory agency the item has been approved by, such as the FDA or AMA.
-
-[segment-comment]
-Refer to {{v2-table:0790:Approving Regulatory Agency}} in Chapter 2C, Code Tables, for suggested values.

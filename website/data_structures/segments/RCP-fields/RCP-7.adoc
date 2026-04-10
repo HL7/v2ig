@@ -1,4 +1,0 @@
-== RCP.7 - Segment group inclusion (ID)
-
-[segment-definition]
-Specifies those optional segment groups which are to be included in the response. Refer to {{v2-table:0391:Segment group}} in Chapter 2C, Code Tables, for values for Segment Group. This is a repeating field, to accommodate inclusion of multiple segment groups. The default for this field, not present, means that all relevant groups are included.

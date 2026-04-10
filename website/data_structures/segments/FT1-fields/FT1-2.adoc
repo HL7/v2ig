@@ -1,4 +1,0 @@
-== FT1.2 - Transaction ID (CX)
-
-[segment-definition]
-This field contains a number assigned by the sending system for control purposes. The number can be returned by the receiving system to identify errors.

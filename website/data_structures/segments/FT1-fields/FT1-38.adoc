@@ -1,4 +1,0 @@
-== FT1.38 - Referral Number (CX)
-
-[segment-definition]
-This field contains the Referral Number associated with the charge.

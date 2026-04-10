@@ -1,3 +1,0 @@
-=== Query using QSC variant / tabular response (RTB)
-[v291_section="5.9.4"]
-

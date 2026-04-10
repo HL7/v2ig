@@ -1,4 +1,0 @@
-== SCD.30 - Wash Time (CQ)
-
-[segment-definition]
-The amount of time spent in the wash phase of a decontamination cycle.

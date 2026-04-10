@@ -1,4 +1,0 @@
-== STF.34 - Institution Relationship Period (DR)
-
-[segment-definition]
-This field contains the period during which the staff person started and ended the relationship specified in _STF-33 Institution Relationship Type Code_.

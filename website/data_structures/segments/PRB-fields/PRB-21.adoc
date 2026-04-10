@@ -1,4 +1,0 @@
-== PRB.21 - Individual Awareness of Problem (CWE)
-
-[segment-definition]
-This field contains the individual's comprehension of the problem (e.g., full, marginal, partial, etc.).

@@ -1,4 +1,0 @@
-== OM5.3 - Observation ID Suffixes (ST)
-
-[segment-definition]
-This field contains the tests or procedures that produce a type which uses observation ID suffixes following the service/test/observation ID code. This field lists the possible options. For example, a chest X-ray may use the suffixes IMP, REC, DEV, or others. Each of the expected suffixes should be listed here.

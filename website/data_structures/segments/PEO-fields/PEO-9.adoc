@@ -1,4 +1,0 @@
-== PEO.9 - Event Serious (ID)
-
-[segment-definition]
-This field indicates whether the event was judged as serious. If the event did not meet the criteria for seriousness but the sender judges the event significant on other grounds, the event can be identified as significant [_but not serious_]. Refer to {{v2-table:0238:Event Seriousness}} for valid values.

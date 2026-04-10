@@ -1,4 +1,0 @@
-== SHP.3 - Shipment Status (CWE)
-
-[segment-definition]
-The shipment status specifies where in the shipment process the package is at the time of messaging. Refer to {{v2-table:0905:Shipment Status}} for specific values:

@@ -1,4 +1,0 @@
-== TCC.7 - TCC-7 (SN)
-
-[segment-definition]
-This field represents a baseline value for the measured test that is inherently contained in the diluent. In the calculation of the actual result for the measured test, this baseline value is normally considered.

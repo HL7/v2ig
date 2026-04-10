@@ -1,9 +1,0 @@
-== OBR.45 - Procedure Code Modifier (CNE)
-
-[segment-definition]
-This field contains the procedure code modifier to the procedure code reported in _OBR-44-procedure code_, when applicable. Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA. Multiple modifiers may be reported. The modifiers are sequenced in priority according to user entry. In the USA, this is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement. Refer to {{v2-table:0340:Procedure code modifier}} in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-Usage Rule: This field can only be used if _OBR-44 – procedure code_ contains certain procedure codes that require a modifier in order to be billed or performed. For example, HCPCS codes that require a modifier to be precise.
-
-As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.

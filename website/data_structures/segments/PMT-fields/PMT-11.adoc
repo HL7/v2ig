@@ -1,4 +1,0 @@
-== PMT.11 - Payment Organization (XON)
-
-[segment-definition]
-Organization identifier that made the Payment/Remittance Advice; could be a Payer, Insurance Company, TPA, Drug Company.

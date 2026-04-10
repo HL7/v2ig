@@ -1,3 +1,0 @@
-==== DMI field definitions
-[v291_section="8.13.2.0"]
-

@@ -1,4 +1,0 @@
-== PDC.6 - Model Identifier (ST)
-
-[segment-definition]
-This field contains the manufacturer's model identifier for the product.

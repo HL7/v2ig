@@ -1,4 +1,0 @@
-== ITM.4 - Item Type (CWE)
-
-[segment-definition]
-The Item Type is a classification of material items into like groups as defined and utilized within an Operating Room setting for charting procedures. An Item Type is a higher level of classification than an Item Category as described in ITM-4. Refer to {{v2-table:0778:Item Type}} in Chapter 2C, Code Tables, for suggested values.

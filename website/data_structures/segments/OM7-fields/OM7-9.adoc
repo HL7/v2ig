@@ -1,4 +1,0 @@
-== OM7.9 - Test/Service Default Duration Units (CWE)
-
-[segment-definition]
-This field indicates the default duration units for the service. Refer to Table 0663 - Test/Service Default Duration Units in Chapter 2C for valid values.

@@ -1,4 +1,0 @@
-== PKG.5 - Price (CP)
-
-[segment-definition]
-This field contains the price of the item when purchased from the vendor in the associated VND segment, for the unit of measure present in this PKG segment.

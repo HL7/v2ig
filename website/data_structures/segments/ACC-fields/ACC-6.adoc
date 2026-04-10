@@ -1,9 +1,0 @@
-== ACC.6 - Accident Death Indicator (ID)
-
-[segment-definition]
-This field indicates whether or not a patient has died as a result of an accident. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y the patient has died as a result of an accident
-
-N the patient has not died as a result of an accident

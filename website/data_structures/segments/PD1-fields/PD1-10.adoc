@@ -1,4 +1,0 @@
-== PD1.10 - Duplicate Patient (CX)
-
-[segment-definition]
-This field indicates that a patient is the same as, or a duplicate of, another patient found on the sending system. The intent is to be informational only and no action is required by the receiver. Include the patient identifier if the sender knows an identifier for the patient. The assigning authority and identifier type code are strongly recommended for all CX data types.

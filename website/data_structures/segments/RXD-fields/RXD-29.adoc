@@ -1,7 +1,0 @@
-== RXD.29 - Actual Drug Strength Volume Units (CWE)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-Description: This field indicates the volumetric unit associated with _RXD-28 Actual Drug Strength Volume_. See example in RXD-28. Refer to Table 0713 - Actual Drug Strength Volume Units in Chapter 2C for valid values.

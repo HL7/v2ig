@@ -1,4 +1,0 @@
-== STF.14 - Backup Person ID (CWE)
-
-[segment-definition]
-This field contains the _MFE-4 Primary Key Value_ of the master file entry that corresponds to the designated backup person for this staff person.

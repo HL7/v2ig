@@ -1,4 +1,0 @@
-== RXO.7 - Provider's Administration Instructions (CWE)
-
-[segment-definition]
-This field identifies the ordering provider's instructions to the patient or to the provider administering the drug or treatment. If coded, a user-defined table must be used. If transmitted as free text, place a null in the first component and the text in the second, e.g., |^this is a free text administration instruction|.Refer to Table 0752 - Provider's Administration Instructions in Chapter 2C for valid values.

@@ -1,4 +1,0 @@
-== ITM.30 - Hazardous Indicator (CNE)
-
-[segment-definition]
-This field contains an indicator signifying whether the item contains hazardous material or not. Refer to _HL7 Table 0532 - Expanded yes/no indicator table_ in Chapter 2, Code Tables, for valid values.

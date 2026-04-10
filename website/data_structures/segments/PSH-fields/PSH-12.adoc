@@ -1,4 +1,0 @@
-== PSH.12 - Quantity in Use Comment (FT)
-
-[segment-definition]
-This field can be used for any explanatory text needed but in particular should provide a description of the estimation method used. If referring to the description used in a previous report, the comment should include the product identifier and data of the report.

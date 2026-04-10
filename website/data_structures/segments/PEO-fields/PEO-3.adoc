@@ -1,4 +1,0 @@
-== PEO.3 - Event Onset Date/Time (DTM)
-
-[segment-definition]
-This field contains a report or best estimate of the date/time of onset of the event. The date/time can be recorded to any level of precision it is known (hour, day, month, year).

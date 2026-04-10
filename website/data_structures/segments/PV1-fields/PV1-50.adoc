@@ -1,4 +1,0 @@
-== PV1.50 - Alternate Visit ID (CX)
-
-[segment-definition]
-This field contains the alternative, temporary, or pending optional visit ID number to be used if needed. Multiple alternate identifiers may be sent. Refer to {{v2-table:0061:Check Digit Scheme}} in Chapter 2C, Code Tables, for valid values. Refer to {{v2-table:0203:Identifier Type}} in Chapter 2C, Code Tables, for valid values. The assigning authority and identifier type codes are strongly recommended for all CX data types.

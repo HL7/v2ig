@@ -1,9 +1,0 @@
-== GT1.15 - Guarantor Priority (NM)
-
-[segment-definition]
-This field is used to determine the order in which the guarantors are responsible for the patient's account.
-
-[segment-comment]
-"1" = primary guarantor
-
-"2" = secondary guarantor, etc.

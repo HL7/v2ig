@@ -1,4 +1,0 @@
-== PSL.48 - Comment (ST)
-
-[segment-definition]
-Reason why the service line item has not passed the validator software.

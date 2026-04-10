@@ -1,4 +1,0 @@
-== PR1.21 - DRG Procedure Determination Status (CWE)
-
-[segment-definition]
-This field contains the status of the use of this particular procedure for the DRG determination. Refer to {{v2-table:0761:DRG Procedure Determination Status}} in Chapter 2C, Code Tables, for suggested values.

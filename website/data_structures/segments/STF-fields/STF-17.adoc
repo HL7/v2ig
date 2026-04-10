@@ -1,4 +1,0 @@
-== STF.17 - Marital Status (CWE)
-
-[segment-definition]
-This field contains the staff member's marital status. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values. Same values as those for _PID-16 Marital Status_.

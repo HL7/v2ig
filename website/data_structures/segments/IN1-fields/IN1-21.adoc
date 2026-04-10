@@ -1,4 +1,0 @@
-== IN1.21 - Coordination Of Benefits (CWE)
-
-[segment-definition]
-This field indicates whether this insurance works in conjunction with other insurance plans, or if it provides independent coverage and payment of benefits regardless of other insurance that might be available to the patient. Refer to {{v2-table:0173:Coordination of Benefits}} in Chapter 2C, Code Tables, for suggested values.

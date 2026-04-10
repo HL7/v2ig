@@ -1,4 +1,0 @@
-== PEO.22 - Primary Observer's Qualification (ID)
-
-[segment-definition]
-This field contains the qualification of the primary observer which may assist in assessing the validity of the observations. Refer to {{v2-table:0242:Primary Observer's Qualification}} for valid values.

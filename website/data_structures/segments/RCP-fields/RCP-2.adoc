@@ -1,7 +1,0 @@
-== RCP.2 - Quantity Limited Request (CQ)
-
-[segment-definition]
-This field contains the maximum length of the response that can be accepted by the requesting system. Valid entries are numerical values (in the first component) given in the units specified in the second component. Default is LI (lines).
-
-[segment-comment]
-Refer to {{v2-table:0126:Quantity limited request}} in Chapter 2C, Code Tables, for valid entries for the second component. In a segment pattern response, a line is defined as a single segment.

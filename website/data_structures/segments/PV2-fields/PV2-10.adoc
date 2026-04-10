@@ -1,4 +1,0 @@
-== PV2.10 - Estimated Length of Inpatient Stay (NM)
-
-[segment-definition]
-This field specifies the estimated days of inpatient stays.

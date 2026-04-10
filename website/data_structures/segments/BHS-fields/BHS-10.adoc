@@ -1,4 +1,0 @@
-== BHS.10 - Batch Comment (ST)
-
-[segment-definition]
-This field is a comment field that is not further defined in the HL7 protocol.

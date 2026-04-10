@@ -1,7 +1,0 @@
-== PID.34 - Last Update Facility (HD)
-
-[segment-definition]
-This field identifies the facility of the last update to a patient's/person's identifying and demographic data, as defined in the PID segment. Receiving systems or users will use this field to determine how to apply the transaction to their systems. If the receiving system (such as a hospital's patient management system) already has a record for the patient/person, then it may decide to only update its data if the source is a "trusted" source. A hospital might consider other hospitals trusted sources, but not "trust" updates from non-acute care facilities. For example:
-
-[segment-comment]
-...|GOOD HEALTH Hospital|...

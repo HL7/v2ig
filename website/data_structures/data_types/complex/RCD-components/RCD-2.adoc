@@ -1,5 +1,0 @@
-== RCD.2 - HL7 Data Type (ID)
-
-[datatype-definition]
-The two or three character HL7 data type. Refer to {{v2-table:0440:Data Types}} for valid values.
-

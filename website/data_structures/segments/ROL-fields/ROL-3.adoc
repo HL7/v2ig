@@ -1,4 +1,0 @@
-== ROL.3 - Role-ROL (CWE)
-
-[segment-definition]
-// TODO: Add field definition

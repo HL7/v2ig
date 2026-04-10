@@ -1,7 +1,0 @@
-== UB1.6 - Co-Insurance Days
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*Attention: _UB1-6 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*

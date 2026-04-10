@@ -1,3 +1,0 @@
-== Vaccine Trigger Events & Message Definitions
-[v291_section="4A.7"]
-

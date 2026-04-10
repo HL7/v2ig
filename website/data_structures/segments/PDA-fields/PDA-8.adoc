@@ -1,4 +1,0 @@
-== PDA.8 - Autopsy Performed By (XCN)
-
-[segment-definition]
-This field is valued with the authority who performed the autopsy.

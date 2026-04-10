@@ -1,4 +1,0 @@
-== IVC.2 - Payer Invoice Number (EI)
-
-[segment-definition]
-Unique Invoice Number assigned by the Payer Application.

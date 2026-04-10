@@ -1,4 +1,0 @@
-== EVN.2 - Recorded Date/Time (DTM)
-
-[segment-definition]
-Most systems will default to the system date/time when the transaction was entered, but they should also permit an override.

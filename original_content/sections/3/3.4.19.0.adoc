@@ -1,3 +1,0 @@
-==== GSP field definitions
-[v291_section="3.4.19.0"]
-

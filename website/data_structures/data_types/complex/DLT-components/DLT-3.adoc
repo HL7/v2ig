@@ -1,5 +1,0 @@
-== DLT.3 - Change Computation (ID)
-
-[datatype-definition]
-Specifies if the change is computed as a percent change or as an absolute change. Refer to {{v2-table:0523:Computation Type}} for valid values.
-

@@ -1,7 +1,0 @@
-== SCH.6 - Event Reason (CWE)
-
-[segment-definition]
-This field contains an identifier code for the reason that the notification event was triggered. This field may contain a code describing the cancel reason, the delete reason, the discontinue reason, the add reason, the block reason or any other code describing the reason that a specific event will occur.
-
-[segment-comment]
-This field should not have been made required but is retained as such for reasons of backwards compatibility.

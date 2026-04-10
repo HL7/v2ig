@@ -1,4 +1,0 @@
-== GSR.9 - Validity Period (DR)
-
-[segment-definition]
-This field asserts the time period during which the recorded gender or sex value in GSR-4 applies to the individual. May be just a Start Date/Time for values which are still valid.

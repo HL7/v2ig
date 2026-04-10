@@ -1,4 +1,0 @@
-== RXG.11 - Dispense-To Location
-
-[segment-definition]
-*_This field is retained for backward compatibility only as of v 2.6 and removed from the standard as of v 2.8._* The reader is referred to RXG-27 and RXG-28.

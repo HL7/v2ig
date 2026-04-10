@@ -1,4 +1,0 @@
-== IVC.20 - Cost Center (CX)
-
-[segment-definition]
-Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room.

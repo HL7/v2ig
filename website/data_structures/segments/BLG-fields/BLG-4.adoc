@@ -1,4 +1,0 @@
-== BLG.4 - Charge Type Reason (CWE)
-
-[segment-definition]
-This field explains the choice of and provides the clinical rationale for the selected charge type identified in BLG-2. Refer to {{v2-table:0475:Charge Type Reason}} in Chapter 2C, code Tables, for suggested values.

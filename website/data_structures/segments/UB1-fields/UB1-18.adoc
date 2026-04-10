@@ -1,7 +1,0 @@
-== UB1.18 - Occur Span Start Date
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*Attention: _UB1-18 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*

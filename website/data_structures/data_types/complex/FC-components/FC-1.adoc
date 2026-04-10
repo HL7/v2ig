@@ -1,5 +1,0 @@
-== FC.1 - Financial Class Code (CWE)
-
-[datatype-definition]
-This component contains the financial class assigned to a person. {{v2-table:0064:Financial Class}} is used as the HL7 identifier for the user-defined table of values for this component.
-

@@ -1,4 +1,0 @@
-== PCR.22 - Event Causality Observations (ID)
-
-[segment-definition]
-This field contains observations made about the event which may bear on causality. Refer to {{v2-table:0252:Causality Observations}} for valid values. Segment may repeat if multiple categories of evidence are relevant.

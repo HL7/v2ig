@@ -1,4 +1,0 @@
-== IN1.24 - Notice Of Admission Date (DT)
-
-[segment-definition]
-If a notice is required, this field indicates the date that it was sent.

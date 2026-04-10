@@ -1,4 +1,0 @@
-== SGT.2 - Segment Group Name (ST)
-
-[segment-definition]
-This field contains the name of the segment group.

@@ -1,7 +1,0 @@
-== PEO.12 - Patient Outcome (ID)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-When an event specific outcome is not available, the patient outcome element may be used to represent the patient's overall outcome if that information is known. Refer to {{v2-table:0241:Patient Outcome}} for valid values.

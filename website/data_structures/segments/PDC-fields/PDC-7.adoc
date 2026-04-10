@@ -1,4 +1,0 @@
-== PDC.7 - Catalogue Identifier (ST)
-
-[segment-definition]
-This field contains the manufacturer's catalogue identifier for the product.

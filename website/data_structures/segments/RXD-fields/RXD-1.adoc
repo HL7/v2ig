@@ -1,4 +1,0 @@
-== RXD.1 - Dispense Sub-ID Counter (NM)
-
-[segment-definition]
-This field starts with 1 the first time that medication/treatment is delivered/dispensed for this order. Increments by one with each additional issuance.

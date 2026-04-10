@@ -1,4 +1,0 @@
-== RXA.6 - Administered Amount (NM)
-
-[segment-definition]
-This field contains the amount administered.

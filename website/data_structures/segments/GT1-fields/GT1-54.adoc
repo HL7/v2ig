@@ -1,4 +1,0 @@
-== GT1.54 - Guarantor Financial Class (FC)
-
-[segment-definition]
-This field contains the financial class (FC) assigned to the guarantor for the purpose of identifying sources of reimbursement. It can be different than that of the patient. When the FC of the guarantor is different than the FC of the patient, and the guarantor's coverage for that patient has been exhausted, the source of reimbursement falls back onto the FC of the patient.

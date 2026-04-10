@@ -1,4 +1,0 @@
-== PRB.24 - Family/Significant Other Awareness of Problem/Prognosis (ST)
-
-[segment-definition]
-This field indicates the individual's family or significant other's comprehension of the actual problem/prognosis.

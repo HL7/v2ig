@@ -1,4 +1,0 @@
-== PEO.21 - Primary Observer Telephone (XTN)
-
-[segment-definition]
-This field identifies the telephone number of the person who initially described the event.

@@ -1,4 +1,0 @@
-== PSL.24 - Product/Service Cost Factor (NM)
-
-[segment-definition]
-Factor to increase the billed amount.

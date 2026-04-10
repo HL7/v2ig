@@ -1,4 +1,0 @@
-== CSR.4 - Sponsor Patient ID (CX)
-
-[segment-definition]
-This field contains the main patient identification for the study. The sponsor patient ID allows automation of records on patients treated at various institutions. The sponsor patient ID should be unique for each patient participating on the study identified in _CSR-1 Sponsor Study ID_.

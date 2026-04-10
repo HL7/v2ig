@@ -1,4 +1,0 @@
-== LAN.2 - Language Code (CWE)
-
-[segment-definition]
-This field contains the language about which the Staff Member's has some knowledge. HL7 recommends using ISO table 639 as the suggested values in {{v2-table:0296:Primary Language}}.

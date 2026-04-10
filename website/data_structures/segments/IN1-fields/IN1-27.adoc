@@ -1,4 +1,0 @@
-== IN1.27 - Release Information Code (CWE)
-
-[segment-definition]
-This field indicates whether the healthcare provider can release information about the patient, and what information can be released. Refer to {{v2-table:0093:Release Information}} in Chapter 2C, Code Tables, for suggested values.

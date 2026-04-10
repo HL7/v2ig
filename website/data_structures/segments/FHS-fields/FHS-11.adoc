@@ -1,4 +1,0 @@
-== FHS.11 - File Control ID (ST)
-
-[segment-definition]
-This field is used to identify a particular file uniquely. It can be echoed back in FHS-12-reference file control ID.

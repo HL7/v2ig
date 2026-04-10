@@ -1,4 +1,0 @@
-== IN1.3 - Insurance Company ID (CX)
-
-[segment-definition]
-This field contains unique identifiers for the insurance company. The assigning authority and identifier type code are strongly recommended for all CX data types.

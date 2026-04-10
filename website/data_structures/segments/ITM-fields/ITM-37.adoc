@@ -1,4 +1,0 @@
-== ITM.37 - Class of Trade (ST)
-
-[segment-definition]
-This field contains the class of trade if identified at the item level.

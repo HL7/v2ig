@@ -1,9 +1,0 @@
-== PRT.9 - Location (PL)
-
-[segment-definition]
-This field specifies the physical location (e.g., nurse station, ancillary service location, clinic, or floor) that is participating. If either _PRT-5 Person_ or _PRT-8 Organization_ is valued, it reflects the location of the individual or organization participating as identified in _PRT-4 Role of Participation_. Otherwise the location is directly participating as identified in _PRT-4 Role of Participation_.
-
-[segment-comment]
-If this attribute repeats, all instances must represent the same organization.
-
-Condition: At least one of the PRT-5 Person, PRT-8 Organization, PRT-9 Location, or PRT-10 Device or PRT-22 Device Type fields must be valued.

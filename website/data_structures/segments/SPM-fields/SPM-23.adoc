@@ -1,4 +1,0 @@
-== SPM.23 - Specimen Appropriateness (CWE)
-
-[segment-definition]
-The suitability of the specimen for the particular planned use as determined by the filler. Refer to {{v2-table:0492:Specimen Appropriateness}} for suggested entries.

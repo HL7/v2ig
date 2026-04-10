@@ -1,4 +1,0 @@
-== PKG.10 - Quantity of Each (NM)
-
-[segment-definition]
-This field contains the Quantity of the lowest UOM in the UOM sent in sequence 3 (Default Order Unit of Measure).

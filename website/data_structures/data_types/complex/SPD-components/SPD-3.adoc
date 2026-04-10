@@ -1,5 +1,0 @@
-== SPD.3 - Eligible or Certified (ID)
-
-[datatype-definition]
-Specifies the certification status. Refer to {{v2-table:0337:Certification Status}} for valid values.
-

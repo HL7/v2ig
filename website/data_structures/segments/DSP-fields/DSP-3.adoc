@@ -1,4 +1,0 @@
-== DSP.3 - Data Line (TX)
-
-[segment-definition]
-This field contains an actual line as it should be displayed. As described for the TX data type, highlighting and other special display characteristics may be included.

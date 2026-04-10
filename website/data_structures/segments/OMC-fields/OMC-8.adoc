@@ -1,4 +1,0 @@
-== OMC.8 - Hint/Help Text (ST)
-
-[segment-definition]
-This field gives guidance to the provider on how to answer the question.

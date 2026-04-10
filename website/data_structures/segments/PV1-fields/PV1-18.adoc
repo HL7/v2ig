@@ -1,4 +1,0 @@
-== PV1.18 - Patient Type (CWE)
-
-[segment-definition]
-This field contains site-specific values that identify the patient type. Refer to {{v2-table:0018:Patient Type}} in Chapter 2C, Code Tables, for suggested values.

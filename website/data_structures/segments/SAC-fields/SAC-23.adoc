@@ -1,4 +1,0 @@
-== SAC.23 - SAC-23 (NM)
-
-[segment-definition]
-This field identifies the volume of the specimen initially filled in this container in the units specified below.

@@ -1,4 +1,0 @@
-== SCP.6 - Device Model Name (ST)
-
-[segment-definition]
-The manufacturer's designated model name.

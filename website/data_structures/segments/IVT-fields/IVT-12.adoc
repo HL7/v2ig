@@ -1,4 +1,0 @@
-== IVT.12 - Transaction Code (CWE)
-
-[segment-definition]
-This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient's bill or charge labels) and the name of the coding system that assigned the charge code. Refer to {{v2-table:0132:Transaction Codes}}_ in Chapter 2C, Code Tables, for suggested values.

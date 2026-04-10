@@ -1,4 +1,0 @@
-== CSR.16 - Reason Ended Study (CWE)
-
-[segment-definition]
-This information is important for quality control and data analysis. The coding systems will vary among trials. An example answer set is: *Adverse Events, Completed Trial, Death, Drug Resistance, Intercurrent Illness, Lost to Follow up, No Response to Therapy, Noncompliance, Progression of Disease, Protocol Violation, Refused Further Therapy.* This field is required for the off‑study trigger event (C04). Refer to Table 0594 - Reason Ended Study in Chapter 2C for valid values.

@@ -1,9 +1,0 @@
-== ORC.4 - Placer Order Group Number (EI)
-
-[segment-definition]
-This field contains a unique identifier for an Order Group as referenced by the Placer application. An Order Group is a set of orders grouped together by the placer application.
-
-[segment-comment]
-The first component is a string that uniquely identifies all order groups from the placer application. A limit of fifteen (15) characters is suggested but not required.
-
-The second through fourth components constitute a placer or filler application ID identical to the analogous components of ORC-3-filler order number . Order groups and how to use them are described in detail in Section _4.5.1_, "_ORC – Common Order Segment_."

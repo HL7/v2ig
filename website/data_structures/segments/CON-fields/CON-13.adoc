@@ -1,4 +1,0 @@
-== CON.13 - Consent Decision Date/Time (DTM)
-
-[segment-definition]
-Identifies the time when the decision to grant/refuse consent was made. In the case of written consent, this is the time the consent form is signed.

@@ -1,7 +1,0 @@
-== ARQ.4 - Placer Order Group Number (EI)
-
-[segment-definition]
-This field contains a unique identifier for the Placer Group as referenced by the Placer application. A Placer Order Group is a set of appointments grouped together by the placer application, and subsequently identified by the placer application.
-
-[segment-comment]
-The second through fourth components contain the assigning authority identifying information.

@@ -1,7 +1,0 @@
-== CSR.1 - Sponsor Study ID (EI)
-
-[segment-definition]
-The field contains the universal identifier for the clinical trial. Since many clinical trials are collaborative and multi‑centered, and since one goal of these standards is to promote automated data exchange among sites, the primary identifier should come from the sponsor. The coding system component may reference the sponsor. Example:
-
-[segment-comment]
-T93‑0807^NCI (where NCI refers to the National Cancer Institute).

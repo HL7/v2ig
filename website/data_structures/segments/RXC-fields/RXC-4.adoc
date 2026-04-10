@@ -1,4 +1,0 @@
-== RXC.4 - Component Units (CWE)
-
-[segment-definition]
-This field identifies the units for the component amount. If present, this overrides the units implied by _RXC-2-component code_. This must be in simple units that reflect the actual quantity of the component being added. It does not include compound units. Refer to Table 0698 - Component Units in Chapter 2C for valid values.

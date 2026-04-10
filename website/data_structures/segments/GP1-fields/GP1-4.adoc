@@ -1,4 +1,0 @@
-== GP1.4 - OCE Edits per Visit Code (CWE)
-
-[segment-definition]
-This field contains the edits that result from processing the HCPCS/CPT procedures for a record after evaluating all the codes, revenue codes, and modifiers. The codes listed as examples are not an exhaustive or current list, refer to OPPS Final Rule. OCE (Outpatient Code Editor) edits also exist at the pre-procedure level. Refer to {{v2-table:0458:OCE Edit Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.

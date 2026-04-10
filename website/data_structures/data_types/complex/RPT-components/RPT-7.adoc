@@ -1,9 +1,0 @@
-== RPT.7 - Institution Specified Time (ID)
-
-[datatype-definition]
-A code that indicates whether the exact timing is up to the party executing the schedule (e.g., to distinguish “every 8 hours” from “3 times a day”). Refer to {{v2-table:0136:Yes/No Indicator}} for valid values.
-
-• Y - exact timing up to party executing schedule.
-
-• N - exact timing as specified.
-

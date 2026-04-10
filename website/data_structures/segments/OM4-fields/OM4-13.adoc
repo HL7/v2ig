@@ -1,4 +1,0 @@
-== OM4.13 - Specimen Priorities (ID)
-
-[segment-definition]
-This field contains the allowed priorities for obtaining the specimen. Note that they may be different from the processing priorities given in _OM1-25 - Processing Priority_. When a test is requested, the specimen priority given in _TQ1-9 - Priority_ should be one of the priorities listed here. Multiple priorities are separated by repeat delimiters. Refer to {{v2-table:0027:Priority}} in Chapter 2C, Code Tables, for valid values.

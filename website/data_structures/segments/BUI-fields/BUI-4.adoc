@@ -1,4 +1,0 @@
-== BUI.4 - BUI-4 (NM)
-
-[segment-definition]
-The weight of the blood unit collected, not including the weight of the container.

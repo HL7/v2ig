@@ -1,4 +1,0 @@
-== GOL.18 - Goal Life Cycle Status (CWE)
-
-[segment-definition]
-This field contains an indication of the state of the goal (e.g., Active, Canceled, Inactive, Suspended, etc.).

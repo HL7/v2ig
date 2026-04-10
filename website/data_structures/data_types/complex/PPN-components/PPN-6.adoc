@@ -1,5 +1,0 @@
-== PPN.6 - Prefix (ST)
-
-[datatype-definition]
-Used to specify a name prefix (e.g., Dr.).
-

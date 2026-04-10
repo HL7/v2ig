@@ -1,9 +1,0 @@
-== ABS.10 - Caesarian Section Indicator (ID)
-
-[segment-definition]
-Indicates if the delivery was by Caesarian Section. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y Delivery was by Caesarian Section.
-
-N Delivery was not by Caesarian Section.

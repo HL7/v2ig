@@ -1,4 +1,0 @@
-== RXA.18 - Substance/Treatment Refusal Reason (CWE)
-
-[segment-definition]
-This field contains the reason the patient refused the medical substance/treatment. Any entry in the field indicates that the patient did not take the substance. Refer to Table 0693 - Substance/Treatment Refusal Reason in Chapter 2C for valid values.

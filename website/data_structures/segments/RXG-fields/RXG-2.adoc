@@ -1,4 +1,0 @@
-== RXG.2 - Dispense Sub-ID Counter (NM)
-
-[segment-definition]
-This is the dispense sub-ID to which this give message is related.

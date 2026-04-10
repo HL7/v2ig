@@ -1,9 +1,0 @@
-== ORG.4 - Primary Org Unit Indicator (ID)
-
-[segment-definition]
-This field contains an indicator for whether this organization unit is the primary organization unit for this practitioner. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.
-
-[segment-comment]
-Y this is the primary organization unit
-
-N this is not the primary organization unit

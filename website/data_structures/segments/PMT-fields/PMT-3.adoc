@@ -1,4 +1,0 @@
-== PMT.3 - Payment/Remittance Expiration Date/Time (DTM)
-
-[segment-definition]
-[ End ] Date/Time for this Payment/Remittance Advice.

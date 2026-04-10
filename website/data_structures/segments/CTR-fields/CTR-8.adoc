@@ -1,7 +1,0 @@
-== CTR.8 - Supplier Type (CWE)
-
-[segment-definition]
-This field contains the type of supplier associated to the contract. Suggested values ‘Distributor’ or ‘Manufacturer’.
-
-[segment-comment]
-Refer to {{v2-table:0946:Supplier Type}} in Chapter 2C, Code Tables, for suggested values.

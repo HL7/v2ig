@@ -1,3 +1,0 @@
-==== ILT Field Definitions
-[v291_section="17.5.8.0"]
-

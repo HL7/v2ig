@@ -1,4 +1,0 @@
-== TCC.14 - TCC-14 (CWE)
-
-[segment-definition]
-This field identifies the processing type that applies to this test code. If this attribute is omitted, then regular production is the default. Refer to {{v2-table:0388:Processing Type}} in Chapter 2C, Code Tables, for valid values.

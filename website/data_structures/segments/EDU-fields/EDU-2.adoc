@@ -1,4 +1,0 @@
-== EDU.2 - Academic Degree (CWE)
-
-[segment-definition]
-This field contains the standard classification awarded upon completion of a unified program of study. HL7 suggests using values in {{v2-table:0360:Degree/License/Certificate}}.

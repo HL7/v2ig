@@ -1,3 +1,0 @@
-==== RXC field definitions
-[v291_section="4A.4.3.0"]
-

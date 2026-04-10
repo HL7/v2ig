@@ -1,7 +1,0 @@
-== RXA.24 - Administered Drug Strength Volume Units (CWE)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-Description: This field indicates the volumetric unit associated with _RXA-23 Administered Drug Strength Volume_. See example in RXA-23. Refer to Table 0695 - Administered Drug Strength Volume Units in Chapter 2C for valid values.

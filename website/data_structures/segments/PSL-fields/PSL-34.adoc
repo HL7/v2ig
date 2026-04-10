@@ -1,4 +1,0 @@
-== PSL.34 - Number of TP's PP (NM)
-
-[segment-definition]
-Cost of the service "professional part" expressed in "points".

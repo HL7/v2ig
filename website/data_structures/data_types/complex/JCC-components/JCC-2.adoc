@@ -1,5 +1,0 @@
-== JCC.2 - Job Class (CWE)
-
-[datatype-definition]
-This component contains the person’s employee classification. Refer to {{v2-table:0328:Employee Classification}} for suggested values.
-

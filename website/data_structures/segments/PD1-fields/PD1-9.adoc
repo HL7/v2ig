@@ -1,9 +1,0 @@
-== PD1.9 - Separate Bill (ID)
-
-[segment-definition]
-This field specifies that charges for this patient are to be billed separately from other patient bills with the same guarantor. (This bill is now a patient bill rather than a guarantor bill.) Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y Bill separately
-
-N normal processing

@@ -1,4 +1,0 @@
-== PRD.11 - Provider Organization Address (XAD)
-
-[segment-definition]
-This field contains the address of the provider if it is an organization.

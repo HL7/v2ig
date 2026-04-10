@@ -1,9 +1,0 @@
-== CDM.13 - Room Fee Indicator (ID)
-
-[segment-definition]
-This field contains a room fee indicator. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y this is a component of the room fees
-
-N this is any other chargeable item other than room fees

@@ -1,7 +1,0 @@
-== XAD.10 - Census Tract (CWE)
-
-[datatype-definition]
-A code that represents the census tract in which the specified address resides. {{v2-table:0288:Census Tract}} is used as the HL7 identifier for the user-defined table of values for this component.
-
-Allowable Values: codes defined by government.
-

@@ -1,7 +1,0 @@
-== OBX.6 - Units (CWE)
-
-[segment-definition]
-This field contains the units of measurement for the value in _OBX-5, Observation Value_. Coding system from which the values may be drawn include, UCUM, ISO+, ANSI X3.50 - 1986 and site specific (local) coding systems. Considering Version 3 direction and consistent use of V2 and V3 messages/documents within an organization, use of UCUM is strongly recommended. Refer to Table 0623 - Units in Chapter 2C for valid values.
-
-[segment-comment]
-Note that OBX-6 applies to both OBX-5.2 and OBX-5.4 if OBX-2 = “SN”.

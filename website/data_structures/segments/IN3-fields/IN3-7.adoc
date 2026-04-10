@@ -1,4 +1,0 @@
-== IN3.7 - Certification Modify Date/Time (DTM)
-
-[segment-definition]
-This field contains the date/time that the certification was modified.

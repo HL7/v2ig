@@ -1,5 +1,0 @@
-== NDL.8 - Location Status (IS)
-
-[datatype-definition]
-This component specifies the code for the status or availability of the location. For example, it may convey bed status. Refer to {{v2-table:0306:Location Status}} for suggested values.
-

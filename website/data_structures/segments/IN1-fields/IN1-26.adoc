@@ -1,4 +1,0 @@
-== IN1.26 - Report Of Eligibility Date (DT)
-
-[segment-definition]
-This field indicates whether a report of eligibility (ROE) was received, and also indicates the date that it was received.

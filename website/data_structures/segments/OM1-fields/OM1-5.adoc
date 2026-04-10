@@ -1,7 +1,0 @@
-== OM1.5 - Producer ID (CWE)
-
-[segment-definition]
-This field uniquely identifies the service producing the observation described in this segment. Three components should be included: an identifying code, the name of the producer, and the identity of the coding system (e.g., 323-5678^Acme Special Lab^MC). The identity of the coding system will usually be MC (Medicare provider number or HIBCC site codes) in the United States. Each country may want to specify its preferred coding system and define a coding system ID to identify it. Refer to Table 0631 - Producer ID in Chapter 2C for valid values.
-
-[segment-comment]
-Remember that the magnitude of a treatment or the setting on a machine, such as a ventilator, can be regarded as an observation. Thus, pharmacy, respiratory care, and nursing may be producers of such observations.

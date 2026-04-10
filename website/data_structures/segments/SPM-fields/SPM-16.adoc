@@ -1,4 +1,0 @@
-== SPM.16 - Specimen Risk Code (CWE)
-
-[segment-definition]
-This field contains any known or suspected specimen hazards, e.g., exceptionally infectious agent or blood from a hepatitis patient. Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, a component delimiter must precede free text without a code. Refer to {{v2-table:0489:Risk Codes}} for suggested entries

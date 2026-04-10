@@ -1,4 +1,0 @@
-== IAM.28 - Initially Recorded by Organization (XON)
-
-[segment-definition]
-This field contains the name of the organization that initially recorded the allergy (e.g., a General Hospital).

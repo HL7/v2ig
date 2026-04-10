@@ -1,4 +1,0 @@
-== RQ1.7 - Substitute Allowed (ID)
-
-[segment-definition]
-This field indicates whether the ancillary department may substitute an equivalent version of the item(s) ordered. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables.

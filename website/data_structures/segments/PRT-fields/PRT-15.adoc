@@ -1,4 +1,0 @@
-== PRT.15 - Telecommunication Address (XTN)
-
-[segment-definition]
-The waypoint telecommunication address field carries telecommunications addresses for the waypoint. These telecommunications addresses are used to contact the waypoint for additional information regarding the receipt of the shipment. The address can repeat to indicate alternate addresses or an alternate expression of the same address.

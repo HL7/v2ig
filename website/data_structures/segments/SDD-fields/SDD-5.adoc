@@ -1,4 +1,0 @@
-== SDD.5 - Load Status (CWE)
-
-[segment-definition]
-The status of the load. Refer to {{v2-table:0669:Load Status}} in Chapter 2C, Code Tables, for suggested values.

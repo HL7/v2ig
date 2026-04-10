@@ -1,4 +1,0 @@
-== IPR.2 - Provider Cross Reference Identifier (EI)
-
-[segment-definition]
-Cross reference to Provider Product/Service Group Number or Provider Product/Service Line Item Number from original Invoice.

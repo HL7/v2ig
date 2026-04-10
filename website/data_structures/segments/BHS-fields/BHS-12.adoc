@@ -1,4 +1,0 @@
-== BHS.12 - Reference Batch Control ID (ST)
-
-[segment-definition]
-This field contains the value of BHS-11 Batch Control ID when this batch was originally transmitted. Not present if this batch is being sent for the first time. See definition for BHS-11 Batch Control ID.

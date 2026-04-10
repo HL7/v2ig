@@ -1,9 +1,0 @@
-== PRC.15 - Chargeable Flag (ID)
-
-[segment-definition]
-This field contains a chargeable indicator. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-N charge is not billable, that is, do not create charges for this CDM entry; this is zero price item
-
-Y item is billable (this is also the default when NULL)

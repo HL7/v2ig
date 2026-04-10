@@ -1,7 +1,0 @@
-== PV1.51 - Visit Indicator (CWE)
-
-[segment-definition]
-This field specifies the level on which data are being sent. It is the indicator used to send data at two levels, visit and account. HL7 recommends sending an 'A' or no value when the data in the message are at the account level, or 'V' to indicate that the data sent in the message are at the visit level. Refer to {{v2-table:0326:Visit Indicator}} in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-The value of this element affects the context of data sent in PV1, PV2 and any associated hierarchical segments (e.g., DB1, AL1, DG1, etc.).

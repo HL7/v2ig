@@ -1,4 +1,0 @@
-== SCD.37 - Inlet Temperature (CQ)
-
-[segment-definition]
-The temperature of the dilutant upon entering the sterilizer chamber.

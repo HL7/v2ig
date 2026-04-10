@@ -1,4 +1,0 @@
-== IN2.58 - Insurance Co Contact Phone Number (XTN)
-
-[segment-definition]
-This field contains the telephone number of the person who should be contacted at the insurance company for questions regarding an insurance policy/claim, etc. Multiple phone numbers for the insurance company may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

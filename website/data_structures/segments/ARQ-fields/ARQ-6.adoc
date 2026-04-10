@@ -1,4 +1,0 @@
-== ARQ.6 - Request Event Reason (CWE)
-
-[segment-definition]
-This field contains the identifier code for the reason that the request event is being triggered. This field may contain a code describing the cancel reason, the delete reason, the discontinue reason, the add reason, or any other code describing the reason that a specific event is occurring.

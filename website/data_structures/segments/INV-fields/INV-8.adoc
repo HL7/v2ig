@@ -1,4 +1,0 @@
-== INV.8 - INV-8 (NM)
-
-[segment-definition]
-This field is the current quantity, i.e., initial quantity minus what has been actually used.

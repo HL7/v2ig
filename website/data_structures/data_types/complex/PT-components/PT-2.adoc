@@ -1,5 +1,0 @@
-== PT.2 - Processing Mode (ID)
-
-[datatype-definition]
-A value that defines whether the message is part of an archival process or an initial load. Refer to {{v2-table:0207:Processing Mode}} for valid values.
-

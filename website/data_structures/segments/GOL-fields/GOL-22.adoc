@@ -1,9 +1,0 @@
-== GOL.22 - Mood Code (CNE)
-
-[segment-definition]
-This field indicates the Mood of the Goal. It allows expression of the context of the problem.
-
-[segment-comment]
-*Note:* As Mood Code changes the meaning of the segment it must only be used in new messages as of v2.6.
-
-Refer to {{v2-table:0725:Mood Codes}} in Chapter 2C, Code Tables, for allowed values.

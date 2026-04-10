@@ -1,4 +1,0 @@
-== OM7.7 - Effective Test/Service End Date/Time (DTM)
-
-[segment-definition]
-This field contains the date and time that the service item is no longer authorized to be ordered, performed, etc.

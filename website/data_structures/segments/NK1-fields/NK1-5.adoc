@@ -1,7 +1,0 @@
-== NK1.5 - Phone Number (XTN)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*Attention:* The NK1-5 field was retained for backward compatibility as of v2.7 and withdrawn as of v 2.9. The reader is referred to section _3.4.5.40 NK1-40_ instead. This field contains the telephone number of the next of kin/associated party. Multiple phone numbers are allowed for the same person. The primary telephone number must be sent in the first sequence. If the primary telephone number is not sent, then the repeat delimiter must be sent in the first sequence. Refer to {{v2-table:0201:Telecommunication Use Code}} and {{v2-table:0202:Telecommunication Equipment Type}} in Chapter 2C, Code Tables, for valid values.

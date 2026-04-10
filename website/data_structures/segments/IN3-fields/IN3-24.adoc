@@ -1,4 +1,0 @@
-== IN3.24 - Second Opinion Documentation Received (CWE)
-
-[segment-definition]
-Use this field if accompanying documentation has been received by the provider. Refer to {{v2-table:0152:Second Opinion Documentation Received}}_ in Chapter 2C, Code Tables, for suggested values.

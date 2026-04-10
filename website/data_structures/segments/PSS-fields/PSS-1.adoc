@@ -1,4 +1,0 @@
-== PSS.1 - Provider Product/Service Section Number (EI)
-
-[segment-definition]
-Unique Product/Service Section Number assigned by the Provider Application.

@@ -1,3 +1,0 @@
-==== MFA Field Definitions
-[v291_section="8.5.3.0"]
-

@@ -1,4 +1,0 @@
-== CER.20 - Jurisdiction State/Province (CWE)
-
-[segment-definition]
-This field contains the state for which the qualification is valid. HL7 suggests using values in {{v2-table:0347:State/Province}}.

@@ -1,7 +1,0 @@
-== SFT.6 - Software Install Date (DTM)
-
-[segment-definition]
-Date the submitting software was installed at the sending site.
-
-[segment-comment]
-A Software Install Date on its own can often provide key information about the behavior of the application, and is necessary to provide a complete picture of the sending application.

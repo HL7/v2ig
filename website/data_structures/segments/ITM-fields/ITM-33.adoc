@@ -1,4 +1,0 @@
-== ITM.33 - United Nations Standard Products and Services Code (UNSPSC) (CWE)
-
-[segment-definition]
-The United Nations Standard Products and Services Code is the category code assigned by the UNSPSC organization to the item. Please refer to the code "UNSPSC" as indicated for the United Nations Standards Products and Services Code as referenced in {{v2-table:0396:Coding System}} in Chapter 2C, Code Tables.

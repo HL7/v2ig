@@ -1,4 +1,0 @@
-== CTI.2 - Study Phase Identifier (CWE)
-
-[segment-definition]
-This field identifies the phase of the study that a patient has entered. See _CSP-1 Study Phase Identifier_ for details of coding systems. Refer to Table 0597 - Study Phase Identifier in Chapter 2C for valid values.

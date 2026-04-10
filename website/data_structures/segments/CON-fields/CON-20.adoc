@@ -1,4 +1,0 @@
-== CON.20 - Consent Bypass Reason (CWE)
-
-[segment-definition]
-Identifies why the subject's consent was not sought. This field must be populated when _CON-11 - Consent Status_ is B – Bypassed. Refer to {{v2-table:0499:Consent Bypass Reason}} for suggested values.

@@ -1,4 +1,0 @@
-== IVT.16 - Consignment Item Indicator (CNE)
-
-[segment-definition]
-This field contains an indicator signifying whether the inventory supply item is purchased on consignment. If the item is purchased on consignment, the healthcare organization does not pay for the inventory supply item until it is used. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.

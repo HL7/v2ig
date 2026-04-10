@@ -1,4 +1,0 @@
-== LDP.6 - Active/Inactive Flag (ID)
-
-[segment-definition]
-This field indicates whether the entry for this location is currently an active, that is, valid, usable entry (disregarding whether it's waiting to be maintained by housekeeping). Refer to {{v2-table:0183:Active/Inactive}} in Chapter 2C, Code Tables, for valid values.

@@ -1,9 +1,0 @@
-== OM1.48 - Exclusive Test (ID)
-
-[segment-definition]
-This field defines if this test should be a specific event with no other tests to be performed with this test. Refer to {{v2-table:0919:Exclusive Test}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-If not populated, the default value of "N" is assumed and that this test can be included with any number of other tests.
-
-When D is specified for this field, using field OM1-49 determines how tests must be grouped together. Tests within the same Diagnostic Service Sector may be on the same requisition, and therefore in the same message.

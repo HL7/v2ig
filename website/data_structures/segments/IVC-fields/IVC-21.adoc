@@ -1,4 +1,0 @@
-== IVC.21 - Invoice Prepaid Amount (CP)
-
-[segment-definition]
-Deposit paid to the service Provider prior to admission

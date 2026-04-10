@@ -1,4 +1,0 @@
-== PV2.21 - Visit Publicity Code (CWE)
-
-[segment-definition]
-This field contains a user-defined code indicating what level of publicity is allowed for a specific visit. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values. Refer to _PD1-11 - Publicity Code_ for the patient level publicity code.

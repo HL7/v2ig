@@ -1,4 +1,0 @@
-== NK1.32 - Contact Person's Address (XAD)
-
-[segment-definition]
-This field contains the addresses of the contact person depending on the value of the relationship defined in _NK1-3 - Relationship_. This field is typically used when the NK1 is an organization. As of v2.7, the "primary mailing address" constraint as the first sequence has been removed. Primary Mailing Address is not an entry in either _XAD.7 – Address Type_ or in _XAD.18 – Address Usage_.

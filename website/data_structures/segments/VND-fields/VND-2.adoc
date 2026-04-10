@@ -1,4 +1,0 @@
-== VND.2 - Vendor Identifier (EI)
-
-[segment-definition]
-This field contains the identifier of the vendor in the system.

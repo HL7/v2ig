@@ -1,7 +1,0 @@
-== PAC.2 - Package ID (EI)
-
-[segment-definition]
-The Package ID uniquely identifies this package from all other packages within its shipment.
-
-[segment-comment]
-Condition: If _SHP-8 Number of Packages in Shipment_ is greater then 1, then Package ID must be valued.

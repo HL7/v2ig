@@ -1,9 +1,0 @@
-== PYE.7 - Payment Method (CWE)
-
-[segment-definition]
-For Payee organizations that have more than one payment method.
-
-[segment-comment]
-If for individual, then we may also need to indicate EFT, bank info, etc.
-
-Refer to {{v2-table:0570:Payment Method Code}} in Chapter 2C, Code Tables, for suggested values.

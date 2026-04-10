@@ -1,5 +1,0 @@
-== MSG.3 - Message Structure (ID)
-
-[datatype-definition]
-Specifies the abstract message structure code. Refer to _{{v2-table:0354:Message Structure}}_ for valid values.
-

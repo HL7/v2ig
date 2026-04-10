@@ -1,4 +1,0 @@
-== ROL.8 - Role Action Reason (CWE)
-
-[segment-definition]
-// TODO: Add field definition

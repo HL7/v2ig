@@ -1,4 +1,0 @@
-== CM0.6 - Last IRB Approval Date (DT)
-
-[segment-definition]
-This field contains an institution's Internal Review Board approval dates which are required annually to continue participation in a clinical trial.

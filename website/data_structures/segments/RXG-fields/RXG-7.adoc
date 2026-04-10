@@ -1,9 +1,0 @@
-== RXG.7 - Give Units (CWE)
-
-[segment-definition]
-This field contains the units for the give amount. Refer to Table 0735 - Give Units in Chapter 2C for valid values.
-
-[segment-comment]
-*Note:* These units can be a "compound quantity;" i.e., the units may contain the word "per." For example, micrograms per KG (micg/kg) is an acceptable value, which means that the units are micrograms per KG (of body weight).
-
-A table of standard units that contains compound units is needed. Until such a table is agreed on, a user-defined table is needed for each site.

@@ -1,4 +1,0 @@
-== OBR.42 - Escort Required (ID)
-
-[segment-definition]
-This field is an indicator that the patient needs to be escorted to the diagnostic service department. Note: The nature of the escort requirements should be stated in _OBR-43-planned patient transport comment_. See {{v2-table:0225:Escort Required}} in Chapter 2C, Code Tables, for valid values.

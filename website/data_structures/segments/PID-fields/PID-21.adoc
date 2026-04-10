@@ -1,4 +1,0 @@
-== PID.21 - Mother's Identifier (CX)
-
-[segment-definition]
-This field is used, for example, as a link field for newborns. Typically a patient ID or account number may be used. This field can contain multiple identifiers for the same mother. Refer to {{v2-table:0061:Check Digit Scheme}} in Chapter 2C, Code Tables, for valid values.

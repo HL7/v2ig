@@ -1,5 +1,0 @@
-==== Placer:
-[v291_section="4.2.2.5"]
-
-The application or individual originating a request for services (order).
-

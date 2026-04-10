@@ -1,3 +1,0 @@
-==== CON Segment Field Definitions
-[v291_section="9.7.1.0"]
-

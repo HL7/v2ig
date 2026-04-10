@@ -1,7 +1,0 @@
-== PR1.20 - Procedure Action Code (ID)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-This field defines the action to be taken for this procedure. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values. This field is required for the Update Diagnosis/Procedures (P12) message. In all other events it is optional.

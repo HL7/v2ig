@@ -1,7 +1,0 @@
-== ARQ.13 - Repeating Interval (RI)
-
-[segment-definition]
-This field contains the interval between repeating appointments. The default setting indicates that the appointment should occur once, if the component is not valued. If an explicit time interval is specified for the repeat pattern, then it specifies the actual time(s) at which the appointment should be scheduled. The _ARQ-11-Requested Start Date/Time Range_ ought to indicate the first repetition that should occur.
-
-[segment-comment]
-*Note:* The subcomponent delimiter defined for the Interval component of the Quantity/Timing field definition has been replaced by a component delimiter for this field.

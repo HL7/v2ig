@@ -1,4 +1,0 @@
-== RF1.22 - Source Date (DTM)
-
-[segment-definition]
-The source date allows a user to capture the date the person was contacted regarding the specific referral.

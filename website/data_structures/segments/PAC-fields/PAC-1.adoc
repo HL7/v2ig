@@ -1,4 +1,0 @@
-== PAC.1 - Set Id – PAC (SI)
-
-[segment-definition]
-This field contains the sequence number. This field is used to identify PAC segment instances in message structures where the PAC segment repeats

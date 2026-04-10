@@ -1,4 +1,0 @@
-== RF1.12 - Referral Documentation Completion Status (CWE)
-
-[segment-definition]
-This field can be used to indicate to the receiving provider that the clinical history in the message is incomplete and that more will follow. Refer to {{v2-table:0865:Referral Documentation Completion Status}} for suggested values.

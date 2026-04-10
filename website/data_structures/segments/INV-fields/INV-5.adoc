@@ -1,4 +1,0 @@
-== INV.5 - INV-5 (CWE)
-
-[segment-definition]
-This is the carrier used to transport the substance containers (e.g., a removable rotor with reagent bottles). Refer to Table 0600 - Container Carrier Identifier in Chapter 2C for valid values.

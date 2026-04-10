@@ -1,4 +1,0 @@
-== SPM.25 - Specimen Current Quantity (CQ)
-
-[segment-definition]
-This attributes contains the amount of specimen that currently exists or is available for use in further testing.

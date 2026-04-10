@@ -1,4 +1,0 @@
-== MSH.19 - Principal Language Of Message (CWE)
-
-[segment-definition]
-This field contains the principal language of the message. Codes come from ISO 639. Refer to Table 0609 - Principal Language Of Message in Chapter 2C for valid values.

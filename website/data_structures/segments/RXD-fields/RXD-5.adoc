@@ -1,4 +1,0 @@
-== RXD.5 - Actual Dispense Units (CWE)
-
-[segment-definition]
-This field indicates the units dispensed. Site-defined table. This field is required if the units are not implied by the actual dispense code. If present, it overrides units implied by the actual dispense code. This must be in simple units that reflect the actual quantity of the substance dispensed. It does not include compound units. Refer to Table 0704 - Actual Dispense Units in Chapter 2C for valid values.

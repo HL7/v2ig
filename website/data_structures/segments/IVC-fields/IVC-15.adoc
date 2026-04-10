@@ -1,4 +1,0 @@
-== IVC.15 - Origin (ST)
-
-[segment-definition]
-Responsible Person for this specific invoice. For more structured output use CTD-Segment instead.

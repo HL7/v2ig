@@ -1,4 +1,0 @@
-== IAR.2 - Allergy Severity Code (CWE)
-
-[segment-definition]
-This field indicates the general severity of the allergy. Refer to {{v2-table:0128:Allergy severity code}} in Chapter 2C, Code Tables, for suggested values.

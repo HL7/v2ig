@@ -1,4 +1,0 @@
-== BPX.16 - BPX-16 (CWE)
-
-[segment-definition]
-This field contains the units of measure for the blood product amount. (See Chapter 7 for more details about reporting units.) This field specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate). Refer to Table 0581 - BP Units in Chapter 2C for valid values.

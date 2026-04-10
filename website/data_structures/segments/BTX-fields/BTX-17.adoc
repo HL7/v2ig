@@ -1,4 +1,0 @@
-== BTX.17 - BTX-17 (DTM)
-
-[segment-definition]
-This field indicates the date and time that the transfusion of the blood component or commercial product was completed or stopped.

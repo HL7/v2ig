@@ -1,4 +1,0 @@
-== RXA.11 - Administered-at Location
-
-[segment-definition]
-*_This field is retained for backward compatibility only as of v 2.6 and withdrawn from the standard as of v 2.8_*. The reader is referred to RXA-27 and RXA-28._._

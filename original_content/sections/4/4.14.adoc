@@ -1,3 +1,0 @@
-== Transfusion Service (Blood Bank) Segments
-[v291_section="4.14"]
-

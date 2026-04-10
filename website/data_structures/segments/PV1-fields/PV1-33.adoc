@@ -1,4 +1,0 @@
-== PV1.33 - Bad Debt Recovery Amount (NM)
-
-[segment-definition]
-This field contains the amount recovered from the guarantor on the account.

@@ -1,4 +1,0 @@
-== GOL.16 - Goal Evaluation (CWE)
-
-[segment-definition]
-This field provides an indicator of progress towards achievement of the goal (e.g., achieved, ahead of schedule, delayed, failed to achieve, etc.).

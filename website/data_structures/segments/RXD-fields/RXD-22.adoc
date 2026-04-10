@@ -1,4 +1,0 @@
-== RXD.22 - Dispense Package Size (NM)
-
-[segment-definition]
-This field contains the size of package to be dispensed. Units are transmitted in _RXD-23-dispense package size unit._

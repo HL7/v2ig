@@ -1,5 +1,0 @@
-== PPN.13 - Identifier Type Code (ID)
-
-[datatype-definition]
-A code corresponding to the type of identifier. In some cases, this code may be used as a qualifier to the "Assigning authority" component. Refer to {{v2-table:0203:Identifier Type}} for suggested values.
-

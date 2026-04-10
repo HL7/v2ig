@@ -1,4 +1,0 @@
-== RXD.11 - Substitution Status (ID)
-
-[segment-definition]
-Refer to {{v2-table:0167:Substitution Status}} in Chapter 2C, Code Tables, for suggested values.

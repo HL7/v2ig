@@ -1,4 +1,0 @@
-== REL.5 - Target Information Instance Identifier (EI)
-
-[segment-definition]
-This field contains the Instance ID of the Target Segment.

@@ -1,4 +1,0 @@
-== REL.10 - Assertor Contact (XTN)
-
-[segment-definition]
-This field contains the address of the Person or Organization that asserted the relationship.

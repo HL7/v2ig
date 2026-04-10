@@ -1,3 +1,0 @@
-==== NTE field definitions
-[v291_section="2.13.10.0"]
-

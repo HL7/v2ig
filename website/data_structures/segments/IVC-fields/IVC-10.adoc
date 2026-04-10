@@ -1,4 +1,0 @@
-== IVC.10 - Provider Organization (XON)
-
-[segment-definition]
-Business organization that is responsible for the invoice (e.g., Provider organization, clinic organization).

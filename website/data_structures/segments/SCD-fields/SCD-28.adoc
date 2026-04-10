@@ -1,4 +1,0 @@
-== SCD.28 - Cycle Type (CWE)
-
-[segment-definition]
-The type of cycle that is being executed. A cycle type is a specific sterilization method used for a specific type of supply item. Refer to {{v2-table:0702:Cycle Type}} in Chapter 2C, Code Tables, for suggested values.

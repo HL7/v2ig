@@ -1,9 +1,0 @@
-== OBX.28 - Local Process Control (CWE)
-
-[segment-definition]
-This element contains information intended to be used for locally defined processing, particularly process control/status type information. It is defined as repeating and as a CWE data type to provide flexibility. The specific use may be specified in a message profile or implementation guide (see Chapter 2.B), or use may be specified by local agreement internally within an organization.
-
-[segment-comment]
-For example, a laboratory information system might use this element to convey an internal status during processing before the result is communicated outside the organization, such as revision previously reported, revision report pending.
-
-See {{v2-table:0915:Process Control Code}} in Chapter 2C, Code Tables, for a list of suggested values.

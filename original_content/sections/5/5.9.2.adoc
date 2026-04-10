@@ -1,3 +1,0 @@
-=== Query using QSC variant / segment pattern response examples
-[v291_section="5.9.2"]
-

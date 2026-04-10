@@ -1,7 +1,0 @@
-== PV1.9 - Consulting Doctor (XCN)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*From V2.4 onward, this field has been retained for backward compatibility only.* It is recommended to use the PRT - Participation segment for consulting physicians instead.

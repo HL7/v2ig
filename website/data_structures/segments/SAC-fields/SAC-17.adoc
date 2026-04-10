@@ -1,4 +1,0 @@
-== SAC.17 - SAC-17 (NM)
-
-[segment-definition]
-This field identifies the outside diameter of the container in units specified below. For non-cylindrical containers SAC-45 Container Length and SAC-46 Container Width may be used instead of SAC-17 Container Diameter.

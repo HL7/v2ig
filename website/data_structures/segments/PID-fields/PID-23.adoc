@@ -1,4 +1,0 @@
-== PID.23 - Birth Place (ST)
-
-[segment-definition]
-This field indicates the location of the patient's birth, for example "St. Francis Community Hospital of Lower South Side". The actual address is reported in PID-11 with an identifier of "N".

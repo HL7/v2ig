@@ -1,4 +1,0 @@
-== RQD.6 - Requisition Unit of Measure (CWE)
-
-[segment-definition]
-This field contains the unit of measure for this item. Refer to Table 0687 - Requisition Unit of Measure in Chapter 2C for valid values.

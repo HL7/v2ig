@@ -1,4 +1,0 @@
-== RQD.9 - Deliver To ID (CWE)
-
-[segment-definition]
-This field contains the unique identifier and descriptive name of the department/location where the item should be delivered. Refer to Table 0688 - Deliver To ID in Chapter 2C for valid values.

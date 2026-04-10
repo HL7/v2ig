@@ -1,7 +1,0 @@
-== RMC.1 - Room Type (CWE)
-
-[datatype-definition]
-Specifies the room type.
-
-Refer to {{v2-table:0145:Room Type}} for suggested values.
-

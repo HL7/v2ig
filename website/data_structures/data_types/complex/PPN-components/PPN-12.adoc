@@ -1,7 +1,0 @@
-== PPN.12 - Check Digit Scheme (ID)
-
-[datatype-definition]
-Contains the code identifying the check digit scheme employed.
-
-Refer to {{v2-table:0061:Check Digit Scheme}} for valid values.
-

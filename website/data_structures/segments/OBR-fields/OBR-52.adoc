@@ -1,4 +1,0 @@
-== OBR.52 - Parent Observation Group ID (EI)
-
-[segment-definition]
-The Parent Observation Group ID field relates this child OBR to its parent OBR segment using the Observation Group ID of the parent result.

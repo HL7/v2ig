@@ -1,4 +1,0 @@
-== PSL.28 - Session-No (NM)
-
-[segment-definition]
-Several line items may be grouped to a session.

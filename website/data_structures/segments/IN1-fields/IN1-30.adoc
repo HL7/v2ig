@@ -1,4 +1,0 @@
-== IN1.30 - Verification By (XCN)
-
-[segment-definition]
-Refers to the person who verified the benefits. Multiple names for the same insured person may be sent in this field Specification of meaning based on sequence is deprecated.

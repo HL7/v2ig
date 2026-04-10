@@ -1,4 +1,0 @@
-== PDC.3 - Brand Name (ST)
-
-[segment-definition]
-This field contains the name under which the product is marketed by this manufacturer.

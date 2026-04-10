@@ -1,4 +1,0 @@
-== IAM.10 - Allergen Group Code/Mnemonic/Description (CWE)
-
-[segment-definition]
-This field contains the code, mnemonic, or description used to uniquely identify an allergen group when both a detailed allergy (_IAM-3 - Allergen Code/Mnemonic/Description_) and group level (_IAM-10 - Allergen Group Code/Mnemonic/Description_) need to be communicated. In cases where systems want to communicate both a specific drug allergy and the group of drugs to which the specific drug belongs (i.e., Bactrim and Sulfa drugs; Ceclor and Penicillins/Cephalosporins) then the specific drug allergy is sent in _IAM-3 - Allergen Code/Mnemonic/Description_ and the group level is sent in _IAM-10 - Allergen Group Code/Mnemonic/Description_. However, if only a group level is being communicated, then it can be sent in IAM-3 as the primary identifier of the allergy.

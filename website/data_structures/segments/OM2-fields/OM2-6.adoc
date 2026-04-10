@@ -1,9 +1,0 @@
-== OM2.6 - Reference (Normal) Range for Ordinal and Continuous Observations (RFR)
-
-[segment-definition]
-This field contains the reference (normal) ranges for "numeric" observations/tests with a nature code of A or C (see _OM1-18 - Nature of Service/Test/Observation_). It can identify different reference (normal) ranges for different categories of patients according to age, sex, race, and other conditions.
-
-[segment-comment]
-In the first component of this field (Normal Range (NR)), the units are assumed to be identical to the reporting units given in _OM2-2 - Units of Measure_.
-
-When two different methods result in two different reference ranges, two different observations and corresponding OMx segments should be defined.

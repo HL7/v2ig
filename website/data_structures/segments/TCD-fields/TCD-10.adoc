@@ -1,4 +1,0 @@
-== TCD.10 - TCD-10 (NM)
-
-[segment-definition]
-In order submission messages, this field defines the maximal size of the pool where the given specimen may be combined into. In result submission messages, this field defines the actual size of such pool.

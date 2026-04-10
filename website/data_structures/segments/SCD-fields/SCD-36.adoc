@@ -1,4 +1,0 @@
-== SCD.36 - Fill Time (CQ)
-
-[segment-definition]
-The amount of time spent in filling the sterilizer chamber with dilutant.

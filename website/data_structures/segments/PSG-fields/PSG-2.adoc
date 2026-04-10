@@ -1,4 +1,0 @@
-== PSG.2 - Payer Product/Service Group Number (EI)
-
-[segment-definition]
-Unique Product/Service Group Number assigned by the Payer Application

@@ -1,4 +1,0 @@
-== NK1.39 - VIP Indicator (CWE)
-
-[segment-definition]
-This field identifies the type of VIP for the next-of-kin. Refer to {{v2-table:0099:VIP Indicator}} in Chapter 2C, Code Tables.

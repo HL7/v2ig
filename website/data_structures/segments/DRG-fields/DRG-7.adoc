@@ -1,4 +1,0 @@
-== DRG.7 - Outlier Cost (CP)
-
-[segment-definition]
-This field contains the amount of money that has been approved for an outlier payment.

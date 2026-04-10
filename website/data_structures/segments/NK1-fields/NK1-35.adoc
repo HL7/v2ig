@@ -1,4 +1,0 @@
-== NK1.35 - Race (CWE)
-
-[segment-definition]
-This field identifies the race of the next of kin/associated party. Refer to {{v2-table:0005:Race}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.

@@ -1,4 +1,0 @@
-== PSL.27 - Days without Billing (NM)
-
-[segment-definition]
-Number of Days for which no invoice is created.

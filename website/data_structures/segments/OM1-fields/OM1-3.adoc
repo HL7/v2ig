@@ -1,4 +1,0 @@
-== OM1.3 - Permitted Data Types (ID)
-
-[segment-definition]
-This field contains the allowed data type(s) for this observation. The codes are the same as those listed for OBX (a given observation may, under different circumstances, take on different data types). Indeed, under limited circumstances, an observation can consist of one or more fragments of different data types. When an observation may have more than one data type, e.g., coded (CWE) and numeric (NM) the allowable data types should be separated by repeat delimiters. Refer to {{v2-table:0125:Value Type}} in Chapter 2C, Code Tables, for valid values.

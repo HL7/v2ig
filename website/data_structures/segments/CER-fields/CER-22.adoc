@@ -1,7 +1,0 @@
-== CER.22 - Jurisdiction Breadth (CWE)
-
-[segment-definition]
-This field contains the breadth/extent of the jurisdiction where the qualification is valid. HL7 suggests using values in {{v2-table:0547:Jurisdictional Breadth}}.
-
-[segment-comment]
-Refer to {{v2-table:0547:Jurisdictional Breadth}} in Chapter 2C, Code Tables, for valid values. This table contains values for County, Parish, County etc.

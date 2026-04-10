@@ -1,4 +1,0 @@
-== AL1.3 - Allergen Code/Mnemonic/Description (CWE)
-
-[segment-definition]
-This field uniquely identifies a particular allergen. This element may conform to some external, standard coding system (that must be identified), or it may conform to local, largely textual or mnemonic descriptions.

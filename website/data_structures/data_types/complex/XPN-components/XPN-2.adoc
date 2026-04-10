@@ -1,5 +1,0 @@
-== XPN.2 - Given Name (ST)
-
-[datatype-definition]
-First name.
-

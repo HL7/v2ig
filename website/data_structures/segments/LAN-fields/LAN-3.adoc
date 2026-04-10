@@ -1,7 +1,0 @@
-== LAN.3 - Language Ability Code (CWE)
-
-[segment-definition]
-This field contains the ability the Staff Member possesses with respect to the language. HL7 recommends using values in {{v2-table:0403:Language Ability}}.
-
-[segment-comment]
-[#_Hlt489245616 .anchor]####Refer to {{v2-table:0403:Language Ability}} in Chapter 2C, Code Tables, for valid values. This table contains values for the Staff Member's ability to read, write, understand, etc.

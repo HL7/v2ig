@@ -1,4 +1,0 @@
-== PMT.5 - Payment/Remittance Date/Time (DTM)
-
-[segment-definition]
-Date Payment/Remittance Advice was paid, which might not be the same as Date/Time of Message on MSH.

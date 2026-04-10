@@ -1,4 +1,0 @@
-== PCR.13 - Product Available For Inspection (CWE)
-
-[segment-definition]
-This field indicates that the product is available for analysis. {{v2-table:0246:Product Available for Inspection}}_ is used as the HL7 identifier for the user-defined table of values for this field. If the product was returned to the manufacturer, this would be indicated by including the date it was returned in the date product returned to manufacturer element.

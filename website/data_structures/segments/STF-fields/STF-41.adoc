@@ -1,4 +1,0 @@
-== STF.41 - Signature (ED)
-
-[segment-definition]
-Digital Signature of the staff member. The Digital Signature includes a seal concept and is verifiable.

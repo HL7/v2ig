@@ -1,4 +1,0 @@
-== BHS.4 - Batch Sending Facility (HD)
-
-[segment-definition]
-This field contains the address of one of several occurrences of the same application within the sending system. Absent other considerations, the Medicare Provider ID might be used with an appropriate sub-identifier in the second component. Entirely site-defined.

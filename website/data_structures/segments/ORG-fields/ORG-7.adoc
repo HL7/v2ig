@@ -1,7 +1,0 @@
-== ORG.7 - Health Care Provider Classification Code (CWE)
-
-[segment-definition]
-This field contains the more specific service or occupation within the health care provider type of the practitioner at a specific organization unit, for example, Counselor. HL7 suggests using values derived from the ANSI ASC X12 Health Care Provider Taxonomy, Level 2 – Classification.
-
-[segment-comment]
-Refer to {{v2-table:0453:Health Care Provider Classification}} in Chapter 2C, Code Tables, for valid values.

@@ -1,4 +1,0 @@
-== NST.9 - Messages Sent (NM)
-
-[segment-definition]
-This field contains the number of messages sent.

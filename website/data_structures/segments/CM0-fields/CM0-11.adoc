@@ -1,4 +1,0 @@
-== CM0.11 - Contact's Address (XAD)
-
-[segment-definition]
-This field contains the address of the study contact identified in _CM0-9 - Contact for Study_.

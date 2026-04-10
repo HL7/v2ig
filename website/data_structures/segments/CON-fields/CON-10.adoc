@@ -1,4 +1,0 @@
-== CON.10 - Consent Mode (CNE)
-
-[segment-definition]
-The method in which a subject provides consent. For values see {{v2-table:0497:Consent Mode.}}

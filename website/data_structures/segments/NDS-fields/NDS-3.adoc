@@ -1,4 +1,0 @@
-== NDS.3 - NDS-3 (CWE)
-
-[segment-definition]
-The severity of the specific notification. Refer to {{v2-table:0367:Alert Level}} in Chapter 2C, Code Tables, for valid entries.

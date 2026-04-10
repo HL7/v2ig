@@ -1,4 +1,0 @@
-== OM1.56 - Observation/Identifier associated with Producer’s Service/Test/Observation ID (CWE)
-
-[segment-definition]
-This field contains the code for resulted tests, which are associated with the Producer’s Service/Test/Observation ID code in OM1-2 and will appear in OBX-3 Observation Identifier in a result message. Refer to Table 0647 - Observation/Identifier associated with Producer’s Service/Test/Observation ID in Chapter 2C for valid values.

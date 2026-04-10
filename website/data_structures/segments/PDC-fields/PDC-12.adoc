@@ -1,4 +1,0 @@
-== PDC.12 - Labeled Shelf Life (CQ)
-
-[segment-definition]
-This field contains the shelf life of the product as labeled. This will usually be in months or years. If there is no shelf life indicated in the product labeling, this field will be empty.

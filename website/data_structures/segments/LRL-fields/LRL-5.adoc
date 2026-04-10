@@ -1,4 +1,0 @@
-== LRL.5 - Organizational Location Relationship Value (XON)
-
-[segment-definition]
-This field is conditional on the value of _LRL-4 - Location Relationship ID_. When _LRL-4 -Location Relationship ID_ contains "RX"- Nearest Pharmacy, "RX2"- Other Pharmacy, "LAB"- Nearest Lab, "LB2"- Other Lab, or "DTY"- Dietary, this field holds that organization's extended name, i.e., the value of this field is conditional on the value of _LRL-4 - Location Relationship ID_. For example, for an inpatient location, this could be an in-house department ID code using only the third component of this data type. For an outpatient location, this could be the nearest external pharmacy.

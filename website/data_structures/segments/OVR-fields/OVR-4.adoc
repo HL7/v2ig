@@ -1,7 +1,0 @@
-== OVR.4 - Override Entered By (XCN)
-
-[segment-definition]
-Identifies the user entering the override in the system.
-
-[segment-comment]
-When a business rule is overridden, an application must be able to link the override with the user who made it in order to provide a complete audit history of the transaction, especially when there might be a risk associated with the override. In situations where the original message was submitted by batch, the overriding user MAY be different than the original author of the message.

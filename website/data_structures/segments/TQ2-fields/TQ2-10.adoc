@@ -1,7 +1,0 @@
-== TQ2.10 - Special Service Request Relationship (ID)
-
-[segment-definition]
-This defines an additional or alternate relationship between this service request and other service requests. Its primary intended use is for Pharmacy administration service requests, but it may be useful for other domains. See {{v2-table:0506:Service Request Relationship}} in Chapter 2C, Code Tables, for allowed values.
-
-[segment-comment]
-Conditional Rule: Either this field or TQ2-6 must be present.

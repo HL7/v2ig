@@ -1,4 +1,0 @@
-== PSL.23 - Product/Service Amount for Physician (CP)
-
-[segment-definition]
-Monetary Amount of product/service item which is for the physician.

@@ -1,4 +1,0 @@
-== DRG.15 - Effective Weight (NM)
-
-[segment-definition]
-This field contains the effective weight as calculated for this DRG. When exceeding the upper or lower trim point the effective weight is lower or higher.

@@ -1,4 +1,0 @@
-== ABS.9 - Case Category Code (CWE)
-
-[segment-definition]
-Code indicating the reason a non-urgent patient presents to the Emergency Room for treatment instead of a clinic or physician office. Refer to E:\\V2\\V29_CH02C_Tables.docx#HL70423[_User-defined Table 0423 - Case Category Code_] in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== IN2.65 - Military Handicapped Program (CWE)
-
-[segment-definition]
-This field indicates the military program for the handicapped in which the patient is enrolled. Refer to {{v2-table:0343:Military Handicapped Program Code}} in Chapter 2C, Code Tables, for suggested values.

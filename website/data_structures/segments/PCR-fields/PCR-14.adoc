@@ -1,4 +1,0 @@
-== PCR.14 - Product Evaluation Performed (CWE)
-
-[segment-definition]
-This field indicates the type of product evaluation performed. The evaluation codes listed in SubPart B of the Coding Manual for FDA Form 3500A, "Type of Evaluation Performed," may be used. If no codes are available, text may be sent in the second component of the field. Refer to Table 0673 - Product Evaluation Performed in Chapter 2C for valid values.

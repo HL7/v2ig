@@ -1,4 +1,0 @@
-== PV2.5 - Patient Valuables (ST)
-
-[segment-definition]
-This field contains the short description of patient valuables checked in during admission.

@@ -1,3 +1,0 @@
-=== Query by parameter (QBP) / segment pattern response (RSP)
-[v291_section="5.9.1"]
-

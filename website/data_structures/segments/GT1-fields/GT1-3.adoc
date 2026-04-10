@@ -1,7 +1,0 @@
-== GT1.3 - Guarantor Name (XPN)
-
-[segment-definition]
-This field contains the name of the guarantor. Multiple names for the same guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.
-
-[segment-comment]
-Beginning with version 2.3, if the guarantor is an organization, send a Delete Indication value ("") in link:#gt1-3-guarantor-name-xpn-00407[_GT1-3 - Guarantor Name_] and put the organization name in link:#gt1-21-guarantor-organization-name-xon-00425[_GT1-21 - Guarantor Organization Name_]. Either guarantor name or guarantor organization name is required.

@@ -1,4 +1,0 @@
-== ROL.11 - Office/Home Address/Birthplace (XAD)
-
-[segment-definition]
-// TODO: Add field definition

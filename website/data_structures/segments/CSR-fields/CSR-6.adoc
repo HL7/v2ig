@@ -1,4 +1,0 @@
-== CSR.6 - Date/Time of Patient Study Registration (DTM)
-
-[segment-definition]
-This field containing the date of the patient registration is mandatory. The time component is optional. The time stamp for a registration may be useful. For example, patients may be randomized at the pharmacy according to the order in which they were registered.

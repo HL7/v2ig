@@ -1,4 +1,0 @@
-== AUT.26 - Source Date (DTM)
-
-[segment-definition]
-The authorization source date allows a user to capture the date the person was contacted regarding the specific authorization.

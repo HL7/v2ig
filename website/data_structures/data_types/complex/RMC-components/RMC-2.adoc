@@ -1,7 +1,0 @@
-== RMC.2 - Amount Type (CWE)
-
-[datatype-definition]
-Specifies amount quantity type.
-
-Refer to {{v2-table:0146:Amount Type}} for suggested values.
-

@@ -1,4 +1,0 @@
-== GSP.3 - GSP Instance Identifier (EI)
-
-[segment-definition]
-This field contains the value that uniquely identifies a single GSP declaration for an individual. This field is conditionally required when the Action Code in GSP-2 indicates data is not being sent in Snapshot Mode (valued “S”).

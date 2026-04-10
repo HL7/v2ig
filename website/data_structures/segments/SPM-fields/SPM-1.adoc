@@ -1,4 +1,0 @@
-== SPM.1 - Set ID - SPM (SI)
-
-[segment-definition]
-This field contains the sequence number. This field is used to identify SPM segment instances in message structures where the SPM segment repeats.

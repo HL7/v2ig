@@ -1,4 +1,0 @@
-== ADJ.10 - Substitute Value (NM)
-
-[segment-definition]
-Substituted value of data item noted in this adjustment.

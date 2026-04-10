@@ -1,3 +1,0 @@
-==== FAC field definitions
-[v291_section="7.12.6.0"]
-

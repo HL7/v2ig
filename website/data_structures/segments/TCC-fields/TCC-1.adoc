@@ -1,4 +1,0 @@
-== TCC.1 - TCC-1 (CWE)
-
-[segment-definition]
-This field identifies the test code that information is being transmitted about. The alternate elements represent the test code identifier that has been assigned by the manufacturer to this particular test code. Refer to Table 0787 - Universal Service Identifier in Chapter 2C for valid values.

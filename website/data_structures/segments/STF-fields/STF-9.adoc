@@ -1,4 +1,0 @@
-== STF.9 - Hospital Service – STF (CWE)
-
-[segment-definition]
-This field contains the hospital or ancillary service with which this staff person is associated. Refer to E:\\V2\\v2.9 final Nov from Frank\\V29_CH02C_Tables.docx#HL70069[_User-defined Table 0069 - Hospital Service_] in Chapter 2C, Code Tables, for suggested values.

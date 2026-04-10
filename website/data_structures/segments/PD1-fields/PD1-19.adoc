@@ -1,4 +1,0 @@
-== PD1.19 - Military Branch (CWE)
-
-[segment-definition]
-This field is defined by CMS or other regulatory agencies. Refer to {{v2-table:0140:Military Service}} in Chapter 2C, Code Tables, for suggested values.

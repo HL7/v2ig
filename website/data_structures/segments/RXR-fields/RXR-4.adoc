@@ -1,4 +1,0 @@
-== RXR.4 - Administration Method (CWE)
-
-[segment-definition]
-This field identifies the specific method requested for the administration of the drug or treatment to the patient. Refer To {{v2-table:0165:Administration Method}} in Chapter 2C, Code Tables, for valid values.

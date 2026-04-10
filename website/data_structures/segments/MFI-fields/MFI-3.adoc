@@ -1,9 +1,0 @@
-== MFI.3 - File-Level Event Code (ID)
-
-[segment-definition]
-This field defines the file-level event code. Refer to {{v2-table:0178:File Level Event Code}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-*Note*: The replace option allows the sending system to replace a file without sending delete record-level events for each record in that file. UPD means that the events are defined according to the record-level event code contained in each MFE segment in that message.
-
-If the _MFI-3 - File-Level Event Code_ is "REP" (replace file), then each MFE segment must have an _MFE-1 - Record-Level Event Code_ of "MAD" (add record to master file).

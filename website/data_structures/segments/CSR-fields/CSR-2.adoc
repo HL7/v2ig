@@ -1,4 +1,0 @@
-== CSR.2 - Alternate Study ID (EI)
-
-[segment-definition]
-This field contains an alternate identifier that may be used as agreed upon by messaging parties. For example, the sending application may code its internal study number here.

@@ -1,4 +1,0 @@
-== PSL.38 - Amount PP (CP)
-
-[segment-definition]
-Total Amount for the professional part of this service.

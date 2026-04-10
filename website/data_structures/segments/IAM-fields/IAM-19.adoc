@@ -1,4 +1,0 @@
-== IAM.19 - Statused by Organization (XON)
-
-[segment-definition]
-This field contains the name of the organization providing the update to the allergy (e.g., Good Health Hospital).

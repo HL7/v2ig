@@ -1,4 +1,0 @@
-== SCP.7 - Device Type (CWE)
-
-[segment-definition]
-The type of device, such as a steam sterilizer or gas sterilizer. Refer to {{v2-table:0657:Device}} Type_ in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== CSR.12 - Randomized Study Arm (CWE)
-
-[segment-definition]
-This field contains codes that must be developed by users. The blind treatment assignment may be communicated as a dummy text: *^blind* or if a coded treatment assignment must also be communicated**: 1^blind^local_code**. If more than one randomization occurs, the second and third repetitions will correspond to the second and third repetitions of _CSR-11 Study Randomization Date/Time_, if they exist. Refer to Table 0591 - Randomized Study Arm in Chapter 2C for valid values.

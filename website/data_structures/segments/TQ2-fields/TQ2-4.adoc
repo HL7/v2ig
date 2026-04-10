@@ -1,7 +1,0 @@
-== TQ2.4 - Related Filler Number (EI)
-
-[segment-definition]
-The filler numbers of the service request(s) to which this TQ2 segment links the current service request. This field should be populated with the appropriate "Filler number" from the current service request. For orders, the Filler Order Number from ORC-3 is the appropriate "Filler number". Repeats of this field indicate the current service request is related to multiple service requests.
-
-[segment-comment]
-Conditional Rule: At least one of TQ2-3, TQ2-4, TQ2-5 must contain a value.

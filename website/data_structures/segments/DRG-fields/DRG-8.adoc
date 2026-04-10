@@ -1,4 +1,0 @@
-== DRG.8 - DRG Payor (CWE)
-
-[segment-definition]
-This field indicates the associated DRG Payor. Refer to {{v2-table:0229:DRG Payor}} in Chapter 2C, Code Tables, for suggested values.

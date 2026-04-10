@@ -1,4 +1,0 @@
-== OM1.18 - Nature of Service/Test/Observation (CWE)
-
-[segment-definition]
-This field indicates whether the definition entry identifies a test battery, an entire functional procedure or study, a single test value (observation), multiple test batteries or functional procedures as an orderable unit (profile), or a single test value (observation) calculated from other independent observations. Refer to {{v2-table:0174:Nature of Service/Test/Observation}} in Chapter 2C, Code Tables, for suggested values.

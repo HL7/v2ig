@@ -1,4 +1,0 @@
-== NST.12 - Other Errors Received (NM)
-
-[segment-definition]
-This field contains the number of "other" invalid messages received (excluding length and checksum errors).

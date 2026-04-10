@@ -1,4 +1,0 @@
-== SCD.6 - Condition Time (CQ)
-
-[segment-definition]
-The actual amount of cycle time spent in the conditioning phase. For example, in a pre-vac sterilizer the condition phase is achieved by pulsing the machine six times to create a vacuum.

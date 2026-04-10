@@ -1,4 +1,0 @@
-== CDM.1 - Primary Key Value - CDM (CWE)
-
-[segment-definition]
-The key field of the entry. Must match _MFE-4 - Primary Key Value - MFE_. This field contains the code assigned by the institution for the purpose of uniquely identifying the thing that can be charged. For example, this field would be used to uniquely identify a procedure, item, or test for charging purposes. Probably the same set of values as used in _FT1-7- Transaction Code_ in financial messages (refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values). See Chapter 7 for discussion of the universal service ID.

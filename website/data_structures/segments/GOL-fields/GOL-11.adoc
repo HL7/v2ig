@@ -1,4 +1,0 @@
-== GOL.11 - Current Goal Review Status (CWE)
-
-[segment-definition]
-This field contains the current point in the continuum of a goal review cycle (e.g., due, initiated, reviewed, overdue, verified, etc.).

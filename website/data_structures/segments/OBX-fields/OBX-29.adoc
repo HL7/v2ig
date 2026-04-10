@@ -1,4 +1,0 @@
-== OBX.29 - Observation Type (ID)
-
-[segment-definition]
-This field indicates the type of observation to enable systems to distinguish between observations sent along with an order, versus observations sent as the result to an order. See {{v2-table:0936:Observation Type}} in Chapter 2C, Code Tables, for valid values.

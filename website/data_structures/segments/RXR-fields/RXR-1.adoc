@@ -1,7 +1,0 @@
-== RXR.1 - Route (CWE)
-
-[segment-definition]
-This field is the route of administration.
-
-[segment-comment]
-Some current "route codes," such as some of the NDC-derived codes include the site already. In such cases, the entire code can be included in this field as a "locally-defined code" for the CWE data type. Refer to {{v2-table:0162:Route of Administration}} in Chapter 2C, Code Tables, for valid values.

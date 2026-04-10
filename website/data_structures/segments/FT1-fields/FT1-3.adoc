@@ -1,4 +1,0 @@
-== FT1.3 - Transaction Batch ID (ST)
-
-[segment-definition]
-This field uniquely identifies the batch in which this transaction belongs.

@@ -1,7 +1,0 @@
-== PSL.18 - Product/Service Clarification Code Value (ST)
-
-[segment-definition]
-Actual value for Product/Service Clarification Code Type (40) – examples are "Y", "N" for Northern Allowance, an actual number for a Data Center Number; repeats with Product/Service Clarification Code Type.
-
-[segment-comment]
-Repeats with Product/Service Clarification Code Type.

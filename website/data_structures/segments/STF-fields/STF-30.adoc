@@ -1,4 +1,0 @@
-== STF.30 - Citizenship (CWE)
-
-[segment-definition]
-This field contains the staff person's current country of citizenship. HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0171:Citizenship}} (in Chapter 2C, Code Tables).

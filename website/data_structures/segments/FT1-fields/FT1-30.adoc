@@ -1,4 +1,0 @@
-== FT1.30 - Payment Reference ID (CX)
-
-[segment-definition]
-The payment reference number of the payment medium reported in link:#ft1-7-transaction-code-cwe-00361[_FT1-7 - Transaction Code_].

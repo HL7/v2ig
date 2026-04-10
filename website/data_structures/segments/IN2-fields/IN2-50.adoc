@@ -1,4 +1,0 @@
-== IN2.50 - Employer Contact Person Phone Number (XTN)
-
-[segment-definition]
-This field contains the telecommunications contact for the employer contact person. Multiple phone numbers for the same contact person may be sent in this sequence, not multiple contacts. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.

@@ -1,4 +1,0 @@
-== PD1.2 - Living Arrangement (CWE)
-
-[segment-definition]
-This field identifies the situation in which the patient lives at his residential address. Examples might include Alone, Family, Relatives, Institution, etc. Refer to {{v2-table:0220:Living Arrangement}} in Chapter 2C, Code Tables, for suggested values.

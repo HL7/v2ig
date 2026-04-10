@@ -1,7 +1,0 @@
-== RXE.1 - Quantity/Timing
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-Attention: The RXE-1 field was retained for backward compatibilty only as of v 2.5 and the detail was withdrawn and removed from the standard as of v 2.7.

@@ -1,4 +1,0 @@
-== IAR.3 - Sensitivity to Causative Agent Code (CWE)
-
-[segment-definition]
-This field contains the reason why the patient should not be exposed to a substance. Refer to {{v2-table:0436:Sensitivity to causative Agent code}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== AIP.4 - Resource Type (CWE)
-
-[segment-definition]
-This field identifies the type of the personnel requested/scheduled for an appointment. For all messages, this field is conditionally required if a specific location is not identified in _AIP-3 Personnel Resource ID_. Refer to {{v2-table:0182:Staff Type}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== ORC.32 - Advanced Beneficiary Notice Date (DT)
-
-[segment-definition]
-This field contains the date the patient gave consent to pay for potentially uninsured services or the date that the Advanced Beneficiary Notice Code (ORC-20) was collected.

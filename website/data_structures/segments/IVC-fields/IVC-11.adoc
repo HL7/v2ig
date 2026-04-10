@@ -1,4 +1,0 @@
-== IVC.11 - Payer Organization (XON)
-
-[segment-definition]
-The business organization that is designated as Payer for this Invoice. This Payer may be the primary, secondary, tertiary Payer, depending on Insurance Information specified in the Invoice

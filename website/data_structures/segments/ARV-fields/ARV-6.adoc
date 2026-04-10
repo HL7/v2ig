@@ -1,4 +1,0 @@
-== ARV.6 - Access Restriction Date Range (DR)
-
-[segment-definition]
-This element defines the date from which an access restriction commences until the date it is specifically rescinded.

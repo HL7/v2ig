@@ -1,4 +1,0 @@
-== IVT.22 - Recommended Safety Stock Days (NM)
-
-[segment-definition]
-This field contains the number of days for stock to be kept on-hand to cushion against a stock-out for this item.

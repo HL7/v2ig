@@ -1,4 +1,0 @@
-== DON.27 - Donor Reaction (ID)
-
-[segment-definition]
-Did the donor have any adverse reaction during the donation procedure? Yes or No. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables. If this element is valued "Y"es, there should be OBX segments following the Donation segment which details the adverse reactions.

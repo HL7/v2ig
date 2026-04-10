@@ -1,4 +1,0 @@
-== AIL.5 - Location Group (CWE)
-
-[segment-definition]
-This field identifies the requested resource as a member of the indicated group. If, in a Schedule Request Message (SRM), no specific location is requested, but a location type is requested, _AIL-5 Location Group_ can be used to further qualify the type of resource being requested.

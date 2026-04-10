@@ -1,4 +1,0 @@
-== BHS.6 - Batch Receiving Facility (HD)
-
-[segment-definition]
-This field identifies the receiving application among multiple identical instances of the application running on behalf of different organizations. See comments _2.13.2.4_, "_BHS-4 Batch Sending Facility (HD) 00084_." Entirely site-defined.

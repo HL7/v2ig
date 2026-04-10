@@ -1,4 +1,0 @@
-== OBX.15 - Producer's ID (CWE)
-
-[segment-definition]
-*_Retained for backwards compatibility as of v 2.7 only. This field is now represented through the PRT segment._* This field contains a unique identifier of the responsible producing service. It should be reported explicitly when the test results are produced at outside laboratories, for example. When this field is null, the receiving system assumes that the observations were produced by the sending organization. This information supports CLIA regulations in the US. The code for producer ID is recorded as a CWE data type. In the US, the Medicare number of the producing service is suggested as the identifier. Refer to Table 0624 - Producer's ID in Chapter 2C for valid values.

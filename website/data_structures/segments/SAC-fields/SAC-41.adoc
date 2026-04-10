@@ -1,4 +1,0 @@
-== SAC.41 - SAC-41 (CWE)
-
-[segment-definition]
-This field describes the drug interference identifier that is associated with the specimen. Refer to {{v2-table:0382:Drug Interference}} in Chapter 2C, Code Tables, for suggested values.

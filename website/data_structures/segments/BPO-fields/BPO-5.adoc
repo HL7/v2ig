@@ -1,4 +1,0 @@
-== BPO.5 - BP Amount (NM)
-
-[segment-definition]
-This field contains the ordered amount (volume) associated with each quantity of blood product.

@@ -1,4 +1,0 @@
-== PV1.31 - Bad Debt Agency Code (CWE)
-
-[segment-definition]
-This field can be used as a ST type for backward compatibility. This field uniquely identifies the bad debt agency to which the account was transferred. This code is site defined. One possible implementation would be to edit against a table such as {{v2-table:0021:Bad Debt Agency Code}}; in chapter 2C, however, this is not required.

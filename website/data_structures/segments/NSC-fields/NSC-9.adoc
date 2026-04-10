@@ -1,9 +1,0 @@
-== NSC.9 - New Facility (HD)
-
-[segment-definition]
-This field contains a site-specific name for the new facility used by this application. To be used in conjunction with the values for the sending/receiving system and facility values in the MSH.
-
-[segment-comment]
-This field further describes the new application, _NSC-8 New Application_. With the promotion of this field to an HD data type, the usage has been broadened to include not just the new facility but other organizational entities, such as: a) the organizational entity responsible for new application; b) the responsible unit; c) a product or vendor's identifier, etc. Entirely site‑defined. {{v2-table:0362:Sending/Receiving Facility}} is used as the HL7 identifier for the user-defined table of values for the first component.
-
-*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.

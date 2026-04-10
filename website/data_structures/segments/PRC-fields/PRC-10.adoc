@@ -1,4 +1,0 @@
-== PRC.10 - Maximum Price (MO)
-
-[segment-definition]
-This field contains the maximum total price (after computation of components of price) that can be charged for this item.

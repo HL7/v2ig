@@ -1,4 +1,0 @@
-== INV.16 - INV-16 (ST)
-
-[segment-definition]
-This field specifies the lot number assigned by the manufacturer during production of the substance.

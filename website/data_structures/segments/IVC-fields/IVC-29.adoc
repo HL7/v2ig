@@ -1,4 +1,0 @@
-== IVC.29 - Payer Tax Status (CWE)
-
-[segment-definition]
-Code indicating the tax status of the payer. Refer to {{v2-table:0572:Tax status}} in Chapter 2C, Code Tables, for suggested values.

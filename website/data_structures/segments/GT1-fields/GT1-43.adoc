@@ -1,4 +1,0 @@
-== GT1.43 - Nationality (CWE)
-
-[segment-definition]
-This field contains a code that identifies the nation or national grouping to which the person belongs. This may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). HL7 recommends using ISO table 3166 as suggested values in {{v2-table:0212:Nationality}}_ in Chapter 2C, Code Tables.

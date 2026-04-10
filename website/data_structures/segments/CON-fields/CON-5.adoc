@@ -1,4 +1,0 @@
-== CON.5 - Consent Text (FT)
-
-[segment-definition]
-Describes the specific procedures/information releases/events the subject is consenting to.

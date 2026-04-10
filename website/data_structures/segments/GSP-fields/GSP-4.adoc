@@ -1,4 +1,0 @@
-== GSP.4 - SOGI Concept (CWE)
-
-[segment-definition]
-This field contains an identifer for the SOGI related concept being asserted (eg. Gender Identity, or Personal Pronouns). Refer to User-defined Table HL7 Table 0820 - Gender Harmony Concepts in Chapter 2C, Code Tables, for suggested values.

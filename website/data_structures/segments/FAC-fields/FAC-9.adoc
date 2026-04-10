@@ -1,4 +1,0 @@
-== FAC.9 - Signature Authority (XCN)
-
-[segment-definition]
-This field contains the name of the individual with signature authority or who is responsible for the report.

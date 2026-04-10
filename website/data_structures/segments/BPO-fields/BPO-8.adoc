@@ -1,4 +1,0 @@
-== BPO.8 - BP Intended Dispense From Location (PL)
-
-[segment-definition]
-This field contains the location from which the blood component is to be dispensed.

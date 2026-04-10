@@ -1,4 +1,0 @@
-== PV2.2 - Accommodation Code (CWE)
-
-[segment-definition]
-This field indicates the specific patient accommodations for this visit. Refer to {{v2-table:0129:Accommodation Code}} in Chapter 2C, Code Tables, for suggested values.

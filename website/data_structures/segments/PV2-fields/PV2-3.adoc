@@ -1,4 +1,0 @@
-== PV2.3 - Admit Reason (CWE)
-
-[segment-definition]
-This field contains the short description of the reason for patient admission.

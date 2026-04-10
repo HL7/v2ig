@@ -1,3 +1,0 @@
-==== RCP field definitions
-[v291_section="5.5.6.0"]
-

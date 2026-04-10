@@ -1,4 +1,0 @@
-== PV2.18 - Special Program Code (CWE)
-
-[segment-definition]
-This field designates the specific health insurance program for a visit required for healthcare reimbursement. Refer to {{v2-table:0214:Special Program Codes}} in Chapter 2C, Code Tables, for suggested values.

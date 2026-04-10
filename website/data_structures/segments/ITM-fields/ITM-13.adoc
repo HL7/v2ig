@@ -1,4 +1,0 @@
-== ITM.13 - Transaction Amount - Unit (CP)
-
-[segment-definition]
-Unit price of transaction. Price of a single item. This field contains the dollar amount charged to patients for this item.

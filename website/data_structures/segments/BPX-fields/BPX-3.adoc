@@ -1,4 +1,0 @@
-== BPX.3 - BPX-3 (ID)
-
-[segment-definition]
-The most commonly used message status values in a BPX will be preliminary and final. A status is considered preliminary until a blood product has reached a final disposition for the patient. For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary. When the product is dispensed to the patient, that status would also be considered preliminary. However, once the product is transfused, the status would be considered final. The status of a blood product (BPX-2) can continue to change and the previous status should be overwritten until it reaches a final status (BPX-3). Refer to {{v2-table:0511:BP Observation Status Codes Interpretation}} in Chapter 2C, Code Tables, for valid entries.

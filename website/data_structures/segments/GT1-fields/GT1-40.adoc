@@ -1,4 +1,0 @@
-== GT1.40 - Student Indicator (CWE)
-
-[segment-definition]
-This field indicates whether the guarantor is currently a student, and whether the guarantor is a full-time or part-time student. This field does not indicate the degree level (high school, college) of the student, or his/her field of study (accounting, engineering, etc.). Refer to {{v2-table:0231:Student Status}} in Chapter 2C, Code Tables, for suggested values.

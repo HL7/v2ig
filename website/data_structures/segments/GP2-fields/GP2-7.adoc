@@ -1,4 +1,0 @@
-== GP2.7 - Ambulatory Payment Classification Code (CWE)
-
-[segment-definition]
-This field contains the derived APC code. This is the APC code used for payment, which is the same as the assigned APC, for all situations except partial hospitalization. If partial hospitalization is billed in this visit, the assigned APC will differ from the APC used for payment. Partial hospitalization is the only time an assigned APC differs from the APC used for payment. The payment APC is used for billing and should be displayed in this field. The first component contains the APC identifier. The second component reports the text description for the APC group. Refer to {{v2-table:0466:Ambulatory Payment Classification Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.

@@ -1,4 +1,0 @@
-== ABS.2 - Transfer Medical Service Code (CWE)
-
-[segment-definition]
-Medical code representing the patient's medical services when they are transferred. Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.

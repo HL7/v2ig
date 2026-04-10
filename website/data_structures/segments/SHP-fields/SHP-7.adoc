@@ -1,4 +1,0 @@
-== SHP.7 - Shipment Confidentiality (CWE)
-
-[segment-definition]
-The shipment confidentiality documents any confidentiality that may be associated with this particular shipment. Refer to {{v2-table:0907:Confidentiality}} for specific values.

@@ -1,7 +1,0 @@
-== IAM.7 - Allergy Unique Identifier (EI)
-
-[segment-definition]
-This field contains a value that uniquely identifies a single allergy for a person.
-
-[segment-comment]
-This field is conditionally required. The surrogate field to use is _IAM-3 - Allergen Code/Mnemonic/Description_ if that field can uniquely identify the allergy on the receiving system.

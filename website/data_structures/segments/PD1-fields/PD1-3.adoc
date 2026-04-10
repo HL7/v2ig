@@ -1,4 +1,0 @@
-== PD1.3 - Patient Primary Facility (XON)
-
-[segment-definition]
-This field contains the name and identifier that specifies the "primary care" healthcare facility selected by the patient at the time of enrolment in an HMO Insurance Plan. Multiple names and identifiers are allowed for the same facility. The legal name of the healthcare facility must be sent in the first sequence. If the legal name of the facility is not sent, then the repeat delimiter must be sent in the first sequence. Refer to {{v2-table:0204:Organizational Name Type}} in Chapter 2C, Code Tables, for suggested values.

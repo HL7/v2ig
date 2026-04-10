@@ -1,4 +1,0 @@
-== RXD.15 - Special Dispensing Instructions (CWE)
-
-[segment-definition]
-This field contains pharmacy or treatment supplier-generated special instructions to the provider dispensing/administering the order. Refer to Table 0706 - Special Dispensing Instructions in Chapter 2C for valid values.

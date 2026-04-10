@@ -1,4 +1,0 @@
-== AUT.14 - Approval Status (CWE)
-
-[segment-definition]
-The authorization/referral approval status indicates that status of an authorization. Refer to Table 0563 - Approval Status in Chapter 2C for valid values.

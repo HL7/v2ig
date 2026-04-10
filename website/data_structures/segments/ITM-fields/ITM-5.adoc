@@ -1,4 +1,0 @@
-== ITM.5 - Item Category (CWE)
-
-[segment-definition]
-The Item Category is a classification of material items into like groups for the purpose of categorizing purchases and reporting within a materials management setting. The Item Category classification is a lower level grouping of material items than what is described in ITM-3 as Item Type. UNSPSC is the recommended coding system.

@@ -1,4 +1,0 @@
-== MSH.15 - Accept Acknowledgment (ID)
-
-[segment-definition]
-This field identifies the conditions under which accept acknowledgments are required to be returned in response to this message. Conditionality: Either both MSH-15 and MSH-16 SHALL be populated OR both SHALL be empty. Refer to {{v2-table:0155:Accept/Application Acknowledgment Conditions}} in Chapter 2C, Code Tables, for valid values.

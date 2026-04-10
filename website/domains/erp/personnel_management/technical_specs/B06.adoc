@@ -1,9 +1,0 @@
-= Message - B06 Terminate Practicing Person
-:v291_section: "15.3.6"
-:v2_section_name: "PMU/ACK – Terminate Practicing Person (Event B06)"
-:generated: "Thu, 01 Aug 2024 15:25:17 -0600"
-
-An event B06 signals that the formal relationship between a staff member and the institution has ended (i.e., upon termination).
-
-[tabset]
-B06

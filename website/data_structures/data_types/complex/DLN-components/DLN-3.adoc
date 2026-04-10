@@ -1,5 +1,0 @@
-== DLN.3 - Expiration Date (DT)
-
-[datatype-definition]
-Expiration date (DT) for driver’s license.
-

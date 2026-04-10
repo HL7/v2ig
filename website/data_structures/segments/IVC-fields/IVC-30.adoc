@@ -1,4 +1,0 @@
-== IVC.30 - Sales Tax ID (ST)
-
-[segment-definition]
-// TODO: Add field definition

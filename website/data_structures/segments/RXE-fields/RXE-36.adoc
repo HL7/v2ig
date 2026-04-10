@@ -1,4 +1,0 @@
-== RXE.36 - Formulary Status (ID)
-
-[segment-definition]
-This field specifies whether or not the pharmaceutical substance is part of the local formulary. Refer to {{v2-table:0478:Formulary Status}} in Chapter 2C, Code Tables, for valid values.

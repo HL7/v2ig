@@ -1,4 +1,0 @@
-== TQ1.9 - Priority (CWE)
-
-[segment-definition]
-This field describes the urgency of the request. If this field is blank, the default is R. Refer to {{v2-table:0485:Extended Priority Codes}} in Chapter 2C, Code Tables, for suggested values.

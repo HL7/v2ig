@@ -1,4 +1,0 @@
-== CSR.15 - Date/Time Ended Study (DTM)
-
-[segment-definition]
-This field contains the date the patient completes or is otherwise removed from the study. This field is required for the off‑study event (C04). The time component is optional.

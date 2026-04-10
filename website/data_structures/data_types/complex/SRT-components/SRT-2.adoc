@@ -1,5 +1,0 @@
-== SRT.2 - Sequencing (ID)
-
-[datatype-definition]
-Identifies how the field or parameter will be sorted; and, if sorted, whether the sort will be case sensitive (the default) or not. Refer to {{v2-table:0397:_ _Sequencing}} for valid values
-

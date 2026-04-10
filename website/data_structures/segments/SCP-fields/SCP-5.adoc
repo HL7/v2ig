@@ -1,4 +1,0 @@
-== SCP.5 - Device Name (ST)
-
-[segment-definition]
-The name of the device associated with the device number in SCP-4 (e.g., VAC)

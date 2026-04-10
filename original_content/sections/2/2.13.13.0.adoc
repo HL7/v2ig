@@ -1,3 +1,0 @@
-==== SGH field definitions
-[v291_section="2.13.13.0"]
-

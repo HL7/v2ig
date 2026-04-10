@@ -1,4 +1,0 @@
-== ARV.10 - Access Restriction Instance Identifier (EI)
-
-[segment-definition]
-This field carries the unique identifier for this access restriction and is conditionally required when ARV-2 is NOT valued ‘S’ to support the use of action code for tracking changes when using dynamic mode. This instance identifier is persistent between messages. Implementation guides may restrict what mode to use, which will affect the effective optionality of this field.

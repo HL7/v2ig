@@ -1,5 +1,0 @@
-== RPT.2 - Calendar Alignment (ID)
-
-[datatype-definition]
-Specifies an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from “the 5^th^ of every month”). Refer to {{v2-table:0527:Calendar Alignment}} for valid values.
-

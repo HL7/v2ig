@@ -1,4 +1,0 @@
-== BUI.10 - BUI-10 (XON)
-
-[segment-definition]
-The organization which manufactured the collection bag container.

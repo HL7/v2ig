@@ -1,4 +1,0 @@
-== PSL.39 - Number of TP's Technical Part (NM)
-
-[segment-definition]
-Cost of the service (Technical Part) expressed in "points".

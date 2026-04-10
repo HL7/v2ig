@@ -1,4 +1,0 @@
-== IIM.2 - Service Item Code (CWE)
-
-[segment-definition]
-This field contains the identifier of the service item. It relates the inventory item of this message to an entry in an Other Observation/Service Item master file.

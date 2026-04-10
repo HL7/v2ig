@@ -1,4 +1,0 @@
-== DG1.22 - Parent Diagnosis (EI)
-
-[segment-definition]
-This field contains the entity identifier for the parent diagnosis. This field links the "current" manifestation diagnosis ("*") to the entity identifier of the "parent" etiological diagnosis ("+").

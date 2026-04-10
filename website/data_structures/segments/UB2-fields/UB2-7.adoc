@@ -1,4 +1,0 @@
-== UB2.7 - Occurrence Code & Date (32-35) (OCD)
-
-[segment-definition]
-The set of values in this field can repeat up to eight times. Uniform Billing fields 32a, 32b, 33a, 33b, 34a, 34b, 35a, and 35b. This field is defined by CMS or other regulatory agencies.

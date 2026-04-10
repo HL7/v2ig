@@ -1,4 +1,0 @@
-== NK1.9 - End Date (DT)
-
-[segment-definition]
-This field contains the end date of the contact role.

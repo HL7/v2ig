@@ -1,4 +1,0 @@
-== PRB.15 - Problem Life Cycle Status Date/Time (DTM)
-
-[segment-definition]
-This field indicates the effective date/time of the current problem life cycle status.

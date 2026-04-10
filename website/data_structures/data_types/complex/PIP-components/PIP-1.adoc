@@ -1,5 +1,0 @@
-== PIP.1 - Privilege (CWE)
-
-[datatype-definition]
-Specifies the institutional privilege itself. Refer to {{v2-table:0525:Privilege}} for suggested values.
-

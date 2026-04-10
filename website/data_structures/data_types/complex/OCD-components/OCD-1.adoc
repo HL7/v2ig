@@ -1,9 +1,0 @@
-== OCD.1 - Occurrence Code (CNE)
-
-[datatype-definition]
-The NUBC code for the event or occurrence relating to a bill that may affect payer processing.
-
-Refer to {{v2-table:0350:Occurrence Code}} for valid values.
-
-Values for this component need to come from National Uniform Billing Committee (NUBC). No extensions are allowed.
-

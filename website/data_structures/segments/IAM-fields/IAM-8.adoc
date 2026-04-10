@@ -1,4 +1,0 @@
-== IAM.8 - Action Reason (ST)
-
-[segment-definition]
-This field contains the reason for the action indicated in the _IAM-6 - Allergy Action Code_ field.

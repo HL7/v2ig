@@ -1,4 +1,0 @@
-== PSL.10 - Product/Service Effective Date (DTM)
-
-[segment-definition]
-[ Start ] Date/Time product/service was delivered/received.

@@ -1,4 +1,0 @@
-== PR1.10 - Anesthesia Minutes (NM)
-
-[segment-definition]
-This field contains the length of time in minutes that the anesthesia was administered.

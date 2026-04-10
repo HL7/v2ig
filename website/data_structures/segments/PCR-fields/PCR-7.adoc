@@ -1,4 +1,0 @@
-== PCR.7 - Product Implantation Date (DTM)
-
-[segment-definition]
-If an implantable medical device, this field identifies the date device was implanted.

@@ -1,4 +1,0 @@
-== CDM.4 - Charge Description Long (ST)
-
-[segment-definition]
-This field contains the full text description of this CDM entry.

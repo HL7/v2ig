@@ -1,4 +1,0 @@
-== OH2.7 - Job Start Date (DT)
-
-[segment-definition]
-This field asserts when the job began.

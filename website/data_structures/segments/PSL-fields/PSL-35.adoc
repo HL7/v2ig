@@ -1,4 +1,0 @@
-== PSL.35 - TP-Value PP (CP)
-
-[segment-definition]
-Monetary Value of one "point" for the professional part of the service.

@@ -1,7 +1,0 @@
-== NK1.2 - Name (XPN)
-
-[segment-definition]
-This field contains one or more of the names of the next of kin or associated party. The _XPN.7 Name Type Code_, and not the order, conveys how the name should be interpreted. As of v 2.7 Name Type Code is required. Refer to {{v2-table:0200:Name Type}} in Chapter 2C, Code Tables, for valid values. Specification of meaning based on sequence is deprecated.
-
-[segment-comment]
-In addition to allowing repetition of this field for transmitting multiple names with different Name Type Codes, repetition also allows for representing the same name in different character sets based on the value in _XPN.8 Name Representation Code_.

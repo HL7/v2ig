@@ -1,4 +1,0 @@
-== PV1.12 - Preadmit Test Indicator (CWE)
-
-[segment-definition]
-This field indicates whether the patient must have pre‑admission testing done in order to be admitted. Refer to {{v2-table:0087:Pre-Admit Test Indicator}} in Chapter 2C, Code Tables, for suggested values.

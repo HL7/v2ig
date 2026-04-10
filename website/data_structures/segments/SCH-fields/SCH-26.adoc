@@ -1,7 +1,0 @@
-== SCH.26 - Placer Order Number (EI)
-
-[segment-definition]
-This field is the placer application's order number for the order associated with this scheduling filler application response.
-
-[segment-comment]
-This field is described in detail in Section 4.5.1.2. It is an optional field, but if a Placer order number is present, then a Filler order number (Section 10.6.2.27) must also be present. Both this field and the Filler order number below may have been sent as part of the appointment request in the ARQ segment or they may be assigned by the scheduling filler application only.

@@ -1,4 +1,0 @@
-== EQU.3 - EQU-3 (CWE)
-
-[segment-definition]
-This field identifies the status that the equipment was in at the time that the transaction was initiated. Refer to {{v2-table:0365:Equipment State}} in Chapter 2C, Code Tables, for valid values. The Equipment State is required in the ESU message and is optional otherwise.

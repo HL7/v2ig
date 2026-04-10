@@ -1,4 +1,0 @@
-== IVC.1 - Provider Invoice Number (EI)
-
-[segment-definition]
-Unique Invoice Number assigned by the Provider Application.

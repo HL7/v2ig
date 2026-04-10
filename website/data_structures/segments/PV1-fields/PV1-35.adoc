@@ -1,4 +1,0 @@
-== PV1.35 - Delete Account Date (DT)
-
-[segment-definition]
-This field contains the date that the account was deleted from the file.

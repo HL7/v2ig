@@ -1,4 +1,0 @@
-== GT1.49 - Job Title (ST)
-
-[segment-definition]
-This field contains a descriptive name of the guarantor's occupation (e.g., Sr. Systems Analyst, Sr. Accountant).

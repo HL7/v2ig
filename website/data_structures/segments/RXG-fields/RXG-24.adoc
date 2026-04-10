@@ -1,7 +1,0 @@
-== RXG.24 - Give Drug Strength Volume Units (CWE)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-Description: This field indicates the volumetric unit associated with _RXG-23 Give Drug Strength Volume_. See example in RXG-23. Refer to Table 0744 - Give Drug Strength Volume Units in Chapter 2C for valid values.

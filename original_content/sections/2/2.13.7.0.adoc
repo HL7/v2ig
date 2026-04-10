@@ -1,3 +1,0 @@
-==== FTS field definitions
-[v291_section="2.13.7.0"]
-

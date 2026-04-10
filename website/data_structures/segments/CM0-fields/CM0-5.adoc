@@ -1,4 +1,0 @@
-== CM0.5 - Chairman of Study (XCN)
-
-[segment-definition]
-This field contains the sending institution's chairman. It further identifies the study. The chairman's name may be needed for communication purposes.

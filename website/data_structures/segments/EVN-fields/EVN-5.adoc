@@ -1,4 +1,0 @@
-== EVN.5 - Operator ID (XCN)
-
-[segment-definition]
-This field identifies the individual responsible for triggering the event. Refer to {{v2-table:0188:Operator ID}} in Chapter 2C, Code Tables, for suggested values.

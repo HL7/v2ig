@@ -1,4 +1,0 @@
-== DON.3 - Phlebotomy Start Date/Time (DTM)
-
-[segment-definition]
-The start date and time of the phlebotomy.

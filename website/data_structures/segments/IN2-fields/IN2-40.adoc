@@ -1,4 +1,0 @@
-== IN2.40 - Mother's Maiden Name (XPN)
-
-[segment-definition]
-This field indicates the insured's mother's maiden name.

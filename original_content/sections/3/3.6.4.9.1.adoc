@@ -1,3 +1,0 @@
-===== *Figure 3-7* - MPI assigns identifier, person exists on neither system
-[v291_section="3.6.4.9.1"]
-

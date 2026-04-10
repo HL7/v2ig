@@ -1,4 +1,0 @@
-== SCD.12 - Dry Time (CQ)
-
-[segment-definition]
-The amount of cycle time spent drying the load.

@@ -1,4 +1,0 @@
-== PRB.14 - Problem Life Cycle Status (CWE)
-
-[segment-definition]
-This field contains the current status of the problem at this particular date/time (e.g., active, active-improving, active-stable, active-worsening, inactive, resolved, etc.).

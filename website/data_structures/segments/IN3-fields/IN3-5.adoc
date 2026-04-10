@@ -1,4 +1,0 @@
-== IN3.5 - Penalty (MOP)
-
-[segment-definition]
-This field contains the penalty, in dollars or a percentage that will be assessed if the pre-certification is not performed.

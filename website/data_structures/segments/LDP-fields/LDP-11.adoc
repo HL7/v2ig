@@ -1,4 +1,0 @@
-== LDP.11 - Contact Phone (XTN)
-
-[segment-definition]
-This field contains the phone number to use to contact facility personnel about the patient location, in case of inquiries about the location. This phone is not necessarily within the named patient location.

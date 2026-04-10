@@ -1,4 +1,0 @@
-== CTR.18 - Pricing Tier Level (CWE)
-
-[segment-definition]
-This field contains the tier level at which this contract is priced. Pricing Tier level determines the price of the item on the contract. Tier Level can be assigned to an IDN or at a corporation level and is typically based on volume purchased (determined by $ or a %). The larger the volume purchased, the lower priced tier level is assigned to the contract. This value can change over the life of the contract if purchasing volume changes after initial contract signing. Example 01^Tier One, 02^Tier 2, etc. Refer to User Defined Table 0966 – Pricing Tier Level in Chapter2C for examples.

@@ -1,4 +1,0 @@
-== SDD.7 - Operator Name (ST)
-
-[segment-definition]
-The person who started the device load for the decontamination/sterilization process.

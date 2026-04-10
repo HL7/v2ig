@@ -1,5 +1,0 @@
-== CP.6 - Range Type (ID)
-
-[datatype-definition]
-Refer to {{v2-table:0298:CP Range Type}} for valid values.
-

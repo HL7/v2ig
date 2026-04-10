@@ -1,4 +1,0 @@
-== PRB.18 - Problem Ranking (CWE)
-
-[segment-definition]
-This field contains a user-defined prioritization of a problem (e.g., numeric ranking, or the use of words such as "primary," "secondary," etc.).

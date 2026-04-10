@@ -1,4 +1,0 @@
-== RQD.1 - Requisition Line Number (SI)
-
-[segment-definition]
-This field contains the number that identifies this line in the requisition.

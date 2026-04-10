@@ -1,5 +1,0 @@
-== CCD.1 - Invocation Event (ID)
-
-[datatype-definition]
-Specifies the code for the event precipitating/triggering the charge activity. Refer to {{v2-table:0100:Invocation_ _event}} for valid values.
-

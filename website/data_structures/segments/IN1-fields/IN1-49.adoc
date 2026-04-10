@@ -1,4 +1,0 @@
-== IN1.49 - Insured's ID Number (CX)
-
-[segment-definition]
-This data element contains a healthcare institution's identifiers for the insured. The assigning authority and identifier type code are strongly recommended for all CX data types.

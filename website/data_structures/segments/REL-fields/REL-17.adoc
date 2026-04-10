@@ -1,7 +1,0 @@
-== REL.17 - Source Information Instance Object Type (ID)
-
-[segment-definition]
-This field contains the identifier type code drawn from coding system HL70203 describing the object identifed by the Source Information Instance Identifier (REL-4).
-
-[segment-comment]
-Components: Identifier (ID)

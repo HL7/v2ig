@@ -1,5 +1,0 @@
-== DIN.2 - Institution Name (CWE)
-
-[datatype-definition]
-Specifies the institution where a staff member is or was active. Refer to {{v2-table:0531:Institution}} for suggested values.
-

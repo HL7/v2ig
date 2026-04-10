@@ -1,4 +1,0 @@
-== UB2.17 - Special Visit Count (NM)
-
-[segment-definition]
-This field contains the total number of special therapy visits.

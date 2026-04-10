@@ -1,4 +1,0 @@
-== IN3.10 - Certification End Date (DT)
-
-[segment-definition]
-This field contains date that this certification ends.

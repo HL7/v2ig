@@ -1,4 +1,0 @@
-== TCC.2 - TCC-2 (EI)
-
-[segment-definition]
-This field identifies the test application code assigned by the manufacturer of the equipment or reagents and associated with performing of the particular test specified by the Universal Test Identifier.

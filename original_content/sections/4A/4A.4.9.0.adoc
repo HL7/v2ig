@@ -1,3 +1,0 @@
-==== CDO fields definitions
-[v291_section="4A.4.9.0"]
-

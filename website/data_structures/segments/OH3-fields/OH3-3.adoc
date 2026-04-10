@@ -1,4 +1,0 @@
-== OH3.3 - Occupation (CWE)
-
-[segment-definition]
-This field contains a code defining the occupation a person has held for the longest time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been continuous time. Refer to {{v2-table:0958:Occupation Code}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Occupation CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186

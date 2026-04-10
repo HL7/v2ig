@@ -1,5 +1,0 @@
-== CP.2 - Price Type (ID)
-
-[datatype-definition]
-A coded value, data type ID. Refer to {{v2-table:0205:Price Type}} in Chapter 2C, Code Tables, for valid values.
-

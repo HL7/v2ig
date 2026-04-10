@@ -1,4 +1,0 @@
-== GSC.4 - Sex Parameter for Clinical Use (CWE)
-
-[segment-definition]
-This field asserts the context-specific categorization of a patient's sex for the purpose of clinical use. Refer to {{v2-table:0828:}} _Sex Parameter for Clinical Use_ in Chapter 2C, Code Tables, for suggested values.

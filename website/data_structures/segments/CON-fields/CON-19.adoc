@@ -1,4 +1,0 @@
-== CON.19 - Informational Material Supplied Indicator (ID)
-
-[segment-definition]
-Identifies whether additional educational or reference material was provided to the subject as part of the consent process. Refer to table {{v2-table:0136:Yes/No Indicator.}}

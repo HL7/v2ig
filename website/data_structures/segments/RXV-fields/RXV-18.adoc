@@ -1,4 +1,0 @@
-== RXV.18 - Syringe Manufacturer (CWE)
-
-[segment-definition]
-This field contains the manufacturer of the syringe containing the ordered medication.

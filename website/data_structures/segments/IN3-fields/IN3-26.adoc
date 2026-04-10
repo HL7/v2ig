@@ -1,4 +1,0 @@
-== IN3.26 - Certification Type (CWE)
-
-[segment-definition]
-This field contains the certification type code for a specific certification. Refer to {{v2-table:0921:Certification Type Code}} in Chapter 2C, Code Tables, for suggested values.

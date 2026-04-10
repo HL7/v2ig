@@ -1,9 +1,0 @@
-== BPX.8 - BPX-8 (CWE)
-
-[segment-definition]
-This field contains the code and/or text to identify a commercial product. Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets. Refer to Table 0579 - BP Blood Group in Chapter 2C for valid values.
-
-[segment-comment]
-Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, a component delimiter must precede free text without a code. Free text can be utilized if no update is to occur. Refer To {{v2-table:0512:Commercial Product}} in Chapter 2C, Code Tables, for suggested values.
-
-This field is required for commercial blood products and is not applicable for blood component messages.

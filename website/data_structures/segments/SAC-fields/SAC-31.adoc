@@ -1,4 +1,0 @@
-== SAC.31 - SAC-31 (SN)
-
-[segment-definition]
-This field identifies the specimen temperature in degrees Celsius [°C] at the time of the transaction specified in the EQU segment.

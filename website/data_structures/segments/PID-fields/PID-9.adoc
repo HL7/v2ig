@@ -1,7 +1,0 @@
-== PID.9 - Patient Alias
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*Attention:* The PID-9 field was retained for backward compatibility only as of v2.4 and was withdrawn and removed from this message structure as of v2.7. it is recommended to use _PID-5 - Patient Name_ for all patient names.

@@ -1,7 +1,0 @@
-== BTX.7 - BTX-7 (EI)
-
-[segment-definition]
-This field identifies the lot number for blood derivatives or commercially supplied items used as accessories to transfusion.
-
-[segment-comment]
-This field is required for commercial blood products and is not applicable for blood component messages.

@@ -1,4 +1,0 @@
-== PSL.26 - Billing Period (DR)
-
-[segment-definition]
-Begin and end of billing period.

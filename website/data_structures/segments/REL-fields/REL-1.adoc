@@ -1,4 +1,0 @@
-== REL.1 - Set ID –REL (SI)
-
-[segment-definition]
-This field contains the Set ID of the specific relationship Record.

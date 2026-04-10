@@ -1,4 +1,0 @@
-== CER.31 - Certificate Status Code (CWE)
-
-[segment-definition]
-This field contains the state of the certificate held by the health professional, such as provisional, revoked, etc. Refer to {{v2-table:0536:Certificate Status}} in Chapter 2C, Code Tables, for suggested values.

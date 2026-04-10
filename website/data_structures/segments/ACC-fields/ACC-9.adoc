@@ -1,4 +1,0 @@
-== ACC.9 - Brought In By (ST)
-
-[segment-definition]
-This field identifies the person or organization that brought in the patient.

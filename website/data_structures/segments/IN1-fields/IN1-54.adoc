@@ -1,4 +1,0 @@
-== IN1.54 - External Health Plan Identifiers (CX)
-
-[segment-definition]
-This field contains the external Health Plan Identifiers that correspond to the internal Health Plan ID in _IN1-2 – Health Plan ID_. The assigning authority and identifier type code are strongly recommended for al CX data types.

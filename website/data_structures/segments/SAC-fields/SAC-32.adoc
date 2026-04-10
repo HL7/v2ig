@@ -1,4 +1,0 @@
-== SAC.32 - SAC-32 (NM)
-
-[segment-definition]
-This field is the index identifier that is being used to describe the Hemolysis Index of the specimen.

@@ -1,4 +1,0 @@
-== UB2.14 - Uniform Billing Locator 56 (state) (ST)
-
-[segment-definition]
-This field may repeat up to five times.

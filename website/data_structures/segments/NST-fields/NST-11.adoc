@@ -1,4 +1,0 @@
-== NST.11 - Length Errors Received (NM)
-
-[segment-definition]
-This field contains the number of messages received with length errors.

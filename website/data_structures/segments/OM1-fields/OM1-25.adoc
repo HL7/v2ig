@@ -1,7 +1,0 @@
-== OM1.25 - Processing Priority (ID)
-
-[segment-definition]
-This field contains one or more available priorities for performing the observation or test. This is the priority that can be placed in _TQ1-9 - Priority_. Multiple priorities may be given, separated by repeat delimiters. For example, S~A~R~P~T indicates that the test may be ordered using codes S, A, R, P, or T. Refer to {{v2-table:0168:Processing Priority}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-For tests requiring a specimen, the priority for obtaining the specimen is included in _OM4-13 - Specimen Priorities_.

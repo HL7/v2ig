@@ -1,4 +1,0 @@
-== TCC.10 - TCC-10 (ID)
-
-[segment-definition]
-This field identifies whether or not automatic repeat testing is to be initiated on specimens for this particular test code. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.

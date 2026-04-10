@@ -1,4 +1,0 @@
-== OH4.3 - Combat Zone Start Date (DT)
-
-[segment-definition]
-This field asserts when the combat zone duty began.

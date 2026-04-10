@@ -1,4 +1,0 @@
-== NTE.7 - Effective Start Date (DTM)
-
-[segment-definition]
-This field contains the date the comment becomes or became effective.

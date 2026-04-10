@@ -1,4 +1,0 @@
-== LDP.3 - Location Service (CWE)
-
-[segment-definition]
-This field contains the hospital or ancillary service with which this location is associated. Depends on institution use. Repeats for rooms that can be used, for example, by different services on different days. These values should match the values used for _PV1-10 - Hospital Service_, which is site defined. Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.

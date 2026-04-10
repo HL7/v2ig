@@ -1,4 +1,0 @@
-== GOL.21 - Goal Target Name (XPN)
-
-[segment-definition]
-This field contains the identification of the person(s) on whom the goal is focused. This is a repeating field which allows for the identification of a group of individuals.

@@ -1,4 +1,0 @@
-== BPX.18 - BPX-18 (PL)
-
-[segment-definition]
-This field contains the inpatient or outpatient location to which the blood product was actually dispensed. The default value is the current census location for the patient.

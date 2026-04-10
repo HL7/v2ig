@@ -1,7 +1,0 @@
-== OM7.16 - Consent Interval Units (CWE)
-
-[segment-definition]
-This field specifies the unit of time for _OM7-15 - Consent Interval Quantity_. Refer to link:\\\\vmware-host\\Shared Folders\\Standards\\HL7\\Labs - US Realm\\Archives\\eDOS Past Ballots\\V281_CH02C_CodeTables.doc#HL70414[User-defined Table 0414 - Units of Time] in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-*Note:* If Consent Interval Quantity is specified, then Consent Interval Unit is required.

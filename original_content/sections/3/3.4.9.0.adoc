@@ -1,3 +1,0 @@
-==== NPU field definitions
-[v291_section="3.4.9.0"]
-

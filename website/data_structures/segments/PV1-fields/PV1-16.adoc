@@ -1,4 +1,0 @@
-== PV1.16 - VIP Indicator (CWE)
-
-[segment-definition]
-This field identifies the type of VIP. Refer to {{v2-table:0099:VIP Indicator}} in Chapter 2C, Code Tables, for suggested values.

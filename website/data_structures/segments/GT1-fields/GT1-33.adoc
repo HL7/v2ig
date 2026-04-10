@@ -1,4 +1,0 @@
-== GT1.33 - Living Dependency (CWE)
-
-[segment-definition]
-Identifies the specific living conditions of the guarantor. Refer to {{v2-table:0223:Living Dependency}} in Chapter 2C, Code Tables, for suggested values.

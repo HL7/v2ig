@@ -1,9 +1,0 @@
-== BPX.12 - BPX-12 (CNE)
-
-[segment-definition]
-This is a repeating field to allow multiple entries for special testing that was performed on the blood component. The preferred coding system for Special Testing is defined in the _ISBT 128 Application Specification_. Proposals have been developed and will soon be published by ICCBBA, Inc. for the encodation of other antigen and antibody specificities, including HLA, platelet, red cell and other types of markers. Refer to Table 0580 - BC Special Testing in Chapter 2C for valid values.
-
-[segment-comment]
-This field is optional for blood component messages. It is not applicable for non-commercial product messages.
-
-Refer to _Table I3 - Special Testing Codes_ of the _ISBT 128 Application Specification_.

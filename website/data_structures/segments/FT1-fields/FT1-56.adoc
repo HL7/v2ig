@@ -1,4 +1,0 @@
-== FT1.56 - Service Reason Code (CWE)
-
-[segment-definition]
-This field contains the reason why the service has been performed. Refer to {{v2-table:0964:Service Reason Code}} for suggested values.

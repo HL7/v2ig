@@ -1,4 +1,0 @@
-== GT1.56 - Guarantor Birth Place (ST)
-
-[segment-definition]
-This field contains the description of the guarantor's birth place, for example "St. Francis Community Hospital of Lower South Side." The actual address is reported in link:#gt1-5-guarantor-address-xad-00409[_GT1-5 – Guarantor Address_] with an identifier of "N".

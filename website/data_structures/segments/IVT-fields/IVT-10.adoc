@@ -1,4 +1,0 @@
-== IVT.10 - Default Inventory Asset Account (EI)
-
-[segment-definition]
-This field contains the general ledger number for the default inventory asset account used in journal transactions associated with items stored in this inventory location. The account includes all elements of a general ledger account (a fully qualified general ledger account number). All elements may include a corporation, department/cost center account, and expense account.

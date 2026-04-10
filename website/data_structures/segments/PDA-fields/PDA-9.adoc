@@ -1,9 +1,0 @@
-== PDA.9 - Coroner Indicator (ID)
-
-[segment-definition]
-This flag indicates whether the case/death has been assigned to the coroner/medical examiner for investigative purposed. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y Has been assigned to the coroner.
-
-N Has not been assigned to the coroner.

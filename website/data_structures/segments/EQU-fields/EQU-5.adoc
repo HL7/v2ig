@@ -1,4 +1,0 @@
-== EQU.5 - EQU-5 (CWE)
-
-[segment-definition]
-This field identifies the highest level of the alert state (e.g., highest alert severity) that is associated with the indicated equipment (e.g., processing event, inventory event, QC event). Refer to {{v2-table:0367:Alert Level}} in Chapter 2C, Code Tables, for valid values.

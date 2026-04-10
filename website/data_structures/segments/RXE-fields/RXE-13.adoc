@@ -1,7 +1,0 @@
-== RXE.13 - Ordering Provider's DEA Number (XCN)
-
-[segment-definition]
-*_This field is retained for backward compatibility only as of v 27._* The reader is referred to the PRT segment described in Chapter 7.
-
-[segment-comment]
-This field is defined as conditional because it is required when the substance requested is a controlled substance (e.g., a narcotic). If the person referenced in this field is also referenced in PRT segment, they must contain the same information. However, if there is a difference, then PRT segment takes precedence.

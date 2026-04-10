@@ -1,4 +1,0 @@
-== SCD.10 - Device Status (CWE)
-
-[segment-definition]
-The status of a device. Refer to {{v2-table:0682:Device Status}} in Chapter 2C, Code Tables, for suggested values.

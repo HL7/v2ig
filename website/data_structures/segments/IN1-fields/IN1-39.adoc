@@ -1,4 +1,0 @@
-== IN1.39 - Policy Limit - Days (NM)
-
-[segment-definition]
-This field contains the maximum number of days that the insurance policy will cover.

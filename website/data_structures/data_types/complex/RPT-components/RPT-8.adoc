@@ -1,5 +1,0 @@
-== RPT.8 - Event (ID)
-
-[datatype-definition]
-A code for a common (periodical) activity of daily living. Refer to {{v2-table:0528:Event-Related Period}} for valid values.
-

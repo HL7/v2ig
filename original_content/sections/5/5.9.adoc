@@ -1,3 +1,0 @@
-== QUERY/RESPONSE MESSAGE EXAMPLES
-[v291_section="5.9"]
-

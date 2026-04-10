@@ -1,4 +1,0 @@
-== PCR.23 - Indirect Exposure Mechanism (ID)
-
-[segment-definition]
-The patient identified in the PID segment, who experienced the event, might have been exposed to the potential causal product via an intermediary, e.g., a child might be exposed to a product through the placenta or in breast milk, or a transfusion recipient might be exposed via a blood product. If this is the case, the mechanism of product transmission is identified in this field, using the valid values in {{v2-table:0253:Indirect Exposure Mechanism}}. If this field is populated, the identity of the person through whom the product was transmitted is contained in NK1 and RXE segments which follow.

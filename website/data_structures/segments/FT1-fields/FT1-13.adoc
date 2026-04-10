@@ -1,4 +1,0 @@
-== FT1.13 - Department Code (CWE)
-
-[segment-definition]
-This field contains the department code that controls the transaction code described above. Refer to {{v2-table:0049:Department Code}} in Chapter 2C, Code Tables, for suggested values.

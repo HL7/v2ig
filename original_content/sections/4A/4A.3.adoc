@@ -1,3 +1,0 @@
-== Pharmacy/Treatment Trigger Events & Messages
-[v291_section="4A.3"]
-

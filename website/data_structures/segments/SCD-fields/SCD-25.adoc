@@ -1,4 +1,0 @@
-== SCD.25 - Operator - Unload (XCN)
-
-[segment-definition]
-The name of the operator that unloaded the anti-microbial device.

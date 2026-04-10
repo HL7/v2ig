@@ -1,4 +1,0 @@
-== PMT.4 - Payment Method (CWE)
-
-[segment-definition]
-Code identifying the method for the movement of payment. Refer to {{v2-table:0570:Payment Method Code}} in Chapter 2C, Code Tables, for suggested values.

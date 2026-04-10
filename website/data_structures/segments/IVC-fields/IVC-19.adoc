@@ -1,4 +1,0 @@
-== IVC.19 - Responsible Physician (XCN)
-
-[segment-definition]
-Doctor who is responsible for this invoice.

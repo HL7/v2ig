@@ -1,4 +1,0 @@
-== PEO.19 - Primary Observer Name (XPN)
-
-[segment-definition]
-This field identifies the name of the person who initially described the event.

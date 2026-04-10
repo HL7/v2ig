@@ -1,4 +1,0 @@
-== TXA.27 - Creating Facility (HD)
-
-[segment-definition]
-This field identifies the facility in which this document has been created.

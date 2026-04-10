@@ -1,4 +1,0 @@
-== CSR.5 - Alternate Patient ID - CSR (CX)
-
-[segment-definition]
-This field may be the sending application's patient identification. Coding conventions may be used as agreed upon by users.

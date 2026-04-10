@@ -1,9 +1,0 @@
-= Message - B05 Deactivate Practicing Person
-:v291_section: "15.3.5"
-:v2_section_name: "PMU/ACK – Deactivate Practicing Person (Event B05)"
-:generated: "Thu, 01 Aug 2024 15:25:17 -0600"
-
-An event B05 indicates that a staff member is temporarily unavailable for work, while maintaining a relationship with the institution. This message applies to STF-7.
-
-[tabset]
-B05

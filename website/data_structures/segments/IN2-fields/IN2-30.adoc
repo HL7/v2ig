@@ -1,7 +1,0 @@
-== IN2.30 - Daily Deductible (DDI)
-
-[segment-definition]
-This field contains the number of days after which the daily deductible begins, the amount of the deductible, and the number of days to apply the deductible.
-
-[segment-comment]
-If "number of days" is not valued, the deductible is ongoing.

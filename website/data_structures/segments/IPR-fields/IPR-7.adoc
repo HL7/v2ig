@@ -1,4 +1,0 @@
-== IPR.7 - Expected Payment Date/Time (DTM)
-
-[segment-definition]
-Date payment is expected for this IPR.

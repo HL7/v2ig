@@ -1,4 +1,0 @@
-== RF1.7 - Effective Date (DTM)
-
-[segment-definition]
-This field contains the date on which the referral is effective.

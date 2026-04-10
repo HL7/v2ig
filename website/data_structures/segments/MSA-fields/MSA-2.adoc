@@ -1,4 +1,0 @@
-== MSA.2 - Message Control ID (ST)
-
-[segment-definition]
-This field contains the message control ID of the message sent by the sending system. It allows the sending system to associate this response with the message for which it is intended.

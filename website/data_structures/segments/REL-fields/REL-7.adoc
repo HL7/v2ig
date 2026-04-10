@@ -1,4 +1,0 @@
-== REL.7 - Asserting Person (XCN)
-
-[segment-definition]
-This field contains the Identifier details of the Person who asserted the relationship.

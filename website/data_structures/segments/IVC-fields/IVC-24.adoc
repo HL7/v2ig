@@ -1,4 +1,0 @@
-== IVC.24 - VAT-Rates applied (NM)
-
-[segment-definition]
-Applied VAT Rates on Invoice. Multiple VAT-rates may be applied according to the type of service

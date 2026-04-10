@@ -1,4 +1,0 @@
-== CER.9 - Granting County/Parish (CWE)
-
-[segment-definition]
-County/parish granting the certificate. Refer to {{v2-table:0289:County/Parish}} for valid values (in Chapter 2).

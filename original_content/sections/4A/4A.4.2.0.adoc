@@ -1,3 +1,0 @@
-==== RXR field definitions
-[v291_section="4A.4.2.0"]
-

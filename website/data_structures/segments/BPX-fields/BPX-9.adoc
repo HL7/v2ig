@@ -1,7 +1,0 @@
-== BPX.9 - BPX-9 (XON)
-
-[segment-definition]
-This field identifies the manufacturer of the commercial product. The manufacturer may be different from the supplier of the commercial product.
-
-[segment-comment]
-This field is required for commercial blood products and is not applicable for blood component messages.

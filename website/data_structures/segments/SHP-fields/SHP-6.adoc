@@ -1,4 +1,0 @@
-== SHP.6 - Shipment Priority (CWE)
-
-[segment-definition]
-The shipment priority documents the priority the shipment has been given by the sender. Refer to {{v2-table:0906:ActPriority}} for specific values.

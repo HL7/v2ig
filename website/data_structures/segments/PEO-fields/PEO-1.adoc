@@ -1,4 +1,0 @@
-== PEO.1 - Event Identifiers Used (CWE)
-
-[segment-definition]
-This field may be used to transmit the event identifier used by other entities for this event. The entry would typically contain a unique alphanumeric identifier assigned by an entity with the text component null or repeating the unique alphanumeric identifier followed by the organization's identifier. An event identifier might be GB1234^GB1234^PharmaGiant for example. Refer to Table 0678 - Event Identifiers Used in Chapter 2C for valid values.

@@ -1,7 +1,0 @@
-== PTA.2 - Amount Class (CWE)
-
-[datatype-definition]
-Specifies the amount quantity class.
-
-Refer to {{v2-table:0193:Amount Class}} for suggested values.
-

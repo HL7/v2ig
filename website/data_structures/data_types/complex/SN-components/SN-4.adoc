@@ -1,5 +1,0 @@
-== SN.4 - Num2 (NM)
-
-[datatype-definition]
-A number or null depending on the measurement.
-

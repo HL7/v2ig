@@ -1,4 +1,0 @@
-== EQU.2 - EQU-2 (DTM)
-
-[segment-definition]
-This field is the date/time that the event (e.g., state transition, issuing of command, finishing of command execution) occurred.

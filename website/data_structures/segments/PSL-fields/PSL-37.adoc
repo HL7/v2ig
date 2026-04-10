@@ -1,4 +1,0 @@
-== PSL.37 - External Scaling Factor PP (NM)
-
-[segment-definition]
-External Scaling Factor for the amount of the professional part of the service.

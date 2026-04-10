@@ -1,7 +1,0 @@
-== SAC.27 - SAC-27 (CWE)
-
-[segment-definition]
-This field identifies any additives introduced to the specimen before or at the time of collection. These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen. It is a repetitive field. Refer to {{v2-table:0371:Additive/Preservative}} for valid values. 'The value set can be extended with user specific values.
-
-[segment-comment]
-When the SPM (Specimen) segment is sent together with the SAC segment the additive attribute value from the SPM segment can be included in this field of the SAC.

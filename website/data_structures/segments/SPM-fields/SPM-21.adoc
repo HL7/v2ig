@@ -1,4 +1,0 @@
-== SPM.21 - Specimen Reject Reason (CWE)
-
-[segment-definition]
-This describes one or more reasons the specimen is rejected for the specified observation/result/analysis. Refer to {{v2-table:0490:Specimen Reject Reason}} for valid values.

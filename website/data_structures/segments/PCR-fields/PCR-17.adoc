@@ -1,4 +1,0 @@
-== PCR.17 - Evaluated Product Source (ID)
-
-[segment-definition]
-This field contains the source of the product evaluated. Refer to {{v2-table:0248:Product Source}} for valid values.

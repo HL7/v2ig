@@ -1,4 +1,0 @@
-== IN3.23 - Second Opinion Status (CWE)
-
-[segment-definition]
-This field contains the code that represents the status of the second opinion. Refer to {{v2-table:0151:Second Opinion Status}} in Chapter 2C, Code Tables, for suggested values.

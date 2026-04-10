@@ -1,4 +1,0 @@
-== OBR.50 - Parent Universal Service Identifier
-
-[segment-definition]
-*_This field is retained for backward compatibility only as of v 2.7 and withdrawn as of v2.9._*

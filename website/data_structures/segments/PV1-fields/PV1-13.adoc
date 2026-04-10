@@ -1,4 +1,0 @@
-== PV1.13 - Re-admission Indicator (CWE)
-
-[segment-definition]
-This field indicates that a patient is being re‑admitted to the healthcare facility and gives the circumstances. We suggest using "*R*" for readmission or else null. Refer to {{v2-table:0092:Re-Admission Indicator}} in Chapter 2C, Code Tables, for suggested values.

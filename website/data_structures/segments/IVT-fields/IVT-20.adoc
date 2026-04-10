@@ -1,4 +1,0 @@
-== IVT.20 - Latex-Free Substitute Item Identifier (EI)
-
-[segment-definition]
-The latex-free substitute item is an item that is latex-free, recommended as a substitute for the corresponding item in the _ITM-1_ segment when a latex-free item is needed.

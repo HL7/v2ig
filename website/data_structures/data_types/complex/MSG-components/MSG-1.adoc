@@ -1,9 +1,0 @@
-== MSG.1 - Message Code (ID)
-
-[datatype-definition]
-Specifies the message type code. Refer to {{v2-table:0076:Message Type}} for valid values.
-
-This table contains values such as ACK, ADT, ORM, ORU etc.
-
-See Chapter 2, "Control", section 2.5.1, "Messages" for further discussion.
-

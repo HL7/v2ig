@@ -1,3 +1,0 @@
-==== MSA field definitions
-[v291_section="2.13.8.0"]
-

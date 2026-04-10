@@ -1,9 +1,0 @@
-== MSH.16 - Application Acknowledgment Type (ID)
-
-[segment-definition]
-This field contains the conditions under which application acknowledgments are required to be returned in response to this message. Either both MSH-15 and MSH-16 SHALL be populated OR both SHALL be empty. Required for enhanced acknowledgment mode.
-
-[segment-comment]
-Refer to {{v2-table:0155:Accept/Application Acknowledgment Conditions}} in Chapter 2C, Code Tables, for valid values for MSH-15 Accept Acknowledgment Type and MSH-16 Application Acknowledgment Type.
-
-*Note:* If _MSH-15-accept acknowledgment type_ and _MSH-16-application acknowledgment type_ are omitted (or are both empty ), the original acknowledgment mode rules are used.-

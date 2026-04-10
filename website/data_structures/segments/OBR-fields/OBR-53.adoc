@@ -1,4 +1,0 @@
-== OBR.53 - Alternate Placer Order Number (CX)
-
-[segment-definition]
-This field enables a shorter number to be communicated that is unique within other identifiers.

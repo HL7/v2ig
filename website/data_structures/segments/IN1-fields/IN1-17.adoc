@@ -1,4 +1,0 @@
-== IN1.17 - Insured's Relationship To Patient (CWE)
-
-[segment-definition]
-This field indicates the insured's relationship to the patient. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.

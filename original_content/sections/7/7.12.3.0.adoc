@@ -1,3 +1,0 @@
-==== PCR field definitions
-[v291_section="7.12.3.0"]
-

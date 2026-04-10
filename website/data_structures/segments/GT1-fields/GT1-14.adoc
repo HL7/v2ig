@@ -1,4 +1,0 @@
-== GT1.14 - Guarantor Date - End (DT)
-
-[segment-definition]
-This field contains the date that the guarantor stops being responsible for the patient's account.

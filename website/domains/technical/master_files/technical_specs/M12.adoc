@@ -1,9 +1,0 @@
-= Message - M12 Master File Notification - Additional Basic Observation/Service Attributes
-:v291_section: "8.8.7"
-:v2_section_name: "MFN/MFK - Master File Notification - Additional Basic Observation/Service Attributes (Event M12)"
-:generated: "Thu, 01 Aug 2024 15:25:17 -0600"
-
-MFI-1 - Master File Identifier = OME for additional basic observation/service attributes.
-
-[tabset]
-M12

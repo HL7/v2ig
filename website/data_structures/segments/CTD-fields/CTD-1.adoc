@@ -1,4 +1,0 @@
-== CTD.1 - Contact Role (CWE)
-
-[segment-definition]
-This field contains the contact role that defines the relationship of the person described in this segment to the patient being referred. When a referral is inter-enterprise in nature, there are some important relationships that must be identified. For example, it may be necessary to identify the contact representative at the clinic that sent the referral. {{v2-table:0131:Contact Role}} (in Chapter 3, "Patient Administration")is used as the HL7 identifier for the user-defined table of values for this field.

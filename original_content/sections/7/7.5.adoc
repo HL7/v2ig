@@ -1,3 +1,0 @@
-== Examples of use
-[v291_section="7.5"]
-

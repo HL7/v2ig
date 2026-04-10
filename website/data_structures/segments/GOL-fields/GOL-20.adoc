@@ -1,7 +1,0 @@
-== GOL.20 - Goal Target Type (CWE)
-
-[segment-definition]
-This field contains the individual/group for whom the goal has been established (e.g., family group, family member, patient, etc.).
-
-[segment-comment]
-*Note*: This field is focused on a specific person/group that is directly patient-related.

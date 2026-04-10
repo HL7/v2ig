@@ -1,4 +1,0 @@
-== IN2.34 - Primary Language (CWE)
-
-[segment-definition]
-This field identifies the insured's primary speaking language. HL7 recommends using ISO table 639 as the suggested values in {{v2-table:0296:Primary Language}}_ defined in Chapter 2C, Code Tables.

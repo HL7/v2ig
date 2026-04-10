@@ -1,7 +1,0 @@
-== MOP.1 - Money or Percentage Indicator (ID)
-
-[datatype-definition]
-Specifies whether the amount is currency or a percentage.
-
-Refer to {{v2-table:0148:_ _Money or Percentage Indicato}}r for valid values.
-

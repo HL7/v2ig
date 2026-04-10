@@ -1,4 +1,0 @@
-== AIG.4 - Resource Type (CWE)
-
-[segment-definition]
-This field identifies the role of the resource requested/scheduled for this appointment. For requests, if a specific resource is not identified in _AIG-3-Resource ID_, then this field identifies the type of resource that should be scheduled by the filler application. At a minimum, the type of the identifier component should be valued.

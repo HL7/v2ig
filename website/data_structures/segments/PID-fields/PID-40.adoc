@@ -1,4 +1,0 @@
-== PID.40 - Patient Telecommunication Information (XTN)
-
-[segment-definition]
-This field contains the patient's personal telecommunication contact information. This field replaces _PID-13 – Phone Number - Home_ and _PID-14 – Phone Number – Business_ with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). Jointly, these components will describe the nature of the telecommunication data contained in this field and removes the sequenced-based assumptions in PID-13 and PID-14.

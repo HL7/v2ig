@@ -1,4 +1,0 @@
-== GOL.7 - Goal Established Date/Time (DTM)
-
-[segment-definition]
-This field identifies the date/time when the stated goal was initially created.

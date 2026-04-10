@@ -1,4 +1,0 @@
-== RXG.16 - Give Rate Units (CWE)
-
-[segment-definition]
-This field contains the units for _RXG-15-give rate amount_. May be composite. The ratio of the _RXG-15-give rate amount_ and _RXG-16-give rate units_ fields define the actual rate of administration. Thus, if _RXG-15-give rate amount_ = 100 and _RXG-16-give rate units_ = ml/hr, the requested rate of administration is 100 ml/hr. Refer to Table 0740 - Give Rate Units in Chapter 2C for valid values.

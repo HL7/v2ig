@@ -1,4 +1,0 @@
-== PSL.45 - VAT-Rate (NM)
-
-[segment-definition]
-VAT–Rate Applied on the total amount of this service.

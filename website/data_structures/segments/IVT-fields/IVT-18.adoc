@@ -1,4 +1,0 @@
-== IVT.18 - Reusable Cost (CP)
-
-[segment-definition]
-This field contains the issue cost charged to a department or patient for a reusable item. This cost is calculated based on the cost of reprocessing the item. Examples of reusable items are linens, restraints, and procedure packs (custom for specific procedures).

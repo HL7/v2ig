@@ -1,4 +1,0 @@
-== NST.10 - Checksum Errors Received (NM)
-
-[segment-definition]
-This field contains the number of messages received with checksum errors.

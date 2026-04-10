@@ -1,7 +1,0 @@
-== OMC.12 - Character Limit (NM)
-
-[segment-definition]
-Total number of characters allowed. Required for numeric and (long) text answers.
-
-[segment-comment]
-The field is valued only if OMC-9 is valued 'NM', 'SN', 'ST", 'TX', or 'FT'.

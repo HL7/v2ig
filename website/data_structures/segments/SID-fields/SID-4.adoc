@@ -1,4 +1,0 @@
-== SID.4 - SID-4 (CWE)
-
-[segment-definition]
-This field identifies the manufacturer of this substance. Refer to {{v2-table:0385:Manufacturer Identifier}} in Chapter 2C, Code Tables, for suggested values.

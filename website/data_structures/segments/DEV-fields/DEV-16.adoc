@@ -1,4 +1,0 @@
-== DEV.16 - Software Version Number (ST)
-
-[segment-definition]
-The version number of the software that is part of the device.

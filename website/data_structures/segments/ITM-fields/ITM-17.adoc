@@ -1,4 +1,0 @@
-== ITM.17 - Latex Indicator (CNE)
-
-[segment-definition]
-This field contains an indicator signifying whether the item is made of or contains latex. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

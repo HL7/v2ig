@@ -1,4 +1,0 @@
-== SCH.13 - Placer Contact Phone Number (XTN)
-
-[segment-definition]
-This field contains the phone number used to contact the _SCH-12-Placer Contact Person_.

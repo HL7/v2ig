@@ -1,9 +1,0 @@
-== PV2.36 - Newborn Baby Indicator (ID)
-
-[segment-definition]
-This field indicates whether the patient is a baby. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y the patient is a baby
-
-N the patient is not a baby

@@ -1,4 +1,0 @@
-== DG1.23 - DRG CCL Value Code (CWE)
-
-[segment-definition]
-This field indicates the CCL value for the determined DRG for this diagnosis. Refer to {{v2-table:0728:CCL Value}} in Chapter 2C, Code Tables, for suggested values.

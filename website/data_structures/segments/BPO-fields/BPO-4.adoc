@@ -1,4 +1,0 @@
-== BPO.4 - BP Quantity (NM)
-
-[segment-definition]
-This field contains the number of blood products ordered.

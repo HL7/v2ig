@@ -1,4 +1,0 @@
-== SLT.2 - Device Name (ST)
-
-[segment-definition]
-The name of the device associated with the device number in SLT-1 (e.g., VAC).

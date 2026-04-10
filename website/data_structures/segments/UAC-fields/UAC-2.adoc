@@ -1,4 +1,0 @@
-== UAC.2 - User Authentication Credential (ED)
-
-[segment-definition]
-This is user credential data as supplied by the sender's operating platform. The content and structure of this is defined by other standards and contain no HL7-relevant data.

@@ -1,5 +1,0 @@
-== XAD.15 - Expiration Reason (CWE)
-
-[datatype-definition]
-This identifies why this address was marked as "ended". Refer to {{v2-table:0616:Address Expiration Reason}} for valid values.
-

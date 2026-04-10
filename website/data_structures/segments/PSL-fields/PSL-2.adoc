@@ -1,4 +1,0 @@
-== PSL.2 - Payer Product/Service Line Item Number (EI)
-
-[segment-definition]
-Unique Product/Service Line Item Number assigned by the Payer Application.

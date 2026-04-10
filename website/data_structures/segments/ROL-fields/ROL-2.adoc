@@ -1,4 +1,0 @@
-== ROL.2 - Action Code (ID)
-
-[segment-definition]
-// TODO: Add field definition

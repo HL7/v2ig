@@ -1,4 +1,0 @@
-== DSP.1 - Set ID – DSP (SI)
-
-[segment-definition]
-This field is used optionally to number multiple display segments.

@@ -1,4 +1,0 @@
-== RXO.20 - Indication (CWE)
-
-[segment-definition]
-This field identifies the condition or problem for which the drug/treatment was prescribed. May repeat if multiple indications are relevant. Refer to Table 0758 - Indication in Chapter 2C for valid values.

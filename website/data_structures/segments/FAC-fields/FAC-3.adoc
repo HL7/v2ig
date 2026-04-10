@@ -1,4 +1,0 @@
-== FAC.3 - Facility Address (XAD)
-
-[segment-definition]
-This field contains the facility's address.

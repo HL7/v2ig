@@ -1,4 +1,0 @@
-== ILT.9 - Inventory On Hand Quantity (NM)
-
-[segment-definition]
-This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use.

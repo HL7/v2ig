@@ -1,4 +1,0 @@
-== DG1.19 - Attestation Date/Time (DTM)
-
-[segment-definition]
-This field contains the time stamp that indicates the date and time that the attestation was signed.

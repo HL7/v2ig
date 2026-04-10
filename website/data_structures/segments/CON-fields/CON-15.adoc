@@ -1,4 +1,0 @@
-== CON.15 - Consent End Date/Time (DTM)
-
-[segment-definition]
-The time the consent becomes ineffective. If not specified, the consent is assumed to be indefinite. For consents relating to information release, the end date/time is the date by which the released information must be returned/destroyed.

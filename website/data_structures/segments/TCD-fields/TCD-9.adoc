@@ -1,4 +1,0 @@
-== TCD.9 - TCD-9 (CQ)
-
-[segment-definition]
-The specimen consumption quantity determines how much of the specimen shall be consumed in each run of the test. For some types of equipment, observation accuracy depends on this parameter.

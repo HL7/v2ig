@@ -1,9 +1,0 @@
-== IPC.6 - Protocol Code (CWE)
-
-[segment-definition]
-One or more coded entries identifying the protocol according to which the Scheduled Procedure Step shall be performed. Protocol Code(s) may identify particular equipment settings as well as operator's manipulations. Refer to Table 0605 - Protocol Code in Chapter 2C for valid values.
-
-[segment-comment]
-A Protocol is a specification of actions prescribed by a Procedure Plan to perform a specific Procedure Step. A Scheduled Procedure Step contains only one Protocol that may be conveyed by one or more Protocol Codes. Typically, the code or codes identifying Protocol instance would be selected from a catalog of protocols established locally or provided by equipment manufacturers or professional organizations. Multiple Protocols may not exist in one Scheduled Procedure Step. See DICOM Standard Part 3 for further details on DICOM Attribute (0040,0008) that conveys information identical to components one through three of this field.
-
-A limit of sixteen (16) characters for the first component and sixty-four (64) characters for the second component is required to allow compatibility with DICOM.

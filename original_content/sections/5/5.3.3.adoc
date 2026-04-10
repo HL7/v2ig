@@ -1,3 +1,0 @@
-=== Query Profile templates
-[v291_section="5.3.3"]
-

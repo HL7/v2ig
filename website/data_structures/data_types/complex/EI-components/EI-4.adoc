@@ -1,5 +1,0 @@
-== EI.4 - Universal ID Type (ID)
-
-[datatype-definition]
-Refer to {{v2-table:0301:Universal ID Type}} for valid values. See Section _2A.2.33.3_, "_Universal ID Type (ID)_," for definition.
-

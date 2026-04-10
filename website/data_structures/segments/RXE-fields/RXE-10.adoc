@@ -1,4 +1,0 @@
-== RXE.10 - Dispense Amount (NM)
-
-[segment-definition]
-This field contains the amount to be dispensed as encoded by the pharmacy or treatment supplier.

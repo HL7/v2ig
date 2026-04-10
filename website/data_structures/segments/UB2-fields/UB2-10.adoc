@@ -1,4 +1,0 @@
-== UB2.10 - Uniform Billing Locator 11 (state) (ST)
-
-[segment-definition]
-The value in this field may repeat up to two times.

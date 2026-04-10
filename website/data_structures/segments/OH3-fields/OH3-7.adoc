@@ -1,4 +1,0 @@
-== OH3.7 - Entered Date (DT)
-
-[segment-definition]
-This field records the date that the information was entered into the patient record.

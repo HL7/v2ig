@@ -1,4 +1,0 @@
-== OBR.24 - Diagnostic Serv Sect ID (ID)
-
-[segment-definition]
-This field is the section of the diagnostic service where the observation was performed. If the study was performed by an outside service, the identification of that service should be recorded here. Refer to link:#obx-observationresult-segment[_HL7 Table 0074 – Diagnostic Service Section ID_] in Chapter 2C, Code Tables, for valid entries.

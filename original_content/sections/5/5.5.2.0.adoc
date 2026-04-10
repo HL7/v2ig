@@ -1,3 +1,0 @@
-==== QAK field definitions
-[v291_section="5.5.2.0"]
-

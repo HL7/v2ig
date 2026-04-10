@@ -1,7 +1,0 @@
-== QRI.2 - Match Reason Code (CWE)
-
-[segment-definition]
-This field contains a coded value indicating what search components (e.g., name, birth date, social security number) of the record returned matched the original query where the responding system does not assign numeric match weights or confidence levels. In short, it provides a method for passing a descriptive indication of why a particular record was found.
-
-[segment-comment]
-.Refer to {{v2-table:0392:Match reason}} in Chapter 2C, Code Tables, for suggested values.

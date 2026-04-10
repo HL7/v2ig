@@ -1,4 +1,0 @@
-== OH2.18 - Current Job Indicator (CWE)
-
-[segment-definition]
-This field defines a flag indicating if this is the person’s current job (at the time the record was last updated) using 'Yes', when current and 'No' when not. Refer to {{v2-table:0136:Yes/no}} _Indicator_ in Chapter 2C, Code Tables, for valid values.

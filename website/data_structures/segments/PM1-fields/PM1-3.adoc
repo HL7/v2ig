@@ -1,4 +1,0 @@
-== PM1.3 - Insurance Company Name (XON)
-
-[segment-definition]
-This field contains the name of the insurance company. Multiple names for the same insurance company may be sent in this field.

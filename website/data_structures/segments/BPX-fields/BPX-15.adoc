@@ -1,4 +1,0 @@
-== BPX.15 - BPX-15 (NM)
-
-[segment-definition]
-This field contains the ordered amount (volume) associated with each quantity of a blood component or commercial product to which this message refers.

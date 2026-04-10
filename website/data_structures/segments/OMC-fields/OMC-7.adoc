@@ -1,9 +1,0 @@
-== OMC.7 - Answer Required (ID)
-
-[segment-definition]
-Must the question be answered, or just displayed and can be blank. Refer to _HL7 Table 0136 – Yes/no Indicator_ for valid values.
-
-[segment-comment]
-Y Answer must be provided
-
-N Answer not required

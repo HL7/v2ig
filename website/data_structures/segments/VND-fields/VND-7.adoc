@@ -1,4 +1,0 @@
-== VND.7 - Primary Contact (XCN)
-
-[segment-definition]
-This field contains the primary contact person of this vendor item.

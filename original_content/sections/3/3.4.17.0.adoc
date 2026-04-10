@@ -1,3 +1,0 @@
-==== OH3 field definitions
-[v291_section="3.4.17.0"]
-

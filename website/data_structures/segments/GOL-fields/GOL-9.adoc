@@ -1,7 +1,0 @@
-== GOL.9 - Goal Classification (CWE)
-
-[segment-definition]
-This field indicates the kind of goal. This field can be used to categorize goals so that they may be managed and viewed independently within different applications (e.g., admission, final, post-operative, pre-operative, outpatient, discharge, etc.).
-
-[segment-comment]
-*Note:* This field can be used to differentiate separate goal lists that may be managed independently within applications.

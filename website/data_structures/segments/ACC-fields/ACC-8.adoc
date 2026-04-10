@@ -1,4 +1,0 @@
-== ACC.8 - Accident Description (ST)
-
-[segment-definition]
-Description of the accident.

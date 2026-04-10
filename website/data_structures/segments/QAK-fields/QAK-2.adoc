@@ -1,4 +1,0 @@
-== QAK.2 - Query Response Status (ID)
-
-[segment-definition]
-This field allows the responding system to return a precise response status. It is especially useful in the case where no data is found that matches the query parameters, but where there is also no error. Refer to {{v2-table:0208:Query Response Status}} in Chapter 2C, Code Tables, for valid values.

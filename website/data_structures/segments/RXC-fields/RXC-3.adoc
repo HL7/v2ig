@@ -1,4 +1,0 @@
-== RXC.3 - Component Amount (NM)
-
-[segment-definition]
-This field identifies the amount of this component to be added to the specified amount of the base.

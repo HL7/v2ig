@@ -1,4 +1,0 @@
-== PR1.15 - Associated Diagnosis Code (CWE)
-
-[segment-definition]
-This field contains the diagnosis that is the primary reason this procedure was performed, e.g., in the US, Medicare wants to know for which diagnosis this procedure is submitted for inclusion on CMS 1500 form. Refer to {{v2-table:0051:Diagnosis Code}} in Chapter 2C, Code Tables, for suggested values.

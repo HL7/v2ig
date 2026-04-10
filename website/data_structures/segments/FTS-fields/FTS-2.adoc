@@ -1,4 +1,0 @@
-== FTS.2 - File Trailer Comment (ST)
-
-[segment-definition]
-The use of this free text field is not further specified.

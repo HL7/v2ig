@@ -1,4 +1,0 @@
-== PCR.18 - Date Product Returned To Manufacturer (DTM)
-
-[segment-definition]
-If the product was returned to the manufacturer, this field contains the date it was returned.

@@ -1,4 +1,0 @@
-== PKG.2 - Packaging Units (CWE)
-
-[segment-definition]
-This field contains the packaging unit that this inventory supply item can be ordered or issued in when purchased from the vendor in the related vendor segment. Refer to {{v2-table:0818:Package}} in Chapter 2C, Code Tables, for suggested values.

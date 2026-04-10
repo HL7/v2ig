@@ -1,4 +1,0 @@
-== BUI.2 - BUI-2 (EI)
-
-[segment-definition]
-The blood unit identifier is a unique identifier assigned to the particular blood unit in a container.

@@ -1,7 +1,0 @@
-==== Transmit the response message
-[v291_section="2.8.2.2"]
-
-Upon receiving the response message from the receiving application, the responding system transmits it to the initiating system.
-
-The initiator processes the response message.
-

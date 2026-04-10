@@ -1,4 +1,0 @@
-== PD1.20 - Military Rank/Grade (CWE)
-
-[segment-definition]
-This user-defined field identifies the military rank/grade of the patient. Refer to {{v2-table:0141:Military Rank/Grade}} in Chapter 2C, Code Tables, for suggested values.

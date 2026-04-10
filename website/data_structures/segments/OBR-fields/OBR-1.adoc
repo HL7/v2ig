@@ -1,4 +1,0 @@
-== OBR.1 - Set ID – OBR (SI)
-
-[segment-definition]
-For the first order transmitted, the sequence number shall be 1; for the second order, it shall be 2; and so on.

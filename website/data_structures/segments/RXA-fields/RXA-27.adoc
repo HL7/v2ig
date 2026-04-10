@@ -1,4 +1,0 @@
-== RXA.27 - Administer-at (PL)
-
-[segment-definition]
-This field specifies the location where the drug or treatment was administered.

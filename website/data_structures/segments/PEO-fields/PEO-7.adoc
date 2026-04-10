@@ -1,4 +1,0 @@
-== PEO.7 - Event Location Occurred Address (XAD)
-
-[segment-definition]
-This field identifies the location at which the event started. Often this will specify only the country in which the event started.

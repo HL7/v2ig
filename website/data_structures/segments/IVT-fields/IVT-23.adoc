@@ -1,4 +1,0 @@
-== IVT.23 - Recommended Maximum Days Inventory (NM)
-
-[segment-definition]
-This field contains the maximum number of days of inventory to have on-hand at any one point in time. This value is used in calculations of recommended order quantities

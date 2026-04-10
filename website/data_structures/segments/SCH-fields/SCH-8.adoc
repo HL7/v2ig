@@ -1,4 +1,0 @@
-== SCH.8 - Appointment Type (CWE)
-
-[segment-definition]
-This field contains the identifier code for the type of appointment. Refer to {{v2-table:0277:Appointment Type Codes}} in Chapter 2C, Code Tables, for suggested values.

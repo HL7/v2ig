@@ -1,4 +1,0 @@
-== OM1.6 - Observation Description (TX)
-
-[segment-definition]
-This field contains a text description of this observation.

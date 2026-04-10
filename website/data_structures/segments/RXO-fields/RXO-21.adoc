@@ -1,4 +1,0 @@
-== RXO.21 - Requested Give Rate Amount (ST)
-
-[segment-definition]
-This field contains the rate at which to administer a treatment, e.g., 150 ml/hr (for an IV) or 4 liters/min for nasal oxygen.

@@ -1,4 +1,0 @@
-== DON.33 - Donation Material Review Staff (XCN)
-
-[segment-definition]
-The staff member who performs review on all documentation subsequent to donation procedure.

@@ -1,4 +1,0 @@
-== ITM.29 - Special Handling Code (CWE)
-
-[segment-definition]
-This field contains a special handling code to describe special handling considerations for this item. Refer to {{v2-table:0376:Special Handling Code}} in Chapter 2C, Code Tables, for suggested values. The value set can be extended with user specific values.

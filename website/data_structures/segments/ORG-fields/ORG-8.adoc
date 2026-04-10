@@ -1,7 +1,0 @@
-== ORG.8 - Health Care Provider Area of Specialization Code (CWE)
-
-[segment-definition]
-This field contains the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider's practice relating to the services rendered of the practitioner at a specific organization unit, for example, Mental Health. HL7 suggests using values derived from the ANSI ASC X12 Health Care Provider Taxonomy, Level 3 - specialization.
-
-[segment-comment]
-Refer to {{v2-table:0454:Health Care Provider Area of Specialization}} in chapter 2C for valid values.

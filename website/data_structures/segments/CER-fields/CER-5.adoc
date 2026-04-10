@@ -1,4 +1,0 @@
-== CER.5 - Issuing Authority (XCN)
-
-[segment-definition]
-Specifies the authority that issued the certificate to the person.

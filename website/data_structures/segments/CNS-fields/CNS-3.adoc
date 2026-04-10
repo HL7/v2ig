@@ -1,4 +1,0 @@
-== CNS.3 - CNS-3 (DTM)
-
-[segment-definition]
-This field is the starting date/time of the notifications to be cleared. If this field is empty but Ending Notification Date/Time is filled, then all notifications before Ending Notification Date/Time will be cleared.

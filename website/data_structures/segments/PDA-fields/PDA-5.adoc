@@ -1,4 +1,0 @@
-== PDA.5 - Death Certified By (XCN)
-
-[segment-definition]
-This field is valued with the person who signed the death certificate.

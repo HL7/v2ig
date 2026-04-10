@@ -1,3 +1,0 @@
-==== RQD field definitions
-[v291_section="4.11.1.0"]
-

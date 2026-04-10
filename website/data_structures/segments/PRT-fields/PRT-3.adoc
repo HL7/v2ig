@@ -1,4 +1,0 @@
-== PRT.3 - Action Reason (CWE)
-
-[segment-definition]
-This field indicates the reason why the person, organization, location, or device is assuming (or changing) the role (e.g., shift change, new primary nurse, etc.).

@@ -1,7 +1,0 @@
-== INV.14 - INV-14
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*_Attention: As of v2.5 this field was retained for backward compatibility only and withdrawn and removed as of v2.7._* The TQ data type was deprecated; see Chapter 2A, section 2.A.81.

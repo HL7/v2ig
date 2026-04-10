@@ -1,9 +1,0 @@
-== PID.14 - Phone Number - Business (XTN)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*Attention:* The PID-14 field has been retained for backward compatibility only as of v2.7 and withdrawn as of v 2.9.. The reader is referred to section _3.4.2.40_, _PID-40 – Patient Telecommunication Information_ instead, which replaces _PID-14 – Phone Number - Business_ with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type).
-
-This field contains the patient's business telephone numbers. All business numbers for the patient are sent in the following sequence. The first sequence is considered the patient's primary business phone number (for backward compatibility). If the primary business phone number is not sent, then a repeat delimiter must be sent in the first sequence. Refer to {{v2-table:0201:Telecommunication Use Code}} and {{v2-table:0202:Telecommunication Equipment Type}} in Chapter 2C, Code Tables, for valid values.

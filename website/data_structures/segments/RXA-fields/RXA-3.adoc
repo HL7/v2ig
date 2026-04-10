@@ -1,4 +1,0 @@
-== RXA.3 - Date/Time Start of Administration (DTM)
-
-[segment-definition]
-If the order is for a continuous administration (such as an IV), and the rate is changed at a certain time after the start, an RAS message can be issued to record the change. For such an RAS message, this field records the time the rate was changed to the new value recorded in the _RXA-12-Administered Per (time unit)_ of the same message.

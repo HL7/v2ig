@@ -1,4 +1,0 @@
-== IVC.9 - Payment Terms (ST)
-
-[segment-definition]
-Terms for Payer payment of Invoice (e.g., 24% net 30 days).

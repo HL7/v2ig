@@ -1,4 +1,0 @@
-== SHP.10 - Shipment Handling Code (CWE)
-
-[segment-definition]
-This describes how the shipment needs to be handled during transport. Refer to {{v2-table:0376:Special Handling Code}} for suggested values.

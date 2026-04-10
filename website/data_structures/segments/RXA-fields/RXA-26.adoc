@@ -1,9 +1,0 @@
-== RXA.26 - Pharmacy Order Type (ID)
-
-[segment-definition]
-The Pharmacy Order Type field defines the general category of pharmacy order which may be used to determine the processing path the order will take. Refer to {{v2-table:0480:Pharmacy Order Types}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-This field may also be used for grouping of related orders for processing and/or reports. For example, Medication Administration Records (MARs) often group large volume solutions, medications and small volume solutions differently based upon site-specific workflow.
-
-Usage Rule: This field is optional for all Pharmacy transactions. When not populated, a default value of "M" is assumed.

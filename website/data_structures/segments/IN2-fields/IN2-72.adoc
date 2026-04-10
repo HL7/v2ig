@@ -1,4 +1,0 @@
-== IN2.72 - Patient's Relationship to Insured (CWE)
-
-[segment-definition]
-This field indicates the relationship of the patient to the insured, as defined by CMS or other regulatory agencies. Refer to {{v2-table:0344:Patient's Relationship to Insured}} in Chapter 2C, Code Tables, for suggested values. The UB codes listed may not represent a complete list; refer to a UB specification for additional information.

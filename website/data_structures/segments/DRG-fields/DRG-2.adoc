@@ -1,4 +1,0 @@
-== DRG.2 - DRG Assigned Date/Time (DTM)
-
-[segment-definition]
-This field contains the time stamp to indicate the date and time that the DRG was assigned.

@@ -1,4 +1,0 @@
-== EQP.4 - EQP-4 (DTM)
-
-[segment-definition]
-This field is the date/time that the event was completed.

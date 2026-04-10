@@ -1,3 +1,0 @@
-==== IVC field definitions
-[v291_section="16.4.2.0"]
-

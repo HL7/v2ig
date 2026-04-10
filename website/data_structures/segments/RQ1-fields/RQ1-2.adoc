@@ -1,7 +1,0 @@
-== RQ1.2 - Manufacturer Identifier (CWE)
-
-[segment-definition]
-This field contains the unique code that identifies the manufacturer on the application receiving the requisition. This field is conditional because either RQ1-2-manufacturer ID and RQ1-3-manufacturer's catalog or RQ1-4-vendor ID and RQ1-5-vendor catalog must be valued.
-
-[segment-comment]
-Refer to {{v2-table:0385:Manufacturer identifier}} in Chapter 2C, Code Tables, for suggested values, or relevant external code sets may be used (e.g., HIBCC Manufacturers Labeler ID Code (LIC), UPC, NDC).

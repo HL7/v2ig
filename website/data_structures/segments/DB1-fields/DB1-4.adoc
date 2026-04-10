@@ -1,9 +1,0 @@
-== DB1.4 - Disability Indicator (ID)
-
-[segment-definition]
-This field indicates if the person's visit is a disability visit. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y a disability visit
-
-N not a disability visit

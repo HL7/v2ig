@@ -1,4 +1,0 @@
-== SCH.25 - Filler Status Code (CWE)
-
-[segment-definition]
-This field contains a code describing the status of the appointment with respect to the filler application. Refer to {{v2-table:0278:Filler Status Codes}} in Chapter 2C, Code Tables, for suggested values.

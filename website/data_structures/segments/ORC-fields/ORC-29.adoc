@@ -1,7 +1,0 @@
-== ORC.29 - Order Type (CWE)
-
-[segment-definition]
-This field indicates whether the order is to be executed in an inpatient setting or an outpatient setting. If this field is not valued, the system default is assumed. Refer to {{v2-table:0482:Order Type}} in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-Examples: Before discharge an order is placed for follow-up physical therapy, or to pick up a prescription at a community pharmacy. The patient is an inpatient according to PV1, but the order is an outpatient order.

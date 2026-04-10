@@ -1,4 +1,0 @@
-== PSL.29 - Executing Physician ID (XCN)
-
-[segment-definition]
-ID of the physician who is providing the Service, e.g., executing the radiology-exam (EAN ID = European Article Numbering).

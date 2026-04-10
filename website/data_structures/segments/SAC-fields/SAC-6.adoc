@@ -1,7 +1,0 @@
-== SAC.6 - SAC-6
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*_Attention: This field was deprecated and retained for backward compatibilityonly as of v2.5 and withdrawn and removed as of v2.7._*

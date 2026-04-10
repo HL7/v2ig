@@ -1,9 +1,0 @@
-== MSH.23 - Receiving Responsible Organization (XON)
-
-[segment-definition]
-Business organization that is the intended receiver of the message and is accountable for acting on the data conveyed by the transaction.
-
-[segment-comment]
-This field has the same justification as the Sending Responsible Organization except in the role of the Receiving Responsible Organization. The receiving organization has the legal responsibility to act on the information in the message.
-
-See MSH-22 above for Use Case.

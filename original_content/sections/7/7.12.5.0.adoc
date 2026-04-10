@@ -1,3 +1,0 @@
-==== PDC field definitions
-[v291_section="7.12.5.0"]
-

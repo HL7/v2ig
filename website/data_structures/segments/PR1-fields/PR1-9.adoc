@@ -1,4 +1,0 @@
-== PR1.9 - Anesthesia Code (CWE)
-
-[segment-definition]
-This field contains a unique identifier of the anesthesia used during the procedure. Refer to {{v2-table:0019:Anesthesia Code}} in Chapter 2C, Code Tables, for suggested values.

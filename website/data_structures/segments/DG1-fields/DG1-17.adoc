@@ -1,4 +1,0 @@
-== DG1.17 - Diagnosis Classification (CWE)
-
-[segment-definition]
-This field indicates if the patient information is for a diagnosis or a non-diagnosis code. Refer to {{v2-table:0228:Diagnosis Classification}} in Chapter 2C, Code Tables, for suggested values.

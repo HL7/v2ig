@@ -1,4 +1,0 @@
-== PEO.6 - Event Ended Data/Time (DTM)
-
-[segment-definition]
-This field identifies the best estimate of the date/time the event resolved.

@@ -1,4 +1,0 @@
-== CER.14 - Subject Directory Attribute Extension (CWE)
-
-[segment-definition]
-In individual identity certificates, this Subject Directory Attribute extension MAY contain a Healthcare Professional Role attribute and may contain a Qualified Certificate Statement attribute. In addition, Subject Directory Attributes MAY contain other attributes not specified by this technical specification.

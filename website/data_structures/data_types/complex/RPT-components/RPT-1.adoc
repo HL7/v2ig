@@ -1,5 +1,0 @@
-== RPT.1 - Repeat Pattern Code (CWE)
-
-[datatype-definition]
-A code representing the repeat pattern defined by the other components of this data type. Refer to {{v2-table:0335:Repeat Pattern}} for suggested values.
-

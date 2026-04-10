@@ -1,4 +1,0 @@
-== PCR.12 - Product Serial/Lot Number (ST)
-
-[segment-definition]
-This field is an alphanumeric descriptor which identifies the specific item or lot of drug. This descriptor would normally be obtained from the package labeling or item itself.

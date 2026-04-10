@@ -1,4 +1,0 @@
-== IN2.41 - Nationality (CWE)
-
-[segment-definition]
-This field contains a code that identifies the nation or national grouping to which the insured person belongs. This information may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0212:Nationality}} in Chapter 2C, Code Tables.

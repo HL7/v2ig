@@ -1,4 +1,0 @@
-== RQD.3 - Item Code - External (CWE)
-
-[segment-definition]
-This field contains the identifier and description that uniquely identify the item on the application receiving the requisition. This field is conditional because at least one of the three fields – RQD-2-item code-internal, RQD-3-item code-external or RQD-4-hospital item code – must be valued. Refer to Table 0685 - Item Code - External in Chapter 2C for valid values.

@@ -1,4 +1,0 @@
-== BHS.8 - Batch Security (ST)
-
-[segment-definition]
-In some applications of HL7, this field is used to implement security features. For codified expression of security tags using BHS-15 through BHS-17.

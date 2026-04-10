@@ -1,7 +1,0 @@
-== RXD.20 - Substance Manufacturer Name (CWE)
-
-[segment-definition]
-This field contains the manufacturer of the medical substance administered when it is a manufactured substance.
-
-[segment-comment]
-*Note:* For vaccines, code system MVX may be used to code this field. See Section _4A.7.1_, "_Vaccine administration data_". This field may be used if the manufacturer of the substance is not identified by the code used in RXA-5-Administered code.

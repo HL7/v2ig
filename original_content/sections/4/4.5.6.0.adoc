@@ -1,3 +1,0 @@
-==== IPC field definitions
-[v291_section="4.5.6.0"]
-

@@ -1,4 +1,0 @@
-== ITM.3 - Item Status (CWE)
-
-[segment-definition]
-The status (useful for reporting and item usage purposes) that applies to an item. Refer to {{v2-table:0776:Item Status}} in Chapter 2C, Code Tables, for suggested values.

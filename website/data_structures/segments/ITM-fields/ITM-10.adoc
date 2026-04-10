@@ -1,4 +1,0 @@
-== ITM.10 - Manufacturer Labeler Identification Code (CWE)
-
-[segment-definition]
-This field contains the Labeler Identification Code (LIC) number assigned to the manufacturer that represents the manufacturer of the item.

@@ -1,4 +1,0 @@
-== RXA.5 - Administered Code (CWE)
-
-[segment-definition]
-This field contains the identifier of the medical substance/treatment administered. It is equivalent to _OBR-4-universal service ID_ in function. If the substance administered is a vaccine, CVX codes may be used to code this field (see link:#HL70292[_HL7 Table 0292 - Vaccines Administered_]). If CVX code is used to identify vaccines, the coding system component (RXA-5.3) should be valued as "CVX", not as "HL70292."

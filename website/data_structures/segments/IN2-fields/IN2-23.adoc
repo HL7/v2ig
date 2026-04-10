@@ -1,4 +1,0 @@
-== IN2.23 - Special Coverage Approval Title (ST)
-
-[segment-definition]
-This field contains the title of the person who approves special coverage.

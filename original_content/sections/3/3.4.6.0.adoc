@@ -1,3 +1,0 @@
-==== AL1 field definitions
-[v291_section="3.4.6.0"]
-

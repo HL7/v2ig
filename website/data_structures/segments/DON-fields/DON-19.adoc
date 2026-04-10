@@ -1,4 +1,0 @@
-== DON.19 - Intended Recipient Procedure Date (DTM)
-
-[segment-definition]
-If this donation has an intended recipient (autologous, directed, dedicated, designated), the date the intended recipient is expected to receive the transfusion.

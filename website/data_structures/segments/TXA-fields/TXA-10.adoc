@@ -1,4 +1,0 @@
-== TXA.10 - Assigned Document Authenticator (XCN)
-
-[segment-definition]
-This field identifies the person(s) responsible for authenticating the document, who may differ from the originator. Multiple persons may be responsible for authentication, especially in teaching facilities. This field is allowed to repeat an undefined number of times.

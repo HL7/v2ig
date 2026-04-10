@@ -1,3 +1,0 @@
-==== SCP Field Definitions
-[v291_section="17.8.1.0"]
-

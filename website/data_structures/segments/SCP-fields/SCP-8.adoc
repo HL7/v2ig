@@ -1,4 +1,0 @@
-== SCP.8 - Control (CWE)
-
-[segment-definition]
-A code assigned to a device to indicate if the sterilization load is built in the sub-sterile area adjacent to an Operating Room or the Central Processing Department (Central Supply). Refer to {{v2-table:0659:Lot Control}} in Chapter 2C, Code Tables, for suggested values.

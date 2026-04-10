@@ -1,4 +1,0 @@
-== CON.11 - Consent Status (CNE)
-
-[segment-definition]
-Indicates whether consent has been sought and granted. For values see {{v2-table:0498:Consent Status}}.

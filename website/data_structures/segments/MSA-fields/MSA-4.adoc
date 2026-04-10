@@ -1,4 +1,0 @@
-== MSA.4 - Expected Sequence Number (NM)
-
-[segment-definition]
-This optional numeric field is used in the sequence number protocol.

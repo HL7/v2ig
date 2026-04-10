@@ -1,4 +1,0 @@
-== AIP.5 - Resource Group (CWE)
-
-[segment-definition]
-This field identifies the requested resource as a member of the indicated group. If, in a Schedule Request Message (SRM), no specific resource is requested, but an _AIP-4 Resource Type_ is requested, the _AIP-5 Resource Group_ field can be used to further qualify the type of resource being requested.

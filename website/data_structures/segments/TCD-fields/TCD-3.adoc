@@ -1,4 +1,0 @@
-== TCD.3 - TCD-3 (SN)
-
-[segment-definition]
-This field is the value that is to be used as the factor for automatically diluting a particular specimen in case of rerun for this particular test code.

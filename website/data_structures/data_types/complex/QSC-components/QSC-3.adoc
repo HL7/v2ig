@@ -1,5 +1,0 @@
-== QSC.3 - Value (ST)
-
-[datatype-definition]
-The value to which the field will be compared.
-

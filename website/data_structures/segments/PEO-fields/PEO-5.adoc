@@ -1,4 +1,0 @@
-== PEO.5 - Event Improved Date/Time (DTM)
-
-[segment-definition]
-This field identifies the best estimate of the date/time the event improved.

@@ -1,9 +1,0 @@
-== GT1.39 - Protection Indicator (ID)
-
-[segment-definition]
-This field identifies the guarantor's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.
-
-[segment-comment]
-Y restrict access
-
-N do not restrict access

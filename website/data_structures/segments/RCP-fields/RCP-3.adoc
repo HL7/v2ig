@@ -1,4 +1,0 @@
-== RCP.3 - Response Modality (CNE)
-
-[segment-definition]
-This field specifies the timing and grouping of the response message(s). Refer to {{v2-table:0394:Response modality}} in Chapter 2C, Code Tables, for valid values.

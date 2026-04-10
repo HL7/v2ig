@@ -1,4 +1,0 @@
-== LOC.5 - Location Address (XAD)
-
-[segment-definition]
-This field contains the address of the patient location, especially for use for outpatient clinic or office locations.

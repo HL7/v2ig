@@ -1,4 +1,0 @@
-== FT1.48 - DME Initial Certification Date (DT)
-
-[segment-definition]
-This is durable medical equipment initial certification date. It is used to indicate the beginning of therapy and the DME Certification Type Code is set to Initial.

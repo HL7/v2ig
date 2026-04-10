@@ -1,4 +1,0 @@
-== EQP.5 - EQP-5 (FT)
-
-[segment-definition]
-This field is the data that the log and/or service event was about and is to be logged.

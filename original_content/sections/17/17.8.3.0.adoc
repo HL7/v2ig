@@ -1,3 +1,0 @@
-==== SDD Field Definitions
-[v291_section="17.8.3.0"]
-

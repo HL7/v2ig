@@ -1,4 +1,0 @@
-== CON.21 - Consent Disclosure Level (ID)
-
-[segment-definition]
-Identifies how much information was disclosed to the subject as part of the informed consent process. Refer to table {{v2-table:0500:Consent Disclosure Level}}.

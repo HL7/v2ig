@@ -1,9 +1,0 @@
-== RXO.25 - Requested Drug Strength Volume (NM)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-Description: This numeric field defines the volume measurement in which the drug strength concentration is contained. For example, Acetaminophen 120 MG/5ML Elixir means that 120 MG of the drug is in a solution with a volume of 5 ML, which would be encoded in RXO-18, RXO-19, RXO-25 and RXO-26 as:
-
-RXO||||||||||||||||||120|mg^^ISO||||||5|ml^^ISO ...<cr>

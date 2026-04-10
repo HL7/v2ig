@@ -1,4 +1,0 @@
-== UB2.6 - Value Amount & Code (39-41) (UVC)
-
-[segment-definition]
-This field contains a monetary amount and an associated billing code. The pair in this field can repeat up to twelve times to represent/contain UB92 form locators 39a, 39b, 39c, 39d, 40a, 40b, 40c, 40d, 41a, 41b, 41c, and 41d. This field is defined by CMS or other regulatory agencies.

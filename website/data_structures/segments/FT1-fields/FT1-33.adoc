@@ -1,4 +1,0 @@
-== FT1.33 - Ordering Facility (XON)
-
-[segment-definition]
-This field contains the name of the Facility where the service is ordered by the Ordering Provider/Group identified in _FT1-21 – Ordered By Code_.

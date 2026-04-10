@@ -1,4 +1,0 @@
-== OBR.21 - Filler Field 2 + (ST)
-
-[segment-definition]
-This field is similar to filler field #1.

@@ -1,4 +1,0 @@
-== CON.3 - Consent Form ID and Version (ST)
-
-[segment-definition]
-Identifies a specific version of a consent form used to record the consent. A given version of a consent form implies a particular set of wording that appears on the form.

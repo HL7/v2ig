@@ -1,4 +1,0 @@
-== LCH.1 - Primary Key Value - LCH (PL)
-
-[segment-definition]
-This field contains the institution's identification code for the location. The identifying key value. This field has the same components as the patient location fields in the PV1 segment (except that bed status is not included here). At least the first component of this field is required. The contents of this field must exactly match the content of its preceding MFE (link:++#mfe-4-primary-key-value---mfe-varies-00667++[MFE-4 - Primary Key Value - MFE]), its preceding LOC (_LOC-1 - Primary Key Value - LOC_), and its preceding LDP (_LDP-1 - Primary Key Value - LDP_).

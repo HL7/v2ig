@@ -1,4 +1,0 @@
-== SDD.6 - Control Code (NM)
-
-[segment-definition]
-A code to command the device to send cycle data from the previous load to the instrument-tracking system.

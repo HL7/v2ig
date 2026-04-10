@@ -1,4 +1,0 @@
-== AUT.7 - Reimbursement Limit (CP)
-
-[segment-definition]
-This field contains the dollar limit for reimbursement specified by the coverage plan for the authorized treatment.

@@ -1,4 +1,0 @@
-== RXO.11 - Requested Dispense Amount (NM)
-
-[segment-definition]
-This field specifies the amount to be dispensed. See above note.

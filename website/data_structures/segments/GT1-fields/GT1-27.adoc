@@ -1,4 +1,0 @@
-== GT1.27 - Guarantor Household Annual Income (CP)
-
-[segment-definition]
-This field contains the combined annual income of all members of the guarantor's household.

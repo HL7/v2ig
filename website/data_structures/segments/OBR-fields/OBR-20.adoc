@@ -1,4 +1,0 @@
-== OBR.20 - Filler Field 1 + (ST)
-
-[segment-definition]
-This field is definable for any use by the filler (diagnostic service).

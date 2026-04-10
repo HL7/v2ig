@@ -1,4 +1,0 @@
-== IN2.9 - Military Sponsor Name (XPN)
-
-[segment-definition]
-This field is defined by CMS or other regulatory agencies. Multiple names for the same person may be sent in this field. Specification of meaning based on sequence is deprecated.

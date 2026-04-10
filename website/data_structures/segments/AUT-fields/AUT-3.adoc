@@ -1,4 +1,0 @@
-== AUT.3 - Authorizing Payor, Company Name (ST)
-
-[segment-definition]
-This field contains the name of the insurance company or other entity that administers the authorizing coverage plan.

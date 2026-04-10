@@ -1,4 +1,0 @@
-== ISD.2 - ISD-2 (CWE)
-
-[segment-definition]
-This field specifies the type of interaction. If the interaction is performed as the result of a previous command, then the interaction type as specified in {{v2-table:0368:Remote Control command}} should be used.

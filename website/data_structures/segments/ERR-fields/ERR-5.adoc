@@ -1,7 +1,0 @@
-== ERR.5 - Application Error Code (CWE)
-
-[segment-definition]
-Application specific code identifying the specific error that occurred. Refer to {{v2-table:0533:Application Error Code}} in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-If the message associated with the code has parameters, it is recommended that the message be indicated in the format of the java.text.MessageFormat approach.footnote:[Details on MessageFormat can be found at _http://liveweb.archive.org/http://docs.oracle.com/javase/1.5.0/docs/api/java/text/MessageFormat.html_.] This style provides information on the parameter type to allow numbers, dates and times to be formatted appropriately for the language.

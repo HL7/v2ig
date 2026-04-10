@@ -1,4 +1,0 @@
-== RXG.8 - Give Dosage Form (CWE)
-
-[segment-definition]
-The dosage form indicates the manner in which the medication/treatment is aggregated for dispensing, e.g., tablets, capsules, suppositories. In some cases, this information is implied by the give code in _RXG-4-Give Code_. Use this field when the give code does not specify the dosage form. Refer to Table 0736 - Give Dosage Form in Chapter 2C for valid values.

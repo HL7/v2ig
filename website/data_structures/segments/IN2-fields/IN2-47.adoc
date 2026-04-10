@@ -1,4 +1,0 @@
-== IN2.47 - Job Code/Class (JCC)
-
-[segment-definition]
-This field indicates a code that identifies the insured's job code (for example, programmer, analyst, doctor, etc.).

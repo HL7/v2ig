@@ -1,5 +1,0 @@
-== PL.7 - Building (HD)
-
-[datatype-definition]
-This component specifies the code for the building where the person is located. After facility, it is the most general person location designation. Refer to {{v2-table:0307:Building}} for suggested values.
-

@@ -1,4 +1,0 @@
-== PSL.46 - Main-Service (ID)
-
-[segment-definition]
-Main service.

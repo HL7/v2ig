@@ -1,4 +1,0 @@
-== SCD.2 - Cycle Count (NM)
-
-[segment-definition]
-The number of cycles that have been completed.

@@ -1,3 +1,0 @@
-=== Query by parameter (QBP) / tabular response (RTB)
-[v291_section="5.9.3"]
-

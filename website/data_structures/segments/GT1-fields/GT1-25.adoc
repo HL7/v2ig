@@ -1,9 +1,0 @@
-== GT1.25 - Guarantor Death Flag (ID)
-
-[segment-definition]
-This field indicates whether or not the guarantor is deceased. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y the guarantor is deceased
-
-N the guarantor is living

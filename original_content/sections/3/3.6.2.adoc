@@ -1,3 +1,0 @@
-=== Merging patient/person information
-[v291_section="3.6.2"]
-

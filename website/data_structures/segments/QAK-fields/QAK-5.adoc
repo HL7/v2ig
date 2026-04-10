@@ -1,4 +1,0 @@
-== QAK.5 - This payload (NM)
-
-[segment-definition]
-This field, when used, contains the total number of matching records that the Server sent in the current response. Where the continuation protocol is used to transmit the response in partial installments, this number will differ from the value sent in _QAK-4-Hit count total_.

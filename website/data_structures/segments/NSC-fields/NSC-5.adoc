@@ -1,7 +1,0 @@
-== NSC.5 - Current Facility (HD)
-
-[segment-definition]
-This field contains a site-specific name for the current facility used by this application. To be used in conjunction with the values for the sending/receiving system and facility values in the MSH. This field further describes the current application, _NSC-5 Current Application_. With the promotion of this field to an HD data type, the usage has been broadened to include not just the current facility but other organizational entities, such as: a) the organizational entity responsible for current application; b) the responsible unit; c) a product or vendor's identifier, etc. Entirely site‑defined. {{v2-table:0362:Sending/Receiving Facility}} is used as the HL7 identifier for the user-defined table of values for the first component.
-
-[segment-comment]
-*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.

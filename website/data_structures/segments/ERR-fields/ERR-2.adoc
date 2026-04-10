@@ -1,4 +1,0 @@
-== ERR.2 - Error Location (ERL)
-
-[segment-definition]
-Identifies the location in a message related to the identified error, warning or message. If multiple repetitions are present, the error results from the values in a combination of places.

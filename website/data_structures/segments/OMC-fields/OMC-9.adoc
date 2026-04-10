@@ -1,4 +1,0 @@
-== OMC.9 - Type of Answer (ID)
-
-[segment-definition]
-This field contains the allowed datatype for answers, and is drawn from {{v2-table:0125:Value Type}} for valid values. Type of answers include: numeric, date, coded, text, etc.

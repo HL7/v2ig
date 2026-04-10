@@ -1,7 +1,0 @@
-== AIL.12 - Filler Status Code (CWE)
-
-[segment-definition]
-This field contains a code that describes the requested/scheduled status of the location, from the point of view of the filler application. Refer to {{v2-table:0278:Filler Status Codes}} in Chapter 2C, Code Tables, for suggested values.
-
-[segment-comment]
-This is a conditionally required field. Because the information contained in this field is only appropriate in transactions originating from a filler application, it is required for those messages. This includes all unsolicited transactions originating from a filler application, as well as all response messages originating from a filler application. This field is optional for all transactions originating from placer, querying and auxiliary applications. It is recommended that this field be left unvalued in transactions originating from applications other than the filler application.

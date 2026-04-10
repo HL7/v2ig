@@ -1,5 +1,0 @@
-== PL.8 - Floor (HD)
-
-[datatype-definition]
-This component specifies the code for the floor where the person is located. After building, it is the most general person location designation. Refer to {{v2-table:0308:Floor}} for suggested values.
-

@@ -1,4 +1,0 @@
-== IN1.51 - Signature Code Date (DT)
-
-[segment-definition]
-The date the patient/subscriber authorization signature was obtained.

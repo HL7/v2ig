@@ -1,7 +1,0 @@
-== PLN.2 - Type of ID Number (CWE)
-
-[datatype-definition]
-Specifies the type of number.
-
-Refer to {{v2-table:0338:Practitioner ID Number Type}} for suggested values.
-

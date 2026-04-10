@@ -1,9 +1,0 @@
-== PM1.22 - Commercial Carrier Name and Address Required (ID)
-
-[segment-definition]
-This field indicates whether this insurance carrier requires commerical carrier name and address. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y Commerical carrier name and address Required
-
-N Commerical carrier name and address Not Required

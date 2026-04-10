@@ -1,7 +1,0 @@
-== PR1.19 - Procedure Identifier (EI)
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-This field contains a value that uniquely identifies a single procedure for an encounter. It is unique across all segments and messages for an encounter. This field is required in all implementations employing Update Diagnosis/Procedures (P12) messages.

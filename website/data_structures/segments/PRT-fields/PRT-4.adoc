@@ -1,4 +1,0 @@
-== PRT.4 - Role of Participation (CWE)
-
-[segment-definition]
-This field indicates the functional involvement with the activity being transmitted (e.g., Case Manager, Evaluator, Transcriber, Nurse Care Practitioner, Midwife, Physician Assistant, etc.). Refer to {{v2-table:0912:Participation}} for valid values.

@@ -1,4 +1,0 @@
-== IVC.14 - Invoice Booking Period (DTM)
-
-[segment-definition]
-Period in which the invoice must be booked.

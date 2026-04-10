@@ -1,7 +1,0 @@
-== OM1.58 - Gender Restriction (CWE)
-
-[segment-definition]
-This field is used to convey gender restrictions for ordering the test specified in OM1-2 Producer's Service/Test/Observation ID. If there are no restrictions the field is left empty. If the test is restricted to order for certain gender(s), the restricted genders are listed. For example, a Prostate Specific AG (PSA) test is typically ordered only for male patients, thus for PSA the field would be valued 'M' for Male.
-
-[segment-comment]
-Note that the field name is historical as gender restriction for procedures and laboratory tests are based upon Sex Parameter for Clinical Use. Refer to User-defined Table 0001 Administrative Sex – or 0828Sex Parameter for Clinical Use in Chapter 2C, Code Tables, for suggested values.

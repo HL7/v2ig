@@ -1,4 +1,0 @@
-== RXV.17 - Lockout Interval (CQ)
-
-[segment-definition]
-This field contains the length of time that must expire between deliveries of PCA doses. For example, if the ordered max dose per time is 10 minutes, this field format is "10^min&minute&UCUM".

@@ -1,5 +1,0 @@
-== MOP.2 - Money or Percentage Quantity (NM)
-
-[datatype-definition]
-Specifies the currency or percentage quantity.
-

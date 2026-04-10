@@ -1,4 +1,0 @@
-== GT1.18 - Guarantor Employer Phone Number (XTN)
-
-[segment-definition]
-This field contains the guarantor's employer's phone number. Multiple phone numbers for the same employer may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated. .

@@ -1,4 +1,0 @@
-== CSR.14 - Patient Evaluability Status (CWE)
-
-[segment-definition]
-This field categorizes the inclusion of this patient's data for various analyses. The patient's data may be evaluable for analysis of adverse events but not for outcomes. Or it may be evaluable for some outcomes and not others. The coding systems will vary among trials. This field is required for the off‑study trigger event (C04). Refer to Table 0593 - Patient Evaluability Status in Chapter 2C for valid values.

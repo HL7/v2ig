@@ -1,4 +1,0 @@
-== ACC.4 - Auto Accident State (CWE)
-
-[segment-definition]
-*_As of Version 2.5, this field has been retained for backward compatibility only._* *_Use_* __link:\l[ACC-11 - Accident Address] *instead of this field, *__as the state in which the accident occurred is part of the address. This field specifies the state in which the auto accident occurred. (CMS 1500 requirement in the US.) Refer to {{v2-table:0347:State/Province}} in Chapter 2C, Code Tables, for suggested values.

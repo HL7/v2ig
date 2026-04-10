@@ -1,4 +1,0 @@
-== PCR.19 - Device Operator Qualifications (ID)
-
-[segment-definition]
-This field identifies the qualification of the person operating the device when the event occurred. Refer to {{v2-table:0242:Primary Observer's Qualification}} for valid values.

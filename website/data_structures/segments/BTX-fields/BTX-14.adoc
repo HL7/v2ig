@@ -1,4 +1,0 @@
-== BTX.14 - BTX-14 (XCN)
-
-[segment-definition]
-This field contains the identity of the individual who administers the transfusion of the blood product. If the code is sent as a local code, it should be unique and unambiguous. This field can be free text to permit capture without table update. In this case, the administrator's name must be the second through fourth components of the field.

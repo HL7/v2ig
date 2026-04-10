@@ -1,9 +1,0 @@
-== MSG.2 - Trigger Event (ID)
-
-[datatype-definition]
-Specifies the trigger event code. Refer to {{v2-table:0003:Event Type}} for valid values.
-
-This table contains values like A01, O01, R01 etc.
-
-See Chapter 2, "Control", section 2.3.1, "Trigger Events" for further discussion.
-

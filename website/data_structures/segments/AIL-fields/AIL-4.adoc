@@ -1,4 +1,0 @@
-== AIL.4 - Location Type - AIL (CWE)
-
-[segment-definition]
-This field identifies the type of the location requested/scheduled for this appointment. For all messages, this field is conditionally required if a specific location is not identified in AIL-3-Location resource ID. Refer to {{v2-table:0305:Person Location Type}} in Chapter 2C, Code Tables, for suggested values.

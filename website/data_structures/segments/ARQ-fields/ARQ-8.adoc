@@ -1,4 +1,0 @@
-== ARQ.8 - Appointment Type (CWE)
-
-[segment-definition]
-This field contains an identifier code for the type of appointment being requested. Refer to {{v2-table:0277:Appointment Type Codes}} in Chapter 2C, Code Tables, for suggested values. This table provides codes for appointment types such as routine schedule request, request for a tentative appointment, etc.

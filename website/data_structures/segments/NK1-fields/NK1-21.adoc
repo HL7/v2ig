@@ -1,4 +1,0 @@
-== NK1.21 - Living Arrangement (CWE)
-
-[segment-definition]
-This field identifies the situation that the associated party lives in at his/her residential address. Refer to {{v2-table:0220:Living Arrangement}} in Chapter 2C, Code Tables, for suggested values.

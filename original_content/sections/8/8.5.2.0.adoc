@@ -1,3 +1,0 @@
-==== MFE Field Definitions
-[v291_section="8.5.2.0"]
-

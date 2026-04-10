@@ -1,4 +1,0 @@
-== IPR.5 - IPR Date/Time (DTM)
-
-[segment-definition]
-Date/Time IPR was created.

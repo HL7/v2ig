@@ -1,4 +1,0 @@
-== AUT.2 - Authorizing Payor, Company ID (CWE)
-
-[segment-definition]
-This field contains the ID of the insurance company or other entity that administers the authorizing coverage plan. Values may be entries in a locally defined table of payor codes__. {{v2-table:0285:Insurance Company ID Codes}}__ is used as the HL7 identifier for the user-defined table of values for this field.

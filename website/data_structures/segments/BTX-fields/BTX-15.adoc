@@ -1,4 +1,0 @@
-== BTX.15 - BTX-15 (XCN)
-
-[segment-definition]
-This field contains the identity of the individual who assists in the identification of the patient and verification of the product information prior to transfusion of the blood product. If the ID Number is sent as a local code, it should be unique and unambiguous. This field can be free text to permit capture without table update. In this case, the verifier's name must be the second through fourth components of the field.

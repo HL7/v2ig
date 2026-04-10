@@ -1,4 +1,0 @@
-== OH1.3 - Employment Status (CWE)
-
-[segment-definition]
-This field contains a code defining the employment status of a person during the associated time. Refer to {{v2-table:0957:Employment Status (ODH)}} in Chapter 2C, Code Tables, for suggested values.

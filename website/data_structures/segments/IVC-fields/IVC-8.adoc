@@ -1,4 +1,0 @@
-== IVC.8 - Invoice Amount (CP)
-
-[segment-definition]
-Sum total of Product/Service Billed Amount on PSL for all Product/Service Line Items for this Invoice.

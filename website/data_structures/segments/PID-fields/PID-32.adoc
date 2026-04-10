@@ -1,4 +1,0 @@
-== PID.32 - Identity Reliability Code (CWE)
-
-[segment-definition]
-This field contains a coded value used to communicate information regarding the reliability of patient/person identifying data transmitted via a transaction. Values could indicate that certain fields on a PID segment for a given patient/person are known to be false (e.g., use of default or system-generated values for Date of Birth or Social Security Number). Refer to {{v2-table:0445:Identity Reliability Code}} in Chapter 2C, Code Tables, for suggested values.

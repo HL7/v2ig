@@ -1,4 +1,0 @@
-== CER.16 - Authority Key Identifier (CWE)
-
-[segment-definition]
-The Authority Key Identifier extension SHALL identify the public key to be used to verify the signature of the certificate. It enables distinct keys, used by one CA, to be distinguished (e.g., as key updating occurs).

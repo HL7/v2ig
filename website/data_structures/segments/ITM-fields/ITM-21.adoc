@@ -1,4 +1,0 @@
-== ITM.21 - Approved To Buy Price (MO)
-
-[segment-definition]
-This field contains the dollar limit of this item that you can purchase within a user-defined time frame (e.g., one year).

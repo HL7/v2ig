@@ -1,4 +1,0 @@
-== CNS.1 - CNS-1 (NM)
-
-[segment-definition]
-This field contains the starting notification reference number that is to be cleared.

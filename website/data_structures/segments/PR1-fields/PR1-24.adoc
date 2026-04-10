@@ -1,4 +1,0 @@
-== PR1.24 - Respiratory Within Surgery (ID)
-
-[segment-definition]
-This field indicates whether or not a respiratory procedure has occurred during a surgery. This field is optional and only needs to be valued for respiratory procedures. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code TableS, for valid values.

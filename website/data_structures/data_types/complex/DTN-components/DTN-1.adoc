@@ -1,7 +1,0 @@
-== DTN.1 - Day Type (CWE)
-
-[datatype-definition]
-Specifies whether the days are denied, pending, or approved.
-
-Refer to {{v2-table:0149:Day Type}} for suggested values.
-

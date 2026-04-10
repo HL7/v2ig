@@ -1,7 +1,0 @@
-== CTR.10 - Free On Board Freight Terms (CNE)
-
-[segment-definition]
-This field indicates whether or not Free On Board freight terms are applicable to the contract.
-
-[segment-comment]
-Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

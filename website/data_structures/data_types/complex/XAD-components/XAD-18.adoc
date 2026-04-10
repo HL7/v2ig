@@ -1,5 +1,0 @@
-== XAD.18 - Address Usage (ID)
-
-[datatype-definition]
-This indicates how the address is intended to be used. Refer to {{v2-table:0617:Address Usage}} for valid values.
-

@@ -1,4 +1,0 @@
-== OM1.38 - Procedure Medication (CWE)
-
-[segment-definition]
-This field contains the treatments that may be needed as part of the procedure. Examples are radioactive iodine for a thyroid screen, and methacholine for a methacholine spirometry challenge. This field should be identified as a CWE data type. Refer to Table 0644 - Procedure Medication in Chapter 2C for valid values.

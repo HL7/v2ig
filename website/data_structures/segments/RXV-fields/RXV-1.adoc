@@ -1,4 +1,0 @@
-== RXV.1 - Set ID - RXV (SI)
-
-[segment-definition]
-For the first timing specification transmitted, the sequence number shall be 1; for the second timing specification, it shall be 2; and so on.

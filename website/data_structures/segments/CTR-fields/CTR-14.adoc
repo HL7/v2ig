@@ -1,4 +1,0 @@
-== CTR.14 - Maximum Markup (MOP)
-
-[segment-definition]
-This field contains the highest percentage that can be applied to each item’s Product Cost.

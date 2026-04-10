@@ -1,4 +1,0 @@
-== ILT.10 - Inventory On Hand Quantity Unit (CWE)
-
-[segment-definition]
-This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.

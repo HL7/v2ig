@@ -1,4 +1,0 @@
-== RXV.14 - Max Dose Amount Volume (NM)
-
-[segment-definition]
-This field defines the volume measurement for the ordered max dose amount. For example, if the ordered bolus is 5 ml, this field contains the value of 5.

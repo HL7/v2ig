@@ -1,4 +1,0 @@
-== FT1.54 - DME Certification Condition Indicator (ID)
-
-[segment-definition]
-This field indicates if the DME Condition Codes apply to the service. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values. A "Y" value indicates the condition codes apply. An "N" value indicates the condition codes do not apply.

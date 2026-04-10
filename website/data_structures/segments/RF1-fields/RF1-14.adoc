@@ -1,4 +1,0 @@
-== RF1.14 - Referral Reason Text (ST)
-
-[segment-definition]
-The referral reason is a free text field allowing a user to capture, in a non-coded format, the reason for the referral. Typically this would describe the patient's condition or illness for which the referral is recorded.

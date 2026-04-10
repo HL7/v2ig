@@ -1,4 +1,0 @@
-== LDP.8 - Inactivation Date - LDP (DTM)
-
-[segment-definition]
-This field contains the date when the location became inactive or "out of service" for this department (disregarding whether it is waiting to be maintained by housekeeping).

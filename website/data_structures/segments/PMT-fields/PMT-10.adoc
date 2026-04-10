@@ -1,4 +1,0 @@
-== PMT.10 - Payee Bank Account ID (CX)
-
-[segment-definition]
-Id of Payee's Bank account.

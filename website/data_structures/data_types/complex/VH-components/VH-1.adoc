@@ -1,5 +1,0 @@
-== VH.1 - Start Day Range (ID)
-
-[datatype-definition]
-Starting day of visiting hours range. See {{v2-table:0267:Days of_ _the Week}} for valid values.
-

@@ -1,4 +1,0 @@
-== OM4.9 - Special Handling Requirements (TX)
-
-[segment-definition]
-This field contains the special handling requirements here (e.g., ice specimen, deliver within two hours of obtaining).

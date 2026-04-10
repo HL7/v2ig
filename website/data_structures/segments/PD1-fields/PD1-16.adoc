@@ -1,4 +1,0 @@
-== PD1.16 - Immunization Registry Status (CWE)
-
-[segment-definition]
-This field identifies the immunization registry status of the patient. Refer to {{v2-table:0441:Immunization Registry Status}} in Chapter 2C, Code Tables, for suggested values.

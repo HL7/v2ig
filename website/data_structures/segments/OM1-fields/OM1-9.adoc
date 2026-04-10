@@ -1,4 +1,0 @@
-== OM1.9 - Preferred Report Name for the Observation (ST)
-
-[segment-definition]
-This field contains the preferred name for reporting the observation or battery. The name can contain up to 30 characters (including blanks). It is the preferred name for columnar reports that require a maximum name size.

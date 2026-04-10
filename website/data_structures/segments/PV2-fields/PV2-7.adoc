@@ -1,4 +1,0 @@
-== PV2.7 - Visit User Code (CWE)
-
-[segment-definition]
-This field further categorizes a patient's visit with respect to an individual institution's needs, and is expected to be site-specific. Refer to {{v2-table:0130:Visit User Code}} in Chapter 2C, Code Tables, for suggested values.

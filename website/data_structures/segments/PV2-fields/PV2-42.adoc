@@ -1,4 +1,0 @@
-== PV2.42 - Patient Condition Code (CWE)
-
-[segment-definition]
-This field indicates the patient's current medical condition for the purpose of communicating to non-medical outside parties, e.g., family, employer, religious minister, media, etc. Refer to {{v2-table:0434:Patient Condition Code}} in Chapter 2C, Code Tables, for suggested values.

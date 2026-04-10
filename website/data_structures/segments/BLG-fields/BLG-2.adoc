@@ -1,4 +1,0 @@
-== BLG.2 - Charge Type (ID)
-
-[segment-definition]
-This field identifies someone or something other than the patient to be billed for this service. It is used in conjunction with BLG-3-account ID. Refer to {{v2-table:0122:Charge Type}} in Chapter 2C, Code Tables, for valid values.

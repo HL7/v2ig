@@ -1,4 +1,0 @@
-== FT1.41 - Revenue Code (CWE)
-
-[segment-definition]
-This field contains the Revenue Code for the charge. If valued, this field will override the value in the Service Catalog. Refer to {{v2-table:0456:Revenue Code}} in Chapter 2C, Code Tables, for suggested values.

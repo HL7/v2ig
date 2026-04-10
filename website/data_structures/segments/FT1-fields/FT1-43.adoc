@@ -1,4 +1,0 @@
-== FT1.43 - NDC Qty and UOM (CQ)
-
-[segment-definition]
-This field contains the Drug Code Quantity and the Units of Measurement for the corresponding NDC-Code in _FT1-29 – NDC Code_.

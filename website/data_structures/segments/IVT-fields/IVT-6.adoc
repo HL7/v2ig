@@ -1,4 +1,0 @@
-== IVT.6 - Item Status (CWE)
-
-[segment-definition]
-This field contains the status that applies to the inventory supply item for the inventory location specified in IVT-2. Refer to {{v2-table:0625:Item Status Codes}} in Chapter 2C, Code Tables, for suggested values.

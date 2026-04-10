@@ -1,4 +1,0 @@
-== ECR.2 - ECR-2 (DTM)
-
-[segment-definition]
-This field contains the date and time that the receiving component completed the requested command.

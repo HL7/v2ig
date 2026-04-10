@@ -1,9 +1,0 @@
-== PRT.20 - Device Serial Number (ST)
-
-[segment-definition]
-Manufacturer’s serial number for this device.
-
-[segment-comment]
-CAUTION: See the related privacy considerations discussion in PRT-10.
-
-Example: |21A11F4855|

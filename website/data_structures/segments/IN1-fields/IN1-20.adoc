@@ -1,4 +1,0 @@
-== IN1.20 - Assignment Of Benefits (CWE)
-
-[segment-definition]
-This field indicates whether the insured agreed to assign the insurance benefits to the healthcare provider. If so, the insurance will pay the provider directly. Refer to {{v2-table:0135:Assignment of Benefits}} in Chapter 2C, Code Tables, for suggested values.

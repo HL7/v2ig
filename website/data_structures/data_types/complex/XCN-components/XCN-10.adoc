@@ -1,7 +1,0 @@
-== XCN.10 - Name Type Code (ID)
-
-[datatype-definition]
-A code that represents the type of name. Refer to {{v2-table:0200:Name Type}} for valid values. See Section _2A.2.90.7_, "_Name Type Code (ID)_".
-
-As of v 2.7, _XCN.10_ is conditional. It is required if _XCN.2_ is populated.
-

@@ -1,3 +1,0 @@
-=== Message response using the original processing rules
-[v291_section="2.8.2"]
-

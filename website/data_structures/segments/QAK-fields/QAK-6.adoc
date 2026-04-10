@@ -1,4 +1,0 @@
-== QAK.6 - Hits remaining (NM)
-
-[segment-definition]
-This field, when used, contains the number of matching records found by the Server that have yet to be sent. It is only meaningful when the Server uses the continuation protocol to transmit partial responses.

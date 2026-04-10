@@ -1,4 +1,0 @@
-== TXA.25 - Document Title (ST)
-
-[segment-definition]
-This field supports the identification of the document title. When communicating the meta information without the document contents you may submit the document title as well.

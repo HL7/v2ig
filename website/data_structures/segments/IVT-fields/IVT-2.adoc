@@ -1,4 +1,0 @@
-== IVT.2 - Inventory Location Identifier (EI)
-
-[segment-definition]
-This field contains the code identifying an inventory supply location that stocks or purchases this item.

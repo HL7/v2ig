@@ -1,4 +1,0 @@
-== SCH.14 - Placer Contact Address (XAD)
-
-[segment-definition]
-This field contains the address used to contact the _SCH-12-Placer Contact Person_.

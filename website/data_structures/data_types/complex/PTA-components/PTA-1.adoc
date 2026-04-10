@@ -1,7 +1,0 @@
-== PTA.1 - Policy Type (CWE)
-
-[datatype-definition]
-Specifies the policy type.
-
-Refer to {{v2-table:0147:Policy Type}} for suggested values.
-

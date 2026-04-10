@@ -1,4 +1,0 @@
-== SAC.48 - SAC-48 (CWE)
-
-[segment-definition]
-This field is the coded representation of the material composition (i.e. physical substance) of the container and may be considered to modify for further describe SAC-47 (Container Form). It may also indicate a virtual container in the cases of digitized specimens (e.g. scans obtained by whole slide imaging techniques, etc.). Refer to User-Defined Table 0968 for suggested values.

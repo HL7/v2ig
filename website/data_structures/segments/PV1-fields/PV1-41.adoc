@@ -1,4 +1,0 @@
-== PV1.41 - Account Status (CWE)
-
-[segment-definition]
-This field contains the account status. Refer to {{v2-table:0117:Account Status}} in Chapter 2C, Code Tables, for suggested values.

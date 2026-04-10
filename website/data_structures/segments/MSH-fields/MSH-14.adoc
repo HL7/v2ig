@@ -1,7 +1,0 @@
-== MSH.14 - Continuation Pointer (ST)
-
-[segment-definition]
-This field is used to define continuations in application-specific ways.
-
-[segment-comment]
-Only the sender of a fragmented message values this field.

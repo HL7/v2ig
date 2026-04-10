@@ -1,4 +1,0 @@
-== NK1.28 - Ethnic Group (CWE)
-
-[segment-definition]
-This field contains the next of kin/associated party's ethnic group. Refer to {{v2-table:0189:Ethnic Group}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.

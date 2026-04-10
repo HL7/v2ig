@@ -1,4 +1,0 @@
-== ADJ.3 - Adjustment Sequence Number (SI)
-
-[segment-definition]
-Unique sequence number for this adjustment – starts with 1, then 2, etc., for each unique adjustment for the Product/Service Line Item.

@@ -1,4 +1,0 @@
-== RXA.9 - Administration Notes (CWE)
-
-[segment-definition]
-This field contains notes from the provider administering the medication/treatment. If coded, requires a user-defined table. If free text (describing a custom IV, mixture, or salve, for example) place a null in the first component and the text in the second, e.g., |^this is a free text administration note|. Refer to Table 0691 - Administration Notes in Chapter 2C for valid values.

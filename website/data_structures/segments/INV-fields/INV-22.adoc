@@ -1,7 +1,0 @@
-== INV.22 - INV-22 (CQ)
-
-[segment-definition]
-The numeric value of the equipment state indicator specified in INV-21. The 1^st^ component defines the number and the 2^nd^ component the units of measurement.
-
-[segment-comment]
-This field is conditional. It is optional when INV‑21 “Equipment State Indicator Type Code” is populated and prohibited otherwise.

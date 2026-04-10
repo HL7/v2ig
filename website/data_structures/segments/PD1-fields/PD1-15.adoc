@@ -1,4 +1,0 @@
-== PD1.15 - Advance Directive Code (CWE)
-
-[segment-definition]
-This field indicates the patient's instructions to the healthcare facility. Refer to {{v2-table:0435:Advance Directive Code}} in Chapter 2C, Code Tables, for suggested values. See also _PV2-45 - Advance Directive Code_. When _PD1-22 - Advanced Directive Last Verified Date_ is valued, this field is required.

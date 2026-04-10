@@ -1,4 +1,0 @@
-== RXO.34 - Deliver-to Patient Location (PL)
-
-[segment-definition]
-This field specifies the location of the patient to whom the pharmaceutical substance is to be delivered.

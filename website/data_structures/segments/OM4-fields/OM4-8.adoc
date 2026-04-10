@@ -1,4 +1,0 @@
-== OM4.8 - Preparation (TX)
-
-[segment-definition]
-This field contains the special processing that should be applied to the container, e.g., add acidifying tablets before sending.

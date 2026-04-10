@@ -1,4 +1,0 @@
-== BTX.16 - BTX-16 (DTM)
-
-[segment-definition]
-This field indicates the date and time that the administrator started the transfusion of the blood component or commercial product.

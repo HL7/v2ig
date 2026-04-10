@@ -1,5 +1,0 @@
-== NDL.5 - Room (IS)
-
-[datatype-definition]
-Patient room. After point of care, it is the most general location designation. Refer to {{v2-table:0303:Room}} for suggested values.
-

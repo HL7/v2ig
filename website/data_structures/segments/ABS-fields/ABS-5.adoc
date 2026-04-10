@@ -1,4 +1,0 @@
-== ABS.5 - Attested By (XCN)
-
-[segment-definition]
-Identification number of the person (usually a provider) who reviewed and accepted the abstract of the medical record.

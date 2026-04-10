@@ -1,4 +1,0 @@
-== DON.13 - Process Interruption Reason (CNE)
-
-[segment-definition]
-Reason that the donation process was interrupted. Refer to {{v2-table:0935:Process Interruption Reason}} in Chapter 2C, Code Tables, for valid entries.

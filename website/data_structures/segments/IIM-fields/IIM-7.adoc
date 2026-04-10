@@ -1,4 +1,0 @@
-== IIM.7 - Inventory Received Date (DTM)
-
-[segment-definition]
-This field contains the most recent date that the product in question was received into inventory.

@@ -1,4 +1,0 @@
-== NK1.22 - Publicity Code (CWE)
-
-[segment-definition]
-This field indicates what level of publicity is allowed (e.g., No Publicity, Family Only) for the next of kin/associated party. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values.

@@ -1,4 +1,0 @@
-== OM7.1 - Sequence Number - Test/Observation Master File (NM)
-
-[segment-definition]
-This field contains the same value as the sequence number of the associated OM1 segment.

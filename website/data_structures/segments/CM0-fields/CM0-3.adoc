@@ -1,4 +1,0 @@
-== CM0.3 - Alternate Study ID (EI)
-
-[segment-definition]
-This field contains the local or collaborators' cross-referenced study numbers.

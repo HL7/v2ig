@@ -1,4 +1,0 @@
-== SAC.47 - SAC-47 (CWE)
-
-[segment-definition]
-This field is the coded representation of the format or type of the container (e.g. tube/vial, jar, bag, block, slide, etc.). Refer to User-Defined Table 0967 for suggested values.

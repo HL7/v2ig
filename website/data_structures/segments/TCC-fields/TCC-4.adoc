@@ -1,4 +1,0 @@
-== TCC.4 - TCC-4 (SN)
-
-[segment-definition]
-This field is the value that is to be used as the default factor for automatically diluting a specimen by an instrument for this particular test code. (See examples in definition of _13.3.3.29_, "_SAC-29 Dilution Factor_ (SN) 01356" in, "Specimen Container Detail Segment.")

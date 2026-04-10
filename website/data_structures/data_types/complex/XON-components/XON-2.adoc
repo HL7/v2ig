@@ -1,5 +1,0 @@
-== XON.2 - Organization Name Type Code (CWE)
-
-[datatype-definition]
-A code that represents the type of name i.e., legal name, display name. Refer to {{v2-table:0204:Organizational Name Type}} for suggested values.
-

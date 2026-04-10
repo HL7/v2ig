@@ -1,4 +1,0 @@
-== OM1.30 - Confidentiality Code (CWE)
-
-[segment-definition]
-This field contains the degree to which special confidentiality protection should be applied to the observation. For example, a tighter control may be applied to an HIV test than to a CBC. Refer to {{v2-table:0177:Confidentiality Code}} in Chapter 2C, Code Tables, for suggested values.

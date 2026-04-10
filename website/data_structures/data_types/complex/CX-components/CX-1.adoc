@@ -1,5 +1,0 @@
-== CX.1 - ID Number (ST)
-
-[datatype-definition]
-The value of the identifier itself.
-

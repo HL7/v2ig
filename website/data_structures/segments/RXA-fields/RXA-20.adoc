@@ -1,4 +1,0 @@
-== RXA.20 - Completion Status (ID)
-
-[segment-definition]
-Status of treatment administration event. Refer to {{v2-table:0322:Completion Status}} in Chapter 2C, Code Tables, for valid values.

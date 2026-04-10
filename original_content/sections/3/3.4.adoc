@@ -1,3 +1,0 @@
-== Message Segments
-[v291_section="3.4"]
-

@@ -1,4 +1,0 @@
-== CON.8 - Subject-specific Consent Background Text (FT)
-
-[segment-definition]
-Describes any additions or variations to the standard additional information that needs to be understood by the patient for informed consent. May include a description of benefits and risks that are specific to the subject from whom consent is sought. May also include an indication that there are *no* subject-specific risks/benefits.

@@ -1,5 +1,0 @@
-== XTN.2 - Telecommunication Use Code (ID)
-
-[datatype-definition]
-A code that represents a specific use of a telecommunication number. Refer to {{v2-table:0201:Telecommunication Use Code}} for valid values. This component along with _XTN.3_ describes the nature of the telecommunication data that follows. Best practice requires the population of _XTN.2_ when _XTN.4_ or _XTN.7_ is populated.
-

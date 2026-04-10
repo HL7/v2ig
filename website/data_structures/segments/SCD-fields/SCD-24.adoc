@@ -1,4 +1,0 @@
-== SCD.24 - Reset (CNE)
-
-[segment-definition]
-An indicator that specific anti-microbial device parameters have been set to system defaults. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.

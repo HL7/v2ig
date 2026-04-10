@@ -1,4 +1,0 @@
-== RXO.28 - Dispensing Interval (NM)
-
-[segment-definition]
-This field specifies the minimum number of days that must occur between dispensing events

@@ -1,4 +1,0 @@
-== SCD.14 - Control Temperature (CQ)
-
-[segment-definition]
-Amount of overdrive above the sterilize temperature.

@@ -1,4 +1,0 @@
-== EDU.4 - Academic Degree Program Participation Date Range (DR)
-
-[segment-definition]
-This field contains the date range during which the staff member participated in the academic degree program.

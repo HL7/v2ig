@@ -1,4 +1,0 @@
-== TCC.6 - TCC-6 (SN)
-
-[segment-definition]
-This field is the value that is to be used as the default factor for a specimen that is delivered to the laboratory automation system as pre-diluted for this particular test code.

@@ -1,4 +1,0 @@
-== PAC.3 - Parent Package ID (EI)
-
-[segment-definition]
-The parent package id identifies the package which contains this package. This is used to link a nested set of packages. For instance a shipping container may itself contain several smaller packages. These contained packages would identify the shipping container as their parent package. Multiple layers of nested packaging can be documented in this fashion.

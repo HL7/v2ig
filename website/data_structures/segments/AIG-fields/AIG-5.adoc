@@ -1,4 +1,0 @@
-== AIG.5 - Resource Group (CWE)
-
-[segment-definition]
-This field identifies the requested resource as a member of the indicated group. If, in a Schedule Request Message (SRM), no specific resource is requested, but a resource type is requested, this field can be used to further qualify the type of resource being requested.

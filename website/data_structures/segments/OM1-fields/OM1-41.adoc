@@ -1,4 +1,0 @@
-== OM1.41 - Description of Test Methods (TX)
-
-[segment-definition]
-This field contains the text description of the methods used to perform the text and generate the observations. Bibliographic citations may be included.

@@ -1,4 +1,0 @@
-== OH1.4 - Employment Status Start Date (DT)
-
-[segment-definition]
-This field asserts when the employment status began.

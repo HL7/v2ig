@@ -1,4 +1,0 @@
-== CON.9 - Consenter-imposed limitations (FT)
-
-[segment-definition]
-Describes any restrictions or limitations placed on their consent by the subject.

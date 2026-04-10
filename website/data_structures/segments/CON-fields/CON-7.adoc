@@ -1,4 +1,0 @@
-== CON.7 - Consent Background Information (FT)
-
-[segment-definition]
-Describes any additional information relating to the procedure/information release/event that needs to be understood by the subject for informed consent. May include the reason for the service, the expected benefit, risks, etc.

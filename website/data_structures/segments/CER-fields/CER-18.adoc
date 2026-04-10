@@ -1,4 +1,0 @@
-== CER.18 - CRL Distribution Point (CWE)
-
-[segment-definition]
-The Certificate Revocation List (CRL) Distribution Point extension SHALL identify the location of the associated CRL (or Authority Revocation List (ARL) for attribute certificates) in the PKI directory.

@@ -1,4 +1,0 @@
-== SAC.43 - SAC-43 (CWE)
-
-[segment-definition]
-This field describes any special handling considerations that are associated with the specimen in the specific container (e.g., centrifugation). This describes how the specimen needs to be stored during collection, in transit, and upon receipt. Refer to {{v2-table:0376:Special Handling Code}} in Chapter 2C, Code Tables, for valid values. 'The value set can be extended with user specific values.

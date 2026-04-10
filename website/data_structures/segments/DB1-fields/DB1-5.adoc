@@ -1,4 +1,0 @@
-== DB1.5 - Disability Start Date (DT)
-
-[segment-definition]
-This field specifies the date the person became disabled.

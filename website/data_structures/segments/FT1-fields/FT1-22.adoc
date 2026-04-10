@@ -1,4 +1,0 @@
-== FT1.22 - Unit Cost (CP)
-
-[segment-definition]
-This field contains the unit cost of transaction. The cost of a single item.

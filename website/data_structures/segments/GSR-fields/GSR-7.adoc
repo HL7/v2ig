@@ -1,4 +1,0 @@
-== GSR.7 - Source Document Jurisdiction for Recorded Sex or Gender (CWE)
-
-[segment-definition]
-This field contains the jurisdiction or organization that issued the document from which the recorded sex or gender was acquired. Refer to _User Defined HL7 Table 0827 – Jurisdiction Gender Type_ in Chapter 2C for suggested values.

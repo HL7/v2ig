@@ -1,4 +1,0 @@
-== ROL.7 - Role Duration (CWE)
-
-[segment-definition]
-// TODO: Add field definition

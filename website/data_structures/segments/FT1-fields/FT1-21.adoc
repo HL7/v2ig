@@ -1,4 +1,0 @@
-== FT1.21 - Ordered By Code (XCN)
-
-[segment-definition]
-This field contains the composite number/name of the person/group that ordered the test/ procedure/transaction, etc. As of v 2.7, if _XCN.1 - ID Number_ is populated, then the _XCN.13 - Identifier Type Code_ and the _XCN.9 - Assigning Authority_ or _XCN.22 - Assigning Jurisdiction_ or _XCN.23 - Assigning Agency or Department_ are required. If _XCN.2 - Family Name_ is populated, then the _XCN.10 - Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated. .

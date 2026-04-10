@@ -1,4 +1,0 @@
-== RXE.12 - Number of Refills (NM)
-
-[segment-definition]
-This field contains the total original number of refills. Outpatient only.

@@ -1,4 +1,0 @@
-== IAM.18 - Statused by Person (XCN)
-
-[segment-definition]
-This field identifies the provider who assigned the clinical status to the allergy (e.g., ...| S12345^EVERYMAN^ADAM^J^III^DR^MD|...).

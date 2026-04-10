@@ -1,7 +1,0 @@
-== SPM.29 - Specimen Child Role (CWE)
-
-[segment-definition]
-For child specimens, this field identifies the relationship between this specimen and the parent specimen. If this field is populated, then _SPM-3-Specimen Parent ID_ must be populated. This field differs from _SPM-15-Specimen Role_ in that this field refers to the role of this specimen relative to a parent role rather than the role of this specimen to the ordered service.
-
-[segment-comment]
-Refer to {{v2-table:0494:Specimen Child Role}} for valid values.

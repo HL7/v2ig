@@ -1,4 +1,0 @@
-== PR1.17 - Procedure DRG Type (CWE)
-
-[segment-definition]
-This field indicates a procedure's priority ranking relative to its DRG. Refer to {{v2-table:0416:Procedure DRG Type}} in Chapter 2C, Code Tables, for suggested values.

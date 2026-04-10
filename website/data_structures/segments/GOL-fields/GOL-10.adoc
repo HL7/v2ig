@@ -1,4 +1,0 @@
-== GOL.10 - Goal Management Discipline (CWE)
-
-[segment-definition]
-This field indicates the category of caregiver with responsibility for managing this specific goal (e.g., care team, nursing, medicine, respiratory therapy, occupational therapy, dietary etc.). This is a repeating field to allow identification of all disciplines that may have the responsibility for this goal.

@@ -1,5 +1,0 @@
-== SCV.1 - Parameter Class (CWE)
-
-[datatype-definition]
-The first component of this field is a code identifying the parameter or preference being passed to the filler application. Refer to {{v2-table:0294:Time Selection Criteria Parameter Class_ Codes}} for suggested values.
-

@@ -1,5 +1,0 @@
-== NDL.6 - Bed (IS)
-
-[datatype-definition]
-This component specifies the code for the patient's bed. After room, it is the most general location designation. Refer to {{v2-table:0304:Bed}} for suggested values.
-

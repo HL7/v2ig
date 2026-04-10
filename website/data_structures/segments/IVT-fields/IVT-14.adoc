@@ -1,4 +1,0 @@
-== IVT.14 - Item Importance Code (CWE)
-
-[segment-definition]
-This field contains an indicator of the level of importance of an item considered for this inventory location, such as an indicator signifying whether the item is considered critical for this inventory location. Refer to {{v2-table:0634:Item Importance Codes}} in Chapter 2C, Code Tables, for suggested values.

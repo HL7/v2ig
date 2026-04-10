@@ -1,4 +1,0 @@
-== NST.13 - Connect Timeouts (NM)
-
-[segment-definition]
-This field contains the number of connect timeout errors.

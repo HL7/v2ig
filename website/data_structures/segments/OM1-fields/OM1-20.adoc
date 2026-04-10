@@ -1,4 +1,0 @@
-== OM1.20 - Report Display Order (ST)
-
-[segment-definition]
-This field contains an optional string that defines the sort order in which this observation is presented in a standard report or display that contains the many observations.

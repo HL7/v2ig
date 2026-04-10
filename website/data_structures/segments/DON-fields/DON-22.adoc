@@ -1,4 +1,0 @@
-== DON.22 - Arm Stick (CNE)
-
-[segment-definition]
-The arm(s) stuck for the donation. Refer to {{v2-table:0927:Arm Stick}} in Chapter 2C, Code Tables, for valid entries.

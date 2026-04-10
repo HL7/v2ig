@@ -1,4 +1,0 @@
-== PDC.9 - Product Code (CWE)
-
-[segment-definition]
-This field contains the product code from an external coding system such as that used by the CDRH at the FDA. Refer to Table 0677 - Product Code in Chapter 2C for valid values.

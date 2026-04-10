@@ -1,4 +1,0 @@
-== IVC.13 - Last Invoice Indicator (ID)
-
-[segment-definition]
-Can be set to indicate that this is the last Invoice for a particular Case, Claim and/or Encounter (1). Refer to {{v2-table:0136:Yes/No Indicator}} for suggested values.

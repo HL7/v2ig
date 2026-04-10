@@ -1,4 +1,0 @@
-== TCC.12 - TCC-12 (SN)
-
-[segment-definition]
-This is the range over which the equipment can produce results.

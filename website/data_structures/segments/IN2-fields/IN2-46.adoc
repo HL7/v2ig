@@ -1,4 +1,0 @@
-== IN2.46 - Job Title (ST)
-
-[segment-definition]
-This field contains a descriptive name for the insured's occupation (for example, Sr. Systems Analyst, Sr. Accountant).

@@ -1,4 +1,0 @@
-== AUT.11 - Requested Discipline(s) (CWE)
-
-[segment-definition]
-Discipline – The scope of medical service(s) for which reimbursement for services rendered is requested. Examples include Physiotherapy, Occupational Therapy, Speech, etc. This field contains the requested discipline(s). Refer to Table 0522 - Requested Discipline(s) in Chapter 2C for valid values.

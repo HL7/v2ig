@@ -1,4 +1,0 @@
-== IPR.6 - Adjudicated/Paid Amount (CP)
-
-[segment-definition]
-Adjudicated Amount for the Product/Service Group or Product/Service Line Item, which could be 0 = sum of all Payer adjustments (Adjustment Amount on ADJ).

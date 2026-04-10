@@ -1,4 +1,0 @@
-== IN1.46 - Prior Insurance Plan ID (CWE)
-
-[segment-definition]
-This field uniquely identifies the prior insurance plan when the plan ID changes. Refer to {{v2-table:0072:Insurance Plan ID}} in Chapter 2C, Code Tables, for suggested values.

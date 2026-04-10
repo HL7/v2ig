@@ -1,4 +1,0 @@
-== GP2.5 - Denial or Rejection Code (CWE)
-
-[segment-definition]
-This field determines the OCE status of the line item. Refer to {{v2-table:0460:Denial or Rejection Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.

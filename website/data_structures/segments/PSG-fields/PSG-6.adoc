@@ -1,4 +1,0 @@
-== PSG.6 - Product/Service Group Description (ST)
-
-[segment-definition]
-Product/Service Group description or heading

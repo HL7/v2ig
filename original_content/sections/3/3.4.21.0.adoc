@@ -1,3 +1,0 @@
-==== GSC field definitions
-[v291_section="3.4.21.0"]
-

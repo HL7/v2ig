@@ -1,4 +1,0 @@
-== PV1.32 - Bad Debt Transfer Amount (NM)
-
-[segment-definition]
-This field contains the amount that was transferred to a bad debt status.

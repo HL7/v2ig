@@ -1,4 +1,0 @@
-== DRG.31 - Status Weight at Birth (CWE)
-
-[segment-definition]
-This field contains the status of the use of the weight at birth information for DRG determination. Refer to {{v2-table:0755:DRG Status Weight At Birth}} in Chapter 2C, Code Tables, for suggested values.

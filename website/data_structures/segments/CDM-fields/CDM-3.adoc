@@ -1,4 +1,0 @@
-== CDM.3 - Charge Description Short (ST)
-
-[segment-definition]
-This field contains the text abbreviations or code that is associated with this CDM entry.

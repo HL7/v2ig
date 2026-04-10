@@ -1,4 +1,0 @@
-== IVT.3 - Inventory Location Name (ST)
-
-[segment-definition]
-This field contains the name of the inventory supply location identified in _IVT-2, Inventory Location Identifier_.

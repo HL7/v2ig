@@ -1,4 +1,0 @@
-== DMI.4 - Average Length of Stay (NM)
-
-[segment-definition]
-This field contains the average length of stay in days, calculated as the geometric mean value, allocated to the determined DRG.

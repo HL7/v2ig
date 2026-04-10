@@ -1,4 +1,0 @@
-== CDM.9 - Inventory Number (CWE)
-
-[segment-definition]
-This optional field contains an identifying stock number, if any, which might be used, for example, as a cross reference for materials management. Refer to {{v2-table:0463:Inventory number}} in Chapter 2C, Code Tables, for suggested values.

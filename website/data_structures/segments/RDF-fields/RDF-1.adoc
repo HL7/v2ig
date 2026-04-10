@@ -1,4 +1,0 @@
-== RDF.1 - Number of Columns per Row (NM)
-
-[segment-definition]
-This field specifies the number of data columns (and therefore the number of fields) contained within each row of returned data.

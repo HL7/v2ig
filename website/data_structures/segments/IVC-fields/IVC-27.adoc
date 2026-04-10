@@ -1,4 +1,0 @@
-== IVC.27 - Payer Tax ID (ST)
-
-[segment-definition]
-The Tax ID of the Payer (general Tax identification number or VAT number)

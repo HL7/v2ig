@@ -1,4 +1,0 @@
-== DRG.29 - Status Same Day Flag (CWE)
-
-[segment-definition]
-This field contains the status of the use of the same day information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.

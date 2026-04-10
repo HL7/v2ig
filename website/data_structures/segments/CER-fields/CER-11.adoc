@@ -1,4 +1,0 @@
-== CER.11 - Certificate Domain (CWE)
-
-[segment-definition]
-This field specifies the subject area to which the certificate is applicable, e.g., administrative, medical, or nursing issues.

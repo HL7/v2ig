@@ -1,4 +1,0 @@
-== PRD.10 - Provider Organization Name and Identifier (XON)
-
-[segment-definition]
-This field contains the name of the provider where the provider is an organization.

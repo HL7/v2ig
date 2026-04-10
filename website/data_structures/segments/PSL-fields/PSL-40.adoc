@@ -1,4 +1,0 @@
-== PSL.40 - TP-Value Technical Part (CP)
-
-[segment-definition]
-Monetary Value of one "point" for the technical part of the service.

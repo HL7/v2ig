@@ -1,4 +1,0 @@
-== OM4.12 - Specimen Requirements (TX)
-
-[segment-definition]
-This field contains the other requirements for specimen delivery and special handling (e.g., delivery within one hour, iced).

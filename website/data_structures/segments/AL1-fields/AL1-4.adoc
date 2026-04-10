@@ -1,4 +1,0 @@
-== AL1.4 - Allergy Severity Code (CWE)
-
-[segment-definition]
-This field indicates the general severity of the allergy. Refer to {{v2-table:0128:Allergy Severity}} in Chapter 2C, Code Tables, for valid values.

@@ -1,4 +1,0 @@
-== OM3.5 - Abnormal Text/Codes for Categorical Observations (CWE)
-
-[segment-definition]
-This field contains the list of the text answers that are abnormal for the test. Refer to Table 0655 - Abnormal Text/Codes for Categorical Observations in Chapter 2C for valid values.

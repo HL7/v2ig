@@ -1,7 +1,0 @@
-== GOL.15 - Goal Review Interval
-
-[segment-definition]
-// TODO: Add field definition
-
-[segment-comment]
-*_As of Version 2.5, this field was retained for backward compatibility only and withdrawn and removed as of v2.7._* Refer to the TQ1 segment described in Chapter 4.

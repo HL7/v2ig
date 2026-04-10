@@ -1,3 +1,0 @@
-==== TXA Field Definitions
-[v291_section="9.7.3.0"]
-

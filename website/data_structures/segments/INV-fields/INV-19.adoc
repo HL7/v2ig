@@ -1,7 +1,0 @@
-== INV.19 - INV-19 (CQ)
-
-[segment-definition]
-This field is the duration of time that the calibration/usability of the substance is stable. The duration is used to calculate the date/time when this calibration is no longer valid by adding this "On board stability time" (INV-19) to the "First used date / time" (INV-13).
-
-[segment-comment]
-The 1^st^ component defines the time quantity and the 2^nd^ component the time units (see {{v2-table:0255:Duration Categories}}). Recommended accuracy is "minutes", "hours" and "days".

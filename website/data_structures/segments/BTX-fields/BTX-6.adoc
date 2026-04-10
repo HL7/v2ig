@@ -1,7 +1,0 @@
-== BTX.6 - BTX-6 (XON)
-
-[segment-definition]
-This field identifies the manufacturer of the commercial product. The manufacturer may not be the same as the supplier of the commercial product.
-
-[segment-comment]
-This field is required for commercial blood products and is not applicable for blood component messages.

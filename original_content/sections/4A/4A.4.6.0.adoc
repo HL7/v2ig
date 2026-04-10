@@ -1,3 +1,0 @@
-==== RXG fields definitions
-[v291_section="4A.4.6.0"]
-

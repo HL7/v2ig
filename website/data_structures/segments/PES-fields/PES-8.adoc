@@ -1,4 +1,0 @@
-== PES.8 - Sender Comment (FT)
-
-[segment-definition]
-This field contains the text commentary regarding the report being made, such as disclaimers, which is not necessarily part of the report.

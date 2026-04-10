@@ -1,9 +1,0 @@
-== IN2.37 - Protection Indicator (ID)
-
-[segment-definition]
-This field identifies the insured's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.
-
-[segment-comment]
-Y Restrict access
-
-N Do not restrict access

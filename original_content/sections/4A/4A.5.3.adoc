@@ -1,3 +1,0 @@
-=== RXD segment field examples
-[v291_section="4A.5.3"]
-

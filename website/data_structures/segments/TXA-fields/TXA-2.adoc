@@ -1,4 +1,0 @@
-== TXA.2 - Document Type (CWE)
-
-[segment-definition]
-This field identifies the type of document (as defined in the transcription system). Refer to {{v2-table:0270:Document Type}} for suggested values. The organization is free to add more entries. Receivers are required to inspect the Coding System component of the CWE data type to accurately interpret the meaning of the code. Senders transmitting messages to Receivers on earlier version of the standard may elect to negotiate business rules to ensure that expected data is not lost. HL7 does not assign positional meaning to user-defined codes.

@@ -1,4 +1,0 @@
-== RXV.22 - Action Code (ID)
-
-[segment-definition]
-The intended handling by the receiver of the infusion order is represented by this segment. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.

@@ -1,3 +1,0 @@
-== Use of escape sequences in fields
-[v291_section="2.6"]
-

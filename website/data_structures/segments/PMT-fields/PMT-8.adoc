@@ -1,4 +1,0 @@
-== PMT.8 - Payee Bank Identification (XON)
-
-[segment-definition]
-Identification of Payee's financial contact, e.g., name of the bank .

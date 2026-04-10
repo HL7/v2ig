@@ -1,4 +1,0 @@
-== FT1.34 - Item Number (CWE)
-
-[segment-definition]
-This field contains the Item Number for a product. If valued, this field will override the value in the Service Catalog. Item Number (along with Model Number) can be seen as a supplemental number for specific equipment or inventory-related charges.

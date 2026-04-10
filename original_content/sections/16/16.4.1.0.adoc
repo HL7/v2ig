@@ -1,3 +1,0 @@
-==== RFI field definitions
-[v291_section="16.4.1.0"]
-

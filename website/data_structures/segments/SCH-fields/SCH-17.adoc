@@ -1,4 +1,0 @@
-== SCH.17 - Filler Contact Phone Number (XTN)
-
-[segment-definition]
-This field contains the phone number used to contact the _SCH-16-Filler Contact Person_.

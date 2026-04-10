@@ -1,4 +1,0 @@
-== NK1.7 - Contact Role (CWE)
-
-[segment-definition]
-This field indicates the specific relationship role. Refer to {{v2-table:0131:Contact Role}} in Chapter 2C, Code Tables, for suggested values. This field specifies the role that the next of kin/associated parties plays with regard to the patient.

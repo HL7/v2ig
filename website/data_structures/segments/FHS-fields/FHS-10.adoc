@@ -1,4 +1,0 @@
-== FHS.10 - File Header Comment (ST)
-
-[segment-definition]
-This field contains the free text field, the use of which is not further specified.

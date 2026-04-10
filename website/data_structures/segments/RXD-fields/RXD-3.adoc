@@ -1,4 +1,0 @@
-== RXD.3 - Date/Time Dispensed (DTM)
-
-[segment-definition]
-This field indicates when the pharmaceutical/treatment is dispensed from the pharmacy or treatment supplier. Use the time stamp format.

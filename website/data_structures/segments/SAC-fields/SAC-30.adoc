@@ -1,4 +1,0 @@
-== SAC.30 - SAC-30 (CWE)
-
-[segment-definition]
-This field identifies the specimen treatment performed during lab processing. Refer to {{v2-table:0373:Treatment}} in chapter 2C for valid values. This table's values are taken from _NCCLS AUTO4_. The value set can be extended with user specific values.

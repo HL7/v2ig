@@ -1,4 +1,0 @@
-== NK1.36 - Handicap (CWE)
-
-[segment-definition]
-This field contains the code that describes an associated party's disability. Refer to {{v2-table:0295:Handicap}} in Chapter 2C, Code Tables, for suggested values.

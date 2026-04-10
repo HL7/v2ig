@@ -1,4 +1,0 @@
-== ABS.1 - Discharge Care Provider (XCN)
-
-[segment-definition]
-Identification number of the provider responsible for the discharge of the patient from his/her care. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.

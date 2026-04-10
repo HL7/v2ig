@@ -1,4 +1,0 @@
-== RF1.24 - Comment (ST)
-
-[segment-definition]
-The comment allows for a free text capture of any notes the user wishes to capture related to the referral. This is a single notes field that allows the user to add additional text over time, or replace the text that already exists.

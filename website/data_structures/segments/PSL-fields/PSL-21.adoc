@@ -1,4 +1,0 @@
-== PSL.21 - Restricted Disclosure Indicator (ID)
-
-[segment-definition]
-Set to "Yes" if information on this invoice should be treated with increased confidentiality/security. Refer to {{v2-table:0532:Expanded Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values.

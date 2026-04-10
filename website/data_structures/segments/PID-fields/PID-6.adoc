@@ -1,4 +1,0 @@
-== PID.6 - Mother's Maiden Name (XPN)
-
-[segment-definition]
-This field contains the family name under which the mother was born (i.e., before marriage). It is used to distinguish between patients with the same last name.

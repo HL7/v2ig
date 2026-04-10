@@ -1,4 +1,0 @@
-== RXG.15 - Give Rate Amount (ST)
-
-[segment-definition]
-This field contains the amount (number) of substance/treatment to be administered.

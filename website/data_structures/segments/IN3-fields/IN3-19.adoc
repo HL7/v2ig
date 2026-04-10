@@ -1,4 +1,0 @@
-== IN3.19 - Certification Agency Phone Number (XTN)
-
-[segment-definition]
-This field contains the phone number of the certification agency.

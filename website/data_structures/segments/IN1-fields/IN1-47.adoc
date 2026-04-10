@@ -1,4 +1,0 @@
-== IN1.47 - Coverage Type (CWE)
-
-[segment-definition]
-This field contains the coding structure that identifies the type of insurance coverage, or what types of services are covered for the purposes of a billing system. For example, a physician billing system will only want to receive insurance information for plans that cover physician/professional charges. Refer to {{v2-table:0309:Coverage Type}} in Chapter 2C, Code Tables, for suggested values.

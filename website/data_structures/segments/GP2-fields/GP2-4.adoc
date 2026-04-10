@@ -1,4 +1,0 @@
-== GP2.4 - Reimbursement Action Code (CWE)
-
-[segment-definition]
-This field identifies the action to be taken during reimbursement calculations. If valued, this code overrides the value in link:#gp2-6-oce-edit-code-cwe-01608[_GP2-6 - OCE Edit Code_]. Refer to {{v2-table:0459:Reimbursement Action Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies
