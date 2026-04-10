@@ -997,3 +997,62 @@ All pushed to `origin/feature/006-sd-injection`.
 - **Branch topology**: `main` = `dev/framework` = `057d968d`. `build` = `99182522` (2 commits ahead: ig.ini + preprocessed content). `feature/006-sd-injection` = same as `main` (can be safely deleted).
 - **`push-to-build.sh` workflow**: Run from any branch. Checks clean tree → switches to `build` → merges source → preprocesses → commits → pushes → switches back. Use `--remote` for postproc-g preprocessing.
 - **`ig.ini` is gitignored** on all branches except `build` — prevents accidental auto-ig-builder triggers.
+
+---
+
+## Session Handoff - 2026-04-10
+
+### Completed This Session
+
+1. **Auto-ig-builder diagnosis**: Build at `build.fhir.org` failed because `.js` files in `local-template/` are rejected by the template trust policy. Fixed by inlining JS into HTML fragments (ADR-0004). Also inlined `v2-table-filter.js`.
+
+2. **Message structure title fix**: All 418 message structure JSON files had title "Segment Definition" — changed to "Message Structure".
+
+3. **Restored classic bracket notation tab**: Re-added `addTab('v2-classic-content', ...)` for message structure pages (not message pages). This was removed in a prior session but should be present on message structure pages.
+
+4. **v2plusDemo-style HL7 Attribute Table**: Updated CSS to match v2plusDemo — alternating row banding (#EEE/white), Verdana font, proper padding. Column order: Seq#, Data Element Name, DataType, Usage, Vocabulary, Cardinality, Item#, Length, C.LEN, Flags. Item# links to IG Publisher Detailed Descriptions tab.
+
+5. **CamelCase element IDs**: Renamed 2,912 element IDs across 190 segments from `OBX.1` to `OBX.1-setId` format so IG Publisher differential/snapshot tables show meaningful names. Updated `generate_segment_pages.py`, `inject_segment_definitions.py`, `extract_field_names.py` to handle new format. IG Publisher has 64-char limit on name portion — OM1.56 was the only offender (manually shortened).
+
+6. **Build branch cleanup**: Removed 5,283 development files from `build` branch tracking. Only IG Publisher essentials remain: `ig.ini`, `input/`, `local-template/`, IG scripts.
+
+7. **Reworked `push-to-build.sh`**: No longer merges — uses `git checkout main -- <paths>` to copy only IG-relevant files. Always pulls from `main`. Enforces workflow: dev branch → main → build.
+
+**Commits (on `dev/framework`):**
+- `e12892fb` — Fix message structure titles, inline JS, restore classic tab
+- `85214c63` — Add camelCase element IDs, v2plusDemo-style attribute table, definitions links
+- `7c52569c` — Rework push-to-build.sh: copy from main instead of merge
+- `274339cb` — Fix OM1.56 element ID exceeding 64-char limit
+- `cf63fd70` — Improve 64-char truncation to cut at camelCase word boundary
+
+**Commits (on `build`):**
+- `58dbdb23` — Clean build branch: remove development files
+
+### Current State
+- Branch: `dev/framework` (5 commits ahead of origin, not pushed)
+- `build` branch: cleaned up, user kicked off a postproc-g build to test
+- Tests: 86 segment page tests + 41 injection tests passing (127 total)
+- Working tree: clean (2 untracked .tiff files)
+- **Not yet merged to main** — dev/framework has all the new work
+
+### Next Steps
+1. **Check postproc-g build results** — verify the OM1.56 fix resolved the snapshot error and the full build completes
+2. **Review build output** — check camelCase names render correctly in IG Publisher differential/snapshot tables, verify attribute table styling, verify message structure classic tab appears
+3. **Merge dev/framework → main** — once build is verified
+4. **Push to auto-ig-builder** — run `./push-to-build.sh` (from main) to trigger build.fhir.org build, verify the inlined JS workaround resolves the trust rejection
+5. **Continue styling work** — heading depth (h6 ceiling), further v2plusDemo alignment
+6. **Populate segment root definitions** — 192 segments with `// TODO:` placeholders
+7. **Clean up old branches** — `feature/006-sd-injection` can be deleted
+
+### Open Questions / Blockers
+- **Auto-ig-builder timeout** — full build may exceed CI time limits; first successful build will tell us
+- **h6 ceiling** — deeply nested AsciiDoc content (5+ levels) still caps at h6
+- **User reverted some files** — CSS, test, and several scripts were modified externally (reverted to pre-styling versions in some cases). The committed code should be authoritative; check if regeneration is needed after merge.
+- **Untracked .tiff files** — `input/images/merge.tiff` and `pharmacy_transaction_flow.tiff` still untracked
+
+### Relevant Context
+- **Branch topology**: `dev/framework` = `cf63fd70` (5 ahead of origin). `build` = `58dbdb23` (cleaned). `main` = `057d968d` (behind dev/framework).
+- **`push-to-build.sh` workflow**: Always pulls from `main` → `build`. No `--branch` flag. Dev work must be merged to main first.
+- **JS inlining**: Both `v2-classic-tabs.js` and `v2-table-filter.js` are inlined in HTML fragments. If auto-ig-builder trust policy changes, reverse per ADR-0004.
+- **Element ID format**: `{SEG}.{seq}-{camelCase}` (e.g., `OBX.1-setId`). 64-char max on portion after the dot. Only OM1.56 needed manual shortening.
+- **User indicated** that some files were externally modified (CSS reverted to simpler version, test assertions reverted, inject script reverted). These were noted as intentional. Next session should verify the committed state matches expectations.
