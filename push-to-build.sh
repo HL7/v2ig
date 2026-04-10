@@ -3,14 +3,22 @@ set -euo pipefail
 
 # Push to Build Branch
 #
-# Turnkey script that merges the current (or specified) branch into 'build',
+# Copies IG Publisher-relevant files from main into the 'build' branch,
 # runs preprocessing, commits the results, and pushes to origin.
 #
+# Always pulls from main. The intended workflow is:
+#   1. Work on dev/framework or topic branches
+#   2. Merge into main when ready (after local build testing)
+#   3. Run this script to publish via auto-ig-builder
+#
+# Only the files the auto-ig-builder needs are copied (input/,
+# local-template/, IG Publisher scripts). Development artifacts
+# (tooling/, test/, website/, docs/, etc.) never touch the build branch.
+#
 # Usage:
-#   ./push-to-build.sh                    # merge current branch, preprocess locally
+#   ./push-to-build.sh                    # preprocess locally
 #   ./push-to-build.sh --remote           # preprocess on postproc-g (faster)
-#   ./push-to-build.sh --branch main      # merge a specific branch
-#   ./push-to-build.sh --no-preprocess    # skip preprocessing (just merge and push)
+#   ./push-to-build.sh --no-preprocess    # skip preprocessing (just copy and push)
 #
 # Prerequisites:
 #   - 'build' branch must already exist (created once with ig.ini)
@@ -21,7 +29,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "${SCRIPT_DIR}"
 
 # Parse arguments
-SOURCE_BRANCH=""
+SOURCE_BRANCH="main"
 USE_REMOTE=false
 SKIP_PREPROCESS=false
 
@@ -29,9 +37,8 @@ while [[ $# -gt 0 ]]; do
     case "$1" in
         --remote)       USE_REMOTE=true; shift ;;
         --no-preprocess) SKIP_PREPROCESS=true; shift ;;
-        --branch)       SOURCE_BRANCH="$2"; shift 2 ;;
         -h|--help)
-            sed -n '3,13p' "$0" | sed 's/^# \?//'
+            sed -n '3,21p' "$0" | sed 's/^# \?//'
             exit 0
             ;;
         *)
@@ -41,16 +48,6 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Determine source branch
-if [ -z "$SOURCE_BRANCH" ]; then
-    SOURCE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-fi
-
-if [ "$SOURCE_BRANCH" = "build" ]; then
-    echo "Error: source branch cannot be 'build' (that's the target)." >&2
-    exit 1
-fi
-
 # Ensure working tree is clean
 if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "Error: working tree has uncommitted changes. Commit or stash first." >&2
@@ -59,28 +56,47 @@ fi
 
 ORIGINAL_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 echo "=== Push to Build ==="
-echo "  Source: ${SOURCE_BRANCH}"
+echo "  Source: main → build"
 echo "  Remote preprocessing: ${USE_REMOTE}"
 echo ""
 
-# Step 1: Switch to build branch and merge
-echo "--- Merging ${SOURCE_BRANCH} into build... ---"
+# Step 1: Switch to build branch and copy files from source
+echo "--- Copying IG Publisher files from ${SOURCE_BRANCH}... ---"
 git checkout build
-MERGE_RESULT=$(git merge "${SOURCE_BRANCH}" --no-edit 2>&1) || {
-    echo "Merge conflict! Resolve manually on the build branch." >&2
+
+# Copy only the paths the auto-ig-builder needs
+git checkout "${SOURCE_BRANCH}" -- \
+    input/ \
+    local-template/ \
+    _genonce.sh _gencontinuous.sh \
+    _genonce.bat _gencontinuous.bat \
+    _updatePublisher.sh _updatePublisher.bat \
+    .gitignore \
+    2>&1 || {
+    echo "Error copying files from ${SOURCE_BRANCH}." >&2
+    git checkout "${ORIGINAL_BRANCH}"
     exit 1
 }
-echo "$MERGE_RESULT"
+echo "  Files copied from ${SOURCE_BRANCH}"
 echo ""
 
-# Step 2: Run preprocessing
+# Step 2: Run preprocessing (needs tooling/ from source branch temporarily)
 if [ "$SKIP_PREPROCESS" = true ]; then
     echo "--- Skipping preprocessing (--no-preprocess) ---"
 elif [ "$USE_REMOTE" = true ]; then
     echo "--- Preprocessing on postproc-g... ---"
+    # Temporarily check out the preprocessing scripts
+    git checkout "${SOURCE_BRANCH}" -- tooling/preprocess.sh apptainer/remote-build.sh
     ./apptainer/remote-build.sh preprocess-fetch
+    # Remove the temp scripts from staging
+    git rm -f --cached tooling/preprocess.sh apptainer/remote-build.sh 2>/dev/null || true
+    rm -f tooling/preprocess.sh apptainer/remote-build.sh
+    rmdir tooling 2>/dev/null || true
+    rmdir apptainer 2>/dev/null || true
 else
     echo "--- Preprocessing locally... ---"
+    # Temporarily check out tooling for preprocessing
+    git checkout "${SOURCE_BRANCH}" -- tooling/
     # Set up Ruby env if available
     if [ -d "/home/claude/ruby/arm64" ]; then
         export LD_LIBRARY_PATH="/home/claude/ruby/arm64/lib:${LD_LIBRARY_PATH:-}"
@@ -88,27 +104,29 @@ else
         export GEM_PATH="/tmp/gems:/home/claude/ruby/arm64/lib/ruby/gems/3.2.0"
     fi
     bash tooling/preprocess.sh
+    # Remove tooling from staging — it shouldn't be committed to build
+    git rm -rf --cached tooling/ 2>/dev/null || true
+    rm -rf tooling/
 fi
 echo ""
 
-# Step 3: Stage preprocessed output
-echo "--- Staging preprocessed files... ---"
-git add input/pagecontent/ input/includes/
-git add input/images/*.png 2>/dev/null || true
-git add input/v2plus.xml input/v2plus-subset.xml 2>/dev/null || true
+# Step 3: Stage the updated files
+echo "--- Staging files... ---"
+git add input/ local-template/
+git add _genonce.sh _gencontinuous.sh _genonce.bat _gencontinuous.bat \
+    _updatePublisher.sh _updatePublisher.bat .gitignore 2>/dev/null || true
 
 # Check if there's anything to commit
 if git diff --cached --quiet; then
-    echo "No preprocessing changes to commit."
+    echo "No changes to commit."
 else
     CHANGED=$(git diff --cached --stat | tail -1)
     echo "  ${CHANGED}"
 
     git commit -m "$(cat <<EOF
-Update preprocessed content from ${SOURCE_BRANCH}
+Update from ${SOURCE_BRANCH}
 
-Auto-generated by push-to-build.sh. Includes segment intro pages,
-message/structure intro pages, domain pages, and images.
+Auto-generated by push-to-build.sh.
 
 Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 EOF
