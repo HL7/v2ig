@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AG Segment Definition",
+  "title": "HL7 v2 ACK-AG Message Structure",
   "name": "ACK-AG",
   "type": "ACK-AG",
   "fhirVersion": "5.0.0",

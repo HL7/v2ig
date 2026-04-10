@@ -266,7 +266,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A45 Segment Definition",
+  "title": "HL7 v2 ADT_A45 Message Structure",
   "name": "ADT_A45",
   "type": "ADT_A45",
   "fhirVersion": "5.0.0",

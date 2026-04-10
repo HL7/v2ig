@@ -267,7 +267,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M19 Segment Definition",
+  "title": "HL7 v2 MFN_M19 Message Structure",
   "name": "MFN_M19",
   "type": "MFN_M19",
   "fhirVersion": "5.0.0",

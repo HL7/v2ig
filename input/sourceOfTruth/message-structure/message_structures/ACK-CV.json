@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CV Segment Definition",
+  "title": "HL7 v2 ACK-CV Message Structure",
   "name": "ACK-CV",
   "type": "ACK-CV",
   "fhirVersion": "5.0.0",

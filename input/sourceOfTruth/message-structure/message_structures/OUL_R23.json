@@ -1163,7 +1163,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OUL_R23 Segment Definition",
+  "title": "HL7 v2 OUL_R23 Message Structure",
   "name": "OUL_R23",
   "type": "OUL_R23",
   "fhirVersion": "5.0.0",

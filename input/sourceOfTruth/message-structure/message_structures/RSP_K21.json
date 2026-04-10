@@ -412,7 +412,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K21 Segment Definition",
+  "title": "HL7 v2 RSP_K21 Message Structure",
   "name": "RSP_K21",
   "type": "RSP_K21",
   "fhirVersion": "5.0.0",

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CJ Segment Definition",
+  "title": "HL7 v2 ACK-CJ Message Structure",
   "name": "ACK-CJ",
   "type": "ACK-CJ",
   "fhirVersion": "5.0.0",

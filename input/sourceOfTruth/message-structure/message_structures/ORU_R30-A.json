@@ -698,7 +698,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORU_R30-A Segment Definition",
+  "title": "HL7 v2 ORU_R30-A Message Structure",
   "name": "ORU_R30-A",
   "type": "ORU_R30-A",
   "fhirVersion": "5.0.0",

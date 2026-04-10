@@ -323,7 +323,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A21-F Segment Definition",
+  "title": "HL7 v2 ADT_A21-F Message Structure",
   "name": "ADT_A21-F",
   "type": "ADT_A21-F",
   "fhirVersion": "5.0.0",

@@ -744,7 +744,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CSU_C09 Segment Definition",
+  "title": "HL7 v2 CSU_C09 Message Structure",
   "name": "CSU_C09",
   "type": "CSU_C09",
   "fhirVersion": "5.0.0",

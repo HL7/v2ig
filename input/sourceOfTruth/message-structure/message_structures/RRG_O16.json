@@ -464,7 +464,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRG_O16 Segment Definition",
+  "title": "HL7 v2 RRG_O16 Message Structure",
   "name": "RRG_O16",
   "type": "RRG_O16",
   "fhirVersion": "5.0.0",

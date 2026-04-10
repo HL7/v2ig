@@ -209,7 +209,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BAR_P02 Segment Definition",
+  "title": "HL7 v2 BAR_P02 Message Structure",
   "name": "BAR_P02",
   "type": "BAR_P02",
   "fhirVersion": "5.0.0",

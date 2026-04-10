@@ -782,7 +782,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_Z82 Segment Definition",
+  "title": "HL7 v2 RSP_Z82 Message Structure",
   "name": "RSP_Z82",
   "type": "RSP_Z82",
   "fhirVersion": "5.0.0",

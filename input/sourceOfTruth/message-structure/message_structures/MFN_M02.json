@@ -323,7 +323,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M02 Segment Definition",
+  "title": "HL7 v2 MFN_M02 Message Structure",
   "name": "MFN_M02",
   "type": "MFN_M02",
   "fhirVersion": "5.0.0",

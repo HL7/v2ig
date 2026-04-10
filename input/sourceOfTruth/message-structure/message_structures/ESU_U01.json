@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ESU_U01 Segment Definition",
+  "title": "HL7 v2 ESU_U01 Message Structure",
   "name": "ESU_U01",
   "type": "ESU_U01",
   "fhirVersion": "5.0.0",

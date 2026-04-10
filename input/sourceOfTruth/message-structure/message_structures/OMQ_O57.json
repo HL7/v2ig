@@ -1321,7 +1321,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMQ_O57 Segment Definition",
+  "title": "HL7 v2 OMQ_O57 Message Structure",
   "name": "OMQ_O57",
   "type": "OMQ_O57",
   "fhirVersion": "5.0.0",

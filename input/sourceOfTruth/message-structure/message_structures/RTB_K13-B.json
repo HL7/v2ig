@@ -228,7 +228,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RTB_K13-B Segment Definition",
+  "title": "HL7 v2 RTB_K13-B Message Structure",
   "name": "RTB_K13-B",
   "type": "RTB_K13-B",
   "fhirVersion": "5.0.0",

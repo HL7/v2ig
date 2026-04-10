@@ -578,7 +578,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SIU_S12 Segment Definition",
+  "title": "HL7 v2 SIU_S12 Message Structure",
   "name": "SIU_S12",
   "type": "SIU_S12",
   "fhirVersion": "5.0.0",

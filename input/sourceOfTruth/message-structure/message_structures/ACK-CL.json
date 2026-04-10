@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CL Segment Definition",
+  "title": "HL7 v2 ACK-CL Message Structure",
   "name": "ACK-CL",
   "type": "ACK-CL",
   "fhirVersion": "5.0.0",

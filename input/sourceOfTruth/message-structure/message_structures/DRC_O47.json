@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DRC_O47 Segment Definition",
+  "title": "HL7 v2 DRC_O47 Message Structure",
   "name": "DRC_O47",
   "type": "DRC_O47",
   "fhirVersion": "5.0.0",

@@ -203,7 +203,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_E03 Segment Definition",
+  "title": "HL7 v2 RSP_E03 Message Structure",
   "name": "RSP_E03",
   "type": "RSP_E03",
   "fhirVersion": "5.0.0",

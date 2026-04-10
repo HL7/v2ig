@@ -209,7 +209,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RPL_I02 Segment Definition",
+  "title": "HL7 v2 RPL_I02 Message Structure",
   "name": "RPL_I02",
   "type": "RPL_I02",
   "fhirVersion": "5.0.0",

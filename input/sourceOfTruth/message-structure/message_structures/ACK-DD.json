@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-DD Segment Definition",
+  "title": "HL7 v2 ACK-DD Message Structure",
   "name": "ACK-DD",
   "type": "ACK-DD",
   "fhirVersion": "5.0.0",

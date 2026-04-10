@@ -572,7 +572,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SRR_S01 Segment Definition",
+  "title": "HL7 v2 SRR_S01 Message Structure",
   "name": "SRR_S01",
   "type": "SRR_S01",
   "fhirVersion": "5.0.0",

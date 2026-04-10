@@ -267,7 +267,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_E22 Segment Definition",
+  "title": "HL7 v2 RSP_E22 Message Structure",
   "name": "RSP_E22",
   "type": "RSP_E22",
   "fhirVersion": "5.0.0",

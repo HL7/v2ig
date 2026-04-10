@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PMU_B04-C Segment Definition",
+  "title": "HL7 v2 PMU_B04-C Message Structure",
   "name": "PMU_B04-C",
   "type": "PMU_B04-C",
   "fhirVersion": "5.0.0",

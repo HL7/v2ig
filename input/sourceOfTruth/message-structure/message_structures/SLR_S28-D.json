@@ -101,7 +101,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SLR_S28-D Segment Definition",
+  "title": "HL7 v2 SLR_S28-D Message Structure",
   "name": "SLR_S28-D",
   "type": "SLR_S28-D",
   "fhirVersion": "5.0.0",

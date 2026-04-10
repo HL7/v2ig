@@ -387,7 +387,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DEL_O46 Segment Definition",
+  "title": "HL7 v2 DEL_O46 Message Structure",
   "name": "DEL_O46",
   "type": "DEL_O46",
   "fhirVersion": "5.0.0",

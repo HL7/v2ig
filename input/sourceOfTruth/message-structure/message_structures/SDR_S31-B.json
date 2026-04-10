@@ -146,7 +146,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SDR_S31-B Segment Definition",
+  "title": "HL7 v2 SDR_S31-B Message Structure",
   "name": "SDR_S31-B",
   "type": "SDR_S31-B",
   "fhirVersion": "5.0.0",

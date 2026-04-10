@@ -228,7 +228,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_Z84 Segment Definition",
+  "title": "HL7 v2 RSP_Z84 Message Structure",
   "name": "RSP_Z84",
   "type": "RSP_Z84",
   "fhirVersion": "5.0.0",

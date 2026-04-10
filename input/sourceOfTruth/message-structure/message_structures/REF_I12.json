@@ -807,7 +807,7 @@
       }
     ]
   },
-  "title": "HL7 v2 REF_I12 Segment Definition",
+  "title": "HL7 v2 REF_I12 Message Structure",
   "name": "REF_I12",
   "type": "REF_I12",
   "fhirVersion": "5.0.0",

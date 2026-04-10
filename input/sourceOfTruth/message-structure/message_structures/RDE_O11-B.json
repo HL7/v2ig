@@ -1137,7 +1137,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDE_O11-B Segment Definition",
+  "title": "HL7 v2 RDE_O11-B Message Structure",
   "name": "RDE_O11-B",
   "type": "RDE_O11-B",
   "fhirVersion": "5.0.0",

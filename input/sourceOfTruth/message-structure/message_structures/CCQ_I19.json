@@ -171,7 +171,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CCQ_I19 Segment Definition",
+  "title": "HL7 v2 CCQ_I19 Message Structure",
   "name": "CCQ_I19",
   "type": "CCQ_I19",
   "fhirVersion": "5.0.0",

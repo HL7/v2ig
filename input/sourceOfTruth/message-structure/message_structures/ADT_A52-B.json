@@ -253,7 +253,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A52-B Segment Definition",
+  "title": "HL7 v2 ADT_A52-B Message Structure",
   "name": "ADT_A52-B",
   "type": "ADT_A52-B",
   "fhirVersion": "5.0.0",

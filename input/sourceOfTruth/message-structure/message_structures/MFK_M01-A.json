@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFK_M01-A Segment Definition",
+  "title": "HL7 v2 MFK_M01-A Message Structure",
   "name": "MFK_M01-A",
   "type": "MFK_M01-A",
   "fhirVersion": "5.0.0",

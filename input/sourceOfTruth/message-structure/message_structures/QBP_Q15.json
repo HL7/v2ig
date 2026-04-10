@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Q15 Segment Definition",
+  "title": "HL7 v2 QBP_Q15 Message Structure",
   "name": "QBP_Q15",
   "type": "QBP_Q15",
   "fhirVersion": "5.0.0",

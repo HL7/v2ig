@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Qnn Segment Definition",
+  "title": "HL7 v2 QBP_Qnn Message Structure",
   "name": "QBP_Qnn",
   "type": "QBP_Qnn",
   "fhirVersion": "5.0.0",

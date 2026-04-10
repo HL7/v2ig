@@ -908,7 +908,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMI_O23 Segment Definition",
+  "title": "HL7 v2 OMI_O23 Message Structure",
   "name": "OMI_O23",
   "type": "OMI_O23",
   "fhirVersion": "5.0.0",

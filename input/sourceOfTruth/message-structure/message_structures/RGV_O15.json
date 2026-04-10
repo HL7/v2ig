@@ -1017,7 +1017,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RGV_O15 Segment Definition",
+  "title": "HL7 v2 RGV_O15 Message Structure",
   "name": "RGV_O15",
   "type": "RGV_O15",
   "fhirVersion": "5.0.0",

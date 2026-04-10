@@ -279,7 +279,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SSU_U03 Segment Definition",
+  "title": "HL7 v2 SSU_U03 Message Structure",
   "name": "SSU_U03",
   "type": "SSU_U03",
   "fhirVersion": "5.0.0",

@@ -1894,7 +1894,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OML_O21 Segment Definition",
+  "title": "HL7 v2 OML_O21 Message Structure",
   "name": "OML_O21",
   "type": "OML_O21",
   "fhirVersion": "5.0.0",

@@ -1843,7 +1843,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMG_O19 Segment Definition",
+  "title": "HL7 v2 OMG_O19 Message Structure",
   "name": "OMG_O19",
   "type": "OMG_O19",
   "fhirVersion": "5.0.0",

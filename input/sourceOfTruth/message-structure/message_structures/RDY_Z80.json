@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDY_Z80 Segment Definition",
+  "title": "HL7 v2 RDY_Z80 Message Structure",
   "name": "RDY_Z80",
   "type": "RDY_Z80",
   "fhirVersion": "5.0.0",

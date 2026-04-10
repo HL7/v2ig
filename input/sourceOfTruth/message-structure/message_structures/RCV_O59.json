@@ -858,7 +858,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RCV_O59 Segment Definition",
+  "title": "HL7 v2 RCV_O59 Message Structure",
   "name": "RCV_O59",
   "type": "RCV_O59",
   "fhirVersion": "5.0.0",

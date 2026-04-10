@@ -317,7 +317,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CRM_C01 Segment Definition",
+  "title": "HL7 v2 CRM_C01 Message Structure",
   "name": "CRM_C01",
   "type": "CRM_C01",
   "fhirVersion": "5.0.0",

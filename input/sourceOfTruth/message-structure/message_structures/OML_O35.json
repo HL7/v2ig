@@ -1824,7 +1824,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OML_O35 Segment Definition",
+  "title": "HL7 v2 OML_O35 Message Structure",
   "name": "OML_O35",
   "type": "OML_O35",
   "fhirVersion": "5.0.0",

@@ -298,7 +298,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RPR_I03 Segment Definition",
+  "title": "HL7 v2 RPR_I03 Message Structure",
   "name": "RPR_I03",
   "type": "RPR_I03",
   "fhirVersion": "5.0.0",

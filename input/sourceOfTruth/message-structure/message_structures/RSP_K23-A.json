@@ -209,7 +209,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K23-A Segment Definition",
+  "title": "HL7 v2 RSP_K23-A Message Structure",
   "name": "RSP_K23-A",
   "type": "RSP_K23-A",
   "fhirVersion": "5.0.0",

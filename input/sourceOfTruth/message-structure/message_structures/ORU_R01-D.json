@@ -1208,7 +1208,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORU_R01-D Segment Definition",
+  "title": "HL7 v2 ORU_R01-D Message Structure",
   "name": "ORU_R01-D",
   "type": "ORU_R01-D",
   "fhirVersion": "5.0.0",

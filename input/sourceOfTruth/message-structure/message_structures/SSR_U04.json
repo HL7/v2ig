@@ -171,7 +171,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SSR_U04 Segment Definition",
+  "title": "HL7 v2 SSR_U04 Message Structure",
   "name": "SSR_U04",
   "type": "SSR_U04",
   "fhirVersion": "5.0.0",

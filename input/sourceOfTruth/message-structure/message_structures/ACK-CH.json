@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CH Segment Definition",
+  "title": "HL7 v2 ACK-CH Message Structure",
   "name": "ACK-CH",
   "type": "ACK-CH",
   "fhirVersion": "5.0.0",

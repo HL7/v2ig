@@ -247,7 +247,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_O33 Segment Definition",
+  "title": "HL7 v2 RSP_O33 Message Structure",
   "name": "RSP_O33",
   "type": "RSP_O33",
   "fhirVersion": "5.0.0",

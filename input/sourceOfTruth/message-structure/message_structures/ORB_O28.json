@@ -362,7 +362,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORB_O28 Segment Definition",
+  "title": "HL7 v2 ORB_O28 Message Structure",
   "name": "ORB_O28",
   "type": "ORB_O28",
   "fhirVersion": "5.0.0",

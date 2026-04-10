@@ -902,7 +902,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDE_O49 Segment Definition",
+  "title": "HL7 v2 RDE_O49 Message Structure",
   "name": "RDE_O49",
   "type": "RDE_O49",
   "fhirVersion": "5.0.0",

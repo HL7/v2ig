@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-E Segment Definition",
+  "title": "HL7 v2 ACK-E Message Structure",
   "name": "ACK-E",
   "type": "ACK-E",
   "fhirVersion": "5.0.0",

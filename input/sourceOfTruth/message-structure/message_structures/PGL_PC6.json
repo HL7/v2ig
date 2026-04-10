@@ -954,7 +954,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PGL_PC6 Segment Definition",
+  "title": "HL7 v2 PGL_PC6 Message Structure",
   "name": "PGL_PC6",
   "type": "PGL_PC6",
   "fhirVersion": "5.0.0",

@@ -374,7 +374,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K22 Segment Definition",
+  "title": "HL7 v2 RSP_K22 Message Structure",
   "name": "RSP_K22",
   "type": "RSP_K22",
   "fhirVersion": "5.0.0",

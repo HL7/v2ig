@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BP Segment Definition",
+  "title": "HL7 v2 ACK-BP Message Structure",
   "name": "ACK-BP",
   "type": "ACK-BP",
   "fhirVersion": "5.0.0",

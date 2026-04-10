@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Q21-E Segment Definition",
+  "title": "HL7 v2 QBP_Q21-E Message Structure",
   "name": "QBP_Q21-E",
   "type": "QBP_Q21-E",
   "fhirVersion": "5.0.0",

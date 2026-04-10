@@ -432,7 +432,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRD_O14 Segment Definition",
+  "title": "HL7 v2 RRD_O14 Message Structure",
   "name": "RRD_O14",
   "type": "RRD_O14",
   "fhirVersion": "5.0.0",

@@ -329,7 +329,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A54-A Segment Definition",
+  "title": "HL7 v2 ADT_A54-A Message Structure",
   "name": "ADT_A54-A",
   "type": "ADT_A54-A",
   "fhirVersion": "5.0.0",

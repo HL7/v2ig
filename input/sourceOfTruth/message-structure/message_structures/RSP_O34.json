@@ -527,7 +527,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_O34 Segment Definition",
+  "title": "HL7 v2 RSP_O34 Message Structure",
   "name": "RSP_O34",
   "type": "RSP_O34",
   "fhirVersion": "5.0.0",

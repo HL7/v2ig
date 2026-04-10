@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AL Segment Definition",
+  "title": "HL7 v2 ACK-AL Message Structure",
   "name": "ACK-AL",
   "type": "ACK-AL",
   "fhirVersion": "5.0.0",

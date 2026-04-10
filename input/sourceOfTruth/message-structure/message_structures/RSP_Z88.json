@@ -795,7 +795,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_Z88 Segment Definition",
+  "title": "HL7 v2 RSP_Z88 Message Structure",
   "name": "RSP_Z88",
   "type": "RSP_Z88",
   "fhirVersion": "5.0.0",

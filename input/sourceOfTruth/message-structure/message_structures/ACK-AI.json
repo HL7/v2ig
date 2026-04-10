@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AI Segment Definition",
+  "title": "HL7 v2 ACK-AI Message Structure",
   "name": "ACK-AI",
   "type": "ACK-AI",
   "fhirVersion": "5.0.0",

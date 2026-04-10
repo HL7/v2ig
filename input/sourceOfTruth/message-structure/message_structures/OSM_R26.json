@@ -840,7 +840,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OSM_R26 Segment Definition",
+  "title": "HL7 v2 OSM_R26 Message Structure",
   "name": "OSM_R26",
   "type": "OSM_R26",
   "fhirVersion": "5.0.0",

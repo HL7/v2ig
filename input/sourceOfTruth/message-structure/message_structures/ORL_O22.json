@@ -432,7 +432,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORL_O22 Segment Definition",
+  "title": "HL7 v2 ORL_O22 Message Structure",
   "name": "ORL_O22",
   "type": "ORL_O22",
   "fhirVersion": "5.0.0",

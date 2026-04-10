@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RTB_Knn Segment Definition",
+  "title": "HL7 v2 RTB_Knn Message Structure",
   "name": "RTB_Knn",
   "type": "RTB_Knn",
   "fhirVersion": "5.0.0",

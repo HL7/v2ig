@@ -2095,7 +2095,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CCM_I21 Segment Definition",
+  "title": "HL7 v2 CCM_I21 Message Structure",
   "name": "CCM_I21",
   "type": "CCM_I21",
   "fhirVersion": "5.0.0",

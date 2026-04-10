@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-Q Segment Definition",
+  "title": "HL7 v2 ACK-Q Message Structure",
   "name": "ACK-Q",
   "type": "ACK-Q",
   "fhirVersion": "5.0.0",

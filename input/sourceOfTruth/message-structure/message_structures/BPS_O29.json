@@ -546,7 +546,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BPS_O29 Segment Definition",
+  "title": "HL7 v2 BPS_O29 Message Structure",
   "name": "BPS_O29",
   "type": "BPS_O29",
   "fhirVersion": "5.0.0",

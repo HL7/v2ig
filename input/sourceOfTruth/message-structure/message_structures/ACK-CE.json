@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CE Segment Definition",
+  "title": "HL7 v2 ACK-CE Message Structure",
   "name": "ACK-CE",
   "type": "ACK-CE",
   "fhirVersion": "5.0.0",

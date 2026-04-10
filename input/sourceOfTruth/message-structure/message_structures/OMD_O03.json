@@ -826,7 +826,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMD_O03 Segment Definition",
+  "title": "HL7 v2 OMD_O03 Message Structure",
   "name": "OMD_O03",
   "type": "OMD_O03",
   "fhirVersion": "5.0.0",

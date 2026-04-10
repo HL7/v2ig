@@ -749,7 +749,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMB_O27 Segment Definition",
+  "title": "HL7 v2 OMB_O27 Message Structure",
   "name": "OMB_O27",
   "type": "OMB_O27",
   "fhirVersion": "5.0.0",

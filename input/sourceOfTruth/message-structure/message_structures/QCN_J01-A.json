@@ -101,7 +101,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QCN_J01-A Segment Definition",
+  "title": "HL7 v2 QCN_J01-A Message Structure",
   "name": "QCN_J01-A",
   "type": "QCN_J01-A",
   "fhirVersion": "5.0.0",

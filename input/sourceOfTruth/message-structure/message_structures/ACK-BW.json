@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BW Segment Definition",
+  "title": "HL7 v2 ACK-BW Message Structure",
   "name": "ACK-BW",
   "type": "ACK-BW",
   "fhirVersion": "5.0.0",

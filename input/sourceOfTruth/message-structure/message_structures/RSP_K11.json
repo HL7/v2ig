@@ -209,7 +209,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K11 Segment Definition",
+  "title": "HL7 v2 RSP_K11 Message Structure",
   "name": "RSP_K11",
   "type": "RSP_K11",
   "fhirVersion": "5.0.0",

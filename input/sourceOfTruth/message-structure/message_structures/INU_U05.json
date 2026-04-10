@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 INU_U05 Segment Definition",
+  "title": "HL7 v2 INU_U05 Message Structure",
   "name": "INU_U05",
   "type": "INU_U05",
   "fhirVersion": "5.0.0",

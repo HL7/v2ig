@@ -572,7 +572,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DPR_O48 Segment Definition",
+  "title": "HL7 v2 DPR_O48 Message Structure",
   "name": "DPR_O48",
   "type": "DPR_O48",
   "fhirVersion": "5.0.0",

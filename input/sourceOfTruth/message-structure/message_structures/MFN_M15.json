@@ -152,7 +152,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M15 Segment Definition",
+  "title": "HL7 v2 MFN_M15 Message Structure",
   "name": "MFN_M15",
   "type": "MFN_M15",
   "fhirVersion": "5.0.0",

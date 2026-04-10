@@ -959,7 +959,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E01 Segment Definition",
+  "title": "HL7 v2 EHC_E01 Message Structure",
   "name": "EHC_E01",
   "type": "EHC_E01",
   "fhirVersion": "5.0.0",

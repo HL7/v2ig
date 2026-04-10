@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORS_O06 Segment Definition",
+  "title": "HL7 v2 ORS_O06 Message Structure",
   "name": "ORS_O06",
   "type": "ORS_O06",
   "fhirVersion": "5.0.0",

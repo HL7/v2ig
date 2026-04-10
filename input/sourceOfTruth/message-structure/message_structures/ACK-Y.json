@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-Y Segment Definition",
+  "title": "HL7 v2 ACK-Y Message Structure",
   "name": "ACK-Y",
   "type": "ACK-Y",
   "fhirVersion": "5.0.0",

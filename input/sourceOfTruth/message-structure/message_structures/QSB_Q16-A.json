@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QSB_Q16-A Segment Definition",
+  "title": "HL7 v2 QSB_Q16-A Message Structure",
   "name": "QSB_Q16-A",
   "type": "QSB_Q16-A",
   "fhirVersion": "5.0.0",

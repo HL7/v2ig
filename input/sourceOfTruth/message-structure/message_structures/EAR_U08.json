@@ -222,7 +222,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EAR_U08 Segment Definition",
+  "title": "HL7 v2 EAR_U08 Message Structure",
   "name": "EAR_U08",
   "type": "EAR_U08",
   "fhirVersion": "5.0.0",

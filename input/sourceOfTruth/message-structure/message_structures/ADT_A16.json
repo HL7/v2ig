@@ -1091,7 +1091,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A16 Segment Definition",
+  "title": "HL7 v2 ADT_A16 Message Structure",
   "name": "ADT_A16",
   "type": "ADT_A16",
   "fhirVersion": "5.0.0",

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BA Segment Definition",
+  "title": "HL7 v2 ACK-BA Message Structure",
   "name": "ACK-BA",
   "type": "ACK-BA",
   "fhirVersion": "5.0.0",

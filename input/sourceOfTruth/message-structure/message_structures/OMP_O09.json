@@ -832,7 +832,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMP_O09 Segment Definition",
+  "title": "HL7 v2 OMP_O09 Message Structure",
   "name": "OMP_O09",
   "type": "OMP_O09",
   "fhirVersion": "5.0.0",

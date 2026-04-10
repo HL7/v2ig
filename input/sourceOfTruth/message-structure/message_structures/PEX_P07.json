@@ -1100,7 +1100,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PEX_P07 Segment Definition",
+  "title": "HL7 v2 PEX_P07 Message Structure",
   "name": "PEX_P07",
   "type": "PEX_P07",
   "fhirVersion": "5.0.0",

@@ -464,7 +464,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORP_O10 Segment Definition",
+  "title": "HL7 v2 ORP_O10 Message Structure",
   "name": "ORP_O10",
   "type": "ORP_O10",
   "fhirVersion": "5.0.0",

@@ -527,7 +527,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BTS_O31 Segment Definition",
+  "title": "HL7 v2 BTS_O31 Message Structure",
   "name": "BTS_O31",
   "type": "BTS_O31",
   "fhirVersion": "5.0.0",

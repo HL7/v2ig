@@ -146,7 +146,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SDR_S32-A Segment Definition",
+  "title": "HL7 v2 SDR_S32-A Message Structure",
   "name": "SDR_S32-A",
   "type": "SDR_S32-A",
   "fhirVersion": "5.0.0",

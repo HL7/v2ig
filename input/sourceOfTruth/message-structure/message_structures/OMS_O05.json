@@ -654,7 +654,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMS_O05 Segment Definition",
+  "title": "HL7 v2 OMS_O05 Message Structure",
   "name": "OMS_O05",
   "type": "OMS_O05",
   "fhirVersion": "5.0.0",

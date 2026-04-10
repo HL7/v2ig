@@ -1010,7 +1010,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDS_O13 Segment Definition",
+  "title": "HL7 v2 RDS_O13 Message Structure",
   "name": "RDS_O13",
   "type": "RDS_O13",
   "fhirVersion": "5.0.0",

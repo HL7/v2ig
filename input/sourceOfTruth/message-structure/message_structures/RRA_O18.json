@@ -407,7 +407,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRA_O18 Segment Definition",
+  "title": "HL7 v2 RRA_O18 Message Structure",
   "name": "RRA_O18",
   "type": "RRA_O18",
   "fhirVersion": "5.0.0",

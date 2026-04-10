@@ -279,7 +279,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DBC_O42 Segment Definition",
+  "title": "HL7 v2 DBC_O42 Message Structure",
   "name": "DBC_O42",
   "type": "DBC_O42",
   "fhirVersion": "5.0.0",

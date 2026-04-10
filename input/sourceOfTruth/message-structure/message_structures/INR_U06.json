@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 INR_U06 Segment Definition",
+  "title": "HL7 v2 INR_U06 Message Structure",
   "name": "INR_U06",
   "type": "INR_U06",
   "fhirVersion": "5.0.0",

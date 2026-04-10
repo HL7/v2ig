@@ -146,7 +146,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_E03 Segment Definition",
+  "title": "HL7 v2 QBP_E03 Message Structure",
   "name": "QBP_E03",
   "type": "QBP_E03",
   "fhirVersion": "5.0.0",

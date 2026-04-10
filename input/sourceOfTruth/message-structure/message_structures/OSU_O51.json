@@ -228,7 +228,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OSU_O51 Segment Definition",
+  "title": "HL7 v2 OSU_O51 Message Structure",
   "name": "OSU_O51",
   "type": "OSU_O51",
   "fhirVersion": "5.0.0",

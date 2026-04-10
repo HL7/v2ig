@@ -540,7 +540,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORD_O04 Segment Definition",
+  "title": "HL7 v2 ORD_O04 Message Structure",
   "name": "ORD_O04",
   "type": "ORD_O04",
   "fhirVersion": "5.0.0",

@@ -985,7 +985,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RAS_O17 Segment Definition",
+  "title": "HL7 v2 RAS_O17 Message Structure",
   "name": "RAS_O17",
   "type": "RAS_O17",
   "fhirVersion": "5.0.0",

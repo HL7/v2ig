@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BY Segment Definition",
+  "title": "HL7 v2 ACK-BY Message Structure",
   "name": "ACK-BY",
   "type": "ACK-BY",
   "fhirVersion": "5.0.0",

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-DE Segment Definition",
+  "title": "HL7 v2 ACK-DE Message Structure",
   "name": "ACK-DE",
   "type": "ACK-DE",
   "fhirVersion": "5.0.0",

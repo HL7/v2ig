@@ -1722,7 +1722,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DFT_P11 Segment Definition",
+  "title": "HL7 v2 DFT_P11 Message Structure",
   "name": "DFT_P11",
   "type": "DFT_P11",
   "fhirVersion": "5.0.0",

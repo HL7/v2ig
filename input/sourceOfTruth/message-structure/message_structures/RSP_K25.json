@@ -488,7 +488,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K25 Segment Definition",
+  "title": "HL7 v2 RSP_K25 Message Structure",
   "name": "RSP_K25",
   "type": "RSP_K25",
   "fhirVersion": "5.0.0",

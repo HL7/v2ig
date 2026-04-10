@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDY_K15-C Segment Definition",
+  "title": "HL7 v2 RDY_K15-C Message Structure",
   "name": "RDY_K15-C",
   "type": "RDY_K15-C",
   "fhirVersion": "5.0.0",

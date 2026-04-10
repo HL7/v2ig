@@ -247,7 +247,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A43-A Segment Definition",
+  "title": "HL7 v2 ADT_A43-A Message Structure",
   "name": "ADT_A43-A",
   "type": "ADT_A43-A",
   "fhirVersion": "5.0.0",

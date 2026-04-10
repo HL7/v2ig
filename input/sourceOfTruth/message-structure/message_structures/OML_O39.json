@@ -1424,7 +1424,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OML_O39 Segment Definition",
+  "title": "HL7 v2 OML_O39 Message Structure",
   "name": "OML_O39",
   "type": "OML_O39",
   "fhirVersion": "5.0.0",

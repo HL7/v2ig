@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AM Segment Definition",
+  "title": "HL7 v2 ACK-AM Message Structure",
   "name": "ACK-AM",
   "type": "ACK-AM",
   "fhirVersion": "5.0.0",

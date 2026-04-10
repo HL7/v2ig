@@ -1430,7 +1430,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DFT_P03 Segment Definition",
+  "title": "HL7 v2 DFT_P03 Message Structure",
   "name": "DFT_P03",
   "type": "DFT_P03",
   "fhirVersion": "5.0.0",

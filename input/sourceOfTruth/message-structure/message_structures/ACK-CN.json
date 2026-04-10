@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CN Segment Definition",
+  "title": "HL7 v2 ACK-CN Message Structure",
   "name": "ACK-CN",
   "type": "ACK-CN",
   "fhirVersion": "5.0.0",

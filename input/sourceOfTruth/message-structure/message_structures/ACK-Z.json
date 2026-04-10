@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-Z Segment Definition",
+  "title": "HL7 v2 ACK-Z Message Structure",
   "name": "ACK-Z",
   "type": "ACK-Z",
   "fhirVersion": "5.0.0",

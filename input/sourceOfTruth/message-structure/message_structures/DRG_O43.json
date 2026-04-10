@@ -330,7 +330,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DRG_O43 Segment Definition",
+  "title": "HL7 v2 DRG_O43 Message Structure",
   "name": "DRG_O43",
   "type": "DRG_O43",
   "fhirVersion": "5.0.0",

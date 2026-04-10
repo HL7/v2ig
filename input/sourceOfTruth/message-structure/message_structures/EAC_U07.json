@@ -311,7 +311,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EAC_U07 Segment Definition",
+  "title": "HL7 v2 EAC_U07 Message Structure",
   "name": "EAC_U07",
   "type": "EAC_U07",
   "fhirVersion": "5.0.0",

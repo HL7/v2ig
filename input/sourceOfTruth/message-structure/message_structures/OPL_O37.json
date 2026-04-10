@@ -1469,7 +1469,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OPL_O37 Segment Definition",
+  "title": "HL7 v2 OPL_O37 Message Structure",
   "name": "OPL_O37",
   "type": "OPL_O37",
   "fhirVersion": "5.0.0",

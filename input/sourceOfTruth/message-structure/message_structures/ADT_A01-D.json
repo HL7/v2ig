@@ -1148,7 +1148,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A01-D Segment Definition",
+  "title": "HL7 v2 ADT_A01-D Message Structure",
   "name": "ADT_A01-D",
   "type": "ADT_A01-D",
   "fhirVersion": "5.0.0",

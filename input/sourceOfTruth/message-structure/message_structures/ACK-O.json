@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-O Segment Definition",
+  "title": "HL7 v2 ACK-O Message Structure",
   "name": "ACK-O",
   "type": "ACK-O",
   "fhirVersion": "5.0.0",

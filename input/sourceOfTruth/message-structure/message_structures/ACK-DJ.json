@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-DJ Segment Definition",
+  "title": "HL7 v2 ACK-DJ Message Structure",
   "name": "ACK-DJ",
   "type": "ACK-DJ",
   "fhirVersion": "5.0.0",

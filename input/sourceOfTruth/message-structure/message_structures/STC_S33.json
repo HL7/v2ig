@@ -101,7 +101,7 @@
       }
     ]
   },
-  "title": "HL7 v2 STC_S33 Segment Definition",
+  "title": "HL7 v2 STC_S33 Message Structure",
   "name": "STC_S33",
   "type": "STC_S33",
   "fhirVersion": "5.0.0",

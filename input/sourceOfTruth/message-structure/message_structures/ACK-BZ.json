@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BZ Segment Definition",
+  "title": "HL7 v2 ACK-BZ Message Structure",
   "name": "ACK-BZ",
   "type": "ACK-BZ",
   "fhirVersion": "5.0.0",

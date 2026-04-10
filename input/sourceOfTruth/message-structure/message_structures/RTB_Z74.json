@@ -228,7 +228,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RTB_Z74 Segment Definition",
+  "title": "HL7 v2 RTB_Z74 Message Structure",
   "name": "RTB_Z74",
   "type": "RTB_Z74",
   "fhirVersion": "5.0.0",

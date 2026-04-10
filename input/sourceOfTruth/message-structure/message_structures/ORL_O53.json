@@ -426,7 +426,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORL_O53 Segment Definition",
+  "title": "HL7 v2 ORL_O53 Message Structure",
   "name": "ORL_O53",
   "type": "ORL_O53",
   "fhirVersion": "5.0.0",

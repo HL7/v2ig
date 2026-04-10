@@ -355,7 +355,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A60 Segment Definition",
+  "title": "HL7 v2 ADT_A60 Message Structure",
   "name": "ADT_A60",
   "type": "ADT_A60",
   "fhirVersion": "5.0.0",

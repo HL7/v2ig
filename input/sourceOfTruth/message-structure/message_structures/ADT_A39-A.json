@@ -266,7 +266,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A39-A Segment Definition",
+  "title": "HL7 v2 ADT_A39-A Message Structure",
   "name": "ADT_A39-A",
   "type": "ADT_A39-A",
   "fhirVersion": "5.0.0",

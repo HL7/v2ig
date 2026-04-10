@@ -431,7 +431,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MDM_T01-D Segment Definition",
+  "title": "HL7 v2 MDM_T01-D Message Structure",
   "name": "MDM_T01-D",
   "type": "MDM_T01-D",
   "fhirVersion": "5.0.0",

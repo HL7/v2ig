@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CA Segment Definition",
+  "title": "HL7 v2 ACK-CA Message Structure",
   "name": "ACK-CA",
   "type": "ACK-CA",
   "fhirVersion": "5.0.0",

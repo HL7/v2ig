@@ -241,7 +241,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M11 Segment Definition",
+  "title": "HL7 v2 MFN_M11 Message Structure",
   "name": "MFN_M11",
   "type": "MFN_M11",
   "fhirVersion": "5.0.0",

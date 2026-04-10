@@ -1043,7 +1043,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PPP_PCB Segment Definition",
+  "title": "HL7 v2 PPP_PCB Message Structure",
   "name": "PPP_PCB",
   "type": "PPP_PCB",
   "fhirVersion": "5.0.0",

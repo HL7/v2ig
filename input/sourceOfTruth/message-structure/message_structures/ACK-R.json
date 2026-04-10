@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-R Segment Definition",
+  "title": "HL7 v2 ACK-R Message Structure",
   "name": "ACK-R",
   "type": "ACK-R",
   "fhirVersion": "5.0.0",

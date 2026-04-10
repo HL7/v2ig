@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CCF_I22 Segment Definition",
+  "title": "HL7 v2 CCF_I22 Message Structure",
   "name": "CCF_I22",
   "type": "CCF_I22",
   "fhirVersion": "5.0.0",

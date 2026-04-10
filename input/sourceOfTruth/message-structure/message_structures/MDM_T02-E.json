@@ -501,7 +501,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MDM_T02-E Segment Definition",
+  "title": "HL7 v2 MDM_T02-E Message Structure",
   "name": "MDM_T02-E",
   "type": "MDM_T02-E",
   "fhirVersion": "5.0.0",

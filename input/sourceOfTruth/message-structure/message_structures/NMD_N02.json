@@ -248,7 +248,7 @@
       }
     ]
   },
-  "title": "HL7 v2 NMD_N02 Segment Definition",
+  "title": "HL7 v2 NMD_N02 Message Structure",
   "name": "NMD_N02",
   "type": "NMD_N02",
   "fhirVersion": "5.0.0",

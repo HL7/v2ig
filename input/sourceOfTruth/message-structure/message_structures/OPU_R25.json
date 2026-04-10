@@ -1036,7 +1036,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OPU_R25 Segment Definition",
+  "title": "HL7 v2 OPU_R25 Message Structure",
   "name": "OPU_R25",
   "type": "OPU_R25",
   "fhirVersion": "5.0.0",

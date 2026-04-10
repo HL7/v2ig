@@ -1163,7 +1163,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OUL_R24 Segment Definition",
+  "title": "HL7 v2 OUL_R24 Message Structure",
   "name": "OUL_R24",
   "type": "OUL_R24",
   "fhirVersion": "5.0.0",

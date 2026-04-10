@@ -1824,7 +1824,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OML_O33 Segment Definition",
+  "title": "HL7 v2 OML_O33 Message Structure",
   "name": "OML_O33",
   "type": "OML_O33",
   "fhirVersion": "5.0.0",

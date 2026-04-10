@@ -507,7 +507,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E13 Segment Definition",
+  "title": "HL7 v2 EHC_E13 Message Structure",
   "name": "EHC_E13",
   "type": "EHC_E13",
   "fhirVersion": "5.0.0",

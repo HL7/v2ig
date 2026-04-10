@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 INR_U14 Segment Definition",
+  "title": "HL7 v2 INR_U14 Message Structure",
   "name": "INR_U14",
   "type": "INR_U14",
   "fhirVersion": "5.0.0",

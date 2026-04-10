@@ -1129,7 +1129,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A05-A Segment Definition",
+  "title": "HL7 v2 ADT_A05-A Message Structure",
   "name": "ADT_A05-A",
   "type": "ADT_A05-A",
   "fhirVersion": "5.0.0",

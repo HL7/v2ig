@@ -1087,7 +1087,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OUL_R22 Segment Definition",
+  "title": "HL7 v2 OUL_R22 Message Structure",
   "name": "OUL_R22",
   "type": "OUL_R22",
   "fhirVersion": "5.0.0",

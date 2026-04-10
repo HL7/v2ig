@@ -503,7 +503,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORL_O56 Segment Definition",
+  "title": "HL7 v2 ORL_O56 Message Structure",
   "name": "ORL_O56",
   "type": "ORL_O56",
   "fhirVersion": "5.0.0",

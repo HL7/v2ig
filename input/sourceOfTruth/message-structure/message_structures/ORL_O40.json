@@ -522,7 +522,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORL_O40 Segment Definition",
+  "title": "HL7 v2 ORL_O40 Message Structure",
   "name": "ORL_O40",
   "type": "ORL_O40",
   "fhirVersion": "5.0.0",

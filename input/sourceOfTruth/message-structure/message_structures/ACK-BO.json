@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BO Segment Definition",
+  "title": "HL7 v2 ACK-BO Message Structure",
   "name": "ACK-BO",
   "type": "ACK-BO",
   "fhirVersion": "5.0.0",

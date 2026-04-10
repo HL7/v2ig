@@ -451,7 +451,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DEO_O45 Segment Definition",
+  "title": "HL7 v2 DEO_O45 Message Structure",
   "name": "DEO_O45",
   "type": "DEO_O45",
   "fhirVersion": "5.0.0",

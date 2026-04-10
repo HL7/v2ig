@@ -361,7 +361,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A38 Segment Definition",
+  "title": "HL7 v2 ADT_A38 Message Structure",
   "name": "ADT_A38",
   "type": "ADT_A38",
   "fhirVersion": "5.0.0",

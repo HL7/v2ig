@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DER_O44 Segment Definition",
+  "title": "HL7 v2 DER_O44 Message Structure",
   "name": "DER_O44",
   "type": "DER_O44",
   "fhirVersion": "5.0.0",

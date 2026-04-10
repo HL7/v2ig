@@ -1048,7 +1048,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K31 Segment Definition",
+  "title": "HL7 v2 RSP_K31 Message Structure",
   "name": "RSP_K31",
   "type": "RSP_K31",
   "fhirVersion": "5.0.0",

@@ -171,7 +171,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QVR_Q17 Segment Definition",
+  "title": "HL7 v2 QVR_Q17 Message Structure",
   "name": "QVR_Q17",
   "type": "QVR_Q17",
   "fhirVersion": "5.0.0",

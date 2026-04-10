@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-U Segment Definition",
+  "title": "HL7 v2 ACK-U Message Structure",
   "name": "ACK-U",
   "type": "ACK-U",
   "fhirVersion": "5.0.0",

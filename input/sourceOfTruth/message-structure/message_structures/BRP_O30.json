@@ -381,7 +381,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BRP_O30 Segment Definition",
+  "title": "HL7 v2 BRP_O30 Message Structure",
   "name": "BRP_O30",
   "type": "BRP_O30",
   "fhirVersion": "5.0.0",

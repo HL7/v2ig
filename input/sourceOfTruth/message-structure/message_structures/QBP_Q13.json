@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Q13 Segment Definition",
+  "title": "HL7 v2 QBP_Q13 Message Structure",
   "name": "QBP_Q13",
   "type": "QBP_Q13",
   "fhirVersion": "5.0.0",

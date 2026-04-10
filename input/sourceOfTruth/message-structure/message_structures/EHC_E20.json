@@ -616,7 +616,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E20 Segment Definition",
+  "title": "HL7 v2 EHC_E20 Message Structure",
   "name": "EHC_E20",
   "type": "EHC_E20",
   "fhirVersion": "5.0.0",

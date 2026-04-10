@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RPI_I01 Segment Definition",
+  "title": "HL7 v2 RPI_I01 Message Structure",
   "name": "RPI_I01",
   "type": "RPI_I01",
   "fhirVersion": "5.0.0",

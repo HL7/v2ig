@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BS Segment Definition",
+  "title": "HL7 v2 ACK-BS Message Structure",
   "name": "ACK-BS",
   "type": "ACK-BS",
   "fhirVersion": "5.0.0",

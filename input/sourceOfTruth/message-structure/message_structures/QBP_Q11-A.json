@@ -190,7 +190,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Q11-A Segment Definition",
+  "title": "HL7 v2 QBP_Q11-A Message Structure",
   "name": "QBP_Q11-A",
   "type": "QBP_Q11-A",
   "fhirVersion": "5.0.0",

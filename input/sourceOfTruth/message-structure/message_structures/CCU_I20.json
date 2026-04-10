@@ -2241,7 +2241,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CCU_I20 Segment Definition",
+  "title": "HL7 v2 CCU_I20 Message Structure",
   "name": "CCU_I20",
   "type": "CCU_I20",
   "fhirVersion": "5.0.0",

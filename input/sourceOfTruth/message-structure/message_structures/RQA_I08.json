@@ -820,7 +820,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RQA_I08 Segment Definition",
+  "title": "HL7 v2 RQA_I08 Message Structure",
   "name": "RQA_I08",
   "type": "RQA_I08",
   "fhirVersion": "5.0.0",

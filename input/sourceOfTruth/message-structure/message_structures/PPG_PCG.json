@@ -1043,7 +1043,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PPG_PCG Segment Definition",
+  "title": "HL7 v2 PPG_PCG Message Structure",
   "name": "PPG_PCG",
   "type": "PPG_PCG",
   "fhirVersion": "5.0.0",

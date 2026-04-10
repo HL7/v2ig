@@ -323,7 +323,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K32 Segment Definition",
+  "title": "HL7 v2 RSP_K32 Message Structure",
   "name": "RSP_K32",
   "type": "RSP_K32",
   "fhirVersion": "5.0.0",

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CT Segment Definition",
+  "title": "HL7 v2 ACK-CT Message Structure",
   "name": "ACK-CT",
   "type": "ACK-CT",
   "fhirVersion": "5.0.0",

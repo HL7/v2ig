@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Z73 Segment Definition",
+  "title": "HL7 v2 QBP_Z73 Message Structure",
   "name": "QBP_Z73",
   "type": "QBP_Z73",
   "fhirVersion": "5.0.0",

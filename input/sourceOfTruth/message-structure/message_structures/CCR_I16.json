@@ -2541,7 +2541,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CCR_I16 Segment Definition",
+  "title": "HL7 v2 CCR_I16 Message Structure",
   "name": "CCR_I16",
   "type": "CCR_I16",
   "fhirVersion": "5.0.0",

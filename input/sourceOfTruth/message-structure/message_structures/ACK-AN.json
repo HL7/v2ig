@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AN Segment Definition",
+  "title": "HL7 v2 ACK-AN Message Structure",
   "name": "ACK-AN",
   "type": "ACK-AN",
   "fhirVersion": "5.0.0",
