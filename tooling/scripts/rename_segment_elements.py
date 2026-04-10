@@ -89,6 +89,12 @@ def rename_elements(filepath, apply=False):
             continue
 
         new_suffix = f'{seq}-{camel}'
+        # IG Publisher enforces 64-char max on the name portion (after the dot)
+        if len(new_suffix) > 64:
+            # Truncate camelCase to fit, preserving the seq number prefix
+            max_camel = 64 - len(seq) - 1  # -1 for the hyphen
+            camel = camel[:max_camel]
+            new_suffix = f'{seq}-{camel}'
         new_id = f'{segment_id}.{new_suffix}'
         new_path = new_id  # path mirrors id in logical models
 

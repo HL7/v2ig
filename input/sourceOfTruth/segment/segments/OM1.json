@@ -1823,8 +1823,8 @@
         ]
       },
       {
-        "id": "OM1.56-observationIdentifierAssociatedWithProducerSServiceTestObservationId",
-        "path": "OM1.56-observationIdentifierAssociatedWithProducerSServiceTestObservationId",
+        "id": "OM1.56-obsIdAssocWithProducersServiceTestObsId",
+        "path": "OM1.56-obsIdAssocWithProducersServiceTestObsId",
         "short": "Observation/Identifier associated with Producer’s Service/Test/Observation ID",
         "definition": "This field contains the code for resulted tests, which are associated with the Producer’s Service/Test/Observation ID code in OM1-2 and will appear in OBX-3 Observation Identifier in a result message. Refer to Table 0647 - Observation/Identifier associated with Producer’s Service/Test/Observation ID in Chapter 2C for valid values.",
         "code": [
