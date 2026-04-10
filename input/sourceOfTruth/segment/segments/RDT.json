@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RDT.1",
-        "path": "RDT.1",
+        "id": "RDT.1-rdt1",
+        "path": "RDT.1-rdt1",
         "short": "RDT-1",
         "definition": "This field is a requested field. Fields occur in the position order defined for the query or table (unless overridden by an optional RDF segment on a stored procedure request or Virtual Table query message), separated by field delimiters.",
         "code": [

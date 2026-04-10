@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PSG.1",
-        "path": "PSG.1",
+        "id": "PSG.1-providerProductServiceGroupNumber",
+        "path": "PSG.1-providerProductServiceGroupNumber",
         "short": "Provider Product/Service Group Number",
         "definition": "Unique Product/Service Group Number assigned by the Provider Application.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PSG.2",
-        "path": "PSG.2",
+        "id": "PSG.2-payerProductServiceGroupNumber",
+        "path": "PSG.2-payerProductServiceGroupNumber",
         "short": "Payer Product/Service Group Number",
         "definition": "Unique Product/Service Group Number assigned by the Payer Application",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "PSG.3",
-        "path": "PSG.3",
+        "id": "PSG.3-productServiceGroupSequenceNumber",
+        "path": "PSG.3-productServiceGroupSequenceNumber",
         "short": "Product/Service Group Sequence Number",
         "definition": "Unique sequence number for the Product/Service Group (3) – starts with 1, then 2, etc. for each unique Product/Service Group in this Invoice.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "PSG.4",
-        "path": "PSG.4",
+        "id": "PSG.4-adjudicateAsGroup",
+        "path": "PSG.4-adjudicateAsGroup",
         "short": "Adjudicate as Group",
         "definition": "Adjudicate all Product/Service Line Items together as a group (IPRs will be reported against the Product/Service Group). Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -154,8 +154,8 @@
         ]
       },
       {
-        "id": "PSG.5",
-        "path": "PSG.5",
+        "id": "PSG.5-productServiceGroupBilledAmount",
+        "path": "PSG.5-productServiceGroupBilledAmount",
         "short": "Product/Service Group Billed Amount",
         "definition": "Sum of all Product/Service Billed Amounts for all Product/Service Line Items for this Product/Service Group.",
         "code": [
@@ -179,8 +179,8 @@
         ]
       },
       {
-        "id": "PSG.6",
-        "path": "PSG.6",
+        "id": "PSG.6-productServiceGroupDescription",
+        "path": "PSG.6-productServiceGroupDescription",
         "short": "Product/Service Group Description",
         "definition": "Product/Service Group description or heading",
         "code": [

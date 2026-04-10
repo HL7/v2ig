@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "LOC.1",
-        "path": "LOC.1",
+        "id": "LOC.1-primaryKeyValue",
+        "path": "LOC.1-primaryKeyValue",
         "short": "Primary Key Value - LOC",
         "definition": "This field contains the institution's identification code for the location. The identifying key value. Must match _MFE-4 -Primary Key Value - MFE_. This field has the same components as the patient location fields in the PV1 segment (except that bed status is not included here).",
         "comment": "At least the first component of this field is required. The first component can be an identifying code for the nursing station for inpatient locations, or clinic, department or home for patient locations other than inpatient ones.",
@@ -50,8 +50,8 @@
         ]
       },
       {
-        "id": "LOC.2",
-        "path": "LOC.2",
+        "id": "LOC.2-locationDescription",
+        "path": "LOC.2-locationDescription",
         "short": "Location Description",
         "definition": "This field contains the optional free text description of the location, to elaborate upon LOC primary key value.",
         "code": [
@@ -88,8 +88,8 @@
         ]
       },
       {
-        "id": "LOC.3",
-        "path": "LOC.3",
+        "id": "LOC.3-locationType",
+        "path": "LOC.3-locationType",
         "short": "Location Type - LOC",
         "definition": "This field contains the code identifying what type of location this is. Refer to {{v2-table:0260:Patient Location Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -130,8 +130,8 @@
         ]
       },
       {
-        "id": "LOC.4",
-        "path": "LOC.4",
+        "id": "LOC.4-organizationName",
+        "path": "LOC.4-organizationName",
         "short": "Organization Name - LOC",
         "definition": "This field contains the organization(s) of which this location is a part. For inpatient locations, this can be the hospital or institution name. For outpatient locations, this can be the clinic or office name.",
         "code": [
@@ -155,8 +155,8 @@
         ]
       },
       {
-        "id": "LOC.5",
-        "path": "LOC.5",
+        "id": "LOC.5-locationAddress",
+        "path": "LOC.5-locationAddress",
         "short": "Location Address",
         "definition": "This field contains the address of the patient location, especially for use for outpatient clinic or office locations.",
         "code": [
@@ -180,8 +180,8 @@
         ]
       },
       {
-        "id": "LOC.6",
-        "path": "LOC.6",
+        "id": "LOC.6-locationPhone",
+        "path": "LOC.6-locationPhone",
         "short": "Location Phone",
         "definition": "This field contains the phone number within the patient location, if any. For example, the room or bed phone for use by the patient.",
         "code": [
@@ -205,8 +205,8 @@
         ]
       },
       {
-        "id": "LOC.7",
-        "path": "LOC.7",
+        "id": "LOC.7-licenseNumber",
+        "path": "LOC.7-licenseNumber",
         "short": "License Number",
         "definition": "This field contains the multiple license numbers for the facility. Refer to {{v2-table:0461:License Number}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -234,8 +234,8 @@
         ]
       },
       {
-        "id": "LOC.8",
-        "path": "LOC.8",
+        "id": "LOC.8-locationEquipment",
+        "path": "LOC.8-locationEquipment",
         "short": "Location Equipment",
         "definition": "This repeating field indicates what types of equipment are built in. Applies only to room or bed locations. If _LOC-3 - Location Type_ indicates that this is a room, this will be the equipment in the room which can be used by more than one bed. If _LOC-3 - Location Type_ indicates this is a bed, this will be the bedside devices available to this bed. Refer to {{v2-table:0261:Location Equipment}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -276,8 +276,8 @@
         ]
       },
       {
-        "id": "LOC.9",
-        "path": "LOC.9",
+        "id": "LOC.9-locationServiceCode",
+        "path": "LOC.9-locationServiceCode",
         "short": "Location Service Code",
         "definition": "This field categorizes the types of services provided by the location. Refer to {{v2-table:0442:Location Service Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

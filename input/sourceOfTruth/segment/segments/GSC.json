@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "GSC.1",
-        "path": "GSC.1",
+        "id": "GSC.1-setId",
+        "path": "GSC.1-setId",
         "short": "Set ID",
         "definition": "This field contains the sequence number used to identify the GSC segment instances in a message.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "GSC.2",
-        "path": "GSC.2",
+        "id": "GSC.2-actionCode",
+        "path": "GSC.2-actionCode",
         "short": "Action Code",
         "definition": "This field contains a code defining the action to be taken for this segment.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "GSC.3",
-        "path": "GSC.3",
+        "id": "GSC.3-gscInstanceIdentifier",
+        "path": "GSC.3-gscInstanceIdentifier",
         "short": "GSC Instance Identifier",
         "definition": "This field contains the value that uniquely identifies a single GSC declaration for an individual. This field is conditionally required when the Action Code in GSC-2 indicates data is not being sent in Snapshot Mode (valued “S”).",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "GSC.4",
-        "path": "GSC.4",
+        "id": "GSC.4-sexParameterForClinicalUse",
+        "path": "GSC.4-sexParameterForClinicalUse",
         "short": "Sex Parameter for Clinical Use",
         "definition": "This field asserts the context-specific categorization of a patient's sex for the purpose of clinical use. Refer to {{v2-table:0828:}} _Sex Parameter for Clinical Use_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -145,8 +145,8 @@
         ]
       },
       {
-        "id": "GSC.5",
-        "path": "GSC.5",
+        "id": "GSC.5-validityPeriod",
+        "path": "GSC.5-validityPeriod",
         "short": "Validity Period",
         "definition": "This field asserts the time frame during which this value applies to the patient context. May be just an initial dateTime.",
         "code": [
@@ -170,8 +170,8 @@
         ]
       },
       {
-        "id": "GSC.6",
-        "path": "GSC.6",
+        "id": "GSC.6-context",
+        "path": "GSC.6-context",
         "short": "Context",
         "definition": "This field asserts the clinical context(s) relevant for the declared Sex Parameter for Clinical Use value. The ERL data type is used to specify a location in the message which carries the clinical context. For example, GSC-6 may point to procedure (PR1) or order (ORC) segment within the message. This field is allowed to repeat to allow a single declared Sex Parameter for Clinical Use value to be applied to multiple contexts within the message. As well, the GSC segment is allowed to repeat within a message as an individual may have different Sex Parameter for Clinical Use values for different contexts within a single message. The GSC-6 field is required as any Sex Parameter for Clinical Use value declared within a message must relate to at least one context within the same message.",
         "code": [
@@ -195,8 +195,8 @@
         ]
       },
       {
-        "id": "GSC.7",
-        "path": "GSC.7",
+        "id": "GSC.7-evidence",
+        "path": "GSC.7-evidence",
         "short": "Evidence",
         "definition": "This field asserts clinical data (e.g. observations, diagnoses) that are used to determine the Sex Parameter for Clinical Use value. The linked information should clearly align with the chosen Sex Parameter for Clinical Use value. This field is allowed to repeat as multiple pieces of clinical data may contribute to the chosen Sex Parameter for Clinical Use value.",
         "code": [
@@ -220,8 +220,8 @@
         ]
       },
       {
-        "id": "GSC.8",
-        "path": "GSC.8",
+        "id": "GSC.8-comment",
+        "path": "GSC.8-comment",
         "short": "Comment",
         "definition": "This field contains a free text comment pertaining to the Sex Parameter for Clinical Use.",
         "code": [

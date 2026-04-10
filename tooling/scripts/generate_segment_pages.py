@@ -75,7 +75,7 @@ def parse_segment_fields(data, segment_id, anomalies):
     Returns:
         List of dicts with keys: seq, name, data_type, usage, min_card,
         max_card, vocabulary, item_num, length_min, length_max, conf_length,
-        no_truncate, is_withdrawn
+        no_truncate, is_withdrawn, definition, comment
     """
     elements = data.get('differential', {}).get('element', [])
     fields = []
@@ -84,8 +84,9 @@ def parse_segment_fields(data, segment_id, anomalies):
         path = elem.get('path', '')
         extensions = elem.get('extension', [])
 
-        # Seq: number after the dot in the path (e.g. PID.1 -> 1)
-        seq = path.rsplit('.', 1)[-1] if '.' in path else ''
+        # Seq: number after the dot in the path (e.g. PID.1-setId -> 1)
+        suffix = path.rsplit('.', 1)[-1] if '.' in path else ''
+        seq = suffix.split('-', 1)[0] if suffix else ''
 
         # Name from short description
         name = elem.get('short', '')
@@ -153,6 +154,7 @@ def parse_segment_fields(data, segment_id, anomalies):
             'conf_length': conf_length,
             'no_truncate': no_truncate,
             'is_withdrawn': is_withdrawn,
+            'element_path': path,
         })
 
     return fields
@@ -240,7 +242,8 @@ def render_segment_table(segment_id, fields):
     """Render the HL7 Attribute Table HTML for a segment.
 
     Creates a hidden div containing a table with the classic V2 segment
-    definition columns. Withdrawn fields are shown with muted styling.
+    definition columns and per-field definitions below. Withdrawn fields
+    are shown with muted styling. Styled after the v2plusDemo layout.
 
     Args:
         segment_id: Segment ID (e.g. "PID")
@@ -266,30 +269,41 @@ def render_segment_table(segment_id, fields):
         max_display = str(field['max_card']) if str(field['max_card']) != '0' else '*'
         cardinality = f'[{field["min_card"]}..{max_display}]'
 
+        # Item# links to the Detailed Descriptions tab for this element
+        item_formatted = format_item_number(field['item_num'])
+        if item_formatted and not field['is_withdrawn'] and field.get('element_path'):
+            item_display = (
+                f'<a href="StructureDefinition-{segment_id}-definitions.html'
+                f'#{field["element_path"]}">{item_formatted}</a>'
+            )
+        else:
+            item_display = item_formatted
+
         rows.append(
             f'<tr{row_class}>'
             f'<td class="v2-col-seq">{escape_xml(str(field["seq"]))}</td>'
             f'<td>{escape_xml(field["name"])}</td>'
             f'<td class="v2-col-mono">{dt_display}</td>'
             f'<td>{escape_xml(field["usage"])}</td>'
-            f'<td class="v2-col-mono">{cardinality}</td>'
             f'<td>{format_vocabulary(field["vocabulary"])}</td>'
-            f'<td class="v2-col-mono">{format_item_number(field["item_num"])}</td>'
+            f'<td class="v2-col-mono">{cardinality}</td>'
+            f'<td class="v2-col-mono">{item_display}</td>'
             f'<td class="v2-col-mono">{format_length(field["length_min"], field["length_max"])}</td>'
             f'<td class="v2-col-mono">{str(int(field["conf_length"])) if field["conf_length"] is not None else ""}</td>'
             f'<td class="v2-col-mono">{format_flags(field["no_truncate"])}</td>'
             f'</tr>'
         )
 
+    # Header links point to segment-definitions explanation page (future)
     table_html = (
-        '<table class="grid v2-segment-table">\n'
+        '<table class="v2-segment-table">\n'
         '<thead><tr>'
-        '<th>Seq</th>'
+        '<th>Seq#</th>'
         '<th>Data Element Name</th>'
         '<th>DataType</th>'
         '<th>Usage</th>'
-        '<th>Cardinality</th>'
         '<th>Vocabulary</th>'
+        '<th>Cardinality</th>'
         '<th>Item#</th>'
         '<th>Length</th>'
         '<th>C.LEN</th>'

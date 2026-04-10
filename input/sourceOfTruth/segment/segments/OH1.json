@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "OH1.1",
-        "path": "OH1.1",
+        "id": "OH1.1-setId",
+        "path": "OH1.1-setId",
         "short": "Set ID",
         "definition": "This field contains the number that identifies the OH1 segment instances in message structures where the OH1 segment repeats. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "OH1.2",
-        "path": "OH1.2",
+        "id": "OH1.2-actionCode",
+        "path": "OH1.2-actionCode",
         "short": "Action Code",
         "definition": "This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "OH1.3",
-        "path": "OH1.3",
+        "id": "OH1.3-employmentStatus",
+        "path": "OH1.3-employmentStatus",
         "short": "Employment Status",
         "definition": "This field contains a code defining the employment status of a person during the associated time. Refer to {{v2-table:0957:Employment Status (ODH)}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "OH1.4",
-        "path": "OH1.4",
+        "id": "OH1.4-employmentStatusStartDate",
+        "path": "OH1.4-employmentStatusStartDate",
         "short": "Employment Status Start Date",
         "definition": "This field asserts when the employment status began.",
         "code": [
@@ -145,8 +145,8 @@
         ]
       },
       {
-        "id": "OH1.5",
-        "path": "OH1.5",
+        "id": "OH1.5-employmentStatusEndDate",
+        "path": "OH1.5-employmentStatusEndDate",
         "short": "Employment Status End Date",
         "definition": "This field asserts when the employment status ended. If employment status is current, Employment Status End Date should be empty.",
         "comment": "*Note:* The Employment Status End Date SHALL not be greater than the time the observation is made (OH1-6 Entered Date).",
@@ -171,8 +171,8 @@
         ]
       },
       {
-        "id": "OH1.6",
-        "path": "OH1.6",
+        "id": "OH1.6-enteredDate",
+        "path": "OH1.6-enteredDate",
         "short": "Entered Date",
         "definition": "This field records the date that the information was entered into the patient record.",
         "code": [
@@ -196,8 +196,8 @@
         ]
       },
       {
-        "id": "OH1.7",
-        "path": "OH1.7",
+        "id": "OH1.7-employmentStatusUniqueIdentifier",
+        "path": "OH1.7-employmentStatusUniqueIdentifier",
         "short": "Employment Status Unique Identifier",
         "definition": "This field contains a value that uniquely identifies a single employment status for a person.",
         "code": [

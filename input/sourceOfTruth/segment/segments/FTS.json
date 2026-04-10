@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "FTS.1",
-        "path": "FTS.1",
+        "id": "FTS.1-fileBatchCount",
+        "path": "FTS.1-fileBatchCount",
         "short": "File Batch Count",
         "definition": "This field contains the number of batches contained in this file.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "FTS.2",
-        "path": "FTS.2",
+        "id": "FTS.2-fileTrailerComment",
+        "path": "FTS.2-fileTrailerComment",
         "short": "File Trailer Comment",
         "definition": "The use of this free text field is not further specified.",
         "code": [

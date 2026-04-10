@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "IAM.1",
-        "path": "IAM.1",
+        "id": "IAM.1-setId",
+        "path": "IAM.1-setId",
         "short": "Set ID - IAM",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "IAM.2",
-        "path": "IAM.2",
+        "id": "IAM.2-allergenTypeCode",
+        "path": "IAM.2-allergenTypeCode",
         "short": "Allergen Type Code",
         "definition": "This field indicates a general allergy category (drug, food, pollen, etc.). Refer to {{v2-table:0127:Allergen Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "IAM.3",
-        "path": "IAM.3",
+        "id": "IAM.3-allergenCodeMnemonicDescription",
+        "path": "IAM.3-allergenCodeMnemonicDescription",
         "short": "Allergen Code/Mnemonic/Description",
         "definition": "This field uniquely identifies a particular allergen. This element may conform to some external, standard coding system (that must be identified), or it may conform to local, largely textual or mnemonic descriptions.",
         "comment": "If a system maintains allergen codes as its unique identifier for a particular allergy, and two systems have agreed to process the IAM using update mode, then this field can be used as the unique identifier instead of _IAM-8 - Allergy Unique Identifier_. This does not preclude using allergen codes for unique identifiers for snapshot processing.",
@@ -117,8 +117,8 @@
         ]
       },
       {
-        "id": "IAM.4",
-        "path": "IAM.4",
+        "id": "IAM.4-allergySeverityCode",
+        "path": "IAM.4-allergySeverityCode",
         "short": "Allergy Severity Code",
         "definition": "This field indicates the general severity of the allergy. Refer to {{v2-table:0128:Allergy Severity Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -146,8 +146,8 @@
         ]
       },
       {
-        "id": "IAM.5",
-        "path": "IAM.5",
+        "id": "IAM.5-allergyReactionCode",
+        "path": "IAM.5-allergyReactionCode",
         "short": "Allergy Reaction Code",
         "definition": "This field identifies the specific allergic reaction that was documented. This element may conform to some external, standard coding system, or it may conform to local, largely textual or mnemonic descriptions (e.g., convulsions, sneeze, rash, etc.).",
         "code": [
@@ -184,8 +184,8 @@
         ]
       },
       {
-        "id": "IAM.6",
-        "path": "IAM.6",
+        "id": "IAM.6-allergyActionCode",
+        "path": "IAM.6-allergyActionCode",
         "short": "Allergy Action Code",
         "definition": "This field contains a code defining the status of the record. It allows allergy messages to be sent to delete or update previously sent allergy messages. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -226,8 +226,8 @@
         ]
       },
       {
-        "id": "IAM.7",
-        "path": "IAM.7",
+        "id": "IAM.7-allergyUniqueIdentifier",
+        "path": "IAM.7-allergyUniqueIdentifier",
         "short": "Allergy Unique Identifier",
         "definition": "This field contains a value that uniquely identifies a single allergy for a person.",
         "comment": "This field is conditionally required. The surrogate field to use is _IAM-3 - Allergen Code/Mnemonic/Description_ if that field can uniquely identify the allergy on the receiving system.",
@@ -252,8 +252,8 @@
         ]
       },
       {
-        "id": "IAM.8",
-        "path": "IAM.8",
+        "id": "IAM.8-actionReason",
+        "path": "IAM.8-actionReason",
         "short": "Action Reason",
         "definition": "This field contains the reason for the action indicated in the _IAM-6 - Allergy Action Code_ field.",
         "code": [
@@ -290,8 +290,8 @@
         ]
       },
       {
-        "id": "IAM.9",
-        "path": "IAM.9",
+        "id": "IAM.9-sensitivityToCausativeAgentCode",
+        "path": "IAM.9-sensitivityToCausativeAgentCode",
         "short": "Sensitivity to Causative Agent Code",
         "definition": "This field contains the reason why the patient should not be exposed to a substance. Refer to {{v2-table:0436:Sensitivity to Causative Agent Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -319,8 +319,8 @@
         ]
       },
       {
-        "id": "IAM.10",
-        "path": "IAM.10",
+        "id": "IAM.10-allergenGroupCodeMnemonicDescription",
+        "path": "IAM.10-allergenGroupCodeMnemonicDescription",
         "short": "Allergen Group Code/Mnemonic/Description",
         "definition": "This field contains the code, mnemonic, or description used to uniquely identify an allergen group when both a detailed allergy (_IAM-3 - Allergen Code/Mnemonic/Description_) and group level (_IAM-10 - Allergen Group Code/Mnemonic/Description_) need to be communicated. In cases where systems want to communicate both a specific drug allergy and the group of drugs to which the specific drug belongs (i.e., Bactrim and Sulfa drugs; Ceclor and Penicillins/Cephalosporins) then the specific drug allergy is sent in _IAM-3 - Allergen Code/Mnemonic/Description_ and the group level is sent in _IAM-10 - Allergen Group Code/Mnemonic/Description_. However, if only a group level is being communicated, then it can be sent in IAM-3 as the primary identifier of the allergy.",
         "code": [
@@ -344,8 +344,8 @@
         ]
       },
       {
-        "id": "IAM.11",
-        "path": "IAM.11",
+        "id": "IAM.11-onsetDate",
+        "path": "IAM.11-onsetDate",
         "short": "Onset Date",
         "definition": "This field contains the actual date of the first reaction.",
         "code": [
@@ -369,8 +369,8 @@
         ]
       },
       {
-        "id": "IAM.12",
-        "path": "IAM.12",
+        "id": "IAM.12-onsetDateText",
+        "path": "IAM.12-onsetDateText",
         "short": "Onset Date Text",
         "definition": "This field contains a text description of the time period of the first reaction when an exact date is not known (e.g., adolescence, childhood, spring 1990).",
         "code": [
@@ -407,8 +407,8 @@
         ]
       },
       {
-        "id": "IAM.13",
-        "path": "IAM.13",
+        "id": "IAM.13-reportedDateTime",
+        "path": "IAM.13-reportedDateTime",
         "short": "Reported Date/Time",
         "definition": "This field contains the date/time the allergy was reported to a caregiver.",
         "code": [
@@ -432,8 +432,8 @@
         ]
       },
       {
-        "id": "IAM.14",
-        "path": "IAM.14",
+        "id": "IAM.14-reportedBy",
+        "path": "IAM.14-reportedBy",
         "short": "Reported By",
         "definition": "This field contains the name of the person reporting the allergy to a caregiver at the time reported in _IAM-14 - Reported Date/Time_.",
         "code": [
@@ -457,8 +457,8 @@
         ]
       },
       {
-        "id": "IAM.15",
-        "path": "IAM.15",
+        "id": "IAM.15-relationshipToPatientCode",
+        "path": "IAM.15-relationshipToPatientCode",
         "short": "Relationship to Patient Code",
         "definition": "This field contains the personal relationship that the person reporting the allergy has to the patient. It uses the same table as that used by NK1-3. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values. Examples include: brother, sister, mother, father, friend, spouse, etc.",
         "code": [
@@ -486,8 +486,8 @@
         ]
       },
       {
-        "id": "IAM.16",
-        "path": "IAM.16",
+        "id": "IAM.16-alertDeviceCode",
+        "path": "IAM.16-alertDeviceCode",
         "short": "Alert Device Code",
         "definition": "This field describes any type of allergy alert device the patient may be carrying or wearing. Refer to {{v2-table:0437:Alert Device}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -515,8 +515,8 @@
         ]
       },
       {
-        "id": "IAM.17",
-        "path": "IAM.17",
+        "id": "IAM.17-allergyClinicalStatusCode",
+        "path": "IAM.17-allergyClinicalStatusCode",
         "short": "Allergy Clinical Status Code",
         "definition": "This field indicates the verification status for the allergy. Refer to {{v2-table:0438:Allergy Clinical Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -544,8 +544,8 @@
         ]
       },
       {
-        "id": "IAM.18",
-        "path": "IAM.18",
+        "id": "IAM.18-statusedByPerson",
+        "path": "IAM.18-statusedByPerson",
         "short": "Statused by Person",
         "definition": "This field identifies the provider who assigned the clinical status to the allergy (e.g., ...| S12345^EVERYMAN^ADAM^J^III^DR^MD|...).",
         "code": [
@@ -569,8 +569,8 @@
         ]
       },
       {
-        "id": "IAM.19",
-        "path": "IAM.19",
+        "id": "IAM.19-statusedByOrganization",
+        "path": "IAM.19-statusedByOrganization",
         "short": "Statused by Organization",
         "definition": "This field contains the name of the organization providing the update to the allergy (e.g., Good Health Hospital).",
         "code": [
@@ -594,8 +594,8 @@
         ]
       },
       {
-        "id": "IAM.20",
-        "path": "IAM.20",
+        "id": "IAM.20-statusedAtDateTime",
+        "path": "IAM.20-statusedAtDateTime",
         "short": "Statused at Date/Time",
         "definition": "The date and time that this allergy was last statused by the _IAM-18 - Statused by Person_ in the _IAM-19 - Statused by Organization_.",
         "code": [
@@ -619,8 +619,8 @@
         ]
       },
       {
-        "id": "IAM.21",
-        "path": "IAM.21",
+        "id": "IAM.21-inactivatedByPerson",
+        "path": "IAM.21-inactivatedByPerson",
         "short": "Inactivated by Person",
         "definition": "This field identifies the user that inactivated the record entry about the patient’s allergy",
         "comment": "(e.g. ...| S12345^Smith^John^J^III^DR^MD|...).",
@@ -645,8 +645,8 @@
         ]
       },
       {
-        "id": "IAM.22",
-        "path": "IAM.22",
+        "id": "IAM.22-inactivatedDateTime",
+        "path": "IAM.22-inactivatedDateTime",
         "short": "Inactivated Date/Time",
         "definition": "The date and time that this allergy was inactivated by the _IAM-21 Inactivated by Person_.",
         "code": [
@@ -670,8 +670,8 @@
         ]
       },
       {
-        "id": "IAM.23",
-        "path": "IAM.23",
+        "id": "IAM.23-initiallyRecordedByPerson",
+        "path": "IAM.23-initiallyRecordedByPerson",
         "short": "Initially Recorded by Person",
         "definition": "This field identifies the user that created the entry in the record stating the allergy (e.g. ...| S12345^Smith^John^J^III^DR^MD|...).",
         "code": [
@@ -695,8 +695,8 @@
         ]
       },
       {
-        "id": "IAM.24",
-        "path": "IAM.24",
+        "id": "IAM.24-initiallyRecordedDateTime",
+        "path": "IAM.24-initiallyRecordedDateTime",
         "short": "Initially Recorded Date/Time",
         "definition": "The date and time that this allergy entry was created by the _IAM-23 Created by Person_.",
         "code": [
@@ -720,8 +720,8 @@
         ]
       },
       {
-        "id": "IAM.25",
-        "path": "IAM.25",
+        "id": "IAM.25-modifiedByPerson",
+        "path": "IAM.25-modifiedByPerson",
         "short": "Modified by Person",
         "definition": "This field identifies the user that modified the allergy (e.g. ...|S12345^Smith^John^J^III^DR^MD|...).",
         "code": [
@@ -745,8 +745,8 @@
         ]
       },
       {
-        "id": "IAM.26",
-        "path": "IAM.26",
+        "id": "IAM.26-modifiedDateTime",
+        "path": "IAM.26-modifiedDateTime",
         "short": "Modified Date/Time",
         "definition": "The date and time that this allergy was modified by the _IAM-25 Modified by Person_.",
         "code": [
@@ -770,8 +770,8 @@
         ]
       },
       {
-        "id": "IAM.27",
-        "path": "IAM.27",
+        "id": "IAM.27-clinicianIdentifiedAllergenCode",
+        "path": "IAM.27-clinicianIdentifiedAllergenCode",
         "short": "Clinician-Identified Allergen Code",
         "definition": "This field identifies the clinician entered description associated to a particular allergen. This element may conform to some external, standard coding system (that must be identified), or it may conform to local, largely textual or mnemonic descriptions.",
         "code": [
@@ -795,8 +795,8 @@
         ]
       },
       {
-        "id": "IAM.28",
-        "path": "IAM.28",
+        "id": "IAM.28-initiallyRecordedByOrganization",
+        "path": "IAM.28-initiallyRecordedByOrganization",
         "short": "Initially Recorded by Organization",
         "definition": "This field contains the name of the organization that initially recorded the allergy (e.g., a General Hospital).",
         "code": [
@@ -820,8 +820,8 @@
         ]
       },
       {
-        "id": "IAM.29",
-        "path": "IAM.29",
+        "id": "IAM.29-modifiedByOrganization",
+        "path": "IAM.29-modifiedByOrganization",
         "short": "Modified by Organization",
         "definition": "This field contains the name of the organization that modified the allergy (e.g., a General Hospital).",
         "code": [
@@ -845,8 +845,8 @@
         ]
       },
       {
-        "id": "IAM.30",
-        "path": "IAM.30",
+        "id": "IAM.30-inactivatedByOrganization",
+        "path": "IAM.30-inactivatedByOrganization",
         "short": "Inactivated by Organization",
         "definition": "This field contains the name of the organization that inactivated the allergy (e.g., a General Hospital).",
         "code": [

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "IVT.1",
-        "path": "IVT.1",
+        "id": "IVT.1-setId",
+        "path": "IVT.1-setId",
         "short": "Set Id – IVT",
         "definition": "This field contains a sequential number that identifies this segment within a given Material Location segment group. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "IVT.2",
-        "path": "IVT.2",
+        "id": "IVT.2-inventoryLocationIdentifier",
+        "path": "IVT.2-inventoryLocationIdentifier",
         "short": "Inventory Location Identifier",
         "definition": "This field contains the code identifying an inventory supply location that stocks or purchases this item.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "IVT.3",
-        "path": "IVT.3",
+        "id": "IVT.3-inventoryLocationName",
+        "path": "IVT.3-inventoryLocationName",
         "short": "Inventory Location Name",
         "definition": "This field contains the name of the inventory supply location identified in _IVT-2, Inventory Location Identifier_.",
         "code": [
@@ -125,8 +125,8 @@
         ]
       },
       {
-        "id": "IVT.4",
-        "path": "IVT.4",
+        "id": "IVT.4-sourceLocationIdentifier",
+        "path": "IVT.4-sourceLocationIdentifier",
         "short": "Source Location Identifier",
         "definition": "This field contains the code identifying the source location that purchases and stocks items in addition to filling supply requests for the location specified in _IVT-2, Inventory Location Identifier_. For example, IVT-2 may be considered Central Supply, an inventory location that issues to departments. _IVT-3, Inventory Location Name_, may be considered General Stores, a supply location that most items are received into when delivered to the healthcare facility. General Stores would then replenish the Central Supply inventory. Central Supply would then issue supplies to departments based on requests for supplies.",
         "code": [
@@ -150,8 +150,8 @@
         ]
       },
       {
-        "id": "IVT.5",
-        "path": "IVT.5",
+        "id": "IVT.5-sourceLocationName",
+        "path": "IVT.5-sourceLocationName",
         "short": "Source Location Name",
         "definition": "This field contains the name of the source supply location identified in _IVT-4, Source Location Identifier_.",
         "code": [
@@ -188,8 +188,8 @@
         ]
       },
       {
-        "id": "IVT.6",
-        "path": "IVT.6",
+        "id": "IVT.6-itemStatus",
+        "path": "IVT.6-itemStatus",
         "short": "Item Status",
         "definition": "This field contains the status that applies to the inventory supply item for the inventory location specified in IVT-2. Refer to {{v2-table:0625:Item Status Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -217,8 +217,8 @@
         ]
       },
       {
-        "id": "IVT.7",
-        "path": "IVT.7",
+        "id": "IVT.7-binLocationIdentifier",
+        "path": "IVT.7-binLocationIdentifier",
         "short": "Bin Location Identifier",
         "definition": "A unique code assigned to a bin location located within the inventory location in IVT-2, where the inventory supply item may be stored.",
         "code": [
@@ -242,8 +242,8 @@
         ]
       },
       {
-        "id": "IVT.8",
-        "path": "IVT.8",
+        "id": "IVT.8-orderPackaging",
+        "path": "IVT.8-orderPackaging",
         "short": "Order Packaging",
         "definition": "This field contains the primary packaging unit by which the item can be requisitioned or ordered to replenish the inventory supply item for the corresponding inventory location specified in _IVT-2, Inventory Location Identifier_. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -271,8 +271,8 @@
         ]
       },
       {
-        "id": "IVT.9",
-        "path": "IVT.9",
+        "id": "IVT.9-issuePackaging",
+        "path": "IVT.9-issuePackaging",
         "short": "Issue Packaging",
         "definition": "This field contains the primary issue packaging unit by which the inventory supply item can be issued to departments or other locations by the corresponding inventory location specified in IVT-2. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_, and presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -296,8 +296,8 @@
         ]
       },
       {
-        "id": "IVT.10",
-        "path": "IVT.10",
+        "id": "IVT.10-defaultInventoryAssetAccount",
+        "path": "IVT.10-defaultInventoryAssetAccount",
         "short": "Default Inventory Asset Account",
         "definition": "This field contains the general ledger number for the default inventory asset account used in journal transactions associated with items stored in this inventory location. The account includes all elements of a general ledger account (a fully qualified general ledger account number). All elements may include a corporation, department/cost center account, and expense account.",
         "code": [
@@ -321,8 +321,8 @@
         ]
       },
       {
-        "id": "IVT.11",
-        "path": "IVT.11",
+        "id": "IVT.11-patientChargeableIndicator",
+        "path": "IVT.11-patientChargeableIndicator",
         "short": "Patient Chargeable Indicator",
         "definition": "This field indicates whether the item is patient chargeable at this inventory location. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -350,8 +350,8 @@
         ]
       },
       {
-        "id": "IVT.12",
-        "path": "IVT.12",
+        "id": "IVT.12-transactionCode",
+        "path": "IVT.12-transactionCode",
         "short": "Transaction Code",
         "definition": "This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient's bill or charge labels) and the name of the coding system that assigned the charge code. Refer to {{v2-table:0132:Transaction Codes}}_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -379,8 +379,8 @@
         ]
       },
       {
-        "id": "IVT.13",
-        "path": "IVT.13",
+        "id": "IVT.13-transactionAmountUnit",
+        "path": "IVT.13-transactionAmountUnit",
         "short": "Transaction Amount - Unit",
         "definition": "This field contains the dollar amount charged to patients for this single inventory supply item.",
         "code": [
@@ -404,8 +404,8 @@
         ]
       },
       {
-        "id": "IVT.14",
-        "path": "IVT.14",
+        "id": "IVT.14-itemImportanceCode",
+        "path": "IVT.14-itemImportanceCode",
         "short": "Item Importance Code",
         "definition": "This field contains an indicator of the level of importance of an item considered for this inventory location, such as an indicator signifying whether the item is considered critical for this inventory location. Refer to {{v2-table:0634:Item Importance Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -433,8 +433,8 @@
         ]
       },
       {
-        "id": "IVT.15",
-        "path": "IVT.15",
+        "id": "IVT.15-stockedItemIndicator",
+        "path": "IVT.15-stockedItemIndicator",
         "short": "Stocked Item Indicator",
         "definition": "This field contains an indicator that identifies whether the item is regularly stocked in this inventory location. Stock items are ordered regularly as part of the healthcare organization's inventory replenishment cycle. If the item is not regularly stocked in this inventory location (non-stock item), the item is available to be ordered from this inventory location if requested by a department. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -462,8 +462,8 @@
         ]
       },
       {
-        "id": "IVT.16",
-        "path": "IVT.16",
+        "id": "IVT.16-consignmentItemIndicator",
+        "path": "IVT.16-consignmentItemIndicator",
         "short": "Consignment Item Indicator",
         "definition": "This field contains an indicator signifying whether the inventory supply item is purchased on consignment. If the item is purchased on consignment, the healthcare organization does not pay for the inventory supply item until it is used. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -491,8 +491,8 @@
         ]
       },
       {
-        "id": "IVT.17",
-        "path": "IVT.17",
+        "id": "IVT.17-reusableItemIndicator",
+        "path": "IVT.17-reusableItemIndicator",
         "short": "Reusable Item Indicator",
         "definition": "This field contains an indicator signifying that the inventory supply item is reusable, for example, after sterilization. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -520,8 +520,8 @@
         ]
       },
       {
-        "id": "IVT.18",
-        "path": "IVT.18",
+        "id": "IVT.18-reusableCost",
+        "path": "IVT.18-reusableCost",
         "short": "Reusable Cost",
         "definition": "This field contains the issue cost charged to a department or patient for a reusable item. This cost is calculated based on the cost of reprocessing the item. Examples of reusable items are linens, restraints, and procedure packs (custom for specific procedures).",
         "code": [
@@ -545,8 +545,8 @@
         ]
       },
       {
-        "id": "IVT.19",
-        "path": "IVT.19",
+        "id": "IVT.19-substituteItemIdentifier",
+        "path": "IVT.19-substituteItemIdentifier",
         "short": "Substitute Item Identifier",
         "definition": "The substitute item is an item that is recommended as a substitute for the corresponding item in ITM-1.",
         "code": [
@@ -570,8 +570,8 @@
         ]
       },
       {
-        "id": "IVT.20",
-        "path": "IVT.20",
+        "id": "IVT.20-latexFreeSubstituteItemIdentifier",
+        "path": "IVT.20-latexFreeSubstituteItemIdentifier",
         "short": "Latex-Free Substitute Item Identifier",
         "definition": "The latex-free substitute item is an item that is latex-free, recommended as a substitute for the corresponding item in the _ITM-1_ segment when a latex-free item is needed.",
         "code": [
@@ -595,8 +595,8 @@
         ]
       },
       {
-        "id": "IVT.21",
-        "path": "IVT.21",
+        "id": "IVT.21-recommendedReorderTheory",
+        "path": "IVT.21-recommendedReorderTheory",
         "short": "Recommended Reorder Theory",
         "definition": "This field contains the method used to calculate a recommendation for when and how much of an inventory supply item to reorder. Refer to {{v2-table:0642:Reorder Theory Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -624,8 +624,8 @@
         ]
       },
       {
-        "id": "IVT.22",
-        "path": "IVT.22",
+        "id": "IVT.22-recommendedSafetyStockDays",
+        "path": "IVT.22-recommendedSafetyStockDays",
         "short": "Recommended Safety Stock Days",
         "definition": "This field contains the number of days for stock to be kept on-hand to cushion against a stock-out for this item.",
         "code": [
@@ -662,8 +662,8 @@
         ]
       },
       {
-        "id": "IVT.23",
-        "path": "IVT.23",
+        "id": "IVT.23-recommendedMaximumDaysInventory",
+        "path": "IVT.23-recommendedMaximumDaysInventory",
         "short": "Recommended Maximum Days Inventory",
         "definition": "This field contains the maximum number of days of inventory to have on-hand at any one point in time. This value is used in calculations of recommended order quantities",
         "code": [
@@ -700,8 +700,8 @@
         ]
       },
       {
-        "id": "IVT.24",
-        "path": "IVT.24",
+        "id": "IVT.24-recommendedOrderPoint",
+        "path": "IVT.24-recommendedOrderPoint",
         "short": "Recommended Order Point",
         "definition": "This field contains the on-hand quantity referencing the recommended level of inventory at which the item should be re-ordered.",
         "code": [
@@ -738,8 +738,8 @@
         ]
       },
       {
-        "id": "IVT.25",
-        "path": "IVT.25",
+        "id": "IVT.25-recommendedOrderAmount",
+        "path": "IVT.25-recommendedOrderAmount",
         "short": "Recommended Order Amount",
         "definition": "This field contains the quantity that the system should recommend to order when the on-hand quantity is equal to or less than the reorder point. The quantity should be set at the Order Unit of Measure.",
         "code": [
@@ -776,8 +776,8 @@
         ]
       },
       {
-        "id": "IVT.26",
-        "path": "IVT.26",
+        "id": "IVT.26-operatingRoomParLevelIndicator",
+        "path": "IVT.26-operatingRoomParLevelIndicator",
         "short": "Operating Room Par Level Indicator",
         "definition": "This field contains an indicator that determines whether on-hands inventory will be decremented when performing Preference List Issues. Refer to {{v2-table:0532:Expanded Yes/no Indicator Table}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "If valued with a 'Y', this indicates to the system that the item to be issued is contained in an OR Par Level area (in an actual Operating Room) and not an Operating Room inventory area; therefore, on-hands of the Operation Room inventory area will not be decremented. If valued with a 'N', the item is contained in an Operating Room inventory location and on-hands will be decremented when performing Preference List Issues.",

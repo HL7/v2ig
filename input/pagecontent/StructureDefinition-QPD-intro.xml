@@ -1,11 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Message Query Name</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0471">0471</a></td><td class="v2-col-mono">01375</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Query Tag</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>C</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00696</td><td class="v2-col-mono"></td><td class="v2-col-mono">32</td><td class="v2-col-mono">#</td></tr>
-<tr><td class="v2-col-seq">3</td><td>QPD-3</td><td class="v2-col-mono"><a href="StructureDefinition-Varies.html">Varies</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01435</td><td class="v2-col-mono"></td><td class="v2-col-mono">256</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">1</td><td>Message Query Name</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0471">0471</a></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-QPD-definitions.html#QPD.1-messageQueryName">01375</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Query Tag</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>C</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-QPD-definitions.html#QPD.2-queryTag">00696</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">32</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">3</td><td>QPD-3</td><td class="v2-col-mono"><a href="StructureDefinition-Varies.html">Varies</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-QPD-definitions.html#QPD.3-qpd3">01435</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">256</td><td class="v2-col-mono">#</td></tr>
 </tbody>
 </table>
 </div>

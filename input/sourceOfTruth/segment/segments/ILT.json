@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ILT.1",
-        "path": "ILT.1",
+        "id": "ILT.1-setId",
+        "path": "ILT.1-setId",
         "short": "Set Id - ILT",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "ILT.2",
-        "path": "ILT.2",
+        "id": "ILT.2-inventoryNumber",
+        "path": "ILT.2-inventoryNumber",
         "short": "Inventory  Number",
         "definition": "This field contains the lot number of the service item in inventory.",
         "comment": "*Note:* The lot number is the number printed on the label attached to the item or container holding the substance. If the substance is a vaccine, for example, and a diluent is required, a lot number may appear on the vial containing the diluent; however, any such identifier associated with a diluent is not the identifier of interest. The substance lot number should be reported, not that of the diluent.\n\nNote:",
@@ -101,8 +101,8 @@
         ]
       },
       {
-        "id": "ILT.3",
-        "path": "ILT.3",
+        "id": "ILT.3-inventoryExpirationDate",
+        "path": "ILT.3-inventoryExpirationDate",
         "short": "Inventory Expiration Date",
         "definition": "This field contains the expiration date of the service item in inventory.",
         "comment": "*Note:* Expiration date does not always have a \"day\" component; therefore, such a date may be transmitted as YYYYMM.",
@@ -127,8 +127,8 @@
         ]
       },
       {
-        "id": "ILT.4",
-        "path": "ILT.4",
+        "id": "ILT.4-inventoryReceivedDate",
+        "path": "ILT.4-inventoryReceivedDate",
         "short": "Inventory Received Date",
         "definition": "This field contains the most recent date that the product in question was received into inventory.",
         "code": [
@@ -152,8 +152,8 @@
         ]
       },
       {
-        "id": "ILT.5",
-        "path": "ILT.5",
+        "id": "ILT.5-inventoryReceivedQuantity",
+        "path": "ILT.5-inventoryReceivedQuantity",
         "short": "Inventory Received Quantity",
         "definition": "This field contains the quantity of this inventory item that was received on the date specific in _ILT-4 Inventory Received Date_ field.",
         "code": [
@@ -190,8 +190,8 @@
         ]
       },
       {
-        "id": "ILT.6",
-        "path": "ILT.6",
+        "id": "ILT.6-inventoryReceivedQuantityUnit",
+        "path": "ILT.6-inventoryReceivedQuantityUnit",
         "short": "Inventory Received Quantity Unit",
         "definition": "This field specifies the unit for the _Inventory Received Quantity_. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -219,8 +219,8 @@
         ]
       },
       {
-        "id": "ILT.7",
-        "path": "ILT.7",
+        "id": "ILT.7-inventoryReceivedItemCost",
+        "path": "ILT.7-inventoryReceivedItemCost",
         "short": "Inventory Received Item Cost",
         "definition": "This field contains the per-unit cost of the inventory item at the time of receipt. _ILT-6 Inventory Received Quantity Unit_ field specifies the per-unit basis of this field.",
         "code": [
@@ -244,8 +244,8 @@
         ]
       },
       {
-        "id": "ILT.8",
-        "path": "ILT.8",
+        "id": "ILT.8-inventoryOnHandDate",
+        "path": "ILT.8-inventoryOnHandDate",
         "short": "Inventory On Hand Date",
         "definition": "This field specifies the most recent date that an inventory count was performed for the inventory item.",
         "code": [
@@ -269,8 +269,8 @@
         ]
       },
       {
-        "id": "ILT.9",
-        "path": "ILT.9",
+        "id": "ILT.9-inventoryOnHandQuantity",
+        "path": "ILT.9-inventoryOnHandQuantity",
         "short": "Inventory On Hand Quantity",
         "definition": "This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use.",
         "code": [
@@ -307,8 +307,8 @@
         ]
       },
       {
-        "id": "ILT.10",
-        "path": "ILT.10",
+        "id": "ILT.10-inventoryOnHandQuantityUnit",
+        "path": "ILT.10-inventoryOnHandQuantityUnit",
         "short": "Inventory On Hand Quantity Unit",
         "definition": "This field contains the quantity of this inventory item that was available for issue/use as of the date specified in _ILT-8 Inventory on Hand Date_ field. No adjustment has been made for subsequent use. See {{v2-table:0818:Package}} as described in _PKG-2 Packaging Units_ and as presented in Chapter 2C, Code Tables, for suggested values.",
         "code": [

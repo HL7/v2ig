@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "FAC.1",
-        "path": "FAC.1",
+        "id": "FAC.1-facilityId",
+        "path": "FAC.1-facilityId",
         "short": "Facility ID-FAC",
         "definition": "This field contains the facility identifier.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "FAC.2",
-        "path": "FAC.2",
+        "id": "FAC.2-facilityType",
+        "path": "FAC.2-facilityType",
         "short": "Facility Type",
         "definition": "This field contains the type of facility. Refer to {{v2-table:0331:Facility Type}} for valid values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "FAC.3",
-        "path": "FAC.3",
+        "id": "FAC.3-facilityAddress",
+        "path": "FAC.3-facilityAddress",
         "short": "Facility Address",
         "definition": "This field contains the facility's address.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "FAC.4",
-        "path": "FAC.4",
+        "id": "FAC.4-facilityTelecommunication",
+        "path": "FAC.4-facilityTelecommunication",
         "short": "Facility Telecommunication",
         "definition": "This field contains the facility's telecommunication information.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "FAC.5",
-        "path": "FAC.5",
+        "id": "FAC.5-contactPerson",
+        "path": "FAC.5-contactPerson",
         "short": "Contact Person",
         "definition": "This field contains the primary contact person's name.",
         "code": [
@@ -166,8 +166,8 @@
         ]
       },
       {
-        "id": "FAC.6",
-        "path": "FAC.6",
+        "id": "FAC.6-contactTitle",
+        "path": "FAC.6-contactTitle",
         "short": "Contact Title",
         "definition": "This field contains the primary contact person's title.",
         "code": [
@@ -204,8 +204,8 @@
         ]
       },
       {
-        "id": "FAC.7",
-        "path": "FAC.7",
+        "id": "FAC.7-contactAddress",
+        "path": "FAC.7-contactAddress",
         "short": "Contact Address",
         "definition": "This field contains the primary contact person's address.",
         "code": [
@@ -229,8 +229,8 @@
         ]
       },
       {
-        "id": "FAC.8",
-        "path": "FAC.8",
+        "id": "FAC.8-contactTelecommunication",
+        "path": "FAC.8-contactTelecommunication",
         "short": "Contact Telecommunication",
         "definition": "This field contains the primary contact person's telecommunication information.",
         "code": [
@@ -254,8 +254,8 @@
         ]
       },
       {
-        "id": "FAC.9",
-        "path": "FAC.9",
+        "id": "FAC.9-signatureAuthority",
+        "path": "FAC.9-signatureAuthority",
         "short": "Signature Authority",
         "definition": "This field contains the name of the individual with signature authority or who is responsible for the report.",
         "code": [
@@ -279,8 +279,8 @@
         ]
       },
       {
-        "id": "FAC.10",
-        "path": "FAC.10",
+        "id": "FAC.10-signatureAuthorityTitle",
+        "path": "FAC.10-signatureAuthorityTitle",
         "short": "Signature Authority Title",
         "definition": "This field contains the title of the individual with signature authority or who is responsible for this report.",
         "code": [
@@ -317,8 +317,8 @@
         ]
       },
       {
-        "id": "FAC.11",
-        "path": "FAC.11",
+        "id": "FAC.11-signatureAuthorityAddress",
+        "path": "FAC.11-signatureAuthorityAddress",
         "short": "Signature Authority Address",
         "definition": "This field contains the address of the individual with signature authority or who is responsible for this report.",
         "code": [
@@ -342,8 +342,8 @@
         ]
       },
       {
-        "id": "FAC.12",
-        "path": "FAC.12",
+        "id": "FAC.12-signatureAuthorityTelecommunication",
+        "path": "FAC.12-signatureAuthorityTelecommunication",
         "short": "Signature Authority Telecommunication",
         "definition": "This field contains the telecommunication information of the individual with signature authority of who is responsible for this report.",
         "code": [

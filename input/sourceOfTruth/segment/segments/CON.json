@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "CON.1",
-        "path": "CON.1",
+        "id": "CON.1-setId",
+        "path": "CON.1-setId",
         "short": "Set ID - CON",
         "definition": "This field contains the number that identifies this segment instance within the message. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "CON.2",
-        "path": "CON.2",
+        "id": "CON.2-consentType",
+        "path": "CON.2-consentType",
         "short": "Consent Type",
         "definition": "This field describes what the subject is consenting to, i.e., what type of service, surgical procedure, information access/release or other event. For values see {{v2-table:0496:Consent Type.}}",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "CON.3",
-        "path": "CON.3",
+        "id": "CON.3-consentFormIdAndVersion",
+        "path": "CON.3-consentFormIdAndVersion",
         "short": "Consent Form ID and Version",
         "definition": "Identifies a specific version of a consent form used to record the consent. A given version of a consent form implies a particular set of wording that appears on the form.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "CON.4",
-        "path": "CON.4",
+        "id": "CON.4-consentFormNumber",
+        "path": "CON.4-consentFormNumber",
         "short": "Consent Form Number",
         "definition": "Uniquely identifies a specific recorded consent. This may be the number assigned to an electronic consent, or may be the number on a printed consent form.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "CON.5",
-        "path": "CON.5",
+        "id": "CON.5-consentText",
+        "path": "CON.5-consentText",
         "short": "Consent Text",
         "definition": "Describes the specific procedures/information releases/events the subject is consenting to.",
         "code": [
@@ -166,8 +166,8 @@
         ]
       },
       {
-        "id": "CON.6",
-        "path": "CON.6",
+        "id": "CON.6-subjectSpecificConsentText",
+        "path": "CON.6-subjectSpecificConsentText",
         "short": "Subject-specific Consent Text",
         "definition": "Describes any additions or variations to the standard procedures/information releases/events from a standard consent that are applicable to the subject whose consent is sought.",
         "code": [
@@ -191,8 +191,8 @@
         ]
       },
       {
-        "id": "CON.7",
-        "path": "CON.7",
+        "id": "CON.7-consentBackgroundInformation",
+        "path": "CON.7-consentBackgroundInformation",
         "short": "Consent Background Information",
         "definition": "Describes any additional information relating to the procedure/information release/event that needs to be understood by the subject for informed consent. May include the reason for the service, the expected benefit, risks, etc.",
         "code": [
@@ -216,8 +216,8 @@
         ]
       },
       {
-        "id": "CON.8",
-        "path": "CON.8",
+        "id": "CON.8-subjectSpecificConsentBackgroundText",
+        "path": "CON.8-subjectSpecificConsentBackgroundText",
         "short": "Subject-specific Consent Background Text",
         "definition": "Describes any additions or variations to the standard additional information that needs to be understood by the patient for informed consent. May include a description of benefits and risks that are specific to the subject from whom consent is sought. May also include an indication that there are *no* subject-specific risks/benefits.",
         "code": [
@@ -241,8 +241,8 @@
         ]
       },
       {
-        "id": "CON.9",
-        "path": "CON.9",
+        "id": "CON.9-consenterImposedLimitations",
+        "path": "CON.9-consenterImposedLimitations",
         "short": "Consenter-imposed limitations",
         "definition": "Describes any restrictions or limitations placed on their consent by the subject.",
         "code": [
@@ -266,8 +266,8 @@
         ]
       },
       {
-        "id": "CON.10",
-        "path": "CON.10",
+        "id": "CON.10-consentMode",
+        "path": "CON.10-consentMode",
         "short": "Consent Mode",
         "definition": "The method in which a subject provides consent. For values see {{v2-table:0497:Consent Mode.}}",
         "code": [
@@ -295,8 +295,8 @@
         ]
       },
       {
-        "id": "CON.11",
-        "path": "CON.11",
+        "id": "CON.11-consentStatus",
+        "path": "CON.11-consentStatus",
         "short": "Consent Status",
         "definition": "Indicates whether consent has been sought and granted. For values see {{v2-table:0498:Consent Status}}.",
         "code": [
@@ -324,8 +324,8 @@
         ]
       },
       {
-        "id": "CON.12",
-        "path": "CON.12",
+        "id": "CON.12-consentDiscussionDateTime",
+        "path": "CON.12-consentDiscussionDateTime",
         "short": "Consent Discussion Date/Time",
         "definition": "Identifies the time when consent was discussed with the subject. This should only be specified if this differs from the time the consent decision is made.",
         "code": [
@@ -349,8 +349,8 @@
         ]
       },
       {
-        "id": "CON.13",
-        "path": "CON.13",
+        "id": "CON.13-consentDecisionDateTime",
+        "path": "CON.13-consentDecisionDateTime",
         "short": "Consent Decision Date/Time",
         "definition": "Identifies the time when the decision to grant/refuse consent was made. In the case of written consent, this is the time the consent form is signed.",
         "code": [
@@ -374,8 +374,8 @@
         ]
       },
       {
-        "id": "CON.14",
-        "path": "CON.14",
+        "id": "CON.14-consentEffectiveDateTime",
+        "path": "CON.14-consentEffectiveDateTime",
         "short": "Consent Effective Date/Time",
         "definition": "The time the consent becomes/became effective. This only needs to be specified if the time differs from the Consent Decision Date/Time",
         "code": [
@@ -399,8 +399,8 @@
         ]
       },
       {
-        "id": "CON.15",
-        "path": "CON.15",
+        "id": "CON.15-consentEndDateTime",
+        "path": "CON.15-consentEndDateTime",
         "short": "Consent End Date/Time",
         "definition": "The time the consent becomes ineffective. If not specified, the consent is assumed to be indefinite. For consents relating to information release, the end date/time is the date by which the released information must be returned/destroyed.",
         "code": [
@@ -424,8 +424,8 @@
         ]
       },
       {
-        "id": "CON.16",
-        "path": "CON.16",
+        "id": "CON.16-subjectCompetenceIndicator",
+        "path": "CON.16-subjectCompetenceIndicator",
         "short": "Subject Competence Indicator",
         "definition": "Identifies whether the subject was deemed competent to provide consent. Refer to table {{v2-table:0136:Yes/No Indicator.}}",
         "code": [
@@ -466,8 +466,8 @@
         ]
       },
       {
-        "id": "CON.17",
-        "path": "CON.17",
+        "id": "CON.17-translatorAssistanceIndicator",
+        "path": "CON.17-translatorAssistanceIndicator",
         "short": "Translator Assistance Indicator",
         "definition": "Identifies whether translation was (or will be) required to obtain informed consent from the subject. Refer to table {{v2-table:0136:Yes/No Indicator.}}",
         "code": [
@@ -508,8 +508,8 @@
         ]
       },
       {
-        "id": "CON.18",
-        "path": "CON.18",
+        "id": "CON.18-languageTranslatedTo",
+        "path": "CON.18-languageTranslatedTo",
         "short": "Language Translated To",
         "definition": "Identifies the language the consent material must be translated to. Refer to {{v2-table:0296:Primary Language}}_ which contains no suggested values. This table may be populated with values similar to those that may be found in _ISO table 639 – Language Codes._",
         "code": [
@@ -537,8 +537,8 @@
         ]
       },
       {
-        "id": "CON.19",
-        "path": "CON.19",
+        "id": "CON.19-informationalMaterialSuppliedIndicator",
+        "path": "CON.19-informationalMaterialSuppliedIndicator",
         "short": "Informational Material Supplied Indicator",
         "definition": "Identifies whether additional educational or reference material was provided to the subject as part of the consent process. Refer to table {{v2-table:0136:Yes/No Indicator.}}",
         "code": [
@@ -579,8 +579,8 @@
         ]
       },
       {
-        "id": "CON.20",
-        "path": "CON.20",
+        "id": "CON.20-consentBypassReason",
+        "path": "CON.20-consentBypassReason",
         "short": "Consent Bypass Reason",
         "definition": "Identifies why the subject's consent was not sought. This field must be populated when _CON-11 - Consent Status_ is B – Bypassed. Refer to {{v2-table:0499:Consent Bypass Reason}} for suggested values.",
         "code": [
@@ -608,8 +608,8 @@
         ]
       },
       {
-        "id": "CON.21",
-        "path": "CON.21",
+        "id": "CON.21-consentDisclosureLevel",
+        "path": "CON.21-consentDisclosureLevel",
         "short": "Consent Disclosure Level",
         "definition": "Identifies how much information was disclosed to the subject as part of the informed consent process. Refer to table {{v2-table:0500:Consent Disclosure Level}}.",
         "code": [
@@ -650,8 +650,8 @@
         ]
       },
       {
-        "id": "CON.22",
-        "path": "CON.22",
+        "id": "CON.22-consentNonDisclosureReason",
+        "path": "CON.22-consentNonDisclosureReason",
         "short": "Consent Non-disclosure Reason",
         "definition": "Identifies why the subject did not receive full disclosure. . Refer to {{v2-table:0501:Consent Non-Disclosure Reason}} for suggested values.",
         "code": [
@@ -679,8 +679,8 @@
         ]
       },
       {
-        "id": "CON.23",
-        "path": "CON.23",
+        "id": "CON.23-nonSubjectConsenterReason",
+        "path": "CON.23-nonSubjectConsenterReason",
         "short": "Non-subject Consenter Reason",
         "definition": "Identifies why consent was granted by a person other than the subject of the consent. Refer to {{v2-table:0502:Non-Subject Consenter Reason}} for suggested values.",
         "code": [
@@ -708,8 +708,8 @@
         ]
       },
       {
-        "id": "CON.24",
-        "path": "CON.24",
+        "id": "CON.24-consenterId",
+        "path": "CON.24-consenterId",
         "short": "Consenter ID",
         "definition": "Identification of the individual(s) who is (are) consenting.",
         "code": [
@@ -733,8 +733,8 @@
         ]
       },
       {
-        "id": "CON.25",
-        "path": "CON.25",
+        "id": "CON.25-relationshipToSubject",
+        "path": "CON.25-relationshipToSubject",
         "short": "Relationship to Subject",
         "definition": "Identification of the relationship of the consenter to the subject. Receivers are required to inspect the Coding System component of the CWE data type to accurately interpret the meaning of the code. Senders transmitting messages to Receivers on earlier version of the standard may elect to negotiate business rules to ensure that expected data is not lost. HL7 does not assign positional meaning to user-defined codes. Refer to {{v2-table:0548:Signatory's Relationship to Subject}} for suggested values.",
         "code": [

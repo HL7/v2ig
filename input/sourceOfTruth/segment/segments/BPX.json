@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "BPX.1",
-        "path": "BPX.1",
+        "id": "BPX.1-bpx1",
+        "path": "BPX.1-bpx1",
         "short": "BPX-1",
         "definition": "This field contains the sequence number for the BPX segment under the related BPO segment. For the first blood product dispense status transmitted, the sequence number shall be 1; for the second product dispense status, it shall be 2; and so on.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "BPX.2",
-        "path": "BPX.2",
+        "id": "BPX.2-bpx2",
+        "path": "BPX.2-bpx2",
         "short": "BPX-2",
         "definition": "This field indicates the current status of the specified blood product as indicated by the filler or placer. For example, the first status change of a product that may trigger a Blood Product Dispense Status Message occurs when it first becomes linked to a patient and is ready to dispense. The placer system may use the Blood Product Dispense Status Message to request the transfusion service to dispense the product. When the blood product is delivered or issued to a patient, the status of the blood product would be changed to indicate that it has now been \"dispensed.\" Refer to {{v2-table:0510:Blood Product Dispense Status}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "BPX.3",
-        "path": "BPX.3",
+        "id": "BPX.3-bpx3",
+        "path": "BPX.3-bpx3",
         "short": "BPX-3",
         "definition": "The most commonly used message status values in a BPX will be preliminary and final. A status is considered preliminary until a blood product has reached a final disposition for the patient. For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary. When the product is dispensed to the patient, that status would also be considered preliminary. However, once the product is transfused, the status would be considered final. The status of a blood product (BPX-2) can continue to change and the previous status should be overwritten until it reaches a final status (BPX-3). Refer to {{v2-table:0511:BP Observation Status Codes Interpretation}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -133,8 +133,8 @@
         ]
       },
       {
-        "id": "BPX.4",
-        "path": "BPX.4",
+        "id": "BPX.4-bpx4",
+        "path": "BPX.4-bpx4",
         "short": "BPX-4",
         "definition": "This field indicates the date and time that the status of the blood component was changed. For example, if the blood component had a status, of \"RD\" (Ready to Dispense), the date and time in this field would indicate the date and time that component was made ready to dispense by the filler system.",
         "code": [
@@ -158,8 +158,8 @@
         ]
       },
       {
-        "id": "BPX.5",
-        "path": "BPX.5",
+        "id": "BPX.5-bpx5",
+        "path": "BPX.5-bpx5",
         "short": "BPX-5",
         "definition": "The Donation ID is the unique identification number assigned to a blood donation. The Donation ID depends upon the bar code labeling system used for the component. There are currently two blood component labeling standards: _ABC CODABAR_ and _ISBT 128_. The preferred labeling system is _ISBT 128_. If using _ISBT 128,_ the Donation ID is an internationally unique identifier consisting of the following 13 characters:",
         "comment": "Country Code & Collection Facility - 5 characters\n\nDonation Year - 2 characters\n\nSerial Number - 6 characters\n\nThis field is required for blood components and is not applicable for commercial product messages.",
@@ -184,8 +184,8 @@
         ]
       },
       {
-        "id": "BPX.6",
-        "path": "BPX.6",
+        "id": "BPX.6-bpx6",
+        "path": "BPX.6-bpx6",
         "short": "BPX-6",
         "definition": "The Component field includes an identifier and description of the specific blood component. Refer to Table 0577 - BC Component in Chapter 2C for valid values.",
         "comment": "The identifier consists of a numeric or alphanumeric product code that represents the type of blood component. The coding system will be determined by the bar code labeling system on the particular component of blood. The preferred coding system is _ISBT 128_.\n\nIf using _ISBT 128_ labeling standard, the product code will consist of an 8-character alphanumeric code, starting with an alpha character and including the component class, donation type/intended use and division indicator.\n\nIf using CODABAR product labeling standard, the product code is a 5-digit number.\n\nThis field is required for blood components and is not applicable for commercial product messages.",
@@ -214,8 +214,8 @@
         ]
       },
       {
-        "id": "BPX.7",
-        "path": "BPX.7",
+        "id": "BPX.7-bpx7",
+        "path": "BPX.7-bpx7",
         "short": "BPX-7",
         "definition": "This field indicates the type of donation or collection/intended use. This value is populated from _Table 5 -Type of Donation_ in the _ISBT 128 Application Specification_. The default value is \"0\", meaning \"Not specified.\" Other values indicate whether the blood product (1) is an allogeneic unit from a volunteer donor, (2) is intended for a specific recipient but may be crossed over and used for another recipient, or (3) is an autologous donation intended only for that particular recipient. Refer to Table 0578 - BC Donation Type / Intended Use in Chapter 2C for valid values.",
         "comment": "This field is optional for blood component messages and is not applicable for commercial product messages.",
@@ -244,8 +244,8 @@
         ]
       },
       {
-        "id": "BPX.8",
-        "path": "BPX.8",
+        "id": "BPX.8-bpx8",
+        "path": "BPX.8-bpx8",
         "short": "BPX-8",
         "definition": "This field contains the code and/or text to identify a commercial product. Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets. Refer to Table 0579 - BP Blood Group in Chapter 2C for valid values.",
         "comment": "Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, a component delimiter must precede free text without a code. Free text can be utilized if no update is to occur. Refer To {{v2-table:0512:Commercial Product}} in Chapter 2C, Code Tables, for suggested values.\n\nThis field is required for commercial blood products and is not applicable for blood component messages.",
@@ -274,8 +274,8 @@
         ]
       },
       {
-        "id": "BPX.9",
-        "path": "BPX.9",
+        "id": "BPX.9-bpx9",
+        "path": "BPX.9-bpx9",
         "short": "BPX-9",
         "definition": "This field identifies the manufacturer of the commercial product. The manufacturer may be different from the supplier of the commercial product.",
         "comment": "This field is required for commercial blood products and is not applicable for blood component messages.",
@@ -300,8 +300,8 @@
         ]
       },
       {
-        "id": "BPX.10",
-        "path": "BPX.10",
+        "id": "BPX.10-bpx10",
+        "path": "BPX.10-bpx10",
         "short": "BPX-10",
         "definition": "This field identifies the lot number for blood derivatives or commercially supplied items used as accessories to transfusion.",
         "comment": "This field is required for commercial blood products and is not applicable for blood component messages.",
@@ -326,8 +326,8 @@
         ]
       },
       {
-        "id": "BPX.11",
-        "path": "BPX.11",
+        "id": "BPX.11-bpx11",
+        "path": "BPX.11-bpx11",
         "short": "BPX-11",
         "definition": "This field indicates the ABO/Rh blood group of the blood component. The preferred values for the blood group are the specified values in _Table 3A - Encodation of ABO/Rh Blood Group_ in the _ISBT 128 Application Specification_. Refer to Table 0579 - BP Blood Group in Chapter 2C for valid values.",
         "comment": "This field is required for blood components and certain commercial products (such as solvent detergent plasma).",
@@ -356,8 +356,8 @@
         ]
       },
       {
-        "id": "BPX.12",
-        "path": "BPX.12",
+        "id": "BPX.12-bpx12",
+        "path": "BPX.12-bpx12",
         "short": "BPX-12",
         "definition": "This is a repeating field to allow multiple entries for special testing that was performed on the blood component. The preferred coding system for Special Testing is defined in the _ISBT 128 Application Specification_. Proposals have been developed and will soon be published by ICCBBA, Inc. for the encodation of other antigen and antibody specificities, including HLA, platelet, red cell and other types of markers. Refer to Table 0580 - BC Special Testing in Chapter 2C for valid values.",
         "comment": "This field is optional for blood component messages. It is not applicable for non-commercial product messages.\n\nRefer to _Table I3 - Special Testing Codes_ of the _ISBT 128 Application Specification_.",
@@ -386,8 +386,8 @@
         ]
       },
       {
-        "id": "BPX.13",
-        "path": "BPX.13",
+        "id": "BPX.13-bpx13",
+        "path": "BPX.13-bpx13",
         "short": "BPX-13",
         "definition": "This field specifies the date and time that the blood product expires. The blood product is no longer considered acceptable once the expiration date has been reached unless cleared by the transfusion service medical staff.",
         "comment": "This field applies to blood components as well as commercial products. There are a few commercial products that have no expiration date. Therefore, the field is not required for those specific products.",
@@ -412,8 +412,8 @@
         ]
       },
       {
-        "id": "BPX.14",
-        "path": "BPX.14",
+        "id": "BPX.14-bpx14",
+        "path": "BPX.14-bpx14",
         "short": "BPX-14",
         "definition": "This field indicates the number of blood components or commercial products to which this message refers.",
         "code": [
@@ -450,8 +450,8 @@
         ]
       },
       {
-        "id": "BPX.15",
-        "path": "BPX.15",
+        "id": "BPX.15-bpx15",
+        "path": "BPX.15-bpx15",
         "short": "BPX-15",
         "definition": "This field contains the ordered amount (volume) associated with each quantity of a blood component or commercial product to which this message refers.",
         "code": [
@@ -488,8 +488,8 @@
         ]
       },
       {
-        "id": "BPX.16",
-        "path": "BPX.16",
+        "id": "BPX.16-bpx16",
+        "path": "BPX.16-bpx16",
         "short": "BPX-16",
         "definition": "This field contains the units of measure for the blood product amount. (See Chapter 7 for more details about reporting units.) This field specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate). Refer to Table 0581 - BP Units in Chapter 2C for valid values.",
         "code": [
@@ -517,8 +517,8 @@
         ]
       },
       {
-        "id": "BPX.17",
-        "path": "BPX.17",
+        "id": "BPX.17-bpx17",
+        "path": "BPX.17-bpx17",
         "short": "BPX-17",
         "definition": "This field is a unique system-generated number assigned to the blood product to which the message is referring. Each time the status is updated, the new message should replace the previous message if the Blood Product Unique ID is the same. If the Blood Product Unique ID is different, it indicates that the status applies to a different blood product.",
         "comment": "The sending and receiving systems must agree upon the use of this field.",
@@ -543,8 +543,8 @@
         ]
       },
       {
-        "id": "BPX.18",
-        "path": "BPX.18",
+        "id": "BPX.18-bpx18",
+        "path": "BPX.18-bpx18",
         "short": "BPX-18",
         "definition": "This field contains the inpatient or outpatient location to which the blood product was actually dispensed. The default value is the current census location for the patient.",
         "code": [
@@ -568,8 +568,8 @@
         ]
       },
       {
-        "id": "BPX.19",
-        "path": "BPX.19",
+        "id": "BPX.19-bpx19",
+        "path": "BPX.19-bpx19",
         "short": "BPX-19",
         "definition": "This field contains the actual address of the location to which the blood product was actually dispensed.",
         "code": [
@@ -593,8 +593,8 @@
         ]
       },
       {
-        "id": "BPX.20",
-        "path": "BPX.20",
+        "id": "BPX.20-bpx20",
+        "path": "BPX.20-bpx20",
         "short": "BPX-20",
         "definition": "This is the person who picked up and transported the blood component(s) or commercial product(s). The code for the receiver is as a XCN data type. This field can be free text. In this case, the receiver's name must be the second through fourth components of the field.",
         "code": [
@@ -618,8 +618,8 @@
         ]
       },
       {
-        "id": "BPX.21",
-        "path": "BPX.21",
+        "id": "BPX.21-bpx21",
+        "path": "BPX.21-bpx21",
         "short": "BPX-21",
         "definition": "This field identifies the individual who is dispensing the blood component or commercial product.",
         "code": [
@@ -643,8 +643,8 @@
         ]
       },
       {
-        "id": "BPX.22",
-        "path": "BPX.22",
+        "id": "BPX.22-bpx22",
+        "path": "BPX.22-bpx22",
         "short": "BPX-22",
         "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when an BPX is uniquely identified sufficiently within the specific implementation using BPX-17 or BPX-6 as agreed to by the trading partners and in accordance with Chapter 2, Section 2.10.4.2.",

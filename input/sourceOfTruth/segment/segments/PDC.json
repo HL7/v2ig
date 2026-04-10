@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PDC.1",
-        "path": "PDC.1",
+        "id": "PDC.1-manufacturerDistributor",
+        "path": "PDC.1-manufacturerDistributor",
         "short": "Manufacturer/Distributor",
         "definition": "This field contains the identity of the manufacturer/distributor.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PDC.2",
-        "path": "PDC.2",
+        "id": "PDC.2-country",
+        "path": "PDC.2-country",
         "short": "Country",
         "definition": "This field contains the country to which this product detail is relevant. ISO 3166 provides a list of country codes that may be used. Refer to Table 0675 - Country in Chapter 2C for valid values.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "PDC.3",
-        "path": "PDC.3",
+        "id": "PDC.3-brandName",
+        "path": "PDC.3-brandName",
         "short": "Brand Name",
         "definition": "This field contains the name under which the product is marketed by this manufacturer.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "PDC.4",
-        "path": "PDC.4",
+        "id": "PDC.4-deviceFamilyName",
+        "path": "PDC.4-deviceFamilyName",
         "short": "Device Family Name",
         "definition": "This field contains the name used by the manufacturer to describe the family of products to which this product belongs.",
         "code": [
@@ -154,8 +154,8 @@
         ]
       },
       {
-        "id": "PDC.5",
-        "path": "PDC.5",
+        "id": "PDC.5-genericName",
+        "path": "PDC.5-genericName",
         "short": "Generic Name",
         "definition": "This field contains the name generically used to identify the product. Refer to Table 0676 - Generic Name in Chapter 2C for valid values.",
         "code": [
@@ -183,8 +183,8 @@
         ]
       },
       {
-        "id": "PDC.6",
-        "path": "PDC.6",
+        "id": "PDC.6-modelIdentifier",
+        "path": "PDC.6-modelIdentifier",
         "short": "Model Identifier",
         "definition": "This field contains the manufacturer's model identifier for the product.",
         "code": [
@@ -221,8 +221,8 @@
         ]
       },
       {
-        "id": "PDC.7",
-        "path": "PDC.7",
+        "id": "PDC.7-catalogueIdentifier",
+        "path": "PDC.7-catalogueIdentifier",
         "short": "Catalogue Identifier",
         "definition": "This field contains the manufacturer's catalogue identifier for the product.",
         "code": [
@@ -259,8 +259,8 @@
         ]
       },
       {
-        "id": "PDC.8",
-        "path": "PDC.8",
+        "id": "PDC.8-otherIdentifier",
+        "path": "PDC.8-otherIdentifier",
         "short": "Other Identifier",
         "definition": "This field contains any other identifier used to for the product.",
         "code": [
@@ -297,8 +297,8 @@
         ]
       },
       {
-        "id": "PDC.9",
-        "path": "PDC.9",
+        "id": "PDC.9-productCode",
+        "path": "PDC.9-productCode",
         "short": "Product Code",
         "definition": "This field contains the product code from an external coding system such as that used by the CDRH at the FDA. Refer to Table 0677 - Product Code in Chapter 2C for valid values.",
         "code": [
@@ -326,8 +326,8 @@
         ]
       },
       {
-        "id": "PDC.10",
-        "path": "PDC.10",
+        "id": "PDC.10-marketingBasis",
+        "path": "PDC.10-marketingBasis",
         "short": "Marketing Basis",
         "definition": "This field contains the basis for marketing approval. Refer to {{v2-table:0330:Marketing Basis}} for valid values.",
         "code": [
@@ -368,8 +368,8 @@
         ]
       },
       {
-        "id": "PDC.11",
-        "path": "PDC.11",
+        "id": "PDC.11-marketingApprovalId",
+        "path": "PDC.11-marketingApprovalId",
         "short": "Marketing Approval ID",
         "definition": "This field contains the designation or description of the marketing basis.",
         "code": [
@@ -406,8 +406,8 @@
         ]
       },
       {
-        "id": "PDC.12",
-        "path": "PDC.12",
+        "id": "PDC.12-labeledShelfLife",
+        "path": "PDC.12-labeledShelfLife",
         "short": "Labeled Shelf Life",
         "definition": "This field contains the shelf life of the product as labeled. This will usually be in months or years. If there is no shelf life indicated in the product labeling, this field will be empty.",
         "code": [
@@ -431,8 +431,8 @@
         ]
       },
       {
-        "id": "PDC.13",
-        "path": "PDC.13",
+        "id": "PDC.13-expectedShelfLife",
+        "path": "PDC.13-expectedShelfLife",
         "short": "Expected Shelf Life",
         "definition": "This field contains the shelf life of the product expected by the manufacturer. This will usually be in months or years.",
         "code": [
@@ -456,8 +456,8 @@
         ]
       },
       {
-        "id": "PDC.14",
-        "path": "PDC.14",
+        "id": "PDC.14-dateFirstMarketed",
+        "path": "PDC.14-dateFirstMarketed",
         "short": "Date First Marketed",
         "definition": "This field contains the date the product was first marketed in the country.",
         "code": [
@@ -481,8 +481,8 @@
         ]
       },
       {
-        "id": "PDC.15",
-        "path": "PDC.15",
+        "id": "PDC.15-dateLastMarketed",
+        "path": "PDC.15-dateLastMarketed",
         "short": "Date Last Marketed",
         "definition": "This field contains the date the product was last marketed in the country. This field will be omitted if the product is still being marketed.",
         "code": [

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "SCD.1",
-        "path": "SCD.1",
+        "id": "SCD.1-cycleStartTime",
+        "path": "SCD.1-cycleStartTime",
         "short": "Cycle Start Time",
         "definition": "The time that the load cycle begins.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "SCD.2",
-        "path": "SCD.2",
+        "id": "SCD.2-cycleCount",
+        "path": "SCD.2-cycleCount",
         "short": "Cycle Count",
         "definition": "The number of cycles that have been completed.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "SCD.3",
-        "path": "SCD.3",
+        "id": "SCD.3-tempMax",
+        "path": "SCD.3-tempMax",
         "short": "Temp Max",
         "definition": "The maximum temperature achieved during a specific cycle.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "SCD.4",
-        "path": "SCD.4",
+        "id": "SCD.4-tempMin",
+        "path": "SCD.4-tempMin",
         "short": "Temp Min",
         "definition": "The minimum temperature achieved during a specific cycle.",
         "code": [
@@ -137,8 +137,8 @@
         ]
       },
       {
-        "id": "SCD.5",
-        "path": "SCD.5",
+        "id": "SCD.5-loadNumber",
+        "path": "SCD.5-loadNumber",
         "short": "Load Number",
         "definition": "A number assigned to the load by the anti-microbial device. This number is incremented by the machine per cycle during the day and reset at midnight.",
         "code": [
@@ -175,8 +175,8 @@
         ]
       },
       {
-        "id": "SCD.6",
-        "path": "SCD.6",
+        "id": "SCD.6-conditionTime",
+        "path": "SCD.6-conditionTime",
         "short": "Condition Time",
         "definition": "The actual amount of cycle time spent in the conditioning phase. For example, in a pre-vac sterilizer the condition phase is achieved by pulsing the machine six times to create a vacuum.",
         "code": [
@@ -200,8 +200,8 @@
         ]
       },
       {
-        "id": "SCD.7",
-        "path": "SCD.7",
+        "id": "SCD.7-sterilizeTime",
+        "path": "SCD.7-sterilizeTime",
         "short": "Sterilize Time",
         "definition": "The actual amount of cycle time spent sterilizing supplies.",
         "code": [
@@ -225,8 +225,8 @@
         ]
       },
       {
-        "id": "SCD.8",
-        "path": "SCD.8",
+        "id": "SCD.8-exhaustTime",
+        "path": "SCD.8-exhaustTime",
         "short": "Exhaust Time",
         "definition": "The actual amount of cycle time spent draining pressure from the sterilizer chamber.",
         "code": [
@@ -250,8 +250,8 @@
         ]
       },
       {
-        "id": "SCD.9",
-        "path": "SCD.9",
+        "id": "SCD.9-totalCycleTime",
+        "path": "SCD.9-totalCycleTime",
         "short": "Total Cycle Time",
         "definition": "The sum of time spent in all phases of a cycle.",
         "code": [
@@ -275,8 +275,8 @@
         ]
       },
       {
-        "id": "SCD.10",
-        "path": "SCD.10",
+        "id": "SCD.10-deviceStatus",
+        "path": "SCD.10-deviceStatus",
         "short": "Device Status",
         "definition": "The status of a device. Refer to {{v2-table:0682:Device Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -304,8 +304,8 @@
         ]
       },
       {
-        "id": "SCD.11",
-        "path": "SCD.11",
+        "id": "SCD.11-cycleStartDateTime",
+        "path": "SCD.11-cycleStartDateTime",
         "short": "Cycle Start Date/Time",
         "definition": "The date and time that the cycle started.",
         "code": [
@@ -329,8 +329,8 @@
         ]
       },
       {
-        "id": "SCD.12",
-        "path": "SCD.12",
+        "id": "SCD.12-dryTime",
+        "path": "SCD.12-dryTime",
         "short": "Dry Time",
         "definition": "The amount of cycle time spent drying the load.",
         "code": [
@@ -354,8 +354,8 @@
         ]
       },
       {
-        "id": "SCD.13",
-        "path": "SCD.13",
+        "id": "SCD.13-leakRate",
+        "path": "SCD.13-leakRate",
         "short": "Leak Rate",
         "definition": "The amount of pressure that the chamber can hold expressed as barometric pressure.",
         "code": [
@@ -379,8 +379,8 @@
         ]
       },
       {
-        "id": "SCD.14",
-        "path": "SCD.14",
+        "id": "SCD.14-controlTemperature",
+        "path": "SCD.14-controlTemperature",
         "short": "Control Temperature",
         "definition": "Amount of overdrive above the sterilize temperature.",
         "code": [
@@ -404,8 +404,8 @@
         ]
       },
       {
-        "id": "SCD.15",
-        "path": "SCD.15",
+        "id": "SCD.15-sterilizerTemperature",
+        "path": "SCD.15-sterilizerTemperature",
         "short": "Sterilizer Temperature",
         "definition": "The current temperature in the anti-microbial device.",
         "code": [
@@ -429,8 +429,8 @@
         ]
       },
       {
-        "id": "SCD.16",
-        "path": "SCD.16",
+        "id": "SCD.16-cycleCompleteTime",
+        "path": "SCD.16-cycleCompleteTime",
         "short": "Cycle Complete Time",
         "definition": "The time of day that the cycle completed.",
         "code": [
@@ -454,8 +454,8 @@
         ]
       },
       {
-        "id": "SCD.17",
-        "path": "SCD.17",
+        "id": "SCD.17-underTemperature",
+        "path": "SCD.17-underTemperature",
         "short": "Under Temperature",
         "definition": "The temperature reached during a cycle, which fell below the required temperature range.",
         "code": [
@@ -479,8 +479,8 @@
         ]
       },
       {
-        "id": "SCD.18",
-        "path": "SCD.18",
+        "id": "SCD.18-overTemperature",
+        "path": "SCD.18-overTemperature",
         "short": "Over Temperature",
         "definition": "The temperature reached during a cycle, which exceeded the required temperature.",
         "code": [
@@ -504,8 +504,8 @@
         ]
       },
       {
-        "id": "SCD.19",
-        "path": "SCD.19",
+        "id": "SCD.19-abortCycle",
+        "path": "SCD.19-abortCycle",
         "short": "Abort Cycle",
         "definition": "A notification that the cycle was aborted. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -533,8 +533,8 @@
         ]
       },
       {
-        "id": "SCD.20",
-        "path": "SCD.20",
+        "id": "SCD.20-alarm",
+        "path": "SCD.20-alarm",
         "short": "Alarm",
         "definition": "A notification that the time, temperature, or pressure reached is invalid for a specific phase of a cycle. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -562,8 +562,8 @@
         ]
       },
       {
-        "id": "SCD.21",
-        "path": "SCD.21",
+        "id": "SCD.21-longInChargePhase",
+        "path": "SCD.21-longInChargePhase",
         "short": "Long in Charge Phase",
         "definition": "A notification that the charge phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -591,8 +591,8 @@
         ]
       },
       {
-        "id": "SCD.22",
-        "path": "SCD.22",
+        "id": "SCD.22-longInExhaustPhase",
+        "path": "SCD.22-longInExhaustPhase",
         "short": "Long in Exhaust Phase",
         "definition": "A notification that the exhaust phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -620,8 +620,8 @@
         ]
       },
       {
-        "id": "SCD.23",
-        "path": "SCD.23",
+        "id": "SCD.23-longInFastExhaustPhase",
+        "path": "SCD.23-longInFastExhaustPhase",
         "short": "Long in Fast Exhaust Phase",
         "definition": "A notification that the fast exhaust phase in the cycle has exceeded the maximum time allowed. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -649,8 +649,8 @@
         ]
       },
       {
-        "id": "SCD.24",
-        "path": "SCD.24",
+        "id": "SCD.24-reset",
+        "path": "SCD.24-reset",
         "short": "Reset",
         "definition": "An indicator that specific anti-microbial device parameters have been set to system defaults. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -678,8 +678,8 @@
         ]
       },
       {
-        "id": "SCD.25",
-        "path": "SCD.25",
+        "id": "SCD.25-operatorUnload",
+        "path": "SCD.25-operatorUnload",
         "short": "Operator - Unload",
         "definition": "The name of the operator that unloaded the anti-microbial device.",
         "code": [
@@ -703,8 +703,8 @@
         ]
       },
       {
-        "id": "SCD.26",
-        "path": "SCD.26",
+        "id": "SCD.26-doorOpen",
+        "path": "SCD.26-doorOpen",
         "short": "Door Open",
         "definition": "An indicator that the door is open. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -732,8 +732,8 @@
         ]
       },
       {
-        "id": "SCD.27",
-        "path": "SCD.27",
+        "id": "SCD.27-readingFailure",
+        "path": "SCD.27-readingFailure",
         "short": "Reading Failure",
         "definition": "A notification that an error was encountered while reading the cycle data for a specific cycle. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -761,8 +761,8 @@
         ]
       },
       {
-        "id": "SCD.28",
-        "path": "SCD.28",
+        "id": "SCD.28-cycleType",
+        "path": "SCD.28-cycleType",
         "short": "Cycle Type",
         "definition": "The type of cycle that is being executed. A cycle type is a specific sterilization method used for a specific type of supply item. Refer to {{v2-table:0702:Cycle Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -790,8 +790,8 @@
         ]
       },
       {
-        "id": "SCD.29",
-        "path": "SCD.29",
+        "id": "SCD.29-thermalRinseTime",
+        "path": "SCD.29-thermalRinseTime",
         "short": "Thermal Rinse Time",
         "definition": "The amount of time spent in the thermal rinse phase of a decontamination cycle.",
         "code": [
@@ -815,8 +815,8 @@
         ]
       },
       {
-        "id": "SCD.30",
-        "path": "SCD.30",
+        "id": "SCD.30-washTime",
+        "path": "SCD.30-washTime",
         "short": "Wash Time",
         "definition": "The amount of time spent in the wash phase of a decontamination cycle.",
         "code": [
@@ -840,8 +840,8 @@
         ]
       },
       {
-        "id": "SCD.31",
-        "path": "SCD.31",
+        "id": "SCD.31-injectionRate",
+        "path": "SCD.31-injectionRate",
         "short": "Injection Rate",
         "definition": "The injection rate of a wash or dry agent.",
         "code": [
@@ -865,8 +865,8 @@
         ]
       },
       {
-        "id": "SCD.32",
-        "path": "SCD.32",
+        "id": "SCD.32-procedureCode",
+        "path": "SCD.32-procedureCode",
         "short": "Procedure Code",
         "definition": "The unique identifier indicating the type of procedure performed on the patient with the supplies being sterilized.",
         "comment": "Refer to {{v2-table:0088:Procedure Code}} in Chapter 2C, Code Tables, for suggested values.\n\nAs of v2.6, the known applicable external coding systems include those in the referenced table. If the code set you are using is in this table, then you must use that designation.",
@@ -895,8 +895,8 @@
         ]
       },
       {
-        "id": "SCD.33",
-        "path": "SCD.33",
+        "id": "SCD.33-patientIdentifierList",
+        "path": "SCD.33-patientIdentifierList",
         "short": "Patient Identifier List",
         "definition": "The unique identifier associating the patient with the supplies being sterilized.",
         "code": [
@@ -920,8 +920,8 @@
         ]
       },
       {
-        "id": "SCD.34",
-        "path": "SCD.34",
+        "id": "SCD.34-attendingDoctor",
+        "path": "SCD.34-attendingDoctor",
         "short": "Attending Doctor",
         "definition": "The unique identifier associating the physician with the supplies being sterilized, used for the procedure and patient identified in this message. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -949,8 +949,8 @@
         ]
       },
       {
-        "id": "SCD.35",
-        "path": "SCD.35",
+        "id": "SCD.35-dilutionFactor",
+        "path": "SCD.35-dilutionFactor",
         "short": "Dilution Factor",
         "definition": "The dilution ratio of peracetic acid to water.",
         "code": [
@@ -974,8 +974,8 @@
         ]
       },
       {
-        "id": "SCD.36",
-        "path": "SCD.36",
+        "id": "SCD.36-fillTime",
+        "path": "SCD.36-fillTime",
         "short": "Fill Time",
         "definition": "The amount of time spent in filling the sterilizer chamber with dilutant.",
         "code": [
@@ -999,8 +999,8 @@
         ]
       },
       {
-        "id": "SCD.37",
-        "path": "SCD.37",
+        "id": "SCD.37-inletTemperature",
+        "path": "SCD.37-inletTemperature",
         "short": "Inlet Temperature",
         "definition": "The temperature of the dilutant upon entering the sterilizer chamber.",
         "code": [

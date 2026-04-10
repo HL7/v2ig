@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "CSR.1",
-        "path": "CSR.1",
+        "id": "CSR.1-sponsorStudyId",
+        "path": "CSR.1-sponsorStudyId",
         "short": "Sponsor Study ID",
         "definition": "The field contains the universal identifier for the clinical trial. Since many clinical trials are collaborative and multi‑centered, and since one goal of these standards is to promote automated data exchange among sites, the primary identifier should come from the sponsor. The coding system component may reference the sponsor. Example:",
         "comment": "T93‑0807^NCI (where NCI refers to the National Cancer Institute).",
@@ -50,8 +50,8 @@
         ]
       },
       {
-        "id": "CSR.2",
-        "path": "CSR.2",
+        "id": "CSR.2-alternateStudyId",
+        "path": "CSR.2-alternateStudyId",
         "short": "Alternate Study ID",
         "definition": "This field contains an alternate identifier that may be used as agreed upon by messaging parties. For example, the sending application may code its internal study number here.",
         "code": [
@@ -75,8 +75,8 @@
         ]
       },
       {
-        "id": "CSR.3",
-        "path": "CSR.3",
+        "id": "CSR.3-institutionRegisteringThePatient",
+        "path": "CSR.3-institutionRegisteringThePatient",
         "short": "Institution Registering the Patient",
         "definition": "This field distinguishes the institution where registration occurred. The legal approval to give patients access to a trial lies with the Internal Review Board for the institution. Universal healthcare provider facility codes should be used when they exist. Currently coding systems must be devised by users. Refer to Table 0589 - Institution Registering the Patient in Chapter 2C for valid values.",
         "code": [
@@ -104,8 +104,8 @@
         ]
       },
       {
-        "id": "CSR.4",
-        "path": "CSR.4",
+        "id": "CSR.4-sponsorPatientId",
+        "path": "CSR.4-sponsorPatientId",
         "short": "Sponsor Patient ID",
         "definition": "This field contains the main patient identification for the study. The sponsor patient ID allows automation of records on patients treated at various institutions. The sponsor patient ID should be unique for each patient participating on the study identified in _CSR-1 Sponsor Study ID_.",
         "code": [
@@ -129,8 +129,8 @@
         ]
       },
       {
-        "id": "CSR.5",
-        "path": "CSR.5",
+        "id": "CSR.5-alternatePatientId",
+        "path": "CSR.5-alternatePatientId",
         "short": "Alternate Patient ID - CSR",
         "definition": "This field may be the sending application's patient identification. Coding conventions may be used as agreed upon by users.",
         "code": [
@@ -154,8 +154,8 @@
         ]
       },
       {
-        "id": "CSR.6",
-        "path": "CSR.6",
+        "id": "CSR.6-dateTimeOfPatientStudyRegistration",
+        "path": "CSR.6-dateTimeOfPatientStudyRegistration",
         "short": "Date/Time of Patient Study Registration",
         "definition": "This field containing the date of the patient registration is mandatory. The time component is optional. The time stamp for a registration may be useful. For example, patients may be randomized at the pharmacy according to the order in which they were registered.",
         "code": [
@@ -179,8 +179,8 @@
         ]
       },
       {
-        "id": "CSR.7",
-        "path": "CSR.7",
+        "id": "CSR.7-personPerformingStudyRegistration",
+        "path": "CSR.7-personPerformingStudyRegistration",
         "short": "Person Performing Study Registration",
         "definition": "This field contains the healthcare facility employee who actually phoned, submitted a form, or interactively registered the patient on the clinical trial. This is generally done under authorization from the attending physician or a principal or collaborating investigator.",
         "code": [
@@ -204,8 +204,8 @@
         ]
       },
       {
-        "id": "CSR.8",
-        "path": "CSR.8",
+        "id": "CSR.8-studyAuthorizingProvider",
+        "path": "CSR.8-studyAuthorizingProvider",
         "short": "Study Authorizing Provider",
         "definition": "This field contains the healthcare provider, generally the attending physician, who is accountable that the patient is eligible for the trial and has signed an informed consent. National standard healthcare provider codes should be used when they exist. This field is required for the patient registration trigger event (C01).",
         "code": [
@@ -229,8 +229,8 @@
         ]
       },
       {
-        "id": "CSR.9",
-        "path": "CSR.9",
+        "id": "CSR.9-dateTimePatientStudyConsentSigned",
+        "path": "CSR.9-dateTimePatientStudyConsentSigned",
         "short": "Date/Time Patient Study Consent Signed",
         "definition": "This field contains the consent form signing date is collected to provide a checkpoint that the consent form was obtained. Since many trials involve unapproved drugs and other treatment modalities, the consent form is highly important to document and store. This field is required for the patient registration trigger event (C01). The time component is optional.",
         "code": [
@@ -254,8 +254,8 @@
         ]
       },
       {
-        "id": "CSR.10",
-        "path": "CSR.10",
+        "id": "CSR.10-patientStudyEligibilityStatus",
+        "path": "CSR.10-patientStudyEligibilityStatus",
         "short": "Patient Study Eligibility Status",
         "definition": "This field indicates whether the patient was an appropriate candidate for the trial. It is important for quality control and data analysis. The code set will vary among clinical trials. An example answer set is: *_Yes, No, By Approval, Not Assessed, Unknown_*. This field is required for the patient registration trigger event (C01). Refer to Table 0590 - Patient Study Eligibility Status in Chapter 2C for valid values.",
         "code": [
@@ -283,8 +283,8 @@
         ]
       },
       {
-        "id": "CSR.11",
-        "path": "CSR.11",
+        "id": "CSR.11-studyRandomizationDateTime",
+        "path": "CSR.11-studyRandomizationDateTime",
         "short": "Study Randomization Date/time",
         "definition": "This field contains the date the patient was randomized. The time component is optional. Up to three randomizations are supported. Sequential randomizations are listed in chronological order.",
         "code": [
@@ -308,8 +308,8 @@
         ]
       },
       {
-        "id": "CSR.12",
-        "path": "CSR.12",
+        "id": "CSR.12-randomizedStudyArm",
+        "path": "CSR.12-randomizedStudyArm",
         "short": "Randomized Study Arm",
         "definition": "This field contains codes that must be developed by users. The blind treatment assignment may be communicated as a dummy text: *^blind* or if a coded treatment assignment must also be communicated**: 1^blind^local_code**. If more than one randomization occurs, the second and third repetitions will correspond to the second and third repetitions of _CSR-11 Study Randomization Date/Time_, if they exist. Refer to Table 0591 - Randomized Study Arm in Chapter 2C for valid values.",
         "code": [
@@ -337,8 +337,8 @@
         ]
       },
       {
-        "id": "CSR.13",
-        "path": "CSR.13",
+        "id": "CSR.13-stratumForStudyRandomization",
+        "path": "CSR.13-stratumForStudyRandomization",
         "short": "Stratum for Study Randomization",
         "definition": "Many studies have stratified randomization schemas. The strata codes must be developed for each clinical trial. This field is important for statistical analysis of the study results. The second and third repetitions will correspond to the second and third repetitions of _CSR-11 Study Randomization Date/Time_ and _CSR-12 Randomized Study Arm_, if they exist. Refer to Table 0592 - Stratum for Study Randomization in Chapter 2C for valid values.",
         "code": [
@@ -366,8 +366,8 @@
         ]
       },
       {
-        "id": "CSR.14",
-        "path": "CSR.14",
+        "id": "CSR.14-patientEvaluabilityStatus",
+        "path": "CSR.14-patientEvaluabilityStatus",
         "short": "Patient Evaluability Status",
         "definition": "This field categorizes the inclusion of this patient's data for various analyses. The patient's data may be evaluable for analysis of adverse events but not for outcomes. Or it may be evaluable for some outcomes and not others. The coding systems will vary among trials. This field is required for the off‑study trigger event (C04). Refer to Table 0593 - Patient Evaluability Status in Chapter 2C for valid values.",
         "code": [
@@ -395,8 +395,8 @@
         ]
       },
       {
-        "id": "CSR.15",
-        "path": "CSR.15",
+        "id": "CSR.15-dateTimeEndedStudy",
+        "path": "CSR.15-dateTimeEndedStudy",
         "short": "Date/Time Ended Study",
         "definition": "This field contains the date the patient completes or is otherwise removed from the study. This field is required for the off‑study event (C04). The time component is optional.",
         "code": [
@@ -420,8 +420,8 @@
         ]
       },
       {
-        "id": "CSR.16",
-        "path": "CSR.16",
+        "id": "CSR.16-reasonEndedStudy",
+        "path": "CSR.16-reasonEndedStudy",
         "short": "Reason Ended Study",
         "definition": "This information is important for quality control and data analysis. The coding systems will vary among trials. An example answer set is: *Adverse Events, Completed Trial, Death, Drug Resistance, Intercurrent Illness, Lost to Follow up, No Response to Therapy, Noncompliance, Progression of Disease, Protocol Violation, Refused Further Therapy.* This field is required for the off‑study trigger event (C04). Refer to Table 0594 - Reason Ended Study in Chapter 2C for valid values.",
         "code": [
@@ -449,8 +449,8 @@
         ]
       },
       {
-        "id": "CSR.17",
-        "path": "CSR.17",
+        "id": "CSR.17-actionCode",
+        "path": "CSR.17-actionCode",
         "short": "Action Code",
         "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when CSR-1 and CSR-4, or CSR-2 and CSR-5 are valued as agreed to by the trading partners in accordance with the guidance in Chapter 2, Section 2.10.4.2.",

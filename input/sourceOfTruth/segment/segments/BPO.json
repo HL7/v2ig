@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "BPO.1",
-        "path": "BPO.1",
+        "id": "BPO.1-setId",
+        "path": "BPO.1-setId",
         "short": "Set ID – BPO",
         "definition": "This field contains the sequence number for the BPO segment within the message. For the first order transmitted, the sequence number shall be 1; for the second order, it shall be 2; and so on.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "BPO.2",
-        "path": "BPO.2",
+        "id": "BPO.2-bpUniversalServiceIdentifier",
+        "path": "BPO.2-bpUniversalServiceIdentifier",
         "short": "BP Universal Service Identifier",
         "definition": "This field contains the identifier code for the requested blood product. This can be based on local and/or \"universal\" codes. We recommend the \"universal\" procedure identifier. The structure of this CWE data type is described in the control section. The preferred coding system is the _ISBT 128 Product Code._ _Refer to Table 0575 - BP Universal Service Identifier in Chapter 2C for valid values._",
         "comment": "Blood Product Orders for commercial products, such as Rh Immune Globulin or Factor VIII concentrate, are not at this time defined in an international or national coding system as are blood products. Therefore, locally defined codes can be used for the Universal Service Identifier for commercial products.",
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "id": "BPO.3",
-        "path": "BPO.3",
+        "id": "BPO.3-bpProcessingRequirements",
+        "path": "BPO.3-bpProcessingRequirements",
         "short": "BP  Processing Requirements",
         "definition": "This field contains additional information about the blood component class associated with the Universal Service ID. The placer of the order can specify any required processing of the blood product that must be completed prior to transfusion to the intended recipient. Refer to {{v2-table:0508:Blood Product Processing Requirements}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -121,8 +121,8 @@
         ]
       },
       {
-        "id": "BPO.4",
-        "path": "BPO.4",
+        "id": "BPO.4-bpQuantity",
+        "path": "BPO.4-bpQuantity",
         "short": "BP Quantity",
         "definition": "This field contains the number of blood products ordered.",
         "code": [
@@ -159,8 +159,8 @@
         ]
       },
       {
-        "id": "BPO.5",
-        "path": "BPO.5",
+        "id": "BPO.5-bpAmount",
+        "path": "BPO.5-bpAmount",
         "short": "BP Amount",
         "definition": "This field contains the ordered amount (volume) associated with each quantity of blood product.",
         "code": [
@@ -197,8 +197,8 @@
         ]
       },
       {
-        "id": "BPO.6",
-        "path": "BPO.6",
+        "id": "BPO.6-bpUnits",
+        "path": "BPO.6-bpUnits",
         "short": "BP Units",
         "definition": "This field contains the units of measure for the blood product amount. (See Chapter 7 for more details about reporting units.) This field specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate). Use of UCUM is strongly recommended as one of the delivered units (could be in addition to the local units). Refer to Table 0576 - BP Units in Chapter 2C for valid values.",
         "code": [
@@ -226,8 +226,8 @@
         ]
       },
       {
-        "id": "BPO.7",
-        "path": "BPO.7",
+        "id": "BPO.7-bpIntendedUseDateTime",
+        "path": "BPO.7-bpIntendedUseDateTime",
         "short": "BP Intended Use Date/Time",
         "definition": "This field specifies the date/time that the placer intends to use the blood product that is being ordered.",
         "comment": "This is the time when the placer expects the product to be available within the transfusion service. For example, the product should be available for use, but not dispensed, on this date/time.",
@@ -252,8 +252,8 @@
         ]
       },
       {
-        "id": "BPO.8",
-        "path": "BPO.8",
+        "id": "BPO.8-bpIntendedDispenseFromLocation",
+        "path": "BPO.8-bpIntendedDispenseFromLocation",
         "short": "BP Intended Dispense From Location",
         "definition": "This field contains the location from which the blood component is to be dispensed.",
         "code": [
@@ -277,8 +277,8 @@
         ]
       },
       {
-        "id": "BPO.9",
-        "path": "BPO.9",
+        "id": "BPO.9-bpIntendedDispenseFromAddress",
+        "path": "BPO.9-bpIntendedDispenseFromAddress",
         "short": "BP Intended Dispense From Address",
         "definition": "This field contains the actual address of the location from which the blood component is to be dispensed.",
         "code": [
@@ -302,8 +302,8 @@
         ]
       },
       {
-        "id": "BPO.10",
-        "path": "BPO.10",
+        "id": "BPO.10-bpRequestedDispenseDateTime",
+        "path": "BPO.10-bpRequestedDispenseDateTime",
         "short": "BP Requested Dispense Date/Time",
         "definition": "This field specifies the date/time that the requested blood products must be ready to dispense. This date/time may be different from the intended use date/time. For example, the patient may be scheduled to come in for a transfusion at a specified time. However, the placer would request that the blood product be ready to dispense prior to that time in order to have the blood component ready for transfusion at the scheduled time. The field may also be used to indicate that the placer is now ready to pick up the ordered blood product and is requesting the blood product be ready to dispense at that time.",
         "code": [
@@ -327,8 +327,8 @@
         ]
       },
       {
-        "id": "BPO.11",
-        "path": "BPO.11",
+        "id": "BPO.11-bpRequestedDispenseToLocation",
+        "path": "BPO.11-bpRequestedDispenseToLocation",
         "short": "BP Requested Dispense To Location",
         "definition": "This field contains the inpatient or outpatient location to which the blood component is to be dispensed. The default dispense to location is the current census location for the patient.",
         "code": [
@@ -352,8 +352,8 @@
         ]
       },
       {
-        "id": "BPO.12",
-        "path": "BPO.12",
+        "id": "BPO.12-bpRequestedDispenseToAddress",
+        "path": "BPO.12-bpRequestedDispenseToAddress",
         "short": "BP Requested Dispense To Address",
         "definition": "This field contains the actual address of the location to which the blood component is to be dispensed. The default dispense to location is the current census location for the patient.",
         "code": [
@@ -377,8 +377,8 @@
         ]
       },
       {
-        "id": "BPO.13",
-        "path": "BPO.13",
+        "id": "BPO.13-bpIndicationForUse",
+        "path": "BPO.13-bpIndicationForUse",
         "short": "BP Indication for Use",
         "definition": "This is a coded optional field. The value indicates the reason that the blood product was ordered. This information is helpful for prospective review or retrospective studies of blood product ordering practices of the ordering provider by the Quality Assurance Department and/or Transfusion Committee. Refer to {{v2-table:0509:Indication for Use}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -406,8 +406,8 @@
         ]
       },
       {
-        "id": "BPO.14",
-        "path": "BPO.14",
+        "id": "BPO.14-bpInformedConsentIndicator",
+        "path": "BPO.14-bpInformedConsentIndicator",
         "short": "BP Informed Consent Indicator",
         "comment": "This field indicates whether consent for the transfusion has been obtained. Refer to {{v2-table:0136:Yes/No indicator}} as defined in Chapter 2C, Code Tables.",
         "code": [

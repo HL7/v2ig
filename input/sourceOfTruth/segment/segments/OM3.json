@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "OM3.1",
-        "path": "OM3.1",
+        "id": "OM3.1-sequenceNumberTestObservationMasterFile",
+        "path": "OM3.1-sequenceNumberTestObservationMasterFile",
         "short": "Sequence Number - Test/Observation Master File",
         "definition": "This field contains the same value as the sequence number of the associated OM1 segment.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "OM3.2",
-        "path": "OM3.2",
+        "id": "OM3.2-preferredCodingSystem",
+        "path": "OM3.2-preferredCodingSystem",
         "short": "Preferred Coding System",
         "definition": "This field contains the observations whose categorical responses are taken from a specified table of codes (e.g., CWE data types). Record the preferred coding system for these responses as observations (e.g., ICD10, HGVS, ISCN, SNOMED CT). Refer to Table 0650 - Preferred Coding System in Chapter 2C for valid values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "OM3.3",
-        "path": "OM3.3",
+        "id": "OM3.3-validCodedAnswers",
+        "path": "OM3.3-validCodedAnswers",
         "short": "Valid Coded \"Answers\"",
         "definition": "This field contains a list of valid coded answers. In the case that the list of coded answers is easily enumerated, list the valid coded answers for this observation here using the preferred coding system given in _OM3-2 - Preferred Coding System_. If, for example, the given observation was VDRL, the valid answers might be \"non-reactive\", \"86^ intermediate\", and \"87^ reactive\".Refer to Table 0652 - Valid Coded \"Answers\" in Chapter 2C for valid values.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "OM3.4",
-        "path": "OM3.4",
+        "id": "OM3.4-normalTextCodesForCategoricalObservations",
+        "path": "OM3.4-normalTextCodesForCategoricalObservations",
         "short": "Normal Text/Codes for Categorical Observations",
         "definition": "Certain observations/tests with a nature code of A or C (see _OM1-18 - Nature of Service/Test/Observation_) have text (alpha) results (e.g., reactive, nonreactive). Alpha normals for those tests should be entered in this field (e.g., \"nonreactive\"). Refer to Table 0654 - Normal Text/Codes for Categorical Observations in Chapter 2C for valid values.",
         "comment": "The format of this field is:\n\nThe first component is a code taken from a standard code source list. The second component is the text associated with the code. The third component is the identification of the code table source. When only a text description of a possible answer is available, it is recorded as ^<text>.\n\nCare should be taken to transmit only those results that are considered normal for that test. A drug screen may have possible results of \"negative\" and \"positive.\" However, only a result of \"negative\" is considered to be normal. When an observation has more than one \"normal\" result, multiple values in this field should be separated with a repeat delimiter.",
@@ -150,8 +150,8 @@
         ]
       },
       {
-        "id": "OM3.5",
-        "path": "OM3.5",
+        "id": "OM3.5-abnormalTextCodesForCategoricalObservations",
+        "path": "OM3.5-abnormalTextCodesForCategoricalObservations",
         "short": "Abnormal Text/Codes for Categorical Observations",
         "definition": "This field contains the list of the text answers that are abnormal for the test. Refer to Table 0655 - Abnormal Text/Codes for Categorical Observations in Chapter 2C for valid values.",
         "code": [
@@ -179,8 +179,8 @@
         ]
       },
       {
-        "id": "OM3.6",
-        "path": "OM3.6",
+        "id": "OM3.6-criticalTextCodesForCategoricalObservations",
+        "path": "OM3.6-criticalTextCodesForCategoricalObservations",
         "short": "Critical Text/Codes for Categorical Observations",
         "definition": "This field contains the list of coded results that are critically abnormal for this observation. Refer to Table 0656 - Critical Text/Codes for Categorical Observations in Chapter 2C for valid values.",
         "code": [
@@ -208,8 +208,8 @@
         ]
       },
       {
-        "id": "OM3.7",
-        "path": "OM3.7",
+        "id": "OM3.7-valueType",
+        "path": "OM3.7-valueType",
         "short": "Value Type",
         "definition": "This field contains the allowed data type for a single categorical observation (code A or C in _OM1-18 - Nature of Observation_). Refer to {{v2-table:0125:Value Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [

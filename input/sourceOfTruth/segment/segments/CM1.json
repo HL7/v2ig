@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "CM1.1",
-        "path": "CM1.1",
+        "id": "CM1.1-setId",
+        "path": "CM1.1-setId",
         "short": "Set ID - CM1",
         "definition": "This field contains a number that uniquely identifies this transaction for the purpose of adding, changing, or deleting the transaction. For those messages that permit segments to repeat, the Set IF field is used to identify the repetitions.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "CM1.2",
-        "path": "CM1.2",
+        "id": "CM1.2-studyPhaseIdentifier",
+        "path": "CM1.2-studyPhaseIdentifier",
         "short": "Study Phase Identifier",
         "definition": "This field should correspond to the study phase ID coding system in Chapter 7, section 7.7.2.1, \"Study Phase ID.\"",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "CM1.3",
-        "path": "CM1.3",
+        "id": "CM1.3-descriptionOfStudyPhase",
+        "path": "CM1.3-descriptionOfStudyPhase",
         "short": "Description of Study Phase",
         "definition": "This field contains a brief explanation for recipients to understand what the phase represents.",
         "code": [

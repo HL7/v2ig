@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "CDM.1",
-        "path": "CDM.1",
+        "id": "CDM.1-primaryKeyValue",
+        "path": "CDM.1-primaryKeyValue",
         "short": "Primary Key Value - CDM",
         "definition": "The key field of the entry. Must match _MFE-4 - Primary Key Value - MFE_. This field contains the code assigned by the institution for the purpose of uniquely identifying the thing that can be charged. For example, this field would be used to uniquely identify a procedure, item, or test for charging purposes. Probably the same set of values as used in _FT1-7- Transaction Code_ in financial messages (refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values). See Chapter 7 for discussion of the universal service ID.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "CDM.2",
-        "path": "CDM.2",
+        "id": "CDM.2-chargeCodeAlias",
+        "path": "CDM.2-chargeCodeAlias",
         "short": "Charge Code Alias",
         "definition": "This field contains an alternative charge code. For example, points to another charge description master entry in cases where one code supersedes or overrides another code. Repeating field allows for different codes used by different systems which should be handled as if they were the same; for example, the general ledger code may differ from the billing code. Or, in a multi-facility environment which does facility-specific pricing, there may be more than one of these master file entries for one charge description, each with a different facility. Refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -82,8 +82,8 @@
         ]
       },
       {
-        "id": "CDM.3",
-        "path": "CDM.3",
+        "id": "CDM.3-chargeDescriptionShort",
+        "path": "CDM.3-chargeDescriptionShort",
         "short": "Charge Description Short",
         "definition": "This field contains the text abbreviations or code that is associated with this CDM entry.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "CDM.4",
-        "path": "CDM.4",
+        "id": "CDM.4-chargeDescriptionLong",
+        "path": "CDM.4-chargeDescriptionLong",
         "short": "Charge Description Long",
         "definition": "This field contains the full text description of this CDM entry.",
         "code": [
@@ -158,8 +158,8 @@
         ]
       },
       {
-        "id": "CDM.5",
-        "path": "CDM.5",
+        "id": "CDM.5-descriptionOverrideIndicator",
+        "path": "CDM.5-descriptionOverrideIndicator",
         "short": "Description Override Indicator",
         "definition": "This field indicates whether this CDM entry's description can be overridden. Refer to {{v2-table:0268:Override}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -200,8 +200,8 @@
         ]
       },
       {
-        "id": "CDM.6",
-        "path": "CDM.6",
+        "id": "CDM.6-explodingCharges",
+        "path": "CDM.6-explodingCharges",
         "short": "Exploding Charges",
         "definition": "This field contains the repeating occurrences for a list of other CDM entry charge codes identifying the other charges which should be generated from this CDM entry. Refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values. If non-null, posting a charge to this CDM entry should result in posting the charges identified here. These are sometimes called \"linked items.\"",
         "comment": "In the case of \"chained\" charges where the \"lead\" charge must be included in the exploded charges, the \"lead\" charge should be included in the list of exploding charges. If the price of this parent charge is included in the message, then it overrides the sum of the exploded charges prices.",
@@ -230,8 +230,8 @@
         ]
       },
       {
-        "id": "CDM.7",
-        "path": "CDM.7",
+        "id": "CDM.7-procedureCode",
+        "path": "CDM.7-procedureCode",
         "short": "Procedure Code",
         "definition": "This field contains the procedure code for procedure, if any, associated with this charge description. Repeating field allows for different procedure coding systems such as CPT4, ICD9. Coded entry made up of code plus coding schema. Refer to {{v2-table:0088:Procedure Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -259,8 +259,8 @@
         ]
       },
       {
-        "id": "CDM.8",
-        "path": "CDM.8",
+        "id": "CDM.8-activeInactiveFlag",
+        "path": "CDM.8-activeInactiveFlag",
         "short": "Active/Inactive Flag",
         "definition": "This field indicates whether this is a usable CDM entry. Refer to {{v2-table:0183:Active/Inactive}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -301,8 +301,8 @@
         ]
       },
       {
-        "id": "CDM.9",
-        "path": "CDM.9",
+        "id": "CDM.9-inventoryNumber",
+        "path": "CDM.9-inventoryNumber",
         "short": "Inventory Number",
         "definition": "This optional field contains an identifying stock number, if any, which might be used, for example, as a cross reference for materials management. Refer to {{v2-table:0463:Inventory number}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -330,8 +330,8 @@
         ]
       },
       {
-        "id": "CDM.10",
-        "path": "CDM.10",
+        "id": "CDM.10-resourceLoad",
+        "path": "CDM.10-resourceLoad",
         "short": "Resource Load",
         "definition": "This field contains the Relative Value Unit (RVU) minutes and ATS, a factor related to CPT4 coding and to pricing structure for physical billing.",
         "code": [
@@ -368,8 +368,8 @@
         ]
       },
       {
-        "id": "CDM.11",
-        "path": "CDM.11",
+        "id": "CDM.11-contractNumber",
+        "path": "CDM.11-contractNumber",
         "short": "Contract Number",
         "definition": "This field contains any contract number pertaining to this chargeable item; for example, supplier contract or service contract.",
         "code": [
@@ -393,8 +393,8 @@
         ]
       },
       {
-        "id": "CDM.12",
-        "path": "CDM.12",
+        "id": "CDM.12-contractOrganization",
+        "path": "CDM.12-contractOrganization",
         "short": "Contract Organization",
         "definition": "This field contains the organization with which there is a contractual arrangement for providing the service or material used for this chargeable item.",
         "code": [
@@ -418,8 +418,8 @@
         ]
       },
       {
-        "id": "CDM.13",
-        "path": "CDM.13",
+        "id": "CDM.13-roomFeeIndicator",
+        "path": "CDM.13-roomFeeIndicator",
         "short": "Room Fee Indicator",
         "definition": "This field contains a room fee indicator. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y this is a component of the room fees\n\nN this is any other chargeable item other than room fees",

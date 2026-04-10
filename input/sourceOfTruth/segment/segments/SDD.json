@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "SDD.1",
-        "path": "SDD.1",
+        "id": "SDD.1-number",
+        "path": "SDD.1-number",
         "short": "Number",
         "definition": "A unique number associated with an instance of a sterilization/decontamination cycle assigned by the instrument-tracking system.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "SDD.2",
-        "path": "SDD.2",
+        "id": "SDD.2-deviceNumber",
+        "path": "SDD.2-deviceNumber",
         "short": "Device Number",
         "definition": "The number of the device (e.g., 01 VAC).",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "SDD.3",
-        "path": "SDD.3",
+        "id": "SDD.3-deviceName",
+        "path": "SDD.3-deviceName",
         "short": "Device Name",
         "definition": "The name of the device associated with the device number in SDD-2 (e.g., 01 VAC).",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "SDD.4",
-        "path": "SDD.4",
+        "id": "SDD.4-deviceDataState",
+        "path": "SDD.4-deviceDataState",
         "short": "Device Data State",
         "definition": "The state of data being sent, i.e., historic data of the cycle or a real-time snapshot of the current value of the cycle data. During a sterilization process, data is consistently being output to record the value of the data at each point in time within the instance of a cycle. For example, the temperature is recorded at every point in time during the cycle. Refer to {{v2-table:0667:Device}} Data State_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "SDD.5",
-        "path": "SDD.5",
+        "id": "SDD.5-loadStatus",
+        "path": "SDD.5-loadStatus",
         "short": "Load Status",
         "definition": "The status of the load. Refer to {{v2-table:0669:Load Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -170,8 +170,8 @@
         ]
       },
       {
-        "id": "SDD.6",
-        "path": "SDD.6",
+        "id": "SDD.6-controlCode",
+        "path": "SDD.6-controlCode",
         "short": "Control Code",
         "definition": "A code to command the device to send cycle data from the previous load to the instrument-tracking system.",
         "code": [
@@ -208,8 +208,8 @@
         ]
       },
       {
-        "id": "SDD.7",
-        "path": "SDD.7",
+        "id": "SDD.7-operatorName",
+        "path": "SDD.7-operatorName",
         "short": "Operator Name",
         "definition": "The person who started the device load for the decontamination/sterilization process.",
         "code": [

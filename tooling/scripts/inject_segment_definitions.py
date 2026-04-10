@@ -100,9 +100,20 @@ def extract_segment_comment(adoc_path):
 
 
 def find_element_by_id(elements, element_id):
-    """Find an element in the StructureDefinition's element array by id."""
+    """Find an element in the StructureDefinition's element array by id.
+
+    Supports both old format (OBX.1) and new format (OBX.1-setId).
+    For field lookups like "OBX.1", matches any id starting with "OBX.1"
+    followed by end-of-string or a hyphen (the camelCase suffix).
+    """
     for elem in elements:
-        if elem.get("id") == element_id:
+        eid = elem.get("id", "")
+        if eid == element_id:
+            return elem
+        # Match "OBX.1" against "OBX.1-setId" (prefix + hyphen or end)
+        if '.' in element_id and eid.startswith(element_id) and (
+            len(eid) == len(element_id) or eid[len(element_id)] == '-'
+        ):
             return elem
     return None
 

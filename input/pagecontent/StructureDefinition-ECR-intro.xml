@@ -1,11 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>ECR-1</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0387">0387</a></td><td class="v2-col-mono">01395</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>ECR-2</td><td class="v2-col-mono"><a href="StructureDefinition-DTM.html">DTM</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01396</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">3</td><td>ECR-3</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td></td><td class="v2-col-mono">01397</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">1</td><td>ECR-1</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0387">0387</a></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-ECR-definitions.html#ECR.1-ecr1">01395</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>ECR-2</td><td class="v2-col-mono"><a href="StructureDefinition-DTM.html">DTM</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-ECR-definitions.html#ECR.2-ecr2">01396</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>ECR-3</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>O</td><td></td><td class="v2-col-mono">[0..*]</td><td class="v2-col-mono"><a href="StructureDefinition-ECR-definitions.html#ECR.3-ecr3">01397</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

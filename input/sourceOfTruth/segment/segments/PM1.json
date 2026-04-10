@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PM1.1",
-        "path": "PM1.1",
+        "id": "PM1.1-healthPlanId",
+        "path": "PM1.1-healthPlanId",
         "short": "Health Plan ID",
         "definition": "This field contains a unique identifier for the insurance plan. Refer to _User-defined Table 0072 - Insurance Plan ID_ in Chapter 2C, Code Tables, for suggested values. To eliminate a plan, the plan could be sent with null values in each subsequent element. If the respective systems can support it, a null value can be sent in the plan field.",
         "comment": "The assigning authority for PM1-1, Health Plan ID is assumed to be the Entity named in PM1-2, Insurance Company ID.",
@@ -54,8 +54,8 @@
         ]
       },
       {
-        "id": "PM1.2",
-        "path": "PM1.2",
+        "id": "PM1.2-insuranceCompanyId",
+        "path": "PM1.2-insuranceCompanyId",
         "short": "Insurance Company ID",
         "definition": "This field contains unique identifiers for the insurance company. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -79,8 +79,8 @@
         ]
       },
       {
-        "id": "PM1.3",
-        "path": "PM1.3",
+        "id": "PM1.3-insuranceCompanyName",
+        "path": "PM1.3-insuranceCompanyName",
         "short": "Insurance Company Name",
         "definition": "This field contains the name of the insurance company. Multiple names for the same insurance company may be sent in this field.",
         "code": [
@@ -104,8 +104,8 @@
         ]
       },
       {
-        "id": "PM1.4",
-        "path": "PM1.4",
+        "id": "PM1.4-insuranceCompanyAddress",
+        "path": "PM1.4-insuranceCompanyAddress",
         "short": "Insurance Company Address",
         "definition": "This field contains the address of the insurance company. Multiple addresses for the same insurance company may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -129,8 +129,8 @@
         ]
       },
       {
-        "id": "PM1.5",
-        "path": "PM1.5",
+        "id": "PM1.5-insuranceCoContactPerson",
+        "path": "PM1.5-insuranceCoContactPerson",
         "short": "Insurance Co Contact Person",
         "definition": "This field contains the name of the person who should be contacted at the insurance company. Multiple names for the same contact person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -154,8 +154,8 @@
         ]
       },
       {
-        "id": "PM1.6",
-        "path": "PM1.6",
+        "id": "PM1.6-insuranceCoPhoneNumber",
+        "path": "PM1.6-insuranceCoPhoneNumber",
         "short": "Insurance Co Phone Number",
         "definition": "This field contains the phone number of the insurance company. Multiple phone numbers for the same insurance company may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -179,8 +179,8 @@
         ]
       },
       {
-        "id": "PM1.7",
-        "path": "PM1.7",
+        "id": "PM1.7-groupNumber",
+        "path": "PM1.7-groupNumber",
         "short": "Group Number",
         "definition": "This field contains the group number of the insured's insurance.",
         "code": [
@@ -217,8 +217,8 @@
         ]
       },
       {
-        "id": "PM1.8",
-        "path": "PM1.8",
+        "id": "PM1.8-groupName",
+        "path": "PM1.8-groupName",
         "short": "Group Name",
         "definition": "This field contains the group name of the insured's insurance.",
         "code": [
@@ -242,8 +242,8 @@
         ]
       },
       {
-        "id": "PM1.9",
-        "path": "PM1.9",
+        "id": "PM1.9-planEffectiveDate",
+        "path": "PM1.9-planEffectiveDate",
         "short": "Plan Effective Date",
         "definition": "This field contains the date that the insurance goes into effect.",
         "code": [
@@ -267,8 +267,8 @@
         ]
       },
       {
-        "id": "PM1.10",
-        "path": "PM1.10",
+        "id": "PM1.10-planExpirationDate",
+        "path": "PM1.10-planExpirationDate",
         "short": "Plan Expiration Date",
         "definition": "This field indicates the last date of service that the insurance will cover or be responsible for.",
         "code": [
@@ -292,8 +292,8 @@
         ]
       },
       {
-        "id": "PM1.11",
-        "path": "PM1.11",
+        "id": "PM1.11-patientDobRequired",
+        "path": "PM1.11-patientDobRequired",
         "short": "Patient DOB Required",
         "definition": "This field indicates whether this insurance carrier requires the patient DOB. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y DOB Required\n\nN DOB Not Required",
@@ -322,8 +322,8 @@
         ]
       },
       {
-        "id": "PM1.12",
-        "path": "PM1.12",
+        "id": "PM1.12-patientGenderRequired",
+        "path": "PM1.12-patientGenderRequired",
         "short": "Patient Gender Required",
         "definition": "This field indicates whether this insurance carrier requires the patient Gender. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Patient Gender Required\n\nN Patient Gender Not Rquired",
@@ -352,8 +352,8 @@
         ]
       },
       {
-        "id": "PM1.13",
-        "path": "PM1.13",
+        "id": "PM1.13-patientRelationshipRequired",
+        "path": "PM1.13-patientRelationshipRequired",
         "short": "Patient Relationship Required",
         "definition": "This field indicates whether this insurance carrier requires the patient’s Relationship to insured. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Patient’s relationship to insured Required\n\nN Patient’s relationship to insured Not Required",
@@ -382,8 +382,8 @@
         ]
       },
       {
-        "id": "PM1.14",
-        "path": "PM1.14",
+        "id": "PM1.14-patientSignatureRequired",
+        "path": "PM1.14-patientSignatureRequired",
         "short": "Patient Signature Required",
         "definition": "This field indicates whether this insurance carrier requires the patient Signature. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Patient’s relationship to insured Required\n\nN Patient’s relationship to insured Not Required",
@@ -412,8 +412,8 @@
         ]
       },
       {
-        "id": "PM1.15",
-        "path": "PM1.15",
+        "id": "PM1.15-diagnosisRequired",
+        "path": "PM1.15-diagnosisRequired",
         "short": "Diagnosis Required",
         "definition": "This field indicates whether this insurance carrier requires a diagnosis. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Diagnosis Required\n\nN Diagnosis Not Required",
@@ -442,8 +442,8 @@
         ]
       },
       {
-        "id": "PM1.16",
-        "path": "PM1.16",
+        "id": "PM1.16-serviceRequired",
+        "path": "PM1.16-serviceRequired",
         "short": "Service Required",
         "definition": "This field indicates whether this insurance carrier requires services to be listed. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Services Required\n\nN Services Not Required",
@@ -472,8 +472,8 @@
         ]
       },
       {
-        "id": "PM1.17",
-        "path": "PM1.17",
+        "id": "PM1.17-patientNameRequired",
+        "path": "PM1.17-patientNameRequired",
         "short": "Patient Name Required",
         "definition": "This field indicates whether this insurance carrier requires a patient name on all requests. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Patient’s name Required\n\nN Patient’s name Not Required",
@@ -502,8 +502,8 @@
         ]
       },
       {
-        "id": "PM1.18",
-        "path": "PM1.18",
+        "id": "PM1.18-patientAddressRequired",
+        "path": "PM1.18-patientAddressRequired",
         "short": "Patient Address Required",
         "definition": "This field indicates whether this insurance carrier requires a patient address on all requests. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Patient’s Address Required\n\nN Patient’s Address Not Required",
@@ -532,8 +532,8 @@
         ]
       },
       {
-        "id": "PM1.19",
-        "path": "PM1.19",
+        "id": "PM1.19-subscribersNameRequired",
+        "path": "PM1.19-subscribersNameRequired",
         "short": "Subscribers Name Required",
         "definition": "This field indicates whether this insurance carrier requires subscribers name on all requests. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Subscribers name Required\n\nN Subscribers name Not Required",
@@ -562,8 +562,8 @@
         ]
       },
       {
-        "id": "PM1.20",
-        "path": "PM1.20",
+        "id": "PM1.20-workmansCompIndicator",
+        "path": "PM1.20-workmansCompIndicator",
         "short": "Workman's Comp Indicator",
         "definition": "This field indicates whether this insurance carrier requires workman compensation to be identified. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Workman compensation idenfication Required\n\nN Workman compensation idenfication Not Required",
@@ -592,8 +592,8 @@
         ]
       },
       {
-        "id": "PM1.21",
-        "path": "PM1.21",
+        "id": "PM1.21-billTypeRequired",
+        "path": "PM1.21-billTypeRequired",
         "short": "Bill Type Required",
         "definition": "This field indicates whether this insurance carrier requires subscribers bill type. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Subscribers bill type Required\n\nN Subscribers bill type Not Required",
@@ -622,8 +622,8 @@
         ]
       },
       {
-        "id": "PM1.22",
-        "path": "PM1.22",
+        "id": "PM1.22-commercialCarrierNameAndAddressRequired",
+        "path": "PM1.22-commercialCarrierNameAndAddressRequired",
         "short": "Commercial Carrier Name and Address Required",
         "definition": "This field indicates whether this insurance carrier requires commerical carrier name and address. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Commerical carrier name and address Required\n\nN Commerical carrier name and address Not Required",
@@ -652,8 +652,8 @@
         ]
       },
       {
-        "id": "PM1.23",
-        "path": "PM1.23",
+        "id": "PM1.23-policyNumberPattern",
+        "path": "PM1.23-policyNumberPattern",
         "short": "Policy Number Pattern",
         "definition": "This field contains the policy number pattern. This describes what the policy number should look like. There will likely be multiple patterns to identify the Policy number. It is recommended that Edit patterns are a sequence of the characters ‘A’ for alpha, ‘N’ for numeric, ‘X’ for alphanumeric, ‘B’ for blank, and ‘*’ for wildcard. Digits positionally refer to the two-character edit pattern list in the corresponding list field.",
         "comment": "Edit pattern lists are a sequence characters to respresent the format and size of the Policy Number.\n\nExample 1: The policy number has 3 numbers, 1 blank, 5 numbers and it would be defined in a Pattern as NNNBNNNNN\n\nExample 2: The policy number has 2 numerics, 2 characters for state, 1 blank 5 Alphanumerics and would be represented as NNCCBXXXXX",
@@ -678,8 +678,8 @@
         ]
       },
       {
-        "id": "PM1.24",
-        "path": "PM1.24",
+        "id": "PM1.24-groupNumberPattern",
+        "path": "PM1.24-groupNumberPattern",
         "short": "Group Number Pattern",
         "definition": "This field contains the Group number pattern. This describes what the group number should look like. There will likely be multiple patterns to identify the group number. It is recommended that Edit patterns are a sequence of the characters ‘A’ for alpha, ‘N’ for numeric, ‘X’ for alphanumeric, ‘B’ for blank, and ‘*’ for wildcard. Digits positionally refer to the two-character edit pattern list in the corresponding list field.",
         "comment": "Edit pattern lists are a sequence characters to respresent the format and size of the Group Number.\n\nExample 1: The group number has 3 numbers, 1 blank, 5 numbers and it would be defined in a Pattern as NNNBNNNNN\n\nExample 2: The group number has 2 numerics, 2 characters for state, 1 blank 5 Alphanumerics and would be represented as NNCCBXXXXX",

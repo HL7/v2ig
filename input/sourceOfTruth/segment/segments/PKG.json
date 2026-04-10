@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PKG.1",
-        "path": "PKG.1",
+        "id": "PKG.1-setId",
+        "path": "PKG.1-setId",
         "short": "Set Id - PKG",
         "definition": "This field contains a sequential number that identifies this segment within a given Purchasing Vendor segment group. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "PKG.2",
-        "path": "PKG.2",
+        "id": "PKG.2-packagingUnits",
+        "path": "PKG.2-packagingUnits",
         "short": "Packaging Units",
         "definition": "This field contains the packaging unit that this inventory supply item can be ordered or issued in when purchased from the vendor in the related vendor segment. Refer to {{v2-table:0818:Package}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "PKG.3",
-        "path": "PKG.3",
+        "id": "PKG.3-defaultOrderUnitOfMeasureIndicator",
+        "path": "PKG.3-defaultOrderUnitOfMeasureIndicator",
         "short": "Default Order Unit Of Measure Indicator",
         "definition": "This field contains an indicator that determines whether or not the unit of measure present in the PKG-2 is considered the default Order unit of measure. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "PKG.4",
-        "path": "PKG.4",
+        "id": "PKG.4-packageQuantity",
+        "path": "PKG.4-packageQuantity",
         "short": "Package Quantity",
         "definition": "This field contains the number of units present within a unit of measure.",
         "code": [
@@ -158,8 +158,8 @@
         ]
       },
       {
-        "id": "PKG.5",
-        "path": "PKG.5",
+        "id": "PKG.5-price",
+        "path": "PKG.5-price",
         "short": "Price",
         "definition": "This field contains the price of the item when purchased from the vendor in the associated VND segment, for the unit of measure present in this PKG segment.",
         "code": [
@@ -183,8 +183,8 @@
         ]
       },
       {
-        "id": "PKG.6",
-        "path": "PKG.6",
+        "id": "PKG.6-futureItemPrice",
+        "path": "PKG.6-futureItemPrice",
         "short": "Future Item Price",
         "definition": "This field contains a future price for the item based on the packaging unit in PKG-2.",
         "code": [
@@ -208,8 +208,8 @@
         ]
       },
       {
-        "id": "PKG.7",
-        "path": "PKG.7",
+        "id": "PKG.7-futureItemPriceEffectiveDate",
+        "path": "PKG.7-futureItemPriceEffectiveDate",
         "short": "Future Item Price Effective Date",
         "definition": "This field contains the date and time that a price change for the item becomes effective.",
         "code": [
@@ -233,8 +233,8 @@
         ]
       },
       {
-        "id": "PKG.8",
-        "path": "PKG.8",
+        "id": "PKG.8-globalTradeItemNumber",
+        "path": "PKG.8-globalTradeItemNumber",
         "short": "Global Trade Item Number",
         "definition": "This field contains the GTIN assigned to an item by the item manufacturer used for unique supply item identification by unit of measure within the GS1 standard.",
         "code": [
@@ -258,8 +258,8 @@
         ]
       },
       {
-        "id": "PKG.9",
-        "path": "PKG.9",
+        "id": "PKG.9-contractPrice",
+        "path": "PKG.9-contractPrice",
         "short": "Contract Price",
         "definition": "This field contains the contract price of this item UOM for the vendor sent in VND.",
         "code": [
@@ -283,8 +283,8 @@
         ]
       },
       {
-        "id": "PKG.10",
-        "path": "PKG.10",
+        "id": "PKG.10-quantityOfEach",
+        "path": "PKG.10-quantityOfEach",
         "short": "Quantity of Each",
         "definition": "This field contains the Quantity of the lowest UOM in the UOM sent in sequence 3 (Default Order Unit of Measure).",
         "code": [
@@ -308,8 +308,8 @@
         ]
       },
       {
-        "id": "PKG.11",
-        "path": "PKG.11",
+        "id": "PKG.11-vendorCatalogNumber",
+        "path": "PKG.11-vendorCatalogNumber",
         "short": "Vendor Catalog Number",
         "definition": "This field contains the vendor catalog number of the item UM sent in sequence 3 (Default Order Unit of Measure).",
         "code": [

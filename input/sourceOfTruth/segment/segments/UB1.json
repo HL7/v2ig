@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "UB1.1",
-        "path": "UB1.1",
+        "id": "UB1.1-setId",
+        "path": "UB1.1-setId",
         "short": "Set ID - UB1",
         "comment": "*Attention: _UB1-2 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "UB1.2",
-        "path": "UB1.2",
+        "id": "UB1.2-bloodDeductible",
+        "path": "UB1.2-bloodDeductible",
         "short": "Blood Deductible",
         "comment": "*Attention: _UB1-2 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -69,8 +69,8 @@
         ]
       },
       {
-        "id": "UB1.3",
-        "path": "UB1.3",
+        "id": "UB1.3-bloodFurnishedPints",
+        "path": "UB1.3-bloodFurnishedPints",
         "short": "Blood Furnished-Pints",
         "comment": "*Attention: _UB1-3 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -89,8 +89,8 @@
         ]
       },
       {
-        "id": "UB1.4",
-        "path": "UB1.4",
+        "id": "UB1.4-bloodReplacedPints",
+        "path": "UB1.4-bloodReplacedPints",
         "short": "Blood Replaced-Pints",
         "comment": "*Attention: _UB1-4 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -109,8 +109,8 @@
         ]
       },
       {
-        "id": "UB1.5",
-        "path": "UB1.5",
+        "id": "UB1.5-bloodNotReplacedPints",
+        "path": "UB1.5-bloodNotReplacedPints",
         "short": "Blood Not Replaced-Pints",
         "comment": "*Attention: _UB1-5 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -129,8 +129,8 @@
         ]
       },
       {
-        "id": "UB1.6",
-        "path": "UB1.6",
+        "id": "UB1.6-coInsuranceDays",
+        "path": "UB1.6-coInsuranceDays",
         "short": "Co-Insurance Days",
         "comment": "*Attention: _UB1-6 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -149,8 +149,8 @@
         ]
       },
       {
-        "id": "UB1.7",
-        "path": "UB1.7",
+        "id": "UB1.7-conditionCode",
+        "path": "UB1.7-conditionCode",
         "short": "Condition Code",
         "comment": "*Attention: _UB1-7 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -169,8 +169,8 @@
         ]
       },
       {
-        "id": "UB1.8",
-        "path": "UB1.8",
+        "id": "UB1.8-coveredDays",
+        "path": "UB1.8-coveredDays",
         "short": "Covered Days",
         "comment": "*Attention: _UB1-8 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -189,8 +189,8 @@
         ]
       },
       {
-        "id": "UB1.9",
-        "path": "UB1.9",
+        "id": "UB1.9-nonCoveredDays",
+        "path": "UB1.9-nonCoveredDays",
         "short": "Non Covered Days",
         "comment": "*Attention: _UB1-9 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -209,8 +209,8 @@
         ]
       },
       {
-        "id": "UB1.10",
-        "path": "UB1.10",
+        "id": "UB1.10-valueAmountCode",
+        "path": "UB1.10-valueAmountCode",
         "short": "Value Amount & Code",
         "comment": "*Attention: _UB1-10 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -229,8 +229,8 @@
         ]
       },
       {
-        "id": "UB1.11",
-        "path": "UB1.11",
+        "id": "UB1.11-numberOfGraceDays",
+        "path": "UB1.11-numberOfGraceDays",
         "short": "Number Of Grace Days",
         "comment": "*Attention: _UB1-11 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -249,8 +249,8 @@
         ]
       },
       {
-        "id": "UB1.12",
-        "path": "UB1.12",
+        "id": "UB1.12-specialProgramIndicator",
+        "path": "UB1.12-specialProgramIndicator",
         "short": "Special Program Indicator",
         "comment": "*Attention: _UB1-12 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -269,8 +269,8 @@
         ]
       },
       {
-        "id": "UB1.13",
-        "path": "UB1.13",
+        "id": "UB1.13-psroUrApprovalIndicator",
+        "path": "UB1.13-psroUrApprovalIndicator",
         "short": "PSRO/UR Approval Indicator",
         "comment": "*Attention: _UB1-13 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -289,8 +289,8 @@
         ]
       },
       {
-        "id": "UB1.14",
-        "path": "UB1.14",
+        "id": "UB1.14-psroUrApprovedStayFm",
+        "path": "UB1.14-psroUrApprovedStayFm",
         "short": "PSRO/UR Approved Stay-Fm",
         "comment": "*Attention: _UB1-14 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -309,8 +309,8 @@
         ]
       },
       {
-        "id": "UB1.15",
-        "path": "UB1.15",
+        "id": "UB1.15-psroUrApprovedStayTo",
+        "path": "UB1.15-psroUrApprovedStayTo",
         "short": "PSRO/UR Approved Stay-To",
         "comment": "*Attention: _UB1-15 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -329,8 +329,8 @@
         ]
       },
       {
-        "id": "UB1.16",
-        "path": "UB1.16",
+        "id": "UB1.16-occurrence",
+        "path": "UB1.16-occurrence",
         "short": "Occurrence",
         "comment": "*Attention: _UB1-16 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -349,8 +349,8 @@
         ]
       },
       {
-        "id": "UB1.17",
-        "path": "UB1.17",
+        "id": "UB1.17-occurrenceSpan",
+        "path": "UB1.17-occurrenceSpan",
         "short": "Occurrence Span",
         "comment": "*Attention: _UB1-17 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -369,8 +369,8 @@
         ]
       },
       {
-        "id": "UB1.18",
-        "path": "UB1.18",
+        "id": "UB1.18-occurSpanStartDate",
+        "path": "UB1.18-occurSpanStartDate",
         "short": "Occur Span Start Date",
         "comment": "*Attention: _UB1-18 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -389,8 +389,8 @@
         ]
       },
       {
-        "id": "UB1.19",
-        "path": "UB1.19",
+        "id": "UB1.19-occurSpanEndDate",
+        "path": "UB1.19-occurSpanEndDate",
         "short": "Occur Span End Date",
         "comment": "*Attention: _UB1-19 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -409,8 +409,8 @@
         ]
       },
       {
-        "id": "UB1.20",
-        "path": "UB1.20",
+        "id": "UB1.20-ub82Locator2",
+        "path": "UB1.20-ub82Locator2",
         "short": "UB-82 Locator 2",
         "comment": "*Attention: _UB1-20 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -429,8 +429,8 @@
         ]
       },
       {
-        "id": "UB1.21",
-        "path": "UB1.21",
+        "id": "UB1.21-ub82Locator9",
+        "path": "UB1.21-ub82Locator9",
         "short": "UB-82 Locator 9",
         "comment": "*Attention: _UB1-21 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -449,8 +449,8 @@
         ]
       },
       {
-        "id": "UB1.22",
-        "path": "UB1.22",
+        "id": "UB1.22-ub82Locator27",
+        "path": "UB1.22-ub82Locator27",
         "short": "UB-82 Locator 27",
         "comment": "*Attention: _UB1-22 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -469,8 +469,8 @@
         ]
       },
       {
-        "id": "UB1.23",
-        "path": "UB1.23",
+        "id": "UB1.23-ub82Locator45",
+        "path": "UB1.23-ub82Locator45",
         "short": "UB-82 Locator 45",
         "comment": "*Attention: _UB1-23 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [

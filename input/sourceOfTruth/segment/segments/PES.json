@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PES.1",
-        "path": "PES.1",
+        "id": "PES.1-senderOrganizationName",
+        "path": "PES.1-senderOrganizationName",
         "short": "Sender Organization Name",
         "definition": "This field contains the name of the organization sending the message. Coded lists of manufacturers such as that from the World Health Organization database might be used in the component of the coded name to identify the source code type. If sent from an individual, this field may not be sent.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PES.2",
-        "path": "PES.2",
+        "id": "PES.2-senderIndividualName",
+        "path": "PES.2-senderIndividualName",
         "short": "Sender Individual Name",
         "definition": "This field contains the name of the contact individual. If sent by an organization, the individuals in the organization who serve as primary contact points correspondence regarding this event.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "PES.3",
-        "path": "PES.3",
+        "id": "PES.3-senderAddress",
+        "path": "PES.3-senderAddress",
         "short": "Sender Address",
         "definition": "This field contains the postal address of the message sender to which correspondence regarding the experience being reported should be directed.",
         "code": [
@@ -99,8 +99,8 @@
         ]
       },
       {
-        "id": "PES.4",
-        "path": "PES.4",
+        "id": "PES.4-senderTelephone",
+        "path": "PES.4-senderTelephone",
         "short": "Sender Telephone",
         "definition": "This field contains the telephone number of the message sender to which telephone communications regarding the experience being reported should be directed. An electronic mail address can be specified in this field.",
         "code": [
@@ -124,8 +124,8 @@
         ]
       },
       {
-        "id": "PES.5",
-        "path": "PES.5",
+        "id": "PES.5-senderEventIdentifier",
+        "path": "PES.5-senderEventIdentifier",
         "short": "Sender Event Identifier",
         "definition": "The first component of this field contains the product manufacturer's unique alphanumeric identifier for this specific event. This identifier will be used on all subsequent communications regarding this event. For events reported to the FDA, the identifier is: the FDA assigned manufacturer or distributor number; a hyphen; the 4-digit year; a hyphen; and a consecutive 5-digit sequence number for each report filled by the sender that year. For example, the event identifier for the third event reported in 1996 by a manufacturer whose FDA-assigned registration number is 1234567 would be 1234567-1993-3. Organizations without a FDA-assigned registration number should use 0000000 until assigned a number. Reports from other facilities should use the 10-digit HCFA number left padded with zeros in place of the FDA-assigned registration number. The second through fourth components are defined in exactly the same way as the three components of the hierarchic designator (HD) data type (Section 2.8.18, \"HD - hierarchic designator\").",
         "code": [
@@ -149,8 +149,8 @@
         ]
       },
       {
-        "id": "PES.6",
-        "path": "PES.6",
+        "id": "PES.6-senderSequenceNumber",
+        "path": "PES.6-senderSequenceNumber",
         "short": "Sender Sequence Number",
         "definition": "This field contains sequentially assigned integer values which distinguish messages which share the same sender event identification element. 0 for initial report, 1 for second, and so on.",
         "code": [
@@ -187,8 +187,8 @@
         ]
       },
       {
-        "id": "PES.7",
-        "path": "PES.7",
+        "id": "PES.7-senderEventDescription",
+        "path": "PES.7-senderEventDescription",
         "short": "Sender Event Description",
         "definition": "This field contains the summary narrative text description of the event that occurred written by the sender, which may include a description of the nature of the event, how the product was involved, any environmental conditions that may have influenced the event, and patient follow-up or required treatment. Note that laboratory results can be encoded as OBX segments rather then including them in the narrative. By representing clinical information in OBX segments rather than in the narrative, these data become much more useful and flexible.",
         "code": [
@@ -225,8 +225,8 @@
         ]
       },
       {
-        "id": "PES.8",
-        "path": "PES.8",
+        "id": "PES.8-senderComment",
+        "path": "PES.8-senderComment",
         "short": "Sender Comment",
         "definition": "This field contains the text commentary regarding the report being made, such as disclaimers, which is not necessarily part of the report.",
         "code": [
@@ -263,8 +263,8 @@
         ]
       },
       {
-        "id": "PES.9",
-        "path": "PES.9",
+        "id": "PES.9-senderAwareDateTime",
+        "path": "PES.9-senderAwareDateTime",
         "short": "Sender Aware Date/Time",
         "definition": "This field identifies the date the sender became aware of the event.",
         "code": [
@@ -288,8 +288,8 @@
         ]
       },
       {
-        "id": "PES.10",
-        "path": "PES.10",
+        "id": "PES.10-eventReportDate",
+        "path": "PES.10-eventReportDate",
         "short": "Event Report Date",
         "definition": "This field contains the date the message was originally sent to the regulatory agency.",
         "code": [
@@ -313,8 +313,8 @@
         ]
       },
       {
-        "id": "PES.11",
-        "path": "PES.11",
+        "id": "PES.11-eventReportTimingType",
+        "path": "PES.11-eventReportTimingType",
         "short": "Event Report Timing/Type",
         "definition": "This field contains the timing type of report as required by regulatory agency. Refer to {{v2-table:0234:Report Timing}} for valid values.",
         "code": [
@@ -355,8 +355,8 @@
         ]
       },
       {
-        "id": "PES.12",
-        "path": "PES.12",
+        "id": "PES.12-eventReportSource",
+        "path": "PES.12-eventReportSource",
         "short": "Event Report Source",
         "definition": "This field identifies the source from which the sender learned about the event. Multiple sources may be reported by repeating the element.",
         "comment": "If the source of the report is a clinical trial, the CSR and CSP segments can be included to define the study. Refer to {{v2-table:0235:Report Source}} for valid values.",
@@ -398,8 +398,8 @@
         ]
       },
       {
-        "id": "PES.13",
-        "path": "PES.13",
+        "id": "PES.13-eventReportedTo",
+        "path": "PES.13-eventReportedTo",
         "short": "Event Reported To",
         "definition": "This field indicates all the entities to whom the entity submitting the report has reported the event. Repeat the element if the report was submitted to more than one entity. Refer to {{v2-table:0236:Event reported to}} for valid values.",
         "code": [

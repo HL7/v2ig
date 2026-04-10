@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PSS.1",
-        "path": "PSS.1",
+        "id": "PSS.1-providerProductServiceSectionNumber",
+        "path": "PSS.1-providerProductServiceSectionNumber",
         "short": "Provider Product/Service Section Number",
         "definition": "Unique Product/Service Section Number assigned by the Provider Application.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PSS.2",
-        "path": "PSS.2",
+        "id": "PSS.2-payerProductServiceSectionNumber",
+        "path": "PSS.2-payerProductServiceSectionNumber",
         "short": "Payer Product/Service Section Number",
         "definition": "Unique Product/Service Section Number assigned by the Payer Application.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "PSS.3",
-        "path": "PSS.3",
+        "id": "PSS.3-productServiceSectionSequenceNumber",
+        "path": "PSS.3-productServiceSectionSequenceNumber",
         "short": "Product/Service Section Sequence Number",
         "definition": "Unique sequence number for the Product/Service Section (3) – starts with 1, then 2, etc. for each unique Product/Service Section in this Invoice.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "PSS.4",
-        "path": "PSS.4",
+        "id": "PSS.4-billedAmount",
+        "path": "PSS.4-billedAmount",
         "short": "Billed Amount",
         "definition": "Sum of all Product/Service Billed Amounts for all Product/Service Line Items for this Product/Service Section.",
         "code": [
@@ -137,8 +137,8 @@
         ]
       },
       {
-        "id": "PSS.5",
-        "path": "PSS.5",
+        "id": "PSS.5-sectionDescriptionOrHeading",
+        "path": "PSS.5-sectionDescriptionOrHeading",
         "short": "Section Description or Heading",
         "definition": "Section description or heading.",
         "code": [

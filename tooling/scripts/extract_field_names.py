@@ -50,7 +50,8 @@ def analyze_segment(filepath):
         if not path.startswith(f'{segment_id}.') or path == segment_id:
             continue
 
-        field_num = path.split('.')[1]
+        suffix = path.split('.')[1]
+        field_num = suffix.split('-', 1)[0]  # Handle OBX.1-setId format
         field_id = f"{segment_id}-{field_num}"
 
         definition = element.get('definition', '')

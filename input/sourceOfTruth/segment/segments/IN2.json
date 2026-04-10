@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "IN2.1",
-        "path": "IN2.1",
+        "id": "IN2.1-insuredsEmployeeId",
+        "path": "IN2.1-insuredsEmployeeId",
         "short": "Insured's Employee ID",
         "definition": "This field contains the employee ID of the insured. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "IN2.2",
-        "path": "IN2.2",
+        "id": "IN2.2-insuredsSocialSecurityNumber",
+        "path": "IN2.2-insuredsSocialSecurityNumber",
         "short": "Insured's Social Security Number",
         "definition": "This field contains the social security number of the insured.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "IN2.3",
-        "path": "IN2.3",
+        "id": "IN2.3-insuredsEmployersNameAndId",
+        "path": "IN2.3-insuredsEmployersNameAndId",
         "short": "Insured's Employer's Name and ID",
         "definition": "This field contains the name and ID of the insured's employer or the person who purchased the insurance for the insured, if the employer is a person. Multiple names and identifiers for the same person may be sent in this field, not multiple persons Specification of meaning based on sequence is deprecated. When the employer is an organization use link:#in2-70-insured-employer-organization-name-and-id-xon-00810[_IN2-70 - Insured Employer Organization Name and ID_].",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "IN2.4",
-        "path": "IN2.4",
+        "id": "IN2.4-employerInformationData",
+        "path": "IN2.4-employerInformationData",
         "short": "Employer Information Data",
         "definition": "This field contains the required employer information data for UB82 form locator 71. Refer to {{v2-table:0139:Employer Information Data}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "IN2.5",
-        "path": "IN2.5",
+        "id": "IN2.5-mailClaimParty",
+        "path": "IN2.5-mailClaimParty",
         "short": "Mail Claim Party",
         "definition": "This field contains the party to which the claim should be mailed. Refer to {{v2-table:0137:Mail Claim Party}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -170,8 +170,8 @@
         ]
       },
       {
-        "id": "IN2.6",
-        "path": "IN2.6",
+        "id": "IN2.6-medicareHealthInsCardNumber",
+        "path": "IN2.6-medicareHealthInsCardNumber",
         "short": "Medicare Health Ins Card Number",
         "definition": "This field contains the Medicare Health Insurance Number (HIN), defined by CMS or other regulatory agencies.",
         "code": [
@@ -208,8 +208,8 @@
         ]
       },
       {
-        "id": "IN2.7",
-        "path": "IN2.7",
+        "id": "IN2.7-medicaidCaseName",
+        "path": "IN2.7-medicaidCaseName",
         "short": "Medicaid Case Name",
         "definition": "This field contains the Medicaid case name, defined by CMS or other regulatory agencies. Multiple names for the same person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -233,8 +233,8 @@
         ]
       },
       {
-        "id": "IN2.8",
-        "path": "IN2.8",
+        "id": "IN2.8-medicaidCaseNumber",
+        "path": "IN2.8-medicaidCaseNumber",
         "short": "Medicaid Case Number",
         "definition": "This field contains the Medicaid case number, defined by CMS or other regulatory agencies which can be used to group household members for Medicaid service eligibility.",
         "code": [
@@ -271,8 +271,8 @@
         ]
       },
       {
-        "id": "IN2.9",
-        "path": "IN2.9",
+        "id": "IN2.9-militarySponsorName",
+        "path": "IN2.9-militarySponsorName",
         "short": "Military Sponsor Name",
         "definition": "This field is defined by CMS or other regulatory agencies. Multiple names for the same person may be sent in this field. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -296,8 +296,8 @@
         ]
       },
       {
-        "id": "IN2.10",
-        "path": "IN2.10",
+        "id": "IN2.10-militaryIdNumber",
+        "path": "IN2.10-militaryIdNumber",
         "short": "Military ID Number",
         "definition": "This field contains the military ID number, defined by CMS or other regulatory agencies, which uniquely identifies a patient's military policy.",
         "code": [
@@ -334,8 +334,8 @@
         ]
       },
       {
-        "id": "IN2.11",
-        "path": "IN2.11",
+        "id": "IN2.11-dependentOfMilitaryRecipient",
+        "path": "IN2.11-dependentOfMilitaryRecipient",
         "short": "Dependent Of Military Recipient",
         "definition": "This field is defined by CMS or other regulatory agencies. Refer to {{v2-table:0342:Military Recipient}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -363,8 +363,8 @@
         ]
       },
       {
-        "id": "IN2.12",
-        "path": "IN2.12",
+        "id": "IN2.12-militaryOrganization",
+        "path": "IN2.12-militaryOrganization",
         "short": "Military Organization",
         "definition": "This field is defined by CMS or other regulatory agencies.",
         "code": [
@@ -401,8 +401,8 @@
         ]
       },
       {
-        "id": "IN2.13",
-        "path": "IN2.13",
+        "id": "IN2.13-militaryStation",
+        "path": "IN2.13-militaryStation",
         "short": "Military Station",
         "definition": "This field is defined by CMS or other regulatory agencies.",
         "code": [
@@ -439,8 +439,8 @@
         ]
       },
       {
-        "id": "IN2.14",
-        "path": "IN2.14",
+        "id": "IN2.14-militaryService",
+        "path": "IN2.14-militaryService",
         "short": "Military Service",
         "definition": "This field is defined by CMS or other regulatory agencies and refers to the military branch of service. Refer to {{v2-table:0140:Military Service}} in Chapter 2C, Code Tables, for suggested values. The UB codes listed may not represent a complete list; refer to a UB specification for additional information.",
         "code": [
@@ -468,8 +468,8 @@
         ]
       },
       {
-        "id": "IN2.15",
-        "path": "IN2.15",
+        "id": "IN2.15-militaryRankGrade",
+        "path": "IN2.15-militaryRankGrade",
         "short": "Military Rank/Grade",
         "definition": "This user-defined field identifies the military rank/grade of the insured. Refer to E:\\\\V2\\\\V29_CH02C_Tables.docx#HL70141[_User-defined Table 0141 - Military Rank/Grade_] in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -497,8 +497,8 @@
         ]
       },
       {
-        "id": "IN2.16",
-        "path": "IN2.16",
+        "id": "IN2.16-militaryStatus",
+        "path": "IN2.16-militaryStatus",
         "short": "Military Status",
         "definition": "This field is defined by CMS or other regulatory agencies. Refer to {{v2-table:0142:Military Status}} in Chapter 2C, Code Tables, for suggested values. The UB codes listed may not represent a complete list; refer to a UB specification for additional information",
         "code": [
@@ -526,8 +526,8 @@
         ]
       },
       {
-        "id": "IN2.17",
-        "path": "IN2.17",
+        "id": "IN2.17-militaryRetireDate",
+        "path": "IN2.17-militaryRetireDate",
         "short": "Military Retire Date",
         "definition": "This field is defined by CMS or other regulatory agencies.",
         "code": [
@@ -551,8 +551,8 @@
         ]
       },
       {
-        "id": "IN2.18",
-        "path": "IN2.18",
+        "id": "IN2.18-militaryNonAvailCertOnFile",
+        "path": "IN2.18-militaryNonAvailCertOnFile",
         "short": "Military Non-Avail Cert On File",
         "definition": "Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Certification on file\n\nN Certification not on file",
@@ -594,8 +594,8 @@
         ]
       },
       {
-        "id": "IN2.19",
-        "path": "IN2.19",
+        "id": "IN2.19-babyCoverage",
+        "path": "IN2.19-babyCoverage",
         "short": "Baby Coverage",
         "definition": "Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Baby coverage\n\nN No baby coverage",
@@ -637,8 +637,8 @@
         ]
       },
       {
-        "id": "IN2.20",
-        "path": "IN2.20",
+        "id": "IN2.20-combineBabyBill",
+        "path": "IN2.20-combineBabyBill",
         "short": "Combine Baby Bill",
         "definition": "Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Combine bill\n\nN Normal billing",
@@ -680,8 +680,8 @@
         ]
       },
       {
-        "id": "IN2.21",
-        "path": "IN2.21",
+        "id": "IN2.21-bloodDeductible",
+        "path": "IN2.21-bloodDeductible",
         "short": "Blood Deductible",
         "definition": "Use this field instead of link:#ub1-2-blood-deductible-00531[_UB1-2 - Blood Deductible_], as the blood deductible can be associated with the specific insurance plan via this field.",
         "code": [
@@ -718,8 +718,8 @@
         ]
       },
       {
-        "id": "IN2.22",
-        "path": "IN2.22",
+        "id": "IN2.22-specialCoverageApprovalName",
+        "path": "IN2.22-specialCoverageApprovalName",
         "short": "Special Coverage Approval Name",
         "definition": "This field contains the name of the individual who approves any special coverage. Multiple names for the same person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -743,8 +743,8 @@
         ]
       },
       {
-        "id": "IN2.23",
-        "path": "IN2.23",
+        "id": "IN2.23-specialCoverageApprovalTitle",
+        "path": "IN2.23-specialCoverageApprovalTitle",
         "short": "Special Coverage Approval Title",
         "definition": "This field contains the title of the person who approves special coverage.",
         "code": [
@@ -781,8 +781,8 @@
         ]
       },
       {
-        "id": "IN2.24",
-        "path": "IN2.24",
+        "id": "IN2.24-nonCoveredInsuranceCode",
+        "path": "IN2.24-nonCoveredInsuranceCode",
         "short": "Non-Covered Insurance Code",
         "definition": "This field contains the code that describes why a service is not covered. Refer to {{v2-table:0143:Non-covered Insurance Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -810,8 +810,8 @@
         ]
       },
       {
-        "id": "IN2.25",
-        "path": "IN2.25",
+        "id": "IN2.25-payorId",
+        "path": "IN2.25-payorId",
         "short": "Payor ID",
         "code": [
           {
@@ -834,8 +834,8 @@
         ]
       },
       {
-        "id": "IN2.26",
-        "path": "IN2.26",
+        "id": "IN2.26-payorSubscriberId",
+        "path": "IN2.26-payorSubscriberId",
         "short": "Payor Subscriber ID",
         "definition": "Subscriber Identifier assigned by the Payer.",
         "code": [
@@ -859,8 +859,8 @@
         ]
       },
       {
-        "id": "IN2.27",
-        "path": "IN2.27",
+        "id": "IN2.27-eligibilitySource",
+        "path": "IN2.27-eligibilitySource",
         "short": "Eligibility Source",
         "definition": "Identifies the source of information about the insured's eligibility for benefits. Refer to User-defined Table 0144 - Eligibility Source in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -888,8 +888,8 @@
         ]
       },
       {
-        "id": "IN2.28",
-        "path": "IN2.28",
+        "id": "IN2.28-roomCoverageTypeAmount",
+        "path": "IN2.28-roomCoverageTypeAmount",
         "short": "Room Coverage Type/Amount",
         "definition": "Use this field instead of link:#in1-40-room-rate-semiprivate-00465[_IN1-40 - Room Rate - Semi-Private_] and link:#in1-41-room-rate-private-00466[_IN1-41 - Room Rate - Private_]. This field contains room type (e.g., private, semi-private), amount type (e.g., limit, percentage) and amount covered by the insurance.",
         "code": [
@@ -913,8 +913,8 @@
         ]
       },
       {
-        "id": "IN2.29",
-        "path": "IN2.29",
+        "id": "IN2.29-policyTypeAmount",
+        "path": "IN2.29-policyTypeAmount",
         "short": "Policy Type/Amount",
         "definition": "This field contains the policy type (e.g., ancillary, major medical) and amount (e.g., amount, percentage, limit) covered by the insurance. Use this field instead of link:#in1-38-policy-limit-amount-00463[_IN1-38 - Policy Limit - Amount_].",
         "code": [
@@ -938,8 +938,8 @@
         ]
       },
       {
-        "id": "IN2.30",
-        "path": "IN2.30",
+        "id": "IN2.30-dailyDeductible",
+        "path": "IN2.30-dailyDeductible",
         "short": "Daily Deductible",
         "definition": "This field contains the number of days after which the daily deductible begins, the amount of the deductible, and the number of days to apply the deductible.",
         "comment": "If \"number of days\" is not valued, the deductible is ongoing.",
@@ -964,8 +964,8 @@
         ]
       },
       {
-        "id": "IN2.31",
-        "path": "IN2.31",
+        "id": "IN2.31-livingDependency",
+        "path": "IN2.31-livingDependency",
         "short": "Living Dependency",
         "definition": "This field identifies the specific living conditions for the insured. Refer to {{v2-table:0223:Living Dependency}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -993,8 +993,8 @@
         ]
       },
       {
-        "id": "IN2.32",
-        "path": "IN2.32",
+        "id": "IN2.32-ambulatoryStatus",
+        "path": "IN2.32-ambulatoryStatus",
         "short": "Ambulatory Status",
         "definition": "This field identifies the insured's state of mobility. Refer to {{v2-table:0009:Ambulatory Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1022,8 +1022,8 @@
         ]
       },
       {
-        "id": "IN2.33",
-        "path": "IN2.33",
+        "id": "IN2.33-citizenship",
+        "path": "IN2.33-citizenship",
         "short": "Citizenship",
         "definition": "This field contains the code that identifies the insured's citizenship. HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0171:Citizenship}}_ defined in Chapter 2C, Code Tables.",
         "code": [
@@ -1051,8 +1051,8 @@
         ]
       },
       {
-        "id": "IN2.34",
-        "path": "IN2.34",
+        "id": "IN2.34-primaryLanguage",
+        "path": "IN2.34-primaryLanguage",
         "short": "Primary Language",
         "definition": "This field identifies the insured's primary speaking language. HL7 recommends using ISO table 639 as the suggested values in {{v2-table:0296:Primary Language}}_ defined in Chapter 2C, Code Tables.",
         "code": [
@@ -1080,8 +1080,8 @@
         ]
       },
       {
-        "id": "IN2.35",
-        "path": "IN2.35",
+        "id": "IN2.35-livingArrangement",
+        "path": "IN2.35-livingArrangement",
         "short": "Living Arrangement",
         "definition": "This field indicates the situation in which the insured person lives at his primary residence. Refer to {{v2-table:0220:Living Arrangement}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1109,8 +1109,8 @@
         ]
       },
       {
-        "id": "IN2.36",
-        "path": "IN2.36",
+        "id": "IN2.36-publicityCode",
+        "path": "IN2.36-publicityCode",
         "short": "Publicity Code",
         "definition": "This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for the insured. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1138,8 +1138,8 @@
         ]
       },
       {
-        "id": "IN2.37",
-        "path": "IN2.37",
+        "id": "IN2.37-protectionIndicator",
+        "path": "IN2.37-protectionIndicator",
         "short": "Protection Indicator",
         "definition": "This field identifies the insured's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Restrict access\n\nN Do not restrict access",
@@ -1181,8 +1181,8 @@
         ]
       },
       {
-        "id": "IN2.38",
-        "path": "IN2.38",
+        "id": "IN2.38-studentIndicator",
+        "path": "IN2.38-studentIndicator",
         "short": "Student Indicator",
         "definition": "This field identifies whether the insured is currently a student or not, and whether the insured is a full-time or a part-time student. This field does not indicate the degree level (high school, college) of student, or his/her field of study (accounting, engineering, etc.). Refer to {{v2-table:0231:Student Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1210,8 +1210,8 @@
         ]
       },
       {
-        "id": "IN2.39",
-        "path": "IN2.39",
+        "id": "IN2.39-religion",
+        "path": "IN2.39-religion",
         "short": "Religion",
         "definition": "This field indicates the type of religion practiced by the insured. Refer to {{v2-table:0006:Religion}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1239,8 +1239,8 @@
         ]
       },
       {
-        "id": "IN2.40",
-        "path": "IN2.40",
+        "id": "IN2.40-mothersMaidenName",
+        "path": "IN2.40-mothersMaidenName",
         "short": "Mother's Maiden Name",
         "definition": "This field indicates the insured's mother's maiden name.",
         "code": [
@@ -1264,8 +1264,8 @@
         ]
       },
       {
-        "id": "IN2.41",
-        "path": "IN2.41",
+        "id": "IN2.41-nationality",
+        "path": "IN2.41-nationality",
         "short": "Nationality",
         "definition": "This field contains a code that identifies the nation or national grouping to which the insured person belongs. This information may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0212:Nationality}} in Chapter 2C, Code Tables.",
         "code": [
@@ -1293,8 +1293,8 @@
         ]
       },
       {
-        "id": "IN2.42",
-        "path": "IN2.42",
+        "id": "IN2.42-ethnicGroup",
+        "path": "IN2.42-ethnicGroup",
         "short": "Ethnic Group",
         "definition": "This field indicates the insured's ethnic group. Refer to {{v2-table:0189:Ethnic Group}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.",
         "code": [
@@ -1322,8 +1322,8 @@
         ]
       },
       {
-        "id": "IN2.43",
-        "path": "IN2.43",
+        "id": "IN2.43-maritalStatus",
+        "path": "IN2.43-maritalStatus",
         "short": "Marital Status",
         "definition": "This field contains the insured's marital status. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1351,8 +1351,8 @@
         ]
       },
       {
-        "id": "IN2.44",
-        "path": "IN2.44",
+        "id": "IN2.44-insuredsEmploymentStartDate",
+        "path": "IN2.44-insuredsEmploymentStartDate",
         "short": "Insured's Employment Start Date",
         "definition": "This field indicates the date on which the insured's employment with a particular employer began.",
         "code": [
@@ -1376,8 +1376,8 @@
         ]
       },
       {
-        "id": "IN2.45",
-        "path": "IN2.45",
+        "id": "IN2.45-employmentStopDate",
+        "path": "IN2.45-employmentStopDate",
         "short": "Employment Stop Date",
         "definition": "This field indicates the date on which the person's employment with a particular employer ended.",
         "code": [
@@ -1401,8 +1401,8 @@
         ]
       },
       {
-        "id": "IN2.46",
-        "path": "IN2.46",
+        "id": "IN2.46-jobTitle",
+        "path": "IN2.46-jobTitle",
         "short": "Job Title",
         "definition": "This field contains a descriptive name for the insured's occupation (for example, Sr. Systems Analyst, Sr. Accountant).",
         "code": [
@@ -1439,8 +1439,8 @@
         ]
       },
       {
-        "id": "IN2.47",
-        "path": "IN2.47",
+        "id": "IN2.47-jobCodeClass",
+        "path": "IN2.47-jobCodeClass",
         "short": "Job Code/Class",
         "definition": "This field indicates a code that identifies the insured's job code (for example, programmer, analyst, doctor, etc.).",
         "code": [
@@ -1464,8 +1464,8 @@
         ]
       },
       {
-        "id": "IN2.48",
-        "path": "IN2.48",
+        "id": "IN2.48-jobStatus",
+        "path": "IN2.48-jobStatus",
         "short": "Job Status",
         "definition": "This field indicates a code that identifies the insured's current job status. Refer to {{v2-table:0311:Job Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1493,8 +1493,8 @@
         ]
       },
       {
-        "id": "IN2.49",
-        "path": "IN2.49",
+        "id": "IN2.49-employerContactPersonName",
+        "path": "IN2.49-employerContactPersonName",
         "short": "Employer Contact Person Name",
         "definition": "This field contains the name of the contact person that should be contacted at the insured's place of employment. (Joe Smith is the insured. He works at GTE. Contact Sue Jones at GTE regarding Joe Smith's policy). Multiple names for the same person may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1518,8 +1518,8 @@
         ]
       },
       {
-        "id": "IN2.50",
-        "path": "IN2.50",
+        "id": "IN2.50-employerContactPersonPhoneNumber",
+        "path": "IN2.50-employerContactPersonPhoneNumber",
         "short": "Employer Contact Person Phone Number",
         "definition": "This field contains the telecommunications contact for the employer contact person. Multiple phone numbers for the same contact person may be sent in this sequence, not multiple contacts. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1543,8 +1543,8 @@
         ]
       },
       {
-        "id": "IN2.51",
-        "path": "IN2.51",
+        "id": "IN2.51-employerContactReason",
+        "path": "IN2.51-employerContactReason",
         "short": "Employer Contact Reason",
         "definition": "Definition: This field contains the reason(s) that employer contact person should be contacted on behalf of the employee. Refer to {{v2-table:0222:Contact Reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1572,8 +1572,8 @@
         ]
       },
       {
-        "id": "IN2.52",
-        "path": "IN2.52",
+        "id": "IN2.52-insuredsContactPersonsName",
+        "path": "IN2.52-insuredsContactPersonsName",
         "short": "Insured's Contact Person's Name",
         "definition": "This field contains the contact person for the insured.",
         "code": [
@@ -1597,8 +1597,8 @@
         ]
       },
       {
-        "id": "IN2.53",
-        "path": "IN2.53",
+        "id": "IN2.53-insuredsContactPersonPhoneNumber",
+        "path": "IN2.53-insuredsContactPersonPhoneNumber",
         "short": "Insured's Contact Person Phone Number",
         "definition": "This field contains the telephone number for the contact person for the insured. Multiple phone numbers for the same person may be sent in this contact, not multiple contacts. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1622,8 +1622,8 @@
         ]
       },
       {
-        "id": "IN2.54",
-        "path": "IN2.54",
+        "id": "IN2.54-insuredsContactPersonReason",
+        "path": "IN2.54-insuredsContactPersonReason",
         "short": "Insured's Contact Person Reason",
         "definition": "This field contains the reason(s) the person should be contacted regarding the insured. Refer to {{v2-table:0222:Contact Reason}} in Chapter 2C, Code Tables, for suggested values",
         "code": [
@@ -1651,8 +1651,8 @@
         ]
       },
       {
-        "id": "IN2.55",
-        "path": "IN2.55",
+        "id": "IN2.55-relationshipToThePatientStartDate",
+        "path": "IN2.55-relationshipToThePatientStartDate",
         "short": "Relationship to the Patient Start Date",
         "definition": "This field indicates the date on which the insured's patient relationship (defined in link:#in1-17-insureds-relationship-to-patient-cwe-00442[_IN1-17 - Insured's Relationship to Patient_]) became effective (began).",
         "code": [
@@ -1676,8 +1676,8 @@
         ]
       },
       {
-        "id": "IN2.56",
-        "path": "IN2.56",
+        "id": "IN2.56-relationshipToThePatientStopDate",
+        "path": "IN2.56-relationshipToThePatientStopDate",
         "short": "Relationship to the Patient Stop Date",
         "definition": "This field indicates the date after which the relationship (defined in link:#in1-17-insureds-relationship-to-patient-cwe-00442[_IN1-17 - Insured's Relationship to Patient_]) is no longer effective.",
         "code": [
@@ -1701,8 +1701,8 @@
         ]
       },
       {
-        "id": "IN2.57",
-        "path": "IN2.57",
+        "id": "IN2.57-insuranceCoContactReason",
+        "path": "IN2.57-insuranceCoContactReason",
         "short": "Insurance Co Contact Reason",
         "definition": "This field contains a user-defined code that specifies how the contact should be used. Refer to {{v2-table:0232:Insurance Company Contact Reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1730,8 +1730,8 @@
         ]
       },
       {
-        "id": "IN2.58",
-        "path": "IN2.58",
+        "id": "IN2.58-insuranceCoContactPhoneNumber",
+        "path": "IN2.58-insuranceCoContactPhoneNumber",
         "short": "Insurance Co Contact Phone Number",
         "definition": "This field contains the telephone number of the person who should be contacted at the insurance company for questions regarding an insurance policy/claim, etc. Multiple phone numbers for the insurance company may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1755,8 +1755,8 @@
         ]
       },
       {
-        "id": "IN2.59",
-        "path": "IN2.59",
+        "id": "IN2.59-policyScope",
+        "path": "IN2.59-policyScope",
         "short": "Policy Scope",
         "definition": "This field contains a user-defined code designating the extent of the coverage for a participating member (e.g., \"single,\" \"family,\" etc). Refer to {{v2-table:0312:Policy Scope}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1784,8 +1784,8 @@
         ]
       },
       {
-        "id": "IN2.60",
-        "path": "IN2.60",
+        "id": "IN2.60-policySource",
+        "path": "IN2.60-policySource",
         "short": "Policy Source",
         "definition": "This user-defined field identifies how the policy information got established. Refer to {{v2-table:0313:Policy Source}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1813,8 +1813,8 @@
         ]
       },
       {
-        "id": "IN2.61",
-        "path": "IN2.61",
+        "id": "IN2.61-patientMemberNumber",
+        "path": "IN2.61-patientMemberNumber",
         "short": "Patient Member Number",
         "definition": "This field contains an identifying number assigned by the payor for each individual covered by the insurance policy issued to the insured. For example, each individual family member may have a different member number from the insurance policy number issued to the head of household. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -1838,8 +1838,8 @@
         ]
       },
       {
-        "id": "IN2.62",
-        "path": "IN2.62",
+        "id": "IN2.62-guarantorsRelationshipToInsured",
+        "path": "IN2.62-guarantorsRelationshipToInsured",
         "short": "Guarantor's Relationship to Insured",
         "definition": "This field specifies the relationship of the guarantor to the insurance subscriber. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1867,8 +1867,8 @@
         ]
       },
       {
-        "id": "IN2.63",
-        "path": "IN2.63",
+        "id": "IN2.63-insuredsPhoneNumberHome",
+        "path": "IN2.63-insuredsPhoneNumberHome",
         "short": "Insured's Phone Number - Home",
         "definition": "The value of this field represents the insured's telephone number. Multiple phone numbers may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1892,8 +1892,8 @@
         ]
       },
       {
-        "id": "IN2.64",
-        "path": "IN2.64",
+        "id": "IN2.64-insuredsEmployerPhoneNumber",
+        "path": "IN2.64-insuredsEmployerPhoneNumber",
         "short": "Insured's Employer Phone Number",
         "definition": "The value of this field represents the insured's employer's telephone number. Multiple phone numbers may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1917,8 +1917,8 @@
         ]
       },
       {
-        "id": "IN2.65",
-        "path": "IN2.65",
+        "id": "IN2.65-militaryHandicappedProgram",
+        "path": "IN2.65-militaryHandicappedProgram",
         "short": "Military Handicapped Program",
         "definition": "This field indicates the military program for the handicapped in which the patient is enrolled. Refer to {{v2-table:0343:Military Handicapped Program Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1946,8 +1946,8 @@
         ]
       },
       {
-        "id": "IN2.66",
-        "path": "IN2.66",
+        "id": "IN2.66-suspendFlag",
+        "path": "IN2.66-suspendFlag",
         "short": "Suspend Flag",
         "definition": "This field indicates whether charges should be suspended for a patient. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y charges should be suspended\n\nN charges should NOT be suspended",
@@ -1989,8 +1989,8 @@
         ]
       },
       {
-        "id": "IN2.67",
-        "path": "IN2.67",
+        "id": "IN2.67-copayLimitFlag",
+        "path": "IN2.67-copayLimitFlag",
         "short": "Copay Limit Flag",
         "definition": "This field indicates if the patient has reached the co-pay limit so that no more co-pay charges should be calculated for the patient. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the patient is at or exceeds the co-pay limit\n\nN the patient is under the co-pay limit",
@@ -2032,8 +2032,8 @@
         ]
       },
       {
-        "id": "IN2.68",
-        "path": "IN2.68",
+        "id": "IN2.68-stoplossLimitFlag",
+        "path": "IN2.68-stoplossLimitFlag",
         "short": "Stoploss Limit Flag",
         "definition": "This field indicates if the patient has reached the stoploss limit established in the Contract Master. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the patient has reached the stoploss limit\n\nN the patient has not reached the stoploss limit",
@@ -2075,8 +2075,8 @@
         ]
       },
       {
-        "id": "IN2.69",
-        "path": "IN2.69",
+        "id": "IN2.69-insuredOrganizationNameAndId",
+        "path": "IN2.69-insuredOrganizationNameAndId",
         "short": "Insured Organization Name and ID",
         "definition": "This field indicates the name of the insured if the insured/subscriber is an organization. Multiple names for the insured may be sent in this sequence, not multiple insured people Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -2100,8 +2100,8 @@
         ]
       },
       {
-        "id": "IN2.70",
-        "path": "IN2.70",
+        "id": "IN2.70-insuredEmployerOrganizationNameAndId",
+        "path": "IN2.70-insuredEmployerOrganizationNameAndId",
         "short": "Insured Employer Organization Name and ID",
         "definition": "This field indicates the name of the insured's employer, or the organization that purchased the insurance for the insured, if the employer is an organization. Multiple names and identifiers for the same organization may be sent in this field, not multiple organizations. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -2125,8 +2125,8 @@
         ]
       },
       {
-        "id": "IN2.71",
-        "path": "IN2.71",
+        "id": "IN2.71-race",
+        "path": "IN2.71-race",
         "short": "Race",
         "definition": "Refer to {{v2-table:0005:Race}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.",
         "code": [
@@ -2154,8 +2154,8 @@
         ]
       },
       {
-        "id": "IN2.72",
-        "path": "IN2.72",
+        "id": "IN2.72-patientsRelationshipToInsured",
+        "path": "IN2.72-patientsRelationshipToInsured",
         "short": "Patient's Relationship to Insured",
         "definition": "This field indicates the relationship of the patient to the insured, as defined by CMS or other regulatory agencies. Refer to {{v2-table:0344:Patient's Relationship to Insured}} in Chapter 2C, Code Tables, for suggested values. The UB codes listed may not represent a complete list; refer to a UB specification for additional information.",
         "code": [
@@ -2183,8 +2183,8 @@
         ]
       },
       {
-        "id": "IN2.73",
-        "path": "IN2.73",
+        "id": "IN2.73-coPayAmount",
+        "path": "IN2.73-coPayAmount",
         "short": "Co-Pay Amount",
         "definition": "This field contains the patient's Co-pay amount for visit.",
         "code": [

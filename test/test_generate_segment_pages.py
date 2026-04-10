@@ -284,11 +284,11 @@ class TestRenderSegmentTable(unittest.TestCase):
         self.assertIn('style="display:none;"', self.html)
 
     def test_table_class(self):
-        self.assertIn('class="grid v2-segment-table"', self.html)
+        self.assertIn('class="v2-segment-table"', self.html)
 
     def test_column_headers(self):
-        for header in ["Seq", "Data Element Name", "DataType", "Usage",
-                        "Cardinality", "Vocabulary", "Item#", "Length",
+        for header in ["Seq#", "Data Element Name", "DataType", "Usage",
+                        "Vocabulary", "Cardinality", "Item#", "Length",
                         "C.LEN", "Flags"]:
             self.assertIn(f"<th>{header}</th>", self.html)
 

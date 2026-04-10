@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "CTR.1",
-        "path": "CTR.1",
+        "id": "CTR.1-contractIdentifier",
+        "path": "CTR.1-contractIdentifier",
         "short": "Contract Identifier",
         "definition": "The Contract Identifier is a unique code assigned to the contract by the manufacturer or distributor to identify the contract.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "CTR.2",
-        "path": "CTR.2",
+        "id": "CTR.2-contractDescription",
+        "path": "CTR.2-contractDescription",
         "short": "Contract Description",
         "definition": "The Contract Description is a description of the contract identified in CTR-1.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "CTR.3",
-        "path": "CTR.3",
+        "id": "CTR.3-contractStatus",
+        "path": "CTR.3-contractStatus",
         "short": "Contract Status",
         "definition": "The status (useful for determining whether the contract price should be used for ordering) that applies to the contract. Refer to {{v2-table:0536:Certificate Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "CTR.4",
-        "path": "CTR.4",
+        "id": "CTR.4-effectiveDate",
+        "path": "CTR.4-effectiveDate",
         "short": "Effective Date",
         "definition": "The Effective Date is the date that the contract becomes available to purchase from.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "CTR.5",
-        "path": "CTR.5",
+        "id": "CTR.5-expirationDate",
+        "path": "CTR.5-expirationDate",
         "short": "Expiration Date",
         "definition": "Definition: The Expiration Date is the date that the contract becomes unavailable to purchase from.",
         "code": [
@@ -166,8 +166,8 @@
         ]
       },
       {
-        "id": "CTR.6",
-        "path": "CTR.6",
+        "id": "CTR.6-contractOwnerName",
+        "path": "CTR.6-contractOwnerName",
         "short": "Contract Owner Name",
         "definition": "This field contains the name of the person who manages the contract.",
         "code": [
@@ -191,8 +191,8 @@
         ]
       },
       {
-        "id": "CTR.7",
-        "path": "CTR.7",
+        "id": "CTR.7-contractOriginatorName",
+        "path": "CTR.7-contractOriginatorName",
         "short": "Contract Originator Name",
         "definition": "This field contains the name of the person who created the contract.",
         "code": [
@@ -216,8 +216,8 @@
         ]
       },
       {
-        "id": "CTR.8",
-        "path": "CTR.8",
+        "id": "CTR.8-supplierType",
+        "path": "CTR.8-supplierType",
         "short": "Supplier Type",
         "definition": "This field contains the type of supplier associated to the contract. Suggested values ‘Distributor’ or ‘Manufacturer’.",
         "comment": "Refer to {{v2-table:0946:Supplier Type}} in Chapter 2C, Code Tables, for suggested values.",
@@ -246,8 +246,8 @@
         ]
       },
       {
-        "id": "CTR.9",
-        "path": "CTR.9",
+        "id": "CTR.9-contractType",
+        "path": "CTR.9-contractType",
         "short": "Contract Type",
         "definition": "The Contract Type is an identifier of the contract which designates the source of the contract. Suggested values: L=Local, G=Global, and values can be defined by the source (user defined) such as the GPO or the distributor. Refer to User Defined Table 0965 – Contract Types in Chapter 2 C for examples.",
         "code": [
@@ -275,8 +275,8 @@
         ]
       },
       {
-        "id": "CTR.10",
-        "path": "CTR.10",
+        "id": "CTR.10-freeOnBoardFreightTerms",
+        "path": "CTR.10-freeOnBoardFreightTerms",
         "short": "Free On Board Freight Terms",
         "definition": "This field indicates whether or not Free On Board freight terms are applicable to the contract.",
         "comment": "Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
@@ -305,8 +305,8 @@
         ]
       },
       {
-        "id": "CTR.11",
-        "path": "CTR.11",
+        "id": "CTR.11-priceProtectionDate",
+        "path": "CTR.11-priceProtectionDate",
         "short": "Price Protection Date",
         "definition": "This field contains the date through which the contract item prices are protected by an agreement with the vendor.",
         "code": [
@@ -330,8 +330,8 @@
         ]
       },
       {
-        "id": "CTR.12",
-        "path": "CTR.12",
+        "id": "CTR.12-fixedPriceContractIndicator",
+        "path": "CTR.12-fixedPriceContractIndicator",
         "short": "Fixed Price Contract Indicator",
         "definition": "This field indicates whether the items selected for the contract are purchased at the price indicated in the Contract Price or not. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -359,8 +359,8 @@
         ]
       },
       {
-        "id": "CTR.13",
-        "path": "CTR.13",
+        "id": "CTR.13-groupPurchasingOrganization",
+        "path": "CTR.13-groupPurchasingOrganization",
         "short": "Group Purchasing Organization",
         "definition": "This field contains the identifier which identifies the GPO organization.",
         "code": [
@@ -384,8 +384,8 @@
         ]
       },
       {
-        "id": "CTR.14",
-        "path": "CTR.14",
+        "id": "CTR.14-maximumMarkup",
+        "path": "CTR.14-maximumMarkup",
         "short": "Maximum Markup",
         "definition": "This field contains the highest percentage that can be applied to each item’s Product Cost.",
         "code": [
@@ -409,8 +409,8 @@
         ]
       },
       {
-        "id": "CTR.15",
-        "path": "CTR.15",
+        "id": "CTR.15-actualMarkup",
+        "path": "CTR.15-actualMarkup",
         "short": "Actual Markup",
         "definition": "This field contains the actual percentage (markup or discount) applied to each item’s Product Cost.",
         "code": [
@@ -434,8 +434,8 @@
         ]
       },
       {
-        "id": "CTR.16",
-        "path": "CTR.16",
+        "id": "CTR.16-corporation",
+        "path": "CTR.16-corporation",
         "short": "Corporation",
         "definition": "This field contains a corporation identifier (code and name) of the entity allowed to purchase from this contract.",
         "comment": "Condition: This field shall be valued if CRT-17 Parent of Corporation is valued.",
@@ -460,8 +460,8 @@
         ]
       },
       {
-        "id": "CTR.17",
-        "path": "CTR.17",
+        "id": "CTR.17-parentOfCorporation",
+        "path": "CTR.17-parentOfCorporation",
         "short": "Parent of Corporation",
         "definition": "This field contains the parent of the corporation sent in CTR-17 such as an integrated delivery network.",
         "code": [
@@ -485,8 +485,8 @@
         ]
       },
       {
-        "id": "CTR.18",
-        "path": "CTR.18",
+        "id": "CTR.18-pricingTierLevel",
+        "path": "CTR.18-pricingTierLevel",
         "short": "Pricing Tier Level",
         "definition": "This field contains the tier level at which this contract is priced. Pricing Tier level determines the price of the item on the contract. Tier Level can be assigned to an IDN or at a corporation level and is typically based on volume purchased (determined by $ or a %). The larger the volume purchased, the lower priced tier level is assigned to the contract. This value can change over the life of the contract if purchasing volume changes after initial contract signing. Example 01^Tier One, 02^Tier 2, etc. Refer to User Defined Table 0966 – Pricing Tier Level in Chapter2C for examples.",
         "code": [
@@ -514,8 +514,8 @@
         ]
       },
       {
-        "id": "CTR.19",
-        "path": "CTR.19",
+        "id": "CTR.19-contractPriority",
+        "path": "CTR.19-contractPriority",
         "short": "Contract Priority",
         "definition": "This field contains the a value which represents the priority of this contract. In some cases there are multiple contracts associated to a given supply item, each needs a priority to determine which price to default to when ordering items on this contract. This field could be text or numeric.",
         "code": [
@@ -539,8 +539,8 @@
         ]
       },
       {
-        "id": "CTR.20",
-        "path": "CTR.20",
+        "id": "CTR.20-classOfTrade",
+        "path": "CTR.20-classOfTrade",
         "short": "Class of Trade",
         "definition": "This field contains an indicator signifying whether the purchasing channel such as a hospital or retail, etc.",
         "comment": "Refer to {{v2-table:0947:Supplier Type Class of Trade}} in Chapter 2C, Code Tables, for suggested values.",
@@ -569,8 +569,8 @@
         ]
       },
       {
-        "id": "CTR.21",
-        "path": "CTR.21",
+        "id": "CTR.21-associatedContractId",
+        "path": "CTR.21-associatedContractId",
         "short": "Associated Contract ID",
         "definition": "This field contains an indicator signifying contract IDs of related contracts. An example is a vendor contract which (supplier type = D) could be associated to a manufacturer (supplier type = M) contract; this field would contain the manufacturer contract ID.",
         "code": [

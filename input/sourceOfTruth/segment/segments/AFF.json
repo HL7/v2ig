@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "AFF.1",
-        "path": "AFF.1",
+        "id": "AFF.1-setId",
+        "path": "AFF.1-setId",
         "short": "Set ID – AFF",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "AFF.2",
-        "path": "AFF.2",
+        "id": "AFF.2-professionalOrganization",
+        "path": "AFF.2-professionalOrganization",
         "short": "Professional Organization",
         "definition": "This field contains the official name of the association promoting specific professional interests with which the staff member is affiliated.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "AFF.3",
-        "path": "AFF.3",
+        "id": "AFF.3-professionalOrganizationAddress",
+        "path": "AFF.3-professionalOrganizationAddress",
         "short": "Professional Organization Address",
         "definition": "This field contains the postal address of the professional organization with which the Staff Member is associated.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "AFF.4",
-        "path": "AFF.4",
+        "id": "AFF.4-professionalOrganizationAffiliationDateRange",
+        "path": "AFF.4-professionalOrganizationAffiliationDateRange",
         "short": "Professional Organization Affiliation Date Range",
         "definition": "This field contains the period the staff member started and ended membership in the professional organization.",
         "code": [
@@ -137,8 +137,8 @@
         ]
       },
       {
-        "id": "AFF.5",
-        "path": "AFF.5",
+        "id": "AFF.5-professionalAffiliationAdditionalInformation",
+        "path": "AFF.5-professionalAffiliationAdditionalInformation",
         "short": "Professional Affiliation Additional Information",
         "definition": "This field contains miscellaneous additional information related to the staff member's membership in the professional organization.",
         "code": [

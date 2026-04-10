@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "UAC.1",
-        "path": "UAC.1",
+        "id": "UAC.1-userAuthenticationCredentialTypeCode",
+        "path": "UAC.1-userAuthenticationCredentialTypeCode",
         "short": "User Authentication Credential Type Code",
         "definition": "This an identifier code for the type of user authentication credential. Refer to {{v2-table:0615:User Authentication Credential Type Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "UAC.2",
-        "path": "UAC.2",
+        "id": "UAC.2-userAuthenticationCredential",
+        "path": "UAC.2-userAuthenticationCredential",
         "short": "User Authentication Credential",
         "definition": "This is user credential data as supplied by the sender's operating platform. The content and structure of this is defined by other standards and contain no HL7-relevant data.",
         "code": [

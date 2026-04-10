@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PRB.1",
-        "path": "PRB.1",
+        "id": "PRB.1-actionCode",
+        "path": "PRB.1-actionCode",
         "short": "Action Code",
         "definition": "This field contains the intent of the message. Refer to {{v2-table:0287:Problem/Goal Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -66,8 +66,8 @@
         ]
       },
       {
-        "id": "PRB.2",
-        "path": "PRB.2",
+        "id": "PRB.2-actionDateTime",
+        "path": "PRB.2-actionDateTime",
         "short": "Action Date/Time",
         "definition": "This field contains the date/time that the operation represented by the action code was performed.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "PRB.3",
-        "path": "PRB.3",
+        "id": "PRB.3-problemId",
+        "path": "PRB.3-problemId",
         "short": "Problem ID",
         "definition": "This field identifies the problem. This is the identifier from an institution's master list of problems.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "PRB.4",
-        "path": "PRB.4",
+        "id": "PRB.4-problemInstanceId",
+        "path": "PRB.4-problemInstanceId",
         "short": "Problem Instance ID",
         "definition": "This field contains the identifier assigned by an initiating system to an instance of a problem.",
         "comment": "*Note:* It is required that this value remain unique over time. This instance ID identifies a specific instance for a specific patient and is unique across all patients. See entity ID data type description in Chapter 2.",
@@ -142,8 +142,8 @@
         ]
       },
       {
-        "id": "PRB.5",
-        "path": "PRB.5",
+        "id": "PRB.5-episodeOfCareId",
+        "path": "PRB.5-episodeOfCareId",
         "short": "Episode of Care ID",
         "definition": "This field uniquely identifies the episode of care to which this problem applies. (See note under \"Ongoing issues.\")",
         "comment": "*Note:* It is required that this field be unique over time.",
@@ -168,8 +168,8 @@
         ]
       },
       {
-        "id": "PRB.6",
-        "path": "PRB.6",
+        "id": "PRB.6-problemListPriority",
+        "path": "PRB.6-problemListPriority",
         "short": "Problem List Priority",
         "definition": "This field prioritizes this problem on a list that is maintained for the individual.",
         "code": [
@@ -193,8 +193,8 @@
         ]
       },
       {
-        "id": "PRB.7",
-        "path": "PRB.7",
+        "id": "PRB.7-problemEstablishedDateTime",
+        "path": "PRB.7-problemEstablishedDateTime",
         "short": "Problem Established Date/Time",
         "definition": "This field contains the date/time when the corresponding problem was initially identified by the caregiver.",
         "code": [
@@ -218,8 +218,8 @@
         ]
       },
       {
-        "id": "PRB.8",
-        "path": "PRB.8",
+        "id": "PRB.8-anticipatedProblemResolutionDateTime",
+        "path": "PRB.8-anticipatedProblemResolutionDateTime",
         "short": "Anticipated Problem Resolution Date/Time",
         "definition": "This field contains the estimated date/time for resolving the stated problem.",
         "code": [
@@ -243,8 +243,8 @@
         ]
       },
       {
-        "id": "PRB.9",
-        "path": "PRB.9",
+        "id": "PRB.9-actualProblemResolutionDateTime",
+        "path": "PRB.9-actualProblemResolutionDateTime",
         "short": "Actual Problem Resolution Date/Time",
         "definition": "This field contains the date/time that the problem was actually resolved.",
         "code": [
@@ -268,8 +268,8 @@
         ]
       },
       {
-        "id": "PRB.10",
-        "path": "PRB.10",
+        "id": "PRB.10-problemClassification",
+        "path": "PRB.10-problemClassification",
         "short": "Problem Classification",
         "definition": "This field indicates the kind of problem. This field can be used to categorize problems so that they may be managed and viewed independently within different applications (e.g., admission, final, post-operative, pre-operative, outpatient, discharge, etc.).",
         "code": [
@@ -293,8 +293,8 @@
         ]
       },
       {
-        "id": "PRB.11",
-        "path": "PRB.11",
+        "id": "PRB.11-problemManagementDiscipline",
+        "path": "PRB.11-problemManagementDiscipline",
         "short": "Problem Management Discipline",
         "definition": "This field indicates the category of caregiver with responsibility for managing this specific problem (e.g., care team, nursing, medicine, respiratory therapy, occupational therapy, dietary, etc.). This is a repeating field to allow identification of all disciplines that may have the responsibility for this problem.",
         "code": [
@@ -318,8 +318,8 @@
         ]
       },
       {
-        "id": "PRB.12",
-        "path": "PRB.12",
+        "id": "PRB.12-problemPersistence",
+        "path": "PRB.12-problemPersistence",
         "short": "Problem Persistence",
         "definition": "This field contains the perseverance of a problem (e.g., acute, chronic, etc.).",
         "code": [
@@ -343,8 +343,8 @@
         ]
       },
       {
-        "id": "PRB.13",
-        "path": "PRB.13",
+        "id": "PRB.13-problemConfirmationStatus",
+        "path": "PRB.13-problemConfirmationStatus",
         "short": "Problem Confirmation Status",
         "definition": "This field contains the verification status of a problem (e.g., confirmed, differential, provisional, rule-out, etc.).",
         "code": [
@@ -368,8 +368,8 @@
         ]
       },
       {
-        "id": "PRB.14",
-        "path": "PRB.14",
+        "id": "PRB.14-problemLifeCycleStatus",
+        "path": "PRB.14-problemLifeCycleStatus",
         "short": "Problem Life Cycle Status",
         "definition": "This field contains the current status of the problem at this particular date/time (e.g., active, active-improving, active-stable, active-worsening, inactive, resolved, etc.).",
         "code": [
@@ -393,8 +393,8 @@
         ]
       },
       {
-        "id": "PRB.15",
-        "path": "PRB.15",
+        "id": "PRB.15-problemLifeCycleStatusDateTime",
+        "path": "PRB.15-problemLifeCycleStatusDateTime",
         "short": "Problem Life Cycle Status Date/Time",
         "definition": "This field indicates the effective date/time of the current problem life cycle status.",
         "code": [
@@ -418,8 +418,8 @@
         ]
       },
       {
-        "id": "PRB.16",
-        "path": "PRB.16",
+        "id": "PRB.16-problemDateOfOnset",
+        "path": "PRB.16-problemDateOfOnset",
         "short": "Problem Date of Onset",
         "definition": "This field contains the date/time when the problem began.",
         "code": [
@@ -443,8 +443,8 @@
         ]
       },
       {
-        "id": "PRB.17",
-        "path": "PRB.17",
+        "id": "PRB.17-problemOnsetText",
+        "path": "PRB.17-problemOnsetText",
         "short": "Problem Onset Text",
         "definition": "This field allows for a textual representation of the time when the problem began.",
         "code": [
@@ -481,8 +481,8 @@
         ]
       },
       {
-        "id": "PRB.18",
-        "path": "PRB.18",
+        "id": "PRB.18-problemRanking",
+        "path": "PRB.18-problemRanking",
         "short": "Problem Ranking",
         "definition": "This field contains a user-defined prioritization of a problem (e.g., numeric ranking, or the use of words such as \"primary,\" \"secondary,\" etc.).",
         "code": [
@@ -506,8 +506,8 @@
         ]
       },
       {
-        "id": "PRB.19",
-        "path": "PRB.19",
+        "id": "PRB.19-certaintyOfProblem",
+        "path": "PRB.19-certaintyOfProblem",
         "short": "Certainty of Problem",
         "definition": "This field contains a qualitative representation of the certainty of a problem (e.g., HI - high, LO - low, ME - medium, etc.).",
         "code": [
@@ -531,8 +531,8 @@
         ]
       },
       {
-        "id": "PRB.20",
-        "path": "PRB.20",
+        "id": "PRB.20-probabilityOfProblem01",
+        "path": "PRB.20-probabilityOfProblem01",
         "short": "Probability of Problem (0-1)",
         "definition": "This field contains a quantitative or numeric representation of the certainty that the problem exists for this patient. This field has a valid range of 0 to 1. For example, a healthcare provider may be 75% (.75) sure that the problem has been correctly identified.",
         "comment": "*Note*: We have provided for two different representations of the certainty of the problem due to varying representations in applications.",
@@ -570,8 +570,8 @@
         ]
       },
       {
-        "id": "PRB.21",
-        "path": "PRB.21",
+        "id": "PRB.21-individualAwarenessOfProblem",
+        "path": "PRB.21-individualAwarenessOfProblem",
         "short": "Individual Awareness of Problem",
         "definition": "This field contains the individual's comprehension of the problem (e.g., full, marginal, partial, etc.).",
         "code": [
@@ -595,8 +595,8 @@
         ]
       },
       {
-        "id": "PRB.22",
-        "path": "PRB.22",
+        "id": "PRB.22-problemPrognosis",
+        "path": "PRB.22-problemPrognosis",
         "short": "Problem Prognosis",
         "definition": "This field contains the prognosis for the individual's problem (e.g., good, poor, etc.).",
         "code": [
@@ -620,8 +620,8 @@
         ]
       },
       {
-        "id": "PRB.23",
-        "path": "PRB.23",
+        "id": "PRB.23-individualAwarenessOfPrognosis",
+        "path": "PRB.23-individualAwarenessOfPrognosis",
         "short": "Individual Awareness of Prognosis",
         "definition": "This field contains the individual's comprehension of the prognosis for the problem (e.g., full, marginal, partial, etc.).",
         "code": [
@@ -645,8 +645,8 @@
         ]
       },
       {
-        "id": "PRB.24",
-        "path": "PRB.24",
+        "id": "PRB.24-familySignificantOtherAwarenessOfProblemPrognosis",
+        "path": "PRB.24-familySignificantOtherAwarenessOfProblemPrognosis",
         "short": "Family/Significant Other Awareness of Problem/Prognosis",
         "definition": "This field indicates the individual's family or significant other's comprehension of the actual problem/prognosis.",
         "code": [
@@ -683,8 +683,8 @@
         ]
       },
       {
-        "id": "PRB.25",
-        "path": "PRB.25",
+        "id": "PRB.25-securitySensitivity",
+        "path": "PRB.25-securitySensitivity",
         "short": "Security/Sensitivity",
         "definition": "This field contains information about the level of security and/or sensitivity surrounding the problem (e.g., highly sensitive, not sensitive, sensitive, etc.).",
         "code": [
@@ -708,8 +708,8 @@
         ]
       },
       {
-        "id": "PRB.26",
-        "path": "PRB.26",
+        "id": "PRB.26-problemSeverity",
+        "path": "PRB.26-problemSeverity",
         "short": "Problem Severity",
         "definition": "This field indicates the severity of the Problem. Refer to {{v2-table:0836:Problem Severity}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -737,8 +737,8 @@
         ]
       },
       {
-        "id": "PRB.27",
-        "path": "PRB.27",
+        "id": "PRB.27-problemPerspective",
+        "path": "PRB.27-problemPerspective",
         "short": "Problem Perspective",
         "definition": "This field indicates from whose perspective this problem was identified. Refer to {{v2-table:0838:Problem Perspective}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -766,8 +766,8 @@
         ]
       },
       {
-        "id": "PRB.28",
-        "path": "PRB.28",
+        "id": "PRB.28-moodCode",
+        "path": "PRB.28-moodCode",
         "short": "Mood Code",
         "definition": "This field indicates the Mood of the Problem. It allows expression of the context of the problem.",
         "comment": "*Note:* As Mood Code changes the meaning of the segment it must only be used in new messages as of v2.6.\n\nRefer to {{v2-table:0725:Mood Codes}} in Chapter 2C, Code Tables, for allowed values.",

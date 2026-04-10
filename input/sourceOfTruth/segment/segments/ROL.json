@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ROL.1",
-        "path": "ROL.1",
+        "id": "ROL.1-roleInstanceId",
+        "path": "ROL.1-roleInstanceId",
         "short": "Role Instance ID",
         "code": [
           {
@@ -48,8 +48,8 @@
         ]
       },
       {
-        "id": "ROL.2",
-        "path": "ROL.2",
+        "id": "ROL.2-actionCode",
+        "path": "ROL.2-actionCode",
         "short": "Action Code",
         "code": [
           {
@@ -89,8 +89,8 @@
         ]
       },
       {
-        "id": "ROL.3",
-        "path": "ROL.3",
+        "id": "ROL.3-role",
+        "path": "ROL.3-role",
         "short": "Role-ROL",
         "code": [
           {
@@ -117,8 +117,8 @@
         ]
       },
       {
-        "id": "ROL.4",
-        "path": "ROL.4",
+        "id": "ROL.4-rolePerson",
+        "path": "ROL.4-rolePerson",
         "short": "Role Person",
         "code": [
           {
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "ROL.5",
-        "path": "ROL.5",
+        "id": "ROL.5-roleBeginDateTime",
+        "path": "ROL.5-roleBeginDateTime",
         "short": "Role Begin Date/Time",
         "code": [
           {
@@ -165,8 +165,8 @@
         ]
       },
       {
-        "id": "ROL.6",
-        "path": "ROL.6",
+        "id": "ROL.6-roleEndDateTime",
+        "path": "ROL.6-roleEndDateTime",
         "short": "Role End Date/Time",
         "code": [
           {
@@ -189,8 +189,8 @@
         ]
       },
       {
-        "id": "ROL.7",
-        "path": "ROL.7",
+        "id": "ROL.7-roleDuration",
+        "path": "ROL.7-roleDuration",
         "short": "Role Duration",
         "code": [
           {
@@ -213,8 +213,8 @@
         ]
       },
       {
-        "id": "ROL.8",
-        "path": "ROL.8",
+        "id": "ROL.8-roleActionReason",
+        "path": "ROL.8-roleActionReason",
         "short": "Role Action Reason",
         "code": [
           {
@@ -237,8 +237,8 @@
         ]
       },
       {
-        "id": "ROL.9",
-        "path": "ROL.9",
+        "id": "ROL.9-providerType",
+        "path": "ROL.9-providerType",
         "short": "Provider Type",
         "code": [
           {
@@ -261,8 +261,8 @@
         ]
       },
       {
-        "id": "ROL.10",
-        "path": "ROL.10",
+        "id": "ROL.10-organizationUnitType",
+        "path": "ROL.10-organizationUnitType",
         "short": "Organization Unit Type",
         "code": [
           {
@@ -289,8 +289,8 @@
         ]
       },
       {
-        "id": "ROL.11",
-        "path": "ROL.11",
+        "id": "ROL.11-officeHomeAddressBirthplace",
+        "path": "ROL.11-officeHomeAddressBirthplace",
         "short": "Office/Home Address/Birthplace",
         "code": [
           {
@@ -313,8 +313,8 @@
         ]
       },
       {
-        "id": "ROL.12",
-        "path": "ROL.12",
+        "id": "ROL.12-phone",
+        "path": "ROL.12-phone",
         "short": "Phone",
         "code": [
           {
@@ -337,8 +337,8 @@
         ]
       },
       {
-        "id": "ROL.13",
-        "path": "ROL.13",
+        "id": "ROL.13-personsLocation",
+        "path": "ROL.13-personsLocation",
         "short": "Person's Location",
         "code": [
           {
@@ -361,8 +361,8 @@
         ]
       },
       {
-        "id": "ROL.14",
-        "path": "ROL.14",
+        "id": "ROL.14-organization",
+        "path": "ROL.14-organization",
         "short": "Organization",
         "code": [
           {

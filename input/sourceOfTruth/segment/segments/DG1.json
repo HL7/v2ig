@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "DG1.1",
-        "path": "DG1.1",
+        "id": "DG1.1-setId",
+        "path": "DG1.1-setId",
         "short": "Set ID - DG1",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment the sequence number shall be 1, for the second occurrence it shall be 2, etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "DG1.2",
-        "path": "DG1.2",
+        "id": "DG1.2-diagnosisCodingMethod",
+        "path": "DG1.2-diagnosisCodingMethod",
         "short": "Diagnosis Coding Method",
         "comment": "*Attention: _DG1-2 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6 ._*",
         "code": [
@@ -82,8 +82,8 @@
         ]
       },
       {
-        "id": "DG1.3",
-        "path": "DG1.3",
+        "id": "DG1.3-diagnosisCode",
+        "path": "DG1.3-diagnosisCode",
         "short": "Diagnosis Code - DG1",
         "definition": "_link:++#dg1-3-diagnosis-code---dg1-cwe-00377++[DG1-3 - Diagnosis Code - DG1]_ contains the diagnosis code assigned to this diagnosis. Refer to E:\\\\V2\\\\V29_CH02C_Tables.docx#HL70051[_User-defined Table 0051 - Diagnosis Code_] in Chapter 2C, Code Tables, for suggested values. This field is a CWE data type for compatibility with clinical and ancillary systems. Either _DG1-3.1-Identifier_ or _DG1-3.2-Text_ is required. When a code is used in _DG1-3.1-Identifier_, a coding system is required in _DG1-3.3-Name of Coding System_.",
         "comment": "Names of various diagnosis coding systems are listed in Chapter 2, Section 2.16.4, \"Coding system table.\"",
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "DG1.4",
-        "path": "DG1.4",
+        "id": "DG1.4-diagnosisDescription",
+        "path": "DG1.4-diagnosisDescription",
         "short": "Diagnosis Description",
         "comment": "*Attention: _DG1-4 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6._*",
         "code": [
@@ -132,8 +132,8 @@
         ]
       },
       {
-        "id": "DG1.5",
-        "path": "DG1.5",
+        "id": "DG1.5-diagnosisDateTime",
+        "path": "DG1.5-diagnosisDateTime",
         "short": "Diagnosis Date/Time",
         "definition": "This field contains the date/time that the diagnosis was determined.",
         "code": [
@@ -157,8 +157,8 @@
         ]
       },
       {
-        "id": "DG1.6",
-        "path": "DG1.6",
+        "id": "DG1.6-diagnosisType",
+        "path": "DG1.6-diagnosisType",
         "short": "Diagnosis Type",
         "definition": "This field contains a code that identifies the type of diagnosis being sent. Refer to {{v2-table:0052:Diagnosis Type}} in Chapter 2C, Code Tables, for suggested values. This field should no longer be used to indicate \"DRG\" because the DRG fields have moved to the new DRG segment.",
         "code": [
@@ -186,8 +186,8 @@
         ]
       },
       {
-        "id": "DG1.7",
-        "path": "DG1.7",
+        "id": "DG1.7-majorDiagnosticCategory",
+        "path": "DG1.7-majorDiagnosticCategory",
         "short": "Major Diagnostic Category",
         "comment": "*Attention: _DG1-7 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6 ._*",
         "code": [
@@ -210,8 +210,8 @@
         ]
       },
       {
-        "id": "DG1.8",
-        "path": "DG1.8",
+        "id": "DG1.8-diagnosticRelatedGroup",
+        "path": "DG1.8-diagnosticRelatedGroup",
         "short": "Diagnostic Related Group",
         "comment": "*Attention: _DG1-8 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6. _*",
         "code": [
@@ -230,8 +230,8 @@
         ]
       },
       {
-        "id": "DG1.9",
-        "path": "DG1.9",
+        "id": "DG1.9-drgApprovalIndicator",
+        "path": "DG1.9-drgApprovalIndicator",
         "short": "DRG Approval Indicator",
         "comment": "*Attention: _DG1-9 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*",
         "code": [
@@ -250,8 +250,8 @@
         ]
       },
       {
-        "id": "DG1.10",
-        "path": "DG1.10",
+        "id": "DG1.10-drgGrouperReviewCode",
+        "path": "DG1.10-drgGrouperReviewCode",
         "short": "DRG Grouper Review Code",
         "comment": "*Attention: _DG1-10 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*",
         "code": [
@@ -270,8 +270,8 @@
         ]
       },
       {
-        "id": "DG1.11",
-        "path": "DG1.11",
+        "id": "DG1.11-outlierType",
+        "path": "DG1.11-outlierType",
         "short": "Outlier Type",
         "comment": "*Attention: _DG1-11 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*",
         "code": [
@@ -290,8 +290,8 @@
         ]
       },
       {
-        "id": "DG1.12",
-        "path": "DG1.12",
+        "id": "DG1.12-outlierDays",
+        "path": "DG1.12-outlierDays",
         "short": "Outlier Days",
         "comment": "*Attention: _DG1-12 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*",
         "code": [
@@ -310,8 +310,8 @@
         ]
       },
       {
-        "id": "DG1.13",
-        "path": "DG1.13",
+        "id": "DG1.13-outlierCost",
+        "path": "DG1.13-outlierCost",
         "short": "Outlier Cost",
         "comment": "*Attention: _DG1-13 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*",
         "code": [
@@ -330,8 +330,8 @@
         ]
       },
       {
-        "id": "DG1.14",
-        "path": "DG1.14",
+        "id": "DG1.14-grouperVersionAndType",
+        "path": "DG1.14-grouperVersionAndType",
         "short": "Grouper Version And Type",
         "comment": "*Attention: _DG1-14 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6_*",
         "code": [
@@ -350,8 +350,8 @@
         ]
       },
       {
-        "id": "DG1.15",
-        "path": "DG1.15",
+        "id": "DG1.15-diagnosisPriority",
+        "path": "DG1.15-diagnosisPriority",
         "short": "Diagnosis Priority",
         "definition": "This field contains the number that identifies the significance or priority of the diagnosis code. Refer to {{v2-table:0359:Diagnosis Priority}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "*Note*: As of v 2.7, the data type has been changed to numeric. The meaning of the values remains the same as those in {{v2-table:0418:Procedure Priority}}, The value 0 conveys that this procedure is not included in the ranking. The value 1 means that this is the primary procedure. Values 2-99 convey ranked secondary procedures.",
@@ -393,8 +393,8 @@
         ]
       },
       {
-        "id": "DG1.16",
-        "path": "DG1.16",
+        "id": "DG1.16-diagnosingClinician",
+        "path": "DG1.16-diagnosingClinician",
         "short": "Diagnosing Clinician",
         "definition": "This field contains the individual responsible for generating the diagnosis information. As of v 2.7, if _XCN.1 - ID Number_ is populated, then the _XCN.13 - Identifier Type Code_ and the _XCN.9 - Assigning Authority_ or _XCN.22 - Assigning Jurisdiction_ or _XCN.23 - Assigning Agency or Department_ are required. If _XCN.2 - Family Name_ is populated, then the _XCN.10 - Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -418,8 +418,8 @@
         ]
       },
       {
-        "id": "DG1.17",
-        "path": "DG1.17",
+        "id": "DG1.17-diagnosisClassification",
+        "path": "DG1.17-diagnosisClassification",
         "short": "Diagnosis Classification",
         "definition": "This field indicates if the patient information is for a diagnosis or a non-diagnosis code. Refer to {{v2-table:0228:Diagnosis Classification}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -447,8 +447,8 @@
         ]
       },
       {
-        "id": "DG1.18",
-        "path": "DG1.18",
+        "id": "DG1.18-confidentialIndicator",
+        "path": "DG1.18-confidentialIndicator",
         "short": "Confidential Indicator",
         "definition": "This field indicates whether the diagnosis is confidential. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, \"Code Tables\", for valid values.",
         "comment": "Y the diagnosis is a confidential diagnosis\n\nN the diagnosis does not contain a confidential diagnosis",
@@ -490,8 +490,8 @@
         ]
       },
       {
-        "id": "DG1.19",
-        "path": "DG1.19",
+        "id": "DG1.19-attestationDateTime",
+        "path": "DG1.19-attestationDateTime",
         "short": "Attestation Date/Time",
         "definition": "This field contains the time stamp that indicates the date and time that the attestation was signed.",
         "code": [
@@ -515,8 +515,8 @@
         ]
       },
       {
-        "id": "DG1.20",
-        "path": "DG1.20",
+        "id": "DG1.20-diagnosisIdentifier",
+        "path": "DG1.20-diagnosisIdentifier",
         "short": "Diagnosis Identifier",
         "definition": "This field contains a value that uniquely identifies a single diagnosis for an encounter. It is unique across all segments and messages for an encounter. This field is required in all implementations employing Update Diagnosis/Procedures (P12) messages.",
         "code": [
@@ -540,8 +540,8 @@
         ]
       },
       {
-        "id": "DG1.21",
-        "path": "DG1.21",
+        "id": "DG1.21-diagnosisActionCode",
+        "path": "DG1.21-diagnosisActionCode",
         "short": "Diagnosis Action Code",
         "definition": "This field defines the action to be taken for this diagnosis. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, \"Code Tables\", for valid values. This field is required for the update diagnosis/procedures (P12) message. In all other events it is optional.",
         "code": [
@@ -582,8 +582,8 @@
         ]
       },
       {
-        "id": "DG1.22",
-        "path": "DG1.22",
+        "id": "DG1.22-parentDiagnosis",
+        "path": "DG1.22-parentDiagnosis",
         "short": "Parent Diagnosis",
         "definition": "This field contains the entity identifier for the parent diagnosis. This field links the \"current\" manifestation diagnosis (\"*\") to the entity identifier of the \"parent\" etiological diagnosis (\"+\").",
         "code": [
@@ -607,8 +607,8 @@
         ]
       },
       {
-        "id": "DG1.23",
-        "path": "DG1.23",
+        "id": "DG1.23-drgCclValueCode",
+        "path": "DG1.23-drgCclValueCode",
         "short": "DRG CCL Value Code",
         "definition": "This field indicates the CCL value for the determined DRG for this diagnosis. Refer to {{v2-table:0728:CCL Value}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -636,8 +636,8 @@
         ]
       },
       {
-        "id": "DG1.24",
-        "path": "DG1.24",
+        "id": "DG1.24-drgGroupingUsage",
+        "path": "DG1.24-drgGroupingUsage",
         "short": "DRG Grouping Usage",
         "definition": "This field identifies whether this particular diagnosis has been used for the DRG determination. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values. The values have the following meaning for this field:",
         "comment": "Y Yes - Indicates that the diagnosis has been used for the DRG determination\n\nN No – Indicates that the diagnosis has not been used for the DRG determination",
@@ -679,8 +679,8 @@
         ]
       },
       {
-        "id": "DG1.25",
-        "path": "DG1.25",
+        "id": "DG1.25-drgDiagnosisDeterminationStatus",
+        "path": "DG1.25-drgDiagnosisDeterminationStatus",
         "short": "DRG Diagnosis Determination Status",
         "definition": "This field contains the status of this particular diagnosis for the DRG determination. Refer to {{v2-table:0731:DRG Diagnosis Determination Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -708,8 +708,8 @@
         ]
       },
       {
-        "id": "DG1.26",
-        "path": "DG1.26",
+        "id": "DG1.26-presentOnAdmissionPoaIndicator",
+        "path": "DG1.26-presentOnAdmissionPoaIndicator",
         "short": "Present On Admission (POA) Indicator",
         "definition": "This field contains the present on admission indicator for this particular diagnosis. US reimbursement formulas for some states and Medicare have mandated that each diagnosis code be flagged as to whether it was present on admission or not. Refer to {{v2-table:0895:Present On Admission (POA) Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

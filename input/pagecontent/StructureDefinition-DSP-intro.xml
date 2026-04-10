@@ -1,13 +1,13 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Set ID – DSP</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00061</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Display Level</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00062</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">3</td><td>Data Line</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">00063</td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">=</td></tr>
-<tr><td class="v2-col-seq">4</td><td>Logical Break Point</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00064</td><td class="v2-col-mono"></td><td class="v2-col-mono">2</td><td class="v2-col-mono">=</td></tr>
-<tr><td class="v2-col-seq">5</td><td>Result ID</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00065</td><td class="v2-col-mono"></td><td class="v2-col-mono">20</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq">1</td><td>Set ID – DSP</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-DSP-definitions.html#DSP.1-setId">00061</a></td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Display Level</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-DSP-definitions.html#DSP.2-displayLevel">00062</a></td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">3</td><td>Data Line</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-DSP-definitions.html#DSP.3-dataLine">00063</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq">4</td><td>Logical Break Point</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-DSP-definitions.html#DSP.4-logicalBreakPoint">00064</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">2</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq">5</td><td>Result ID</td><td class="v2-col-mono"><a href="StructureDefinition-TX.html">TX</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-DSP-definitions.html#DSP.5-resultId">00065</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">20</td><td class="v2-col-mono">=</td></tr>
 </tbody>
 </table>
 </div>

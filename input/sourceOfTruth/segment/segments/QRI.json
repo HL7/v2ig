@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "QRI.1",
-        "path": "QRI.1",
+        "id": "QRI.1-candidateConfidence",
+        "path": "QRI.1-candidateConfidence",
         "short": "Candidate Confidence",
         "definition": "This field contains a numeric value indicating the match weight or confidence level associated with the record.",
         "comment": "Example: |0.88| or |12.32|\n\nOne use of this optional field is in Patient Look-up transactions where the searching system employs a numeric algorithm for determining potential matches to patient/person look-ups.",
@@ -63,8 +63,8 @@
         ]
       },
       {
-        "id": "QRI.2",
-        "path": "QRI.2",
+        "id": "QRI.2-matchReasonCode",
+        "path": "QRI.2-matchReasonCode",
         "short": "Match Reason Code",
         "definition": "This field contains a coded value indicating what search components (e.g., name, birth date, social security number) of the record returned matched the original query where the responding system does not assign numeric match weights or confidence levels. In short, it provides a method for passing a descriptive indication of why a particular record was found.",
         "comment": ".Refer to {{v2-table:0392:Match reason}} in Chapter 2C, Code Tables, for suggested values.",
@@ -106,8 +106,8 @@
         ]
       },
       {
-        "id": "QRI.3",
-        "path": "QRI.3",
+        "id": "QRI.3-algorithmDescriptor",
+        "path": "QRI.3-algorithmDescriptor",
         "short": "Algorithm Descriptor",
         "definition": "This field contains a text value indicating the name or identity of the specific search algorithm to which the _RCP-5 Search confidence threshold_ and the _QRI-1 Candidate confidence_ refer. Note that there are sometimes significant differences among the algorithms in their numeric scales (e.g., one is 0-100, another might be 10 – 20) as well as their meanings of the same value (two algorithms with an 80% match might not return the same records). Refer to {{v2-table:0393:Match algorithms}}_ in Chapter 2C, Code Tables, for suggested values.",
         "comment": "Example: |MATCHWARE_1.2^^HL70393| or |LINKSOFT_2.01^^HL70393|\n\nOne use of this optional field is in Patient Look-up transactions where the searching system employs a numeric algorithm for determining potential matches to patient/person look-ups.",

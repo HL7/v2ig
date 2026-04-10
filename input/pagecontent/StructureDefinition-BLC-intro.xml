@@ -1,10 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Blood Product Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0426">0426</a></td><td class="v2-col-mono">01528</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Blood Amount</td><td class="v2-col-mono"><a href="StructureDefinition-CQ.html">CQ</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01529</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">1</td><td>Blood Product Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0426">0426</a></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-BLC-definitions.html#BLC.1-bloodProductCode">01528</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Blood Amount</td><td class="v2-col-mono"><a href="StructureDefinition-CQ.html">CQ</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-BLC-definitions.html#BLC.2-bloodAmount">01529</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

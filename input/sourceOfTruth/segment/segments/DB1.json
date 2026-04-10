@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "DB1.1",
-        "path": "DB1.1",
+        "id": "DB1.1-setId",
+        "path": "DB1.1-setId",
         "short": "Set ID - DB1",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "DB1.2",
-        "path": "DB1.2",
+        "id": "DB1.2-disabledPersonCode",
+        "path": "DB1.2-disabledPersonCode",
         "short": "Disabled Person Code",
         "definition": "The value of this field indicates to which person the disability information relates in the message. For example, if the value is PT, the disability information relates to the patient. Refer to {{v2-table:0334:Disabled Person Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "DB1.3",
-        "path": "DB1.3",
+        "id": "DB1.3-disabledPersonIdentifier",
+        "path": "DB1.3-disabledPersonIdentifier",
         "short": "Disabled Person Identifier",
         "definition": "This is the identifier (or identifiers) for the person whose disability information is sent on the segment. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "DB1.4",
-        "path": "DB1.4",
+        "id": "DB1.4-disabilityIndicator",
+        "path": "DB1.4-disabilityIndicator",
         "short": "Disability Indicator",
         "definition": "This field indicates if the person's visit is a disability visit. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y a disability visit\n\nN not a disability visit",
@@ -159,8 +159,8 @@
         ]
       },
       {
-        "id": "DB1.5",
-        "path": "DB1.5",
+        "id": "DB1.5-disabilityStartDate",
+        "path": "DB1.5-disabilityStartDate",
         "short": "Disability Start Date",
         "definition": "This field specifies the date the person became disabled.",
         "code": [
@@ -184,8 +184,8 @@
         ]
       },
       {
-        "id": "DB1.6",
-        "path": "DB1.6",
+        "id": "DB1.6-disabilityEndDate",
+        "path": "DB1.6-disabilityEndDate",
         "short": "Disability End Date",
         "definition": "This field specifies the ending date of the person's disability.",
         "code": [
@@ -209,8 +209,8 @@
         ]
       },
       {
-        "id": "DB1.7",
-        "path": "DB1.7",
+        "id": "DB1.7-disabilityReturnToWorkDate",
+        "path": "DB1.7-disabilityReturnToWorkDate",
         "short": "Disability Return to Work Date",
         "definition": "This field indicates the authorized date on which the patient can return to work for a specified disability case.",
         "code": [
@@ -234,8 +234,8 @@
         ]
       },
       {
-        "id": "DB1.8",
-        "path": "DB1.8",
+        "id": "DB1.8-disabilityUnableToWorkDate",
+        "path": "DB1.8-disabilityUnableToWorkDate",
         "short": "Disability Unable to Work Date",
         "definition": "This field specifies the first date in the date span that the patient is unable to work due to disability.",
         "code": [

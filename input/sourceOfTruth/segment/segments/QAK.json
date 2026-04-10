@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "QAK.1",
-        "path": "QAK.1",
+        "id": "QAK.1-queryTag",
+        "path": "QAK.1-queryTag",
         "short": "Query Tag",
         "definition": "This field may be valued by the initiating system to identify the query, and may be used to match response messages to the originating query. If it is valued, the responding system is required to echo it back as the first field in the query acknowledgment segment (QAK). This field differs from _MSA-2-message control ID_ in that its value remains constant for each message (i.e., all continuation messages) associated with the query, whereas _MSA-2-Message control ID_ may vary with each continuation message, since it is associated with each individual message, not the query as a whole. _QAK-1-Query tag_ is not conditional on the presence of the _QRD-1-Query ID_ field in the original mode queries; in the original mode queries _QAK-1-Query tag_ is not used.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "QAK.2",
-        "path": "QAK.2",
+        "id": "QAK.2-queryResponseStatus",
+        "path": "QAK.2-queryResponseStatus",
         "short": "Query Response Status",
         "definition": "This field allows the responding system to return a precise response status. It is especially useful in the case where no data is found that matches the query parameters, but where there is also no error. Refer to {{v2-table:0208:Query Response Status}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -104,8 +104,8 @@
         ]
       },
       {
-        "id": "QAK.3",
-        "path": "QAK.3",
+        "id": "QAK.3-messageQueryName",
+        "path": "QAK.3-messageQueryName",
         "short": "Message Query Name",
         "definition": "This field contains the name of the query. These names are assigned by the function-specific chapters of this specification. Site-specific event replay query names begin with the letter \"Z.\" Refer to {{v2-table:0471:Query name}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -133,8 +133,8 @@
         ]
       },
       {
-        "id": "QAK.4",
-        "path": "QAK.4",
+        "id": "QAK.4-hitCountTotal",
+        "path": "QAK.4-hitCountTotal",
         "short": "Hit Count Total",
         "definition": "This field, when used, contains the total number of records found by the Server that matched the query. For tabular responses, this is the number of rows found. For other response types, the Query Profile defines the meaning of a \"hit.\"",
         "code": [
@@ -171,8 +171,8 @@
         ]
       },
       {
-        "id": "QAK.5",
-        "path": "QAK.5",
+        "id": "QAK.5-thisPayload",
+        "path": "QAK.5-thisPayload",
         "short": "This payload",
         "definition": "This field, when used, contains the total number of matching records that the Server sent in the current response. Where the continuation protocol is used to transmit the response in partial installments, this number will differ from the value sent in _QAK-4-Hit count total_.",
         "code": [
@@ -209,8 +209,8 @@
         ]
       },
       {
-        "id": "QAK.6",
-        "path": "QAK.6",
+        "id": "QAK.6-hitsRemaining",
+        "path": "QAK.6-hitsRemaining",
         "short": "Hits remaining",
         "definition": "This field, when used, contains the number of matching records found by the Server that have yet to be sent. It is only meaningful when the Server uses the continuation protocol to transmit partial responses.",
         "code": [

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ITM.1",
-        "path": "ITM.1",
+        "id": "ITM.1-itemIdentifier",
+        "path": "ITM.1-itemIdentifier",
         "short": "Item Identifier",
         "definition": "The Item Identifier is a unique code assigned to the material item by the Item Inventory Master catalog software application to identify the item.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "ITM.2",
-        "path": "ITM.2",
+        "id": "ITM.2-itemDescription",
+        "path": "ITM.2-itemDescription",
         "short": "Item Description",
         "definition": "The Item Description is a description of the material item identified in ITM-1.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "ITM.3",
-        "path": "ITM.3",
+        "id": "ITM.3-itemStatus",
+        "path": "ITM.3-itemStatus",
         "short": "Item Status",
         "definition": "The status (useful for reporting and item usage purposes) that applies to an item. Refer to {{v2-table:0776:Item Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "ITM.4",
-        "path": "ITM.4",
+        "id": "ITM.4-itemType",
+        "path": "ITM.4-itemType",
         "short": "Item Type",
         "definition": "The Item Type is a classification of material items into like groups as defined and utilized within an Operating Room setting for charting procedures. An Item Type is a higher level of classification than an Item Category as described in ITM-4. Refer to {{v2-table:0778:Item Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -145,8 +145,8 @@
         ]
       },
       {
-        "id": "ITM.5",
-        "path": "ITM.5",
+        "id": "ITM.5-itemCategory",
+        "path": "ITM.5-itemCategory",
         "short": "Item Category",
         "definition": "The Item Category is a classification of material items into like groups for the purpose of categorizing purchases and reporting within a materials management setting. The Item Category classification is a lower level grouping of material items than what is described in ITM-3 as Item Type. UNSPSC is the recommended coding system.",
         "code": [
@@ -170,8 +170,8 @@
         ]
       },
       {
-        "id": "ITM.6",
-        "path": "ITM.6",
+        "id": "ITM.6-subjectToExpirationIndicator",
+        "path": "ITM.6-subjectToExpirationIndicator",
         "short": "Subject to Expiration Indicator",
         "definition": "This field contains an indicator used as a reference to specify whether the item is subject to containing an expiration date. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -199,8 +199,8 @@
         ]
       },
       {
-        "id": "ITM.7",
-        "path": "ITM.7",
+        "id": "ITM.7-manufacturerIdentifier",
+        "path": "ITM.7-manufacturerIdentifier",
         "short": "Manufacturer Identifier",
         "definition": "This field identifies the identifying code of the manufacturer of the item.",
         "code": [
@@ -224,8 +224,8 @@
         ]
       },
       {
-        "id": "ITM.8",
-        "path": "ITM.8",
+        "id": "ITM.8-manufacturerName",
+        "path": "ITM.8-manufacturerName",
         "short": "Manufacturer Name",
         "definition": "This field identifies the name of the manufacturer of the manufacturer identified in ITM-7.",
         "code": [
@@ -262,8 +262,8 @@
         ]
       },
       {
-        "id": "ITM.9",
-        "path": "ITM.9",
+        "id": "ITM.9-manufacturerCatalogNumber",
+        "path": "ITM.9-manufacturerCatalogNumber",
         "short": "Manufacturer Catalog Number",
         "definition": "This field contains the catalog assigned to the item by the manufacturer.",
         "code": [
@@ -300,8 +300,8 @@
         ]
       },
       {
-        "id": "ITM.10",
-        "path": "ITM.10",
+        "id": "ITM.10-manufacturerLabelerIdentificationCode",
+        "path": "ITM.10-manufacturerLabelerIdentificationCode",
         "short": "Manufacturer Labeler Identification Code",
         "definition": "This field contains the Labeler Identification Code (LIC) number assigned to the manufacturer that represents the manufacturer of the item.",
         "code": [
@@ -325,8 +325,8 @@
         ]
       },
       {
-        "id": "ITM.11",
-        "path": "ITM.11",
+        "id": "ITM.11-patientChargeableIndicator",
+        "path": "ITM.11-patientChargeableIndicator",
         "short": "Patient Chargeable Indicator",
         "definition": "This field indicates whether the item is patient chargeable. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -354,8 +354,8 @@
         ]
       },
       {
-        "id": "ITM.12",
-        "path": "ITM.12",
+        "id": "ITM.12-transactionCode",
+        "path": "ITM.12-transactionCode",
         "short": "Transaction Code",
         "definition": "This field contains the code assigned by the institution for the purpose of uniquely identifying a patient billing code specific for a supply item. In the context of this message, this is a code that is a cross-reference to the Item Code/Id. This field would be used to uniquely identify a procedure, supply item, or test for charges; or to identify the payment medium for payments. It can reference, for example, a CBC (a lab charge), or an Elastic Bandage 3'' (supply charge), or Chest 1 View (radiology charge). For instance the code would be 300-0001, with a description of CBC.",
         "comment": "Refer to {{v2-table:0132:Transaction Code}} in Chapter 2C, Code Tables, for suggested values. See Chapter 7 for a discussion of the universal service ID for charges.",
@@ -384,8 +384,8 @@
         ]
       },
       {
-        "id": "ITM.13",
-        "path": "ITM.13",
+        "id": "ITM.13-transactionAmountUnit",
+        "path": "ITM.13-transactionAmountUnit",
         "short": "Transaction Amount - Unit",
         "definition": "Unit price of transaction. Price of a single item. This field contains the dollar amount charged to patients for this item.",
         "code": [
@@ -409,8 +409,8 @@
         ]
       },
       {
-        "id": "ITM.14",
-        "path": "ITM.14",
+        "id": "ITM.14-stockedItemIndicator",
+        "path": "ITM.14-stockedItemIndicator",
         "short": "Stocked Item Indicator",
         "definition": "This field contains an indicator signifying whether the item is stocked in any inventory location in the healthcare organization. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -438,8 +438,8 @@
         ]
       },
       {
-        "id": "ITM.15",
-        "path": "ITM.15",
+        "id": "ITM.15-supplyRiskCodes",
+        "path": "ITM.15-supplyRiskCodes",
         "short": "Supply Risk Codes",
         "definition": "This field contains a code that identifies any known or suspected hazard associated with this material item. Refer to {{v2-table:0871:Supply Risk Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -467,8 +467,8 @@
         ]
       },
       {
-        "id": "ITM.16",
-        "path": "ITM.16",
+        "id": "ITM.16-approvingRegulatoryAgency",
+        "path": "ITM.16-approvingRegulatoryAgency",
         "short": "Approving Regulatory Agency",
         "definition": "This field contains a code indicating the regulatory agency the item has been approved by, such as the FDA or AMA.",
         "comment": "Refer to {{v2-table:0790:Approving Regulatory Agency}} in Chapter 2C, Code Tables, for suggested values.",
@@ -497,8 +497,8 @@
         ]
       },
       {
-        "id": "ITM.17",
-        "path": "ITM.17",
+        "id": "ITM.17-latexIndicator",
+        "path": "ITM.17-latexIndicator",
         "short": "Latex Indicator",
         "definition": "This field contains an indicator signifying whether the item is made of or contains latex. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -526,8 +526,8 @@
         ]
       },
       {
-        "id": "ITM.18",
-        "path": "ITM.18",
+        "id": "ITM.18-rulingAct",
+        "path": "ITM.18-rulingAct",
         "short": "Ruling Act",
         "definition": "This field contains a code indicating an act containing a rule that the item is legally required to be included in notification reporting. This code is often used for reporting or tracking. Refer to {{v2-table:0793:Ruling Act}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -555,8 +555,8 @@
         ]
       },
       {
-        "id": "ITM.19",
-        "path": "ITM.19",
+        "id": "ITM.19-itemNaturalAccountCode",
+        "path": "ITM.19-itemNaturalAccountCode",
         "short": "Item Natural Account Code",
         "definition": "This field contains the expense/natural account number from the general ledger chart of accounts associated with the item. Refer to {{v2-table:0320:Item Natural Account Code}} in Chapter 4, Orders, for valid values.",
         "code": [
@@ -584,8 +584,8 @@
         ]
       },
       {
-        "id": "ITM.20",
-        "path": "ITM.20",
+        "id": "ITM.20-approvedToBuyQuantity",
+        "path": "ITM.20-approvedToBuyQuantity",
         "short": "Approved To Buy Quantity",
         "definition": "This field contains the quantity of this item that can be purchased within a user-defined time frame (e.g., one year) at the order unit of measure.",
         "code": [
@@ -622,8 +622,8 @@
         ]
       },
       {
-        "id": "ITM.21",
-        "path": "ITM.21",
+        "id": "ITM.21-approvedToBuyPrice",
+        "path": "ITM.21-approvedToBuyPrice",
         "short": "Approved To Buy Price",
         "definition": "This field contains the dollar limit of this item that you can purchase within a user-defined time frame (e.g., one year).",
         "code": [
@@ -647,8 +647,8 @@
         ]
       },
       {
-        "id": "ITM.22",
-        "path": "ITM.22",
+        "id": "ITM.22-taxableItemIndicator",
+        "path": "ITM.22-taxableItemIndicator",
         "short": "Taxable Item Indicator",
         "definition": "This field contains an indicator signifying whether the item is taxable when purchasing the item or issuing the item to patients. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -676,8 +676,8 @@
         ]
       },
       {
-        "id": "ITM.23",
-        "path": "ITM.23",
+        "id": "ITM.23-freightChargeIndicator",
+        "path": "ITM.23-freightChargeIndicator",
         "short": "Freight Charge Indicator",
         "definition": "This field contains an indicator signifying whether freight is an allowable charge to be allocated to the line of an invoice containing the item. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -705,8 +705,8 @@
         ]
       },
       {
-        "id": "ITM.24",
-        "path": "ITM.24",
+        "id": "ITM.24-itemSetIndicator",
+        "path": "ITM.24-itemSetIndicator",
         "short": "Item Set Indicator",
         "definition": "This field contains an indicator signifying whether the item is an 'item set' rather than an individual item. An item set is a set of surgical supplies. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -734,8 +734,8 @@
         ]
       },
       {
-        "id": "ITM.25",
-        "path": "ITM.25",
+        "id": "ITM.25-itemSetIdentifier",
+        "path": "ITM.25-itemSetIdentifier",
         "short": "Item Set Identifier",
         "definition": "The Item Set Identifier is a unique code assigned to the material item by the Item Inventory Master catalog software application to identify the item set.",
         "code": [
@@ -759,8 +759,8 @@
         ]
       },
       {
-        "id": "ITM.26",
-        "path": "ITM.26",
+        "id": "ITM.26-trackDepartmentUsageIndicator",
+        "path": "ITM.26-trackDepartmentUsageIndicator",
         "short": "Track Department Usage Indicator",
         "definition": "This field contains an indicator signifying whether the usage figures are tracked for this item by department. Refer to {{v2-table:0532:Expanded Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -788,8 +788,8 @@
         ]
       },
       {
-        "id": "ITM.27",
-        "path": "ITM.27",
+        "id": "ITM.27-procedureCode",
+        "path": "ITM.27-procedureCode",
         "short": "Procedure Code",
         "definition": "This field contains a unique identifier assigned to the service item, if any, associated with the charge. In the United States this is often the HCPCS code. Refer to Externally defined Table 0088 - Procedure code for suggested values. This field is a CNE data type for compatibility with clinical and ancillary systems. Refer to {{v2-table:0088:Procedure Coding Systems}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.",
@@ -818,8 +818,8 @@
         ]
       },
       {
-        "id": "ITM.28",
-        "path": "ITM.28",
+        "id": "ITM.28-procedureCodeModifier",
+        "path": "ITM.28-procedureCodeModifier",
         "short": "Procedure Code Modifier",
         "definition": "This field contains the procedure code modifier to the procedure code reported in _ITM-27, Procedure Code_, when applicable. Procedure code modifiers are defined by USA regulatory agencies such as CMS and the AMA. Multiple modifiers may be reported. Refer to {{v2-table:0340:Procedure Code Modifier}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -847,8 +847,8 @@
         ]
       },
       {
-        "id": "ITM.29",
-        "path": "ITM.29",
+        "id": "ITM.29-specialHandlingCode",
+        "path": "ITM.29-specialHandlingCode",
         "short": "Special Handling Code",
         "definition": "This field contains a special handling code to describe special handling considerations for this item. Refer to {{v2-table:0376:Special Handling Code}} in Chapter 2C, Code Tables, for suggested values. The value set can be extended with user specific values.",
         "code": [
@@ -876,8 +876,8 @@
         ]
       },
       {
-        "id": "ITM.30",
-        "path": "ITM.30",
+        "id": "ITM.30-hazardousIndicator",
+        "path": "ITM.30-hazardousIndicator",
         "short": "Hazardous Indicator",
         "definition": "This field contains an indicator signifying whether the item contains hazardous material or not. Refer to _HL7 Table 0532 - Expanded yes/no indicator table_ in Chapter 2, Code Tables, for valid values.",
         "code": [
@@ -905,8 +905,8 @@
         ]
       },
       {
-        "id": "ITM.31",
-        "path": "ITM.31",
+        "id": "ITM.31-sterileIndicator",
+        "path": "ITM.31-sterileIndicator",
         "short": "Sterile Indicator",
         "definition": "This field contains an indicator signifying whether the item is sterile or not. Refer to {{v2-table:0532:Expanded yes/no indicator table}}_ in Chapter 2, Code Tables, for valid values.",
         "code": [
@@ -934,8 +934,8 @@
         ]
       },
       {
-        "id": "ITM.32",
-        "path": "ITM.32",
+        "id": "ITM.32-materialDataSafetySheetNumber",
+        "path": "ITM.32-materialDataSafetySheetNumber",
         "short": "Material Data Safety Sheet Number",
         "definition": "The Material Safety Data Sheet Number is the manufacturer's identification number for the Material Saftey Data Sheet (if one exists for the item). A Material Safety Data Sheet contains the characteristics, protected measures, and regulations to follow when handling the item. It is relevant for dangerous substances. Field3 3 and 4 of the EI data type may be blank for communicating MSDS number; Manufacturer is already identified in this message via _ITM-7, Manufacturer Identifier_, and _ITM-8, Manufacturer Name_.",
         "code": [
@@ -959,8 +959,8 @@
         ]
       },
       {
-        "id": "ITM.33",
-        "path": "ITM.33",
+        "id": "ITM.33-unitedNationsStandardProductsAndServicesCodeUnspsc",
+        "path": "ITM.33-unitedNationsStandardProductsAndServicesCodeUnspsc",
         "short": "United Nations Standard Products and Services Code (UNSPSC)",
         "definition": "The United Nations Standard Products and Services Code is the category code assigned by the UNSPSC organization to the item. Please refer to the code \"UNSPSC\" as indicated for the United Nations Standards Products and Services Code as referenced in {{v2-table:0396:Coding System}} in Chapter 2C, Code Tables.",
         "code": [
@@ -988,8 +988,8 @@
         ]
       },
       {
-        "id": "ITM.34",
-        "path": "ITM.34",
+        "id": "ITM.34-contractDate",
+        "path": "ITM.34-contractDate",
         "short": "Contract Date",
         "definition": "The date that the contract becomes effective (Range Start Date/Time) and when it expires (Range End Date/Time) for the item specified in ITM-1. The effective date is the date that the contract becomes available to purchase this item. The expiration date is the date that the contract becomes unavailable to purchase this item.",
         "code": [
@@ -1013,8 +1013,8 @@
         ]
       },
       {
-        "id": "ITM.35",
-        "path": "ITM.35",
+        "id": "ITM.35-manufacturerContactName",
+        "path": "ITM.35-manufacturerContactName",
         "short": "Manufacturer Contact Name",
         "definition": "This field contains the name of the contact person associated to the manufacturer of this item.",
         "code": [
@@ -1038,8 +1038,8 @@
         ]
       },
       {
-        "id": "ITM.36",
-        "path": "ITM.36",
+        "id": "ITM.36-manufacturerContactInformation",
+        "path": "ITM.36-manufacturerContactInformation",
         "short": "Manufacturer Contact Information",
         "definition": "This field contains the contact information of the contact person associated to the manufacturer of this item.",
         "code": [
@@ -1063,8 +1063,8 @@
         ]
       },
       {
-        "id": "ITM.37",
-        "path": "ITM.37",
+        "id": "ITM.37-classOfTrade",
+        "path": "ITM.37-classOfTrade",
         "short": "Class of Trade",
         "definition": "This field contains the class of trade if identified at the item level.",
         "code": [
@@ -1088,8 +1088,8 @@
         ]
       },
       {
-        "id": "ITM.38",
-        "path": "ITM.38",
+        "id": "ITM.38-fieldLevelEventCode",
+        "path": "ITM.38-fieldLevelEventCode",
         "short": "Field Level Event Code",
         "definition": "The event code related to the item in ITM.1. Refer to _HL7 Table 0180 – Master File Action Code table_ in Chapter 2, Code Tables, for valid values.",
         "code": [

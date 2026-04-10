@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "GT1.1",
-        "path": "GT1.1",
+        "id": "GT1.1-setId",
+        "path": "GT1.1-setId",
         "short": "Set ID - GT1",
         "definition": "_GT1-1 - Set ID_ contains a number that identifies this transaction. For the first occurrence of the segment the sequence shall be 1, for the second occurrence it shall be 2, etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "GT1.2",
-        "path": "GT1.2",
+        "id": "GT1.2-guarantorNumber",
+        "path": "GT1.2-guarantorNumber",
         "short": "Guarantor Number",
         "definition": "This field contains the primary identifier, or other identifiers, assigned to the guarantor. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "GT1.3",
-        "path": "GT1.3",
+        "id": "GT1.3-guarantorName",
+        "path": "GT1.3-guarantorName",
         "short": "Guarantor Name",
         "definition": "This field contains the name of the guarantor. Multiple names for the same guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "comment": "Beginning with version 2.3, if the guarantor is an organization, send a Delete Indication value (\"\") in link:#gt1-3-guarantor-name-xpn-00407[_GT1-3 - Guarantor Name_] and put the organization name in link:#gt1-21-guarantor-organization-name-xon-00425[_GT1-21 - Guarantor Organization Name_]. Either guarantor name or guarantor organization name is required.",
@@ -113,8 +113,8 @@
         ]
       },
       {
-        "id": "GT1.4",
-        "path": "GT1.4",
+        "id": "GT1.4-guarantorSpouseName",
+        "path": "GT1.4-guarantorSpouseName",
         "short": "Guarantor Spouse Name",
         "definition": "This field contains the name of the guarantor's spouse. Multiple names for the same guarantor spouse may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -138,8 +138,8 @@
         ]
       },
       {
-        "id": "GT1.5",
-        "path": "GT1.5",
+        "id": "GT1.5-guarantorAddress",
+        "path": "GT1.5-guarantorAddress",
         "short": "Guarantor Address",
         "definition": "This field contains the guarantor's address. Multiple addresses for the same person may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -163,8 +163,8 @@
         ]
       },
       {
-        "id": "GT1.6",
-        "path": "GT1.6",
+        "id": "GT1.6-guarantorPhNumHome",
+        "path": "GT1.6-guarantorPhNumHome",
         "short": "Guarantor Ph Num – Home",
         "definition": "This field contains the guarantor's home phone number. All personal phone numbers for the guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated. .",
         "code": [
@@ -188,8 +188,8 @@
         ]
       },
       {
-        "id": "GT1.7",
-        "path": "GT1.7",
+        "id": "GT1.7-guarantorPhNumBusiness",
+        "path": "GT1.7-guarantorPhNumBusiness",
         "short": "Guarantor Ph Num – Business",
         "definition": "This field contains the guarantor's business phone number. All business phone numbers for the guarantor may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -213,8 +213,8 @@
         ]
       },
       {
-        "id": "GT1.8",
-        "path": "GT1.8",
+        "id": "GT1.8-guarantorDateTimeOfBirth",
+        "path": "GT1.8-guarantorDateTimeOfBirth",
         "short": "Guarantor Date/Time Of Birth",
         "definition": "This field contains the guarantor's date of birth.",
         "code": [
@@ -238,8 +238,8 @@
         ]
       },
       {
-        "id": "GT1.9",
-        "path": "GT1.9",
+        "id": "GT1.9-guarantorAdministrativeSex",
+        "path": "GT1.9-guarantorAdministrativeSex",
         "short": "Guarantor Administrative Sex",
         "definition": "This field contains the guarantor's gender. Refer to {{v2-table:0001:Administrative Sex}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field has historically been used to variably exchange both sex and gender values and therefore this field is not clearly defined. This field is expected to continue to be used as it has been in existing implementations and use of this field is subject to local existing interpretation and/or implementation guides. The GSP and GSR segments should be used to exchange more rigorously defined sex or gender concept.",
@@ -268,8 +268,8 @@
         ]
       },
       {
-        "id": "GT1.10",
-        "path": "GT1.10",
+        "id": "GT1.10-guarantorType",
+        "path": "GT1.10-guarantorType",
         "short": "Guarantor Type",
         "definition": "This field indicates the type of guarantor, e.g., individual, institution, etc. Refer to {{v2-table:0068:Guarantor Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -297,8 +297,8 @@
         ]
       },
       {
-        "id": "GT1.11",
-        "path": "GT1.11",
+        "id": "GT1.11-guarantorRelationship",
+        "path": "GT1.11-guarantorRelationship",
         "short": "Guarantor Relationship",
         "definition": "This field indicates the relationship of the guarantor with the patient, e.g., parent, child, etc. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -326,8 +326,8 @@
         ]
       },
       {
-        "id": "GT1.12",
-        "path": "GT1.12",
+        "id": "GT1.12-guarantorSsn",
+        "path": "GT1.12-guarantorSsn",
         "short": "Guarantor SSN",
         "definition": "This field contains the guarantor's social security number.",
         "code": [
@@ -364,8 +364,8 @@
         ]
       },
       {
-        "id": "GT1.13",
-        "path": "GT1.13",
+        "id": "GT1.13-guarantorDateBegin",
+        "path": "GT1.13-guarantorDateBegin",
         "short": "Guarantor Date - Begin",
         "definition": "This field contains the date that the guarantor becomes responsible for the patient's account.",
         "code": [
@@ -389,8 +389,8 @@
         ]
       },
       {
-        "id": "GT1.14",
-        "path": "GT1.14",
+        "id": "GT1.14-guarantorDateEnd",
+        "path": "GT1.14-guarantorDateEnd",
         "short": "Guarantor Date - End",
         "definition": "This field contains the date that the guarantor stops being responsible for the patient's account.",
         "code": [
@@ -414,8 +414,8 @@
         ]
       },
       {
-        "id": "GT1.15",
-        "path": "GT1.15",
+        "id": "GT1.15-guarantorPriority",
+        "path": "GT1.15-guarantorPriority",
         "short": "Guarantor Priority",
         "definition": "This field is used to determine the order in which the guarantors are responsible for the patient's account.",
         "comment": "\"1\" = primary guarantor\n\n\"2\" = secondary guarantor, etc.",
@@ -453,8 +453,8 @@
         ]
       },
       {
-        "id": "GT1.16",
-        "path": "GT1.16",
+        "id": "GT1.16-guarantorEmployerName",
+        "path": "GT1.16-guarantorEmployerName",
         "short": "Guarantor Employer Name",
         "definition": "This field contains the name of the guarantor's employer, if the employer is a person. When the guarantor's employer is an organization, use link:#gt1-51-guarantor-employers-organization-name-xon-01299[_GT1-51 - Guarantor Employer's Organization Name_]. Multiple names for the same person may be sent in this field, not multiple employers. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -478,8 +478,8 @@
         ]
       },
       {
-        "id": "GT1.17",
-        "path": "GT1.17",
+        "id": "GT1.17-guarantorEmployerAddress",
+        "path": "GT1.17-guarantorEmployerAddress",
         "short": "Guarantor Employer Address",
         "definition": "This field contains the guarantor's employer's address. Multiple addresses for the same employer may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -503,8 +503,8 @@
         ]
       },
       {
-        "id": "GT1.18",
-        "path": "GT1.18",
+        "id": "GT1.18-guarantorEmployerPhoneNumber",
+        "path": "GT1.18-guarantorEmployerPhoneNumber",
         "short": "Guarantor Employer Phone Number",
         "definition": "This field contains the guarantor's employer's phone number. Multiple phone numbers for the same employer may be sent in this field. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated. .",
         "code": [
@@ -528,8 +528,8 @@
         ]
       },
       {
-        "id": "GT1.19",
-        "path": "GT1.19",
+        "id": "GT1.19-guarantorEmployeeIdNumber",
+        "path": "GT1.19-guarantorEmployeeIdNumber",
         "short": "Guarantor Employee ID Number",
         "definition": "This field contains the guarantor's employee number. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -553,8 +553,8 @@
         ]
       },
       {
-        "id": "GT1.20",
-        "path": "GT1.20",
+        "id": "GT1.20-guarantorEmploymentStatus",
+        "path": "GT1.20-guarantorEmploymentStatus",
         "short": "Guarantor Employment Status",
         "definition": "This field contains the code that indicates the guarantor's employment status. Refer to {{v2-table:0066:Employment Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -582,8 +582,8 @@
         ]
       },
       {
-        "id": "GT1.21",
-        "path": "GT1.21",
+        "id": "GT1.21-guarantorOrganizationName",
+        "path": "GT1.21-guarantorOrganizationName",
         "short": "Guarantor Organization Name",
         "definition": "This field contains the name of the guarantor when the guarantor is an organization. Multiple names for the same guarantor may be sent in this field, not multiple guarantors. .Specification of meaning based on sequence is deprecated",
         "comment": "Beginning with version 2.3, if the guarantor is a person, send a Delete Indication value (\"\") in link:#gt1-21-guarantor-organization-name-xon-00425[_GT1-21 - Guarantor Organization Name_] and put the person name in link:#gt1-3-guarantor-name-xpn-00407[_GT1-3 - Guarantor Name_]. Either guarantor person name or guarantor organization name is required.",
@@ -608,8 +608,8 @@
         ]
       },
       {
-        "id": "GT1.22",
-        "path": "GT1.22",
+        "id": "GT1.22-guarantorBillingHoldFlag",
+        "path": "GT1.22-guarantorBillingHoldFlag",
         "short": "Guarantor Billing Hold Flag",
         "definition": "Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values. This field indicates whether or not a system should suppress printing of the guarantor's bills.",
         "comment": "Y a system should suppress printing of guarantor's bills\n\nN a system should not suppress printing of guarantor's bills",
@@ -651,8 +651,8 @@
         ]
       },
       {
-        "id": "GT1.23",
-        "path": "GT1.23",
+        "id": "GT1.23-guarantorCreditRatingCode",
+        "path": "GT1.23-guarantorCreditRatingCode",
         "short": "Guarantor Credit Rating Code",
         "definition": "This field contains the guarantor's credit rating. Refer to {{v2-table:0341:Guarantor Credit Rating Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -680,8 +680,8 @@
         ]
       },
       {
-        "id": "GT1.24",
-        "path": "GT1.24",
+        "id": "GT1.24-guarantorDeathDateAndTime",
+        "path": "GT1.24-guarantorDeathDateAndTime",
         "short": "Guarantor Death Date And Time",
         "definition": "This field is used to indicate the date and time at which the guarantor's death occurred.",
         "code": [
@@ -705,8 +705,8 @@
         ]
       },
       {
-        "id": "GT1.25",
-        "path": "GT1.25",
+        "id": "GT1.25-guarantorDeathFlag",
+        "path": "GT1.25-guarantorDeathFlag",
         "short": "Guarantor Death Flag",
         "definition": "This field indicates whether or not the guarantor is deceased. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the guarantor is deceased\n\nN the guarantor is living",
@@ -748,8 +748,8 @@
         ]
       },
       {
-        "id": "GT1.26",
-        "path": "GT1.26",
+        "id": "GT1.26-guarantorChargeAdjustmentCode",
+        "path": "GT1.26-guarantorChargeAdjustmentCode",
         "short": "Guarantor Charge Adjustment Code",
         "definition": "This field contains user-defined codes that indicate which adjustments should be made to this guarantor's charges. For example, when the hospital agrees to adjust this guarantor's charges to a sliding scale. Refer to {{v2-table:0218:Patient Charge Adjustment}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "Example: This field would contain the value used for sliding-fee scale processing.",
@@ -778,8 +778,8 @@
         ]
       },
       {
-        "id": "GT1.27",
-        "path": "GT1.27",
+        "id": "GT1.27-guarantorHouseholdAnnualIncome",
+        "path": "GT1.27-guarantorHouseholdAnnualIncome",
         "short": "Guarantor Household Annual Income",
         "definition": "This field contains the combined annual income of all members of the guarantor's household.",
         "code": [
@@ -803,8 +803,8 @@
         ]
       },
       {
-        "id": "GT1.28",
-        "path": "GT1.28",
+        "id": "GT1.28-guarantorHouseholdSize",
+        "path": "GT1.28-guarantorHouseholdSize",
         "short": "Guarantor Household Size",
         "definition": "This field specifies the number of people living at the guarantor's primary residence.",
         "code": [
@@ -841,8 +841,8 @@
         ]
       },
       {
-        "id": "GT1.29",
-        "path": "GT1.29",
+        "id": "GT1.29-guarantorEmployerIdNumber",
+        "path": "GT1.29-guarantorEmployerIdNumber",
         "short": "Guarantor Employer ID Number",
         "definition": "This is a code that uniquely identifies the guarantor's employer when the employer is a person. It may be a user-defined code or a code defined by a government agency (Federal Tax ID#).",
         "comment": "When further breakdowns of employer information are needed, such as a division or plant, it is recommended that the coding scheme incorporate the relationships (e.g., define separate codes for each division). The assigning authority and identifier type code are strongly recommended for all CX data types.",
@@ -867,8 +867,8 @@
         ]
       },
       {
-        "id": "GT1.30",
-        "path": "GT1.30",
+        "id": "GT1.30-guarantorMaritalStatusCode",
+        "path": "GT1.30-guarantorMaritalStatusCode",
         "short": "Guarantor Marital Status Code",
         "definition": "This field contains the marital status of the guarantor. Refer to {{v2-table:0002:Marital Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -896,8 +896,8 @@
         ]
       },
       {
-        "id": "GT1.31",
-        "path": "GT1.31",
+        "id": "GT1.31-guarantorHireEffectiveDate",
+        "path": "GT1.31-guarantorHireEffectiveDate",
         "short": "Guarantor Hire Effective Date",
         "definition": "This field contains the date that the guarantor's employment began.",
         "code": [
@@ -921,8 +921,8 @@
         ]
       },
       {
-        "id": "GT1.32",
-        "path": "GT1.32",
+        "id": "GT1.32-employmentStopDate",
+        "path": "GT1.32-employmentStopDate",
         "short": "Employment Stop Date",
         "definition": "This field indicates the date on which the guarantor's employment with a particular employer ended.",
         "code": [
@@ -946,8 +946,8 @@
         ]
       },
       {
-        "id": "GT1.33",
-        "path": "GT1.33",
+        "id": "GT1.33-livingDependency",
+        "path": "GT1.33-livingDependency",
         "short": "Living Dependency",
         "definition": "Identifies the specific living conditions of the guarantor. Refer to {{v2-table:0223:Living Dependency}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -975,8 +975,8 @@
         ]
       },
       {
-        "id": "GT1.34",
-        "path": "GT1.34",
+        "id": "GT1.34-ambulatoryStatus",
+        "path": "GT1.34-ambulatoryStatus",
         "short": "Ambulatory Status",
         "definition": "Identifies the transient state of mobility for the guarantor. Refer to {{v2-table:0009:Ambulatory Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1004,8 +1004,8 @@
         ]
       },
       {
-        "id": "GT1.35",
-        "path": "GT1.35",
+        "id": "GT1.35-citizenship",
+        "path": "GT1.35-citizenship",
         "short": "Citizenship",
         "definition": "This field contains the code to identify the guarantor's citizenship. HL7 recommends using ISO table 3166 as the suggested values in {{v2-table:0171:Citizenship}} in Chapter 2C, Code Tables.",
         "code": [
@@ -1033,8 +1033,8 @@
         ]
       },
       {
-        "id": "GT1.36",
-        "path": "GT1.36",
+        "id": "GT1.36-primaryLanguage",
+        "path": "GT1.36-primaryLanguage",
         "short": "Primary Language",
         "definition": "This field identifies the guarantor's primary speaking language. HL7 recommends using ISO table 639 as the suggested values in {{v2-table:0296:Primary Language}}_ defined in Chapter 2C, Code Tables.",
         "code": [
@@ -1062,8 +1062,8 @@
         ]
       },
       {
-        "id": "GT1.37",
-        "path": "GT1.37",
+        "id": "GT1.37-livingArrangement",
+        "path": "GT1.37-livingArrangement",
         "short": "Living Arrangement",
         "definition": "This field identifies the situation in which the person lives at his residential address. Refer to {{v2-table:0220:Living Arrangement}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1091,8 +1091,8 @@
         ]
       },
       {
-        "id": "GT1.38",
-        "path": "GT1.38",
+        "id": "GT1.38-publicityCode",
+        "path": "GT1.38-publicityCode",
         "short": "Publicity Code",
         "definition": "This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for a guarantor. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1120,8 +1120,8 @@
         ]
       },
       {
-        "id": "GT1.39",
-        "path": "GT1.39",
+        "id": "GT1.39-protectionIndicator",
+        "path": "GT1.39-protectionIndicator",
         "short": "Protection Indicator",
         "definition": "This field identifies the guarantor's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y restrict access\n\nN do not restrict access",
@@ -1163,8 +1163,8 @@
         ]
       },
       {
-        "id": "GT1.40",
-        "path": "GT1.40",
+        "id": "GT1.40-studentIndicator",
+        "path": "GT1.40-studentIndicator",
         "short": "Student Indicator",
         "definition": "This field indicates whether the guarantor is currently a student, and whether the guarantor is a full-time or part-time student. This field does not indicate the degree level (high school, college) of the student, or his/her field of study (accounting, engineering, etc.). Refer to {{v2-table:0231:Student Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1192,8 +1192,8 @@
         ]
       },
       {
-        "id": "GT1.41",
-        "path": "GT1.41",
+        "id": "GT1.41-religion",
+        "path": "GT1.41-religion",
         "short": "Religion",
         "definition": "This field indicates the type of religion practiced by the guarantor. Refer to {{v2-table:0006:Religion}}_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1221,8 +1221,8 @@
         ]
       },
       {
-        "id": "GT1.42",
-        "path": "GT1.42",
+        "id": "GT1.42-mothersMaidenName",
+        "path": "GT1.42-mothersMaidenName",
         "short": "Mother's Maiden Name",
         "definition": "This field indicates the guarantor's mother's maiden name.",
         "code": [
@@ -1246,8 +1246,8 @@
         ]
       },
       {
-        "id": "GT1.43",
-        "path": "GT1.43",
+        "id": "GT1.43-nationality",
+        "path": "GT1.43-nationality",
         "short": "Nationality",
         "definition": "This field contains a code that identifies the nation or national grouping to which the person belongs. This may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). HL7 recommends using ISO table 3166 as suggested values in {{v2-table:0212:Nationality}}_ in Chapter 2C, Code Tables.",
         "code": [
@@ -1275,8 +1275,8 @@
         ]
       },
       {
-        "id": "GT1.44",
-        "path": "GT1.44",
+        "id": "GT1.44-ethnicGroup",
+        "path": "GT1.44-ethnicGroup",
         "short": "Ethnic Group",
         "definition": "This field contains the guarantor's ethnic group. Refer to {{v2-table:0189:Ethnic Group}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.",
         "code": [
@@ -1304,8 +1304,8 @@
         ]
       },
       {
-        "id": "GT1.45",
-        "path": "GT1.45",
+        "id": "GT1.45-contactPersonsName",
+        "path": "GT1.45-contactPersonsName",
         "short": "Contact Person's Name",
         "definition": "This field contains the name of the person who should be contacted regarding the guarantor bills, etc. This may be someone other than the guarantor. (E.g., Contact guarantor's wife regarding all bills - guarantor lives out of country.)",
         "comment": "This is a repeating field that allows for multiple names for the same person. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
@@ -1330,8 +1330,8 @@
         ]
       },
       {
-        "id": "GT1.46",
-        "path": "GT1.46",
+        "id": "GT1.46-contactPersonsTelephoneNumber",
+        "path": "GT1.46-contactPersonsTelephoneNumber",
         "short": "Contact Person's Telephone Number",
         "definition": "This field contains the telephone number of the guarantor (person) to contact regarding guarantor bills, etc. Multiple phone numbers for that person may be sent in this sequence. As of v 2.7, no assumptions can be made based on position or sequence. Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1355,8 +1355,8 @@
         ]
       },
       {
-        "id": "GT1.47",
-        "path": "GT1.47",
+        "id": "GT1.47-contactReason",
+        "path": "GT1.47-contactReason",
         "short": "Contact Reason",
         "definition": "This field contains a user-defined code that identifies the reason for contacting the guarantor, for example, to phone the guarantor if payments are late. Refer to {{v2-table:0222:Contact reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1384,8 +1384,8 @@
         ]
       },
       {
-        "id": "GT1.48",
-        "path": "GT1.48",
+        "id": "GT1.48-contactRelationship",
+        "path": "GT1.48-contactRelationship",
         "short": "Contact Relationship",
         "definition": "Identifies the guarantor relationship to the contact person specified above. Refer to {{v2-table:0063:Relationship}} in Chapter 2C, Code Tables, for suggested values. Examples include wife, attorney, power of attorney, self, and organization.",
         "code": [
@@ -1413,8 +1413,8 @@
         ]
       },
       {
-        "id": "GT1.49",
-        "path": "GT1.49",
+        "id": "GT1.49-jobTitle",
+        "path": "GT1.49-jobTitle",
         "short": "Job Title",
         "definition": "This field contains a descriptive name of the guarantor's occupation (e.g., Sr. Systems Analyst, Sr. Accountant).",
         "code": [
@@ -1451,8 +1451,8 @@
         ]
       },
       {
-        "id": "GT1.50",
-        "path": "GT1.50",
+        "id": "GT1.50-jobCodeClass",
+        "path": "GT1.50-jobCodeClass",
         "short": "Job Code/Class",
         "definition": "This field contains the guarantor's job code and employee classification.",
         "code": [
@@ -1476,8 +1476,8 @@
         ]
       },
       {
-        "id": "GT1.51",
-        "path": "GT1.51",
+        "id": "GT1.51-guarantorEmployersOrganizationName",
+        "path": "GT1.51-guarantorEmployersOrganizationName",
         "short": "Guarantor Employer's Organization Name",
         "definition": "This field contains the name of the guarantor's employer when the guarantor's employer is an organization. When the guarantor's employer is a person, use link:#gt1-16-guarantor-employer-name-xpn-00420[_GT1-16 - Guarantor Employer Name_]. Multiple names for the same guarantor may be sent in this field Specification of meaning based on sequence is deprecated.",
         "code": [
@@ -1501,8 +1501,8 @@
         ]
       },
       {
-        "id": "GT1.52",
-        "path": "GT1.52",
+        "id": "GT1.52-handicap",
+        "path": "GT1.52-handicap",
         "short": "Handicap",
         "definition": "This field contains a code to describe the guarantor's disability. Refer to {{v2-table:0295:Handicap}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1530,8 +1530,8 @@
         ]
       },
       {
-        "id": "GT1.53",
-        "path": "GT1.53",
+        "id": "GT1.53-jobStatus",
+        "path": "GT1.53-jobStatus",
         "short": "Job Status",
         "definition": "This field contains a code that identifies the guarantor's current job status. Refer to {{v2-table:0311:Job Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1559,8 +1559,8 @@
         ]
       },
       {
-        "id": "GT1.54",
-        "path": "GT1.54",
+        "id": "GT1.54-guarantorFinancialClass",
+        "path": "GT1.54-guarantorFinancialClass",
         "short": "Guarantor Financial Class",
         "definition": "This field contains the financial class (FC) assigned to the guarantor for the purpose of identifying sources of reimbursement. It can be different than that of the patient. When the FC of the guarantor is different than the FC of the patient, and the guarantor's coverage for that patient has been exhausted, the source of reimbursement falls back onto the FC of the patient.",
         "code": [
@@ -1584,8 +1584,8 @@
         ]
       },
       {
-        "id": "GT1.55",
-        "path": "GT1.55",
+        "id": "GT1.55-guarantorRace",
+        "path": "GT1.55-guarantorRace",
         "short": "Guarantor Race",
         "definition": "This field refers to the guarantor's race. Refer to {{v2-table:0005:Race}} in Chapter 2C, Code Tables, for suggested values. The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.",
         "code": [
@@ -1613,8 +1613,8 @@
         ]
       },
       {
-        "id": "GT1.56",
-        "path": "GT1.56",
+        "id": "GT1.56-guarantorBirthPlace",
+        "path": "GT1.56-guarantorBirthPlace",
         "short": "Guarantor Birth Place",
         "definition": "This field contains the description of the guarantor's birth place, for example \"St. Francis Community Hospital of Lower South Side.\" The actual address is reported in link:#gt1-5-guarantor-address-xad-00409[_GT1-5 – Guarantor Address_] with an identifier of \"N\".",
         "code": [
@@ -1651,8 +1651,8 @@
         ]
       },
       {
-        "id": "GT1.57",
-        "path": "GT1.57",
+        "id": "GT1.57-vipIndicator",
+        "path": "GT1.57-vipIndicator",
         "short": "VIP Indicator",
         "definition": "This field identifies the type of VIP for the guarantor. Refer to {{v2-table:0099:VIP Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

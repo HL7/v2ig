@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "NSC.1",
-        "path": "NSC.1",
+        "id": "NSC.1-applicationChangeType",
+        "path": "NSC.1-applicationChangeType",
         "short": "Application Change Type",
         "definition": "This field contains the type of change being requested (if NMR query) or announced (if NMD unsolicited update). Refer to {{v2-table:0409:Application Change Type}} in Chapter 2C, Code Tables, for suggested values. It is assumed that \"new\" version starts up with no loss or duplication of data as old one is shutting down (if possible).",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "NSC.2",
-        "path": "NSC.2",
+        "id": "NSC.2-currentCpu",
+        "path": "NSC.2-currentCpu",
         "short": "Current CPU",
         "definition": "This field contains a site-specific name for the current CPU.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "NSC.3",
-        "path": "NSC.3",
+        "id": "NSC.3-currentFileserver",
+        "path": "NSC.3-currentFileserver",
         "short": "Current Fileserver",
         "definition": "This field contains a site‑specific name for the current fileserver or file system used by this application.",
         "code": [
@@ -103,8 +103,8 @@
         ]
       },
       {
-        "id": "NSC.4",
-        "path": "NSC.4",
+        "id": "NSC.4-currentApplication",
+        "path": "NSC.4-currentApplication",
         "short": "Current Application",
         "definition": "This field contains a site-specific name used to identify the \"current\" application process for interfacing with lower level protocols. To be used in conjunction with the sending/receiving system and facility values in the MSH. Entirely site-defined. {{v2-table:0361:Sending/Receiving Application}} is used as the user-defined table of values for the first component.",
         "comment": "*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.",
@@ -133,8 +133,8 @@
         ]
       },
       {
-        "id": "NSC.5",
-        "path": "NSC.5",
+        "id": "NSC.5-currentFacility",
+        "path": "NSC.5-currentFacility",
         "short": "Current Facility",
         "definition": "This field contains a site-specific name for the current facility used by this application. To be used in conjunction with the values for the sending/receiving system and facility values in the MSH. This field further describes the current application, _NSC-5 Current Application_. With the promotion of this field to an HD data type, the usage has been broadened to include not just the current facility but other organizational entities, such as: a) the organizational entity responsible for current application; b) the responsible unit; c) a product or vendor's identifier, etc. Entirely site‑defined. {{v2-table:0362:Sending/Receiving Facility}} is used as the HL7 identifier for the user-defined table of values for the first component.",
         "comment": "*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.",
@@ -163,8 +163,8 @@
         ]
       },
       {
-        "id": "NSC.6",
-        "path": "NSC.6",
+        "id": "NSC.6-newCpu",
+        "path": "NSC.6-newCpu",
         "short": "New CPU",
         "definition": "This field contains a site-specific name for the new CPU.",
         "code": [
@@ -188,8 +188,8 @@
         ]
       },
       {
-        "id": "NSC.7",
-        "path": "NSC.7",
+        "id": "NSC.7-newFileserver",
+        "path": "NSC.7-newFileserver",
         "short": "New Fileserver",
         "definition": "This field contains a site-specific name for the new fileserver or file system used by this application.",
         "code": [
@@ -213,8 +213,8 @@
         ]
       },
       {
-        "id": "NSC.8",
-        "path": "NSC.8",
+        "id": "NSC.8-newApplication",
+        "path": "NSC.8-newApplication",
         "short": "New Application",
         "definition": "This field contains a site-specific name used to identify \"new\" application processes for interfacing with lower level protocols. To be used in conjunction with the sending/receiving system and facility values in the MSH. Entirely site-defined. {{v2-table:0361:Sending/Receiving Application}} is used as the user-defined table of values for the first component.",
         "comment": "*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.",
@@ -243,8 +243,8 @@
         ]
       },
       {
-        "id": "NSC.9",
-        "path": "NSC.9",
+        "id": "NSC.9-newFacility",
+        "path": "NSC.9-newFacility",
         "short": "New Facility",
         "definition": "This field contains a site-specific name for the new facility used by this application. To be used in conjunction with the values for the sending/receiving system and facility values in the MSH.",
         "comment": "This field further describes the new application, _NSC-8 New Application_. With the promotion of this field to an HD data type, the usage has been broadened to include not just the new facility but other organizational entities, such as: a) the organizational entity responsible for new application; b) the responsible unit; c) a product or vendor's identifier, etc. Entirely site‑defined. {{v2-table:0362:Sending/Receiving Facility}} is used as the HL7 identifier for the user-defined table of values for the first component.\n\n*Note:* By site agreement, implementors may continue to use {{v2-table:0300:Namespace ID}} for the first component.",
