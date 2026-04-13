@@ -84,11 +84,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1"
+                "valueInteger": 1
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -363,11 +363,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "199"
+                "valueInteger": 199
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

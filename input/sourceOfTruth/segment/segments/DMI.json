@@ -135,11 +135,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -173,11 +173,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "7"
+                "valueInteger": 7
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

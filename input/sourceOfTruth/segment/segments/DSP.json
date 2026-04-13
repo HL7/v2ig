@@ -127,11 +127,7 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "300"
-              },
-              {
-                "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 300
               }
             ]
           }
@@ -166,11 +162,7 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2"
-              },
-              {
-                "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 2
               }
             ]
           }
@@ -204,11 +196,7 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
-              },
-              {
-                "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 20
               }
             ]
           }

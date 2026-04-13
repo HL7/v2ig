@@ -73,11 +73,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -93,7 +97,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -118,11 +122,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -139,7 +147,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"
@@ -168,7 +176,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"
@@ -248,11 +256,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -268,7 +280,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -297,7 +309,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -322,11 +334,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -343,15 +359,14 @@
         ],
         "min": 0,
         "max": 0,
-        "type": [
-          {
-            "code": "XTN"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -368,15 +383,14 @@
         ],
         "min": 0,
         "max": 0,
-        "type": [
-          {
-            "code": "XTN"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -508,11 +522,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -528,11 +546,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -548,7 +570,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -577,7 +599,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -622,11 +644,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -703,11 +725,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2"
+                "valueInteger": 2
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -725,7 +747,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -783,11 +805,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -914,7 +940,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1035,6 +1061,10 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
@@ -1067,11 +1097,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -1119,7 +1149,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1148,7 +1178,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XTN"

@@ -100,7 +100,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "RPT"
@@ -126,7 +126,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "TM"
@@ -152,7 +152,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CQ"
@@ -255,7 +255,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -301,11 +301,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -339,11 +339,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -447,11 +447,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "10"
+                "valueInteger": 10
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

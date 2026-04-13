@@ -134,11 +134,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

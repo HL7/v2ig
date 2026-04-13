@@ -153,11 +153,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

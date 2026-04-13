@@ -100,7 +100,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EIP"
@@ -156,7 +156,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -185,7 +185,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -274,7 +274,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -333,7 +333,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -403,11 +403,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "6"
+                "valueInteger": 6
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -425,7 +425,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -451,7 +451,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -480,7 +480,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -626,7 +626,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -713,7 +713,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -783,11 +783,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -896,7 +896,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -921,7 +921,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"

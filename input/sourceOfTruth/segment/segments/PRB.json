@@ -304,7 +304,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -470,11 +470,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -559,11 +559,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -672,11 +672,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "200"
+                "valueInteger": 200
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

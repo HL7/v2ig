@@ -206,11 +206,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -478,11 +478,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -571,11 +571,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "100"
+                "valueInteger": 100
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -609,11 +609,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "100"
+                "valueInteger": 100
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -776,11 +776,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

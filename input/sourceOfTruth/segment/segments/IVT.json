@@ -114,11 +114,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -177,11 +177,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -228,7 +228,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -556,7 +556,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -651,11 +651,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -689,11 +689,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -727,11 +727,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "8"
+                "valueInteger": 8
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -765,11 +765,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "8"
+                "valueInteger": 8
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

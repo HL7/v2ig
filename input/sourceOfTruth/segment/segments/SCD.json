@@ -76,11 +76,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -164,11 +164,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -906,7 +906,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"

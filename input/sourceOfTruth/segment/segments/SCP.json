@@ -51,11 +51,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2"
+                "valueInteger": 2
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -172,11 +172,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -210,11 +210,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2"
+                "valueInteger": 2
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

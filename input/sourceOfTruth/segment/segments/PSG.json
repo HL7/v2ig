@@ -206,11 +206,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "254"
+                "valueInteger": 254
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

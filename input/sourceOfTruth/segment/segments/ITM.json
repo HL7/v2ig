@@ -76,11 +76,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -251,11 +251,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -289,11 +289,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -479,7 +479,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XON"
@@ -537,7 +537,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -611,11 +611,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "6"
+                "valueInteger": 6
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -829,7 +829,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CNE"

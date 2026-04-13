@@ -139,11 +139,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "300"
+                "valueInteger": 300
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -161,7 +161,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -227,11 +227,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "8"
+                "valueInteger": 8
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -274,7 +274,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -324,7 +324,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"

@@ -89,7 +89,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -109,11 +109,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -131,7 +131,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -160,7 +160,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -180,11 +180,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1"
+                "valueInteger": 1
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -310,11 +310,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -332,7 +332,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "VH"

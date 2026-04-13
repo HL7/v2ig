@@ -35,11 +35,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -55,7 +59,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ERL"
@@ -199,11 +203,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -237,11 +241,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2048"
+                "valueInteger": 2048
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -276,11 +280,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -298,7 +302,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -356,7 +360,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -385,7 +389,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XTN"

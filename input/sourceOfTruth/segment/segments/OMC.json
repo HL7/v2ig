@@ -51,11 +51,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -171,7 +171,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -344,7 +344,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"

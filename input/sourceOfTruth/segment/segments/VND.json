@@ -114,11 +114,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -190,7 +190,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -265,7 +265,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -290,7 +290,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"

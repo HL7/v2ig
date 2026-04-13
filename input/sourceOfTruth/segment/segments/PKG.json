@@ -147,11 +147,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

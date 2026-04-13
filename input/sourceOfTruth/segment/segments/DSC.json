@@ -51,11 +51,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "180"
+                "valueInteger": 180
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

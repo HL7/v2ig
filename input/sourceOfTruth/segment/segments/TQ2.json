@@ -116,7 +116,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -142,7 +142,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -168,7 +168,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -321,11 +321,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "10"
+                "valueInteger": 10
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

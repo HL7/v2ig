@@ -123,7 +123,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "DR"
@@ -164,11 +164,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

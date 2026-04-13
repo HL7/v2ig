@@ -234,7 +234,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 8
               }
             ]
           }
@@ -273,7 +273,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 8
               }
             ]
           }
@@ -390,7 +390,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 48
               }
             ]
           }
@@ -409,7 +409,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -429,7 +429,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 106
               }
             ]
           }
@@ -476,7 +476,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -496,7 +496,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -514,7 +514,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "FT"
@@ -534,7 +534,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }

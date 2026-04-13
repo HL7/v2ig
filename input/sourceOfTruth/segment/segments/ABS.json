@@ -368,11 +368,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

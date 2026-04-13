@@ -109,11 +109,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "45"
+                "valueInteger": 45
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -307,7 +307,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -336,7 +336,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -389,7 +389,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -431,7 +431,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -469,7 +469,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 24
               }
             ]
           }
@@ -511,7 +511,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -549,7 +549,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 60
               }
             ]
           }
@@ -587,7 +587,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 721
               }
             ]
           }
@@ -625,7 +625,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 721
               }
             ]
           }
@@ -663,7 +663,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 721
               }
             ]
           }
@@ -705,7 +705,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -743,7 +743,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 20
               }
             ]
           }
@@ -781,7 +781,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -819,7 +819,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -857,7 +857,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 60
               }
             ]
           }
@@ -895,7 +895,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 24
               }
             ]
           }
@@ -933,7 +933,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 250
               }
             ]
           }
@@ -971,7 +971,7 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 254
               }
             ]
           }

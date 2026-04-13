@@ -102,11 +102,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -241,11 +241,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -354,11 +354,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -432,7 +432,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CNE"

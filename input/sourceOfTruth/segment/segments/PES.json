@@ -35,7 +35,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XON"
@@ -60,7 +60,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -85,7 +85,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -110,7 +110,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XTN"
@@ -176,11 +176,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -198,7 +198,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "FT"
@@ -214,11 +214,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "600"
+                "valueInteger": 600
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -252,11 +252,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "600"
+                "valueInteger": 600
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -409,7 +409,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ID"

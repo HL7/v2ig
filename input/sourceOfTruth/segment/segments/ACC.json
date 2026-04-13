@@ -105,11 +105,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "25"
+                "valueInteger": 25
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -141,6 +141,10 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
@@ -283,11 +287,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1000"
+                "valueInteger": 1000
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -321,11 +325,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -428,11 +432,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -450,7 +454,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"

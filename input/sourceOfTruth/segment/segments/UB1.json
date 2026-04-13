@@ -35,16 +35,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
-        "type": [
-          {
-            "code": "SI"
-          }
-        ],
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -60,11 +59,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -80,11 +83,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -100,11 +107,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -120,11 +131,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -140,11 +155,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -160,11 +179,15 @@
           }
         ],
         "min": 0,
-        "max": 5,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -180,11 +203,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -200,11 +227,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -220,11 +251,15 @@
           }
         ],
         "min": 0,
-        "max": 8,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -240,11 +275,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -260,11 +299,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -280,11 +323,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -300,11 +347,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -320,11 +371,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -340,11 +395,15 @@
           }
         ],
         "min": 0,
-        "max": 5,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -360,11 +419,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -380,11 +443,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -400,11 +467,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -420,11 +491,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -440,11 +515,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -460,11 +539,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -480,11 +563,15 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       }

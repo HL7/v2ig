@@ -411,11 +411,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -449,11 +449,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

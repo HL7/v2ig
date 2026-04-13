@@ -51,11 +51,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -89,11 +89,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -294,11 +294,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "600"
+                "valueInteger": 600
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -399,11 +399,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "600"
+                "valueInteger": 600
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -437,11 +437,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -475,11 +475,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

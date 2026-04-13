@@ -51,11 +51,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -98,7 +98,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -144,11 +144,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "200"
+                "valueInteger": 200
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -166,7 +166,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -182,11 +182,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "200"
+                "valueInteger": 200
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -270,11 +270,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -337,11 +337,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -497,11 +497,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -565,11 +565,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -653,6 +653,10 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
@@ -669,7 +673,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "PL"
@@ -679,6 +683,10 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
@@ -714,11 +722,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1"
+                "valueInteger": 1
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -779,7 +787,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"

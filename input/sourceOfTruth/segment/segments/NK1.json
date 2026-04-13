@@ -74,7 +74,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"
@@ -132,7 +132,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -158,15 +158,14 @@
         ],
         "min": 0,
         "max": 0,
-        "type": [
-          {
-            "code": "XTN"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -183,15 +182,14 @@
         ],
         "min": 0,
         "max": 0,
-        "type": [
-          {
-            "code": "XTN"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -302,11 +300,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -375,7 +373,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XON"
@@ -483,7 +481,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -512,7 +510,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -541,7 +539,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -758,7 +756,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"
@@ -812,7 +810,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -841,7 +839,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -871,7 +869,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"
@@ -901,15 +899,14 @@
         ],
         "min": 0,
         "max": 0,
-        "type": [
-          {
-            "code": "XTN"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
@@ -925,7 +922,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -950,7 +947,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -1004,7 +1001,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1078,11 +1075,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -1116,11 +1113,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

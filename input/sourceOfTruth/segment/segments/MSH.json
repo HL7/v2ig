@@ -273,11 +273,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "40"
+                "valueInteger": 40
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -342,6 +342,15 @@
               {
                 "url": "max",
                 "valueInteger": 199
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueInteger": 1
               }
             ]
           }
@@ -451,11 +460,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "180"
+                "valueInteger": 180
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
@@ -602,7 +611,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ID"
@@ -716,7 +725,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -876,7 +885,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -906,7 +915,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"

@@ -110,7 +110,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -160,7 +160,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -176,11 +176,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "512"
+                "valueInteger": 512
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

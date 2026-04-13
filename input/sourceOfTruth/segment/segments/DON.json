@@ -189,7 +189,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CNE"
@@ -218,7 +218,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CNE"
@@ -276,7 +276,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CNE"
@@ -388,7 +388,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CNE"
@@ -695,11 +695,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "75"
+                "valueInteger": 75
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -733,11 +733,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "25"
+                "valueInteger": 25
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
@@ -859,7 +859,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"
@@ -909,7 +909,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
