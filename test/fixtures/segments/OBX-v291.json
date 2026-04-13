@@ -1,0 +1,83 @@
+{
+  "code": "OBX",
+  "occurrences": [
+    {
+      "name": "Observation/Result",
+      "provenance": {
+        "sourceFile": "CH07_Observations.docx",
+        "chapter": "07",
+        "sectionHeading": "HL7 Attribute Table - OBX",
+        "tableIndex": 37,
+        "captionText": "HL7 Attribute Table - OBX"
+      },
+      "fields": [
+        {
+          "sequence": "1",
+          "length": "1..4",
+          "confLength": "",
+          "dataType": "SI",
+          "optionality": "O",
+          "repetition": "",
+          "tableBinding": "",
+          "itemNumber": "00569",
+          "name": "Set ID \u2013 OBX"
+        },
+        {
+          "sequence": "2",
+          "length": "2..3",
+          "confLength": "",
+          "dataType": "ID",
+          "optionality": "C",
+          "repetition": "",
+          "tableBinding": "0125",
+          "itemNumber": "00570",
+          "name": "Value Type"
+        },
+        {
+          "sequence": "3",
+          "length": "",
+          "confLength": "",
+          "dataType": "CWE",
+          "optionality": "R",
+          "repetition": "",
+          "tableBinding": "0622",
+          "itemNumber": "00571",
+          "name": "Observation Identifier"
+        },
+        {
+          "sequence": "4",
+          "length": "",
+          "confLength": "20=",
+          "dataType": "OG",
+          "optionality": "C",
+          "repetition": "",
+          "tableBinding": "",
+          "itemNumber": "00572",
+          "name": "Observation Sub-ID"
+        },
+        {
+          "sequence": "5",
+          "length": "",
+          "confLength": "",
+          "dataType": "varies",
+          "optionality": "C",
+          "repetition": "Y",
+          "tableBinding": "",
+          "itemNumber": "00573",
+          "name": "Observation Value"
+        },
+        {
+          "sequence": "6",
+          "length": "",
+          "confLength": "",
+          "dataType": "CWE",
+          "optionality": "O",
+          "repetition": "",
+          "tableBinding": "0623",
+          "itemNumber": "00574",
+          "name": "Units"
+        }
+      ]
+    }
+  ]
+}
