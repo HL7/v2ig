@@ -119,13 +119,15 @@ class TestParseSegmentFields(unittest.TestCase):
         data = load_fixture("segments/PID-minimal.json")
         anomalies = AnomalyLog()
         fields = parse_segment_fields(data, "PID", anomalies)
-        # PID.2 has usage W and no type -> withdrawn
+        # PID.2 has usage W -> withdrawn (strikethrough)
         pid2 = fields[1]  # index 1 = PID.2
         self.assertTrue(pid2["is_withdrawn"])
+        self.assertFalse(pid2["is_deprecated"])
         self.assertEqual(pid2["usage"], "W")
-        # PID.4 has usage B and no type -> withdrawn
+        # PID.4 has usage B -> deprecated (not withdrawn)
         pid4 = fields[3]  # index 3 = PID.4
-        self.assertTrue(pid4["is_withdrawn"])
+        self.assertFalse(pid4["is_withdrawn"])
+        self.assertTrue(pid4["is_deprecated"])
         self.assertEqual(pid4["usage"], "B")
 
     def test_non_withdrawn_field(self):
@@ -134,6 +136,7 @@ class TestParseSegmentFields(unittest.TestCase):
         fields = parse_segment_fields(data, "PID", anomalies)
         pid1 = fields[0]
         self.assertFalse(pid1["is_withdrawn"])
+        self.assertFalse(pid1["is_deprecated"])
 
     def test_extracts_length(self):
         data = load_fixture("segments/MSH.json")

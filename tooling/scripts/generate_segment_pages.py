@@ -137,8 +137,9 @@ def parse_segment_fields(data, segment_id, anomalies):
             if trunc_sub:
                 no_truncate = trunc_sub.get('valueInteger')
 
-        # Withdrawn: no type and optionality W or B
-        is_withdrawn = (not data_type and usage in ('W', 'B'))
+        # W = Withdrawn (strikethrough), B = Backward Compatible (deprecated, no strikethrough)
+        is_withdrawn = usage == 'W'
+        is_deprecated = usage == 'B'
 
         fields.append({
             'seq': seq,
@@ -154,6 +155,7 @@ def parse_segment_fields(data, segment_id, anomalies):
             'conf_length': conf_length,
             'no_truncate': no_truncate,
             'is_withdrawn': is_withdrawn,
+            'is_deprecated': is_deprecated,
             'element_path': path,
         })
 
@@ -254,7 +256,12 @@ def render_segment_table(segment_id, fields):
     """
     rows = []
     for field in fields:
-        row_class = ' class="v2-field-withdrawn"' if field['is_withdrawn'] else ''
+        if field['is_withdrawn']:
+            row_class = ' class="v2-field-withdrawn"'
+        elif field.get('is_deprecated'):
+            row_class = ' class="v2-field-deprecated"'
+        else:
+            row_class = ''
 
         # DataType cell: link to StructureDefinition if type exists
         if field['data_type']:
@@ -266,12 +273,17 @@ def render_segment_table(segment_id, fields):
             dt_display = '<span class="v2-muted">\u2013</span>'
 
         # Cardinality display
-        max_display = str(field['max_card']) if str(field['max_card']) != '0' else '*'
+        max_raw = str(field['max_card'])
+        if max_raw == '0' and not field['is_withdrawn']:
+            max_display = '*'  # fallback for unexpected 0 on active fields
+        else:
+            max_display = max_raw if max_raw != '0' else '0'
         cardinality = f'[{field["min_card"]}..{max_display}]'
 
         # Item# links to the Detailed Descriptions tab for this element
         item_formatted = format_item_number(field['item_num'])
-        if item_formatted and not field['is_withdrawn'] and field.get('element_path'):
+        linkable = not field['is_withdrawn'] and field.get('element_path')
+        if item_formatted and linkable:
             item_display = (
                 f'<a href="StructureDefinition-{segment_id}-definitions.html'
                 f'#{field["element_path"]}">{item_formatted}</a>'
@@ -279,9 +291,16 @@ def render_segment_table(segment_id, fields):
         else:
             item_display = item_formatted
 
+        # Seq# links to the Detailed Descriptions anchor on the same page
+        seq_display = escape_xml(str(field['seq']))
+        if linkable:
+            seq_display = (
+                f'<a href="#a-{field["element_path"]}">{seq_display}</a>'
+            )
+
         rows.append(
             f'<tr{row_class}>'
-            f'<td class="v2-col-seq">{escape_xml(str(field["seq"]))}</td>'
+            f'<td class="v2-col-seq">{seq_display}</td>'
             f'<td>{escape_xml(field["name"])}</td>'
             f'<td class="v2-col-mono">{dt_display}</td>'
             f'<td>{escape_xml(field["usage"])}</td>'

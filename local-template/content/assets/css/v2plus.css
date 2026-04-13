@@ -126,6 +126,12 @@ background-color: #005a8c !important;
 
 .v2-segment-table tr.v2-field-withdrawn td {
   color: #999;
+  text-decoration: line-through;
+}
+
+.v2-segment-table tr.v2-field-deprecated td {
+  color: #888;
+  font-style: italic;
 }
 
 .v2-segment-table .v2-muted {
