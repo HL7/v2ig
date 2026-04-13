@@ -1,0 +1,3468 @@
+{
+  "segments": {
+    "artifact_type": "Segments",
+    "fhir_count": 192,
+    "v291_count": 175,
+    "matched": 174,
+    "fhir_only_count": 18,
+    "v291_only_count": 1,
+    "fhir_only": [
+      "BPX",
+      "BTX",
+      "BUI",
+      "CNS",
+      "DST",
+      "ECD",
+      "ECR",
+      "EQP",
+      "EQU",
+      "HXX",
+      "INV",
+      "ISD",
+      "NDS",
+      "SAC",
+      "SID",
+      "TCC",
+      "TCD",
+      "VARIES"
+    ],
+    "v291_only": [
+      "ZL7"
+    ],
+    "matched_keys": [
+      "ABS",
+      "ACC",
+      "ADD",
+      "ADJ",
+      "AFF",
+      "AIG",
+      "AIL",
+      "AIP",
+      "AIS",
+      "AL1",
+      "APR",
+      "ARQ",
+      "ARV",
+      "AUT",
+      "BHS",
+      "BLC",
+      "BLG",
+      "BPO",
+      "BTS",
+      "CDM",
+      "CDO",
+      "CER",
+      "CM0",
+      "CM1",
+      "CM2",
+      "CON",
+      "CSP",
+      "CSR",
+      "CSS",
+      "CTD",
+      "CTI",
+      "CTR",
+      "DB1",
+      "DEV",
+      "DG1",
+      "DMI",
+      "DON",
+      "DPS",
+      "DRG",
+      "DSC",
+      "DSP",
+      "EDU",
+      "ERR",
+      "EVN",
+      "FAC",
+      "FHS",
+      "FT1",
+      "FTS",
+      "GOL",
+      "GP1",
+      "GP2",
+      "GSC",
+      "GSP",
+      "GSR",
+      "GT1",
+      "IAM",
+      "IAR",
+      "IIM",
+      "ILT",
+      "IN1",
+      "IN2",
+      "IN3",
+      "IPC",
+      "IPR",
+      "ITM",
+      "IVC",
+      "IVT",
+      "LAN",
+      "LCC",
+      "LCH",
+      "LDP",
+      "LOC",
+      "LRL",
+      "MCP",
+      "MFA",
+      "MFE",
+      "MFI",
+      "MRG",
+      "MSA",
+      "MSH",
+      "NCK",
+      "NK1",
+      "NPU",
+      "NSC",
+      "NST",
+      "NTE",
+      "OBR",
+      "OBX",
+      "ODS",
+      "ODT",
+      "OH1",
+      "OH2",
+      "OH3",
+      "OH4",
+      "OM1",
+      "OM2",
+      "OM3",
+      "OM4",
+      "OM5",
+      "OM6",
+      "OM7",
+      "OMC",
+      "ORC",
+      "ORG",
+      "OVR",
+      "PAC",
+      "PCE",
+      "PCR",
+      "PD1",
+      "PDA",
+      "PDC",
+      "PEO",
+      "PES",
+      "PID",
+      "PKG",
+      "PM1",
+      "PMT",
+      "PR1",
+      "PRA",
+      "PRB",
+      "PRC",
+      "PRD",
+      "PRT",
+      "PSG",
+      "PSH",
+      "PSL",
+      "PSS",
+      "PTH",
+      "PV1",
+      "PV2",
+      "PYE",
+      "QAK",
+      "QID",
+      "QPD",
+      "QRI",
+      "RCP",
+      "RDF",
+      "RDT",
+      "REL",
+      "RF1",
+      "RFI",
+      "RGS",
+      "RMI",
+      "ROL",
+      "RQ1",
+      "RQD",
+      "RXA",
+      "RXC",
+      "RXD",
+      "RXE",
+      "RXG",
+      "RXO",
+      "RXR",
+      "RXV",
+      "SCD",
+      "SCH",
+      "SCP",
+      "SDD",
+      "SFT",
+      "SGH",
+      "SGT",
+      "SHP",
+      "SLT",
+      "SPM",
+      "STF",
+      "STZ",
+      "TQ1",
+      "TQ2",
+      "TXA",
+      "UAC",
+      "UB1",
+      "UB2",
+      "VAR",
+      "VND"
+    ],
+    "v291_duplicate_keys": {}
+  },
+  "complex_data_types": {
+    "artifact_type": "Complex Data Types",
+    "fhir_count": 71,
+    "v291_count": 71,
+    "matched": 71,
+    "fhir_only_count": 0,
+    "v291_only_count": 0,
+    "fhir_only": [],
+    "v291_only": [],
+    "matched_keys": [
+      "AD",
+      "AUI",
+      "CCD",
+      "CCP",
+      "CD",
+      "CF",
+      "CNE",
+      "CNN",
+      "CP",
+      "CQ",
+      "CSU",
+      "CWE",
+      "CX",
+      "DDI",
+      "DIN",
+      "DLD",
+      "DLN",
+      "DLT",
+      "DR",
+      "DTN",
+      "ED",
+      "EI",
+      "EIP",
+      "ERL",
+      "FC",
+      "FN",
+      "HD",
+      "ICD",
+      "JCC",
+      "MA",
+      "MO",
+      "MOC",
+      "MOP",
+      "MSG",
+      "NA",
+      "NDL",
+      "NR",
+      "OCD",
+      "OG",
+      "OSP",
+      "PIP",
+      "PL",
+      "PLN",
+      "PPN",
+      "PRL",
+      "PT",
+      "PTA",
+      "QIP",
+      "QSC",
+      "RCD",
+      "RFR",
+      "RI",
+      "RMC",
+      "RP",
+      "RPT",
+      "SAD",
+      "SCV",
+      "SN",
+      "SPD",
+      "SRT",
+      "UVC",
+      "VH",
+      "VID",
+      "VR",
+      "WVI",
+      "WVS",
+      "XAD",
+      "XCN",
+      "XON",
+      "XPN",
+      "XTN"
+    ],
+    "v291_duplicate_keys": {},
+    "component_count_mismatches": {
+      "MA": {
+        "fhir_component_count": 4,
+        "v291_component_count": 5,
+        "count_match": false,
+        "v291_occurrences": 1
+      },
+      "NA": {
+        "fhir_component_count": 4,
+        "v291_component_count": 5,
+        "count_match": false,
+        "v291_occurrences": 1
+      }
+    }
+  },
+  "primitive_data_types": {
+    "artifact_type": "Primitive Data Types",
+    "fhir_count": 12,
+    "v291_count": 0,
+    "note": "Primitive data types not extracted from V291 Word docs",
+    "fhir_keys": [
+      "DT",
+      "DTM",
+      "FT",
+      "GTS",
+      "ID",
+      "IS",
+      "NM",
+      "SI",
+      "SNM",
+      "ST",
+      "TM",
+      "TX"
+    ]
+  },
+  "message_structures": {
+    "artifact_type": "Message Structures",
+    "fhir_count": 418,
+    "v291_count": 179,
+    "matched": 142,
+    "fhir_only_count": 276,
+    "v291_only_count": 37,
+    "fhir_only": [
+      "ACK_A",
+      "ACK_AA",
+      "ACK_AB",
+      "ACK_AC",
+      "ACK_AD",
+      "ACK_AE",
+      "ACK_AF",
+      "ACK_AG",
+      "ACK_AH",
+      "ACK_AI",
+      "ACK_AJ",
+      "ACK_AK",
+      "ACK_AL",
+      "ACK_AM",
+      "ACK_AN",
+      "ACK_AO",
+      "ACK_AP",
+      "ACK_AQ",
+      "ACK_AR",
+      "ACK_AS",
+      "ACK_AT",
+      "ACK_AU",
+      "ACK_AV",
+      "ACK_AW",
+      "ACK_AX",
+      "ACK_AY",
+      "ACK_AZ",
+      "ACK_B",
+      "ACK_BA",
+      "ACK_BB",
+      "ACK_BC",
+      "ACK_BD",
+      "ACK_BE",
+      "ACK_BF",
+      "ACK_BG",
+      "ACK_BH",
+      "ACK_BI",
+      "ACK_BJ",
+      "ACK_BK",
+      "ACK_BL",
+      "ACK_BM",
+      "ACK_BN",
+      "ACK_BO",
+      "ACK_BP",
+      "ACK_BQ",
+      "ACK_BR",
+      "ACK_BS",
+      "ACK_BT",
+      "ACK_BU",
+      "ACK_BV",
+      "ACK_BW",
+      "ACK_BX",
+      "ACK_BY",
+      "ACK_BZ",
+      "ACK_C",
+      "ACK_CA",
+      "ACK_CB",
+      "ACK_CC",
+      "ACK_CD",
+      "ACK_CE",
+      "ACK_CF",
+      "ACK_CG",
+      "ACK_CH",
+      "ACK_CI",
+      "ACK_CJ",
+      "ACK_CK",
+      "ACK_CL",
+      "ACK_CM",
+      "ACK_CN",
+      "ACK_CO",
+      "ACK_CP",
+      "ACK_CQ",
+      "ACK_CR",
+      "ACK_CS",
+      "ACK_CT",
+      "ACK_CU",
+      "ACK_CV",
+      "ACK_CW",
+      "ACK_CX",
+      "ACK_CY",
+      "ACK_CZ",
+      "ACK_D",
+      "ACK_DA",
+      "ACK_DB",
+      "ACK_DC",
+      "ACK_DD",
+      "ACK_DE",
+      "ACK_DF",
+      "ACK_DG",
+      "ACK_DH",
+      "ACK_DI",
+      "ACK_DJ",
+      "ACK_DK",
+      "ACK_E",
+      "ACK_F",
+      "ACK_G",
+      "ACK_H",
+      "ACK_I",
+      "ACK_J",
+      "ACK_K",
+      "ACK_L",
+      "ACK_M",
+      "ACK_N",
+      "ACK_O",
+      "ACK_P",
+      "ACK_Q",
+      "ACK_R",
+      "ACK_S",
+      "ACK_T",
+      "ACK_U",
+      "ACK_V",
+      "ACK_W",
+      "ACK_X",
+      "ACK_Y",
+      "ACK_Z",
+      "ADT_A01_A",
+      "ADT_A01_B",
+      "ADT_A01_C",
+      "ADT_A01_D",
+      "ADT_A05_A",
+      "ADT_A05_B",
+      "ADT_A05_C",
+      "ADT_A05_D",
+      "ADT_A06_A",
+      "ADT_A06_B",
+      "ADT_A09_A",
+      "ADT_A09_B",
+      "ADT_A09_C",
+      "ADT_A21_A",
+      "ADT_A21_B",
+      "ADT_A21_C",
+      "ADT_A21_D",
+      "ADT_A21_E",
+      "ADT_A21_F",
+      "ADT_A21_G",
+      "ADT_A21_H",
+      "ADT_A21_I",
+      "ADT_A39_A",
+      "ADT_A39_B",
+      "ADT_A39_C",
+      "ADT_A43_A",
+      "ADT_A43_B",
+      "ADT_A44_A",
+      "ADT_A44_B",
+      "ADT_A50_A",
+      "ADT_A50_B",
+      "ADT_A52_A",
+      "ADT_A52_B",
+      "ADT_A54_A",
+      "ADT_A54_B",
+      "ADT_A61_A",
+      "ADT_A61_B",
+      "CCR_I16",
+      "CRM_C01",
+      "CSU_C09",
+      "DEL_O46",
+      "DEO_O45",
+      "DPR_O48",
+      "DRC_O47",
+      "EAC_U07",
+      "EAN_U09",
+      "EAR_U08",
+      "ESR_U02",
+      "ESU_U01",
+      "INR_U06",
+      "INR_U14",
+      "INU_U05",
+      "LSU_U12_A",
+      "LSU_U12_B",
+      "MDM_T01_A",
+      "MDM_T01_B",
+      "MDM_T01_C",
+      "MDM_T01_D",
+      "MDM_T01_E",
+      "MDM_T01_F",
+      "MDM_T02_A",
+      "MDM_T02_B",
+      "MDM_T02_C",
+      "MDM_T02_D",
+      "MDM_T02_E",
+      "MFK_M01_A",
+      "MFK_M01_B",
+      "MFK_M01_C",
+      "MFK_M01_D",
+      "MFK_M01_E",
+      "MFK_M01_F",
+      "MFK_M01_G",
+      "MFK_M01_H",
+      "MFK_M01_I",
+      "MFK_M01_J",
+      "MFK_M01_K",
+      "MFK_M01_L",
+      "MFK_M01_M",
+      "MFK_M01_N",
+      "MFK_M01_O",
+      "MFK_M01_P",
+      "MFN_ZNN",
+      "OMI_O23",
+      "OML_O21",
+      "OML_O39",
+      "ORU_R01_A",
+      "ORU_R01_B",
+      "ORU_R01_C",
+      "ORU_R01_D",
+      "ORU_R30_A",
+      "ORU_R30_B",
+      "ORU_R30_C",
+      "PEX_P07",
+      "PGL_PC6",
+      "PMU_B01_A",
+      "PMU_B01_B",
+      "PMU_B04_A",
+      "PMU_B04_B",
+      "PMU_B04_C",
+      "PPG_PCG",
+      "PPP_PCB",
+      "PPR_PC1",
+      "QBP_Q11_A",
+      "QBP_Q11_B",
+      "QBP_Q11_C",
+      "QBP_Q11_D",
+      "QBP_Q11_E",
+      "QBP_Q21_A",
+      "QBP_Q21_B",
+      "QBP_Q21_C",
+      "QBP_Q21_D",
+      "QBP_Q21_E",
+      "QBP_Q21_F",
+      "QBP_QNN",
+      "QCN_J01_A",
+      "QCN_J01_B",
+      "QSB_Q16_A",
+      "QSB_Q16_B",
+      "RDE_O11_A",
+      "RDE_O11_B",
+      "RDY_K15_A",
+      "RDY_K15_B",
+      "RDY_K15_C",
+      "RDY_K15_D",
+      "REF_I12",
+      "RPA_I08",
+      "RQA_I08",
+      "RQI_I01_A",
+      "RQI_I01_B",
+      "RQI_I01_C",
+      "RQI_I01_D",
+      "RRE_O12_A",
+      "RRE_O12_B",
+      "RRI_I12",
+      "RSP_K23_A",
+      "RSP_K23_B",
+      "RSP_ZNN",
+      "RTB_K13_A",
+      "RTB_K13_B",
+      "RTB_K13_C",
+      "RTB_K13_D",
+      "RTB_K13_E",
+      "RTB_K13_F",
+      "RTB_K13_G",
+      "RTB_KNN",
+      "SDR_S31_A",
+      "SDR_S31_B",
+      "SDR_S32_A",
+      "SDR_S32_B",
+      "SIU_S12",
+      "SLR_S28_A",
+      "SLR_S28_B",
+      "SLR_S28_C",
+      "SLR_S28_D",
+      "SLR_S28_E",
+      "SRM_S01",
+      "SRR_S01",
+      "SSR_U04",
+      "SSU_U03",
+      "TCU_U10_A",
+      "TCU_U10_B"
+    ],
+    "v291_only": [
+      "ACK",
+      "ADT_A01",
+      "ADT_A05",
+      "ADT_A06",
+      "ADT_A09",
+      "ADT_A21",
+      "ADT_A39",
+      "ADT_A43",
+      "ADT_A44",
+      "ADT_A50",
+      "ADT_A52",
+      "ADT_A54",
+      "ADT_A61",
+      "MDM_T01",
+      "MDM_T02",
+      "MFK_M01",
+      "MFN_Z",
+      "ORU_R01",
+      "ORU_R30",
+      "PMU_B01",
+      "PMU_B04",
+      "QBP_Q11",
+      "QBP_Q21",
+      "QCN_J01",
+      "QSB_Q16",
+      "RDE_O11",
+      "RDY_K15",
+      "RQI_I01",
+      "RRE_O12",
+      "RSP_K23",
+      "RTB_K13",
+      "SDR_S31",
+      "SDR_S32",
+      "SLR_S28",
+      "UNKNOWN",
+      "WRQ_Z01",
+      "WRQ_Z02"
+    ],
+    "matched_keys": [
+      "ADT_A02",
+      "ADT_A03",
+      "ADT_A12",
+      "ADT_A15",
+      "ADT_A16",
+      "ADT_A17",
+      "ADT_A20",
+      "ADT_A24",
+      "ADT_A37",
+      "ADT_A38",
+      "ADT_A45",
+      "ADT_A60",
+      "BAR_P01",
+      "BAR_P02",
+      "BAR_P05",
+      "BAR_P06",
+      "BAR_P10",
+      "BAR_P12",
+      "BPS_O29",
+      "BRP_O30",
+      "BRT_O32",
+      "BTS_O31",
+      "CCF_I22",
+      "CCI_I22",
+      "CCM_I21",
+      "CCQ_I19",
+      "CCU_I20",
+      "CQU_I19",
+      "DBC_O41",
+      "DBC_O42",
+      "DER_O44",
+      "DFT_P03",
+      "DFT_P11",
+      "DRG_O43",
+      "EHC_E01",
+      "EHC_E02",
+      "EHC_E04",
+      "EHC_E10",
+      "EHC_E12",
+      "EHC_E13",
+      "EHC_E15",
+      "EHC_E20",
+      "EHC_E21",
+      "EHC_E24",
+      "MFN_M02",
+      "MFN_M04",
+      "MFN_M05",
+      "MFN_M06",
+      "MFN_M07",
+      "MFN_M08",
+      "MFN_M09",
+      "MFN_M10",
+      "MFN_M11",
+      "MFN_M12",
+      "MFN_M13",
+      "MFN_M15",
+      "MFN_M16",
+      "MFN_M17",
+      "MFN_M18",
+      "MFN_M19",
+      "NMD_N02",
+      "OMB_O27",
+      "OMD_O03",
+      "OMG_O19",
+      "OML_O33",
+      "OML_O35",
+      "OML_O59",
+      "OMN_O07",
+      "OMP_O09",
+      "OMQ_O57",
+      "OMS_O05",
+      "OPL_O37",
+      "OPR_O38",
+      "OPU_R25",
+      "ORA_R33",
+      "ORA_R41",
+      "ORB_O28",
+      "ORD_O04",
+      "ORG_O20",
+      "ORI_O24",
+      "ORL_O22",
+      "ORL_O34",
+      "ORL_O36",
+      "ORL_O40",
+      "ORL_O53",
+      "ORL_O54",
+      "ORL_O55",
+      "ORL_O56",
+      "ORN_O08",
+      "ORP_O10",
+      "ORS_O06",
+      "ORX_O58",
+      "OSM_R26",
+      "OSU_O51",
+      "OSU_O52",
+      "OUL_R22",
+      "OUL_R23",
+      "OUL_R24",
+      "PMU_B03",
+      "PMU_B07",
+      "PMU_B08",
+      "QBP_E03",
+      "QBP_E22",
+      "QBP_O33",
+      "QBP_O34",
+      "QBP_Q13",
+      "QBP_Q15",
+      "QBP_Z73",
+      "QVR_Q17",
+      "RAS_O17",
+      "RCV_O59",
+      "RDE_O49",
+      "RDS_O13",
+      "RDY_Z80",
+      "RGV_O15",
+      "RPI_I01",
+      "RPI_I04",
+      "RPL_I02",
+      "RPR_I03",
+      "RQP_I04",
+      "RRA_O18",
+      "RRD_O14",
+      "RRE_O50",
+      "RRG_O16",
+      "RSP_E03",
+      "RSP_E22",
+      "RSP_K11",
+      "RSP_K21",
+      "RSP_K22",
+      "RSP_K25",
+      "RSP_K31",
+      "RSP_K32",
+      "RSP_O33",
+      "RSP_O34",
+      "RSP_Z82",
+      "RSP_Z84",
+      "RSP_Z86",
+      "RSP_Z88",
+      "RSP_Z90",
+      "RTB_Z74",
+      "STC_S33",
+      "VXU_V04"
+    ],
+    "v291_duplicate_keys": {
+      "ACK": [
+        "ACK_03_105.json",
+        "ACK_03_107.json",
+        "ACK_03_109.json",
+        "ACK_03_11.json",
+        "ACK_03_13.json",
+        "ACK_03_15.json",
+        "ACK_03_17.json",
+        "ACK_03_19.json",
+        "ACK_03_21.json",
+        "ACK_03_23.json",
+        "ACK_03_25.json",
+        "ACK_03_27.json",
+        "ACK_03_29.json",
+        "ACK_03_31.json",
+        "ACK_03_33.json",
+        "ACK_03_35.json",
+        "ACK_03_37.json",
+        "ACK_03_39.json",
+        "ACK_03_41.json",
+        "ACK_03_43.json",
+        "ACK_03_45.json",
+        "ACK_03_47.json",
+        "ACK_03_49.json",
+        "ACK_03_5.json",
+        "ACK_03_51.json",
+        "ACK_03_53.json",
+        "ACK_03_55.json",
+        "ACK_03_57.json",
+        "ACK_03_59.json",
+        "ACK_03_61.json",
+        "ACK_03_63.json",
+        "ACK_03_65.json",
+        "ACK_03_67.json",
+        "ACK_03_69.json",
+        "ACK_03_7.json",
+        "ACK_03_71.json",
+        "ACK_03_73.json",
+        "ACK_03_75.json",
+        "ACK_03_77.json",
+        "ACK_03_79.json",
+        "ACK_03_81.json",
+        "ACK_03_83.json",
+        "ACK_03_85.json",
+        "ACK_03_87.json",
+        "ACK_03_89.json",
+        "ACK_03_9.json",
+        "ACK_03_91.json",
+        "ACK_03_93.json",
+        "ACK_03_95.json",
+        "ACK_05_186.json",
+        "ACK_05_188.json",
+        "ACK_05_190.json",
+        "ACK_05_192.json",
+        "ACK_06_208.json",
+        "ACK_06_210.json",
+        "ACK_06_212.json",
+        "ACK_06_214.json",
+        "ACK_06_216.json",
+        "ACK_06_218.json",
+        "ACK_06_220.json",
+        "ACK_06_222.json",
+        "ACK_07_224.json",
+        "ACK_07_226.json",
+        "ACK_07_228.json",
+        "ACK_07_230.json",
+        "ACK_09_279.json",
+        "ACK_09_281.json",
+        "ACK_09_283.json",
+        "ACK_09_285.json",
+        "ACK_09_287.json",
+        "ACK_09_289.json",
+        "ACK_09_291.json",
+        "ACK_09_293.json",
+        "ACK_09_295.json",
+        "ACK_09_297.json",
+        "ACK_09_299.json",
+        "ACK_11_311.json",
+        "ACK_15_334.json",
+        "ACK_15_336.json",
+        "ACK_15_338.json",
+        "ACK_15_340.json",
+        "ACK_15_342.json",
+        "ACK_15_344.json",
+        "ACK_15_347.json",
+        "ACK_15_349.json",
+        "ACK_17_365.json",
+        "ACK_17_368.json",
+        "ACK_17_371.json",
+        "ACK_17_374.json",
+        "ACK_17_377.json",
+        "ACK_17_380.json",
+        "ACK_17_382.json",
+        "ACK_17_384.json",
+        "ACK_17_386.json",
+        "ACK_17_388.json"
+      ],
+      "ADT_A01": [
+        "ADT_A01_03_10.json",
+        "ADT_A01_03_18.json",
+        "ADT_A01_03_28.json",
+        "ADT_A01_03_4.json"
+      ],
+      "ADT_A05": [
+        "ADT_A05_03_12.json",
+        "ADT_A05_03_30.json",
+        "ADT_A05_03_54.json",
+        "ADT_A05_03_58.json"
+      ],
+      "ADT_A06": [
+        "ADT_A06_03_14.json",
+        "ADT_A06_03_16.json"
+      ],
+      "ADT_A09": [
+        "ADT_A09_03_20.json",
+        "ADT_A09_03_22.json",
+        "ADT_A09_03_24.json"
+      ],
+      "ADT_A21": [
+        "ADT_A21_03_40.json",
+        "ADT_A21_03_42.json",
+        "ADT_A21_03_44.json",
+        "ADT_A21_03_48.json",
+        "ADT_A21_03_50.json",
+        "ADT_A21_03_52.json",
+        "ADT_A21_03_56.json",
+        "ADT_A21_03_60.json",
+        "ADT_A21_03_62.json"
+      ],
+      "ADT_A39": [
+        "ADT_A39_03_68.json",
+        "ADT_A39_03_70.json",
+        "ADT_A39_03_72.json"
+      ],
+      "ADT_A43": [
+        "ADT_A43_03_74.json",
+        "ADT_A43_03_82.json"
+      ],
+      "ADT_A44": [
+        "ADT_A44_03_76.json",
+        "ADT_A44_03_80.json"
+      ],
+      "ADT_A50": [
+        "ADT_A50_03_84.json",
+        "ADT_A50_03_86.json"
+      ],
+      "ADT_A52": [
+        "ADT_A52_03_88.json",
+        "ADT_A52_03_90.json"
+      ],
+      "ADT_A54": [
+        "ADT_A54_03_92.json",
+        "ADT_A54_03_94.json"
+      ],
+      "ADT_A61": [
+        "ADT_A61_03_106.json",
+        "ADT_A61_03_108.json"
+      ],
+      "MDM_T01": [
+        "MDM_T01_09_278.json",
+        "MDM_T01_09_282.json",
+        "MDM_T01_09_286.json",
+        "MDM_T01_09_290.json",
+        "MDM_T01_09_294.json",
+        "MDM_T01_09_298.json"
+      ],
+      "MDM_T02": [
+        "MDM_T02_09_280.json",
+        "MDM_T02_09_284.json",
+        "MDM_T02_09_288.json",
+        "MDM_T02_09_292.json",
+        "MDM_T02_09_296.json"
+      ],
+      "MFK_M01": [
+        "MFK_M01_08_245.json",
+        "MFK_M01_08_247.json",
+        "MFK_M01_08_249.json",
+        "MFK_M01_08_251.json",
+        "MFK_M01_08_253.json",
+        "MFK_M01_08_255.json",
+        "MFK_M01_08_257.json",
+        "MFK_M01_08_259.json",
+        "MFK_M01_08_261.json",
+        "MFK_M01_08_263.json",
+        "MFK_M01_08_265.json",
+        "MFK_M01_08_267.json",
+        "MFK_M01_08_269.json",
+        "MFK_M01_08_271.json",
+        "MFK_M01_08_273.json",
+        "MFK_M01_08_275.json",
+        "MFK_M01_08_277.json"
+      ],
+      "NMD_N02": [
+        "NMD_N02_14_331.json",
+        "NMD_N02_14_332.json"
+      ],
+      "ORU_R01": [
+        "ORU_R01_07_223.json",
+        "ORU_R01_07_236.json",
+        "ORU_R01_07_238.json",
+        "ORU_R01_07_239.json"
+      ],
+      "ORU_R30": [
+        "ORU_R30_07_225.json",
+        "ORU_R30_07_227.json",
+        "ORU_R30_07_229.json"
+      ],
+      "PMU_B01": [
+        "PMU_B01_15_333.json",
+        "PMU_B01_15_335.json"
+      ],
+      "PMU_B04": [
+        "PMU_B04_15_339.json",
+        "PMU_B04_15_341.json",
+        "PMU_B04_15_343.json"
+      ],
+      "QBP_Q11": [
+        "QBP_Q11_04A_124.json",
+        "QBP_Q11_05_180.json",
+        "QBP_Q11_05_196.json",
+        "QBP_Q11_05_198.json"
+      ],
+      "QBP_Q21": [
+        "QBP_Q21_03_100.json",
+        "QBP_Q21_03_102.json",
+        "QBP_Q21_03_110.json",
+        "QBP_Q21_03_96.json",
+        "QBP_Q21_03_98.json"
+      ],
+      "QCN_J01": [
+        "QCN_J01_05_189.json",
+        "QCN_J01_05_191.json"
+      ],
+      "QSB_Q16": [
+        "QSB_Q16_05_185.json",
+        "QSB_Q16_05_193.json"
+      ],
+      "RDE_O11": [
+        "RDE_O11_04A_114.json",
+        "RDE_O11_04A_122.json"
+      ],
+      "RDY_K15": [
+        "RDY_K15_05_184.json",
+        "RDY_K15_05_203.json"
+      ],
+      "RQI_I01": [
+        "RQI_I01_11_302.json",
+        "RQI_I01_11_304.json",
+        "RQI_I01_11_306.json",
+        "RQI_I01_11_310.json"
+      ],
+      "RRE_O12": [
+        "RRE_O12_04A_115.json",
+        "RRE_O12_04A_123.json"
+      ],
+      "RSP_K23": [
+        "RSP_K23_03_101.json",
+        "RSP_K23_03_103.json"
+      ],
+      "RTB_K13": [
+        "RTB_K13_05_182.json",
+        "RTB_K13_05_200.json",
+        "RTB_K13_05_201.json",
+        "RTB_K13_05_202.json",
+        "RTB_K13_05_205.json",
+        "RTB_K13_05_206.json"
+      ],
+      "SDR_S31": [
+        "SDR_S31_17_373.json",
+        "SDR_S31_17_375.json",
+        "SDR_S31_17_385.json"
+      ],
+      "SDR_S32": [
+        "SDR_S32_17_376.json",
+        "SDR_S32_17_378.json",
+        "SDR_S32_17_387.json"
+      ],
+      "SLR_S28": [
+        "SLR_S28_17_364.json",
+        "SLR_S28_17_366.json",
+        "SLR_S28_17_367.json",
+        "SLR_S28_17_369.json",
+        "SLR_S28_17_370.json",
+        "SLR_S28_17_372.json",
+        "SLR_S28_17_381.json",
+        "SLR_S28_17_383.json"
+      ],
+      "UNKNOWN": [
+        "UNKNOWN_02_2.json",
+        "UNKNOWN_02_3.json",
+        "UNKNOWN_05_174.json",
+        "UNKNOWN_05_175.json",
+        "UNKNOWN_05_176.json",
+        "UNKNOWN_05_177.json",
+        "UNKNOWN_05_178.json",
+        "UNKNOWN_05_179.json",
+        "UNKNOWN_07_240.json",
+        "UNKNOWN_07_241.json",
+        "UNKNOWN_07_242.json",
+        "UNKNOWN_10_300.json",
+        "UNKNOWN_10_301.json",
+        "UNKNOWN_11_312.json",
+        "UNKNOWN_11_313.json",
+        "UNKNOWN_11_314.json",
+        "UNKNOWN_11_315.json",
+        "UNKNOWN_11_317.json",
+        "UNKNOWN_12_323.json",
+        "UNKNOWN_12_324.json",
+        "UNKNOWN_12_325.json",
+        "UNKNOWN_12_326.json",
+        "UNKNOWN_12_327.json",
+        "UNKNOWN_12_328.json",
+        "UNKNOWN_12_329.json",
+        "UNKNOWN_12_330.json"
+      ]
+    },
+    "categorization": {
+      "ack_variants": [
+        "ACK_A",
+        "ACK_AA",
+        "ACK_AB",
+        "ACK_AC",
+        "ACK_AD",
+        "ACK_AE",
+        "ACK_AF",
+        "ACK_AG",
+        "ACK_AH",
+        "ACK_AI",
+        "ACK_AJ",
+        "ACK_AK",
+        "ACK_AL",
+        "ACK_AM",
+        "ACK_AN",
+        "ACK_AO",
+        "ACK_AP",
+        "ACK_AQ",
+        "ACK_AR",
+        "ACK_AS",
+        "ACK_AT",
+        "ACK_AU",
+        "ACK_AV",
+        "ACK_AW",
+        "ACK_AX",
+        "ACK_AY",
+        "ACK_AZ",
+        "ACK_B",
+        "ACK_BA",
+        "ACK_BB",
+        "ACK_BC",
+        "ACK_BD",
+        "ACK_BE",
+        "ACK_BF",
+        "ACK_BG",
+        "ACK_BH",
+        "ACK_BI",
+        "ACK_BJ",
+        "ACK_BK",
+        "ACK_BL",
+        "ACK_BM",
+        "ACK_BN",
+        "ACK_BO",
+        "ACK_BP",
+        "ACK_BQ",
+        "ACK_BR",
+        "ACK_BS",
+        "ACK_BT",
+        "ACK_BU",
+        "ACK_BV",
+        "ACK_BW",
+        "ACK_BX",
+        "ACK_BY",
+        "ACK_BZ",
+        "ACK_C",
+        "ACK_CA",
+        "ACK_CB",
+        "ACK_CC",
+        "ACK_CD",
+        "ACK_CE",
+        "ACK_CF",
+        "ACK_CG",
+        "ACK_CH",
+        "ACK_CI",
+        "ACK_CJ",
+        "ACK_CK",
+        "ACK_CL",
+        "ACK_CM",
+        "ACK_CN",
+        "ACK_CO",
+        "ACK_CP",
+        "ACK_CQ",
+        "ACK_CR",
+        "ACK_CS",
+        "ACK_CT",
+        "ACK_CU",
+        "ACK_CV",
+        "ACK_CW",
+        "ACK_CX",
+        "ACK_CY",
+        "ACK_CZ",
+        "ACK_D",
+        "ACK_DA",
+        "ACK_DB",
+        "ACK_DC",
+        "ACK_DD",
+        "ACK_DE",
+        "ACK_DF",
+        "ACK_DG",
+        "ACK_DH",
+        "ACK_DI",
+        "ACK_DJ",
+        "ACK_DK",
+        "ACK_E",
+        "ACK_F",
+        "ACK_G",
+        "ACK_H",
+        "ACK_I",
+        "ACK_J",
+        "ACK_K",
+        "ACK_L",
+        "ACK_M",
+        "ACK_N",
+        "ACK_O",
+        "ACK_P",
+        "ACK_Q",
+        "ACK_R",
+        "ACK_S",
+        "ACK_T",
+        "ACK_U",
+        "ACK_V",
+        "ACK_W",
+        "ACK_X",
+        "ACK_Y",
+        "ACK_Z"
+      ],
+      "ack_variant_count": 115,
+      "sub_variants": [
+        "ADT_A01_A",
+        "ADT_A01_B",
+        "ADT_A01_C",
+        "ADT_A01_D",
+        "ADT_A05_A",
+        "ADT_A05_B",
+        "ADT_A05_C",
+        "ADT_A05_D",
+        "ADT_A06_A",
+        "ADT_A06_B",
+        "ADT_A09_A",
+        "ADT_A09_B",
+        "ADT_A09_C",
+        "ADT_A21_A",
+        "ADT_A21_B",
+        "ADT_A21_C",
+        "ADT_A21_D",
+        "ADT_A21_E",
+        "ADT_A21_F",
+        "ADT_A21_G",
+        "ADT_A21_H",
+        "ADT_A21_I",
+        "ADT_A39_A",
+        "ADT_A39_B",
+        "ADT_A39_C",
+        "ADT_A43_A",
+        "ADT_A43_B",
+        "ADT_A44_A",
+        "ADT_A44_B",
+        "ADT_A50_A",
+        "ADT_A50_B",
+        "ADT_A52_A",
+        "ADT_A52_B",
+        "ADT_A54_A",
+        "ADT_A54_B",
+        "ADT_A61_A",
+        "ADT_A61_B",
+        "LSU_U12_A",
+        "LSU_U12_B",
+        "MDM_T01_A",
+        "MDM_T01_B",
+        "MDM_T01_C",
+        "MDM_T01_D",
+        "MDM_T01_E",
+        "MDM_T01_F",
+        "MDM_T02_A",
+        "MDM_T02_B",
+        "MDM_T02_C",
+        "MDM_T02_D",
+        "MDM_T02_E",
+        "MFK_M01_A",
+        "MFK_M01_B",
+        "MFK_M01_C",
+        "MFK_M01_D",
+        "MFK_M01_E",
+        "MFK_M01_F",
+        "MFK_M01_G",
+        "MFK_M01_H",
+        "MFK_M01_I",
+        "MFK_M01_J",
+        "MFK_M01_K",
+        "MFK_M01_L",
+        "MFK_M01_M",
+        "MFK_M01_N",
+        "MFK_M01_O",
+        "MFK_M01_P",
+        "ORU_R01_A",
+        "ORU_R01_B",
+        "ORU_R01_C",
+        "ORU_R01_D",
+        "ORU_R30_A",
+        "ORU_R30_B",
+        "ORU_R30_C",
+        "PMU_B01_A",
+        "PMU_B01_B",
+        "PMU_B04_A",
+        "PMU_B04_B",
+        "PMU_B04_C",
+        "QBP_Q11_A",
+        "QBP_Q11_B",
+        "QBP_Q11_C",
+        "QBP_Q11_D",
+        "QBP_Q11_E",
+        "QBP_Q21_A",
+        "QBP_Q21_B",
+        "QBP_Q21_C",
+        "QBP_Q21_D",
+        "QBP_Q21_E",
+        "QBP_Q21_F",
+        "QCN_J01_A",
+        "QCN_J01_B",
+        "QSB_Q16_A",
+        "QSB_Q16_B",
+        "RDE_O11_A",
+        "RDE_O11_B",
+        "RDY_K15_A",
+        "RDY_K15_B",
+        "RDY_K15_C",
+        "RDY_K15_D",
+        "RQI_I01_A",
+        "RQI_I01_B",
+        "RQI_I01_C",
+        "RQI_I01_D",
+        "RRE_O12_A",
+        "RRE_O12_B",
+        "RSP_K23_A",
+        "RSP_K23_B",
+        "RTB_K13_A",
+        "RTB_K13_B",
+        "RTB_K13_C",
+        "RTB_K13_D",
+        "RTB_K13_E",
+        "RTB_K13_F",
+        "RTB_K13_G",
+        "SDR_S31_A",
+        "SDR_S31_B",
+        "SDR_S32_A",
+        "SDR_S32_B",
+        "SLR_S28_A",
+        "SLR_S28_B",
+        "SLR_S28_C",
+        "SLR_S28_D",
+        "SLR_S28_E",
+        "TCU_U10_A",
+        "TCU_U10_B"
+      ],
+      "sub_variant_count": 125,
+      "genuinely_missing_from_v291": [
+        "CCR_I16",
+        "CRM_C01",
+        "CSU_C09",
+        "DEL_O46",
+        "DEO_O45",
+        "DPR_O48",
+        "DRC_O47",
+        "EAC_U07",
+        "EAN_U09",
+        "EAR_U08",
+        "ESR_U02",
+        "ESU_U01",
+        "INR_U06",
+        "INR_U14",
+        "INU_U05",
+        "MFN_ZNN",
+        "OMI_O23",
+        "OML_O21",
+        "OML_O39",
+        "PEX_P07",
+        "PGL_PC6",
+        "PPG_PCG",
+        "PPP_PCB",
+        "PPR_PC1",
+        "QBP_QNN",
+        "REF_I12",
+        "RPA_I08",
+        "RQA_I08",
+        "RRI_I12",
+        "RSP_ZNN",
+        "RTB_KNN",
+        "SIU_S12",
+        "SRM_S01",
+        "SRR_S01",
+        "SSR_U04",
+        "SSU_U03"
+      ],
+      "genuinely_missing_count": 36,
+      "base_with_fhir_subvariants": [
+        "ACK",
+        "ADT_A01",
+        "ADT_A05",
+        "ADT_A06",
+        "ADT_A09",
+        "ADT_A21",
+        "ADT_A39",
+        "ADT_A43",
+        "ADT_A44",
+        "ADT_A50",
+        "ADT_A52",
+        "ADT_A54",
+        "ADT_A61",
+        "MDM_T01",
+        "MDM_T02",
+        "MFK_M01",
+        "ORU_R01",
+        "ORU_R30",
+        "PMU_B01",
+        "PMU_B04",
+        "QBP_Q11",
+        "QBP_Q21",
+        "QCN_J01",
+        "QSB_Q16",
+        "RDE_O11",
+        "RDY_K15",
+        "RQI_I01",
+        "RRE_O12",
+        "RSP_K23",
+        "RTB_K13",
+        "SDR_S31",
+        "SDR_S32",
+        "SLR_S28"
+      ],
+      "genuinely_v291_only": [
+        "MFN_Z",
+        "WRQ_Z01",
+        "WRQ_Z02"
+      ]
+    }
+  },
+  "events": {
+    "artifact_type": "Events",
+    "fhir_count": 356,
+    "v291_count": 79,
+    "matched": 78,
+    "fhir_only_count": 278,
+    "v291_only_count": 1,
+    "fhir_only": [
+      "A18",
+      "A19",
+      "A30",
+      "A34",
+      "A35",
+      "A36",
+      "A39",
+      "A46",
+      "A48",
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C08",
+      "C09",
+      "C10",
+      "C11",
+      "C12",
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E10",
+      "E12",
+      "E13",
+      "E15",
+      "E20",
+      "E21",
+      "E22",
+      "E24",
+      "E30",
+      "E31",
+      "I05",
+      "I06",
+      "I08",
+      "I09",
+      "I10",
+      "I11",
+      "I16",
+      "I17",
+      "I18",
+      "J01",
+      "J02",
+      "K11",
+      "K13",
+      "K15",
+      "K25",
+      "K33",
+      "K34",
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19",
+      "N01",
+      "N02",
+      "O03",
+      "O04",
+      "O05",
+      "O06",
+      "O07",
+      "O08",
+      "O09",
+      "O10",
+      "O11",
+      "O12",
+      "O13",
+      "O14",
+      "O15",
+      "O16",
+      "O17",
+      "O18",
+      "O19",
+      "O20",
+      "O21",
+      "O22",
+      "O23",
+      "O24",
+      "O25",
+      "O26",
+      "O27",
+      "O28",
+      "O29",
+      "O30",
+      "O31",
+      "O32",
+      "O33",
+      "O34",
+      "O35",
+      "O36",
+      "O37",
+      "O38",
+      "O39",
+      "O40",
+      "O41",
+      "O42",
+      "O43",
+      "O44",
+      "O45",
+      "O46",
+      "O47",
+      "O48",
+      "O49",
+      "O50",
+      "O51",
+      "O52",
+      "O53",
+      "O54",
+      "O55",
+      "O56",
+      "O57",
+      "O58",
+      "O59_A",
+      "O59_B",
+      "P04",
+      "P07",
+      "P08",
+      "P09",
+      "PC1",
+      "PC2",
+      "PC3",
+      "PC4",
+      "PC5",
+      "PC6",
+      "PC7",
+      "PC8",
+      "PC9",
+      "PCA",
+      "PCB",
+      "PCC",
+      "PCD",
+      "PCE",
+      "PCF",
+      "PCG",
+      "PCH",
+      "PCJ",
+      "PCK",
+      "PCL",
+      "Q11",
+      "Q15",
+      "Q16",
+      "Q17",
+      "Q25",
+      "Q33",
+      "Q34",
+      "R01",
+      "R02",
+      "R04",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R30",
+      "R31",
+      "R32",
+      "R33",
+      "R40",
+      "R41",
+      "R42",
+      "R43",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "S30",
+      "S31",
+      "S32",
+      "S33",
+      "S34",
+      "S35",
+      "S36",
+      "S37",
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U06",
+      "U07",
+      "U08",
+      "U09",
+      "U10",
+      "U11",
+      "U12",
+      "U13",
+      "U14",
+      "V01",
+      "V02",
+      "V03",
+      "V04",
+      "Z73",
+      "Z74",
+      "Z76",
+      "Z78",
+      "Z80",
+      "Z82",
+      "Z83",
+      "Z84",
+      "Z85",
+      "Z87",
+      "Z88",
+      "Z89",
+      "Z90",
+      "Z92",
+      "Z94",
+      "Z95",
+      "Z98",
+      "Z99",
+      "ZNN_A",
+      "ZNN_B",
+      "ZNN_C",
+      "ZNN_D",
+      "ZNN_E",
+      "ZNN_F"
+    ],
+    "v291_only": [
+      "YYY"
+    ],
+    "matched_keys": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17",
+      "A20",
+      "A21",
+      "A22",
+      "A23",
+      "A24",
+      "A25",
+      "A26",
+      "A27",
+      "A28",
+      "A29",
+      "A31",
+      "A32",
+      "A33",
+      "A37",
+      "A38",
+      "A40",
+      "A41",
+      "A42",
+      "A43",
+      "A44",
+      "A45",
+      "A47",
+      "A49",
+      "A50",
+      "A51",
+      "A52",
+      "A53",
+      "A54",
+      "A55",
+      "A60",
+      "A61",
+      "A62",
+      "I01",
+      "I02",
+      "I03",
+      "I04",
+      "I07",
+      "I19",
+      "I20",
+      "I21",
+      "I22",
+      "K21",
+      "K22",
+      "K23",
+      "K24",
+      "K31",
+      "K32",
+      "P01",
+      "P02",
+      "P03",
+      "P05",
+      "P06",
+      "P10",
+      "P11",
+      "P12",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q31",
+      "Q32"
+    ],
+    "v291_duplicate_keys": {
+      "A01": [
+        "A01_03_1.json",
+        "A01_03_2.json"
+      ],
+      "A02": [
+        "A02_03_3.json",
+        "A02_03_4.json"
+      ],
+      "A03": [
+        "A03_03_5.json",
+        "A03_03_6.json"
+      ],
+      "A04": [
+        "A04_03_7.json",
+        "A04_03_8.json"
+      ],
+      "A05": [
+        "A05_03_10.json",
+        "A05_03_9.json"
+      ],
+      "A06": [
+        "A06_03_11.json",
+        "A06_03_12.json"
+      ],
+      "A07": [
+        "A07_03_13.json",
+        "A07_03_14.json"
+      ],
+      "A08": [
+        "A08_03_15.json",
+        "A08_03_16.json"
+      ],
+      "A09": [
+        "A09_03_17.json",
+        "A09_03_18.json"
+      ],
+      "A10": [
+        "A10_03_19.json",
+        "A10_03_20.json"
+      ],
+      "A11": [
+        "A11_03_21.json",
+        "A11_03_22.json"
+      ],
+      "A12": [
+        "A12_03_23.json",
+        "A12_03_24.json"
+      ],
+      "A13": [
+        "A13_03_25.json",
+        "A13_03_26.json"
+      ],
+      "A14": [
+        "A14_03_27.json",
+        "A14_03_28.json"
+      ],
+      "A15": [
+        "A15_03_29.json",
+        "A15_03_30.json"
+      ],
+      "A16": [
+        "A16_03_31.json",
+        "A16_03_32.json"
+      ],
+      "A17": [
+        "A17_03_33.json",
+        "A17_03_34.json"
+      ],
+      "A20": [
+        "A20_03_35.json",
+        "A20_03_36.json"
+      ],
+      "A21": [
+        "A21_03_37.json",
+        "A21_03_38.json"
+      ],
+      "A22": [
+        "A22_03_39.json",
+        "A22_03_40.json"
+      ],
+      "A23": [
+        "A23_03_41.json",
+        "A23_03_42.json"
+      ],
+      "A24": [
+        "A24_03_43.json",
+        "A24_03_44.json"
+      ],
+      "A25": [
+        "A25_03_45.json",
+        "A25_03_46.json"
+      ],
+      "A26": [
+        "A26_03_47.json",
+        "A26_03_48.json"
+      ],
+      "A27": [
+        "A27_03_49.json",
+        "A27_03_50.json"
+      ],
+      "A28": [
+        "A28_03_51.json",
+        "A28_03_52.json"
+      ],
+      "A29": [
+        "A29_03_53.json",
+        "A29_03_54.json"
+      ],
+      "A31": [
+        "A31_03_55.json",
+        "A31_03_56.json"
+      ],
+      "A32": [
+        "A32_03_57.json",
+        "A32_03_58.json"
+      ],
+      "A33": [
+        "A33_03_59.json",
+        "A33_03_60.json"
+      ],
+      "A37": [
+        "A37_03_61.json",
+        "A37_03_62.json"
+      ],
+      "A38": [
+        "A38_03_63.json",
+        "A38_03_64.json"
+      ],
+      "A40": [
+        "A40_03_65.json",
+        "A40_03_66.json"
+      ],
+      "A41": [
+        "A41_03_67.json",
+        "A41_03_68.json"
+      ],
+      "A42": [
+        "A42_03_69.json",
+        "A42_03_70.json"
+      ],
+      "A43": [
+        "A43_03_71.json",
+        "A43_03_72.json"
+      ],
+      "A44": [
+        "A44_03_73.json",
+        "A44_03_74.json"
+      ],
+      "A45": [
+        "A45_03_75.json",
+        "A45_03_76.json"
+      ],
+      "A47": [
+        "A47_03_77.json",
+        "A47_03_78.json"
+      ],
+      "A49": [
+        "A49_03_79.json",
+        "A49_03_80.json"
+      ],
+      "A50": [
+        "A50_03_81.json",
+        "A50_03_82.json"
+      ],
+      "A51": [
+        "A51_03_83.json",
+        "A51_03_84.json"
+      ],
+      "A52": [
+        "A52_03_85.json",
+        "A52_03_86.json"
+      ],
+      "A53": [
+        "A53_03_87.json",
+        "A53_03_88.json"
+      ],
+      "A54": [
+        "A54_03_89.json",
+        "A54_03_90.json"
+      ],
+      "A55": [
+        "A55_03_91.json",
+        "A55_03_92.json"
+      ],
+      "A60": [
+        "A60_03_101.json",
+        "A60_03_102.json"
+      ],
+      "A61": [
+        "A61_03_103.json",
+        "A61_03_104.json"
+      ],
+      "A62": [
+        "A62_03_105.json",
+        "A62_03_106.json"
+      ],
+      "I01": [
+        "I01_11_127.json",
+        "I01_11_128.json"
+      ],
+      "I02": [
+        "I02_11_129.json",
+        "I02_11_130.json"
+      ],
+      "I03": [
+        "I03_11_131.json",
+        "I03_11_132.json"
+      ],
+      "I04": [
+        "I04_11_133.json",
+        "I04_11_134.json"
+      ],
+      "I07": [
+        "I07_11_135.json",
+        "I07_11_136.json"
+      ],
+      "I19": [
+        "I19_11_139.json",
+        "I19_11_140.json"
+      ],
+      "I22": [
+        "I22_11_141.json",
+        "I22_11_142.json"
+      ],
+      "P01": [
+        "P01_06_111.json",
+        "P01_06_112.json"
+      ],
+      "P02": [
+        "P02_06_113.json",
+        "P02_06_114.json"
+      ],
+      "P03": [
+        "P03_06_115.json",
+        "P03_06_116.json"
+      ],
+      "P05": [
+        "P05_06_117.json",
+        "P05_06_118.json"
+      ],
+      "P06": [
+        "P06_06_119.json",
+        "P06_06_120.json"
+      ],
+      "P10": [
+        "P10_06_121.json",
+        "P10_06_122.json"
+      ],
+      "P11": [
+        "P11_06_123.json",
+        "P11_06_124.json"
+      ],
+      "P12": [
+        "P12_06_125.json",
+        "P12_06_126.json"
+      ]
+    },
+    "v291_event_details": {
+      "A01": [
+        {
+          "file": "A01_03_1.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A01",
+          "name": "ADT^A01^ADT_A01: ADT Message"
+        },
+        {
+          "file": "A01_03_2.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A01^ACK: General Acknowledgment"
+        }
+      ],
+      "A02": [
+        {
+          "file": "A02_03_3.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A02",
+          "name": "ADT^A02^ADT_A02: ADT Message"
+        },
+        {
+          "file": "A02_03_4.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A02^ACK: General Acknowledgment"
+        }
+      ],
+      "A03": [
+        {
+          "file": "A03_03_5.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A03",
+          "name": "ADT^A03^ADT_A03: ADT Message"
+        },
+        {
+          "file": "A03_03_6.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A03^ACK: General Acknowledgment"
+        }
+      ],
+      "A04": [
+        {
+          "file": "A04_03_7.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A01",
+          "name": "ADT^A04^ADT_A01: ADT Message"
+        },
+        {
+          "file": "A04_03_8.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A04^ACK: General Acknowledgment"
+        }
+      ],
+      "A05": [
+        {
+          "file": "A05_03_10.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A05^ACK: General Acknowledgment"
+        },
+        {
+          "file": "A05_03_9.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A05",
+          "name": "ADT^A05^ADT_A05: ADT Message"
+        }
+      ],
+      "A06": [
+        {
+          "file": "A06_03_11.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A06",
+          "name": "ADT^A06^ADT_A06: ADT Message"
+        },
+        {
+          "file": "A06_03_12.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A06^ACK: General Acknowledgment"
+        }
+      ],
+      "A07": [
+        {
+          "file": "A07_03_13.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A06",
+          "name": "ADT^A07^ADT_A06: ADT Message"
+        },
+        {
+          "file": "A07_03_14.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A07^ACK: General Acknowledgment"
+        }
+      ],
+      "A08": [
+        {
+          "file": "A08_03_15.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A01",
+          "name": "ADT^A08^ADT_A01: ADT Message"
+        },
+        {
+          "file": "A08_03_16.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A08^ACK: General Acknowledgment"
+        }
+      ],
+      "A09": [
+        {
+          "file": "A09_03_17.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A09",
+          "name": "ADT^A09^ADT_A09: ADT Message"
+        },
+        {
+          "file": "A09_03_18.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A09^ACK: General Acknowledgment"
+        }
+      ],
+      "A10": [
+        {
+          "file": "A10_03_19.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A09",
+          "name": "ADT^A10^ADT_A09: ADT Message"
+        },
+        {
+          "file": "A10_03_20.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A10^ACK: General Acknowledgment"
+        }
+      ],
+      "A11": [
+        {
+          "file": "A11_03_21.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A09",
+          "name": "ADT^A11^ADT_A09: ADT Message"
+        },
+        {
+          "file": "A11_03_22.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A11^ACK: General Acknowledgment"
+        }
+      ],
+      "A12": [
+        {
+          "file": "A12_03_23.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A12",
+          "name": "ADT^A12^ADT_A12: ADT Message"
+        },
+        {
+          "file": "A12_03_24.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A12^ACK: General Acknowledgment"
+        }
+      ],
+      "A13": [
+        {
+          "file": "A13_03_25.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A01",
+          "name": "ADT^A13^ADT_A01: ADT Message"
+        },
+        {
+          "file": "A13_03_26.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A13^ACK: General Acknowledgment"
+        }
+      ],
+      "A14": [
+        {
+          "file": "A14_03_27.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A05",
+          "name": "ADT^A14^ADT_A05: ADT Message"
+        },
+        {
+          "file": "A14_03_28.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A14^ACK: General Acknowledgment"
+        }
+      ],
+      "A15": [
+        {
+          "file": "A15_03_29.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A15",
+          "name": "ADT^A15^ADT_A15: ADT Message"
+        },
+        {
+          "file": "A15_03_30.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A15^ACK: General Acknowledgment"
+        }
+      ],
+      "A16": [
+        {
+          "file": "A16_03_31.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A16",
+          "name": "ADT^A16^ADT_A16: ADT Message"
+        },
+        {
+          "file": "A16_03_32.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A16^ACK: General Acknowledgment"
+        }
+      ],
+      "A17": [
+        {
+          "file": "A17_03_33.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A17",
+          "name": "ADT^A17^ADT_A17: ADT Message"
+        },
+        {
+          "file": "A17_03_34.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A17^ACK: General Acknowledgment"
+        }
+      ],
+      "A20": [
+        {
+          "file": "A20_03_35.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A20",
+          "name": "ADT^A20^ADT_A20: ADT Message"
+        },
+        {
+          "file": "A20_03_36.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A20^ACK: General Acknowledgment"
+        }
+      ],
+      "A21": [
+        {
+          "file": "A21_03_37.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A21^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A21_03_38.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A21^ACK: General Acknowledgment"
+        }
+      ],
+      "A22": [
+        {
+          "file": "A22_03_39.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A22^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A22_03_40.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A22^ACK: General Acknowledgment"
+        }
+      ],
+      "A23": [
+        {
+          "file": "A23_03_41.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A23^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A23_03_42.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A23^ACK: General Acknowledgment"
+        }
+      ],
+      "A24": [
+        {
+          "file": "A24_03_43.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A24",
+          "name": "ADT^A24^ADT_A24: ADT Message"
+        },
+        {
+          "file": "A24_03_44.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A24^ACK: General Acknowledgment"
+        }
+      ],
+      "A25": [
+        {
+          "file": "A25_03_45.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A25^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A25_03_46.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A25^ACK: General Acknowledgment"
+        }
+      ],
+      "A26": [
+        {
+          "file": "A26_03_47.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A26^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A26_03_48.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A26^ACK: General Acknowledgment"
+        }
+      ],
+      "A27": [
+        {
+          "file": "A27_03_49.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A27^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A27_03_50.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A27^ACK: General Acknowledgment"
+        }
+      ],
+      "A28": [
+        {
+          "file": "A28_03_51.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A05",
+          "name": "ADT^A28^ADT_A05: ADT Message"
+        },
+        {
+          "file": "A28_03_52.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A28^ACK: General Acknowledgment"
+        }
+      ],
+      "A29": [
+        {
+          "file": "A29_03_53.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A29^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A29_03_54.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A29^ACK: General Acknowledgment"
+        }
+      ],
+      "A31": [
+        {
+          "file": "A31_03_55.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A05",
+          "name": "ADT^A31^ADT_A05: ADT Message"
+        },
+        {
+          "file": "A31_03_56.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A31^ACK: General Acknowledgment"
+        }
+      ],
+      "A32": [
+        {
+          "file": "A32_03_57.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A32^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A32_03_58.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A32^ACK: General Acknowledgment"
+        }
+      ],
+      "A33": [
+        {
+          "file": "A33_03_59.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A21",
+          "name": "ADT^A33^ADT_A21: ADT Message"
+        },
+        {
+          "file": "A33_03_60.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A33^ACK: General Acknowledgment"
+        }
+      ],
+      "A37": [
+        {
+          "file": "A37_03_61.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A37",
+          "name": "ADT^A37^ADT_A37: ADT Message"
+        },
+        {
+          "file": "A37_03_62.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A37^ACK: General Acknowledgment"
+        }
+      ],
+      "A38": [
+        {
+          "file": "A38_03_63.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A38",
+          "name": "ADT^A38^ADT_A38: ADT Message"
+        },
+        {
+          "file": "A38_03_64.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A38^ACK: General Acknowledgment"
+        }
+      ],
+      "A40": [
+        {
+          "file": "A40_03_65.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A39",
+          "name": "ADT^A40^ADT_A39: ADT Message"
+        },
+        {
+          "file": "A40_03_66.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A40^ACK: General Acknowledgment"
+        }
+      ],
+      "A41": [
+        {
+          "file": "A41_03_67.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A39",
+          "name": "ADT^A41^ADT_A39: ADT Message"
+        },
+        {
+          "file": "A41_03_68.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A41^ACK: General Acknowledgment"
+        }
+      ],
+      "A42": [
+        {
+          "file": "A42_03_69.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A39",
+          "name": "ADT^A42^ADT_A39: ADT Message"
+        },
+        {
+          "file": "A42_03_70.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A42^ACK: General Acknowledgment"
+        }
+      ],
+      "A43": [
+        {
+          "file": "A43_03_71.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A43",
+          "name": "ADT^A43^ADT_A43: ADT Message"
+        },
+        {
+          "file": "A43_03_72.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A43^ACK: General Acknowledgment"
+        }
+      ],
+      "A44": [
+        {
+          "file": "A44_03_73.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A44",
+          "name": "ADT^A44^ADT_A44: ADT Message"
+        },
+        {
+          "file": "A44_03_74.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A44^ACK: General Acknowledgment"
+        }
+      ],
+      "A45": [
+        {
+          "file": "A45_03_75.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A45",
+          "name": "ADT^A45^ADT_A45: ADT Message"
+        },
+        {
+          "file": "A45_03_76.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A45^ACK: General Acknowledgment"
+        }
+      ],
+      "A47": [
+        {
+          "file": "A47_03_77.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A44",
+          "name": "ADT^A47^ADT_A44: ADT Message"
+        },
+        {
+          "file": "A47_03_78.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A47^ACK: General Acknowledgment"
+        }
+      ],
+      "A49": [
+        {
+          "file": "A49_03_79.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A43",
+          "name": "ADT^A49^ADT_A43: ADT Message"
+        },
+        {
+          "file": "A49_03_80.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A49^ACK: General Acknowledgment"
+        }
+      ],
+      "A50": [
+        {
+          "file": "A50_03_81.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A50",
+          "name": "ADT^A50^ADT_A50: ADT Message"
+        },
+        {
+          "file": "A50_03_82.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A50^ACK: General Acknowledgment"
+        }
+      ],
+      "A51": [
+        {
+          "file": "A51_03_83.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A50",
+          "name": "ADT^A51^ADT_A50: ADT Message"
+        },
+        {
+          "file": "A51_03_84.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A51^ACK: General Acknowledgment"
+        }
+      ],
+      "A52": [
+        {
+          "file": "A52_03_85.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A52",
+          "name": "ADT^A52^ADT_A52: ADT Message"
+        },
+        {
+          "file": "A52_03_86.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A52^ACK: General Acknowledgment"
+        }
+      ],
+      "A53": [
+        {
+          "file": "A53_03_87.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A52",
+          "name": "ADT^A53^ADT_A52: ADT Message"
+        },
+        {
+          "file": "A53_03_88.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A53^ACK: General Acknowledgment"
+        }
+      ],
+      "A54": [
+        {
+          "file": "A54_03_89.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A54",
+          "name": "ADT^A54^ADT_A54: ADT Message"
+        },
+        {
+          "file": "A54_03_90.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A54^ACK: General Acknowledgment"
+        }
+      ],
+      "A55": [
+        {
+          "file": "A55_03_91.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A54",
+          "name": "ADT^A55^ADT_A54: ADT Message"
+        },
+        {
+          "file": "A55_03_92.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A55^ACK: General Acknowledgment"
+        }
+      ],
+      "A60": [
+        {
+          "file": "A60_03_101.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A60",
+          "name": "ADT^A60^ADT_A60: ADT Message"
+        },
+        {
+          "file": "A60_03_102.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A60^ACK: General Acknowledgment"
+        }
+      ],
+      "A61": [
+        {
+          "file": "A61_03_103.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A61",
+          "name": "ADT^A61^ADT_A61: ADT Message"
+        },
+        {
+          "file": "A61_03_104.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A61^ACK: General Acknowledgment"
+        }
+      ],
+      "A62": [
+        {
+          "file": "A62_03_105.json",
+          "messageType": "ADT",
+          "structureId": "ADT_A61",
+          "name": "ADT^A62^ADT_A61: ADT Message"
+        },
+        {
+          "file": "A62_03_106.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^A62^ACK: General Acknowledgment"
+        }
+      ],
+      "I01": [
+        {
+          "file": "I01_11_127.json",
+          "messageType": "RQI",
+          "structureId": "RQI_I01",
+          "name": "RQI^I01^RQI_I01: Request Patient Information"
+        },
+        {
+          "file": "I01_11_128.json",
+          "messageType": "RPI",
+          "structureId": "RPI_I01",
+          "name": "RPI^I01^RPI_I01: Return Patient Information"
+        }
+      ],
+      "I02": [
+        {
+          "file": "I02_11_129.json",
+          "messageType": "RQI",
+          "structureId": "RQI_I01",
+          "name": "RQI^I02^RQI_I01: Request Patient Information"
+        },
+        {
+          "file": "I02_11_130.json",
+          "messageType": "RPL",
+          "structureId": "RPL_I02",
+          "name": "RPL^I02^RPL_I02: Return Patient Display List"
+        }
+      ],
+      "I03": [
+        {
+          "file": "I03_11_131.json",
+          "messageType": "RQI",
+          "structureId": "RQI_I01",
+          "name": "RQI^I03^RQI_I01: Request Patient Information"
+        },
+        {
+          "file": "I03_11_132.json",
+          "messageType": "RPR",
+          "structureId": "RPR_I03",
+          "name": "RPR^I03^RPR_I03: Return Patient List"
+        }
+      ],
+      "I04": [
+        {
+          "file": "I04_11_133.json",
+          "messageType": "RQP",
+          "structureId": "RQP_I04",
+          "name": "RQP^I04^RQP_I04: Request Patient Demographics"
+        },
+        {
+          "file": "I04_11_134.json",
+          "messageType": "RPI",
+          "structureId": "RPI_I04",
+          "name": "RPI^I04^RPI_I04: Return Patient Information"
+        }
+      ],
+      "I07": [
+        {
+          "file": "I07_11_135.json",
+          "messageType": "PIN",
+          "structureId": "RQI_I01",
+          "name": "PIN^I07^RQI_I01: Patient Insurance Information"
+        },
+        {
+          "file": "I07_11_136.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^I07^ACK: General Acknowledgment"
+        }
+      ],
+      "I19": [
+        {
+          "file": "I19_11_139.json",
+          "messageType": "CCQ",
+          "structureId": "CCQ_I19",
+          "name": "CCQ^I19^CCQ_I19: Collaborative Care Referral"
+        },
+        {
+          "file": "I19_11_140.json",
+          "messageType": "CQU",
+          "structureId": "CQU_I19",
+          "name": "CQU^I19^CQU_I19: Collaborative Care Referral"
+        }
+      ],
+      "I20": [
+        {
+          "file": "I20_11_138.json",
+          "messageType": "CCU",
+          "structureId": "CCU_I20",
+          "name": "CCU^I20^CCU_I20: Collaborative Care Referral"
+        }
+      ],
+      "I21": [
+        {
+          "file": "I21_11_137.json",
+          "messageType": "CCM",
+          "structureId": "CCM_I21",
+          "name": "CCM^I21^CCM_I21: Collaborative Care Message"
+        }
+      ],
+      "I22": [
+        {
+          "file": "I22_11_141.json",
+          "messageType": "CCF",
+          "structureId": "CCF_I22",
+          "name": "CCF^I22^CCF_I22: Collaborative Care Fetch"
+        },
+        {
+          "file": "I22_11_142.json",
+          "messageType": "CCI",
+          "structureId": "CCI_I22",
+          "name": "CCI^I22^CCI_I22: Collaborative Care Information"
+        }
+      ],
+      "K21": [
+        {
+          "file": "K21_03_94.json",
+          "messageType": "RSP",
+          "structureId": "RSP_K21",
+          "name": "RSP^K21^RSP_K21: Segment Pattern Response"
+        }
+      ],
+      "K22": [
+        {
+          "file": "K22_03_96.json",
+          "messageType": "RSP",
+          "structureId": "RSP_K22",
+          "name": "RSP^K22^RSP_K22: Segment Pattern Response"
+        }
+      ],
+      "K23": [
+        {
+          "file": "K23_03_98.json",
+          "messageType": "RSP",
+          "structureId": "RSP_K23",
+          "name": "RSP^K23^RSP_K23: Segment Pattern Response"
+        }
+      ],
+      "K24": [
+        {
+          "file": "K24_03_100.json",
+          "messageType": "RSP",
+          "structureId": "RSP_K23",
+          "name": "RSP^K24^RSP_K23: Segment Pattern Response"
+        }
+      ],
+      "K31": [
+        {
+          "file": "K31_04A_110.json",
+          "messageType": "RSP",
+          "structureId": "RSP_K31",
+          "name": "RSP^K31^RSP_K31: Response Grammar:  Pharmacy Dispense Message"
+        }
+      ],
+      "K32": [
+        {
+          "file": "K32_03_108.json",
+          "messageType": "RSP",
+          "structureId": "RSP_K32",
+          "name": "RSP^K32^RSP_K32: Segment Pattern Response"
+        }
+      ],
+      "P01": [
+        {
+          "file": "P01_06_111.json",
+          "messageType": "BAR",
+          "structureId": "BAR_P01",
+          "name": "BAR^P01^BAR_P01: Add Billing Account"
+        },
+        {
+          "file": "P01_06_112.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P01^ACK: General Acknowledgment"
+        }
+      ],
+      "P02": [
+        {
+          "file": "P02_06_113.json",
+          "messageType": "BAR",
+          "structureId": "BAR_P02",
+          "name": "BAR^P02^BAR_P02: Purge Billing Account"
+        },
+        {
+          "file": "P02_06_114.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P02^ACK: General Acknowledgment"
+        }
+      ],
+      "P03": [
+        {
+          "file": "P03_06_115.json",
+          "messageType": "DFT",
+          "structureId": "DFT_P03",
+          "name": "DFT^P03^DFT_P03: Detail Financial Transaction"
+        },
+        {
+          "file": "P03_06_116.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P03^ACK: General Acknowledgment"
+        }
+      ],
+      "P05": [
+        {
+          "file": "P05_06_117.json",
+          "messageType": "BAR",
+          "structureId": "BAR_P05",
+          "name": "BAR^P05^BAR_P05: Update Billing Account"
+        },
+        {
+          "file": "P05_06_118.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P05^ACK: General Acknowledgment"
+        }
+      ],
+      "P06": [
+        {
+          "file": "P06_06_119.json",
+          "messageType": "BAR",
+          "structureId": "BAR_P06",
+          "name": "BAR^P06^BAR_P06: End Billing Account"
+        },
+        {
+          "file": "P06_06_120.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P06^ACK: General Acknowledgment"
+        }
+      ],
+      "P10": [
+        {
+          "file": "P10_06_121.json",
+          "messageType": "BAR",
+          "structureId": "BAR_P10",
+          "name": "BAR^P10^BAR_P10: Transmit Ambulatory Payment Classification (APC) groups"
+        },
+        {
+          "file": "P10_06_122.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P10^ACK: General Acknowledgment"
+        }
+      ],
+      "P11": [
+        {
+          "file": "P11_06_123.json",
+          "messageType": "DFT",
+          "structureId": "DFT_P11",
+          "name": "DFT^P11^DFT_P11: Detail Financial Transaction - Expanded"
+        },
+        {
+          "file": "P11_06_124.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P11^ACK: General Acknowledgment"
+        }
+      ],
+      "P12": [
+        {
+          "file": "P12_06_125.json",
+          "messageType": "BAR",
+          "structureId": "BAR_P12",
+          "name": "BAR^P12^BAR_P12: Update Diagnosis/Procedures"
+        },
+        {
+          "file": "P12_06_126.json",
+          "messageType": "ACK",
+          "structureId": "ACK",
+          "name": "ACK^P12^ACK: General Acknowledgment"
+        }
+      ],
+      "Q21": [
+        {
+          "file": "Q21_03_93.json",
+          "messageType": "QBP",
+          "structureId": "QBP_Q21",
+          "name": "QBP^Q21^QBP_Q21: Query By Parameter"
+        }
+      ],
+      "Q22": [
+        {
+          "file": "Q22_03_95.json",
+          "messageType": "QBP",
+          "structureId": "QBP_Q21",
+          "name": "QBP^Q22^QBP_Q21: Query By Parameter"
+        }
+      ],
+      "Q23": [
+        {
+          "file": "Q23_03_97.json",
+          "messageType": "QBP",
+          "structureId": "QBP_Q21",
+          "name": "QBP^Q23^QBP_Q21: Query By Parameter"
+        }
+      ],
+      "Q24": [
+        {
+          "file": "Q24_03_99.json",
+          "messageType": "QBP",
+          "structureId": "QBP_Q21",
+          "name": "QBP^Q24^QBP_Q21: Query By Parameter"
+        }
+      ],
+      "Q31": [
+        {
+          "file": "Q31_04A_109.json",
+          "messageType": "QBP",
+          "structureId": "QBP_Q11",
+          "name": "QBP^Q31^QBP_Q11: Query Grammar:  QBP Message"
+        }
+      ],
+      "Q32": [
+        {
+          "file": "Q32_03_107.json",
+          "messageType": "QBP",
+          "structureId": "QBP_Q21",
+          "name": "QBP^Q32^QBP_Q21: Query By Parameter"
+        }
+      ],
+      "YYY": [
+        {
+          "file": "YYY_02_0.json",
+          "messageType": "XXX",
+          "structureId": "ZZZ/XXX",
+          "name": "Acknowledgment Choreography"
+        }
+      ]
+    },
+    "fhir_only_by_domain": {
+      "CH03-ADT": {
+        "count": 9,
+        "events": [
+          "A18",
+          "A19",
+          "A30",
+          "A34",
+          "A35",
+          "A36",
+          "A39",
+          "A46",
+          "A48"
+        ]
+      },
+      "CH04-OrderEntry": {
+        "count": 58,
+        "events": [
+          "O03",
+          "O04",
+          "O05",
+          "O06",
+          "O07",
+          "O08",
+          "O09",
+          "O10",
+          "O11",
+          "O12",
+          "O13",
+          "O14",
+          "O15",
+          "O16",
+          "O17",
+          "O18",
+          "O19",
+          "O20",
+          "O21",
+          "O22",
+          "O23",
+          "O24",
+          "O25",
+          "O26",
+          "O27",
+          "O28",
+          "O29",
+          "O30",
+          "O31",
+          "O32",
+          "O33",
+          "O34",
+          "O35",
+          "O36",
+          "O37",
+          "O38",
+          "O39",
+          "O40",
+          "O41",
+          "O42",
+          "O43",
+          "O44",
+          "O45",
+          "O46",
+          "O47",
+          "O48",
+          "O49",
+          "O50",
+          "O51",
+          "O52",
+          "O53",
+          "O54",
+          "O55",
+          "O56",
+          "O57",
+          "O58",
+          "O59_A",
+          "O59_B"
+        ]
+      },
+      "CH04-Pharmacy": {
+        "count": 4,
+        "events": [
+          "V01",
+          "V02",
+          "V03",
+          "V04"
+        ]
+      },
+      "CH05-Query": {
+        "count": 39,
+        "events": [
+          "J01",
+          "J02",
+          "K11",
+          "K13",
+          "K15",
+          "K25",
+          "K33",
+          "K34",
+          "Q11",
+          "Q15",
+          "Q16",
+          "Q17",
+          "Q25",
+          "Q33",
+          "Q34",
+          "Z73",
+          "Z74",
+          "Z76",
+          "Z78",
+          "Z80",
+          "Z82",
+          "Z83",
+          "Z84",
+          "Z85",
+          "Z87",
+          "Z88",
+          "Z89",
+          "Z90",
+          "Z92",
+          "Z94",
+          "Z95",
+          "Z98",
+          "Z99",
+          "ZNN_A",
+          "ZNN_B",
+          "ZNN_C",
+          "ZNN_D",
+          "ZNN_E",
+          "ZNN_F"
+        ]
+      },
+      "CH06-Financial": {
+        "count": 4,
+        "events": [
+          "P04",
+          "P07",
+          "P08",
+          "P09"
+        ]
+      },
+      "CH07-Observation": {
+        "count": 29,
+        "events": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "C11",
+          "C12",
+          "R01",
+          "R02",
+          "R04",
+          "R21",
+          "R22",
+          "R23",
+          "R24",
+          "R25",
+          "R26",
+          "R30",
+          "R31",
+          "R32",
+          "R33",
+          "R40",
+          "R41",
+          "R42",
+          "R43"
+        ]
+      },
+      "CH08-MasterFiles": {
+        "count": 19,
+        "events": [
+          "M01",
+          "M02",
+          "M03",
+          "M04",
+          "M05",
+          "M06",
+          "M07",
+          "M08",
+          "M09",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19"
+        ]
+      },
+      "CH09-DocMgmt": {
+        "count": 12,
+        "events": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12"
+        ]
+      },
+      "CH10-Scheduling": {
+        "count": 37,
+        "events": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06",
+          "S07",
+          "S08",
+          "S09",
+          "S10",
+          "S11",
+          "S12",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S17",
+          "S18",
+          "S19",
+          "S20",
+          "S21",
+          "S22",
+          "S23",
+          "S24",
+          "S25",
+          "S26",
+          "S27",
+          "S28",
+          "S29",
+          "S30",
+          "S31",
+          "S32",
+          "S33",
+          "S34",
+          "S35",
+          "S36",
+          "S37"
+        ]
+      },
+      "CH11-Referral": {
+        "count": 9,
+        "events": [
+          "I05",
+          "I06",
+          "I08",
+          "I09",
+          "I10",
+          "I11",
+          "I16",
+          "I17",
+          "I18"
+        ]
+      },
+      "CH12-PatientCare": {
+        "count": 20,
+        "events": [
+          "PC1",
+          "PC2",
+          "PC3",
+          "PC4",
+          "PC5",
+          "PC6",
+          "PC7",
+          "PC8",
+          "PC9",
+          "PCA",
+          "PCB",
+          "PCC",
+          "PCD",
+          "PCE",
+          "PCF",
+          "PCG",
+          "PCH",
+          "PCJ",
+          "PCK",
+          "PCL"
+        ]
+      },
+      "CH13-Automation": {
+        "count": 28,
+        "events": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E10",
+          "E12",
+          "E13",
+          "E15",
+          "E20",
+          "E21",
+          "E22",
+          "E24",
+          "E30",
+          "E31",
+          "U01",
+          "U02",
+          "U03",
+          "U04",
+          "U05",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U10",
+          "U11",
+          "U12",
+          "U13",
+          "U14"
+        ]
+      },
+      "CH14-AppMgmt": {
+        "count": 2,
+        "events": [
+          "N01",
+          "N02"
+        ]
+      },
+      "CH15-Personnel": {
+        "count": 8,
+        "events": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08"
+        ]
+      }
+    }
+  },
+  "messages": {
+    "artifact_type": "Messages",
+    "fhir_count": 696,
+    "v291_count": 0,
+    "note": "Messages not extracted from V291 Word docs"
+  },
+  "vocabulary": {
+    "artifact_type": "Vocabulary / Value Sets",
+    "fhir_count": "N/A (separate comparison)",
+    "v291_count": 797,
+    "note": "Vocabulary comparison handled separately \u2014 see vocabulary-comparison-report"
+  },
+  "summary": {
+    "total_fhir_artifacts": 1745,
+    "total_v291_artifacts": 504,
+    "comparable_types": [
+      "segments",
+      "complex_data_types",
+      "message_structures",
+      "events"
+    ],
+    "fhir_only_types": [
+      "primitive_data_types",
+      "messages"
+    ],
+    "v291_only_types": [
+      "vocabulary",
+      "query_parameters"
+    ]
+  }
+}
