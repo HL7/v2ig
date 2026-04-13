@@ -1056,3 +1056,57 @@ All pushed to `origin/feature/006-sd-injection`.
 - **JS inlining**: Both `v2-classic-tabs.js` and `v2-table-filter.js` are inlined in HTML fragments. If auto-ig-builder trust policy changes, reverse per ADR-0004.
 - **Element ID format**: `{SEG}.{seq}-{camelCase}` (e.g., `OBX.1-setId`). 64-char max on portion after the dot. Only OM1.56 needed manual shortening.
 - **User indicated** that some files were externally modified (CSS reverted to simpler version, test assertions reverted, inject script reverted). These were noted as intentional. Next session should verify the committed state matches expectations.
+
+---
+
+## Session Handoff - 2026-04-13
+
+### Completed This Session
+
+1. **Segment field fidelity audit**: Built `tooling/scripts/compare_segments.py` comparing all 192 FHIR segment JSON files against 175 V2.9.1 extractions across 9 dimensions (cardinality, data type, optionality, item#, field name, length, conformance length, vocabulary). Produces JSON + navigable HTML + Markdown reports with provenance, severity badges, and sidebar navigation.
+
+2. **Fixed 1,109 data quality issues** across 145 segment JSON files using `tooling/scripts/fix_segment_fields.py`:
+   - 494 active fields with `max: 0` → fixed to `max: "*"` (or specific repeat count)
+   - 36 B fields → restored original cardinality, added `standards-status: deprecated`
+   - 104 W fields → set `max: 0`, added `standards-status: withdrawn`
+   - 6 W fields with data types elided per ADR-0005
+   - 320 conformance length `=`/`#` flag corrections
+   - 39 length corrections, ~23 min cardinality corrections
+
+3. **ADR-0005**: Documented decision to elide data types from 6 withdrawn fields (5 XTN phone + 1 SI) for uniform W field treatment. May be revisited if historical types are recovered.
+
+4. **W vs B rendering distinction**: W fields get strikethrough (`v2-field-withdrawn`), B fields get italic/muted (`v2-field-deprecated`, no strikethrough). CSS and `generate_segment_pages.py` updated.
+
+5. **Seq# links**: HL7 Attribute Table Seq# column now links to Detailed Descriptions tab anchors.
+
+6. **V291 extraction gap identified**: BPX, BTX, BUI segments missing because CH04 uses multi-column tables (18/13 cols), not the 9-col format the extraction script expects.
+
+7. **Test suite**: 68 comparison tests + 45 segment page tests, all passing.
+
+### Current State
+- Branch: `dev/framework` (6 prior commits ahead of origin + new uncommitted changes)
+- Tests: 113 passing
+- Post-fix comparison: 12 remaining discrepancies (all expected/intentional)
+- All changes uncommitted
+
+### Next Steps
+1. **Commit and push** all changes from this session
+2. **Comprehensive structural analysis**: Compare FHIR artifact counts vs V291 extraction across ALL artifact types (segments, data types, messages, message structures, events, data elements). Generate gap lists.
+3. **Audit V291 extraction script**: Fix systematic blind spots (multi-column tables, inconsistent formatting). Word doc formatting is NOT consistent — need multiple heuristics beyond column count.
+4. **Run build** to verify fixes render correctly (especially W strikethrough vs B deprecated styling)
+
+### Open Questions / Blockers
+- V291 extraction handles only 9-column segment tables. Multi-column comparison tables (18, 13 cols) in CH04 are silently skipped. Other chapters may have similar issues.
+- Some V291 source data has malformed length/confLength values (quirks in the Word doc, not extraction bugs)
+- `standards-status` extension URL: `http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status`
+
+### Key Files Created This Session
+| File | Purpose |
+|------|---------|
+| `tooling/scripts/compare_segments.py` | Segment field comparison engine |
+| `tooling/scripts/fix_segment_fields.py` | Applies FHIR JSON corrections from V291 data |
+| `test/test_compare_segments.py` | 68 tests for comparison logic |
+| `test/fixtures/segments/OBX-v291.json` | V291 format test fixture |
+| `docs/adr/0005-withdrawn-field-data-type-elision.md` | W field data type decision |
+| `v291-extracted/segment-comparison-report.html` | Navigable HTML comparison report |
+| `v291-extracted/segment-comparison-report.json` | Machine-readable comparison data |
