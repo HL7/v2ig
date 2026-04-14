@@ -3,80 +3,88 @@
 > This file is overwritten each session. For stable project knowledge, see MEMORY.md (auto-loaded).
 > For full project history, see JOURNAL.md.
 
-## Last Session: 2026-04-13
+## Last Session: 2026-04-14
 
-## ACTIVE: Segment field fidelity audit and fixes, V291 structural comparison planning
+## ACTIVE: Comprehensive structural comparison, extraction fixes, data quality corrections, V2 mgmt review report
 
 ### What Was Done This Session
 
-1. **Segment field comparison script** (`tooling/scripts/compare_segments.py`) — compares all 192 FHIR segment JSON files against 175 V2.9.1 extracted segments across 9 dimensions (cardinality, data type, optionality, item#, field name, length, conf length, vocabulary). Produces JSON + navigable HTML + Markdown reports.
+1. **Committed outstanding changes from prior session** (4 commits):
+   - Segment comparison tooling + fix script + ADR-0005
+   - 1,109 segment field data quality fixes across 145 files
+   - W/B field rendering + seq# links on segment pages
+   - Session handoff update
 
-2. **Found and fixed 1,109 data quality issues** across 145 segment JSON files:
-   - 494 active fields with `max: 0` that should repeat → fixed to `max: "*"`
-   - 36 B (backward compatible) fields → restored original cardinality, added `standards-status: deprecated` extension
-   - 104 W (withdrawn) fields → set `max: 0`, added `standards-status: withdrawn` extension
-   - 6 W fields with data types elided (5 XTN phone + 1 SI) per ADR-0005
-   - 320 conformance length `=`/`#` flag corrections
-   - 39 length min/max corrections
-   - ~23 min cardinality corrections
+2. **Comprehensive structural inventory** (`tooling/scripts/structural_inventory.py`):
+   - Compared all artifact types: segments, complex data types, message structures, events
+   - Produced JSON + Markdown gap analysis reports
 
-3. **ADR-0005** — Documented decision to elide data types from W fields for uniform treatment
+3. **V291 extraction fixes** (`tooling/scripts/extract_v291.py`):
+   - Multi-column segment tables (18/13 cols) → deduplicate to canonical 9 columns (fixes BPX, BTX, BUI)
+   - Event extraction regex broadened: handles hyphens, commas, "varies", case-insensitive
+   - Multi-event caption expansion: `PGL^PC6-PC8^PGL_PC6` → events PC6, PC7, PC8
+   - Events derived from message structure captions for chapters without ack tables
+   - Message structure caption regex handles "varies" → UNKNOWN structures resolved (26→1)
+   - Ack choreography: accepts 5-column tables, handles "Acknowledgement" British spelling
+   - CH13 (Clinical Lab Automation) Word doc added and processed
 
-4. **W vs B rendering distinction** — Updated `generate_segment_pages.py`: W fields get strikethrough (`v2-field-withdrawn`), B fields get italic/muted (`v2-field-deprecated`). CSS updated.
+4. **Data type component comparison** (`tooling/scripts/compare_data_types.py`):
+   - 7-dimension comparison of 71 complex data types
+   - Found 95 discrepancies, fixed 81 (71 conf_length flags + 10 bare `=` with extension change)
 
-5. **Seq# links** — Attribute table Seq# column now links to Detailed Descriptions tab anchors
+5. **Conformance-length extension made `length` optional** (0..1):
+   - `input/resources/extensions/conformance_length_extension.json` — length slice min changed from 1 to 0
+   - Allows expressing "never truncate, no specific conformance length" (bare `=` from V291)
+   - Applied noTruncate-only extensions to CP.3/.4, ERL.1-.6, MO.1, MOP.2
 
-6. **Fix script** (`tooling/scripts/fix_segment_fields.py`) — applies all FHIR JSON corrections from V291 comparison data
+6. **HTML reports generated**:
+   - Event gap report: `v291-extracted/event-gap-report.html` (44 FHIR-only + 12 V291-only, with chapter/clause)
+   - V2 mgmt review report: `v291-extracted/v2mgmt-review-report.md` + `.html` (6 sections with questions for V2 Management Group)
+   - Renderer: `tooling/scripts/render_review_report.py` (Markdown→HTML with sidebar TOC)
 
-7. **Test suite** — 68 tests for comparison, 45 for segment pages (113 total, all passing)
-
-8. **Identified V291 extraction gaps** — BPX, BTX, BUI segments missing because CH04 uses multi-column (18/13 col) tables, not the 9-col format the extraction script expects
+7. **Event gap categorization** (44 FHIR-only events):
+   - 30 retained/withdrawn (no extractable data, need older V2 standard docs)
+   - 8 FHIR sub-variants (O59_A/B, ZNN_A-F)
+   - 4 not in V291 docs (E30, E31, Z85, Z95)
+   - 2 user-defined Z events (needs V2 mgmt review)
 
 ### Current State
-- Branch: `dev/framework` (6 commits ahead of origin, not pushed)
-- All changes uncommitted (145 modified JSON files, new scripts, ADR, CSS)
-- Tests: 113 passing (68 comparison + 45 segment pages)
-- Post-fix comparison: 12 remaining discrepancies (all expected — 6 elided W types, 3 variable-length fields, 3 source data quirks)
+- Branch: `dev/framework` (20 commits ahead of origin, not pushed)
+- All changes committed
+- Tests: not run this session (comparison scripts are tested, extraction script is not)
+- Two untracked .tiff files (`input/images/merge.tiff`, `input/images/pharmacy_transaction_flow.tiff`) — unrelated
 
-### Next Session Priority: COMPREHENSIVE STRUCTURAL ANALYSIS
+### Coverage Summary
+| Artifact | FHIR | V291 | Matched | Coverage |
+|----------|------|------|---------|----------|
+| Segments | 192 | 191 | 190 | 99% |
+| Complex Data Types | 71 | 71 | 71 | 100% |
+| Events | 356 | 324 | 312 | 88% |
+| Message Structures | 418 | 216 | 178 | 43% (rest are ACK variants + sub-variants) |
+| Primitive Data Types | 12 | — | — | FHIR only |
+| Messages | 696 | — | — | FHIR only |
 
-**This is the critical next step.** The user wants a complete structural comparison between what exists as FHIR resources and what was extracted from V2.9.1 Word documents. This covers ALL artifact types, not just segments.
+### Remaining Data Quality Issues
+- **Data types**: 14 discrepancies (12 cosmetic name diffs, 1 MSG.3 extra length, 1 PPN.8 withdrawn type)
+- **Segments**: 12 remaining from prior session (6 elided W types, 3 variable-length, 3 source quirks)
 
-#### Scope of comparison needed:
-
-| Artifact Type | FHIR Location | V291 Location | Expected Counts |
-|---------------|---------------|---------------|-----------------|
-| Segments | `input/sourceOfTruth/segment/segments/` | `v291-extracted/segments/` | 192 vs 175 |
-| Complex Data Types | `input/sourceOfTruth/data-type/complex/` | `v291-extracted/data-types/` | ~71 |
-| Primitive Data Types | `input/sourceOfTruth/data-type/primitive/` | (may not be extracted) | 12 |
-| Messages | `input/sourceOfTruth/message/messages/` | (check if extracted) | ~696 |
-| Message Structures | `input/sourceOfTruth/message-structure/message_structures/` | `v291-extracted/message-structures/` | ~418 vs ~389 |
-| Events | `input/sourceOfTruth/event/events/` | `v291-extracted/events/` | ~356 vs ~143 |
-| Data Elements | `input/sourceOfTruth/data-element/` | (check if extracted) | unknown |
-
-#### Key concerns:
-1. **Missing segments**: BPX, BTX, BUI not extracted from CH04 due to multi-column tables (18/13 cols instead of 9). Other chapters may have similar issues.
-2. **Word doc formatting is inconsistent** — cannot rely solely on column count or heading styles to identify artifact tables. Must use string parsing, header matching, and multiple heuristics.
-3. **Need lists of what's missing** in both directions (FHIR has but V291 doesn't, and vice versa)
-4. **Field-level comparison** for data type components (similar to segment fields)
-5. **Message structure comparison** already partially done (see `v291-extracted/message-structure-discrepancies.md`)
-
-#### How to approach:
-1. Start fresh context (this session is near 400K tokens)
-2. Read this handoff + MEMORY.md + JOURNAL.md
-3. Build a comprehensive inventory script that counts artifacts in both FHIR and V291
-4. Generate a gap analysis report
-5. Audit the extraction script (`tooling/scripts/extract_v291.py`) for systematic blind spots
-6. Fix extraction for missing artifacts (multi-column tables, different heading styles, etc.)
+### Next Steps
+1. **Message structure content comparison** — field-level comparison of the 178 matched message structures (like compare_segments.py and compare_data_types.py but for message structure rows)
+2. **Push commits** — 20 commits on dev/framework need pushing
+3. **V2 mgmt review** — share `v2mgmt-review-report.html` with V2 Management Group for discussion on conformance length bare `=`, retained events, Z events
+4. **Message structure sub-variant analysis** — understand how FHIR ADT_A01_A/B/C/D relate to V291's single ADT_A01
+5. **Write tests** for extraction script and data type comparison
 
 ### Open Questions / Blockers
-- The `standards-status` extension URL is `http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status` with values `withdrawn` and `deprecated`
-- V291 extraction only handles 9-column segment tables — needs enhancement for multi-column comparison tables (18, 13 cols)
-- Some V291 length/confLength values are malformed (e.g., `"12="` in a length field, `"2.."` missing max, `"1..5"` in a confLength field) — these are source data quirks, not extraction bugs
-- 6 unpushed commits on `dev/framework` + all the new changes from this session
+- V2 Management Group needs to weigh in on: bare `=` conformance lengths, retained/withdrawn event inclusion, Z event policy
+- 30 retained/withdrawn events need older V2 standard Word docs to verify FHIR definitions
+- I12-I15 events: in V291 but not FHIR — are they expected as individual StructureDefinitions?
+- O59: FHIR has sub-variants O59_A/O59_B — is this correct for an event shared between two message types?
 
-### Relevant Context
-- **Extraction script**: `tooling/scripts/extract_v291.py` — identifies tables by column count (line 113: `num_cols == 9`). Skips CH01_Intro and CH02C_Tables.
-- **Standards-status extension** can be applied to individual `ElementDefinition` entries (not just root). ValueSet has 7 codes including `deprecated` and `withdrawn`.
-- **ADR-0005** documents the decision to elide W field data types. May be revisited if historical data types are recovered from prior V2 versions.
-- **HTML comparison report** at `v291-extracted/segment-comparison-report.html` — navigable with sidebar, per-segment detail, provenance, W vs B analysis section
+### Key File Locations
+- V2 mgmt review report: `v291-extracted/v2mgmt-review-report.md` (source) + `.html` (rendered)
+- Event gap report: `v291-extracted/event-gap-report.html`
+- Structural inventory: `v291-extracted/structural-inventory.md` + `.json`
+- Data type comparison: `v291-extracted/data-type-comparison-report.md` + `.json`
+- Extraction script: `tooling/scripts/extract_v291.py`
+- Word doc source: `/workspace/v2plus_docx/` (CH01-CH17)
