@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/Event-Profile"
+    ]
+  },
+  "version": "0.0.1",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/Event",
+  "derivation": "specialization",
+  "date": "2024-07-24T19:13:28Z",
+  "url": "http://hl7.org/v2/StructureDefinition/I15",
+  "id": "I15",
+  "name": "I15",
+  "type": "I15",
+  "title": "HL7 v2 I15 Message Definition",
+  "differential": {
+    "element": [
+      {
+        "id": "I15",
+        "path": "I15",
+        "short": "I15",
+        "definition": "Event I15: Request Patient Referral Status",
+        "min": 0,
+        "max": "*"
+      }
+    ]
+  }
+}

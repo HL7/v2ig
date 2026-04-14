@@ -116,29 +116,106 @@ In the FHIR resources, some of these are represented as real events with sub-var
 
 ---
 
-## 4. Events in V291 Not in FHIR
+## 4. Event O59: One Event Code, Two Message Types
 
 ### Finding
 
-12 event codes extracted from V2.9.1 have no corresponding FHIR StructureDefinition. Most have clear explanations:
+Event O59 is used by two different message types with two different message structures:
+
+| Message | Structure | Chapter | Clause | Description |
+|---------|-----------|---------|--------|-------------|
+| OML^O59 | OML_O59 | CH04 (Orders) | Table 50 | Laboratory Order Message |
+| RCV^O59 | RCV_O59 | CH04A (Orders) | Table 38 | Pharmacy/Treatment Dispense Message |
+
+In HL7 V2, a message is identified by the combination of message type + trigger event (e.g., OML^O59 and RCV^O59 are distinct messages). The message structures (OML_O59 and RCV_O59) are different and correctly defined. However, the event code O59 is shared between them.
+
+In the current FHIR representation, there are no O59 event StructureDefinitions. Instead, there are sub-variants `O59_A` and `O59_B`, apparently one for each message type. This is an artifact of the encoding tool — it could not represent a single event code associated with two different message types.
+
+### The Problem
+
+Event StructureDefinitions link event → message → message structure. A single event StructureDefinition for O59 cannot point to two different message structures. The sub-variant approach (O59_A, O59_B) works mechanically but is not standard V2 naming.
+
+### Questions for V2 Management
+
+1. **Is it valid for two different message types to share the same event code?** This appears to be an anomaly in the standard.
+2. **What is the correct representation?** Options include:
+   - A single O59 event that references both messages (requires an extension or multi-valued link)
+   - Two sub-variant events (O59_A, O59_B) — current FHIR approach
+   - Rename one of the events to a different code
+3. **Are there other cases of shared event codes?** If so, a consistent policy is needed.
+
+---
+
+## 5. Events I12–I15: Missing FHIR Event Definitions
+
+### Finding
+
+Events I12 through I15 are defined in CH11 (Patient Referral) and used by two message types:
+
+| Message | Structure | Chapter | Clause | Description |
+|---------|-----------|---------|--------|-------------|
+| REF^I12–I15 | REF_I12 | CH11 | 11.5.1, Table 27 | Patient Referral |
+| RRI^I12–I15 | RRI_I12 | CH11 | 11.5.2, Table 29 | Return Referral Information |
+
+All four events (I12, I13, I14, I15) share the same message structures (REF_I12 and RRI_I12). The FHIR resources include the message structures but no individual event StructureDefinitions for I12–I15.
+
+### Resolution
+
+FHIR event StructureDefinitions should be created for I12, I13, I14, and I15, each linking to both message types (REF and RRI) and their respective structures (REF_I12 and RRI_I12).
+
+---
+
+## 6. Other Events in V291 Not in FHIR
+
+### Finding
+
+Additional event codes extracted from V2.9.1 have no corresponding FHIR StructureDefinition:
 
 | Event | Chapter | Source | Explanation |
 |-------|---------|--------|-------------|
-| I12–I15 | CH11 | Ack table (REF^I12-I15^REF_I12) | Multi-event range expansion — FHIR may have these under different codes or combined |
-| O59 | CH04, CH04A | Ack tables | Two different message types (OML and RCV) use event O59 — FHIR has sub-variants O59_A and O59_B instead |
 | YYY | CH02 | Ack table | Placeholder example (XXX^YYY^ZZZ) from Control chapter |
 | Z01, Z02 | CH02 | Ack table / caption | Widget example events |
 | Z86, Z96 | CH05 | Caption | Query grammar examples |
 | ZNN / Znn | CH05 | Ack table / caption | User-defined query template |
 
-### Questions for V2 Management
-
-1. **I12–I15**: These are extracted from multi-event ack choreography tables in CH11. Are they expected to have individual FHIR StructureDefinitions? The FHIR resources appear to represent referral events differently.
-2. **O59**: FHIR has O59_A and O59_B as sub-variants. Is this the correct representation for an event code shared between two message types (OML and RCV)?
+These are all examples, templates, or user-defined event codes — not base standard events.
 
 ---
 
-## 5. Segment Field Data Quality (Previously Resolved)
+## 7. Message Structure Comparison Findings
+
+### Finding
+
+A field-level comparison of 415 FHIR message structures against V2.9.1 Word document extractions found 565 discrepancies:
+
+| Category | Count | Description |
+|----------|-------|-------------|
+| **Cosmetic** | 272 | Whitespace, capitalization, punctuation, abbreviation differences — auto-resolvable |
+| **FHIR-only segments** | 67 | Segments in FHIR not found in V291 (PRT=18, NTE=16, CTI=4, others) |
+| **Group nesting** | 155 | Different grouping of segments (mostly anonymous groups in financial/claims structures) |
+| **Repetition** | 28 | Disagreements on whether a segment repeats (e.g., ERR in ACK) |
+| **Description** | 23 | Meaningful differences in segment descriptions |
+| **Optionality** | 13 | Required vs optional disagreements |
+| **V291-only segments** | 7 | Segments in V291 not found in FHIR |
+
+3 structures (CCM_I21, CCR_I16, CCU_I20 from CH11) were skipped due to truncated V291 extraction.
+
+Full report: `v291-extracted/message-structure-comparison-report.html`
+
+### Notable Patterns
+
+- **ACK ERR repetition**: V291 Chapter 5 defines ERR as `[ ERR ]` (non-repeating) while most other chapters use `[{ ERR }]` (repeating). This inconsistency in the standard produces repetition mismatches across ACK sub-variants.
+- **PRT segments**: 18 PRT (Participation) segments appear in FHIR but not V291. These may be intentional additions or extraction gaps.
+- **FIXME group names**: 5 group names in MDM_T02 FHIR structures are set to "FIXME" — these need correction.
+
+### Questions for V2 Management
+
+1. **ERR in ACK**: Should ERR be repeating (`[{ ERR }]`) or non-repeating (`[ ERR ]`) in the ACK structure? The standard is inconsistent across chapters.
+2. **PRT additions**: Are the 18 FHIR-only PRT segments intentional additions to V2+, or should they be verified against a later version of the standard?
+
+---
+
+## 8. Segment Field Data Quality (Previously Resolved)
 
 For reference, 1,109 segment field corrections were applied across 145 FHIR JSON files based on V2.9.1 comparison. Key categories:
 
@@ -152,7 +229,7 @@ These are documented in ADR-0005 and the segment comparison report at `v291-extr
 
 ---
 
-## 6. Data Type Component Conformance Length (Previously Resolved)
+## 9. Data Type Component Conformance Length (Previously Resolved)
 
 71 conformance length flag corrections were applied across 26 FHIR complex data type files. In all cases, V2.9.1 specified `#` (truncation permitted) but FHIR had `noTruncate: true` (no truncation). The 10 bare `=` cases described in Section 1 remain unresolved.
 
@@ -165,10 +242,12 @@ All findings are based on automated extraction from V2.9.1 Word documents (`v2pl
 - `tooling/scripts/compare_segments.py` — 9-dimension segment field comparison
 - `tooling/scripts/compare_data_types.py` — 7-dimension data type component comparison
 - `tooling/scripts/structural_inventory.py` — artifact-level gap analysis
+- `tooling/scripts/compare_message_structures.py` — message structure content comparison
 - `tooling/scripts/generate_event_gap_report.py` — event gap HTML report
 
 Reports are in `v291-extracted/`:
 - `structural-inventory.md` / `.json` — overview of all artifact types
 - `segment-comparison-report.html` — navigable segment field comparison
 - `data-type-comparison-report.md` / `.json` — data type component comparison
+- `message-structure-comparison-report.html` — message structure content comparison
 - `event-gap-report.html` — event gap analysis with chapter/clause references
