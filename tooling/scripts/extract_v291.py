@@ -109,11 +109,12 @@ def identify_table_type(table: Table, preceding_style: Optional[str] = None) -> 
         if fuzzy_match_headers(first_row, component_patterns):
             return 'data_type_components'
 
-    # Check for segment field table (9 columns with Attribute Table Caption or Heading)
-    if num_cols == 9:
-        segment_patterns = ['SEQ', 'ELEMENT', 'ITEM']
-        if fuzzy_match_headers(first_row, segment_patterns):
-            return 'segment_fields'
+    # Check for segment field table
+    # Standard: 9 columns. But some tables have duplicate columns (18, 13, etc.)
+    # due to Word formatting artifacts. Use header content to identify.
+    segment_patterns = ['SEQ', 'ELEMENT', 'ITEM']
+    if fuzzy_match_headers(first_row, segment_patterns):
+        return 'segment_fields'
 
     # Check for message structure table (4-5 columns)
     if num_cols in [4, 5]:
@@ -136,21 +137,64 @@ def identify_table_type(table: Table, preceding_style: Optional[str] = None) -> 
     return None
 
 
+def deduplicate_segment_columns(headers: List[str], row: List[str]) -> List[str]:
+    """
+    Deduplicate columns in a segment field table row.
+
+    Some Word tables have duplicate columns (18 or 13 cols instead of 9) due
+    to formatting artifacts. This function finds the first occurrence of each
+    canonical column and returns a normalized 9-element row.
+
+    Canonical order: SEQ, LEN, C.LEN, DT, OPT, RP/#, TBL#, ITEM#, ELEMENT NAME
+    """
+    canonical = ['SEQ', 'LEN', 'C.LEN', 'DT', 'OPT', 'RP/#', 'TBL#', 'ITEM', 'ELEMENT']
+    normalized_headers = [normalize_header(h) for h in headers]
+
+    indices = []
+    used = set()
+    for pattern in canonical:
+        for i, h in enumerate(normalized_headers):
+            if i not in used and pattern in h:
+                indices.append(i)
+                used.add(i)
+                break
+        else:
+            # Pattern not found — append None placeholder
+            indices.append(None)
+
+    result = []
+    for idx in indices:
+        if idx is not None and idx < len(row):
+            result.append(row[idx])
+        else:
+            result.append("")
+    return result
+
+
 def parse_segment_field_table(table: Table) -> List[Dict[str, Any]]:
     """
-    Parse a segment field definition table (9 columns).
+    Parse a segment field definition table.
 
-    Expected columns: SEQ | LEN | C.LEN | DT | OPT | RP/# | TBL# | ITEM# | ELEMENT NAME
+    Standard format: 9 columns (SEQ | LEN | C.LEN | DT | OPT | RP/# | TBL# | ITEM# | ELEMENT NAME).
+    Also handles tables with duplicate columns (18, 13 cols) by deduplicating.
     """
     cells = get_table_cells_text(table)
     if len(cells) < 2:
         return []
 
+    headers = cells[0]
+    num_cols = len(headers)
+    needs_dedup = num_cols != 9
+
     fields = []
     # Skip header row
     for row in cells[1:]:
-        if len(row) < 9:
+        if len(row) < min(9, num_cols):
             continue
+
+        # Deduplicate if needed
+        if needs_dedup:
+            row = deduplicate_segment_columns(headers, row)
 
         # Skip empty rows or separator rows
         if not row[0].strip() or row[0].strip() == '-':
@@ -299,6 +343,83 @@ def parse_segment_notation(notation: str, description: str, chapter: str) -> Dic
         "repetition": repeating,
         "chapter": chapter
     }
+
+
+def expand_event_codes(raw: str) -> List[str]:
+    """
+    Expand event code expressions into individual event codes.
+
+    Examples:
+        "A01" → ["A01"]
+        "S01-S11" → ["S01", "S02", ..., "S11"]
+        "S12-S24,S26,S27" → ["S12", "S13", ..., "S24", "S26", "S27"]
+        "PC1-PCH,PCJ,PCK,PCL" → ["PC1", ..., "PCH", "PCJ", "PCK", "PCL"]
+    """
+    raw = raw.strip()
+
+    # Split on commas first
+    parts = [p.strip() for p in raw.split(',')]
+    result = []
+
+    for part in parts:
+        if '-' in part:
+            # It's a range like "S01-S11" or "PC1-PCH"
+            range_parts = part.split('-', 1)
+            if len(range_parts) == 2:
+                start, end = range_parts[0].strip(), range_parts[1].strip()
+                expanded = expand_event_range(start, end)
+                result.extend(expanded)
+            else:
+                result.append(part)
+        else:
+            result.append(part)
+
+    return result
+
+
+def expand_event_range(start: str, end: str) -> List[str]:
+    """
+    Expand a range like S01-S11 or PC1-PCH into individual codes.
+
+    Handles numeric suffixes (S01-S11) and alpha suffixes (PC1-PCH).
+    """
+    # Find common prefix
+    prefix_len = 0
+    for i in range(min(len(start), len(end))):
+        if start[i] == end[i]:
+            prefix_len = i + 1
+        else:
+            break
+
+    # Handle case where prefix is the letter part (e.g., "S" for S01-S11)
+    prefix = start[:prefix_len]
+    start_suffix = start[prefix_len:]
+    end_suffix = end[prefix_len:]
+
+    # If no common prefix found, try single-char prefix
+    if not prefix:
+        return [start, end]
+
+    # Try numeric range
+    if start_suffix.isdigit() and end_suffix.isdigit():
+        width = len(start_suffix)
+        codes = []
+        for i in range(int(start_suffix), int(end_suffix) + 1):
+            codes.append(f"{prefix}{str(i).zfill(width)}")
+        return codes
+
+    # Try alphanumeric range (e.g., PC1...PCH or PCA...PCL)
+    # Use character ordinals for single-char suffixes, skipping non-alphanumeric
+    if len(start_suffix) == 1 and len(end_suffix) == 1:
+        codes = []
+        for c in range(ord(start_suffix), ord(end_suffix) + 1):
+            ch = chr(c)
+            if ch.isalnum():
+                codes.append(f"{prefix}{ch}")
+        return codes
+
+    # Fallback: just return start and end
+    return [start, end]
 
 
 def parse_ack_choreography_table(table: Table) -> Dict[str, Any]:
@@ -656,10 +777,15 @@ def process_document(filepath: Path) -> Dict[str, Any]:
             # Extract structure ID from caption
             structure_id = None
             if last_caption:
-                # Look for pattern like "ADT^A01^ADT_A01"
-                match = re.search(r'([A-Z0-9]+)\^([A-Z0-9]+)\^([A-Z0-9_]+)', last_caption)
+                # Look for pattern like "ADT^A01^ADT_A01" or "ACK^varies^ACK"
+                match = re.search(r'([A-Za-z0-9]+)\^([A-Za-z0-9,\-]+)\^([A-Za-z0-9_]+)', last_caption)
                 if match:
-                    structure_id = match.group(3)
+                    raw_structure = match.group(3)
+                    # Skip "varies" — use message type as structure ID instead
+                    if raw_structure.lower() == 'varies':
+                        structure_id = match.group(1).upper()
+                    else:
+                        structure_id = raw_structure
 
             if raw_rows:
                 message_structures.append({
@@ -675,21 +801,32 @@ def process_document(filepath: Path) -> Dict[str, Any]:
             ack_data = parse_ack_choreography_table(table)
             if ack_data:
                 # Extract event code from message identifier
+                # Handles: ADT^A01^ADT_A01, ACK^varies^ACK, ranges like S01-S11
                 msg_id = ack_data.get('messageIdentifier', '')
-                match = re.match(r'([A-Z]+)\^([A-Z0-9]+)\^', msg_id)
+                match = re.match(r'([A-Za-z]+)\^([A-Za-z0-9,\-]+)\^', msg_id)
                 if match:
-                    event_code = match.group(2)
-                    message_type = match.group(1)
+                    message_type = match.group(1).upper()
+                    raw_event = match.group(2)
 
-                    events.append({
-                        "eventCode": event_code,
-                        "messageType": message_type,
-                        "name": heading_text or "",
-                        "structureId": msg_id.split('^')[2] if '^' in msg_id else "",
-                        "provenance": provenance,
-                        "acknowledgmentChoreography": ack_data
-                    })
-                    log_info(f"  → Extracted event {event_code} with ack choreography")
+                    # Skip "varies" — not a real event code
+                    if raw_event.lower() == 'varies':
+                        log_info(f"  → Skipping 'varies' event in {msg_id}")
+                    else:
+                        # Expand event code ranges (e.g., "S01-S11" → S01..S11)
+                        expanded_events = expand_event_codes(raw_event)
+                        parts = msg_id.split('^')
+                        structure_id = parts[2] if len(parts) > 2 else ""
+
+                        for event_code in expanded_events:
+                            events.append({
+                                "eventCode": event_code,
+                                "messageType": message_type,
+                                "name": heading_text or "",
+                                "structureId": structure_id,
+                                "provenance": provenance,
+                                "acknowledgmentChoreography": ack_data
+                            })
+                        log_info(f"  → Extracted {len(expanded_events)} event(s) from {msg_id}")
 
         elif table_type == 'data_type_components':
             # Extract data type code from caption
@@ -717,6 +854,32 @@ def process_document(filepath: Path) -> Dict[str, Any]:
                     "parameters": params
                 })
                 log_info(f"  → Extracted query parameters with {len(params)} params")
+
+    # Derive events from message structure captions for chapters without
+    # ack choreography tables. This fills the gap for CH04, CH05, CH07, etc.
+    ack_event_codes = {e["eventCode"] for e in events}
+    for ms in message_structures:
+        caption = ms.get("caption", "")
+        match = re.search(r'([A-Za-z0-9]+)\^([A-Za-z0-9]+)\^([A-Za-z0-9_]+)', caption)
+        if match:
+            event_code = match.group(2).upper()
+            message_type = match.group(1).upper()
+            structure_id = match.group(3)
+
+            if event_code.lower() == 'varies' or event_code in ack_event_codes:
+                continue
+
+            ack_event_codes.add(event_code)
+            events.append({
+                "eventCode": event_code,
+                "messageType": message_type,
+                "name": caption,
+                "structureId": structure_id,
+                "provenance": ms["provenance"],
+                "acknowledgmentChoreography": None,
+                "derivedFrom": "message_structure_caption"
+            })
+            log_info(f"  → Derived event {event_code} from structure caption: {caption}")
 
     return {
         "segments": segments,
