@@ -30,7 +30,7 @@
         "id": "QSC.1",
         "path": "QSC.1",
         "short": "Segment Field Name",
-        "defintion": "*Definition:* The name of the field that is participating as a qualifier (usually the \"key\"). Refer to Section _2A.2.60.1_, “_Segment Field Name (ST)_,” for segment field name conventions.\n",
+        "defintion": "*Definition:* The name of the field that is participating as a qualifier (usually the \"key\"). Refer to Section _2A.2.60.1_, \u201c_Segment Field Name (ST)_,\u201d for segment field name conventions.\n",
         "min": 1,
         "max": "1",
         "type": [
@@ -107,7 +107,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -117,7 +117,7 @@
         "id": "QSC.4",
         "path": "QSC.4",
         "short": "Relational Conjunction",
-        "defintion": "*Definition:* Refer to {{v2-table:0210:Relational Conjunction}} for valid values. The relational conjunction is defined as follows: If more than one comparison is to be made to select qualifying rows, a conjunction relates this repetition of the field to the next.\n\n\n\n• When applied to strings, the relational operators LT, GT, LE, and GE imply an alphabetic comparison.\n\n\n\n• A \"generic\" comparison selects a record for inclusion in the response when the beginning of the designated field matches the select string.\n\n\n\n• Where a repeating field is specified as an operand, a match on any instance of that field qualifies the row for inclusion in the response message.\n\n\n\n• AND takes precedence over OR. More sophisticated precedence rules require that the query be expressed as an embedded query language message or a stored procedure query message (see Chapter 5, \"Query\").\n",
+        "defintion": "*Definition:* Refer to {{v2-table:0210:Relational Conjunction}} for valid values. The relational conjunction is defined as follows: If more than one comparison is to be made to select qualifying rows, a conjunction relates this repetition of the field to the next.\n\n\n\n\u2022 When applied to strings, the relational operators LT, GT, LE, and GE imply an alphabetic comparison.\n\n\n\n\u2022 A \"generic\" comparison selects a record for inclusion in the response when the beginning of the designated field matches the select string.\n\n\n\n\u2022 Where a repeating field is specified as an operand, a match on any instance of that field qualifies the row for inclusion in the response message.\n\n\n\n\u2022 AND takes precedence over OR. More sophisticated precedence rules require that the query be expressed as an embedded query language message or a stored procedure query message (see Chapter 5, \"Query\").\n",
         "min": 0,
         "max": "1",
         "type": [

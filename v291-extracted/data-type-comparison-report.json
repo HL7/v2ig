@@ -1,17 +1,17 @@
 {
-  "generated": "2026-04-14T14:12:05.171923+00:00",
+  "generated": "2026-04-14T15:18:48.123004+00:00",
   "summary": {
     "data_types_compared": 71,
-    "data_types_with_discrepancies": 31,
-    "total_discrepancies": 95,
+    "data_types_with_discrepancies": 9,
+    "total_discrepancies": 24,
     "by_severity": {
-      "error": 82,
       "cosmetic": 12,
+      "error": 11,
       "warning": 1
     },
     "by_dimension": {
-      "conf_length": 81,
       "component_name": 12,
+      "conf_length": 10,
       "length": 1,
       "data_type": 1
     }
@@ -29,59 +29,8 @@
         "tableIndex": 1,
         "captionText": "HL7 Component Table - AD \u2013 Address"
       },
-      "discrepancy_count": 5,
-      "discrepancies": [
-        {
-          "data_type": "AD",
-          "seq": "1",
-          "component_name": "Street Address",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "120#",
-          "actual": "120=",
-          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
-        },
-        {
-          "data_type": "AD",
-          "seq": "2",
-          "component_name": "Other Designation",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "120#",
-          "actual": "120=",
-          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
-        },
-        {
-          "data_type": "AD",
-          "seq": "3",
-          "component_name": "City",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "AD",
-          "seq": "4",
-          "component_name": "State or Province",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "AD",
-          "seq": "8",
-          "component_name": "Other Geographic Designation",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "AUI",
@@ -95,19 +44,8 @@
         "tableIndex": 2,
         "captionText": "HL7 Component Table - AUI \u2013 Authorization Information"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "AUI",
-          "seq": "3",
-          "component_name": "Source",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CCD",
@@ -136,39 +74,8 @@
         "tableIndex": 4,
         "captionText": "HL7 Component Table \u2013 CCP - Channel Calibration Parameters"
       },
-      "discrepancy_count": 3,
-      "discrepancies": [
-        {
-          "data_type": "CCP",
-          "seq": "1",
-          "component_name": "Channel Calibration Sensitivity Correction Factor",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "6#",
-          "actual": "6=",
-          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
-        },
-        {
-          "data_type": "CCP",
-          "seq": "2",
-          "component_name": "Channel Calibration Baseline",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "6#",
-          "actual": "6=",
-          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
-        },
-        {
-          "data_type": "CCP",
-          "seq": "3",
-          "component_name": "Channel Calibration Time Skew",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "6#",
-          "actual": "6=",
-          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CD",
@@ -182,19 +89,8 @@
         "tableIndex": 5,
         "captionText": "HL7 Component Table - CD \u2013 Channel Definition"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "CD",
-          "seq": "5",
-          "component_name": "Channel Sampling Frequency",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "6#",
-          "actual": "6=",
-          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CF",
@@ -208,19 +104,8 @@
         "tableIndex": 6,
         "captionText": "HL7 Component Table - CF \u2013 Coded Element with Formatted Values"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "CF",
-          "seq": "9",
-          "component_name": "Original Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CNE",
@@ -234,49 +119,8 @@
         "tableIndex": 7,
         "captionText": "HL7 Component Table - CNE \u2013 Coded with No Exceptions"
       },
-      "discrepancy_count": 4,
-      "discrepancies": [
-        {
-          "data_type": "CNE",
-          "seq": "2",
-          "component_name": "Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CNE",
-          "seq": "5",
-          "component_name": "Alternate Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CNE",
-          "seq": "9",
-          "component_name": "Original Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CNE",
-          "seq": "11",
-          "component_name": "Second Alternate Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CNN",
@@ -290,38 +134,8 @@
         "tableIndex": 8,
         "captionText": "HL7 Component Table - CNN - Composite ID Number and Name Simplified"
       },
-      "discrepancy_count": 8,
+      "discrepancy_count": 3,
       "discrepancies": [
-        {
-          "data_type": "CNN",
-          "seq": "2",
-          "component_name": "Family Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "CNN",
-          "seq": "3",
-          "component_name": "Given Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
-        {
-          "data_type": "CNN",
-          "seq": "4",
-          "component_name": "Second and Further Given Names or Initials Thereof",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
         {
           "data_type": "CNN",
           "seq": "5",
@@ -334,16 +148,6 @@
         },
         {
           "data_type": "CNN",
-          "seq": "5",
-          "component_name": "Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
-        },
-        {
-          "data_type": "CNN",
           "seq": "6",
           "component_name": "Prefix",
           "dimension": "component_name",
@@ -351,16 +155,6 @@
           "expected": "Prefix (e.g., DR)",
           "actual": "Prefix",
           "detail": "Name: V291='Prefix (e.g., DR)', FHIR='Prefix'"
-        },
-        {
-          "data_type": "CNN",
-          "seq": "6",
-          "component_name": "Prefix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
         },
         {
           "data_type": "CNN",
@@ -437,49 +231,8 @@
         "tableIndex": 11,
         "captionText": "HL7 Component Table \u2013 CSU - Channel Sensitivity and Units"
       },
-      "discrepancy_count": 4,
-      "discrepancies": [
-        {
-          "data_type": "CSU",
-          "seq": "3",
-          "component_name": "Unit of Measure Description",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CSU",
-          "seq": "6",
-          "component_name": "Alternate Unit of Measure Description",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CSU",
-          "seq": "10",
-          "component_name": "Original Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CSU",
-          "seq": "12",
-          "component_name": "Second Alternate Unit of Measure Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CWE",
@@ -493,49 +246,8 @@
         "tableIndex": 12,
         "captionText": "HL7 Component Table - CWE \u2013 Coded with Exceptions"
       },
-      "discrepancy_count": 4,
-      "discrepancies": [
-        {
-          "data_type": "CWE",
-          "seq": "2",
-          "component_name": "Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CWE",
-          "seq": "5",
-          "component_name": "Alternate Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CWE",
-          "seq": "9",
-          "component_name": "Original Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "CWE",
-          "seq": "11",
-          "component_name": "Second Alternate Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CX",
@@ -624,29 +336,8 @@
         "tableIndex": 24,
         "captionText": "HL7 Component Table - DLT \u2013 Delta"
       },
-      "discrepancy_count": 2,
-      "discrepancies": [
-        {
-          "data_type": "DLT",
-          "seq": "2",
-          "component_name": "Numeric Threshold",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "4#",
-          "actual": "4=",
-          "detail": "Conf length: V291='4#', FHIR len=4 trunc=1"
-        },
-        {
-          "data_type": "DLT",
-          "seq": "4",
-          "component_name": "Days Retained",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "4#",
-          "actual": "4=",
-          "detail": "Conf length: V291='4#', FHIR len=4 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "DR",
@@ -675,19 +366,8 @@
         "tableIndex": 29,
         "captionText": "HL7 Component Table - DTN \u2013 Day Type and Number"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "DTN",
-          "seq": "2",
-          "component_name": "Number of Days",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "3#",
-          "actual": "3=",
-          "detail": "Conf length: V291='3#', FHIR len=3 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "ED",
@@ -837,59 +517,8 @@
         "tableIndex": 35,
         "captionText": "HL7 Component Table - FN \u2013 Family Name"
       },
-      "discrepancy_count": 5,
-      "discrepancies": [
-        {
-          "data_type": "FN",
-          "seq": "1",
-          "component_name": "Surname",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "FN",
-          "seq": "2",
-          "component_name": "Own Surname Prefix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
-        },
-        {
-          "data_type": "FN",
-          "seq": "3",
-          "component_name": "Own Surname",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "FN",
-          "seq": "4",
-          "component_name": "Surname Prefix from Partner/Spouse",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
-        },
-        {
-          "data_type": "FN",
-          "seq": "5",
-          "component_name": "Surname from Partner/Spouse",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "HD",
@@ -1161,19 +790,8 @@
         "tableIndex": 56,
         "captionText": "HL7 Component Table \u2013 PL \u2013 Person Location"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "PL",
-          "seq": "9",
-          "component_name": "Location Description",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "PLN",
@@ -1187,19 +805,8 @@
         "tableIndex": 57,
         "captionText": "HL7 Component Table - PLN \u2013 Practitioner License or Other ID Number"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "PLN",
-          "seq": "3",
-          "component_name": "State/other Qualifying Information",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "62#",
-          "actual": "62=",
-          "detail": "Conf length: V291='62#', FHIR len=62 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "PPN",
@@ -1213,28 +820,8 @@
         "tableIndex": 58,
         "captionText": "HL7 Component Table \u2013 PPN \u2013 Performing Person Time Stamp"
       },
-      "discrepancy_count": 9,
+      "discrepancy_count": 4,
       "discrepancies": [
-        {
-          "data_type": "PPN",
-          "seq": "3",
-          "component_name": "Given Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
-        {
-          "data_type": "PPN",
-          "seq": "4",
-          "component_name": "Second and Further Given Names or Initials Thereof",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
         {
           "data_type": "PPN",
           "seq": "5",
@@ -1247,16 +834,6 @@
         },
         {
           "data_type": "PPN",
-          "seq": "5",
-          "component_name": "Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
-        },
-        {
-          "data_type": "PPN",
           "seq": "6",
           "component_name": "Prefix",
           "dimension": "component_name",
@@ -1264,16 +841,6 @@
           "expected": "Prefix (e.g., DR)",
           "actual": "Prefix",
           "detail": "Name: V291='Prefix (e.g., DR)', FHIR='Prefix'"
-        },
-        {
-          "data_type": "PPN",
-          "seq": "6",
-          "component_name": "Prefix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
         },
         {
           "data_type": "PPN",
@@ -1294,16 +861,6 @@
           "expected": "CWE",
           "actual": "",
           "detail": "Data type: V291='CWE', FHIR=''"
-        },
-        {
-          "data_type": "PPN",
-          "seq": "22",
-          "component_name": "Professional Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
         }
       ]
     },
@@ -1364,19 +921,8 @@
         "tableIndex": 62,
         "captionText": "HL7 Component Table - QIP \u2013 Query Input Parameter List"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "QIP",
-          "seq": "2",
-          "component_name": "Values",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "QSC",
@@ -1390,19 +936,8 @@
         "tableIndex": 63,
         "captionText": "HL7 Component Table - QSC \u2013 Query Selection Criteria"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "QSC",
-          "seq": "3",
-          "component_name": "Value",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "RCD",
@@ -1446,19 +981,8 @@
         "tableIndex": 66,
         "captionText": "HL7 Component Table - RI \u2013 Repeat Interval"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "RI",
-          "seq": "2",
-          "component_name": "Explicit Time Interval",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "RMC",
@@ -1487,19 +1011,8 @@
         "tableIndex": 68,
         "captionText": "HL7 Component Table - RP \u2013 Reference Pointer"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "RP",
-          "seq": "1",
-          "component_name": "Pointer",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "999#",
-          "actual": "999=",
-          "detail": "Conf length: V291='999#', FHIR len=999 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "RPT",
@@ -1528,39 +1041,8 @@
         "tableIndex": 70,
         "captionText": "HL7 Component Table - SAD \u2013 Street Address"
       },
-      "discrepancy_count": 3,
-      "discrepancies": [
-        {
-          "data_type": "SAD",
-          "seq": "1",
-          "component_name": "Street or Mailing Address",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "120#",
-          "actual": "120=",
-          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
-        },
-        {
-          "data_type": "SAD",
-          "seq": "2",
-          "component_name": "Street Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "SAD",
-          "seq": "3",
-          "component_name": "Dwelling Number",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "12#",
-          "actual": "12=",
-          "detail": "Conf length: V291='12#', FHIR len=12 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "SCV",
@@ -1694,19 +1176,8 @@
         "tableIndex": 86,
         "captionText": "HL7 Component Table \u2013 WVI - Channel Identifier"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "WVI",
-          "seq": "2",
-          "component_name": "Channel Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "17#",
-          "actual": "17=",
-          "detail": "Conf length: V291='17#', FHIR len=17 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "WVS",
@@ -1735,69 +1206,8 @@
         "tableIndex": 88,
         "captionText": "HL7 Component Table - XAD \u2013 Extended Address"
       },
-      "discrepancy_count": 6,
-      "discrepancies": [
-        {
-          "data_type": "XAD",
-          "seq": "2",
-          "component_name": "Other Designation",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "120#",
-          "actual": "120=",
-          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
-        },
-        {
-          "data_type": "XAD",
-          "seq": "3",
-          "component_name": "City",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "XAD",
-          "seq": "4",
-          "component_name": "State or Province",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "XAD",
-          "seq": "8",
-          "component_name": "Other Geographic Designation",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        },
-        {
-          "data_type": "XAD",
-          "seq": "19",
-          "component_name": "Addressee",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "XAD",
-          "seq": "20",
-          "component_name": "Comment",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "XCN",
@@ -1811,28 +1221,8 @@
         "tableIndex": 89,
         "captionText": "HL7 Component Table - XCN \u2013 Extended Composite ID Number and Name for Persons"
       },
-      "discrepancy_count": 8,
+      "discrepancy_count": 3,
       "discrepancies": [
-        {
-          "data_type": "XCN",
-          "seq": "3",
-          "component_name": "Given Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
-        {
-          "data_type": "XCN",
-          "seq": "4",
-          "component_name": "Second and Further Given Names or Initials Thereof",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
         {
           "data_type": "XCN",
           "seq": "5",
@@ -1842,16 +1232,6 @@
           "expected": "Suffix (e.g., JR or III)",
           "actual": "Suffix",
           "detail": "Name: V291='Suffix (e.g., JR or III)', FHIR='Suffix'"
-        },
-        {
-          "data_type": "XCN",
-          "seq": "5",
-          "component_name": "Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
         },
         {
           "data_type": "XCN",
@@ -1865,16 +1245,6 @@
         },
         {
           "data_type": "XCN",
-          "seq": "6",
-          "component_name": "Prefix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
-        },
-        {
-          "data_type": "XCN",
           "seq": "7",
           "component_name": "Degree",
           "dimension": "component_name",
@@ -1882,16 +1252,6 @@
           "expected": "Degree (e.g., MD)",
           "actual": "Degree",
           "detail": "Name: V291='Degree (e.g., MD)', FHIR='Degree'"
-        },
-        {
-          "data_type": "XCN",
-          "seq": "21",
-          "component_name": "Professional Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
         }
       ]
     },
@@ -1907,19 +1267,8 @@
         "tableIndex": 90,
         "captionText": "HL7 Component Table - XON \u2013 Extended Composite Name and Identification Number for Organizations"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "XON",
-          "seq": "1",
-          "component_name": "Organization Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "50#",
-          "actual": "50=",
-          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "XPN",
@@ -1933,28 +1282,8 @@
         "tableIndex": 91,
         "captionText": "HL7 Component Table \u2013 XPN \u2013 Extended Person Name"
       },
-      "discrepancy_count": 9,
+      "discrepancy_count": 3,
       "discrepancies": [
-        {
-          "data_type": "XPN",
-          "seq": "2",
-          "component_name": "Given Name",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
-        {
-          "data_type": "XPN",
-          "seq": "3",
-          "component_name": "Second and Further Given Names or Initials Thereof",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
-        },
         {
           "data_type": "XPN",
           "seq": "4",
@@ -1964,16 +1293,6 @@
           "expected": "Suffix (e.g., JR or III)",
           "actual": "Suffix",
           "detail": "Name: V291='Suffix (e.g., JR or III)', FHIR='Suffix'"
-        },
-        {
-          "data_type": "XPN",
-          "seq": "4",
-          "component_name": "Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
         },
         {
           "data_type": "XPN",
@@ -1987,16 +1306,6 @@
         },
         {
           "data_type": "XPN",
-          "seq": "5",
-          "component_name": "Prefix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "20#",
-          "actual": "20=",
-          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
-        },
-        {
-          "data_type": "XPN",
           "seq": "6",
           "component_name": "Degree",
           "dimension": "component_name",
@@ -2004,26 +1313,6 @@
           "expected": "Degree (e.g., MD)",
           "actual": "Degree",
           "detail": "Name: V291='Degree (e.g., MD)', FHIR='Degree'"
-        },
-        {
-          "data_type": "XPN",
-          "seq": "14",
-          "component_name": "Professional Suffix",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "XPN",
-          "seq": "15",
-          "component_name": "Called By",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "30#",
-          "actual": "30=",
-          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
         }
       ]
     },
@@ -2039,29 +1328,8 @@
         "tableIndex": 93,
         "captionText": "HL7 Component Table - XTN \u2013 Extended Telecommunication Number"
       },
-      "discrepancy_count": 2,
-      "discrepancies": [
-        {
-          "data_type": "XTN",
-          "seq": "9",
-          "component_name": "Any Text",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        },
-        {
-          "data_type": "XTN",
-          "seq": "12",
-          "component_name": "Unformatted Telephone Number",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "199#",
-          "actual": "199=",
-          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     }
   ]
 }

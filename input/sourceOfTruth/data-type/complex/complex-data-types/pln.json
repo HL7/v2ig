@@ -22,7 +22,7 @@
         "id": "PLN",
         "path": "PLN",
         "short": "practitioner license or other Id number",
-        "definition": "Definition: This data type specifies a practitioner’s license number, or other ID number such as UPIN, Medicare and Medicaid number, and associated detail.",
+        "definition": "Definition: This data type specifies a practitioner\u2019s license number, or other ID number such as UPIN, Medicare and Medicaid number, and associated detail.",
         "min": 0,
         "max": "*"
       },
@@ -107,7 +107,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }

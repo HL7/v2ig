@@ -22,7 +22,7 @@
         "id": "CF",
         "path": "CF",
         "short": "coded element with formatted values",
-        "definition": "Definition: This data type transmits codes and the formatted text associated with the code. This data type can be used to transmit for the first time the formatted text for the *canned text* portion of a report, for example, a standard radiological description for a normal chest X‑ray. The receiving system can store this information and in subsequent messages only the identifier need be sent. Another potential use of this data type is transmitting master file records that contain formatted text. This data type has six components as follows:",
+        "definition": "Definition: This data type transmits codes and the formatted text associated with the code. This data type can be used to transmit for the first time the formatted text for the *canned text* portion of a report, for example, a standard radiological description for a normal chest X\u2011ray. The receiving system can store this information and in subsequent messages only the identifier need be sent. Another potential use of this data type is transmitting master file records that contain formatted text. This data type has six components as follows:",
         "min": 0,
         "max": "*"
       },
@@ -290,7 +290,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }

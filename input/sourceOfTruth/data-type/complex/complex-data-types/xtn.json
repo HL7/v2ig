@@ -296,7 +296,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -306,7 +306,7 @@
         "id": "XTN.10",
         "path": "XTN.10",
         "short": "Extension Prefix",
-        "defintion": "*Definition:* The characters established within a company’s internal telephone system network used as a prefix to the Extension component for internal dialing.\n\n\n\n*NOTE:* The use of Extension Prefix requires that the Extension component be valued and that digits, as well as special characters (e.g., *, #) may be used.\n",
+        "defintion": "*Definition:* The characters established within a company\u2019s internal telephone system network used as a prefix to the Extension component for internal dialing.\n\n\n\n*NOTE:* The use of Extension Prefix requires that the Extension component be valued and that digits, as well as special characters (e.g., *, #) may be used.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -338,7 +338,7 @@
         "id": "XTN.11",
         "path": "XTN.11",
         "short": "Speed Dial Code",
-        "defintion": "*Definition:* The characters established within a company’s internal telephone system used in place of the (external) telephone number to facilitate calling because its length is shorter than that of the telephone number.\n\n\n\n*NOTE:* Digits, as well as special characters (e.g., *, #) may be used.\n",
+        "defintion": "*Definition:* The characters established within a company\u2019s internal telephone system used in place of the (external) telephone number to facilitate calling because its length is shorter than that of the telephone number.\n\n\n\n*NOTE:* Digits, as well as special characters (e.g., *, #) may be used.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -392,7 +392,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
