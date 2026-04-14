@@ -1,0 +1,2067 @@
+{
+  "generated": "2026-04-14T14:12:05.171923+00:00",
+  "summary": {
+    "data_types_compared": 71,
+    "data_types_with_discrepancies": 31,
+    "total_discrepancies": 95,
+    "by_severity": {
+      "error": 82,
+      "cosmetic": 12,
+      "warning": 1
+    },
+    "by_dimension": {
+      "conf_length": 81,
+      "component_name": 12,
+      "length": 1,
+      "data_type": 1
+    }
+  },
+  "data_types": [
+    {
+      "data_type": "AD",
+      "fhir_component_count": 8,
+      "v291_component_count": 8,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - AD \u2013 Address",
+        "tableIndex": 1,
+        "captionText": "HL7 Component Table - AD \u2013 Address"
+      },
+      "discrepancy_count": 5,
+      "discrepancies": [
+        {
+          "data_type": "AD",
+          "seq": "1",
+          "component_name": "Street Address",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "120#",
+          "actual": "120=",
+          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
+        },
+        {
+          "data_type": "AD",
+          "seq": "2",
+          "component_name": "Other Designation",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "120#",
+          "actual": "120=",
+          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
+        },
+        {
+          "data_type": "AD",
+          "seq": "3",
+          "component_name": "City",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "AD",
+          "seq": "4",
+          "component_name": "State or Province",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "AD",
+          "seq": "8",
+          "component_name": "Other Geographic Designation",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "AUI",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - AUI \u2013 Authorization Information",
+        "tableIndex": 2,
+        "captionText": "HL7 Component Table - AUI \u2013 Authorization Information"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "AUI",
+          "seq": "3",
+          "component_name": "Source",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CCD",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CCD \u2013 Charge Code and Date",
+        "tableIndex": 3,
+        "captionText": "HL7 Component Table - CCD \u2013 Charge Code and Date"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "CCP",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 CCP - Channel Calibration Parameters",
+        "tableIndex": 4,
+        "captionText": "HL7 Component Table \u2013 CCP - Channel Calibration Parameters"
+      },
+      "discrepancy_count": 3,
+      "discrepancies": [
+        {
+          "data_type": "CCP",
+          "seq": "1",
+          "component_name": "Channel Calibration Sensitivity Correction Factor",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "6#",
+          "actual": "6=",
+          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
+        },
+        {
+          "data_type": "CCP",
+          "seq": "2",
+          "component_name": "Channel Calibration Baseline",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "6#",
+          "actual": "6=",
+          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
+        },
+        {
+          "data_type": "CCP",
+          "seq": "3",
+          "component_name": "Channel Calibration Time Skew",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "6#",
+          "actual": "6=",
+          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CD",
+      "fhir_component_count": 6,
+      "v291_component_count": 6,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CD \u2013 Channel Definition",
+        "tableIndex": 5,
+        "captionText": "HL7 Component Table - CD \u2013 Channel Definition"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "CD",
+          "seq": "5",
+          "component_name": "Channel Sampling Frequency",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "6#",
+          "actual": "6=",
+          "detail": "Conf length: V291='6#', FHIR len=6 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CF",
+      "fhir_component_count": 22,
+      "v291_component_count": 22,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CF \u2013 Coded Element with Formatted Values",
+        "tableIndex": 6,
+        "captionText": "HL7 Component Table - CF \u2013 Coded Element with Formatted Values"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "CF",
+          "seq": "9",
+          "component_name": "Original Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CNE",
+      "fhir_component_count": 22,
+      "v291_component_count": 22,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CNE \u2013 Coded with No Exceptions",
+        "tableIndex": 7,
+        "captionText": "HL7 Component Table - CNE \u2013 Coded with No Exceptions"
+      },
+      "discrepancy_count": 4,
+      "discrepancies": [
+        {
+          "data_type": "CNE",
+          "seq": "2",
+          "component_name": "Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CNE",
+          "seq": "5",
+          "component_name": "Alternate Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CNE",
+          "seq": "9",
+          "component_name": "Original Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CNE",
+          "seq": "11",
+          "component_name": "Second Alternate Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CNN",
+      "fhir_component_count": 11,
+      "v291_component_count": 11,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CNN - Composite ID Number and Name Simplified",
+        "tableIndex": 8,
+        "captionText": "HL7 Component Table - CNN - Composite ID Number and Name Simplified"
+      },
+      "discrepancy_count": 8,
+      "discrepancies": [
+        {
+          "data_type": "CNN",
+          "seq": "2",
+          "component_name": "Family Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "3",
+          "component_name": "Given Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "4",
+          "component_name": "Second and Further Given Names or Initials Thereof",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "5",
+          "component_name": "Suffix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Suffix (e.g., JR or III)",
+          "actual": "Suffix",
+          "detail": "Name: V291='Suffix (e.g., JR or III)', FHIR='Suffix'"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "5",
+          "component_name": "Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "6",
+          "component_name": "Prefix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Prefix (e.g., DR)",
+          "actual": "Prefix",
+          "detail": "Name: V291='Prefix (e.g., DR)', FHIR='Prefix'"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "6",
+          "component_name": "Prefix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "CNN",
+          "seq": "7",
+          "component_name": "Degree",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Degree (e.g., MD)",
+          "actual": "Degree",
+          "detail": "Name: V291='Degree (e.g., MD)', FHIR='Degree'"
+        }
+      ]
+    },
+    {
+      "data_type": "CP",
+      "fhir_component_count": 6,
+      "v291_component_count": 6,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CP \u2013 Composite Price",
+        "tableIndex": 9,
+        "captionText": "HL7 Component Table - CP \u2013 Composite Price"
+      },
+      "discrepancy_count": 2,
+      "discrepancies": [
+        {
+          "data_type": "CP",
+          "seq": "3",
+          "component_name": "From Value",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        },
+        {
+          "data_type": "CP",
+          "seq": "4",
+          "component_name": "To Value",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        }
+      ]
+    },
+    {
+      "data_type": "CQ",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CQ \u2013 Composite Quantity with Units",
+        "tableIndex": 10,
+        "captionText": "HL7 Component Table - CQ \u2013 Composite Quantity with Units"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "CSU",
+      "fhir_component_count": 23,
+      "v291_component_count": 23,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 CSU - Channel Sensitivity and Units",
+        "tableIndex": 11,
+        "captionText": "HL7 Component Table \u2013 CSU - Channel Sensitivity and Units"
+      },
+      "discrepancy_count": 4,
+      "discrepancies": [
+        {
+          "data_type": "CSU",
+          "seq": "3",
+          "component_name": "Unit of Measure Description",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CSU",
+          "seq": "6",
+          "component_name": "Alternate Unit of Measure Description",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CSU",
+          "seq": "10",
+          "component_name": "Original Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CSU",
+          "seq": "12",
+          "component_name": "Second Alternate Unit of Measure Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CWE",
+      "fhir_component_count": 22,
+      "v291_component_count": 22,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CWE \u2013 Coded with Exceptions",
+        "tableIndex": 12,
+        "captionText": "HL7 Component Table - CWE \u2013 Coded with Exceptions"
+      },
+      "discrepancy_count": 4,
+      "discrepancies": [
+        {
+          "data_type": "CWE",
+          "seq": "2",
+          "component_name": "Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CWE",
+          "seq": "5",
+          "component_name": "Alternate Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CWE",
+          "seq": "9",
+          "component_name": "Original Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "CWE",
+          "seq": "11",
+          "component_name": "Second Alternate Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "CX",
+      "fhir_component_count": 12,
+      "v291_component_count": 12,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - CX \u2013 Extended Composite ID with Check Digit",
+        "tableIndex": 17,
+        "captionText": "HL7 Component Table - CX \u2013 Extended Composite ID with Check Digit"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "DDI",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DDI \u2013 Daily Deductible Information",
+        "tableIndex": 20,
+        "captionText": "HL7 Component Table - DDI \u2013 Daily Deductible Information"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "DIN",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DIN \u2013 Date and Institution Name",
+        "tableIndex": 21,
+        "captionText": "HL7 Component Table - DIN \u2013 Date and Institution Name"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "DLD",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DLD \u2013 Discharge to Location and Date",
+        "tableIndex": 22,
+        "captionText": "HL7 Component Table - DLD \u2013 Discharge to Location and Date"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "DLN",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DLN \u2013 Driver\u2019s License Number",
+        "tableIndex": 23,
+        "captionText": "HL7 Component Table - DLN \u2013 Driver\u2019s License Number"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "DLT",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DLT \u2013 Delta",
+        "tableIndex": 24,
+        "captionText": "HL7 Component Table - DLT \u2013 Delta"
+      },
+      "discrepancy_count": 2,
+      "discrepancies": [
+        {
+          "data_type": "DLT",
+          "seq": "2",
+          "component_name": "Numeric Threshold",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "4#",
+          "actual": "4=",
+          "detail": "Conf length: V291='4#', FHIR len=4 trunc=1"
+        },
+        {
+          "data_type": "DLT",
+          "seq": "4",
+          "component_name": "Days Retained",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "4#",
+          "actual": "4=",
+          "detail": "Conf length: V291='4#', FHIR len=4 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "DR",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DR \u2013 Date/Time Range",
+        "tableIndex": 25,
+        "captionText": "HL7 Component Table - DR \u2013 Date/Time Range"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "DTN",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - DTN \u2013 Day Type and Number",
+        "tableIndex": 29,
+        "captionText": "HL7 Component Table - DTN \u2013 Day Type and Number"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "DTN",
+          "seq": "2",
+          "component_name": "Number of Days",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "3#",
+          "actual": "3=",
+          "detail": "Conf length: V291='3#', FHIR len=3 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "ED",
+      "fhir_component_count": 5,
+      "v291_component_count": 5,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - ED \u2013 Encapsulated Data",
+        "tableIndex": 30,
+        "captionText": "HL7 Component Table - ED \u2013 Encapsulated Data"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "EI",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - EI \u2013 Entity Identifier",
+        "tableIndex": 31,
+        "captionText": "HL7 Component Table - EI \u2013 Entity Identifier"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "EIP",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - EIP \u2013 Entity Identifier Pair",
+        "tableIndex": 32,
+        "captionText": "HL7 Component Table - EIP \u2013 Entity Identifier Pair"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "ERL",
+      "fhir_component_count": 6,
+      "v291_component_count": 6,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - ERL \u2013 Message Location",
+        "tableIndex": 33,
+        "captionText": "HL7 Component Table - ERL \u2013 Message Location"
+      },
+      "discrepancy_count": 6,
+      "discrepancies": [
+        {
+          "data_type": "ERL",
+          "seq": "1",
+          "component_name": "Segment ID",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        },
+        {
+          "data_type": "ERL",
+          "seq": "2",
+          "component_name": "Segment Sequence",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        },
+        {
+          "data_type": "ERL",
+          "seq": "3",
+          "component_name": "Field Position",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        },
+        {
+          "data_type": "ERL",
+          "seq": "4",
+          "component_name": "Field Repetition",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        },
+        {
+          "data_type": "ERL",
+          "seq": "5",
+          "component_name": "Component Number",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        },
+        {
+          "data_type": "ERL",
+          "seq": "6",
+          "component_name": "Sub-Component Number",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        }
+      ]
+    },
+    {
+      "data_type": "FC",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 FC \u2013 Financial Class",
+        "tableIndex": 34,
+        "captionText": "HL7 Component Table \u2013 FC \u2013 Financial Class"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "FN",
+      "fhir_component_count": 5,
+      "v291_component_count": 5,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - FN \u2013 Family Name",
+        "tableIndex": 35,
+        "captionText": "HL7 Component Table - FN \u2013 Family Name"
+      },
+      "discrepancy_count": 5,
+      "discrepancies": [
+        {
+          "data_type": "FN",
+          "seq": "1",
+          "component_name": "Surname",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "FN",
+          "seq": "2",
+          "component_name": "Own Surname Prefix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "FN",
+          "seq": "3",
+          "component_name": "Own Surname",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "FN",
+          "seq": "4",
+          "component_name": "Surname Prefix from Partner/Spouse",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "FN",
+          "seq": "5",
+          "component_name": "Surname from Partner/Spouse",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "HD",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - HD \u2013 Hierarchic Designator",
+        "tableIndex": 38,
+        "captionText": "HL7 Component Table - HD \u2013 Hierarchic Designator"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "ICD",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - ICD \u2013 Insurance Certification Definition",
+        "tableIndex": 39,
+        "captionText": "HL7 Component Table - ICD \u2013 Insurance Certification Definition"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "JCC",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 JCC \u2013 Job Code/Class",
+        "tableIndex": 42,
+        "captionText": "HL7 Component Table \u2013 JCC \u2013 Job Code/Class"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "MA",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - MA \u2013 Multiplexed Array",
+        "tableIndex": 43,
+        "captionText": "HL7 Component Table - MA \u2013 Multiplexed Array"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "MO",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - MO \u2013 Money",
+        "tableIndex": 44,
+        "captionText": "HL7 Component Table - MO \u2013 Money"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "MO",
+          "seq": "1",
+          "component_name": "Quantity",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        }
+      ]
+    },
+    {
+      "data_type": "MOC",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - MOC \u2013 Money and Code",
+        "tableIndex": 45,
+        "captionText": "HL7 Component Table - MOC \u2013 Money and Code"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "MOP",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 MOP \u2013 Money or Percentage",
+        "tableIndex": 46,
+        "captionText": "HL7 Component Table \u2013 MOP \u2013 Money or Percentage"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "MOP",
+          "seq": "2",
+          "component_name": "Money or Percentage Quantity",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "=",
+          "actual": "",
+          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
+        }
+      ]
+    },
+    {
+      "data_type": "MSG",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - MSG \u2013 Message Type",
+        "tableIndex": 47,
+        "captionText": "HL7 Component Table - MSG \u2013 Message Type"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "MSG",
+          "seq": "3",
+          "component_name": "Message Structure",
+          "dimension": "length",
+          "severity": "error",
+          "expected": "",
+          "actual": "3..7",
+          "detail": "Length: V291='3,7', FHIR=3..7"
+        }
+      ]
+    },
+    {
+      "data_type": "NA",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - NA \u2013 Numeric Array",
+        "tableIndex": 48,
+        "captionText": "HL7 Component Table - NA \u2013 Numeric Array"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "NDL",
+      "fhir_component_count": 11,
+      "v291_component_count": 11,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - NDL \u2013 Name with Date and Location",
+        "tableIndex": 49,
+        "captionText": "HL7 Component Table - NDL \u2013 Name with Date and Location"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "NR",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - NR \u2013 Numeric Range",
+        "tableIndex": 51,
+        "captionText": "HL7 Component Table - NR \u2013 Numeric Range"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "OCD",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - OCD \u2013 Occurrence Code and Date",
+        "tableIndex": 52,
+        "captionText": "HL7 Component Table - OCD \u2013 Occurrence Code and Date"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "OG",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - OG \u2013 Observation Grouper",
+        "tableIndex": 53,
+        "captionText": "HL7 Component Table - OG \u2013 Observation Grouper"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "OSP",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - OSP \u2013 Occurrence Span Code and Date",
+        "tableIndex": 54,
+        "captionText": "HL7 Component Table - OSP \u2013 Occurrence Span Code and Date"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "PIP",
+      "fhir_component_count": 5,
+      "v291_component_count": 5,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - PIP \u2013 Practitioner Institutional Privileges",
+        "tableIndex": 55,
+        "captionText": "HL7 Component Table - PIP \u2013 Practitioner Institutional Privileges"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "PL",
+      "fhir_component_count": 11,
+      "v291_component_count": 11,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 PL \u2013 Person Location",
+        "tableIndex": 56,
+        "captionText": "HL7 Component Table \u2013 PL \u2013 Person Location"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "PL",
+          "seq": "9",
+          "component_name": "Location Description",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "PLN",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - PLN \u2013 Practitioner License or Other ID Number",
+        "tableIndex": 57,
+        "captionText": "HL7 Component Table - PLN \u2013 Practitioner License or Other ID Number"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "PLN",
+          "seq": "3",
+          "component_name": "State/other Qualifying Information",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "62#",
+          "actual": "62=",
+          "detail": "Conf length: V291='62#', FHIR len=62 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "PPN",
+      "fhir_component_count": 26,
+      "v291_component_count": 26,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 PPN \u2013 Performing Person Time Stamp",
+        "tableIndex": 58,
+        "captionText": "HL7 Component Table \u2013 PPN \u2013 Performing Person Time Stamp"
+      },
+      "discrepancy_count": 9,
+      "discrepancies": [
+        {
+          "data_type": "PPN",
+          "seq": "3",
+          "component_name": "Given Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "4",
+          "component_name": "Second and Further Given Names or Initials Thereof",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "5",
+          "component_name": "Suffix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Suffix (e.g., JR or III)",
+          "actual": "Suffix",
+          "detail": "Name: V291='Suffix (e.g., JR or III)', FHIR='Suffix'"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "5",
+          "component_name": "Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "6",
+          "component_name": "Prefix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Prefix (e.g., DR)",
+          "actual": "Prefix",
+          "detail": "Name: V291='Prefix (e.g., DR)', FHIR='Prefix'"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "6",
+          "component_name": "Prefix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "7",
+          "component_name": "Degree",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Degree (e.g., MD)",
+          "actual": "Degree",
+          "detail": "Name: V291='Degree (e.g., MD)', FHIR='Degree'"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "8",
+          "component_name": "Source Table",
+          "dimension": "data_type",
+          "severity": "warning",
+          "expected": "CWE",
+          "actual": "",
+          "detail": "Data type: V291='CWE', FHIR=''"
+        },
+        {
+          "data_type": "PPN",
+          "seq": "22",
+          "component_name": "Professional Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "PRL",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - PRL \u2013 Parent Result Link",
+        "tableIndex": 59,
+        "captionText": "HL7 Component Table - PRL \u2013 Parent Result Link"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "PT",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - PT \u2013 Processing Type",
+        "tableIndex": 60,
+        "captionText": "HL7 Component Table - PT \u2013 Processing Type"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "PTA",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - PTA \u2013 Policy Type and Amount",
+        "tableIndex": 61,
+        "captionText": "HL7 Component Table - PTA \u2013 Policy Type and Amount"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "QIP",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - QIP \u2013 Query Input Parameter List",
+        "tableIndex": 62,
+        "captionText": "HL7 Component Table - QIP \u2013 Query Input Parameter List"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "QIP",
+          "seq": "2",
+          "component_name": "Values",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "QSC",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - QSC \u2013 Query Selection Criteria",
+        "tableIndex": 63,
+        "captionText": "HL7 Component Table - QSC \u2013 Query Selection Criteria"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "QSC",
+          "seq": "3",
+          "component_name": "Value",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "RCD",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - RCD \u2013 Row Column Definition",
+        "tableIndex": 64,
+        "captionText": "HL7 Component Table - RCD \u2013 Row Column Definition"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "RFR",
+      "fhir_component_count": 7,
+      "v291_component_count": 7,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - RFR \u2013 Reference Range",
+        "tableIndex": 65,
+        "captionText": "HL7 Component Table - RFR \u2013 Reference Range"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "RI",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - RI \u2013 Repeat Interval",
+        "tableIndex": 66,
+        "captionText": "HL7 Component Table - RI \u2013 Repeat Interval"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "RI",
+          "seq": "2",
+          "component_name": "Explicit Time Interval",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "RMC",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - RMC \u2013 Room Coverage",
+        "tableIndex": 67,
+        "captionText": "HL7 Component Table - RMC \u2013 Room Coverage"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "RP",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - RP \u2013 Reference Pointer",
+        "tableIndex": 68,
+        "captionText": "HL7 Component Table - RP \u2013 Reference Pointer"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "RP",
+          "seq": "1",
+          "component_name": "Pointer",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "999#",
+          "actual": "999=",
+          "detail": "Conf length: V291='999#', FHIR len=999 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "RPT",
+      "fhir_component_count": 11,
+      "v291_component_count": 11,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - RPT \u2013 Repeat Pattern",
+        "tableIndex": 69,
+        "captionText": "HL7 Component Table - RPT \u2013 Repeat Pattern"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "SAD",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - SAD \u2013 Street Address",
+        "tableIndex": 70,
+        "captionText": "HL7 Component Table - SAD \u2013 Street Address"
+      },
+      "discrepancy_count": 3,
+      "discrepancies": [
+        {
+          "data_type": "SAD",
+          "seq": "1",
+          "component_name": "Street or Mailing Address",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "120#",
+          "actual": "120=",
+          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
+        },
+        {
+          "data_type": "SAD",
+          "seq": "2",
+          "component_name": "Street Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "SAD",
+          "seq": "3",
+          "component_name": "Dwelling Number",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "12#",
+          "actual": "12=",
+          "detail": "Conf length: V291='12#', FHIR len=12 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "SCV",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - SCV \u2013 Scheduling Class Value Pair",
+        "tableIndex": 71,
+        "captionText": "HL7 Component Table - SCV \u2013 Scheduling Class Value Pair"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "SN",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - SN \u2013 Structured Numeric",
+        "tableIndex": 73,
+        "captionText": "HL7 Component Table - SN \u2013 Structured Numeric"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "SPD",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - SPD \u2013 Specialty Description",
+        "tableIndex": 76,
+        "captionText": "HL7 Component Table - SPD \u2013 Specialty Description"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "SRT",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - SRT \u2013 Sort Order",
+        "tableIndex": 77,
+        "captionText": "HL7 Component Table - SRT \u2013 Sort Order"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "UVC",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - UVC \u2013 UB Value Code and Amount",
+        "tableIndex": 82,
+        "captionText": "HL7 Component Table - UVC \u2013 UB Value Code and Amount"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "VH",
+      "fhir_component_count": 4,
+      "v291_component_count": 4,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - VH \u2013 Visiting Hours",
+        "tableIndex": 83,
+        "captionText": "HL7 Component Table - VH \u2013 Visiting Hours"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "VID",
+      "fhir_component_count": 3,
+      "v291_component_count": 3,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - VID \u2013 Version Identifier",
+        "tableIndex": 84,
+        "captionText": "HL7 Component Table - VID \u2013 Version Identifier"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "VR",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - VR \u2013 Value Range",
+        "tableIndex": 85,
+        "captionText": "HL7 Component Table - VR \u2013 Value Range"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "WVI",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 WVI - Channel Identifier",
+        "tableIndex": 86,
+        "captionText": "HL7 Component Table \u2013 WVI - Channel Identifier"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "WVI",
+          "seq": "2",
+          "component_name": "Channel Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "17#",
+          "actual": "17=",
+          "detail": "Conf length: V291='17#', FHIR len=17 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "WVS",
+      "fhir_component_count": 2,
+      "v291_component_count": 2,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 WVS - Waveform Source",
+        "tableIndex": 87,
+        "captionText": "HL7 Component Table \u2013 WVS - Waveform Source"
+      },
+      "discrepancy_count": 0,
+      "discrepancies": []
+    },
+    {
+      "data_type": "XAD",
+      "fhir_component_count": 23,
+      "v291_component_count": 23,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - XAD \u2013 Extended Address",
+        "tableIndex": 88,
+        "captionText": "HL7 Component Table - XAD \u2013 Extended Address"
+      },
+      "discrepancy_count": 6,
+      "discrepancies": [
+        {
+          "data_type": "XAD",
+          "seq": "2",
+          "component_name": "Other Designation",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "120#",
+          "actual": "120=",
+          "detail": "Conf length: V291='120#', FHIR len=120 trunc=1"
+        },
+        {
+          "data_type": "XAD",
+          "seq": "3",
+          "component_name": "City",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "XAD",
+          "seq": "4",
+          "component_name": "State or Province",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "XAD",
+          "seq": "8",
+          "component_name": "Other Geographic Designation",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        },
+        {
+          "data_type": "XAD",
+          "seq": "19",
+          "component_name": "Addressee",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "XAD",
+          "seq": "20",
+          "component_name": "Comment",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "XCN",
+      "fhir_component_count": 25,
+      "v291_component_count": 25,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - XCN \u2013 Extended Composite ID Number and Name for Persons",
+        "tableIndex": 89,
+        "captionText": "HL7 Component Table - XCN \u2013 Extended Composite ID Number and Name for Persons"
+      },
+      "discrepancy_count": 8,
+      "discrepancies": [
+        {
+          "data_type": "XCN",
+          "seq": "3",
+          "component_name": "Given Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "4",
+          "component_name": "Second and Further Given Names or Initials Thereof",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "5",
+          "component_name": "Suffix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Suffix (e.g., JR or III)",
+          "actual": "Suffix",
+          "detail": "Name: V291='Suffix (e.g., JR or III)', FHIR='Suffix'"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "5",
+          "component_name": "Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "6",
+          "component_name": "Prefix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Prefix (e.g., DR)",
+          "actual": "Prefix",
+          "detail": "Name: V291='Prefix (e.g., DR)', FHIR='Prefix'"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "6",
+          "component_name": "Prefix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "7",
+          "component_name": "Degree",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Degree (e.g., MD)",
+          "actual": "Degree",
+          "detail": "Name: V291='Degree (e.g., MD)', FHIR='Degree'"
+        },
+        {
+          "data_type": "XCN",
+          "seq": "21",
+          "component_name": "Professional Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "XON",
+      "fhir_component_count": 10,
+      "v291_component_count": 10,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - XON \u2013 Extended Composite Name and Identification Number for Organizations",
+        "tableIndex": 90,
+        "captionText": "HL7 Component Table - XON \u2013 Extended Composite Name and Identification Number for Organizations"
+      },
+      "discrepancy_count": 1,
+      "discrepancies": [
+        {
+          "data_type": "XON",
+          "seq": "1",
+          "component_name": "Organization Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "50#",
+          "actual": "50=",
+          "detail": "Conf length: V291='50#', FHIR len=50 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "XPN",
+      "fhir_component_count": 15,
+      "v291_component_count": 15,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table \u2013 XPN \u2013 Extended Person Name",
+        "tableIndex": 91,
+        "captionText": "HL7 Component Table \u2013 XPN \u2013 Extended Person Name"
+      },
+      "discrepancy_count": 9,
+      "discrepancies": [
+        {
+          "data_type": "XPN",
+          "seq": "2",
+          "component_name": "Given Name",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "3",
+          "component_name": "Second and Further Given Names or Initials Thereof",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "4",
+          "component_name": "Suffix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Suffix (e.g., JR or III)",
+          "actual": "Suffix",
+          "detail": "Name: V291='Suffix (e.g., JR or III)', FHIR='Suffix'"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "4",
+          "component_name": "Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "5",
+          "component_name": "Prefix",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Prefix (e.g., DR)",
+          "actual": "Prefix",
+          "detail": "Name: V291='Prefix (e.g., DR)', FHIR='Prefix'"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "5",
+          "component_name": "Prefix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "20#",
+          "actual": "20=",
+          "detail": "Conf length: V291='20#', FHIR len=20 trunc=1"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "6",
+          "component_name": "Degree",
+          "dimension": "component_name",
+          "severity": "cosmetic",
+          "expected": "Degree (e.g., MD)",
+          "actual": "Degree",
+          "detail": "Name: V291='Degree (e.g., MD)', FHIR='Degree'"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "14",
+          "component_name": "Professional Suffix",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "XPN",
+          "seq": "15",
+          "component_name": "Called By",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "30#",
+          "actual": "30=",
+          "detail": "Conf length: V291='30#', FHIR len=30 trunc=1"
+        }
+      ]
+    },
+    {
+      "data_type": "XTN",
+      "fhir_component_count": 18,
+      "v291_component_count": 18,
+      "v291_occurrences": 1,
+      "provenance": {
+        "sourceFile": "CH02A_DataTypes.docx",
+        "chapter": "02A",
+        "sectionHeading": "HL7 Component Table - XTN \u2013 Extended Telecommunication Number",
+        "tableIndex": 93,
+        "captionText": "HL7 Component Table - XTN \u2013 Extended Telecommunication Number"
+      },
+      "discrepancy_count": 2,
+      "discrepancies": [
+        {
+          "data_type": "XTN",
+          "seq": "9",
+          "component_name": "Any Text",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        },
+        {
+          "data_type": "XTN",
+          "seq": "12",
+          "component_name": "Unformatted Telephone Number",
+          "dimension": "conf_length",
+          "severity": "error",
+          "expected": "199#",
+          "actual": "199=",
+          "detail": "Conf length: V291='199#', FHIR len=199 trunc=1"
+        }
+      ]
+    }
+  ]
+}
