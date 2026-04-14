@@ -116,16 +116,18 @@ def identify_table_type(table: Table, preceding_style: Optional[str] = None) -> 
     if fuzzy_match_headers(first_row, segment_patterns):
         return 'segment_fields'
 
-    # Check for message structure table (4-5 columns)
-    if num_cols in [4, 5]:
+    # Check for message structure table (typically 4-5 cols, but duplicates
+    # can produce 6+). Use header matching instead of strict column count.
+    if num_cols >= 4:
         msg_patterns = ['SEGMENTS', 'DESCRIPTION', 'STATUS', 'CHAPTER']
         if fuzzy_match_headers(first_row, msg_patterns):
             return 'message_structure'
 
-    # Check for acknowledgment choreography (4 or 6 columns)
-    if num_cols in [4, 6]:
+    # Check for acknowledgment choreography (4-6 columns).
+    # Handle both "Acknowledgment" and "Acknowledgement" spellings.
+    if num_cols in [4, 5, 6]:
         combined = ' '.join(first_row).upper()
-        if 'ACKNOWLEDGMENT' in combined and 'CHOREOGRAPHY' in combined:
+        if 'ACKNOWLEDG' in combined and 'CHOREOGRAPHY' in combined:
             return 'ack_choreography'
 
     # Check for query parameters (13 columns)
@@ -857,29 +859,39 @@ def process_document(filepath: Path) -> Dict[str, Any]:
 
     # Derive events from message structure captions for chapters without
     # ack choreography tables. This fills the gap for CH04, CH05, CH07, etc.
+    # Also handles multi-event captions like PGL^PC6-PC8^PGL_PC6.
     ack_event_codes = {e["eventCode"] for e in events}
     for ms in message_structures:
         caption = ms.get("caption", "")
-        match = re.search(r'([A-Za-z0-9]+)\^([A-Za-z0-9]+)\^([A-Za-z0-9_]+)', caption)
+        match = re.search(r'([A-Za-z0-9]+)\^([A-Za-z0-9,\-]+)\^([A-Za-z0-9_]+)', caption)
         if match:
-            event_code = match.group(2).upper()
+            raw_event = match.group(2)
             message_type = match.group(1).upper()
             structure_id = match.group(3)
 
-            if event_code.lower() == 'varies' or event_code in ack_event_codes:
+            if raw_event.lower() == 'varies':
                 continue
 
-            ack_event_codes.add(event_code)
-            events.append({
-                "eventCode": event_code,
-                "messageType": message_type,
-                "name": caption,
-                "structureId": structure_id,
-                "provenance": ms["provenance"],
-                "acknowledgmentChoreography": None,
-                "derivedFrom": "message_structure_caption"
-            })
-            log_info(f"  → Derived event {event_code} from structure caption: {caption}")
+            # Expand event code ranges (e.g., PC6-PC8 → PC6, PC7, PC8)
+            expanded = expand_event_codes(raw_event.upper())
+
+            for event_code in expanded:
+                if event_code in ack_event_codes:
+                    continue
+
+                ack_event_codes.add(event_code)
+                events.append({
+                    "eventCode": event_code,
+                    "messageType": message_type,
+                    "name": caption,
+                    "structureId": structure_id,
+                    "provenance": ms["provenance"],
+                    "acknowledgmentChoreography": None,
+                    "derivedFrom": "message_structure_caption"
+                })
+
+            if expanded:
+                log_info(f"  → Derived {len(expanded)} event(s) from structure caption: {caption}")
 
     return {
         "segments": segments,
