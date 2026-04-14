@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Gap Report — FHIR vs V2.9.1</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         color: #1a1a1a; background: #f8f9fa; line-height: 1.5; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 1.6em; margin-bottom: 4px; color: #2c3e50; }
+  .subtitle { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+  h2 { font-size: 1.3em; margin: 28px 0 12px; color: #2c3e50;
+        border-bottom: 2px solid #3498db; padding-bottom: 6px; }
+  h3 { font-size: 1.1em; margin: 20px 0 8px; color: #34495e; }
+
+  /* Summary cards */
+  .summary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .card { background: #fff; border-radius: 8px; padding: 16px 20px;
+           box-shadow: 0 1px 3px rgba(0,0,0,0.1); flex: 1; min-width: 140px; }
+  .card .number { font-size: 2em; font-weight: 700; }
+  .card .label { font-size: 0.85em; color: #666; }
+  .card.matched .number { color: #27ae60; }
+  .card.fhir-only .number { color: #e67e22; }
+  .card.v291-only .number { color: #e74c3c; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; background: #fff;
+           border-radius: 8px; overflow: hidden;
+           box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px; }
+  th { background: #2c3e50; color: #fff; text-align: left;
+        padding: 10px 14px; font-size: 0.85em; font-weight: 600; }
+  td { padding: 8px 14px; border-bottom: 1px solid #eee; font-size: 0.88em; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f0f7ff; }
+
+  /* Category badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.78em; font-weight: 600; }
+  .badge.retained { background: #fef3cd; color: #856404; }
+  .badge.fhir-subvariant { background: #d1ecf1; color: #0c5460; }
+  .badge.not-in-v291 { background: #f8d7da; color: #721c24; }
+  .badge.unknown { background: #e2e3e5; color: #383d41; }
+  .badge.ack-table { background: #d4edda; color: #155724; }
+  .badge.caption { background: #cce5ff; color: #004085; }
+
+  /* Sidebar nav */
+  .layout { display: flex; gap: 20px; }
+  .sidebar { width: 220px; flex-shrink: 0; position: sticky; top: 20px; align-self: flex-start; }
+  .sidebar ul { list-style: none; }
+  .sidebar li { margin-bottom: 4px; }
+  .sidebar a { text-decoration: none; color: #3498db; font-size: 0.88em;
+                display: block; padding: 4px 8px; border-radius: 4px; }
+  .sidebar a:hover { background: #e8f4fd; }
+  .main { flex: 1; min-width: 0; }
+
+  .chapter-tag { color: #888; font-size: 0.82em; }
+  .section-ref { color: #555; font-size: 0.82em; font-style: italic; }
+  .msg-info { color: #555; font-size: 0.82em; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Event Gap Report</h1>
+<p class="subtitle">FHIR StructureDefinitions vs V2.9.1 Word Document Extraction &mdash; 2026-04-14 15:31 UTC</p>
+
+<div class="summary">
+  <div class="card matched"><div class="number">312</div><div class="label">Matched</div></div>
+  <div class="card fhir-only"><div class="number">44</div><div class="label">FHIR Only</div></div>
+  <div class="card v291-only"><div class="number">12</div><div class="label">V291 Only</div></div>
+  <div class="card"><div class="number">356</div><div class="label">Total FHIR</div></div>
+  <div class="card"><div class="number">324</div><div class="label">Total V291</div></div>
+</div>
+
+<div class="layout">
+<nav class="sidebar">
+  <ul>
+    <li><a href="#fhir-only">FHIR Only (44)</a></li>
+    <li><a href="#fhir-retained">&nbsp;&nbsp;Retained/Withdrawn (31)</a></li>
+    <li><a href="#fhir-subvariants">&nbsp;&nbsp;Sub-variants (2)</a></li>
+    <li><a href="#fhir-notinv291">&nbsp;&nbsp;Not in V291 (4)</a></li>
+    <li><a href="#v291-only">V291 Only (12)</a></li>
+  </ul>
+</nav>
+<div class="main">
+<h2 id="fhir-only">Events in FHIR but not V291</h2>
+<p>44 events exist in FHIR StructureDefinitions but were not extracted from V2.9.1 Word documents.</p>
+<h3 id="fhir-retained">Retained / Withdrawn (31)</h3>
+<p>These events are documented in V2.9.1 as retained for backward compatibility or withdrawn. No message structure or acknowledgment choreography tables exist to extract. Extracting their definitions would require older V2 standard documents.</p>
+<table>
+<tr><th>Event</th><th>Chapter</th><th>Status</th><th>Description</th></tr>
+<tr><td><strong>A18</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1/v2.7</span></td><td>ADT/ACK — Merge Patient Information</td></tr>
+<tr><td><strong>A19</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.4/v2.7</span></td><td>QRY/ADR — Patient Query (Original Mode)</td></tr>
+<tr><td><strong>A30</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Merge Person Information</td></tr>
+<tr><td><strong>A34</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Merge Patient Information – Patient ID Only</td></tr>
+<tr><td><strong>A35</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Merge Patient Information – Account Number Only</td></tr>
+<tr><td><strong>A36</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Merge Patient Information – Patient ID & Account Number</td></tr>
+<tr><td><strong>A39</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Merge Person – Patient ID</td></tr>
+<tr><td><strong>A46</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Change Patient ID</td></tr>
+<tr><td><strong>A48</strong></td><td><span class="chapter-tag">CH03 — Patient Administration</span></td><td><span class="badge retained">Withdrawn as of v2.3.1</span></td><td>ADT/ACK — Change Alternate Patient ID</td></tr>
+<tr><td><strong>I05</strong></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td><span class="badge retained">Removed as of v2.8</span></td><td>RQC/RCI — Request for Patient Clinical Information</td></tr>
+<tr><td><strong>I06</strong></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td><span class="badge retained">Removed as of v2.8</span></td><td>RQC/RCL — Request/Receipt of Clinical Data Listing</td></tr>
+<tr><td><strong>M01</strong></td><td><span class="chapter-tag">CH08 — Master Files</span></td><td><span class="badge retained">Withdrawn as of v2.7</span></td><td>MFN/MFK — Master File Notification</td></tr>
+<tr><td><strong>M03</strong></td><td><span class="chapter-tag">CH08 — Master Files</span></td><td><span class="badge retained">Withdrawn as of v2.7</span></td><td>MFN/MFK — Master File Notification – Test/Observation</td></tr>
+<tr><td><strong>N01</strong></td><td><span class="chapter-tag">CH14 — Application Management</span></td><td><span class="badge retained">Withdrawn as of v2.5</span></td><td>NMQ — Application Management Query</td></tr>
+<tr><td><strong>P04</strong></td><td><span class="chapter-tag">CH06 — Financial Management</span></td><td><span class="badge retained">Retained as of v2.4</span></td><td>QRY/DSR — Generate Bills and Accounts Receivable Statements</td></tr>
+<tr><td><strong>P09</strong></td><td><span class="chapter-tag">CH06 — Financial Management</span></td><td><span class="badge retained">Withdrawn as of v2.7 — CH06 refers to CH07</span></td><td>Product Experience (defined by Orders/Observations TC)</td></tr>
+<tr><td><strong>PC4</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>QRY — Patient Care Problem Query</td></tr>
+<tr><td><strong>PC5</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>PRR — Patient Problem Response</td></tr>
+<tr><td><strong>PC9</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>QRY — Patient Goal Query</td></tr>
+<tr><td><strong>PCA</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>PPV — Patient Goal Response</td></tr>
+<tr><td><strong>PCF</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>PTR — Patient Pathway (Problem-Oriented) Response</td></tr>
+<tr><td><strong>PCK</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>QRY — Patient Pathway (Goal-Oriented) Query</td></tr>
+<tr><td><strong>PCL</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td><td><span class="badge retained">Retained as of v2.4 / removed v2.8</span></td><td>PPT — Patient Pathway (Goal-Oriented) Response</td></tr>
+<tr><td><strong>R02</strong></td><td><span class="chapter-tag">CH07 — Observation Reporting</span></td><td><span class="badge retained">Withdrawn</span></td><td>QRY/ORF — Query for Results of Observation</td></tr>
+<tr><td><strong>R04</strong></td><td><span class="chapter-tag">CH07 — Observation Reporting</span></td><td><span class="badge retained">Withdrawn</span></td><td>QRY/ORF — Query for Results of Observation</td></tr>
+<tr><td><strong>R21</strong></td><td><span class="chapter-tag">CH07 — Observation Reporting</span></td><td><span class="badge retained">Withdrawn as of v2.5/v2.7</span></td><td>OUL — Unsolicited Laboratory Observation</td></tr>
+<tr><td><strong>S25</strong></td><td><span class="chapter-tag">CH10 — Scheduling</span></td><td><span class="badge retained">Withdrawn as of v2.7</span></td><td>SQM/SQR — Schedule Query Message and Response</td></tr>
+<tr><td><strong>T12</strong></td><td><span class="chapter-tag">CH09 — Medical Records / Document Mgmt</span></td><td><span class="badge retained">Withdrawn as of v2.7</span></td><td>QRY/DOC — Document Query</td></tr>
+<tr><td><strong>V01</strong></td><td><span class="chapter-tag">CH04A — Pharmacy/Treatment Orders</span></td><td><span class="badge retained">Withdrawn as of v2.4/v2.7</span></td><td>XQ — Query for Vaccination Record</td></tr>
+<tr><td><strong>V02</strong></td><td><span class="chapter-tag">CH04A — Pharmacy/Treatment Orders</span></td><td><span class="badge retained">Withdrawn</span></td><td>VXX — Response to Vaccination Query (Multiple PID Matches)</td></tr>
+<tr><td><strong>V03</strong></td><td><span class="chapter-tag">CH04A — Pharmacy/Treatment Orders</span></td><td><span class="badge retained">Withdrawn as of v2.4/v2.7</span></td><td>VXR — Vaccination Record Response</td></tr>
+</table>
+<h3 id="fhir-subvariants">FHIR Sub-variants (2)</h3>
+<p>These are FHIR-specific sub-divisions of events that exist as a single event in V291.</p>
+<table>
+<tr><th>Event</th><th>Reason</th></tr>
+<tr><td><strong>O59_A</strong></td><td><span class="badge fhir-subvariant">FHIR sub-variant of O59</span></td></tr>
+<tr><td><strong>O59_B</strong></td><td><span class="badge fhir-subvariant">FHIR sub-variant of O59</span></td></tr>
+</table>
+<h3 id="fhir-notinv291">Not in V291 Word Docs (4)</h3>
+<p>These events are not present in any V2.9.1 Word document examined.</p>
+<table>
+<tr><th>Event</th><th>Chapter</th><th>Reason</th></tr>
+<tr><td><strong>E30</strong></td><td><span class="chapter-tag">CH13 — Clinical Laboratory Automation</span></td><td><span class="badge not-in-v291">Not in CH13 Word doc — may be post-V2.9.1 addition</span></td></tr>
+<tr><td><strong>E31</strong></td><td><span class="chapter-tag">CH13 — Clinical Laboratory Automation</span></td><td><span class="badge not-in-v291">Not in CH13 Word doc — may be post-V2.9.1 addition</span></td></tr>
+<tr><td><strong>Z85</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td><td><span class="badge not-in-v291">Z event (user-defined) — not in V2.9.1 Word doc; needs V2 management review</span></td></tr>
+<tr><td><strong>Z95</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td><td><span class="badge not-in-v291">Z event (user-defined) — not in V2.9.1 Word doc; needs V2 management review</span></td></tr>
+</table>
+<h3>Uncategorized (7)</h3>
+<table>
+<tr><th>Event</th><th>Chapter</th></tr>
+<tr><td><strong>PCE-Event</strong></td><td><span class="chapter-tag">CH12 — Patient Care</span></td></tr>
+<tr><td><strong>Znn_A</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td></tr>
+<tr><td><strong>Znn_B</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td></tr>
+<tr><td><strong>Znn_C</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td></tr>
+<tr><td><strong>Znn_D</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td></tr>
+<tr><td><strong>Znn_E</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td></tr>
+<tr><td><strong>Znn_F</strong></td><td><span class="chapter-tag">CH05 — Query (user-defined)</span></td></tr>
+</table>
+<h2 id="v291-only">Events in V291 but not FHIR</h2>
+<p>12 events were extracted from V2.9.1 Word documents but have no corresponding FHIR StructureDefinition.</p>
+<table>
+<tr><th>Event</th><th>Chapter</th><th>Section / Clause</th><th>Message Type</th><th>Structure</th><th>Source</th></tr>
+<tr><td><strong>I12</strong></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">REF^I12-I15^REF_I12: Patient Referral</td><td class="msg-info">REF^I12</td><td class="msg-info">REF_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">RRI^I12-I15^RRI_I12: Return Referral Information</td><td class="msg-info">RRI^I12</td><td class="msg-info">RRI_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>I13</strong></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">REF^I12-I15^REF_I12: Patient Referral</td><td class="msg-info">REF^I13</td><td class="msg-info">REF_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">RRI^I12-I15^RRI_I12: Return Referral Information</td><td class="msg-info">RRI^I13</td><td class="msg-info">RRI_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>I14</strong></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">REF^I12-I15^REF_I12: Patient Referral</td><td class="msg-info">REF^I14</td><td class="msg-info">REF_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">RRI^I12-I15^RRI_I12: Return Referral Information</td><td class="msg-info">RRI^I14</td><td class="msg-info">RRI_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>I15</strong></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">REF^I12-I15^REF_I12: Patient Referral</td><td class="msg-info">REF^I15</td><td class="msg-info">REF_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH11 — Patient Referral</span></td><td class="section-ref">RRI^I12-I15^RRI_I12: Return Referral Information</td><td class="msg-info">RRI^I15</td><td class="msg-info">RRI_I12</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>O59</strong></td><td><span class="chapter-tag">CH04A — Pharmacy/Treatment Orders</span></td><td class="section-ref">RCV^O59^RCV_O59: Pharmacy/Treatment Dispense Message</td><td class="msg-info">RCV^O59</td><td class="msg-info">RCV_O59</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH04 — Order Entry</span></td><td class="section-ref">OML^O59^OML_O59: Laboratory Order Message</td><td class="msg-info">OML^O59</td><td class="msg-info">OML_O59</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>YYY</strong></td><td><span class="chapter-tag">CH02 — Control</span></td><td class="section-ref">Acknowledgment Choreography</td><td class="msg-info">XXX^YYY</td><td class="msg-info">ZZZ/XXX</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>Z01</strong></td><td><span class="chapter-tag">CH02 — Control</span></td><td class="section-ref">HL7 Acknowledgment Choreography Example</td><td class="msg-info">WRQ^Z01</td><td class="msg-info">WRQ_Z01/WRP</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td><strong>Z02</strong></td><td><span class="chapter-tag">CH02 — Control</span></td><td class="section-ref">WRP^Z02^WRQ_Z02: Widget Reports</td><td class="msg-info">WRP^Z02</td><td class="msg-info">WRQ_Z02</td><td><span class="badge caption">Caption</span></td></tr>
+<tr><td><strong>Z86</strong></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RSP^Z86^RSP_Z86: Response Grammar:  Pharmacy Information Comprehensive</td><td class="msg-info">RSP^Z86</td><td class="msg-info">RSP_Z86</td><td><span class="badge caption">Caption</span></td></tr>
+<tr><td><strong>Z96</strong></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RTB^Z96^RTB_K13: Response Grammar: Who Am I</td><td class="msg-info">RTB^Z96</td><td class="msg-info">RTB_K13</td><td><span class="badge caption">Caption</span></td></tr>
+<tr><td><strong>ZNN</strong></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">QBP^Znn^QBP_Qnn: Query Grammar: QBP Message</td><td class="msg-info">QBP^ZNN</td><td class="msg-info">QBP_Qnn</td><td><span class="badge caption">Caption</span></td></tr>
+<tr><td><strong>Znn</strong></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">QBP^Znn^QBP_Qnn: Query Grammar: QBP Message</td><td class="msg-info">QBP^Znn</td><td class="msg-info">QBP_Qnn</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RTB^Znn^RTB_Knn: Response Grammar: Widget Dispense Message</td><td class="msg-info">RTB^Znn</td><td class="msg-info">RTB_Knn</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RDY^Znn^RDY_K15: Response Grammar: Dispense History</td><td class="msg-info">RDY^Znn</td><td class="msg-info">RDY_K15</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RTB^Znn^RTB_K13: Response Grammar:  RTB Message</td><td class="msg-info">RTB^Znn</td><td class="msg-info">RTB_K13</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">QBP^Znn^QBP_Q11: Query Grammar:  QBP Message</td><td class="msg-info">QBP^Znn</td><td class="msg-info">QBP_Q11</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RSP^Znn^RSP_Znn: Response Grammar: RSP Message</td><td class="msg-info">RSP^Znn</td><td class="msg-info">RSP_Znn</td><td><span class="badge ack-table">Ack table</span></td></tr>
+<tr><td></td><td><span class="chapter-tag">CH05 — Query</span></td><td class="section-ref">RDY^Znn^RDY_K15: Response Grammar:  RDY Message</td><td class="msg-info">RDY^Znn</td><td class="msg-info">RDY_K15</td><td><span class="badge ack-table">Ack table</span></td></tr>
+</table>
+
+</div>
+</div>
+</div>
+</body>
+</html>
