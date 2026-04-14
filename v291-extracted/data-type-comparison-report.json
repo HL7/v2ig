@@ -1,17 +1,16 @@
 {
-  "generated": "2026-04-14T15:18:48.123004+00:00",
+  "generated": "2026-04-14T15:54:39.237987+00:00",
   "summary": {
     "data_types_compared": 71,
-    "data_types_with_discrepancies": 9,
-    "total_discrepancies": 24,
+    "data_types_with_discrepancies": 5,
+    "total_discrepancies": 14,
     "by_severity": {
       "cosmetic": 12,
-      "error": 11,
+      "error": 1,
       "warning": 1
     },
     "by_dimension": {
       "component_name": 12,
-      "conf_length": 10,
       "length": 1,
       "data_type": 1
     }
@@ -180,29 +179,8 @@
         "tableIndex": 9,
         "captionText": "HL7 Component Table - CP \u2013 Composite Price"
       },
-      "discrepancy_count": 2,
-      "discrepancies": [
-        {
-          "data_type": "CP",
-          "seq": "3",
-          "component_name": "From Value",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        },
-        {
-          "data_type": "CP",
-          "seq": "4",
-          "component_name": "To Value",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "CQ",
@@ -426,69 +404,8 @@
         "tableIndex": 33,
         "captionText": "HL7 Component Table - ERL \u2013 Message Location"
       },
-      "discrepancy_count": 6,
-      "discrepancies": [
-        {
-          "data_type": "ERL",
-          "seq": "1",
-          "component_name": "Segment ID",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        },
-        {
-          "data_type": "ERL",
-          "seq": "2",
-          "component_name": "Segment Sequence",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        },
-        {
-          "data_type": "ERL",
-          "seq": "3",
-          "component_name": "Field Position",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        },
-        {
-          "data_type": "ERL",
-          "seq": "4",
-          "component_name": "Field Repetition",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        },
-        {
-          "data_type": "ERL",
-          "seq": "5",
-          "component_name": "Component Number",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        },
-        {
-          "data_type": "ERL",
-          "seq": "6",
-          "component_name": "Sub-Component Number",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "FC",
@@ -592,19 +509,8 @@
         "tableIndex": 44,
         "captionText": "HL7 Component Table - MO \u2013 Money"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "MO",
-          "seq": "1",
-          "component_name": "Quantity",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "MOC",
@@ -633,19 +539,8 @@
         "tableIndex": 46,
         "captionText": "HL7 Component Table \u2013 MOP \u2013 Money or Percentage"
       },
-      "discrepancy_count": 1,
-      "discrepancies": [
-        {
-          "data_type": "MOP",
-          "seq": "2",
-          "component_name": "Money or Percentage Quantity",
-          "dimension": "conf_length",
-          "severity": "error",
-          "expected": "=",
-          "actual": "",
-          "detail": "Conf length: V291='=', FHIR len=None trunc=None"
-        }
-      ]
+      "discrepancy_count": 0,
+      "discrepancies": []
     },
     {
       "data_type": "MSG",
