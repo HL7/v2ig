@@ -55,6 +55,15 @@
                 "valueInteger": 3
               }
             ]
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
@@ -62,7 +71,7 @@
         "id": "ERL.2",
         "path": "ERL.2",
         "short": "Segment Sequence",
-        "defintion": "*Definition:* Identifies the segment occurrence within the message. The first occurrence of a segment is assigned the number of 1.\n\n\n\n*NOTE:* This number refers to the absolute position of the referenced instance of the segment type in the message – it is not synonymous with the Set-ID of the segment – for example if the referenced element is OBX in field position 5, that means it is the 5th OBX segment in the message, regardless of the number of OBR segments that may be interspersed between them, which causes a reset of the Set-ID.*\n",
+        "defintion": "*Definition:* Identifies the segment occurrence within the message. The first occurrence of a segment is assigned the number of 1.\n\n\n\n*NOTE:* This number refers to the absolute position of the referenced instance of the segment type in the message \u2013 it is not synonymous with the Set-ID of the segment \u2013 for example if the referenced element is OBX in field position 5, that means it is the 5th OBX segment in the message, regardless of the number of OBR segments that may be interspersed between them, which causes a reset of the Set-ID.*\n",
         "min": 1,
         "max": "1",
         "type": [
@@ -74,6 +83,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
@@ -93,6 +111,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
@@ -112,6 +139,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
@@ -131,6 +167,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "C"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
@@ -150,6 +195,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       }

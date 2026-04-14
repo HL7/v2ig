@@ -65,6 +65,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "R"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },

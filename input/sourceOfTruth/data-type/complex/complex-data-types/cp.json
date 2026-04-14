@@ -97,6 +97,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
@@ -116,6 +125,15 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "O"
+          },
+          {
+            "url": "http://hl7.org/v2/StructureDefinition/conformance-length",
+            "extension": [
+              {
+                "url": "noTruncate",
+                "valueBoolean": true
+              }
+            ]
           }
         ]
       },
