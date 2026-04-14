@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2+ IG Structural Comparison &mdash; V2 Management Review</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a1a1a; background: #f8f9fa; line-height: 1.6;
+  }
+
+  .page { display: flex; max-width: 1200px; margin: 0 auto; }
+
+  /* Sidebar TOC */
+  .toc {
+    width: 260px; flex-shrink: 0; position: sticky; top: 0;
+    align-self: flex-start; height: 100vh; overflow-y: auto;
+    padding: 24px 16px; background: #fff;
+    border-right: 1px solid #e0e0e0;
+  }
+  .toc h3 { font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;
+             color: #888; margin-bottom: 12px; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 4px; }
+  .toc a { text-decoration: none; color: #3498db; font-size: 0.85em;
+            display: block; padding: 3px 6px; border-radius: 4px; }
+  .toc a:hover { background: #e8f4fd; }
+  .toc .toc-h3 { padding-left: 16px; }
+  .toc .toc-h3 a { font-size: 0.82em; color: #666; }
+
+  /* Main content */
+  .content {
+    flex: 1; min-width: 0; padding: 32px 40px; max-width: 860px;
+  }
+
+  h1 { font-size: 1.6em; color: #2c3e50; margin-bottom: 6px; }
+  h2 { font-size: 1.35em; color: #2c3e50; margin: 36px 0 12px;
+        padding-bottom: 6px; border-bottom: 2px solid #3498db; }
+  h3 { font-size: 1.1em; color: #34495e; margin: 24px 0 8px; }
+  h4 { font-size: 1em; color: #555; margin: 16px 0 6px; }
+
+  p { margin-bottom: 12px; }
+  p.numbered { margin-bottom: 8px; }
+
+  hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+
+  ul { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 4px; }
+
+  code {
+    background: #f0f0f0; padding: 1px 5px; border-radius: 3px;
+    font-family: 'SF Mono', Consolas, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #2c3e50; color: #ecf0f1; padding: 16px;
+    border-radius: 6px; overflow-x: auto; margin: 12px 0 16px;
+  }
+  pre code { background: none; padding: 0; color: inherit; }
+
+  /* Tables */
+  table {
+    width: 100%; border-collapse: collapse; margin: 12px 0 20px;
+    background: #fff; border-radius: 6px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  thead th {
+    background: #2c3e50; color: #fff; text-align: left;
+    padding: 10px 12px; font-size: 0.84em; font-weight: 600;
+  }
+  td {
+    padding: 8px 12px; border-bottom: 1px solid #eee; font-size: 0.88em;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f7fbff; }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+  a { color: #3498db; }
+  a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .page { flex-direction: column; }
+    .toc { width: 100%; height: auto; position: static;
+            border-right: none; border-bottom: 1px solid #e0e0e0; }
+    .content { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<nav class="toc"><h3>Contents</h3><ul>
+<li class=""><a href="#1-conformance-length-bare-without-numeric-value">1. Conformance Length: Bare `=` Without Numeric Value</a></li>
+<li class="toc-h3"><a href="#finding">Finding</a></li>
+<li class="toc-h3"><a href="#affected-components">Affected Components</a></li>
+<li class="toc-h3"><a href="#fhir-representation-problem">FHIR Representation Problem</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management">Questions for V2 Management</a></li>
+<li class=""><a href="#2-events-retained-withdrawn-without-extractable-definitions">2. Events: Retained / Withdrawn Without Extractable Definitions</a></li>
+<li class="toc-h3"><a href="#finding-1">Finding</a></li>
+<li class="toc-h3"><a href="#affected-events">Affected Events</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management-1">Questions for V2 Management</a></li>
+<li class=""><a href="#3-z-events-and-z-segments">3. Z Events and Z Segments</a></li>
+<li class="toc-h3"><a href="#finding-2">Finding</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management-2">Questions for V2 Management</a></li>
+<li class=""><a href="#4-events-in-v291-not-in-fhir">4. Events in V291 Not in FHIR</a></li>
+<li class="toc-h3"><a href="#finding-3">Finding</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management-3">Questions for V2 Management</a></li>
+<li class=""><a href="#5-segment-field-data-quality-previously-resolved">5. Segment Field Data Quality (Previously Resolved)</a></li>
+<li class=""><a href="#6-data-type-component-conformance-length-previously-resolved">6. Data Type Component Conformance Length (Previously Resolved)</a></li>
+<li class=""><a href="#methodology">Methodology</a></li>
+</ul></nav>
+
+<main class="content">
+<h1 id="v2-ig-structural-comparison-findings-for-v2-management-review">V2+ IG Structural Comparison: Findings for V2 Management Review</h1>
+<p>This document summarizes findings from a systematic comparison of the V2+ FHIR Implementation Guide resources against V2.9.1 Word document extractions. Items flagged here require discussion with the V2 Management Group to determine the correct resolution.</p>
+<hr>
+<h2 id="1-conformance-length-bare-without-numeric-value">1. Conformance Length: Bare <code>=</code> Without Numeric Value</h2>
+<h3 id="finding">Finding</h3>
+<p>10 data type components in V2.9.1 Chapter 2A have a conformance length value of just <code>=</code> (no numeric length). Per a strict reading of clause 2.4.5.3, this is not valid &mdash; a conformance length should be a numeric value optionally followed by <code>=</code> or <code>#</code> to indicate truncation behavior.</p>
+<p>However, the intent is clear: <em>"whatever value was received, it is never acceptable to truncate it, regardless of length."</em></p>
+<h3 id="affected-components">Affected Components</h3>
+<table>
+<thead><tr><th>Data Type</th><th>Component</th><th>Conf Length</th><th>Section</th></tr></thead><tbody>
+<tr><td>CP</td><td>.3 From Value</td><td><code>=</code></td><td>HL7 Component Table – CP – Composite Price</td></tr>
+<tr><td>CP</td><td>.4 To Value</td><td><code>=</code></td><td>HL7 Component Table – CP – Composite Price</td></tr>
+<tr><td>ERL</td><td>.1 Segment ID</td><td><code>=</code></td><td>HL7 Component Table – ERL – Message Location</td></tr>
+<tr><td>ERL</td><td>.2 Segment Sequence</td><td><code>=</code></td><td>HL7 Component Table – ERL – Message Location</td></tr>
+<tr><td>ERL</td><td>.3 Field Position</td><td><code>=</code></td><td>HL7 Component Table – ERL – Message Location</td></tr>
+<tr><td>ERL</td><td>.4 Field Repetition</td><td><code>=</code></td><td>HL7 Component Table – ERL – Message Location</td></tr>
+<tr><td>ERL</td><td>.5 Component Number</td><td><code>=</code></td><td>HL7 Component Table – ERL – Message Location</td></tr>
+<tr><td>ERL</td><td>.6 Sub-Component Number</td><td><code>=</code></td><td>HL7 Component Table – ERL – Message Location</td></tr>
+<tr><td>MO</td><td>.1 Quantity</td><td><code>=</code></td><td>HL7 Component Table – MO – Money</td></tr>
+<tr><td>MOP</td><td>.2 Money or Percentage Quantity</td><td><code>=</code></td><td>HL7 Component Table – MOP – Money or Percentage</td></tr>
+</tbody></table>
+<h3 id="fhir-representation-problem">FHIR Representation Problem</h3>
+<p>The V2+ IG represents conformance length using a complex extension (<code>http://hl7.org/v2/StructureDefinition/conformance-length</code>) with two sub-extensions:</p>
+<ul>
+<li><code>length</code> (valueInteger) &mdash; the numeric conformance length</li>
+<li><code>noTruncate</code> (valueBoolean) &mdash; <code>true</code> for <code>=</code>, <code>false</code> for <code>#</code></li>
+</ul>
+<p>Currently, the extension cannot express "never truncate" without also specifying a numeric length, because both sub-extensions are treated as a pair. These 10 components therefore have no conformance-length extension at all in the FHIR resources.</p>
+<h3 id="questions-for-v2-management">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>Is bare <code>=</code> a valid conformance length value?</strong> If so, clause 2.4.5.3 should be updated to document this usage.</p>
+<p class="numbered"><strong>2.</strong> <strong>What is the intended semantic?</strong> Our interpretation: "the receiver must accept and store the full value without truncation, regardless of actual length." Is this correct?</p>
+<p class="numbered"><strong>3.</strong> <strong>Should the FHIR extension be restructured?</strong> One option: allow <code>noTruncate</code> to appear without <code>length</code>, meaning "no truncation permitted; no specific conformance length defined." This would require updating the extension StructureDefinition to make <code>length</code> optional.</p>
+<hr>
+<h2 id="2-events-retained-withdrawn-without-extractable-definitions">2. Events: Retained / Withdrawn Without Extractable Definitions</h2>
+<h3 id="finding-1">Finding</h3>
+<p>30 events in the FHIR StructureDefinitions exist in V2.9.1 only as "retained for backward compatibility" or "withdrawn" references. The V2.9.1 Word documents contain no message structure tables or acknowledgment choreography tables for these events &mdash; they point readers to older versions of the standard or to other chapters.</p>
+<p>These events exist as FHIR StructureDefinitions but their content (message structures, segments used, acknowledgment choreography) cannot be verified against V2.9.1 source material.</p>
+<h3 id="affected-events">Affected Events</h3>
+<table>
+<thead><tr><th>Event</th><th>Chapter</th><th>Status</th><th>Description</th></tr></thead><tbody>
+<tr><td>A18</td><td>CH03</td><td>Withdrawn v2.3.1/v2.7</td><td>ADT/ACK &mdash; Merge Patient Information</td></tr>
+<tr><td>A19</td><td>CH03</td><td>Withdrawn v2.4/v2.7</td><td>QRY/ADR &mdash; Patient Query (Original Mode)</td></tr>
+<tr><td>A30</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Merge Person Information</td></tr>
+<tr><td>A34</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Merge Patient Info (Patient ID Only)</td></tr>
+<tr><td>A35</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Merge Patient Info (Account Number Only)</td></tr>
+<tr><td>A36</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Merge Patient Info (Patient ID & Account Number)</td></tr>
+<tr><td>A39</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Merge Person – Patient ID</td></tr>
+<tr><td>A46</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Change Patient ID</td></tr>
+<tr><td>A48</td><td>CH03</td><td>Withdrawn v2.3.1</td><td>ADT/ACK &mdash; Change Alternate Patient ID</td></tr>
+<tr><td>I05</td><td>CH11</td><td>Removed v2.8</td><td>RQC/RCI &mdash; Request for Patient Clinical Information</td></tr>
+<tr><td>I06</td><td>CH11</td><td>Removed v2.8</td><td>RQC/RCL &mdash; Request/Receipt of Clinical Data Listing</td></tr>
+<tr><td>M01</td><td>CH08</td><td>Withdrawn v2.7</td><td>MFN/MFK &mdash; Master File Notification</td></tr>
+<tr><td>M03</td><td>CH08</td><td>Withdrawn v2.7</td><td>MFN/MFK &mdash; Master File Notification – Test/Observation</td></tr>
+<tr><td>N01</td><td>CH14</td><td>Withdrawn v2.5</td><td>NMQ &mdash; Application Management Query</td></tr>
+<tr><td>P04</td><td>CH06</td><td>Retained v2.4</td><td>QRY/DSR &mdash; Generate Bills and AR Statements</td></tr>
+<tr><td>P09</td><td>CH06→CH07</td><td>Withdrawn v2.7</td><td>Product Experience (CH06 refers to CH07)</td></tr>
+<tr><td>PC4</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>QRY &mdash; Patient Care Problem Query</td></tr>
+<tr><td>PC5</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>PRR &mdash; Patient Problem Response</td></tr>
+<tr><td>PC9</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>QRY &mdash; Patient Goal Query</td></tr>
+<tr><td>PCA</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>PPV &mdash; Patient Goal Response</td></tr>
+<tr><td>PCE</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>QRY &mdash; Patient Pathway (Problem-Oriented) Query</td></tr>
+<tr><td>PCF</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>PTR &mdash; Patient Pathway (Problem-Oriented) Response</td></tr>
+<tr><td>PCK</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>QRY &mdash; Patient Pathway (Goal-Oriented) Query</td></tr>
+<tr><td>PCL</td><td>CH12</td><td>Retained v2.4 / removed v2.8</td><td>PPT &mdash; Patient Pathway (Goal-Oriented) Response</td></tr>
+<tr><td>R02</td><td>CH07</td><td>Withdrawn</td><td>QRY/ORF &mdash; Query for Results of Observation</td></tr>
+<tr><td>R04</td><td>CH07</td><td>Withdrawn</td><td>QRY/ORF &mdash; Query for Results of Observation</td></tr>
+<tr><td>R21</td><td>CH07</td><td>Withdrawn v2.5/v2.7</td><td>OUL &mdash; Unsolicited Laboratory Observation</td></tr>
+<tr><td>S25</td><td>CH10</td><td>Withdrawn v2.7</td><td>SQM/SQR &mdash; Schedule Query and Response</td></tr>
+<tr><td>T12</td><td>CH09</td><td>Withdrawn v2.7</td><td>QRY/DOC &mdash; Document Query</td></tr>
+<tr><td>V01</td><td>CH04A</td><td>Withdrawn v2.4/v2.7</td><td>XQ &mdash; Query for Vaccination Record</td></tr>
+<tr><td>V02</td><td>CH04A</td><td>Withdrawn</td><td>VXX &mdash; Response to Vaccination Query</td></tr>
+<tr><td>V03</td><td>CH04A</td><td>Withdrawn v2.4/v2.7</td><td>VXR &mdash; Vaccination Record Response</td></tr>
+</tbody></table>
+<h3 id="questions-for-v2-management-1">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>Should withdrawn/removed events remain in the V2+ IG?</strong> If yes, their definitions would need to be sourced from the version where they were last active (e.g., V2.3.1, V2.4, V2.7).</p>
+<p class="numbered"><strong>2.</strong> <strong>For events removed as of v2.8, is "retained for backward compatibility" still the correct status in V2+?</strong> Or should they be marked as withdrawn?</p>
+<hr>
+<h2 id="3-z-events-and-z-segments">3. Z Events and Z Segments</h2>
+<h3 id="finding-2">Finding</h3>
+<p>Several Z-prefixed events and structures appear in the V2.9.1 documents as example / template content:</p>
+<ul>
+<li><strong>ZNN / Znn</strong> (CH05): Template placeholder for user-defined queries. Appears in multiple acknowledgment choreography tables and message structure captions as <code>QBP^Znn^QBP_Qnn</code>.</li>
+<li><strong>Z01, Z02</strong> (CH02): Example events used in the HL7 Acknowledgment Choreography Example section (Widget Request/Response).</li>
+<li><strong>Z85, Z86, Z95, Z96</strong> (CH05): Query grammar examples for specific query profiles.</li>
+</ul>
+<p>In the FHIR resources, some of these are represented as real events with sub-variants (ZNN<em>A through ZNN</em>F), while others (Z85, Z95) are not represented at all.</p>
+<h3 id="questions-for-v2-management-2">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>Should Z events/structures be included in the V2+ IG?</strong> Z messages are user-defined by convention and not part of the base standard. The ones in V2.9.1 appear to be illustrative examples.</p>
+<p class="numbered"><strong>2.</strong> <strong>If included, how should they be marked?</strong> As examples? As templates? With a specific extension indicating they are user-defined?</p>
+<p class="numbered"><strong>3.</strong> <strong>The FHIR resources have ZNN sub-variants (ZNN<em>A through ZNN</em>F) &mdash; is this the intended representation?</strong> Or should there be a single ZNN template?</p>
+<hr>
+<h2 id="4-events-in-v291-not-in-fhir">4. Events in V291 Not in FHIR</h2>
+<h3 id="finding-3">Finding</h3>
+<p>12 event codes extracted from V2.9.1 have no corresponding FHIR StructureDefinition. Most have clear explanations:</p>
+<table>
+<thead><tr><th>Event</th><th>Chapter</th><th>Source</th><th>Explanation</th></tr></thead><tbody>
+<tr><td>I12–I15</td><td>CH11</td><td>Ack table (REF^I12-I15^REF_I12)</td><td>Multi-event range expansion &mdash; FHIR may have these under different codes or combined</td></tr>
+<tr><td>O59</td><td>CH04, CH04A</td><td>Ack tables</td><td>Two different message types (OML and RCV) use event O59 &mdash; FHIR has sub-variants O59<em>A and O59</em>B instead</td></tr>
+<tr><td>YYY</td><td>CH02</td><td>Ack table</td><td>Placeholder example (XXX^YYY^ZZZ) from Control chapter</td></tr>
+<tr><td>Z01, Z02</td><td>CH02</td><td>Ack table / caption</td><td>Widget example events</td></tr>
+<tr><td>Z86, Z96</td><td>CH05</td><td>Caption</td><td>Query grammar examples</td></tr>
+<tr><td>ZNN / Znn</td><td>CH05</td><td>Ack table / caption</td><td>User-defined query template</td></tr>
+</tbody></table>
+<h3 id="questions-for-v2-management-3">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>I12–I15</strong>: These are extracted from multi-event ack choreography tables in CH11. Are they expected to have individual FHIR StructureDefinitions? The FHIR resources appear to represent referral events differently.</p>
+<p class="numbered"><strong>2.</strong> <strong>O59</strong>: FHIR has O59<em>A and O59</em>B as sub-variants. Is this the correct representation for an event code shared between two message types (OML and RCV)?</p>
+<hr>
+<h2 id="5-segment-field-data-quality-previously-resolved">5. Segment Field Data Quality (Previously Resolved)</h2>
+<p>For reference, 1,109 segment field corrections were applied across 145 FHIR JSON files based on V2.9.1 comparison. Key categories:</p>
+<ul>
+<li>494 active fields with <code>max: 0</code> restored to repeating</li>
+<li>104 W (withdrawn) fields normalized with <code>standards-status: withdrawn</code></li>
+<li>36 B (backward compatible) fields normalized with <code>standards-status: deprecated</code></li>
+<li>320 conformance length flag corrections</li>
+<li>39 length min/max corrections</li>
+</ul>
+<p>These are documented in ADR-0005 and the segment comparison report at <code>v291-extracted/segment-comparison-report.html</code>.</p>
+<hr>
+<h2 id="6-data-type-component-conformance-length-previously-resolved">6. Data Type Component Conformance Length (Previously Resolved)</h2>
+<p>71 conformance length flag corrections were applied across 26 FHIR complex data type files. In all cases, V2.9.1 specified <code>#</code> (truncation permitted) but FHIR had <code>noTruncate: true</code> (no truncation). The 10 bare <code>=</code> cases described in Section 1 remain unresolved.</p>
+<hr>
+<h2 id="methodology">Methodology</h2>
+<p>All findings are based on automated extraction from V2.9.1 Word documents (<code>v2plus<em>docx/*.docx</code>) using <code>tooling/scripts/extract</em>v291.py</code>, compared against FHIR StructureDefinitions in <code>input/sourceOfTruth/</code>. Comparison scripts:</p>
+<ul>
+<li><code>tooling/scripts/compare_segments.py</code> &mdash; 9-dimension segment field comparison</li>
+<li><code>tooling/scripts/compare<em>data</em>types.py</code> &mdash; 7-dimension data type component comparison</li>
+<li><code>tooling/scripts/structural_inventory.py</code> &mdash; artifact-level gap analysis</li>
+<li><code>tooling/scripts/generate<em>event</em>gap_report.py</code> &mdash; event gap HTML report</li>
+</ul>
+<p>Reports are in <code>v291-extracted/</code>:</p>
+<ul>
+<li><code>structural-inventory.md</code> / <code>.json</code> &mdash; overview of all artifact types</li>
+<li><code>segment-comparison-report.html</code> &mdash; navigable segment field comparison</li>
+<li><code>data-type-comparison-report.md</code> / <code>.json</code> &mdash; data type component comparison</li>
+<li><code>event-gap-report.html</code> &mdash; event gap analysis with chapter/clause references</li>
+</ul>
+</main>
+</div>
+</body>
+</html>
