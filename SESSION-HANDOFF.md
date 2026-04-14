@@ -5,86 +5,71 @@
 
 ## Last Session: 2026-04-14
 
-## ACTIVE: Comprehensive structural comparison, extraction fixes, data quality corrections, V2 mgmt review report
+## ACTIVE: Message structure comparison, event clarifications, HXX/VARIES strategy
 
 ### What Was Done This Session
 
-1. **Committed outstanding changes from prior session** (4 commits):
-   - Segment comparison tooling + fix script + ADR-0005
-   - 1,109 segment field data quality fixes across 145 files
-   - W/B field rendering + seq# links on segment pages
-   - Session handoff update
+1. **Pushed 20 outstanding commits** to `origin/dev/framework`
 
-2. **Comprehensive structural inventory** (`tooling/scripts/structural_inventory.py`):
-   - Compared all artifact types: segments, complex data types, message structures, events
-   - Produced JSON + Markdown gap analysis reports
+2. **Message structure content comparison** (`tooling/scripts/compare_message_structures.py`):
+   - Compares 415 FHIR message structures against V291 extracted data
+   - Flattens both representations to ordered segment lists
+   - Compares across 5 dimensions: segment presence, optionality, repetition, group nesting, description
+   - Categorizes differences:
+     - **Structural (293)**: missing/extra segments, optionality, repetition, group nesting, meaningful description diffs
+     - **Cosmetic (272)**: whitespace, case, punctuation, abbreviations, typos, Unicode normalization
+   - Handles sub-variant matching (FHIR ADT_A01-A/B/C/D ↔ V291 multiple occurrences)
+   - Detects truncated V291 extractions (3 skipped: CCM_I21, CCR_I16, CCU_I20 from CH11)
+   - Fixes CH13 column mapping bug (descriptions in wrong field)
+   - Includes consolidated patterns section grouping identical diffs across sub-variants
+   - Generates JSON + Markdown + navigable HTML reports with chapter/clause provenance
 
-3. **V291 extraction fixes** (`tooling/scripts/extract_v291.py`):
-   - Multi-column segment tables (18/13 cols) → deduplicate to canonical 9 columns (fixes BPX, BTX, BUI)
-   - Event extraction regex broadened: handles hyphens, commas, "varies", case-insensitive
-   - Multi-event caption expansion: `PGL^PC6-PC8^PGL_PC6` → events PC6, PC7, PC8
-   - Events derived from message structure captions for chapters without ack tables
-   - Message structure caption regex handles "varies" → UNKNOWN structures resolved (26→1)
-   - Ack choreography: accepts 5-column tables, handles "Acknowledgement" British spelling
-   - CH13 (Clinical Lab Automation) Word doc added and processed
-
-4. **Data type component comparison** (`tooling/scripts/compare_data_types.py`):
-   - 7-dimension comparison of 71 complex data types
-   - Found 95 discrepancies, fixed 81 (71 conf_length flags + 10 bare `=` with extension change)
-
-5. **Conformance-length extension made `length` optional** (0..1):
-   - `input/resources/extensions/conformance_length_extension.json` — length slice min changed from 1 to 0
-   - Allows expressing "never truncate, no specific conformance length" (bare `=` from V291)
-   - Applied noTruncate-only extensions to CP.3/.4, ERL.1-.6, MO.1, MOP.2
-
-6. **HTML reports generated**:
-   - Event gap report: `v291-extracted/event-gap-report.html` (44 FHIR-only + 12 V291-only, with chapter/clause)
-   - V2 mgmt review report: `v291-extracted/v2mgmt-review-report.md` + `.html` (6 sections with questions for V2 Management Group)
-   - Renderer: `tooling/scripts/render_review_report.py` (Markdown→HTML with sidebar TOC)
-
-7. **Event gap categorization** (44 FHIR-only events):
-   - 30 retained/withdrawn (no extractable data, need older V2 standard docs)
-   - 8 FHIR sub-variants (O59_A/B, ZNN_A-F)
-   - 4 not in V291 docs (E30, E31, Z85, Z95)
-   - 2 user-defined Z events (needs V2 mgmt review)
+3. **Looked up provenance for outstanding events**:
+   - I12-I15: CH11 Patient Referral (tables 27, 29) — REF/RRI messages, 4 events sharing REF_I12/RRI_I12 structures
+   - O59: CH04 Orders (table 50) as OML^O59 + CH04A Orders (table 38) as RCV^O59 — two message types sharing one event code
+   - FHIR has O59_A and O59_B sub-variants corresponding to the two message types
 
 ### Current State
-- Branch: `dev/framework` (20 commits ahead of origin, not pushed)
+- Branch: `dev/framework` (1 commit ahead of origin, not pushed)
 - All changes committed
-- Tests: not run this session (comparison scripts are tested, extraction script is not)
-- Two untracked .tiff files (`input/images/merge.tiff`, `input/images/pharmacy_transaction_flow.tiff`) — unrelated
+- Tests: not run this session (comparison tool has no test suite yet)
+- Two untracked .tiff files (unrelated)
 
-### Coverage Summary
-| Artifact | FHIR | V291 | Matched | Coverage |
-|----------|------|------|---------|----------|
-| Segments | 192 | 191 | 190 | 99% |
-| Complex Data Types | 71 | 71 | 71 | 100% |
-| Events | 356 | 324 | 312 | 88% |
-| Message Structures | 418 | 216 | 178 | 43% (rest are ACK variants + sub-variants) |
-| Primitive Data Types | 12 | — | — | FHIR only |
-| Messages | 696 | — | — | FHIR only |
+### Message Structure Comparison Results
 
-### Remaining Data Quality Issues
-- **Data types**: 14 discrepancies (12 cosmetic name diffs, 1 MSG.3 extra length, 1 PPN.8 withdrawn type)
-- **Segments**: 12 remaining from prior session (6 elided W types, 3 variable-length, 3 source quirks)
+| Category | Count |
+|----------|-------|
+| Matched pairs compared | 415 |
+| Truncated V291 (skipped) | 3 |
+| Total discrepancies | 565 |
+| Structural | 293 |
+| Cosmetic | 272 |
+
+**Structural breakdown:**
+- Segments in FHIR but not V291: 67 (PRT=18, NTE=16, ...=11, CTI=4)
+- Segments in V291 but not FHIR: 7 (QBP_Q21-F=6, RDY_K15-B=1)
+- Optionality differences: 13
+- Repetition differences: 28
+- Group structure differences: 155 (mostly EHC anonymous groups + FIXME group names)
+- Description differences: 23
+
+### Open Questions for User
+
+1. **I12-I15 events** (CH11, Patient Referral): In V291 but not FHIR. Should FHIR events be created?
+2. **O59 sub-variants** (CH04 + CH04A): FHIR has O59_A/O59_B for OML/RCV. Is this correct?
+3. **HXX segment**: Not a real placeholder — needs strategy for StructureDefinition/IG Publisher
+4. **VARIES segment**: Abstract data type, not a placeholder. Needs rendering strategy.
 
 ### Next Steps
-1. **Message structure content comparison** — field-level comparison of the 178 matched message structures (like compare_segments.py and compare_data_types.py but for message structure rows)
-2. **Push commits** — 20 commits on dev/framework need pushing
-3. **V2 mgmt review** — share `v2mgmt-review-report.html` with V2 Management Group for discussion on conformance length bare `=`, retained events, Z events
-4. **Message structure sub-variant analysis** — understand how FHIR ADT_A01_A/B/C/D relate to V291's single ADT_A01
-5. **Write tests** for extraction script and data type comparison
-
-### Open Questions / Blockers
-- V2 Management Group needs to weigh in on: bare `=` conformance lengths, retained/withdrawn event inclusion, Z event policy
-- 30 retained/withdrawn events need older V2 standard Word docs to verify FHIR definitions
-- I12-I15 events: in V291 but not FHIR — are they expected as individual StructureDefinitions?
-- O59: FHIR has sub-variants O59_A/O59_B — is this correct for an event shared between two message types?
+1. **Push latest commit**
+2. **Write tests** for compare_message_structures.py
+3. **Investigate group nesting differences** — 155 diffs, dominated by EHC structures with anonymous groups
+4. **Fix FIXME group names** in MDM_T02 FHIR structures
+5. **Fix CH11 V291 extraction** — CCM_I21/CCR_I16/CCU_I20 truncated
+6. **V2 mgmt review** — share comparison reports with V2 Management Group
 
 ### Key File Locations
-- V2 mgmt review report: `v291-extracted/v2mgmt-review-report.md` (source) + `.html` (rendered)
-- Event gap report: `v291-extracted/event-gap-report.html`
-- Structural inventory: `v291-extracted/structural-inventory.md` + `.json`
-- Data type comparison: `v291-extracted/data-type-comparison-report.md` + `.json`
-- Extraction script: `tooling/scripts/extract_v291.py`
-- Word doc source: `/workspace/v2plus_docx/` (CH01-CH17)
+- Comparison script: `tooling/scripts/compare_message_structures.py`
+- HTML report: `v291-extracted/message-structure-comparison-report.html`
+- JSON report: `v291-extracted/message-structure-comparison-report.json`
+- Markdown report: `v291-extracted/message-structure-comparison-report.md`
