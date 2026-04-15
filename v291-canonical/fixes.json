@@ -12,11 +12,10 @@
       "category": "bracket_whitespace",
       "reasoning": "Normalize all bracket notation to standard forms: [ SEG ] (optional), { SEG } (repeating), [{ SEG }] (optional+repeating), SEG (required). Whitespace-only change, no semantic impact."
     },
-
     {
       "id": "FIX-0001",
       "structure": "ADT_A01",
-      "occurrence": "CH03, table 30",
+      "occurrence": "3.3.8",
       "row": 22,
       "field": "segments",
       "from": "[{ OH2 }}",
@@ -27,7 +26,7 @@
     {
       "id": "FIX-0002",
       "structure": "ADT_A01",
-      "occurrence": "CH03, table 30",
+      "occurrence": "3.3.8",
       "row": 23,
       "field": "segments",
       "from": "[  OH3  }",
@@ -38,7 +37,7 @@
     {
       "id": "FIX-0003",
       "structure": "ADT_A01",
-      "occurrence": "CH03, table 30",
+      "occurrence": "3.3.8",
       "row": 33,
       "field": "segments",
       "from": "[{ PRT }}",
@@ -49,7 +48,7 @@
     {
       "id": "FIX-0004",
       "structure": "ADT_A01",
-      "occurrence": "CH03, table 14",
+      "occurrence": "3.3.4",
       "row": 36,
       "field": "description",
       "from": "Patient Advers Reaction Information",
@@ -60,7 +59,7 @@
     {
       "id": "FIX-0005",
       "structure": "ADT_A05",
-      "occurrence": "CH03, table 18",
+      "occurrence": "3.3.5",
       "row": 33,
       "field": "segments",
       "from": "[{ PRT }}",
@@ -71,7 +70,7 @@
     {
       "id": "FIX-0006",
       "structure": "ADT_A05",
-      "occurrence": "CH03, table 18",
+      "occurrence": "3.3.5",
       "row": 36,
       "field": "segments",
       "from": "[{ IAM }}",
@@ -82,7 +81,7 @@
     {
       "id": "FIX-0007",
       "structure": "ADT_A06",
-      "occurrence": "CH03, table 26",
+      "occurrence": "3.3.7",
       "row": 12,
       "field": "segments",
       "from": "[{ OH2 }}",
@@ -104,7 +103,7 @@
     {
       "id": "FIX-0009",
       "structure": "ADT_A06",
-      "occurrence": "CH03, table 26",
+      "occurrence": "3.3.7",
       "row": 34,
       "field": "segments",
       "from": "[{ PRT }}",
@@ -115,7 +114,7 @@
     {
       "id": "FIX-0010",
       "structure": "ADT_A09",
-      "occurrence": "CH03, table 42",
+      "occurrence": "3.3.11",
       "row": 16,
       "field": "segments",
       "from": "[{ PRT }}",
@@ -148,7 +147,7 @@
     {
       "id": "FIX-0013",
       "structure": "ADT_A21",
-      "occurrence": "CH03, table 114",
+      "occurrence": "3.3.32",
       "row": 16,
       "field": "segments",
       "from": "[{ PRT }}",
@@ -225,7 +224,7 @@
     {
       "id": "FIX-0020",
       "structure": "ORU_R30",
-      "occurrence": "CH07, table 6",
+      "occurrence": "7.3.4",
       "row": 41,
       "field": "segments",
       "from": "[{OBX]]",
@@ -247,7 +246,7 @@
     {
       "id": "FIX-0022",
       "structure": "ORU_R01",
-      "occurrence": "CH07, table 32",
+      "occurrence": "7.3.14",
       "row": 22,
       "field": "description",
       "from": "Past or Prsent Job",
@@ -258,7 +257,7 @@
     {
       "id": "FIX-0023",
       "structure": "MDM_T01",
-      "occurrence": "CH09, table 10",
+      "occurrence": "9.6.3",
       "row": 4,
       "field": "description",
       "from": "Event Type (",

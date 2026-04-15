@@ -718,7 +718,7 @@ def find_preceding_heading(doc: Document, table_obj: Table, para_cache: Dict = N
     return None, None
 
 
-def build_element_map(doc: Document) -> Dict:
+def build_element_map(doc: Document, chapter_num_raw: str = '') -> Dict:
     """
     Build a mapping of document structure for fast lookups.
 
@@ -726,6 +726,7 @@ def build_element_map(doc: Document) -> Dict:
       - 'para_map': element_id -> paragraph object
       - 'table_map': element_id -> table object
       - 'headings_before_table': table_element_id -> (heading_text, style_name)
+      - 'clause_for_table': table_element_id -> clause string (e.g. '3.3.1')
     """
     # Build paragraph and table maps
     para_map = {}
@@ -736,10 +737,16 @@ def build_element_map(doc: Document) -> Dict:
     for t in doc.tables:
         table_map[id(t._element)] = t
 
-    # Build heading-before-table map
+    # Strip leading zeros from chapter number for clause construction
+    # "03" -> "3", "02A" -> "2A"
+    chapter_num = chapter_num_raw.lstrip('0') or '0'
+
+    # Build heading-before-table map + clause numbering
     headings_before_table = {}
+    clause_for_table = {}
     recent_heading = None
     recent_heading_style = None
+    heading_counters = {}  # level -> counter
 
     for element in doc.element.body:
         if element.tag.endswith('p'):
@@ -752,14 +759,36 @@ def build_element_map(doc: Document) -> Dict:
                     recent_heading = text
                     recent_heading_style = style
 
+                # Track clause numbering from heading levels
+                # Style names: "Heading 1", "Heading 2", etc. (python-docx API)
+                # or "Heading1", "Heading2" (raw XML)
+                if style and style.startswith('Heading') and text:
+                    level_str = style.replace('Heading', '').strip()
+                    if level_str.isdigit():
+                        level = int(level_str)
+                        if level == 1:
+                            heading_counters = {}
+                        elif level >= 2:
+                            heading_counters[level] = heading_counters.get(level, 0) + 1
+                            for l in list(heading_counters.keys()):
+                                if l > level:
+                                    del heading_counters[l]
+
         elif element.tag.endswith('tbl'):
             # Record the most recent heading for this table
             headings_before_table[id(element)] = (recent_heading, recent_heading_style)
+            # Compute clause number from heading counters
+            parts = [chapter_num]
+            for l in range(2, max(heading_counters.keys()) + 1 if heading_counters else 2):
+                if l in heading_counters:
+                    parts.append(str(heading_counters[l]))
+            clause_for_table[id(element)] = '.'.join(parts)
 
     return {
         'para_map': para_map,
         'table_map': table_map,
-        'headings_before_table': headings_before_table
+        'headings_before_table': headings_before_table,
+        'clause_for_table': clause_for_table
     }
 
 
@@ -778,7 +807,7 @@ def process_document(filepath: Path) -> Dict[str, Any]:
     doc = Document(filepath)
 
     # Build element map once for the entire document
-    element_map = build_element_map(doc)
+    element_map = build_element_map(doc, chapter)
 
     # Storage for extracted data
     segments = defaultdict(list)  # segment_code -> list of occurrences
@@ -813,9 +842,11 @@ def process_document(filepath: Path) -> Dict[str, Any]:
             continue
 
         # Create provenance metadata
+        clause = element_map.get('clause_for_table', {}).get(id(table._element), '')
         provenance = {
             "sourceFile": filename,
             "chapter": chapter,
+            "clause": clause,
             "sectionHeading": heading_text or "",
             "tableIndex": table_idx,
             "captionText": last_caption or ""

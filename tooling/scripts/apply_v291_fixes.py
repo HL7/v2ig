@@ -75,12 +75,18 @@ def find_target_files(fix, all_structures):
             matches.append(fname)  # will filter after sorting
         elif isinstance(scope, str):
             prov = data.get('provenance', {})
-            prov_str = f"CH{prov.get('chapter', '')}, table {prov.get('tableIndex', '')}"
-            if scope in prov_str:
-                matches.append(fname)
-            # Also match by section heading
+            clause = prov.get('clause', '')
+            table_idx = prov.get('tableIndex', '')
             section = prov.get('sectionHeading', '')
-            if scope in section:
+
+            # Match against clause number (e.g., "3.3.8")
+            if clause and scope == clause:
+                matches.append(fname)
+            # Match against "CH03, table 30" legacy format
+            elif f"table {table_idx}" in scope:
+                matches.append(fname)
+            # Match against section heading
+            elif scope in section:
                 matches.append(fname)
 
     if isinstance(scope, int):

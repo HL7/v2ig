@@ -404,14 +404,14 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
 
         # Show all occurrences with provenance
         html.append('<table class="occ-table"><tr><th>#</th><th>Chapter</th>'
-                     '<th>Section</th><th>Table</th><th>Rows</th></tr>')
+                     '<th>Section</th><th>Clause</th><th>Rows</th></tr>')
         for oi, occ in enumerate(occs):
             prov = occ.get('provenance', {})
             is_ref = ' (reference)' if oi == 0 else ''
             html.append(f'<tr><td>{oi+1}{is_ref}</td>'
                          f'<td>CH{prov.get("chapter","?")}</td>'
                          f'<td>{_html_esc(prov.get("sectionHeading","")[:60])}</td>'
-                         f'<td>{prov.get("tableIndex","?")}</td>'
+                         f'<td>{prov.get("clause", prov.get("tableIndex","?"))}</td>'
                          f'<td>{len(occ["rawRows"])}</td></tr>')
         html.append('</table>')
 
@@ -430,7 +430,9 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
             if pos:
                 html.append(f' (row {pos})')
             html.append(f'<br>{_html_esc(d["detail"])}')
-            html.append(f'<br><span class="provenance">vs CH{occ_prov.get("chapter","?")}, '
+            occ_clause = occ_prov.get("clause", "")
+            occ_loc = f"clause {occ_clause}" if occ_clause else f"CH{occ_prov.get('chapter','?')}"
+            html.append(f'<br><span class="provenance">vs {occ_loc}, '
                          f'"{_html_esc(occ_prov.get("sectionHeading","")[:50])}"</span>')
             html.append('</div>')
 

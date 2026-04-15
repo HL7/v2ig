@@ -944,9 +944,11 @@ def _write_markdown_report(path, report, match_results, fhir_structs, v291_struc
         # Get provenance from first disc
         prov = structural[0].get('provenance', {})
         ch = prov.get('chapter', '?')
+        clause = prov.get('clause', '')
         section = prov.get('sectionHeading', '?')
+        loc = f"clause {clause}" if clause else f"CH{ch}"
         lines.append(f"### {sid}")
-        lines.append(f"**Source:** CH{ch}, \"{section}\"")
+        lines.append(f"**Source:** {loc}, \"{section}\"")
         lines.append("")
 
         for d in structural:
@@ -1132,6 +1134,7 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
         discs = by_structure[sid]
         prov = discs[0].get('provenance', {})
         ch = prov.get('chapter', '?')
+        clause = prov.get('clause', '')
         section = prov.get('sectionHeading', '')
 
         n_struct = sum(1 for d in discs if d['category'] == STRUCTURAL)
@@ -1144,7 +1147,8 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
         if n_cos:
             html.append(f' <span class="badge badge-cosmetic">{n_cos} cosmetic</span>')
         html.append(f'</h3>')
-        html.append(f'<p class="provenance">CH{ch}: {_html_escape(section)}</p>')
+        loc = f"clause {clause}" if clause else f"CH{ch}"
+        html.append(f'<p class="provenance">{loc}: {_html_escape(section)}</p>')
 
         for d in discs:
             cat_class = d['category']
