@@ -271,6 +271,47 @@ def parse_message_structure_table(table: Table) -> Tuple[List[Dict], List[Dict]]
     return raw_rows, parsed_structure
 
 
+def _parse_table_no_header_skip(table: Table) -> Tuple[List[Dict], List[Dict]]:
+    """Parse a message structure continuation table without skipping the first row."""
+    cells = get_table_cells_text(table)
+    raw_rows = []
+    parsed_structure = []
+
+    for row in cells:  # No skip — all rows are data
+        if len(row) < 4:
+            continue
+
+        segments_col = row[0].strip()
+        description_col = row[1].strip()
+        status_col = row[2].strip() if len(row) > 2 else ""
+        chapter_col = row[3].strip() if len(row) > 3 else ""
+
+        if not segments_col:
+            continue
+
+        raw_row = {
+            "segments": segments_col,
+            "description": description_col,
+            "status": status_col,
+            "chapter": chapter_col
+        }
+        raw_rows.append(raw_row)
+
+        try:
+            parsed = parse_segment_notation(segments_col, description_col, chapter_col)
+            parsed_structure.append(parsed)
+        except Exception as e:
+            log_warning(f"Failed to parse segment notation '{segments_col}': {e}")
+            parsed_structure.append({
+                "type": "unparsed",
+                "raw": segments_col,
+                "description": description_col,
+                "parseError": str(e)
+            })
+
+    return raw_rows, parsed_structure
+
+
 def parse_segment_notation(notation: str, description: str, chapter: str) -> Dict[str, Any]:
     """
     Parse segment notation to determine optionality and repetition.
@@ -281,9 +322,29 @@ def parse_segment_notation(notation: str, description: str, chapter: str) -> Dic
     - { SEG } = required, repeating
     - [{ SEG }] or [ { SEG } ] = optional, repeating
     - --- PREFIX = group boundary marker
+    - < = choice group begin
+    - | = choice alternative separator
+    - > = choice group end
     """
     original = notation
     notation = notation.strip()
+
+    # Check for choice group markers
+    if notation == '<':
+        return {
+            "type": "choice_start",
+            "description": description
+        }
+    if notation == '>':
+        return {
+            "type": "choice_end",
+            "description": description
+        }
+    if notation == '|':
+        return {
+            "type": "choice_alternative",
+            "description": description
+        }
 
     # Check for group boundary markers
     if notation.startswith('---'):
@@ -730,8 +791,13 @@ def process_document(filepath: Path) -> Dict[str, Any]:
     last_caption = None
     last_caption_style = None
 
+    # Track tables consumed as continuations (skip in main loop)
+    consumed_tables = set()
+
     # Iterate through tables
     for table_idx, table in enumerate(doc.tables):
+        if table_idx in consumed_tables:
+            continue
         # Find preceding heading/caption from pre-built map
         heading_text, heading_style = element_map['headings_before_table'].get(id(table._element), (None, None))
 
@@ -788,6 +854,58 @@ def process_document(filepath: Path) -> Dict[str, Any]:
                         structure_id = match.group(1).upper()
                     else:
                         structure_id = raw_structure
+
+            # Check for continuation tables (split tables from Word formatting)
+            # Continuation tables have the same column format but no header row
+            cont_idx = table_idx + 1
+            while cont_idx < len(doc.tables):
+                cont_table = doc.tables[cont_idx]
+                if len(cont_table.rows) == 0:
+                    cont_idx += 1
+                    continue
+
+                cont_first = [cell.text.strip() for cell in cont_table.rows[0].cells]
+                cont_cols = len(cont_first)
+
+                # Stop if this is an ack choreography table
+                cont_combined = ' '.join(cont_first).upper()
+                if 'ACKNOWLEDG' in cont_combined and 'CHOREOGRAPHY' in cont_combined:
+                    break
+
+                # Stop if this has a header row (new message structure table)
+                if cont_cols >= 4 and cont_first[0].upper().startswith('SEGMENT'):
+                    break
+
+                # Stop if column count doesn't match message structure format
+                if cont_cols < 4:
+                    break
+
+                # Stop if it looks like a different table type
+                cont_type = identify_table_type(cont_table, None)
+                if cont_type and cont_type != 'message_structure':
+                    break
+
+                # This is a continuation — merge its rows
+                cont_rows, cont_parsed = parse_message_structure_table(cont_table)
+                if cont_rows:
+                    # Continuation tables have no header, but parse_message_structure_table
+                    # skips the first row as header. Check if it was a real header.
+                    # If the first cell doesn't look like a header, re-parse without skip.
+                    if cont_first[0].upper() not in ('SEGMENTS', 'SEGMENT', ''):
+                        # Re-parse treating ALL rows as data (no header skip)
+                        cont_rows_full, cont_parsed_full = _parse_table_no_header_skip(cont_table)
+                        raw_rows.extend(cont_rows_full)
+                        parsed_structure.extend(cont_parsed_full)
+                    else:
+                        raw_rows.extend(cont_rows)
+                        parsed_structure.extend(cont_parsed)
+                    consumed_tables.add(cont_idx)
+                    log_info(f"  → Merged continuation table {cont_idx} ({len(cont_rows)} rows)")
+                else:
+                    # Empty continuation — still consume it
+                    consumed_tables.add(cont_idx)
+
+                cont_idx += 1
 
             if raw_rows:
                 message_structures.append({

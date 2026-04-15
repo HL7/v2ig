@@ -171,6 +171,10 @@ def extract_v291_segments(v291_data):
         if not seg_str:
             continue
 
+        # Skip choice group markers (handled structurally, not as segments)
+        if _is_choice_marker(seg_str):
+            continue
+
         # Check for group begin marker
         if _is_group_begin(seg_str, desc):
             # Try description first, fall back to status (CH13 column mapping)
@@ -235,6 +239,11 @@ def _is_group_end(seg_str, desc):
     if desc.startswith('---') and 'end' in desc.lower():
         return True
     return False
+
+
+def _is_choice_marker(seg_str):
+    """Check if a rawRow is a choice group marker (<, |, >)."""
+    return seg_str.strip() in ('<', '>', '|')
 
 
 def _extract_group_name(desc):
