@@ -51,16 +51,42 @@ def extract_segment_code(seg_str):
     return re.sub(r'[\[\]{}<>|]', '', seg_str).strip()
 
 
+def _parse_cardinality(seg_str):
+    """Extract (optional, repeating) from bracket notation.
+
+    Returns (optional: bool, repeating: bool, code: str, malformed: bool).
+    """
+    s = seg_str.strip()
+    if not s:
+        return False, False, '', False
+
+    # Detect malformed brackets (mismatched or swapped)
+    open_sq = s.count('[')
+    close_sq = s.count(']')
+    open_br = s.count('{')
+    close_br = s.count('}')
+    malformed = (open_sq != close_sq) or (open_br != close_br)
+
+    code = re.sub(r'[\[\]{}\s]', '', s)
+
+    # Determine optional/repeating from the outermost bracket pattern
+    optional = '[' in s
+    repeating = '{' in s
+
+    return optional, repeating, code, malformed
+
+
 def classify_difference(seg_a, seg_b, desc_a, desc_b):
     """Classify a row difference.
 
     Returns (category, detail) where category is one of:
-      'whitespace' - only bracket/space differences (cosmetic)
-      'optionality' - different optionality/repetition
-      'description' - different description text
-      'chapter_ref' - different chapter reference
-      'segment_diff' - different segment codes
-      'row_count' - structure has different number of rows
+      'bracket_whitespace' - only whitespace inside brackets (cosmetic)
+      'bracket_malformed'  - mismatched brackets (typo in Word doc)
+      'cardinality'        - real optionality/repetition difference
+      'desc_typo'          - minor typo in description
+      'desc_cosmetic'      - abbreviation, trailing "Segment", case
+      'desc_meaningful'    - genuinely different descriptions
+      'segment_diff'       - different segment codes
     """
     norm_a = normalize_bracket_notation(seg_a)
     norm_b = normalize_bracket_notation(seg_b)
@@ -70,17 +96,107 @@ def classify_difference(seg_a, seg_b, desc_a, desc_b):
     if norm_a == norm_b and desc_a == desc_b:
         return None, None
 
+    # Same normalized notation — only description differs
     if norm_a == norm_b:
-        # Same segment notation, different description
-        if desc_a.lower().strip() == desc_b.lower().strip():
-            return 'whitespace', f'Description case: "{desc_a}" vs "{desc_b}"'
-        return 'description', f'"{desc_a}" vs "{desc_b}"'
+        desc_cat = _classify_description_diff(desc_a, desc_b)
+        return desc_cat, f'"{desc_a}" vs "{desc_b}"'
 
+    # Same segment code, different brackets
     if code_a == code_b:
-        # Same segment code, different brackets
-        return 'optionality', f'`{seg_a.strip()}` vs `{seg_b.strip()}`'
+        opt_a, rep_a, _, mal_a = _parse_cardinality(seg_a)
+        opt_b, rep_b, _, mal_b = _parse_cardinality(seg_b)
+
+        if mal_a or mal_b:
+            return 'bracket_malformed', f'`{seg_a.strip()}` vs `{seg_b.strip()}`'
+
+        if opt_a == opt_b and rep_a == rep_b:
+            # Same semantics, different whitespace
+            return 'bracket_whitespace', f'`{seg_a.strip()}` vs `{seg_b.strip()}`'
+
+        # Real cardinality difference
+        fhir_a = f'{"O" if opt_a else "R"}/{"Y" if rep_a else "N"}'
+        fhir_b = f'{"O" if opt_b else "R"}/{"Y" if rep_b else "N"}'
+        return 'cardinality', f'`{seg_a.strip()}` vs `{seg_b.strip()}` ({fhir_a} vs {fhir_b})'
+
+    # Different description but check if it's really just a bracket notation
+    # in the description field (CH13/CH04A column mapping issue)
+    if re.match(r'^[\[\]{}\s]*[A-Z]{2,3}[\[\]{}\s]*$', desc_a) or \
+       re.match(r'^[\[\]{}\s]*[A-Z]{2,3}[\[\]{}\s]*$', desc_b):
+        return 'column_mapping', f'`{seg_a.strip()}` / "{desc_a}" vs `{seg_b.strip()}` / "{desc_b}"'
 
     return 'segment_diff', f'`{seg_a.strip()}` vs `{seg_b.strip()}`'
+
+
+def _classify_description_diff(a, b):
+    """Sub-classify a description difference."""
+    a_low = a.lower().strip().rstrip('.')
+    b_low = b.lower().strip().rstrip('.')
+
+    # Pure case/whitespace
+    if a_low == b_low:
+        return 'desc_cosmetic'
+
+    # One description is just a segment code (column mapping issue)
+    if re.match(r'^[\[\]{}\s]*[A-Z]{2,3}[\[\]{}\s]*$', a.strip()):
+        return 'desc_cosmetic'  # column mapping artifact
+    if re.match(r'^[\[\]{}\s]*[A-Z]{2,3}[\[\]{}\s]*$', b.strip()):
+        return 'desc_cosmetic'
+
+    # One description is a group marker (column mapping)
+    if a.strip().startswith('---') or a.strip() in ('[', ']', '{', '}', '[{', '}]'):
+        return 'desc_cosmetic'
+    if b.strip().startswith('---') or b.strip() in ('[', ']', '{', '}', '[{', '}]'):
+        return 'desc_cosmetic'
+
+    # Trailing "Segment" or "segment"
+    if a_low.replace(' segment', '') == b_low.replace(' segment', ''):
+        return 'desc_cosmetic'
+
+    # Singular/plural
+    if a_low.rstrip('s') == b_low.rstrip('s'):
+        return 'desc_cosmetic'
+
+    # En-dash vs hyphen
+    a_ascii = a.replace('\u2013', '-').replace('\u2014', '-')
+    b_ascii = b.replace('\u2013', '-').replace('\u2014', '-')
+    if a_ascii.lower().strip() == b_ascii.lower().strip():
+        return 'desc_cosmetic'
+
+    # Abbreviation: one is a shortened form of the other
+    # "Error" vs "Error Information", "Acknowledgment" vs "Message Acknowledgment"
+    if a_low in b_low or b_low in a_low:
+        return 'desc_cosmetic'
+
+    # Parenthetical expansion: "about the OBR" vs "about the observation (OBR)"
+    a_no_paren = re.sub(r'\([^)]*\)', '', a_low).strip()
+    b_no_paren = re.sub(r'\([^)]*\)', '', b_low).strip()
+    if a_no_paren == b_no_paren:
+        return 'desc_cosmetic'
+    # Also: "about the observation request (OBR)" vs "about the OBR"
+    # Strip parenthetical and check if the remaining text + parenthetical content overlap
+    if a_no_paren in b_low or b_no_paren in a_low:
+        return 'desc_cosmetic'
+
+    # Extract parenthetical content and check if it appears in the other description
+    a_paren = re.findall(r'\(([^)]+)\)', a)
+    b_paren = re.findall(r'\(([^)]+)\)', b)
+    if a_paren and any(p.lower() in b_low for p in a_paren):
+        return 'desc_cosmetic'
+    if b_paren and any(p.lower() in a_low for p in b_paren):
+        return 'desc_cosmetic'
+
+    # "Notes and comments about X" vs "Notes and comments about X" with different qualifier
+    # Both start the same and refer to the same segment code
+    if a_low.startswith('notes and comments') and b_low.startswith('notes and comments'):
+        return 'desc_cosmetic'
+
+    # High similarity = typo
+    from difflib import SequenceMatcher
+    ratio = SequenceMatcher(None, a_low, b_low).ratio()
+    if ratio >= 0.85:
+        return 'desc_typo'
+
+    return 'desc_meaningful'
 
 
 def compare_occurrences(occurrences):
@@ -196,6 +312,8 @@ th { background: #f6f8fa; font-weight: 600; }
 .badge-whitespace { background: #e8f4e8; color: #070; }
 .badge-row-count { background: #e3f2fd; color: #1565c0; }
 .badge-segment { background: #f3e5f5; color: #6a1b9a; }
+.badge-malformed { background: #ffccbc; color: #bf360c; }
+.badge-typo { background: #fff9c4; color: #f57f17; }
 .badge-chapter { background: #e0f2f1; color: #004d40; }
 .sidebar-section { margin-bottom: 12px; }
 .sidebar-section h3 { font-size: 13px; margin: 8px 0 4px 0; color: #57606a; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -205,11 +323,14 @@ th { background: #f6f8fa; font-weight: 600; }
 code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
 .structure-section { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
 .disc-item { margin: 6px 0; padding: 4px 0 4px 12px; border-left: 3px solid #d0d7de; }
-.disc-item.optionality { border-left-color: #cf222e; }
-.disc-item.description { border-left-color: #bf8700; }
-.disc-item.whitespace { border-left-color: #2da44e; }
+.disc-item.cardinality { border-left-color: #cf222e; }
+.disc-item.bracket_malformed { border-left-color: #e65100; }
+.disc-item.bracket_whitespace { border-left-color: #2da44e; }
+.disc-item.desc_meaningful { border-left-color: #bf8700; }
+.disc-item.desc_typo { border-left-color: #f57f17; }
+.disc-item.desc_cosmetic { border-left-color: #2da44e; }
 .disc-item.row_count, .disc-item.extra_row, .disc-item.missing_row { border-left-color: #0969da; }
-.disc-item.segment_diff { border-left-color: #8250df; }
+.disc-item.segment_diff, .disc-item.column_mapping { border-left-color: #8250df; }
 .filter-input { width: 100%; padding: 4px 8px; border: 1px solid #d0d7de; border-radius: 4px; margin-bottom: 8px; font-size: 13px; }
 .occ-table { font-size: 13px; margin: 8px 0; }
 .occ-table td { padding: 3px 8px; }
@@ -253,13 +374,17 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
     html.append('<h3>By Category</h3>')
     html.append('<table>')
     cat_labels = {
-        'optionality': ('Optionality/repetition', 'badge-optionality'),
-        'description': ('Description text', 'badge-description'),
-        'whitespace': ('Whitespace/case', 'badge-whitespace'),
+        'cardinality': ('Cardinality difference', 'badge-optionality'),
+        'bracket_malformed': ('Malformed brackets (typo)', 'badge-malformed'),
+        'bracket_whitespace': ('Bracket whitespace', 'badge-whitespace'),
+        'desc_meaningful': ('Description differs', 'badge-description'),
+        'desc_typo': ('Description typo', 'badge-typo'),
+        'desc_cosmetic': ('Description cosmetic', 'badge-whitespace'),
         'row_count': ('Row count mismatch', 'badge-row-count'),
         'extra_row': ('Extra row in occurrence', 'badge-row-count'),
         'missing_row': ('Missing row in occurrence', 'badge-row-count'),
         'segment_diff': ('Different segment codes', 'badge-segment'),
+        'column_mapping': ('Column mapping issue', 'badge-segment'),
     }
     for cat, (label, badge_cls) in cat_labels.items():
         if cat_counts.get(cat, 0) > 0:
