@@ -1,0 +1,270 @@
+{
+  "version": "1.0",
+  "description": "Curated fixes to V2.9.1 extracted message structure data. Applied by tooling/scripts/apply_v291_fixes.py to produce canonical message structures in v291-canonical/message-structures/.",
+  "methodology": "Fixes are identified by comparing multiple occurrences of the same message structure ID across V2.9.1 Word documents. Where occurrences disagree, the majority/consensus value is used. For single-occurrence structures, fixes are based on pattern analysis (e.g., bracket mismatch reconstruction).",
+  "fixes": [
+    {
+      "id": "BULK-001",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "segments_all",
+      "to": "normalize",
+      "category": "bracket_whitespace",
+      "reasoning": "Normalize all bracket notation to standard forms: [ SEG ] (optional), { SEG } (repeating), [{ SEG }] (optional+repeating), SEG (required). Whitespace-only change, no semantic impact."
+    },
+
+    {
+      "id": "FIX-0001",
+      "structure": "ADT_A01",
+      "occurrence": "CH03, table 30",
+      "row": 22,
+      "field": "segments",
+      "from": "[{ OH2 }}",
+      "to": "[{ OH2 }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. All other ADT_A01 occurrences have [{ OH2 }]."
+    },
+    {
+      "id": "FIX-0002",
+      "structure": "ADT_A01",
+      "occurrence": "CH03, table 30",
+      "row": 23,
+      "field": "segments",
+      "from": "[  OH3  }",
+      "to": "[ OH3 ]",
+      "category": "bracket_malformed",
+      "reasoning": "Closing brace should be bracket. Consensus from other ADT_A01 occurrences is [ OH3 ] (optional, non-repeating)."
+    },
+    {
+      "id": "FIX-0003",
+      "structure": "ADT_A01",
+      "occurrence": "CH03, table 30",
+      "row": 33,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Consensus from other occurrences is [{ PRT }]."
+    },
+    {
+      "id": "FIX-0004",
+      "structure": "ADT_A01",
+      "occurrence": "CH03, table 14",
+      "row": 36,
+      "field": "description",
+      "from": "Patient Advers Reaction Information",
+      "to": "Patient Adverse Reaction Information",
+      "category": "desc_typo",
+      "reasoning": "Misspelling of 'Adverse'. All other ADT_A01 occurrences spell it correctly."
+    },
+    {
+      "id": "FIX-0005",
+      "structure": "ADT_A05",
+      "occurrence": "CH03, table 18",
+      "row": 33,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Other ADT_A05 occurrences have [{ PRT }]."
+    },
+    {
+      "id": "FIX-0006",
+      "structure": "ADT_A05",
+      "occurrence": "CH03, table 18",
+      "row": 36,
+      "field": "segments",
+      "from": "[{ IAM }}",
+      "to": "[{ IAM }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Other ADT_A05 occurrences have [{ IAM }]."
+    },
+    {
+      "id": "FIX-0007",
+      "structure": "ADT_A06",
+      "occurrence": "CH03, table 26",
+      "row": 12,
+      "field": "segments",
+      "from": "[{ OH2 }}",
+      "to": "[{ OH2 }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Other ADT_A06 occurrence has [{ OH2 }]."
+    },
+    {
+      "id": "FIX-0008",
+      "structure": "ADT_A06",
+      "occurrence": "all",
+      "row": 24,
+      "field": "segments",
+      "from": "[  OH3  }",
+      "to": "[ OH3 ]",
+      "category": "bracket_malformed",
+      "reasoning": "Both ADT_A06 occurrences have this same malformed bracket. Closing brace should be bracket. OH3 in other ADT structures (A01, A05) is optional non-repeating [ OH3 ]."
+    },
+    {
+      "id": "FIX-0009",
+      "structure": "ADT_A06",
+      "occurrence": "CH03, table 26",
+      "row": 34,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. PRT is consistently [{ PRT }] across the standard."
+    },
+    {
+      "id": "FIX-0010",
+      "structure": "ADT_A09",
+      "occurrence": "CH03, table 42",
+      "row": 16,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Other ADT_A09 occurrences have [{ PRT }]."
+    },
+    {
+      "id": "FIX-0011",
+      "structure": "ADT_A15",
+      "occurrence": "all",
+      "row": 22,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Single occurrence but consistent with PRT pattern across all structures."
+    },
+    {
+      "id": "FIX-0012",
+      "structure": "ADT_A17",
+      "occurrence": "all",
+      "row": 16,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. Single occurrence but consistent with PRT pattern."
+    },
+    {
+      "id": "FIX-0013",
+      "structure": "ADT_A21",
+      "occurrence": "CH03, table 114",
+      "row": 16,
+      "field": "segments",
+      "from": "[{ PRT }}",
+      "to": "[{ PRT }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing brace. 8 of 9 ADT_A21 occurrences have [{ PRT }]."
+    },
+    {
+      "id": "FIX-0014",
+      "structure": "OMI_O23",
+      "occurrence": "all",
+      "row": 46,
+      "field": "segments",
+      "from": "[REL}",
+      "to": "[{ REL }]",
+      "category": "bracket_malformed",
+      "reasoning": "Missing opening brace and malformed closing. REL is optional+repeating throughout the standard."
+    },
+    {
+      "id": "FIX-0015",
+      "structure": "OML_O21",
+      "occurrence": "all",
+      "row": 72,
+      "field": "segments",
+      "from": "[{NTE]]",
+      "to": "[{ NTE }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing bracket instead of brace. NTE is optional+repeating."
+    },
+    {
+      "id": "FIX-0016",
+      "structure": "OML_O35",
+      "occurrence": "all",
+      "row": 65,
+      "field": "segments",
+      "from": "[REL}",
+      "to": "[{ REL }]",
+      "category": "bracket_malformed",
+      "reasoning": "Same as FIX-0014. REL is optional+repeating."
+    },
+    {
+      "id": "FIX-0017",
+      "structure": "OML_O39",
+      "occurrence": "all",
+      "row": 55,
+      "field": "segments",
+      "from": "[REL}",
+      "to": "[{ REL }]",
+      "category": "bracket_malformed",
+      "reasoning": "Same as FIX-0014. REL is optional+repeating."
+    },
+    {
+      "id": "FIX-0018",
+      "structure": "OML_O59",
+      "occurrence": "all",
+      "row": 59,
+      "field": "segments",
+      "from": "[{NTE]]",
+      "to": "[{ NTE }]",
+      "category": "bracket_malformed",
+      "reasoning": "Same as FIX-0015. Extra closing bracket instead of brace."
+    },
+    {
+      "id": "FIX-0019",
+      "structure": "ORL_O53",
+      "occurrence": "all",
+      "row": 3,
+      "field": "segments",
+      "from": "[{ARV]]",
+      "to": "[{ ARV }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing bracket instead of brace. ARV is optional+repeating."
+    },
+    {
+      "id": "FIX-0020",
+      "structure": "ORU_R30",
+      "occurrence": "CH07, table 6",
+      "row": 41,
+      "field": "segments",
+      "from": "[{OBX]]",
+      "to": "[{ OBX }]",
+      "category": "bracket_malformed",
+      "reasoning": "Extra closing bracket instead of brace. Other ORU_R30 occurrences have [{ OBX }]."
+    },
+    {
+      "id": "FIX-0021",
+      "structure": "OUL_R22",
+      "occurrence": "all",
+      "row": 26,
+      "field": "segments",
+      "from": "[{NK1",
+      "to": "[{ NK1 }]",
+      "category": "bracket_malformed",
+      "reasoning": "Missing closing brackets entirely. NK1 in similar structures is optional+repeating."
+    },
+    {
+      "id": "FIX-0022",
+      "structure": "ORU_R01",
+      "occurrence": "CH07, table 32",
+      "row": 22,
+      "field": "description",
+      "from": "Past or Prsent Job",
+      "to": "Past or Present Job",
+      "category": "desc_typo",
+      "reasoning": "Misspelling of 'Present'. All other ORU_R01 occurrences spell it correctly."
+    },
+    {
+      "id": "FIX-0023",
+      "structure": "MDM_T01",
+      "occurrence": "CH09, table 10",
+      "row": 4,
+      "field": "description",
+      "from": "Event Type (",
+      "to": "Event Type",
+      "category": "desc_typo",
+      "reasoning": "Trailing open parenthesis artifact. All other MDM_T01 occurrences have 'Event Type' without trailing paren."
+    }
+  ]
+}

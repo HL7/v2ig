@@ -77,4 +77,6 @@ Thumbs.db
 !/v291-extracted/vocabulary-comparison-report.html
 !/v291-extracted/vocabulary-comparison-report.json
 !/v291-extracted/vocabulary-comparison-report.md
+/v291-canonical/message-structures/
+/v291-canonical/fixes-report.html
 /v2plus_docx/
