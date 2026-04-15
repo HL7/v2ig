@@ -1110,3 +1110,93 @@ All pushed to `origin/feature/006-sd-injection`.
 | `docs/adr/0005-withdrawn-field-data-type-elision.md` | W field data type decision |
 | `v291-extracted/segment-comparison-report.html` | Navigable HTML comparison report |
 | `v291-extracted/segment-comparison-report.json` | Machine-readable comparison data |
+
+---
+
+## Session Handoff - 2026-04-15 20:30 UTC
+
+### Completed This Session
+
+**Message Structure Comparison (FHIR vs V291):**
+- Built `tooling/scripts/compare_message_structures.py` — compares 418 FHIR structures against V291, categorizes diffs as structural vs cosmetic, generates JSON/Markdown/HTML reports
+- 84 tests in `test/test_compare_message_structures.py`, all passing
+- Commit: `c2757bd1`
+
+**V291 Extraction Fixes:**
+- Split table continuation: CCM_I21 (5→152 rows), CCR_I16 (35→185), CCU_I20 (11→162) — gender harmony insertions split Word tables
+- Choice group markers (`<`, `>`, `|`) now parsed in 22+ structures across CH11/12/16/17
+- Clause numbers computed from Word heading hierarchy, replacing internal table indices in all provenance
+- Commits: `92bd8482`, `385d0074`
+
+**V291 Internal Consistency Report:**
+- Built `tooling/scripts/compare_v291_occurrences.py` — compares multiple occurrences of the same structure ID within V291
+- Fine-grained classification: bracket_malformed, cardinality, desc_typo, desc_cosmetic, desc_meaningful, etc.
+- `--canonical` flag runs against fixed data so resolved issues drop off
+- Commit: `898a88c9`, `15fd3232`
+
+**V291 Canonical Pipeline:**
+- `v291-canonical/fixes.json` — declarative manifest of all fixes with traceability (35 entries)
+- `tooling/scripts/apply_v291_fixes.py` — clones raw → applies fixes → writes canonical + HTML report
+- Supports: bulk bracket normalization, description_titleize, description_replace (with segment_filter), pending_review items
+- Commits: `f7ddc5f7`, `01e6b391`, `ad83e520`
+
+**ACK Structure Reconciliation:**
+- Fixed all ACK descriptions: MSH→"Message Header", MSA→"Message Acknowledgment", SFT→"Software", UAC→"User Authentication Credential", ERR→"Error"
+- Fixed ERR cardinality in clauses 5.4.4-5.4.7: `[ ERR ]` → `[{ ERR }]`
+- **114 of 115 ACK structures now identical** — ready to collapse into single canonical structure
+- 1 outlier (clause 10.4, UAC repeating) flagged as REVIEW-0001 for V2 Management
+
+**FHIR Resource Fixes:**
+- Varies: moved from segment/segments/ to data-type/ as abstract data type derived from Base
+- Hxx: updated description as "any segment or segment group" placeholder
+- I12-I15: created 4 event StructureDefinitions (Patient Referral, CH11)
+- V2 mgmt review report expanded to 12 sections (Varies, Hxx, QPD, choice groups, O59, message structure findings)
+- Commits: `8d7a54fe`, `69f2024c`
+
+**Remaining V291 consistency (after fixes):** 16 structures, 94 differences (down from 24/311)
+
+### Current State
+- Branch: `dev/framework` (up to date with origin, 14 commits this session)
+- Last checkpoint: `ad83e520` — Fix ACK descriptions, ERR cardinality, add pending review support
+- Tests: 84 message structure comparison tests passing; other test suites not re-run
+- Working tree: clean (2 untracked .tiff files)
+
+### Next Steps
+1. **Collapse ACK structures**: Create single canonical ACK entry with list of all 114 message identifiers + clause provenance. This becomes the single source of truth for FHIR.
+2. **Continue non-ACK V291 reconciliation**: 16 structures still have 94 differences. Work through them with user, adding fixes to manifest. Major items:
+   - NMD_N02: two completely different structures (17 vs 5 rows) sharing one ID
+   - 10 cardinality differences (OH3, NK1, ERR, NTE, MFA)
+   - ADT_A05 ROL "Role" vs "Deprecated as of V2.9"
+3. **Apply non-ACK cosmetic fixes**: 121 remaining description cosmetic diffs across non-ACK structures (titleization, abbreviation, trailing "Segment")
+4. **FHIR comparison**: Once V291 canonical is stable, re-run FHIR vs canonical comparison (currently runs against raw)
+5. **Extraction improvements**: Choice groups need full modeling in parsed structure (currently in rawRows but not deeply parsed); CH11 collaborative care structures may need further verification
+
+### Open Questions / Blockers
+- REVIEW-0001: ACK clause 10.4 UAC repeating — needs V2 Management decision
+- Varies/Hxx/QPD FHIR representation — written up in v2mgmt-review-report.md sections 8-10, needs committee input
+- O59 shared event code — written up in section 4, needs committee input
+- NMD_N02: two completely different structures with same ID in CH14 — which is correct?
+
+### Key Files Created/Modified This Session
+| File | Purpose |
+|------|---------|
+| `tooling/scripts/compare_message_structures.py` | FHIR vs V291 message structure comparison |
+| `test/test_compare_message_structures.py` | 84 tests for comparison tool |
+| `tooling/scripts/compare_v291_occurrences.py` | V291 internal consistency comparison |
+| `tooling/scripts/apply_v291_fixes.py` | Canonical fix pipeline (apply + HTML report) |
+| `v291-canonical/fixes.json` | Declarative fix manifest (35 entries + 1 pending review) |
+| `input/sourceOfTruth/data-type/Varies.json` | Varies as abstract data type (moved from segments) |
+| `input/sourceOfTruth/segment/segments/Hxx.json` | Updated description |
+| `input/sourceOfTruth/event/events/I12-I15.json` | New event StructureDefinitions |
+| `v291-extracted/v291-internal-consistency-report.html` | V291 self-consistency report |
+| `v291-extracted/message-structure-comparison-report.html` | FHIR vs V291 comparison report |
+| `v291-canonical/fixes-report.html` | Fix traceability report (generated) |
+| `v291-extracted/v2mgmt-review-report.md` | V2 Management review report (12 sections) |
+
+### Relevant Context
+- The consistency report now runs against canonical data by default (`--canonical` flag). Raw data comparison is still available without the flag.
+- `apply_v291_fixes.py` applies individual fixes first, then bulk normalization. Order matters.
+- The `segment_filter` field in fixes.json restricts description_replace to rows with a specific segment code (prevents MSA fix from hitting MSH, etc.)
+- Pending review items (REVIEW-XXXX) are logged in the fixes report but NOT applied to canonical data.
+- The FHIR comparison (`compare_message_structures.py`) currently runs against raw V291 data, not canonical. Once V291 is stable, switch it to canonical.
+- Clause numbers are computed from Word heading hierarchy (Heading1=chapter, Heading2=section, Heading3=subsection). Style names from python-docx have a space ("Heading 1" not "Heading1").

@@ -3,73 +3,40 @@
 > This file is overwritten each session. For stable project knowledge, see MEMORY.md (auto-loaded).
 > For full project history, see JOURNAL.md.
 
-## Last Session: 2026-04-14
+## Last Session: 2026-04-15
 
-## ACTIVE: Message structure comparison, event clarifications, HXX/VARIES strategy
+## ACTIVE: V291 message structure reconciliation and canonical pipeline
 
 ### What Was Done This Session
 
-1. **Pushed 20 outstanding commits** to `origin/dev/framework`
-
-2. **Message structure content comparison** (`tooling/scripts/compare_message_structures.py`):
-   - Compares 415 FHIR message structures against V291 extracted data
-   - Flattens both representations to ordered segment lists
-   - Compares across 5 dimensions: segment presence, optionality, repetition, group nesting, description
-   - Categorizes differences:
-     - **Structural (293)**: missing/extra segments, optionality, repetition, group nesting, meaningful description diffs
-     - **Cosmetic (272)**: whitespace, case, punctuation, abbreviations, typos, Unicode normalization
-   - Handles sub-variant matching (FHIR ADT_A01-A/B/C/D ↔ V291 multiple occurrences)
-   - Detects truncated V291 extractions (3 skipped: CCM_I21, CCR_I16, CCU_I20 from CH11)
-   - Fixes CH13 column mapping bug (descriptions in wrong field)
-   - Includes consolidated patterns section grouping identical diffs across sub-variants
-   - Generates JSON + Markdown + navigable HTML reports with chapter/clause provenance
-
-3. **Looked up provenance for outstanding events**:
-   - I12-I15: CH11 Patient Referral (tables 27, 29) — REF/RRI messages, 4 events sharing REF_I12/RRI_I12 structures
-   - O59: CH04 Orders (table 50) as OML^O59 + CH04A Orders (table 38) as RCV^O59 — two message types sharing one event code
-   - FHIR has O59_A and O59_B sub-variants corresponding to the two message types
+1. **Message structure comparison tool** (FHIR vs V291): 418 pairs, 642 structural / 274 cosmetic. 84 tests.
+2. **V291 extraction fixes**: split table continuation (CH11), choice groups (22 structures), clause numbers replacing table indices
+3. **V291 internal consistency report**: 36 multi-occurrence structures, fine-grained classification
+4. **V291 canonical pipeline**: fixes.json manifest + apply script + HTML traceability report
+5. **ACK reconciliation**: 114 of 115 ACK structures now identical after description/cardinality fixes. 1 pending review (UAC repeating in clause 10.4).
+6. **FHIR fixes**: Varies moved to data type, Hxx updated, I12-I15 events created, V2 mgmt report expanded to 12 sections
 
 ### Current State
-- Branch: `dev/framework` (1 commit ahead of origin, not pushed)
-- All changes committed
-- Tests: not run this session (comparison tool has no test suite yet)
-- Two untracked .tiff files (unrelated)
+- Branch: `dev/framework` (up to date with origin)
+- Last commit: `ad83e520` — Fix ACK descriptions, ERR cardinality, add pending review support
+- Tests: 84 message structure comparison tests passing
+- V291 consistency: 16 structures, 94 remaining differences (down from 311)
 
-### Message Structure Comparison Results
+### Immediate Next Steps
+1. **Collapse ACK structures** into single canonical entry with all 114 message identifier mappings
+2. **Continue non-ACK V291 reconciliation** — work through remaining 94 differences with user
+3. **Switch FHIR comparison to canonical data** once V291 is stable
 
-| Category | Count |
-|----------|-------|
-| Matched pairs compared | 415 |
-| Truncated V291 (skipped) | 3 |
-| Total discrepancies | 565 |
-| Structural | 293 |
-| Cosmetic | 272 |
+### Key Commands
+```bash
+python3 tooling/scripts/apply_v291_fixes.py              # Apply fixes, generate canonical + report
+python3 tooling/scripts/compare_v291_occurrences.py --canonical  # Consistency report against fixed data
+python3 tooling/scripts/compare_message_structures.py     # FHIR vs V291 comparison
+```
 
-**Structural breakdown:**
-- Segments in FHIR but not V291: 67 (PRT=18, NTE=16, ...=11, CTI=4)
-- Segments in V291 but not FHIR: 7 (QBP_Q21-F=6, RDY_K15-B=1)
-- Optionality differences: 13
-- Repetition differences: 28
-- Group structure differences: 155 (mostly EHC anonymous groups + FIXME group names)
-- Description differences: 23
-
-### Open Questions for User
-
-1. **I12-I15 events** (CH11, Patient Referral): In V291 but not FHIR. Should FHIR events be created?
-2. **O59 sub-variants** (CH04 + CH04A): FHIR has O59_A/O59_B for OML/RCV. Is this correct?
-3. **HXX segment**: Not a real placeholder — needs strategy for StructureDefinition/IG Publisher
-4. **VARIES segment**: Abstract data type, not a placeholder. Needs rendering strategy.
-
-### Next Steps
-1. **Push latest commit**
-2. **Write tests** for compare_message_structures.py
-3. **Investigate group nesting differences** — 155 diffs, dominated by EHC structures with anonymous groups
-4. **Fix FIXME group names** in MDM_T02 FHIR structures
-5. **Fix CH11 V291 extraction** — CCM_I21/CCR_I16/CCU_I20 truncated
-6. **V2 mgmt review** — share comparison reports with V2 Management Group
-
-### Key File Locations
-- Comparison script: `tooling/scripts/compare_message_structures.py`
-- HTML report: `v291-extracted/message-structure-comparison-report.html`
-- JSON report: `v291-extracted/message-structure-comparison-report.json`
-- Markdown report: `v291-extracted/message-structure-comparison-report.md`
+### Pending V2 Management Review
+- REVIEW-0001: ACK clause 10.4 UAC repeating
+- Varies contextual typing (v2mgmt report sec 8)
+- Hxx BackboneElement representation (sec 9)
+- Choice groups in message structures (sec 10)
+- O59 shared event code (sec 4)
