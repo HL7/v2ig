@@ -8,9 +8,13 @@
     ]
   },
   "version": "0.0.1",
+  "name": "Hxx",
+  "title": "HL7 v2 Hxx Segment Definition",
   "status": "active",
   "kind": "logical",
   "abstract": false,
+  "type": "Hxx",
+  "description": "Placeholder representing any segment or segment group in a message structure choice. Hxx appears in V2 message structure tables (e.g., CH12 Patient Care) where the standard allows any applicable segment at that position. In the published standard, it is listed as 'Hxx' with description 'etc.' indicating an open-ended choice. The segment choice can be resolved to the abstract Segment base type. The segment group (BackboneElement) case requires further specification — see V2 Management Group discussion items.",
   "baseDefinition": "http://hl7.org/v2/StructureDefinition/Segment",
   "derivation": "specialization",
   "differential": {
@@ -18,16 +22,13 @@
       {
         "id": "Hxx",
         "path": "Hxx",
-        "short": "Any segment or segment group",
-        "definition": null,
+        "short": "Any HL7 segment",
+        "definition": "A placeholder for any HL7 V2 segment or segment group. Used in message structure choice groups where the standard allows an open-ended set of segments at a given position (e.g., ORDER_DETAIL in Patient Care pathway messages). The notation 'Hxx' with description 'etc.' indicates that implementers may use whichever segment is appropriate for their use case.",
         "min": 0,
         "max": "*"
       }
     ]
   },
-  "title": "HL7 v2 Hxx Segment Definition",
-  "name": "Hxx",
-  "type": "Hxx",
   "date": "2025-06-11T22:36:47Z",
   "fhirVersion": "5.0.0"
 }

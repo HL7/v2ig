@@ -117,8 +117,18 @@
 <li class="toc-h3"><a href="#finding-6">Finding</a></li>
 <li class="toc-h3"><a href="#notable-patterns">Notable Patterns</a></li>
 <li class="toc-h3"><a href="#questions-for-v2-management-4">Questions for V2 Management</a></li>
-<li class=""><a href="#8-segment-field-data-quality-previously-resolved">8. Segment Field Data Quality (Previously Resolved)</a></li>
-<li class=""><a href="#9-data-type-component-conformance-length-previously-resolved">9. Data Type Component Conformance Length (Previously Resolved)</a></li>
+<li class=""><a href="#8-varies-data-type-contextual-typing-in-fhir">8. Varies Data Type: Contextual Typing in FHIR</a></li>
+<li class="toc-h3"><a href="#finding-7">Finding</a></li>
+<li class="toc-h3"><a href="#open-questions">Open Questions</a></li>
+<li class=""><a href="#9-hxx-any-segment-or-segment-group-placeholder">9. Hxx: "Any Segment or Segment Group" Placeholder</a></li>
+<li class="toc-h3"><a href="#finding-8">Finding</a></li>
+<li class="toc-h3"><a href="#fhir-representation">FHIR Representation</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management-5">Questions for V2 Management</a></li>
+<li class=""><a href="#10-choice-groups-in-message-structures">10. Choice Groups in Message Structures</a></li>
+<li class="toc-h3"><a href="#finding-9">Finding</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management-6">Questions for V2 Management</a></li>
+<li class=""><a href="#11-segment-field-data-quality-previously-resolved">11. Segment Field Data Quality (Previously Resolved)</a></li>
+<li class=""><a href="#12-data-type-component-conformance-length-previously-resolved">12. Data Type Component Conformance Length (Previously Resolved)</a></li>
 <li class=""><a href="#methodology">Methodology</a></li>
 </ul></nav>
 
@@ -285,7 +295,61 @@
 <p class="numbered"><strong>1.</strong> <strong>ERR in ACK</strong>: Should ERR be repeating (<code>[{ ERR }]</code>) or non-repeating (<code>[ ERR ]</code>) in the ACK structure? The standard is inconsistent across chapters.</p>
 <p class="numbered"><strong>2.</strong> <strong>PRT additions</strong>: Are the 18 FHIR-only PRT segments intentional additions to V2+, or should they be verified against a later version of the standard?</p>
 <hr>
-<h2 id="8-segment-field-data-quality-previously-resolved">8. Segment Field Data Quality (Previously Resolved)</h2>
+<h2 id="8-varies-data-type-contextual-typing-in-fhir">8. Varies Data Type: Contextual Typing in FHIR</h2>
+<h3 id="finding-7">Finding</h3>
+<p>Five segment fields use data type "Varies" &mdash; meaning their actual data type is determined at runtime by the value of another field:</p>
+<table>
+<thead><tr><th>Segment</th><th>Field</th><th>Controlling Field</th><th>Chapter</th><th>Semantics</th></tr></thead><tbody>
+<tr><td>OBX</td><td>.5 Observation Value</td><td>OBX-2 Value Type (table 0125)</td><td>CH07</td><td>Enumerated: NM, CWE, DTM, ST, TX, ED, etc.</td></tr>
+<tr><td>MFE</td><td>.4 Primary Key Value</td><td>MFE-5 Primary Key Value Type</td><td>CH08</td><td>Any type, determined by master file definition</td></tr>
+<tr><td>MFA</td><td>.5 Primary Key Value</td><td>MFA-3 (inherits from MFE)</td><td>CH08</td><td>Same as MFE.4</td></tr>
+<tr><td>QPD</td><td>.3–N User Parameters</td><td>Query definition</td><td>CH05</td><td>Variable number of fields, each with variable type</td></tr>
+<tr><td>RDT</td><td>.1 Column Value</td><td>RDF column definitions</td><td>CH05</td><td>Type per column, determined by preceding RDF segment</td></tr>
+</tbody></table>
+<p>The previous FHIR representation incorrectly classified Varies as a Segment StructureDefinition (in <code>segment/segments/Varies.json</code> with <code>Segment-Profile</code>). This has been corrected: Varies is now a data type StructureDefinition derived from Base, marked as abstract, in <code>data-type/Varies.json</code>.</p>
+<h3 id="open-questions">Open Questions</h3>
+<p class="numbered"><strong>1.</strong> <strong>OBX-5</strong>: The allowed types are enumerated in table 0125 (Value Type). Should OBX.5 use a FHIR choice type listing these explicitly, or is the abstract Varies reference sufficient?</p>
+<p class="numbered"><strong>2.</strong> <strong>QPD.3–N</strong>: The current FHIR representation has a single QPD.3 element with <code>max: "1"</code>. The real QPD allows fields 3 through N (variable count, variable types). This likely needs a repeating element with <code>max: "*"</code>. FHIR logical models do preserve element order, so ordering semantics are maintained. However, the semantic that each position may have a <em>different</em> type is not expressible in a single repeating element.</p>
+<p class="numbered"><strong>3.</strong> <strong>RDT.1</strong>: Similar to QPD &mdash; variable number of columns, each with its own type defined by the RDF segment. Same representation challenge.</p>
+<hr>
+<h2 id="9-hxx-any-segment-or-segment-group-placeholder">9. Hxx: "Any Segment or Segment Group" Placeholder</h2>
+<h3 id="finding-8">Finding</h3>
+<p>The Hxx placeholder appears in 4 message structures in CH12 (Patient Care):</p>
+<table>
+<thead><tr><th>Structure</th><th>Chapter</th><th>Context</th></tr></thead><tbody>
+<tr><td>PGL_PC6</td><td>CH12, Table 3</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
+<tr><td>PPG_PCG</td><td>CH12</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
+<tr><td>PPP_PCB</td><td>CH12</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
+<tr><td>PPR_PC1</td><td>CH12</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
+</tbody></table>
+<p>In all cases, Hxx appears as an alternative to OBR in a choice group, with description "etc." It means: "the order detail could be an OBR, or it could be some other segment (or group of segments) that we are not enumerating."</p>
+<h3 id="fhir-representation">FHIR Representation</h3>
+<p>For the "any segment" case, the abstract Segment base type (<code>http://hl7.org/v2/StructureDefinition/Segment</code>) can be referenced. This is already defined in <code>meta-resources/segment--segment.json</code>.</p>
+<p>The "any segment group" case is harder. FHIR uses BackboneElement for segment groups, but an unconstrained BackboneElement reference would allow arbitrary content. Options:</p>
+<p class="numbered"><strong>1.</strong> <strong>Constrain BackboneElement</strong>: Define a constraint that says the BackboneElement can only contain elements whose type is either a Segment or a recursive instance of the same BackboneElement (i.e., segments and nested groups of segments).</p>
+<p class="numbered"><strong>2.</strong> <strong>Leave unconstrained</strong>: Accept that Hxx is inherently open-ended and document the intent without formal constraints.</p>
+<p class="numbered"><strong>3.</strong> <strong>Use Extension</strong>: Add an extension on the Hxx element indicating "any segment or segment group" semantics.</p>
+<h3 id="questions-for-v2-management-5">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>Is "any segment or segment group" the correct interpretation of Hxx?</strong> Or does it specifically mean "any order-detail-like segment" (a narrower set)?</p>
+<p class="numbered"><strong>2.</strong> <strong>Should the V2+ IG attempt to constrain what Hxx allows?</strong> Or is it intentionally unconstrained?</p>
+<hr>
+<h2 id="10-choice-groups-in-message-structures">10. Choice Groups in Message Structures</h2>
+<h3 id="finding-9">Finding</h3>
+<p>22 V2.9.1 message structures use choice groups (denoted by <code><</code>, <code>|</code>, <code>></code> markers) where exactly one of several segment alternatives must appear. These are found in:</p>
+<table>
+<thead><tr><th>Chapter</th><th>Structures</th><th>Example</th></tr></thead><tbody>
+<tr><td>CH11 (Patient Referral)</td><td>CCR_I16</td><td>`< OBR \</td><td>RXO \</td><td>ODS \</td><td>PR1 >`</td></tr>
+<tr><td>CH12 (Patient Care)</td><td>PGL<em>PC6, PPG</em>PCG, PPP<em>PCB, PPR</em>PC1</td><td>`OBR \</td><td>Hxx`</td></tr>
+<tr><td>CH16 (Claims/Reimbursement)</td><td>EHC<em>E01, E02, E04, E15, E20, E21, E24, QBP</em>E03, E22, RSP_E03, E22</td><td>Various product/service choices</td></tr>
+<tr><td>CH17 (Sterilization)</td><td>SDR<em>S31, SDR</em>S32</td><td>Device data alternatives</td></tr>
+</tbody></table>
+<p>Individual choices within a choice group may themselves be groups of more than one segment.</p>
+<p>The current FHIR representation uses numbered anonymous BackboneElement groups (e.g., <code>1-Group</code>, <code>2-Group</code>) within a CHOICE BackboneElement. This is structurally correct but the naming convention ("1-Group") is a FHIR encoding artifact, not a V2 construct.</p>
+<h3 id="questions-for-v2-management-6">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>Is the FHIR CHOICE/numbered-Group representation adequate?</strong> Or should there be a more explicit extension or naming convention for V2 choice groups?</p>
+<p class="numbered"><strong>2.</strong> <strong>Are there choice groups where individual alternatives are multi-segment groups?</strong> (The extraction data suggests yes &mdash; e.g., CCR_I16 in CH11.)</p>
+<hr>
+<h2 id="11-segment-field-data-quality-previously-resolved">11. Segment Field Data Quality (Previously Resolved)</h2>
 <p>For reference, 1,109 segment field corrections were applied across 145 FHIR JSON files based on V2.9.1 comparison. Key categories:</p>
 <ul>
 <li>494 active fields with <code>max: 0</code> restored to repeating</li>
@@ -296,7 +360,7 @@
 </ul>
 <p>These are documented in ADR-0005 and the segment comparison report at <code>v291-extracted/segment-comparison-report.html</code>.</p>
 <hr>
-<h2 id="9-data-type-component-conformance-length-previously-resolved">9. Data Type Component Conformance Length (Previously Resolved)</h2>
+<h2 id="12-data-type-component-conformance-length-previously-resolved">12. Data Type Component Conformance Length (Previously Resolved)</h2>
 <p>71 conformance length flag corrections were applied across 26 FHIR complex data type files. In all cases, V2.9.1 specified <code>#</code> (truncation permitted) but FHIR had <code>noTruncate: true</code> (no truncation). The 10 bare <code>=</code> cases described in Section 1 remain unresolved.</p>
 <hr>
 <h2 id="methodology">Methodology</h2>

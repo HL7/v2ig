@@ -255,6 +255,14 @@
       <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
       <code value="path-resource"/>
       </code>
+      <value value="input/sourceOfTruth/data-type"/>
+    </parameter>
+
+    <parameter>
+      <code>
+      <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+      <code value="path-resource"/>
+      </code>
       <value value="input/sourceOfTruth/data-type/primitive/primitive-data-types"/>
     </parameter>
 

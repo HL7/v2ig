@@ -215,7 +215,87 @@ Full report: `v291-extracted/message-structure-comparison-report.html`
 
 ---
 
-## 8. Segment Field Data Quality (Previously Resolved)
+## 8. Varies Data Type: Contextual Typing in FHIR
+
+### Finding
+
+Five segment fields use data type "Varies" — meaning their actual data type is determined at runtime by the value of another field:
+
+| Segment | Field | Controlling Field | Chapter | Semantics |
+|---------|-------|--------------------|---------|-----------|
+| OBX | .5 Observation Value | OBX-2 Value Type (table 0125) | CH07 | Enumerated: NM, CWE, DTM, ST, TX, ED, etc. |
+| MFE | .4 Primary Key Value | MFE-5 Primary Key Value Type | CH08 | Any type, determined by master file definition |
+| MFA | .5 Primary Key Value | MFA-3 (inherits from MFE) | CH08 | Same as MFE.4 |
+| QPD | .3–N User Parameters | Query definition | CH05 | Variable number of fields, each with variable type |
+| RDT | .1 Column Value | RDF column definitions | CH05 | Type per column, determined by preceding RDF segment |
+
+The previous FHIR representation incorrectly classified Varies as a Segment StructureDefinition (in `segment/segments/Varies.json` with `Segment-Profile`). This has been corrected: Varies is now a data type StructureDefinition derived from Base, marked as abstract, in `data-type/Varies.json`.
+
+### Open Questions
+
+1. **OBX-5**: The allowed types are enumerated in table 0125 (Value Type). Should OBX.5 use a FHIR choice type listing these explicitly, or is the abstract Varies reference sufficient?
+2. **QPD.3–N**: The current FHIR representation has a single QPD.3 element with `max: "1"`. The real QPD allows fields 3 through N (variable count, variable types). This likely needs a repeating element with `max: "*"`. FHIR logical models do preserve element order, so ordering semantics are maintained. However, the semantic that each position may have a _different_ type is not expressible in a single repeating element.
+3. **RDT.1**: Similar to QPD — variable number of columns, each with its own type defined by the RDF segment. Same representation challenge.
+
+---
+
+## 9. Hxx: "Any Segment or Segment Group" Placeholder
+
+### Finding
+
+The Hxx placeholder appears in 4 message structures in CH12 (Patient Care):
+
+| Structure | Chapter | Context |
+|-----------|---------|---------|
+| PGL_PC6 | CH12, Table 3 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
+| PPG_PCG | CH12 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
+| PPP_PCB | CH12 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
+| PPR_PC1 | CH12 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
+
+In all cases, Hxx appears as an alternative to OBR in a choice group, with description "etc." It means: "the order detail could be an OBR, or it could be some other segment (or group of segments) that we are not enumerating."
+
+### FHIR Representation
+
+For the "any segment" case, the abstract Segment base type (`http://hl7.org/v2/StructureDefinition/Segment`) can be referenced. This is already defined in `meta-resources/segment--segment.json`.
+
+The "any segment group" case is harder. FHIR uses BackboneElement for segment groups, but an unconstrained BackboneElement reference would allow arbitrary content. Options:
+
+1. **Constrain BackboneElement**: Define a constraint that says the BackboneElement can only contain elements whose type is either a Segment or a recursive instance of the same BackboneElement (i.e., segments and nested groups of segments).
+2. **Leave unconstrained**: Accept that Hxx is inherently open-ended and document the intent without formal constraints.
+3. **Use Extension**: Add an extension on the Hxx element indicating "any segment or segment group" semantics.
+
+### Questions for V2 Management
+
+1. **Is "any segment or segment group" the correct interpretation of Hxx?** Or does it specifically mean "any order-detail-like segment" (a narrower set)?
+2. **Should the V2+ IG attempt to constrain what Hxx allows?** Or is it intentionally unconstrained?
+
+---
+
+## 10. Choice Groups in Message Structures
+
+### Finding
+
+22 V2.9.1 message structures use choice groups (denoted by `<`, `|`, `>` markers) where exactly one of several segment alternatives must appear. These are found in:
+
+| Chapter | Structures | Example |
+|---------|-----------|---------|
+| CH11 (Patient Referral) | CCR_I16 | `< OBR \| RXO \| ODS \| PR1 >` |
+| CH12 (Patient Care) | PGL_PC6, PPG_PCG, PPP_PCB, PPR_PC1 | `OBR \| Hxx` |
+| CH16 (Claims/Reimbursement) | EHC_E01, E02, E04, E15, E20, E21, E24, QBP_E03, E22, RSP_E03, E22 | Various product/service choices |
+| CH17 (Sterilization) | SDR_S31, SDR_S32 | Device data alternatives |
+
+Individual choices within a choice group may themselves be groups of more than one segment.
+
+The current FHIR representation uses numbered anonymous BackboneElement groups (e.g., `1-Group`, `2-Group`) within a CHOICE BackboneElement. This is structurally correct but the naming convention ("1-Group") is a FHIR encoding artifact, not a V2 construct.
+
+### Questions for V2 Management
+
+1. **Is the FHIR CHOICE/numbered-Group representation adequate?** Or should there be a more explicit extension or naming convention for V2 choice groups?
+2. **Are there choice groups where individual alternatives are multi-segment groups?** (The extraction data suggests yes — e.g., CCR_I16 in CH11.)
+
+---
+
+## 11. Segment Field Data Quality (Previously Resolved)
 
 For reference, 1,109 segment field corrections were applied across 145 FHIR JSON files based on V2.9.1 comparison. Key categories:
 
@@ -229,7 +309,7 @@ These are documented in ADR-0005 and the segment comparison report at `v291-extr
 
 ---
 
-## 9. Data Type Component Conformance Length (Previously Resolved)
+## 12. Data Type Component Conformance Length (Previously Resolved)
 
 71 conformance length flag corrections were applied across 26 FHIR complex data type files. In all cases, V2.9.1 specified `#` (truncation permitted) but FHIR had `noTruncate: true` (no truncation). The 10 bare `=` cases described in Section 1 remain unresolved.
 

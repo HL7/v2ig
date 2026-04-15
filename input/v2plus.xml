@@ -241,6 +241,11 @@
       </code>
       <value value="input/sourceOfTruth/data-type/complex/complex-data-types"/>
     </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      </code>
+      <value value="input/sourceOfTruth/data-type"/>
+    </parameter>
 
     <parameter>
       <code>
