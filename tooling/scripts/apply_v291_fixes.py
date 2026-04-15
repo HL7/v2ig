@@ -296,6 +296,17 @@ def apply_all_fixes(dry_run=False):
             print(f"  {fix_id}: {total_changes} changes across {files_affected} files ({scope_desc})")
             continue
 
+        # Pending review items are logged but not applied
+        if fix.get('category') == 'pending_review':
+            fix_log.append({
+                'fix': fix,
+                'files': [],
+                'details': ['Pending V2 Management review — not applied'],
+                'status': 'pending_review',
+            })
+            print(f"  {fix_id}: PENDING REVIEW — {fix.get('reasoning', '')[:60]}")
+            continue
+
         target_files = find_target_files(fix, canonical)
 
         if not target_files:
@@ -355,6 +366,7 @@ def generate_fix_report(fixes, fix_log, raw_structures, canonical_structures):
     applied = [l for l in fix_log if l['status'] == 'applied']
     skipped = [l for l in fix_log if l['status'] == 'skipped']
     no_match = [l for l in fix_log if l['status'] == 'no_match']
+    pending = [l for l in fix_log if l['status'] == 'pending_review']
     total_changes = sum(len([d for d in l['details'] if 'SKIPPED' not in d]) for l in applied)
 
     # Group by category
@@ -397,6 +409,7 @@ th { background: #f6f8fa; font-weight: 600; }
 .badge-applied { background: #e8f4e8; color: #070; }
 .badge-skipped { background: #fff3cd; color: #856404; }
 .badge-nomatch { background: #fdd; color: #b00; }
+.badge-pending { background: #e3f2fd; color: #1565c0; }
 .sidebar-section { margin-bottom: 16px; }
 .sidebar-section h3 { font-size: 13px; margin: 8px 0 4px 0; color: #57606a; text-transform: uppercase; }
 .sidebar-section a { display: block; padding: 2px 4px; color: #0969da; text-decoration: none; font-size: 13px; }
@@ -448,6 +461,7 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
     html.append(f'<tr><th>Successfully applied</th><td><span class="badge badge-applied">{len(applied)}</span></td></tr>')
     html.append(f'<tr><th>Skipped (value mismatch)</th><td><span class="badge badge-skipped">{len(skipped)}</span></td></tr>')
     html.append(f'<tr><th>No match found</th><td><span class="badge badge-nomatch">{len(no_match)}</span></td></tr>')
+    html.append(f'<tr><th>Pending V2 Mgmt review</th><td><span class="badge badge-pending">{len(pending)}</span></td></tr>')
     html.append(f'<tr><th>Total row-level changes</th><td>{total_changes}</td></tr>')
     html.append('</table>')
 
@@ -466,7 +480,8 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
             entries = [l for l in fix_log if l['fix']['id'] == fid]
             status = entries[0]['status'] if entries else 'no_match'
             status_badge = {'applied': 'badge-applied', 'skipped': 'badge-skipped',
-                            'no_match': 'badge-nomatch'}.get(status, 'badge-nomatch')
+                            'no_match': 'badge-nomatch',
+                            'pending_review': 'badge-pending'}.get(status, 'badge-nomatch')
 
             html.append(f'<div class="fix-card {status}" id="{fid}">')
             html.append(f'<h4>{fid}: {fix["structure"]} '

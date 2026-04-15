@@ -284,6 +284,105 @@
       "category": "desc_meaningful",
       "reasoning": "MSH segment description should be \"Message Header\", not \"Message Acknowledgment\". 3 ACK occurrences (from CH05, CH15) incorrectly label MSH as \"Message Acknowledgment\". The remaining 112 occurrences correctly say \"Message Header\".",
       "segment_filter": "MSH"
+    },
+    {
+      "id": "FIX-0026",
+      "structure": "ACK",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Acknowledgment",
+      "to": "Message Acknowledgment",
+      "segment_filter": "MSA",
+      "category": "desc_cosmetic",
+      "reasoning": "MSA description should be \"Message Acknowledgment\", not just \"Acknowledgment\". 10 ACK occurrences use the shortened form; the remaining 105 use the full form."
+    },
+    {
+      "id": "FIX-0027",
+      "structure": "ACK",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Software Segment",
+      "to": "Software",
+      "segment_filter": "SFT",
+      "category": "desc_cosmetic",
+      "reasoning": "SFT description should be \"Software\", not \"Software Segment\". The segment name is \"Software\"; trailing \"Segment\" is redundant. 22 occurrences already use \"Software\"."
+    },
+    {
+      "id": "FIX-0028",
+      "structure": "ACK",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "User Authentication Credential Segment",
+      "to": "User Authentication Credential",
+      "segment_filter": "UAC",
+      "category": "desc_cosmetic",
+      "reasoning": "UAC description should be \"User Authentication Credential\", not \"User Authentication Credential Segment\". 104 occurrences already use the shorter form."
+    },
+    {
+      "id": "FIX-0029",
+      "structure": "ACK",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Error Information",
+      "to": "Error",
+      "segment_filter": "ERR",
+      "category": "desc_cosmetic",
+      "reasoning": "ERR description should be \"Error\". 102 occurrences use \"Error\"; 13 use \"Error Information\". The segment name is ERR (Error)."
+    },
+    {
+      "id": "FIX-0030",
+      "structure": "ACK",
+      "occurrence": "5.4.4",
+      "row": 5,
+      "field": "segments",
+      "from": "[ ERR ]",
+      "to": "[{ ERR }]",
+      "category": "cardinality",
+      "reasoning": "ERR should be optional+repeating [{ ERR }] in ACK. This clause has [ ERR ] (optional, non-repeating). 111 of 115 ACK occurrences have [{ ERR }]."
+    },
+    {
+      "id": "FIX-0031",
+      "structure": "ACK",
+      "occurrence": "5.4.5",
+      "row": 5,
+      "field": "segments",
+      "from": "[ ERR ]",
+      "to": "[{ ERR }]",
+      "category": "cardinality",
+      "reasoning": "Same as FIX-0030. ERR should be [{ ERR }] in ACK."
+    },
+    {
+      "id": "FIX-0032",
+      "structure": "ACK",
+      "occurrence": "5.4.6",
+      "row": 5,
+      "field": "segments",
+      "from": "[ ERR ]",
+      "to": "[{ ERR }]",
+      "category": "cardinality",
+      "reasoning": "Same as FIX-0030. ERR should be [{ ERR }] in ACK."
+    },
+    {
+      "id": "FIX-0033",
+      "structure": "ACK",
+      "occurrence": "5.4.7",
+      "row": 5,
+      "field": "segments",
+      "from": "[ ERR ]",
+      "to": "[{ ERR }]",
+      "category": "cardinality",
+      "reasoning": "Same as FIX-0030. ERR should be [{ ERR }] in ACK."
+    },
+    {
+      "id": "REVIEW-0001",
+      "structure": "ACK",
+      "occurrence": "10.4",
+      "row": 3,
+      "field": "segments",
+      "from": "[{ UAC }]",
+      "to": "[ UAC ]",
+      "category": "pending_review",
+      "reasoning": "Clause 10.4 (ACK^S12-S24,S26,S27) has UAC as [{ UAC }] (optional+repeating), while all other 114 ACK occurrences have [ UAC ] (optional, non-repeating). Is UAC repeating intentional for scheduling acknowledgments, or a typo? Needs V2 Management review before applying."
     }
   ]
 }

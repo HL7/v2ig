@@ -259,16 +259,11 @@ def compare_occurrences(occurrences):
 
             cat, detail = classify_difference(r_seg, o_seg, r_desc, o_desc)
             if cat:
-                # Also check chapter reference
-                r_ch = ref_rows[i].get('chapter', '')
-                o_ch = occ_rows[i].get('chapter', '')
-                ch_note = ''
-                if r_ch != o_ch:
-                    ch_note = f' (chapter ref: "{r_ch}" vs "{o_ch}")'
-
+                # Chapter reference differences are not relevant for
+                # FHIR representation and are ignored
                 discrepancies.append({
                     'type': cat,
-                    'detail': detail + ch_note,
+                    'detail': detail,
                     'ref_prov': ref_prov,
                     'occ_prov': occ_prov,
                     'position': i + 1,
