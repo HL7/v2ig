@@ -620,9 +620,9 @@ def _normalize_desc(desc):
     s = re.sub(r'\s+', ' ', s)
     # Remove trailing punctuation
     s = s.rstrip('.,:;')
-    # Normalize common abbreviations
-    s = s.replace('info.', 'information')
-    s = s.replace('info', 'information')
+    # Normalize common abbreviations (use word-boundary-aware replacement
+    # to avoid 'information' -> 'informationrmation')
+    s = re.sub(r'\binfo\b\.?', 'information', s)
     s = s.replace('cert.', 'certification')
     s = s.replace('assoc.', 'associated')
     s = s.replace('addtl.', 'additional')
