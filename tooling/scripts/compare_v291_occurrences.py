@@ -14,6 +14,7 @@ Usage:
     python3 tooling/scripts/compare_v291_occurrences.py
 """
 
+import argparse
 import json
 import os
 import re
@@ -25,7 +26,8 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(__file__))
 from v2_utils import PROJECT_ROOT
 
-V291_DIR = os.path.join(PROJECT_ROOT, 'v291-extracted', 'message-structures')
+V291_RAW_DIR = os.path.join(PROJECT_ROOT, 'v291-extracted', 'message-structures')
+V291_CANONICAL_DIR = os.path.join(PROJECT_ROOT, 'v291-canonical', 'message-structures')
 REPORT_DIR = os.path.join(PROJECT_ROOT, 'v291-extracted')
 
 
@@ -276,7 +278,7 @@ def compare_occurrences(occurrences):
     return discrepancies
 
 
-def generate_html_report(all_results):
+def generate_html_report(all_results, data_label="raw"):
     """Generate navigable HTML report."""
     timestamp = datetime.now(timezone.utc).isoformat()
 
@@ -354,12 +356,13 @@ code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 13p
 
     # Content
     html.append('<div id="content">')
-    html.append('<h1>V2.9.1 Message Structure Internal Consistency Report</h1>')
-    html.append(f'<p class="provenance">Generated: {timestamp}</p>')
+    source_note = ' (after applying canonical fixes)' if data_label == 'canonical' else ' (raw extraction, before fixes)'
+    html.append(f'<h1>V2.9.1 Message Structure Internal Consistency Report</h1>')
+    html.append(f'<p class="provenance">Generated: {timestamp} | Data source: {data_label}{source_note}</p>')
     html.append('<p>Compares multiple occurrences of the same message structure ID within '
                 'V2.9.1 Word documents. When a structure like ADT_A01 appears in multiple '
                 'tables (for different events), the content should be identical. This report '
-                'flags differences.</p>')
+                'flags remaining differences.</p>')
 
     # Summary
     html.append('<h2>Summary</h2>')
@@ -475,12 +478,23 @@ def _html_esc(s):
 
 
 def main():
-    print("Loading V291 message structures...")
+    parser = argparse.ArgumentParser(description='Compare V291 message structure occurrences')
+    parser.add_argument('--canonical', action='store_true',
+                        help='Use canonical (fixed) data instead of raw extraction')
+    args = parser.parse_args()
+
+    if args.canonical and os.path.isdir(V291_CANONICAL_DIR):
+        data_dir = V291_CANONICAL_DIR
+        print("Loading V291 CANONICAL message structures...")
+    else:
+        data_dir = V291_RAW_DIR
+        print("Loading V291 RAW message structures...")
+
     structures = defaultdict(list)
-    for fname in sorted(os.listdir(V291_DIR)):
+    for fname in sorted(os.listdir(data_dir)):
         if not fname.endswith('.json'):
             continue
-        fpath = os.path.join(V291_DIR, fname)
+        fpath = os.path.join(data_dir, fname)
         data = json.load(open(fpath))
         sid = data.get('structureId', '')
         if sid:
@@ -511,8 +525,9 @@ def main():
     structures_with_diffs = sum(1 for r in all_results.values() if r['discrepancies'])
     print(f"  {structures_with_diffs} structures with discrepancies, {total_discs} total differences")
 
-    print("\nGenerating report...")
-    generate_html_report(all_results)
+    data_label = "canonical" if args.canonical else "raw"
+    print(f"\nGenerating report (from {data_label} data)...")
+    generate_html_report(all_results, data_label=data_label)
 
     print(f"\n{'='*60}")
     print(f"V291 Internal Consistency Report Complete")

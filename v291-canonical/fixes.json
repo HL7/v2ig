@@ -264,6 +264,26 @@
       "to": "Event Type",
       "category": "desc_typo",
       "reasoning": "Trailing open parenthesis artifact. All other MDM_T01 occurrences have 'Event Type' without trailing paren."
+    },
+    {
+      "id": "FIX-0024",
+      "structure": "ACK",
+      "occurrence": "all",
+      "field": "description_titleize",
+      "to": "titleize",
+      "category": "desc_cosmetic",
+      "reasoning": "Standardize all ACK segment descriptions to title case. Affected: \"Software segment\" → \"Software Segment\" (7 occurrences), \"Message header\" → \"Message Header\" (1), \"Message acknowledgment\" → \"Message Acknowledgment\" (1)."
+    },
+    {
+      "id": "FIX-0025",
+      "structure": "ACK",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Message Acknowledgment",
+      "to": "Message Header",
+      "category": "desc_meaningful",
+      "reasoning": "MSH segment description should be \"Message Header\", not \"Message Acknowledgment\". 3 ACK occurrences (from CH05, CH15) incorrectly label MSH as \"Message Acknowledgment\". The remaining 112 occurrences correctly say \"Message Header\".",
+      "segment_filter": "MSH"
     }
   ]
 }

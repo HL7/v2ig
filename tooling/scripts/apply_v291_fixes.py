@@ -141,6 +141,31 @@ def apply_fix(fix, data):
                 row['segments'] = new_seg
                 applied.append(f'Row {i+1} segments: "{old_seg}" → "{new_seg}"')
 
+    elif field == 'description_titleize':
+        # Titleize all descriptions in this structure
+        for i, row in enumerate(data['rawRows']):
+            old_desc = row['description']
+            new_desc = old_desc.title() if old_desc else old_desc
+            # Preserve specific patterns that title() mangles
+            # e.g., "OBR" should stay "OBR", not "Obr"
+            # Only apply if it's a real description, not a group marker
+            if old_desc and not old_desc.startswith('---') and old_desc != new_desc:
+                row['description'] = new_desc
+                applied.append(f'Row {i+1} description: "{old_desc}" → "{new_desc}"')
+
+    elif field == 'description_replace':
+        # Replace a specific description value wherever it appears in this structure
+        # Optional segment_filter restricts to rows with a specific segment code
+        seg_filter = fix.get('segment_filter')
+        for i, row in enumerate(data['rawRows']):
+            if row['description'].strip() == from_val.strip():
+                if seg_filter:
+                    row_code = re.sub(r'[\[\]{}\s]', '', row['segments'])
+                    if row_code != seg_filter:
+                        continue
+                row['description'] = to_val
+                applied.append(f'Row {i+1} description: "{from_val}" → "{to_val}"')
+
     return data, applied
 
 
@@ -244,22 +269,31 @@ def apply_all_fixes(dry_run=False):
     for fix in individual_fixes + bulk_fixes:
         fix_id = fix.get('id', '?')
 
-        # Handle bulk operations
-        if fix.get('structure') == '*' and fix.get('field') == 'segments_all':
+        # Handle bulk operations (apply to all files, or all files for a given structure)
+        is_bulk = fix.get('field') in ('segments_all', 'description_titleize', 'description_replace')
+        is_wildcard = fix.get('structure') in ('*', None)
+        if is_bulk and fix.get('occurrence') == 'all':
             total_changes = 0
+            target_sid = fix.get('structure', '*')
+            files_affected = 0
             for fname in sorted(canonical.keys()):
                 data = canonical[fname]
+                if target_sid != '*' and data.get('structureId') != target_sid:
+                    continue
                 new_data, details = apply_fix(fix, data)
                 canonical[fname] = new_data
                 n = len(details)
                 total_changes += n
+                if n > 0:
+                    files_affected += 1
+            scope_desc = 'all structures' if is_wildcard else target_sid
             fix_log.append({
                 'fix': fix,
-                'files': list(canonical.keys()),
-                'details': [f'{total_changes} bracket normalizations across {len(canonical)} files'],
+                'files': [scope_desc],
+                'details': [f'{total_changes} changes across {files_affected} files ({scope_desc})'],
                 'status': 'applied',
             })
-            print(f"  {fix_id}: {total_changes} bracket normalizations across {len(canonical)} files")
+            print(f"  {fix_id}: {total_changes} changes across {files_affected} files ({scope_desc})")
             continue
 
         target_files = find_target_files(fix, canonical)
