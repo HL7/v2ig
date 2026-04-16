@@ -1200,3 +1200,33 @@ All pushed to `origin/feature/006-sd-injection`.
 - Pending review items (REVIEW-XXXX) are logged in the fixes report but NOT applied to canonical data.
 - The FHIR comparison (`compare_message_structures.py`) currently runs against raw V291 data, not canonical. Once V291 is stable, switch it to canonical.
 - Clause numbers are computed from Word heading hierarchy (Heading1=chapter, Heading2=section, Heading3=subsection). Style names from python-docx have a space ("Heading 1" not "Heading1").
+
+---
+
+## Session Handoff - 2026-04-16
+
+### Completed This Session
+- **V291 reconciliation**: reduced 94 multi-occurrence differences to 35 (83 fixes in fixes.json)
+- **Broken extraction investigation**: QBP_Q11 clause 5.3.3.3 is Word parsing artifact (hidden columns); NMD_N02 second table is ACK^N02^ACK mislabeled by caption reuse
+- **Cosmetic fixes**: "Segment" suffix removal (313 changes), dash normalization (81), group names (COMPONENT→COMPONENTS), singular/plural alignment
+- **PRT/OBX description audit**: 7 typos, 33 segment-code replacements (ORC→Common Order, RXO→Pharmacy/Treatment Order, etc.), 21 qualified observation group fixes (Patient Observation, Specimen Observation, etc.)
+- **Review report**: `v291-canonical/v291-review-report.html` — ACK section with 116 messages, yellow-highlighted non-standard captions, per-structure provenance with events, cardinality recommendations
+- **New scripts**: `audit_prt_descriptions.py` (clause refs on every finding), `generate_v291_review_report.py`
+- Commits: `148c826a`, `7b982c1a`, `285950ba` (3 ahead of origin)
+
+### Current State
+- Branch: `dev/framework` (3 commits ahead of origin)
+- Last checkpoint: `285950ba` — Fix qualified observation group PRT descriptions
+- 83 fixes total, 35 remaining multi-occurrence differences
+
+### Next Steps
+1. User decisions on NTE descriptions (long vs short, CH09 MDM_T01/T02) and GUARANTOR_INSURANCE group name
+2. Collapse ACK structures into single canonical entry
+3. Switch FHIR comparison to canonical data
+4. Push to origin
+
+### Open Questions / Blockers
+- REVIEW-0001: ACK clause 10.4 UAC repeating
+- "for Additional Demographics" in PATIENT group (5 instances at 4A.4.14, 4A.4.26, 4A.4.16, 4A.4.8, 4A.4.23)
+- 358 bare "Participation" + 165 OBX mismatches — V2 management territory
+- RDE_O11 RXO "Prescription Order" variant
