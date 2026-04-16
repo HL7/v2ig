@@ -828,6 +828,90 @@
       "segment_filter": "PRT",
       "category": "desc_meaningful",
       "reasoning": "Replace segment code 'OBX' with group name 'Observation'. 5 of 6 instances are in the OBSERVATION group. NOTE: OML_O39 (clause 4.4.12) is in SHIPMENT_OBSERVATION group — 'for Observation' is still an improvement over 'for OBX' but a more precise qualifier would be 'for Shipment Observation'. Flagged for V2 Management review."
+    },
+    {
+      "id": "BULK-014",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Patient Observation)",
+      "segment_filter": "PRT",
+      "group_filter": "PATIENT_OBSERVATION",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Patient Observation' when PRT is in the PATIENT_OBSERVATION group. 7 instances: ORU_R30 (clauses 7.3.4, 7.3.5, 7.3.6), OSM_R26 (7.16.1), OUL_R22 (7.3.8), OUL_R23 (7.3.9), OUL_R24 (7.3.10)."
+    },
+    {
+      "id": "BULK-015",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Specimen Observation)",
+      "segment_filter": "PRT",
+      "group_filter": "SPECIMEN_OBSERVATION",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Specimen Observation' when PRT is in the SPECIMEN_OBSERVATION group. 3 instances: OPU_R25 (clause 7.3.11), OUL_R23 (7.3.9), OUL_R24 (7.3.10)."
+    },
+    {
+      "id": "BULK-016",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Observation Request)",
+      "segment_filter": "PRT",
+      "group_filter": "OBSERVATION_REQUEST",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Observation Request' when PRT is in the OBSERVATION_REQUEST group. 4 instances: OML_O35 (clause 4.4.10), OML_O39 (4.4.12), ORL_O34 (4.4.9.1), ORL_O54 (4.4.9.2)."
+    },
+    {
+      "id": "BULK-017",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Observation Participation)",
+      "segment_filter": "PRT",
+      "group_filter": "OBSERVATION_PARTICIPATION",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Observation Participation' when PRT is in the OBSERVATION_PARTICIPATION group. 4 instances: ORU_R01 (clauses 7.3.1, 7.3.12, 7.3.14, 7.3.15)."
+    },
+    {
+      "id": "BULK-018",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Study Observation)",
+      "segment_filter": "PRT",
+      "group_filter": "STUDY_OBSERVATION",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Study Observation' when PRT is in the STUDY_OBSERVATION group. 1 instance: CSU_C09 (clause 7.7.2)."
+    },
+    {
+      "id": "BULK-019",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Shipment Observation)",
+      "segment_filter": "PRT",
+      "group_filter": "SHIPMENT_OBSERVATION",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Shipment Observation' when PRT is in the SHIPMENT_OBSERVATION group. 1 instance: OML_O39 (clause 4.4.12)."
+    },
+    {
+      "id": "BULK-020",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for Observation)",
+      "to": "Participation (for Person Observation)",
+      "segment_filter": "PRT",
+      "group_filter": "PERSON_OBSERVATION",
+      "category": "desc_meaningful",
+      "reasoning": "Qualify generic 'for Observation' with specific group name 'Person Observation' when PRT is in the PERSON_OBSERVATION group. 1 instance: VXU_V04 (clause 4A.8.6)."
     }
   ]
 }

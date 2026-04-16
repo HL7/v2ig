@@ -99,7 +99,7 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 </div>
 <div id="content">
 <h1>V2.9.1 Message Structure Review Report</h1>
-<p class="meta">Generated: 2026-04-16 20:04 UTC | For V2 Management Group review</p>
+<p class="meta">Generated: 2026-04-16 20:53 UTC | For V2 Management Group review</p>
 <p>This report analyzes internal consistency of message structure definitions across V2.9.1 Word documents. When the same structure (e.g., ADT_A01) appears in multiple clauses for different events, the tables should be identical. Differences are categorized and recommendations provided.</p>
 <h2 id="summary">Summary</h2>
 <div class="card">
@@ -108,7 +108,7 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 <tr><td>Structures with multiple occurrences</td><td>35</td></tr>
 <tr><td>Structures with remaining differences</td><td><strong>12</strong></td></tr>
 <tr><td>Total remaining differences</td><td><strong>35</strong></td></tr>
-<tr><td>Fixes applied (fixes.json)</td><td>76 fixes</td></tr>
+<tr><td>Fixes applied (fixes.json)</td><td>83 fixes</td></tr>
 </table>
 </div>
 <h3>Remaining Differences by Category</h3>
@@ -131,7 +131,7 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 <tr><td>bracket_whitespace</td><td>1</td><td>Whitespace normalization in bracket notation</td></tr>
 <tr><td>desc_typo</td><td>12</td><td>Misspellings in segment descriptions</td></tr>
 <tr><td>desc_cosmetic</td><td>23</td><td>Trailing "Segment" suffix, dashes, abbreviations</td></tr>
-<tr><td>desc_meaningful</td><td>13</td><td>Substantive description corrections</td></tr>
+<tr><td>desc_meaningful</td><td>20</td><td>Substantive description corrections</td></tr>
 <tr><td>cardinality</td><td>4</td><td>ERR repeatability standardization in ACK structures</td></tr>
 <tr><td>extraction_artifact</td><td>2</td><td>Word document parsing issues (clause, caption)</td></tr>
 <tr><td>pending_review</td><td>1</td><td>Pending V2 Management review</td></tr>
@@ -724,15 +724,17 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 <h3>Key Patterns for V2 Management Review</h3>
 <div class="card">
 <ol>
-<li><strong>272 bare "Participation" instances</strong> across 98 structures have no parenthetical qualifier, making them ambiguous when a structure has multiple PRT segments in different groups.</li>
-<li><strong>"for Patient Visit" in VISIT group</strong> (12 instances) — the group is "VISIT" but the qualifier says "Patient Visit".</li>
-<li><strong>"for Common Order" in ORDER group</strong> (7 instances) — the PRT is in the ORDER group but references the COMMON_ORDER sub-group.</li>
-<li><strong>"for Additional Demographics" in PATIENT group</strong> (5 instances) — references a segment (PD1) instead of the group.</li>
-<li><strong>Segment code qualifiers</strong> (28 instances) use "for ORC", "for RXO", "for OBX", etc. instead of the group name. Most prevalent in pharmacy messages.</li>
-<li><strong>"for Observation" in various qualified groups</strong> — PATIENT_OBSERVATION, SPECIMEN_OBSERVATION, etc. The qualifier "for Observation" is too generic for qualified observation groups.</li>
+<li><strong>358 bare "Participation" instances</strong> across 98+ structures have no parenthetical qualifier, making them ambiguous when a structure has multiple PRT segments in different groups.</li>
+<li><strong>"for Additional Demographics" in PATIENT group</strong> (5 instances) — references a segment (PD1) instead of the group. Clauses: RAS_O17 (4A.4.14), RCV_O59 (4A.4.26), RDE_O11 (4A.4.16), RDS_O13 (4A.4.8), RSP_K31 (4A.4.23). Note: OMP_O09 (4A.4.3) has "for Additional Demographics" in an ADDITIONAL_DEMOGRAPHICS group, which is consistent.</li>
 </ol>
-<p>Typos and titleization issues have been fixed. All other findings require V2 Management Group decisions on standardization of PRT description conventions.</p>
-<p><em>Full audit detail: <code>v291-canonical/prt-obx-description-audit.txt</code></em></p>
+<h4>Fixed This Session</h4>
+<ul>
+<li>Typos: "Participaton", "Containter", "Oservation", "Speciment", unclosed parentheses (7 instances)</li>
+<li>Titleization: "for common order" → "for Common Order", "for observation" → "for Observation" (12 instances)</li>
+<li>Segment code qualifiers: "for ORC" → "for Common Order", "for RXO" → "for Pharmacy/Treatment Order", "for RXE" → "for Pharmacy/Treatment Encoded Order", "for RXD" → "for Pharmacy/Treatment Dispense", "for RXV" → "for Pharmacy/Treatment Infusion Order", "for OBX" → "for Observation" (33 instances)</li>
+<li>Qualified observation groups: generic "for Observation" replaced with group-specific qualifiers — "for Patient Observation" (7), "for Specimen Observation" (3), "for Observation Request" (4), "for Observation Participation" (4), "for Study Observation" (1), "for Shipment Observation" (1), "for Person Observation" (1) — 21 instances total</li>
+</ul>
+<p><em>Full audit detail with clause references: <code>v291-canonical/prt-obx-description-audit.txt</code></em></p>
 </div>
 <h2 id="consistent">Consistent Structures</h2>
 <p>23 multi-occurrence structures have identical content across all occurrences (no differences after applying fixes).</p>

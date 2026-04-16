@@ -162,12 +162,24 @@ def apply_fix(fix, data):
     elif field == 'description_replace':
         # Replace a specific description value wherever it appears in this structure
         # Optional segment_filter restricts to rows with a specific segment code
+        # Optional group_filter restricts to rows inside a specific group
         seg_filter = fix.get('segment_filter')
+        group_filter = fix.get('group_filter')
         for i, row in enumerate(data['rawRows']):
             if row['description'].strip() == from_val.strip():
                 if seg_filter:
                     row_code = re.sub(r'[\[\]{}\s]', '', row['segments'])
                     if row_code != seg_filter:
+                        continue
+                if group_filter:
+                    # Find the innermost group containing this row
+                    current_group = ''
+                    for j in range(i - 1, -1, -1):
+                        d_desc = data['rawRows'][j]['description']
+                        if d_desc.startswith('---') and 'begin' in d_desc:
+                            current_group = d_desc.replace('---', '').replace('begin', '').strip()
+                            break
+                    if current_group != group_filter:
                         continue
                 row['description'] = to_val
                 applied.append(f'Row {i+1} description: "{from_val}" → "{to_val}"')

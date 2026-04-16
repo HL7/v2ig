@@ -538,26 +538,37 @@ def generate_report(structures, events, fixes):
     h.append('<h3>Key Patterns for V2 Management Review</h3>')
     h.append('<div class="card">')
     h.append('<ol>')
-    h.append('<li><strong>272 bare "Participation" instances</strong> across 98 structures '
+    h.append('<li><strong>358 bare "Participation" instances</strong> across 98+ structures '
              'have no parenthetical qualifier, making them ambiguous when a structure has '
              'multiple PRT segments in different groups.</li>')
-    h.append('<li><strong>"for Patient Visit" in VISIT group</strong> (12 instances) — '
-             'the group is "VISIT" but the qualifier says "Patient Visit".</li>')
-    h.append('<li><strong>"for Common Order" in ORDER group</strong> (7 instances) — '
-             'the PRT is in the ORDER group but references the COMMON_ORDER sub-group.</li>')
     h.append('<li><strong>"for Additional Demographics" in PATIENT group</strong> '
-             '(5 instances) — references a segment (PD1) instead of the group.</li>')
-    h.append('<li><strong>Segment code qualifiers</strong> (28 instances) use "for ORC", '
-             '"for RXO", "for OBX", etc. instead of the group name. Most prevalent in '
-             'pharmacy messages.</li>')
-    h.append('<li><strong>"for Observation" in various qualified groups</strong> — '
-             'PATIENT_OBSERVATION, SPECIMEN_OBSERVATION, etc. The qualifier "for Observation" '
-             'is too generic for qualified observation groups.</li>')
+             '(5 instances) — references a segment (PD1) instead of the group. '
+             'Clauses: RAS_O17 (4A.4.14), RCV_O59 (4A.4.26), RDE_O11 (4A.4.16), '
+             'RDS_O13 (4A.4.8), RSP_K31 (4A.4.23). '
+             'Note: OMP_O09 (4A.4.3) has "for Additional Demographics" in an '
+             'ADDITIONAL_DEMOGRAPHICS group, which is consistent.</li>')
     h.append('</ol>')
-    h.append('<p>Typos and titleization issues have been fixed. All other findings '
-             'require V2 Management Group decisions on standardization of PRT description '
-             'conventions.</p>')
-    h.append('<p><em>Full audit detail: <code>v291-canonical/prt-obx-description-audit.txt</code></em></p>')
+    h.append('<h4>Fixed This Session</h4>')
+    h.append('<ul>')
+    h.append('<li>Typos: "Participaton", "Containter", "Oservation", "Speciment", '
+             'unclosed parentheses (7 instances)</li>')
+    h.append('<li>Titleization: "for common order" → "for Common Order", '
+             '"for observation" → "for Observation" (12 instances)</li>')
+    h.append('<li>Segment code qualifiers: "for ORC" → "for Common Order", '
+             '"for RXO" → "for Pharmacy/Treatment Order", '
+             '"for RXE" → "for Pharmacy/Treatment Encoded Order", '
+             '"for RXD" → "for Pharmacy/Treatment Dispense", '
+             '"for RXV" → "for Pharmacy/Treatment Infusion Order", '
+             '"for OBX" → "for Observation" (33 instances)</li>')
+    h.append('<li>Qualified observation groups: generic "for Observation" replaced with '
+             'group-specific qualifiers — "for Patient Observation" (7), '
+             '"for Specimen Observation" (3), "for Observation Request" (4), '
+             '"for Observation Participation" (4), "for Study Observation" (1), '
+             '"for Shipment Observation" (1), "for Person Observation" (1) — '
+             '21 instances total</li>')
+    h.append('</ul>')
+    h.append('<p><em>Full audit detail with clause references: '
+             '<code>v291-canonical/prt-obx-description-audit.txt</code></em></p>')
     h.append('</div>')
 
     # === Consistent Structures ===

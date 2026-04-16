@@ -1,6 +1,6 @@
 ========================================================================================================================
 PRT & OBX DESCRIPTION AUDIT REPORT
-Scanned 427 files | 485 PRT findings | 165 OBX findings
+Scanned 427 files | 464 PRT findings | 165 OBX findings
 ========================================================================================================================
 
 ========================================================================================================================
@@ -8,7 +8,7 @@ PRT FINDINGS BY CATEGORY
 ========================================================================================================================
 
 ------------------------------------------------------------------------------------------------------------------------
-  Qualifier does not match group name (127 instances)
+  Qualifier does not match group name (106 instances)
 ------------------------------------------------------------------------------------------------------------------------
 
   Current:   Participation (for Additional Demographics)
@@ -134,24 +134,6 @@ PRT FINDINGS BY CATEGORY
     OPU_R25              CH07  clause 7.3.11       row  34
 
   Current:   Participation (for Observation)
-  Group:     OBSERVATION_PARTICIPATION
-  Suggested: Participation (for Observation Participation)
-  Instances (4):
-    ORU_R01              CH07  clause 7.3.1        row  54
-    ORU_R01              CH07  clause 7.3.12       row  54
-    ORU_R01              CH07  clause 7.3.14       row  54
-    ORU_R01              CH07  clause 7.3.15       row  54
-
-  Current:   Participation (for Observation)
-  Group:     OBSERVATION_REQUEST
-  Suggested: Participation (for Observation Request)
-  Instances (4):
-    OML_O35              CH04  clause 4.4.10       row  63
-    OML_O39              CH04  clause 4.4.12       row  52
-    ORL_O34              CH04  clause 4.4.9.1      row  28
-    ORL_O54              CH04  clause 4.4.9.2      row  29
-
-  Current:   Participation (for Observation)
   Group:     ORDER
   Suggested: Participation (for Order)
   Instances (4):
@@ -159,44 +141,6 @@ PRT FINDINGS BY CATEGORY
     OUL_R22              CH07  clause 7.3.8        row  42
     OUL_R23              CH07  clause 7.3.9        row  45
     OUL_R24              CH07  clause 7.3.10       row  36
-
-  Current:   Participation (for Observation)
-  Group:     PATIENT_OBSERVATION
-  Suggested: Participation (for Patient Observation)
-  Instances (7):
-    ORU_R30              CH07  clause 7.3.4        row  18
-    ORU_R30              CH07  clause 7.3.5        row  18
-    ORU_R30              CH07  clause 7.3.6        row  18
-    OSM_R26              CH07  clause 7.16.1       row  35
-    OUL_R22              CH07  clause 7.3.8        row  17
-    OUL_R23              CH07  clause 7.3.9        row  21
-    OUL_R24              CH07  clause 7.3.10       row  21
-
-  Current:   Participation (for Observation)
-  Group:     PERSON_OBSERVATION
-  Suggested: Participation (for Person Observation)
-  Instances (1):
-    VXU_V04              CH04A clause 4A.8.6       row  29
-
-  Current:   Participation (for Observation)
-  Group:     SHIPMENT_OBSERVATION
-  Suggested: Participation (for Shipment Observation)
-  Instances (1):
-    OML_O39              CH04  clause 4.4.12       row  66
-
-  Current:   Participation (for Observation)
-  Group:     SPECIMEN_OBSERVATION
-  Suggested: Participation (for Specimen Observation)
-  Instances (3):
-    OPU_R25              CH07  clause 7.3.11       row  42
-    OUL_R23              CH07  clause 7.3.9        row  38
-    OUL_R24              CH07  clause 7.3.10       row  56
-
-  Current:   Participation (for Observation)
-  Group:     STUDY_OBSERVATION
-  Suggested: Participation (for Study Observation)
-  Instances (1):
-    CSU_C09              CH07  clause 7.7.2        row  30
 
   Current:   Participation (for Observation)
   Group:     VISIT
@@ -1987,7 +1931,7 @@ OBX FINDINGS
 ========================================================================================================================
 SUMMARY
 ========================================================================================================================
-  PRT Qualifier does not match group name                  127
+  PRT Qualifier does not match group name                  106
   PRT Bare "Participation" with no qualifier               358
   OBX issues                                                  165
-  TOTAL                                                    650
+  TOTAL                                                    629
