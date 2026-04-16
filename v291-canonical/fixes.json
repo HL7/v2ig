@@ -401,6 +401,7 @@
       "field": "structureId",
       "from": "NMD_N02",
       "to": "ACK",
+      "new_caption": "ACK^N02^ACK: Generic Acknowledgement",
       "applies_to_file": "NMD_N02_14_370.json",
       "category": "extraction_artifact",
       "reasoning": "Second table in clause 14.3.2 (tableIndex 3) has caption 'ACK^N02^ACK' in the Word document, but the extractor reused the previous caption 'NMD^N02^NMD_N02' because it did not detect the new heading. The 5-row structure (MSH, [{SFT}], [UAC], MSA, [{ERR}]) is a standard ACK pattern. Reclassify as structureId=ACK (message ACK^N02), consistent with all other ACK variants."
@@ -761,6 +762,72 @@
       "to": "--- COMPONENTS end",
       "category": "desc_cosmetic",
       "reasoning": "Matching end marker for BULK-006."
+    },
+    {
+      "id": "BULK-008",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for ORC)",
+      "to": "Participation (for Common Order)",
+      "segment_filter": "PRT",
+      "category": "desc_meaningful",
+      "reasoning": "Replace segment code 'ORC' with preceding segment description 'Common Order'. All 12 instances are preceded by ORC segment described as 'Common Order'. Affects ORP_O10, RAS_O17, RDE_O11, RDS_O13, RGV_O15, RRA_O18, RRD_O14, RRE_O12, RRG_O16, RSP_K31, VXU_V04."
+    },
+    {
+      "id": "BULK-009",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for RXO)",
+      "to": "Participation (for Pharmacy/Treatment Order)",
+      "segment_filter": "PRT",
+      "category": "desc_meaningful",
+      "reasoning": "Replace segment code 'RXO' with segment description 'Pharmacy/Treatment Order'. 6 instances. NOTE: RDE_O11 (clauses 4A.4.6, 4A.4.16) has RXO described as 'Pharmacy/Treatment Prescription Order' (with extra 'Prescription') — a variant from the standard RXO description. RDS_O13 and RGV_O15 have a typo 'Pharmacy /Treatment Order' (extra space). Using the standard form here."
+    },
+    {
+      "id": "BULK-010",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for RXE)",
+      "to": "Participation (for Pharmacy/Treatment Encoded Order)",
+      "segment_filter": "PRT",
+      "category": "desc_meaningful",
+      "reasoning": "Replace segment code 'RXE' with preceding segment description 'Pharmacy/Treatment Encoded Order'. All 6 instances are preceded by RXE with this description. Affects RDE_O11, RDS_O13, RRE_O12, RSP_K31."
+    },
+    {
+      "id": "BULK-011",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for RXD)",
+      "to": "Participation (for Pharmacy/Treatment Dispense)",
+      "segment_filter": "PRT",
+      "category": "desc_meaningful",
+      "reasoning": "Replace segment code 'RXD' with preceding segment description 'Pharmacy/Treatment Dispense'. 1 instance in RSP_K31."
+    },
+    {
+      "id": "BULK-012",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for RXV)",
+      "to": "Participation (for Pharmacy/Treatment Infusion Order)",
+      "segment_filter": "PRT",
+      "category": "desc_meaningful",
+      "reasoning": "Replace segment code 'RXV' with preceding segment description 'Pharmacy/Treatment Infusion Order'. 2 instances in RDE_O11."
+    },
+    {
+      "id": "BULK-013",
+      "structure": "*",
+      "occurrence": "all",
+      "field": "description_replace",
+      "from": "Participation (for OBX)",
+      "to": "Participation (for Observation)",
+      "segment_filter": "PRT",
+      "category": "desc_meaningful",
+      "reasoning": "Replace segment code 'OBX' with group name 'Observation'. 5 of 6 instances are in the OBSERVATION group. NOTE: OML_O39 (clause 4.4.12) is in SHIPMENT_OBSERVATION group — 'for Observation' is still an improvement over 'for OBX' but a more precise qualifier would be 'for Shipment Observation'. Flagged for V2 Management review."
     }
   ]
 }

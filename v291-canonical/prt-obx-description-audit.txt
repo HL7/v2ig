@@ -1,241 +1,1993 @@
-============================================================================================================================================
+========================================================================================================================
 PRT & OBX DESCRIPTION AUDIT REPORT
-Scanned 427 files | 401 PRT findings in 115 structures | 16 OBX findings in 9 structures
-============================================================================================================================================
+Scanned 427 files | 485 PRT findings | 165 OBX findings
+========================================================================================================================
 
-============================================================================================================================================
+========================================================================================================================
 PRT FINDINGS BY CATEGORY
-============================================================================================================================================
+========================================================================================================================
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Typos in "Participation" (1 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  CSU_C09                                                        35  STUDY_OBSERVATION                   Participaton (for Observation Results)                  Participation (for Observation Results)
+------------------------------------------------------------------------------------------------------------------------
+  Qualifier does not match group name (127 instances)
+------------------------------------------------------------------------------------------------------------------------
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Typos in qualifier text (4 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  OPL_O37                                                       108  CONTAINER_OBSERVATION               Participation (for Containter Observation)              Participation (for Container Observation)
-  OMG_O19, OMQ_O57                                              108  OBSERVATION_PRIOR                   Participation (for Oservation Prior)                    Participation (for Observation Prior)
-  OML_O35                                                       108  SPECIMEN_OBSERVATION                Participation (for Speciment Observation)               Participation (for Specimen Observation)
+  Current:   Participation (for Additional Demographics)
+  Group:     PATIENT
+  Suggested: Participation (for Patient)
+  Instances (5):
+    RAS_O17              CH04A clause 4A.4.14      row  12
+    RCV_O59              CH04A clause 4A.4.26      row   8
+    RDE_O11              CH04A clause 4A.4.16      row  12
+    RDS_O13              CH04A clause 4A.4.8       row  12
+    RSP_K31              CH04A clause 4A.4.23      row  16
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Unclosed parenthetical (2 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  CRM_C01                                                         9  PATIENT                             Participation (for Patient                              Participation (for Patient)
-  CRM_C01                                                         9  PATIENT_VISIT                       Participation (for Patient Visit                        Participation (for Patient Visit)
+  Current:   Participation (for Administration)
+  Group:     TREATMENT
+  Suggested: Participation (for Treatment)
+  Instances (1):
+    RRA_O18              CH04A clause 4A.4.15      row  23
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Segment code used instead of group name (28 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  OML_O21, OML_O59, RDE_O11 (+2 more)                            58  OBSERVATION                         Participation (for OBX)                                 Participation (for Observation)
-  OML_O39                                                        58  SHIPMENT_OBSERVATION                Participation (for OBX)                                 Participation (for Shipment Observation)
-  ORP_O10, RAS_O17, RDE_O11 (+8 more)                            58  ORDER                               Participation (for ORC)                                 Participation (for Order)
-  RSP_K31                                                        58  ORDER                               Participation (for RXD)                                 Participation (for Order)
-  RDS_O13, RRE_O12, RSP_K31                                      58  ENCODING                            Participation (for RXE)                                 Participation (for Encoding)
-  RDE_O11                                                        58  ORDER                               Participation (for RXE)                                 Participation (for Order)
-  OMP_O09                                                        58  ORDER                               Participation (for RXO)                                 Participation (for Order)
-  ORP_O10, RDE_O11, RDS_O13 (+1 more)                            58  ORDER_DETAIL                        Participation (for RXO)                                 Participation (for Order Detail)
-  RDE_O11                                                        58  PHARMACY_TREATMENT_INFUSION_ORDER   Participation (for RXV)                                 Participation (for Pharmacy Treatment Infusion Order)
+  Current:   Participation (for Common Order)
+  Group:     ORDER
+  Suggested: Participation (for Order)
+  Instances (19):
+    OMG_O19              CH04  clause 4.4.4        row  44
+    OML_O21              CH04  clause 4.4.6        row  44
+    OML_O33              CH04  clause 4.4.8        row  55
+    OML_O59              CH04  clause 4.4.22       row  31
+    OMQ_O57              CH04  clause 4.4.20       row  33
+    ORL_O22              CH04  clause 4.4.7.1      row  14
+    ORL_O53              CH04  clause 4.4.7.2      row  15
+    ORP_O10              CH04A clause 4A.4.4       row  15
+    RAS_O17              CH04A clause 4A.4.14      row  25
+    RDE_O11              CH04A clause 4A.4.6       row  31
+    RDS_O13              CH04A clause 4A.4.8       row  25
+    RGV_O15              CH04A clause 4A.4.11      row  24
+    RRA_O18              CH04A clause 4A.4.15      row  15
+    RRD_O14              CH04A clause 4A.4.9       row  15
+    RRE_O12              CH04A clause 4A.4.17      row  15
+    RRE_O12              CH04A clause 4A.4.7       row  15
+    RRG_O16              CH04A clause 4A.4.12      row  15
+    RSP_K31              CH04A clause 4A.4.23      row  29
+    VXU_V04              CH04A clause 4A.8.6       row  34
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Correct group but wrong titleization (4 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  OPU_R25, OUL_R22, OUL_R23 (+1 more)                            53  COMMON_ORDER                        Participation (for common order)                        Participation (for Common Order)
+  Current:   Participation (for Common Order)
+  Group:     STUDY_OBSERVATION
+  Suggested: Participation (for Study Observation)
+  Instances (1):
+    CSU_C09              CH07  clause 7.7.2        row  27
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Qualifier does not match group name (84 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  PGL_PC6, PPG_PCG, PPP_PCB (+1 more)                            16  GOAL_PARTICIPATION                  Participation (Goal)                                    Participation (for Goal Participation)
-  ORU_R01                                                        16  OBSERVATION                         Participation (Observation Participation)               Participation (for Observation)
-  ORU_R01                                                        16  PATIENT_OBSERVATION                 Participation (Observation Participation)               Participation (for Patient Observation)
-  ORU_R01                                                        16  SPECIMEN_OBSERVATION                Participation (Observation Participation)               Participation (for Specimen Observation)
-  PPG_PCG, PPP_PCB                                               16  PATHWAY_PARTICIPATION               Participation (Pathway)                                 Participation (for Pathway Participation)
-  PGL_PC6, PPG_PCG, PPP_PCB (+1 more)                            16  PROBLEM_PARTICIPATION               Participation (Problem)                                 Participation (for Problem Participation)
-  RAS_O17, RCV_O59, RDE_O11 (+2 more)                            16  PATIENT                             Participation (for Additional Demographics)             Participation (for Patient)
-  RRA_O18                                                        16  TREATMENT                           Participation (for Administration)                      Participation (for Treatment)
-  OMG_O19, OML_O21, OML_O33 (+4 more)                            16  ORDER                               Participation (for Common Order)                        Participation (for Order)
-  OSM_R26                                                        16  CONTAINER_OBSERVATION               Participation (for Container Observation Result)        Participation (for Container Observation)
-  RAS_O17, RGV_O15                                               16  ENCODING                            Participation (for Encoded Order)                       Participation (for Encoding)
-  RDE_O49                                                        16  ORDER                               Participation (for Encoded Order)                       Participation (for Order)
-  ORI_O24                                                        16  ORDER                               Participation (for Observation Request)                 Participation (for Order)
-  PEX_P07                                                        16  ASSOCIATED_OBSERVATION              Participation (for Observation Result)                  Participation (for Associated Observation)
-  PEX_P07                                                        16  OBSERVATION                         Participation (for Observation Result)                  Participation (for Observation)
-  OUL_R22                                                        16  RESULT                              Participation (for Observation Result)                  Participation (for Result)
-  ORU_R30                                                        16  OBSERVATION                         Participation (for Observation Results)                 Participation (for Observation)
-  OPU_R25                                                        16  PATIENT_OBSERVATION                 Participation (for Observation on Patient)              Participation (for Patient Observation)
-  ORU_R01                                                        16  OBSERVATION_PARTICIPATION           Participation (for Observation)                         Participation (for Observation Participation)
-  OML_O35, OML_O39, ORL_O34 (+1 more)                            16  OBSERVATION_REQUEST                 Participation (for Observation)                         Participation (for Observation Request)
-  ORU_R30, OSM_R26, OUL_R22 (+2 more)                            16  PATIENT_OBSERVATION                 Participation (for Observation)                         Participation (for Patient Observation)
-  VXU_V04                                                        16  PERSON_OBSERVATION                  Participation (for Observation)                         Participation (for Person Observation)
-  OPU_R25, OUL_R23, OUL_R24                                      16  SPECIMEN_OBSERVATION                Participation (for Observation)                         Participation (for Specimen Observation)
-  OPL_O37                                                        16  OBSERVATION_RESULT_GROUP            Participation (for Observation/Result)                  Participation (for Observation Result Group)
-  RCV_O59                                                        16  ENCODING                            Participation (for Order Encoding)                      Participation (for Encoding)
-  OML_O35                                                        16  OBSERVATION_PARTICIPATION           Participation (for Order Prior)                         Participation (for Observation Participation)
-  OML_O21, OML_O33, OML_O59 (+1 more)                            16  OBSERVATION_PARTICIPATION_PRIOR     Participation (for Order Prior)                         Participation (for Observation Participation Prior)
-  OMQ_O57                                                        16  OBSERVATION_PARTICIPATION_PRIOR     Participation (for Order Prior)  - previous result      Participation (for Observation Participation Prior)
-  OMG_O19                                                        16  ORDER_DETAIL_PARTICIPATION_PRIOR    Participation (for Order Prior)  - previous result      Participation (for Order Detail Participation Prior)
-  ORG_O20                                                        16  OBSERVATION_GROUP                   Participation (for Order)                               Participation (for Observation Group)
-  OSM_R26                                                        16  SUBJECT_POPULATION_OR_LOCATION_IDENTIFICATION Participation (for Patient Visit)                       Participation (for Subject Population Or Location Identification)
-  CSU_C09, ORU_R01, ORU_R30 (+4 more)                            16  VISIT                               Participation (for Patient Visit)                       Participation (for Visit)
-  OPL_O37                                                        16  ORDER                               Participation (for Patient)                             Participation (for Order)
-  ORL_O22, ORL_O34, ORL_O36                                      16  RESPONSE                            Participation (for Patient)                             Participation (for Response)
-  OSM_R26                                                        16  SUBJECT_PERSON_OR_ANIMAL_IDENTIFICATION Participation (for Patient)                             Participation (for Subject Person Or Animal Identification)
-  OSM_R26                                                        16  SUBJECT_POPULATION_OR_LOCATION_IDENTIFICATION Participation (for Patient)                             Participation (for Subject Population Or Location Identification)
-  PEX_P07                                                        16  ASSOCIATED_RX_ADMIN                 Participation (for Pharmacy Administration)             Participation (for Associated Rx Admin)
-  CSU_C09                                                        16  RX_ADMIN                            Participation (for Pharmacy Administration)             Participation (for Rx Admin)
-  PEX_P07                                                        16  RX_ADMINISTRATION                   Participation (for Pharmacy Administration)             Participation (for Rx Administration)
-  PEX_P07                                                        16  ASSOCIATED_RX_ORDER                 Participation (for Pharmacy/Treatment)                  Participation (for Associated Rx Order)
-  PEX_P07                                                        16  RX_ORDER                            Participation (for Pharmacy/Treatment)                  Participation (for Rx Order)
-  OSM_R26                                                        16  PACKAGE                             Participation (for Shipping Package)                    Participation (for Package)
-  ORL_O36, ORL_O55                                               16  SPECIMEN_OBSERVATION                Participation (for Specimen Related Observation)        Participation (for Specimen Observation)
-  RCV_O59, RDS_O13                                               16  ORDER                               Participation (for Treatment Dispense)                  Participation (for Order)
+  Current:   Participation (for Common Order)
+  Group:     VISIT
+  Suggested: Participation (for Visit)
+  Instances (3):
+    ORU_R30              CH07  clause 7.3.4        row  26
+    ORU_R30              CH07  clause 7.3.5        row  26
+    ORU_R30              CH07  clause 7.3.6        row  26
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Qualifier mismatch + case issue (6 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  CSU_C09                                                        26  STUDY_OBSERVATION                   Participation (for common order)                        Participation (for Study Observation)
-  OPU_R25, OUL_R22, OUL_R23 (+1 more)                            26  ORDER                               Participation (for observation)                         Participation (for Order)
-  CSU_C09                                                        26  STUDY_OBSERVATION                   Participation (for observation)                         Participation (for Study Observation)
+  Current:   Participation (for Container Observation Result)
+  Group:     CONTAINER_OBSERVATION
+  Suggested: Participation (for Container Observation)
+  Instances (1):
+    OSM_R26              CH07  clause 7.16.1       row  26
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Bare "Participation" with no qualifier (272 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
-  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  EHC_E15                                                        32  ADJUSTMENT_PAYEE                    Participation                                           Participation (for Adjustment Payee)
-  ADT_A01, ADT_A03, ADT_A05 (+1 more)                            32  AUTHORIZATION                       Participation                                           Participation (for Authorization)
-  PMU_B07                                                        32  CERTIFICATE                         Participation                                           Participation (for Certificate)
-  CCM_I21, CCR_I16, CCU_I20 (+1 more)                            32  CLINICAL_HISTORY_OBJECT             Participation                                           Participation (for Clinical History Object)
-  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  CLINICAL_HISTORY_OBSERVATION        Participation                                           Participation (for Clinical History Observation)
-  CCR_I16                                                        32  CLINICAL_ORDER_OBJECT               Participation                                           Participation (for Clinical Order Object)
-  CCR_I16                                                        32  CLINICAL_ORDER_OBSERVATION          Participation                                           Participation (for Clinical Order Observation)
-  DFT_P03, DFT_P11, MDM_T01 (+1 more)                            32  COMMON_ORDER                        Participation                                           Participation (for Common Order)
-  RRD_O14                                                        32  DISPENSE                            Participation                                           Participation (for Dispense)
-  DEO_O45                                                        32  DONATION_OBSERVATION                Participation                                           Participation (for Donation Observation)
-  DPR_O48                                                        32  DONATION_OBSERVATIONS               Participation                                           Participation (for Donation Observations)
-  DEO_O45, DPR_O48, DRC_O47                                      32  DONATION_ORDER                      Participation                                           Participation (for Donation Order)
-  DBC_O41, DBC_O42, DEL_O46 (+6 more)                            32  DONOR                               Participation                                           Participation (for Donor)
-  DBC_O41, DBC_O42, DEL_O46 (+6 more)                            32  DONOR_OBSERVATIONS                  Participation                                           Participation (for Donor Observations)
-  DER_O44                                                        32  DONOR_ORDER                         Participation                                           Participation (for Donor Order)
-  DEL_O46, DEO_O45, DER_O44 (+4 more)                            32  DONOR_REGISTRATION                  Participation                                           Participation (for Donor Registration)
-  DEO_O45                                                        32  Donor                               Participation                                           Participation (for Donor)
-  RRE_O50                                                        32  ENCODING                            Participation                                           Participation (for Encoding)
-  DFT_P03, DFT_P11                                               32  FINANCIAL                           Participation                                           Participation (for Financial)
-  DFT_P03, DFT_P11                                               32  FINANCIAL_COMMON_ORDER              Participation                                           Participation (for Financial Common Order)
-  DFT_P11                                                        32  FINANCIAL_INSURANCE                 Participation                                           Participation (for Financial Insurance)
-  DFT_P03, DFT_P11                                               32  FINANCIAL_OBSERVATION               Participation                                           Participation (for Financial Observation)
-  DFT_P03, DFT_P11                                               32  FINANCIAL_OBSERVATION_STANDALONE    Participation                                           Participation (for Financial Observation Standalone)
-  DFT_P03, DFT_P11                                               32  FINANCIAL_ORDER                     Participation                                           Participation (for Financial Order)
-  DFT_P03, DFT_P11                                               32  FINANCIAL_ORDER_STANDALONE          Participation                                           Participation (for Financial Order Standalone)
-  DFT_P03, DFT_P11                                               32  FINANCIAL_PROCEDURE                 Participation                                           Participation (for Financial Procedure)
-  RGV_O15, RRG_O16                                               32  GIVE                                Participation                                           Participation (for Give)
-  CCI_I22, CCM_I21, CCR_I16 (+5 more)                            32  GOAL_OBSERVATION                    Participation                                           Participation (for Goal Observation)
-  ADT_A01, ADT_A03, ADT_A05 (+6 more)                            32  INSURANCE                           Participation                                           Participation (for Insurance)
-  EHC_E01                                                        32  INVOICE_INFORMATION_SUBMIT          Participation                                           Participation (for Invoice Information Submit)
-  CCI_I22, CCR_I16, CCU_I20 (+1 more)                            32  MEDICATION_ADMINISTRATION_DETAIL    Participation                                           Participation (for Medication Administration Detail)
-  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  MEDICATION_ADMINISTRATION_OBSERVATION Participation                                           Participation (for Medication Administration Observation)
-  CCI_I22, CCR_I16, CCU_I20 (+1 more)                            32  MEDICATION_ENCODING_DETAIL          Participation                                           Participation (for Medication Encoding Detail)
-  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  MEDICATION_ENCODING_OBSERVATION     Participation                                           Participation (for Medication Encoding Observation)
-  CCI_I22, CCR_I16, CCU_I20 (+1 more)                            32  MEDICATION_ORDER_DETAIL             Participation                                           Participation (for Medication Order Detail)
-  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  MEDICATION_ORDER_OBSERVATION        Participation                                           Participation (for Medication Order Observation)
-  MFN_M12                                                        32  MF_OBS_ATTRIBUTES                   Participation                                           Participation (for Mf Obs Attributes)
-  MFN_M12                                                        32  MF_OBS_OTHER_ATTRIBUTES             Participation                                           Participation (for Mf Obs Other Attributes)
-  MFN_M10                                                        32  MF_TEST_BATTERIES                   Participation                                           Participation (for Mf Test Batteries)
-  MFN_M11                                                        32  MF_TEST_CALCULATED                  Participation                                           Participation (for Mf Test Calculated)
-  MFN_M09                                                        32  MF_TEST_CATEGORICAL                 Participation                                           Participation (for Mf Test Categorical)
-  MFN_M08                                                        32  MF_TEST_NUMERIC                     Participation                                           Participation (for Mf Test Numeric)
-  ADT_A01, ADT_A02, ADT_A03 (+19 more)                           32  OBSERVATION                         Participation                                           Participation (for Observation)
-  OPL_O37, OPR_O38                                               32  OBSERVATION_REQUEST                 Participation                                           Participation (for Observation Request)
-  ADT_A17                                                        32  OBSERVATION_RESULT_1                Participation                                           Participation (for Observation Result 1)
-  ADT_A17                                                        32  OBSERVATION_RESULT_2                Participation                                           Participation (for Observation Result 2)
-  BPS_O29, BRP_O30, BRT_O32 (+16 more)                           32  ORDER                               Participation                                           Participation (for Order)
-  RAS_O17, RDE_O49, RSP_K31                                      32  ORDER_DETAIL                        Participation                                           Participation (for Order Detail)
-  OMD_O03, ORD_O04                                               32  ORDER_DIET                          Participation                                           Participation (for Order Diet)
-  ORU_R01, OUL_R22, OUL_R23 (+1 more)                            32  ORDER_DOCUMENT                      Participation                                           Participation (for Order Document)
-  PGL_PC6, PPG_PCG, PPP_PCB (+1 more)                            32  ORDER_OBSERVATION                   Participation                                           Participation (for Order Observation)
-  OMG_O19, OML_O21, OML_O33 (+3 more)                            32  ORDER_PRIOR                         Participation                                           Participation (for Order Prior)
-  OSU_O51, OSU_O52                                               32  ORDER_STATUS                        Participation                                           Participation (for Order Status)
-  OMD_O03, ORD_O04                                               32  ORDER_TRAY                          Participation                                           Participation (for Order Tray)
-  CCR_I16                                                        32  PARTICIPATION_OBSERVATION           Participation                                           Participation (for Participation Observation)
-  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  PATHWAY_OBSERVATION                 Participation                                           Participation (for Pathway Observation)
-  BAR_P02, BAR_P06, BRP_O30 (+13 more)                           32  PATIENT                             Participation                                           Participation (for Patient)
-  EHC_E01                                                        32  PATIENT_INFO                        Participation                                           Participation (for Patient Info)
-  VXU_V04                                                        32  PATIENT_VISIT                       Participation                                           Participation (for Patient Visit)
-  OPU_R25                                                        32  PATIENT_VISIT_OBSERVATION           Participation                                           Participation (for Patient Visit Observation)
-  EHC_E20                                                        32  PAT_INFO                            Participation                                           Participation (for Pat Info)
-  CCI_I22, CCM_I21, CCU_I20 (+5 more)                            32  PROBLEM_OBSERVATION                 Participation                                           Participation (for Problem Observation)
-  ADT_A01, ADT_A03, ADT_A05 (+6 more)                            32  PROCEDURE                           Participation                                           Participation (for Procedure)
-  EHC_E01                                                        32  PRODUCT_SERVICE_GROUP               Participation                                           Participation (for Product Service Group)
-  EHC_E01                                                        32  PRODUCT_SERVICE_LINE_ITEM           Participation                                           Participation (for Product Service Line Item)
-  EHC_E20                                                        32  PSL_ITEM_INFO                       Participation                                           Participation (for Psl Item Info)
-  ADT_A01, ADT_A03, ADT_A05 (+1 more)                            32  REFERRAL                            Participation                                           Participation (for Referral)
-  EHC_E12, EHC_E13                                               32  REQUEST                             Participation                                           Participation (for Request)
-  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  RESOURCE_OBSERVATION                Participation                                           Participation (for Resource Observation)
-  EHC_E13                                                        32  RESPONSE                            Participation                                           Participation (for Response)
-  OPU_R25, OUL_R23, OUL_R24                                      32  RESULT                              Participation                                           Participation (for Result)
-  RPA_I08, RQA_I08                                               32  RESULTS                             Participation                                           Participation (for Results)
-  REF_I12, RRI_I12                                               32  RESULTS_NOTES                       Participation                                           Participation (for Results Notes)
-  RSP_K25                                                        32  STAFF                               Participation                                           Participation (for Staff)
-  BAR_P01, BAR_P05, DFT_P03 (+1 more)                            32  VISIT                               Participation                                           Participation (for Visit)
+  Current:   Participation (for Encoded Order)
+  Group:     COMPONENTS
+  Suggested: Participation (for Components)
+  Instances (1):
+    RDE_O49              CH04A clause 4A.4.24      row  42
 
+  Current:   Participation (for Encoded Order)
+  Group:     ENCODING
+  Suggested: Participation (for Encoding)
+  Instances (2):
+    RAS_O17              CH04A clause 4A.4.14      row  44
+    RGV_O15              CH04A clause 4A.4.11      row  43
 
-============================================================================================================================================
+  Current:   Participation (for Observation Request)
+  Group:     TIMING
+  Suggested: Participation (for Timing)
+  Instances (1):
+    ORI_O24              CH04  clause 4.4.15       row  24
+
+  Current:   Participation (for Observation Request)
+  Group:     VISIT
+  Suggested: Participation (for Visit)
+  Instances (1):
+    ORU_R30              CH07  clause 7.3.6        row  29
+
+  Current:   Participation (for Observation Result)
+  Group:     ASSOCIATED_OBSERVATION
+  Suggested: Participation (for Associated Observation)
+  Instances (1):
+    PEX_P07              CH07  clause 7.11.1       row  66
+
+  Current:   Participation (for Observation Result)
+  Group:     OBSERVATION
+  Suggested: Participation (for Observation)
+  Instances (1):
+    PEX_P07              CH07  clause 7.11.1       row  42
+
+  Current:   Participation (for Observation Result)
+  Group:     RESULT
+  Suggested: Participation (for Result)
+  Instances (1):
+    OUL_R22              CH07  clause 7.3.8        row  60
+
+  Current:   Participation (for Observation Results)
+  Group:     OBSERVATION
+  Suggested: Participation (for Observation)
+  Instances (2):
+    ORU_R30              CH07  clause 7.3.5        row  36
+    ORU_R30              CH07  clause 7.3.6        row  36
+
+  Current:   Participation (for Observation Results)
+  Group:     TIMING_QTY
+  Suggested: Participation (for Timing Qty)
+  Instances (1):
+    CSU_C09              CH07  clause 7.7.2        row  36
+
+  Current:   Participation (for Observation on Patient)
+  Group:     PATIENT_OBSERVATION
+  Suggested: Participation (for Patient Observation)
+  Instances (1):
+    OPU_R25              CH07  clause 7.3.11       row  34
+
+  Current:   Participation (for Observation)
+  Group:     OBSERVATION_PARTICIPATION
+  Suggested: Participation (for Observation Participation)
+  Instances (4):
+    ORU_R01              CH07  clause 7.3.1        row  54
+    ORU_R01              CH07  clause 7.3.12       row  54
+    ORU_R01              CH07  clause 7.3.14       row  54
+    ORU_R01              CH07  clause 7.3.15       row  54
+
+  Current:   Participation (for Observation)
+  Group:     OBSERVATION_REQUEST
+  Suggested: Participation (for Observation Request)
+  Instances (4):
+    OML_O35              CH04  clause 4.4.10       row  63
+    OML_O39              CH04  clause 4.4.12       row  52
+    ORL_O34              CH04  clause 4.4.9.1      row  28
+    ORL_O54              CH04  clause 4.4.9.2      row  29
+
+  Current:   Participation (for Observation)
+  Group:     ORDER
+  Suggested: Participation (for Order)
+  Instances (4):
+    OPU_R25              CH07  clause 7.3.11       row  51
+    OUL_R22              CH07  clause 7.3.8        row  42
+    OUL_R23              CH07  clause 7.3.9        row  45
+    OUL_R24              CH07  clause 7.3.10       row  36
+
+  Current:   Participation (for Observation)
+  Group:     PATIENT_OBSERVATION
+  Suggested: Participation (for Patient Observation)
+  Instances (7):
+    ORU_R30              CH07  clause 7.3.4        row  18
+    ORU_R30              CH07  clause 7.3.5        row  18
+    ORU_R30              CH07  clause 7.3.6        row  18
+    OSM_R26              CH07  clause 7.16.1       row  35
+    OUL_R22              CH07  clause 7.3.8        row  17
+    OUL_R23              CH07  clause 7.3.9        row  21
+    OUL_R24              CH07  clause 7.3.10       row  21
+
+  Current:   Participation (for Observation)
+  Group:     PERSON_OBSERVATION
+  Suggested: Participation (for Person Observation)
+  Instances (1):
+    VXU_V04              CH04A clause 4A.8.6       row  29
+
+  Current:   Participation (for Observation)
+  Group:     SHIPMENT_OBSERVATION
+  Suggested: Participation (for Shipment Observation)
+  Instances (1):
+    OML_O39              CH04  clause 4.4.12       row  66
+
+  Current:   Participation (for Observation)
+  Group:     SPECIMEN_OBSERVATION
+  Suggested: Participation (for Specimen Observation)
+  Instances (3):
+    OPU_R25              CH07  clause 7.3.11       row  42
+    OUL_R23              CH07  clause 7.3.9        row  38
+    OUL_R24              CH07  clause 7.3.10       row  56
+
+  Current:   Participation (for Observation)
+  Group:     STUDY_OBSERVATION
+  Suggested: Participation (for Study Observation)
+  Instances (1):
+    CSU_C09              CH07  clause 7.7.2        row  30
+
+  Current:   Participation (for Observation)
+  Group:     VISIT
+  Suggested: Participation (for Visit)
+  Instances (2):
+    ORU_R30              CH07  clause 7.3.4        row  29
+    ORU_R30              CH07  clause 7.3.5        row  29
+
+  Current:   Participation (for Observation/Result)
+  Group:     OBSERVATION_RESULT_GROUP
+  Suggested: Participation (for Observation Result Group)
+  Instances (1):
+    OPL_O37              CH04  clause 4.4.16       row  93
+
+  Current:   Participation (for Order Encoding)
+  Group:     ENCODING
+  Suggested: Participation (for Encoding)
+  Instances (1):
+    RCV_O59              CH04A clause 4A.4.26      row  37
+
+  Current:   Participation (for Order Prior)
+  Group:     OBSERVATION_PARTICIPATION
+  Suggested: Participation (for Observation Participation)
+  Instances (1):
+    OML_O35              CH04  clause 4.4.10       row  96
+
+  Current:   Participation (for Order Prior)
+  Group:     OBSERVATION_PARTICIPATION_PRIOR
+  Suggested: Participation (for Observation Participation Prior)
+  Instances (4):
+    OML_O21              CH04  clause 4.4.6        row 103
+    OML_O33              CH04  clause 4.4.8        row  97
+    OML_O59              CH04  clause 4.4.22       row  89
+    OPL_O37              CH04  clause 4.4.16       row  84
+
+  Current:   Participation (for Order Prior)  - previous result
+  Group:     OBSERVATION_PARTICIPATION_PRIOR
+  Suggested: Participation (for Observation Participation Prior)
+  Instances (1):
+    OMQ_O57              CH04  clause 4.4.20       row  70
+
+  Current:   Participation (for Order Prior)  - previous result
+  Group:     ORDER_DETAIL_PARTICIPATION_PRIOR
+  Suggested: Participation (for Order Detail Participation Prior)
+  Instances (1):
+    OMG_O19              CH04  clause 4.4.4        row 103
+
+  Current:   Participation (for Order)
+  Group:     COMPONENTS
+  Suggested: Participation (for Components)
+  Instances (2):
+    RCV_O59              CH04A clause 4A.4.26      row  34
+    RDE_O49              CH04A clause 4A.4.24      row  40
+
+  Current:   Participation (for Order)
+  Group:     OBSERVATION_GROUP
+  Suggested: Participation (for Observation Group)
+  Instances (1):
+    ORG_O20              CH04  clause 4.4.5        row  24
+
+  Current:   Participation (for Order)
+  Group:     TIMING
+  Suggested: Participation (for Timing)
+  Instances (2):
+    OMG_O19              CH04  clause 4.4.4        row  51
+    OMI_O23              CH04  clause 4.4.14       row  43
+
+  Current:   Participation (for Order)
+  Group:     TIMING_ENCODED
+  Suggested: Participation (for Timing Encoded)
+  Instances (1):
+    RRE_O50              CH04A clause 4A.4.25      row  31
+
+  Current:   Participation (for Patient Visit)
+  Group:     SUBJECT_POPULATION_OR_LOCATION_IDENTIFICATION
+  Suggested: Participation (for Subject Population Or Location Identification)
+  Instances (1):
+    OSM_R26              CH07  clause 7.16.1       row  45
+
+  Current:   Participation (for Patient Visit)
+  Group:     VISIT
+  Suggested: Participation (for Visit)
+  Instances (12):
+    CSU_C09              CH07  clause 7.7.2        row  17
+    ORU_R01              CH07  clause 7.3.1        row  33
+    ORU_R01              CH07  clause 7.3.12       row  33
+    ORU_R01              CH07  clause 7.3.14       row  33
+    ORU_R01              CH07  clause 7.3.15       row  33
+    ORU_R30              CH07  clause 7.3.4        row  23
+    ORU_R30              CH07  clause 7.3.5        row  23
+    ORU_R30              CH07  clause 7.3.6        row  23
+    OUL_R22              CH07  clause 7.3.8        row  22
+    OUL_R23              CH07  clause 7.3.9        row  26
+    OUL_R24              CH07  clause 7.3.10       row  26
+    PEX_P07              CH07  clause 7.11.1       row  17
+
+  Current:   Participation (for Patient)
+  Group:     PATIENT_VISIT_OBSERVATION
+  Suggested: Participation (for Patient Visit Observation)
+  Instances (1):
+    OSM_R26              CH07  clause 7.16.1       row  51
+
+  Current:   Participation (for Patient)
+  Group:     RESPONSE
+  Suggested: Participation (for Response)
+  Instances (3):
+    ORL_O22              CH04  clause 4.4.7.1      row  10
+    ORL_O34              CH04  clause 4.4.9.1      row  10
+    ORL_O36              CH04  clause 4.4.11.1     row  10
+
+  Current:   Participation (for Patient)
+  Group:     SUBJECT_PERSON_OR_ANIMAL_IDENTIFICATION
+  Suggested: Participation (for Subject Person Or Animal Identification)
+  Instances (1):
+    OSM_R26              CH07  clause 7.16.1       row  31
+
+  Current:   Participation (for Pharmacy Administration)
+  Group:     ASSOCIATED_RX_ADMIN
+  Suggested: Participation (for Associated Rx Admin)
+  Instances (1):
+    PEX_P07              CH07  clause 7.11.1       row  61
+
+  Current:   Participation (for Pharmacy Administration)
+  Group:     RX_ADMIN
+  Suggested: Participation (for Rx Admin)
+  Instances (1):
+    CSU_C09              CH07  clause 7.7.2        row  46
+
+  Current:   Participation (for Pharmacy Administration)
+  Group:     RX_ADMINISTRATION
+  Suggested: Participation (for Rx Administration)
+  Instances (1):
+    PEX_P07              CH07  clause 7.11.1       row  37
+
+  Current:   Participation (for Pharmacy/Treatment Dispense)
+  Group:     TIMING_ENCODED
+  Suggested: Participation (for Timing Encoded)
+  Instances (1):
+    RSP_K31              CH04A clause 4A.4.23      row  56
+
+  Current:   Participation (for Pharmacy/Treatment Encoded Order)
+  Group:     COMPONENTS
+  Suggested: Participation (for Components)
+  Instances (2):
+    RDE_O11              CH04A clause 4A.4.16      row  47
+    RDE_O11              CH04A clause 4A.4.6       row  47
+
+  Current:   Participation (for Pharmacy/Treatment Encoded Order)
+  Group:     ENCODING
+  Suggested: Participation (for Encoding)
+  Instances (4):
+    RDS_O13              CH04A clause 4A.4.8       row  44
+    RRE_O12              CH04A clause 4A.4.17      row  22
+    RRE_O12              CH04A clause 4A.4.7       row  22
+    RSP_K31              CH04A clause 4A.4.23      row  46
+
+  Current:   Participation (for Pharmacy/Treatment Infusion Order)
+  Group:     PHARMACY_TREATMENT_INFUSION_ORDER
+  Suggested: Participation (for Pharmacy Treatment Infusion Order)
+  Instances (2):
+    RDE_O11              CH04A clause 4A.4.16      row  55
+    RDE_O11              CH04A clause 4A.4.6       row  55
+
+  Current:   Participation (for Pharmacy/Treatment Order)
+  Group:     ORDER_DETAIL
+  Suggested: Participation (for Order Detail)
+  Instances (5):
+    ORP_O10              CH04A clause 4A.4.4       row  22
+    RDE_O11              CH04A clause 4A.4.16      row  38
+    RDE_O11              CH04A clause 4A.4.6       row  38
+    RDS_O13              CH04A clause 4A.4.8       row  32
+    RGV_O15              CH04A clause 4A.4.11      row  31
+
+  Current:   Participation (for Pharmacy/Treatment Order)
+  Group:     TIMING
+  Suggested: Participation (for Timing)
+  Instances (1):
+    OMP_O09              CH04A clause 4A.4.3       row  38
+
+  Current:   Participation (for Pharmacy/Treatment)
+  Group:     ASSOCIATED_RX_ORDER
+  Suggested: Participation (for Associated Rx Order)
+  Instances (1):
+    PEX_P07              CH07  clause 7.11.1       row  51
+
+  Current:   Participation (for Pharmacy/Treatment)
+  Group:     RX_ORDER
+  Suggested: Participation (for Rx Order)
+  Instances (1):
+    PEX_P07              CH07  clause 7.11.1       row  27
+
+  Current:   Participation (for Shipping Package)
+  Group:     PACKAGE
+  Suggested: Participation (for Package)
+  Instances (1):
+    OSM_R26              CH07  clause 7.16.1       row  14
+
+  Current:   Participation (for Specimen Related Observation)
+  Group:     SPECIMEN_OBSERVATION
+  Suggested: Participation (for Specimen Observation)
+  Instances (2):
+    ORL_O36              CH04  clause 4.4.11.1     row  16
+    ORL_O55              CH04  clause 4.4.11.2     row  17
+
+  Current:   Participation (for Treatment Dispense)
+  Group:     TIMING_ENCODED
+  Suggested: Participation (for Timing Encoded)
+  Instances (2):
+    RCV_O59              CH04A clause 4A.4.26      row  47
+    RDS_O13              CH04A clause 4A.4.8       row  54
+
+------------------------------------------------------------------------------------------------------------------------
+  Bare "Participation" with no qualifier (358 instances)
+------------------------------------------------------------------------------------------------------------------------
+
+  Current:   Participation
+  Group:     ADJUSTMENT_PAYEE
+  Suggested: Participation (for Adjustment Payee)
+  Instances (1):
+    EHC_E15              CH16  clause 16.3.9       row  24
+
+  Current:   Participation
+  Group:     AUTHORIZATION
+  Suggested: Participation (for Authorization)
+  Instances (10):
+    ADT_A01              CH03  clause 3.3.1        row  57
+    ADT_A01              CH03  clause 3.3.13       row  57
+    ADT_A01              CH03  clause 3.3.4        row  57
+    ADT_A01              CH03  clause 3.3.8        row  57
+    ADT_A03              CH03  clause 3.3.3        row  57
+    ADT_A05              CH03  clause 3.3.14       row  57
+    ADT_A05              CH03  clause 3.3.28       row  57
+    ADT_A05              CH03  clause 3.3.31       row  57
+    ADT_A05              CH03  clause 3.3.5        row  57
+    ADT_A16              CH03  clause 3.3.16       row  57
+
+  Current:   Participation
+  Group:     CERTIFICATE
+  Suggested: Participation (for Certificate)
+  Instances (1):
+    PMU_B07              CH15  clause 15.3.8       row   9
+
+  Current:   Participation
+  Group:     CLINICAL_HISTORY_OBJECT
+  Suggested: Participation (for Clinical History Object)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row  44
+    CCM_I21              CH11  clause 11.6.1       row  42
+    CCR_I16              CH11  clause 11.6.2       row  72
+    CCU_I20              CH11  clause 11.6.6       row  48
+    CQU_I19              CH11  clause 11.7.1       row  50
+
+  Current:   Participation
+  Group:     CLINICAL_HISTORY_OBSERVATION
+  Suggested: Participation (for Clinical History Observation)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row  59
+    CCM_I21              CH11  clause 11.6.1       row  58
+    CCR_I16              CH11  clause 11.6.2       row  87
+    CCU_I20              CH11  clause 11.6.6       row  64
+    CQU_I19              CH11  clause 11.7.1       row  66
+
+  Current:   Participation
+  Group:     CLINICAL_ORDER_OBJECT
+  Suggested: Participation (for Clinical Order Object)
+  Instances (2):
+    CCR_I16              CH11  clause 11.6.2       row  18
+    CCR_I16              CH11  clause 11.6.2       row  21
+
+  Current:   Participation
+  Group:     CLINICAL_ORDER_OBSERVATION
+  Suggested: Participation (for Clinical Order Observation)
+  Instances (1):
+    CCR_I16              CH11  clause 11.6.2       row  28
+
+  Current:   Participation
+  Group:     COMMON_ORDER
+  Suggested: Participation (for Common Order)
+  Instances (13):
+    DFT_P03              CH06  clause 6.4.3        row  21
+    DFT_P11              CH06  clause 6.4.8        row  22
+    MDM_T01              CH09  clause 9.6.1        row  14
+    MDM_T01              CH09  clause 9.6.11       row  14
+    MDM_T01              CH09  clause 9.6.3        row  14
+    MDM_T01              CH09  clause 9.6.5        row  14
+    MDM_T01              CH09  clause 9.6.7        row  14
+    MDM_T01              CH09  clause 9.6.9        row  14
+    MDM_T02              CH09  clause 9.6.10       row  14
+    MDM_T02              CH09  clause 9.6.2        row  14
+    MDM_T02              CH09  clause 9.6.4        row  14
+    MDM_T02              CH09  clause 9.6.6        row  14
+    MDM_T02              CH09  clause 9.6.8        row  14
+
+  Current:   Participation
+  Group:     DIAGNOSIS
+  Suggested: Participation (for Diagnosis)
+  Instances (2):
+    EHC_E01              CH16  clause 16.3.1       row  39
+    EHC_E20              CH16  clause 16.3.10      row  27
+
+  Current:   Participation
+  Group:     DISPENSE
+  Suggested: Participation (for Dispense)
+  Instances (1):
+    RRD_O14              CH04A clause 4A.4.9       row  22
+
+  Current:   Participation
+  Group:     DONATION_OBSERVATION
+  Suggested: Participation (for Donation Observation)
+  Instances (1):
+    DEO_O45              CH04  clause 4.16.12      row  26
+
+  Current:   Participation
+  Group:     DONATION_OBSERVATIONS
+  Suggested: Participation (for Donation Observations)
+  Instances (1):
+    DPR_O48              CH04  clause 4.16.15      row  31
+
+  Current:   Participation
+  Group:     DONATION_ORDER
+  Suggested: Participation (for Donation Order)
+  Instances (3):
+    DEO_O45              CH04  clause 4.16.12      row  22
+    DPR_O48              CH04  clause 4.16.15      row  24
+    DRC_O47              CH04  clause 4.16.14      row  24
+
+  Current:   Participation
+  Group:     DONOR
+  Suggested: Participation (for Donor)
+  Instances (9):
+    DBC_O41              CH04  clause 4.16.4       row   8
+    DBC_O42              CH04  clause 4.16.5       row   8
+    DEL_O46              CH04  clause 4.16.13      row   8
+    DER_O44              CH04  clause 4.16.11      row   8
+    DPR_O48              CH04  clause 4.16.15      row   8
+    DRC_O47              CH04  clause 4.16.14      row   8
+    DRG_O43              CH04  clause 4.16.10      row   7
+    RSP_O33              CH04  clause 4.16.7       row  11
+    RSP_O34              CH04  clause 4.16.9       row  12
+
+  Current:   Participation
+  Group:     DONOR_OBSERVATIONS
+  Suggested: Participation (for Donor Observations)
+  Instances (10):
+    DBC_O41              CH04  clause 4.16.4       row  11
+    DBC_O42              CH04  clause 4.16.5       row  11
+    DEL_O46              CH04  clause 4.16.13      row  11
+    DEO_O45              CH04  clause 4.16.12      row  10
+    DER_O44              CH04  clause 4.16.11      row  11
+    DPR_O48              CH04  clause 4.16.15      row  11
+    DRC_O47              CH04  clause 4.16.14      row  11
+    DRG_O43              CH04  clause 4.16.10      row  10
+    RSP_O34              CH04  clause 4.16.9       row  15
+    RSP_O34              CH04  clause 4.16.9       row  30
+
+  Current:   Participation
+  Group:     DONOR_ORDER
+  Suggested: Participation (for Donor Order)
+  Instances (1):
+    DER_O44              CH04  clause 4.16.11      row  24
+
+  Current:   Participation
+  Group:     DONOR_REGISTRATION
+  Suggested: Participation (for Donor Registration)
+  Instances (7):
+    DEL_O46              CH04  clause 4.16.13      row  18
+    DEO_O45              CH04  clause 4.16.12      row  16
+    DER_O44              CH04  clause 4.16.11      row  18
+    DPR_O48              CH04  clause 4.16.15      row  18
+    DRC_O47              CH04  clause 4.16.14      row  18
+    DRG_O43              CH04  clause 4.16.10      row  17
+    RSP_O34              CH04  clause 4.16.9       row  22
+
+  Current:   Participation
+  Group:     Donor
+  Suggested: Participation (for Donor)
+  Instances (1):
+    DEO_O45              CH04  clause 4.16.12      row   7
+
+  Current:   Participation
+  Group:     ENCODING
+  Suggested: Participation (for Encoding)
+  Instances (1):
+    RRE_O50              CH04A clause 4A.4.25      row  22
+
+  Current:   Participation
+  Group:     FINANCIAL
+  Suggested: Participation (for Financial)
+  Instances (2):
+    DFT_P03              CH06  clause 6.4.3        row  39
+    DFT_P11              CH06  clause 6.4.8        row  58
+
+  Current:   Participation
+  Group:     FINANCIAL_COMMON_ORDER
+  Suggested: Participation (for Financial Common Order)
+  Instances (2):
+    DFT_P03              CH06  clause 6.4.3        row  64
+    DFT_P11              CH06  clause 6.4.8        row  81
+
+  Current:   Participation
+  Group:     FINANCIAL_INSURANCE
+  Suggested: Participation (for Financial Insurance)
+  Instances (1):
+    DFT_P11              CH06  clause 6.4.8        row 110
+
+  Current:   Participation
+  Group:     FINANCIAL_OBSERVATION
+  Suggested: Participation (for Financial Observation)
+  Instances (4):
+    DFT_P03              CH06  clause 6.4.3        row  58
+    DFT_P03              CH06  clause 6.4.3        row  76
+    DFT_P11              CH06  clause 6.4.8        row  75
+    DFT_P11              CH06  clause 6.4.8        row  93
+
+  Current:   Participation
+  Group:     FINANCIAL_OBSERVATION_STANDALONE
+  Suggested: Participation (for Financial Observation Standalone)
+  Instances (2):
+    DFT_P03              CH06  clause 6.4.3        row  49
+    DFT_P11              CH06  clause 6.4.8        row  66
+
+  Current:   Participation
+  Group:     FINANCIAL_ORDER
+  Suggested: Participation (for Financial Order)
+  Instances (2):
+    DFT_P03              CH06  clause 6.4.3        row  71
+    DFT_P11              CH06  clause 6.4.8        row  88
+
+  Current:   Participation
+  Group:     FINANCIAL_ORDER_STANDALONE
+  Suggested: Participation (for Financial Order Standalone)
+  Instances (2):
+    DFT_P03              CH06  clause 6.4.3        row  54
+    DFT_P11              CH06  clause 6.4.8        row  71
+
+  Current:   Participation
+  Group:     FINANCIAL_PROCEDURE
+  Suggested: Participation (for Financial Procedure)
+  Instances (2):
+    DFT_P03              CH06  clause 6.4.3        row  44
+    DFT_P11              CH06  clause 6.4.8        row  61
+
+  Current:   Participation
+  Group:     GIVE
+  Suggested: Participation (for Give)
+  Instances (2):
+    RGV_O15              CH04A clause 4A.4.11      row  54
+    RRG_O16              CH04A clause 4A.4.12      row  22
+
+  Current:   Participation
+  Group:     GOAL_OBSERVATION
+  Suggested: Participation (for Goal Observation)
+  Instances (8):
+    CCI_I22              CH11  clause 11.7.2       row 138
+    CCM_I21              CH11  clause 11.6.1       row 134
+    CCR_I16              CH11  clause 11.6.2       row 166
+    CCU_I20              CH11  clause 11.6.6       row 143
+    CQU_I19              CH11  clause 11.7.1       row 145
+    PPG_PCG              CH12  clause 12.3.4       row  36
+    PPP_PCB              CH12  clause 12.3.3       row  50
+    PPR_PC1              CH12  clause 12.3.2       row  45
+
+  Current:   Participation
+  Group:     INSURANCE
+  Suggested: Participation (for Insurance)
+  Instances (16):
+    ADT_A01              CH03  clause 3.3.1        row  54
+    ADT_A01              CH03  clause 3.3.13       row  54
+    ADT_A01              CH03  clause 3.3.4        row  54
+    ADT_A01              CH03  clause 3.3.8        row  54
+    ADT_A03              CH03  clause 3.3.3        row  54
+    ADT_A05              CH03  clause 3.3.14       row  54
+    ADT_A05              CH03  clause 3.3.28       row  54
+    ADT_A05              CH03  clause 3.3.31       row  54
+    ADT_A05              CH03  clause 3.3.5        row  54
+    ADT_A06              CH03  clause 3.3.6        row  55
+    ADT_A06              CH03  clause 3.3.7        row  55
+    ADT_A16              CH03  clause 3.3.16       row  54
+    BAR_P01              CH06  clause 6.4.1        row  42
+    BAR_P05              CH06  clause 6.4.5        row  42
+    DFT_P03              CH06  clause 6.4.3        row  92
+    DFT_P11              CH06  clause 6.4.8        row  51
+
+  Current:   Participation
+  Group:     INVOICE_INFORMATION_SUBMIT
+  Suggested: Participation (for Invoice Information Submit)
+  Instances (1):
+    EHC_E01              CH16  clause 16.3.1       row  10
+
+  Current:   Participation
+  Group:     MEDICATION_ADMINISTRATION_DETAIL
+  Suggested: Participation (for Medication Administration Detail)
+  Instances (4):
+    CCI_I22              CH11  clause 11.7.2       row 100
+    CCR_I16              CH11  clause 11.6.2       row 128
+    CCU_I20              CH11  clause 11.6.6       row 105
+    CQU_I19              CH11  clause 11.7.1       row 107
+
+  Current:   Participation
+  Group:     MEDICATION_ADMINISTRATION_OBSERVATION
+  Suggested: Participation (for Medication Administration Observation)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row 104
+    CCM_I21              CH11  clause 11.6.1       row 100
+    CCR_I16              CH11  clause 11.6.2       row 132
+    CCU_I20              CH11  clause 11.6.6       row 109
+    CQU_I19              CH11  clause 11.7.1       row 111
+
+  Current:   Participation
+  Group:     MEDICATION_ENCODING_DETAIL
+  Suggested: Participation (for Medication Encoding Detail)
+  Instances (4):
+    CCI_I22              CH11  clause 11.7.2       row  90
+    CCR_I16              CH11  clause 11.6.2       row 118
+    CCU_I20              CH11  clause 11.6.6       row  95
+    CQU_I19              CH11  clause 11.7.1       row  97
+
+  Current:   Participation
+  Group:     MEDICATION_ENCODING_OBSERVATION
+  Suggested: Participation (for Medication Encoding Observation)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row  95
+    CCM_I21              CH11  clause 11.6.1       row  92
+    CCR_I16              CH11  clause 11.6.2       row 123
+    CCU_I20              CH11  clause 11.6.6       row 100
+    CQU_I19              CH11  clause 11.7.1       row 102
+
+  Current:   Participation
+  Group:     MEDICATION_ORDER_DETAIL
+  Suggested: Participation (for Medication Order Detail)
+  Instances (4):
+    CCI_I22              CH11  clause 11.7.2       row  80
+    CCR_I16              CH11  clause 11.6.2       row 108
+    CCU_I20              CH11  clause 11.6.6       row  85
+    CQU_I19              CH11  clause 11.7.1       row  87
+
+  Current:   Participation
+  Group:     MEDICATION_ORDER_OBSERVATION
+  Suggested: Participation (for Medication Order Observation)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row  85
+    CCM_I21              CH11  clause 11.6.1       row  83
+    CCR_I16              CH11  clause 11.6.2       row 113
+    CCU_I20              CH11  clause 11.6.6       row  90
+    CQU_I19              CH11  clause 11.7.1       row  92
+
+  Current:   Participation
+  Group:     MF_OBS_ATTRIBUTES
+  Suggested: Participation (for Mf Obs Attributes)
+  Instances (1):
+    MFN_M12              CH08  clause 8.8.7        row   8
+
+  Current:   Participation
+  Group:     MF_OBS_OTHER_ATTRIBUTES
+  Suggested: Participation (for Mf Obs Other Attributes)
+  Instances (1):
+    MFN_M12              CH08  clause 8.8.7        row  11
+
+  Current:   Participation
+  Group:     MF_TEST_BATTERIES
+  Suggested: Participation (for Mf Test Batteries)
+  Instances (1):
+    MFN_M10              CH08  clause 8.8.5        row   9
+
+  Current:   Participation
+  Group:     MF_TEST_CALCULATED
+  Suggested: Participation (for Mf Test Calculated)
+  Instances (1):
+    MFN_M11              CH08  clause 8.8.6        row   9
+
+  Current:   Participation
+  Group:     MF_TEST_CATEGORICAL
+  Suggested: Participation (for Mf Test Categorical)
+  Instances (1):
+    MFN_M09              CH08  clause 8.8.4        row   9
+
+  Current:   Participation
+  Group:     MF_TEST_NUMERIC
+  Suggested: Participation (for Mf Test Numeric)
+  Instances (1):
+    MFN_M08              CH08  clause 8.8.3        row   9
+
+  Current:   Participation
+  Group:     NEXT_OF_KIN
+  Suggested: Participation (for Next Of Kin)
+  Instances (15):
+    ADT_A01              CH03  clause 3.3.1        row  29
+    ADT_A01              CH03  clause 3.3.13       row  29
+    ADT_A01              CH03  clause 3.3.4        row  29
+    ADT_A01              CH03  clause 3.3.8        row  29
+    ADT_A03              CH03  clause 3.3.3        row  29
+    ADT_A05              CH03  clause 3.3.14       row  29
+    ADT_A05              CH03  clause 3.3.28       row  29
+    ADT_A05              CH03  clause 3.3.31       row  29
+    ADT_A05              CH03  clause 3.3.5        row  29
+    ADT_A06              CH03  clause 3.3.6        row  30
+    ADT_A06              CH03  clause 3.3.7        row  30
+    ADT_A16              CH03  clause 3.3.16       row  29
+    PMU_B01              CH15  clause 15.3.1       row  19
+    PMU_B01              CH15  clause 15.3.2       row  19
+    RSP_K25              CH15  clause 15.3.7       row  24
+
+  Current:   Participation
+  Group:     OBSERVATION
+  Suggested: Participation (for Observation)
+  Instances (39):
+    ADT_A01              CH03  clause 3.3.1        row  33
+    ADT_A01              CH03  clause 3.3.13       row  33
+    ADT_A01              CH03  clause 3.3.4        row  33
+    ADT_A01              CH03  clause 3.3.8        row  33
+    ADT_A02              CH03  clause 3.3.2        row  26
+    ADT_A03              CH03  clause 3.3.3        row  42
+    ADT_A05              CH03  clause 3.3.14       row  33
+    ADT_A05              CH03  clause 3.3.28       row  33
+    ADT_A05              CH03  clause 3.3.31       row  33
+    ADT_A05              CH03  clause 3.3.5        row  33
+    ADT_A06              CH03  clause 3.3.6        row  34
+    ADT_A06              CH03  clause 3.3.7        row  34
+    ADT_A09              CH03  clause 3.3.10       row  16
+    ADT_A09              CH03  clause 3.3.11       row  16
+    ADT_A09              CH03  clause 3.3.9        row  16
+    ADT_A12              CH03  clause 3.3.12       row  16
+    ADT_A15              CH03  clause 3.3.15       row  22
+    ADT_A16              CH03  clause 3.3.16       row  33
+    ADT_A21              CH03  clause 3.3.21       row  16
+    ADT_A21              CH03  clause 3.3.22       row  16
+    ADT_A21              CH03  clause 3.3.23       row  16
+    ADT_A21              CH03  clause 3.3.25       row  16
+    ADT_A21              CH03  clause 3.3.26       row  16
+    ADT_A21              CH03  clause 3.3.27       row  16
+    ADT_A21              CH03  clause 3.3.29       row  16
+    ADT_A21              CH03  clause 3.3.32       row  16
+    ADT_A21              CH03  clause 3.3.33       row  16
+    ADT_A38              CH03  clause 3.3.38       row  16
+    DFT_P03              CH06  clause 6.4.3        row  33
+    DFT_P11              CH06  clause 6.4.8        row  34
+    OMB_O27              CH04  clause 4.13.2       row  41
+    OMD_O03              CH04  clause 4.7.1        row  40
+    OMN_O07              CH04  clause 4.10.3       row  37
+    OMS_O05              CH04  clause 4.10.1       row  37
+    PGL_PC6              CH12  clause 12.3.1       row  31
+    REF_I12              CH11  clause 11.5.1       row  41
+    RPA_I08              CH11  clause 11.4.1       row  42
+    RQA_I08              CH11  clause 11.4.1       row  43
+    RRI_I12              CH11  clause 11.5.1       row  31
+
+  Current:   Participation
+  Group:     OBSERVATION_REQUEST
+  Suggested: Participation (for Observation Request)
+  Instances (2):
+    OPL_O37              CH04  clause 4.4.16       row  47
+    OPR_O38              CH04  clause 4.4.17       row  25
+
+  Current:   Participation
+  Group:     OBSERVATION_RESULT_1
+  Suggested: Participation (for Observation Result 1)
+  Instances (1):
+    ADT_A17              CH03  clause 3.3.17       row  16
+
+  Current:   Participation
+  Group:     OBSERVATION_RESULT_2
+  Suggested: Participation (for Observation Result 2)
+  Instances (1):
+    ADT_A17              CH03  clause 3.3.17       row  25
+
+  Current:   Participation
+  Group:     ORDER
+  Suggested: Participation (for Order)
+  Instances (18):
+    BPS_O29              CH04  clause 4.13.4       row  23
+    BRP_O30              CH04  clause 4.13.5       row  15
+    BRT_O32              CH04  clause 4.13.7       row  16
+    BTS_O31              CH04  clause 4.13.6       row  22
+    DFT_P03              CH06  clause 6.4.3        row  28
+    DFT_P11              CH06  clause 6.4.8        row  29
+    OMB_O27              CH04  clause 4.13.2       row  30
+    OMI_O23              CH04  clause 4.4.14       row  36
+    OMN_O07              CH04  clause 4.10.3       row  27
+    OMQ_O57              CH04  clause 4.4.20       row  35
+    OMS_O05              CH04  clause 4.10.1       row  27
+    ORA_R33              CH07  clause 7.3.7        row   8
+    ORB_O28              CH04  clause 4.13.3       row  15
+    ORG_O20              CH04  clause 4.4.5        row  17
+    ORN_O08              CH04  clause 4.10.4       row  17
+    ORS_O06              CH04  clause 4.10.2       row  17
+    ORX_O58              CH04  clause 4.4.21       row  17
+    RRE_O50              CH04A clause 4A.4.25      row  15
+
+  Current:   Participation
+  Group:     ORDER_DETAIL
+  Suggested: Participation (for Order Detail)
+  Instances (3):
+    RAS_O17              CH04A clause 4A.4.14      row  32
+    RDE_O49              CH04A clause 4A.4.24      row  32
+    RSP_K31              CH04A clause 4A.4.23      row  36
+
+  Current:   Participation
+  Group:     ORDER_DIET
+  Suggested: Participation (for Order Diet)
+  Instances (2):
+    OMD_O03              CH04  clause 4.7.1        row  30
+    ORD_O04              CH04  clause 4.7.2        row  17
+
+  Current:   Participation
+  Group:     ORDER_DOCUMENT
+  Suggested: Participation (for Order Document)
+  Instances (7):
+    ORU_R01              CH07  clause 7.3.1        row  47
+    ORU_R01              CH07  clause 7.3.12       row  47
+    ORU_R01              CH07  clause 7.3.14       row  47
+    ORU_R01              CH07  clause 7.3.15       row  47
+    OUL_R22              CH07  clause 7.3.8        row  48
+    OUL_R23              CH07  clause 7.3.9        row  51
+    OUL_R24              CH07  clause 7.3.10       row  42
+
+  Current:   Participation
+  Group:     ORDER_OBSERVATION
+  Suggested: Participation (for Order Observation)
+  Instances (4):
+    PGL_PC6              CH12  clause 12.3.1       row  61
+    PPG_PCG              CH12  clause 12.3.4       row  66
+    PPP_PCB              CH12  clause 12.3.3       row  66
+    PPR_PC1              CH12  clause 12.3.2       row  61
+
+  Current:   Participation
+  Group:     ORDER_PRIOR
+  Suggested: Participation (for Order Prior)
+  Instances (6):
+    OMG_O19              CH04  clause 4.4.4        row  95
+    OML_O21              CH04  clause 4.4.6        row  99
+    OML_O33              CH04  clause 4.4.8        row  93
+    OML_O35              CH04  clause 4.4.10       row  92
+    OML_O59              CH04  clause 4.4.22       row  85
+    OMQ_O57              CH04  clause 4.4.20       row  62
+
+  Current:   Participation
+  Group:     ORDER_STATUS
+  Suggested: Participation (for Order Status)
+  Instances (2):
+    OSU_O51              CH04  clause 4.4.18       row  11
+    OSU_O52              CH04  clause 4.4.19       row  15
+
+  Current:   Participation
+  Group:     ORDER_TRAY
+  Suggested: Participation (for Order Tray)
+  Instances (2):
+    OMD_O03              CH04  clause 4.7.1        row  47
+    ORD_O04              CH04  clause 4.7.2        row  27
+
+  Current:   Participation
+  Group:     PARTICIPATION_OBSERVATION
+  Suggested: Participation (for Participation Observation)
+  Instances (1):
+    CCR_I16              CH11  clause 11.6.2       row 150
+
+  Current:   Participation
+  Group:     PATHWAY_OBSERVATION
+  Suggested: Participation (for Pathway Observation)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row 154
+    CCM_I21              CH11  clause 11.6.1       row 149
+    CCR_I16              CH11  clause 11.6.2       row 182
+    CCU_I20              CH11  clause 11.6.6       row 159
+    CQU_I19              CH11  clause 11.7.1       row 161
+
+  Current:   Participation
+  Group:     PATIENT
+  Suggested: Participation (for Patient)
+  Instances (17):
+    BAR_P02              CH06  clause 6.4.2        row   8
+    BAR_P06              CH06  clause 6.4.6        row   7
+    BRP_O30              CH04  clause 4.13.5       row  11
+    BRT_O32              CH04  clause 4.13.7       row  11
+    ORB_O28              CH04  clause 4.13.3       row  11
+    ORD_O04              CH04  clause 4.7.2        row  11
+    ORN_O08              CH04  clause 4.10.4       row  11
+    ORP_O10              CH04A clause 4A.4.4       row  10
+    ORS_O06              CH04  clause 4.10.2       row  11
+    OSU_O52              CH04  clause 4.4.19       row  10
+    RGV_O15              CH04A clause 4A.4.11      row  11
+    RRA_O18              CH04A clause 4A.4.15      row  10
+    RRD_O14              CH04A clause 4A.4.9       row  10
+    RRE_O12              CH04A clause 4A.4.17      row  10
+    RRE_O12              CH04A clause 4A.4.7       row  10
+    RRE_O50              CH04A clause 4A.4.25      row  10
+    RRG_O16              CH04A clause 4A.4.12      row  10
+
+  Current:   Participation
+  Group:     PATIENT_INFO
+  Suggested: Participation (for Patient Info)
+  Instances (1):
+    EHC_E01              CH16  clause 16.3.1       row  24
+
+  Current:   Participation
+  Group:     PATIENT_VISIT
+  Suggested: Participation (for Patient Visit)
+  Instances (1):
+    VXU_V04              CH04A clause 4A.8.6       row  18
+
+  Current:   Participation
+  Group:     PATIENT_VISIT_OBSERVATION
+  Suggested: Participation (for Patient Visit Observation)
+  Instances (1):
+    OPU_R25              CH07  clause 7.3.11       row  12
+
+  Current:   Participation
+  Group:     PAT_INFO
+  Suggested: Participation (for Pat Info)
+  Instances (1):
+    EHC_E20              CH16  clause 16.3.10      row  14
+
+  Current:   Participation
+  Group:     PROBLEM_OBSERVATION
+  Suggested: Participation (for Problem Observation)
+  Instances (8):
+    CCI_I22              CH11  clause 11.7.2       row 122
+    CCM_I21              CH11  clause 11.6.1       row 118
+    CCU_I20              CH11  clause 11.6.6       row 127
+    CQU_I19              CH11  clause 11.7.1       row 129
+    PGL_PC6              CH12  clause 12.3.1       row  45
+    PPG_PCG              CH12  clause 12.3.4       row  50
+    PPP_PCB              CH12  clause 12.3.3       row  36
+    PPR_PC1              CH12  clause 12.3.2       row  31
+
+  Current:   Participation
+  Group:     PROCEDURE
+  Suggested: Participation (for Procedure)
+  Instances (17):
+    ADT_A01              CH03  clause 3.3.1        row  42
+    ADT_A01              CH03  clause 3.3.13       row  42
+    ADT_A01              CH03  clause 3.3.4        row  42
+    ADT_A01              CH03  clause 3.3.8        row  42
+    ADT_A03              CH03  clause 3.3.3        row  38
+    ADT_A05              CH03  clause 3.3.14       row  42
+    ADT_A05              CH03  clause 3.3.28       row  42
+    ADT_A05              CH03  clause 3.3.31       row  42
+    ADT_A05              CH03  clause 3.3.5        row  42
+    ADT_A06              CH03  clause 3.3.6        row  43
+    ADT_A06              CH03  clause 3.3.7        row  43
+    ADT_A16              CH03  clause 3.3.16       row  42
+    BAR_P01              CH06  clause 6.4.1        row  27
+    BAR_P05              CH06  clause 6.4.5        row  27
+    BAR_P12              CH06  clause 6.4.9        row  14
+    BAR_P12              CH06  clause 6.4.9        row  18
+    EHC_E01              CH16  clause 16.3.1       row  53
+
+  Current:   Participation
+  Group:     PRODUCT_SERVICE_GROUP
+  Suggested: Participation (for Product Service Group)
+  Instances (1):
+    EHC_E01              CH16  clause 16.3.1       row  17
+
+  Current:   Participation
+  Group:     PRODUCT_SERVICE_LINE_ITEM
+  Suggested: Participation (for Product Service Line Item)
+  Instances (1):
+    EHC_E01              CH16  clause 16.3.1       row  47
+
+  Current:   Participation
+  Group:     PSL_ITEM_INFO
+  Suggested: Participation (for Psl Item Info)
+  Instances (1):
+    EHC_E20              CH16  clause 16.3.10      row  34
+
+  Current:   Participation
+  Group:     REFERRAL
+  Suggested: Participation (for Referral)
+  Instances (10):
+    ADT_A01              CH03  clause 3.3.1        row  61
+    ADT_A01              CH03  clause 3.3.13       row  61
+    ADT_A01              CH03  clause 3.3.4        row  61
+    ADT_A01              CH03  clause 3.3.8        row  61
+    ADT_A03              CH03  clause 3.3.3        row  61
+    ADT_A05              CH03  clause 3.3.14       row  61
+    ADT_A05              CH03  clause 3.3.28       row  61
+    ADT_A05              CH03  clause 3.3.31       row  61
+    ADT_A05              CH03  clause 3.3.5        row  61
+    ADT_A16              CH03  clause 3.3.16       row  61
+
+  Current:   Participation
+  Group:     REQUEST
+  Suggested: Participation (for Request)
+  Instances (3):
+    EHC_E12              CH16  clause 16.3.7       row  18
+    EHC_E12              CH16  clause 16.3.7       row  21
+    EHC_E13              CH16  clause 16.3.8       row  20
+
+  Current:   Participation
+  Group:     RESOURCE_OBSERVATION
+  Suggested: Participation (for Resource Observation)
+  Instances (5):
+    CCI_I22              CH11  clause 11.7.2       row  34
+    CCM_I21              CH11  clause 11.6.1       row  32
+    CCR_I16              CH11  clause 11.6.2       row  62
+    CCU_I20              CH11  clause 11.6.6       row  38
+    CQU_I19              CH11  clause 11.7.1       row  40
+
+  Current:   Participation
+  Group:     RESPONSE
+  Suggested: Participation (for Response)
+  Instances (1):
+    EHC_E13              CH16  clause 16.3.8       row  24
+
+  Current:   Participation
+  Group:     RESULT
+  Suggested: Participation (for Result)
+  Instances (3):
+    OPU_R25              CH07  clause 7.3.11       row  64
+    OUL_R23              CH07  clause 7.3.9        row  63
+    OUL_R24              CH07  clause 7.3.10       row  65
+
+  Current:   Participation
+  Group:     RESULTS
+  Suggested: Participation (for Results)
+  Instances (2):
+    RPA_I08              CH11  clause 11.4.1       row  46
+    RQA_I08              CH11  clause 11.4.1       row  47
+
+  Current:   Participation
+  Group:     RESULTS_NOTES
+  Suggested: Participation (for Results Notes)
+  Instances (2):
+    REF_I12              CH11  clause 11.5.1       row  45
+    RRI_I12              CH11  clause 11.5.1       row  35
+
+  Current:   Participation
+  Group:     TIMING
+  Suggested: Participation (for Timing)
+  Instances (17):
+    MDM_T01              CH09  clause 9.6.1        row  20
+    MDM_T01              CH09  clause 9.6.11       row  20
+    MDM_T01              CH09  clause 9.6.3        row  20
+    MDM_T01              CH09  clause 9.6.5        row  20
+    MDM_T01              CH09  clause 9.6.7        row  20
+    MDM_T01              CH09  clause 9.6.9        row  20
+    MDM_T02              CH09  clause 9.6.10       row  20
+    MDM_T02              CH09  clause 9.6.10       row  27
+    MDM_T02              CH09  clause 9.6.2        row  20
+    MDM_T02              CH09  clause 9.6.2        row  27
+    MDM_T02              CH09  clause 9.6.4        row  20
+    MDM_T02              CH09  clause 9.6.4        row  27
+    MDM_T02              CH09  clause 9.6.6        row  20
+    MDM_T02              CH09  clause 9.6.6        row  27
+    MDM_T02              CH09  clause 9.6.8        row  20
+    MDM_T02              CH09  clause 9.6.8        row  27
+    VXU_V04              CH04A clause 4A.8.6       row  40
+
+  Current:   Participation
+  Group:     VISIT
+  Suggested: Participation (for Visit)
+  Instances (6):
+    BAR_P01              CH06  clause 6.4.1        row  15
+    BAR_P01              CH06  clause 6.4.1        row  19
+    BAR_P05              CH06  clause 6.4.5        row  15
+    BAR_P05              CH06  clause 6.4.5        row  19
+    DFT_P03              CH06  clause 6.4.3        row  15
+    DFT_P11              CH06  clause 6.4.8        row  16
+
+========================================================================================================================
 OBX FINDINGS
-============================================================================================================================================
+========================================================================================================================
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  INCONSISTENT_FORM (1 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                 Group                               Current Description                                     Detail
-  ------------------------------------------------------------ ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  OPU_R25                                                      PATIENT_OBSERVATION                 Observations on Patient                                 'Observations on Patient' -> 'Patient Observation'
+  ADT_A17              CH03  clause 3.3.17       row  15
+    Current:   Observation/Result (1)
+    Group:     OBSERVATION_RESULT_1
+    Suggested: Observation Result 1
 
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  QUALIFIER_MISMATCH (15 instances)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  Structure(s)                                                 Group                               Current Description                                     Detail
-  ------------------------------------------------------------ ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
-  DPR_O48                                                      DONATION_OBSERVATIONS               Donation Observation (Adverse Reactions, Associations, etc.) 'Adverse Reactions, Associations, etc.' vs group 'DONATION_OBSERVATIONS'
-  ORU_R01, ORU_R30, OUL_R22, OUL_R23, OUL_R24                  PATIENT_OBSERVATION                 Observation (for Patient ID)                            'for Patient ID' vs group 'PATIENT_OBSERVATION'
-  ORU_R01                                                      SPECIMEN_OBSERVATION                Observation (for Patient ID)                            'for Patient ID' vs group 'SPECIMEN_OBSERVATION'
-  OML_O39                                                      SHIPMENT_OBSERVATION                Observation/Result Segment (Additional Shipping Information) 'Additional Shipping Information' vs group 'SHIPMENT_OBSERVATION'
-  OSM_R26                                                      SHIPPING_OBSERVATION                Observation/Result Segment (Additional Shipping Information) 'Additional Shipping Information' vs group 'SHIPPING_OBSERVATION'
-  OML_O39, OSM_R26                                             CONTAINER_OBSERVATION               Observation/Result Segment (For Container)              'For Container' vs group 'CONTAINER_OBSERVATION'
-  OSM_R26                                                      PATIENT_OBSERVATION                 Observation/Result Segment (For Patient)                'For Patient' vs group 'PATIENT_OBSERVATION'
-  OML_O39, OSM_R26                                             SPECIMEN_OBSERVATION                Observation/Result Segment (For Specimen)               'For Specimen' vs group 'SPECIMEN_OBSERVATION'
-  OSM_R26                                                      PATIENT_VISIT_OBSERVATION           Observation/Result Segment (For Visit)                  'For Visit' vs group 'PATIENT_VISIT_OBSERVATION'
+  ADT_A17              CH03  clause 3.3.17       row  24
+    Current:   Observation/Result (2)
+    Group:     OBSERVATION_RESULT_2
+    Suggested: Observation Result 2
 
+  BAR_P01              CH06  clause 6.4.1        row  18
+    Current:   Observation/Result
+    Group:     VISIT
+    Suggested: Visit
 
-============================================================================================================================================
-SUMMARY TABLE: ALL FINDINGS (DEDUPLICATED)
-============================================================================================================================================
+  BAR_P05              CH06  clause 6.4.5        row  18
+    Current:   Observation/Result
+    Group:     VISIT
+    Suggested: Visit
 
-Seg   Category                       Count   Unique Structures
------ ------------------------------ -----  ------------------
-PRT   Typos in "Participation"           1                   1
-PRT   Typos in qualifier text            4                   4
-PRT   Unclosed parenthetical             2                   1
-PRT   Segment code used instead of group name    28                  15
-PRT   Correct group but wrong titleization     4                   4
-PRT   Qualifier does not match group name    84                  38
-PRT   Qualifier mismatch + case issue     6                   5
-PRT   Bare "Participation" with no qualifier   272                  98
-OBX   INCONSISTENT_FORM                  1                   1
-OBX   QUALIFIER_MISMATCH                15                   8
+  BAR_P12              CH06  clause 6.4.9        row  17
+    Current:   Observation/Result
+    Group:     PROCEDURE
+    Suggested: Procedure
 
-      TOTAL                            417                 115
+  CCI_I22              CH11  clause 11.7.2       row  33
+    Current:   Observation/Result
+    Group:     RESOURCE_OBSERVATION
+    Suggested: Resource Observation
+
+  CCI_I22              CH11  clause 11.7.2       row  58
+    Current:   Observation/Result
+    Group:     CLINICAL_HISTORY_OBSERVATION
+    Suggested: Clinical History Observation
+
+  CCI_I22              CH11  clause 11.7.2       row  84
+    Current:   Observation/Result
+    Group:     MEDICATION_ORDER_OBSERVATION
+    Suggested: Medication Order Observation
+
+  CCI_I22              CH11  clause 11.7.2       row  94
+    Current:   Observation/Result
+    Group:     MEDICATION_ENCODING_OBSERVATION
+    Suggested: Medication Encoding Observation
+
+  CCI_I22              CH11  clause 11.7.2       row 103
+    Current:   Observation/Result
+    Group:     MEDICATION_ADMINISTRATION_OBSERVATION
+    Suggested: Medication Administration Observation
+
+  CCI_I22              CH11  clause 11.7.2       row 121
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  CCI_I22              CH11  clause 11.7.2       row 137
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  CCI_I22              CH11  clause 11.7.2       row 153
+    Current:   Observation/Result
+    Group:     PATHWAY_OBSERVATION
+    Suggested: Pathway Observation
+
+  CCM_I21              CH11  clause 11.6.1       row  31
+    Current:   Observation/Result
+    Group:     RESOURCE_OBSERVATION
+    Suggested: Resource Observation
+
+  CCM_I21              CH11  clause 11.6.1       row  57
+    Current:   Observation/Result
+    Group:     CLINICAL_HISTORY_OBSERVATION
+    Suggested: Clinical History Observation
+
+  CCM_I21              CH11  clause 11.6.1       row  82
+    Current:   Observation/Result
+    Group:     MEDICATION_ORDER_OBSERVATION
+    Suggested: Medication Order Observation
+
+  CCM_I21              CH11  clause 11.6.1       row  91
+    Current:   Observation/Result
+    Group:     MEDICATION_ENCODING_OBSERVATION
+    Suggested: Medication Encoding Observation
+
+  CCM_I21              CH11  clause 11.6.1       row  99
+    Current:   Observation/Result
+    Group:     MEDICATION_ADMINISTRATION_OBSERVATION
+    Suggested: Medication Administration Observation
+
+  CCM_I21              CH11  clause 11.6.1       row 117
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  CCM_I21              CH11  clause 11.6.1       row 133
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  CCM_I21              CH11  clause 11.6.1       row 148
+    Current:   Observation/Result
+    Group:     PATHWAY_OBSERVATION
+    Suggested: Pathway Observation
+
+  CCR_I16              CH11  clause 11.6.2       row  27
+    Current:   Observation/Result
+    Group:     CLINICAL_ORDER_OBSERVATION
+    Suggested: Clinical Order Observation
+
+  CCR_I16              CH11  clause 11.6.2       row  61
+    Current:   Observation/Result
+    Group:     RESOURCE_OBSERVATION
+    Suggested: Resource Observation
+
+  CCR_I16              CH11  clause 11.6.2       row  86
+    Current:   Observation/Result
+    Group:     CLINICAL_HISTORY_OBSERVATION
+    Suggested: Clinical History Observation
+
+  CCR_I16              CH11  clause 11.6.2       row 112
+    Current:   Observation/Result
+    Group:     MEDICATION_ORDER_OBSERVATION
+    Suggested: Medication Order Observation
+
+  CCR_I16              CH11  clause 11.6.2       row 122
+    Current:   Observation/Result
+    Group:     MEDICATION_ENCODING_OBSERVATION
+    Suggested: Medication Encoding Observation
+
+  CCR_I16              CH11  clause 11.6.2       row 131
+    Current:   Observation/Result
+    Group:     MEDICATION_ADMINISTRATION_OBSERVATION
+    Suggested: Medication Administration Observation
+
+  CCR_I16              CH11  clause 11.6.2       row 149
+    Current:   Observation/Result
+    Group:     PARTICIPATION_OBSERVATION
+    Suggested: Participation Observation
+
+  CCR_I16              CH11  clause 11.6.2       row 165
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  CCR_I16              CH11  clause 11.6.2       row 181
+    Current:   Observation/Result
+    Group:     PATHWAY_OBSERVATION
+    Suggested: Pathway Observation
+
+  CCU_I20              CH11  clause 11.6.6       row  37
+    Current:   Observation/Result
+    Group:     RESOURCE_OBSERVATION
+    Suggested: Resource Observation
+
+  CCU_I20              CH11  clause 11.6.6       row  63
+    Current:   Observation/Result
+    Group:     CLINICAL_HISTORY_OBSERVATION
+    Suggested: Clinical History Observation
+
+  CCU_I20              CH11  clause 11.6.6       row  89
+    Current:   Observation/Result
+    Group:     MEDICATION_ORDER_OBSERVATION
+    Suggested: Medication Order Observation
+
+  CCU_I20              CH11  clause 11.6.6       row  99
+    Current:   Observation/Result
+    Group:     MEDICATION_ENCODING_OBSERVATION
+    Suggested: Medication Encoding Observation
+
+  CCU_I20              CH11  clause 11.6.6       row 108
+    Current:   Observation/Result
+    Group:     MEDICATION_ADMINISTRATION_OBSERVATION
+    Suggested: Medication Administration Observation
+
+  CCU_I20              CH11  clause 11.6.6       row 126
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  CCU_I20              CH11  clause 11.6.6       row 142
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  CCU_I20              CH11  clause 11.6.6       row 158
+    Current:   Observation/Result
+    Group:     PATHWAY_OBSERVATION
+    Suggested: Pathway Observation
+
+  CQU_I19              CH11  clause 11.7.1       row  39
+    Current:   Observation/Result
+    Group:     RESOURCE_OBSERVATION
+    Suggested: Resource Observation
+
+  CQU_I19              CH11  clause 11.7.1       row  65
+    Current:   Observation/Result
+    Group:     CLINICAL_HISTORY_OBSERVATION
+    Suggested: Clinical History Observation
+
+  CQU_I19              CH11  clause 11.7.1       row  91
+    Current:   Observation/Result
+    Group:     MEDICATION_ORDER_OBSERVATION
+    Suggested: Medication Order Observation
+
+  CQU_I19              CH11  clause 11.7.1       row 101
+    Current:   Observation/Result
+    Group:     MEDICATION_ENCODING_OBSERVATION
+    Suggested: Medication Encoding Observation
+
+  CQU_I19              CH11  clause 11.7.1       row 110
+    Current:   Observation/Result
+    Group:     MEDICATION_ADMINISTRATION_OBSERVATION
+    Suggested: Medication Administration Observation
+
+  CQU_I19              CH11  clause 11.7.1       row 128
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  CQU_I19              CH11  clause 11.7.1       row 144
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  CQU_I19              CH11  clause 11.7.1       row 160
+    Current:   Observation/Result
+    Group:     PATHWAY_OBSERVATION
+    Suggested: Pathway Observation
+
+  CSU_C09              CH07  clause 7.7.2        row  35
+    Current:   Observation Results
+    Group:     TIMING_QTY
+    Suggested: Timing Qty
+
+  DEO_O45              CH04  clause 4.16.12      row  25
+    Current:   Observation related to OBR
+    Group:     DONATION_OBSERVATION
+    Suggested: Donation Observation
+
+  DFT_P03              CH06  clause 6.4.3        row  48
+    Current:   Observation
+    Group:     FINANCIAL_OBSERVATION_STANDALONE
+    Suggested: Financial Observation Standalone
+
+  DFT_P03              CH06  clause 6.4.3        row  57
+    Current:   Observation
+    Group:     FINANCIAL_OBSERVATION
+    Suggested: Financial Observation
+
+  DFT_P03              CH06  clause 6.4.3        row  75
+    Current:   Observations / Result
+    Group:     FINANCIAL_OBSERVATION
+    Suggested: Financial Observation
+
+  DFT_P11              CH06  clause 6.4.8        row  65
+    Current:   Observation
+    Group:     FINANCIAL_OBSERVATION_STANDALONE
+    Suggested: Financial Observation Standalone
+
+  DFT_P11              CH06  clause 6.4.8        row  74
+    Current:   Observation
+    Group:     FINANCIAL_OBSERVATION
+    Suggested: Financial Observation
+
+  DFT_P11              CH06  clause 6.4.8        row  92
+    Current:   Observations / Result
+    Group:     FINANCIAL_OBSERVATION
+    Suggested: Financial Observation
+
+  DPR_O48              CH04  clause 4.16.15      row  30
+    Current:   Donation Observation (Adverse Reactions, Associations, etc.)
+    Group:     DONATION_OBSERVATIONS
+    Suggested: Donation Observations
+
+  EHC_E01              CH16  clause 16.3.1       row  38
+    Current:   Observation
+    Group:     DIAGNOSIS
+    Suggested: Diagnosis
+
+  EHC_E12              CH16  clause 16.3.7       row  20
+    Current:   Observation Results
+    Group:     REQUEST
+    Suggested: Request
+
+  EHC_E13              CH16  clause 16.3.8       row  23
+    Current:   Observation Result
+    Group:     RESPONSE
+    Suggested: Response
+
+  EHC_E20              CH16  clause 16.3.10      row  26
+    Current:   Observation
+    Group:     DIAGNOSIS
+    Suggested: Diagnosis
+
+  MDM_T02              CH09  clause 9.6.10       row  26
+    Current:   Observation/Result (one or more required)
+    Group:     TIMING
+    Suggested: Timing
+
+  MDM_T02              CH09  clause 9.6.2        row  26
+    Current:   Observation/Result (one or more required)
+    Group:     TIMING
+    Suggested: Timing
+
+  MDM_T02              CH09  clause 9.6.4        row  26
+    Current:   Observation/Result (one or more required)
+    Group:     TIMING
+    Suggested: Timing
+
+  MDM_T02              CH09  clause 9.6.6        row  26
+    Current:   Observation/Result (one or more required)
+    Group:     TIMING
+    Suggested: Timing
+
+  MDM_T02              CH09  clause 9.6.8        row  26
+    Current:   Observation/Result (one or more required)
+    Group:     TIMING
+    Suggested: Timing
+
+  OMD_O03              CH04  clause 4.7.1        row  39
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  OMG_O19              CH04  clause 4.4.4        row  64
+    Current:   Observation/Result
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OMG_O19              CH04  clause 4.4.4        row  71
+    Current:   Observation/Result
+    Group:     CONTAINER_OBSERVATION
+    Suggested: Container Observation
+
+  OMG_O19              CH04  clause 4.4.4        row 108
+    Current:   Observation/Result      - previous result
+    Group:     OBSERVATION_PRIOR
+    Suggested: Observation Prior
+
+  OMG_O19              CH04  clause 4.4.4        row 121
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OMI_O23              CH04  clause 4.4.14       row  56
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OML_O21              CH04  clause 4.4.6        row  67
+    Current:   Observation/Result related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OML_O21              CH04  clause 4.4.6        row  74
+    Current:   Observation/Result related to container
+    Group:     CONTAINER_OBSERVATION
+    Suggested: Container Observation
+
+  OML_O21              CH04  clause 4.4.6        row 111
+    Current:   Observation/Result      - previous result
+    Group:     OBSERVATION_PRIOR
+    Suggested: Observation Prior
+
+  OML_O21              CH04  clause 4.4.6        row 125
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OML_O33              CH04  clause 4.4.8        row  45
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OML_O33              CH04  clause 4.4.8        row 105
+    Current:   Observation/Result      - previous result
+    Group:     OBSERVATION_PRIOR
+    Suggested: Observation Prior
+
+  OML_O33              CH04  clause 4.4.8        row 120
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OML_O35              CH04  clause 4.4.10       row  45
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OML_O35              CH04  clause 4.4.10       row 104
+    Current:   Observation/Result      - previous result
+    Group:     OBSERVATION_PRIOR
+    Suggested: Observation Prior
+
+  OML_O35              CH04  clause 4.4.10       row 120
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OML_O39              CH04  clause 4.4.12       row  65
+    Current:   Observation/Result Segment (Additional Shipping Information)
+    Group:     SHIPMENT_OBSERVATION
+    Suggested: Shipment Observation
+
+  OML_O39              CH04  clause 4.4.12       row  74
+    Current:   Observation/Result Segment (For Specimen)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OML_O39              CH04  clause 4.4.12       row  81
+    Current:   Observation/Result Segment (For Container)
+    Group:     CONTAINER_OBSERVATION
+    Suggested: Container Observation
+
+  OML_O39              CH04  clause 4.4.12       row  95
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OML_O59              CH04  clause 4.4.22       row  54
+    Current:   Observation/Result related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OML_O59              CH04  clause 4.4.22       row  61
+    Current:   Observation/Result related to container
+    Group:     CONTAINER_OBSERVATION
+    Suggested: Container Observation
+
+  OML_O59              CH04  clause 4.4.22       row  97
+    Current:   Observation/Result      - previous result
+    Group:     OBSERVATION_PRIOR
+    Suggested: Observation Prior
+
+  OMQ_O57              CH04  clause 4.4.20       row  34
+    Current:   Observation containing document
+    Group:     ORDER
+    Suggested: Order
+
+  OMQ_O57              CH04  clause 4.4.20       row  75
+    Current:   Observation/Result      - previous result
+    Group:     OBSERVATION_PRIOR
+    Suggested: Observation Prior
+
+  OPL_O37              CH04  clause 4.4.16       row  22
+    Current:   Observations on the Patient
+    Group:     OBSERVATIONS_ON_PATIENT
+    Suggested: Observations On Patient
+
+  OPL_O37              CH04  clause 4.4.16       row  35
+    Current:   Observation/Result related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OPL_O37              CH04  clause 4.4.16       row  41
+    Current:   Observation/Result related to container
+    Group:     CONTAINER_OBSERVATION
+    Suggested: Container Observation
+
+  OPL_O37              CH04  clause 4.4.16       row  57
+    Current:   Observation/Result Related to Order
+    Group:     ORDER_RELATED_OBSERVATION
+    Suggested: Order Related Observation
+
+  OPL_O37              CH04  clause 4.4.16       row  92
+    Current:   Observation/Result for prior order
+    Group:     OBSERVATION_RESULT_GROUP
+    Suggested: Observation Result Group
+
+  OPR_O38              CH04  clause 4.4.17       row  19
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OPU_R25              CH07  clause 7.3.11       row  10
+    Current:   Observation on the Visit
+    Group:     PATIENT_VISIT_OBSERVATION
+    Suggested: Patient Visit Observation
+
+  OPU_R25              CH07  clause 7.3.11       row  41
+    Current:   Observation on Specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORL_O34              CH04  clause 4.4.9.1      row  15
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORL_O36              CH04  clause 4.4.11.1     row  15
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORL_O54              CH04  clause 4.4.9.2      row  16
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORL_O55              CH04  clause 4.4.11.2     row  16
+    Current:   Observations related to specimen
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORU_R01              CH07  clause 7.3.1        row  27
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R01              CH07  clause 7.3.1        row  46
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  ORU_R01              CH07  clause 7.3.1        row  72
+    Current:   Observation (for Patient ID)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORU_R01              CH07  clause 7.3.1        row  79
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  ORU_R01              CH07  clause 7.3.12       row  27
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R01              CH07  clause 7.3.12       row  46
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  ORU_R01              CH07  clause 7.3.12       row  72
+    Current:   Observation (for Patient ID)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORU_R01              CH07  clause 7.3.12       row  79
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  ORU_R01              CH07  clause 7.3.14       row  27
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R01              CH07  clause 7.3.14       row  46
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  ORU_R01              CH07  clause 7.3.14       row  72
+    Current:   Observation (for Patient ID)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORU_R01              CH07  clause 7.3.14       row  79
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  ORU_R01              CH07  clause 7.3.15       row  27
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R01              CH07  clause 7.3.15       row  46
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  ORU_R01              CH07  clause 7.3.15       row  72
+    Current:   Observation (for Patient ID)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  ORU_R01              CH07  clause 7.3.15       row  79
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  ORU_R30              CH07  clause 7.3.4        row  17
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R30              CH07  clause 7.3.4        row  41
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  ORU_R30              CH07  clause 7.3.5        row  17
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R30              CH07  clause 7.3.5        row  41
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  ORU_R30              CH07  clause 7.3.6        row  17
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  ORU_R30              CH07  clause 7.3.6        row  41
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OSM_R26              CH07  clause 7.16.1       row   9
+    Current:   Observation/Result Segment (Additional Shipping Information)
+    Group:     SHIPPING_OBSERVATION
+    Suggested: Shipping Observation
+
+  OSM_R26              CH07  clause 7.16.1       row  19
+    Current:   Observation/Result Segment (For Specimen)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OSM_R26              CH07  clause 7.16.1       row  25
+    Current:   Observation/Result Segment (For Container)
+    Group:     CONTAINER_OBSERVATION
+    Suggested: Container Observation
+
+  OSM_R26              CH07  clause 7.16.1       row  34
+    Current:   Observation/Result Segment (For Patient)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  OSM_R26              CH07  clause 7.16.1       row  47
+    Current:   Observation/Result Segment (For Visit)
+    Group:     PATIENT_VISIT_OBSERVATION
+    Suggested: Patient Visit Observation
+
+  OUL_R22              CH07  clause 7.3.8        row  16
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  OUL_R22              CH07  clause 7.3.8        row  33
+    Current:   Observation Result (for Specimen)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OUL_R22              CH07  clause 7.3.8        row  47
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  OUL_R22              CH07  clause 7.3.8        row  71
+    Current:   Observation/Result
+    Group:     DEVICE
+    Suggested: Device
+
+  OUL_R23              CH07  clause 7.3.9        row  20
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  OUL_R23              CH07  clause 7.3.9        row  37
+    Current:   Observation (for Specimen)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  OUL_R23              CH07  clause 7.3.9        row  50
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  OUL_R24              CH07  clause 7.3.10       row  20
+    Current:   Observation (for Patient ID)
+    Group:     PATIENT_OBSERVATION
+    Suggested: Patient Observation
+
+  OUL_R24              CH07  clause 7.3.10       row  41
+    Current:   Observation containing Document
+    Group:     ORDER_DOCUMENT
+    Suggested: Order Document
+
+  OUL_R24              CH07  clause 7.3.10       row  55
+    Current:   Observation (for Specimen)
+    Group:     SPECIMEN_OBSERVATION
+    Suggested: Specimen Observation
+
+  PEX_P07              CH07  clause 7.11.1       row  65
+    Current:   Observation/Results
+    Group:     ASSOCIATED_OBSERVATION
+    Suggested: Associated Observation
+
+  PGL_PC6              CH12  clause 12.3.1       row  44
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  PGL_PC6              CH12  clause 12.3.1       row  60
+    Current:   Observation/Result
+    Group:     ORDER_OBSERVATION
+    Suggested: Order Observation
+
+  PPG_PCG              CH12  clause 12.3.4       row  35
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  PPG_PCG              CH12  clause 12.3.4       row  49
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  PPG_PCG              CH12  clause 12.3.4       row  65
+    Current:   Observation/Result
+    Group:     ORDER_OBSERVATION
+    Suggested: Order Observation
+
+  PPP_PCB              CH12  clause 12.3.3       row  35
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  PPP_PCB              CH12  clause 12.3.3       row  49
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  PPP_PCB              CH12  clause 12.3.3       row  65
+    Current:   Observation/Result
+    Group:     ORDER_OBSERVATION
+    Suggested: Order Observation
+
+  PPR_PC1              CH12  clause 12.3.2       row  30
+    Current:   Observation/Result
+    Group:     PROBLEM_OBSERVATION
+    Suggested: Problem Observation
+
+  PPR_PC1              CH12  clause 12.3.2       row  44
+    Current:   Observation/Result
+    Group:     GOAL_OBSERVATION
+    Suggested: Goal Observation
+
+  PPR_PC1              CH12  clause 12.3.2       row  60
+    Current:   Observation/Result
+    Group:     ORDER_OBSERVATION
+    Suggested: Order Observation
+
+  RCV_O59              CH04A clause 4A.4.26      row  52
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RDE_O11              CH04A clause 4A.4.16      row  66
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RDE_O11              CH04A clause 4A.4.6       row  66
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RDE_O49              CH04A clause 4A.4.24      row  51
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RDS_O13              CH04A clause 4A.4.8       row  60
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  REF_I12              CH11  clause 11.5.1       row  44
+    Current:   Observation/Result
+    Group:     RESULTS_NOTES
+    Suggested: Results Notes
+
+  RPA_I08              CH11  clause 11.4.1       row  45
+    Current:   Observation/Result
+    Group:     RESULTS
+    Suggested: Results
+
+  RQA_I08              CH11  clause 11.4.1       row  46
+    Current:   Observation/Result
+    Group:     RESULTS
+    Suggested: Results
+
+  RRI_I12              CH11  clause 11.5.1       row  34
+    Current:   Observation/Result
+    Group:     RESULTS_NOTES
+    Suggested: Results Notes
+
+  RSP_K31              CH04A clause 4A.4.23      row  61
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RSP_O34              CH04  clause 4.16.9       row  29
+    Current:   Adverse Reaction Observations
+    Group:     DONOR_OBSERVATIONS
+    Suggested: Donor Observations
+
+  RSP_Z82              CH05  clause 5.9.1.2.1    row  48
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RSP_Z86              CH05  clause 5.9.1.3.1    row  51
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  RSP_Z88              CH05  clause 5.9.2.2.1    row  50
+    Current:   Results
+    Group:     OBSERVATION
+    Suggested: Observation
+
+  VXU_V04              CH04A clause 4A.8.6       row  28
+    Current:   Observation/Result
+    Group:     PERSON_OBSERVATION
+    Suggested: Person Observation
+
+========================================================================================================================
+SUMMARY
+========================================================================================================================
+  PRT Qualifier does not match group name                  127
+  PRT Bare "Participation" with no qualifier               358
+  OBX issues                                                  165
+  TOTAL                                                    650

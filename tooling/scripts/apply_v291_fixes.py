@@ -204,6 +204,15 @@ def apply_fix(fix, data):
         if from_val is None or old_id == from_val:
             data['structureId'] = to_val
             applied.append(f'StructureId: "{old_id}" → "{to_val}"')
+            # Also update caption if provided
+            new_caption = fix.get('new_caption')
+            if new_caption:
+                old_caption = data.get('provenance', {}).get('captionText', '')
+                data['provenance']['captionText'] = new_caption
+                data['provenance']['sectionHeading'] = new_caption
+                if 'caption' in data:
+                    data['caption'] = new_caption
+                applied.append(f'Caption: "{old_caption}" → "{new_caption}"')
 
     return data, applied
 

@@ -300,6 +300,7 @@ def generate_report(structures, events, fixes):
         h.append(f'<a href="#{esc(sid)}" class="sidebar-item">{esc(sid)} '
                  f'<span class="badge {badge}">{n}</span></a>')
     h.append('</div>')
+    h.append('<a href="#ack-structures">ACK Structures</a>')
     h.append('<a href="#prt-audit">PRT Description Audit</a>')
     h.append('<a href="#consistent">Consistent Structures</a>')
     h.append('</div>')
@@ -372,6 +373,53 @@ def generate_report(structures, events, fixes):
                      f'<td>{esc(desc)}</td></tr>')
     h.append('</table>')
     h.append('</div>')
+
+    # === ACK Structures ===
+    ack_occs = structures.get('ACK', [])
+    if ack_occs:
+        h.append('<h2 id="ack-structures">ACK Structures</h2>')
+        h.append(f'<p>The ACK (General Acknowledgment) message structure appears '
+                 f'<strong>{len(ack_occs)} times</strong> across the V2.9.1 Word documents, '
+                 f'one for each event that uses a standard acknowledgment response. '
+                 f'After applying fixes (description normalization, ERR cardinality, '
+                 f'extraction artifact correction), all occurrences have been collapsed '
+                 f'into a single consistent 5-segment structure:</p>')
+        h.append('<div class="card">')
+        h.append('<table><tr><th>Segment</th><th>Description</th></tr>')
+        ref = ack_occs[0]
+        for row in ref['rawRows']:
+            h.append(f'<tr><td><code>{esc(row["segments"])}</code></td>'
+                     f'<td>{esc(row["description"])}</td></tr>')
+        h.append('</table>')
+        h.append('<p class="meta"><strong>Pending review:</strong> REVIEW-0001 — '
+                 'Clause 10.4 (ACK^S12-S24,S26,S27) has UAC as '
+                 '<code>[{{ UAC }}]</code> (optional+repeating) while all other '
+                 f'{len(ack_occs) - 1} occurrences have <code>[ UAC ]</code> '
+                 '(optional, non-repeating).</p>')
+        h.append('</div>')
+
+        # List all ACK messages with caption highlighting
+        STANDARD_DESC = 'General Acknowledgment'
+        h.append(f'<h3>All {len(ack_occs)} ACK Message Mappings</h3>')
+        h.append('<p>Rows highlighted in <span style="background:#fff3cd;padding:2px 6px">'
+                 'yellow</span> have a caption description that differs from '
+                 f'"{STANDARD_DESC}".</p>')
+        h.append('<div class="card">')
+        h.append('<table>')
+        h.append('<tr><th>#</th><th>Caption</th><th>Clause</th><th>Chapter</th></tr>')
+        for oi, occ in enumerate(ack_occs):
+            prov = occ.get('provenance', {})
+            caption = prov.get('captionText', '')
+            # Extract the description part after ":"
+            m = re.search(r':\s*(.+)', caption)
+            desc = m.group(1).strip() if m else ''
+            highlight = ' style="background:#fff3cd"' if desc != STANDARD_DESC else ''
+            h.append(f'<tr{highlight}><td>{oi + 1}</td>'
+                     f'<td>{esc(caption)}</td>'
+                     f'<td>{esc(prov.get("clause", "?"))}</td>'
+                     f'<td>CH{esc(prov.get("chapter", "?"))}</td></tr>')
+        h.append('</table>')
+        h.append('</div>')
 
     # === Remaining Differences ===
     h.append('<h2 id="remaining">Remaining Differences by Structure</h2>')
@@ -472,19 +520,18 @@ def generate_report(structures, events, fixes):
 
     h.append('<div class="card">')
     h.append('<table>')
-    h.append('<tr><th>Category</th><th>Count</th><th>Description</th></tr>')
+    h.append('<tr><th>Category</th><th>Count</th><th>Status</th></tr>')
     prt_cats = [
-        ('Typos', 7, 'Misspellings in "Participation" or qualifier text, unclosed parentheses'),
-        ('Wrong titleization', 4, '"for common order" should be "for Common Order"'),
-        ('Segment code as qualifier', 28, '"for ORC" instead of "for Order" — uses segment code, not group name'),
-        ('Qualifier mismatch', 90, 'Parenthetical does not match the containing group name'),
-        ('Bare "Participation"', 272, 'PRT has no parenthetical qualifier — ambiguous in multi-PRT structures'),
-        ('OBX issues', 16, 'OBX descriptions inconsistent with group name'),
+        ('Typos (misspellings, unclosed parens)', 7, 'Fixed'),
+        ('Wrong titleization', 12, 'Fixed'),
+        ('Segment code as qualifier (ORC, RXO, etc.)', 33, 'Fixed — replaced with segment/group description'),
+        ('Qualifier mismatch', 127, 'Flagged for V2 Management review'),
+        ('Bare "Participation" (no qualifier)', 358, 'Flagged for V2 Management review'),
+        ('OBX description issues', 165, 'Flagged for V2 Management review'),
     ]
-    for label, count, desc in prt_cats:
-        h.append(f'<tr><td>{esc(label)}</td><td>{count}</td><td>{esc(desc)}</td></tr>')
-    h.append(f'<tr><td><strong>Total</strong></td><td><strong>417</strong></td>'
-             f'<td>across 115 structures</td></tr>')
+    for label, count, status in prt_cats:
+        style = ' style="background:#e8f4e8"' if status == 'Fixed' else ''
+        h.append(f'<tr{style}><td>{esc(label)}</td><td>{count}</td><td>{esc(status)}</td></tr>')
     h.append('</table>')
     h.append('</div>')
 
