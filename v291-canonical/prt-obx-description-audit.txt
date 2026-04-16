@@ -1,0 +1,241 @@
+============================================================================================================================================
+PRT & OBX DESCRIPTION AUDIT REPORT
+Scanned 427 files | 401 PRT findings in 115 structures | 16 OBX findings in 9 structures
+============================================================================================================================================
+
+============================================================================================================================================
+PRT FINDINGS BY CATEGORY
+============================================================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Typos in "Participation" (1 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  CSU_C09                                                        35  STUDY_OBSERVATION                   Participaton (for Observation Results)                  Participation (for Observation Results)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Typos in qualifier text (4 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  OPL_O37                                                       108  CONTAINER_OBSERVATION               Participation (for Containter Observation)              Participation (for Container Observation)
+  OMG_O19, OMQ_O57                                              108  OBSERVATION_PRIOR                   Participation (for Oservation Prior)                    Participation (for Observation Prior)
+  OML_O35                                                       108  SPECIMEN_OBSERVATION                Participation (for Speciment Observation)               Participation (for Specimen Observation)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Unclosed parenthetical (2 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  CRM_C01                                                         9  PATIENT                             Participation (for Patient                              Participation (for Patient)
+  CRM_C01                                                         9  PATIENT_VISIT                       Participation (for Patient Visit                        Participation (for Patient Visit)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Segment code used instead of group name (28 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  OML_O21, OML_O59, RDE_O11 (+2 more)                            58  OBSERVATION                         Participation (for OBX)                                 Participation (for Observation)
+  OML_O39                                                        58  SHIPMENT_OBSERVATION                Participation (for OBX)                                 Participation (for Shipment Observation)
+  ORP_O10, RAS_O17, RDE_O11 (+8 more)                            58  ORDER                               Participation (for ORC)                                 Participation (for Order)
+  RSP_K31                                                        58  ORDER                               Participation (for RXD)                                 Participation (for Order)
+  RDS_O13, RRE_O12, RSP_K31                                      58  ENCODING                            Participation (for RXE)                                 Participation (for Encoding)
+  RDE_O11                                                        58  ORDER                               Participation (for RXE)                                 Participation (for Order)
+  OMP_O09                                                        58  ORDER                               Participation (for RXO)                                 Participation (for Order)
+  ORP_O10, RDE_O11, RDS_O13 (+1 more)                            58  ORDER_DETAIL                        Participation (for RXO)                                 Participation (for Order Detail)
+  RDE_O11                                                        58  PHARMACY_TREATMENT_INFUSION_ORDER   Participation (for RXV)                                 Participation (for Pharmacy Treatment Infusion Order)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Correct group but wrong titleization (4 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  OPU_R25, OUL_R22, OUL_R23 (+1 more)                            53  COMMON_ORDER                        Participation (for common order)                        Participation (for Common Order)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Qualifier does not match group name (84 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  PGL_PC6, PPG_PCG, PPP_PCB (+1 more)                            16  GOAL_PARTICIPATION                  Participation (Goal)                                    Participation (for Goal Participation)
+  ORU_R01                                                        16  OBSERVATION                         Participation (Observation Participation)               Participation (for Observation)
+  ORU_R01                                                        16  PATIENT_OBSERVATION                 Participation (Observation Participation)               Participation (for Patient Observation)
+  ORU_R01                                                        16  SPECIMEN_OBSERVATION                Participation (Observation Participation)               Participation (for Specimen Observation)
+  PPG_PCG, PPP_PCB                                               16  PATHWAY_PARTICIPATION               Participation (Pathway)                                 Participation (for Pathway Participation)
+  PGL_PC6, PPG_PCG, PPP_PCB (+1 more)                            16  PROBLEM_PARTICIPATION               Participation (Problem)                                 Participation (for Problem Participation)
+  RAS_O17, RCV_O59, RDE_O11 (+2 more)                            16  PATIENT                             Participation (for Additional Demographics)             Participation (for Patient)
+  RRA_O18                                                        16  TREATMENT                           Participation (for Administration)                      Participation (for Treatment)
+  OMG_O19, OML_O21, OML_O33 (+4 more)                            16  ORDER                               Participation (for Common Order)                        Participation (for Order)
+  OSM_R26                                                        16  CONTAINER_OBSERVATION               Participation (for Container Observation Result)        Participation (for Container Observation)
+  RAS_O17, RGV_O15                                               16  ENCODING                            Participation (for Encoded Order)                       Participation (for Encoding)
+  RDE_O49                                                        16  ORDER                               Participation (for Encoded Order)                       Participation (for Order)
+  ORI_O24                                                        16  ORDER                               Participation (for Observation Request)                 Participation (for Order)
+  PEX_P07                                                        16  ASSOCIATED_OBSERVATION              Participation (for Observation Result)                  Participation (for Associated Observation)
+  PEX_P07                                                        16  OBSERVATION                         Participation (for Observation Result)                  Participation (for Observation)
+  OUL_R22                                                        16  RESULT                              Participation (for Observation Result)                  Participation (for Result)
+  ORU_R30                                                        16  OBSERVATION                         Participation (for Observation Results)                 Participation (for Observation)
+  OPU_R25                                                        16  PATIENT_OBSERVATION                 Participation (for Observation on Patient)              Participation (for Patient Observation)
+  ORU_R01                                                        16  OBSERVATION_PARTICIPATION           Participation (for Observation)                         Participation (for Observation Participation)
+  OML_O35, OML_O39, ORL_O34 (+1 more)                            16  OBSERVATION_REQUEST                 Participation (for Observation)                         Participation (for Observation Request)
+  ORU_R30, OSM_R26, OUL_R22 (+2 more)                            16  PATIENT_OBSERVATION                 Participation (for Observation)                         Participation (for Patient Observation)
+  VXU_V04                                                        16  PERSON_OBSERVATION                  Participation (for Observation)                         Participation (for Person Observation)
+  OPU_R25, OUL_R23, OUL_R24                                      16  SPECIMEN_OBSERVATION                Participation (for Observation)                         Participation (for Specimen Observation)
+  OPL_O37                                                        16  OBSERVATION_RESULT_GROUP            Participation (for Observation/Result)                  Participation (for Observation Result Group)
+  RCV_O59                                                        16  ENCODING                            Participation (for Order Encoding)                      Participation (for Encoding)
+  OML_O35                                                        16  OBSERVATION_PARTICIPATION           Participation (for Order Prior)                         Participation (for Observation Participation)
+  OML_O21, OML_O33, OML_O59 (+1 more)                            16  OBSERVATION_PARTICIPATION_PRIOR     Participation (for Order Prior)                         Participation (for Observation Participation Prior)
+  OMQ_O57                                                        16  OBSERVATION_PARTICIPATION_PRIOR     Participation (for Order Prior)  - previous result      Participation (for Observation Participation Prior)
+  OMG_O19                                                        16  ORDER_DETAIL_PARTICIPATION_PRIOR    Participation (for Order Prior)  - previous result      Participation (for Order Detail Participation Prior)
+  ORG_O20                                                        16  OBSERVATION_GROUP                   Participation (for Order)                               Participation (for Observation Group)
+  OSM_R26                                                        16  SUBJECT_POPULATION_OR_LOCATION_IDENTIFICATION Participation (for Patient Visit)                       Participation (for Subject Population Or Location Identification)
+  CSU_C09, ORU_R01, ORU_R30 (+4 more)                            16  VISIT                               Participation (for Patient Visit)                       Participation (for Visit)
+  OPL_O37                                                        16  ORDER                               Participation (for Patient)                             Participation (for Order)
+  ORL_O22, ORL_O34, ORL_O36                                      16  RESPONSE                            Participation (for Patient)                             Participation (for Response)
+  OSM_R26                                                        16  SUBJECT_PERSON_OR_ANIMAL_IDENTIFICATION Participation (for Patient)                             Participation (for Subject Person Or Animal Identification)
+  OSM_R26                                                        16  SUBJECT_POPULATION_OR_LOCATION_IDENTIFICATION Participation (for Patient)                             Participation (for Subject Population Or Location Identification)
+  PEX_P07                                                        16  ASSOCIATED_RX_ADMIN                 Participation (for Pharmacy Administration)             Participation (for Associated Rx Admin)
+  CSU_C09                                                        16  RX_ADMIN                            Participation (for Pharmacy Administration)             Participation (for Rx Admin)
+  PEX_P07                                                        16  RX_ADMINISTRATION                   Participation (for Pharmacy Administration)             Participation (for Rx Administration)
+  PEX_P07                                                        16  ASSOCIATED_RX_ORDER                 Participation (for Pharmacy/Treatment)                  Participation (for Associated Rx Order)
+  PEX_P07                                                        16  RX_ORDER                            Participation (for Pharmacy/Treatment)                  Participation (for Rx Order)
+  OSM_R26                                                        16  PACKAGE                             Participation (for Shipping Package)                    Participation (for Package)
+  ORL_O36, ORL_O55                                               16  SPECIMEN_OBSERVATION                Participation (for Specimen Related Observation)        Participation (for Specimen Observation)
+  RCV_O59, RDS_O13                                               16  ORDER                               Participation (for Treatment Dispense)                  Participation (for Order)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Qualifier mismatch + case issue (6 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  CSU_C09                                                        26  STUDY_OBSERVATION                   Participation (for common order)                        Participation (for Study Observation)
+  OPU_R25, OUL_R22, OUL_R23 (+1 more)                            26  ORDER                               Participation (for observation)                         Participation (for Order)
+  CSU_C09                                                        26  STUDY_OBSERVATION                   Participation (for observation)                         Participation (for Study Observation)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Bare "Participation" with no qualifier (272 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                  Row  Group                               Current Description                                     Suggested Fix
+  ------------------------------------------------------------ ----  ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  EHC_E15                                                        32  ADJUSTMENT_PAYEE                    Participation                                           Participation (for Adjustment Payee)
+  ADT_A01, ADT_A03, ADT_A05 (+1 more)                            32  AUTHORIZATION                       Participation                                           Participation (for Authorization)
+  PMU_B07                                                        32  CERTIFICATE                         Participation                                           Participation (for Certificate)
+  CCM_I21, CCR_I16, CCU_I20 (+1 more)                            32  CLINICAL_HISTORY_OBJECT             Participation                                           Participation (for Clinical History Object)
+  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  CLINICAL_HISTORY_OBSERVATION        Participation                                           Participation (for Clinical History Observation)
+  CCR_I16                                                        32  CLINICAL_ORDER_OBJECT               Participation                                           Participation (for Clinical Order Object)
+  CCR_I16                                                        32  CLINICAL_ORDER_OBSERVATION          Participation                                           Participation (for Clinical Order Observation)
+  DFT_P03, DFT_P11, MDM_T01 (+1 more)                            32  COMMON_ORDER                        Participation                                           Participation (for Common Order)
+  RRD_O14                                                        32  DISPENSE                            Participation                                           Participation (for Dispense)
+  DEO_O45                                                        32  DONATION_OBSERVATION                Participation                                           Participation (for Donation Observation)
+  DPR_O48                                                        32  DONATION_OBSERVATIONS               Participation                                           Participation (for Donation Observations)
+  DEO_O45, DPR_O48, DRC_O47                                      32  DONATION_ORDER                      Participation                                           Participation (for Donation Order)
+  DBC_O41, DBC_O42, DEL_O46 (+6 more)                            32  DONOR                               Participation                                           Participation (for Donor)
+  DBC_O41, DBC_O42, DEL_O46 (+6 more)                            32  DONOR_OBSERVATIONS                  Participation                                           Participation (for Donor Observations)
+  DER_O44                                                        32  DONOR_ORDER                         Participation                                           Participation (for Donor Order)
+  DEL_O46, DEO_O45, DER_O44 (+4 more)                            32  DONOR_REGISTRATION                  Participation                                           Participation (for Donor Registration)
+  DEO_O45                                                        32  Donor                               Participation                                           Participation (for Donor)
+  RRE_O50                                                        32  ENCODING                            Participation                                           Participation (for Encoding)
+  DFT_P03, DFT_P11                                               32  FINANCIAL                           Participation                                           Participation (for Financial)
+  DFT_P03, DFT_P11                                               32  FINANCIAL_COMMON_ORDER              Participation                                           Participation (for Financial Common Order)
+  DFT_P11                                                        32  FINANCIAL_INSURANCE                 Participation                                           Participation (for Financial Insurance)
+  DFT_P03, DFT_P11                                               32  FINANCIAL_OBSERVATION               Participation                                           Participation (for Financial Observation)
+  DFT_P03, DFT_P11                                               32  FINANCIAL_OBSERVATION_STANDALONE    Participation                                           Participation (for Financial Observation Standalone)
+  DFT_P03, DFT_P11                                               32  FINANCIAL_ORDER                     Participation                                           Participation (for Financial Order)
+  DFT_P03, DFT_P11                                               32  FINANCIAL_ORDER_STANDALONE          Participation                                           Participation (for Financial Order Standalone)
+  DFT_P03, DFT_P11                                               32  FINANCIAL_PROCEDURE                 Participation                                           Participation (for Financial Procedure)
+  RGV_O15, RRG_O16                                               32  GIVE                                Participation                                           Participation (for Give)
+  CCI_I22, CCM_I21, CCR_I16 (+5 more)                            32  GOAL_OBSERVATION                    Participation                                           Participation (for Goal Observation)
+  ADT_A01, ADT_A03, ADT_A05 (+6 more)                            32  INSURANCE                           Participation                                           Participation (for Insurance)
+  EHC_E01                                                        32  INVOICE_INFORMATION_SUBMIT          Participation                                           Participation (for Invoice Information Submit)
+  CCI_I22, CCR_I16, CCU_I20 (+1 more)                            32  MEDICATION_ADMINISTRATION_DETAIL    Participation                                           Participation (for Medication Administration Detail)
+  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  MEDICATION_ADMINISTRATION_OBSERVATION Participation                                           Participation (for Medication Administration Observation)
+  CCI_I22, CCR_I16, CCU_I20 (+1 more)                            32  MEDICATION_ENCODING_DETAIL          Participation                                           Participation (for Medication Encoding Detail)
+  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  MEDICATION_ENCODING_OBSERVATION     Participation                                           Participation (for Medication Encoding Observation)
+  CCI_I22, CCR_I16, CCU_I20 (+1 more)                            32  MEDICATION_ORDER_DETAIL             Participation                                           Participation (for Medication Order Detail)
+  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  MEDICATION_ORDER_OBSERVATION        Participation                                           Participation (for Medication Order Observation)
+  MFN_M12                                                        32  MF_OBS_ATTRIBUTES                   Participation                                           Participation (for Mf Obs Attributes)
+  MFN_M12                                                        32  MF_OBS_OTHER_ATTRIBUTES             Participation                                           Participation (for Mf Obs Other Attributes)
+  MFN_M10                                                        32  MF_TEST_BATTERIES                   Participation                                           Participation (for Mf Test Batteries)
+  MFN_M11                                                        32  MF_TEST_CALCULATED                  Participation                                           Participation (for Mf Test Calculated)
+  MFN_M09                                                        32  MF_TEST_CATEGORICAL                 Participation                                           Participation (for Mf Test Categorical)
+  MFN_M08                                                        32  MF_TEST_NUMERIC                     Participation                                           Participation (for Mf Test Numeric)
+  ADT_A01, ADT_A02, ADT_A03 (+19 more)                           32  OBSERVATION                         Participation                                           Participation (for Observation)
+  OPL_O37, OPR_O38                                               32  OBSERVATION_REQUEST                 Participation                                           Participation (for Observation Request)
+  ADT_A17                                                        32  OBSERVATION_RESULT_1                Participation                                           Participation (for Observation Result 1)
+  ADT_A17                                                        32  OBSERVATION_RESULT_2                Participation                                           Participation (for Observation Result 2)
+  BPS_O29, BRP_O30, BRT_O32 (+16 more)                           32  ORDER                               Participation                                           Participation (for Order)
+  RAS_O17, RDE_O49, RSP_K31                                      32  ORDER_DETAIL                        Participation                                           Participation (for Order Detail)
+  OMD_O03, ORD_O04                                               32  ORDER_DIET                          Participation                                           Participation (for Order Diet)
+  ORU_R01, OUL_R22, OUL_R23 (+1 more)                            32  ORDER_DOCUMENT                      Participation                                           Participation (for Order Document)
+  PGL_PC6, PPG_PCG, PPP_PCB (+1 more)                            32  ORDER_OBSERVATION                   Participation                                           Participation (for Order Observation)
+  OMG_O19, OML_O21, OML_O33 (+3 more)                            32  ORDER_PRIOR                         Participation                                           Participation (for Order Prior)
+  OSU_O51, OSU_O52                                               32  ORDER_STATUS                        Participation                                           Participation (for Order Status)
+  OMD_O03, ORD_O04                                               32  ORDER_TRAY                          Participation                                           Participation (for Order Tray)
+  CCR_I16                                                        32  PARTICIPATION_OBSERVATION           Participation                                           Participation (for Participation Observation)
+  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  PATHWAY_OBSERVATION                 Participation                                           Participation (for Pathway Observation)
+  BAR_P02, BAR_P06, BRP_O30 (+13 more)                           32  PATIENT                             Participation                                           Participation (for Patient)
+  EHC_E01                                                        32  PATIENT_INFO                        Participation                                           Participation (for Patient Info)
+  VXU_V04                                                        32  PATIENT_VISIT                       Participation                                           Participation (for Patient Visit)
+  OPU_R25                                                        32  PATIENT_VISIT_OBSERVATION           Participation                                           Participation (for Patient Visit Observation)
+  EHC_E20                                                        32  PAT_INFO                            Participation                                           Participation (for Pat Info)
+  CCI_I22, CCM_I21, CCU_I20 (+5 more)                            32  PROBLEM_OBSERVATION                 Participation                                           Participation (for Problem Observation)
+  ADT_A01, ADT_A03, ADT_A05 (+6 more)                            32  PROCEDURE                           Participation                                           Participation (for Procedure)
+  EHC_E01                                                        32  PRODUCT_SERVICE_GROUP               Participation                                           Participation (for Product Service Group)
+  EHC_E01                                                        32  PRODUCT_SERVICE_LINE_ITEM           Participation                                           Participation (for Product Service Line Item)
+  EHC_E20                                                        32  PSL_ITEM_INFO                       Participation                                           Participation (for Psl Item Info)
+  ADT_A01, ADT_A03, ADT_A05 (+1 more)                            32  REFERRAL                            Participation                                           Participation (for Referral)
+  EHC_E12, EHC_E13                                               32  REQUEST                             Participation                                           Participation (for Request)
+  CCI_I22, CCM_I21, CCR_I16 (+2 more)                            32  RESOURCE_OBSERVATION                Participation                                           Participation (for Resource Observation)
+  EHC_E13                                                        32  RESPONSE                            Participation                                           Participation (for Response)
+  OPU_R25, OUL_R23, OUL_R24                                      32  RESULT                              Participation                                           Participation (for Result)
+  RPA_I08, RQA_I08                                               32  RESULTS                             Participation                                           Participation (for Results)
+  REF_I12, RRI_I12                                               32  RESULTS_NOTES                       Participation                                           Participation (for Results Notes)
+  RSP_K25                                                        32  STAFF                               Participation                                           Participation (for Staff)
+  BAR_P01, BAR_P05, DFT_P03 (+1 more)                            32  VISIT                               Participation                                           Participation (for Visit)
+
+
+============================================================================================================================================
+OBX FINDINGS
+============================================================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  INCONSISTENT_FORM (1 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                 Group                               Current Description                                     Detail
+  ------------------------------------------------------------ ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  OPU_R25                                                      PATIENT_OBSERVATION                 Observations on Patient                                 'Observations on Patient' -> 'Patient Observation'
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  QUALIFIER_MISMATCH (15 instances)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Structure(s)                                                 Group                               Current Description                                     Detail
+  ------------------------------------------------------------ ----------------------------------- ------------------------------------------------------- -------------------------------------------------------
+  DPR_O48                                                      DONATION_OBSERVATIONS               Donation Observation (Adverse Reactions, Associations, etc.) 'Adverse Reactions, Associations, etc.' vs group 'DONATION_OBSERVATIONS'
+  ORU_R01, ORU_R30, OUL_R22, OUL_R23, OUL_R24                  PATIENT_OBSERVATION                 Observation (for Patient ID)                            'for Patient ID' vs group 'PATIENT_OBSERVATION'
+  ORU_R01                                                      SPECIMEN_OBSERVATION                Observation (for Patient ID)                            'for Patient ID' vs group 'SPECIMEN_OBSERVATION'
+  OML_O39                                                      SHIPMENT_OBSERVATION                Observation/Result Segment (Additional Shipping Information) 'Additional Shipping Information' vs group 'SHIPMENT_OBSERVATION'
+  OSM_R26                                                      SHIPPING_OBSERVATION                Observation/Result Segment (Additional Shipping Information) 'Additional Shipping Information' vs group 'SHIPPING_OBSERVATION'
+  OML_O39, OSM_R26                                             CONTAINER_OBSERVATION               Observation/Result Segment (For Container)              'For Container' vs group 'CONTAINER_OBSERVATION'
+  OSM_R26                                                      PATIENT_OBSERVATION                 Observation/Result Segment (For Patient)                'For Patient' vs group 'PATIENT_OBSERVATION'
+  OML_O39, OSM_R26                                             SPECIMEN_OBSERVATION                Observation/Result Segment (For Specimen)               'For Specimen' vs group 'SPECIMEN_OBSERVATION'
+  OSM_R26                                                      PATIENT_VISIT_OBSERVATION           Observation/Result Segment (For Visit)                  'For Visit' vs group 'PATIENT_VISIT_OBSERVATION'
+
+
+============================================================================================================================================
+SUMMARY TABLE: ALL FINDINGS (DEDUPLICATED)
+============================================================================================================================================
+
+Seg   Category                       Count   Unique Structures
+----- ------------------------------ -----  ------------------
+PRT   Typos in "Participation"           1                   1
+PRT   Typos in qualifier text            4                   4
+PRT   Unclosed parenthetical             2                   1
+PRT   Segment code used instead of group name    28                  15
+PRT   Correct group but wrong titleization     4                   4
+PRT   Qualifier does not match group name    84                  38
+PRT   Qualifier mismatch + case issue     6                   5
+PRT   Bare "Participation" with no qualifier   272                  98
+OBX   INCONSISTENT_FORM                  1                   1
+OBX   QUALIFIER_MISMATCH                15                   8
+
+      TOTAL                            417                 115

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>V2.9.1 Message Structure Review Report</title>
+<style>
+
+:root {
+    --border: #d0d7de;
+    --bg-subtle: #f6f8fa;
+    --text-muted: #57606a;
+    --red: #cf222e;
+    --yellow: #bf8700;
+    --green: #2da44e;
+    --blue: #0969da;
+}
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+       margin: 0; display: flex; color: #1f2328; line-height: 1.5; }
+
+/* Sidebar */
+#sidebar { width: 280px; min-width: 280px; height: 100vh; overflow-y: auto;
+           background: var(--bg-subtle); border-right: 1px solid var(--border);
+           padding: 16px; position: sticky; top: 0; font-size: 13px; }
+#sidebar h2 { font-size: 15px; margin: 0 0 12px 0; }
+#sidebar h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+              color: var(--text-muted); margin: 12px 0 4px 0; }
+#sidebar a { display: block; padding: 3px 6px; color: var(--blue); text-decoration: none;
+             border-radius: 4px; margin: 1px 0; }
+#sidebar a:hover { background: #ddf4ff; }
+.sidebar-group { margin-top: 8px; }
+.filter-input { width: 100%; padding: 4px 8px; border: 1px solid var(--border);
+                border-radius: 6px; font-size: 13px; margin-bottom: 6px; }
+
+/* Content */
+#content { flex: 1; padding: 32px 40px; max-width: 1100px; }
+h1 { font-size: 24px; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 8px; }
+h2 { font-size: 20px; margin-top: 40px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+h3 { font-size: 17px; margin-top: 28px; }
+h4 { font-size: 14px; margin: 12px 0 6px 0; color: var(--text-muted); }
+.meta { font-size: 13px; color: var(--text-muted); }
+
+/* Cards */
+.card { border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; font-size: 14px; }
+th { background: var(--bg-subtle); font-weight: 600; }
+.summary-table td:first-child { width: 60%; }
+.summary-table td:last-child { font-weight: 600; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px;
+         font-size: 11px; font-weight: 600; margin-right: 6px; }
+.badge.structural { background: #fdd; color: var(--red); }
+.badge.cosmetic { background: #fff3cd; color: var(--yellow); }
+
+/* Structure sections */
+.structure-section { margin: 24px 0; padding: 20px; border: 1px solid var(--border);
+                     border-radius: 8px; background: #fff; }
+
+/* Diff items */
+.diff-item { margin: 10px 0; padding: 10px 14px; border-radius: 6px;
+             border: 1px solid var(--border); }
+.diff-item.structural { border-left: 4px solid var(--red); background: #fff5f5; }
+.diff-item.cosmetic { border-left: 4px solid var(--yellow); background: #fffbeb; }
+.diff-header { margin-bottom: 6px; }
+.clause-ref { float: right; font-size: 12px; color: var(--text-muted); }
+.diff-values { font-size: 13px; }
+.ref-val, .occ-val { display: block; margin: 2px 0; }
+code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+.recommendation { margin-top: 8px; padding: 8px 12px; background: #f0f7ff;
+                   border-radius: 4px; font-size: 13px; border-left: 3px solid var(--blue); }
+
+</style></head><body>
+<div id="sidebar">
+<h2>Report Contents</h2>
+<a href="#summary">Summary</a>
+<a href="#fixes-applied">Fixes Applied</a>
+<a href="#remaining">Remaining Differences</a>
+<div class="sidebar-group">
+<h3>Structures with Differences</h3>
+<input class="filter-input" placeholder="Filter..." oninput="filterSidebar(this.value)">
+<a href="#ACK" class="sidebar-item">ACK <span class="badge structural">1</span></a>
+<a href="#ADT_A01" class="sidebar-item">ADT_A01 <span class="badge structural">1</span></a>
+<a href="#ADT_A05" class="sidebar-item">ADT_A05 <span class="badge structural">1</span></a>
+<a href="#MDM_T01" class="sidebar-item">MDM_T01 <span class="badge cosmetic">5</span></a>
+<a href="#MDM_T02" class="sidebar-item">MDM_T02 <span class="badge cosmetic">8</span></a>
+<a href="#ORU_R01" class="sidebar-item">ORU_R01 <span class="badge structural">1</span></a>
+<a href="#ORU_R30" class="sidebar-item">ORU_R30 <span class="badge cosmetic">3</span></a>
+<a href="#QBP_Q11" class="sidebar-item">QBP_Q11 <span class="badge cosmetic">10</span></a>
+<a href="#RDE_O11" class="sidebar-item">RDE_O11 <span class="badge cosmetic">3</span></a>
+<a href="#RDY_K15" class="sidebar-item">RDY_K15 <span class="badge structural">1</span></a>
+<a href="#RQI_I01" class="sidebar-item">RQI_I01 <span class="badge cosmetic">1</span></a>
+<a href="#RTB_K13" class="sidebar-item">RTB_K13 <span class="badge structural">1</span></a>
+</div>
+<a href="#prt-audit">PRT Description Audit</a>
+<a href="#consistent">Consistent Structures</a>
+</div>
+<div id="content">
+<h1>V2.9.1 Message Structure Review Report</h1>
+<p class="meta">Generated: 2026-04-16 19:45 UTC | For V2 Management Group review</p>
+<p>This report analyzes internal consistency of message structure definitions across V2.9.1 Word documents. When the same structure (e.g., ADT_A01) appears in multiple clauses for different events, the tables should be identical. Differences are categorized and recommendations provided.</p>
+<h2 id="summary">Summary</h2>
+<div class="card">
+<table class="summary-table">
+<tr><td>Total structures extracted</td><td>216</td></tr>
+<tr><td>Structures with multiple occurrences</td><td>35</td></tr>
+<tr><td>Structures with remaining differences</td><td><strong>12</strong></td></tr>
+<tr><td>Total remaining differences</td><td><strong>36</strong></td></tr>
+<tr><td>Fixes applied (fixes.json)</td><td>70 fixes</td></tr>
+</table>
+</div>
+<h3>Remaining Differences by Category</h3>
+<div class="card">
+<table>
+<tr><th>Category</th><th>Count</th><th>Action</th></tr>
+<tr><td>Cardinality (structural)</td><td>6</td><td>V2 Management review required</td></tr>
+<tr><td>Extraction artifact</td><td>8</td><td>Word parsing issue — noted, no action</td></tr>
+<tr><td>PRT description qualifier</td><td>6</td><td>V2 Management review — see PRT audit</td></tr>
+<tr><td>Group name variant</td><td>3</td><td>Pending decision</td></tr>
+<tr><td>Description other</td><td>13</td><td>Pending decision</td></tr>
+</table>
+</div>
+<h2 id="fixes-applied">Fixes Applied</h2>
+<p>The following fix categories have been applied to produce the canonical data. See <code>v291-canonical/fixes.json</code> for full traceability.</p>
+<div class="card">
+<table>
+<tr><th>Category</th><th>Count</th><th>Description</th></tr>
+<tr><td>bracket_malformed</td><td>20</td><td>Mismatched/swapped bracket notation</td></tr>
+<tr><td>bracket_whitespace</td><td>1</td><td>Whitespace normalization in bracket notation</td></tr>
+<tr><td>desc_typo</td><td>12</td><td>Misspellings in segment descriptions</td></tr>
+<tr><td>desc_cosmetic</td><td>23</td><td>Trailing "Segment" suffix, dashes, abbreviations</td></tr>
+<tr><td>desc_meaningful</td><td>7</td><td>Substantive description corrections</td></tr>
+<tr><td>cardinality</td><td>4</td><td>ERR repeatability standardization in ACK structures</td></tr>
+<tr><td>extraction_artifact</td><td>2</td><td>Word document parsing issues (clause, caption)</td></tr>
+<tr><td>pending_review</td><td>1</td><td>Pending V2 Management review</td></tr>
+</table>
+</div>
+<h2 id="remaining">Remaining Differences by Structure</h2>
+<p>Each structure section shows all locations where it appears in the V2.9.1 Word documents, the events that use it, and a detailed analysis of each difference.</p>
+<div class="structure-section" id="ACK">
+<h3>ACK <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>2.13.1</td><td>ACK^varies^ACK: General Acknowledgment</td><td>CH02</td><td>5</td></tr>
+<tr><td>2</td><td>3.3.1</td><td>ACK^A01^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>3</td><td>3.3.2</td><td>ACK^A02^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>4</td><td>3.3.3</td><td>ACK^A03^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>5</td><td>3.3.4</td><td>ACK^A04^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>6</td><td>3.3.5</td><td>ACK^A05^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>7</td><td>3.3.6</td><td>ACK^A06^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>8</td><td>3.3.7</td><td>ACK^A07^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>9</td><td>3.3.8</td><td>ACK^A08^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>10</td><td>3.3.9</td><td>ACK^A09^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>11</td><td>3.3.10</td><td>ACK^A10^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>12</td><td>3.3.11</td><td>ACK^A11^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>13</td><td>3.3.12</td><td>ACK^A12^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>14</td><td>3.3.13</td><td>ACK^A13^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>15</td><td>3.3.14</td><td>ACK^A14^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>16</td><td>3.3.15</td><td>ACK^A15^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>17</td><td>3.3.16</td><td>ACK^A16^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>18</td><td>3.3.17</td><td>ACK^A17^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>19</td><td>3.3.20</td><td>ACK^A20^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>20</td><td>3.3.21</td><td>ACK^A21^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>21</td><td>3.3.22</td><td>ACK^A22^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>22</td><td>3.3.23</td><td>ACK^A23^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>23</td><td>3.3.24</td><td>ACK^A24^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>24</td><td>3.3.25</td><td>ACK^A25^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>25</td><td>3.3.26</td><td>ACK^A26^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>26</td><td>3.3.27</td><td>ACK^A27^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>27</td><td>3.3.28</td><td>ACK^A28^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>28</td><td>3.3.29</td><td>ACK^A29^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>29</td><td>3.3.31</td><td>ACK^A31^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>30</td><td>3.3.32</td><td>ACK^A32^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>31</td><td>3.3.33</td><td>ACK^A33^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>32</td><td>3.3.37</td><td>ACK^A37^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>33</td><td>3.3.38</td><td>ACK^A38^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>34</td><td>3.3.40</td><td>ACK^A40^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>35</td><td>3.3.41</td><td>ACK^A41^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>36</td><td>3.3.42</td><td>ACK^A42^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>37</td><td>3.3.43</td><td>ACK^A43^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>38</td><td>3.3.44</td><td>ACK^A44^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>39</td><td>3.3.45</td><td>ACK^A45^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>40</td><td>3.3.47</td><td>ACK^A47^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>41</td><td>3.3.49</td><td>ACK^A49^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>42</td><td>3.3.50</td><td>ACK^A50^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>43</td><td>3.3.51</td><td>ACK^A51^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>44</td><td>3.3.52</td><td>ACK^A52^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>45</td><td>3.3.53</td><td>ACK^A53^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>46</td><td>3.3.54</td><td>ACK^A54^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>47</td><td>3.3.55</td><td>ACK^A55^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>48</td><td>3.3.60</td><td>ACK^A60^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>49</td><td>3.3.61</td><td>ACK^A61^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>50</td><td>3.3.62</td><td>ACK^A62^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
+<tr><td>51</td><td>5.4.4</td><td>ACK^Q16^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
+<tr><td>52</td><td>5.4.5</td><td>ACK^Q17^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
+<tr><td>53</td><td>5.4.6</td><td>ACK^J01^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
+<tr><td>54</td><td>5.4.7</td><td>ACK^J02^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
+<tr><td>55</td><td>6.4.1</td><td>ACK^P01^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>56</td><td>6.4.2</td><td>ACK^P02^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>57</td><td>6.4.3</td><td>ACK^P03^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>58</td><td>6.4.5</td><td>ACK^P05^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>59</td><td>6.4.6</td><td>ACK^P06^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>60</td><td>6.4.7</td><td>ACK^P10^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>61</td><td>6.4.8</td><td>ACK^P11^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>62</td><td>6.4.9</td><td>ACK^P12^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
+<tr><td>63</td><td>7.3.1</td><td>ACK^R01^ACK: Observation Message</td><td>CH07</td><td>5</td></tr>
+<tr><td>64</td><td>7.3.4</td><td>ACK^R30^ACK: Observation Message</td><td>CH07</td><td>5</td></tr>
+<tr><td>65</td><td>7.3.5</td><td>ACK^R31^ACK: Acknowledgment</td><td>CH07</td><td>5</td></tr>
+<tr><td>66</td><td>7.3.6</td><td>ACK^R32^ACK: Observation Message</td><td>CH07</td><td>5</td></tr>
+<tr><td>67</td><td>9.6.1</td><td>ACK^T01^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>68</td><td>9.6.2</td><td>ACK^T02^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>69</td><td>9.6.3</td><td>ACK^T03^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>70</td><td>9.6.4</td><td>ACK^T04^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>71</td><td>9.6.5</td><td>ACK^T05^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>72</td><td>9.6.6</td><td>ACK^T06^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>73</td><td>9.6.7</td><td>ACK^T07^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>74</td><td>9.6.8</td><td>ACK^T08^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>75</td><td>9.6.9</td><td>ACK^T09^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>76</td><td>9.6.10</td><td>ACK^T10^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>77</td><td>9.6.11</td><td>ACK^T11^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
+<tr><td>78</td><td>10.4</td><td>ACK^S12-S24,S26,S27^ACK: General Acknowledgment</td><td>CH10</td><td>5</td></tr>
+<tr><td>79</td><td>11.3.7</td><td>ACK^I07^ACK: General Acknowledgment</td><td>CH11</td><td>5</td></tr>
+<tr><td>80</td><td>12.3.1</td><td>ACK^PC6-PC8^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
+<tr><td>81</td><td>12.3.2</td><td>ACK^PC1-PC3^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
+<tr><td>82</td><td>12.3.3</td><td>ACK^PCB-PCD^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
+<tr><td>83</td><td>12.3.4</td><td>ACK^PCG,PCH,PCJ^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
+<tr><td>84</td><td>13.3.1</td><td>ACK^U01^ACK: General Acknowledgement</td><td>CH13</td><td>5</td></tr>
+<tr><td>85</td><td>13.3.2</td><td>ACK^U02^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>86</td><td>13.3.3</td><td>ACK^U03^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>87</td><td>13.3.4</td><td>ACK^U04^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>88</td><td>13.3.5</td><td>ACK^U05^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>89</td><td>13.3.6</td><td>ACK^U06^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>90</td><td>13.3.7</td><td>ACK^U07^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>91</td><td>13.3.8</td><td>ACK^U08^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>92</td><td>13.3.9</td><td>ACK^U09^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>93</td><td>13.3.10</td><td>ACK^U10^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>94</td><td>13.3.11</td><td>ACK^U11^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>95</td><td>13.3.12</td><td>ACK^U12^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>96</td><td>13.3.13</td><td>ACK^U13^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>97</td><td>13.3.14</td><td>ACK^U14^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
+<tr><td>98</td><td>14.3.2</td><td>NMD^N02^NMD_N02: Application Management Data</td><td>CH14</td><td>5</td></tr>
+<tr><td>99</td><td>15.3.1</td><td>ACK^B01^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>100</td><td>15.3.2</td><td>ACK^B02^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>101</td><td>15.3.3</td><td>ACK^B03^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>102</td><td>15.3.4</td><td>ACK^B04^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>103</td><td>15.3.5</td><td>ACK^B05^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>104</td><td>15.3.6</td><td>ACK^B06^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>105</td><td>15.3.8</td><td>ACK^B07^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>106</td><td>15.3.9</td><td>ACK^B08^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
+<tr><td>107</td><td>17.5.1</td><td>ACK^S28^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>108</td><td>17.5.2</td><td>ACK^S29^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>109</td><td>17.5.3</td><td>ACK^S30^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>110</td><td>17.5.4</td><td>ACK^S31^ACK: Anti-Microbial Device Data Request Response</td><td>CH17</td><td>5</td></tr>
+<tr><td>111</td><td>17.5.5</td><td>ACK^S32^ACK: Anti-Microbial Device Cycle Data Request Response</td><td>CH17</td><td>5</td></tr>
+<tr><td>112</td><td>17.6.1</td><td>ACK^S33^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>113</td><td>17.6.2</td><td>ACK^S34^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>114</td><td>17.6.3</td><td>ACK^S35^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>115</td><td>17.6.4</td><td>ACK^S36^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+<tr><td>116</td><td>17.6.5</td><td>ACK^S37^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> ACK^A01, ACK^A02, ACK^A03, ACK^A04, ACK^A05, ACK^A06, ACK^A07, ACK^A08, ACK^A09, ACK^A10 ... and 126 more</p>
+<h4>Differences</h4>
+<div class="diff-item structural">
+<div class="diff-header"><span class="badge structural">Cardinality (structural)</span> <strong>UAC</strong> (row 3)<span class="clause-ref">clause 10.4</span></div>
+<div class="diff-values"><span class="ref-val">ref (2.13.1): <code>[ UAC ]</code></span><span class="occ-val">vs (10.4): <code>[{ UAC }]</code></span></div>
+<div class="recommendation"><strong>Consensus (115:1):</strong> <code>[ UAC ]</code>
+<br><em>The minority instance adds repeatability (curly braces). Adopting repeatability may not break existing implementations, since implementations that only send one repetition would still be conformant.</em></div>
+</div>
+</div>
+<div class="structure-section" id="ADT_A01">
+<h3>ADT_A01 <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>3.3.1</td><td>ADT^A01^ADT_A01: ADT Message</td><td>CH03</td><td>67</td></tr>
+<tr><td>2</td><td>3.3.4</td><td>ADT^A04^ADT_A01: ADT Message</td><td>CH03</td><td>67</td></tr>
+<tr><td>3</td><td>3.3.8</td><td>ADT^A08^ADT_A01: ADT Message</td><td>CH03</td><td>67</td></tr>
+<tr><td>4</td><td>3.3.13</td><td>ADT^A13^ADT_A01: ADT Message</td><td>CH03</td><td>67</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> ADT^A01, ADT^A04, ADT^A08, ADT^A13</p>
+<h4>Differences</h4>
+<div class="diff-item structural">
+<div class="diff-header"><span class="badge structural">Cardinality (structural)</span> <strong>OH3</strong> (row 13)<span class="clause-ref">clause 3.3.13</span></div>
+<div class="diff-values"><span class="ref-val">ref (3.3.1): <code>[ OH3 ]</code></span><span class="occ-val">vs (3.3.13): <code>[{ OH3 }]</code></span></div>
+<div class="recommendation"><strong>Consensus (3:1):</strong> <code>[ OH3 ]</code>
+<br><em>The minority instance adds repeatability (curly braces). Adopting repeatability may not break existing implementations, since implementations that only send one repetition would still be conformant.</em></div>
+</div>
+</div>
+<div class="structure-section" id="ADT_A05">
+<h3>ADT_A05 <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>3.3.5</td><td>ADT^A05^ADT_A05: ADT Message</td><td>CH03</td><td>66</td></tr>
+<tr><td>2</td><td>3.3.14</td><td>ADT^A14^ADT_A05: ADT Message</td><td>CH03</td><td>66</td></tr>
+<tr><td>3</td><td>3.3.28</td><td>ADT^A28^ADT_A05: ADT Message</td><td>CH03</td><td>66</td></tr>
+<tr><td>4</td><td>3.3.31</td><td>ADT^A31^ADT_A05: ADT Message</td><td>CH03</td><td>66</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> ADT^A05, ADT^A14, ADT^A28, ADT^A31</p>
+<h4>Differences</h4>
+<div class="diff-item structural">
+<div class="diff-header"><span class="badge structural">Cardinality (structural)</span> <strong>NK1</strong> (row 19)<span class="clause-ref">clause 3.3.28</span></div>
+<div class="diff-values"><span class="ref-val">ref (3.3.5): <code>NK1</code></span><span class="occ-val">vs (3.3.28): <code>[{ NK1 }]</code></span></div>
+<div class="recommendation"><strong>Consensus (3:1):</strong> <code>NK1</code>
+<br><em>The minority instance adds repeatability (curly braces). Adopting repeatability may not break existing implementations, since implementations that only send one repetition would still be conformant.</em>
+<br><em>The minority instance makes the segment optional (brackets). Making a required segment optional is generally safe but changes conformance expectations. Needs V2 Management Group review.</em></div>
+</div>
+</div>
+<div class="structure-section" id="MDM_T01">
+<h3>MDM_T01 <span class="badge structural">5 differences</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>9.6.1</td><td>MDM^T01^MDM_T01: Original Document Notification</td><td>CH09</td><td>24</td></tr>
+<tr><td>2</td><td>9.6.3</td><td>MDM^T03^MDM_T01: Document Status Change Notification</td><td>CH09</td><td>24</td></tr>
+<tr><td>3</td><td>9.6.5</td><td>MDM^T05^MDM_T01: Document Addendum Notification</td><td>CH09</td><td>24</td></tr>
+<tr><td>4</td><td>9.6.7</td><td>MDM^T07^MDM_T01: Document Edit Notification</td><td>CH09</td><td>24</td></tr>
+<tr><td>5</td><td>9.6.9</td><td>MDM^T09^MDM_T01: Document Replacement Notification</td><td>CH09</td><td>24</td></tr>
+<tr><td>6</td><td>9.6.11</td><td>MDM^T11^MDM_T01: Document Cancel Notification</td><td>CH09</td><td>24</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> MDM^T01, MDM^T03, MDM^T05, MDM^T07, MDM^T09, MDM^T11</p>
+<h4>Differences</h4>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.3</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.1): <code>Notes and comments about the observation request (OBR)</code></span><span class="occ-val">vs (9.6.3): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.5</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.1): <code>Notes and comments about the observation request (OBR)</code></span><span class="occ-val">vs (9.6.5): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.7</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.1): <code>Notes and comments about the observation request (OBR)</code></span><span class="occ-val">vs (9.6.7): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.9</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.1): <code>Notes and comments about the observation request (OBR)</code></span><span class="occ-val">vs (9.6.9): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.11</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.1): <code>Notes and comments about the observation request (OBR)</code></span><span class="occ-val">vs (9.6.11): <code>Notes and comments about the OBR</code></span></div>
+</div>
+</div>
+<div class="structure-section" id="MDM_T02">
+<h3>MDM_T02 <span class="badge structural">8 differences</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>9.6.2</td><td>MDM^T02^MDM_T02: Original Document Notification &amp; Content</td><td>CH09</td><td>29</td></tr>
+<tr><td>2</td><td>9.6.4</td><td>MDM^T04^MDM_T02: Document Status Change Notification &amp; Content</td><td>CH09</td><td>29</td></tr>
+<tr><td>3</td><td>9.6.6</td><td>MDM^T06^MDM_T02: Document Addendum Notification &amp; Content</td><td>CH09</td><td>29</td></tr>
+<tr><td>4</td><td>9.6.8</td><td>MDM^T08^MDM_T02: Document Edit Notification &amp; Content</td><td>CH09</td><td>29</td></tr>
+<tr><td>5</td><td>9.6.10</td><td>MDM^T10^MDM_T02: Document Replacement Notification &amp; Content</td><td>CH09</td><td>29</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> MDM^T02, MDM^T04, MDM^T06, MDM^T08, MDM^T10</p>
+<h4>Differences</h4>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.4</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBR)</code></span><span class="occ-val">vs (9.6.4): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 28)<span class="clause-ref">clause 9.6.4</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBX)</code></span><span class="occ-val">vs (9.6.4): <code>Notes and comments segment for OBX</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.6</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBR)</code></span><span class="occ-val">vs (9.6.6): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 28)<span class="clause-ref">clause 9.6.6</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBX)</code></span><span class="occ-val">vs (9.6.6): <code>Notes and comments about the OBX</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.8</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBR)</code></span><span class="occ-val">vs (9.6.8): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 28)<span class="clause-ref">clause 9.6.8</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBX)</code></span><span class="occ-val">vs (9.6.8): <code>Notes and comments about the OBX</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 21)<span class="clause-ref">clause 9.6.10</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBR)</code></span><span class="occ-val">vs (9.6.10): <code>Notes and comments about the OBR</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Description other</span> <strong>NTE</strong> (row 28)<span class="clause-ref">clause 9.6.10</span></div>
+<div class="diff-values"><span class="ref-val">ref (9.6.2): <code>Notes and comments about the observation (OBX)</code></span><span class="occ-val">vs (9.6.10): <code>Notes and comments about the OBX</code></span></div>
+</div>
+</div>
+<div class="structure-section" id="ORU_R01">
+<h3>ORU_R01 <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>7.3.1</td><td>ORU^R01^ORU_R01: Observation Message</td><td>CH07</td><td>82</td></tr>
+<tr><td>2</td><td>7.3.12</td><td>ORU^R40^ORU_R01: Observation Message</td><td>CH07</td><td>82</td></tr>
+<tr><td>3</td><td>7.3.14</td><td>ORU^R42^ORU_R01: Observation Message</td><td>CH07</td><td>82</td></tr>
+<tr><td>4</td><td>7.3.15</td><td>ORU^R43^ORU_R01: Observation Message</td><td>CH07</td><td>82</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> ORU^R01, ORU^R40, ORU^R42, ORU^R43</p>
+<h4>Differences</h4>
+<div class="diff-item structural">
+<div class="diff-header"><span class="badge structural">Cardinality (structural)</span> <strong>PRT</strong> (row 54)<span class="clause-ref">clause 7.3.12</span></div>
+<div class="diff-values"><span class="ref-val">ref (7.3.1): <code>PRT</code></span><span class="occ-val">vs (7.3.12): <code>[{ PRT }]</code></span></div>
+<div class="recommendation"><strong>Consensus (3:1):</strong> <code>PRT</code>
+<br><em>The minority instance adds repeatability (curly braces). Adopting repeatability may not break existing implementations, since implementations that only send one repetition would still be conformant.</em>
+<br><em>The minority instance makes the segment optional (brackets). Making a required segment optional is generally safe but changes conformance expectations. Needs V2 Management Group review.</em></div>
+</div>
+</div>
+<div class="structure-section" id="ORU_R30">
+<h3>ORU_R30 <span class="badge structural">3 differences</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>7.3.4</td><td>ORU^R30^ORU_R30: Observation Message:</td><td>CH07</td><td>42</td></tr>
+<tr><td>2</td><td>7.3.5</td><td>ORU^R31^ORU_R30: Observation Message</td><td>CH07</td><td>42</td></tr>
+<tr><td>3</td><td>7.3.6</td><td>ORU^R32^ORU_R30: Observation Message</td><td>CH07</td><td>42</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> ORU^R30, ORU^R31, ORU^R32</p>
+<h4>Differences</h4>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">PRT description qualifier</span> <strong>PRT</strong> (row 36)<span class="clause-ref">clause 7.3.5</span></div>
+<div class="diff-values"><span class="ref-val">ref (7.3.4): <code>Participation (for Observation)</code></span><span class="occ-val">vs (7.3.5): <code>Participation (for Observation Results)</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">PRT description qualifier</span> <strong>PRT</strong> (row 29)<span class="clause-ref">clause 7.3.6</span></div>
+<div class="diff-values"><span class="ref-val">ref (7.3.4): <code>Participation (for Observation)</code></span><span class="occ-val">vs (7.3.6): <code>Participation (for Observation Request)</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">PRT description qualifier</span> <strong>PRT</strong> (row 36)<span class="clause-ref">clause 7.3.6</span></div>
+<div class="diff-values"><span class="ref-val">ref (7.3.4): <code>Participation (for Observation)</code></span><span class="occ-val">vs (7.3.6): <code>Participation (for Observation Results)</code></span></div>
+</div>
+</div>
+<div class="structure-section" id="QBP_Q11">
+<h3>QBP_Q11 <span class="badge structural">10 differences</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>4A.4.23</td><td>QBP^Q31^QBP_Q11: Query Grammar:  QBP Message</td><td>CH04A</td><td>10</td></tr>
+<tr><td>2</td><td>5.3.3.2</td><td>QBP^Znn^QBP_Q11: Query Grammar:  QBP Message</td><td>CH05</td><td>10</td></tr>
+<tr><td>3</td><td>5.4.1</td><td>QBP^Q11^QBP_Q11: Query By Parameter</td><td>CH05</td><td>10</td></tr>
+<tr><td>4</td><td>5.9.2.2.1</td><td>QBP^Z87^QBP_Q11: Query Grammar:  QBS Message</td><td>CH05</td><td>10</td></tr>
+<tr><td>5</td><td>5.9.2.5</td><td>QBP^Z89^QBP_Q11: Query Grammar:  QBS Message</td><td>CH05</td><td>10</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> QBP^Q11, QBP^Q31, QBP^Z87, QBP^Z89, QBP^Znn</p>
+<h4>Differences</h4>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>MSH</strong> (row 1)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Message Header</code></span><span class="occ-val">vs (5.3.3.2): <code>MSH</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>ARV</strong> (row 2)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Access Restrictions</code></span><span class="occ-val">vs (5.3.3.2): <code>[{ARV}]</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>SFT</strong> (row 3)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Software</code></span><span class="occ-val">vs (5.3.3.2): <code>[{SFT}]</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>UAC</strong> (row 4)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>User Authentication Credential</code></span><span class="occ-val">vs (5.3.3.2): <code>[ UAC ]</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>QPD</strong> (row 5)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Query Parameter Definition</code></span><span class="occ-val">vs (5.3.3.2): <code>QPD</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Group name variant</span> (row 6)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>--- QBP begin</code></span><span class="occ-val">vs (5.3.3.2): <code>[</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>...</strong> (row 7)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Optional query by example segments</code></span><span class="occ-val">vs (5.3.3.2): <code>[...]</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Group name variant</span> (row 8)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>--- QBP end</code></span><span class="occ-val">vs (5.3.3.2): <code>]</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>RCP</strong> (row 9)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Response Control Parameter</code></span><span class="occ-val">vs (5.3.3.2): <code>RCP</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Extraction artifact</span> <strong>DSC</strong> (row 10)<span class="clause-ref">clause 5.3.3.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.23): <code>Continuation Pointer</code></span><span class="occ-val">vs (5.3.3.2): <code>[ DSC ]</code></span></div>
+<div class="recommendation"><em>This is a Word document parsing artifact. The description column contains bracket notation instead of real descriptions, likely due to hidden columns or XML formatting in the Word document. No action required.</em></div>
+</div>
+</div>
+<div class="structure-section" id="RDE_O11">
+<h3>RDE_O11 <span class="badge structural">3 differences</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>4A.4.6</td><td>RDE^O11^RDE_O11: Pharmacy/Treatment Encoded Order Message</td><td>CH04A</td><td>73</td></tr>
+<tr><td>2</td><td>4A.4.16</td><td>RDE^O25^RDE_O11: Pharmacy/Treatment Refill Authorization Request</td><td>CH04A</td><td>73</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> RDE^O11, RDE^O25</p>
+<h4>Differences</h4>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">PRT description qualifier</span> <strong>PRT</strong> (row 12)<span class="clause-ref">clause 4A.4.16</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.6): <code>Participation (for Patient)</code></span><span class="occ-val">vs (4A.4.16): <code>Participation (for Additional Demographics)</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">PRT description qualifier</span> <strong>PRT</strong> (row 31)<span class="clause-ref">clause 4A.4.16</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.6): <code>Participation (for ORC)</code></span><span class="occ-val">vs (4A.4.16): <code>Participation (for Order)</code></span></div>
+</div>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">PRT description qualifier</span> <strong>PRT</strong> (row 67)<span class="clause-ref">clause 4A.4.16</span></div>
+<div class="diff-values"><span class="ref-val">ref (4A.4.6): <code>Participation (for Observation)</code></span><span class="occ-val">vs (4A.4.16): <code>Participation (for OBX)</code></span></div>
+</div>
+</div>
+<div class="structure-section" id="RDY_K15">
+<h3>RDY_K15 <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>5.3.2.6</td><td>RDY^Znn^RDY_K15: Response Grammar: Dispense History</td><td>CH05</td><td>9</td></tr>
+<tr><td>2</td><td>5.3.3.4</td><td>RDY^Znn^RDY_K15: Response Grammar:  RDY Message</td><td>CH05</td><td>9</td></tr>
+<tr><td>3</td><td>5.4.3</td><td>RDY^K15^RDY_K15: Display Based Response</td><td>CH05</td><td>9</td></tr>
+<tr><td>4</td><td>5.9.5.2</td><td>RDY^Z98^RDY_K15: Response Grammar:  Dispense History</td><td>CH05</td><td>9</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> RDY^K15, RDY^Z98, RDY^Znn</p>
+<h4>Differences</h4>
+<div class="diff-item structural">
+<div class="diff-header"><span class="badge structural">Cardinality (structural)</span> <strong>ERR</strong> (row 5)<span class="clause-ref">clause 5.4.3</span></div>
+<div class="diff-values"><span class="ref-val">ref (5.3.2.6): <code>[ ERR ]</code></span><span class="occ-val">vs (5.4.3): <code>[{ ERR }]</code></span></div>
+<div class="recommendation"><strong>Consensus (3:1):</strong> <code>[ ERR ]</code>
+<br><em>The minority instance adds repeatability (curly braces). Adopting repeatability may not break existing implementations, since implementations that only send one repetition would still be conformant.</em></div>
+</div>
+</div>
+<div class="structure-section" id="RQI_I01">
+<h3>RQI_I01 <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>11.3.1</td><td>RQI^I01^RQI_I01: Request Patient Information</td><td>CH11</td><td>25</td></tr>
+<tr><td>2</td><td>11.3.2</td><td>RQI^I02^RQI_I01: Request Patient Information</td><td>CH11</td><td>25</td></tr>
+<tr><td>3</td><td>11.3.3</td><td>RQI^I03^RQI_I01: Request Patient Information</td><td>CH11</td><td>25</td></tr>
+<tr><td>4</td><td>11.3.7</td><td>PIN^I07^RQI_I01: Patient Insurance Information</td><td>CH11</td><td>25</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> PIN^I07, RQI^I01, RQI^I02, RQI^I03</p>
+<h4>Differences</h4>
+<div class="diff-item cosmetic">
+<div class="diff-header"><span class="badge cosmetic">Group name variant</span> (row 17)<span class="clause-ref">clause 11.3.3</span></div>
+<div class="diff-values"><span class="ref-val">ref (11.3.1): <code>--- GUARANTOR_INSURANCE begin</code></span><span class="occ-val">vs (11.3.3): <code>--- GUARANTOR+INSURANCE begin</code></span></div>
+</div>
+</div>
+<div class="structure-section" id="RTB_K13">
+<h3>RTB_K13 <span class="badge structural">1 difference</span></h3>
+<h4>Occurrences in V2.9.1</h4>
+<table>
+<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
+<tr><td>1 <em>(reference)</em></td><td>5.3.3.2</td><td>RTB^Znn^RTB_K13: Response Grammar:  RTB Message</td><td>CH05</td><td>12</td></tr>
+<tr><td>2</td><td>5.4.2</td><td>RTB^K13^RTB_K13: Table Based Response</td><td>CH05</td><td>12</td></tr>
+<tr><td>3</td><td>5.9.3.2.1</td><td>RTB^Z92^RTB_K13: Response Grammar: Who Am I</td><td>CH05</td><td>12</td></tr>
+<tr><td>4</td><td>5.9.3.3.1</td><td>RTB^Z94^RTB_K13: Response Grammar: Who Am I</td><td>CH05</td><td>12</td></tr>
+<tr><td>5</td><td>5.9.4.2.1</td><td>RTB^Z96^RTB_K13: Response Grammar: Who Am I</td><td>CH05</td><td>12</td></tr>
+<tr><td>6</td><td>5.9.7.2</td><td>RTB^Z78^RTB_K13: Response Grammar: Who Am I</td><td>CH05</td><td>12</td></tr>
+<tr><td>7</td><td>5.9.7.3</td><td>RTB^Z76^RTB_K13: Response Grammar: Who Am I</td><td>CH05</td><td>12</td></tr>
+</table>
+<p class="meta"><strong>Events:</strong> RTB^K13, RTB^Z76, RTB^Z78, RTB^Z92, RTB^Z94, RTB^Z96, RTB^Znn</p>
+<h4>Differences</h4>
+<div class="diff-item structural">
+<div class="diff-header"><span class="badge structural">Cardinality (structural)</span> <strong>ERR</strong> (row 5)<span class="clause-ref">clause 5.4.2</span></div>
+<div class="diff-values"><span class="ref-val">ref (5.3.3.2): <code>[ ERR ]</code></span><span class="occ-val">vs (5.4.2): <code>[{ ERR }]</code></span></div>
+<div class="recommendation"><strong>Consensus (6:1):</strong> <code>[ ERR ]</code>
+<br><em>The minority instance adds repeatability (curly braces). Adopting repeatability may not break existing implementations, since implementations that only send one repetition would still be conformant.</em></div>
+</div>
+</div>
+<h2 id="prt-audit">PRT/OBX Description Audit</h2>
+<p>This audit examines all PRT (Participation) and OBX segment descriptions across <strong>all 427 message structures</strong> (not just multi-occurrence ones). It identifies cases where the parenthetical qualifier in the description does not match the group the segment is in.</p>
+<div class="card">
+<table>
+<tr><th>Category</th><th>Count</th><th>Description</th></tr>
+<tr><td>Typos</td><td>7</td><td>Misspellings in "Participation" or qualifier text, unclosed parentheses</td></tr>
+<tr><td>Wrong titleization</td><td>4</td><td>"for common order" should be "for Common Order"</td></tr>
+<tr><td>Segment code as qualifier</td><td>28</td><td>"for ORC" instead of "for Order" — uses segment code, not group name</td></tr>
+<tr><td>Qualifier mismatch</td><td>90</td><td>Parenthetical does not match the containing group name</td></tr>
+<tr><td>Bare "Participation"</td><td>272</td><td>PRT has no parenthetical qualifier — ambiguous in multi-PRT structures</td></tr>
+<tr><td>OBX issues</td><td>16</td><td>OBX descriptions inconsistent with group name</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>417</strong></td><td>across 115 structures</td></tr>
+</table>
+</div>
+<h3>Key Patterns for V2 Management Review</h3>
+<div class="card">
+<ol>
+<li><strong>272 bare "Participation" instances</strong> across 98 structures have no parenthetical qualifier, making them ambiguous when a structure has multiple PRT segments in different groups.</li>
+<li><strong>"for Patient Visit" in VISIT group</strong> (12 instances) — the group is "VISIT" but the qualifier says "Patient Visit".</li>
+<li><strong>"for Common Order" in ORDER group</strong> (7 instances) — the PRT is in the ORDER group but references the COMMON_ORDER sub-group.</li>
+<li><strong>"for Additional Demographics" in PATIENT group</strong> (5 instances) — references a segment (PD1) instead of the group.</li>
+<li><strong>Segment code qualifiers</strong> (28 instances) use "for ORC", "for RXO", "for OBX", etc. instead of the group name. Most prevalent in pharmacy messages.</li>
+<li><strong>"for Observation" in various qualified groups</strong> — PATIENT_OBSERVATION, SPECIMEN_OBSERVATION, etc. The qualifier "for Observation" is too generic for qualified observation groups.</li>
+</ol>
+<p>Typos and titleization issues have been fixed. All other findings require V2 Management Group decisions on standardization of PRT description conventions.</p>
+<p><em>Full audit detail: <code>v291-canonical/prt-obx-description-audit.txt</code></em></p>
+</div>
+<h2 id="consistent">Consistent Structures</h2>
+<p>23 multi-occurrence structures have identical content across all occurrences (no differences after applying fixes).</p>
+<div class="card"><table>
+<tr><th>Structure</th><th>Occurrences</th></tr>
+<tr><td>ADT_A06</td><td>2</td></tr>
+<tr><td>ADT_A09</td><td>3</td></tr>
+<tr><td>ADT_A21</td><td>9</td></tr>
+<tr><td>ADT_A39</td><td>3</td></tr>
+<tr><td>ADT_A43</td><td>2</td></tr>
+<tr><td>ADT_A44</td><td>2</td></tr>
+<tr><td>ADT_A50</td><td>2</td></tr>
+<tr><td>ADT_A52</td><td>2</td></tr>
+<tr><td>ADT_A54</td><td>2</td></tr>
+<tr><td>ADT_A61</td><td>2</td></tr>
+<tr><td>LSU_U12</td><td>2</td></tr>
+<tr><td>MFK_M01</td><td>17</td></tr>
+<tr><td>PMU_B01</td><td>2</td></tr>
+<tr><td>PMU_B04</td><td>3</td></tr>
+<tr><td>QBP_Q21</td><td>5</td></tr>
+<tr><td>QCN_J01</td><td>2</td></tr>
+<tr><td>QSB_Q16</td><td>2</td></tr>
+<tr><td>RRE_O12</td><td>2</td></tr>
+<tr><td>RSP_K23</td><td>2</td></tr>
+<tr><td>SDR_S31</td><td>3</td></tr>
+<tr><td>SDR_S32</td><td>3</td></tr>
+<tr><td>SLR_S28</td><td>8</td></tr>
+<tr><td>TCU_U10</td><td>2</td></tr>
+</table></div>
+</div>
+<script>
+
+function filterSidebar(q) {
+    q = q.toLowerCase();
+    document.querySelectorAll('.sidebar-item').forEach(function(a) {
+        a.style.display = a.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+}
+    
+</script></body></html>

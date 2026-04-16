@@ -60,7 +60,13 @@ def find_target_files(fix, all_structures):
       - "all": apply to all occurrences of this structure ID
       - "CH03, table 14": apply to the specific occurrence
       - index (int): apply to the Nth occurrence (0-based)
+      - applies_to_file: direct filename match (overrides other logic)
     """
+    # Direct filename match takes precedence
+    direct_file = fix.get('applies_to_file')
+    if direct_file and direct_file in all_structures:
+        return [direct_file]
+
     sid = fix['structure']
     scope = fix.get('occurrence', 'all')
     matches = []
@@ -166,6 +172,39 @@ def apply_fix(fix, data):
                 row['description'] = to_val
                 applied.append(f'Row {i+1} description: "{from_val}" → "{to_val}"')
 
+    elif field == 'description_strip_segment_suffix':
+        # Remove trailing ' Segment' from descriptions (not group markers)
+        for i, row in enumerate(data['rawRows']):
+            desc = row['description']
+            if desc and not desc.startswith('---') and desc.endswith(' Segment'):
+                new_desc = desc[:-len(' Segment')]
+                if new_desc:  # don't strip if it would leave empty
+                    row['description'] = new_desc
+                    applied.append(f'Row {i+1} description: "{desc}" → "{new_desc}"')
+
+    elif field == 'description_normalize_dash':
+        # Replace en-dash (U+2013) and em-dash (U+2014) with regular hyphen
+        for i, row in enumerate(data['rawRows']):
+            desc = row['description']
+            new_desc = desc.replace('\u2013', '-').replace('\u2014', '-')
+            if new_desc != desc:
+                row['description'] = new_desc
+                applied.append(f'Row {i+1} description: "{desc}" → "{new_desc}"')
+
+    elif field == 'clause':
+        # Fix clause number in provenance
+        old_clause = data.get('provenance', {}).get('clause', '')
+        if from_val is None or old_clause == from_val:
+            data['provenance']['clause'] = to_val
+            applied.append(f'Clause: "{old_clause}" → "{to_val}"')
+
+    elif field == 'structureId':
+        # Reclassify structure ID
+        old_id = data.get('structureId', '')
+        if from_val is None or old_id == from_val:
+            data['structureId'] = to_val
+            applied.append(f'StructureId: "{old_id}" → "{to_val}"')
+
     return data, applied
 
 
@@ -270,7 +309,8 @@ def apply_all_fixes(dry_run=False):
         fix_id = fix.get('id', '?')
 
         # Handle bulk operations (apply to all files, or all files for a given structure)
-        is_bulk = fix.get('field') in ('segments_all', 'description_titleize', 'description_replace')
+        is_bulk = fix.get('field') in ('segments_all', 'description_titleize', 'description_replace',
+                                       'description_strip_segment_suffix', 'description_normalize_dash')
         is_wildcard = fix.get('structure') in ('*', None)
         if is_bulk and fix.get('occurrence') == 'all':
             total_changes = 0
@@ -383,10 +423,11 @@ def generate_fix_report(fixes, fix_log, raw_structures, canonical_structures):
         'bracket_malformed': ('Malformed Brackets', 'Typos in bracket notation (mismatched/swapped brackets)'),
         'bracket_whitespace': ('Bracket Whitespace', 'Normalization of whitespace inside bracket notation'),
         'desc_typo': ('Description Typos', 'Misspellings in segment descriptions'),
-        'desc_cosmetic': ('Description Cosmetic', 'Trailing "Segment", case, abbreviation differences'),
+        'desc_cosmetic': ('Description Cosmetic', 'Trailing "Segment", case, abbreviation, dash differences'),
         'cardinality': ('Cardinality', 'Optionality or repetition differences between occurrences'),
-        'desc_meaningful': ('Description Meaningful', 'Genuinely different descriptions'),
+        'desc_meaningful': ('Description Meaningful', 'Genuinely different descriptions requiring expert judgment'),
         'structural': ('Structural', 'Row count mismatches, missing/extra segments'),
+        'extraction_artifact': ('Extraction Artifacts', 'Word document parsing issues — clause numbering, caption detection, hidden formatting'),
     }
 
     html = []
