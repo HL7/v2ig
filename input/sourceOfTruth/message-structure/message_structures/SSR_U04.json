@@ -135,7 +135,7 @@
         "id": "SSR_U04.5-SPECIMEN_CONTAINER.2-SPM",
         "path": "SSR_U04.5-SPECIMEN_CONTAINER.2-SPM",
         "short": "Specimen",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Specimen",
         "type": [

@@ -833,7 +833,7 @@
       {
         "id": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.4-PRT",
         "path": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.4-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Observation Request)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -892,7 +892,7 @@
         "path": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.7-REL",
         "short": "Relationship (for Observation)",
         "min": 0,
-        "max": "1",
+        "max": "*",
         "definition": "Relationship (for Observation)",
         "type": [
           {
@@ -1011,7 +1011,7 @@
       {
         "id": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.9-SPECIMEN_SHIPMENT.1-SHP",
         "path": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.9-SPECIMEN_SHIPMENT.1-SHP",
-        "short": "Shipment Segment",
+        "short": "Shipment",
         "min": 1,
         "max": "1",
         "definition": "Shipment Segment",
@@ -1062,7 +1062,7 @@
       {
         "id": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.9-SPECIMEN_SHIPMENT.2-SHIPMENT_OBSERVATION.2-PRT",
         "path": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.9-SPECIMEN_SHIPMENT.2-SHIPMENT_OBSERVATION.2-PRT",
-        "short": "Participation (for OBX)",
+        "short": "Participation (for Shipment Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for OBX)",
@@ -1094,7 +1094,7 @@
       {
         "id": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.9-SPECIMEN_SHIPMENT.3-PACKAGE.1-PAC",
         "path": "OML_O39.7-ORDER.5-OBSERVATION_REQUEST.9-SPECIMEN_SHIPMENT.3-PACKAGE.1-PAC",
-        "short": "Shipping Package Segment",
+        "short": "Shipping Package",
         "min": 1,
         "max": "1",
         "definition": "Shipping Package Segment",
@@ -1355,7 +1355,7 @@
       {
         "id": "OML_O39.7-ORDER.8-BLG",
         "path": "OML_O39.7-ORDER.8-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",

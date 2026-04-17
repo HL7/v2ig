@@ -255,7 +255,7 @@
       {
         "id": "RRG_O16.7-RESPONSE.2-ORDER.2-PRT",
         "path": "RRG_O16.7-RESPONSE.2-ORDER.2-PRT",
-        "short": "Participation (for ORC)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for ORC)",

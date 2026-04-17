@@ -262,7 +262,7 @@
         "id": "OSU_O52.10-ORDER_STATUS.2-PRT",
         "path": "OSU_O52.10-ORDER_STATUS.2-PRT",
         "short": "Participation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation",
         "type": [

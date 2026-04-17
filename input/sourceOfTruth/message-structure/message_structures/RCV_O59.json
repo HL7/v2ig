@@ -242,10 +242,10 @@
       {
         "id": "RCV_O59.5-PATIENT.6-PATIENT_VISIT.2-PV2",
         "path": "RCV_O59.5-PATIENT.6-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"

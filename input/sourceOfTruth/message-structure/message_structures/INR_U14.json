@@ -45,7 +45,7 @@
       {
         "id": "INR_U14.2-SFT",
         "path": "INR_U14.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",

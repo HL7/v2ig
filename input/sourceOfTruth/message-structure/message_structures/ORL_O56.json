@@ -389,7 +389,7 @@
       {
         "id": "ORL_O56.8-RESPONSE.2-ORDER.4-OBSERVATION_REQUEST.3-SPECIMEN_SHIPMENT.1-SHP",
         "path": "ORL_O56.8-RESPONSE.2-ORDER.4-OBSERVATION_REQUEST.3-SPECIMEN_SHIPMENT.1-SHP",
-        "short": "Shipment Segment",
+        "short": "Shipment",
         "min": 1,
         "max": "1",
         "definition": "Shipment Segment",
@@ -421,7 +421,7 @@
       {
         "id": "ORL_O56.8-RESPONSE.2-ORDER.4-OBSERVATION_REQUEST.3-SPECIMEN_SHIPMENT.2-PACKAGE.1-PAC",
         "path": "ORL_O56.8-RESPONSE.2-ORDER.4-OBSERVATION_REQUEST.3-SPECIMEN_SHIPMENT.2-PACKAGE.1-PAC",
-        "short": "Shipping Package Segment",
+        "short": "Shipping Package",
         "min": 1,
         "max": "1",
         "definition": "Shipping Package Segment",

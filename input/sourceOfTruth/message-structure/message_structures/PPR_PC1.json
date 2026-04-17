@@ -790,7 +790,7 @@
       {
         "id": "PPR_PC1.10-PROBLEM.8-ORDER.2-ORDER_DETAIL.1-CHOICE.choice-1-OBR",
         "path": "PPR_PC1.10-PROBLEM.8-ORDER.2-ORDER_DETAIL.1-CHOICE.choice-1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 0,
         "max": "1",
         "definition": "Choice 1 within CHOICE",

@@ -45,7 +45,7 @@
       {
         "id": "CCM_I21.2-SFT",
         "path": "CCM_I21.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -299,10 +299,10 @@
       {
         "id": "CCM_I21.10-INSURANCE.3-IN3",
         "path": "CCM_I21.10-INSURANCE.3-IN3",
-        "short": "Insurance Additional Info – Cert.",
+        "short": "Insurance Additional Info - Cert.",
         "min": 0,
         "max": "1",
-        "definition": "Insurance Additional Info – Cert.",
+        "definition": "Insurance Additional Info \u2013 Cert.",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/IN3"
@@ -363,7 +363,7 @@
       {
         "id": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.1-RGS",
         "path": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.1-RGS",
-        "short": "Resource Group Segment",
+        "short": "Resource Group",
         "min": 1,
         "max": "1",
         "definition": "Resource Group Segment",
@@ -427,7 +427,7 @@
       {
         "id": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.2-RESOURCE_DETAIL.1-RESOURCE_OBJECT.choice-2-AIG",
         "path": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.2-RESOURCE_DETAIL.1-RESOURCE_OBJECT.choice-2-AIG",
-        "short": "Appointment Information – General Resource",
+        "short": "Appointment Information \u2013 General Resource",
         "min": 0,
         "max": "1",
         "definition": "Choice 2 within RESOURCE_OBJECT",
@@ -446,7 +446,7 @@
       {
         "id": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.2-RESOURCE_DETAIL.1-RESOURCE_OBJECT.choice-3-AIL",
         "path": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.2-RESOURCE_DETAIL.1-RESOURCE_OBJECT.choice-3-AIL",
-        "short": "Appointment Information – Location",
+        "short": "Appointment Information \u2013 Location",
         "min": 0,
         "max": "1",
         "definition": "Choice 3 within RESOURCE_OBJECT",
@@ -465,7 +465,7 @@
       {
         "id": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.2-RESOURCE_DETAIL.1-RESOURCE_OBJECT.choice-4-AIP",
         "path": "CCM_I21.11-APPOINTMENT_HISTORY.2-RESOURCES.2-RESOURCE_DETAIL.1-RESOURCE_OBJECT.choice-4-AIP",
-        "short": "Appointment Information – Personnel",
+        "short": "Appointment Information - Personnel",
         "min": 0,
         "max": "1",
         "definition": "Choice 4 within RESOURCE_OBJECT",
@@ -1070,10 +1070,10 @@
       {
         "id": "CCM_I21.13-PATIENT_VISITS.2-PV2",
         "path": "CCM_I21.13-PATIENT_VISITS.2-PV2",
-        "short": "Patient Visit – Additional Info.",
+        "short": "Patient Visit - Additional Info.",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info.",
+        "definition": "Patient Visit \u2013 Additional Info.",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"

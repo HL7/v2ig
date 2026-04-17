@@ -45,7 +45,7 @@
       {
         "id": "RDY_K15-C.2-SFT",
         "path": "RDY_K15-C.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",

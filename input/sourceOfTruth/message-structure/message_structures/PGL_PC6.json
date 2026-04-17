@@ -790,7 +790,7 @@
       {
         "id": "PGL_PC6.10-GOAL.8-ORDER.2-ORDER_DETAIL.1-CHOICE.choice-1-OBR",
         "path": "PGL_PC6.10-GOAL.8-ORDER.2-ORDER_DETAIL.1-CHOICE.choice-1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 0,
         "max": "1",
         "definition": "Choice 1 within CHOICE",

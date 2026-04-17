@@ -64,7 +64,7 @@
       {
         "id": "PEX_P07.3-SFT",
         "path": "PEX_P07.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -662,7 +662,7 @@
       {
         "id": "PEX_P07.15-EXPERIENCE.2-PEX_OBSERVATION.2-PEX_CAUSE.5-OBSERVATION.1-OBX",
         "path": "PEX_P07.15-EXPERIENCE.2-PEX_OBSERVATION.2-PEX_CAUSE.5-OBSERVATION.1-OBX",
-        "short": "Observation/Result Segment",
+        "short": "Observation/Result",
         "min": 1,
         "max": "1",
         "definition": "Observation/Result Segment",
@@ -980,7 +980,7 @@
       {
         "id": "PEX_P07.15-EXPERIENCE.2-PEX_OBSERVATION.2-PEX_CAUSE.7-ASSOCIATED_PERSON.6-PRB",
         "path": "PEX_P07.15-EXPERIENCE.2-PEX_OBSERVATION.2-PEX_CAUSE.7-ASSOCIATED_PERSON.6-PRB",
-        "short": "Detail Problem Segment",
+        "short": "Detail Problem",
         "min": 0,
         "max": "*",
         "definition": "Detail Problem Segment",
@@ -1012,7 +1012,7 @@
       {
         "id": "PEX_P07.15-EXPERIENCE.2-PEX_OBSERVATION.2-PEX_CAUSE.7-ASSOCIATED_PERSON.7-ASSOCIATED_OBSERVATION.1-OBX",
         "path": "PEX_P07.15-EXPERIENCE.2-PEX_OBSERVATION.2-PEX_CAUSE.7-ASSOCIATED_PERSON.7-ASSOCIATED_OBSERVATION.1-OBX",
-        "short": "Observation/Results Segment",
+        "short": "Observation/Results",
         "min": 1,
         "max": "1",
         "definition": "Observation/Results Segment",

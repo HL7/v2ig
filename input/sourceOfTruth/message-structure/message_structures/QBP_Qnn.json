@@ -26,7 +26,7 @@
       {
         "id": "QBP_Qnn.1-MSH",
         "path": "QBP_Qnn.1-MSH",
-        "short": "Message Header Segment",
+        "short": "Message Header",
         "min": 1,
         "max": "1",
         "definition": "Message Header Segment",
@@ -45,7 +45,7 @@
       {
         "id": "QBP_Qnn.2-SFT",
         "path": "QBP_Qnn.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -102,7 +102,7 @@
       {
         "id": "QBP_Qnn.5-RDF",
         "path": "QBP_Qnn.5-RDF",
-        "short": "Table Row Definition Segment",
+        "short": "Table Row Definition",
         "min": 0,
         "max": "1",
         "definition": "Table Row Definition Segment",

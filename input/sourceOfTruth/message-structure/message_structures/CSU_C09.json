@@ -64,7 +64,7 @@
       {
         "id": "CSU_C09.3-SFT",
         "path": "CSU_C09.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -465,7 +465,7 @@
       {
         "id": "CSU_C09.5-PATIENT.11-STUDY_PHASE.2-STUDY_SCHEDULE.2-STUDY_OBSERVATION.1-FIXME.2-PRT",
         "path": "CSU_C09.5-PATIENT.11-STUDY_PHASE.2-STUDY_SCHEDULE.2-STUDY_OBSERVATION.1-FIXME.2-PRT",
-        "short": "Participation (for common order)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for common order)",
@@ -503,7 +503,7 @@
       {
         "id": "CSU_C09.5-PATIENT.11-STUDY_PHASE.2-STUDY_SCHEDULE.2-STUDY_OBSERVATION.3-PRT",
         "path": "CSU_C09.5-PATIENT.11-STUDY_PHASE.2-STUDY_SCHEDULE.2-STUDY_OBSERVATION.3-PRT",
-        "short": "Participation (for observation)",
+        "short": "Participation (for Study Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for observation)",
@@ -592,7 +592,7 @@
       {
         "id": "CSU_C09.5-PATIENT.11-STUDY_PHASE.2-STUDY_SCHEDULE.2-STUDY_OBSERVATION.6-PRT",
         "path": "CSU_C09.5-PATIENT.11-STUDY_PHASE.2-STUDY_SCHEDULE.2-STUDY_OBSERVATION.6-PRT",
-        "short": "Participaton (for Observation Results)",
+        "short": "Participation (for Observation Results)",
         "min": 0,
         "max": "*",
         "definition": "Participaton (for Observation Results)",

@@ -45,7 +45,7 @@
       {
         "id": "QVR_Q17.2-SFT",
         "path": "QVR_Q17.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -83,7 +83,7 @@
       {
         "id": "QVR_Q17.4-QPD",
         "path": "QVR_Q17.4-QPD",
-        "short": "Event Definition Segment",
+        "short": "Event Definition",
         "min": 1,
         "max": "1",
         "definition": "Event Definition Segment",

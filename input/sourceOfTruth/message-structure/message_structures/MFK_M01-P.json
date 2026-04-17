@@ -140,7 +140,7 @@
       {
         "id": "MFK_M01-P.7-MFA",
         "path": "MFK_M01-P.7-MFA",
-        "short": "Master File ACK segment",
+        "short": "Master File ACK",
         "min": 0,
         "max": "*",
         "definition": "Master File ACK segment",

@@ -1215,10 +1215,10 @@
       {
         "id": "OMG_O19.7-ORDER.14-PRIOR_RESULT.1-PATIENT_PRIOR.1-PID",
         "path": "OMG_O19.7-ORDER.14-PRIOR_RESULT.1-PATIENT_PRIOR.1-PID",
-        "short": "Patient Identification – previous result",
+        "short": "Patient Identification  - previous result",
         "min": 1,
         "max": "1",
-        "definition": "Patient Identification – previous result",
+        "definition": "Patient Identification \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PID"
@@ -1234,10 +1234,10 @@
       {
         "id": "OMG_O19.7-ORDER.14-PRIOR_RESULT.1-PATIENT_PRIOR.2-PD1",
         "path": "OMG_O19.7-ORDER.14-PRIOR_RESULT.1-PATIENT_PRIOR.2-PD1",
-        "short": "Additional Demographics – previous result",
+        "short": "Additional Demographics - previous result",
         "min": 0,
         "max": "1",
-        "definition": "Additional Demographics – previous result",
+        "definition": "Additional Demographics \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PD1"
@@ -1361,10 +1361,10 @@
       {
         "id": "OMG_O19.7-ORDER.14-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.1-PV1",
         "path": "OMG_O19.7-ORDER.14-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.1-PV1",
-        "short": "Patient Visit – previous result",
+        "short": "Patient Visit           - previous result",
         "min": 1,
         "max": "1",
-        "definition": "Patient Visit – previous result",
+        "definition": "Patient Visit \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV1"
@@ -1380,10 +1380,10 @@
       {
         "id": "OMG_O19.7-ORDER.14-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.2-PV2",
         "path": "OMG_O19.7-ORDER.14-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.2-PV2",
-        "short": "Patient Visit Add. Info – previous result",
+        "short": "Patient Visit Add. Info - previous result",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit Add. Info – previous result",
+        "definition": "Patient Visit Add. Info \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -1679,7 +1679,7 @@
       {
         "id": "OMG_O19.7-ORDER.14-PRIOR_RESULT.4-ORDER_PRIOR.8-OBSERVATION_PRIOR.2-PRT",
         "path": "OMG_O19.7-ORDER.14-PRIOR_RESULT.4-ORDER_PRIOR.8-OBSERVATION_PRIOR.2-PRT",
-        "short": "Participation (for Oservation Prior)",
+        "short": "Participation (for Observation Prior)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Oservation Prior)",
@@ -1774,7 +1774,7 @@
       {
         "id": "OMG_O19.7-ORDER.18-BLG",
         "path": "OMG_O19.7-ORDER.18-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",

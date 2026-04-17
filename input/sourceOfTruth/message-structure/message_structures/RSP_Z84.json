@@ -26,7 +26,7 @@
       {
         "id": "RSP_Z84.1-MSH",
         "path": "RSP_Z84.1-MSH",
-        "short": "Message Header Segment",
+        "short": "Message Header",
         "min": 1,
         "max": "1",
         "definition": "Message Header Segment",
@@ -45,7 +45,7 @@
       {
         "id": "RSP_Z84.2-SFT",
         "path": "RSP_Z84.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -172,7 +172,7 @@
       {
         "id": "RSP_Z84.8-ROW_DEFINITION.1-RDF",
         "path": "RSP_Z84.8-ROW_DEFINITION.1-RDF",
-        "short": "Table Row Definition Segment",
+        "short": "Table Row Definition",
         "min": 1,
         "max": "1",
         "definition": "Table Row Definition Segment",
@@ -191,7 +191,7 @@
       {
         "id": "RSP_Z84.8-ROW_DEFINITION.2-RDT",
         "path": "RSP_Z84.8-ROW_DEFINITION.2-RDT",
-        "short": "Table Row Data Segment",
+        "short": "Table Row Data",
         "min": 0,
         "max": "*",
         "definition": "Table Row Data Segment",

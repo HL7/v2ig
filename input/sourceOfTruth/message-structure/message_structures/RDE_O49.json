@@ -223,10 +223,10 @@
       {
         "id": "RDE_O49.5-PATIENT.5-PATIENT_VISIT.2-PV2",
         "path": "RDE_O49.5-PATIENT.5-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -865,7 +865,7 @@
       {
         "id": "RDE_O49.6-ORDER.14-BLG",
         "path": "RDE_O49.6-ORDER.14-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",

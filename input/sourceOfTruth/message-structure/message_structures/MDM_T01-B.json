@@ -45,7 +45,7 @@
       {
         "id": "MDM_T01-B.2-SFT",
         "path": "MDM_T01-B.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -413,7 +413,7 @@
       {
         "id": "MDM_T01-B.14-CON",
         "path": "MDM_T01-B.14-CON",
-        "short": "Consent Segment",
+        "short": "Consent",
         "min": 0,
         "max": "*",
         "definition": "Consent Segment",

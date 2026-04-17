@@ -255,7 +255,7 @@
       {
         "id": "ORP_O10.7-RESPONSE.2-ORDER.2-PRT",
         "path": "ORP_O10.7-RESPONSE.2-ORDER.2-PRT",
-        "short": "Participation (for ORC)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for ORC)",
@@ -357,7 +357,7 @@
       {
         "id": "ORP_O10.7-RESPONSE.2-ORDER.4-ORDER_DETAIL.2-PRT",
         "path": "ORP_O10.7-RESPONSE.2-ORDER.4-ORDER_DETAIL.2-PRT",
-        "short": "Participation (for RXO)",
+        "short": "Participation (for Pharmacy/Treatment Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXO)",

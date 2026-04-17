@@ -45,7 +45,7 @@
       {
         "id": "ACK-BW.2-SFT",
         "path": "ACK-BW.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",

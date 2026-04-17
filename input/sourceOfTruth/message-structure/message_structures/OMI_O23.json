@@ -752,7 +752,7 @@
         "path": "OMI_O23.7-ORDER.9-REL",
         "short": "Relationship (for Observation)",
         "min": 0,
-        "max": "1",
+        "max": "*",
         "definition": "Relationship (for Observation)",
         "type": [
           {

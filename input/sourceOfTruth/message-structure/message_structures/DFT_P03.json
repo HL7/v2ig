@@ -45,7 +45,7 @@
       {
         "id": "DFT_P03.2-SFT",
         "path": "DFT_P03.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -458,7 +458,7 @@
       {
         "id": "DFT_P03.14-COMMON_ORDER.4-ORDER.1-OBR",
         "path": "DFT_P03.14-COMMON_ORDER.4-ORDER.1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 1,
         "max": "1",
         "definition": "Order Detail Segment",
@@ -618,7 +618,7 @@
         "id": "DFT_P03.15-FINANCIAL.2-PRT",
         "path": "DFT_P03.15-FINANCIAL.2-PRT",
         "short": "Participation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation",
         "type": [
@@ -637,7 +637,7 @@
         "id": "DFT_P03.15-FINANCIAL.3-ROL",
         "path": "DFT_P03.15-FINANCIAL.3-ROL",
         "short": "Role",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Role",
         "type": [
@@ -656,7 +656,7 @@
         "id": "DFT_P03.15-FINANCIAL.4-NTE",
         "path": "DFT_P03.15-FINANCIAL.4-NTE",
         "short": "Notes and Comments (on line item - FT1 - above)",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Notes and Comments (on line item - FT1 - above)",
         "type": [
@@ -827,7 +827,7 @@
       {
         "id": "DFT_P03.15-FINANCIAL.7-FINANCIAL_ORDER_STANDALONE.1-OBR",
         "path": "DFT_P03.15-FINANCIAL.7-FINANCIAL_ORDER_STANDALONE.1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 1,
         "max": "1",
         "definition": "Order Detail Segment",
@@ -1069,7 +1069,7 @@
       {
         "id": "DFT_P03.15-FINANCIAL.8-FINANCIAL_COMMON_ORDER.4-FINANCIAL_ORDER.1-OBR",
         "path": "DFT_P03.15-FINANCIAL.8-FINANCIAL_COMMON_ORDER.4-FINANCIAL_ORDER.1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 1,
         "max": "1",
         "definition": "Order Detail Segment",

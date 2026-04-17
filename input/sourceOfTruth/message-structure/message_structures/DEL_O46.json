@@ -64,7 +64,7 @@
       {
         "id": "DEL_O46.3-SFT",
         "path": "DEL_O46.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -115,7 +115,7 @@
       {
         "id": "DEL_O46.5-DONOR.1-PID",
         "path": "DEL_O46.5-DONOR.1-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 1,
         "max": "1",
         "definition": "Patient Identification Segment",

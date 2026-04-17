@@ -38,7 +38,9 @@ from v2_utils import PROJECT_ROOT
 
 FHIR_DIR = os.path.join(PROJECT_ROOT, 'input', 'sourceOfTruth',
                         'message-structure', 'message_structures')
-V291_DIR = os.path.join(PROJECT_ROOT, 'v291-extracted', 'message-structures')
+V291_RAW_DIR = os.path.join(PROJECT_ROOT, 'v291-extracted', 'message-structures')
+V291_CANONICAL_DIR = os.path.join(PROJECT_ROOT, 'v291-canonical', 'message-structures')
+V291_DIR = V291_RAW_DIR  # Overridden by --canonical
 REPORT_DIR = os.path.join(PROJECT_ROOT, 'v291-extracted')
 
 # Difference categories
@@ -780,7 +782,7 @@ def _match_score(fhir_segs, v291_segs):
 # ---------------------------------------------------------------------------
 
 def generate_reports(all_discrepancies, match_results, fhir_structs, v291_structs,
-                     truncated_ids=None):
+                     truncated_ids=None, suffix=''):
     """Generate JSON and Markdown reports."""
     truncated_ids = truncated_ids or set()
     timestamp = datetime.now(timezone.utc).isoformat()
@@ -836,13 +838,13 @@ def generate_reports(all_discrepancies, match_results, fhir_structs, v291_struct
     }
 
     # Write JSON report
-    json_path = os.path.join(REPORT_DIR, 'message-structure-comparison-report.json')
+    json_path = os.path.join(REPORT_DIR, f'message-structure-comparison-report{suffix}.json')
     with open(json_path, 'w') as f:
         json.dump(report, f, indent=2, default=str)
     print(f"JSON report: {json_path}")
 
     # Write Markdown report
-    md_path = os.path.join(REPORT_DIR, 'message-structure-comparison-report.md')
+    md_path = os.path.join(REPORT_DIR, f'message-structure-comparison-report{suffix}.md')
     _write_markdown_report(md_path, report, match_results, fhir_structs, v291_structs)
     print(f"Markdown report: {md_path}")
 
@@ -1023,9 +1025,9 @@ def _write_markdown_report(path, report, match_results, fhir_structs, v291_struc
         f.write('\n'.join(lines))
 
 
-def generate_html_report(report, match_results):
+def generate_html_report(report, match_results, suffix=''):
     """Generate a navigable HTML report with sidebar."""
-    html_path = os.path.join(REPORT_DIR, 'message-structure-comparison-report.html')
+    html_path = os.path.join(REPORT_DIR, f'message-structure-comparison-report{suffix}.html')
     s = report['summary']
     sb = report['structural_breakdown']
     cb = report['cosmetic_breakdown']
@@ -1237,11 +1239,25 @@ def _html_escape(s):
 def main():
     parser = argparse.ArgumentParser(description='Compare FHIR vs V291 message structures')
     parser.add_argument('--subset', help='Comma-separated list of structure base IDs to compare')
+    parser.add_argument('--canonical', action='store_true',
+                        help='Use canonical (post-fix) V291 data instead of raw extraction')
     args = parser.parse_args()
 
     subset_filter = None
     if args.subset:
         subset_filter = set(args.subset.split(','))
+
+    global V291_DIR
+    suffix = ''
+    if args.canonical:
+        if not os.path.isdir(V291_CANONICAL_DIR):
+            print(f"ERROR: canonical directory not found: {V291_CANONICAL_DIR}")
+            sys.exit(1)
+        V291_DIR = V291_CANONICAL_DIR
+        suffix = '-canonical'
+        print(f"Using canonical V291 data: {V291_DIR}")
+    else:
+        print(f"Using raw V291 data: {V291_DIR}")
 
     print("Loading FHIR message structures...")
     fhir_structs = load_fhir_structures()
@@ -1293,8 +1309,8 @@ def main():
 
     print("\nGenerating reports...")
     report = generate_reports(all_discrepancies, match_results, fhir_structs, v291_structs,
-                              truncated_ids)
-    generate_html_report(report, match_results)
+                              truncated_ids, suffix=suffix)
+    generate_html_report(report, match_results, suffix=suffix)
 
     # Print top-level summary
     compared = len(matched) - len(truncated_ids)

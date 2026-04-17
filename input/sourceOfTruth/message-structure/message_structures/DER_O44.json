@@ -64,7 +64,7 @@
       {
         "id": "DER_O44.3-SFT",
         "path": "DER_O44.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -115,7 +115,7 @@
       {
         "id": "DER_O44.5-DONOR.1-PID",
         "path": "DER_O44.5-DONOR.1-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 1,
         "max": "1",
         "definition": "Patient Identification Segment",

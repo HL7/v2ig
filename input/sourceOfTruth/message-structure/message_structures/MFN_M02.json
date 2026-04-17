@@ -210,7 +210,7 @@
       {
         "id": "MFN_M02.5-MF_STAFF.6-ORG",
         "path": "MFN_M02.5-MF_STAFF.6-ORG",
-        "short": "Practitioner Organization Unit Segment",
+        "short": "Practitioner Organization Unit",
         "min": 0,
         "max": "*",
         "definition": "Practitioner Organization Unit Segment",

@@ -45,7 +45,7 @@
       {
         "id": "ACK-CL.2-SFT",
         "path": "ACK-CL.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",

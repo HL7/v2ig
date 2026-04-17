@@ -45,7 +45,7 @@
       {
         "id": "BAR_P01.2-SFT",
         "path": "BAR_P01.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",

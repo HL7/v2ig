@@ -103,6 +103,11 @@ if ! python3 -c "import docx" 2>/dev/null; then
   pip install --break-system-packages python-docx 2>/dev/null || pip install python-docx 2>/dev/null || true
 fi
 
+if ! python3 -c "import pytest" 2>/dev/null; then
+  echo "Installing pytest..."
+  pip install --break-system-packages pytest 2>/dev/null || pip install pytest 2>/dev/null || true
+fi
+
 ###############################################################################
 # Summary
 ###############################################################################
