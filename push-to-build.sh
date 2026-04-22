@@ -60,6 +60,45 @@ echo "  Source: main → build"
 echo "  Remote preprocessing: ${USE_REMOTE}"
 echo ""
 
+# Step 0: Sanity-check that main is actually up to date.
+# Catches the common mistake of running this script before merging
+# the current dev branch into main — which results in publishing
+# the same content as last time.
+echo "--- Checking that ${SOURCE_BRANCH} has the latest IG content... ---"
+git fetch --quiet origin "${SOURCE_BRANCH}" build 2>/dev/null || true
+
+# IG-relevant paths — must mirror the checkout list below.
+IG_PATHS=(input local-template
+          _genonce.sh _gencontinuous.sh
+          _genonce.bat _gencontinuous.bat
+          _updatePublisher.sh _updatePublisher.bat
+          .gitignore)
+
+# Warn if local main is behind origin/main.
+if git rev-parse --verify --quiet "origin/${SOURCE_BRANCH}" >/dev/null; then
+    BEHIND=$(git rev-list --count "${SOURCE_BRANCH}..origin/${SOURCE_BRANCH}" 2>/dev/null || echo 0)
+    if [ "${BEHIND}" -gt 0 ]; then
+        echo "  WARNING: local '${SOURCE_BRANCH}' is ${BEHIND} commit(s) behind origin/${SOURCE_BRANCH}." >&2
+        echo "  Run: git checkout ${SOURCE_BRANCH} && git pull && git checkout ${ORIGINAL_BRANCH}" >&2
+        read -r -p "  Continue with stale local '${SOURCE_BRANCH}'? [y/N] " ans
+        [[ "${ans}" == [yY]* ]] || { echo "Aborted."; exit 1; }
+    fi
+fi
+
+# Warn if the current branch has IG-relevant commits not yet in main.
+if [ "${ORIGINAL_BRANCH}" != "${SOURCE_BRANCH}" ]; then
+    UNMERGED=$(git log "${SOURCE_BRANCH}..${ORIGINAL_BRANCH}" --oneline -- "${IG_PATHS[@]}" 2>/dev/null | head -10)
+    if [ -n "${UNMERGED}" ]; then
+        echo "  WARNING: '${ORIGINAL_BRANCH}' has IG-relevant commits not in '${SOURCE_BRANCH}':" >&2
+        echo "${UNMERGED}" | sed 's/^/    /' >&2
+        echo "  These will NOT reach the build branch — the script pulls from '${SOURCE_BRANCH}' only." >&2
+        echo "  Run: git checkout ${SOURCE_BRANCH} && git merge ${ORIGINAL_BRANCH} && git push origin ${SOURCE_BRANCH}" >&2
+        read -r -p "  Continue anyway? [y/N] " ans
+        [[ "${ans}" == [yY]* ]] || { echo "Aborted."; exit 1; }
+    fi
+fi
+echo ""
+
 # Step 1: Switch to build branch and copy files from source
 echo "--- Copying IG Publisher files from ${SOURCE_BRANCH}... ---"
 git checkout build
