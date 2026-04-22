@@ -1230,3 +1230,62 @@ All pushed to `origin/feature/006-sd-injection`.
 - "for Additional Demographics" in PATIENT group (5 instances at 4A.4.14, 4A.4.26, 4A.4.16, 4A.4.8, 4A.4.23)
 - 358 bare "Participation" + 165 OBX mismatches — V2 management territory
 - RDE_O11 RXO "Prescription Order" variant
+
+---
+
+## Session Handoff - 2026-04-22
+
+### Completed This Session
+
+**FHIR vs V291 canonical comparison + apply pipeline:**
+- Added `--canonical` flag to `compare_message_structures.py` (writes suffixed reports). Confirmed FHIR vs raw = 916 diffs, FHIR vs canonical = 1316 — the +400 represents V291 fixes not yet propagated to FHIR.
+- Built `tooling/scripts/apply_canonical_to_fhir.py` to shuttle canonical V291 fixes into FHIR message structure JSON. Filters to canonical-only diffs (raw vs canonical key includes v291_value) so we only propagate fixes we actually made, not pre-existing FHIR/V291 disagreements.
+- Applied 581 fixes across 320 message structure files: 538 description (e.g. "Software Segment"→"Software", PRT/OBX qualifier names), 40 optionality (R→O on NTE/PRT/ROL), 3 repetition. Group renames intentionally deferred — they require rewriting element IDs and BackboneElements.
+- Post-apply: FHIR vs canonical drops from 1316 → 735 discrepancies (cosmetic 619→140, structural 697→595).
+- HTML traceability report at `v291-canonical/fhir-apply-report.html`.
+
+**Build infrastructure:**
+- Fixed malformed XML in `input/v2plus.xml` line 244 — the `data-type/` `path-resource` block was missing its `<code>` wrapper and `<system>` element, leaving an orphan `</code>`. IG Publisher rejected the file before it could try R4 vs R5 parsing.
+- Full build on postproc-g succeeded (~54 min). qa.html: errors=63189, warn=34776, broken-links=16573 — proportional to subset (8446 errors), all known content gaps (FIXME placeholders, missing value sets, `{{v2-table:XXXX}}` placeholders).
+- Added safety guards to `push-to-build.sh`: warns if local main is behind origin/main, and warns if the current branch has IG-relevant commits not yet in main. Triggered today by a push-to-build that succeeded against stale main and silently republished prior content.
+
+**SSH/rsync transient failure investigation:**
+- Initial postproc-g connection failed with rsync code 255. Diagnosis sequence: interactive ssh worked but `ssh -t` and rsync both hung. After session was killed via `~.`, retries succeeded. `.bashrc`/`.bash_profile` clean. Concluded transient server-side issue, no fix needed.
+
+**Commits on dev/framework:**
+- `20d7802f` — Apply V291 canonical fixes to FHIR message structures (319 files, +7188/-660)
+- `f100e596` — Fix malformed path-resource parameter in v2plus.xml
+- `6e3fd599` — Add safety guards to push-to-build.sh
+
+**Cross-branch:**
+- Merged dev/framework → main (user did this manually). origin/main now at `f100e596`.
+- Ran push-to-build.sh after the merge. origin/build at `34bc7ca5` ("Update from main") with latest content.
+- Auto-ig-builder kicked off — should be building at `https://build.fhir.org/ig/HL7/v2ig/branches/build/`.
+
+### Current State
+- Branch: `dev/framework` (1 commit ahead of origin — the push-to-build.sh guards)
+- Last checkpoint: `6e3fd599` — Add safety guards to push-to-build.sh
+- Tests: 84 message-structure comparison tests pass; 3 pre-existing failures unchanged (registry drift × 2, ER7 leak)
+- Working tree: clean (2 untracked .tiff files still hanging around)
+
+### Next Steps
+1. **Push dev/framework to origin** — 1 unpushed commit (the push-to-build.sh guards)
+2. **Monitor auto-ig-builder** — `https://build.fhir.org/ig/HL7/v2ig/branches/build/` for completion. Watch for the trust-policy/JS issue (should be resolved by ADR-0004 inlining) and any timeout
+3. **Group renames** — 14 COMPONENT→COMPONENTS renames in pharmacy structures (RXC, NTE in OMP_O09, ORP_O10, RCV_O59, RDE_O11-A, RDE_O49, RDS_O13, RSP_Z88). Requires rewriting element IDs and BackboneElement entries throughout. Open task #3.
+4. **Continue V291 reconciliation** — 735 remaining FHIR↔canonical diffs. Most need V291 management input; cosmetic 140 may have more candidates for canonical-side fixes.
+5. **Decide on the .tiff files** — `input/images/merge.tiff` and `pharmacy_transaction_flow.tiff` still untracked across many sessions. Gitignore vs convert to PNG vs commit.
+6. **`apply_canonical_to_fhir.py` enhancement** — could extend to handle group renames as a separate pass (`--include-groups`), with the element-ID rewriting logic added.
+
+### Open Questions / Blockers
+- (Unchanged) REVIEW-0001: ACK clause 10.4 UAC repeating — needs V2 Management
+- (Unchanged) "for Additional Demographics" PATIENT group naming — 5 instances
+- (Unchanged) 358 bare "Participation" + 165 OBX mismatches — V2 management
+- (Unchanged) RDE_O11 RXO "Prescription Order" variant
+- **New**: 197 pre-existing FHIR↔raw V291 diffs that we deliberately did NOT shuttle (FHIR has better descriptions like "Common Order" where V291 has bare codes "ORC"). These represent the OPPOSITE direction — V291 needs to learn from FHIR. Worth a dedicated pass to add V291-side fixes to fixes.json.
+
+### Relevant Context
+- **Canonical-only filter**: `apply_canonical_to_fhir.py`'s `_disc_key()` includes `v291_value` so that "we changed V291 from X to Y here" is treated as a fix-to-shuttle even if raw V291 also disagreed with FHIR. If V291 didn't change between raw and canonical, the disc is filtered out — it's an open FHIR/V291 disagreement, not a fix we made.
+- **Position-based element matching**: The apply script finds FHIR elements by 1-indexed position from `extract_fhir_segments()`, then sanity-checks that the segment code matches before patching. This avoids brittleness from element-ID assumptions.
+- **Why XML fix happened**: The malformed `path-resource` block on line 244 was a hand-edit error — only one block in the file was bad, all others were well-formed. v2plus-subset.xml unaffected. Not a generator bug.
+- **push-to-build.sh stale-main bug**: The script's docstring is explicit ("Always pulls from main"), but the user's mental model was "the script handles everything". The new guards prompt for confirmation if main is behind or if the current branch has unmerged IG content, which would have caught today's mistake.
+- **Auto-ig-builder branch naming**: Still constrained to `[A-Za-z0-9_-]`. We're on `build` (flat name), so this is fine.
