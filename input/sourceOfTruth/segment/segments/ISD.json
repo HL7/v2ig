@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ISD.1",
-        "path": "ISD.1",
+        "id": "ISD.1-isd1",
+        "path": "ISD.1-isd1",
         "short": "ISD-1",
         "definition": "This number uniquely identifies the interaction. If the interaction is performed as the result of a previous command, then the Reference Command Number should be used. (See _13.3.5.1_, \"_ECD-1 Reference Command Number (NM) 01390_.\")",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "ISD.2",
-        "path": "ISD.2",
+        "id": "ISD.2-isd2",
+        "path": "ISD.2-isd2",
         "short": "ISD-2",
         "definition": "This field specifies the type of interaction. If the interaction is performed as the result of a previous command, then the interaction type as specified in {{v2-table:0368:Remote Control command}} should be used.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "ISD.3",
-        "path": "ISD.3",
+        "id": "ISD.3-isd3",
+        "path": "ISD.3-isd3",
         "short": "ISD-3",
         "definition": "This field transfers the state of the interaction. If the interaction is performed as the result of a previous command, then the interaction state should be one of the Command Responses (Refer to {{v2-table:0387:Command Response}}). If the interaction is not performed as a result of a command (e.g., periodically time triggered automatic maintenance) then this state is interaction specific, and should refer to either the LECIS state transitions for interactions or a user or equipment specific table.",
         "code": [

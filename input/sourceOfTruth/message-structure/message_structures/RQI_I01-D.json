@@ -400,7 +400,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RQI_I01-D Segment Definition",
+  "title": "HL7 v2 RQI_I01-D Message Structure",
   "name": "RQI_I01-D",
   "type": "RQI_I01-D",
   "fhirVersion": "5.0.0",

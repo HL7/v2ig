@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RQ1.1",
-        "path": "RQ1.1",
+        "id": "RQ1.1-anticipatedPrice",
+        "path": "RQ1.1-anticipatedPrice",
         "short": "Anticipated Price",
         "definition": "This field contains the reference price for the requisition unit of measure that is known to the requisition application. It may or may not be the actual cost of acquiring the item from a supplier. It is also not the price charged to the patient.",
         "code": [
@@ -51,19 +51,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "10"
+                "valueInteger": 10
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RQ1.2",
-        "path": "RQ1.2",
+        "id": "RQ1.2-manufacturerIdentifier",
+        "path": "RQ1.2-manufacturerIdentifier",
         "short": "Manufacturer Identifier",
         "definition": "This field contains the unique code that identifies the manufacturer on the application receiving the requisition. This field is conditional because either RQ1-2-manufacturer ID and RQ1-3-manufacturer's catalog or RQ1-4-vendor ID and RQ1-5-vendor catalog must be valued.",
         "comment": "Refer to {{v2-table:0385:Manufacturer identifier}} in Chapter 2C, Code Tables, for suggested values, or relevant external code sets may be used (e.g., HIBCC Manufacturers Labeler ID Code (LIC), UPC, NDC).",
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "id": "RQ1.3",
-        "path": "RQ1.3",
+        "id": "RQ1.3-manufacturersCatalog",
+        "path": "RQ1.3-manufacturersCatalog",
         "short": "Manufacturer's Catalog",
         "definition": "This field is the manufacturer's catalog number or code for this item. This field is conditional because either RQ1-2-manufacturer ID and RQ1-3-manufacturer's catalog or RQ1-4-vendor ID and RQ1-5-vendor catalog must be valued.",
         "code": [
@@ -119,19 +119,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RQ1.4",
-        "path": "RQ1.4",
+        "id": "RQ1.4-vendorId",
+        "path": "RQ1.4-vendorId",
         "short": "Vendor ID",
         "definition": "This field is the unique code that identifies the vendor on the application receiving the requisition. This field is conditional because either RQ1-2-manufacturer ID and RQ1-3-manufacturer's catalog or RQ1-4-vendor ID and RQ1-5-vendor catalog must be valued. Refer to Table 0683 - Vendor ID in Chapter 2C for valid values.",
         "comment": "Because of this, it is recommended that each non-stock item have RQ1-2-manufacturers ID and RQ1-3-manufacturer's catalog, or RQ1-4-vendor ID and RQ1-5-vendor catalog. It is also possible that the requisitioning application will not know the identifier, as listed in the Manufacturer's or Vendor's catalog. In this case, it is important to include the name portion of this coded element field.",
@@ -160,8 +160,8 @@
         ]
       },
       {
-        "id": "RQ1.5",
-        "path": "RQ1.5",
+        "id": "RQ1.5-vendorCatalog",
+        "path": "RQ1.5-vendorCatalog",
         "short": "Vendor Catalog",
         "definition": "This field is the vendor's catalog number, name, or code for this item. This field is conditional because either RQ1-2-manufacturer ID and RQ1-3-manufacturer's catalog or RQ1-4-vendor ID and RQ1-5-vendor catalog must be valued.",
         "code": [
@@ -187,19 +187,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RQ1.6",
-        "path": "RQ1.6",
+        "id": "RQ1.6-taxable",
+        "path": "RQ1.6-taxable",
         "short": "Taxable",
         "definition": "This field indicates whether this item is subject to tax.",
         "comment": "In general, non-stock requisitioned items will be printed by the receiving application and then processed by a human. In other words, the human will use the information to call the vendor or manufacturer to get pricing and other related purchasing information before placing the order with an outside vendor. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables.",
@@ -241,8 +241,8 @@
         ]
       },
       {
-        "id": "RQ1.7",
-        "path": "RQ1.7",
+        "id": "RQ1.7-substituteAllowed",
+        "path": "RQ1.7-substituteAllowed",
         "short": "Substitute Allowed",
         "definition": "This field indicates whether the ancillary department may substitute an equivalent version of the item(s) ordered. Refer to {{v2-table:0136:Yes/No Indicator}} as defined in Chapter 2C, Code Tables.",
         "code": [

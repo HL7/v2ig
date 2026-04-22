@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PMT.1",
-        "path": "PMT.1",
+        "id": "PMT.1-paymentRemittanceAdviceNumber",
+        "path": "PMT.1-paymentRemittanceAdviceNumber",
         "short": "Payment/Remittance Advice Number",
         "definition": "Unique Payment/Remittance Advice number for the sending Network Application ID.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PMT.2",
-        "path": "PMT.2",
+        "id": "PMT.2-paymentRemittanceEffectiveDateTime",
+        "path": "PMT.2-paymentRemittanceEffectiveDateTime",
         "short": "Payment/Remittance Effective Date/Time",
         "definition": "[ Start ] Date/Time for this Payment/Remittance Advice.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "PMT.3",
-        "path": "PMT.3",
+        "id": "PMT.3-paymentRemittanceExpirationDateTime",
+        "path": "PMT.3-paymentRemittanceExpirationDateTime",
         "short": "Payment/Remittance Expiration Date/Time",
         "definition": "[ End ] Date/Time for this Payment/Remittance Advice.",
         "code": [
@@ -99,8 +99,8 @@
         ]
       },
       {
-        "id": "PMT.4",
-        "path": "PMT.4",
+        "id": "PMT.4-paymentMethod",
+        "path": "PMT.4-paymentMethod",
         "short": "Payment Method",
         "definition": "Code identifying the method for the movement of payment. Refer to {{v2-table:0570:Payment Method Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -128,8 +128,8 @@
         ]
       },
       {
-        "id": "PMT.5",
-        "path": "PMT.5",
+        "id": "PMT.5-paymentRemittanceDateTime",
+        "path": "PMT.5-paymentRemittanceDateTime",
         "short": "Payment/Remittance Date/Time",
         "definition": "Date Payment/Remittance Advice was paid, which might not be the same as Date/Time of Message on MSH.",
         "code": [
@@ -153,8 +153,8 @@
         ]
       },
       {
-        "id": "PMT.6",
-        "path": "PMT.6",
+        "id": "PMT.6-paymentRemittanceAmount",
+        "path": "PMT.6-paymentRemittanceAmount",
         "short": "Payment/Remittance Amount",
         "definition": "Sum total of all Product/Service Paid Amount on PSL for this Payment/Remittance Advice, net of any Adjustments to Payee.",
         "code": [
@@ -178,8 +178,8 @@
         ]
       },
       {
-        "id": "PMT.7",
-        "path": "PMT.7",
+        "id": "PMT.7-checkNumber",
+        "path": "PMT.7-checkNumber",
         "short": "Check Number",
         "definition": "Unique check number from the Payer's application system.",
         "code": [
@@ -203,8 +203,8 @@
         ]
       },
       {
-        "id": "PMT.8",
-        "path": "PMT.8",
+        "id": "PMT.8-payeeBankIdentification",
+        "path": "PMT.8-payeeBankIdentification",
         "short": "Payee Bank Identification",
         "definition": "Identification of Payee's financial contact, e.g., name of the bank .",
         "code": [
@@ -228,8 +228,8 @@
         ]
       },
       {
-        "id": "PMT.9",
-        "path": "PMT.9",
+        "id": "PMT.9-payeeTransitNumber",
+        "path": "PMT.9-payeeTransitNumber",
         "short": "Payee Transit Number",
         "definition": "Personal ID of the payee used in financial transaction.",
         "code": [
@@ -255,19 +255,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PMT.10",
-        "path": "PMT.10",
+        "id": "PMT.10-payeeBankAccountId",
+        "path": "PMT.10-payeeBankAccountId",
         "short": "Payee Bank Account ID",
         "definition": "Id of Payee's Bank account.",
         "code": [
@@ -291,8 +291,8 @@
         ]
       },
       {
-        "id": "PMT.11",
-        "path": "PMT.11",
+        "id": "PMT.11-paymentOrganization",
+        "path": "PMT.11-paymentOrganization",
         "short": "Payment Organization",
         "definition": "Organization identifier that made the Payment/Remittance Advice; could be a Payer, Insurance Company, TPA, Drug Company.",
         "code": [
@@ -316,8 +316,8 @@
         ]
       },
       {
-        "id": "PMT.12",
-        "path": "PMT.12",
+        "id": "PMT.12-esrCodeLine",
+        "path": "PMT.12-esrCodeLine",
         "short": "ESR-Code-Line",
         "definition": "Invoice Reference used with electronic banking methods.",
         "code": [
@@ -343,11 +343,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "100"
+                "valueInteger": 100
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

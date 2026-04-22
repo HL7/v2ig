@@ -382,7 +382,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E15 Segment Definition",
+  "title": "HL7 v2 EHC_E15 Message Structure",
   "name": "EHC_E15",
   "type": "EHC_E15",
   "fhirVersion": "5.0.0",

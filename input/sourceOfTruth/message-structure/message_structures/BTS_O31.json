@@ -299,10 +299,10 @@
       {
         "id": "BTS_O31.6-PATIENT.8-PATIENT_VISIT.2-PV2",
         "path": "BTS_O31.6-PATIENT.8-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -527,7 +527,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BTS_O31 Segment Definition",
+  "title": "HL7 v2 BTS_O31 Message Structure",
   "name": "BTS_O31",
   "type": "BTS_O31",
   "fhirVersion": "5.0.0",

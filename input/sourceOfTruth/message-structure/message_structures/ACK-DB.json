@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-DB Segment Definition",
+  "title": "HL7 v2 ACK-DB Message Structure",
   "name": "ACK-DB",
   "type": "ACK-DB",
   "fhirVersion": "5.0.0",

@@ -1,11 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Set ID - CM1</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01021</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Study Phase Identifier</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01022</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">3</td><td>Description of Study Phase</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01023</td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM1.1-setId">1</a></td><td>Set ID - CM1</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-CM1-definitions.html#CM1.1-setId">01021</a></td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM1.2-studyPhaseIdentifier">2</a></td><td>Study Phase Identifier</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-CM1-definitions.html#CM1.2-studyPhaseIdentifier">01022</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM1.3-descriptionOfStudyPhase">3</a></td><td>Description of Study Phase</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-CM1-definitions.html#CM1.3-descriptionOfStudyPhase">01023</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">=</td></tr>
 </tbody>
 </table>
 </div>

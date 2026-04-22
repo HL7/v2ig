@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "SGH.1",
-        "path": "SGH.1",
+        "id": "SGH.1-setId",
+        "path": "SGH.1-setId",
         "short": "Set ID – SGH",
         "definition": "For the first segment group transmitted, the sequence number SHALL be 1; for the second , it SHALL be 2; and so on.",
         "code": [
@@ -55,15 +55,15 @@
               },
               {
                 "url": "max",
-                "valueInteger": null
+                "valueInteger": 4
               }
             ]
           }
         ]
       },
       {
-        "id": "SGH.2",
-        "path": "SGH.2",
+        "id": "SGH.2-segmentGroupName",
+        "path": "SGH.2-segmentGroupName",
         "short": "Segment Group Name",
         "definition": "This field contains the name of the segment group.",
         "code": [
@@ -89,11 +89,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

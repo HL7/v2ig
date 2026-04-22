@@ -22,7 +22,7 @@
         "id": "CNN",
         "path": "CNN",
         "short": "composite ID number and name simplified",
-        "definition": "Definition: Specifies a person using both an identifier and the person’s name. Retained for backward compatibility only as of v2.6.",
+        "definition": "Definition: Specifies a person using both an identifier and the person\u2019s name. Retained for backward compatibility only as of v2.6.",
         "min": 0,
         "max": "*"
       },
@@ -84,7 +84,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -116,7 +116,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -148,7 +148,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -180,7 +180,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -212,7 +212,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }

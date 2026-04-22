@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PDA.1",
-        "path": "PDA.1",
+        "id": "PDA.1-deathCauseCode",
+        "path": "PDA.1-deathCauseCode",
         "short": "Death Cause Code",
         "definition": "This field is valued with the reason of the death.",
         "code": [
@@ -35,7 +35,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PDA.2",
-        "path": "PDA.2",
+        "id": "PDA.2-deathLocation",
+        "path": "PDA.2-deathLocation",
         "short": "Death Location",
         "definition": "This field is valued with the place the death occurred.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "PDA.3",
-        "path": "PDA.3",
+        "id": "PDA.3-deathCertifiedIndicator",
+        "path": "PDA.3-deathCertifiedIndicator",
         "short": "Death Certified Indicator",
         "definition": "This field indicates whether a death was officially certified or not. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y death has been certified\n\nN death has not been certified",
@@ -117,8 +117,8 @@
         ]
       },
       {
-        "id": "PDA.4",
-        "path": "PDA.4",
+        "id": "PDA.4-deathCertificateSignedDateTime",
+        "path": "PDA.4-deathCertificateSignedDateTime",
         "short": "Death Certificate Signed Date/Time",
         "definition": "This field is valued with the date and time the death certificate was signed.",
         "code": [
@@ -142,8 +142,8 @@
         ]
       },
       {
-        "id": "PDA.5",
-        "path": "PDA.5",
+        "id": "PDA.5-deathCertifiedBy",
+        "path": "PDA.5-deathCertifiedBy",
         "short": "Death Certified By",
         "definition": "This field is valued with the person who signed the death certificate.",
         "code": [
@@ -167,8 +167,8 @@
         ]
       },
       {
-        "id": "PDA.6",
-        "path": "PDA.6",
+        "id": "PDA.6-autopsyIndicator",
+        "path": "PDA.6-autopsyIndicator",
         "short": "Autopsy Indicator",
         "definition": "This field indicates whether an autopsy was performed. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y an autopsy was performed\n\nN an autopsy was not performed",
@@ -210,8 +210,8 @@
         ]
       },
       {
-        "id": "PDA.7",
-        "path": "PDA.7",
+        "id": "PDA.7-autopsyStartAndEndDateTime",
+        "path": "PDA.7-autopsyStartAndEndDateTime",
         "short": "Autopsy Start and End Date/Time",
         "definition": "If an autopsy is performed, this field is valued with the date and time the autopsy was begun and completed",
         "code": [
@@ -235,8 +235,8 @@
         ]
       },
       {
-        "id": "PDA.8",
-        "path": "PDA.8",
+        "id": "PDA.8-autopsyPerformedBy",
+        "path": "PDA.8-autopsyPerformedBy",
         "short": "Autopsy Performed By",
         "definition": "This field is valued with the authority who performed the autopsy.",
         "code": [
@@ -260,8 +260,8 @@
         ]
       },
       {
-        "id": "PDA.9",
-        "path": "PDA.9",
+        "id": "PDA.9-coronerIndicator",
+        "path": "PDA.9-coronerIndicator",
         "short": "Coroner Indicator",
         "definition": "This flag indicates whether the case/death has been assigned to the coroner/medical examiner for investigative purposed. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Has been assigned to the coroner.\n\nN Has not been assigned to the coroner.",

@@ -502,7 +502,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRE_O50 Segment Definition",
+  "title": "HL7 v2 RRE_O50 Message Structure",
   "name": "RRE_O50",
   "type": "RRE_O50",
   "fhirVersion": "5.0.0",

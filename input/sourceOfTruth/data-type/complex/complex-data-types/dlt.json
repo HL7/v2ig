@@ -71,7 +71,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -126,7 +126,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -134,5 +134,5 @@
       }
     ]
   },
-  "description": "*Note:* Replaces the CM data type used in section 8.8.4.9 – OM2-9, as of v 2.5."
+  "description": "*Note:* Replaces the CM data type used in section 8.8.4.9 \u2013 OM2-9, as of v 2.5."
 }

@@ -9,13 +9,13 @@
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-EQU.html">EQU</a></td><td>Equipment Detail</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Specimen Container begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-SAC.html">SAC</a></td><td>Specimen Container Detail</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-OBX.html">OBX</a> }</td><td>Additional specimen container characteristics</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-NTE.html">NTE</a> }</td><td>Additional specimen container information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation for OBX</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Additional specimen container characteristics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Additional specimen container information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation for OBX</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Specimen begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-OBX.html">OBX</a> }</td><td>Specimen related observation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation for OBX</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Specimen related observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation for OBX</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Specimen end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Specimen Container end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role Detail</td><td>B</td></tr>

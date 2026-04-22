@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "MFE.1",
-        "path": "MFE.1",
+        "id": "MFE.1-recordLevelEventCode",
+        "path": "MFE.1-recordLevelEventCode",
         "short": "Record-Level Event Code",
         "definition": "This field defines the record-level event for the master file record identified by the MFI segment and the primary key field in this segment. Refer to {{v2-table:0180:Record Level Event Code}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "*Note:* If the _MFI-3 - File-level event code_ is \"REP\" (replace file), then each MFE segment must have an _MFE-1 - Record-level event code_ of \"MAD\" (add record to master file).",
@@ -67,8 +67,8 @@
         ]
       },
       {
-        "id": "MFE.2",
-        "path": "MFE.2",
+        "id": "MFE.2-mfnControlId",
+        "path": "MFE.2-mfnControlId",
         "short": "MFN Control ID",
         "definition": "A number or other identifier that uniquely identifies this change to this record from the point of view of the originating system. When returned to the originating system via the MFA segment, this field allows the target system to precisely identify which change to this record is being acknowledged. It is only required if the MFI response level code requires responses at the record level (any value other than NE).",
         "comment": "*Note:* Note that this segment does not contain a Set ID field. The _MFE-2 - MFN Control ID_ implements a more general concept than the Set ID. It takes the place of the SET ID in the MFE segment.",
@@ -95,19 +95,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "MFE.3",
-        "path": "MFE.3",
+        "id": "MFE.3-effectiveDateTime",
+        "path": "MFE.3-effectiveDateTime",
         "short": "Effective Date/Time",
         "definition": "An optional effective date/time can be included for the record-level action specified. It is the date/time the originating system expects that the event is to have been completed on the receiving system. If this field is not present, the effective date/time should default to the current date/time (when the message is received).",
         "code": [
@@ -131,8 +131,8 @@
         ]
       },
       {
-        "id": "MFE.4",
-        "path": "MFE.4",
+        "id": "MFE.4-primaryKeyValue",
+        "path": "MFE.4-primaryKeyValue",
         "short": "Primary Key Value - MFE",
         "definition": "This field uniquely identifies the record of the master file (identified in the MFI segment) to be changed (as defined by the record-level event code). The data type of field is defined by the value of _MFE-5 - Value Type_, and may take on the format of any of the HL7 data types defined in {{v2-table:0355:Primary Key Value Type}} in Chapter 2C, Code Tables. The PL data type is used only on Location master transactions. Refer to Table 0608 - Primary Key Value - MFE in Chapter 2C for valid values.",
         "comment": "The repetition of the primary key permits the identification of an individual component of a complex record as the object of the record-level event code. This feature allows the Master Files protocol to be used for modifications of single components of complex records. If this field repeats, the field _MFE-5 - Value Type_ must also repeat (with the same number of repetitions), and the data type of each repetition of _MFE-4 - Primary Key Value - MFE_ is specified by the corresponding repetition of _MFE-5 - Value Type_.",
@@ -143,7 +143,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "Varies"
@@ -161,8 +161,8 @@
         ]
       },
       {
-        "id": "MFE.5",
-        "path": "MFE.5",
+        "id": "MFE.5-primaryKeyValueType",
+        "path": "MFE.5-primaryKeyValueType",
         "short": "Primary Key Value Type",
         "definition": "This field contains the HL7 data type of _MFE-4 - Primary Key Value - MFE_. The valid values for the data type of a primary key are listed in {{v2-table:0355:Primary Key Value Type}} in Chapter 2C, Code Tables.",
         "code": [
@@ -172,7 +172,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ID"
@@ -203,8 +203,8 @@
         ]
       },
       {
-        "id": "MFE.6",
-        "path": "MFE.6",
+        "id": "MFE.6-enteredDateTime",
+        "path": "MFE.6-enteredDateTime",
         "short": "Entered Date/Time",
         "definition": "This field contains the date and time of the last change of the record.",
         "code": [
@@ -228,8 +228,8 @@
         ]
       },
       {
-        "id": "MFE.7",
-        "path": "MFE.7",
+        "id": "MFE.7-enteredBy",
+        "path": "MFE.7-enteredBy",
         "short": "Entered By",
         "definition": "This field contains the identity of the person who actually keyed the master file entry into the application. It provides an audit trail in case the request is entered incorrectly and the ancillary department needs to clarify the request.",
         "code": [

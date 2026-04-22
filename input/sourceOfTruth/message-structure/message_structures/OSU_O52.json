@@ -262,7 +262,7 @@
         "id": "OSU_O52.10-ORDER_STATUS.2-PRT",
         "path": "OSU_O52.10-ORDER_STATUS.2-PRT",
         "short": "Participation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation",
         "type": [
@@ -279,7 +279,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OSU_O52 Segment Definition",
+  "title": "HL7 v2 OSU_O52 Message Structure",
   "name": "OSU_O52",
   "type": "OSU_O52",
   "fhirVersion": "5.0.0",

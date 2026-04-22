@@ -1,0 +1,27 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/v2/StructureDefinition/Varies",
+  "id": "Varies",
+  "version": "0.0.1",
+  "name": "Varies",
+  "title": "HL7 v2 Varies Data Type",
+  "status": "active",
+  "kind": "logical",
+  "abstract": true,
+  "type": "Varies",
+  "description": "Abstract data type indicating that the actual data type of the field is determined at runtime, typically by the value of another field in the same segment. For example, OBX-5 (Observation Value) has data type Varies because its actual type is specified by OBX-2 (Value Type). The allowed types and the mechanism for determining them are defined per field in the segment specification.",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Varies",
+        "path": "Varies",
+        "short": "Variable data type",
+        "definition": "A field whose data type is determined at runtime by another field. The actual value may be any V2 primitive or complex data type as specified by the controlling field.",
+        "min": 0,
+        "max": "*"
+      }
+    ]
+  }
+}

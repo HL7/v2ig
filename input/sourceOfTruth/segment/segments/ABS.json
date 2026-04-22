@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ABS.1",
-        "path": "ABS.1",
+        "id": "ABS.1-dischargeCareProvider",
+        "path": "ABS.1-dischargeCareProvider",
         "short": "Discharge Care Provider",
         "definition": "Identification number of the provider responsible for the discharge of the patient from his/her care. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "ABS.2",
-        "path": "ABS.2",
+        "id": "ABS.2-transferMedicalServiceCode",
+        "path": "ABS.2-transferMedicalServiceCode",
         "short": "Transfer Medical Service Code",
         "definition": "Medical code representing the patient's medical services when they are transferred. Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -82,8 +82,8 @@
         ]
       },
       {
-        "id": "ABS.3",
-        "path": "ABS.3",
+        "id": "ABS.3-severityOfIllnessCode",
+        "path": "ABS.3-severityOfIllnessCode",
         "short": "Severity of Illness Code",
         "definition": "Code representing the ranking of a patient's illness. Refer to {{v2-table:0421:Severity of Illness Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -111,8 +111,8 @@
         ]
       },
       {
-        "id": "ABS.4",
-        "path": "ABS.4",
+        "id": "ABS.4-dateTimeOfAttestation",
+        "path": "ABS.4-dateTimeOfAttestation",
         "short": "Date/Time of Attestation",
         "definition": "Date/time that the medical record was reviewed and accepted.",
         "code": [
@@ -136,8 +136,8 @@
         ]
       },
       {
-        "id": "ABS.5",
-        "path": "ABS.5",
+        "id": "ABS.5-attestedBy",
+        "path": "ABS.5-attestedBy",
         "short": "Attested By",
         "definition": "Identification number of the person (usually a provider) who reviewed and accepted the abstract of the medical record.",
         "code": [
@@ -161,8 +161,8 @@
         ]
       },
       {
-        "id": "ABS.6",
-        "path": "ABS.6",
+        "id": "ABS.6-triageCode",
+        "path": "ABS.6-triageCode",
         "short": "Triage Code",
         "definition": "Code representing a patient's prioritization within the context of this abstract. Refer to {{v2-table:0422:Triage Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -190,8 +190,8 @@
         ]
       },
       {
-        "id": "ABS.7",
-        "path": "ABS.7",
+        "id": "ABS.7-abstractCompletionDateTime",
+        "path": "ABS.7-abstractCompletionDateTime",
         "short": "Abstract Completion Date/Time",
         "definition": "Date/time the abstraction was completed.",
         "code": [
@@ -215,8 +215,8 @@
         ]
       },
       {
-        "id": "ABS.8",
-        "path": "ABS.8",
+        "id": "ABS.8-abstractedBy",
+        "path": "ABS.8-abstractedBy",
         "short": "Abstracted By",
         "definition": "Identification number of the person completing the Abstract.",
         "code": [
@@ -240,8 +240,8 @@
         ]
       },
       {
-        "id": "ABS.9",
-        "path": "ABS.9",
+        "id": "ABS.9-caseCategoryCode",
+        "path": "ABS.9-caseCategoryCode",
         "short": "Case Category Code",
         "definition": "Code indicating the reason a non-urgent patient presents to the Emergency Room for treatment instead of a clinic or physician office. Refer to E:\\\\V2\\\\V29_CH02C_Tables.docx#HL70423[_User-defined Table 0423 - Case Category Code_] in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -269,8 +269,8 @@
         ]
       },
       {
-        "id": "ABS.10",
-        "path": "ABS.10",
+        "id": "ABS.10-caesarianSectionIndicator",
+        "path": "ABS.10-caesarianSectionIndicator",
         "short": "Caesarian Section Indicator",
         "definition": "Indicates if the delivery was by Caesarian Section. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Delivery was by Caesarian Section.\n\nN Delivery was not by Caesarian Section.",
@@ -312,8 +312,8 @@
         ]
       },
       {
-        "id": "ABS.11",
-        "path": "ABS.11",
+        "id": "ABS.11-gestationCategoryCode",
+        "path": "ABS.11-gestationCategoryCode",
         "short": "Gestation Category Code",
         "definition": "The gestation category code is used to indicate the status of the birth in relation to the gestation. Refer to {{v2-table:0424:Gestation Category Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -341,8 +341,8 @@
         ]
       },
       {
-        "id": "ABS.12",
-        "path": "ABS.12",
+        "id": "ABS.12-gestationPeriodWeeks",
+        "path": "ABS.12-gestationPeriodWeeks",
         "short": "Gestation Period - Weeks",
         "definition": "Newborn's gestation period expressed as a number of weeks.",
         "code": [
@@ -368,19 +368,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "ABS.13",
-        "path": "ABS.13",
+        "id": "ABS.13-newbornCode",
+        "path": "ABS.13-newbornCode",
         "short": "Newborn Code",
         "definition": "The newborn code is used to indicate whether the baby was born in or out of the facility. Refer to {{v2-table:0425:Newborn Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -408,8 +408,8 @@
         ]
       },
       {
-        "id": "ABS.14",
-        "path": "ABS.14",
+        "id": "ABS.14-stillbornIndicator",
+        "path": "ABS.14-stillbornIndicator",
         "short": "Stillborn Indicator",
         "definition": "Indicates whether or not a newborn was stillborn. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y Stillborn.\n\nN Not stillborn.",

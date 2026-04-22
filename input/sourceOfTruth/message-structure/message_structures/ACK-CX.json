@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CX Segment Definition",
+  "title": "HL7 v2 ACK-CX Message Structure",
   "name": "ACK-CX",
   "type": "ACK-CX",
   "fhirVersion": "5.0.0",

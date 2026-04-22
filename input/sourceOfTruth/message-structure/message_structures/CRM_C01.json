@@ -64,7 +64,7 @@
       {
         "id": "CRM_C01.3-SFT",
         "path": "CRM_C01.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -191,7 +191,7 @@
       {
         "id": "CRM_C01.5-PATIENT.5-PRT",
         "path": "CRM_C01.5-PATIENT.5-PRT",
-        "short": "Participation (for Patient",
+        "short": "Participation (for Patient)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Patient",
@@ -261,7 +261,7 @@
       {
         "id": "CRM_C01.5-PATIENT.7-PATIENT_VISIT.2-PRT",
         "path": "CRM_C01.5-PATIENT.7-PATIENT_VISIT.2-PRT",
-        "short": "Participation (for Patient Visit",
+        "short": "Participation (for Patient Visit)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Patient Visit",
@@ -317,7 +317,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CRM_C01 Segment Definition",
+  "title": "HL7 v2 CRM_C01 Message Structure",
   "name": "CRM_C01",
   "type": "CRM_C01",
   "fhirVersion": "5.0.0",

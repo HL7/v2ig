@@ -64,7 +64,7 @@
       {
         "id": "ADT_A06-B.3-SFT",
         "path": "ADT_A06-B.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -1046,7 +1046,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A06-B Segment Definition",
+  "title": "HL7 v2 ADT_A06-B Message Structure",
   "name": "ADT_A06-B",
   "type": "ADT_A06-B",
   "fhirVersion": "5.0.0",

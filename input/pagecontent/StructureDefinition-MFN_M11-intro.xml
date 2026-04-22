@@ -14,7 +14,7 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Mf Test Calc Detail begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-OM6.html">OM6</a></td><td>Observations Calculated from Other Observations</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OM2.html">OM2</a></td><td>Numeric Observation Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OM2.html">OM2</a></td><td>Numeric Observation</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Mf Test Calc Detail end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Test Calculated end</td><td></td><td></td></tr>
 </tbody>

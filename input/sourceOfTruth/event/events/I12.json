@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/Event-Profile"
+    ]
+  },
+  "version": "0.0.1",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/Event",
+  "derivation": "specialization",
+  "date": "2024-07-24T19:13:28Z",
+  "url": "http://hl7.org/v2/StructureDefinition/I12",
+  "id": "I12",
+  "name": "I12",
+  "type": "I12",
+  "title": "HL7 v2 I12 Message Definition",
+  "differential": {
+    "element": [
+      {
+        "id": "I12",
+        "path": "I12",
+        "short": "I12",
+        "definition": "Event I12: Patient Referral",
+        "min": 0,
+        "max": "*"
+      }
+    ]
+  }
+}

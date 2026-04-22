@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "LDP.1",
-        "path": "LDP.1",
+        "id": "LDP.1-primaryKeyValue",
+        "path": "LDP.1-primaryKeyValue",
         "short": "Primary Key Value - LDP",
         "definition": "This field contains the institution's identification code for the location. The identifying key value. This field has the same components as the patient location fields in the PV1 segment (except that bed status is not included here). At least the first component of this field is required. The contents of this field must exactly match the content of its preceding MFE (_MFE-4 - Primary Key Value - MFE)_ and its preceding LOC (_LOC-1 - Primary Key Value - LOC)_.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "LDP.2",
-        "path": "LDP.2",
+        "id": "LDP.2-locationDepartment",
+        "path": "LDP.2-locationDepartment",
         "short": "Location Department",
         "definition": "This field contains the institution's department to which this location belongs, or its cost center. Refer to {{v2-table:0264:Location Department}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "LDP.3",
-        "path": "LDP.3",
+        "id": "LDP.3-locationService",
+        "path": "LDP.3-locationService",
         "short": "Location Service",
         "definition": "This field contains the hospital or ancillary service with which this location is associated. Depends on institution use. Repeats for rooms that can be used, for example, by different services on different days. These values should match the values used for _PV1-10 - Hospital Service_, which is site defined. Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -89,7 +89,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -109,19 +109,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "LDP.4",
-        "path": "LDP.4",
+        "id": "LDP.4-specialtyType",
+        "path": "LDP.4-specialtyType",
         "short": "Specialty Type",
         "definition": "This field contains the specialty type (if any) of the department or clinic. This may also be considered a bed type. Specialty type is a physical accommodation type, whereas 'accommodation type' (_LCC-3 - Accommodation Type_) is a financial accommodation type. Refer to {{v2-table:0265:Specialty Type}} in Chapter 2C, Code Tables, for suggested values. See also _LCH-4 - Location Characteristic ID_ and _LHC-5 - Location Characteristic Value_.",
         "code": [
@@ -131,7 +131,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -149,8 +149,8 @@
         ]
       },
       {
-        "id": "LDP.5",
-        "path": "LDP.5",
+        "id": "LDP.5-validPatientClasses",
+        "path": "LDP.5-validPatientClasses",
         "short": "Valid Patient Classes",
         "definition": "This field contains the patient types that are allowed to be assigned to this bed. For example, Inpatient, Outpatient, Series, Clinic, ER, Ambulatory, Observation, etc. These values should be the same set of values as those used for _PV1-2 - Patient Class_. Refer to {{v2-table:0004:Patient Class}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -160,7 +160,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -180,19 +180,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1"
+                "valueInteger": 1
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "LDP.6",
-        "path": "LDP.6",
+        "id": "LDP.6-activeInactiveFlag",
+        "path": "LDP.6-activeInactiveFlag",
         "short": "Active/Inactive Flag",
         "definition": "This field indicates whether the entry for this location is currently an active, that is, valid, usable entry (disregarding whether it's waiting to be maintained by housekeeping). Refer to {{v2-table:0183:Active/Inactive}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -233,8 +233,8 @@
         ]
       },
       {
-        "id": "LDP.7",
-        "path": "LDP.7",
+        "id": "LDP.7-activationDate",
+        "path": "LDP.7-activationDate",
         "short": "Activation Date - LDP",
         "definition": "This field contains the date and time when the location became active or \"in service\" for a department (disregarding whether it is waiting to be maintained by housekeeping).",
         "code": [
@@ -258,8 +258,8 @@
         ]
       },
       {
-        "id": "LDP.8",
-        "path": "LDP.8",
+        "id": "LDP.8-inactivationDate",
+        "path": "LDP.8-inactivationDate",
         "short": "Inactivation Date - LDP",
         "definition": "This field contains the date when the location became inactive or \"out of service\" for this department (disregarding whether it is waiting to be maintained by housekeeping).",
         "code": [
@@ -283,8 +283,8 @@
         ]
       },
       {
-        "id": "LDP.9",
-        "path": "LDP.9",
+        "id": "LDP.9-inactivatedReason",
+        "path": "LDP.9-inactivatedReason",
         "short": "Inactivated Reason",
         "definition": "This field contains the reason the location was put out of service. It is used when _LDP-8 - Inactivation Date-LDP_ is sent.",
         "code": [
@@ -310,19 +310,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "LDP.10",
-        "path": "LDP.10",
+        "id": "LDP.10-visitingHours",
+        "path": "LDP.10-visitingHours",
         "short": "Visiting Hours",
         "definition": "This field contains the hours when this location is open for visiting. Refer to {{v2-table:0267:Days of the Week}} in Chapter 2C, Code Tables, for valid values for the first two components.",
         "code": [
@@ -332,7 +332,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "VH"
@@ -350,8 +350,8 @@
         ]
       },
       {
-        "id": "LDP.11",
-        "path": "LDP.11",
+        "id": "LDP.11-contactPhone",
+        "path": "LDP.11-contactPhone",
         "short": "Contact Phone",
         "definition": "This field contains the phone number to use to contact facility personnel about the patient location, in case of inquiries about the location. This phone is not necessarily within the named patient location.",
         "code": [
@@ -375,8 +375,8 @@
         ]
       },
       {
-        "id": "LDP.12",
-        "path": "LDP.12",
+        "id": "LDP.12-locationCostCenter",
+        "path": "LDP.12-locationCostCenter",
         "short": "Location Cost Center",
         "definition": "This field contains the cost center to which this location belongs. Refer to {{v2-table:0462:Location Cost Center}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

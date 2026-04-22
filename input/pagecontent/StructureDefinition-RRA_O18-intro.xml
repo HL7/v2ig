@@ -17,7 +17,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Order begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for ORC)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Common Order)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Timing begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>

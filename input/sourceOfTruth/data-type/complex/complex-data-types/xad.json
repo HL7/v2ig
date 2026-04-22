@@ -71,7 +71,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -103,7 +103,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -135,7 +135,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -271,7 +271,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -375,7 +375,7 @@
         "id": "XAD.13",
         "path": "XAD.13",
         "short": "Effective Date",
-        "defintion": "*Definition:* The first date, if known, on which the address is valid and active for the ‘owning’ entity.\n",
+        "defintion": "*Definition:* The first date, if known, on which the address is valid and active for the \u2018owning\u2019 entity.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -407,7 +407,7 @@
         "id": "XAD.14",
         "path": "XAD.14",
         "short": "Expiration Date",
-        "defintion": "*Definition:* The last date, if known, on which the address is valid and active for the ‘owning’ entity.\n",
+        "defintion": "*Definition:* The last date, if known, on which the address is valid and active for the \u2018owning\u2019 entity.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -592,7 +592,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -624,7 +624,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }

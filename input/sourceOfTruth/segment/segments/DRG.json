@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "DRG.1",
-        "path": "DRG.1",
+        "id": "DRG.1-diagnosticRelatedGroup",
+        "path": "DRG.1-diagnosticRelatedGroup",
         "short": "Diagnostic Related Group",
         "definition": "This field contains the DRG for the transaction. Interim DRG's could be determined for an encounter. Refer to {{v2-table:0055:Diagnosis Related Group}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "DRG.2",
-        "path": "DRG.2",
+        "id": "DRG.2-drgAssignedDateTime",
+        "path": "DRG.2-drgAssignedDateTime",
         "short": "DRG Assigned Date/Time",
         "definition": "This field contains the time stamp to indicate the date and time that the DRG was assigned.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "DRG.3",
-        "path": "DRG.3",
+        "id": "DRG.3-drgApprovalIndicator",
+        "path": "DRG.3-drgApprovalIndicator",
         "short": "DRG Approval Indicator",
         "definition": "This field indicates if the DRG has been approved by a reviewing entity. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y the DRG has been approved by a reviewing entity\n\nN the DRG has not been approved",
@@ -121,8 +121,8 @@
         ]
       },
       {
-        "id": "DRG.4",
-        "path": "DRG.4",
+        "id": "DRG.4-drgGrouperReviewCode",
+        "path": "DRG.4-drgGrouperReviewCode",
         "short": "DRG Grouper Review Code",
         "definition": "This code indicates that the grouper results have been reviewed and approved. Refer to {{v2-table:0056:DRG Grouper Review Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -150,8 +150,8 @@
         ]
       },
       {
-        "id": "DRG.5",
-        "path": "DRG.5",
+        "id": "DRG.5-outlierType",
+        "path": "DRG.5-outlierType",
         "short": "Outlier Type",
         "definition": "Refers to the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Refer to {{v2-table:0083:Outlier Type}} in Chapter 2C, code Tables, for suggested values.",
         "code": [
@@ -179,8 +179,8 @@
         ]
       },
       {
-        "id": "DRG.6",
-        "path": "DRG.6",
+        "id": "DRG.6-outlierDays",
+        "path": "DRG.6-outlierDays",
         "short": "Outlier Days",
         "definition": "This field contains the number of days that have been approved as an outlier payment.",
         "code": [
@@ -206,19 +206,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "DRG.7",
-        "path": "DRG.7",
+        "id": "DRG.7-outlierCost",
+        "path": "DRG.7-outlierCost",
         "short": "Outlier Cost",
         "definition": "This field contains the amount of money that has been approved for an outlier payment.",
         "code": [
@@ -242,8 +242,8 @@
         ]
       },
       {
-        "id": "DRG.8",
-        "path": "DRG.8",
+        "id": "DRG.8-drgPayor",
+        "path": "DRG.8-drgPayor",
         "short": "DRG Payor",
         "definition": "This field indicates the associated DRG Payor. Refer to {{v2-table:0229:DRG Payor}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -271,8 +271,8 @@
         ]
       },
       {
-        "id": "DRG.9",
-        "path": "DRG.9",
+        "id": "DRG.9-outlierReimbursement",
+        "path": "DRG.9-outlierReimbursement",
         "short": "Outlier Reimbursement",
         "definition": "Where applicable, the outlier reimbursement amount indicates the part of the total reimbursement designated for reimbursement of outlier conditions (day or cost).",
         "code": [
@@ -296,8 +296,8 @@
         ]
       },
       {
-        "id": "DRG.10",
-        "path": "DRG.10",
+        "id": "DRG.10-confidentialIndicator",
+        "path": "DRG.10-confidentialIndicator",
         "short": "Confidential Indicator",
         "definition": "This field indicates if the DRG contains a confidential diagnosis. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the DRG contains a confidential diagnosis\n\nN the DRG does not contain a confidential diagnosis",
@@ -339,8 +339,8 @@
         ]
       },
       {
-        "id": "DRG.11",
-        "path": "DRG.11",
+        "id": "DRG.11-drgTransferType",
+        "path": "DRG.11-drgTransferType",
         "short": "DRG Transfer Type",
         "definition": "This field indicates the type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG's), for example, exempt or non-exempt. Refer to {{v2-table:0415:DRG Transfer Type}} in Chapter 2C, code Tables, for suggested values.",
         "code": [
@@ -368,8 +368,8 @@
         ]
       },
       {
-        "id": "DRG.12",
-        "path": "DRG.12",
+        "id": "DRG.12-nameOfCoder",
+        "path": "DRG.12-nameOfCoder",
         "short": "Name of Coder",
         "definition": "This field holds the name of the person (\"coder\") who supervised or undertook the determination of the DRG code.",
         "code": [
@@ -393,8 +393,8 @@
         ]
       },
       {
-        "id": "DRG.13",
-        "path": "DRG.13",
+        "id": "DRG.13-grouperStatus",
+        "path": "DRG.13-grouperStatus",
         "short": "Grouper Status",
         "definition": "This field indicates the grouper status in general. Refer to {{v2-table:0734:Grouper Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -422,8 +422,8 @@
         ]
       },
       {
-        "id": "DRG.14",
-        "path": "DRG.14",
+        "id": "DRG.14-pcclValueCode",
+        "path": "DRG.14-pcclValueCode",
         "short": "PCCL Value Code",
         "definition": "This field indicates the PCCL (Patient Clinical Complexity Level) value for the calculated DRG as a single value. This value is calculated based on all individual CCL values calculated so far in relation to the basic DRG. Refer to {{v2-table:0728:CCL Value}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -451,8 +451,8 @@
         ]
       },
       {
-        "id": "DRG.15",
-        "path": "DRG.15",
+        "id": "DRG.15-effectiveWeight",
+        "path": "DRG.15-effectiveWeight",
         "short": "Effective Weight",
         "definition": "This field contains the effective weight as calculated for this DRG. When exceeding the upper or lower trim point the effective weight is lower or higher.",
         "code": [
@@ -478,19 +478,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "DRG.16",
-        "path": "DRG.16",
+        "id": "DRG.16-monetaryAmount",
+        "path": "DRG.16-monetaryAmount",
         "short": "Monetary Amount",
         "definition": "This field contains the monetary amount as calculated for this DRG, i.e., the sum of money the insurance company will pay.",
         "code": [
@@ -514,8 +514,8 @@
         ]
       },
       {
-        "id": "DRG.17",
-        "path": "DRG.17",
+        "id": "DRG.17-statusPatient",
+        "path": "DRG.17-statusPatient",
         "short": "Status Patient",
         "definition": "This field contains the status of the patient concerning the financial aspects. It indicates whether the length of stay is normal or respectively shorter or longer than normal. Refer to {{v2-table:0739:DRG Status Patient}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "This field is also used along with DRG-23 and DRG-24 as an indication of whether a surcharge (long length of stay) or a discount (short length of stay) has been determined.",
@@ -544,8 +544,8 @@
         ]
       },
       {
-        "id": "DRG.18",
-        "path": "DRG.18",
+        "id": "DRG.18-grouperSoftwareName",
+        "path": "DRG.18-grouperSoftwareName",
         "short": "Grouper Software Name",
         "definition": "This field contains the name of the software used for grouping.",
         "code": [
@@ -571,19 +571,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "100"
+                "valueInteger": 100
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "DRG.19",
-        "path": "DRG.19",
+        "id": "DRG.19-grouperSoftwareVersion",
+        "path": "DRG.19-grouperSoftwareVersion",
         "short": "Grouper Software Version",
         "definition": "This field contains the version information of the software used for grouping.",
         "code": [
@@ -609,19 +609,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "100"
+                "valueInteger": 100
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "DRG.20",
-        "path": "DRG.20",
+        "id": "DRG.20-statusFinancialCalculation",
+        "path": "DRG.20-statusFinancialCalculation",
         "short": "Status Financial Calculation",
         "definition": "This field contains the status of the DRG calculation regarding the financial aspects. Refer to {{v2-table:0742:DRG Status Financial Calculation}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -649,8 +649,8 @@
         ]
       },
       {
-        "id": "DRG.21",
-        "path": "DRG.21",
+        "id": "DRG.21-relativeDiscountSurcharge",
+        "path": "DRG.21-relativeDiscountSurcharge",
         "short": "Relative Discount/Surcharge",
         "definition": "There will be a discount/surcharge for the calculated price due to a very short stay, early referral or a very long stay. This field contains the discount or surcharge that is included in the final price.",
         "code": [
@@ -674,8 +674,8 @@
         ]
       },
       {
-        "id": "DRG.22",
-        "path": "DRG.22",
+        "id": "DRG.22-basicCharge",
+        "path": "DRG.22-basicCharge",
         "short": "Basic Charge",
         "definition": "The basic charge is calculated as a multiplication of the relative weight with the base rate.",
         "code": [
@@ -699,8 +699,8 @@
         ]
       },
       {
-        "id": "DRG.23",
-        "path": "DRG.23",
+        "id": "DRG.23-totalCharge",
+        "path": "DRG.23-totalCharge",
         "short": "Total Charge",
         "definition": "This field contains the total charge including surcharges or discounts.",
         "code": [
@@ -724,8 +724,8 @@
         ]
       },
       {
-        "id": "DRG.24",
-        "path": "DRG.24",
+        "id": "DRG.24-discountSurcharge",
+        "path": "DRG.24-discountSurcharge",
         "short": "Discount/Surcharge",
         "definition": "This field contains the discount/surcharge as determined for this DRG. The addition/re­duction is indicated by _DRG-17 - Status Patient_.",
         "code": [
@@ -749,8 +749,8 @@
         ]
       },
       {
-        "id": "DRG.25",
-        "path": "DRG.25",
+        "id": "DRG.25-calculatedDays",
+        "path": "DRG.25-calculatedDays",
         "short": "Calculated Days",
         "definition": "This field contains the number of days, for which a surcharge/discount has been determined. The addition/reduction is indicated by _DRG-17 - Status Patient_.",
         "code": [
@@ -776,19 +776,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "DRG.26",
-        "path": "DRG.26",
+        "id": "DRG.26-statusGender",
+        "path": "DRG.26-statusGender",
         "short": "Status Gender",
         "definition": "This field contains the status of the use of the gender information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -816,8 +816,8 @@
         ]
       },
       {
-        "id": "DRG.27",
-        "path": "DRG.27",
+        "id": "DRG.27-statusAge",
+        "path": "DRG.27-statusAge",
         "short": "Status Age",
         "definition": "This field contains the status of the use of the age information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -845,8 +845,8 @@
         ]
       },
       {
-        "id": "DRG.28",
-        "path": "DRG.28",
+        "id": "DRG.28-statusLengthOfStay",
+        "path": "DRG.28-statusLengthOfStay",
         "short": "Status Length of Stay",
         "definition": "This field contains the status of the DRG calculation for the length of stay information. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -874,8 +874,8 @@
         ]
       },
       {
-        "id": "DRG.29",
-        "path": "DRG.29",
+        "id": "DRG.29-statusSameDayFlag",
+        "path": "DRG.29-statusSameDayFlag",
         "short": "Status Same Day Flag",
         "definition": "This field contains the status of the use of the same day information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -903,8 +903,8 @@
         ]
       },
       {
-        "id": "DRG.30",
-        "path": "DRG.30",
+        "id": "DRG.30-statusSeparationMode",
+        "path": "DRG.30-statusSeparationMode",
         "short": "Status Separation Mode",
         "definition": "This field contains the status of the use of the separation mode information for DRG determination. Refer to {{v2-table:0749:DRG Grouping Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -932,8 +932,8 @@
         ]
       },
       {
-        "id": "DRG.31",
-        "path": "DRG.31",
+        "id": "DRG.31-statusWeightAtBirth",
+        "path": "DRG.31-statusWeightAtBirth",
         "short": "Status Weight at Birth",
         "definition": "This field contains the status of the use of the weight at birth information for DRG determination. Refer to {{v2-table:0755:DRG Status Weight At Birth}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -961,8 +961,8 @@
         ]
       },
       {
-        "id": "DRG.32",
-        "path": "DRG.32",
+        "id": "DRG.32-statusRespirationMinutes",
+        "path": "DRG.32-statusRespirationMinutes",
         "short": "Status Respiration Minutes",
         "definition": "This field contains the status of the use of the respiration minutes information for DRG determination. Refer to {{v2-table:0757:DRG Status Respiration Minutes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -990,8 +990,8 @@
         ]
       },
       {
-        "id": "DRG.33",
-        "path": "DRG.33",
+        "id": "DRG.33-statusAdmission",
+        "path": "DRG.33-statusAdmission",
         "short": "Status Admission",
         "definition": "This field contains the admission status for the DRG determination. Refer to {{v2-table:0759:Status Admission}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

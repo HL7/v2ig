@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ODS.1",
-        "path": "ODS.1",
+        "id": "ODS.1-type",
+        "path": "ODS.1-type",
         "short": "Type",
         "definition": "This field specifies type of diet. Refer To {{v2-table:0159:Diet Code Specification Type}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -66,8 +66,8 @@
         ]
       },
       {
-        "id": "ODS.2",
-        "path": "ODS.2",
+        "id": "ODS.2-servicePeriod",
+        "path": "ODS.2-servicePeriod",
         "short": "Service Period",
         "definition": "When blank, the modifier applies to all service periods. Diet orders, for example, typically apply to all service periods. This field usually specifies supplements. This field allows you to designate a modification for one or more of the service periods during a day by combining service specifications as needed. The service periods will be local CEs, normally numbers. Suggested are:",
         "comment": "Definition: When blank, the modifier applies to all service periods. Diet orders, for example, typically apply to all service periods. This field usually specifies supplements. This field allows you to designate a modification for one or more of the service periods during a day by combining service specifications as needed. The service periods will be local CEs, normally numbers. Suggested are:\n|===\n|service 1 |is |breakfast\n|service 2 |is |mid-morning snack\n|service 3 |is |lunch\n|service 4 |is |mid-afternoon snack\n|service 5 |is |dinner\n|service 6 |is |bedtime snack\n|===\n\nEx: |1~5| means service 1 and service 5, whatever these are locally defined to be.\n\nRefer to Table 0627 - Service Period in Chapter 2C for valid values.",
@@ -96,8 +96,8 @@
         ]
       },
       {
-        "id": "ODS.3",
-        "path": "ODS.3",
+        "id": "ODS.3-dietSupplementOrPreferenceCode",
+        "path": "ODS.3-dietSupplementOrPreferenceCode",
         "short": "Diet, Supplement, or Preference Code",
         "definition": "This field is the identifier of the ordered item for a patient; it is equivalent to OBR-4-universal service ID in function. Since ODS is a repeating segment, multiple entities get multiple segments. Refer to Table 0628 - Diet, Supplement, or Preference Code in Chapter 2C for valid values.",
         "comment": "Example:\n\n|^REG|, |023^^99FD6|, |^NOLACT|, |^TUBEFD|, and |011^HIPRO100^99FD1~123^LOFAT20^99FD1|\n\nIn the case where this segment requests a diet supplement, i.e., ODS-1-type = S, this attribute specifies a particular item or class of items. If institutional codes for patient food preferences (P) have been codified, they are also expressed as coded segments; otherwise, the information is passed as a text string in the fourth component of the ODS segment, described below.",
@@ -126,8 +126,8 @@
         ]
       },
       {
-        "id": "ODS.4",
-        "path": "ODS.4",
+        "id": "ODS.4-textInstruction",
+        "path": "ODS.4-textInstruction",
         "short": "Text Instruction",
         "definition": "This field defines the specific instructions for dietary. These instructions may address specific patient needs, such as isolation. This field provides the ordering provider's dietary instructions as free text. It can represent the full dietary instruction or indicate supplemental information.",
         "code": [
@@ -153,11 +153,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

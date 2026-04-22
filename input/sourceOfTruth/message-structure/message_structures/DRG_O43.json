@@ -45,7 +45,7 @@
       {
         "id": "DRG_O43.2-SFT",
         "path": "DRG_O43.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -96,7 +96,7 @@
       {
         "id": "DRG_O43.4-DONOR.1-PID",
         "path": "DRG_O43.4-DONOR.1-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 1,
         "max": "1",
         "definition": "Patient Identification Segment",
@@ -330,7 +330,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DRG_O43 Segment Definition",
+  "title": "HL7 v2 DRG_O43 Message Structure",
   "name": "DRG_O43",
   "type": "DRG_O43",
   "fhirVersion": "5.0.0",

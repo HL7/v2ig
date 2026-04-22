@@ -1,10 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Bed Location</td><td class="v2-col-mono"><a href="StructureDefinition-PL.html">PL</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">00209</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Bed Status</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0116">0116</a></td><td class="v2-col-mono">00170</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-NPU.1-bedLocation">1</a></td><td>Bed Location</td><td class="v2-col-mono"><a href="StructureDefinition-PL.html">PL</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-NPU-definitions.html#NPU.1-bedLocation">00209</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-NPU.2-bedStatus">2</a></td><td>Bed Status</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0116">0116</a></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-NPU-definitions.html#NPU.2-bedStatus">00170</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

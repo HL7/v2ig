@@ -197,7 +197,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E21 Segment Definition",
+  "title": "HL7 v2 EHC_E21 Message Structure",
   "name": "EHC_E21",
   "type": "EHC_E21",
   "fhirVersion": "5.0.0",

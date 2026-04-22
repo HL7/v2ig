@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RXV.1",
-        "path": "RXV.1",
+        "id": "RXV.1-setId",
+        "path": "RXV.1-setId",
         "short": "Set ID - RXV",
         "definition": "For the first timing specification transmitted, the sequence number shall be 1; for the second timing specification, it shall be 2; and so on.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "RXV.2",
-        "path": "RXV.2",
+        "id": "RXV.2-bolusType",
+        "path": "RXV.2-bolusType",
         "short": "Bolus Type",
         "definition": "This field identifies the type of bolus being ordered. See {{v2-table:0917:Bolus Type}} in Chapter 2C, Code Tables, for example values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "RXV.3",
-        "path": "RXV.3",
+        "id": "RXV.3-bolusDoseAmount",
+        "path": "RXV.3-bolusDoseAmount",
         "short": "Bolus Dose Amount",
         "definition": "This field contains the ordered bolus amount. For example, if the ordered bolus is 50 mg, this field contains the value of 50.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "RXV.4",
-        "path": "RXV.4",
+        "id": "RXV.4-bolusDoseAmountUnits",
+        "path": "RXV.4-bolusDoseAmountUnits",
         "short": "Bolus Dose Amount Units",
         "definition": "This field indicates the amount units associated with the bolus dose amount. The preferred coding system is MDC; UCUM are also acceptable. Refer to Table 0767 - Bolus Dose Amount Units in Chapter 2C for valid values.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -146,8 +146,8 @@
         ]
       },
       {
-        "id": "RXV.5",
-        "path": "RXV.5",
+        "id": "RXV.5-bolusDoseVolume",
+        "path": "RXV.5-bolusDoseVolume",
         "short": "Bolus Dose Volume",
         "definition": "This field defines the volume measurement for the ordered bolus amount. For example, if the ordered bolus is 5 ml, this field contains the value of 5.",
         "code": [
@@ -173,19 +173,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RXV.6",
-        "path": "RXV.6",
+        "id": "RXV.6-bolusDoseVolumeUnits",
+        "path": "RXV.6-bolusDoseVolumeUnits",
         "short": "Bolus Dose Volume Units",
         "definition": "This field indicates the amount units associated with the bolus dose volume. The preferred coding system is MDC; UCUM are also acceptable. Refer to Table 0768 - Bolus Dose Volume Units in Chapter 2C for valid values.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -214,8 +214,8 @@
         ]
       },
       {
-        "id": "RXV.7",
-        "path": "RXV.7",
+        "id": "RXV.7-pcaType",
+        "path": "RXV.7-pcaType",
         "short": "PCA Type",
         "definition": "This field identifies the type of bolus being ordered. See {{v2-table:0918:PCA Type}} in Chapter 2C, Code Tables, for example values.",
         "code": [
@@ -256,8 +256,8 @@
         ]
       },
       {
-        "id": "RXV.8",
-        "path": "RXV.8",
+        "id": "RXV.8-pcaDoseAmount",
+        "path": "RXV.8-pcaDoseAmount",
         "short": "PCA Dose Amount",
         "definition": "This field contains the order’s PCA dose amount. Example: if the ordered bolus is 3 mg, this field contains the value of 3.",
         "code": [
@@ -283,19 +283,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RXV.9",
-        "path": "RXV.9",
+        "id": "RXV.9-pcaDoseAmountUnits",
+        "path": "RXV.9-pcaDoseAmountUnits",
         "short": "PCA Dose Amount Units",
         "definition": "This field indicates the amount units associated with the PCA dose amount. The preferred coding system is MDC; UCUM are also acceptable. Refer to Table 0769 - PCA Dose Amount Units in Chapter 2C for valid values.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -324,8 +324,8 @@
         ]
       },
       {
-        "id": "RXV.10",
-        "path": "RXV.10",
+        "id": "RXV.10-pcaDoseAmountVolume",
+        "path": "RXV.10-pcaDoseAmountVolume",
         "short": "PCA Dose Amount Volume",
         "definition": "This field defines the volume measurement for the ordered PCA amount volume. For example, if the ordered bolus is 5 ml, this field contains the value of 5.",
         "code": [
@@ -351,19 +351,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RXV.11",
-        "path": "RXV.11",
+        "id": "RXV.11-pcaDoseAmountVolumeUnits",
+        "path": "RXV.11-pcaDoseAmountVolumeUnits",
         "short": "PCA Dose Amount Volume Units",
         "definition": "This field indicates the amount units associated with the PCA dose volume. The preferred coding system is MDC; UCUM are also acceptable. Refer to Table 0770 - PCA Dose Amount Volume Units in Chapter 2C for valid values.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -392,8 +392,8 @@
         ]
       },
       {
-        "id": "RXV.12",
-        "path": "RXV.12",
+        "id": "RXV.12-maxDoseAmount",
+        "path": "RXV.12-maxDoseAmount",
         "short": "Max Dose Amount",
         "definition": "This field contains the order’s maximum dose amount. For example, if the ordered bolus is 50 mg, this field contains the value of 50.",
         "code": [
@@ -419,19 +419,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RXV.13",
-        "path": "RXV.13",
+        "id": "RXV.13-maxDoseAmountUnits",
+        "path": "RXV.13-maxDoseAmountUnits",
         "short": "Max Dose Amount Units",
         "definition": "This field indicates the amount units associated with the maximum dose volume. The preferred coding system is MDC; UCUM are also acceptable. Refer to Table 0772 - Max Dose Amount Units in Chapter 2C for valid values.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -460,8 +460,8 @@
         ]
       },
       {
-        "id": "RXV.14",
-        "path": "RXV.14",
+        "id": "RXV.14-maxDoseAmountVolume",
+        "path": "RXV.14-maxDoseAmountVolume",
         "short": "Max Dose Amount Volume",
         "definition": "This field defines the volume measurement for the ordered max dose amount. For example, if the ordered bolus is 5 ml, this field contains the value of 5.",
         "code": [
@@ -487,19 +487,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RXV.15",
-        "path": "RXV.15",
+        "id": "RXV.15-maxDoseAmountVolumeUnits",
+        "path": "RXV.15-maxDoseAmountVolumeUnits",
         "short": "Max Dose Amount Volume Units",
         "definition": "This field indicates the amount units associated with the maximum dose volume. The preferred coding system is MDC; UCUM are also acceptable. Refer to Table 0773 - Max Dose Amount Volume Units in Chapter 2C for valid values.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -528,8 +528,8 @@
         ]
       },
       {
-        "id": "RXV.16",
-        "path": "RXV.16",
+        "id": "RXV.16-maxDosePerTime",
+        "path": "RXV.16-maxDosePerTime",
         "short": "Max Dose per Time",
         "definition": "This field contains the time unit expression of the lock out parameter. For example, if the ordered max dose per time is 4 hours, this field format is \"4^h&hours&UCUM\".",
         "code": [
@@ -553,8 +553,8 @@
         ]
       },
       {
-        "id": "RXV.17",
-        "path": "RXV.17",
+        "id": "RXV.17-lockoutInterval",
+        "path": "RXV.17-lockoutInterval",
         "short": "Lockout Interval",
         "definition": "This field contains the length of time that must expire between deliveries of PCA doses. For example, if the ordered max dose per time is 10 minutes, this field format is \"10^min&minute&UCUM\".",
         "code": [
@@ -578,8 +578,8 @@
         ]
       },
       {
-        "id": "RXV.18",
-        "path": "RXV.18",
+        "id": "RXV.18-syringeManufacturer",
+        "path": "RXV.18-syringeManufacturer",
         "short": "Syringe Manufacturer",
         "definition": "This field contains the manufacturer of the syringe containing the ordered medication.",
         "code": [
@@ -603,8 +603,8 @@
         ]
       },
       {
-        "id": "RXV.19",
-        "path": "RXV.19",
+        "id": "RXV.19-syringeModelNumber",
+        "path": "RXV.19-syringeModelNumber",
         "short": "Syringe Model Number",
         "definition": "This field contains the model number of the syringe containing the ordered medication.",
         "code": [
@@ -628,8 +628,8 @@
         ]
       },
       {
-        "id": "RXV.20",
-        "path": "RXV.20",
+        "id": "RXV.20-syringeSize",
+        "path": "RXV.20-syringeSize",
         "short": "Syringe Size",
         "definition": "This field contains the syringe’s numeric total volume size.",
         "code": [
@@ -655,19 +655,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RXV.21",
-        "path": "RXV.21",
+        "id": "RXV.21-syringeSizeUnits",
+        "path": "RXV.21-syringeSizeUnits",
         "short": "Syringe Size Units",
         "definition": "This field indicates the amount units associated with the syringe size. The preferred coding system is MDC; UCUM are also acceptable.",
         "comment": "Examples:\n\n263890^MDC_DIM_MILLI_G^MDC\n\nmg^milligram^UCUM",
@@ -692,8 +692,8 @@
         ]
       },
       {
-        "id": "RXV.22",
-        "path": "RXV.22",
+        "id": "RXV.22-actionCode",
+        "path": "RXV.22-actionCode",
         "short": "Action Code",
         "definition": "The intended handling by the receiver of the infusion order is represented by this segment. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [

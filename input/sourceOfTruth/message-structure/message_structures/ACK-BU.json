@@ -45,7 +45,7 @@
       {
         "id": "ACK-BU.2-SFT",
         "path": "ACK-BU.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BU Segment Definition",
+  "title": "HL7 v2 ACK-BU Message Structure",
   "name": "ACK-BU",
   "type": "ACK-BU",
   "fhirVersion": "5.0.0",

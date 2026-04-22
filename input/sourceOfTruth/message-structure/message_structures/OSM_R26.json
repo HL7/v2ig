@@ -46,7 +46,7 @@
         "id": "OSM_R26.2-ARV",
         "path": "OSM_R26.2-ARV",
         "short": "Access Restrictions",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Access Restrictions",
         "type": [
@@ -64,7 +64,7 @@
       {
         "id": "OSM_R26.3-SFT",
         "path": "OSM_R26.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -115,7 +115,7 @@
       {
         "id": "OSM_R26.5-SHIPMENT.1-SHP",
         "path": "OSM_R26.5-SHIPMENT.1-SHP",
-        "short": "Shipment Segment",
+        "short": "Shipment",
         "min": 1,
         "max": "1",
         "definition": "Shipment Segment",
@@ -217,7 +217,7 @@
       {
         "id": "OSM_R26.5-SHIPMENT.4-PACKAGE.1-PAC",
         "path": "OSM_R26.5-SHIPMENT.4-PACKAGE.1-PAC",
-        "short": "Shipping Package Segment",
+        "short": "Shipping Package",
         "min": 1,
         "max": "1",
         "definition": "Shipping Package Segment",
@@ -542,7 +542,7 @@
       {
         "id": "OSM_R26.5-SHIPMENT.4-PACKAGE.3-SPECIMEN.5-SUBJECT_PERSON_OR_ANIMAL_IDENTIFICATION.4-PATIENT_OBSERVATION.2-PRT",
         "path": "OSM_R26.5-SHIPMENT.4-PACKAGE.3-SPECIMEN.5-SUBJECT_PERSON_OR_ANIMAL_IDENTIFICATION.4-PATIENT_OBSERVATION.2-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Patient Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -840,7 +840,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OSM_R26 Segment Definition",
+  "title": "HL7 v2 OSM_R26 Message Structure",
   "name": "OSM_R26",
   "type": "OSM_R26",
   "fhirVersion": "5.0.0",

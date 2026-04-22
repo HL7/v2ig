@@ -261,10 +261,10 @@
       {
         "id": "OMS_O05.6-PATIENT.6-PATIENT_VISIT.2-PV2",
         "path": "OMS_O05.6-PATIENT.6-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -440,7 +440,7 @@
         "id": "OMS_O05.7-ORDER.2-PRT",
         "path": "OMS_O05.7-ORDER.2-PRT",
         "short": "Participation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation",
         "type": [
@@ -599,7 +599,7 @@
         "id": "OMS_O05.7-ORDER.7-OBSERVATION.2-PRT",
         "path": "OMS_O05.7-ORDER.7-OBSERVATION.2-PRT",
         "short": "Participation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation",
         "type": [
@@ -636,7 +636,7 @@
       {
         "id": "OMS_O05.7-ORDER.8-BLG",
         "path": "OMS_O05.7-ORDER.8-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",
@@ -654,7 +654,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OMS_O05 Segment Definition",
+  "title": "HL7 v2 OMS_O05 Message Structure",
   "name": "OMS_O05",
   "type": "OMS_O05",
   "fhirVersion": "5.0.0",

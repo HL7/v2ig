@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PYE.1",
-        "path": "PYE.1",
+        "id": "PYE.1-setId",
+        "path": "PYE.1-setId",
         "short": "Set ID – PYE",
         "definition": "Sequence Number.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "PYE.2",
-        "path": "PYE.2",
+        "id": "PYE.2-payeeType",
+        "path": "PYE.2-payeeType",
         "short": "Payee Type",
         "definition": "Type of Payee (e.g., Organization, Person). Refer to {{v2-table:0557:Payee Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "PYE.3",
-        "path": "PYE.3",
+        "id": "PYE.3-payeeRelationshipToInvoicePatient",
+        "path": "PYE.3-payeeRelationshipToInvoicePatient",
         "short": "Payee Relationship to Invoice (Patient)",
         "definition": "Conditional or empty: if Payee Type in list (\"PERS\", \"PPER\"), then Required, else Not Permitted.",
         "comment": "For Person Payee Types, the relationship to Invoice. Refer to {{v2-table:0558:Payee Relationship to Invoice}} in Chapter 2C, Code Tables, for suggested values.",
@@ -121,8 +121,8 @@
         ]
       },
       {
-        "id": "PYE.4",
-        "path": "PYE.4",
+        "id": "PYE.4-payeeIdentificationList",
+        "path": "PYE.4-payeeIdentificationList",
         "short": "Payee Identification List",
         "definition": "Conditional or empty: if Payee Type in list (\"PPER\", \"ORG\"), then Required, else Not Permitted.",
         "comment": "Payee or Business Arrangement identification information; up to 5; defined by Payer/Provider agreement.",
@@ -147,8 +147,8 @@
         ]
       },
       {
-        "id": "PYE.5",
-        "path": "PYE.5",
+        "id": "PYE.5-payeePersonName",
+        "path": "PYE.5-payeePersonName",
         "short": "Payee Person Name",
         "definition": "Conditional or empty: if Payee Type = (\"PERS\", \"PPER), then Required, else Not Permitted.",
         "comment": "Individual's name; may be a patient's name or other individual.",
@@ -173,8 +173,8 @@
         ]
       },
       {
-        "id": "PYE.6",
-        "path": "PYE.6",
+        "id": "PYE.6-payeeAddress",
+        "path": "PYE.6-payeeAddress",
         "short": "Payee Address",
         "definition": "Conditional or empty: if Payee Type = (\"PERS\", \"PPER), then Required, else Not Permitted.",
         "comment": "Address for payee. If not specified, then Payer will use address on file for this Payee, if applicable. If Payee is an individual, then this address can be used to send a check.",
@@ -199,8 +199,8 @@
         ]
       },
       {
-        "id": "PYE.7",
-        "path": "PYE.7",
+        "id": "PYE.7-paymentMethod",
+        "path": "PYE.7-paymentMethod",
         "short": "Payment Method",
         "definition": "For Payee organizations that have more than one payment method.",
         "comment": "If for individual, then we may also need to indicate EFT, bank info, etc.\n\nRefer to {{v2-table:0570:Payment Method Code}} in Chapter 2C, Code Tables, for suggested values.",

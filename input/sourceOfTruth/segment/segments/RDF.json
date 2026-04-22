@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RDF.1",
-        "path": "RDF.1",
+        "id": "RDF.1-numberOfColumnsPerRow",
+        "path": "RDF.1-numberOfColumnsPerRow",
         "short": "Number of Columns per Row",
         "definition": "This field specifies the number of data columns (and therefore the number of fields) contained within each row of returned data.",
         "code": [
@@ -51,19 +51,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "RDF.2",
-        "path": "RDF.2",
+        "id": "RDF.2-columnDescription",
+        "path": "RDF.2-columnDescription",
         "short": "Column Description",
         "definition": "Each repetition of this field consists of three components:",
         "comment": "The segment field name that identifies the field occupying the column. The segment field name SHALL agree with the column name as it appears in the Query Profile. Use of the @ sign as prefix to the column name is optional.\n\nThe 2 or 3 character HL7 data type, as defined in Chapter 2. Refer to {{v2-table:0440:Data types}} in Chapter 2C, Code Tables, for valid values.\n\nThe maximum width of the column, as dictated by the responding system. (This may vary from the HL7-defined maximum field length.)",
@@ -74,7 +74,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "RCD"

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "NST.1",
-        "path": "NST.1",
+        "id": "NST.1-statisticsAvailable",
+        "path": "NST.1-statisticsAvailable",
         "short": "Statistics Available",
         "definition": "This field indicates the availability of statistics. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "N - the responding application does not keep any statistics. If the value \"N\" is specified, the response message is used to signify to the initiating application that the communication link between the initiating application and the responding application is operational (and fields 2‑15 are empty in the response message).\n\nY - the responding application does keep statistics, fields 4 and 5 are required (and the response message contains one or more not empty or not unvalued fields in the range 2‑3, 6‑15).",
@@ -67,8 +67,8 @@
         ]
       },
       {
-        "id": "NST.2",
-        "path": "NST.2",
+        "id": "NST.2-sourceIdentifier",
+        "path": "NST.2-sourceIdentifier",
         "short": "Source Identifier",
         "definition": "This field identifies a particular lower level link (e.g., a port number).",
         "code": [
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "id": "NST.3",
-        "path": "NST.3",
+        "id": "NST.3-sourceType",
+        "path": "NST.3-sourceType",
         "short": "Source Type",
         "definition": "This field identifies (in certain systems) whether a lower level source identifier is an initiate or accept type. Refer to {{v2-table:0332:Source Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -121,8 +121,8 @@
         ]
       },
       {
-        "id": "NST.4",
-        "path": "NST.4",
+        "id": "NST.4-statisticsStart",
+        "path": "NST.4-statisticsStart",
         "short": "Statistics Start",
         "definition": "This field contains the date/time stamp of the start of the collection of the statistics reported in fields 6‑15 of this segment. It is strongly recommended that this value include seconds.",
         "code": [
@@ -146,8 +146,8 @@
         ]
       },
       {
-        "id": "NST.5",
-        "path": "NST.5",
+        "id": "NST.5-statisticsEnd",
+        "path": "NST.5-statisticsEnd",
         "short": "Statistics End",
         "definition": "This field contains the date/time stamp of the end of the statistics collection period reported in fields 6‑15 of this segment. It is strongly recommended that this value include seconds.",
         "code": [
@@ -171,8 +171,8 @@
         ]
       },
       {
-        "id": "NST.6",
-        "path": "NST.6",
+        "id": "NST.6-receiveCharacterCount",
+        "path": "NST.6-receiveCharacterCount",
         "short": "Receive Character Count",
         "definition": "This field contains the number of characters received.",
         "code": [
@@ -196,8 +196,8 @@
         ]
       },
       {
-        "id": "NST.7",
-        "path": "NST.7",
+        "id": "NST.7-sendCharacterCount",
+        "path": "NST.7-sendCharacterCount",
         "short": "Send Character Count",
         "definition": "This field contains the number of characters sent.",
         "code": [
@@ -221,8 +221,8 @@
         ]
       },
       {
-        "id": "NST.8",
-        "path": "NST.8",
+        "id": "NST.8-messagesReceived",
+        "path": "NST.8-messagesReceived",
         "short": "Messages Received",
         "definition": "This field contains the number of messages received.",
         "code": [
@@ -246,8 +246,8 @@
         ]
       },
       {
-        "id": "NST.9",
-        "path": "NST.9",
+        "id": "NST.9-messagesSent",
+        "path": "NST.9-messagesSent",
         "short": "Messages Sent",
         "definition": "This field contains the number of messages sent.",
         "code": [
@@ -271,8 +271,8 @@
         ]
       },
       {
-        "id": "NST.10",
-        "path": "NST.10",
+        "id": "NST.10-checksumErrorsReceived",
+        "path": "NST.10-checksumErrorsReceived",
         "short": "Checksum Errors Received",
         "definition": "This field contains the number of messages received with checksum errors.",
         "code": [
@@ -296,8 +296,8 @@
         ]
       },
       {
-        "id": "NST.11",
-        "path": "NST.11",
+        "id": "NST.11-lengthErrorsReceived",
+        "path": "NST.11-lengthErrorsReceived",
         "short": "Length Errors Received",
         "definition": "This field contains the number of messages received with length errors.",
         "code": [
@@ -321,8 +321,8 @@
         ]
       },
       {
-        "id": "NST.12",
-        "path": "NST.12",
+        "id": "NST.12-otherErrorsReceived",
+        "path": "NST.12-otherErrorsReceived",
         "short": "Other Errors Received",
         "definition": "This field contains the number of \"other\" invalid messages received (excluding length and checksum errors).",
         "code": [
@@ -346,8 +346,8 @@
         ]
       },
       {
-        "id": "NST.13",
-        "path": "NST.13",
+        "id": "NST.13-connectTimeouts",
+        "path": "NST.13-connectTimeouts",
         "short": "Connect Timeouts",
         "definition": "This field contains the number of connect timeout errors.",
         "code": [
@@ -371,8 +371,8 @@
         ]
       },
       {
-        "id": "NST.14",
-        "path": "NST.14",
+        "id": "NST.14-receiveTimeouts",
+        "path": "NST.14-receiveTimeouts",
         "short": "Receive Timeouts",
         "definition": "This field contains the number of timeouts while waiting for a response to an initiated message.",
         "code": [
@@ -396,8 +396,8 @@
         ]
       },
       {
-        "id": "NST.15",
-        "path": "NST.15",
+        "id": "NST.15-applicationControlLevelErrors",
+        "path": "NST.15-applicationControlLevelErrors",
         "short": "Application control-level Errors",
         "definition": "This field contains the number of application control-level errors in response to an initiated message.",
         "code": [

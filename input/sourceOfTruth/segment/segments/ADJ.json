@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ADJ.1",
-        "path": "ADJ.1",
+        "id": "ADJ.1-providerAdjustmentNumber",
+        "path": "ADJ.1-providerAdjustmentNumber",
         "short": "Provider Adjustment Number",
         "definition": "Unique Adjustment Number assigned by the Provider Application.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "ADJ.2",
-        "path": "ADJ.2",
+        "id": "ADJ.2-payerAdjustmentNumber",
+        "path": "ADJ.2-payerAdjustmentNumber",
         "short": "Payer Adjustment Number",
         "definition": "Unique Adjustment Number assigned by the Payer Application.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "ADJ.3",
-        "path": "ADJ.3",
+        "id": "ADJ.3-adjustmentSequenceNumber",
+        "path": "ADJ.3-adjustmentSequenceNumber",
         "short": "Adjustment Sequence Number",
         "definition": "Unique sequence number for this adjustment – starts with 1, then 2, etc., for each unique adjustment for the Product/Service Line Item.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "ADJ.4",
-        "path": "ADJ.4",
+        "id": "ADJ.4-adjustmentCategory",
+        "path": "ADJ.4-adjustmentCategory",
         "short": "Adjustment Category",
         "definition": "Indicates the category of adjustment and is used to assist in determining which table is used for Adjustment Reason. Refer to {{v2-table:0564:Adjustment Category Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "ADJ.5",
-        "path": "ADJ.5",
+        "id": "ADJ.5-adjustmentAmount",
+        "path": "ADJ.5-adjustmentAmount",
         "short": "Adjustment Amount",
         "definition": "Adjustment amount, such as taxes, deductibles, previously paid amount.",
         "code": [
@@ -166,8 +166,8 @@
         ]
       },
       {
-        "id": "ADJ.6",
-        "path": "ADJ.6",
+        "id": "ADJ.6-adjustmentQuantity",
+        "path": "ADJ.6-adjustmentQuantity",
         "short": "Adjustment Quantity",
         "definition": "Adjustment quantity.",
         "comment": "X12 REF: table 673 Quantity Qualifier. New values from X12 673 can be added as required. Refer to {{v2-table:0560:Quantity Units}} in Chapter 2C, Code Tables, for suggested values.",
@@ -196,8 +196,8 @@
         ]
       },
       {
-        "id": "ADJ.7",
-        "path": "ADJ.7",
+        "id": "ADJ.7-adjustmentReasonPa",
+        "path": "ADJ.7-adjustmentReasonPa",
         "short": "Adjustment Reason PA",
         "definition": "Reason for this adjustment. Codes used to explain a Provider adjustment to a Product/Service Group or Product/Service Line Item by a Provider. Refer to {{v2-table:0565:Provider Adjustment Reason Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -207,7 +207,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -225,8 +225,8 @@
         ]
       },
       {
-        "id": "ADJ.8",
-        "path": "ADJ.8",
+        "id": "ADJ.8-adjustmentDescription",
+        "path": "ADJ.8-adjustmentDescription",
         "short": "Adjustment Description",
         "definition": "Description of adjustment, such as client instructions.",
         "code": [
@@ -252,19 +252,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "ADJ.9",
-        "path": "ADJ.9",
+        "id": "ADJ.9-originalValue",
+        "path": "ADJ.9-originalValue",
         "short": "Original Value",
         "definition": "Original value of data item noted in this adjustment.",
         "code": [
@@ -290,19 +290,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "ADJ.10",
-        "path": "ADJ.10",
+        "id": "ADJ.10-substituteValue",
+        "path": "ADJ.10-substituteValue",
         "short": "Substitute Value",
         "definition": "Substituted value of data item noted in this adjustment.",
         "code": [
@@ -328,19 +328,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "16"
+                "valueInteger": 16
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "ADJ.11",
-        "path": "ADJ.11",
+        "id": "ADJ.11-adjustmentAction",
+        "path": "ADJ.11-adjustmentAction",
         "short": "Adjustment Action",
         "definition": "Action requested of party that receives this adjustment. Refer to {{v2-table:0569:Adjustment Action}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -368,8 +368,8 @@
         ]
       },
       {
-        "id": "ADJ.12",
-        "path": "ADJ.12",
+        "id": "ADJ.12-providerAdjustmentNumberCrossReference",
+        "path": "ADJ.12-providerAdjustmentNumberCrossReference",
         "short": "Provider Adjustment Number Cross Reference",
         "definition": "Unique Provider Adjustment Number assigned by the Provider Application that is referenced by this Payer Adjustment.",
         "code": [
@@ -393,8 +393,8 @@
         ]
       },
       {
-        "id": "ADJ.13",
-        "path": "ADJ.13",
+        "id": "ADJ.13-providerProductServiceLineItemNumberCrossReference",
+        "path": "ADJ.13-providerProductServiceLineItemNumberCrossReference",
         "short": "Provider Product/Service Line Item Number Cross Reference",
         "definition": "Unique Provider Product/Service Line Item Number assigned by the Provider Application that is referenced by this Payer Adjustment; used for groups with multiple line items that need to be singled out by a Payer Adjustment.",
         "code": [
@@ -418,8 +418,8 @@
         ]
       },
       {
-        "id": "ADJ.14",
-        "path": "ADJ.14",
+        "id": "ADJ.14-adjustmentDate",
+        "path": "ADJ.14-adjustmentDate",
         "short": "Adjustment Date",
         "definition": "Date/Time adjustment was made. May also be synonymous with Adjudication Date.",
         "code": [
@@ -443,8 +443,8 @@
         ]
       },
       {
-        "id": "ADJ.15",
-        "path": "ADJ.15",
+        "id": "ADJ.15-responsibleOrganization",
+        "path": "ADJ.15-responsibleOrganization",
         "short": "Responsible Organization",
         "definition": "Business organization that is responsible for the adjustment (e.g., Payer organization); can be used for a Payment/Remittance Advice for 1 Payee from multiple Payers.",
         "code": [

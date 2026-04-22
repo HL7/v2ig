@@ -45,7 +45,7 @@
       {
         "id": "ACK-AI.2-SFT",
         "path": "ACK-AI.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AI Segment Definition",
+  "title": "HL7 v2 ACK-AI Message Structure",
   "name": "ACK-AI",
   "type": "ACK-AI",
   "fhirVersion": "5.0.0",

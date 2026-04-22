@@ -45,7 +45,7 @@
       {
         "id": "CQU_I19.2-SFT",
         "path": "CQU_I19.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -241,7 +241,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CQU_I19 Segment Definition",
+  "title": "HL7 v2 CQU_I19 Message Structure",
   "name": "CQU_I19",
   "type": "CQU_I19",
   "fhirVersion": "5.0.0",

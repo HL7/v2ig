@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RXR.1",
-        "path": "RXR.1",
+        "id": "RXR.1-route",
+        "path": "RXR.1-route",
         "short": "Route",
         "definition": "This field is the route of administration.",
         "comment": "Some current \"route codes,\" such as some of the NDC-derived codes include the site already. In such cases, the entire code can be included in this field as a \"locally-defined code\" for the CWE data type. Refer to {{v2-table:0162:Route of Administration}} in Chapter 2C, Code Tables, for valid values.",
@@ -54,8 +54,8 @@
         ]
       },
       {
-        "id": "RXR.2",
-        "path": "RXR.2",
+        "id": "RXR.2-administrationSite",
+        "path": "RXR.2-administrationSite",
         "short": "Administration Site",
         "definition": "This field contains the site of the administration route. When using a post-coordinated code table in this field, RXR-6 Administration Site may be used to modify the meaning of this field.",
         "comment": "Refer to {{v2-table:0550:Body}} _Parts_ in Chapter 2C, Code Tables, for valid values. Other appropriate external code sets (e.g., SNOMED) may also be employed.",
@@ -84,8 +84,8 @@
         ]
       },
       {
-        "id": "RXR.3",
-        "path": "RXR.3",
+        "id": "RXR.3-administrationDevice",
+        "path": "RXR.3-administrationDevice",
         "short": "Administration Device",
         "definition": "This field contains the mechanical device used to aid in the administration of the drug or other treatment. Common examples are IV-sets of different types. Refer to {{v2-table:0164:Administration device}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -113,8 +113,8 @@
         ]
       },
       {
-        "id": "RXR.4",
-        "path": "RXR.4",
+        "id": "RXR.4-administrationMethod",
+        "path": "RXR.4-administrationMethod",
         "short": "Administration Method",
         "definition": "This field identifies the specific method requested for the administration of the drug or treatment to the patient. Refer To {{v2-table:0165:Administration Method}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -142,8 +142,8 @@
         ]
       },
       {
-        "id": "RXR.5",
-        "path": "RXR.5",
+        "id": "RXR.5-routingInstruction",
+        "path": "RXR.5-routingInstruction",
         "short": "Routing Instruction",
         "definition": "This field provides instruction on administration routing, especially in cases where more than one route of administration is possible. A typical case would be designating which IV line should be used when more than one IV line is a possible route for injection. Refer to Table 0766 - Routing Instruction in Chapter 2C for valid values.",
         "code": [
@@ -171,8 +171,8 @@
         ]
       },
       {
-        "id": "RXR.6",
-        "path": "RXR.6",
+        "id": "RXR.6-administrationSiteModifier",
+        "path": "RXR.6-administrationSiteModifier",
         "short": "Administration Site Modifier",
         "definition": "This field contains a modifier which modifies the meaning of _RXR-2 Administration Site_.",
         "comment": "The code table used in this field is dependent upon the code table used in _RXR-2 Administration site_. If RXR-2 employs {{v2-table:0550:Body}} _Parts_, then this field may only be populated with values from {{v2-table:0495:Body Parts Modifier}}. In the case of other code sets (e.g., SNOMED) in RXR-2, RXR-6 may only be populated if modifiers are defined within, or related to, that code set.\n\nCondition Rule: This field may only be populated if _RXR-2 Administration Site_ is populated. This field is not required if RXR-2 is populated.",

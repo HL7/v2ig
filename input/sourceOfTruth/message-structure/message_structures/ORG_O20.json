@@ -502,7 +502,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORG_O20 Segment Definition",
+  "title": "HL7 v2 ORG_O20 Message Structure",
   "name": "ORG_O20",
   "type": "ORG_O20",
   "fhirVersion": "5.0.0",

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "LAN.1",
-        "path": "LAN.1",
+        "id": "LAN.1-setId",
+        "path": "LAN.1-setId",
         "short": "Set ID – LAN",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "LAN.2",
-        "path": "LAN.2",
+        "id": "LAN.2-languageCode",
+        "path": "LAN.2-languageCode",
         "short": "Language Code",
         "definition": "This field contains the language about which the Staff Member's has some knowledge. HL7 recommends using ISO table 639 as the suggested values in {{v2-table:0296:Primary Language}}.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "LAN.3",
-        "path": "LAN.3",
+        "id": "LAN.3-languageAbilityCode",
+        "path": "LAN.3-languageAbilityCode",
         "short": "Language Ability Code",
         "definition": "This field contains the ability the Staff Member possesses with respect to the language. HL7 recommends using values in {{v2-table:0403:Language Ability}}.",
         "comment": "[#_Hlt489245616 .anchor]####Refer to {{v2-table:0403:Language Ability}} in Chapter 2C, Code Tables, for valid values. This table contains values for the Staff Member's ability to read, write, understand, etc.",
@@ -103,7 +103,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -121,8 +121,8 @@
         ]
       },
       {
-        "id": "LAN.4",
-        "path": "LAN.4",
+        "id": "LAN.4-languageProficiencyCode",
+        "path": "LAN.4-languageProficiencyCode",
         "short": "Language Proficiency Code",
         "definition": "This field contains the level of knowledge the Staff Member possesses with respect to the language ability. HL7 suggests using values in {{v2-table:0404:Language Proficiency}}.",
         "comment": "[#_Hlt489245619 .anchor]####Refer to {{v2-table:0404:Language Proficiency}} in Chapter 2C, Code Tables, for valid values. This table contains values for excellent, poor, fair etc.",

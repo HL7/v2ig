@@ -26,7 +26,7 @@
       {
         "id": "QBP_Q13.1-MSH",
         "path": "QBP_Q13.1-MSH",
-        "short": "Message Header Segment",
+        "short": "Message Header",
         "min": 1,
         "max": "1",
         "definition": "Message Header Segment",
@@ -45,7 +45,7 @@
       {
         "id": "QBP_Q13.2-SFT",
         "path": "QBP_Q13.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -102,7 +102,7 @@
       {
         "id": "QBP_Q13.5-PID",
         "path": "QBP_Q13.5-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 0,
         "max": "1",
         "definition": "Patient Identification Segment",
@@ -121,7 +121,7 @@
       {
         "id": "QBP_Q13.6-RDF",
         "path": "QBP_Q13.6-RDF",
-        "short": "Table Row Definition Segment",
+        "short": "Table Row Definition",
         "min": 0,
         "max": "1",
         "definition": "Table Row Definition Segment",
@@ -159,7 +159,7 @@
       {
         "id": "QBP_Q13.8-RDF",
         "path": "QBP_Q13.8-RDF",
-        "short": "Table Row Definition Segment",
+        "short": "Table Row Definition",
         "min": 0,
         "max": "1",
         "definition": "Table Row Definition Segment",
@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_Q13 Segment Definition",
+  "title": "HL7 v2 QBP_Q13 Message Structure",
   "name": "QBP_Q13",
   "type": "QBP_Q13",
   "fhirVersion": "5.0.0",

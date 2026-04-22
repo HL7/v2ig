@@ -9,7 +9,7 @@
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-RFI.html">RFI</a></td><td>Request for Information</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-CTD.html">CTD</a> }</td><td>Contact Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PSS.html">PSS</a></td><td>Product/Service Section</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>

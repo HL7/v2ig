@@ -12,8 +12,8 @@
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-OM1.html">OM1</a></td><td>General Segment (Fields That Apply to Most Observations)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-OMC.html">OMC</a> }]</td><td>Supporting Clinical Information</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-OM2.html">OM2</a> ]</td><td>Numeric Observation Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-OM3.html">OM3</a> ]</td><td>Categorical Service/Test/Observation Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-OM2.html">OM2</a> ]</td><td>Numeric Observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-OM3.html">OM3</a> ]</td><td>Categorical Service/Test/Observation</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-OM4.html">OM4</a> }]</td><td>Observations that Require Specimens</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Test Numeric end</td><td></td><td></td></tr>
 </tbody>

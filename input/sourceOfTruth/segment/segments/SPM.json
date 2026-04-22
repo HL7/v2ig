@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "SPM.1",
-        "path": "SPM.1",
+        "id": "SPM.1-setId",
+        "path": "SPM.1-setId",
         "short": "Set ID - SPM",
         "definition": "This field contains the sequence number. This field is used to identify SPM segment instances in message structures where the SPM segment repeats.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "SPM.2",
-        "path": "SPM.2",
+        "id": "SPM.2-specimenIdentifier",
+        "path": "SPM.2-specimenIdentifier",
         "short": "Specimen Identifier",
         "definition": "This field contains a unique identifier for the specimen as referenced by the Placer application, the Filler application, or both.",
         "comment": "This field is not required, as there are use cases in which a unique specimen identifier may not exist. In the first scenario, a placer application may initiate an observation request against an existing specimen without uniquely identifying the specimen. Additionally, in the case of the TCU_U10 message structure, used in Automated equipment test code settings messages, the SPM segment is used to define required characteristics of the specimen. As such, TCU_U10 uses SPM to define a virtual specimen, and a specific specimen identifier would not exist. Filler applications would be expected to assign a Specimen Identifier and populate this field accordingly.",
@@ -88,8 +88,8 @@
         ]
       },
       {
-        "id": "SPM.3",
-        "path": "SPM.3",
+        "id": "SPM.3-specimenParentIds",
+        "path": "SPM.3-specimenParentIds",
         "short": "Specimen Parent IDs",
         "definition": "This field contains the identifiers for the specimen or specimens that contributed to the specimen that is described by the segment instance.",
         "comment": "If this field repeats, then _SPM-11-Specimen Role_ should be valued with \"L\" (pooled). The repetitions of this field then carry the specimen IDs of the parent specimens contributing to the pool.",
@@ -100,7 +100,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EIP"
@@ -114,8 +114,8 @@
         ]
       },
       {
-        "id": "SPM.4",
-        "path": "SPM.4",
+        "id": "SPM.4-specimenType",
+        "path": "SPM.4-specimenType",
         "short": "Specimen Type",
         "definition": "This field describes the precise nature of the entity that will be the source material for the observation.",
         "comment": "Any physical entity that may have observations made about it may qualify as a specimen. The entry in this attribute describes the specific entity as precisely as possible, whether that is a complex organism (e.g., an ostrich) or a specific cellular mass (e.g., a specific muscle biopsy).\n\nA nationally recognized coding system is to be used for this field. Valid coding sources for this field include:\n\n• {{v2-table:0487:Specimen Type}} (replaces {{v2-table:0070:Specimen source codes}})\n\n• SNOMED, etc.\n\n• Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.",
@@ -144,8 +144,8 @@
         ]
       },
       {
-        "id": "SPM.5",
-        "path": "SPM.5",
+        "id": "SPM.5-specimenTypeModifier",
+        "path": "SPM.5-specimenTypeModifier",
         "short": "Specimen Type Modifier",
         "definition": "This field contains modifying or qualifying description(s) about the specimen type",
         "comment": "The use of this attribute is to modify, qualify or further specify, the entity described by _SPM-4 -Specimen Type_. This is particularly useful when the code set used in _SPM-4-Specimen Type_ does not provide the precision required to fully describe the specimen. For example, if the specimen was precisely described as 'capillary venous blood' but the code set employed only provided 'venous blood,' this attribute could be employed to add the modifier 'capillary.'\n\nRefer to {{v2-table:0541:Specimen Type Modifier}} for suggested values.",
@@ -156,7 +156,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -174,8 +174,8 @@
         ]
       },
       {
-        "id": "SPM.6",
-        "path": "SPM.6",
+        "id": "SPM.6-specimenAdditives",
+        "path": "SPM.6-specimenAdditives",
         "short": "Specimen Additives",
         "definition": "This field identifies any additives introduced to the specimen before or at the time of collection. These additives may be introduced in order to preserve, maintain or enhance the particular nature or component of the specimen. Refer to {{v2-table:0371:Additive/Preservative}} for valid values. When multiple additives are introduced and valid individual additive codes exist but a valid value for the combination does not exist, repeating the field with individual values is most appropriate.",
         "code": [
@@ -185,7 +185,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -203,8 +203,8 @@
         ]
       },
       {
-        "id": "SPM.7",
-        "path": "SPM.7",
+        "id": "SPM.7-specimenCollectionMethod",
+        "path": "SPM.7-specimenCollectionMethod",
         "short": "Specimen Collection Method",
         "definition": "Describes the procedure or process by which the specimen was collected.",
         "comment": "Any nationally recognized coding system might be used for this field including SNOMED; alternatively the {{v2-table:0488:Specimen Collection Method}} may be used. Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.",
@@ -233,8 +233,8 @@
         ]
       },
       {
-        "id": "SPM.8",
-        "path": "SPM.8",
+        "id": "SPM.8-specimenSourceSite",
+        "path": "SPM.8-specimenSourceSite",
         "short": "Specimen Source Site",
         "definition": "specifies the source from which the specimen was obtained. For example, in the case where a liver biopsy is obtained via a percutaneous needle, the source would be 'liver'. Refer to Table 0784 - Specimen Source Site in Chapter 2C for valid values.Any nationally recognized coding system might be used for this field including SNOMED; alternatively the {{v2-table:0163:Body Site}} may be used. Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.",
         "code": [
@@ -262,8 +262,8 @@
         ]
       },
       {
-        "id": "SPM.9",
-        "path": "SPM.9",
+        "id": "SPM.9-specimenSourceSiteModifier",
+        "path": "SPM.9-specimenSourceSiteModifier",
         "short": "Specimen Source Site Modifier",
         "definition": "This field contains modifying or qualifying description(s) about the specimen source site",
         "comment": "The use of this attribute is to modify, qualify or further specify, the entity described by _SPM-8 – Specimen Source Site_. This is particularly useful when the code set used in _SPM-8_ does not provide the precision required to fully describe the site from which the specimen originated. For example, if the specimen source site was precisely described as 'left radial vein' but the code set employed only provided 'radial vein,' this attribute could be employed to add the modifier 'left.'\n\nVeterinary medicine may choose the tables supported for the components of this field as decided by their industry.\n\nRefer to {{v2-table:0542:Specimen Source Type Modifier}} for suggested values.",
@@ -274,7 +274,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -292,8 +292,8 @@
         ]
       },
       {
-        "id": "SPM.10",
-        "path": "SPM.10",
+        "id": "SPM.10-specimenCollectionSite",
+        "path": "SPM.10-specimenCollectionSite",
         "short": "Specimen Collection Site",
         "definition": "This field differs from _SPM-8-Specimen Source Site_ in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be \"antecubital fossa\".",
         "comment": "Veterinary medicine may choose the tables supported for the components of this field as decided by their industry.\n\nRefer to {{v2-table:0543:Specimen Collection Site}} for suggested values.",
@@ -322,8 +322,8 @@
         ]
       },
       {
-        "id": "SPM.11",
-        "path": "SPM.11",
+        "id": "SPM.11-specimenRole",
+        "path": "SPM.11-specimenRole",
         "short": "Specimen Role",
         "comment": "This field indicates the role of the sample. Refer to {{v2-table:0369:Specimen role}} for suggested values. Each of these values is normally identifiable by the systems and its components and can influence processing and data management related to the specimen.\n\nIf this field is not populated, then the specimen described has no special, or specific, role other than serving as the focus of the observation. Such specimens include patient, environmental and other specimens that are intended for analysis.\n\nA grouped specimen consists of identical specimen types from multiple individuals that do not have individual identifiers and upon which the same services will be performed. If the specimen role value is \"G\" then the Grouped Specimen Count (_SPM-13_) must be valued with the total number of specimens contained in the group.\n\nIf the specimen role is \"L\", the repetitions of Parent Specimen ID (SPM-4) represent the individual parent specimens that contribute to the pooled specimen.",
         "code": [
@@ -333,7 +333,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -351,8 +351,8 @@
         ]
       },
       {
-        "id": "SPM.12",
-        "path": "SPM.12",
+        "id": "SPM.12-specimenCollectionAmount",
+        "path": "SPM.12-specimenCollectionAmount",
         "short": "Specimen Collection Amount",
         "definition": "This field specifies the volume or mass of the collected specimen. For laboratory tests, the collection volume is the volume of a specimen. Specifically, units should be expressed in the ISO Standard unit abbreviations (ISO‑2955, 1977). This is a results-only field except when the placer or a party has already drawn the specimen. Use of UCUM is strongly recommended as one of the delivered units (could be in addition to the local units). (See Chapter 7 Section 7.4.2.6 for a full discussion regarding units.)",
         "code": [
@@ -376,8 +376,8 @@
         ]
       },
       {
-        "id": "SPM.13",
-        "path": "SPM.13",
+        "id": "SPM.13-groupedSpecimenCount",
+        "path": "SPM.13-groupedSpecimenCount",
         "short": "Grouped Specimen Count",
         "definition": "This field refers to the number of individual specimens of a particular type represented by this instance of a specimen. The use of this field is restricted to specimens upon which all specimen related attributes are identical. This field would only be valued if SPM-11 Specimen Role has the value \"G\" or “L”.",
         "code": [
@@ -403,19 +403,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "6"
+                "valueInteger": 6
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "SPM.14",
-        "path": "SPM.14",
+        "id": "SPM.14-specimenDescription",
+        "path": "SPM.14-specimenDescription",
         "short": "Specimen Description",
         "definition": "This is a text field that allows additional information *specifically about the specimen* to be sent in the message",
         "code": [
@@ -425,7 +425,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -439,8 +439,8 @@
         ]
       },
       {
-        "id": "SPM.15",
-        "path": "SPM.15",
+        "id": "SPM.15-specimenHandlingCode",
+        "path": "SPM.15-specimenHandlingCode",
         "short": "Specimen Handling Code",
         "definition": "This describes how the specimen and/or container need to be handled from the time of collection through the initiation of testing. As this field is not required, no assumptions can be made as to meaning when this field is not populated.",
         "comment": "Refer to {{v2-table:0376:Special Handling Code}} for suggested values.",
@@ -451,7 +451,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -469,8 +469,8 @@
         ]
       },
       {
-        "id": "SPM.16",
-        "path": "SPM.16",
+        "id": "SPM.16-specimenRiskCode",
+        "path": "SPM.16-specimenRiskCode",
         "short": "Specimen Risk Code",
         "definition": "This field contains any known or suspected specimen hazards, e.g., exceptionally infectious agent or blood from a hepatitis patient. Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, a component delimiter must precede free text without a code. Refer to {{v2-table:0489:Risk Codes}} for suggested entries",
         "code": [
@@ -480,7 +480,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -498,8 +498,8 @@
         ]
       },
       {
-        "id": "SPM.17",
-        "path": "SPM.17",
+        "id": "SPM.17-specimenCollectionDateTime",
+        "path": "SPM.17-specimenCollectionDateTime",
         "short": "Specimen Collection Date/Time",
         "definition": "The date and time when the specimen was acquired from the source. The use of the Date Range data type allows for description of specimens collected over a period of time, for example, 24-hour urine collection. For specimens collected at a point in time, only the first component (start date/time) will be populated.",
         "code": [
@@ -523,8 +523,8 @@
         ]
       },
       {
-        "id": "SPM.18",
-        "path": "SPM.18",
+        "id": "SPM.18-specimenReceivedDateTime",
+        "path": "SPM.18-specimenReceivedDateTime",
         "short": "Specimen Received Date/Time",
         "definition": "The specimen received date/time is the time that the specimen is received at the diagnostic service facility. The actual time that is recorded is based on how specimen receipt is managed and may correspond to the time the sample is logged in. This is fundamentally different from _SPM-17 Specimen Collection date/time_.",
         "code": [
@@ -548,8 +548,8 @@
         ]
       },
       {
-        "id": "SPM.19",
-        "path": "SPM.19",
+        "id": "SPM.19-specimenExpirationDateTime",
+        "path": "SPM.19-specimenExpirationDateTime",
         "short": "Specimen Expiration Date/Time",
         "definition": "This field is the date and time the specimen can no longer be used for the purpose implied by the order. For example, in the Blood Banking environment the specimen can no longer be used for pre-transfusion compatibility testing. The specimen segment will include a _SPM-21-Specimen Reject Reason_ of 'EX' indicating 'Expired' for message instances created after this date and time.",
         "code": [
@@ -573,8 +573,8 @@
         ]
       },
       {
-        "id": "SPM.20",
-        "path": "SPM.20",
+        "id": "SPM.20-specimenAvailability",
+        "path": "SPM.20-specimenAvailability",
         "short": "Specimen Availability",
         "definition": "This describes whether the specimen, as it exists, is currently available to use in an analysis. Refer to {{v2-table:0136:Yes/No Indicator}} for valid values.",
         "code": [
@@ -615,8 +615,8 @@
         ]
       },
       {
-        "id": "SPM.21",
-        "path": "SPM.21",
+        "id": "SPM.21-specimenRejectReason",
+        "path": "SPM.21-specimenRejectReason",
         "short": "Specimen Reject Reason",
         "definition": "This describes one or more reasons the specimen is rejected for the specified observation/result/analysis. Refer to {{v2-table:0490:Specimen Reject Reason}} for valid values.",
         "code": [
@@ -626,7 +626,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -644,8 +644,8 @@
         ]
       },
       {
-        "id": "SPM.22",
-        "path": "SPM.22",
+        "id": "SPM.22-specimenQuality",
+        "path": "SPM.22-specimenQuality",
         "short": "Specimen Quality",
         "definition": "The degree or grade of excellence of the specimen at receipt. The filler populates this attribute. Refer to {{v2-table:0491:Specimen Quality}} for suggested entries.",
         "code": [
@@ -673,8 +673,8 @@
         ]
       },
       {
-        "id": "SPM.23",
-        "path": "SPM.23",
+        "id": "SPM.23-specimenAppropriateness",
+        "path": "SPM.23-specimenAppropriateness",
         "short": "Specimen Appropriateness",
         "definition": "The suitability of the specimen for the particular planned use as determined by the filler. Refer to {{v2-table:0492:Specimen Appropriateness}} for suggested entries.",
         "code": [
@@ -702,8 +702,8 @@
         ]
       },
       {
-        "id": "SPM.24",
-        "path": "SPM.24",
+        "id": "SPM.24-specimenCondition",
+        "path": "SPM.24-specimenCondition",
         "short": "Specimen Condition",
         "definition": "A mode or state of being that describes the nature of the specimen. Refer to {{v2-table:0493:Specimen Condition}} for suggested entries.",
         "code": [
@@ -713,7 +713,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -731,8 +731,8 @@
         ]
       },
       {
-        "id": "SPM.25",
-        "path": "SPM.25",
+        "id": "SPM.25-specimenCurrentQuantity",
+        "path": "SPM.25-specimenCurrentQuantity",
         "short": "Specimen Current Quantity",
         "definition": "This attributes contains the amount of specimen that currently exists or is available for use in further testing.",
         "code": [
@@ -756,8 +756,8 @@
         ]
       },
       {
-        "id": "SPM.26",
-        "path": "SPM.26",
+        "id": "SPM.26-numberOfSpecimenContainers",
+        "path": "SPM.26-numberOfSpecimenContainers",
         "short": "Number of Specimen Containers",
         "definition": "This field identifies the number of containers for a given sample. For sample receipt verification purposes; may be different from the total number of samples that accompany the order.",
         "code": [
@@ -783,19 +783,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "SPM.27",
-        "path": "SPM.27",
+        "id": "SPM.27-containerType",
+        "path": "SPM.27-containerType",
         "short": "Container Type",
         "definition": "The container in or on which a specimen is transported. Refer to Table 0785 - Container Type in Chapter 2C for valid values.",
         "comment": "*Note:* If the container type is categorized (e.g., FBT (false-bottom-tube), Cup, …), the specific codes should be transferred in the SPM-27 field \"Container Type\". If the container is characterized by dimensions and other characteristics this information should be transferred as specific values in the SAC segment (fields: SAC-16 … SAC-21).",
@@ -824,8 +824,8 @@
         ]
       },
       {
-        "id": "SPM.28",
-        "path": "SPM.28",
+        "id": "SPM.28-containerCondition",
+        "path": "SPM.28-containerCondition",
         "short": "Container Condition",
         "definition": "In chain of custody cases where specimens are moved from lab to lab, the status of the container that the specimen is shipped in must be recorded at each receipt. If the container is compromised in any way (seal broken, container cracked or leaking, etc) then this needs to be recorded for legal reasons.",
         "comment": "Refer to {{v2-table:0544:Container Condition}} for suggested values.",
@@ -854,8 +854,8 @@
         ]
       },
       {
-        "id": "SPM.29",
-        "path": "SPM.29",
+        "id": "SPM.29-specimenChildRole",
+        "path": "SPM.29-specimenChildRole",
         "short": "Specimen Child Role",
         "definition": "For child specimens, this field identifies the relationship between this specimen and the parent specimen. If this field is populated, then _SPM-3-Specimen Parent ID_ must be populated. This field differs from _SPM-15-Specimen Role_ in that this field refers to the role of this specimen relative to a parent role rather than the role of this specimen to the ordered service.",
         "comment": "Refer to {{v2-table:0494:Specimen Child Role}} for valid values.",
@@ -884,8 +884,8 @@
         ]
       },
       {
-        "id": "SPM.30",
-        "path": "SPM.30",
+        "id": "SPM.30-accessionId",
+        "path": "SPM.30-accessionId",
         "short": "Accession ID",
         "definition": "This field contains accession identifier(s) associated with the specimen. In many cases, applications involved in the collection, transportation or testing of the specimen will assign their own accession identifiers. This field allows communication of these accession identifiers.",
         "comment": "An accession id may or may not, depending up laboratory practice, identify a single specimen. Best practice is to use accession identifiers that are globally unique (typically ID Number + Assigning Facility components). However, an accession id may or may not, depending up laboratory practice, identify a single specimen. In addition, accession ids are commonly re-used over time, so the accession id may not uniquely identify a specimen.",
@@ -896,7 +896,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -910,8 +910,8 @@
         ]
       },
       {
-        "id": "SPM.31",
-        "path": "SPM.31",
+        "id": "SPM.31-otherSpecimenId",
+        "path": "SPM.31-otherSpecimenId",
         "short": "Other Specimen ID",
         "definition": "This field contains other identifier(s) for the specimen as referenced in an application. Normally this field is used to carry additional identifiers for the specimen in addition to those identified in _SPM-2, Specimen ID_. In may cases other applications involved in the collection, transportation or testing of the specimen will assign additional specimen identifiers. This field allows communication of those other specimen identifiers.",
         "code": [
@@ -921,7 +921,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -935,8 +935,8 @@
         ]
       },
       {
-        "id": "SPM.32",
-        "path": "SPM.32",
+        "id": "SPM.32-shipmentId",
+        "path": "SPM.32-shipmentId",
         "short": "Shipment ID",
         "definition": "The shipment identifier is the identifier assigned by the shipment transportation provider that uniquely identifies this shipment from all other shipments by the same provider. The addressee for the shipment should be able to use this identifier to match a physical shipment with the electronic manifest for the shipment.",
         "code": [
@@ -960,8 +960,8 @@
         ]
       },
       {
-        "id": "SPM.33",
-        "path": "SPM.33",
+        "id": "SPM.33-cultureStartDateTime",
+        "path": "SPM.33-cultureStartDateTime",
         "short": "Culture Start Date/Time",
         "definition": "The Culture Start date/time is the time that the specimen is plated, or inoculated to selective and differential growth mediums that are used in organism identification in microbiology. This is the start of differential diagnosis and is a clinically relevant date and time. The actual time that is recorded is based on when specimen is directly inoculated onto growth media and may correspond to the time the sample is logged in or received.",
         "code": [
@@ -985,8 +985,8 @@
         ]
       },
       {
-        "id": "SPM.34",
-        "path": "SPM.34",
+        "id": "SPM.34-cultureFinalDateTime",
+        "path": "SPM.34-cultureFinalDateTime",
         "short": "Culture Final Date/Time",
         "definition": "The Culture Final date/time is the time in which the order filler is communicating to the clinician that all work on a cultured specimen is completed and no further updates will be received. All work, including determination of growth, Organism Identification, and sensitivity testing are completed. The clinician should expect no further updates on this cultured specimen.",
         "code": [
@@ -1010,8 +1010,8 @@
         ]
       },
       {
-        "id": "SPM.35",
-        "path": "SPM.35",
+        "id": "SPM.35-actionCode",
+        "path": "SPM.35-actionCode",
         "short": "Action Code",
         "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when an SPM-2 or SPM-31 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.",

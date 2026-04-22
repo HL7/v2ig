@@ -45,7 +45,7 @@
       {
         "id": "DFT_P11.2-SFT",
         "path": "DFT_P11.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -477,7 +477,7 @@
       {
         "id": "DFT_P11.15-COMMON_ORDER.4-ORDER.1-OBR",
         "path": "DFT_P11.15-COMMON_ORDER.4-ORDER.1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 1,
         "max": "1",
         "definition": "Order Detail Segment",
@@ -1100,7 +1100,7 @@
       {
         "id": "DFT_P11.23-FINANCIAL.6-FINANCIAL_ORDER_STANDALONE.1-OBR",
         "path": "DFT_P11.23-FINANCIAL.6-FINANCIAL_ORDER_STANDALONE.1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 1,
         "max": "1",
         "definition": "Order Detail Segment",
@@ -1342,7 +1342,7 @@
       {
         "id": "DFT_P11.23-FINANCIAL.7-FINANCIAL_COMMON_ORDER.4-FINANCIAL_ORDER.1-OBR",
         "path": "DFT_P11.23-FINANCIAL.7-FINANCIAL_COMMON_ORDER.4-FINANCIAL_ORDER.1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 1,
         "max": "1",
         "definition": "Order Detail Segment",
@@ -1722,7 +1722,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DFT_P11 Segment Definition",
+  "title": "HL7 v2 DFT_P11 Message Structure",
   "name": "DFT_P11",
   "type": "DFT_P11",
   "fhirVersion": "5.0.0",

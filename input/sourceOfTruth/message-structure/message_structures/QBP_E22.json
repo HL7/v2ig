@@ -146,7 +146,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_E22 Segment Definition",
+  "title": "HL7 v2 QBP_E22 Message Structure",
   "name": "QBP_E22",
   "type": "QBP_E22",
   "fhirVersion": "5.0.0",

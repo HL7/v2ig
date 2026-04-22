@@ -4,11 +4,11 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ERR.html">ERR</a> ]</td><td>Error</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-QAK.html">QAK</a></td><td>Query Acknowledgment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Query Response begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
@@ -16,7 +16,7 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-QRI.html">QRI</a> ]</td><td>Query Response Instance</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Query Response end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>DESCRIPTION NEEDED</td><td>A</td></tr>

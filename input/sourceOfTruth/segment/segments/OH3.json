@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "OH3.1",
-        "path": "OH3.1",
+        "id": "OH3.1-setId",
+        "path": "OH3.1-setId",
         "short": "Set ID",
         "definition": "This field contains the sequence number used to identify the OH3 segment instances in message structures where the OH3 segment repeats. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc. If the subject of the OH3 segment changes (e.g. Patient vs Next of Kin) the Set ID sequence will be reset.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "OH3.2",
-        "path": "OH3.2",
+        "id": "OH3.2-actionCode",
+        "path": "OH3.2-actionCode",
         "short": "Action Code",
         "definition": "This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to {{v2-table:0206:Segment Action Code}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "OH3.3",
-        "path": "OH3.3",
+        "id": "OH3.3-occupation",
+        "path": "OH3.3-occupation",
         "short": "Occupation",
         "definition": "This field contains a code defining the occupation a person has held for the longest time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been continuous time. Refer to {{v2-table:0958:Occupation Code}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Occupation CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "OH3.4",
-        "path": "OH3.4",
+        "id": "OH3.4-industry",
+        "path": "OH3.4-industry",
         "short": "Industry",
         "definition": "This field contains a code defining the industry a person has worked in for the longest time while in the usual occupation. Refer to {{v2-table:0955:Industry Code}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Industry CDC Census 2010 codes published at https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187",
         "code": [
@@ -149,8 +149,8 @@
         ]
       },
       {
-        "id": "OH3.5",
-        "path": "OH3.5",
+        "id": "OH3.5-usualOccupationDurationYears",
+        "path": "OH3.5-usualOccupationDurationYears",
         "short": "Usual Occupation Duration (years)",
         "definition": "This field asserts the number of years that the person has been working in the usual occupation. Decimals shall be used to indicate a duration shorter than 1 year.",
         "code": [
@@ -174,8 +174,8 @@
         ]
       },
       {
-        "id": "OH3.6",
-        "path": "OH3.6",
+        "id": "OH3.6-startYear",
+        "path": "OH3.6-startYear",
         "short": "Start year",
         "definition": "This field identifies the year that the person began work in their usual occupation.",
         "code": [
@@ -199,8 +199,8 @@
         ]
       },
       {
-        "id": "OH3.7",
-        "path": "OH3.7",
+        "id": "OH3.7-enteredDate",
+        "path": "OH3.7-enteredDate",
         "short": "Entered Date",
         "definition": "This field records the date that the information was entered into the patient record.",
         "code": [
@@ -224,8 +224,8 @@
         ]
       },
       {
-        "id": "OH3.8",
-        "path": "OH3.8",
+        "id": "OH3.8-workUniqueIdentifier",
+        "path": "OH3.8-workUniqueIdentifier",
         "short": "Work Unique Identifier",
         "definition": "This field contains a value the uniquely identifies a single work for a person.",
         "code": [

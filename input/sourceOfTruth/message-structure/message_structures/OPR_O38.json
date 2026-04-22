@@ -515,7 +515,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OPR_O38 Segment Definition",
+  "title": "HL7 v2 OPR_O38 Message Structure",
   "name": "OPR_O38",
   "type": "OPR_O38",
   "fhirVersion": "5.0.0",

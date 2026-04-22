@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "IVC.1",
-        "path": "IVC.1",
+        "id": "IVC.1-providerInvoiceNumber",
+        "path": "IVC.1-providerInvoiceNumber",
         "short": "Provider Invoice Number",
         "definition": "Unique Invoice Number assigned by the Provider Application.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "IVC.2",
-        "path": "IVC.2",
+        "id": "IVC.2-payerInvoiceNumber",
+        "path": "IVC.2-payerInvoiceNumber",
         "short": "Payer Invoice Number",
         "definition": "Unique Invoice Number assigned by the Payer Application.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "IVC.3",
-        "path": "IVC.3",
+        "id": "IVC.3-contractAgreementNumber",
+        "path": "IVC.3-contractAgreementNumber",
         "short": "Contract/Agreement Number",
         "definition": "Contract/agreement number issued by Payer which must be specified in some circumstances by the Provider.",
         "code": [
@@ -99,8 +99,8 @@
         ]
       },
       {
-        "id": "IVC.4",
-        "path": "IVC.4",
+        "id": "IVC.4-invoiceControl",
+        "path": "IVC.4-invoiceControl",
         "short": "Invoice Control",
         "definition": "Code indicating what action is being performed by this message. Refer to {{v2-table:0553:Invoice Control Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -128,8 +128,8 @@
         ]
       },
       {
-        "id": "IVC.5",
-        "path": "IVC.5",
+        "id": "IVC.5-invoiceReason",
+        "path": "IVC.5-invoiceReason",
         "short": "Invoice Reason",
         "definition": "Code describing reason for this Invoice. Refer to {{v2-table:0554:Invoice Reason Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -157,8 +157,8 @@
         ]
       },
       {
-        "id": "IVC.6",
-        "path": "IVC.6",
+        "id": "IVC.6-invoiceType",
+        "path": "IVC.6-invoiceType",
         "short": "Invoice Type",
         "definition": "Code indicating the type of Invoice. Refer to {{v2-table:0555:Invoice Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -186,8 +186,8 @@
         ]
       },
       {
-        "id": "IVC.7",
-        "path": "IVC.7",
+        "id": "IVC.7-invoiceDateTime",
+        "path": "IVC.7-invoiceDateTime",
         "short": "Invoice Date/Time",
         "definition": "Date Invoice was created.",
         "code": [
@@ -211,8 +211,8 @@
         ]
       },
       {
-        "id": "IVC.8",
-        "path": "IVC.8",
+        "id": "IVC.8-invoiceAmount",
+        "path": "IVC.8-invoiceAmount",
         "short": "Invoice Amount",
         "definition": "Sum total of Product/Service Billed Amount on PSL for all Product/Service Line Items for this Invoice.",
         "code": [
@@ -236,8 +236,8 @@
         ]
       },
       {
-        "id": "IVC.9",
-        "path": "IVC.9",
+        "id": "IVC.9-paymentTerms",
+        "path": "IVC.9-paymentTerms",
         "short": "Payment Terms",
         "definition": "Terms for Payer payment of Invoice (e.g., 24% net 30 days).",
         "code": [
@@ -263,19 +263,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "IVC.10",
-        "path": "IVC.10",
+        "id": "IVC.10-providerOrganization",
+        "path": "IVC.10-providerOrganization",
         "short": "Provider Organization",
         "definition": "Business organization that is responsible for the invoice (e.g., Provider organization, clinic organization).",
         "code": [
@@ -299,8 +299,8 @@
         ]
       },
       {
-        "id": "IVC.11",
-        "path": "IVC.11",
+        "id": "IVC.11-payerOrganization",
+        "path": "IVC.11-payerOrganization",
         "short": "Payer Organization",
         "definition": "The business organization that is designated as Payer for this Invoice. This Payer may be the primary, secondary, tertiary Payer, depending on Insurance Information specified in the Invoice",
         "code": [
@@ -324,8 +324,8 @@
         ]
       },
       {
-        "id": "IVC.12",
-        "path": "IVC.12",
+        "id": "IVC.12-attention",
+        "path": "IVC.12-attention",
         "short": "Attention",
         "definition": "Attention to individual in Payer Organization who needs to review this Invoice.",
         "code": [
@@ -349,8 +349,8 @@
         ]
       },
       {
-        "id": "IVC.13",
-        "path": "IVC.13",
+        "id": "IVC.13-lastInvoiceIndicator",
+        "path": "IVC.13-lastInvoiceIndicator",
         "short": "Last Invoice Indicator",
         "definition": "Can be set to indicate that this is the last Invoice for a particular Case, Claim and/or Encounter (1). Refer to {{v2-table:0136:Yes/No Indicator}} for suggested values.",
         "code": [
@@ -391,8 +391,8 @@
         ]
       },
       {
-        "id": "IVC.14",
-        "path": "IVC.14",
+        "id": "IVC.14-invoiceBookingPeriod",
+        "path": "IVC.14-invoiceBookingPeriod",
         "short": "Invoice Booking Period",
         "definition": "Period in which the invoice must be booked.",
         "code": [
@@ -416,8 +416,8 @@
         ]
       },
       {
-        "id": "IVC.15",
-        "path": "IVC.15",
+        "id": "IVC.15-origin",
+        "path": "IVC.15-origin",
         "short": "Origin",
         "definition": "Responsible Person for this specific invoice. For more structured output use CTD-Segment instead.",
         "code": [
@@ -443,19 +443,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "IVC.16",
-        "path": "IVC.16",
+        "id": "IVC.16-invoiceFixedAmount",
+        "path": "IVC.16-invoiceFixedAmount",
         "short": "Invoice Fixed Amount",
         "definition": "Fixed Amount for this invoice.",
         "code": [
@@ -479,8 +479,8 @@
         ]
       },
       {
-        "id": "IVC.17",
-        "path": "IVC.17",
+        "id": "IVC.17-specialCosts",
+        "path": "IVC.17-specialCosts",
         "short": "Special Costs",
         "definition": "Special costs for this invoice.",
         "code": [
@@ -504,8 +504,8 @@
         ]
       },
       {
-        "id": "IVC.18",
-        "path": "IVC.18",
+        "id": "IVC.18-amountForDoctorsTreatment",
+        "path": "IVC.18-amountForDoctorsTreatment",
         "short": "Amount for Doctors Treatment",
         "definition": "Special amount for doctor's treatment.",
         "code": [
@@ -529,8 +529,8 @@
         ]
       },
       {
-        "id": "IVC.19",
-        "path": "IVC.19",
+        "id": "IVC.19-responsiblePhysician",
+        "path": "IVC.19-responsiblePhysician",
         "short": "Responsible Physician",
         "definition": "Doctor who is responsible for this invoice.",
         "code": [
@@ -554,8 +554,8 @@
         ]
       },
       {
-        "id": "IVC.20",
-        "path": "IVC.20",
+        "id": "IVC.20-costCenter",
+        "path": "IVC.20-costCenter",
         "short": "Cost Center",
         "definition": "Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room.",
         "code": [
@@ -579,8 +579,8 @@
         ]
       },
       {
-        "id": "IVC.21",
-        "path": "IVC.21",
+        "id": "IVC.21-invoicePrepaidAmount",
+        "path": "IVC.21-invoicePrepaidAmount",
         "short": "Invoice Prepaid Amount",
         "definition": "Deposit paid to the service Provider prior to admission",
         "code": [
@@ -604,8 +604,8 @@
         ]
       },
       {
-        "id": "IVC.22",
-        "path": "IVC.22",
+        "id": "IVC.22-totalInvoiceAmountWithoutPrepaidAmount",
+        "path": "IVC.22-totalInvoiceAmountWithoutPrepaidAmount",
         "short": "Total Invoice Amount without Prepaid Amount",
         "definition": "Total amount of Invoice without the prepaid deposit (IV-8 minus IVC-21).",
         "code": [
@@ -629,8 +629,8 @@
         ]
       },
       {
-        "id": "IVC.23",
-        "path": "IVC.23",
+        "id": "IVC.23-totalAmountOfVat",
+        "path": "IVC.23-totalAmountOfVat",
         "short": "Total-Amount of VAT",
         "definition": "Total Amount of VAT included in the Total Invoice Amount (IVC-8)",
         "code": [
@@ -654,8 +654,8 @@
         ]
       },
       {
-        "id": "IVC.24",
-        "path": "IVC.24",
+        "id": "IVC.24-vatRatesApplied",
+        "path": "IVC.24-vatRatesApplied",
         "short": "VAT-Rates applied",
         "definition": "Applied VAT Rates on Invoice. Multiple VAT-rates may be applied according to the type of service",
         "code": [
@@ -665,7 +665,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "NM"
@@ -692,8 +692,8 @@
         ]
       },
       {
-        "id": "IVC.25",
-        "path": "IVC.25",
+        "id": "IVC.25-benefitGroup",
+        "path": "IVC.25-benefitGroup",
         "short": "Benefit Group",
         "definition": "Code indicating the Benefit group. Refer to {{v2-table:0556:Benefit Group}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -721,8 +721,8 @@
         ]
       },
       {
-        "id": "IVC.26",
-        "path": "IVC.26",
+        "id": "IVC.26-providerTaxId",
+        "path": "IVC.26-providerTaxId",
         "short": "Provider Tax ID",
         "definition": "The Tax ID of the Provider (general Tax identification number or VAT number).",
         "code": [
@@ -748,19 +748,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "IVC.27",
-        "path": "IVC.27",
+        "id": "IVC.27-payerTaxId",
+        "path": "IVC.27-payerTaxId",
         "short": "Payer Tax ID",
         "definition": "The Tax ID of the Payer (general Tax identification number or VAT number)",
         "code": [
@@ -786,19 +786,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "IVC.28",
-        "path": "IVC.28",
+        "id": "IVC.28-providerTaxStatus",
+        "path": "IVC.28-providerTaxStatus",
         "short": "Provider Tax Status",
         "definition": "Code indicating the tax status of the provider. Refer to {{v2-table:0572:Tax status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -826,8 +826,8 @@
         ]
       },
       {
-        "id": "IVC.29",
-        "path": "IVC.29",
+        "id": "IVC.29-payerTaxStatus",
+        "path": "IVC.29-payerTaxStatus",
         "short": "Payer Tax Status",
         "definition": "Code indicating the tax status of the payer. Refer to {{v2-table:0572:Tax status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -855,8 +855,8 @@
         ]
       },
       {
-        "id": "IVC.30",
-        "path": "IVC.30",
+        "id": "IVC.30-salesTaxId",
+        "path": "IVC.30-salesTaxId",
         "short": "Sales Tax ID",
         "code": [
           {
@@ -881,11 +881,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "20"
+                "valueInteger": 20
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

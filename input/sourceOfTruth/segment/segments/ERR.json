@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ERR.1",
-        "path": "ERR.1",
+        "id": "ERR.1-errorCodeAndLocation",
+        "path": "ERR.1-errorCodeAndLocation",
         "short": "Error Code and Location",
         "comment": "Attention: The ERR-1 field *was deprecated in V2.4 and is withdrawn in V2.7*. Please refer to ERR-2 and ERR-3 instead.",
         "code": [
@@ -35,17 +35,21 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
       {
-        "id": "ERR.2",
-        "path": "ERR.2",
+        "id": "ERR.2-errorLocation",
+        "path": "ERR.2-errorLocation",
         "short": "Error Location",
         "definition": "Identifies the location in a message related to the identified error, warning or message. If multiple repetitions are present, the error results from the values in a combination of places.",
         "code": [
@@ -55,7 +59,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ERL"
@@ -69,8 +73,8 @@
         ]
       },
       {
-        "id": "ERR.3",
-        "path": "ERR.3",
+        "id": "ERR.3-hl7ErrorCode",
+        "path": "ERR.3-hl7ErrorCode",
         "short": "HL7 Error Code",
         "definition": "Identifies the HL7 (communications) error code. Refer to {{v2-table:0357:Message Error Condition Codes}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -98,8 +102,8 @@
         ]
       },
       {
-        "id": "ERR.4",
-        "path": "ERR.4",
+        "id": "ERR.4-severity",
+        "path": "ERR.4-severity",
         "short": "Severity",
         "definition": "Identifies the severity of an application error. Knowing if something is Error, Warning or Information is intrinsic to how an application handles the content. Refer to {{v2-table:0516:Error Severity}} in Chapter 2C, Code Tables, for valid values. If ERR-3 has a value of \"0\", ERR-4 will have a value of \"I\".",
         "comment": "Example: a Warning could be used to indicate that notes were present, but ignored because they could not be automatically processed, and therefore information could have been missed.\n\nExample of Information: When submitting a claim, a payor might indicate remaining coverage under limit.",
@@ -141,8 +145,8 @@
         ]
       },
       {
-        "id": "ERR.5",
-        "path": "ERR.5",
+        "id": "ERR.5-applicationErrorCode",
+        "path": "ERR.5-applicationErrorCode",
         "short": "Application Error Code",
         "definition": "Application specific code identifying the specific error that occurred. Refer to {{v2-table:0533:Application Error Code}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "If the message associated with the code has parameters, it is recommended that the message be indicated in the format of the java.text.MessageFormat approach.footnote:[Details on MessageFormat can be found at _http://liveweb.archive.org/http://docs.oracle.com/javase/1.5.0/docs/api/java/text/MessageFormat.html_.] This style provides information on the parameter type to allow numbers, dates and times to be formatted appropriately for the language.",
@@ -171,8 +175,8 @@
         ]
       },
       {
-        "id": "ERR.6",
-        "path": "ERR.6",
+        "id": "ERR.6-applicationErrorParameter",
+        "path": "ERR.6-applicationErrorParameter",
         "short": "Application Error Parameter",
         "definition": "Additional information to be used, together with the Application Error Code, to understand a particular error condition/warning/etc. This field can repeat to allow for up to 10 parameters.",
         "comment": "Example: If the application error code specified in ERR.5 corresponded with the English message \"The patient has a remaining deductible of \\{0, number, currency} for the period ending \\{1, date, medium}.\", and the first two repetitions of ERR.6 were \"250\" and \"20021231\", then a receiving application in the U.S. would display the message as \"The patient has a remaining deductible of $250.00 for the period ending Dec 31, 2002.\"",
@@ -199,19 +203,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "ERR.7",
-        "path": "ERR.7",
+        "id": "ERR.7-diagnosticInformation",
+        "path": "ERR.7-diagnosticInformation",
         "short": "Diagnostic Information",
         "definition": "Information that MAY be used by help desk or other support personnel to diagnose a problem.",
         "code": [
@@ -237,19 +241,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2048"
+                "valueInteger": 2048
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "ERR.8",
-        "path": "ERR.8",
+        "id": "ERR.8-userMessage",
+        "path": "ERR.8-userMessage",
         "short": "User Message",
         "definition": "The text message to be displayed to the application user.",
         "comment": "Example:\n\n|This program is having trouble communicating with another system. Please contact the help desk.|\n\nThis differs from the actual error code and could provide more diagnostic information.",
@@ -276,19 +280,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "250"
+                "valueInteger": 250
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "ERR.9",
-        "path": "ERR.9",
+        "id": "ERR.9-informPersonIndicator",
+        "path": "ERR.9-informPersonIndicator",
         "short": "Inform Person Indicator",
         "definition": "A code to indicate who (if anyone) SHOULD be informed of the error. This field MAY also be used to indicate that a particular person SHOULD NOT be informed of the error (e.g., Do not inform patient). Refer to {{v2-table:0517:Inform Person Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -298,7 +302,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -316,8 +320,8 @@
         ]
       },
       {
-        "id": "ERR.10",
-        "path": "ERR.10",
+        "id": "ERR.10-overrideType",
+        "path": "ERR.10-overrideType",
         "short": "Override Type",
         "definition": "Identifies what type of override can be used to override the specific error identified. Refer to {{v2-table:0518:Override Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -345,8 +349,8 @@
         ]
       },
       {
-        "id": "ERR.11",
-        "path": "ERR.11",
+        "id": "ERR.11-overrideReasonCode",
+        "path": "ERR.11-overrideReasonCode",
         "short": "Override Reason Code",
         "definition": "Provides a list of potential override codes that can be used to override enforcement of the application rule that generated the error. Refer to {{v2-table:0519:Override Reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -356,7 +360,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -374,8 +378,8 @@
         ]
       },
       {
-        "id": "ERR.12",
-        "path": "ERR.12",
+        "id": "ERR.12-helpDeskContactPoint",
+        "path": "ERR.12-helpDeskContactPoint",
         "short": "Help Desk Contact Point",
         "definition": "Lists phone, e-mail, fax, and other relevant numbers for helpdesk support related to the specified error.",
         "code": [
@@ -385,7 +389,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XTN"

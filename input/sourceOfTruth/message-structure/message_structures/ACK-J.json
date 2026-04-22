@@ -45,7 +45,7 @@
       {
         "id": "ACK-J.2-SFT",
         "path": "ACK-J.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-J Segment Definition",
+  "title": "HL7 v2 ACK-J Message Structure",
   "name": "ACK-J",
   "type": "ACK-J",
   "fhirVersion": "5.0.0",

@@ -744,7 +744,7 @@
       {
         "id": "OML_O35.7-SPECIMEN.3-SPECIMEN_OBSERVATION.2-PRT",
         "path": "OML_O35.7-SPECIMEN.3-SPECIMEN_OBSERVATION.2-PRT",
-        "short": "Participation (for Speciment Observation)",
+        "short": "Participation (for Specimen Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Speciment Observation)",
@@ -1005,7 +1005,7 @@
       {
         "id": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.4-PRT",
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.4-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Observation Request)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -1045,7 +1045,7 @@
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.6-REL",
         "short": "Relationship (for Observation)",
         "min": 0,
-        "max": "1",
+        "max": "*",
         "definition": "Relationship (for Observation)",
         "type": [
           {
@@ -1215,10 +1215,10 @@
       {
         "id": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.1-PATIENT_PRIOR.1-PID",
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.1-PATIENT_PRIOR.1-PID",
-        "short": "Patient Identification – previous result",
+        "short": "Patient Identification  - previous result",
         "min": 1,
         "max": "1",
-        "definition": "Patient Identification – previous result",
+        "definition": "Patient Identification \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PID"
@@ -1234,10 +1234,10 @@
       {
         "id": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.1-PATIENT_PRIOR.2-PD1",
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.1-PATIENT_PRIOR.2-PD1",
-        "short": "Additional Demographics – previous result",
+        "short": "Additional Demographics - previous result",
         "min": 0,
         "max": "1",
-        "definition": "Additional Demographics – previous result",
+        "definition": "Additional Demographics \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PD1"
@@ -1361,10 +1361,10 @@
       {
         "id": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.1-PV1",
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.1-PV1",
-        "short": "Patient Visit – previous result",
+        "short": "Patient Visit           - previous result",
         "min": 1,
         "max": "1",
-        "definition": "Patient Visit – previous result",
+        "definition": "Patient Visit \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV1"
@@ -1380,10 +1380,10 @@
       {
         "id": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.2-PV2",
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.5-OBSERVATION_REQUEST.10-PRIOR_RESULT.2-PATIENT_VISIT_PRIOR.2-PV2",
-        "short": "Patient Visit Add. Info – previous result",
+        "short": "Patient Visit Add. Info - previous result",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit Add. Info – previous result",
+        "definition": "Patient Visit Add. Info \u2013 previous result",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -1755,7 +1755,7 @@
       {
         "id": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.8-BLG",
         "path": "OML_O35.7-SPECIMEN.4-SPECIMEN_CONTAINER.3-ORDER.8-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",
@@ -1824,7 +1824,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OML_O35 Segment Definition",
+  "title": "HL7 v2 OML_O35 Message Structure",
   "name": "OML_O35",
   "type": "OML_O35",
   "fhirVersion": "5.0.0",

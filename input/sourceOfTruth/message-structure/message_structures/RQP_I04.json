@@ -317,7 +317,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RQP_I04 Segment Definition",
+  "title": "HL7 v2 RQP_I04 Message Structure",
   "name": "RQP_I04",
   "type": "RQP_I04",
   "fhirVersion": "5.0.0",

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "GP1.1",
-        "path": "GP1.1",
+        "id": "GP1.1-typeOfBillCode",
+        "path": "GP1.1-typeOfBillCode",
         "short": "Type of Bill Code",
         "definition": "This field is the same as UB92 Form Locator 4 \"Type of Bill\". Refer to {{v2-table:0455:Type of Bill Code}} in Chapter 2C, Code Tables, for suggested values. Refer to a UB specification for additional information. This field is defined by CMS or other regulatory agencies. It is a code indicating the specific type of bill with digit 1 showing type of facility, digit 2 showing bill classification, and digit 3 showing frequency.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "GP1.2",
-        "path": "GP1.2",
+        "id": "GP1.2-revenueCode",
+        "path": "GP1.2-revenueCode",
         "short": "Revenue Code",
         "definition": "This field is the same as UB92 Form Locator 42 \"Revenue Code\". Refer to E:\\\\V2\\\\V29_CH02C_Tables.docx#HL70456[_User-__defined Table 0456 - Revenue Code_] in Chapter 2C, Code Tables, for suggested values. This field identifies revenue codes that are not linked to a HCPCS/CPT code. It is used for claiming for non-medical services such as telephone, TV or cafeteria charges, etc. There can be many per visit or claim. This field is defined by CMS or other regulatory agencies.",
         "comment": "There can also be a revenue code linked to a HCPCS/CPT code. These are found in link:#gp2-1-revenue-code-cwe-01600[_GP2-1 - Revenue Code_]. Refer to UB92 specifications.",
@@ -65,7 +65,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -83,8 +83,8 @@
         ]
       },
       {
-        "id": "GP1.3",
-        "path": "GP1.3",
+        "id": "GP1.3-overallClaimDispositionCode",
+        "path": "GP1.3-overallClaimDispositionCode",
         "short": "Overall Claim Disposition Code",
         "definition": "This field identifies the final status of the claim. The codes listed as examples are not an exhaustive or current list, refer to OPPS Final Rule. Refer to {{v2-table:0457:Overall Claim Disposition}} _Code_ in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "GP1.4",
-        "path": "GP1.4",
+        "id": "GP1.4-oceEditsPerVisitCode",
+        "path": "GP1.4-oceEditsPerVisitCode",
         "short": "OCE Edits per Visit Code",
         "definition": "This field contains the edits that result from processing the HCPCS/CPT procedures for a record after evaluating all the codes, revenue codes, and modifiers. The codes listed as examples are not an exhaustive or current list, refer to OPPS Final Rule. OCE (Outpatient Code Editor) edits also exist at the pre-procedure level. Refer to {{v2-table:0458:OCE Edit Code}} in Chapter 2C, Code Tables, for suggested values. This field is defined by CMS or other regulatory agencies.",
         "code": [
@@ -123,7 +123,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "GP1.5",
-        "path": "GP1.5",
+        "id": "GP1.5-outlierCost",
+        "path": "GP1.5-outlierCost",
         "short": "Outlier Cost",
         "definition": "This field contains the amount that exceeds the outlier limitation as defined by APC regulations. This field is analogous to link:#drg-7-outlier-cost-cp-00387[_DRG-7 - Outlier Cost_]; however, the definition in this field note supersedes the DRG-7 definition.",
         "code": [

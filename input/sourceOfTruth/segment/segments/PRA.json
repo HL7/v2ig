@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PRA.1",
-        "path": "PRA.1",
+        "id": "PRA.1-primaryKeyValue",
+        "path": "PRA.1-primaryKeyValue",
         "short": "Primary Key Value - PRA",
         "definition": "For MFN Master File Notification, this field is required and must match _MFE-4 Primary Key Value_ to identify which entry is being referenced. For all other messages, this field should not be used. Refer to Table 0681 - Primary Key Value - PRA in Chapter 2C for valid values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "PRA.2",
-        "path": "PRA.2",
+        "id": "PRA.2-practitionerGroup",
+        "path": "PRA.2-practitionerGroup",
         "short": "Practitioner Group",
         "definition": "This field contains the name and/or code of a group of practitioners to which this practitioner belongs. Refer to {{v2-table:0358:Practitioner Group}} for suggested values.",
         "comment": "Refer to {{v2-table:0358:Practitioner Group}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
@@ -65,7 +65,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -83,8 +83,8 @@
         ]
       },
       {
-        "id": "PRA.3",
-        "path": "PRA.3",
+        "id": "PRA.3-practitionerCategory",
+        "path": "PRA.3-practitionerCategory",
         "short": "Practitioner Category",
         "definition": "This field contains the category of practitioner. Refer to {{v2-table:0186:Practitioner Category}} for suggested values. Values may include codes for staff physician, courtesy physician, resident, physician assistant, physical therapist, psychiatrist, psychologist, pharmacist, registered nurse, licensed practical nurse, licensed vocational nurse, nurse practitioner, etc. If the provider works in different Practitioner Categories in different organization units, then this information should be recorded separately in ORG-6,7,8.",
         "comment": "[#HL70186 .anchor]####Refer to {{v2-table:0186:Practitioner Category}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
@@ -95,7 +95,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -113,8 +113,8 @@
         ]
       },
       {
-        "id": "PRA.4",
-        "path": "PRA.4",
+        "id": "PRA.4-providerBilling",
+        "path": "PRA.4-providerBilling",
         "short": "Provider Billing",
         "definition": "This field indicates how provider services are billed. Refer to {{v2-table:0187:Provider Billing}} for valid values.",
         "comment": "Refer to {{v2-table:0187:Provider Billing}} for valid values. This table contains values for provider or institutional billing.",
@@ -156,8 +156,8 @@
         ]
       },
       {
-        "id": "PRA.5",
-        "path": "PRA.5",
+        "id": "PRA.5-specialty",
+        "path": "PRA.5-specialty",
         "short": "Specialty",
         "definition": "This repeating field is made up of multiple components to record the practitioner's specialties. The multiple components of each specialty are: (1) specialty name or abbreviation, identifies provider's specialty, (2) name of specialty governing board, (3) Certification Status, (4) certified date contains the date of certification, if certified. Refer to E:\\\\V2\\\\v2.9 final Nov from Frank\\\\V29_CH02C_Tables.docx#HL70337[_HL7 Table 0337 – Certification Status_] for valid values.",
         "comment": "Refer to {{v2-table:0337:Certification Status}} in Chapter 2C, Code Tables, for valid values. This table contains values for certified or eligible.",
@@ -168,7 +168,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "SPD"
@@ -186,8 +186,8 @@
         ]
       },
       {
-        "id": "PRA.6",
-        "path": "PRA.6",
+        "id": "PRA.6-practitionerIdNumbers",
+        "path": "PRA.6-practitionerIdNumbers",
         "short": "Practitioner ID Numbers",
         "definition": "*_As of version 2.5, this field has been retained for backward compatibility only._* Practitioner ID numbers should be contained in _STF-2 Staff Identifier List_. This repeating field contains this practitioner's license numbers and other ID numbers. This is a field made up of the following components: (1) the ID number, and (2) the type of number, and optionally (3) the state or province in which it is valid, if relevant, or other qualifying information. It is recommended that state qualifications use the abbreviations from the postal service of the country. The practitioner ID number type (component 2) is a user-defined table ({{v2-table:0338:Practitioner ID Number}} in Chapter 2C, Code Tables).",
         "code": [
@@ -197,7 +197,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "PLN"
@@ -211,12 +211,16 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
       {
-        "id": "PRA.7",
-        "path": "PRA.7",
+        "id": "PRA.7-privileges",
+        "path": "PRA.7-privileges",
         "short": "Privileges",
         "definition": "This field contains the institutional privileges which this provider may exercise. Depends upon institutional needs. For example, admit, transfer, discharge, place orders, verify orders, review results, etc. Can also be used for privileges other than patient services. This is a repeating field, with each privilege made up of the following components: (1) privilege; (2) privilege class; (3) privilege expiration date, if any; (4) privilege activation date, if any, and (5) facility. Note that the privilege and privilege class components are CWE data types, and thus they are encoded with the subcomponent delimiter (&) rather than the component delimiter (^). The facility component is an EI data type specifying the facility to which the privilege applies and is encoded with the subcomponent delimiter (&) rather than the component delimiter (^). The facility component is an EI data type specifying the facility to which the privilege applies and is encoded with the subcomponent delimiter (&) rather than the component delimiter (^).",
         "code": [
@@ -226,7 +230,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "PIP"
@@ -240,8 +244,8 @@
         ]
       },
       {
-        "id": "PRA.8",
-        "path": "PRA.8",
+        "id": "PRA.8-dateEnteredPractice",
+        "path": "PRA.8-dateEnteredPractice",
         "short": "Date Entered Practice",
         "definition": "This field contains the date the practitioner began practicing at the present institution (e.g., at hospital, at physician organization, at managed care network).",
         "code": [
@@ -265,8 +269,8 @@
         ]
       },
       {
-        "id": "PRA.9",
-        "path": "PRA.9",
+        "id": "PRA.9-institution",
+        "path": "PRA.9-institution",
         "short": "Institution",
         "definition": "This field contains the institution the practitioner began or intends to begin practicing at (e.g., at hospital, at physician organization, at managed care network). Refer to {{v2-table:0537:Institution}} for valid values.",
         "comment": "Refer to {{v2-table:0537:Institution}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
@@ -295,8 +299,8 @@
         ]
       },
       {
-        "id": "PRA.10",
-        "path": "PRA.10",
+        "id": "PRA.10-dateLeftPractice",
+        "path": "PRA.10-dateLeftPractice",
         "short": "Date Left Practice",
         "definition": "This field contains the date the practitioner ended or intends to end practicing at the given institution (e.g., at hospital, at physician organization, at managed care network).",
         "code": [
@@ -320,8 +324,8 @@
         ]
       },
       {
-        "id": "PRA.11",
-        "path": "PRA.11",
+        "id": "PRA.11-governmentReimbursementBillingEligibility",
+        "path": "PRA.11-governmentReimbursementBillingEligibility",
         "short": "Government Reimbursement Billing Eligibility",
         "definition": "This field contains a code that indicates the agency that the practitioner is authorized to bill for medical services. Refer to {{v2-table:0401:Government Reimbursement Program}} in Chapter 2C, Code Tables,for valid values. This table contains the associated code values for medicaid and medical. This is a repeating field.",
         "code": [
@@ -331,7 +335,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -349,8 +353,8 @@
         ]
       },
       {
-        "id": "PRA.12",
-        "path": "PRA.12",
+        "id": "PRA.12-setId",
+        "path": "PRA.12-setId",
         "short": "Set ID - PRA",
         "definition": "For all messages except the Staff/Practitioner Master File Notification, this field is required and contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc. For the Staff/Practitioner Master File Notification message, this field should not be used.",
         "code": [

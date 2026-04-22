@@ -255,7 +255,7 @@
       {
         "id": "RRG_O16.7-RESPONSE.2-ORDER.2-PRT",
         "path": "RRG_O16.7-RESPONSE.2-ORDER.2-PRT",
-        "short": "Participation (for ORC)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for ORC)",
@@ -464,7 +464,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRG_O16 Segment Definition",
+  "title": "HL7 v2 RRG_O16 Message Structure",
   "name": "RRG_O16",
   "type": "RRG_O16",
   "fhirVersion": "5.0.0",

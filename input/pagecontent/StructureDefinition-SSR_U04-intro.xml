@@ -9,7 +9,7 @@
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-EQU.html">EQU</a></td><td>Equipment Detail</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Specimen Container begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-SAC.html">SAC</a></td><td>Specimen Container Detail</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-SPM.html">SPM</a> }</td><td>Specimen</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-SPM.html">SPM</a> }]</td><td>Specimen</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Specimen Container end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role Detail</td><td>B</td></tr>
 </tbody>

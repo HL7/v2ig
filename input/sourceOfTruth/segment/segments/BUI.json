@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "BUI.1",
-        "path": "BUI.1",
+        "id": "BUI.1-bui1",
+        "path": "BUI.1-bui1",
         "short": "BUI-1",
         "definition": "This field contains a sequence number. When multiple BUI segments are included in the same segment group, this number differentiates between them.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "BUI.2",
-        "path": "BUI.2",
+        "id": "BUI.2-bui2",
+        "path": "BUI.2-bui2",
         "short": "BUI-2",
         "definition": "The blood unit identifier is a unique identifier assigned to the particular blood unit in a container.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "BUI.3",
-        "path": "BUI.3",
+        "id": "BUI.3-bui3",
+        "path": "BUI.3-bui3",
         "short": "BUI-3",
         "definition": "The type of blood unit. For donations, this is the type blood unit being described. This element defines which of the types from the referenced table are being described. Refer to {{v2-table:0566:Blood Unit Type}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "BUI.4",
-        "path": "BUI.4",
+        "id": "BUI.4-bui4",
+        "path": "BUI.4-bui4",
         "short": "BUI-4",
         "definition": "The weight of the blood unit collected, not including the weight of the container.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "BUI.5",
-        "path": "BUI.5",
+        "id": "BUI.5-bui5",
+        "path": "BUI.5-bui5",
         "short": "BUI-5",
         "definition": "The unit of measure for the weight of the blood unit. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to {{v2-table:0929:Weight Units}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -170,8 +170,8 @@
         ]
       },
       {
-        "id": "BUI.6",
-        "path": "BUI.6",
+        "id": "BUI.6-bui6",
+        "path": "BUI.6-bui6",
         "short": "BUI-6",
         "definition": "The volume of the blood unit collected.",
         "code": [
@@ -195,8 +195,8 @@
         ]
       },
       {
-        "id": "BUI.7",
-        "path": "BUI.7",
+        "id": "BUI.7-bui7",
+        "path": "BUI.7-bui7",
         "short": "BUI-7",
         "definition": "The unit of measure for the volume of the blood unit. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to {{v2-table:0930:Volume Units}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -224,8 +224,8 @@
         ]
       },
       {
-        "id": "BUI.8",
-        "path": "BUI.8",
+        "id": "BUI.8-bui8",
+        "path": "BUI.8-bui8",
         "short": "BUI-8",
         "definition": "The string catalog number of the blood unit container, which includes a specific container code to identify a collection bag.",
         "code": [
@@ -249,8 +249,8 @@
         ]
       },
       {
-        "id": "BUI.9",
-        "path": "BUI.9",
+        "id": "BUI.9-bui9",
+        "path": "BUI.9-bui9",
         "short": "BUI-9",
         "definition": "The lot number for the collection bag container as assigned by the container manufacturer.",
         "code": [
@@ -274,8 +274,8 @@
         ]
       },
       {
-        "id": "BUI.10",
-        "path": "BUI.10",
+        "id": "BUI.10-bui10",
+        "path": "BUI.10-bui10",
         "short": "BUI-10",
         "definition": "The organization which manufactured the collection bag container.",
         "code": [
@@ -299,8 +299,8 @@
         ]
       },
       {
-        "id": "BUI.11",
-        "path": "BUI.11",
+        "id": "BUI.11-bui11",
+        "path": "BUI.11-bui11",
         "short": "BUI-11",
         "definition": "The temperature range between which the blood unit must be kept during transport.",
         "code": [
@@ -324,8 +324,8 @@
         ]
       },
       {
-        "id": "BUI.12",
-        "path": "BUI.12",
+        "id": "BUI.12-bui12",
+        "path": "BUI.12-bui12",
         "short": "BUI-12",
         "definition": "The unit of measure of the transport temperature range. Concepts are pulled from the UCUM code system (_http://www.unitsofmeasure.org[www.unitsofmeasure.org])._ Refer to {{v2-table:0931:Temperature Units}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -353,8 +353,8 @@
         ]
       },
       {
-        "id": "BUI.13",
-        "path": "BUI.13",
+        "id": "BUI.13-bui13",
+        "path": "BUI.13-bui13",
         "short": "BUI-13",
         "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when an BUI is uniquely identified sufficiently within the specific implementation using BUI-2 in accordance with Chapter 2, Section 2.10.4.2",

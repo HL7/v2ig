@@ -64,7 +64,7 @@
       {
         "id": "OUL_R24.3-SFT",
         "path": "OUL_R24.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -394,7 +394,7 @@
       {
         "id": "OUL_R24.6-PATIENT.13-PATIENT_OBSERVATION.2-PRT",
         "path": "OUL_R24.6-PATIENT.13-PATIENT_OBSERVATION.2-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Patient Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -445,10 +445,10 @@
       {
         "id": "OUL_R24.6-PATIENT.14-VISIT.2-PV2",
         "path": "OUL_R24.6-PATIENT.14-VISIT.2-PV2",
-        "short": "Patient Visit – Additional Information",
+        "short": "Patient Visit - Additional Information",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Information",
+        "definition": "Patient Visit \u2013 Additional Information",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -585,7 +585,7 @@
       {
         "id": "OUL_R24.8-ORDER.2-PRT",
         "path": "OUL_R24.8-ORDER.2-PRT",
-        "short": "Participation (for observation)",
+        "short": "Participation (for Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for observation)",
@@ -636,7 +636,7 @@
       {
         "id": "OUL_R24.8-ORDER.3-COMMON_ORDER.2-PRT",
         "path": "OUL_R24.8-ORDER.3-COMMON_ORDER.2-PRT",
-        "short": "Participation (for common order)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for common order)",
@@ -878,7 +878,7 @@
       {
         "id": "OUL_R24.8-ORDER.7-SPECIMEN.2-SPECIMEN_OBSERVATION.2-PRT",
         "path": "OUL_R24.8-ORDER.7-SPECIMEN.2-SPECIMEN_OBSERVATION.2-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Specimen Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -1163,7 +1163,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OUL_R24 Segment Definition",
+  "title": "HL7 v2 OUL_R24 Message Structure",
   "name": "OUL_R24",
   "type": "OUL_R24",
   "fhirVersion": "5.0.0",

@@ -3,7 +3,7 @@
 <table class="grid">
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>

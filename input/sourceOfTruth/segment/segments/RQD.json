@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RQD.1",
-        "path": "RQD.1",
+        "id": "RQD.1-requisitionLineNumber",
+        "path": "RQD.1-requisitionLineNumber",
         "short": "Requisition Line Number",
         "definition": "This field contains the number that identifies this line in the requisition.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "RQD.2",
-        "path": "RQD.2",
+        "id": "RQD.2-itemCodeInternal",
+        "path": "RQD.2-itemCodeInternal",
         "short": "Item Code - Internal",
         "definition": "This field contains the identifier and description that uniquely identify the item on the application sending the requisition. This field is conditional because at least one of the three fields – RQD-2-item code- internal__,__ RQD-3-item code-external, or RQD-4-hospital item code – must be valued. Refer to Table 0684 - Item Code - Internal in Chapter 2C for valid values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "RQD.3",
-        "path": "RQD.3",
+        "id": "RQD.3-itemCodeExternal",
+        "path": "RQD.3-itemCodeExternal",
         "short": "Item Code - External",
         "definition": "This field contains the identifier and description that uniquely identify the item on the application receiving the requisition. This field is conditional because at least one of the three fields – RQD-2-item code-internal, RQD-3-item code-external or RQD-4-hospital item code – must be valued. Refer to Table 0685 - Item Code - External in Chapter 2C for valid values.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "RQD.4",
-        "path": "RQD.4",
+        "id": "RQD.4-hospitalItemCode",
+        "path": "RQD.4-hospitalItemCode",
         "short": "Hospital Item Code",
         "definition": "This field contains the identifier and description that uniquely identify the item on all applications in the hospital. The identifier is usually controlled by the hospital financial application in the charge description master file. This field is conditional because at least one of the three fields – RQD-2-item code-internal, RQD-3-item code-external or RQD-4-hospital item code _--_ must be valued. Refer to Table 0686 - Hospital Item Code in Chapter 2C for valid values.",
         "comment": "*Note:* At least one of the three fields 4.11.1.2 through 4.11.1.4 must be non-null.",
@@ -150,8 +150,8 @@
         ]
       },
       {
-        "id": "RQD.5",
-        "path": "RQD.5",
+        "id": "RQD.5-requisitionQuantity",
+        "path": "RQD.5-requisitionQuantity",
         "short": "Requisition Quantity",
         "definition": "This field contains the quantity requisitioned for this item.",
         "code": [
@@ -177,19 +177,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "6"
+                "valueInteger": 6
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "RQD.6",
-        "path": "RQD.6",
+        "id": "RQD.6-requisitionUnitOfMeasure",
+        "path": "RQD.6-requisitionUnitOfMeasure",
         "short": "Requisition Unit of Measure",
         "definition": "This field contains the unit of measure for this item. Refer to Table 0687 - Requisition Unit of Measure in Chapter 2C for valid values.",
         "code": [
@@ -217,8 +217,8 @@
         ]
       },
       {
-        "id": "RQD.7",
-        "path": "RQD.7",
+        "id": "RQD.7-costCenterAccountNumber",
+        "path": "RQD.7-costCenterAccountNumber",
         "short": "Cost Center Account Number",
         "definition": "This field contains the general ledger cost center account number associated with a department that may issue or charge for this item. Refer to {{v2-table:0319:Department Cost Center}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -246,8 +246,8 @@
         ]
       },
       {
-        "id": "RQD.8",
-        "path": "RQD.8",
+        "id": "RQD.8-itemNaturalAccountCode",
+        "path": "RQD.8-itemNaturalAccountCode",
         "short": "Item Natural Account Code",
         "definition": "This field contains the accounting code that identifies this item in order to charge for this item. {{v2-table:0320:Item Natural Account Code}} in Chapter 2C, Code Tables, is used as the HL7 identifier for the user-defined table of values for this field.",
         "code": [
@@ -275,8 +275,8 @@
         ]
       },
       {
-        "id": "RQD.9",
-        "path": "RQD.9",
+        "id": "RQD.9-deliverToId",
+        "path": "RQD.9-deliverToId",
         "short": "Deliver To ID",
         "definition": "This field contains the unique identifier and descriptive name of the department/location where the item should be delivered. Refer to Table 0688 - Deliver To ID in Chapter 2C for valid values.",
         "code": [
@@ -304,8 +304,8 @@
         ]
       },
       {
-        "id": "RQD.10",
-        "path": "RQD.10",
+        "id": "RQD.10-dateNeeded",
+        "path": "RQD.10-dateNeeded",
         "short": "Date Needed",
         "definition": "This field contains the date this item is required.",
         "comment": "*Note:* Although none of the fields are required, one of the three identifying codes—RQD-2-item code-internal, RQD-3-item code-external, or RQD-4-hospital item code—must be specified in order for the receiving application to process the request.\n\nIt is left to the vendors to determine which will be used as the common link between the two applications. HL7 recommends using the RQD-4-Hospital Item Code.\n\nHospital accounting requires an identifier to charge a particular cost center or patient for a requisitioned supply. If the supply is for a patient, then this identifier comes from the PID segment; otherwise, from RQD-7-Dept. Cost Center and RQD-8-Item Natural Account Code must be used. It is recommended that the \"final\" cost center responsible for providing the supply to the patient be included, even when the patient ID is provided.\n\nHospital accounting applications use RQD-7-Dept. Cost Center concatenated with RQD-8-Item Natural Account Code in order to post this transaction to the General Ledger. This concatenated value should correspond to a valid entry in the accounting applications \"Chart of Accounts.\"",

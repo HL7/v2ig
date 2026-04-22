@@ -45,7 +45,7 @@
       {
         "id": "MDM_T02-D.2-SFT",
         "path": "MDM_T02-D.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -216,7 +216,7 @@
       {
         "id": "MDM_T02-D.11-PRT",
         "path": "MDM_T02-D.11-PRT",
-        "short": "Participation Segment",
+        "short": "Participation",
         "min": 0,
         "max": "*",
         "definition": "Participation Segment",
@@ -413,7 +413,7 @@
       {
         "id": "MDM_T02-D.14-CON",
         "path": "MDM_T02-D.14-CON",
-        "short": "Consent Segment",
+        "short": "Consent",
         "min": 0,
         "max": "*",
         "definition": "Consent Segment",
@@ -501,7 +501,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MDM_T02-D Segment Definition",
+  "title": "HL7 v2 MDM_T02-D Message Structure",
   "name": "MDM_T02-D",
   "type": "MDM_T02-D",
   "fhirVersion": "5.0.0",

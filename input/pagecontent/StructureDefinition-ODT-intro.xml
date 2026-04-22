@@ -1,11 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Tray Type</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0160">0160</a></td><td class="v2-col-mono">00273</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Service Period</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..10]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0629">0629</a></td><td class="v2-col-mono">00270</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">3</td><td>Text Instruction</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">00272</td><td class="v2-col-mono"></td><td class="v2-col-mono">80</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq"><a href="#a-ODT.1-trayType">1</a></td><td>Tray Type</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0160">0160</a></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-ODT-definitions.html#ODT.1-trayType">00273</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-ODT.2-servicePeriod">2</a></td><td>Service Period</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0629">0629</a></td><td class="v2-col-mono">[0..10]</td><td class="v2-col-mono"><a href="StructureDefinition-ODT-definitions.html#ODT.2-servicePeriod">00270</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-ODT.3-textInstruction">3</a></td><td>Text Instruction</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-ODT-definitions.html#ODT.3-textInstruction">00272</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">80</td><td class="v2-col-mono">#</td></tr>
 </tbody>
 </table>
 </div>

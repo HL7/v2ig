@@ -45,7 +45,7 @@
       {
         "id": "QBP_O34.2-SFT",
         "path": "QBP_O34.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -83,7 +83,7 @@
       {
         "id": "QBP_O34.4-QPD",
         "path": "QBP_O34.4-QPD",
-        "short": "Query Parameter Definition Segment",
+        "short": "Query Parameter Definition",
         "min": 1,
         "max": "1",
         "definition": "Query Parameter Definition Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QBP_O34 Segment Definition",
+  "title": "HL7 v2 QBP_O34 Message Structure",
   "name": "QBP_O34",
   "type": "QBP_O34",
   "fhirVersion": "5.0.0",

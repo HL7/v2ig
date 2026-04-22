@@ -45,7 +45,7 @@
       {
         "id": "ACK-C.2-SFT",
         "path": "ACK-C.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-C Segment Definition",
+  "title": "HL7 v2 ACK-C Message Structure",
   "name": "ACK-C",
   "type": "ACK-C",
   "fhirVersion": "5.0.0",

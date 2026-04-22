@@ -45,7 +45,7 @@
       {
         "id": "ACK-BT.2-SFT",
         "path": "ACK-BT.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-BT Segment Definition",
+  "title": "HL7 v2 ACK-BT Message Structure",
   "name": "ACK-BT",
   "type": "ACK-BT",
   "fhirVersion": "5.0.0",

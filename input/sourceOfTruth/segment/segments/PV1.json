@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PV1.1",
-        "path": "PV1.1",
+        "id": "PV1.1-setId",
+        "path": "PV1.1-setId",
         "short": "Set ID - PV1",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "PV1.2",
-        "path": "PV1.2",
+        "id": "PV1.2-patientClass",
+        "path": "PV1.2-patientClass",
         "short": "Patient Class",
         "definition": "This field is used by systems to categorize patients by site. It does not have a consistent industry-wide definition. It is subject to site‑specific variations. Refer to {{v2-table:0004:Patient Class}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "\"Commercial Account\" is used by reference labs for specimen processing when the service is billed back to a third party. A registration is processed for the specimen to facilitate the subsequent billing. The identity of the patient may be known or unknown. In either case, for billing and statistical purposes, the patient class is considered a commercial account due to the third party billing responsibility.\n\n\"Not Applicable\" is used only in cases where the PV1 segment itself is not applicable but is retained in the message definitions for backwards compatibility (for example when a managed care system sends A28, A29, or A31 messages to indicate the enrolment of a patient in the system and there is no scheduled \"visit\" or \"encounter\" and hence the entire PV1 segment is not applicable).",
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "id": "PV1.3",
-        "path": "PV1.3",
+        "id": "PV1.3-assignedPatientLocation",
+        "path": "PV1.3-assignedPatientLocation",
         "short": "Assigned Patient Location",
         "definition": "This field contains the patient's initial assigned location or the location to which the patient is being moved. The first component may be the nursing station for inpatient locations, or clinic or department, for locations other than inpatient. For canceling a transaction or discharging a patient, the current location (after the cancellation event or before the discharge event) should be in this field. If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.",
         "code": [
@@ -117,8 +117,8 @@
         ]
       },
       {
-        "id": "PV1.4",
-        "path": "PV1.4",
+        "id": "PV1.4-admissionType",
+        "path": "PV1.4-admissionType",
         "short": "Admission Type",
         "definition": "This field indicates the circumstances under which the patient was or will be admitted. Refer to {{v2-table:0007:Admission Type}} in Chapter 2C, Code Tables, for suggested values. In the US, entities required to be compliant with the US Healthcare Information Technology Standards Panel (HITSP) are required to use the Official Universal Billing (UB) 04 2008 numeric codes found on form locator 14. Refer to External Table UB04FL14 for valid values.",
         "comment": "For example:\n\nNon-US |E^Emergency^HL70007|\n\nUS: |1^Emergency^UB04FL14^^^^2008, v 2.0|\n\nTo report that information is not available:\n\nNon-US: |NI^No Information^HL70532|\n\nUS: |9^Information not available^ UB04FL14^^^^2008, v 2.0|",
@@ -147,8 +147,8 @@
         ]
       },
       {
-        "id": "PV1.5",
-        "path": "PV1.5",
+        "id": "PV1.5-preadmitNumber",
+        "path": "PV1.5-preadmitNumber",
         "short": "Preadmit Number",
         "definition": "This field uniquely identifies the patient's pre‑admit account. Some systems will continue to use the pre‑admit number as the billing number after the patient has been admitted. For backward compatibility, a ST data type can be sent; however, HL7 recommends use of the CX data type, like the account number, for new implementations. The assigning authority and identifier type codes are strongly recommended for all CX data types.",
         "code": [
@@ -172,8 +172,8 @@
         ]
       },
       {
-        "id": "PV1.6",
-        "path": "PV1.6",
+        "id": "PV1.6-priorPatientLocation",
+        "path": "PV1.6-priorPatientLocation",
         "short": "Prior Patient Location",
         "definition": "This field contains the prior patient location if the patient is being transferred. The old location is null if the patient is new. If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.",
         "code": [
@@ -197,8 +197,8 @@
         ]
       },
       {
-        "id": "PV1.7",
-        "path": "PV1.7",
+        "id": "PV1.7-attendingDoctor",
+        "path": "PV1.7-attendingDoctor",
         "short": "Attending Doctor",
         "definition": "This field contains the attending physician information. Multiple names and identifiers for the same physician may be sent. The field sequences are not used to indicate multiple attending doctors. As of v2.7, if _XCN.1 ID Number_ is populated, then the _XCN.13 Identifier Type Code_ and the _XCN.9 Assigning Authority_ or _XCN.22 Assigning Jurisdiction_ or _XCN.23 Assigning Agency or Department_ are required. If _XCN.2 Family Name_ is populated, then the _XCN.10 Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated. Depending on local agreements, either ID or the name may be absent in this field. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -208,7 +208,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -226,8 +226,8 @@
         ]
       },
       {
-        "id": "PV1.8",
-        "path": "PV1.8",
+        "id": "PV1.8-referringDoctor",
+        "path": "PV1.8-referringDoctor",
         "short": "Referring Doctor",
         "definition": "This field contains the referring physician information. Multiple names and identifiers for the same physician may be sent. The field sequences are not used to indicate multiple referring doctors. As of v 2.7 if _XCN.1 ID Number_ is populated, then the _XCN.13 Identifier Type Code_ and the _XCN.9 Assigning Authority_ or _XCN.22 Assigning Jurisdiction_ or _XCN.23 Assigning Agency or Department_ are required. If _XCN.2 Family Name_ is populated, then the _XCN.10 Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated. Depending on local agreements, either the ID or the name may be absent from this field. Refer to {{v2-table:0010:Physician ID}}_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -237,7 +237,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -255,8 +255,8 @@
         ]
       },
       {
-        "id": "PV1.9",
-        "path": "PV1.9",
+        "id": "PV1.9-consultingDoctor",
+        "path": "PV1.9-consultingDoctor",
         "short": "Consulting Doctor",
         "comment": "*From V2.4 onward, this field has been retained for backward compatibility only.* It is recommended to use the PRT - Participation segment for consulting physicians instead.",
         "code": [
@@ -266,7 +266,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -276,12 +276,16 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
       {
-        "id": "PV1.10",
-        "path": "PV1.10",
+        "id": "PV1.10-hospitalService",
+        "path": "PV1.10-hospitalService",
         "short": "Hospital Service",
         "definition": "This field contains the treatment or type of surgery that the patient is scheduled to receive. It is a required field with trigger events A01 (admit/visit notification), A02 (transfer a patient), A14 (pending admit), A15 (pending transfer). Refer to {{v2-table:0069:Hospital Service}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -309,8 +313,8 @@
         ]
       },
       {
-        "id": "PV1.11",
-        "path": "PV1.11",
+        "id": "PV1.11-temporaryLocation",
+        "path": "PV1.11-temporaryLocation",
         "short": "Temporary Location",
         "definition": "This field contains a location other than the assigned location required for a temporary period of time (e.g., OR, operating theatre, etc.). If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.",
         "code": [
@@ -334,8 +338,8 @@
         ]
       },
       {
-        "id": "PV1.12",
-        "path": "PV1.12",
+        "id": "PV1.12-preadmitTestIndicator",
+        "path": "PV1.12-preadmitTestIndicator",
         "short": "Preadmit Test Indicator",
         "definition": "This field indicates whether the patient must have pre‑admission testing done in order to be admitted. Refer to {{v2-table:0087:Pre-Admit Test Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -363,8 +367,8 @@
         ]
       },
       {
-        "id": "PV1.13",
-        "path": "PV1.13",
+        "id": "PV1.13-reAdmissionIndicator",
+        "path": "PV1.13-reAdmissionIndicator",
         "short": "Re-admission Indicator",
         "definition": "This field indicates that a patient is being re‑admitted to the healthcare facility and gives the circumstances. We suggest using \"*R*\" for readmission or else null. Refer to {{v2-table:0092:Re-Admission Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -392,8 +396,8 @@
         ]
       },
       {
-        "id": "PV1.14",
-        "path": "PV1.14",
+        "id": "PV1.14-admitSource",
+        "path": "PV1.14-admitSource",
         "short": "Admit Source",
         "definition": "This field indicates from where the patient was admitted. Refer to {{v2-table:0023:Admit Source}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 15. Refer to _External Table UB04FL15 Source of Origin_ for valid values. The UB has redefined the Admission Source as the Point of Origin for Admission or Visit. The new UB definition is the code indicating the Point of Origin for this Admission or Visit",
         "comment": "For Example:\n\nUS: |1^Physician Referral^UB04FL15^^^^2008, v 2.0|\n\nTo report that information is not available:\n\nUS: |9^Information not available^ UB04FL15^^^^2008, v 2.0|",
@@ -422,8 +426,8 @@
         ]
       },
       {
-        "id": "PV1.15",
-        "path": "PV1.15",
+        "id": "PV1.15-ambulatoryStatus",
+        "path": "PV1.15-ambulatoryStatus",
         "short": "Ambulatory Status",
         "definition": "This field indicates any permanent or transient handicapped conditions. Refer to {{v2-table:0009:Ambulatory Status}} in Chapter 2C, Code Tables, for suggested entries.",
         "code": [
@@ -433,7 +437,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -451,8 +455,8 @@
         ]
       },
       {
-        "id": "PV1.16",
-        "path": "PV1.16",
+        "id": "PV1.16-vipIndicator",
+        "path": "PV1.16-vipIndicator",
         "short": "VIP Indicator",
         "definition": "This field identifies the type of VIP. Refer to {{v2-table:0099:VIP Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -480,8 +484,8 @@
         ]
       },
       {
-        "id": "PV1.17",
-        "path": "PV1.17",
+        "id": "PV1.17-admittingDoctor",
+        "path": "PV1.17-admittingDoctor",
         "short": "Admitting Doctor",
         "definition": "This field contains the admitting physician information. Multiple names and identifiers for the same physician may be sent. The field sequences are not used to indicate multiple admitting doctors. As of v2.7 if _XCN.1 ID Number_ is populated, then the _XCN.13 Identifier Type Code_ and the _XCN.9 Assigning Authority_ or _XCN.22 Assigning Jurisdiction_ or _XCN.23 Assigning Agency or Department_ are required. If _XCN.2 Family Name_ is populated, then the _XCN.10 Name Type Code_ is required. No assumptions can be safely made based on position or sequence. Specification of meaning based on sequence is deprecated. By local agreement, the name or ID may be absent in this field. Refer to {{v2-table:0010:Physician ID}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -491,7 +495,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -509,8 +513,8 @@
         ]
       },
       {
-        "id": "PV1.18",
-        "path": "PV1.18",
+        "id": "PV1.18-patientType",
+        "path": "PV1.18-patientType",
         "short": "Patient Type",
         "definition": "This field contains site-specific values that identify the patient type. Refer to {{v2-table:0018:Patient Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -538,8 +542,8 @@
         ]
       },
       {
-        "id": "PV1.19",
-        "path": "PV1.19",
+        "id": "PV1.19-visitNumber",
+        "path": "PV1.19-visitNumber",
         "short": "Visit Number",
         "definition": "For backward compatibility, a NM data type may be sent, but HL7 recommends that new implementations use the CX data type**.** This field contains the unique number assigned to each patient visit. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -563,8 +567,8 @@
         ]
       },
       {
-        "id": "PV1.20",
-        "path": "PV1.20",
+        "id": "PV1.20-financialClass",
+        "path": "PV1.20-financialClass",
         "short": "Financial Class",
         "definition": "This field contains the financial class(es) assigned to the patient for the purpose of identifying sources of reimbursement. Refer to {{v2-table:0064:Financial Class}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -574,7 +578,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "FC"
@@ -592,8 +596,8 @@
         ]
       },
       {
-        "id": "PV1.21",
-        "path": "PV1.21",
+        "id": "PV1.21-chargePriceIndicator",
+        "path": "PV1.21-chargePriceIndicator",
         "short": "Charge Price Indicator",
         "definition": "This field contains the code used to determine which price schedule is to be used for room and bed charges. Refer to {{v2-table:0032:Charge/Price Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -621,8 +625,8 @@
         ]
       },
       {
-        "id": "PV1.22",
-        "path": "PV1.22",
+        "id": "PV1.22-courtesyCode",
+        "path": "PV1.22-courtesyCode",
         "short": "Courtesy Code",
         "definition": "This field indicates whether the patient will be extended certain special courtesies. Refer to {{v2-table:0045:Courtesy Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -650,8 +654,8 @@
         ]
       },
       {
-        "id": "PV1.23",
-        "path": "PV1.23",
+        "id": "PV1.23-creditRating",
+        "path": "PV1.23-creditRating",
         "short": "Credit Rating",
         "definition": "This field contains the user-defined code to determine past credit experience. Refer to {{v2-table:0046:Credit Rating}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -679,8 +683,8 @@
         ]
       },
       {
-        "id": "PV1.24",
-        "path": "PV1.24",
+        "id": "PV1.24-contractCode",
+        "path": "PV1.24-contractCode",
         "short": "Contract Code",
         "definition": "This field identifies the type of contract entered into by the healthcare facility and the guarantor for the purpose of settling outstanding account balances. Refer to {{v2-table:0044:Contract Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -690,7 +694,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -708,8 +712,8 @@
         ]
       },
       {
-        "id": "PV1.25",
-        "path": "PV1.25",
+        "id": "PV1.25-contractEffectiveDate",
+        "path": "PV1.25-contractEffectiveDate",
         "short": "Contract Effective Date",
         "definition": "This field contains the date that the contract is to start or started.",
         "code": [
@@ -719,7 +723,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "DT"
@@ -733,8 +737,8 @@
         ]
       },
       {
-        "id": "PV1.26",
-        "path": "PV1.26",
+        "id": "PV1.26-contractAmount",
+        "path": "PV1.26-contractAmount",
         "short": "Contract Amount",
         "definition": "This field contains the amount to be paid by the guarantor each period according to the contract.",
         "code": [
@@ -744,7 +748,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "NM"
@@ -760,19 +764,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.27",
-        "path": "PV1.27",
+        "id": "PV1.27-contractPeriod",
+        "path": "PV1.27-contractPeriod",
         "short": "Contract Period",
         "definition": "This field specifies the duration of the contract for user-defined periods.",
         "code": [
@@ -782,7 +786,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "NM"
@@ -798,19 +802,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.28",
-        "path": "PV1.28",
+        "id": "PV1.28-interestCode",
+        "path": "PV1.28-interestCode",
         "short": "Interest Code",
         "definition": "This field indicates the amount of interest that will be charged the guarantor on any outstanding amounts. Refer to {{v2-table:0073:Interest Rate Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -838,8 +842,8 @@
         ]
       },
       {
-        "id": "PV1.29",
-        "path": "PV1.29",
+        "id": "PV1.29-transferToBadDebtCode",
+        "path": "PV1.29-transferToBadDebtCode",
         "short": "Transfer to Bad Debt Code",
         "definition": "This field indicates that the account was transferred to bad debts and gives the reason. Refer to {{v2-table:0110:Transfer to Bad Debt Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -867,8 +871,8 @@
         ]
       },
       {
-        "id": "PV1.30",
-        "path": "PV1.30",
+        "id": "PV1.30-transferToBadDebtDate",
+        "path": "PV1.30-transferToBadDebtDate",
         "short": "Transfer to Bad Debt Date",
         "definition": "This field contains the date that the account was transferred to a bad debt status.",
         "code": [
@@ -892,8 +896,8 @@
         ]
       },
       {
-        "id": "PV1.31",
-        "path": "PV1.31",
+        "id": "PV1.31-badDebtAgencyCode",
+        "path": "PV1.31-badDebtAgencyCode",
         "short": "Bad Debt Agency Code",
         "definition": "This field can be used as a ST type for backward compatibility. This field uniquely identifies the bad debt agency to which the account was transferred. This code is site defined. One possible implementation would be to edit against a table such as {{v2-table:0021:Bad Debt Agency Code}}; in chapter 2C, however, this is not required.",
         "code": [
@@ -921,8 +925,8 @@
         ]
       },
       {
-        "id": "PV1.32",
-        "path": "PV1.32",
+        "id": "PV1.32-badDebtTransferAmount",
+        "path": "PV1.32-badDebtTransferAmount",
         "short": "Bad Debt Transfer Amount",
         "definition": "This field contains the amount that was transferred to a bad debt status.",
         "code": [
@@ -948,19 +952,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.33",
-        "path": "PV1.33",
+        "id": "PV1.33-badDebtRecoveryAmount",
+        "path": "PV1.33-badDebtRecoveryAmount",
         "short": "Bad Debt Recovery Amount",
         "definition": "This field contains the amount recovered from the guarantor on the account.",
         "code": [
@@ -986,19 +990,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.34",
-        "path": "PV1.34",
+        "id": "PV1.34-deleteAccountIndicator",
+        "path": "PV1.34-deleteAccountIndicator",
         "short": "Delete Account Indicator",
         "definition": "This field indicates that the account was deleted from the file and gives the reason. Refer to {{v2-table:0111:Delete Account Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1026,8 +1030,8 @@
         ]
       },
       {
-        "id": "PV1.35",
-        "path": "PV1.35",
+        "id": "PV1.35-deleteAccountDate",
+        "path": "PV1.35-deleteAccountDate",
         "short": "Delete Account Date",
         "definition": "This field contains the date that the account was deleted from the file.",
         "code": [
@@ -1051,8 +1055,8 @@
         ]
       },
       {
-        "id": "PV1.36",
-        "path": "PV1.36",
+        "id": "PV1.36-dischargeDisposition",
+        "path": "PV1.36-dischargeDisposition",
         "short": "Discharge Disposition",
         "definition": "This field contains the disposition of the patient at time of discharge (i.e., discharged to home, expired, etc.). Refer to {{v2-table:0112:Discharge Disposition}} in Chapter 2C, Code Tables, for suggested values. In the US, this field should use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 17. Refer to _External Table UB04FL17 Patient Discharge Status_ for valid values.",
         "comment": "Examples:\n\nUS: |01^ Discharged to home or self care (routine discharge)^UB04FL17^^^^2008, v 2.0|\n\n*Usage Note:* NUBC does not supply a null value for this field.",
@@ -1081,8 +1085,8 @@
         ]
       },
       {
-        "id": "PV1.37",
-        "path": "PV1.37",
+        "id": "PV1.37-dischargedToLocation",
+        "path": "PV1.37-dischargedToLocation",
         "short": "Discharged to Location",
         "definition": "This field indicates the healthcare facility to which the patient was discharged and the date. Refer to {{v2-table:0113:Discharged to Location}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1110,8 +1114,8 @@
         ]
       },
       {
-        "id": "PV1.38",
-        "path": "PV1.38",
+        "id": "PV1.38-dietType",
+        "path": "PV1.38-dietType",
         "short": "Diet Type",
         "definition": "This field indicates a special diet type for a patient. Refer to {{v2-table:0114:Diet Type}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1139,8 +1143,8 @@
         ]
       },
       {
-        "id": "PV1.39",
-        "path": "PV1.39",
+        "id": "PV1.39-servicingFacility",
+        "path": "PV1.39-servicingFacility",
         "short": "Servicing Facility",
         "definition": "This field is used in a multiple facility environment, e.g., multiple campuses or buildings, to indicate the healthcare facility with which this visit is associated. Refer to {{v2-table:0115:Servicing Facility}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "An optional sixth component, the facility ID, may be valued in each individual location field in PV1, instead of placing it here.",
@@ -1169,8 +1173,8 @@
         ]
       },
       {
-        "id": "PV1.40",
-        "path": "PV1.40",
+        "id": "PV1.40-bedStatus",
+        "path": "PV1.40-bedStatus",
         "short": "Bed Status",
         "definition": "*The PV1-40 field was retained for backward compatibility only as of v 2.3, and the field withdrawn as of v 2.7*. The information is now held in the fifth component of the PL datatype in PV1-3.",
         "code": [
@@ -1180,17 +1184,21 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
       {
-        "id": "PV1.41",
-        "path": "PV1.41",
+        "id": "PV1.41-accountStatus",
+        "path": "PV1.41-accountStatus",
         "short": "Account Status",
         "definition": "This field contains the account status. Refer to {{v2-table:0117:Account Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1218,8 +1226,8 @@
         ]
       },
       {
-        "id": "PV1.42",
-        "path": "PV1.42",
+        "id": "PV1.42-pendingLocation",
+        "path": "PV1.42-pendingLocation",
         "short": "Pending Location",
         "definition": "This field indicates the point of care, room, bed, healthcare facility ID, and bed status to which the patient may be moved. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient. If a value exists in the fifth component (location status), it supersedes the value in _PV1-40 - Bed Status_.",
         "code": [
@@ -1243,8 +1251,8 @@
         ]
       },
       {
-        "id": "PV1.43",
-        "path": "PV1.43",
+        "id": "PV1.43-priorTemporaryLocation",
+        "path": "PV1.43-priorTemporaryLocation",
         "short": "Prior Temporary Location",
         "definition": "This field is used to reflect the patient's temporary location (such as the operating room/theatre or x-ray) prior to a transfer from a temporary location to an actual location, or from a temporary location to another temporary location. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.",
         "code": [
@@ -1268,8 +1276,8 @@
         ]
       },
       {
-        "id": "PV1.44",
-        "path": "PV1.44",
+        "id": "PV1.44-admitDateTime",
+        "path": "PV1.44-admitDateTime",
         "short": "Admit Date/Time",
         "definition": "This field contains the admit date/time. It is to be used if the event date/time is different than the admit date and time, i.e., a retroactive update. This field is also used to reflect the date/time of an outpatient/emergency patient registration.",
         "code": [
@@ -1293,8 +1301,8 @@
         ]
       },
       {
-        "id": "PV1.45",
-        "path": "PV1.45",
+        "id": "PV1.45-dischargeDateTime",
+        "path": "PV1.45-dischargeDateTime",
         "short": "Discharge Date/Time",
         "definition": "This field contains the discharge date/time. It is to be used if the event date/time is different than the discharge date and time, that is, a retroactive update. This field is also used to reflect the date/time of an outpatient/emergency patient discharge.",
         "code": [
@@ -1318,8 +1326,8 @@
         ]
       },
       {
-        "id": "PV1.46",
-        "path": "PV1.46",
+        "id": "PV1.46-currentPatientBalance",
+        "path": "PV1.46-currentPatientBalance",
         "short": "Current Patient Balance",
         "definition": "This field contains the visit balance due.",
         "code": [
@@ -1345,19 +1353,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.47",
-        "path": "PV1.47",
+        "id": "PV1.47-totalCharges",
+        "path": "PV1.47-totalCharges",
         "short": "Total Charges",
         "definition": "This field contains the total visit charges.",
         "code": [
@@ -1383,19 +1391,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.48",
-        "path": "PV1.48",
+        "id": "PV1.48-totalAdjustments",
+        "path": "PV1.48-totalAdjustments",
         "short": "Total Adjustments",
         "definition": "This field contains the total adjustments for visit.",
         "code": [
@@ -1421,19 +1429,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.49",
-        "path": "PV1.49",
+        "id": "PV1.49-totalPayments",
+        "path": "PV1.49-totalPayments",
         "short": "Total Payments",
         "definition": "This field contains the total payments for visit.",
         "code": [
@@ -1459,19 +1467,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "12"
+                "valueInteger": 12
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.50",
-        "path": "PV1.50",
+        "id": "PV1.50-alternateVisitId",
+        "path": "PV1.50-alternateVisitId",
         "short": "Alternate Visit ID",
         "definition": "This field contains the alternative, temporary, or pending optional visit ID number to be used if needed. Multiple alternate identifiers may be sent. Refer to {{v2-table:0061:Check Digit Scheme}} in Chapter 2C, Code Tables, for valid values. Refer to {{v2-table:0203:Identifier Type}} in Chapter 2C, Code Tables, for valid values. The assigning authority and identifier type codes are strongly recommended for all CX data types.",
         "code": [
@@ -1481,7 +1489,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -1499,8 +1507,8 @@
         ]
       },
       {
-        "id": "PV1.51",
-        "path": "PV1.51",
+        "id": "PV1.51-visitIndicator",
+        "path": "PV1.51-visitIndicator",
         "short": "Visit Indicator",
         "definition": "This field specifies the level on which data are being sent. It is the indicator used to send data at two levels, visit and account. HL7 recommends sending an 'A' or no value when the data in the message are at the account level, or 'V' to indicate that the data sent in the message are at the visit level. Refer to {{v2-table:0326:Visit Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "The value of this element affects the context of data sent in PV1, PV2 and any associated hierarchical segments (e.g., DB1, AL1, DG1, etc.).",
@@ -1529,8 +1537,8 @@
         ]
       },
       {
-        "id": "PV1.52",
-        "path": "PV1.52",
+        "id": "PV1.52-otherHealthcareProvider",
+        "path": "PV1.52-otherHealthcareProvider",
         "short": "Other Healthcare Provider",
         "definition": "*The PV1-52 field was retained for backward compatibility only as of v 2.4 and withdrawn as of v 2.7.* The reader is advised to use the PRT segment to communicate providers not specified elsewhere. Refer to Chapter 7 for the definition of the PRT segment.",
         "code": [
@@ -1540,17 +1548,21 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
       {
-        "id": "PV1.53",
-        "path": "PV1.53",
+        "id": "PV1.53-serviceEpisodeDescription",
+        "path": "PV1.53-serviceEpisodeDescription",
         "short": "Service Episode Description",
         "definition": "This field contains a brief user-defined description of a Service Episode in or for which the visit occurs. A Service Episode is the context in which the treatment or management of an arbitrary subset of a Patient’s medical conditions occurs. The definition of the start time, stop time, and included events of a Service Episode is entirely arbitrary; it may include a single outpatient visit or a hospitalization, or extend over significant period of time, e.g., the duration of a pregnancy, or an oncology treatment regimen, or a cardiac episode from infarction through rehabilitation. A Service Episode may involve one or more Healthcare Organizations.",
         "code": [
@@ -1576,19 +1588,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "50"
+                "valueInteger": 50
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PV1.54",
-        "path": "PV1.54",
+        "id": "PV1.54-serviceEpisodeIdentifier",
+        "path": "PV1.54-serviceEpisodeIdentifier",
         "short": "Service Episode Identifier",
         "definition": "This field contains the identifier of a Service Episode in or for which the visit occurs.",
         "code": [

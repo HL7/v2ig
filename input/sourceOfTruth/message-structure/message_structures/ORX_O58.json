@@ -349,7 +349,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORX_O58 Segment Definition",
+  "title": "HL7 v2 ORX_O58 Message Structure",
   "name": "ORX_O58",
   "type": "ORX_O58",
   "fhirVersion": "5.0.0",

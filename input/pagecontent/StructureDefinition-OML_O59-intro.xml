@@ -48,7 +48,7 @@
 <tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-REL.html">REL</a> ]</td><td>Relationship (Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for OBX)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-TCD.html">TCD</a> ]</td><td>Test Code Detail</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Results)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Observation end</td><td></td><td></td></tr>
@@ -72,16 +72,16 @@
 <tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-SGH.html">SGH</a> ]</td><td>Segment Group Header</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Prior Result begin</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Patient Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification – previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics – previous result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification  - previous result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics - previous result</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Prior)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Patient Prior end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Patient Visit Prior begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit – previous result</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit Add. Info – previous result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit           - previous result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit Add. Info - previous result</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit Prior)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Patient Visit Prior end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information - previous result</td><td>A</td></tr>
@@ -109,7 +109,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Observation Request end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-FT1.html">FT1</a> }]</td><td>Financial Transaction</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CTI.html">CTI</a> }]</td><td>Clinical Trial Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-BLG.html">BLG</a> ]</td><td>Billing Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-BLG.html">BLG</a> ]</td><td>Billing</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Order end</td><td></td><td></td></tr>
 </tbody>
 </table>

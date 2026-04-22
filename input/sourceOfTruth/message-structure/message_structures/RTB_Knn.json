@@ -45,7 +45,7 @@
       {
         "id": "RTB_Knn.2-SFT",
         "path": "RTB_Knn.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RTB_Knn Segment Definition",
+  "title": "HL7 v2 RTB_Knn Message Structure",
   "name": "RTB_Knn",
   "type": "RTB_Knn",
   "fhirVersion": "5.0.0",

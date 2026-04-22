@@ -318,10 +318,10 @@
       {
         "id": "BPS_O29.6-PATIENT.9-PATIENT_VISIT.2-PV2",
         "path": "BPS_O29.6-PATIENT.9-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -546,7 +546,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BPS_O29 Segment Definition",
+  "title": "HL7 v2 BPS_O29 Message Structure",
   "name": "BPS_O29",
   "type": "BPS_O29",
   "fhirVersion": "5.0.0",

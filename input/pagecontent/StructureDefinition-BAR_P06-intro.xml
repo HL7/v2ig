@@ -4,7 +4,7 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient begin</td><td></td><td></td></tr>

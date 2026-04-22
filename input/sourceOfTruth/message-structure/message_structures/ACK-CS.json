@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CS Segment Definition",
+  "title": "HL7 v2 ACK-CS Message Structure",
   "name": "ACK-CS",
   "type": "ACK-CS",
   "fhirVersion": "5.0.0",

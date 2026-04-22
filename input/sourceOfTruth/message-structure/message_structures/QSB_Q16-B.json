@@ -45,7 +45,7 @@
       {
         "id": "QSB_Q16-B.2-SFT",
         "path": "QSB_Q16-B.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 QSB_Q16-B Segment Definition",
+  "title": "HL7 v2 QSB_Q16-B Message Structure",
   "name": "QSB_Q16-B",
   "type": "QSB_Q16-B",
   "fhirVersion": "5.0.0",

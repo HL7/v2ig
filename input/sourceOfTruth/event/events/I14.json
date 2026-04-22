@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "meta": {
+    "profile": [
+      "http://hl7.org/v2/StructureDefinition/Event-Profile"
+    ]
+  },
+  "version": "0.0.1",
+  "status": "active",
+  "kind": "logical",
+  "abstract": false,
+  "baseDefinition": "http://hl7.org/v2/StructureDefinition/Event",
+  "derivation": "specialization",
+  "date": "2024-07-24T19:13:28Z",
+  "url": "http://hl7.org/v2/StructureDefinition/I14",
+  "id": "I14",
+  "name": "I14",
+  "type": "I14",
+  "title": "HL7 v2 I14 Message Definition",
+  "differential": {
+    "element": [
+      {
+        "id": "I14",
+        "path": "I14",
+        "short": "I14",
+        "definition": "Event I14: Cancel Patient Referral",
+        "min": 0,
+        "max": "*"
+      }
+    ]
+  }
+}

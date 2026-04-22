@@ -255,7 +255,7 @@
       {
         "id": "RRE_O12-A.7-RESPONSE.2-ORDER.2-PRT",
         "path": "RRE_O12-A.7-RESPONSE.2-ORDER.2-PRT",
-        "short": "Participation (for ORC)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for ORC)",
@@ -357,7 +357,7 @@
       {
         "id": "RRE_O12-A.7-RESPONSE.2-ORDER.4-ENCODING.2-PRT",
         "path": "RRE_O12-A.7-RESPONSE.2-ORDER.4-ENCODING.2-PRT",
-        "short": "Participation (for RXE)",
+        "short": "Participation (for Pharmacy/Treatment Encoded Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXE)",
@@ -483,7 +483,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRE_O12-A Segment Definition",
+  "title": "HL7 v2 RRE_O12-A Message Structure",
   "name": "RRE_O12-A",
   "type": "RRE_O12-A",
   "fhirVersion": "5.0.0",

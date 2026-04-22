@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "BTX.1",
-        "path": "BTX.1",
+        "id": "BTX.1-btx1",
+        "path": "BTX.1-btx1",
         "short": "BTX-1",
         "definition": "This field contains the sequence number for the BTX segment under the related BPO segment. For the first product transfusion/disposition transmitted, the sequence number shall be 1; for the second product transfusion/disposition, it shall be 2; and so on.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "BTX.2",
-        "path": "BTX.2",
+        "id": "BTX.2-btx2",
+        "path": "BTX.2-btx2",
         "short": "BTX-2",
         "definition": "The donation ID is the unique identification number assigned to a blood donation. The Donation ID depends upon the bar code labeling system used for the component. There are currently two blood component labeling standards: _ABC CODABAR_ and _ISBT 128_. The preferred labeling system is _ISBT 128_. If using _ISBT 128,_ the Donation ID is an internationally unique identifier consisting of the following 13 characters:",
         "comment": "Country Code & Collection Facility - 5 characters\n\nDonation Year - 2 characters\n\nSerial Number - 6 characters\n\nThis is required for blood components and is not applicable for commercial product messages.",
@@ -88,8 +88,8 @@
         ]
       },
       {
-        "id": "BTX.3",
-        "path": "BTX.3",
+        "id": "BTX.3-btx3",
+        "path": "BTX.3-btx3",
         "short": "BTX-3",
         "definition": "The Blood Component field includes an identifier and description of the specific blood component. Refer to Table 0582 - BC Component in Chapter 2C for valid values.",
         "comment": "The identifier consists of a numeric or alphanumeric product code that represents the type of blood component. The coding system will be determined by the bar code labeling system on the particular component of blood. The preferred coding system is _ISBT 128_.\n\nIf using _ISBT 128_ labeling standard, the product code will consist of an 8-character alphanumeric code, starting with an alpha character and including the component class, donation type/intended use and division indicator.\n\nIf using CODABAR product labeling standard, the product code is a 5-digit number.\n\nThis field is required for blood components and is not applicable for commercial product messages.",
@@ -118,8 +118,8 @@
         ]
       },
       {
-        "id": "BTX.4",
-        "path": "BTX.4",
+        "id": "BTX.4-btx4",
+        "path": "BTX.4-btx4",
         "short": "BTX-4",
         "definition": "This field indicates the ABO/Rh blood group of the blood component. The preferred values for the blood group are the specified values in _Table 3A - Encodation of ABO/Rh Blood Group_ in the _ISBT 128 Application Specification_. Refer to Table 0583 - BC Blood Group in Chapter 2C for valid values.",
         "comment": "This field is required for blood components and certain commercial products (such as solvent detergent plasma).",
@@ -148,8 +148,8 @@
         ]
       },
       {
-        "id": "BTX.5",
-        "path": "BTX.5",
+        "id": "BTX.5-btx5",
+        "path": "BTX.5-btx5",
         "short": "BTX-5",
         "definition": "This field contains the code and/or text to identify a commercial product. Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets.",
         "comment": "Either code and/or text may be absent. However, the code is always placed in the first component position and any free text in the second component. Thus, free text without a code must be preceded by a component delimiter. Free text can be utilized if no update is to occur. Refer to {{v2-table:0512:Commercial Product}} in Chapter 2C, Code Tables, for suggested values.\n\nThis field is required for commercial blood products and is not applicable to blood component messages.",
@@ -178,8 +178,8 @@
         ]
       },
       {
-        "id": "BTX.6",
-        "path": "BTX.6",
+        "id": "BTX.6-btx6",
+        "path": "BTX.6-btx6",
         "short": "BTX-6",
         "definition": "This field identifies the manufacturer of the commercial product. The manufacturer may not be the same as the supplier of the commercial product.",
         "comment": "This field is required for commercial blood products and is not applicable for blood component messages.",
@@ -204,8 +204,8 @@
         ]
       },
       {
-        "id": "BTX.7",
-        "path": "BTX.7",
+        "id": "BTX.7-btx7",
+        "path": "BTX.7-btx7",
         "short": "BTX-7",
         "definition": "This field identifies the lot number for blood derivatives or commercially supplied items used as accessories to transfusion.",
         "comment": "This field is required for commercial blood products and is not applicable for blood component messages.",
@@ -230,8 +230,8 @@
         ]
       },
       {
-        "id": "BTX.8",
-        "path": "BTX.8",
+        "id": "BTX.8-btx8",
+        "path": "BTX.8-btx8",
         "short": "BTX-8",
         "definition": "This field indicates the number of blood components or commercial products to which the message refers.",
         "code": [
@@ -268,8 +268,8 @@
         ]
       },
       {
-        "id": "BTX.9",
-        "path": "BTX.9",
+        "id": "BTX.9-btx9",
+        "path": "BTX.9-btx9",
         "short": "BTX-9",
         "definition": "This field contains the amount (volume) associated with each blood component or commercial product. When included in this segment, it may be used to indicate the volume of the blood component or product that was actually transfused.",
         "code": [
@@ -306,8 +306,8 @@
         ]
       },
       {
-        "id": "BTX.10",
-        "path": "BTX.10",
+        "id": "BTX.10-btx10",
+        "path": "BTX.10-btx10",
         "short": "BTX-10",
         "definition": "This field contains the units of measure for the blood component or commercial product amount. (See Chapter 7 for more details about reporting units.) This specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate). Refer to Table 0584 - BP Units in Chapter 2C for valid values.",
         "code": [
@@ -335,8 +335,8 @@
         ]
       },
       {
-        "id": "BTX.11",
-        "path": "BTX.11",
+        "id": "BTX.11-btx11",
+        "path": "BTX.11-btx11",
         "short": "BTX-11",
         "definition": "This field indicates the current status of the specified blood product as indicated by the placer. For example, the placer may return the blood product to the transfusion service unused because an IV could not be started. The blood component may have been entered, but the line was clogged and could not be used, in which case the component must be wasted. A final status would indicate that the product has actually been \"transfused.\" Refer to {{v2-table:0513:Blood Product Transfusion/Disposition Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -364,8 +364,8 @@
         ]
       },
       {
-        "id": "BTX.12",
-        "path": "BTX.12",
+        "id": "BTX.12-btx12",
+        "path": "BTX.12-btx12",
         "short": "BTX-12",
         "definition": "The most commonly used message status values in a BTX will be preliminary and final. A status is considered preliminary until a blood product has reached a final disposition for the patient. For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary. When the product is dispensed to the patient, that status would also be considered preliminary. However, once the product is transfused, the status would be considered final. The status of a blood product (BTX-11) can continue to change and the previous result should be overwritten until it reaches a final status (BTX-12). Refer to {{v2-table:0511:BP Observation Status Codes Interpretation}} in Chapter 2C, Code Tables, for valid entries.",
         "code": [
@@ -406,8 +406,8 @@
         ]
       },
       {
-        "id": "BTX.13",
-        "path": "BTX.13",
+        "id": "BTX.13-btx13",
+        "path": "BTX.13-btx13",
         "short": "BTX-13",
         "definition": "This field indicates the date and time that the status of the blood component was changed. For example, if the blood component had a status of \"TX\" (Transfused), the date and time in this field would indicate the date and time the component was transfused by the placer system.",
         "code": [
@@ -431,8 +431,8 @@
         ]
       },
       {
-        "id": "BTX.14",
-        "path": "BTX.14",
+        "id": "BTX.14-btx14",
+        "path": "BTX.14-btx14",
         "short": "BTX-14",
         "definition": "This field contains the identity of the individual who administers the transfusion of the blood product. If the code is sent as a local code, it should be unique and unambiguous. This field can be free text to permit capture without table update. In this case, the administrator's name must be the second through fourth components of the field.",
         "code": [
@@ -456,8 +456,8 @@
         ]
       },
       {
-        "id": "BTX.15",
-        "path": "BTX.15",
+        "id": "BTX.15-btx15",
+        "path": "BTX.15-btx15",
         "short": "BTX-15",
         "definition": "This field contains the identity of the individual who assists in the identification of the patient and verification of the product information prior to transfusion of the blood product. If the ID Number is sent as a local code, it should be unique and unambiguous. This field can be free text to permit capture without table update. In this case, the verifier's name must be the second through fourth components of the field.",
         "code": [
@@ -481,8 +481,8 @@
         ]
       },
       {
-        "id": "BTX.16",
-        "path": "BTX.16",
+        "id": "BTX.16-btx16",
+        "path": "BTX.16-btx16",
         "short": "BTX-16",
         "definition": "This field indicates the date and time that the administrator started the transfusion of the blood component or commercial product.",
         "code": [
@@ -506,8 +506,8 @@
         ]
       },
       {
-        "id": "BTX.17",
-        "path": "BTX.17",
+        "id": "BTX.17-btx17",
+        "path": "BTX.17-btx17",
         "short": "BTX-17",
         "definition": "This field indicates the date and time that the transfusion of the blood component or commercial product was completed or stopped.",
         "code": [
@@ -531,8 +531,8 @@
         ]
       },
       {
-        "id": "BTX.18",
-        "path": "BTX.18",
+        "id": "BTX.18-btx18",
+        "path": "BTX.18-btx18",
         "short": "BTX-18",
         "definition": "This field contains the type of adverse reaction that the recipient of the blood product experienced. Refer to {{v2-table:0514:Transfusion Adverse Reaction}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -560,8 +560,8 @@
         ]
       },
       {
-        "id": "BTX.19",
-        "path": "BTX.19",
+        "id": "BTX.19-btx19",
+        "path": "BTX.19-btx19",
         "short": "BTX-19",
         "definition": "This field contains the reason that the transfusion of the blood product was interrupted. Refer to {{v2-table:0515:Transfusion Interrupted Reason}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -589,8 +589,8 @@
         ]
       },
       {
-        "id": "BTX.20",
-        "path": "BTX.20",
+        "id": "BTX.20-btx20",
+        "path": "BTX.20-btx20",
         "short": "BTX-20",
         "definition": "This field is a unique system-generated number assigned to the blood product to which the message is referring. Each time the status is updated, the new message should replace the previous message if the Blood Product Unique ID is the same. If the Blood Product Unique ID is different, it indicates that the status applies to a different blood product.",
         "code": [
@@ -614,8 +614,8 @@
         ]
       },
       {
-        "id": "BTX.21",
-        "path": "BTX.21",
+        "id": "BTX.21-btx21",
+        "path": "BTX.21-btx21",
         "short": "BTX-21",
         "definition": "This field reveals the intent of the message. Refer to {{v2-table:0206:Segment Action Code}} for valid values.",
         "comment": "The action code can only be used when an BTX is uniquely identified sufficiently within the specific implementation using BTX-20 or BTX-3 as agreed to by the trading partners in accordance with Chapter 2, Section 2.10.4.2.",

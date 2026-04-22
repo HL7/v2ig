@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "BLG.1",
-        "path": "BLG.1",
+        "id": "BLG.1-whenToCharge",
+        "path": "BLG.1-whenToCharge",
         "short": "When to Charge",
         "definition": "This field specifies when to charge for the ordered service. Refer to {{v2-table:0100:Invocation event}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "BLG.2",
-        "path": "BLG.2",
+        "id": "BLG.2-chargeType",
+        "path": "BLG.2-chargeType",
         "short": "Charge Type",
         "definition": "This field identifies someone or something other than the patient to be billed for this service. It is used in conjunction with BLG-3-account ID. Refer to {{v2-table:0122:Charge Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -95,8 +95,8 @@
         ]
       },
       {
-        "id": "BLG.3",
-        "path": "BLG.3",
+        "id": "BLG.3-accountId",
+        "path": "BLG.3-accountId",
         "short": "Account ID",
         "definition": "This field identifies the account to be billed. It is used in conjunction with BLG-2-charge type. Refer to {{v2-table:0061:Check digit scheme}} in Chapter 2C, Code Tables.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "BLG.4",
-        "path": "BLG.4",
+        "id": "BLG.4-chargeTypeReason",
+        "path": "BLG.4-chargeTypeReason",
         "short": "Charge Type Reason",
         "definition": "This field explains the choice of and provides the clinical rationale for the selected charge type identified in BLG-2. Refer to {{v2-table:0475:Charge Type Reason}} in Chapter 2C, code Tables, for suggested values.",
         "code": [

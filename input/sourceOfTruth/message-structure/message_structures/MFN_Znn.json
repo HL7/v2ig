@@ -152,7 +152,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_Znn Segment Definition",
+  "title": "HL7 v2 MFN_Znn Message Structure",
   "name": "MFN_Znn",
   "type": "MFN_Znn",
   "fhirVersion": "5.0.0",

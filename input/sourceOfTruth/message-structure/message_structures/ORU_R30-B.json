@@ -64,7 +64,7 @@
       {
         "id": "ORU_R30-B.3-SFT",
         "path": "ORU_R30-B.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -343,7 +343,7 @@
       {
         "id": "ORU_R30-B.16-PATIENT_OBSERVATION.2-PRT",
         "path": "ORU_R30-B.16-PATIENT_OBSERVATION.2-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Patient Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -394,10 +394,10 @@
       {
         "id": "ORU_R30-B.17-VISIT.2-PV2",
         "path": "ORU_R30-B.17-VISIT.2-PV2",
-        "short": "Patient Visit – Additional",
+        "short": "Patient Visit - Additional",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional",
+        "definition": "Patient Visit \u2013 Additional",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -451,7 +451,7 @@
       {
         "id": "ORU_R30-B.19-PRT",
         "path": "ORU_R30-B.19-PRT",
-        "short": "Participation (for common order)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for common order)",
@@ -490,7 +490,7 @@
         "id": "ORU_R30-B.21-NTE",
         "path": "ORU_R30-B.21-NTE",
         "short": "Notes or Comments for order/result",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Notes or Comments for order/result",
         "type": [
@@ -508,7 +508,7 @@
       {
         "id": "ORU_R30-B.22-PRT",
         "path": "ORU_R30-B.22-PRT",
-        "short": "Participation (for observation)",
+        "short": "Participation (for Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for observation)",
@@ -610,7 +610,7 @@
       {
         "id": "ORU_R30-B.24-OBSERVATION.2-PRT",
         "path": "ORU_R30-B.24-OBSERVATION.2-PRT",
-        "short": "Participation (for Observation Results)",
+        "short": "Participation (for Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation Results)",
@@ -630,7 +630,7 @@
         "id": "ORU_R30-B.24-OBSERVATION.3-NTE",
         "path": "ORU_R30-B.24-OBSERVATION.3-NTE",
         "short": "Notes or Comments for individual result",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Notes or Comments for individual result",
         "type": [
@@ -698,7 +698,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORU_R30-B Segment Definition",
+  "title": "HL7 v2 ORU_R30-B Message Structure",
   "name": "ORU_R30-B",
   "type": "ORU_R30-B",
   "fhirVersion": "5.0.0",

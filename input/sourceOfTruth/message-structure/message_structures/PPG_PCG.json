@@ -879,7 +879,7 @@
       {
         "id": "PPG_PCG.10-PATHWAY.5-GOAL.7-ORDER.2-ORDER_DETAIL.1-CHOICE.choice-1-OBR",
         "path": "PPG_PCG.10-PATHWAY.5-GOAL.7-ORDER.2-ORDER_DETAIL.1-CHOICE.choice-1-OBR",
-        "short": "Order Detail Segment",
+        "short": "Order Detail",
         "min": 0,
         "max": "1",
         "definition": "Choice 1 within CHOICE",
@@ -1043,7 +1043,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PPG_PCG Segment Definition",
+  "title": "HL7 v2 PPG_PCG Message Structure",
   "name": "PPG_PCG",
   "type": "PPG_PCG",
   "fhirVersion": "5.0.0",

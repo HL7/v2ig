@@ -235,7 +235,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E24 Segment Definition",
+  "title": "HL7 v2 EHC_E24 Message Structure",
   "name": "EHC_E24",
   "type": "EHC_E24",
   "fhirVersion": "5.0.0",

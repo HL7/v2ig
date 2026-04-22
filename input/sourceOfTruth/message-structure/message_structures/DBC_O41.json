@@ -64,7 +64,7 @@
       {
         "id": "DBC_O41.3-SFT",
         "path": "DBC_O41.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -115,7 +115,7 @@
       {
         "id": "DBC_O41.5-DONOR.1-PID",
         "path": "DBC_O41.5-DONOR.1-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 1,
         "max": "1",
         "definition": "Patient Identification Segment",
@@ -279,7 +279,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DBC_O41 Segment Definition",
+  "title": "HL7 v2 DBC_O41 Message Structure",
   "name": "DBC_O41",
   "type": "DBC_O41",
   "fhirVersion": "5.0.0",

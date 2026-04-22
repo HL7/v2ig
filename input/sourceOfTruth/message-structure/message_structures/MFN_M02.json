@@ -210,7 +210,7 @@
       {
         "id": "MFN_M02.5-MF_STAFF.6-ORG",
         "path": "MFN_M02.5-MF_STAFF.6-ORG",
-        "short": "Practitioner Organization Unit Segment",
+        "short": "Practitioner Organization Unit",
         "min": 0,
         "max": "*",
         "definition": "Practitioner Organization Unit Segment",
@@ -323,7 +323,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M02 Segment Definition",
+  "title": "HL7 v2 MFN_M02 Message Structure",
   "name": "MFN_M02",
   "type": "MFN_M02",
   "fhirVersion": "5.0.0",

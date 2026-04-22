@@ -4,7 +4,7 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>B</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
@@ -26,7 +26,7 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and comments about the observation request (OBR)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Common Order end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-TXA.html">TXA</a></td><td>Document Notification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-CON.html">CON</a> }]</td><td>Consent Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-CON.html">CON</a> }]</td><td>Consent</td><td>A</td></tr>
 </tbody>
 </table>
 </div>

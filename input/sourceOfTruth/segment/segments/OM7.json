@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "OM7.1",
-        "path": "OM7.1",
+        "id": "OM7.1-sequenceNumberTestObservationMasterFile",
+        "path": "OM7.1-sequenceNumberTestObservationMasterFile",
         "short": "Sequence Number - Test/Observation Master File",
         "definition": "This field contains the same value as the sequence number of the associated OM1 segment.",
         "code": [
@@ -51,19 +51,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.2",
-        "path": "OM7.2",
+        "id": "OM7.2-universalServiceIdentifier",
+        "path": "OM7.2-universalServiceIdentifier",
         "short": "Universal Service Identifier",
         "definition": "This field contains the producer's usual or preferred identification of the test or service.",
         "code": [
@@ -87,8 +87,8 @@
         ]
       },
       {
-        "id": "OM7.3",
-        "path": "OM7.3",
+        "id": "OM7.3-categoryIdentifier",
+        "path": "OM7.3-categoryIdentifier",
         "short": "Category Identifier",
         "definition": "This field contains the category name (term given to a group of service items for the purpose of classification). Examples: Laboratory, Pharmacy, Diagnostic Imaging, etc. Refer to {{v2-table:0412:Category Identifier}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -98,7 +98,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "OM7.4",
-        "path": "OM7.4",
+        "id": "OM7.4-categoryDescription",
+        "path": "OM7.4-categoryDescription",
         "short": "Category Description",
         "definition": "This field contains a text description for the category of the test/service item.",
         "comment": "Example: The category \"Pathology\" may be described as a specialty practice concerned with all aspects of disease, with special reference to the essential natural cause and development of abnormal conditions, as well as the structural and functional changes that result from the disease process.",
@@ -144,19 +144,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "200"
+                "valueInteger": 200
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.5",
-        "path": "OM7.5",
+        "id": "OM7.5-categorySynonym",
+        "path": "OM7.5-categorySynonym",
         "short": "Category Synonym",
         "definition": "This field contains an alternate name(s) for the category of the test/service. Example: The category \"Radiology\" is a synonym name for the category \"Diagnostic Imaging\".",
         "code": [
@@ -166,7 +166,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -182,19 +182,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "200"
+                "valueInteger": 200
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.6",
-        "path": "OM7.6",
+        "id": "OM7.6-effectiveTestServiceStartDateTime",
+        "path": "OM7.6-effectiveTestServiceStartDateTime",
         "short": "Effective Test/Service Start Date/Time",
         "definition": "This field contains the date and time that the service item is available to be ordered, performed, etc.",
         "code": [
@@ -218,8 +218,8 @@
         ]
       },
       {
-        "id": "OM7.7",
-        "path": "OM7.7",
+        "id": "OM7.7-effectiveTestServiceEndDateTime",
+        "path": "OM7.7-effectiveTestServiceEndDateTime",
         "short": "Effective Test/Service End Date/Time",
         "definition": "This field contains the date and time that the service item is no longer authorized to be ordered, performed, etc.",
         "code": [
@@ -243,8 +243,8 @@
         ]
       },
       {
-        "id": "OM7.8",
-        "path": "OM7.8",
+        "id": "OM7.8-testServiceDefaultDurationQuantity",
+        "path": "OM7.8-testServiceDefaultDurationQuantity",
         "short": "Test/Service Default Duration Quantity",
         "definition": "This field indicates the default duration quantity for the service.",
         "code": [
@@ -270,19 +270,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.9",
-        "path": "OM7.9",
+        "id": "OM7.9-testServiceDefaultDurationUnits",
+        "path": "OM7.9-testServiceDefaultDurationUnits",
         "short": "Test/Service Default Duration Units",
         "definition": "This field indicates the default duration units for the service. Refer to Table 0663 - Test/Service Default Duration Units in Chapter 2C for valid values.",
         "code": [
@@ -310,8 +310,8 @@
         ]
       },
       {
-        "id": "OM7.10",
-        "path": "OM7.10",
+        "id": "OM7.10-testServiceDefaultFrequency",
+        "path": "OM7.10-testServiceDefaultFrequency",
         "short": "Test/Service Default Frequency",
         "definition": "This field indicates the default frequency (how often) the service would be ordered for or performed on.",
         "code": [
@@ -337,19 +337,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "60"
+                "valueInteger": 60
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.11",
-        "path": "OM7.11",
+        "id": "OM7.11-consentIndicator",
+        "path": "OM7.11-consentIndicator",
         "short": "Consent Indicator",
         "definition": "This field indicates if a consent is needed for the service item. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables.",
         "comment": "Y A consent is required for service item to be ordered/performed.\n\nN No consent is needed for service item to be ordered/performed",
@@ -391,8 +391,8 @@
         ]
       },
       {
-        "id": "OM7.12",
-        "path": "OM7.12",
+        "id": "OM7.12-consentIdentifier",
+        "path": "OM7.12-consentIdentifier",
         "short": "Consent Identifier",
         "definition": "This field contains the identifier for the consent specified for the service item. Refer to {{v2-table:0413:Consent Identifier}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -420,8 +420,8 @@
         ]
       },
       {
-        "id": "OM7.13",
-        "path": "OM7.13",
+        "id": "OM7.13-consentEffectiveStartDateTime",
+        "path": "OM7.13-consentEffectiveStartDateTime",
         "short": "Consent Effective Start Date/Time",
         "definition": "This field contains the date and time the consent is valid for the service item.",
         "code": [
@@ -445,8 +445,8 @@
         ]
       },
       {
-        "id": "OM7.14",
-        "path": "OM7.14",
+        "id": "OM7.14-consentEffectiveEndDateTime",
+        "path": "OM7.14-consentEffectiveEndDateTime",
         "short": "Consent Effective End Date/Time",
         "definition": "This field contains the date and time the consent is no longer valid for the test/service.",
         "code": [
@@ -470,8 +470,8 @@
         ]
       },
       {
-        "id": "OM7.15",
-        "path": "OM7.15",
+        "id": "OM7.15-consentIntervalQuantity",
+        "path": "OM7.15-consentIntervalQuantity",
         "short": "Consent Interval Quantity",
         "definition": "This field specifies the period of time for which a consent is valid for a specific service item.",
         "code": [
@@ -497,19 +497,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.16",
-        "path": "OM7.16",
+        "id": "OM7.16-consentIntervalUnits",
+        "path": "OM7.16-consentIntervalUnits",
         "short": "Consent Interval Units",
         "definition": "This field specifies the unit of time for _OM7-15 - Consent Interval Quantity_. Refer to link:\\\\\\\\vmware-host\\\\Shared Folders\\\\Standards\\\\HL7\\\\Labs - US Realm\\\\Archives\\\\eDOS Past Ballots\\\\V281_CH02C_CodeTables.doc#HL70414[User-defined Table 0414 - Units of Time] in Chapter 2C, Code Tables, for suggested values.",
         "comment": "*Note:* If Consent Interval Quantity is specified, then Consent Interval Unit is required.",
@@ -538,8 +538,8 @@
         ]
       },
       {
-        "id": "OM7.17",
-        "path": "OM7.17",
+        "id": "OM7.17-consentWaitingPeriodQuantity",
+        "path": "OM7.17-consentWaitingPeriodQuantity",
         "short": "Consent Waiting Period Quantity",
         "definition": "This field contains the time period between the time the consent is signed and the procedure can be performed.",
         "code": [
@@ -565,19 +565,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.18",
-        "path": "OM7.18",
+        "id": "OM7.18-consentWaitingPeriodUnits",
+        "path": "OM7.18-consentWaitingPeriodUnits",
         "short": "Consent Waiting Period Units",
         "definition": "This field specifies the unit of time for _OM7-17 - Consent Waiting Period Quantity_. Refer to {{v2-table:0414:Units of time}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "*Note:* If Consent Waiting Period Quantity is specified, then Consent Waiting Period Unit is required.",
@@ -606,8 +606,8 @@
         ]
       },
       {
-        "id": "OM7.19",
-        "path": "OM7.19",
+        "id": "OM7.19-effectiveDateTimeOfChange",
+        "path": "OM7.19-effectiveDateTimeOfChange",
         "short": "Effective Date/Time of Change",
         "definition": "This field contains the date and time of the last change in the test procedure that would make previous results incompatible with new results.",
         "code": [
@@ -631,8 +631,8 @@
         ]
       },
       {
-        "id": "OM7.20",
-        "path": "OM7.20",
+        "id": "OM7.20-enteredBy",
+        "path": "OM7.20-enteredBy",
         "short": "Entered By",
         "definition": "This field contains the identity of the person who actually keyed the service item into the application. It provides an audit trail in case the request is entered incorrectly and the ancillary department needs to clarify the request.",
         "comment": "*Note: This field is deprecated and retained for backward compatibility as of v 2.8.*",
@@ -653,12 +653,16 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
       {
-        "id": "OM7.21",
-        "path": "OM7.21",
+        "id": "OM7.21-orderableAtLocation",
+        "path": "OM7.21-orderableAtLocation",
         "short": "Orderable-at Location",
         "definition": "This field contains the location(s) where the test/service can be ordered.",
         "comment": "*Note: This field is deprecated and retained for backward compatibility as of v 2.8.*",
@@ -669,7 +673,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "PL"
@@ -679,12 +683,16 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
       {
-        "id": "OM7.22",
-        "path": "OM7.22",
+        "id": "OM7.22-formularyStatus",
+        "path": "OM7.22-formularyStatus",
         "short": "Formulary Status",
         "definition": "This field indicates whether or not the service (pharmaceutical) is in the formulary. Refer to {{v2-table:0473:Formulary Status}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -714,19 +722,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1"
+                "valueInteger": 1
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "OM7.23",
-        "path": "OM7.23",
+        "id": "OM7.23-specialOrderIndicator",
+        "path": "OM7.23-specialOrderIndicator",
         "short": "Special Order Indicator",
         "definition": "This field indicates whether or not the service (pharmaceutical) is a special order. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y This is a special order.\n\nN This is not a special order",
@@ -768,8 +776,8 @@
         ]
       },
       {
-        "id": "OM7.24",
-        "path": "OM7.24",
+        "id": "OM7.24-primaryKeyValueCdm",
+        "path": "OM7.24-primaryKeyValueCdm",
         "short": "Primary Key Value - CDM",
         "definition": "Allows the ability to associate a Service/Test/Observation item with a CIM (charge item master). This field contains the corresponding value of CDM-1 for the CIM being linked to. It is possible to allow multiple charge items to a single Service/Test/Observation item.",
         "code": [
@@ -779,7 +787,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"

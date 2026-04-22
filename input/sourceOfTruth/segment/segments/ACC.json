@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ACC.1",
-        "path": "ACC.1",
+        "id": "ACC.1-accidentDateTime",
+        "path": "ACC.1-accidentDateTime",
         "short": "Accident Date/Time",
         "definition": "This field contains the date/time of the accident.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "ACC.2",
-        "path": "ACC.2",
+        "id": "ACC.2-accidentCode",
+        "path": "ACC.2-accidentCode",
         "short": "Accident Code",
         "definition": "This field contains the type of accident. Refer to {{v2-table:0050:Accident Code}}_ in Chapter 2C, Code Tables, for suggested values. ICD accident codes are recommended.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "ACC.3",
-        "path": "ACC.3",
+        "id": "ACC.3-accidentLocation",
+        "path": "ACC.3-accidentLocation",
         "short": "Accident Location",
         "definition": "This field contains the location of the accident.",
         "code": [
@@ -105,19 +105,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "25"
+                "valueInteger": 25
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "ACC.4",
-        "path": "ACC.4",
+        "id": "ACC.4-autoAccidentState",
+        "path": "ACC.4-autoAccidentState",
         "short": "Auto Accident State",
         "definition": "*_As of Version 2.5, this field has been retained for backward compatibility only._* *_Use_* __link:\\l[ACC-11 - Accident Address] *instead of this field, *__as the state in which the accident occurred is part of the address. This field specifies the state in which the auto accident occurred. (CMS 1500 requirement in the US.) Refer to {{v2-table:0347:State/Province}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -141,12 +141,16 @@
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "B"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
       {
-        "id": "ACC.5",
-        "path": "ACC.5",
+        "id": "ACC.5-accidentJobRelatedIndicator",
+        "path": "ACC.5-accidentJobRelatedIndicator",
         "short": "Accident Job Related Indicator",
         "definition": "This field indicates if the accident was related to a job. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the accident was job related\n\nN the accident was not job related",
@@ -188,8 +192,8 @@
         ]
       },
       {
-        "id": "ACC.6",
-        "path": "ACC.6",
+        "id": "ACC.6-accidentDeathIndicator",
+        "path": "ACC.6-accidentDeathIndicator",
         "short": "Accident Death Indicator",
         "definition": "This field indicates whether or not a patient has died as a result of an accident. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the patient has died as a result of an accident\n\nN the patient has not died as a result of an accident",
@@ -231,8 +235,8 @@
         ]
       },
       {
-        "id": "ACC.7",
-        "path": "ACC.7",
+        "id": "ACC.7-enteredBy",
+        "path": "ACC.7-enteredBy",
         "short": "Entered By",
         "definition": "This field identifies the person entering the accident information.",
         "code": [
@@ -256,8 +260,8 @@
         ]
       },
       {
-        "id": "ACC.8",
-        "path": "ACC.8",
+        "id": "ACC.8-accidentDescription",
+        "path": "ACC.8-accidentDescription",
         "short": "Accident Description",
         "definition": "Description of the accident.",
         "code": [
@@ -283,19 +287,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1000"
+                "valueInteger": 1000
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "ACC.9",
-        "path": "ACC.9",
+        "id": "ACC.9-broughtInBy",
+        "path": "ACC.9-broughtInBy",
         "short": "Brought In By",
         "definition": "This field identifies the person or organization that brought in the patient.",
         "code": [
@@ -321,19 +325,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "ACC.10",
-        "path": "ACC.10",
+        "id": "ACC.10-policeNotifiedIndicator",
+        "path": "ACC.10-policeNotifiedIndicator",
         "short": "Police Notified Indicator",
         "definition": "This field indicates if the police were notified. Refer to {{v2-table:0136:Yes/no Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the police were notified\n\nN the police were not notified.",
@@ -375,8 +379,8 @@
         ]
       },
       {
-        "id": "ACC.11",
-        "path": "ACC.11",
+        "id": "ACC.11-accidentAddress",
+        "path": "ACC.11-accidentAddress",
         "short": "Accident Address",
         "definition": "This field contains the address where the accident occurred.",
         "code": [
@@ -400,8 +404,8 @@
         ]
       },
       {
-        "id": "ACC.12",
-        "path": "ACC.12",
+        "id": "ACC.12-degreeOfPatientLiability",
+        "path": "ACC.12-degreeOfPatientLiability",
         "short": "Degree of patient liability",
         "definition": "This field conveys the amount to which the patient is found to be liable for an accident. The numeric value is given as a percentage value.",
         "comment": "If the accident is totally caused by others this value is set to \"0\". If it is caused by the patient, it is set to \"100\". Any other value in between allows for a leverage of the fault between the patient and third parties.",
@@ -428,19 +432,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "ACC.13",
-        "path": "ACC.13",
+        "id": "ACC.13-accidentIdentifier",
+        "path": "ACC.13-accidentIdentifier",
         "short": "Accident Identifier",
         "definition": "This field contains the identifier of the accident report assigned by a jurisdiction that is required in the insurance accident claim.",
         "code": [
@@ -450,7 +454,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "EI"

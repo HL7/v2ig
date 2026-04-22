@@ -141,7 +141,7 @@
         "id": "EHC_E13.7-CTD",
         "path": "EHC_E13.7-CTD",
         "short": "Contact Data",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Contact Data",
         "type": [
@@ -507,7 +507,7 @@
       }
     ]
   },
-  "title": "HL7 v2 EHC_E13 Segment Definition",
+  "title": "HL7 v2 EHC_E13 Message Structure",
   "name": "EHC_E13",
   "type": "EHC_E13",
   "fhirVersion": "5.0.0",

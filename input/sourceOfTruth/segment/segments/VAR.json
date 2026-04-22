@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "VAR.1",
-        "path": "VAR.1",
+        "id": "VAR.1-varianceInstanceId",
+        "path": "VAR.1-varianceInstanceId",
         "short": "Variance Instance ID",
         "definition": "This field contains the unique identifier of the specific variance record.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "VAR.2",
-        "path": "VAR.2",
+        "id": "VAR.2-documentedDateTime",
+        "path": "VAR.2-documentedDateTime",
         "short": "Documented Date/Time",
         "definition": "This field contains the time stamp that identifies the timed occurrence of the variance documentation.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "VAR.3",
-        "path": "VAR.3",
+        "id": "VAR.3-statedVarianceDateTime",
+        "path": "VAR.3-statedVarianceDateTime",
         "short": "Stated Variance Date/Time",
         "definition": "This field contains the time stamp that identifies a stated time of the variance which may be different than the time it was documented.",
         "code": [
@@ -99,8 +99,8 @@
         ]
       },
       {
-        "id": "VAR.4",
-        "path": "VAR.4",
+        "id": "VAR.4-varianceOriginator",
+        "path": "VAR.4-varianceOriginator",
         "short": "Variance Originator",
         "definition": "This field contains the originator (person or system) documenting the variance.",
         "code": [
@@ -110,7 +110,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -124,8 +124,8 @@
         ]
       },
       {
-        "id": "VAR.5",
-        "path": "VAR.5",
+        "id": "VAR.5-varianceClassification",
+        "path": "VAR.5-varianceClassification",
         "short": "Variance Classification",
         "definition": "This field identifies a categorical set of variances. Classification may be used by applications for presentation and processing functions.",
         "code": [
@@ -149,8 +149,8 @@
         ]
       },
       {
-        "id": "VAR.6",
-        "path": "VAR.6",
+        "id": "VAR.6-varianceDescription",
+        "path": "VAR.6-varianceDescription",
         "short": "Variance Description",
         "definition": "This field specifies the details of a variance. The content of the field is a string with optional formatting.",
         "code": [
@@ -160,7 +160,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -176,11 +176,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "512"
+                "valueInteger": 512
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

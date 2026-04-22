@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PSL.1",
-        "path": "PSL.1",
+        "id": "PSL.1-providerProductServiceLineItemNumber",
+        "path": "PSL.1-providerProductServiceLineItemNumber",
         "short": "Provider Product/Service Line Item Number",
         "definition": "Unique Product/Service Line Item Number assigned by the Provider Application.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PSL.2",
-        "path": "PSL.2",
+        "id": "PSL.2-payerProductServiceLineItemNumber",
+        "path": "PSL.2-payerProductServiceLineItemNumber",
         "short": "Payer Product/Service Line Item Number",
         "definition": "Unique Product/Service Line Item Number assigned by the Payer Application.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "PSL.3",
-        "path": "PSL.3",
+        "id": "PSL.3-productServiceLineItemSequenceNumber",
+        "path": "PSL.3-productServiceLineItemSequenceNumber",
         "short": "Product/Service Line Item Sequence Number",
         "definition": "Unique sequence number for the Product/Service Line Item – starts with 1, then 2, etc. for each unique Product/Service Line Item in this Invoice.",
         "code": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "id": "PSL.4",
-        "path": "PSL.4",
+        "id": "PSL.4-providerTrackingId",
+        "path": "PSL.4-providerTrackingId",
         "short": "Provider Tracking ID",
         "definition": "Identifier for this Product/Service Line Item assigned by the Provider Application. This will be echoed on all interactions between participants for this Product/Service Line Item.",
         "code": [
@@ -137,8 +137,8 @@
         ]
       },
       {
-        "id": "PSL.5",
-        "path": "PSL.5",
+        "id": "PSL.5-payerTrackingId",
+        "path": "PSL.5-payerTrackingId",
         "short": "Payer Tracking ID",
         "definition": "Identifier for this Product/Service Line Item assigned by the Payer Application. This will be echoed on all interactions between participants for this Product/Service Line Item.",
         "code": [
@@ -162,8 +162,8 @@
         ]
       },
       {
-        "id": "PSL.6",
-        "path": "PSL.6",
+        "id": "PSL.6-productServiceLineItemStatus",
+        "path": "PSL.6-productServiceLineItemStatus",
         "short": "Product/Service Line Item Status",
         "definition": "Processing status for the Product/Service Code. Refer to {{v2-table:0559:Product/Service Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -191,8 +191,8 @@
         ]
       },
       {
-        "id": "PSL.7",
-        "path": "PSL.7",
+        "id": "PSL.7-productServiceCode",
+        "path": "PSL.7-productServiceCode",
         "short": "Product/Service Code",
         "definition": "Code describing the service that was delivered/received. Refer to {{v2-table:0879:Product/Service Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -220,8 +220,8 @@
         ]
       },
       {
-        "id": "PSL.8",
-        "path": "PSL.8",
+        "id": "PSL.8-productServiceCodeModifier",
+        "path": "PSL.8-productServiceCodeModifier",
         "short": "Product/Service Code Modifier",
         "definition": "Additional optional modifier(s) for the Product/Service Code (e.g., after hours – evening, after hours – weekend); repeats up to 5 times. Refer to {{v2-table:0880:Product/Service Code Modifier}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -249,8 +249,8 @@
         ]
       },
       {
-        "id": "PSL.9",
-        "path": "PSL.9",
+        "id": "PSL.9-productServiceCodeDescription",
+        "path": "PSL.9-productServiceCodeDescription",
         "short": "Product/Service Code Description",
         "definition": "Text describing Product/Service Code in PSL.",
         "code": [
@@ -276,19 +276,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.10",
-        "path": "PSL.10",
+        "id": "PSL.10-productServiceEffectiveDate",
+        "path": "PSL.10-productServiceEffectiveDate",
         "short": "Product/Service Effective Date",
         "definition": "[ Start ] Date/Time product/service was delivered/received.",
         "code": [
@@ -312,8 +312,8 @@
         ]
       },
       {
-        "id": "PSL.11",
-        "path": "PSL.11",
+        "id": "PSL.11-productServiceExpirationDate",
+        "path": "PSL.11-productServiceExpirationDate",
         "short": "Product/Service Expiration Date",
         "definition": "[ End ] Date/Time product/service was delivered/received. If specified, must be greater than or equal to Product/Service Effective Date.",
         "code": [
@@ -337,8 +337,8 @@
         ]
       },
       {
-        "id": "PSL.12",
-        "path": "PSL.12",
+        "id": "PSL.12-productServiceQuantity",
+        "path": "PSL.12-productServiceQuantity",
         "short": "Product/Service Quantity",
         "definition": "Amount that has been negotiated for this Product/Service Code on PSL between a Provider and Payer for each unit. Refer to {{v2-table:0560:Quantity Units}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -366,8 +366,8 @@
         ]
       },
       {
-        "id": "PSL.13",
-        "path": "PSL.13",
+        "id": "PSL.13-productServiceUnitCost",
+        "path": "PSL.13-productServiceUnitCost",
         "short": "Product/Service Unit Cost",
         "definition": "This field contains the cost per unit either in monetary amount or in points.",
         "comment": "Examples:\n\n{empty}1. Qty * cost/unit = gross amount\n\n{empty}2. Qty * cost/unit * factor = gross amount\n\n{empty}3. Qty * cost/point * factor * points = gross amount",
@@ -392,8 +392,8 @@
         ]
       },
       {
-        "id": "PSL.14",
-        "path": "PSL.14",
+        "id": "PSL.14-numberOfItemsPerUnit",
+        "path": "PSL.14-numberOfItemsPerUnit",
         "short": "Number of Items per Unit",
         "definition": "Number of items in each unit – for Services, this should be set to 1.",
         "code": [
@@ -419,19 +419,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "10"
+                "valueInteger": 10
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.15",
-        "path": "PSL.15",
+        "id": "PSL.15-productServiceGrossAmount",
+        "path": "PSL.15-productServiceGrossAmount",
         "short": "Product/Service Gross Amount",
         "definition": "= Product/Service Quantity * Product/Service Unit Cost",
         "code": [
@@ -455,8 +455,8 @@
         ]
       },
       {
-        "id": "PSL.16",
-        "path": "PSL.16",
+        "id": "PSL.16-productServiceBilledAmount",
+        "path": "PSL.16-productServiceBilledAmount",
         "short": "Product/Service Billed Amount",
         "definition": "Amount that is being billed for this Product/Service Code on PSL, = Product/Service Gross Amount + sum of all Product/Service Adjustments on ADJ for this Product/Service Line Item.",
         "comment": "\\= Product/Service Gross Amount + sum of all Product/Service Adjustments on ADJ",
@@ -481,8 +481,8 @@
         ]
       },
       {
-        "id": "PSL.17",
-        "path": "PSL.17",
+        "id": "PSL.17-productServiceClarificationCodeType",
+        "path": "PSL.17-productServiceClarificationCodeType",
         "short": "Product/Service Clarification Code Type",
         "definition": "Additional codes describing the Product/Service Code on PSL – examples are Northern Allowance, Data Center Numbers, Sequence Numbers; repeats with Product/Service Clarification Code Value. Refer to {{v2-table:0561:Product/Services Clarification Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -510,8 +510,8 @@
         ]
       },
       {
-        "id": "PSL.18",
-        "path": "PSL.18",
+        "id": "PSL.18-productServiceClarificationCodeValue",
+        "path": "PSL.18-productServiceClarificationCodeValue",
         "short": "Product/Service Clarification Code Value",
         "definition": "Actual value for Product/Service Clarification Code Type (40) – examples are \"Y\", \"N\" for Northern Allowance, an actual number for a Data Center Number; repeats with Product/Service Clarification Code Type.",
         "comment": "Repeats with Product/Service Clarification Code Type.",
@@ -538,19 +538,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "40"
+                "valueInteger": 40
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.19",
-        "path": "PSL.19",
+        "id": "PSL.19-healthDocumentReferenceIdentifier",
+        "path": "PSL.19-healthDocumentReferenceIdentifier",
         "short": "Health Document Reference Identifier",
         "definition": "Health Documents (electronic or paper) that support this Product/Service Line Item. This includes such health documents as forms used to register a claim with a Payer, reports, medical images, etc.",
         "code": [
@@ -574,8 +574,8 @@
         ]
       },
       {
-        "id": "PSL.20",
-        "path": "PSL.20",
+        "id": "PSL.20-processingConsiderationCode",
+        "path": "PSL.20-processingConsiderationCode",
         "short": "Processing Consideration Code",
         "definition": "Codes indicating special processing requested of Payer for this Product/Service Line Item (e.g., hold until paper supporting documentation is received by Payer). Refer to {{v2-table:0562:Processing Consideration Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -603,8 +603,8 @@
         ]
       },
       {
-        "id": "PSL.21",
-        "path": "PSL.21",
+        "id": "PSL.21-restrictedDisclosureIndicator",
+        "path": "PSL.21-restrictedDisclosureIndicator",
         "short": "Restricted Disclosure Indicator",
         "definition": "Set to \"Yes\" if information on this invoice should be treated with increased confidentiality/security. Refer to {{v2-table:0532:Expanded Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -645,8 +645,8 @@
         ]
       },
       {
-        "id": "PSL.22",
-        "path": "PSL.22",
+        "id": "PSL.22-relatedProductServiceCodeIndicator",
+        "path": "PSL.22-relatedProductServiceCodeIndicator",
         "short": "Related Product/Service Code Indicator",
         "definition": "Two Product /Service Line Items (PSL-7) may be in a relation to each other. One could be an addition to another. In this case this field contains the Code of PSL-7 of the \"master\" Product/Service Line Item. Refer to {{v2-table:0879:Product/Service Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -674,8 +674,8 @@
         ]
       },
       {
-        "id": "PSL.23",
-        "path": "PSL.23",
+        "id": "PSL.23-productServiceAmountForPhysician",
+        "path": "PSL.23-productServiceAmountForPhysician",
         "short": "Product/Service Amount for Physician",
         "definition": "Monetary Amount of product/service item which is for the physician.",
         "code": [
@@ -699,8 +699,8 @@
         ]
       },
       {
-        "id": "PSL.24",
-        "path": "PSL.24",
+        "id": "PSL.24-productServiceCostFactor",
+        "path": "PSL.24-productServiceCostFactor",
         "short": "Product/Service Cost Factor",
         "definition": "Factor to increase the billed amount.",
         "code": [
@@ -726,19 +726,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.25",
-        "path": "PSL.25",
+        "id": "PSL.25-costCenter",
+        "path": "PSL.25-costCenter",
         "short": "Cost Center",
         "definition": "Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room.",
         "code": [
@@ -762,8 +762,8 @@
         ]
       },
       {
-        "id": "PSL.26",
-        "path": "PSL.26",
+        "id": "PSL.26-billingPeriod",
+        "path": "PSL.26-billingPeriod",
         "short": "Billing Period",
         "definition": "Begin and end of billing period.",
         "code": [
@@ -787,8 +787,8 @@
         ]
       },
       {
-        "id": "PSL.27",
-        "path": "PSL.27",
+        "id": "PSL.27-daysWithoutBilling",
+        "path": "PSL.27-daysWithoutBilling",
         "short": "Days without Billing",
         "definition": "Number of Days for which no invoice is created.",
         "code": [
@@ -814,19 +814,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.28",
-        "path": "PSL.28",
+        "id": "PSL.28-sessionNo",
+        "path": "PSL.28-sessionNo",
         "short": "Session-No",
         "definition": "Several line items may be grouped to a session.",
         "code": [
@@ -863,8 +863,8 @@
         ]
       },
       {
-        "id": "PSL.29",
-        "path": "PSL.29",
+        "id": "PSL.29-executingPhysicianId",
+        "path": "PSL.29-executingPhysicianId",
         "short": "Executing Physician ID",
         "definition": "ID of the physician who is providing the Service, e.g., executing the radiology-exam (EAN ID = European Article Numbering).",
         "code": [
@@ -888,8 +888,8 @@
         ]
       },
       {
-        "id": "PSL.30",
-        "path": "PSL.30",
+        "id": "PSL.30-responsiblePhysicianId",
+        "path": "PSL.30-responsiblePhysicianId",
         "short": "Responsible Physician ID",
         "definition": "ID of the physician who is responsible for the Service.",
         "code": [
@@ -913,8 +913,8 @@
         ]
       },
       {
-        "id": "PSL.31",
-        "path": "PSL.31",
+        "id": "PSL.31-roleExecutingPhysician",
+        "path": "PSL.31-roleExecutingPhysician",
         "short": "Role Executing Physician",
         "definition": "Account role of the physician, for example only billing for the professional part, the technical part or both. Refer to {{v2-table:0881:Role Executing Physician}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -942,8 +942,8 @@
         ]
       },
       {
-        "id": "PSL.32",
-        "path": "PSL.32",
+        "id": "PSL.32-medicalRoleExecutingPhysician",
+        "path": "PSL.32-medicalRoleExecutingPhysician",
         "short": "Medical Role Executing Physician",
         "definition": "The role of the Physician (\"self-employed\" or \"employed\"). Refer to {{v2-table:0882:Medical Role Executing Physician}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -971,8 +971,8 @@
         ]
       },
       {
-        "id": "PSL.33",
-        "path": "PSL.33",
+        "id": "PSL.33-sideOfBody",
+        "path": "PSL.33-sideOfBody",
         "short": "Side of body",
         "definition": "Left / right. Refer to {{v2-table:0894:Side of Body}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1000,8 +1000,8 @@
         ]
       },
       {
-        "id": "PSL.34",
-        "path": "PSL.34",
+        "id": "PSL.34-numberOfTpsPp",
+        "path": "PSL.34-numberOfTpsPp",
         "short": "Number of TP's PP",
         "definition": "Cost of the service \"professional part\" expressed in \"points\".",
         "code": [
@@ -1027,19 +1027,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "6"
+                "valueInteger": 6
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.35",
-        "path": "PSL.35",
+        "id": "PSL.35-tpValuePp",
+        "path": "PSL.35-tpValuePp",
         "short": "TP-Value PP",
         "definition": "Monetary Value of one \"point\" for the professional part of the service.",
         "code": [
@@ -1063,8 +1063,8 @@
         ]
       },
       {
-        "id": "PSL.36",
-        "path": "PSL.36",
+        "id": "PSL.36-internalScalingFactorPp",
+        "path": "PSL.36-internalScalingFactorPp",
         "short": "Internal Scaling Factor PP",
         "definition": "Internal Scaling Factor for the amount of the professional part of the service.",
         "code": [
@@ -1090,19 +1090,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.37",
-        "path": "PSL.37",
+        "id": "PSL.37-externalScalingFactorPp",
+        "path": "PSL.37-externalScalingFactorPp",
         "short": "External Scaling Factor PP",
         "definition": "External Scaling Factor for the amount of the professional part of the service.",
         "code": [
@@ -1128,19 +1128,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.38",
-        "path": "PSL.38",
+        "id": "PSL.38-amountPp",
+        "path": "PSL.38-amountPp",
         "short": "Amount PP",
         "definition": "Total Amount for the professional part of this service.",
         "code": [
@@ -1164,8 +1164,8 @@
         ]
       },
       {
-        "id": "PSL.39",
-        "path": "PSL.39",
+        "id": "PSL.39-numberOfTpsTechnicalPart",
+        "path": "PSL.39-numberOfTpsTechnicalPart",
         "short": "Number of TP's Technical Part",
         "definition": "Cost of the service (Technical Part) expressed in \"points\".",
         "code": [
@@ -1191,19 +1191,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "6"
+                "valueInteger": 6
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.40",
-        "path": "PSL.40",
+        "id": "PSL.40-tpValueTechnicalPart",
+        "path": "PSL.40-tpValueTechnicalPart",
         "short": "TP-Value Technical Part",
         "definition": "Monetary Value of one \"point\" for the technical part of the service.",
         "code": [
@@ -1227,8 +1227,8 @@
         ]
       },
       {
-        "id": "PSL.41",
-        "path": "PSL.41",
+        "id": "PSL.41-internalScalingFactorTechnicalPart",
+        "path": "PSL.41-internalScalingFactorTechnicalPart",
         "short": "Internal Scaling Factor Technical Part",
         "definition": "Internal Scaling Factor for the amount of the technical part of the service.",
         "code": [
@@ -1254,19 +1254,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.42",
-        "path": "PSL.42",
+        "id": "PSL.42-externalScalingFactorTechnicalPart",
+        "path": "PSL.42-externalScalingFactorTechnicalPart",
         "short": "External Scaling Factor Technical Part",
         "definition": "External Scaling Factor for the amount of the technical part of the service.",
         "code": [
@@ -1292,19 +1292,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.43",
-        "path": "PSL.43",
+        "id": "PSL.43-amountTechnicalPart",
+        "path": "PSL.43-amountTechnicalPart",
         "short": "Amount Technical Part",
         "definition": "Total Amount for the technical part of this service.",
         "code": [
@@ -1328,8 +1328,8 @@
         ]
       },
       {
-        "id": "PSL.44",
-        "path": "PSL.44",
+        "id": "PSL.44-totalAmountProfessionalPartTechnicalPart",
+        "path": "PSL.44-totalAmountProfessionalPartTechnicalPart",
         "short": "Total Amount Professional Part + Technical Part",
         "definition": "Total Amount of the cost of this service (Professional plus technical part)",
         "code": [
@@ -1353,8 +1353,8 @@
         ]
       },
       {
-        "id": "PSL.45",
-        "path": "PSL.45",
+        "id": "PSL.45-vatRate",
+        "path": "PSL.45-vatRate",
         "short": "VAT-Rate",
         "definition": "VAT–Rate Applied on the total amount of this service.",
         "code": [
@@ -1380,19 +1380,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PSL.46",
-        "path": "PSL.46",
+        "id": "PSL.46-mainService",
+        "path": "PSL.46-mainService",
         "short": "Main-Service",
         "definition": "Main service.",
         "code": [
@@ -1429,8 +1429,8 @@
         ]
       },
       {
-        "id": "PSL.47",
-        "path": "PSL.47",
+        "id": "PSL.47-validation",
+        "path": "PSL.47-validation",
         "short": "Validation",
         "definition": "Service line item has passed an approved validator software (yes/no). For reason see PSL-48. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1471,8 +1471,8 @@
         ]
       },
       {
-        "id": "PSL.48",
-        "path": "PSL.48",
+        "id": "PSL.48-comment",
+        "path": "PSL.48-comment",
         "short": "Comment",
         "definition": "Reason why the service line item has not passed the validator software.",
         "code": [
@@ -1498,11 +1498,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "255"
+                "valueInteger": 255
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }

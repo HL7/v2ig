@@ -203,7 +203,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M06 Segment Definition",
+  "title": "HL7 v2 MFN_M06 Message Structure",
   "name": "MFN_M06",
   "type": "MFN_M06",
   "fhirVersion": "5.0.0",

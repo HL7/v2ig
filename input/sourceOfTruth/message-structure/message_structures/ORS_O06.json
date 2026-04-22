@@ -205,7 +205,7 @@
         "id": "ORS_O06.8-RESPONSE.1-PATIENT.2-PRT",
         "path": "ORS_O06.8-RESPONSE.1-PATIENT.2-PRT",
         "short": "Participation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation",
         "type": [
@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORS_O06 Segment Definition",
+  "title": "HL7 v2 ORS_O06 Message Structure",
   "name": "ORS_O06",
   "type": "ORS_O06",
   "fhirVersion": "5.0.0",

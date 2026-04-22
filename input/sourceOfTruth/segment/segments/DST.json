@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "DST.1",
-        "path": "DST.1",
+        "id": "DST.1-dst1",
+        "path": "DST.1-dst1",
         "short": "DST-1",
         "definition": "This field identifies the destination for transport of a specific container. Refer to User-defined Table _0943 –_ _Transport Destination_ in Chapter 2C, Code Tables; there are no suggested values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "DST.2",
-        "path": "DST.2",
+        "id": "DST.2-dst2",
+        "path": "DST.2-dst2",
         "short": "DST-2",
         "definition": "This field identifies the route for transport of a specific container. . Refer to _User-defined Table 0944 – Transport Route_ in Chapter 2C, Code Tables; there are no suggested values.",
         "comment": "Each repetion indicates the device to which the sample needs to be moved along the route.",

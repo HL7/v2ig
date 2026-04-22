@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RPI_I04 Segment Definition",
+  "title": "HL7 v2 RPI_I04 Message Structure",
   "name": "RPI_I04",
   "type": "RPI_I04",
   "fhirVersion": "5.0.0",

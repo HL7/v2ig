@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "OVR.1",
-        "path": "OVR.1",
+        "id": "OVR.1-businessRuleOverrideType",
+        "path": "OVR.1-businessRuleOverrideType",
         "short": "Business Rule Override Type",
         "definition": "Identifies what type of business rule override is being performed. Refer to {{v2-table:0518:Override Type}} in Chapter 2C, Code Tables, for suggested values. Given that an application provides end users with the ability to override business rules, there must be a way to communicate what business rule is being overridden.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "OVR.2",
-        "path": "OVR.2",
+        "id": "OVR.2-businessRuleOverrideCode",
+        "path": "OVR.2-businessRuleOverrideCode",
         "short": "Business Rule Override Code",
         "definition": "Indicates the reason for the business rule override. Refer to {{v2-table:0521:Override Code}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "If users are allowed to override business rules in an application, the user will typically need to provide a reason why the rule is being overridden. The Override Code field in this segment will provide the mechanism to transmit a coded reason.",
@@ -83,8 +83,8 @@
         ]
       },
       {
-        "id": "OVR.3",
-        "path": "OVR.3",
+        "id": "OVR.3-overrideComments",
+        "path": "OVR.3-overrideComments",
         "short": "Override Comments",
         "definition": "Additional descriptive comments detailing the circumstances of the override.",
         "comment": "When overriding a business rule there might be special circumstances that require a further explanation of the override action. The Override Comments field will allow users to provide more specific information in a free text format.",
@@ -111,19 +111,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "200"
+                "valueInteger": 200
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "OVR.4",
-        "path": "OVR.4",
+        "id": "OVR.4-overrideEnteredBy",
+        "path": "OVR.4-overrideEnteredBy",
         "short": "Override Entered By",
         "definition": "Identifies the user entering the override in the system.",
         "comment": "When a business rule is overridden, an application must be able to link the override with the user who made it in order to provide a complete audit history of the transaction, especially when there might be a risk associated with the override. In situations where the original message was submitted by batch, the overriding user MAY be different than the original author of the message.",
@@ -148,8 +148,8 @@
         ]
       },
       {
-        "id": "OVR.5",
-        "path": "OVR.5",
+        "id": "OVR.5-overrideAuthorizedBy",
+        "path": "OVR.5-overrideAuthorizedBy",
         "short": "Override Authorized By",
         "definition": "Identifies the health services provider who accepts professional responsibility for overriding the business rule. This field SHOULD be left empty if the recording and responsible health care provider is the same as who entered the override.",
         "comment": "In some cases, a business rule override might be entered by a data entry clerk on behalf of a health service provider who carries professional responsibility for the decision to override the rule. In order to represent this scenario, the segment must have a field identifying who is responsible for the override decision, in addition to the person recording the override.",

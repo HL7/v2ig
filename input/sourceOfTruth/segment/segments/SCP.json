@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "SCP.1",
-        "path": "SCP.1",
+        "id": "SCP.1-numberOfDecontaminationSterilizationDevices",
+        "path": "SCP.1-numberOfDecontaminationSterilizationDevices",
         "short": "Number Of Decontamination/Sterilization Devices",
         "definition": "The number of decontamination/sterilization devices recognized by the instrument-tracking system. The decontamination/sterilization device(s) would configure itself based on the data in this message.",
         "code": [
@@ -51,19 +51,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2"
+                "valueInteger": 2
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "SCP.2",
-        "path": "SCP.2",
+        "id": "SCP.2-laborCalculationType",
+        "path": "SCP.2-laborCalculationType",
         "short": "Labor Calculation Type",
         "definition": "The method at which labor is calculated for use in tracking employee productivity. Refer to {{v2-table:0651:Labor}} Calculation Type_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "SCP.3",
-        "path": "SCP.3",
+        "id": "SCP.3-dateFormat",
+        "path": "SCP.3-dateFormat",
         "short": "Date Format",
         "definition": "The format of the date that is used to record date parameters of a decontamination/sterilization instance. Refer to {{v2-table:0653:Date Format}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -120,8 +120,8 @@
         ]
       },
       {
-        "id": "SCP.4",
-        "path": "SCP.4",
+        "id": "SCP.4-deviceNumber",
+        "path": "SCP.4-deviceNumber",
         "short": "Device Number",
         "definition": "The number of the device (e.g., 01).",
         "code": [
@@ -145,8 +145,8 @@
         ]
       },
       {
-        "id": "SCP.5",
-        "path": "SCP.5",
+        "id": "SCP.5-deviceName",
+        "path": "SCP.5-deviceName",
         "short": "Device Name",
         "definition": "The name of the device associated with the device number in SCP-4 (e.g., VAC)",
         "code": [
@@ -172,19 +172,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "999"
+                "valueInteger": 999
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "SCP.6",
-        "path": "SCP.6",
+        "id": "SCP.6-deviceModelName",
+        "path": "SCP.6-deviceModelName",
         "short": "Device Model Name",
         "definition": "The manufacturer's designated model name.",
         "code": [
@@ -210,19 +210,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "2"
+                "valueInteger": 2
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "SCP.7",
-        "path": "SCP.7",
+        "id": "SCP.7-deviceType",
+        "path": "SCP.7-deviceType",
         "short": "Device Type",
         "definition": "The type of device, such as a steam sterilizer or gas sterilizer. Refer to {{v2-table:0657:Device}} Type_ in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -250,8 +250,8 @@
         ]
       },
       {
-        "id": "SCP.8",
-        "path": "SCP.8",
+        "id": "SCP.8-control",
+        "path": "SCP.8-control",
         "short": "Control",
         "definition": "A code assigned to a device to indicate if the sterilization load is built in the sub-sterile area adjacent to an Operating Room or the Central Processing Department (Central Supply). Refer to {{v2-table:0659:Lot Control}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

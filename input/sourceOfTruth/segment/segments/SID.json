@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "SID.1",
-        "path": "SID.1",
+        "id": "SID.1-sid1",
+        "path": "SID.1-sid1",
         "short": "SID-1",
         "definition": "This field identifies the application/method used for the analysis. Refer to Table 0783 - Application/Method Identifier in Chapter 2C for valid values.",
         "comment": "Example: GLUCOSE is an orderable test. GLUCOSE can be analyzed using various applications/methods, which have manufacturer specific identifiers.",
@@ -54,8 +54,8 @@
         ]
       },
       {
-        "id": "SID.2",
-        "path": "SID.2",
+        "id": "SID.2-sid2",
+        "path": "SID.2-sid2",
         "short": "SID-2",
         "definition": "This field specifies the lot number assigned by the manufacturer during production of the substance.",
         "code": [
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "id": "SID.3",
-        "path": "SID.3",
+        "id": "SID.3-sid3",
+        "path": "SID.3-sid3",
         "short": "SID-3",
         "definition": "This field specifies the container assigned by the manufacturer during production of the substance. This identifier should be unique within specific lot of specific application / method.",
         "code": [
@@ -130,8 +130,8 @@
         ]
       },
       {
-        "id": "SID.4",
-        "path": "SID.4",
+        "id": "SID.4-sid4",
+        "path": "SID.4-sid4",
         "short": "SID-4",
         "definition": "This field identifies the manufacturer of this substance. Refer to {{v2-table:0385:Manufacturer Identifier}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [

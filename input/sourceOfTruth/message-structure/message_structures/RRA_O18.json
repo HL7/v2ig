@@ -255,7 +255,7 @@
       {
         "id": "RRA_O18.7-RESPONSE.2-ORDER.2-PRT",
         "path": "RRA_O18.7-RESPONSE.2-ORDER.2-PRT",
-        "short": "Participation (for ORC)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for ORC)",
@@ -407,7 +407,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRA_O18 Segment Definition",
+  "title": "HL7 v2 RRA_O18 Message Structure",
   "name": "RRA_O18",
   "type": "RRA_O18",
   "fhirVersion": "5.0.0",

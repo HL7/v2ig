@@ -407,10 +407,10 @@
       {
         "id": "RSP_K31.9-RESPONSE.1-PATIENT.10-PATIENT_VISIT.2-PV2",
         "path": "RSP_K31.9-RESPONSE.1-PATIENT.10-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -496,7 +496,7 @@
       {
         "id": "RSP_K31.9-RESPONSE.2-ORDER.2-PRT",
         "path": "RSP_K31.9-RESPONSE.2-ORDER.2-PRT",
-        "short": "Participation (for ORC)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for ORC)",
@@ -738,7 +738,7 @@
       {
         "id": "RSP_K31.9-RESPONSE.2-ORDER.5-ENCODING.2-PRT",
         "path": "RSP_K31.9-RESPONSE.2-ORDER.5-ENCODING.2-PRT",
-        "short": "Participation (for RXE)",
+        "short": "Participation (for Pharmacy/Treatment Encoded Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXE)",
@@ -884,7 +884,7 @@
       {
         "id": "RSP_K31.9-RESPONSE.2-ORDER.7-PRT",
         "path": "RSP_K31.9-RESPONSE.2-ORDER.7-PRT",
-        "short": "Participation (for RXD)",
+        "short": "Participation (for Pharmacy/Treatment Dispense)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXD)",
@@ -941,7 +941,7 @@
       {
         "id": "RSP_K31.9-RESPONSE.2-ORDER.10-CDO",
         "path": "RSP_K31.9-RESPONSE.2-ORDER.10-CDO",
-        "short": "Cumulative Dosage Segment",
+        "short": "Cumulative Dosage",
         "min": 0,
         "max": "*",
         "definition": "Cumulative Dosage Segment",
@@ -992,7 +992,7 @@
       {
         "id": "RSP_K31.9-RESPONSE.2-ORDER.11-OBSERVATION.2-PRT",
         "path": "RSP_K31.9-RESPONSE.2-ORDER.11-OBSERVATION.2-PRT",
-        "short": "Participation (for OBX)",
+        "short": "Participation (for Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for OBX)",
@@ -1048,7 +1048,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RSP_K31 Segment Definition",
+  "title": "HL7 v2 RSP_K31 Message Structure",
   "name": "RSP_K31",
   "type": "RSP_K31",
   "fhirVersion": "5.0.0",

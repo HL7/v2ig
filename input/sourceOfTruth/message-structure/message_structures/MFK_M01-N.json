@@ -140,7 +140,7 @@
       {
         "id": "MFK_M01-N.7-MFA",
         "path": "MFK_M01-N.7-MFA",
-        "short": "Master File ACK segment",
+        "short": "Master File ACK",
         "min": 1,
         "max": "*",
         "definition": "Master File ACK segment",
@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFK_M01-N Segment Definition",
+  "title": "HL7 v2 MFK_M01-N Message Structure",
   "name": "MFK_M01-N",
   "type": "MFK_M01-N",
   "fhirVersion": "5.0.0",

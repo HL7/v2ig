@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "OMC.1",
-        "path": "OMC.1",
+        "id": "OMC.1-sequenceNumberTestObservationMasterFile",
+        "path": "OMC.1-sequenceNumberTestObservationMasterFile",
         "short": "Sequence Number - Test/Observation Master File",
         "definition": "This field contains the same value as the sequence number of the associated OM1 segment.",
         "code": [
@@ -51,19 +51,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "4"
+                "valueInteger": 4
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "OMC.2",
-        "path": "OMC.2",
+        "id": "OMC.2-segmentActionCode",
+        "path": "OMC.2-segmentActionCode",
         "short": "Segment Action Code",
         "definition": "  This field indicates whether this repetition of the segment is being added, changed or deleted.  When using dynamic update mode (See Chapter 2, Section 2.23.4.2, \"Action code/unique identifier mode update definition.\")  OMC-2 and OMC-3 Segment Unique Key are used to establish the \"unique key\" and to determine the data subject to the action. Refer to HL7 Table 0206 – Segment action code for valid values.",
         "comment": "If the transaction uses dynamic/action code messaging, the field must be valued. \n\nCondition Predicate: Required if OMC-3 is valued.",
@@ -105,8 +105,8 @@
         ]
       },
       {
-        "id": "OMC.3",
-        "path": "OMC.3",
+        "id": "OMC.3-segmentUniqueKey",
+        "path": "OMC.3-segmentUniqueKey",
         "short": "Segment Unique Key",
         "definition": "This field contains a unique identifier for one of the multiple repetitions of this segment, to be used in conjunction with the preceding field. Each of the repetitions of the segment will be uniquely identified by this unique key field for the purposes of updates.",
         "comment": "Condition Predicate: Required if OMC-2 is valued.",
@@ -131,8 +131,8 @@
         ]
       },
       {
-        "id": "OMC.4",
-        "path": "OMC.4",
+        "id": "OMC.4-clinicalInformationRequest",
+        "path": "OMC.4-clinicalInformationRequest",
         "short": "Clinical Information Request",
         "definition": "This field contains a variable that the diagnostic service needs to interpret the results of an ordered study. Where the observations specified here should be sent is specified in the OMC-6 (Communication Location). Refer to Table 0664 - Clinical Information Request in Chapter 2C for valid values.",
         "code": [
@@ -160,8 +160,8 @@
         ]
       },
       {
-        "id": "OMC.5",
-        "path": "OMC.5",
+        "id": "OMC.5-collectionEventProcessStep",
+        "path": "OMC.5-collectionEventProcessStep",
         "short": "Collection Event/Process Step",
         "definition": "This field indicates by when in the ordering process or workflow this information must be collected. Limit indicates must be done by X point in the workflow. Refer to _HL7 Table 0938 – Collection Even/Process Step Limit_ for valid values.",
         "code": [
@@ -171,7 +171,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -189,8 +189,8 @@
         ]
       },
       {
-        "id": "OMC.6",
-        "path": "OMC.6",
+        "id": "OMC.6-communicationLocation",
+        "path": "OMC.6-communicationLocation",
         "short": "Communication Location",
         "definition": "This field indicates where in the message this information is expected to be communicated, e.g. PID, OBR, and SPM). Refer to _HL7 Table 0939 – Communication Loction_ for valid values.",
         "code": [
@@ -218,8 +218,8 @@
         ]
       },
       {
-        "id": "OMC.7",
-        "path": "OMC.7",
+        "id": "OMC.7-answerRequired",
+        "path": "OMC.7-answerRequired",
         "short": "Answer Required",
         "definition": "Must the question be answered, or just displayed and can be blank. Refer to _HL7 Table 0136 – Yes/no Indicator_ for valid values.",
         "comment": "Y Answer must be provided\n\nN Answer not required",
@@ -248,8 +248,8 @@
         ]
       },
       {
-        "id": "OMC.8",
-        "path": "OMC.8",
+        "id": "OMC.8-hintHelpText",
+        "path": "OMC.8-hintHelpText",
         "short": "Hint/Help Text",
         "definition": "This field gives guidance to the provider on how to answer the question.",
         "code": [
@@ -273,8 +273,8 @@
         ]
       },
       {
-        "id": "OMC.9",
-        "path": "OMC.9",
+        "id": "OMC.9-typeOfAnswer",
+        "path": "OMC.9-typeOfAnswer",
         "short": "Type of Answer",
         "definition": "This field contains the allowed datatype for answers, and is drawn from {{v2-table:0125:Value Type}} for valid values. Type of answers include: numeric, date, coded, text, etc.",
         "code": [
@@ -302,8 +302,8 @@
         ]
       },
       {
-        "id": "OMC.10",
-        "path": "OMC.10",
+        "id": "OMC.10-multipleAnswersAllowed",
+        "path": "OMC.10-multipleAnswersAllowed",
         "short": "Multiple Answers Allowed",
         "definition": "This field indicates if multiple answers are allowed, which may impact EHR system display and selection functionality. Refer to _HL7 Table 0136 – Yes/no Indicator_ for valid values.",
         "comment": "Y Multiple Answers Allowed\n\nN Single Answer only Allowed",
@@ -332,8 +332,8 @@
         ]
       },
       {
-        "id": "OMC.11",
-        "path": "OMC.11",
+        "id": "OMC.11-answerChoices",
+        "path": "OMC.11-answerChoices",
         "short": "Answer Choices",
         "definition": "Allowed coded answers to be sent in HL7 file (CWE.1) and/or display Text for Ordering system to present to provider (CWE.2). Refer to Table 0665 - Answer Choices in Chapter 2C for valid values.",
         "comment": "The condition is valued only if OMC-9 is valued 'CWE' or 'CNE'.",
@@ -344,7 +344,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -362,8 +362,8 @@
         ]
       },
       {
-        "id": "OMC.12",
-        "path": "OMC.12",
+        "id": "OMC.12-characterLimit",
+        "path": "OMC.12-characterLimit",
         "short": "Character Limit",
         "definition": "Total number of characters allowed. Required for numeric and (long) text answers.",
         "comment": "The field is valued only if OMC-9 is valued 'NM', 'SN', 'ST\", 'TX', or 'FT'.",
@@ -388,8 +388,8 @@
         ]
       },
       {
-        "id": "OMC.13",
-        "path": "OMC.13",
+        "id": "OMC.13-numberOfDecimals",
+        "path": "OMC.13-numberOfDecimals",
         "short": "Number of Decimals",
         "definition": "For numeric answers the number of digits after the decimal.",
         "comment": "The field is valued only if OMC-9 is valued 'NM' or 'SN'.",

@@ -128,7 +128,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }

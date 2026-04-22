@@ -5,7 +5,7 @@
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
@@ -29,16 +29,16 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Study Observation begin</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [ --- Fixme begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">               <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for common order)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Common Order)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            ] --- Fixme end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Battery</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Study Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Timing Qty begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">               <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Timing Qty end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation Results</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participaton (for Observation Results)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Results)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Study Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Study Pharm begin</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [ --- Common Order begin</td><td></td><td></td></tr>

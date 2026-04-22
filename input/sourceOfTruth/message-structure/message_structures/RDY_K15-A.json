@@ -45,7 +45,7 @@
       {
         "id": "RDY_K15-A.2-SFT",
         "path": "RDY_K15-A.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -196,7 +196,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDY_K15-A Segment Definition",
+  "title": "HL7 v2 RDY_K15-A Message Structure",
   "name": "RDY_K15-A",
   "type": "RDY_K15-A",
   "fhirVersion": "5.0.0",

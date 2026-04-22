@@ -5,7 +5,7 @@
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-NTE.html">NTE</a> ]</td><td>Notes and Comments</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Patient begin</td><td></td><td></td></tr>
@@ -23,11 +23,11 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Patient ID)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Patient Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation (for Patient ID)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Patient Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Visit begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Information</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Visit end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">] --- Patient end</td><td></td><td></td></tr>
@@ -38,10 +38,10 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Next Of Kin end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Order begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Common Order begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for common order)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Common Order)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Order Document begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation containing Document</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
@@ -58,7 +58,7 @@
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen information</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Specimen Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation (for Specimen)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Specimen Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Specimen Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Container begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-SAC.html">SAC</a></td><td>Container information</td><td>A</td></tr>

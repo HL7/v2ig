@@ -64,7 +64,7 @@
       {
         "id": "STC_S33.3-UAC",
         "path": "STC_S33.3-UAC",
-        "short": "User Authentication Credential Segment",
+        "short": "User Authentication Credential",
         "min": 0,
         "max": "1",
         "definition": "User Authentication Credential Segment",
@@ -101,7 +101,7 @@
       }
     ]
   },
-  "title": "HL7 v2 STC_S33 Segment Definition",
+  "title": "HL7 v2 STC_S33 Message Structure",
   "name": "STC_S33",
   "type": "STC_S33",
   "fhirVersion": "5.0.0",

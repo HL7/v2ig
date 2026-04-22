@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PRD.1",
-        "path": "PRD.1",
+        "id": "PRD.1-providerRole",
+        "path": "PRD.1-providerRole",
         "short": "Provider Role",
         "definition": "This field contains the contact role that defines the relationship of the person or organization described in this segment to the patient being referred. When a referral is inter-enterprise in nature, there are several important relationships that must be identified. For example, the proper identification of both the referring and the referred-to provider is critical for proper processing of a referral. In addition, some enterprises may want information regarding a consulting provider or the identity of the person who actually prepared the referral. This contact role may also expand to represent affiliated persons to whom information regarding this referral must be forwarded or copied. Refer to {{v2-table:0286:Provider Role}} for suggested values.",
         "code": [
@@ -35,7 +35,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "PRD.2",
-        "path": "PRD.2",
+        "id": "PRD.2-providerName",
+        "path": "PRD.2-providerName",
         "short": "Provider Name",
         "definition": "This field contains the name of the provider identified in this segment. Generally, this field will describe a physician associated with the referral. However, it is not limited to physicians. If the provider is an organization then _PRD-10 – Provider Organization Name and Identifier_ will be used. This field may contain the name of any valid healthcare provider associated with this referral. If this Provider Name is a physician's name, you may refer to _PRD-7-Provider identifiers_ for the physician identifier.",
         "code": [
@@ -64,7 +64,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "PRD.3",
-        "path": "PRD.3",
+        "id": "PRD.3-providerAddress",
+        "path": "PRD.3-providerAddress",
         "short": "Provider Address",
         "definition": "This field contains the mailing address of the provider identified in this segment. One of the key components to completing the \"circle of care\" and provider/institution bonding is the issuance of follow‑up correspondence to the referring provider.",
         "code": [
@@ -89,7 +89,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -103,8 +103,8 @@
         ]
       },
       {
-        "id": "PRD.4",
-        "path": "PRD.4",
+        "id": "PRD.4-providerLocation",
+        "path": "PRD.4-providerLocation",
         "short": "Provider Location",
         "definition": "This field contains the location of the provider as needed when a provider that may be external to a given enterprise must be referenced. For example, if this provider represented the referred-to physician, the _PRD-4-Provider location_ should identify the clinic of the physician or provider to whom this referral has been sent. An application and facility identifier carried in the facility field specifies the identification of the provider's location. The application ID and facility ID would be used in the same manner as their corresponding fields in the MSH segment (_MSH-3-Sending application, MSH-5-Receiving application,_ _MSH-4-Sending facility, MSH-6-Receiving facility_). That is, the facility field will contain an application identifier and facility identifier which describe the location of this provider. However, it should be noted that they may describe a different location because the provider location being referenced in this field _may not be_ the location from which the message originated, which is being described by the MSH.",
         "code": [
@@ -128,8 +128,8 @@
         ]
       },
       {
-        "id": "PRD.5",
-        "path": "PRD.5",
+        "id": "PRD.5-providerCommunicationInformation",
+        "path": "PRD.5-providerCommunicationInformation",
         "short": "Provider Communication Information",
         "definition": "This field contains information, such as the phone number or electronic mail address, used to communicate with the provider or organization.",
         "code": [
@@ -139,7 +139,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XTN"
@@ -153,8 +153,8 @@
         ]
       },
       {
-        "id": "PRD.6",
-        "path": "PRD.6",
+        "id": "PRD.6-preferredMethodOfContact",
+        "path": "PRD.6-preferredMethodOfContact",
         "short": "Preferred Method of Contact",
         "definition": "This field contains the preferred method to use when communicating with the provider. Refer to {{v2-table:0185:Preferred Method of Contact}} in Chapter 2C, \"Code Tables\", for suggested values.",
         "code": [
@@ -182,8 +182,8 @@
         ]
       },
       {
-        "id": "PRD.7",
-        "path": "PRD.7",
+        "id": "PRD.7-providerIdentifiers",
+        "path": "PRD.7-providerIdentifiers",
         "short": "Provider Identifiers",
         "definition": "This repeating field contains the provider's unique identifiers such as UPIN, Medicare and Medicaid numbers. Refer to {{v2-table:0338:Practitioner ID Number Type}} (in Chapter 2C, \"Code Tables\") for suggested values.",
         "code": [
@@ -193,7 +193,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "PLN"
@@ -211,8 +211,8 @@
         ]
       },
       {
-        "id": "PRD.8",
-        "path": "PRD.8",
+        "id": "PRD.8-effectiveStartDateOfProviderRole",
+        "path": "PRD.8-effectiveStartDateOfProviderRole",
         "short": "Effective Start Date of Provider Role",
         "definition": "This field contains the date that the role of the provider effectively began. For example, this date may represent the date on which a physician was assigned as a patient's primary care provider.",
         "code": [
@@ -236,8 +236,8 @@
         ]
       },
       {
-        "id": "PRD.9",
-        "path": "PRD.9",
+        "id": "PRD.9-effectiveEndDateOfProviderRole",
+        "path": "PRD.9-effectiveEndDateOfProviderRole",
         "short": "Effective End Date of Provider Role",
         "definition": "This field contains the date that the role of the provider effectively ended. For example, this date may represent the date that a physician was removed as a patient's primary care provider.",
         "comment": "*Note:* The _PRD-8-Effective Start Date of Role_ and _PRD-9-Effective End Date of Role_ fields should _not_ be used as trigger events. For example, they should not be used to trigger a change in role. These two dates are for informational purposes only.",
@@ -248,7 +248,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "DTM"
@@ -262,8 +262,8 @@
         ]
       },
       {
-        "id": "PRD.10",
-        "path": "PRD.10",
+        "id": "PRD.10-providerOrganizationNameAndIdentifier",
+        "path": "PRD.10-providerOrganizationNameAndIdentifier",
         "short": "Provider Organization Name and Identifier",
         "definition": "This field contains the name of the provider where the provider is an organization.",
         "code": [
@@ -287,8 +287,8 @@
         ]
       },
       {
-        "id": "PRD.11",
-        "path": "PRD.11",
+        "id": "PRD.11-providerOrganizationAddress",
+        "path": "PRD.11-providerOrganizationAddress",
         "short": "Provider Organization Address",
         "definition": "This field contains the address of the provider if it is an organization.",
         "code": [
@@ -298,7 +298,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XAD"
@@ -312,8 +312,8 @@
         ]
       },
       {
-        "id": "PRD.12",
-        "path": "PRD.12",
+        "id": "PRD.12-providerOrganizationLocationInformation",
+        "path": "PRD.12-providerOrganizationLocationInformation",
         "short": "Provider Organization Location Information",
         "definition": "This field contains the location details of the provider if it is an organization.",
         "code": [
@@ -323,7 +323,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "PL"
@@ -337,8 +337,8 @@
         ]
       },
       {
-        "id": "PRD.13",
-        "path": "PRD.13",
+        "id": "PRD.13-providerOrganizationCommunicationInformation",
+        "path": "PRD.13-providerOrganizationCommunicationInformation",
         "short": "Provider Organization Communication Information",
         "definition": "This field contains information, such as the phone number or electronic mail address, used to communicate with the provider if it is an organization.",
         "code": [
@@ -348,7 +348,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XTN"
@@ -362,8 +362,8 @@
         ]
       },
       {
-        "id": "PRD.14",
-        "path": "PRD.14",
+        "id": "PRD.14-providerOrganizationMethodOfContact",
+        "path": "PRD.14-providerOrganizationMethodOfContact",
         "short": "Provider Organization Method of Contact",
         "definition": "This field contains the preferred method to use when communicating with the provider if provider is an organization. Refer to {{v2-table:0185:Preferred Method of Contact}} in Chapter 2C, \"Code Tables\", for suggested values.",
         "code": [

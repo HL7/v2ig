@@ -380,7 +380,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PMU_B01-A Segment Definition",
+  "title": "HL7 v2 PMU_B01-A Message Structure",
   "name": "PMU_B01-A",
   "type": "PMU_B01-A",
   "fhirVersion": "5.0.0",

@@ -5,7 +5,7 @@
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
@@ -21,7 +21,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Adverse Reaction Group begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-IAM.html">IAM</a></td><td>Patient adverse reaction information</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-IAR.html">IAR</a> }]</td><td>Allergy Reaction Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-IAR.html">IAR</a> }]</td><td>Allergy Reaction</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Adverse Reaction Group end</td><td></td><td></td></tr>
 </tbody>
 </table>

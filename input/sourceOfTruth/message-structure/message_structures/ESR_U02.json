@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ESR_U02 Segment Definition",
+  "title": "HL7 v2 ESR_U02 Message Structure",
   "name": "ESR_U02",
   "type": "ESR_U02",
   "fhirVersion": "5.0.0",

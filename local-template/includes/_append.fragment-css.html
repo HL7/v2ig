@@ -1,3 +1,75 @@
 <link rel="shortcut icon" href="assets/images/favicon-v2plus.png"/>
 <link href="assets/css/v2plus.css" rel="stylesheet"/>
-<script type="text/javascript" src="assets/js/v2-table-filter.js"> </script>
+<!-- v2-table-filter: inlined to avoid auto-ig-builder .js trust rejection (see docs/decisions.md) -->
+<script type="text/javascript">
+/**
+ * Simple table filter for V2+ listing pages (data types, segments, message structures).
+ * Adapted from the HL7 Terminology (THO) table.js pattern.
+ * Supports multiple filtered tables per page.
+ *
+ * Usage: Add class="grid filtered-table" to the table.
+ *        Add class="filter-input" to filter <input> elements in a header row.
+ *        Add class="data-row" to each data <tr>.
+ *        Place <p class="table-filter-summary"></p> immediately before each table.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  var tables = document.querySelectorAll('.filtered-table');
+
+  tables.forEach(function(table) {
+    var inputs = table.querySelectorAll('.filter-input');
+    var dataRows = table.querySelectorAll('.data-row');
+    var total = dataRows.length;
+
+    // Find the summary element immediately preceding this table
+    var summary = null;
+    var prev = table.previousElementSibling;
+    if (prev && prev.classList.contains('table-filter-summary')) {
+      summary = prev;
+    }
+
+    if (summary) {
+      summary.textContent = 'Showing ' + total + ' of ' + total + ' entries';
+    }
+
+    inputs.forEach(function(input) {
+      input.addEventListener('input', function() {
+        applyFilters(table, inputs, dataRows, summary, total);
+      });
+    });
+  });
+
+  function applyFilters(table, inputs, dataRows, summary, total) {
+    var filters = [];
+    inputs.forEach(function(input) {
+      var cell = input.closest('td, th');
+      if (cell) {
+        filters.push({ value: input.value.toLowerCase(), colIndex: cell.cellIndex });
+      }
+    });
+
+    var shown = 0;
+    dataRows.forEach(function(row) {
+      var cells = row.querySelectorAll('td');
+      var visible = true;
+      filters.forEach(function(f) {
+        if (f.value && cells[f.colIndex]) {
+          var text = cells[f.colIndex].textContent.toLowerCase();
+          if (text.indexOf(f.value) === -1) {
+            visible = false;
+          }
+        }
+      });
+      if (visible) {
+        row.style.display = '';
+        shown++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    if (summary) {
+      summary.textContent = 'Showing ' + shown + ' of ' + total + ' entries';
+    }
+  }
+});
+</script>

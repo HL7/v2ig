@@ -656,7 +656,7 @@
       {
         "id": "OPL_O37.8-ORDER.3-SPECIMEN.3-CONTAINER.2-CONTAINER_OBSERVATION.2-PRT",
         "path": "OPL_O37.8-ORDER.3-SPECIMEN.3-CONTAINER.2-CONTAINER_OBSERVATION.2-PRT",
-        "short": "Participation (for Containter Observation)",
+        "short": "Participation (for Container Observation)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Containter Observation)",
@@ -1133,10 +1133,10 @@
       {
         "id": "OPL_O37.8-ORDER.5-PRIOR_RESULT.3-PATIENT_VISIT_PRIOR.2-PV2",
         "path": "OPL_O37.8-ORDER.5-PRIOR_RESULT.3-PATIENT_VISIT_PRIOR.2-PV2",
-        "short": "Patient Visit – Additional Information",
+        "short": "Patient Visit - Additional Information",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Information",
+        "definition": "Patient Visit \u2013 Additional Information",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -1451,7 +1451,7 @@
       {
         "id": "OPL_O37.8-ORDER.9-BLG",
         "path": "OPL_O37.8-ORDER.9-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",
@@ -1469,7 +1469,7 @@
       }
     ]
   },
-  "title": "HL7 v2 OPL_O37 Segment Definition",
+  "title": "HL7 v2 OPL_O37 Message Structure",
   "name": "OPL_O37",
   "type": "OPL_O37",
   "fhirVersion": "5.0.0",

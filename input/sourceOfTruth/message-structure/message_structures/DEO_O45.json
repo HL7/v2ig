@@ -64,7 +64,7 @@
       {
         "id": "DEO_O45.3-SFT",
         "path": "DEO_O45.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -115,7 +115,7 @@
       {
         "id": "DEO_O45.5-Donor.1-PID",
         "path": "DEO_O45.5-Donor.1-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 1,
         "max": "1",
         "definition": "Patient Identification Segment",
@@ -364,7 +364,7 @@
         "id": "DEO_O45.6-DONATION_ORDER.3-NTE",
         "path": "DEO_O45.6-DONATION_ORDER.3-NTE",
         "short": "Notes and comments",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Notes and comments",
         "type": [
@@ -434,7 +434,7 @@
         "id": "DEO_O45.6-DONATION_ORDER.4-DONATION_OBSERVATION.3-NTE",
         "path": "DEO_O45.6-DONATION_ORDER.4-DONATION_OBSERVATION.3-NTE",
         "short": "Notes and comments",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Notes and comments",
         "type": [
@@ -451,7 +451,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DEO_O45 Segment Definition",
+  "title": "HL7 v2 DEO_O45 Message Structure",
   "name": "DEO_O45",
   "type": "DEO_O45",
   "fhirVersion": "5.0.0",

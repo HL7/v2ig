@@ -135,7 +135,7 @@
         "id": "SSU_U03.5-SPECIMEN_CONTAINER.2-OBX",
         "path": "SSU_U03.5-SPECIMEN_CONTAINER.2-OBX",
         "short": "Additional specimen container characteristics",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Additional specimen container characteristics",
         "type": [
@@ -154,7 +154,7 @@
         "id": "SSU_U03.5-SPECIMEN_CONTAINER.3-NTE",
         "path": "SSU_U03.5-SPECIMEN_CONTAINER.3-NTE",
         "short": "Additional specimen container information",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Additional specimen container information",
         "type": [
@@ -173,7 +173,7 @@
         "id": "SSU_U03.5-SPECIMEN_CONTAINER.4-PRT",
         "path": "SSU_U03.5-SPECIMEN_CONTAINER.4-PRT",
         "short": "Participation for OBX",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation for OBX",
         "type": [
@@ -224,7 +224,7 @@
         "id": "SSU_U03.5-SPECIMEN_CONTAINER.5-SPECIMEN.2-OBX",
         "path": "SSU_U03.5-SPECIMEN_CONTAINER.5-SPECIMEN.2-OBX",
         "short": "Specimen related observation",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Specimen related observation",
         "type": [
@@ -243,7 +243,7 @@
         "id": "SSU_U03.5-SPECIMEN_CONTAINER.5-SPECIMEN.3-PRT",
         "path": "SSU_U03.5-SPECIMEN_CONTAINER.5-SPECIMEN.3-PRT",
         "short": "Participation for OBX",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Participation for OBX",
         "type": [
@@ -279,7 +279,7 @@
       }
     ]
   },
-  "title": "HL7 v2 SSU_U03 Segment Definition",
+  "title": "HL7 v2 SSU_U03 Message Structure",
   "name": "SSU_U03",
   "type": "SSU_U03",
   "fhirVersion": "5.0.0",

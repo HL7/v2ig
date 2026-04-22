@@ -5,11 +5,11 @@
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-NTE.html">NTE</a> ]</td><td>Notes and Comments</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Information</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Patient Visit Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation on the Visit</td><td>A</td></tr>
@@ -35,7 +35,7 @@
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OH4.html">OH4</a> }]</td><td>Combat Zone Work</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9</td><td>B</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Patient Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observations on Patient</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Patient Observation</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation on Patient)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for Observation on Patient</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Patient Observation end</td><td></td><td></td></tr>
@@ -44,7 +44,7 @@
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Specimen Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation on Specimen</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Specimen Observation)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments for Observation on Specimen</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Specimen Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Container begin</td><td></td><td></td></tr>
@@ -53,10 +53,10 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Container end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Order begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Common Order begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for common order)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Common Order)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Common Order end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Detail)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Deprecated as of V2.8</td><td>D</td></tr>

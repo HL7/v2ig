@@ -465,7 +465,7 @@
       {
         "id": "ORL_O34.8-RESPONSE.4-SPECIMEN.4-ORDER.4-OBSERVATION_REQUEST.2-PRT",
         "path": "ORL_O34.8-RESPONSE.4-SPECIMEN.4-ORDER.4-OBSERVATION_REQUEST.2-PRT",
-        "short": "Participation (for Observation)",
+        "short": "Participation (for Observation Request)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Observation)",
@@ -483,7 +483,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORL_O34 Segment Definition",
+  "title": "HL7 v2 ORL_O34 Message Structure",
   "name": "ORL_O34",
   "type": "ORL_O34",
   "fhirVersion": "5.0.0",

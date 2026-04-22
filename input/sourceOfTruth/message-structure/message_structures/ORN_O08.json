@@ -419,7 +419,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORN_O08 Segment Definition",
+  "title": "HL7 v2 ORN_O08 Message Structure",
   "name": "ORN_O08",
   "type": "ORN_O08",
   "fhirVersion": "5.0.0",

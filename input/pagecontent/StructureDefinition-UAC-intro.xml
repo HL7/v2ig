@@ -1,10 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>User Authentication Credential Type Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0615">0615</a></td><td class="v2-col-mono">02267</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>User Authentication Credential</td><td class="v2-col-mono"><a href="StructureDefinition-ED.html">ED</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">02268</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-UAC.1-userAuthenticationCredentialTypeCode">1</a></td><td>User Authentication Credential Type Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0615">0615</a></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-UAC-definitions.html#UAC.1-userAuthenticationCredentialTypeCode">02267</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-UAC.2-userAuthenticationCredential">2</a></td><td>User Authentication Credential</td><td class="v2-col-mono"><a href="StructureDefinition-ED.html">ED</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-UAC-definitions.html#UAC.2-userAuthenticationCredential">02268</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

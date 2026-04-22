@@ -318,10 +318,10 @@
       {
         "id": "RDE_O11-B.6-PATIENT.9-PATIENT_VISIT.2-PV2",
         "path": "RDE_O11-B.6-PATIENT.9-PATIENT_VISIT.2-PV2",
-        "short": "Patient Visit – Additional Info",
+        "short": "Patient Visit - Additional Info",
         "min": 0,
         "max": "1",
-        "definition": "Patient Visit – Additional Info",
+        "definition": "Patient Visit \u2013 Additional Info",
         "type": [
           {
             "code": "http://hl7.org/v2/StructureDefinition/PV2"
@@ -515,7 +515,7 @@
       {
         "id": "RDE_O11-B.7-ORDER.2-PRT",
         "path": "RDE_O11-B.7-ORDER.2-PRT",
-        "short": "Participation (for Order)",
+        "short": "Participation (for Common Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for Order)",
@@ -617,7 +617,7 @@
       {
         "id": "RDE_O11-B.7-ORDER.4-ORDER_DETAIL.2-PRT",
         "path": "RDE_O11-B.7-ORDER.4-ORDER_DETAIL.2-PRT",
-        "short": "Participation (for RXO)",
+        "short": "Participation (for Pharmacy/Treatment Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXO)",
@@ -744,7 +744,7 @@
       {
         "id": "RDE_O11-B.7-ORDER.6-PRT",
         "path": "RDE_O11-B.7-ORDER.6-PRT",
-        "short": "Participation (for RXE)",
+        "short": "Participation (for Pharmacy/Treatment Encoded Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXE)",
@@ -865,7 +865,7 @@
       {
         "id": "RDE_O11-B.7-ORDER.9-PHARMACY_TREATMENT_INFUSION_ORDER.2-PRT",
         "path": "RDE_O11-B.7-ORDER.9-PHARMACY_TREATMENT_INFUSION_ORDER.2-PRT",
-        "short": "Participation (for RXV)",
+        "short": "Participation (for Pharmacy/Treatment Infusion Order)",
         "min": 0,
         "max": "*",
         "definition": "Participation (for RXV)",
@@ -992,7 +992,7 @@
       {
         "id": "RDE_O11-B.7-ORDER.12-CDO",
         "path": "RDE_O11-B.7-ORDER.12-CDO",
-        "short": "Cumulative Dosage Segment",
+        "short": "Cumulative Dosage",
         "min": 0,
         "max": "*",
         "definition": "Cumulative Dosage Segment",
@@ -1100,7 +1100,7 @@
       {
         "id": "RDE_O11-B.7-ORDER.15-BLG",
         "path": "RDE_O11-B.7-ORDER.15-BLG",
-        "short": "Billing Segment",
+        "short": "Billing",
         "min": 0,
         "max": "1",
         "definition": "Billing Segment",
@@ -1137,7 +1137,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RDE_O11-B Segment Definition",
+  "title": "HL7 v2 RDE_O11-B Message Structure",
   "name": "RDE_O11-B",
   "type": "RDE_O11-B",
   "fhirVersion": "5.0.0",

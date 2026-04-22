@@ -45,7 +45,7 @@
       {
         "id": "BAR_P06.2-SFT",
         "path": "BAR_P06.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -171,7 +171,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BAR_P06 Segment Definition",
+  "title": "HL7 v2 BAR_P06 Message Structure",
   "name": "BAR_P06",
   "type": "BAR_P06",
   "fhirVersion": "5.0.0",

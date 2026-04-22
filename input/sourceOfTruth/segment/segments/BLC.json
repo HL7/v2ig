@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "BLC.1",
-        "path": "BLC.1",
+        "id": "BLC.1-bloodProductCode",
+        "path": "BLC.1-bloodProductCode",
         "short": "Blood Product Code",
         "definition": "This field reports the blood product code. Refer to {{v2-table:0426:Blood Product Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "BLC.2",
-        "path": "BLC.2",
+        "id": "BLC.2-bloodAmount",
+        "path": "BLC.2-bloodAmount",
         "short": "Blood Amount",
         "definition": "This field indicates the quantity and units administered for the blood code identified in field 1, for example, 2^pt. Standard ISO or ANSI units, as defined in Chapter 7 are recommended.",
         "code": [

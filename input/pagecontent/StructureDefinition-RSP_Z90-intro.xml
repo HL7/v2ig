@@ -4,7 +4,7 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ERR.html">ERR</a> ]</td><td>Error</td><td>A</td></tr>
@@ -19,7 +19,7 @@
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for PID)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Visit begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Visit end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Common Order begin</td><td></td><td></td></tr>

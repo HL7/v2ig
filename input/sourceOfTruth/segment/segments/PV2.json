@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "PV2.1",
-        "path": "PV2.1",
+        "id": "PV2.1-priorPendingLocation",
+        "path": "PV2.1-priorPendingLocation",
         "short": "Prior Pending Location",
         "definition": "This field is required for cancel pending transfer (A26) messages. In all other events it is optional.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "PV2.2",
-        "path": "PV2.2",
+        "id": "PV2.2-accommodationCode",
+        "path": "PV2.2-accommodationCode",
         "short": "Accommodation Code",
         "definition": "This field indicates the specific patient accommodations for this visit. Refer to {{v2-table:0129:Accommodation Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "PV2.3",
-        "path": "PV2.3",
+        "id": "PV2.3-admitReason",
+        "path": "PV2.3-admitReason",
         "short": "Admit Reason",
         "definition": "This field contains the short description of the reason for patient admission.",
         "code": [
@@ -103,8 +103,8 @@
         ]
       },
       {
-        "id": "PV2.4",
-        "path": "PV2.4",
+        "id": "PV2.4-transferReason",
+        "path": "PV2.4-transferReason",
         "short": "Transfer Reason",
         "definition": "This field contains the short description of the reason for a patient location change.",
         "code": [
@@ -128,8 +128,8 @@
         ]
       },
       {
-        "id": "PV2.5",
-        "path": "PV2.5",
+        "id": "PV2.5-patientValuables",
+        "path": "PV2.5-patientValuables",
         "short": "Patient Valuables",
         "definition": "This field contains the short description of patient valuables checked in during admission.",
         "code": [
@@ -139,7 +139,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "ST"
@@ -155,19 +155,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "25"
+                "valueInteger": 25
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV2.6",
-        "path": "PV2.6",
+        "id": "PV2.6-patientValuablesLocation",
+        "path": "PV2.6-patientValuablesLocation",
         "short": "Patient Valuables Location",
         "definition": "This field indicates the location of the patient's valuables.",
         "code": [
@@ -193,19 +193,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "25"
+                "valueInteger": 25
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV2.7",
-        "path": "PV2.7",
+        "id": "PV2.7-visitUserCode",
+        "path": "PV2.7-visitUserCode",
         "short": "Visit User Code",
         "definition": "This field further categorizes a patient's visit with respect to an individual institution's needs, and is expected to be site-specific. Refer to {{v2-table:0130:Visit User Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -215,7 +215,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -233,8 +233,8 @@
         ]
       },
       {
-        "id": "PV2.8",
-        "path": "PV2.8",
+        "id": "PV2.8-expectedAdmitDateTime",
+        "path": "PV2.8-expectedAdmitDateTime",
         "short": "Expected Admit Date/Time",
         "definition": "This field contains the date and time that the patient is expected to be admitted. This field is also used to reflect the date/time of an outpatient/emergency patient registration.",
         "code": [
@@ -258,8 +258,8 @@
         ]
       },
       {
-        "id": "PV2.9",
-        "path": "PV2.9",
+        "id": "PV2.9-expectedDischargeDateTime",
+        "path": "PV2.9-expectedDischargeDateTime",
         "short": "Expected Discharge Date/Time",
         "definition": "This field contains the date and time that the patient is expected to be discharged. This is a non-event related date used by ancillaries to determine more accurately the projected workloads. This field is also used to reflect the anticipated discharge date/time of an outpatient/emergency patient, or an inpatient.",
         "code": [
@@ -283,8 +283,8 @@
         ]
       },
       {
-        "id": "PV2.10",
-        "path": "PV2.10",
+        "id": "PV2.10-estimatedLengthOfInpatientStay",
+        "path": "PV2.10-estimatedLengthOfInpatientStay",
         "short": "Estimated Length of Inpatient Stay",
         "definition": "This field specifies the estimated days of inpatient stays.",
         "code": [
@@ -310,19 +310,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV2.11",
-        "path": "PV2.11",
+        "id": "PV2.11-actualLengthOfInpatientStay",
+        "path": "PV2.11-actualLengthOfInpatientStay",
         "short": "Actual Length of Inpatient Stay",
         "definition": "This field contains the actual days of inpatient stays. The actual length of the inpatient stay may not be calculated from the admission and discharge dates because of possible leaves of absence.",
         "code": [
@@ -348,19 +348,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "3"
+                "valueInteger": 3
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV2.12",
-        "path": "PV2.12",
+        "id": "PV2.12-visitDescription",
+        "path": "PV2.12-visitDescription",
         "short": "Visit Description",
         "definition": "This field contains a brief user-defined description of the visit.",
         "code": [
@@ -386,19 +386,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "50"
+                "valueInteger": 50
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "PV2.13",
-        "path": "PV2.13",
+        "id": "PV2.13-referralSourceCode",
+        "path": "PV2.13-referralSourceCode",
         "short": "Referral Source Code",
         "definition": "This field contains the name and the identification numbers of the person or organization that made the referral. This person/organization is not the same as the referring doctor. For example, Adam Everyman referred me to the Clinic (or to Dr. Everywoman at the Clinic).",
         "code": [
@@ -408,7 +408,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XCN"
@@ -422,8 +422,8 @@
         ]
       },
       {
-        "id": "PV2.14",
-        "path": "PV2.14",
+        "id": "PV2.14-previousServiceDate",
+        "path": "PV2.14-previousServiceDate",
         "short": "Previous Service Date",
         "definition": "This field contains the date of previous service for the same recurring condition. This may be a required field for billing certain illnesses (e.g., accident related) to a third party.",
         "code": [
@@ -447,8 +447,8 @@
         ]
       },
       {
-        "id": "PV2.15",
-        "path": "PV2.15",
+        "id": "PV2.15-employmentIllnessRelatedIndicator",
+        "path": "PV2.15-employmentIllnessRelatedIndicator",
         "short": "Employment Illness Related Indicator",
         "definition": "This field specifies whether a patient's illness was job-related. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the patient's illness was job-related\n\nN the patient's illness was not job-related",
@@ -490,8 +490,8 @@
         ]
       },
       {
-        "id": "PV2.16",
-        "path": "PV2.16",
+        "id": "PV2.16-purgeStatusCode",
+        "path": "PV2.16-purgeStatusCode",
         "short": "Purge Status Code",
         "definition": "This field contains the purge status code for the account. It is used by the application program to determine purge processing. Refer to {{v2-table:0213:Purge Status Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -519,8 +519,8 @@
         ]
       },
       {
-        "id": "PV2.17",
-        "path": "PV2.17",
+        "id": "PV2.17-purgeStatusDate",
+        "path": "PV2.17-purgeStatusDate",
         "short": "Purge Status Date",
         "definition": "This field contains the date on which the data will be purged from the system.",
         "code": [
@@ -544,8 +544,8 @@
         ]
       },
       {
-        "id": "PV2.18",
-        "path": "PV2.18",
+        "id": "PV2.18-specialProgramCode",
+        "path": "PV2.18-specialProgramCode",
         "short": "Special Program Code",
         "definition": "This field designates the specific health insurance program for a visit required for healthcare reimbursement. Refer to {{v2-table:0214:Special Program Codes}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -573,8 +573,8 @@
         ]
       },
       {
-        "id": "PV2.19",
-        "path": "PV2.19",
+        "id": "PV2.19-retentionIndicator",
+        "path": "PV2.19-retentionIndicator",
         "short": "Retention Indicator",
         "definition": "This field allows the user to control the financial and demographic purge processes at the visit. It is used to preserve demographic and financial data on specific, high priority visits. Refer to {{v2-table:0136:Yes/No Indicator}} for valid values.",
         "comment": "Y retain data\n\nN normal purge processing",
@@ -616,8 +616,8 @@
         ]
       },
       {
-        "id": "PV2.20",
-        "path": "PV2.20",
+        "id": "PV2.20-expectedNumberOfInsurancePlans",
+        "path": "PV2.20-expectedNumberOfInsurancePlans",
         "short": "Expected Number of Insurance Plans",
         "definition": "This field contains the number of insurance plans that may provide coverage for this visit.",
         "code": [
@@ -643,19 +643,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "1"
+                "valueInteger": 1
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "PV2.21",
-        "path": "PV2.21",
+        "id": "PV2.21-visitPublicityCode",
+        "path": "PV2.21-visitPublicityCode",
         "short": "Visit Publicity Code",
         "definition": "This field contains a user-defined code indicating what level of publicity is allowed for a specific visit. Refer to {{v2-table:0215:Publicity Code}} in Chapter 2C, Code Tables, for suggested values. Refer to _PD1-11 - Publicity Code_ for the patient level publicity code.",
         "code": [
@@ -683,8 +683,8 @@
         ]
       },
       {
-        "id": "PV2.22",
-        "path": "PV2.22",
+        "id": "PV2.22-visitProtectionIndicator",
+        "path": "PV2.22-visitProtectionIndicator",
         "short": "Visit Protection Indicator",
         "definition": "*From v 2.6 onward, this field has been retained for backwards compatibility only.* Use the ARV segment instead. This field identifies the person's protection that determines, in turn, whether access to information about this person should be kept from users who do not have adequate authority for a specific visit. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y protect access to patient information\n\nN normal access\n\nRefer to _PD1-12 - Protection Indicator_ for the patient level protection indicator.",
@@ -722,12 +722,16 @@
                 "valueInteger": 1
               }
             ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
           }
         ]
       },
       {
-        "id": "PV2.23",
-        "path": "PV2.23",
+        "id": "PV2.23-clinicOrganizationName",
+        "path": "PV2.23-clinicOrganizationName",
         "short": "Clinic Organization Name",
         "definition": "This field contains the organization name or sub-unit and identifier that is associated with the (visit) episode of care. For example, the Allergy or Oncology Clinic within the healthcare facility might be named.",
         "code": [
@@ -737,7 +741,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XON"
@@ -751,8 +755,8 @@
         ]
       },
       {
-        "id": "PV2.24",
-        "path": "PV2.24",
+        "id": "PV2.24-patientStatusCode",
+        "path": "PV2.24-patientStatusCode",
         "short": "Patient Status Code",
         "definition": "This field indicates the status of the episode of care. Refer to {{v2-table:0216:Patient Status}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -780,8 +784,8 @@
         ]
       },
       {
-        "id": "PV2.25",
-        "path": "PV2.25",
+        "id": "PV2.25-visitPriorityCode",
+        "path": "PV2.25-visitPriorityCode",
         "short": "Visit Priority Code",
         "definition": "This field contains the priority of the visit. Refer to {{v2-table:0217:Visit Priority Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -809,8 +813,8 @@
         ]
       },
       {
-        "id": "PV2.26",
-        "path": "PV2.26",
+        "id": "PV2.26-previousTreatmentDate",
+        "path": "PV2.26-previousTreatmentDate",
         "short": "Previous Treatment Date",
         "definition": "This field contains the date that the patient last had treatment for any condition prior to this visit. In the case of a prior hospital visit, it is likely to be the previous discharge date.",
         "code": [
@@ -834,8 +838,8 @@
         ]
       },
       {
-        "id": "PV2.27",
-        "path": "PV2.27",
+        "id": "PV2.27-expectedDischargeDisposition",
+        "path": "PV2.27-expectedDischargeDisposition",
         "short": "Expected Discharge Disposition",
         "definition": "This field describes what the patient's disposition is expected to be at the end of the visit. Refer to {{v2-table:0112:Discharge Disposition}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -863,8 +867,8 @@
         ]
       },
       {
-        "id": "PV2.28",
-        "path": "PV2.28",
+        "id": "PV2.28-signatureOnFileDate",
+        "path": "PV2.28-signatureOnFileDate",
         "short": "Signature on File Date",
         "definition": "This field contains the date on which a signature was obtained for insurance billing purposes.",
         "code": [
@@ -888,8 +892,8 @@
         ]
       },
       {
-        "id": "PV2.29",
-        "path": "PV2.29",
+        "id": "PV2.29-firstSimilarIllnessDate",
+        "path": "PV2.29-firstSimilarIllnessDate",
         "short": "First Similar Illness Date",
         "definition": "This field is used to determine if the patient has a pre-existing condition.",
         "code": [
@@ -913,8 +917,8 @@
         ]
       },
       {
-        "id": "PV2.30",
-        "path": "PV2.30",
+        "id": "PV2.30-patientChargeAdjustmentCode",
+        "path": "PV2.30-patientChargeAdjustmentCode",
         "short": "Patient Charge Adjustment Code",
         "definition": "This field contains a user-defined code that indicates which adjustments should be made to this patient's charges. Refer to {{v2-table:0218:Patient Charge Adjustment}} in in chapter 2C, for suggested values. This field is the same as _GT1-26 - Guarantor Charge Adjustment Code_.",
         "code": [
@@ -942,8 +946,8 @@
         ]
       },
       {
-        "id": "PV2.31",
-        "path": "PV2.31",
+        "id": "PV2.31-recurringServiceCode",
+        "path": "PV2.31-recurringServiceCode",
         "short": "Recurring Service Code",
         "definition": "This field indicates whether the treatment is continuous. Refer to {{v2-table:0219:Recurring Service}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -971,8 +975,8 @@
         ]
       },
       {
-        "id": "PV2.32",
-        "path": "PV2.32",
+        "id": "PV2.32-billingMediaCode",
+        "path": "PV2.32-billingMediaCode",
         "short": "Billing Media Code",
         "definition": "This field indicates if the account is to be rejected from tape billing. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y reject account from tape billing\n\nN normal processing",
@@ -1014,8 +1018,8 @@
         ]
       },
       {
-        "id": "PV2.33",
-        "path": "PV2.33",
+        "id": "PV2.33-expectedSurgeryDateAndTime",
+        "path": "PV2.33-expectedSurgeryDateAndTime",
         "short": "Expected Surgery Date and Time",
         "definition": "This field contains the date and time on which the surgery is expected to occur.",
         "code": [
@@ -1039,8 +1043,8 @@
         ]
       },
       {
-        "id": "PV2.34",
-        "path": "PV2.34",
+        "id": "PV2.34-militaryPartnershipCode",
+        "path": "PV2.34-militaryPartnershipCode",
         "short": "Military Partnership Code",
         "definition": "This field indicates that a military healthcare facility has contracted with a non-military healthcare facility for the use of its services. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y contract(s) exist\n\nN no contract(s) exist",
@@ -1082,8 +1086,8 @@
         ]
       },
       {
-        "id": "PV2.35",
-        "path": "PV2.35",
+        "id": "PV2.35-militaryNonAvailabilityCode",
+        "path": "PV2.35-militaryNonAvailabilityCode",
         "short": "Military Non-Availability Code",
         "definition": "This field indicates whether a patient has permission to use a non-military healthcare facility for treatment. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the patient has permission to use a non-military healthcare facility\n\nN the patient does not have permissions to use a non-military healthcare facility",
@@ -1125,8 +1129,8 @@
         ]
       },
       {
-        "id": "PV2.36",
-        "path": "PV2.36",
+        "id": "PV2.36-newbornBabyIndicator",
+        "path": "PV2.36-newbornBabyIndicator",
         "short": "Newborn Baby Indicator",
         "definition": "This field indicates whether the patient is a baby. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the patient is a baby\n\nN the patient is not a baby",
@@ -1168,8 +1172,8 @@
         ]
       },
       {
-        "id": "PV2.37",
-        "path": "PV2.37",
+        "id": "PV2.37-babyDetainedIndicator",
+        "path": "PV2.37-babyDetainedIndicator",
         "short": "Baby Detained Indicator",
         "definition": "This field indicates if the baby is detained after the mother's discharge. Refer to {{v2-table:0136:Yes/No Indicator}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "Y the baby was detained\n\nN normal discharge of mother and baby",
@@ -1211,8 +1215,8 @@
         ]
       },
       {
-        "id": "PV2.38",
-        "path": "PV2.38",
+        "id": "PV2.38-modeOfArrivalCode",
+        "path": "PV2.38-modeOfArrivalCode",
         "short": "Mode of Arrival Code",
         "definition": "Identifies how the patient was brought to the healthcare facility. Refer to {{v2-table:0430:Mode of Arrival Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1240,8 +1244,8 @@
         ]
       },
       {
-        "id": "PV2.39",
-        "path": "PV2.39",
+        "id": "PV2.39-recreationalDrugUseCode",
+        "path": "PV2.39-recreationalDrugUseCode",
         "short": "Recreational Drug Use Code",
         "definition": "This field indicates what recreational drugs the patient uses. It is used for the purpose of room assignment. Refer to {{v2-table:0431:Recreational Drug Use Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1251,7 +1255,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1269,8 +1273,8 @@
         ]
       },
       {
-        "id": "PV2.40",
-        "path": "PV2.40",
+        "id": "PV2.40-admissionLevelOfCareCode",
+        "path": "PV2.40-admissionLevelOfCareCode",
         "short": "Admission Level of Care Code",
         "definition": "This field indicates the acuity level assigned to the patient at the time of admission. Refer to {{v2-table:0432:Admission Level of Care Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1298,8 +1302,8 @@
         ]
       },
       {
-        "id": "PV2.41",
-        "path": "PV2.41",
+        "id": "PV2.41-precautionCode",
+        "path": "PV2.41-precautionCode",
         "short": "Precaution Code",
         "definition": "This field indicates non-clinical precautions that need to be taken with the patient. Refer to {{v2-table:0433:Precaution Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1309,7 +1313,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1327,8 +1331,8 @@
         ]
       },
       {
-        "id": "PV2.42",
-        "path": "PV2.42",
+        "id": "PV2.42-patientConditionCode",
+        "path": "PV2.42-patientConditionCode",
         "short": "Patient Condition Code",
         "definition": "This field indicates the patient's current medical condition for the purpose of communicating to non-medical outside parties, e.g., family, employer, religious minister, media, etc. Refer to {{v2-table:0434:Patient Condition Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1356,8 +1360,8 @@
         ]
       },
       {
-        "id": "PV2.43",
-        "path": "PV2.43",
+        "id": "PV2.43-livingWillCode",
+        "path": "PV2.43-livingWillCode",
         "short": "Living Will Code",
         "definition": "This field indicates whether or not the patient has a living will and, if so, whether a copy of the living will is on file at the healthcare facility. If the patient does not have a living will, the value of this field indicates whether the patient was provided information on living wills. Refer to E:\\\\V2\\\\v2.9 final Nov from Frank\\\\V29_CH02C_Tables.docx#HL70315[_User-defined Table 0315 - Living Will Code_] in Chapter 2C, Code Tables, for suggested values. See also _PD1-7 - Living Will_.",
         "code": [
@@ -1385,8 +1389,8 @@
         ]
       },
       {
-        "id": "PV2.44",
-        "path": "PV2.44",
+        "id": "PV2.44-organDonorCode",
+        "path": "PV2.44-organDonorCode",
         "short": "Organ Donor Code",
         "definition": "This field indicates whether the patient wants to donate his/her organs and whether an organ donor card or similar documentation is on file with the healthcare organization. Refer to E:\\\\V2\\\\v2.9 final Nov from Frank\\\\V29_CH02C_Tables.docx#HL70316[_User-defined Table 0316 - Organ Donor Code_] in Chapter 2C, Code Tables, for suggested values. See also _PD1-8 - Organ Donor_.",
         "code": [
@@ -1414,8 +1418,8 @@
         ]
       },
       {
-        "id": "PV2.45",
-        "path": "PV2.45",
+        "id": "PV2.45-advanceDirectiveCode",
+        "path": "PV2.45-advanceDirectiveCode",
         "short": "Advance Directive Code",
         "definition": "This field indicates the patient's instructions to the healthcare facility. Refer to {{v2-table:0435:Advance Directive Code}} in Chapter 2C, Code Tables, for suggested values. See also _PD1-15 - Advance Directive Code_. This field is required if _PV2-50 - Advance Directive Last Verified Date_ is valued.",
         "comment": "*Note:* for details about specific consent refer to the Consent (CON) segment in chapter 9.",
@@ -1426,7 +1430,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1444,8 +1448,8 @@
         ]
       },
       {
-        "id": "PV2.46",
-        "path": "PV2.46",
+        "id": "PV2.46-patientStatusEffectiveDate",
+        "path": "PV2.46-patientStatusEffectiveDate",
         "short": "Patient Status Effective Date",
         "definition": "This field indicates the effective date for _PV2-24 - Patient Status_.",
         "code": [
@@ -1469,8 +1473,8 @@
         ]
       },
       {
-        "id": "PV2.47",
-        "path": "PV2.47",
+        "id": "PV2.47-expectedLoaReturnDateTime",
+        "path": "PV2.47-expectedLoaReturnDateTime",
         "short": "Expected LOA Return Date/Time",
         "definition": "This field is conditionally required for _A21 - Patient goes on LOA_. It may be populated in _A22 - Patient returns from LOA_ as well as in the _A53 - Cancel LOA for a patient_ and the _A54 - Cancel patient returns from LOA_ triggers. This field contains the date/time that the patient is expected to return from LOA.",
         "code": [
@@ -1494,8 +1498,8 @@
         ]
       },
       {
-        "id": "PV2.48",
-        "path": "PV2.48",
+        "id": "PV2.48-expectedPreAdmissionTestingDateTime",
+        "path": "PV2.48-expectedPreAdmissionTestingDateTime",
         "short": "Expected Pre-admission Testing Date/Time",
         "definition": "This field contains the date/time that the patient is expected for pre-admission testing.",
         "code": [
@@ -1519,8 +1523,8 @@
         ]
       },
       {
-        "id": "PV2.49",
-        "path": "PV2.49",
+        "id": "PV2.49-notifyClergyCode",
+        "path": "PV2.49-notifyClergyCode",
         "short": "Notify Clergy Code",
         "definition": "This field allows the user to indicate whether the clergy should be notified. Refer to {{v2-table:0534:Notify Clergy Code}} in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -1530,7 +1534,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"
@@ -1548,8 +1552,8 @@
         ]
       },
       {
-        "id": "PV2.50",
-        "path": "PV2.50",
+        "id": "PV2.50-advanceDirectiveLastVerifiedDate",
+        "path": "PV2.50-advanceDirectiveLastVerifiedDate",
         "short": "Advance Directive Last Verified Date",
         "definition": "This field indicates the date that all the advance directives held in _PV2-45 - Advance Directive Code_ were last verified. When this field is valued, the field _PV2-45 - Advance Directive Code_ is required.",
         "code": [

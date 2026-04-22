@@ -55,7 +55,7 @@
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Order Detail begin</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         --- --- Choice begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-OBR.html">OBR</a> ]</td><td>Order Detail Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-OBR.html">OBR</a> ]</td><td>Order Detail</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-Hxx.html">Hxx</a> ]</td><td>etc.</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         --- --- Choice end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes &amp; Comments (Order Detail Comments)</td><td>A</td></tr>

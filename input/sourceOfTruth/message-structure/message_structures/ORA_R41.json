@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORA_R41 Segment Definition",
+  "title": "HL7 v2 ORA_R41 Message Structure",
   "name": "ORA_R41",
   "type": "ORA_R41",
   "fhirVersion": "5.0.0",

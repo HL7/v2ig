@@ -64,7 +64,7 @@
       {
         "id": "ADT_A43-B.3-SFT",
         "path": "ADT_A43-B.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -247,7 +247,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ADT_A43-B Segment Definition",
+  "title": "HL7 v2 ADT_A43-B Message Structure",
   "name": "ADT_A43-B",
   "type": "ADT_A43-B",
   "fhirVersion": "5.0.0",

@@ -45,7 +45,7 @@
       {
         "id": "ESU_U01.2-SFT",
         "path": "ESU_U01.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -103,7 +103,7 @@
         "id": "ESU_U01.5-ISD",
         "path": "ESU_U01.5-ISD",
         "short": "Interaction Status Detail",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "definition": "Interaction Status Detail",
         "type": [
@@ -139,7 +139,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ESU_U01 Segment Definition",
+  "title": "HL7 v2 ESU_U01 Message Structure",
   "name": "ESU_U01",
   "type": "ESU_U01",
   "fhirVersion": "5.0.0",

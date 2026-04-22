@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "RFI.1",
-        "path": "RFI.1",
+        "id": "RFI.1-requestDate",
+        "path": "RFI.1-requestDate",
         "short": "Request Date",
         "definition": "",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "RFI.2",
-        "path": "RFI.2",
+        "id": "RFI.2-responseDueDate",
+        "path": "RFI.2-responseDueDate",
         "short": "Response Due Date",
         "definition": "The latest date by which the additional information is to be returned to requestor.",
         "code": [
@@ -74,8 +74,8 @@
         ]
       },
       {
-        "id": "RFI.3",
-        "path": "RFI.3",
+        "id": "RFI.3-patientConsent",
+        "path": "RFI.3-patientConsent",
         "short": "Patient Consent",
         "definition": "Code indicating if the Payer has obtained patient consent for release of information (1) – Optional. Refer to {{v2-table:0136:Yes/No Indicator}} for suggested values.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "RFI.4",
-        "path": "RFI.4",
+        "id": "RFI.4-dateAdditionalInformationWasSubmitted",
+        "path": "RFI.4-dateAdditionalInformationWasSubmitted",
         "short": "Date Additional Information Was Submitted",
         "definition": "The date on which the information was assembled for transmission to the Payer. Not necessarily the same as the message date.",
         "code": [

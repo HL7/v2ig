@@ -64,7 +64,7 @@
       {
         "id": "DPR_O48.3-SFT",
         "path": "DPR_O48.3-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -115,7 +115,7 @@
       {
         "id": "DPR_O48.5-DONOR.1-PID",
         "path": "DPR_O48.5-DONOR.1-PID",
-        "short": "Patient Identification Segment",
+        "short": "Patient Identification",
         "min": 1,
         "max": "1",
         "definition": "Patient Identification Segment",
@@ -572,7 +572,7 @@
       }
     ]
   },
-  "title": "HL7 v2 DPR_O48 Segment Definition",
+  "title": "HL7 v2 DPR_O48 Message Structure",
   "name": "DPR_O48",
   "type": "DPR_O48",
   "fhirVersion": "5.0.0",

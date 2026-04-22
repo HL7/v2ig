@@ -3,16 +3,16 @@
 <table class="grid">
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ERR.html">ERR</a> ]</td><td>Error</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-QAK.html">QAK</a></td><td>Query Acknowledgement</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Row Definition begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-RDF.html">RDF</a></td><td>Table Row Definition Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-RDT.html">RDT</a> }]</td><td>Table Row Data Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-RDF.html">RDF</a></td><td>Table Row Definition</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-RDT.html">RDT</a> }]</td><td>Table Row Data</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">] --- Row Definition end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>Continuation Pointer</td><td>A</td></tr>
 </tbody>

@@ -1,11 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Candidate Confidence</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01436</td><td class="v2-col-mono"></td><td class="v2-col-mono">10</td><td class="v2-col-mono">=</td></tr>
-<tr><td class="v2-col-seq">2</td><td>Match Reason Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..*]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0392">0392</a></td><td class="v2-col-mono">01437</td><td class="v2-col-mono">2</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">3</td><td>Algorithm Descriptor</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0393">0393</a></td><td class="v2-col-mono">01438</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-QRI.1-candidateConfidence">1</a></td><td>Candidate Confidence</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-QRI-definitions.html#QRI.1-candidateConfidence">01436</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">10</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq"><a href="#a-QRI.2-matchReasonCode">2</a></td><td>Match Reason Code</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0392">0392</a></td><td class="v2-col-mono">[0..*]</td><td class="v2-col-mono"><a href="StructureDefinition-QRI-definitions.html#QRI.2-matchReasonCode">01437</a></td><td class="v2-col-mono">2</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-QRI.3-algorithmDescriptor">3</a></td><td>Algorithm Descriptor</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>O</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0393">0393</a></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-QRI-definitions.html#QRI.3-algorithmDescriptor">01438</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

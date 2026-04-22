@@ -45,7 +45,7 @@
       {
         "id": "ACK-AK.2-SFT",
         "path": "ACK-AK.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-AK Segment Definition",
+  "title": "HL7 v2 ACK-AK Message Structure",
   "name": "ACK-AK",
   "type": "ACK-AK",
   "fhirVersion": "5.0.0",

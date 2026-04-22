@@ -4,9 +4,9 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
-<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Event Definition Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Event Definition</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Qbp begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-....html">...</a> ]</td><td>Optional query by example segments</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">] --- Qbp end</td><td></td><td></td></tr>

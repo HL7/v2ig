@@ -45,7 +45,7 @@
       {
         "id": "ACK-D.2-SFT",
         "path": "ACK-D.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-D Segment Definition",
+  "title": "HL7 v2 ACK-D Message Structure",
   "name": "ACK-D",
   "type": "ACK-D",
   "fhirVersion": "5.0.0",

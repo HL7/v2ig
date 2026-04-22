@@ -63,8 +63,8 @@
         "path" : "Extension.extension",
         "sliceName" : "length",
         "short" : "Minimum number of characters application must be able to store",
-        "definition" : "Minimum number of characters application must be able to store",
-        "min" : 1,
+        "definition" : "Minimum number of characters application must be able to store. When absent and noTruncate is true, the receiver must accept the full value without truncation regardless of length.",
+        "min" : 0,
         "max" : "1"
       },
       {

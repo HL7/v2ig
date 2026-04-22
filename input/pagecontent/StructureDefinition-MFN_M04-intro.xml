@@ -7,13 +7,13 @@
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Mf Cdm begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-MFE.html">MFE</a></td><td>Master File Entry</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-CDM.html">CDM</a></td><td>Charge Description Master</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments Segment</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRC.html">PRC</a> }]</td><td>Price Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRC.html">PRC</a> }]</td><td>Price</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Cdm end</td><td></td><td></td></tr>
 </tbody>
 </table>

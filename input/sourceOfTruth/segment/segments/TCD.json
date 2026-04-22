@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "TCD.1",
-        "path": "TCD.1",
+        "id": "TCD.1-tcd1",
+        "path": "TCD.1-tcd1",
         "short": "TCD-1",
         "definition": "This field identifies the test code that information is being transmitted about. Refer to Table 0789 - Universal Service Identifier in Chapter 2C for valid values.",
         "code": [
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "TCD.2",
-        "path": "TCD.2",
+        "id": "TCD.2-tcd2",
+        "path": "TCD.2-tcd2",
         "short": "TCD-2",
         "definition": "This field is the value that is to be used as the factor for automatically diluting a particular specimen by an instrument for this particular test code. (See examples in definition of _13.3.3.29_, \"_SAC-29 Dilution Factor_ (SN) 01356,\" in the \"Specimen Container Detail Segment.\")",
         "code": [
@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "TCD.3",
-        "path": "TCD.3",
+        "id": "TCD.3-tcd3",
+        "path": "TCD.3-tcd3",
         "short": "TCD-3",
         "definition": "This field is the value that is to be used as the factor for automatically diluting a particular specimen in case of rerun for this particular test code.",
         "code": [
@@ -103,8 +103,8 @@
         ]
       },
       {
-        "id": "TCD.4",
-        "path": "TCD.4",
+        "id": "TCD.4-tcd4",
+        "path": "TCD.4-tcd4",
         "short": "TCD-4",
         "definition": "This field is the value that is to be used as the factor for a particular specimen that is delivered to the automated system as pre-diluted for this particular test code.",
         "code": [
@@ -128,8 +128,8 @@
         ]
       },
       {
-        "id": "TCD.5",
-        "path": "TCD.5",
+        "id": "TCD.5-tcd5",
+        "path": "TCD.5-tcd5",
         "short": "TCD-5",
         "definition": "This field represents the rest concentration of the measured test in the diluent. It is the value that is to be used for calculation of the concentration of pre-diluted specimens for this particular test code.",
         "code": [
@@ -153,8 +153,8 @@
         ]
       },
       {
-        "id": "TCD.6",
-        "path": "TCD.6",
+        "id": "TCD.6-tcd6",
+        "path": "TCD.6-tcd6",
         "short": "TCD-6",
         "definition": "This field identifies whether or not automatic repeats are to be initiated for this particular specimen for this particular test code. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "code": [
@@ -195,8 +195,8 @@
         ]
       },
       {
-        "id": "TCD.7",
-        "path": "TCD.7",
+        "id": "TCD.7-tcd7",
+        "path": "TCD.7-tcd7",
         "short": "TCD-7",
         "definition": "This field identifies whether or not automatic or manual reflex testing is to be initiated for this particular specimen. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "code": [
@@ -237,8 +237,8 @@
         ]
       },
       {
-        "id": "TCD.8",
-        "path": "TCD.8",
+        "id": "TCD.8-tcd8",
+        "path": "TCD.8-tcd8",
         "short": "TCD-8",
         "definition": "This field identifies the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). Refer to {{v2-table:0389:Analyte Repeat Status}} in Chapter 2C, Code Tables, for valid values.",
         "comment": "For purpose of this chapter we assume the following:\n\n• Repeated test without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).\n\n• Repeated test with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).\n\n• Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
@@ -267,8 +267,8 @@
         ]
       },
       {
-        "id": "TCD.9",
-        "path": "TCD.9",
+        "id": "TCD.9-tcd9",
+        "path": "TCD.9-tcd9",
         "short": "TCD-9",
         "definition": "The specimen consumption quantity determines how much of the specimen shall be consumed in each run of the test. For some types of equipment, observation accuracy depends on this parameter.",
         "code": [
@@ -292,8 +292,8 @@
         ]
       },
       {
-        "id": "TCD.10",
-        "path": "TCD.10",
+        "id": "TCD.10-tcd10",
+        "path": "TCD.10-tcd10",
         "short": "TCD-10",
         "definition": "In order submission messages, this field defines the maximal size of the pool where the given specimen may be combined into. In result submission messages, this field defines the actual size of such pool.",
         "code": [
@@ -317,8 +317,8 @@
         ]
       },
       {
-        "id": "TCD.11",
-        "path": "TCD.11",
+        "id": "TCD.11-tcd11",
+        "path": "TCD.11-tcd11",
         "short": "TCD-11",
         "definition": "This field contains a vendor-defined code of the auto-dilution factor pre‑configured on the instrument, which can be used instead of TCD‑2 “Auto-Dilution Factor”. Refer to _User-defined Table 0945– Auto Dilution Type_ in Chapter 2C, Code Tables, for suggested values.",
         "comment": "If both TCD‑2 “Auto-Dilution Factor” and TCD‑11 “Auto-Dilution Type” are populated, they shall not contradict each other.",

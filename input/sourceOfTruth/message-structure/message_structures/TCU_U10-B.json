@@ -171,7 +171,7 @@
       }
     ]
   },
-  "title": "HL7 v2 TCU_U10-B Segment Definition",
+  "title": "HL7 v2 TCU_U10-B Message Structure",
   "name": "TCU_U10-B",
   "type": "TCU_U10-B",
   "fhirVersion": "5.0.0",

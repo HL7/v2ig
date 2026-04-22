@@ -667,7 +667,7 @@
       }
     ]
   },
-  "title": "HL7 v2 RRI_I12 Segment Definition",
+  "title": "HL7 v2 RRI_I12 Message Structure",
   "name": "RRI_I12",
   "type": "RRI_I12",
   "fhirVersion": "5.0.0",

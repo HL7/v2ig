@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "NTE.1",
-        "path": "NTE.1",
+        "id": "NTE.1-setId",
+        "path": "NTE.1-setId",
         "short": "Set ID - NTE",
         "definition": "This field MAY be used where multiple NTE segments are included in a message. Their numbering must be described in the application message definition.",
         "code": [
@@ -49,8 +49,8 @@
         ]
       },
       {
-        "id": "NTE.2",
-        "path": "NTE.2",
+        "id": "NTE.2-sourceOfComment",
+        "path": "NTE.2-sourceOfComment",
         "short": "Source of Comment",
         "definition": "This field is used when source of comment must be identified. This table MAY be extended locally during implementation. Refer to {{v2-table:0105:Source of Comment}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "NTE.3",
-        "path": "NTE.3",
+        "id": "NTE.3-comment",
+        "path": "NTE.3-comment",
         "short": "Comment",
         "definition": "This field contains the comment contained in the segment.",
         "comment": "Conditionality Predicate: In support of backwards compatibility, when NTE-9 is populated, the sending system SHALL also populate a human-readable version of the comment in NTE-3. When NTE-9 is not populated then NTE-3 MAY be populated.\n\n*Note: NTE-3 has been left blank for the use cases where legacy systems are sending a blank NTE as a line feed.*\n\n*Note:* As of v2.2, this field uses the FT rather than a TX data type. Since there is no difference between an FT data type without any embedded formatting commands, and a TX data type, this change is compatible with the previous version.",
@@ -103,7 +103,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "FT"
@@ -117,8 +117,8 @@
         ]
       },
       {
-        "id": "NTE.4",
-        "path": "NTE.4",
+        "id": "NTE.4-commentType",
+        "path": "NTE.4-commentType",
         "short": "Comment Type",
         "definition": "This field contains a value to identify the type of comment text being sent in the specific comment record. Refer to {{v2-table:0364:Comment Type}} in Chapter 2C, Code Tables, for suggested values.",
         "comment": "Note: A field already exists on the NTE record that identifies the Sources of Comment (e.g., ancillary, placer, other). However some applications need to support other types of comment text (e.g., instructions, reason, remarks, etc.). A separate NTE segment can be used for each type of comment (e.g., instructions are on one NTE and remarks on another NTE).",
@@ -147,8 +147,8 @@
         ]
       },
       {
-        "id": "NTE.5",
-        "path": "NTE.5",
+        "id": "NTE.5-enteredBy",
+        "path": "NTE.5-enteredBy",
         "short": "Entered By",
         "definition": "This field contains the identity of the person who actually keyed the comment into the application. It provides an audit trail in case the comment is entered incorrectly and the ancillary department needs to clarify the comment. By local agreement, either the ID number or name component MAY be omitted.",
         "code": [
@@ -172,8 +172,8 @@
         ]
       },
       {
-        "id": "NTE.6",
-        "path": "NTE.6",
+        "id": "NTE.6-enteredDateTime",
+        "path": "NTE.6-enteredDateTime",
         "short": "Entered Date/Time",
         "definition": "This field contains the actual date the comment was keyed into the application.",
         "code": [
@@ -197,8 +197,8 @@
         ]
       },
       {
-        "id": "NTE.7",
-        "path": "NTE.7",
+        "id": "NTE.7-effectiveStartDate",
+        "path": "NTE.7-effectiveStartDate",
         "short": "Effective Start Date",
         "definition": "This field contains the date the comment becomes or became effective.",
         "code": [
@@ -222,8 +222,8 @@
         ]
       },
       {
-        "id": "NTE.8",
-        "path": "NTE.8",
+        "id": "NTE.8-expirationDate",
+        "path": "NTE.8-expirationDate",
         "short": "Expiration Date",
         "definition": "This field contains the date the comment becomes or became non-effective.",
         "code": [
@@ -247,8 +247,8 @@
         ]
       },
       {
-        "id": "NTE.9",
-        "path": "NTE.9",
+        "id": "NTE.9-codedComment",
+        "path": "NTE.9-codedComment",
         "short": "Coded Comment",
         "definition": "This field contains a value to identify a codified comment being sent in the specific comment record. If this field is valued, NTE-3 will be populated with text from this field. In support of backwards compatibility, when NTE-9 is populated, the sending system SHALL also populate a human-readable version of the comment in NTE-3. Refer to Table 0611 - Coded Comment in Chapter 2C for valid values.",
         "code": [
@@ -258,7 +258,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"

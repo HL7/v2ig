@@ -381,7 +381,7 @@
       }
     ]
   },
-  "title": "HL7 v2 BRT_O32 Segment Definition",
+  "title": "HL7 v2 BRT_O32 Message Structure",
   "name": "BRT_O32",
   "type": "BRT_O32",
   "fhirVersion": "5.0.0",

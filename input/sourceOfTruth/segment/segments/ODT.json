@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ODT.1",
-        "path": "ODT.1",
+        "id": "ODT.1-trayType",
+        "path": "ODT.1-trayType",
         "short": "Tray Type",
         "definition": "This field defines the type of dietary tray. Refer To {{v2-table:0160:Tray Type}} in Chapter 2C, Code Tables, for valid entries.",
         "comment": "Tray specifications are useful for early and late tray delivery in cases where a patient undergoes a procedure during normal feeding times. Tray specifications can also be used for guest trays, no trays, and messages. The value MSG means the ODT segment does not specify the type of tray but provides additional information about an existing tray. This information is found in ODT-3-text instruction.",
@@ -54,8 +54,8 @@
         ]
       },
       {
-        "id": "ODT.2",
-        "path": "ODT.2",
+        "id": "ODT.2-servicePeriod",
+        "path": "ODT.2-servicePeriod",
         "short": "Service Period",
         "definition": "When blank, the modifier applies to all service periods. This field allows you to designate one or more of the feeding periods during a day by combining the codes as needed. It can also combine with quantity/timing to give such information as which service period the order belongs with. This field is identical in meaning with ODS-2-service period. See section _4.8.1.2_, \"_ODS-2 Service Period_ (CWE) 00270,\" for further details. Refer to Table 0629 - Service Period in Chapter 2C for valid values.",
         "code": [
@@ -83,8 +83,8 @@
         ]
       },
       {
-        "id": "ODT.3",
-        "path": "ODT.3",
+        "id": "ODT.3-textInstruction",
+        "path": "ODT.3-textInstruction",
         "short": "Text Instruction",
         "definition": "This field defines instructions associated with the tray. Example:",
         "comment": "|PLASTIC SILVERWARE|.",
@@ -111,11 +111,11 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "80"
+                "valueInteger": 80
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 1
+                "valueInteger": 0
               }
             ]
           }

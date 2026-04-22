@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "MRG.1",
-        "path": "MRG.1",
+        "id": "MRG.1-priorPatientIdentifierList",
+        "path": "MRG.1-priorPatientIdentifierList",
         "short": "Prior Patient Identifier List",
         "definition": "This field contains the prior patient identifier list. This field contains a list of potential \"old\" numbers to match. Only one old number can be merged with one new number in a transaction. Refer to {{v2-table:0061:Check Digit Scheme}} for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -35,7 +35,7 @@
           }
         ],
         "min": 1,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -53,8 +53,8 @@
         ]
       },
       {
-        "id": "MRG.2",
-        "path": "MRG.2",
+        "id": "MRG.2-priorAlternatePatientId",
+        "path": "MRG.2-priorAlternatePatientId",
         "short": "Prior Alternate Patient ID",
         "definition": "*The MRG-2 field was retained for backward compatibility only as of v 2.3.1 and withdrawn as of v 2.7. The reader is referred to section _3.4.10.1_, _MRG-1 Prior Patient Identifier List_* (CX) 00211**, instead.**",
         "code": [
@@ -64,17 +64,21 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
       {
-        "id": "MRG.3",
-        "path": "MRG.3",
+        "id": "MRG.3-priorPatientAccountNumber",
+        "path": "MRG.3-priorPatientAccountNumber",
         "short": "Prior Patient Account Number",
         "definition": "This field contains the prior patient account number. Refer to {{v2-table:0061:Check Digit Scheme}} for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -102,8 +106,8 @@
         ]
       },
       {
-        "id": "MRG.4",
-        "path": "MRG.4",
+        "id": "MRG.4-priorPatientId",
+        "path": "MRG.4-priorPatientId",
         "short": "Prior Patient ID",
         "definition": "*The MRG-4 field was retained for backward compatibility only as of v 2.3.1 and withdrawn as of v 2.7. The reader is referred to section _3.4.10.1_, _MRG-1 Prior Patient Identifier List_* (CX) 00211**, instead.**",
         "code": [
@@ -113,17 +117,21 @@
           }
         ],
         "min": 0,
-        "max": 1,
+        "max": "0",
         "extension": [
           {
             "url": "http://hl7.org/v2/StructureDefinition/optionality",
             "valueCode": "W"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "withdrawn"
           }
         ]
       },
       {
-        "id": "MRG.5",
-        "path": "MRG.5",
+        "id": "MRG.5-priorVisitNumber",
+        "path": "MRG.5-priorVisitNumber",
         "short": "Prior Visit Number",
         "definition": "This field contains the prior visit number. Refer to {{v2-table:0061:Check Digit Scheme}} for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -151,8 +159,8 @@
         ]
       },
       {
-        "id": "MRG.6",
-        "path": "MRG.6",
+        "id": "MRG.6-priorAlternateVisitId",
+        "path": "MRG.6-priorAlternateVisitId",
         "short": "Prior Alternate Visit ID",
         "definition": "This field contains the prior alternate visit number. Multiple alternate identifiers may be sent. Refer to {{v2-table:0061:Check Digit Scheme}} in Chapter 2C, Code Tables, for valid values. The assigning authority and identifier type code are strongly recommended for all CX data types.",
         "code": [
@@ -162,7 +170,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CX"
@@ -180,8 +188,8 @@
         ]
       },
       {
-        "id": "MRG.7",
-        "path": "MRG.7",
+        "id": "MRG.7-priorPatientName",
+        "path": "MRG.7-priorPatientName",
         "short": "Prior Patient Name",
         "definition": "This field contains the prior name of the patient. This field is not used to change a patient name. Refer to {{v2-table:0200:Name Type}} in Chapter 2C, Code Tables, for valid values.",
         "code": [
@@ -191,7 +199,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "XPN"

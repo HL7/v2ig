@@ -52,7 +52,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -62,7 +62,7 @@
         "id": "FN.2",
         "path": "FN.2",
         "short": "Own Surname Prefix",
-        "defintion": "*Definition:* Internationalization usage for Germanic languages. This component is optional. An example of a <surname prefix> is the \"van\" in \"Ludwig van Beethoven\". Since the <surname prefix> doesn't sort completely alphabetically, it is reasonable to specify it as a separate sub-component of the PN and extended PN data types (XPN and XCN).\n\n\n\n*NOTE:* Subcomponents <own surname prefix>, <own surname>, <surname prefix from partner/spouse> and <surname from partner/spouse> decompose complex Germanic names such as “Martha de Mum-van Beethoven”. If these subcomponents are valued, the <surname> subcomponent should still be fully valued for backward compatibility, i.e., ^de Mum-van Beethoven&de&Mum&van&Beethoven^. +\n\nAlso, for clarity, the <last name prefix> has been renamed to <own surname prefix>.\n",
+        "defintion": "*Definition:* Internationalization usage for Germanic languages. This component is optional. An example of a <surname prefix> is the \"van\" in \"Ludwig van Beethoven\". Since the <surname prefix> doesn't sort completely alphabetically, it is reasonable to specify it as a separate sub-component of the PN and extended PN data types (XPN and XCN).\n\n\n\n*NOTE:* Subcomponents <own surname prefix>, <own surname>, <surname prefix from partner/spouse> and <surname from partner/spouse> decompose complex Germanic names such as \u201cMartha de Mum-van Beethoven\u201d. If these subcomponents are valued, the <surname> subcomponent should still be fully valued for backward compatibility, i.e., ^de Mum-van Beethoven&de&Mum&van&Beethoven^. +\n\nAlso, for clarity, the <last name prefix> has been renamed to <own surname prefix>.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -84,7 +84,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -116,7 +116,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -126,7 +126,7 @@
         "id": "FN.4",
         "path": "FN.4",
         "short": "Surname Prefix from Partner/Spouse",
-        "defintion": "*Definition:* Internationalization usage for Germanic languages. This component is optional. An example of a <surname prefix> is the “van” in \"Ludwig van Beethoven\". Since the <surname prefix> doesn't sort completely alphabetically, it is reasonable to specify it as a separate sub-component of the PN and extended PN data types (XPN and XCN).\n\n\n\n*NOTE:* Subcomponents <own surname prefix>, <own surname>, <surname prefix from partner/spouse> and <surname from partner/spouse> decompose complex Germanic names such as “Martha de Mum-van Beethoven”. If these subcomponents are valued, the <surname> subcomponent should still be fully valued for backward compatibility, i.e., ^de Mum-van Beethoven&de&Mum&van&Beethoven^.” +\n\nAlso, for clarity, the <last name prefix> has been renamed to <own surname prefix>.\n",
+        "defintion": "*Definition:* Internationalization usage for Germanic languages. This component is optional. An example of a <surname prefix> is the \u201cvan\u201d in \"Ludwig van Beethoven\". Since the <surname prefix> doesn't sort completely alphabetically, it is reasonable to specify it as a separate sub-component of the PN and extended PN data types (XPN and XCN).\n\n\n\n*NOTE:* Subcomponents <own surname prefix>, <own surname>, <surname prefix from partner/spouse> and <surname from partner/spouse> decompose complex Germanic names such as \u201cMartha de Mum-van Beethoven\u201d. If these subcomponents are valued, the <surname> subcomponent should still be fully valued for backward compatibility, i.e., ^de Mum-van Beethoven&de&Mum&van&Beethoven^.\u201d +\n\nAlso, for clarity, the <last name prefix> has been renamed to <own surname prefix>.\n",
         "min": 0,
         "max": "1",
         "type": [
@@ -148,7 +148,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }
@@ -180,7 +180,7 @@
               },
               {
                 "url": "noTruncate",
-                "valueBoolean": true
+                "valueBoolean": false
               }
             ]
           }

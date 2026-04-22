@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-DA Segment Definition",
+  "title": "HL7 v2 ACK-DA Message Structure",
   "name": "ACK-DA",
   "type": "ACK-DA",
   "fhirVersion": "5.0.0",

@@ -375,7 +375,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M16 Segment Definition",
+  "title": "HL7 v2 MFN_M16 Message Structure",
   "name": "MFN_M16",
   "type": "MFN_M16",
   "fhirVersion": "5.0.0",

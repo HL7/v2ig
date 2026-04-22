@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "REL.1",
-        "path": "REL.1",
+        "id": "REL.1-setId",
+        "path": "REL.1-setId",
         "short": "Set ID –REL",
         "definition": "This field contains the Set ID of the specific relationship Record.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "REL.2",
-        "path": "REL.2",
+        "id": "REL.2-relationshipType",
+        "path": "REL.2-relationshipType",
         "short": "Relationship Type",
         "definition": "This field contains the type of the relationship. Refer to User-defined Table 0948 – Relationship Type, as defined in Chapter 2C, Code Tables for suggested values.",
         "code": [
@@ -91,8 +91,8 @@
         ]
       },
       {
-        "id": "REL.3",
-        "path": "REL.3",
+        "id": "REL.3-thisRelationshipInstanceIdentifier",
+        "path": "REL.3-thisRelationshipInstanceIdentifier",
         "short": "This Relationship Instance Identifier",
         "definition": "This field contains the instance identifier of this relationship.",
         "code": [
@@ -116,8 +116,8 @@
         ]
       },
       {
-        "id": "REL.4",
-        "path": "REL.4",
+        "id": "REL.4-sourceInformationInstanceIdentifier",
+        "path": "REL.4-sourceInformationInstanceIdentifier",
         "short": "Source Information Instance Identifier",
         "definition": "This field contains the Instance ID of the Source Segment.",
         "code": [
@@ -141,8 +141,8 @@
         ]
       },
       {
-        "id": "REL.5",
-        "path": "REL.5",
+        "id": "REL.5-targetInformationInstanceIdentifier",
+        "path": "REL.5-targetInformationInstanceIdentifier",
         "short": "Target Information Instance Identifier",
         "definition": "This field contains the Instance ID of the Target Segment.",
         "code": [
@@ -166,8 +166,8 @@
         ]
       },
       {
-        "id": "REL.6",
-        "path": "REL.6",
+        "id": "REL.6-assertingEntityInstanceId",
+        "path": "REL.6-assertingEntityInstanceId",
         "short": "Asserting Entity Instance ID",
         "definition": "This field contains the Instance ID of the Person or Organization that asserted the relationship.",
         "code": [
@@ -191,8 +191,8 @@
         ]
       },
       {
-        "id": "REL.7",
-        "path": "REL.7",
+        "id": "REL.7-assertingPerson",
+        "path": "REL.7-assertingPerson",
         "short": "Asserting Person",
         "definition": "This field contains the Identifier details of the Person who asserted the relationship.",
         "code": [
@@ -216,8 +216,8 @@
         ]
       },
       {
-        "id": "REL.8",
-        "path": "REL.8",
+        "id": "REL.8-assertingOrganization",
+        "path": "REL.8-assertingOrganization",
         "short": "Asserting Organization",
         "definition": "This field contains the Identifier details of the Organization that asserted the relationship.",
         "code": [
@@ -241,8 +241,8 @@
         ]
       },
       {
-        "id": "REL.9",
-        "path": "REL.9",
+        "id": "REL.9-assertorAddress",
+        "path": "REL.9-assertorAddress",
         "short": "Assertor Address",
         "definition": "This field contains the address of the Person or Organization that asserted the relationship.",
         "code": [
@@ -266,8 +266,8 @@
         ]
       },
       {
-        "id": "REL.10",
-        "path": "REL.10",
+        "id": "REL.10-assertorContact",
+        "path": "REL.10-assertorContact",
         "short": "Assertor Contact",
         "definition": "This field contains the address of the Person or Organization that asserted the relationship.",
         "code": [
@@ -291,8 +291,8 @@
         ]
       },
       {
-        "id": "REL.11",
-        "path": "REL.11",
+        "id": "REL.11-assertionDateRange",
+        "path": "REL.11-assertionDateRange",
         "short": "Assertion Date Range",
         "definition": "This field contains the date range during which assertion of the relationship took place.",
         "code": [
@@ -316,8 +316,8 @@
         ]
       },
       {
-        "id": "REL.12",
-        "path": "REL.12",
+        "id": "REL.12-negationIndicator",
+        "path": "REL.12-negationIndicator",
         "short": "Negation Indicator",
         "definition": "This field asserts the absence of the relationship for this particular REL segment. This field, if populated and set a value of 'Y', indicates that the given relationship does not exist.",
         "code": [
@@ -358,8 +358,8 @@
         ]
       },
       {
-        "id": "REL.13",
-        "path": "REL.13",
+        "id": "REL.13-certaintyOfRelationship",
+        "path": "REL.13-certaintyOfRelationship",
         "short": "Certainty of Relationship",
         "definition": "This field contains the certainty of existence of the relationship.",
         "comment": "NOTE that there are no suggested values for this coded element.",
@@ -384,8 +384,8 @@
         ]
       },
       {
-        "id": "REL.14",
-        "path": "REL.14",
+        "id": "REL.14-priorityNo",
+        "path": "REL.14-priorityNo",
         "short": "Priority No",
         "definition": "This field contains the priority number as used, for example, in relative ordering, plans, and workflows.",
         "code": [
@@ -411,19 +411,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "REL.15",
-        "path": "REL.15",
+        "id": "REL.15-prioritySequenceNoRelPreferenceForConsideration",
+        "path": "REL.15-prioritySequenceNoRelPreferenceForConsideration",
         "short": "Priority  Sequence No (rel preference for consideration)",
         "definition": "This field contains the priority sequence number as used, for example, in relative preference for consideration.",
         "code": [
@@ -449,19 +449,19 @@
             "extension": [
               {
                 "url": "length",
-                "valueInteger": "5"
+                "valueInteger": 5
               },
               {
                 "url": "noTruncate",
-                "valueInteger": 0
+                "valueInteger": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "REL.16",
-        "path": "REL.16",
+        "id": "REL.16-separabilityIndicator",
+        "path": "REL.16-separabilityIndicator",
         "short": "Separability Indicator",
         "definition": "This field indicates whether source and target can be interpreted independently. Refer to {{v2-table:0136:Yes/no Indicator}}, as defined in Chapter 2C, Code Tables.",
         "code": [
@@ -502,8 +502,8 @@
         ]
       },
       {
-        "id": "REL.17",
-        "path": "REL.17",
+        "id": "REL.17-sourceInformationInstanceObjectType",
+        "path": "REL.17-sourceInformationInstanceObjectType",
         "short": "Source Information Instance Object Type",
         "definition": "This field contains the identifier type code drawn from coding system HL70203 describing the object identifed by the Source Information Instance Identifier (REL-4).",
         "comment": "Components: Identifier (ID)",
@@ -532,8 +532,8 @@
         ]
       },
       {
-        "id": "REL.18",
-        "path": "REL.18",
+        "id": "REL.18-targetInformationInstanceObjectType",
+        "path": "REL.18-targetInformationInstanceObjectType",
         "short": "Target Information Instance Object Type",
         "definition": "This field contains the identifier type code drawn from coding system HL70203 describing the object identifed by the Target Information Instance Identifier (REL-5).",
         "comment": "Components: Identifier (ID)",

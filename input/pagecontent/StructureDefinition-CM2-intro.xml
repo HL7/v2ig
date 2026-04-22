@@ -1,12 +1,12 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <div id="v2-segment-content" style="display:none;">
-<table class="grid v2-segment-table">
-<thead><tr><th>Seq</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Cardinality</th><th>Vocabulary</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
+<table class="v2-segment-table">
+<thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq">1</td><td>Set ID- CM2</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01024</td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">2</td><td>Scheduled Time Point</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..1]</td><td></td><td class="v2-col-mono">01025</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq">3</td><td>Description of Time Point</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td class="v2-col-mono">[0..1]</td><td></td><td class="v2-col-mono">01026</td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">#</td></tr>
-<tr><td class="v2-col-seq">4</td><td>Events Scheduled This Time Point</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td class="v2-col-mono">[1..200]</td><td></td><td class="v2-col-mono">01027</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM2.1-setId">1</a></td><td>Set ID- CM2</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-CM2-definitions.html#CM2.1-setId">01024</a></td><td class="v2-col-mono">1..4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM2.2-scheduledTimePoint">2</a></td><td>Scheduled Time Point</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-CM2-definitions.html#CM2.2-scheduledTimePoint">01025</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM2.3-descriptionOfTimePoint">3</a></td><td>Description of Time Point</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-CM2-definitions.html#CM2.3-descriptionOfTimePoint">01026</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">300</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq"><a href="#a-CM2.4-eventsScheduledThisTimePoint">4</a></td><td>Events Scheduled This Time Point</td><td class="v2-col-mono"><a href="StructureDefinition-CWE.html">CWE</a></td><td>R</td><td></td><td class="v2-col-mono">[1..200]</td><td class="v2-col-mono"><a href="StructureDefinition-CM2-definitions.html#CM2.4-eventsScheduledThisTimePoint">01027</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

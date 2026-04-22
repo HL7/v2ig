@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ACK-CZ Segment Definition",
+  "title": "HL7 v2 ACK-CZ Message Structure",
   "name": "ACK-CZ",
   "type": "ACK-CZ",
   "fhirVersion": "5.0.0",

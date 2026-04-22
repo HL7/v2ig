@@ -438,7 +438,7 @@
       }
     ]
   },
-  "title": "HL7 v2 ORI_O24 Segment Definition",
+  "title": "HL7 v2 ORI_O24 Message Structure",
   "name": "ORI_O24",
   "type": "ORI_O24",
   "fhirVersion": "5.0.0",

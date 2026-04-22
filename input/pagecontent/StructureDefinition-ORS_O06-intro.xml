@@ -13,7 +13,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Response begin</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibilitty only as of V2.9.</td><td>B</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Patient ID)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient end</td><td></td><td></td></tr>

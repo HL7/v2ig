@@ -45,7 +45,7 @@
       {
         "id": "MDM_T01-A.2-SFT",
         "path": "MDM_T01-A.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -413,7 +413,7 @@
       {
         "id": "MDM_T01-A.14-CON",
         "path": "MDM_T01-A.14-CON",
-        "short": "Consent Segment",
+        "short": "Consent",
         "min": 0,
         "max": "*",
         "definition": "Consent Segment",
@@ -431,7 +431,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MDM_T01-A Segment Definition",
+  "title": "HL7 v2 MDM_T01-A Message Structure",
   "name": "MDM_T01-A",
   "type": "MDM_T01-A",
   "fhirVersion": "5.0.0",

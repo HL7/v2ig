@@ -5,7 +5,7 @@
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
@@ -43,7 +43,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Rx Administration end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRB.html">PRB</a> }]</td><td>Detail problem segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Result)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Observation end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and comments</td><td>A</td></tr>
@@ -65,9 +65,9 @@
 <tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-RXR.html">RXR</a> ]</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Pharmacy Administration)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Associated Rx Admin end</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRB.html">PRB</a> }]</td><td>Detail Problem Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRB.html">PRB</a> }]</td><td>Detail Problem</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Associated Observation begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Results Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Results</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Result)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Associated Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Associated Person end</td><td></td><td></td></tr>

@@ -45,7 +45,7 @@
       {
         "id": "CCI_I22.2-SFT",
         "path": "CCI_I22.2-SFT",
-        "short": "Software Segment",
+        "short": "Software",
         "min": 0,
         "max": "*",
         "definition": "Software Segment",
@@ -158,7 +158,7 @@
       }
     ]
   },
-  "title": "HL7 v2 CCI_I22 Segment Definition",
+  "title": "HL7 v2 CCI_I22 Message Structure",
   "name": "CCI_I22",
   "type": "CCI_I22",
   "fhirVersion": "5.0.0",

@@ -24,8 +24,8 @@
         "max": "*"
       },
       {
-        "id": "ORG.1",
-        "path": "ORG.1",
+        "id": "ORG.1-setId",
+        "path": "ORG.1-setId",
         "short": "Set ID – ORG",
         "definition": "This field contains the number that identifies this transaction. For the first occurrence of the segment, the sequence number shall be one; for the second occurrence, the sequence number shall be two; etc.",
         "code": [
@@ -62,8 +62,8 @@
         ]
       },
       {
-        "id": "ORG.2",
-        "path": "ORG.2",
+        "id": "ORG.2-organizationUnitCode",
+        "path": "ORG.2-organizationUnitCode",
         "short": "Organization Unit Code",
         "definition": "This field contains the hierarchical components of the organization unit, as defined by the institution. Refer to {{v2-table:0405:Organization Unit}} for suggested values.",
         "comment": "Refer to {{v2-table:0405:Organization Unit}} in Chapter 2C, Code Tables, for valid values. This table contains no suggested values.",
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "id": "ORG.3",
-        "path": "ORG.3",
+        "id": "ORG.3-organizationUnitTypeCode",
+        "path": "ORG.3-organizationUnitTypeCode",
         "short": "Organization Unit Type Code",
         "definition": "This field contains a code indicating the classification of the organization unit. HL7 suggests using values in {{v2-table:0474:Organization Unit Type}}.",
         "comment": "Refer to {{v2-table:0474:Organization Unit Type}} in Chapter 2C, Code Tables, for valid values. This table contains values for department, facility etc.",
@@ -122,8 +122,8 @@
         ]
       },
       {
-        "id": "ORG.4",
-        "path": "ORG.4",
+        "id": "ORG.4-primaryOrgUnitIndicator",
+        "path": "ORG.4-primaryOrgUnitIndicator",
         "short": "Primary Org Unit Indicator",
         "definition": "This field contains an indicator for whether this organization unit is the primary organization unit for this practitioner. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y this is the primary organization unit\n\nN this is not the primary organization unit",
@@ -165,8 +165,8 @@
         ]
       },
       {
-        "id": "ORG.5",
-        "path": "ORG.5",
+        "id": "ORG.5-practitionerOrgUnitIdentifier",
+        "path": "ORG.5-practitionerOrgUnitIdentifier",
         "short": "Practitioner Org Unit Identifier",
         "definition": "This field contains an identification code used by the institution to identify this person at this specific organization unit. If the person is identified with the same code at all organization units, then this data should be coded in _STF-2 Staff ID Codes_.",
         "code": [
@@ -190,8 +190,8 @@
         ]
       },
       {
-        "id": "ORG.6",
-        "path": "ORG.6",
+        "id": "ORG.6-healthCareProviderTypeCode",
+        "path": "ORG.6-healthCareProviderTypeCode",
         "short": "Health Care Provider Type Code",
         "definition": "This field contains the major grouping of the service or occupation of the practitioner at a specific organization unit, for example, Behavioral Health & Social Service. HL7 suggests using values derived from the ANSI ASC X12 Health Care Provider Taxonomy, Level 1 - Type.",
         "comment": "Refer to {{v2-table:0452:Health Care Provider Type Code}} in Chapter 2C, Code Tables, for valid values.",
@@ -220,8 +220,8 @@
         ]
       },
       {
-        "id": "ORG.7",
-        "path": "ORG.7",
+        "id": "ORG.7-healthCareProviderClassificationCode",
+        "path": "ORG.7-healthCareProviderClassificationCode",
         "short": "Health Care Provider Classification Code",
         "definition": "This field contains the more specific service or occupation within the health care provider type of the practitioner at a specific organization unit, for example, Counselor. HL7 suggests using values derived from the ANSI ASC X12 Health Care Provider Taxonomy, Level 2 – Classification.",
         "comment": "Refer to {{v2-table:0453:Health Care Provider Classification}} in Chapter 2C, Code Tables, for valid values.",
@@ -250,8 +250,8 @@
         ]
       },
       {
-        "id": "ORG.8",
-        "path": "ORG.8",
+        "id": "ORG.8-healthCareProviderAreaOfSpecializationCode",
+        "path": "ORG.8-healthCareProviderAreaOfSpecializationCode",
         "short": "Health Care Provider Area of Specialization Code",
         "definition": "This field contains the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider's practice relating to the services rendered of the practitioner at a specific organization unit, for example, Mental Health. HL7 suggests using values derived from the ANSI ASC X12 Health Care Provider Taxonomy, Level 3 - specialization.",
         "comment": "Refer to {{v2-table:0454:Health Care Provider Area of Specialization}} in chapter 2C for valid values.",
@@ -280,8 +280,8 @@
         ]
       },
       {
-        "id": "ORG.9",
-        "path": "ORG.9",
+        "id": "ORG.9-effectiveDateRange",
+        "path": "ORG.9-effectiveDateRange",
         "short": "Effective Date Range",
         "definition": "This field contains the date range in which the practitioner started and ended working at the specific organization unit in the specific practicing specialty category.",
         "code": [
@@ -305,8 +305,8 @@
         ]
       },
       {
-        "id": "ORG.10",
-        "path": "ORG.10",
+        "id": "ORG.10-employmentStatusCode",
+        "path": "ORG.10-employmentStatusCode",
         "short": "Employment Status Code",
         "definition": "This field contains a code indicating the working relationship of the practitioner at this organization unit. It may be different than the work status specified in _STF-20_. Refer to {{v2-table:0066:Employment Status}}, in Chapter 2C, Code Tables, for suggested values.",
         "code": [
@@ -334,8 +334,8 @@
         ]
       },
       {
-        "id": "ORG.11",
-        "path": "ORG.11",
+        "id": "ORG.11-boardApprovalIndicator",
+        "path": "ORG.11-boardApprovalIndicator",
         "short": "Board Approval Indicator",
         "definition": "This field contains an indicator for whether this practice specialty requires board approval. Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y this practice specialty requires board approval\n\nN this practice specialty does not require board approval",
@@ -377,8 +377,8 @@
         ]
       },
       {
-        "id": "ORG.12",
-        "path": "ORG.12",
+        "id": "ORG.12-primaryCarePhysicianIndicator",
+        "path": "ORG.12-primaryCarePhysicianIndicator",
         "short": "Primary Care Physician Indicator",
         "definition": "This field contains an indicator for whether this practice specialty may act as a primary care physician (PCP). Refer to {{v2-table:0136:Yes/no Indicator}} for valid values.",
         "comment": "Y this practice specialty may act as a primary care physician\n\nN this practice specialty may not act as a primary care physician",
@@ -420,8 +420,8 @@
         ]
       },
       {
-        "id": "ORG.13",
-        "path": "ORG.13",
+        "id": "ORG.13-costCenterCode",
+        "path": "ORG.13-costCenterCode",
         "short": "Cost Center Code",
         "definition": "This field contains the cost center name or code assigned to this organization unit. Refer to {{v2-table:0539:Cost Center Code}}_ for valid values.",
         "code": [
@@ -431,7 +431,7 @@
           }
         ],
         "min": 0,
-        "max": 0,
+        "max": "*",
         "type": [
           {
             "code": "CWE"

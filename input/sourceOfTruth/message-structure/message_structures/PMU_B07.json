@@ -209,7 +209,7 @@
       }
     ]
   },
-  "title": "HL7 v2 PMU_B07 Segment Definition",
+  "title": "HL7 v2 PMU_B07 Message Structure",
   "name": "PMU_B07",
   "type": "PMU_B07",
   "fhirVersion": "5.0.0",

@@ -120,7 +120,7 @@
       }
     ]
   },
-  "title": "HL7 v2 MFN_M13 Segment Definition",
+  "title": "HL7 v2 MFN_M13 Message Structure",
   "name": "MFN_M13",
   "type": "MFN_M13",
   "fhirVersion": "5.0.0",
