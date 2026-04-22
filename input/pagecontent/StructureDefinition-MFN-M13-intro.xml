@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M13.html">MFN_M13</a></p>
-<div class="paragraph">
-<p>The MFN General master file notification transaction is used where the master file is a simple one that contains only a key and the text value of that key. Both values are carried in <em>MFE-4 - Primary Key Value - MFE</em>. The specific master file being updated is identified by <em>MFI-1 - Master File Identifier</em> and <em>MFI-2 - Master Files Application Identifier</em>.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

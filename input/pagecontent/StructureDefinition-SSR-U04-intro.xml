@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SSR_U04.html">SSR_U04</a></p>
-<div class="paragraph">
-<p>This message is used to request information concerning the location and status of specimens from one application to another (e.g., Laboratory Automation System to automated equipment). The request can be addressed for a specific container, a specific carrier, a specific tray or a specific location, depending on the arguments set in the SAC segment. The equipment specified in the EQU segment should respond with the "Specimen Status Update."</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

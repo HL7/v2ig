@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SLR_S28-D.html">SLR_S28</a></p>
-<div class="paragraph">
-<p>This message is sent from a filler application to notify other applications that a new sterilization lot has been created. The information provided in the SLT segment describes the new sterilization lot that has been created by the filler application.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

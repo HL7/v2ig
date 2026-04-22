@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A21-G.html">ADT_A21</a></p>
-<div class="paragraph">
-<p>An A29 event can be used to delete all demographic information related to a given person. This event "undoes" an A28 (add person information) event. The information from the A28 event is deleted. This event is used, for example, when adding the information was performed in error, or when another record already exists for the person, or when one wants to purge the person from the database. When this event occurs, all visit and account level data for this person is also purged.</p>
-</div>
-<div class="paragraph">
-<p>To maintain backward compatibility with previous releases, the PV1 segment is required. However, a "pseudo-optional" PV1 can be achieved by valuing <em>PV1-2 - Patient Class</em> to N - not applicable.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

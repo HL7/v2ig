@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A05-B.html">ADT_A05</a></p>
-<div class="paragraph">
-<p>An A14 event notifies other systems of a planned admission, when there is a reservation or when patient admission is to occur imminently. The A14 event is similar to a pre-admit, but without the implication that an account should be opened for the purposes of tests prior to admission. It is used when advanced notification of an admit is required in order to prepare for the patient&#8217;s arrival.</p>
-</div>
-<div class="paragraph">
-<p>The PRT - Participation Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>–PRT-11 - Begin Date/Time</em> and the <em>–PRT-12 - End Date/Time</em> in the PRT, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

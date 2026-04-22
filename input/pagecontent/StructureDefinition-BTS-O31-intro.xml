@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-BTS_O31.html">BTS_O31</a></p>
-<div class="paragraph">
-<p>Blood product transfusion/disposition messages use the BTS and BRT messages as described below.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,20 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A15.html">ADT_A15</a></p>
-<div class="paragraph">
-<p>An A15 event notifies other systems of a plan to transfer a patient to a new location when the patient has not yet left the old location. It is used when advanced notification of a transfer is required in order to prepare for the patient&#8217;s location change. For example, this transaction could be sent so that staff will be on hand to move the patient or so that dietary services can route the next meal to the new location.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
-</div>
-<div class="paragraph">
-<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
-</div>
-<div class="paragraph">
-<p>The PRT - Participation Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>PRT-11 - Begin Date/Time</em> and the <em>PRT-12 - End Date/Time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
-</div>
-<div class="paragraph">
-<p><strong>Attention: The DG1 segment was retained in this message for backward compatibility only as of v2.4 and was withdrawn and removed from this message structure as of v2.7.</strong></p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

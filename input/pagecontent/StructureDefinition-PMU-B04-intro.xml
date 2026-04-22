@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PMU_B04-A.html">PMU_B04</a></p>
-<div class="paragraph">
-<p>An event B04 signals that a staff member is available for work (e.g., schedules can be created) and has a relationship with the institution. This message applies to STF-7.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

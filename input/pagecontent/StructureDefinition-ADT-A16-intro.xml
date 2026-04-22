@@ -1,17 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A16.html">ADT_A16</a></p>
-<div class="paragraph">
-<p>An A16 event notifies other systems of a plan to discharge a patient when the patient has not yet left the healthcare facility. It is used when advanced notification of a discharge is required in order to prepare for the patient&#8217;s change in location. For example, it is used to notify the pharmacy of the possible need for discharge drugs or to notify psychotherapy of the possible need for post-discharge appointments or to notify the extended care or home health system that the patient will be discharged and that the new extended care and home health admission assessment can be scheduled.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
-</div>
-<div class="paragraph">
-<p>The ROL segment has been deprecated and retained for backwards compatiblity purposes only as of v 2.9. The reader is referred to the PRT segment instead.</p>
-</div>
-<div class="paragraph">
-<p>The PRT – Participation Information Segment is used in this message to communicate providers not specified elsewhere. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments. To communicate the begin- and end-date of the provider, use the <em>PRT-11 - Begin Date/Time</em> and the <em>PRT-12 - End Date/Time</em> in the PRT, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

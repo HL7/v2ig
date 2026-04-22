@@ -1,23 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ORU_R30-C.html">ORU_R30</a></p>
-<div class="paragraph">
-<p>This event trigger instructs the receiver to place the result with the order information included in the message.</p>
-</div>
-<div class="paragraph">
-<p>From a traditional clinical laboratory perspective, this event trigger&#8217;s use case is probably the predominant (if not exclusive) one. However, in the POC environment, it is actually uncommon to have an order already generated when a test is performed. It does happen sometimes, though. If it is necessary to pass specific information related to the Patient, responsible Doctor, placing doctor, patient location, etc., there is a requirement for the inclusion of a PV1 and PD1 segment in the ORU message type (see also ORU^R30 for description).</p>
-</div>
-<div class="paragraph">
-<p>If the receiving system accepts both the order and the result, it will return an ORA^R33 Application Acknowledgement message with the acknowledgement code of AA. A comment may be included in the Acknowledgement Message MSA Text Message field.</p>
-</div>
-<div class="paragraph">
-<p>If the receiving system is unable to accept both the order and the result, no order or result should be placed and an ACK^33 Application Acknowledgement message must be returned to the sender with the error identified in the MSA Text Message field.</p>
-</div>
-<div class="paragraph">
-<p>The sending system must return a commit-level acknowledgement in response to the ORA^R33 message.</p>
-</div>
-<div class="paragraph">
-<p>The Device segment (DEV) provides additional device information for a device referenced in one or more of the PRT segments in the message (using PRT-10 Participation Device to match DEV-2 Unique Device Identifier or PRT-22 Participation Device Type using DEV-3 Device Type).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

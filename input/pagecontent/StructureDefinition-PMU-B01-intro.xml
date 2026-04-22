@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PMU_B01-A.html">PMU_B01</a></p>
-<div class="paragraph">
-<p>An event B01 signals to add a new record for healthcare administration information about an individual healthcare practitioner establishing a relationship between that practitioner and the institution.</p>
-</div>
-<div class="paragraph">
-<p>The EVN segment is used to indicate the effective or planned date.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

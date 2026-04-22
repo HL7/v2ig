@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M02.html">MFN_M02</a></p>
-<div class="paragraph">
-<p>The staff identification (STF), person gender and sex (GSP) and recorded, practitioner detail (PRA), practitioner organization unit segment (ORG), professional affiliation (AFF), language detail (LAN), educational detail (EDU), and certificate detail (CER) segments can be used to transmit master files information between systems. The STF segment provides general information about personnel; the GSP, GSR, GSC, PRA, ORG, AFF, LAN, EDU, CER and NTE segments provide detailed information for a staff member.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

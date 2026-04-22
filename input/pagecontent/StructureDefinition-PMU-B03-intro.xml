@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PMU_B03.html">PMU_B03</a></p>
-<div class="paragraph">
-<p>An event B03 signals to delete the record with the healthcare administration information about an individual healthcare practitioner to correct erroneous entries.</p>
-</div>
-<div class="paragraph">
-<p>The EVN segment is used to indicate the effective or planned date.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

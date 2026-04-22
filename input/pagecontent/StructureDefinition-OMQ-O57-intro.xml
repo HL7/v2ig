@@ -1,17 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OMQ_O57.html">OMQ_O57</a></p>
-<div class="paragraph">
-<p>The purpose of this message is to enable communication of orders using a CDA document type to convey the content of the order (e.g., prescription, lab tests, etc.) while the message infrastructure enables appropriate state management.</p>
-</div>
-<div class="paragraph">
-<p>It should be noted that, unless orders are communicated at the granular, fully decomposed test/medication/procedure/etc. level, state management can only happen at the group level, i.e., equal to all elements in the document. It also should be noted that identification of individual elements can only be achieved if the CDA document contains appropriate identification while the order numbers in ORC effectively act as a group number.</p>
-</div>
-<div class="paragraph">
-<p>Once the order manager determines to initiate a new order using this message, then all subsequent state management messages must continue at the document level, forgoing detailed level state management.</p>
-</div>
-<div class="paragraph">
-<p>When one wants to convey with the detailed order message a supporting document, such as a CDA, one can transmit that document using the OBX associated with the ORC/OBR(s) using OBX-11 = "O" Order Detail Description Only, using either OBX-2 = "ED" or "RP".</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

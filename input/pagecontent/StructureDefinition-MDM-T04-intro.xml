@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MDM_T02-B.html">MDM_T02</a></p>
-<div class="paragraph">
-<p>This is a notification of a change in a status of a document with the accompanying content.</p>
-</div>
-<div class="paragraph">
-<p><strong>Scenario:</strong> A document is authenticated. Notification is sent to the chart tracking system and is used to update the document status from pre-authenticated to authenticated or legally authenticated. The document content is also transmitted.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

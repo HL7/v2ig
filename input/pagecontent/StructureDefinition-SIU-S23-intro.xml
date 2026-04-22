@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SIU_S12.html">SIU_S12</a></p>
-<div class="paragraph">
-<p>A notification of blocked schedule time slots is sent by the filler application to other applications when a schedule has had one or more time slots blocked and made unavailable for reasons other than the scheduling of an appointment. For example, if an exam room is unavailable for several hours because of maintenance needs or contamination, a user may block off those several hours on the exam room&#8217;s schedule. Similarly, if a physician is unavailable because they have taken vacation time, their schedule may be blocked off for the duration of the vacation. When these types of conditions exist, the filler application may use this transaction to notify other applications that the resources controlled by schedules are unavailable.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

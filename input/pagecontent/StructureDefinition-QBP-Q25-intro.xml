@@ -1,58 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QBP_Q21-F.html">QBP_Q21</a></p>
-<div class="paragraph">
-<p>The following trigger event is served by the following Conformance Statement: Another application determines a need for Personnel data about a person and sends a query to a system providing this information.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 39%;"/>
-<col style="width: 61%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Conformance Statement ID:</th>
-<th class="tableblock halign-left valign-top">Q25</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Table Type:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Personnel Information by Segment</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ25QBP_Q21</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK25RSP_K25</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns response sorted by <em>STF-3 Staff Name</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieve all available personnel information based upon the values of one or more commonly used search parameters</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Characteristics:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns response sorted by StaffName unless otherwise specified.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Based on Segment Pattern:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PMU_B01</p></td>
-</tr>
-</tbody>
-</table>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

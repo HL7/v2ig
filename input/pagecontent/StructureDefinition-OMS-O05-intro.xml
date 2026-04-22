@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OMS_O05.html">OMS_O05</a></p>
-<div class="paragraph">
-<p>Stock requisition orders use the ORM where RQD is the detail segment for backward compatibility or can use the OMS and ORS messages described below.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

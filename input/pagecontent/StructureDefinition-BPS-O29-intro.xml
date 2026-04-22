@@ -1,14 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-BPS_O29.html">BPS_O29</a></p>
-<div class="paragraph">
-<p>In the pre-transfusion processing of blood products, it is necessary for the transfusion service and the placer system to communicate information that is not included in the current HL7 order/observation model. Examples of pre-transfusion processing include performing a crossmatch test to ensure compatibility with the patient, or irradiation of the blood product due to a special transfusion requirement for the patient. The blood product dispense status messages need to contain additional information regarding the blood products requested, such as the Donation ID, product code, blood type, expiration date/time and current status of the blood product.</p>
-</div>
-<div class="paragraph">
-<p>In the processing of commercial blood products, such as Rh Immune Globulin, Factor Concentrate, or Albumin Products, the status messages need to contain additional information, such as the lot number and manufacturer, expiration date and status of the commercial product.</p>
-</div>
-<div class="paragraph">
-<p>Blood product dispense status messages use the BPS and BRP messages as described below.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,17 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MDM_T01-A.html">MDM_T01</a></p>
-<div class="paragraph">
-<p>This is a notification of the creation of a document without the accompanying content. There are multiple approaches by which systems become aware of documents:</p>
-</div>
-<div class="paragraph">
-<p><strong>Scenario A:</strong> A document is dictated and chart tracking system is notified that it has been dictated and is awaiting transcription.</p>
-</div>
-<div class="paragraph">
-<p><strong>Scenario B:</strong> Dictation is transcribed and chart tracking system is notified that the document exists and requires authentication.</p>
-</div>
-<div class="paragraph">
-<p><strong>Scenario C:</strong> A provider orders a series of three X-rays. The radiologist dictates a single document which covers all three orders. Multiple placer numbers are used to identify each of these orders.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

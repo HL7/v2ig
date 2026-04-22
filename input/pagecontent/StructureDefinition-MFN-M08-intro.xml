@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M08.html">MFN_M08</a></p>
-<div class="paragraph">
-<p><em>MFI-1 -</em> Master <em>File Identifier</em> = OMA for numeric observations.</p>
-</div>
-<div class="paragraph">
-<p>A service/test/observation definition may have both an OM2 (numeric) and OM3 (categorical) segment included in case the value may be either numeric and/or categorical.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

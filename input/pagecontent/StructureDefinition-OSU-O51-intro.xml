@@ -1,20 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OSU_O51.html">OSU_O51</a></p>
-<div class="paragraph">
-<p>This message is used to create simple order status updates for any type of order where the ORC is sufficient to communicate the order identifier and no other data changes. This is particularly necessary when status updates are not part of order acknowledgement messages, e.g., a status message occurs 2 days later.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-that one also could send a regular order message using order control code “SC” (Status Changed). The choice to use one or the other is dependent on whether any of the other segments in the original message structure is necessary or not.
-</td>
-</tr>
-</table>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

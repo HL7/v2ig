@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-CCQ_I19.html">CCQ_I19</a></p>
-<div class="paragraph">
-<p>This event triggers a query message to be sent from a referring healthcare provider to a referred to healthcare provider, regarding a specific, previously sent collaborative care referral. The Collaborative Care Query message must contain sufficient data for the referred to provider to be able to identify the specific referral being queried. The response to a Collaborative Care Query message is a CQU - Collaborative Care Query Update message. The meaning of the Collaborative Care Query Update message is identical to the meaning of the Asynchronous Collaborative Care Update message.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

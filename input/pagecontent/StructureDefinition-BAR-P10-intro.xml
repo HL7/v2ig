@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-BAR_P10.html">BAR_P10</a></p>
-<div class="paragraph">
-<p>The P10 event is used to communicate Ambulatory Payment Classification (APC) grouping. The grouping can be estimated or actual, based on the APC status indictor in GP1-1. This information is mandated in the USA by the Centers for Medicare and Medicaid Services (CMS) for reimbursement of outpatient services. The PID and PV1 segments are included for identification purposes only. When other patient or visit related fields change, use the A08 (update patient information) event.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

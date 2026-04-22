@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-VXU_V04.html">VXU_V04</a></p>
-<div class="paragraph">
-<p>When a provider wishes to update the patient&#8217;s vaccination record being held in a registry, the provider will transmit an unsolicited update of the record (a V04 trigger event).</p>
-</div>
-<div class="paragraph">
-<p>An unsolicited update will follow this format. The three-letter code in the leftmost column indicates the segment that is included; the column on the right specifies the chapter in which that segment is fully defined.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RQI_I01-A.html">RQI_I01</a></p>
-<div class="paragraph">
-<p>This event triggers a message to be sent from one healthcare provider to another to request insurance information for a specified patient.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

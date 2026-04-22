@@ -1,51 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RSP_K23-B.html">RSP_K23</a></p>
-<div class="paragraph">
-<p>This query/response is designed for interaction between a client system and an MPI (Master Person Index). The query consists of domains in which identifiers should be allocated. The response is new identifiers in those domains.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. This event is not meant to cause the creation of a new person record, or to bind identifiers to a particular person record. The events <em>A28 - Add person information</em> and <em>A24 - Link patient information</em> should be used for that purpose. This event is meant to simply reserve the use of identifiers.</caption>
-<colgroup>
-<col style="width: 39%;"/>
-<col style="width: 61%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Statement ID:</th>
-<th class="tableblock halign-left valign-top">Q24</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Type:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allocate Identifiers</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ24QBP_Q21</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK24RSP_K23</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Request that an MPI allocate an identifier for a given domain.</p></td>
-</tr>
-</tbody>
-</table>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SIU_S12.html">SIU_S12</a></p>
-<div class="paragraph">
-<p>A notification of discontinuation of service/resource is sent by the filler application to other applications when the remaining children of a parent appointment no longer require a particular service or resource. In other words, this trigger event is sent to discontinue the performance of a service or resource in a parent appointment that has already begun. If the first appointment in a set of recurring appointments has not yet taken place, then a cancel trigger event should be sent instead. This trigger event should only be used for appointments that have not been completed, or for parent appointments whose children have not been completed.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

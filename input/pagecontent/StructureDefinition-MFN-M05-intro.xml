@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M05.html">MFN_M05</a></p>
-<div class="paragraph">
-<p>The LOC, LCH, LRL, LDP, and LCC segments must be preceded by the MFI and MFE segments, as described in Section 8.5, "GENERAL MASTER FILE SEGMENTS." In the following message, the <em>MFI-1 - Master File Identifier</em> field should equal "LOC"</p>
-</div>
-<div class="paragraph">
-<p>When the LCH segment appears immediately following the LOC segment, it communicates characteristics which are the same across multiple departments that may use the same room. When the LCH segment appears immediately following the LDP segment, it communicates characteristics which differ for different departments that may use the same room.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

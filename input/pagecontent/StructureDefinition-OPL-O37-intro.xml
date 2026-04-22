@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OPL_O37.html">OPL_O37</a></p>
-<div class="paragraph">
-<p>This message supports the use-case for submission of field level specimen and order data to diagnostic laboratories</p>
-</div>
-<div class="paragraph">
-<p>When one wants to convey with the detailed order message a supporting document, such as a CDA, one can transmit that document using the OBX associated with the ORC/OBR(s) using OBX-11 = "O" Order Detail Description Only, using either OBX-2 = "ED" or "RP"."</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

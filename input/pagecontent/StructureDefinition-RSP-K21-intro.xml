@@ -1,48 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RSP_K21.html">RSP_K21</a></p>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. This query/response is designed for interaction between a client system and an MPI (Master Person Index). The query consists of an identifier for a person, and the response of the demographics for that person.</caption>
-<colgroup>
-<col style="width: 39%;"/>
-<col style="width: 61%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Statement ID:</th>
-<th class="tableblock halign-left valign-top">Q21</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Type:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Q21 Get Person Demographics</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ21QBP_Q21</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK21RSP_K21</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns demographics information for a specified person</p></td>
-</tr>
-</tbody>
-</table>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -84,7 +84,7 @@ Search</th>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|^GOOD HEALTH HOSPITAL|&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|<sup>^</sup>GOOD HEALTH HOSPITAL|&#8230;&#8203;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>

@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SDR_S31-A.html">SDR_S31</a></p>
-<div class="paragraph">
-<p>This trigger event is sent by the placer application to the filler application to request anti-microbial device data created during the decontamination/sterilization of medical supplies. In the context of this message segment, the term 'device' refers to a sterilizer or a washer. Sterilizers perform a sterilization process and washers perform a decontamination process.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

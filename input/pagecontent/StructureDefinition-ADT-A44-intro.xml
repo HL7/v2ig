@@ -1,29 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A44-A.html">ADT_A44</a></p>
-<div class="paragraph">
-<p>A move has been done at the account identifier level. That is, a <em>PID-18 - Patient Account Number</em> associated with one <em>PID-3 - Patient Identifier List</em> has been moved to another patient identifier list.</p>
-</div>
-<div class="paragraph">
-<p>An A44 event is used to signal a move of records identified by the <em>MRG-3 - Prior Patient Account Number</em> from the "incorrect source patient identifier list" identified in the MRG segment (<em>MRG-1 - Prior Patient Identifier List</em>) to the "correct target patient identifier list" identified in the PID segment (<em>PID-3 - Patient Identifier List</em>).</p>
-</div>
-<div class="paragraph">
-<p>The account number involved in identifying the account to be moved (<em>MRG-3 - Prior Patient Account Number</em>) may or may not have visits. In any case, all subordinate data sets associated with the account number in <em>MRG-3 - Prior Patient Account Number</em> are moved along with the account number, from the "incorrect source" ID (<em>MRG-1 - Prior Patient Identifier List</em>) to the "correct target" ID (<em>PID-3 - Patient Identifier List</em>).</p>
-</div>
-<div class="paragraph">
-<p>No identifiers subordinate to the account number (visit number, alternate visit ID) are valued in this message.</p>
-</div>
-<div class="paragraph">
-<p>This event and the message syntax do, however, allow for the specification of a "new identifier" (<em>PID-18 - Patient Account Number</em>), which may be application and/or implementation-specific and therefore require site negotiation.</p>
-</div>
-<div class="paragraph">
-<p>All of the identifiers superior to the account number should be valued in both the MRG segment and the PID segment. In this message, the <em>PID-3 - Patient Identifier List</em> is superior to the account number.</p>
-</div>
-<div class="paragraph">
-<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em>&#44;</a> "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#move"><em>3.6.2.1.3</em></a>, "<a href="#move"><em>Move</em></a>," for a discussion of issues related to the implementation of move messages.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When demographic data in other fields change, it is recommended that the A08 (update patient information) event be used in conjunction with this message. However, all PID data associated with the "account number" are treated as updated information.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

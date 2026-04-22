@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-BAR_P12.html">BAR_P12</a></p>
-<div class="paragraph">
-<p>The P12 event is used to communicate diagnosis and/or procedures in update mode. Fields in DG1 and PR1, i.e., identifiers and action codes, must be populated to indicate which change should be applied. When other patient or visit related fields change, use the A08 (update patient information) event.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

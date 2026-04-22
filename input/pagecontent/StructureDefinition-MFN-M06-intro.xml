@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M06.html">MFN_M06</a></p>
-<div class="paragraph">
-<p><strong>Case 1: MFN message for Clinical Study with phases and schedules</strong></p>
-</div>
-<div class="paragraph">
-<p><em>MFI-1 - Master File Identifier Code</em> = CMA</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

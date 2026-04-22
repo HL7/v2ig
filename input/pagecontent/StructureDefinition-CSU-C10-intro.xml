@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-CSU_C09.html">CSU_C09</a></p>
-<div class="paragraph">
-<p>Event C10 - Patient completes the clinical trial</p>
-</div>
-<div class="paragraph">
-<p>Data are entered in the clinical trials system or may reside in laboratory, pathology, radiology, pharmacy and/or other clinical applications. Most clinical trials data ‑ clinical observations and study variables ‑ will be communicated in OBR and OBX segments. The CSR, CSP, and CSS segments will identify the specific association these OBR and OBX have to the clinical trial. Data can be broadcast or transmitted in batch mode to study sponsors or the data management center for collaborative studies.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

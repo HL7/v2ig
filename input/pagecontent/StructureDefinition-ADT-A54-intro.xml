@@ -1,20 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A54-A.html">ADT_A54</a></p>
-<div class="paragraph">
-<p>An A54 event is issued as a result of a change in the attending doctor responsible for the treatment of a patient.</p>
-</div>
-<div class="paragraph">
-<p>When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
-</div>
-<div class="paragraph">
-<p>The new attending doctor of the patient should appear in the <em>PV1-7 - Attending Doctor</em>. For example, an A54 event can be used to notify the billing system that doctors' fees should be billed to the new doctor starting from the timestamp in the message.</p>
-</div>
-<div class="paragraph">
-<p>The ROL - Role Segment was used in this message to communicate providers not specified elsewhere. As of v2.9, this has been deprecated in preference to the PRT segment as a more robust and flexible method of conveying participation. Hereafter, instructions for the PRT segment should apply, using the PRT segment. Person level providers with an ongoing relationship are reported in the PRT segment following the PID/PD1 segments. Providers corresponding to the PV1 data are reported in the PRT segment following the PV1/PV2 segments. Providers related to a specific procedure are reported in the PRT segment following the PR1 segment. Providers related to a specific insurance are reported in the PRT segment following the IN1/IN2/IN3 segments.</p>
-</div>
-<div class="paragraph">
-<p>To communicate the begin and end date of the attending, referring, or admitting doctor, use the <em>PRT-11 - Begin Date/Time</em> and the <em>PRT-12 - End Date/time</em> in the PRT segment, with the applicable <em>PRT-4 – Role of Participation</em>. Refer to Chapter 7 for the definition of the PRT segment. Use "UP" in <em>PRT-2 - Action Code</em>.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

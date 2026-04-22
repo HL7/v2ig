@@ -1,37 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-EHC_E21.html">EHC_E21</a></p>
-<div class="paragraph">
-<p>This message is used to cancel an Authorization Request, as a result of a previously submitted EHC^E20 – Submit Authorization Request message.</p>
-</div>
-<div class="paragraph">
-<p>This message can be used to cancel the entire Authorization Request, or an individual Product/Service Line Item within an Authorization Request.</p>
-</div>
-<div class="paragraph">
-<p>This message cannot be used to update ancillary information in an Authorization that has been submitted to a Payer. The original request must be cancelled, and a new Authorization Request submitted to the Payer.</p>
-</div>
-<div class="paragraph">
-<p>Processing Rules:</p>
-</div>
-<div class="paragraph">
-<p>1) The Provider Application and the Payer Application must uniquely identify each Authorization Request, Product/Service Group, Product/Service Line Item and Adjustment.<br/>
-These numbers appear as a pair on the IVC, PSG, PSL and ADJ segments and must be echoed on any subsequent interactions for the Authorization Request, group or line item between the Provider Application and Payer Application.</p>
-</div>
-<div class="paragraph">
-<p>2) The Provider Application and/or Payer Application may also supply a tracking number for each Product/Service Line Item it processes, specified as the Provider Tracking Number or Payer Tracking Number.<br/>
-The Provider Tracking Number and Payer Tracking Number must be echoed on any subsequent interactions for the Product/Service Line Item between the Provider Application and Payer Application.</p>
-</div>
-<div class="paragraph">
-<p>3) An Authorization Request can be cancelled regardless of its status with the Payer (i.e., whether approved, denied, pending or status unknown).</p>
-</div>
-<div class="paragraph">
-<p>4) At least one NTE segment must be included with this message to describe the cancellation reason for each Product/Service Line Item. The NTE segment may be specified with the (Pr) Authorization Request (following the IVC segment) and applies to all Product/Service Line Items for that Authorization Request. If not specified with the Invoice, then it must be specified for each Product/Service Line Item (following the PSL segment).</p>
-</div>
-<div class="paragraph">
-<p>5) Sending Organization and Sending Application on input message must be the same as the Sending Organization and Sending Application from the original request (submitted via the EHC^E20 – Submit Authorization Request message).</p>
-</div>
-<div class="paragraph">
-<p>6) Provider reference numbers must exist on Payer Application&#8217;s database and must point to the same Invoice, Product/Service Group or Product/Service Line Item; otherwise, an error must be generated (mismatched Invoice and/or Product/Service Line Item).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

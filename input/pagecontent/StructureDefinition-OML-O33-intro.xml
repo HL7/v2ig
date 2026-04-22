@@ -1,26 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OML_O33.html">OML_O33</a></p>
-<div class="paragraph">
-<p>The trigger event for this message is any change to a laboratory order. Such changes include submission of new orders, cancellations, updates, etc., where multiple orders are associated with a single sample which may be carried in multiple containers. OML messages can originate also with a placer, filler, or an interested third party.</p>
-</div>
-<div class="paragraph">
-<p>This allows for a Specimen-centric message with multiple orders per specimen grouped by the specimen.</p>
-</div>
-<div class="paragraph">
-<p>The following message structure may be used for the communication of laboratory and other order messages and must be used for lab automation messages where the message requires Specimen/container information to group a number of orders.</p>
-</div>
-<div class="paragraph">
-<p>The IPC segment in this trigger is used to transmit imaging process identifiers for observations that will result in DICOM information objects (e.g., slide images). Note that the IPC-1 Accession Identifier is the identifier assigned by the Order Filler for associating the DICOM results with other laboratory information and processes; it may or may not be the same as the SPM-30 Accession ID or the SAC-2 Accession Identifier.</p>
-</div>
-<div class="paragraph">
-<p>In relationship to triggers O21, O33, and O35, this message/trigger (O33) should be used where a specimen, with optional multiple containers, may have multiple orders to be communicated.</p>
-</div>
-<div class="paragraph">
-<p>When one wants to convey with the detailed order message a supporting document, such as a CDA, one can transmit that document using the OBX associated with the ORC/OBR(s) using OBX-11 = "O" Order Detail Description Only, using either OBX-2 = "ED" or "RP".</p>
-</div>
-<div class="paragraph">
-<p>The Device segment (DEV) provides additional device information for a device referenced in one or more of the PRT segments in the message (using PRT-10 Participation Device to match DEV-2 Unique Device Identifier or PRT-22 Participation Device Type using DEV-3 Device Type).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

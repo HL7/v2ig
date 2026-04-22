@@ -159,7 +159,7 @@ Search</th>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|@PID.5.1EVERYMAN@PID.5.2ADAM@PID.8^M|&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|@PID.5.1<sup>EVERYMAN<sub>@PID.5.2</sub></sup><sub>ADAM</sub>@PID.8^M|&#8230;&#8203;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SearchConfidenceThreshold</p></td>
@@ -219,7 +219,7 @@ Search</th>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|^GOOD HEALTH HOSPITAL~^SOUTH LAB|&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example: &#8230;&#8203;|<sup>^</sup>GOOD HEALTH HOSPITAL~<sup>^</sup>SOUTH LAB|&#8230;&#8203;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>

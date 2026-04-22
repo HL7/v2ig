@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PMU_B04-C.html">PMU_B04</a></p>
-<div class="paragraph">
-<p>An event B06 signals that the formal relationship between a staff member and the institution has ended (i.e., upon termination).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

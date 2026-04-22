@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OMB_O27.html">OMB_O27</a></p>
-<div class="paragraph">
-<p>Blood product order messages present the need for additional information that is not included in standard HL7 order messages. Order messages must contain accompanying details regarding the blood product component, such as special processing requirements (e.g., irradiation and leukoreduction), and the amount of the blood product to be administered. Additionally, specific relevant clinical information can be included to allow the prospective review of the appropriateness of the blood product order.</p>
-</div>
-<div class="paragraph">
-<p>Blood product orders use the OMB message with the BPO segment for the detail segment and the acknowledgment message, ORB as described below.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

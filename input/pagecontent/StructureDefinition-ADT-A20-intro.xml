@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A20.html">ADT_A20</a></p>
-<div class="paragraph">
-<p>Certain nursing/census applications need to be able to update the Patient Administration system&#8217;s bed status. The following is the associated record layout:</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

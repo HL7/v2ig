@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M17.html">MFN_M17</a></p>
-<div class="paragraph">
-<p>The DMI segment must be preceded by the MFI and MFE segments, as described in Section 8.5, GENERAL MASTER FILE SEGMENTS. In the following message, the <em>MFI-1 - Master File Identifier</em> field should equal "DMI".</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

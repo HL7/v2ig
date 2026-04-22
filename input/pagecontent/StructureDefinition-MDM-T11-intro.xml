@@ -1,26 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MDM_T01-F.html">MDM_T01</a></p>
-<div class="paragraph">
-<p>This is a notification of a cancellation of a document.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-This trigger event should be used only for an original document with an Availability Status of "Unavailable."
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>When a document has been made available for patient care, the process should be to replace the original document, which then becomes obsolete. The replacement document describes why the erroneous information exists.</p>
-</div>
-<div class="paragraph">
-<p><strong>Scenario:</strong> When the author dictated a document, the wrong patient identification was given, and the document was transcribed and sent to the wrong patient&#8217;s record. When the error is discovered, a cancellation notice is sent to remove the document from general access in the wrong patient&#8217;s record. In these cases, a reason should be supplied in the cancellation message. To protect patient privacy, the correct patient&#8217;s identifying information should not be placed on the erroneous document that is retained in the wrong patient&#8217;s record for historical reference. A new document notification and content will be created using a T02 (original document notification and content) event and sent for association with the correct patient&#8217;s record.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

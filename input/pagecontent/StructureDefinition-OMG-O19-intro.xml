@@ -1,36 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OMG_O19.html">OMG_O19</a></p>
-<div class="paragraph">
-<p>The function of this message is to initiate the transmission of information about a general clinical order that uses the OBR segment. OMG messages can originate also with a placer, filler, or an interested third party.</p>
-</div>
-<div class="paragraph">
-<p>The trigger event for this message is any change to a general clinical order. Such changes include submission of new orders, cancellations, updates, patient and non-patient-specific orders, etc.</p>
-</div>
-<div class="paragraph">
-<p>This trigger includes segments identified as being for 'previous results.' These segments allow the sending system to include demographic and/or result information from previous result reports when they are related to the current order.</p>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Diagnostic laboratories referring tests to another lab for either confirmation of results (HIV, etc.) or due to not being equipped to do the tests (genetic testing, etc.).</p>
-</li>
-<li>
-<p>Diagnostic laboratories sending test results to Knowledge Bases for the automated generation of diagnostic comments for inclusion into the lab report.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The CTD segment in this trigger is used to transmit temporary patient contact details specific to this order.</p>
-</div>
-<div class="paragraph">
-<p>When one wants to convey with the detailed order message a supporting document, such as a CDA, one can transmit that document using the OBX associated with the ORC/OBR(s) using OBX-11 = "O" Order Detail Description Only, using either OBX-2 = "ED" or "RP".</p>
-</div>
-<div class="paragraph">
-<p>The Device segment (DEV) provides additional device information for a device referenced in one or more of the PRT segments in the message (using PRT-10 Participation Device to match DEV-2 Unique Device Identifier or PRT-22 Participation Device Type using DEV-3 Device Type).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

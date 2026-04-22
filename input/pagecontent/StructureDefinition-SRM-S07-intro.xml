@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SRM_S01.html">SRM_S01</a></p>
-<div class="paragraph">
-<p>The request addition of service/resource is triggered by the placer application to request that a new service or resource be added to an existing appointment. Services and resources are represented by the AIS, AIG, AIL, and AIP segments on an HL7 scheduling interface transaction. This trigger event should only be used for appointments that have not been completed, or for parent appointments whose children have not been completed. If it is successful, an application acknowledgment is returned, optionally containing an SCH segment and related detail segments describing the modified appointment.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

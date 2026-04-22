@@ -1,11 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RAS_O17.html">RAS_O17</a></p>
-<div class="paragraph">
-<p>The RAS message may be created by the administering application (e.g., nursing application) for each instance of administration for an existing order. If the administering application wants to report several administrations of medication/treatment for a given order with a single RAS message, each instance is reported by a separate (repeating) RXA segment. In addition, the administration records for a group of orders may be sent in a single message by creating repeating groups of segments at the ORC level.</p>
-</div>
-<div class="paragraph">
-<p>In the most common case, the RAS messages would be sent from a nursing application to the pharmacy or treatment application (or to the ordering application or another clinical application), which could use the data to generate the medication administration reports. Multiple RXA segments, each corresponding to a separate administration instance for a given order, may be sent with a single ORC.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SIU_S12.html">SIU_S12</a></p>
-<div class="paragraph">
-<p>This message is sent from a filler application to notify other applications that a new appointment has been booked. The information provided in the SCH segment and the other detail segments as appropriate describe the appointment that has been booked by the filler application.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,33 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-OUL_R22.html">OUL_R22</a></p>
-<div class="paragraph">
-<p>This message was designed to accommodate specimen oriented testing. It should be applicable to container-less testing (e.g., elephant on a table) and laboratory automation systems requiring container.</p>
-</div>
-<div class="paragraph">
-<p>Generally this construct allows transfer of multiple results related to a specimen from a patient, where this specimen has been in none, one, or multiple containers.</p>
-</div>
-<div class="paragraph">
-<p>In addition to the patient results themselves it permits the communication of the following kinds of information:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Analysis results of a non patient related sample (e.g., environmental) – patient related segments (e.g., PID, PD1, PV1, PV2) are optional.</p>
-</li>
-<li>
-<p>Analysis results to a particular container with QC sample and the lot and manufacturer information about this sample (SAC-INV segments) – however for this purpose the "Unsolicited Specimen Container Oriented Observation Message" (OUL^R23) is recommended due to explicit relation between the observation and the container.</p>
-</li>
-<li>
-<p>Basic identification data (lot, manufacturer, etc.) of the reagents and other substances involved in the generation of analysis results (TCD-SID segments).</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Refer to Chapter 13 Laboratory Automation for additional examples of usage of SAC.</p>
-</div>
-<div class="paragraph">
-<p>The Device segment (DEV) provides additional device information for a device referenced in one or more of the PRT segments in the message (using PRT-10 Participation Device to match DEV-2 Unique Device Identifier or PRT-22 Participation Device Type using DEV-3 Device Type).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

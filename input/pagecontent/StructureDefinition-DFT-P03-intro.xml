@@ -1,23 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-DFT_P03.html">DFT_P03</a></p>
-<div class="paragraph">
-<p>The Detail Financial Transaction (DFT) message is used to describe a finan­cial transaction transmitted between systems, that is, to the billing system for ancillary charges, ADT to billing system for patient deposits, etc.</p>
-</div>
-<div class="paragraph">
-<p>Use case for Post Detail Financial Transaction with related Order:</p>
-</div>
-<div class="paragraph">
-<p>This information can originate in many ways. For instance, a detailed financial transaction for an ancillary charge is sent to a billing system that also tracks the transaction(s) in relation to their order via placer order number or wishes to post these transactions with the additional order information. Therefore a service reaches a state where a detailed financial transaction is created and interfaced to other systems along with optional associated order information. If the message contains multiple transactions for the same order, such as a test service and venipuncture charge on the same order, the ordering information is entered in the Order segment construct that precedes the FT1 segments. If a message contains multiple transactions for disparate orders for the same account each FT1 segment construct may contain the order related information specific to that transaction within the message.</p>
-</div>
-<div class="paragraph">
-<p>If the common order information is sent, the Order Control Code should reflect the current state of the common order and is not intended to initiate any order related triggers on the receiving application. For example if observations are included along with common order information the order control code would indicate 'RE' as observations to follow.</p>
-</div>
-<div class="paragraph">
-<p>If common order information is sent related to the entire message or a specific financial transaction, the required Order Control Code should reflect the current state of the common order and is not intended to initiate any order related triggers on the receiving application. For example if observations are included along with common order information the order control code would indicate 'RE' as observations to follow.</p>
-</div>
-<div class="paragraph">
-<p>If order detail information is sent related to the entire message or a specific financial transaction, the required fields for that detail segment must accompany that information.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

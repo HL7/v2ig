@@ -1,23 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A39-C.html">ADT_A39</a></p>
-<div class="paragraph">
-<p>A merge has been done at the visit identifier level. That is, two <em>PV1-19 - Visit Number</em> identifiers have been merged into one.</p>
-</div>
-<div class="paragraph">
-<p>An A42 event is used to signal a merge of records for a visit that was incorrectly filed under two different visit numbers. The "incorrect source visit number" identified in the MRG segment (<em>MRG-5 - Prior Visit Number</em>) is to be merged with the required "correct target visit number" identified in the PV1 segment (<em>PV1-19 - Visit Number</em>). The "incorrect source visit number" would then logically never be referenced in future transactions. It is noted that some systems may still physically keep this "incorrect identifier" for audit trail purposes or other reasons associated with database index implementation requirements.</p>
-</div>
-<div class="paragraph">
-<p>An A42 (merge visit-visit number) event is intended for merging visit records without merging other identifiers. Any other identifiers that were previously associated with the "incorrect source visit number" are now associated with the "correct target visit number."</p>
-</div>
-<div class="paragraph">
-<p>Each superior identifier associated with this visit identifier level should have the same value in the PID and MRG segments, or the MRG and PV1 segments, as appropriate.</p>
-</div>
-<div class="paragraph">
-<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em>&#44;</a> "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#merge"><em>3.6.2.1.2</em></a>, "<a href="#merge"><em>Merge</em></a>," for a discussion of issues related to the implementation of merge messages.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other fields change, it is recommended that the A08 (update patient information) event be used in addition</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

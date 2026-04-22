@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RQI_I01-D.html">RQI_I01</a></p>
-<div class="paragraph">
-<p>This trigger event is used by an entity or organization to transmit to a healthcare provider the insurance information on a specific patient. Typically, the healthcare provider will be a primary care provider.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

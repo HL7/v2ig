@@ -1,23 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MDM_T02-D.html">MDM_T02</a></p>
-<div class="paragraph">
-<p>This is a notification of an edit to a document with the accompanying content.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The only valid use of this trigger event is for documents whose availability status is "Unavailable," i.e., the document has not been made available for patient care.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Scenario</strong>: Errors, which need to be corrected, are discovered in an existing "Unavailable" document. The original document is edited, and an edit notification and document content are sent.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

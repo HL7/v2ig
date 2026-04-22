@@ -1,17 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-DFT_P11.html">DFT_P11</a></p>
-<div class="paragraph">
-<p>The Detail Financial Transaction (DFT) - Expanded message is used to describe a finan­cial transaction transmitted between systems, that is, to the billing system for ancillary charges, ADT to billing system for patient deposits, etc. It serves the same function as the Post Detail Financial Transactions (Event P03) message, but also supports the use cases described below.</p>
-</div>
-<div class="paragraph">
-<p>Use case for adding the INx and GT1 segments inside the FT1 repetition:</p>
-</div>
-<div class="paragraph">
-<p>If the insurance and/or the guarantor information is specific to a certain financial transaction of a patient and differs from the patient&#8217;s regular insurance and/or guarantor, you may use the INx and GT1 segments related to the FT1 segment. If being used, the information supersedes the information on the patient level.</p>
-</div>
-<div class="paragraph">
-<p>Example: Before being employed by a company, a pre-employment physical is required. The cost of the examinations is paid by the company, and not by the person&#8217;s private health insurance. One of the physicians examining the person is an eye doctor. For efficiency reasons, the person made an appointment for these examinations on the same day as he already had an appointment with his eye doctor in the same hospital. The costs for this eye doctor appointment are being paid by the patient&#8217;s private health insurance. Both financial transactions for the same patient/person could be sent in the same message. To bill the examination for the future-employer to that organization, you need to use the GT1 segment that is related to the FT1.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

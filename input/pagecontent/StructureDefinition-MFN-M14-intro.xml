@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_Znn.html">MFN_Znn</a></p>
-<div class="paragraph">
-<p>The MFN Site defined master file notification transaction is used where the master file is not a simple one (as defined for MFN^M13) and is not a transaction type currently defined by HL7, but rather requires one or more HL7 and/or 'Z' segments to carry the master file information.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

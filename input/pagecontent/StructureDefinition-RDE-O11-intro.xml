@@ -1,14 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RDE_O11-A.html">RDE_O11</a></p>
-<div class="paragraph">
-<p>This message communicates the pharmacy or treatment application&#8217;s encoding of the pharmacy/treatment order ,OMP, message. It may be sent as an unsolicited message to report on either a single order or multiple pharmacy/treatment orders for a patient.</p>
-</div>
-<div class="paragraph">
-<p>The RDE/RRE message pair can also be used to communicate a refill authorization request; however, a specific trigger event has been assigned. See section <em>4A.3.16 "RDE - Pharmacy/Treatment Refill Authorization Request Message</em> (Event O25)<em>."</em> As a site-specific variant, the original order segments (RXO, RXRs, associated RXCs, and any NTEs) may be sent optionally (for comparison).</p>
-</div>
-<div class="paragraph">
-<p>The event O11 represents an encoding of an order. To communicate explicit dispense requests, which are different event types, the RDEO11/RREO12 message pair is also used, but the event O49 is preferred. See section 4A.3.23 "RDE - Pharmacy/Treatment Refill Authorization Request Message (Event O25)." As a site-specific variant, the original order segments (RXO, RXRs, associated RXCs, and any NTEs) may be sent optionally (for comparison).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

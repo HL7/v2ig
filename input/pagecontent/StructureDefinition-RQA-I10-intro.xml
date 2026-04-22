@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RQA_I08.html">RQA_I08</a></p>
-<div class="paragraph">
-<p>If a previously submitted request for treatment authorization is rejected or canceled, this event could trigger a resubmission message for a referenced authorization. For example, the payor may have rejected a request until additional clinical information is sent to support the authorization request.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

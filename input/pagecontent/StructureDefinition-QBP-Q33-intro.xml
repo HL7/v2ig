@@ -1,48 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QBP_O33.html">QBP_O33</a></p>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. This query/response is designed for interaction between a registration system and the system which contains the Donor Book of Record. The query consists of query parameters which assist in determining if the Donor already has a record in the Donor Book or Record system. The query parameters are minimal and number of elements returned in the query response for each candidate is minimal.</caption>
-<colgroup>
-<col style="width: 39%;"/>
-<col style="width: 61%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Statement ID:</th>
-<th class="tableblock halign-left valign-top">Q33</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Type:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query by Parameter/</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Get Donor Record Candidates</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ33QBP_Q33</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Immediate</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK33RSP_K33</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query is used to find if a donor record exists on the Donor Book of Record system. A few, basic, demographic paramters are provided. The return are a set of records which meet the parameter criteria. The intent is to ‘select’ one of the returned candidate records, then run the Get Donor Record query to return the detail for that specific donor.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns minimal information for set of donor records</p></td>
-</tr>
-</tbody>
-</table>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

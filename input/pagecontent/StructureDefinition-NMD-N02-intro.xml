@@ -1,14 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-NMD_N02.html">NMD_N02</a></p>
-<div class="paragraph">
-<p>The N02 event signifies when an unsolicited update (UU) Application Management Data message (NMD) is created by on application to transmit application management information to other applications. In this case, the initiating application sends an NMD message as an unsolicited update (UU) containing application management information to a receiving application, which responds with a generic acknowledgement message (ACK).</p>
-</div>
-<div class="paragraph">
-<p>For example, an application going down for backups (or starting up again after backups) might issue such a message to one or more other applications. An application switching to another CPU or file-server may also need to use this transaction to notify other systems.</p>
-</div>
-<div class="paragraph">
-<p>Because the N02/ACK pair does not incorporate an application acknowledgement, the value in MSH-16 of the N02 event message does not affect the choreography</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,51 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RSP_K32.html">RSP_K32</a></p>
-<div class="paragraph">
-<p>This query/response is designed for interaction between a client system and an MPI (Master Person Index). The query consists of a set of demographic and/or visit attribute values for a person, and the response is the list of candidates considered by the MPI to match that set.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Each returned person, specified by a PID segment and by a PV1 segment containing information about the current visit, can also have an optional QRI - Query Response Instance segment containing information about the quality of the match.</caption>
-<colgroup>
-<col style="width: 39%;"/>
-<col style="width: 61%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Statement ID:</th>
-<th class="tableblock halign-left valign-top">Q32</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Type:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Q32 Find Candidates with Visit Information</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ32QBP_Q21</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK32RSP_K25</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns list of candidates matching demographic and/or visit data specified by the input parameters.</p></td>
-</tr>
-</tbody>
-</table>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

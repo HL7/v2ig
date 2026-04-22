@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QSB_Q16-A.html">QSB_Q16</a></p>
-<div class="paragraph">
-<p>See section <em>5.7</em>, "<em>PUBLISH AND SUBSCRIBE</em>" for more information about this event.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

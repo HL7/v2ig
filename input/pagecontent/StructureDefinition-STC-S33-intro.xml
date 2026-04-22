@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-STC_S33.html">STC_S33</a></p>
-<div class="paragraph">
-<p>This message is sent from a filler application to notify other applications of a new sterilization configuration. The information in the STC segment describes the detail of the new sterilization configuration.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

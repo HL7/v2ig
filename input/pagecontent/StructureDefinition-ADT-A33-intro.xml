@@ -1,14 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A21-I.html">ADT_A21</a></p>
-<div class="paragraph">
-<p>The A33 event is sent when an A09 (patient departing-tracking) event is cancelled, either because of erroneous entry of the A09 event or because of a decision not to send the patient after all.</p>
-</div>
-<div class="paragraph">
-<p>If the patient was in a non-temporary location, then <em>PV1-3 - Assigned Patient</em> location must contain the original patient location prior to the erroneous A09 (patient departing-tracking) event. If the patient was in a temporary location, then <em>PV1-11 - Temporary Location</em> must contain the original patient location prior to the erroneous A09 (patient departing-tracking) event.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

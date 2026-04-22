@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PEX_P07.html">PEX_P07</a></p>
-<div class="paragraph">
-<p>The primary application of the PEX message is to transfer information related to an adverse event occurring while a patient was exposed to a product. The P08 event is an unsolicited update of an individual product experience report.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

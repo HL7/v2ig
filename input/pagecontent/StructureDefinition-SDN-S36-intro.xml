@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SDR_S31-B.html">SDR_S31</a></p>
-<div class="paragraph">
-<p>This message is sent from a filler application to notify other applications that anti-microbial device data has been generated. The information in the SDN segment and the other detail segments as appropriate describe the detail of a device during a sterilization or decontamination cycle.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

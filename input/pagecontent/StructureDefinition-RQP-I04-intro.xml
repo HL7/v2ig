@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RQP_I04.html">RQP_I04</a></p>
-<div class="paragraph">
-<p>This event triggers a request from one healthcare provider to another for patient demographic information, including insurance and billing information. Typically, this transaction would occur between one provider to another, but it could also be directed to a payor.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

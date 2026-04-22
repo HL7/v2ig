@@ -1,56 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RSP_K31.html">RSP_K31</a></p>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Conformance Statement</caption>
-<colgroup>
-<col style="width: 39%;"/>
-<col style="width: 61%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Statement ID (Query ID=Q31):</th>
-<th class="tableblock halign-left valign-top">Q31</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dispense History</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger (= MSH-9):</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">QBPQ31QBP_Q11</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger (= MSH-9):</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RSPK31RSP_K31</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May specify patient, medication, a date range, and how the response is to be sorted.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To retrieve patient pharmacy dispense history information from the Server.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response Characteristics:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sorted by Medication Dispensed unless otherwise specified in <strong>SortControl.</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Based on Segment Pattern:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RDS_O01</p></td>
-</tr>
-</tbody>
-</table>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

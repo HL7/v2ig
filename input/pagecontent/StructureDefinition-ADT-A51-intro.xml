@@ -1,20 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A50-B.html">ADT_A50</a></p>
-<div class="paragraph">
-<p>A change has been done at the alternate visit identifier level. That is, a <em>PV1-50 - Alternate Visit ID</em> has been found to be incorrect and has been changed.</p>
-</div>
-<div class="paragraph">
-<p>An A51 event is used to signal a change of an incorrectly assigned alternate visit ID value. The "incorrect source alternate visit ID" value is stored in the MRG segment (<em>MRG-6 - Prior Alternate Visit ID</em>) and is to be changed to the "correct target alternate visit ID" value stored in the PV1 segment (<em>PV1-50 - Alternate Visit ID</em>).</p>
-</div>
-<div class="paragraph">
-<p>Each superior identifier associated with this alternate visit identifier level, i.e. PID-3/MRG-1 and PID-18/MRG-3 should have the same value in both the PID and MRG segments.</p>
-</div>
-<div class="paragraph">
-<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em>&#44;</a> "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#change-identifier"><em>3.6.2.1.4</em></a>, "<a href="#change-identifier"><em>Change identifier</em></a>," for a discussion of issues related to the implementation of change messages.</p>
-</div>
-<div class="paragraph">
-<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When demographic data in other fields change, it is recommended that the A08 (update patient information) event be used in conjunction with this message.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

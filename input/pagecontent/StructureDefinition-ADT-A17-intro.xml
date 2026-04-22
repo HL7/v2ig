@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A17.html">ADT_A17</a></p>
-<div class="paragraph">
-<p>The A17 is used when it is decided that two patients will exchange beds. The patient ID and visit data are repeated for the two patients changing places. See section <a href="#swapping-a-patient"><em>3.6.1</em></a>, "<em><a href="#swapping-a-patient">Swapping a patient</a>,</em>" for a discussion of issues related to implementing this trigger event. When other important fields change, it is recommended that the A08 (update patient information) event be used in addition.</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

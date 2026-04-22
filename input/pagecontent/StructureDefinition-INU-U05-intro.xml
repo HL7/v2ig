@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-INU_U05.html">INU_U05</a></p>
-<div class="paragraph">
-<p>This message is used to request information about inventory items from one application to another (e.g., Laboratory Automation System to automated equipment). The equipment specified in the EQU segment should respond with the information about inventory item requested in the INV segment (or all items).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

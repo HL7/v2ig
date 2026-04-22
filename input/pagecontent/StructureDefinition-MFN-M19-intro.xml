@@ -1,8 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-MFN_M19.html">MFN_M19</a></p>
-<div class="paragraph">
-<p>The following segments are required:  MSH, MFI, MFE, CTR, ITM, and VND.   PKG is optional.   For example, there could be a contract created with no items on it yet, and be saved as Active (corporation and vendor are required but it is not required to add items).   The message would have an MSH, MFI, MFE, CTR, ITM (blank), VND, and PKG (blank).</p>
-</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>
