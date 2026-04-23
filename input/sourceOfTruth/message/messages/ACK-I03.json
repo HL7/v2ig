@@ -1,54 +1,54 @@
 {
-  "resourceType": "StructureDefinition",
-  "version": "0.0.1",
-  "status": "active",
-  "kind": "logical",
-  "abstract": false,
-  "type": "Message",
-  "description": "FIXME",
-  "baseDefinition": "http://hl7.org/v2/StructureDefinition/Message",
-  "derivation": "constraint",
-  "differential": {
-    "element": [
-      {
-        "id": "Message.messageType",
-        "path": "Message.messageType",
-        "patternCode": "ACK"
-      },
-      {
-        "id": "Message.structure",
-        "path": "Message.structure",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/MessageStructure/ACK-A"
-            ]
-          }
+    "resourceType": "StructureDefinition",
+    "version": "0.0.1",
+    "status": "active",
+    "kind": "logical",
+    "abstract": false,
+    "type": "Message",
+    "description": "FIXME",
+    "baseDefinition": "http://hl7.org/v2/StructureDefinition/Message",
+    "derivation": "constraint",
+    "differential": {
+        "element": [
+            {
+                "id": "Message.messageType",
+                "path": "Message.messageType",
+                "patternCode": "ACK"
+            },
+            {
+                "id": "Message.structure",
+                "path": "Message.structure",
+                "type": [
+                    {
+                        "code": "Reference",
+                        "targetProfile": [
+                            "http://hl7.org/fhir/StructureDefinition/MessageStructure/ACK"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "Message.status",
+                "path": "Message.status",
+                "patternCode": "active"
+            },
+            {
+                "id": "Message.acknowledgementChoreography.enhancedModeImmediateResponse",
+                "path": "Message.acknowledgementChoreography.enhancedModeImmediateResponse",
+                "type": [
+                    {
+                        "code": "Reference",
+                        "targetProfile": [
+                            "http://hl7.org/fhir/StructureDefinition/Message/ACK-I03"
+                        ]
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "id": "Message.status",
-        "path": "Message.status",
-        "patternCode": "active"
-      },
-      {
-        "id": "Message.acknowledgementChoreography.enhancedModeImmediateResponse",
-        "path": "Message.acknowledgementChoreography.enhancedModeImmediateResponse",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Message/ACK-I03"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "id": "ACK-I03",
-  "title": "HL7 v2 ACK^I03 Message Definition",
-  "url": "http://hl7.org/v2/StructureDefinition/Message/ACK-I03",
-  "name": "ackI03",
-  "date": "2025-06-06T00:37:13Z"
+    },
+    "id": "ACK-I03",
+    "title": "HL7 v2 ACK^I03 Message Definition",
+    "url": "http://hl7.org/v2/StructureDefinition/Message/ACK-I03",
+    "name": "ackI03",
+    "date": "2025-06-06T00:37:13Z"
 }

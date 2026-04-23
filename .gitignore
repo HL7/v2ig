@@ -38,6 +38,9 @@ __pycache__/
 ############################
 /scratch/
 /compare_message_structures.py
+# Archive of files removed from the active tree but kept on disk for
+# reference. Never propagated to main / build / IG Publisher.
+/_archive/
 
 # IDE / tool state #
 #####################

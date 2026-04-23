@@ -129,6 +129,17 @@
 <li class="toc-h3"><a href="#questions-for-v2-management-6">Questions for V2 Management</a></li>
 <li class=""><a href="#11-segment-field-data-quality-previously-resolved">11. Segment Field Data Quality (Previously Resolved)</a></li>
 <li class=""><a href="#12-data-type-component-conformance-length-previously-resolved">12. Data Type Component Conformance Length (Previously Resolved)</a></li>
+<li class=""><a href="#13-ack-structure-collapse-and-scheduling-outlier">13. ACK Structure Collapse and Scheduling Outlier</a></li>
+<li class="toc-h3"><a href="#finding-10">Finding</a></li>
+<li class="toc-h3"><a href="#fhir-representation-1">FHIR Representation</a></li>
+<li class="toc-h3"><a href="#caption-description-variants-exemplars">Caption-Description Variants (Exemplars)</a></li>
+<li class="toc-h3"><a href="#questions-for-v2-management-7">Questions for V2 Management</a></li>
+<li class=""><a href="#14-nte-description-form-in-mdm-t01-t02-ch09">14. NTE Description Form in MDM_T01/T02 (CH09)</a></li>
+<li class="toc-h3"><a href="#finding-11">Finding</a></li>
+<li class="toc-h3"><a href="#question-for-v2-management">Question for V2 Management</a></li>
+<li class=""><a href="#15-guarantor-insurance-group-name-in-rqi-i01">15. `GUARANTOR_INSURANCE` Group Name in RQI_I01</a></li>
+<li class="toc-h3"><a href="#finding-12">Finding</a></li>
+<li class="toc-h3"><a href="#question-for-v2-management-1">Question for V2 Management</a></li>
 <li class=""><a href="#methodology">Methodology</a></li>
 </ul></nav>
 
@@ -233,7 +244,7 @@
 <tr><td>RCV^O59</td><td>RCV_O59</td><td>CH04A (Orders)</td><td>Table 38</td><td>Pharmacy/Treatment Dispense Message</td></tr>
 </tbody></table>
 <p>In HL7 V2, a message is identified by the combination of message type + trigger event (e.g., OML^O59 and RCV^O59 are distinct messages). The message structures (OML<em>O59 and RCV</em>O59) are different and correctly defined. However, the event code O59 is shared between them.</p>
-<p>In the current FHIR representation, there are no O59 event StructureDefinitions. Instead, there are sub-variants <code>O59<em>A</code> and <code>O59</em>B</code>, apparently one for each message type. This is an artifact of the encoding tool &mdash; it could not represent a single event code associated with two different message types.</p>
+<p>In the current FHIR representation, there are no O59 event StructureDefinitions. Instead, there are sub-variants <code>O59_A</code> and <code>O59_B</code>, apparently one for each message type. This is an artifact of the encoding tool &mdash; it could not represent a single event code associated with two different message types.</p>
 <h3 id="the-problem">The Problem</h3>
 <p>Event StructureDefinitions link event → message → message structure. A single event StructureDefinition for O59 cannot point to two different message structures. The sub-variant approach (O59<em>A, O59</em>B) works mechanically but is not standard V2 naming.</p>
 <h3 id="questions-for-v2-management-3">Questions for V2 Management</h3>
@@ -363,14 +374,80 @@
 <h2 id="12-data-type-component-conformance-length-previously-resolved">12. Data Type Component Conformance Length (Previously Resolved)</h2>
 <p>71 conformance length flag corrections were applied across 26 FHIR complex data type files. In all cases, V2.9.1 specified <code>#</code> (truncation permitted) but FHIR had <code>noTruncate: true</code> (no truncation). The 10 bare <code>=</code> cases described in Section 1 remain unresolved.</p>
 <hr>
+<h2 id="13-ack-structure-collapse-and-scheduling-outlier">13. ACK Structure Collapse and Scheduling Outlier</h2>
+<h3 id="finding-10">Finding</h3>
+<p>The ACK (General Acknowledgment) message structure appears <strong>115 times</strong> across V2.9.1 (one per event using a standard acknowledgment response). After normalizing description text, ERR cardinality, and one extraction artifact (NMD_N02 caption-reuse), <strong>114 of the 115 occurrences are now structurally identical</strong> with the canonical 5-segment shape:</p>
+<table>
+<thead><tr><th>#</th><th>Segment</th><th>Description</th></tr></thead><tbody>
+<tr><td>1</td><td><code>MSH</code></td><td>Message Header</td></tr>
+<tr><td>2</td><td><code>[{ SFT }]</code></td><td>Software (optional, repeating)</td></tr>
+<tr><td>3</td><td><code>[ UAC ]</code></td><td>User Authentication Credential (optional, non-repeating)</td></tr>
+<tr><td>4</td><td><code>MSA</code></td><td>Message Acknowledgment</td></tr>
+<tr><td>5</td><td><code>[{ ERR }]</code></td><td>Error (optional, repeating)</td></tr>
+</tbody></table>
+<p>The single outlier is <strong>clause 10.4 (<code>ACK^S12-S24, S26, S27</code>)</strong> &mdash; scheduling acknowledgments &mdash; where <code>UAC</code> is encoded as <code>[{ UAC }]</code> (optional + repeating) rather than <code>[ UAC ]</code>. We have flagged this as <strong>REVIEW-0001</strong>.</p>
+<h3 id="fhir-representation-1">FHIR Representation</h3>
+<p>The 115 enumerated <code>ACK-A</code> ... <code>ACK-DK</code> StructureDefinitions in V2+ have been collapsed into two:</p>
+<ul>
+<li><code>ACK</code> &mdash; the canonical structure used by 279 ACK message definitions</li>
+<li><code>ACK-Scheduling</code> &mdash; a provisional name for the outlier referenced by 15 message definitions (<code>ACK-S12</code> ... <code>ACK-S24</code>, <code>ACK-S26</code>, <code>ACK-S27</code>). This name is intentionally placeholder and will not survive without V2 Management endorsement.</li>
+</ul>
+<p>The 113 unreferenced <code>ACK-*</code> files have been moved out of <code>input/sourceOfTruth/</code> and are no longer published.</p>
+<h3 id="caption-description-variants-exemplars">Caption-Description Variants (Exemplars)</h3>
+<p>Most ACK captions read <code>ACK^XXX^ACK: General Acknowledgment</code>. Seven occurrences use a different caption description &mdash; these may be intentional refinements or simply chapter-author drift:</p>
+<table>
+<thead><tr><th>Caption description</th><th>Exemplar clauses</th></tr></thead><tbody>
+<tr><td><code>Acknowledgment</code> (no "General")</td><td>CH07 §7.3.5 (<code>ACK^R31</code>)</td></tr>
+<tr><td><code>General Acknowledgement</code> (British spelling)</td><td>CH13 §13.3.1 (<code>ACK^U01</code>)</td></tr>
+<tr><td><code>Observation Message</code></td><td>CH07 §7.3.1 (<code>ACK^R01</code>), §7.3.4 (<code>ACK^R30</code>), §7.3.6 (<code>ACK^R32</code>)</td></tr>
+<tr><td><code>Anti-Microbial Device Data Request Response</code></td><td>CH17 §17.5.4 (<code>ACK^S31</code>)</td></tr>
+<tr><td><code>Anti-Microbial Device Cycle Data Request Response</code></td><td>CH17 §17.5.5 (<code>ACK^S32</code>)</td></tr>
+</tbody></table>
+<h3 id="questions-for-v2-management-7">Questions for V2 Management</h3>
+<p class="numbered"><strong>1.</strong> <strong>Is the <code>[{ UAC }]</code> repetition in clause 10.4 intentional</strong> for scheduling acknowledgments, or a typo? If a typo, we collapse all 115 ACKs into one canonical structure. If intentional, we keep <code>ACK-Scheduling</code> as a permanent variant (and pick a real name for it).</p>
+<p class="numbered"><strong>2.</strong> <strong>Are the seven non-standard caption descriptions intentional?</strong> (e.g., "Observation Message" in CH07 may signal a domain-specific ACK contract.) If not, normalize all captions to "General Acknowledgment".</p>
+<p class="numbered"><strong>3.</strong> <strong>NMD_N02 §14.3.2 second table</strong>: a structure captioned <code>ACK^N02^ACK</code> was extracted under <code>structureId=NMD_N02</code> because the Word doc reused the prior caption. We have reclassified it as a standard ACK (5-segment shape, matches the 114). Confirm this is correct.</p>
+<hr>
+<h2 id="14-nte-description-form-in-mdm-t01-t02-ch09">14. NTE Description Form in MDM_T01/T02 (CH09)</h2>
+<h3 id="finding-11">Finding</h3>
+<p>The NTE segment is described inconsistently across CH09 occurrences of <code>MDM_T01</code> and <code>MDM_T02</code>. Same segment, same role within the structure (notes attached to OBR/OBX), four different phrasings:</p>
+<table>
+<thead><tr><th>Form</th><th>Example text</th><th>Frequency</th></tr></thead><tbody>
+<tr><td><strong>Short</strong></td><td><code>"Notes and comments about the OBR"</code></td><td>5 of 6 <code>MDM_T01</code>; 4 of 5 <code>MDM_T02</code> (most occurrences)</td></tr>
+<tr><td><strong>Long</strong></td><td><code>"Notes and comments about the observation request (OBR)"</code></td><td>1 of 6 <code>MDM_T01</code> (clause 9.6.1)</td></tr>
+<tr><td><strong>Variant ("observation")</strong></td><td><code>"Notes and comments about the observation (OBR)"</code> / <code>"... (OBX)"</code></td><td>1 of 5 <code>MDM_T02</code> (clause 9.6.2)</td></tr>
+<tr><td><strong>Variant ("segment for")</strong></td><td><code>"Notes and comments segment for OBX"</code></td><td>1 of 5 <code>MDM_T02</code> (clause 9.6.4)</td></tr>
+</tbody></table>
+<h3 id="question-for-v2-management">Question for V2 Management</h3>
+<p>Pick a single canonical phrasing for use in V2+. Recommend either:</p>
+<ul>
+<li><strong>Short</strong> (<code>"Notes and comments about the OBR"</code> / <code>"... about the OBX"</code>) &mdash; matches majority usage, terse, refers by segment code.</li>
+<li><strong>Long</strong> (<code>"Notes and comments about the observation request (OBR)"</code>) &mdash; more descriptive for readers unfamiliar with segment codes; one well-formed example in clause 9.6.1.</li>
+</ul>
+<p>The remaining variants (<code>"about the observation (OBR)"</code>, <code>"segment for OBX"</code>) should be dropped regardless.</p>
+<hr>
+<h2 id="15-guarantor-insurance-group-name-in-rqi-i01">15. <code>GUARANTOR_INSURANCE</code> Group Name in RQI_I01</h2>
+<h3 id="finding-12">Finding</h3>
+<p>The group surrounding <code>GT1</code>, <code>IN1</code>, <code>IN2</code>, <code>IN3</code> in <code>RQI_I01</code> is named four times in CH11 with two different separators:</p>
+<table>
+<thead><tr><th>Clause</th><th>Group name</th></tr></thead><tbody>
+<tr><td>11.3.1</td><td><code>GUARANTOR_INSURANCE</code></td></tr>
+<tr><td>11.3.2</td><td><code>GUARANTOR_INSURANCE</code></td></tr>
+<tr><td>11.3.3</td><td><code>GUARANTOR+INSURANCE</code> (note the <code>+</code>)</td></tr>
+<tr><td>11.3.7</td><td><code>GUARANTOR_INSURANCE</code></td></tr>
+</tbody></table>
+<p>The <code>+</code> character is not used as a group-name separator anywhere else in the V2.9.1 standard. All other compound group names use <code>_</code> (e.g., <code>PATIENT_VISIT</code>, <code>ORDER_DETAIL_SUPPLEMENT</code>).</p>
+<h3 id="question-for-v2-management-1">Question for V2 Management</h3>
+<p>Is the <code>+</code> in clause 11.3.3 a typo (Word document drift), or is it semantically meaningful (e.g., concatenation, parallel structure)? Recommend treating as a typo and standardizing all four occurrences to <code>GUARANTOR_INSURANCE</code>.</p>
+<hr>
 <h2 id="methodology">Methodology</h2>
-<p>All findings are based on automated extraction from V2.9.1 Word documents (<code>v2plus<em>docx/*.docx</code>) using <code>tooling/scripts/extract</em>v291.py</code>, compared against FHIR StructureDefinitions in <code>input/sourceOfTruth/</code>. Comparison scripts:</p>
+<p>All findings are based on automated extraction from V2.9.1 Word documents (<code>v2plus_docx/*.docx</code>) using <code>tooling/scripts/extract_v291.py</code>, compared against FHIR StructureDefinitions in <code>input/sourceOfTruth/</code>. Comparison scripts:</p>
 <ul>
 <li><code>tooling/scripts/compare_segments.py</code> &mdash; 9-dimension segment field comparison</li>
-<li><code>tooling/scripts/compare<em>data</em>types.py</code> &mdash; 7-dimension data type component comparison</li>
+<li><code>tooling/scripts/compare_data_types.py</code> &mdash; 7-dimension data type component comparison</li>
 <li><code>tooling/scripts/structural_inventory.py</code> &mdash; artifact-level gap analysis</li>
-<li><code>tooling/scripts/compare<em>message</em>structures.py</code> &mdash; message structure content comparison</li>
-<li><code>tooling/scripts/generate<em>event</em>gap_report.py</code> &mdash; event gap HTML report</li>
+<li><code>tooling/scripts/compare_message_structures.py</code> &mdash; message structure content comparison</li>
+<li><code>tooling/scripts/generate_event_gap_report.py</code> &mdash; event gap HTML report</li>
 </ul>
 <p>Reports are in <code>v291-extracted/</code>:</p>
 <ul>

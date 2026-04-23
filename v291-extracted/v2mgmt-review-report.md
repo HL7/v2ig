@@ -315,6 +315,96 @@ These are documented in ADR-0005 and the segment comparison report at `v291-extr
 
 ---
 
+## 13. ACK Structure Collapse and Scheduling Outlier
+
+### Finding
+
+The ACK (General Acknowledgment) message structure appears **115 times** across V2.9.1 (one per event using a standard acknowledgment response). After normalizing description text, ERR cardinality, and one extraction artifact (NMD_N02 caption-reuse), **114 of the 115 occurrences are now structurally identical** with the canonical 5-segment shape:
+
+| # | Segment | Description |
+|---|---------|-------------|
+| 1 | `MSH` | Message Header |
+| 2 | `[{ SFT }]` | Software (optional, repeating) |
+| 3 | `[ UAC ]` | User Authentication Credential (optional, non-repeating) |
+| 4 | `MSA` | Message Acknowledgment |
+| 5 | `[{ ERR }]` | Error (optional, repeating) |
+
+The single outlier is **clause 10.4 (`ACK^S12-S24, S26, S27`)** — scheduling acknowledgments — where `UAC` is encoded as `[{ UAC }]` (optional + repeating) rather than `[ UAC ]`. We have flagged this as **REVIEW-0001**.
+
+### FHIR Representation
+
+The 115 enumerated `ACK-A` ... `ACK-DK` StructureDefinitions in V2+ have been collapsed into two:
+
+- `ACK` — the canonical structure used by 279 ACK message definitions
+- `ACK-Scheduling` — a provisional name for the outlier referenced by 15 message definitions (`ACK-S12` ... `ACK-S24`, `ACK-S26`, `ACK-S27`). This name is intentionally placeholder and will not survive without V2 Management endorsement.
+
+The 113 unreferenced `ACK-*` files have been moved out of `input/sourceOfTruth/` and are no longer published.
+
+### Caption-Description Variants (Exemplars)
+
+Most ACK captions read `ACK^XXX^ACK: General Acknowledgment`. Seven occurrences use a different caption description — these may be intentional refinements or simply chapter-author drift:
+
+| Caption description | Exemplar clauses |
+|---------------------|------------------|
+| `Acknowledgment` (no "General") | CH07 §7.3.5 (`ACK^R31`) |
+| `General Acknowledgement` (British spelling) | CH13 §13.3.1 (`ACK^U01`) |
+| `Observation Message` | CH07 §7.3.1 (`ACK^R01`), §7.3.4 (`ACK^R30`), §7.3.6 (`ACK^R32`) |
+| `Anti-Microbial Device Data Request Response` | CH17 §17.5.4 (`ACK^S31`) |
+| `Anti-Microbial Device Cycle Data Request Response` | CH17 §17.5.5 (`ACK^S32`) |
+
+### Questions for V2 Management
+
+1. **Is the `[{ UAC }]` repetition in clause 10.4 intentional** for scheduling acknowledgments, or a typo? If a typo, we collapse all 115 ACKs into one canonical structure. If intentional, we keep `ACK-Scheduling` as a permanent variant (and pick a real name for it).
+2. **Are the seven non-standard caption descriptions intentional?** (e.g., "Observation Message" in CH07 may signal a domain-specific ACK contract.) If not, normalize all captions to "General Acknowledgment".
+3. **NMD_N02 §14.3.2 second table**: a structure captioned `ACK^N02^ACK` was extracted under `structureId=NMD_N02` because the Word doc reused the prior caption. We have reclassified it as a standard ACK (5-segment shape, matches the 114). Confirm this is correct.
+
+---
+
+## 14. NTE Description Form in MDM_T01/T02 (CH09)
+
+### Finding
+
+The NTE segment is described inconsistently across CH09 occurrences of `MDM_T01` and `MDM_T02`. Same segment, same role within the structure (notes attached to OBR/OBX), four different phrasings:
+
+| Form | Example text | Frequency |
+|------|--------------|-----------|
+| **Short** | `"Notes and comments about the OBR"` | 5 of 6 `MDM_T01`; 4 of 5 `MDM_T02` (most occurrences) |
+| **Long** | `"Notes and comments about the observation request (OBR)"` | 1 of 6 `MDM_T01` (clause 9.6.1) |
+| **Variant ("observation")** | `"Notes and comments about the observation (OBR)"` / `"... (OBX)"` | 1 of 5 `MDM_T02` (clause 9.6.2) |
+| **Variant ("segment for")** | `"Notes and comments segment for OBX"` | 1 of 5 `MDM_T02` (clause 9.6.4) |
+
+### Question for V2 Management
+
+Pick a single canonical phrasing for use in V2+. Recommend either:
+
+- **Short** (`"Notes and comments about the OBR"` / `"... about the OBX"`) — matches majority usage, terse, refers by segment code.
+- **Long** (`"Notes and comments about the observation request (OBR)"`) — more descriptive for readers unfamiliar with segment codes; one well-formed example in clause 9.6.1.
+
+The remaining variants (`"about the observation (OBR)"`, `"segment for OBX"`) should be dropped regardless.
+
+---
+
+## 15. `GUARANTOR_INSURANCE` Group Name in RQI_I01
+
+### Finding
+
+The group surrounding `GT1`, `IN1`, `IN2`, `IN3` in `RQI_I01` is named four times in CH11 with two different separators:
+
+| Clause | Group name |
+|--------|------------|
+| 11.3.1 | `GUARANTOR_INSURANCE` |
+| 11.3.2 | `GUARANTOR_INSURANCE` |
+| 11.3.3 | `GUARANTOR+INSURANCE` (note the `+`) |
+| 11.3.7 | `GUARANTOR_INSURANCE` |
+
+The `+` character is not used as a group-name separator anywhere else in the V2.9.1 standard. All other compound group names use `_` (e.g., `PATIENT_VISIT`, `ORDER_DETAIL_SUPPLEMENT`).
+
+### Question for V2 Management
+
+Is the `+` in clause 11.3.3 a typo (Word document drift), or is it semantically meaningful (e.g., concatenation, parallel structure)? Recommend treating as a typo and standardizing all four occurrences to `GUARANTOR_INSURANCE`.
+
+---
+
 ## Methodology
 
 All findings are based on automated extraction from V2.9.1 Word documents (`v2plus_docx/*.docx`) using `tooling/scripts/extract_v291.py`, compared against FHIR StructureDefinitions in `input/sourceOfTruth/`. Comparison scripts:

@@ -99,7 +99,7 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 </div>
 <div id="content">
 <h1>V2.9.1 Message Structure Review Report</h1>
-<p class="meta">Generated: 2026-04-16 20:53 UTC | For V2 Management Group review</p>
+<p class="meta">Generated: 2026-04-23 14:55 UTC | For V2 Management Group review</p>
 <p>This report analyzes internal consistency of message structure definitions across V2.9.1 Word documents. When the same structure (e.g., ADT_A01) appears in multiple clauses for different events, the tables should be identical. Differences are categorized and recommendations provided.</p>
 <h2 id="summary">Summary</h2>
 <div class="card">
@@ -149,127 +149,17 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 </table>
 <p class="meta"><strong>Pending review:</strong> REVIEW-0001 — Clause 10.4 (ACK^S12-S24,S26,S27) has UAC as <code>[{{ UAC }}]</code> (optional+repeating) while all other 115 occurrences have <code>[ UAC ]</code> (optional, non-repeating).</p>
 </div>
-<h3>All 116 ACK Message Mappings</h3>
-<p>Rows highlighted in <span style="background:#fff3cd;padding:2px 6px">yellow</span> have a caption description that differs from "General Acknowledgment".</p>
+<h3>Caption-Description Variants</h3>
+<p>108 of 116 ACK occurrences use the canonical caption description &ldquo;General Acknowledgment&rdquo;. The remaining 8 use one of 6 variants listed below &mdash; each may be an intentional domain refinement (e.g., observation acknowledgments in CH07) or chapter-author drift.</p>
 <div class="card">
 <table>
-<tr><th>#</th><th>Caption</th><th>Clause</th><th>Chapter</th></tr>
-<tr><td>1</td><td>ACK^varies^ACK: General Acknowledgment</td><td>2.13.1</td><td>CH02</td></tr>
-<tr><td>2</td><td>ACK^A01^ACK: General Acknowledgment</td><td>3.3.1</td><td>CH03</td></tr>
-<tr><td>3</td><td>ACK^A02^ACK: General Acknowledgment</td><td>3.3.2</td><td>CH03</td></tr>
-<tr><td>4</td><td>ACK^A03^ACK: General Acknowledgment</td><td>3.3.3</td><td>CH03</td></tr>
-<tr><td>5</td><td>ACK^A04^ACK: General Acknowledgment</td><td>3.3.4</td><td>CH03</td></tr>
-<tr><td>6</td><td>ACK^A05^ACK: General Acknowledgment</td><td>3.3.5</td><td>CH03</td></tr>
-<tr><td>7</td><td>ACK^A06^ACK: General Acknowledgment</td><td>3.3.6</td><td>CH03</td></tr>
-<tr><td>8</td><td>ACK^A07^ACK: General Acknowledgment</td><td>3.3.7</td><td>CH03</td></tr>
-<tr><td>9</td><td>ACK^A08^ACK: General Acknowledgment</td><td>3.3.8</td><td>CH03</td></tr>
-<tr><td>10</td><td>ACK^A09^ACK: General Acknowledgment</td><td>3.3.9</td><td>CH03</td></tr>
-<tr><td>11</td><td>ACK^A10^ACK: General Acknowledgment</td><td>3.3.10</td><td>CH03</td></tr>
-<tr><td>12</td><td>ACK^A11^ACK: General Acknowledgment</td><td>3.3.11</td><td>CH03</td></tr>
-<tr><td>13</td><td>ACK^A12^ACK: General Acknowledgment</td><td>3.3.12</td><td>CH03</td></tr>
-<tr><td>14</td><td>ACK^A13^ACK: General Acknowledgment</td><td>3.3.13</td><td>CH03</td></tr>
-<tr><td>15</td><td>ACK^A14^ACK: General Acknowledgment</td><td>3.3.14</td><td>CH03</td></tr>
-<tr><td>16</td><td>ACK^A15^ACK: General Acknowledgment</td><td>3.3.15</td><td>CH03</td></tr>
-<tr><td>17</td><td>ACK^A16^ACK: General Acknowledgment</td><td>3.3.16</td><td>CH03</td></tr>
-<tr><td>18</td><td>ACK^A17^ACK: General Acknowledgment</td><td>3.3.17</td><td>CH03</td></tr>
-<tr><td>19</td><td>ACK^A20^ACK: General Acknowledgment</td><td>3.3.20</td><td>CH03</td></tr>
-<tr><td>20</td><td>ACK^A21^ACK: General Acknowledgment</td><td>3.3.21</td><td>CH03</td></tr>
-<tr><td>21</td><td>ACK^A22^ACK: General Acknowledgment</td><td>3.3.22</td><td>CH03</td></tr>
-<tr><td>22</td><td>ACK^A23^ACK: General Acknowledgment</td><td>3.3.23</td><td>CH03</td></tr>
-<tr><td>23</td><td>ACK^A24^ACK: General Acknowledgment</td><td>3.3.24</td><td>CH03</td></tr>
-<tr><td>24</td><td>ACK^A25^ACK: General Acknowledgment</td><td>3.3.25</td><td>CH03</td></tr>
-<tr><td>25</td><td>ACK^A26^ACK: General Acknowledgment</td><td>3.3.26</td><td>CH03</td></tr>
-<tr><td>26</td><td>ACK^A27^ACK: General Acknowledgment</td><td>3.3.27</td><td>CH03</td></tr>
-<tr><td>27</td><td>ACK^A28^ACK: General Acknowledgment</td><td>3.3.28</td><td>CH03</td></tr>
-<tr><td>28</td><td>ACK^A29^ACK: General Acknowledgment</td><td>3.3.29</td><td>CH03</td></tr>
-<tr><td>29</td><td>ACK^A31^ACK: General Acknowledgment</td><td>3.3.31</td><td>CH03</td></tr>
-<tr><td>30</td><td>ACK^A32^ACK: General Acknowledgment</td><td>3.3.32</td><td>CH03</td></tr>
-<tr><td>31</td><td>ACK^A33^ACK: General Acknowledgment</td><td>3.3.33</td><td>CH03</td></tr>
-<tr><td>32</td><td>ACK^A37^ACK: General Acknowledgment</td><td>3.3.37</td><td>CH03</td></tr>
-<tr><td>33</td><td>ACK^A38^ACK: General Acknowledgment</td><td>3.3.38</td><td>CH03</td></tr>
-<tr><td>34</td><td>ACK^A40^ACK: General Acknowledgment</td><td>3.3.40</td><td>CH03</td></tr>
-<tr><td>35</td><td>ACK^A41^ACK: General Acknowledgment</td><td>3.3.41</td><td>CH03</td></tr>
-<tr><td>36</td><td>ACK^A42^ACK: General Acknowledgment</td><td>3.3.42</td><td>CH03</td></tr>
-<tr><td>37</td><td>ACK^A43^ACK: General Acknowledgment</td><td>3.3.43</td><td>CH03</td></tr>
-<tr><td>38</td><td>ACK^A44^ACK: General Acknowledgment</td><td>3.3.44</td><td>CH03</td></tr>
-<tr><td>39</td><td>ACK^A45^ACK: General Acknowledgment</td><td>3.3.45</td><td>CH03</td></tr>
-<tr><td>40</td><td>ACK^A47^ACK: General Acknowledgment</td><td>3.3.47</td><td>CH03</td></tr>
-<tr><td>41</td><td>ACK^A49^ACK: General Acknowledgment</td><td>3.3.49</td><td>CH03</td></tr>
-<tr><td>42</td><td>ACK^A50^ACK: General Acknowledgment</td><td>3.3.50</td><td>CH03</td></tr>
-<tr><td>43</td><td>ACK^A51^ACK: General Acknowledgment</td><td>3.3.51</td><td>CH03</td></tr>
-<tr><td>44</td><td>ACK^A52^ACK: General Acknowledgment</td><td>3.3.52</td><td>CH03</td></tr>
-<tr><td>45</td><td>ACK^A53^ACK: General Acknowledgment</td><td>3.3.53</td><td>CH03</td></tr>
-<tr><td>46</td><td>ACK^A54^ACK: General Acknowledgment</td><td>3.3.54</td><td>CH03</td></tr>
-<tr><td>47</td><td>ACK^A55^ACK: General Acknowledgment</td><td>3.3.55</td><td>CH03</td></tr>
-<tr><td>48</td><td>ACK^A60^ACK: General Acknowledgment</td><td>3.3.60</td><td>CH03</td></tr>
-<tr><td>49</td><td>ACK^A61^ACK: General Acknowledgment</td><td>3.3.61</td><td>CH03</td></tr>
-<tr><td>50</td><td>ACK^A62^ACK: General Acknowledgment</td><td>3.3.62</td><td>CH03</td></tr>
-<tr><td>51</td><td>ACK^Q16^ACK: General Acknowledgment</td><td>5.4.4</td><td>CH05</td></tr>
-<tr><td>52</td><td>ACK^Q17^ACK: General Acknowledgment</td><td>5.4.5</td><td>CH05</td></tr>
-<tr><td>53</td><td>ACK^J01^ACK: General Acknowledgment</td><td>5.4.6</td><td>CH05</td></tr>
-<tr><td>54</td><td>ACK^J02^ACK: General Acknowledgment</td><td>5.4.7</td><td>CH05</td></tr>
-<tr><td>55</td><td>ACK^P01^ACK: General Acknowledgment</td><td>6.4.1</td><td>CH06</td></tr>
-<tr><td>56</td><td>ACK^P02^ACK: General Acknowledgment</td><td>6.4.2</td><td>CH06</td></tr>
-<tr><td>57</td><td>ACK^P03^ACK: General Acknowledgment</td><td>6.4.3</td><td>CH06</td></tr>
-<tr><td>58</td><td>ACK^P05^ACK: General Acknowledgment</td><td>6.4.5</td><td>CH06</td></tr>
-<tr><td>59</td><td>ACK^P06^ACK: General Acknowledgment</td><td>6.4.6</td><td>CH06</td></tr>
-<tr><td>60</td><td>ACK^P10^ACK: General Acknowledgment</td><td>6.4.7</td><td>CH06</td></tr>
-<tr><td>61</td><td>ACK^P11^ACK: General Acknowledgment</td><td>6.4.8</td><td>CH06</td></tr>
-<tr><td>62</td><td>ACK^P12^ACK: General Acknowledgment</td><td>6.4.9</td><td>CH06</td></tr>
-<tr style="background:#fff3cd"><td>63</td><td>ACK^R01^ACK: Observation Message</td><td>7.3.1</td><td>CH07</td></tr>
-<tr style="background:#fff3cd"><td>64</td><td>ACK^R30^ACK: Observation Message</td><td>7.3.4</td><td>CH07</td></tr>
-<tr style="background:#fff3cd"><td>65</td><td>ACK^R31^ACK: Acknowledgment</td><td>7.3.5</td><td>CH07</td></tr>
-<tr style="background:#fff3cd"><td>66</td><td>ACK^R32^ACK: Observation Message</td><td>7.3.6</td><td>CH07</td></tr>
-<tr><td>67</td><td>ACK^T01^ACK: General Acknowledgment</td><td>9.6.1</td><td>CH09</td></tr>
-<tr><td>68</td><td>ACK^T02^ACK: General Acknowledgment</td><td>9.6.2</td><td>CH09</td></tr>
-<tr><td>69</td><td>ACK^T03^ACK: General Acknowledgment</td><td>9.6.3</td><td>CH09</td></tr>
-<tr><td>70</td><td>ACK^T04^ACK: General Acknowledgment</td><td>9.6.4</td><td>CH09</td></tr>
-<tr><td>71</td><td>ACK^T05^ACK: General Acknowledgment</td><td>9.6.5</td><td>CH09</td></tr>
-<tr><td>72</td><td>ACK^T06^ACK: General Acknowledgment</td><td>9.6.6</td><td>CH09</td></tr>
-<tr><td>73</td><td>ACK^T07^ACK: General Acknowledgment</td><td>9.6.7</td><td>CH09</td></tr>
-<tr><td>74</td><td>ACK^T08^ACK: General Acknowledgment</td><td>9.6.8</td><td>CH09</td></tr>
-<tr><td>75</td><td>ACK^T09^ACK: General Acknowledgment</td><td>9.6.9</td><td>CH09</td></tr>
-<tr><td>76</td><td>ACK^T10^ACK: General Acknowledgment</td><td>9.6.10</td><td>CH09</td></tr>
-<tr><td>77</td><td>ACK^T11^ACK: General Acknowledgment</td><td>9.6.11</td><td>CH09</td></tr>
-<tr><td>78</td><td>ACK^S12-S24,S26,S27^ACK: General Acknowledgment</td><td>10.4</td><td>CH10</td></tr>
-<tr><td>79</td><td>ACK^I07^ACK: General Acknowledgment</td><td>11.3.7</td><td>CH11</td></tr>
-<tr><td>80</td><td>ACK^PC6-PC8^ACK: General Acknowledgment</td><td>12.3.1</td><td>CH12</td></tr>
-<tr><td>81</td><td>ACK^PC1-PC3^ACK: General Acknowledgment</td><td>12.3.2</td><td>CH12</td></tr>
-<tr><td>82</td><td>ACK^PCB-PCD^ACK: General Acknowledgment</td><td>12.3.3</td><td>CH12</td></tr>
-<tr><td>83</td><td>ACK^PCG,PCH,PCJ^ACK: General Acknowledgment</td><td>12.3.4</td><td>CH12</td></tr>
-<tr style="background:#fff3cd"><td>84</td><td>ACK^U01^ACK: General Acknowledgement</td><td>13.3.1</td><td>CH13</td></tr>
-<tr><td>85</td><td>ACK^U02^ACK: General Acknowledgment</td><td>13.3.2</td><td>CH13</td></tr>
-<tr><td>86</td><td>ACK^U03^ACK: General Acknowledgment</td><td>13.3.3</td><td>CH13</td></tr>
-<tr><td>87</td><td>ACK^U04^ACK: General Acknowledgment</td><td>13.3.4</td><td>CH13</td></tr>
-<tr><td>88</td><td>ACK^U05^ACK: General Acknowledgment</td><td>13.3.5</td><td>CH13</td></tr>
-<tr><td>89</td><td>ACK^U06^ACK: General Acknowledgment</td><td>13.3.6</td><td>CH13</td></tr>
-<tr><td>90</td><td>ACK^U07^ACK: General Acknowledgment</td><td>13.3.7</td><td>CH13</td></tr>
-<tr><td>91</td><td>ACK^U08^ACK: General Acknowledgment</td><td>13.3.8</td><td>CH13</td></tr>
-<tr><td>92</td><td>ACK^U09^ACK: General Acknowledgment</td><td>13.3.9</td><td>CH13</td></tr>
-<tr><td>93</td><td>ACK^U10^ACK: General Acknowledgment</td><td>13.3.10</td><td>CH13</td></tr>
-<tr><td>94</td><td>ACK^U11^ACK: General Acknowledgment</td><td>13.3.11</td><td>CH13</td></tr>
-<tr><td>95</td><td>ACK^U12^ACK: General Acknowledgment</td><td>13.3.12</td><td>CH13</td></tr>
-<tr><td>96</td><td>ACK^U13^ACK: General Acknowledgment</td><td>13.3.13</td><td>CH13</td></tr>
-<tr><td>97</td><td>ACK^U14^ACK: General Acknowledgment</td><td>13.3.14</td><td>CH13</td></tr>
-<tr style="background:#fff3cd"><td>98</td><td>ACK^N02^ACK: Generic Acknowledgement</td><td>14.3.2</td><td>CH14</td></tr>
-<tr><td>99</td><td>ACK^B01^ACK: General Acknowledgment</td><td>15.3.1</td><td>CH15</td></tr>
-<tr><td>100</td><td>ACK^B02^ACK: General Acknowledgment</td><td>15.3.2</td><td>CH15</td></tr>
-<tr><td>101</td><td>ACK^B03^ACK: General Acknowledgment</td><td>15.3.3</td><td>CH15</td></tr>
-<tr><td>102</td><td>ACK^B04^ACK: General Acknowledgment</td><td>15.3.4</td><td>CH15</td></tr>
-<tr><td>103</td><td>ACK^B05^ACK: General Acknowledgment</td><td>15.3.5</td><td>CH15</td></tr>
-<tr><td>104</td><td>ACK^B06^ACK: General Acknowledgment</td><td>15.3.6</td><td>CH15</td></tr>
-<tr><td>105</td><td>ACK^B07^ACK: General Acknowledgment</td><td>15.3.8</td><td>CH15</td></tr>
-<tr><td>106</td><td>ACK^B08^ACK: General Acknowledgment</td><td>15.3.9</td><td>CH15</td></tr>
-<tr><td>107</td><td>ACK^S28^ACK: General Acknowledgment</td><td>17.5.1</td><td>CH17</td></tr>
-<tr><td>108</td><td>ACK^S29^ACK: General Acknowledgment</td><td>17.5.2</td><td>CH17</td></tr>
-<tr><td>109</td><td>ACK^S30^ACK: General Acknowledgment</td><td>17.5.3</td><td>CH17</td></tr>
-<tr style="background:#fff3cd"><td>110</td><td>ACK^S31^ACK: Anti-Microbial Device Data Request Response</td><td>17.5.4</td><td>CH17</td></tr>
-<tr style="background:#fff3cd"><td>111</td><td>ACK^S32^ACK: Anti-Microbial Device Cycle Data Request Response</td><td>17.5.5</td><td>CH17</td></tr>
-<tr><td>112</td><td>ACK^S33^ACK: General Acknowledgment</td><td>17.6.1</td><td>CH17</td></tr>
-<tr><td>113</td><td>ACK^S34^ACK: General Acknowledgment</td><td>17.6.2</td><td>CH17</td></tr>
-<tr><td>114</td><td>ACK^S35^ACK: General Acknowledgment</td><td>17.6.3</td><td>CH17</td></tr>
-<tr><td>115</td><td>ACK^S36^ACK: General Acknowledgment</td><td>17.6.4</td><td>CH17</td></tr>
-<tr><td>116</td><td>ACK^S37^ACK: General Acknowledgment</td><td>17.6.5</td><td>CH17</td></tr>
+<tr><th>Variant description</th><th>Count</th><th>Exemplar clauses</th></tr>
+<tr><td>&ldquo;Acknowledgment&rdquo;</td><td>1</td><td>CH07 &sect;7.3.5</td></tr>
+<tr><td>&ldquo;Anti-Microbial Device Cycle Data Request Response&rdquo;</td><td>1</td><td>CH17 &sect;17.5.5</td></tr>
+<tr><td>&ldquo;Anti-Microbial Device Data Request Response&rdquo;</td><td>1</td><td>CH17 &sect;17.5.4</td></tr>
+<tr><td>&ldquo;General Acknowledgement&rdquo;</td><td>1</td><td>CH13 &sect;13.3.1</td></tr>
+<tr><td>&ldquo;Generic Acknowledgement&rdquo;</td><td>1</td><td>CH14 &sect;14.3.2</td></tr>
+<tr><td>&ldquo;Observation Message&rdquo;</td><td>3</td><td>CH07 &sect;7.3.1, CH07 &sect;7.3.4, CH07 &sect;7.3.6</td></tr>
 </table>
 </div>
 <h2 id="remaining">Remaining Differences by Structure</h2>
@@ -277,125 +167,7 @@ code { background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; font-
 <div class="structure-section" id="ACK">
 <h3>ACK <span class="badge structural">1 difference</span></h3>
 <h4>Occurrences in V2.9.1</h4>
-<table>
-<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>
-<tr><td>1 <em>(reference)</em></td><td>2.13.1</td><td>ACK^varies^ACK: General Acknowledgment</td><td>CH02</td><td>5</td></tr>
-<tr><td>2</td><td>3.3.1</td><td>ACK^A01^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>3</td><td>3.3.2</td><td>ACK^A02^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>4</td><td>3.3.3</td><td>ACK^A03^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>5</td><td>3.3.4</td><td>ACK^A04^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>6</td><td>3.3.5</td><td>ACK^A05^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>7</td><td>3.3.6</td><td>ACK^A06^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>8</td><td>3.3.7</td><td>ACK^A07^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>9</td><td>3.3.8</td><td>ACK^A08^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>10</td><td>3.3.9</td><td>ACK^A09^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>11</td><td>3.3.10</td><td>ACK^A10^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>12</td><td>3.3.11</td><td>ACK^A11^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>13</td><td>3.3.12</td><td>ACK^A12^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>14</td><td>3.3.13</td><td>ACK^A13^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>15</td><td>3.3.14</td><td>ACK^A14^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>16</td><td>3.3.15</td><td>ACK^A15^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>17</td><td>3.3.16</td><td>ACK^A16^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>18</td><td>3.3.17</td><td>ACK^A17^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>19</td><td>3.3.20</td><td>ACK^A20^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>20</td><td>3.3.21</td><td>ACK^A21^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>21</td><td>3.3.22</td><td>ACK^A22^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>22</td><td>3.3.23</td><td>ACK^A23^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>23</td><td>3.3.24</td><td>ACK^A24^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>24</td><td>3.3.25</td><td>ACK^A25^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>25</td><td>3.3.26</td><td>ACK^A26^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>26</td><td>3.3.27</td><td>ACK^A27^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>27</td><td>3.3.28</td><td>ACK^A28^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>28</td><td>3.3.29</td><td>ACK^A29^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>29</td><td>3.3.31</td><td>ACK^A31^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>30</td><td>3.3.32</td><td>ACK^A32^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>31</td><td>3.3.33</td><td>ACK^A33^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>32</td><td>3.3.37</td><td>ACK^A37^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>33</td><td>3.3.38</td><td>ACK^A38^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>34</td><td>3.3.40</td><td>ACK^A40^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>35</td><td>3.3.41</td><td>ACK^A41^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>36</td><td>3.3.42</td><td>ACK^A42^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>37</td><td>3.3.43</td><td>ACK^A43^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>38</td><td>3.3.44</td><td>ACK^A44^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>39</td><td>3.3.45</td><td>ACK^A45^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>40</td><td>3.3.47</td><td>ACK^A47^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>41</td><td>3.3.49</td><td>ACK^A49^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>42</td><td>3.3.50</td><td>ACK^A50^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>43</td><td>3.3.51</td><td>ACK^A51^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>44</td><td>3.3.52</td><td>ACK^A52^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>45</td><td>3.3.53</td><td>ACK^A53^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>46</td><td>3.3.54</td><td>ACK^A54^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>47</td><td>3.3.55</td><td>ACK^A55^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>48</td><td>3.3.60</td><td>ACK^A60^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>49</td><td>3.3.61</td><td>ACK^A61^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>50</td><td>3.3.62</td><td>ACK^A62^ACK: General Acknowledgment</td><td>CH03</td><td>5</td></tr>
-<tr><td>51</td><td>5.4.4</td><td>ACK^Q16^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
-<tr><td>52</td><td>5.4.5</td><td>ACK^Q17^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
-<tr><td>53</td><td>5.4.6</td><td>ACK^J01^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
-<tr><td>54</td><td>5.4.7</td><td>ACK^J02^ACK: General Acknowledgment</td><td>CH05</td><td>5</td></tr>
-<tr><td>55</td><td>6.4.1</td><td>ACK^P01^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>56</td><td>6.4.2</td><td>ACK^P02^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>57</td><td>6.4.3</td><td>ACK^P03^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>58</td><td>6.4.5</td><td>ACK^P05^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>59</td><td>6.4.6</td><td>ACK^P06^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>60</td><td>6.4.7</td><td>ACK^P10^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>61</td><td>6.4.8</td><td>ACK^P11^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>62</td><td>6.4.9</td><td>ACK^P12^ACK: General Acknowledgment</td><td>CH06</td><td>5</td></tr>
-<tr><td>63</td><td>7.3.1</td><td>ACK^R01^ACK: Observation Message</td><td>CH07</td><td>5</td></tr>
-<tr><td>64</td><td>7.3.4</td><td>ACK^R30^ACK: Observation Message</td><td>CH07</td><td>5</td></tr>
-<tr><td>65</td><td>7.3.5</td><td>ACK^R31^ACK: Acknowledgment</td><td>CH07</td><td>5</td></tr>
-<tr><td>66</td><td>7.3.6</td><td>ACK^R32^ACK: Observation Message</td><td>CH07</td><td>5</td></tr>
-<tr><td>67</td><td>9.6.1</td><td>ACK^T01^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>68</td><td>9.6.2</td><td>ACK^T02^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>69</td><td>9.6.3</td><td>ACK^T03^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>70</td><td>9.6.4</td><td>ACK^T04^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>71</td><td>9.6.5</td><td>ACK^T05^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>72</td><td>9.6.6</td><td>ACK^T06^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>73</td><td>9.6.7</td><td>ACK^T07^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>74</td><td>9.6.8</td><td>ACK^T08^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>75</td><td>9.6.9</td><td>ACK^T09^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>76</td><td>9.6.10</td><td>ACK^T10^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>77</td><td>9.6.11</td><td>ACK^T11^ACK: General Acknowledgment</td><td>CH09</td><td>5</td></tr>
-<tr><td>78</td><td>10.4</td><td>ACK^S12-S24,S26,S27^ACK: General Acknowledgment</td><td>CH10</td><td>5</td></tr>
-<tr><td>79</td><td>11.3.7</td><td>ACK^I07^ACK: General Acknowledgment</td><td>CH11</td><td>5</td></tr>
-<tr><td>80</td><td>12.3.1</td><td>ACK^PC6-PC8^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
-<tr><td>81</td><td>12.3.2</td><td>ACK^PC1-PC3^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
-<tr><td>82</td><td>12.3.3</td><td>ACK^PCB-PCD^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
-<tr><td>83</td><td>12.3.4</td><td>ACK^PCG,PCH,PCJ^ACK: General Acknowledgment</td><td>CH12</td><td>5</td></tr>
-<tr><td>84</td><td>13.3.1</td><td>ACK^U01^ACK: General Acknowledgement</td><td>CH13</td><td>5</td></tr>
-<tr><td>85</td><td>13.3.2</td><td>ACK^U02^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>86</td><td>13.3.3</td><td>ACK^U03^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>87</td><td>13.3.4</td><td>ACK^U04^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>88</td><td>13.3.5</td><td>ACK^U05^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>89</td><td>13.3.6</td><td>ACK^U06^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>90</td><td>13.3.7</td><td>ACK^U07^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>91</td><td>13.3.8</td><td>ACK^U08^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>92</td><td>13.3.9</td><td>ACK^U09^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>93</td><td>13.3.10</td><td>ACK^U10^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>94</td><td>13.3.11</td><td>ACK^U11^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>95</td><td>13.3.12</td><td>ACK^U12^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>96</td><td>13.3.13</td><td>ACK^U13^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>97</td><td>13.3.14</td><td>ACK^U14^ACK: General Acknowledgment</td><td>CH13</td><td>5</td></tr>
-<tr><td>98</td><td>14.3.2</td><td>ACK^N02^ACK: Generic Acknowledgement</td><td>CH14</td><td>5</td></tr>
-<tr><td>99</td><td>15.3.1</td><td>ACK^B01^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>100</td><td>15.3.2</td><td>ACK^B02^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>101</td><td>15.3.3</td><td>ACK^B03^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>102</td><td>15.3.4</td><td>ACK^B04^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>103</td><td>15.3.5</td><td>ACK^B05^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>104</td><td>15.3.6</td><td>ACK^B06^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>105</td><td>15.3.8</td><td>ACK^B07^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>106</td><td>15.3.9</td><td>ACK^B08^ACK: General Acknowledgment</td><td>CH15</td><td>5</td></tr>
-<tr><td>107</td><td>17.5.1</td><td>ACK^S28^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>108</td><td>17.5.2</td><td>ACK^S29^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>109</td><td>17.5.3</td><td>ACK^S30^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>110</td><td>17.5.4</td><td>ACK^S31^ACK: Anti-Microbial Device Data Request Response</td><td>CH17</td><td>5</td></tr>
-<tr><td>111</td><td>17.5.5</td><td>ACK^S32^ACK: Anti-Microbial Device Cycle Data Request Response</td><td>CH17</td><td>5</td></tr>
-<tr><td>112</td><td>17.6.1</td><td>ACK^S33^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>113</td><td>17.6.2</td><td>ACK^S34^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>114</td><td>17.6.3</td><td>ACK^S35^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>115</td><td>17.6.4</td><td>ACK^S36^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-<tr><td>116</td><td>17.6.5</td><td>ACK^S37^ACK: General Acknowledgment</td><td>CH17</td><td>5</td></tr>
-</table>
+<p class="meta">116 occurrences across chapters CH02, CH03, CH05, CH06, CH07, CH09, CH10, CH11, CH12, CH13, CH14, CH15, CH17. First: CH02 &sect;2.13.1. Last: CH17 &sect;17.6.5. Per-occurrence table omitted to keep the discussion document tractable.</p>
 <p class="meta"><strong>Events:</strong> ACK^A01, ACK^A02, ACK^A03, ACK^A04, ACK^A05, ACK^A06, ACK^A07, ACK^A08, ACK^A09, ACK^A10 ... and 126 more</p>
 <h4>Differences</h4>
 <div class="diff-item structural">

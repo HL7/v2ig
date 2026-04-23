@@ -398,28 +398,45 @@ def generate_report(structures, events, fixes):
                  '(optional, non-repeating).</p>')
         h.append('</div>')
 
-        # List all ACK messages with caption highlighting
+        # Caption-description exemplars: surface only those that differ
+        # from the canonical "General Acknowledgment" wording, grouped by
+        # the variant text so V2 management can reason over the deltas
+        # rather than scrolling through 115 near-identical rows.
         STANDARD_DESC = 'General Acknowledgment'
-        h.append(f'<h3>All {len(ack_occs)} ACK Message Mappings</h3>')
-        h.append('<p>Rows highlighted in <span style="background:#fff3cd;padding:2px 6px">'
-                 'yellow</span> have a caption description that differs from '
-                 f'"{STANDARD_DESC}".</p>')
-        h.append('<div class="card">')
-        h.append('<table>')
-        h.append('<tr><th>#</th><th>Caption</th><th>Clause</th><th>Chapter</th></tr>')
-        for oi, occ in enumerate(ack_occs):
+        from collections import defaultdict as _dd
+        variants = _dd(list)
+        for occ in ack_occs:
             prov = occ.get('provenance', {})
             caption = prov.get('captionText', '')
-            # Extract the description part after ":"
             m = re.search(r':\s*(.+)', caption)
             desc = m.group(1).strip() if m else ''
-            highlight = ' style="background:#fff3cd"' if desc != STANDARD_DESC else ''
-            h.append(f'<tr{highlight}><td>{oi + 1}</td>'
-                     f'<td>{esc(caption)}</td>'
-                     f'<td>{esc(prov.get("clause", "?"))}</td>'
-                     f'<td>CH{esc(prov.get("chapter", "?"))}</td></tr>')
-        h.append('</table>')
-        h.append('</div>')
+            if desc != STANDARD_DESC:
+                variants[desc].append((prov.get('clause', '?'),
+                                       prov.get('chapter', '?'),
+                                       caption))
+
+        standard_count = len(ack_occs) - sum(len(v) for v in variants.values())
+        h.append('<h3>Caption-Description Variants</h3>')
+        h.append(f'<p>{standard_count} of {len(ack_occs)} ACK occurrences use the canonical '
+                 f'caption description &ldquo;{STANDARD_DESC}&rdquo;. The remaining '
+                 f'{sum(len(v) for v in variants.values())} use one of {len(variants)} variants '
+                 f'listed below &mdash; each may be an intentional domain refinement '
+                 f'(e.g., observation acknowledgments in CH07) or chapter-author drift.</p>')
+        if variants:
+            h.append('<div class="card">')
+            h.append('<table>')
+            h.append('<tr><th>Variant description</th><th>Count</th><th>Exemplar clauses</th></tr>')
+            for desc, items in sorted(variants.items()):
+                exemplars = ', '.join(
+                    f'CH{chap} &sect;{clause}' for clause, chap, _cap in items[:3]
+                )
+                if len(items) > 3:
+                    exemplars += f' &hellip; (+{len(items) - 3} more)'
+                h.append(f'<tr><td>&ldquo;{esc(desc)}&rdquo;</td>'
+                         f'<td>{len(items)}</td>'
+                         f'<td>{exemplars}</td></tr>')
+            h.append('</table>')
+            h.append('</div>')
 
     # === Remaining Differences ===
     h.append('<h2 id="remaining">Remaining Differences by Structure</h2>')
@@ -435,20 +452,40 @@ def generate_report(structures, events, fixes):
                  f'<span class="badge structural">{len(diffs)} difference{"s" if len(diffs) != 1 else ""}</span>'
                  f'</h3>')
 
-        # Provenance table: where this structure appears
-        h.append('<h4>Occurrences in V2.9.1</h4>')
-        h.append('<table>')
-        h.append('<tr><th>#</th><th>Clause</th><th>Caption</th><th>Chapter</th><th>Rows</th></tr>')
+        # Provenance: where this structure appears. For high-occurrence
+        # structures (e.g. ACK, 116x), an exhaustive table is noise — V2
+        # management already knows the structure repeats per event. Show
+        # a count + first/last clause as anchors instead.
         ref_clause = occs[0]['provenance'].get('clause', '?')
-        for oi, occ in enumerate(occs):
-            prov = occ.get('provenance', {})
-            ref_marker = ' <em>(reference)</em>' if oi == 0 else ''
-            h.append(f'<tr><td>{oi + 1}{ref_marker}</td>'
-                     f'<td>{esc(prov.get("clause", "?"))}</td>'
-                     f'<td>{esc(prov.get("captionText", "")[:80])}</td>'
-                     f'<td>CH{esc(prov.get("chapter", "?"))}</td>'
-                     f'<td>{len(occ["rawRows"])}</td></tr>')
-        h.append('</table>')
+        h.append('<h4>Occurrences in V2.9.1</h4>')
+        OCCURRENCE_TABLE_LIMIT = 20
+        if len(occs) > OCCURRENCE_TABLE_LIMIT:
+            first_prov = occs[0].get('provenance', {})
+            last_prov = occs[-1].get('provenance', {})
+            chapters = sorted({occ.get('provenance', {}).get('chapter', '?') for occ in occs})
+            h.append(
+                f'<p class="meta">{len(occs)} occurrences across chapters '
+                f'{", ".join(f"CH{c}" for c in chapters)}. '
+                f'First: CH{esc(first_prov.get("chapter", "?"))} '
+                f'&sect;{esc(first_prov.get("clause", "?"))}. '
+                f'Last: CH{esc(last_prov.get("chapter", "?"))} '
+                f'&sect;{esc(last_prov.get("clause", "?"))}. '
+                f'Per-occurrence table omitted to keep the discussion '
+                f'document tractable.</p>'
+            )
+        else:
+            h.append('<table>')
+            h.append('<tr><th>#</th><th>Clause</th><th>Caption</th>'
+                     '<th>Chapter</th><th>Rows</th></tr>')
+            for oi, occ in enumerate(occs):
+                prov = occ.get('provenance', {})
+                ref_marker = ' <em>(reference)</em>' if oi == 0 else ''
+                h.append(f'<tr><td>{oi + 1}{ref_marker}</td>'
+                         f'<td>{esc(prov.get("clause", "?"))}</td>'
+                         f'<td>{esc(prov.get("captionText", "")[:80])}</td>'
+                         f'<td>CH{esc(prov.get("chapter", "?"))}</td>'
+                         f'<td>{len(occ["rawRows"])}</td></tr>')
+            h.append('</table>')
 
         # Events that use this structure
         sid_events = events.get(sid, [])

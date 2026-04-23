@@ -51,7 +51,19 @@ def md_to_html(md_text):
             in_list = False
 
     def inline(text):
-        """Process inline Markdown formatting."""
+        """Process inline Markdown formatting.
+
+        Code spans are extracted first and stashed under placeholders so
+        that subsequent italic / bold substitutions can't mangle their
+        contents (e.g. underscores inside `GUARANTOR_INSURANCE`).
+        """
+        code_spans = []
+
+        def stash_code(m):
+            code_spans.append(m.group(1))
+            return f'\x00CODE{len(code_spans) - 1}\x00'
+
+        text = re.sub(r'`([^`]+)`', stash_code, text)
         # Bold + italic
         text = re.sub(r'\*\*\*(.+?)\*\*\*', r'<strong><em>\1</em></strong>', text)
         # Bold
@@ -59,13 +71,14 @@ def md_to_html(md_text):
         # Italic (underscore and asterisk)
         text = re.sub(r'_(.+?)_', r'<em>\1</em>', text)
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-        # Inline code
-        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
         # Links
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
         # Em dash
         text = text.replace(' — ', ' &mdash; ')
         text = text.replace('—', '&mdash;')
+        # Restore code spans
+        for i, body in enumerate(code_spans):
+            text = text.replace(f'\x00CODE{i}\x00', f'<code>{body}</code>')
         return text
 
     for line in lines:
