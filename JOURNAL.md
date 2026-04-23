@@ -18,18 +18,23 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-04-23
+## ACTIVE — 2026-04-23 (end of session)
 
-**Phase:** Setup for ADR-0006 multi-corpus V2.9.1 extraction. Reconciliation of FHIR vs python-docx-extracted V291 is largely complete; the remaining items need V2 Management input rather than more Claude work. Doc reorganization just landed.
+**Phase:** Setup for ADR-0006 multi-corpus V2.9.1 extraction. Reconciliation of FHIR vs python-docx-extracted V291 is largely complete; the remaining items need V2 Management input rather than more Claude work. Doc reorganization landed. ACK-collapse build bug discovered + fixed mid-session.
 
-**Branch:** `dev/framework` (5 commits ahead of `origin/main` at session-end; one of those commits is this reorg)
-**Last commit (at handoff time):** the JOURNAL/SESSION-HANDOFF reorganization commit
+**Branch:** `dev/framework` at `3a4eae4b` (2 commits ahead of `origin/main`)
+**Already done by user this session:** merged `dev/framework` → `main` and ran `push-to-build.sh` (origin/build is at `104a92ac` — JS-cleanup did propagate this time, fix worked). However that build failed with a NEW error caused by my own bug — see below.
+
+### Build state
+
+- The `.js` trust-policy issue is **resolved**. `origin/build` no longer carries `local-template/*.js`, confirming the `push-to-build.sh` `git rm -rf` fix worked.
+- The build still **failed**, this time with: *Invalid path 'ACK-Scheduling' in input differential in http://hl7.org/v2/StructureDefinition/ACK-Scheduling: must start with ACK-BY*. Root cause was a bug in my own `collapse_ack_structures.py`: the rewrite only updated `id`, `url`, and element ids — it missed the top-level `name`, `title`, `type` fields. The IG Publisher validates that differential element paths start with `type`, so when `type` was still `"ACK-BY"` but the differential paths were `"ACK-Scheduling.*"`, validation rejected the file. Same bug applied to `ACK.json` (had `type: "ACK-A"`). Both fixed in commit `3a4eae4b`.
 
 ### Pending user actions before next Claude session
 
-1. **Merge `dev/framework` → `main`**: `git checkout main && git merge dev/framework && git push origin main`. Without this, the next `push-to-build.sh` will republish stale content (the very mistake the new safety guards in `push-to-build.sh` were added to catch).
-2. **Run `./push-to-build.sh`**: the script's own fix from this session lets it correctly delete files removed on main, so the JS-inlining cleanup (ADR-0004) plus the ACK collapse will finally reach `origin/build`.
-3. **Verify the build**: `https://build.fhir.org/ig/HL7/v2ig/branches/build/` — should now succeed (no more `.js` trust-policy rejection). Confirm that the published listing page shows just `ACK` and `ACK-Scheduling` rather than `ACK-A` … `ACK-DK`.
+1. **Merge `dev/framework` → `main` again** (only 2 commits this time — the doc reorg `0f2c2644` + the ACK-Scheduling fix `3a4eae4b`): `git checkout main && git merge dev/framework && git push origin main`.
+2. **Run `./push-to-build.sh` again**: should now succeed cleanly. Both the trust-policy issue and the path-validation issue are addressed.
+3. **Verify the build**: `https://build.fhir.org/ig/HL7/v2ig/branches/build/` — confirm no `failure/` subdirectory, that the listing page shows `ACK` and `ACK-Scheduling` (not `ACK-A`/`ACK-BY` and not the full 115-row enumeration).
 
 ### Next Claude session's first move
 
@@ -78,19 +83,24 @@ These are documented in detail in `v291-extracted/v2mgmt-review-report.md` — t
 - **ADR-0006**: two corpuses share parsing blind spots. The only way to establish fidelity at the level this project requires is independent multi-pipeline consensus.
 - **Doc reorg**: 1,291-line `JOURNAL.md` was being read at every `/uadf-start` for the marginal value of ~150 lines of recent context. Plus `SESSION-HANDOFF.md` had drifted into a misleading state.
 
-### Commits this session
+### Commits this session (all on `dev/framework`)
 
 - `76a75c5c` — Fix push-to-build.sh to delete files removed on main
 - `418b6b19` — Collapse 115 ACK structures into ACK + ACK-Scheduling
-- (current) — Reorganize JOURNAL.md, drop SESSION-HANDOFF.md, add ADR-0006
+- `0f2c2644` — Reorganize JOURNAL.md, drop SESSION-HANDOFF.md, add ADR-0006
+- `3a4eae4b` — Fix collapse_ack_structures.py to rewrite name/title/type fields (caught by post-merge build failure)
+
+The `0f2c2644` commit was originally made on `main` by mistake (the user had merged `dev/framework` → `main` mid-session, leaving HEAD on `main` after the next `git checkout`). It was cherry-picked to `dev/framework` and `main` was reset back to `origin/main` — no force-push occurred and main never had the wrong commit pushed.
 
 ### Relevant context for next session
 
 - The `_archive/` directory pattern is now a reusable convention: add to `.gitignore`, move stuff there for "in directory tree but not part of the IG and not committed". Useful for future similar collapses.
-- `tag pre-ack-collapse` is on commit `f6b8c074` — fully recoverable if the collapse turns out to be wrong.
+- Tag `pre-ack-collapse` is on commit `f6b8c074` — fully recoverable if the collapse turns out to be wrong.
 - `apply_canonical_to_fhir.py`'s position-based element matching (with segment-code sanity check) is the right pattern for any FHIR-side bulk-edit script — copy that approach for similar tooling.
 - The `claude-api` skill should be triggered when implementing the LLM extraction (it provides current Anthropic SDK guidance and prompt-caching patterns).
 - The 4-way consensus framework in ADR-0006 explicitly says LLM hallucinations are a real risk — never trust LLM output as a sole source; only as one of N for consensus.
+- **Lesson from the ACK-Scheduling build failure**: when renaming a FHIR StructureDefinition, the IG Publisher validates that differential paths start with the value of `type` (or the structure's logical name). Always rewrite all of: `id`, `url`, `name`, `title`, `type`, plus differential `id`/`path` fields. Missing any of these will fail validation at IG Publisher time, not at file-write time. Run a build (or at least a `validator.jar` pass) after any FHIR resource rename.
+- **Lesson from accidentally committing to `main`**: `push-to-build.sh` and similar cross-branch operations leave HEAD wherever they finished. Always `git rev-parse --abbrev-ref HEAD` before committing in a session that has touched multiple branches.
 
 ---
 
