@@ -120,9 +120,9 @@
             }
         ]
     },
-    "title": "HL7 v2 ACK-A Message Structure",
-    "name": "ACK-A",
-    "type": "ACK-A",
+    "title": "HL7 v2 ACK Message Structure",
+    "name": "ACK",
+    "type": "ACK",
     "fhirVersion": "5.0.0",
     "date": "2025-06-13T21:28:55Z"
 }

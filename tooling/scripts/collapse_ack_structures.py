@@ -47,11 +47,23 @@ ARCHIVE_DIR = os.path.join(PROJECT_ROOT, '_archive', 'unreferenced-ack-structure
 
 
 def rewrite_structure(path: str, old_name: str, new_name: str) -> dict:
-    """Load a StructureDefinition and rewrite all old_name occurrences to new_name."""
+    """Load a StructureDefinition and rewrite all old_name occurrences to new_name.
+
+    StructureDefinition has multiple top-level fields that carry the structure
+    name: id, url, name, title, type. All must agree, because the IG Publisher
+    validates that differential element paths start with the value of `type`
+    (or with the structure's logical name for logical-model resources).
+    """
     with open(path) as f:
         d = json.load(f)
     d['id'] = new_name
     d['url'] = f'http://hl7.org/v2/StructureDefinition/{new_name}'
+    if 'name' in d:
+        d['name'] = new_name
+    if 'type' in d:
+        d['type'] = new_name
+    if 'title' in d and isinstance(d['title'], str) and old_name in d['title']:
+        d['title'] = d['title'].replace(old_name, new_name)
     for elem in d.get('differential', {}).get('element', []):
         if elem.get('id') == old_name:
             elem['id'] = new_name
