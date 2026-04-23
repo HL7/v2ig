@@ -157,15 +157,15 @@
         ]
       },
       {
-        "id": "RSP_Znn.8-...",
-        "path": "RSP_Znn.8-...",
+        "id": "RSP_Znn.8-Hxx",
+        "path": "RSP_Znn.8-Hxx",
         "short": "(additional segments according to the data to be produced)",
         "min": 0,
         "max": "1",
         "definition": "(additional segments according to the data to be produced)",
         "type": [
           {
-            "code": "http://hl7.org/v2/StructureDefinition/..."
+            "code": "http://hl7.org/v2/StructureDefinition/Hxx"
           }
         ],
         "extension": [
