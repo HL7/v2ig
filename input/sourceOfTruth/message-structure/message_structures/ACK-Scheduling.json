@@ -120,9 +120,9 @@
             }
         ]
     },
-    "title": "HL7 v2 ACK-BY Message Structure",
-    "name": "ACK-BY",
-    "type": "ACK-BY",
+    "title": "HL7 v2 ACK-Scheduling Message Structure",
+    "name": "ACK-Scheduling",
+    "type": "ACK-Scheduling",
     "fhirVersion": "5.0.0",
     "date": "2025-06-13T21:28:56Z",
     "description": "Acknowledgment variant for scheduling messages (ACK^S12-S24, S26, S27). UAC is encoded as repeating in V2.9.1 clause 10.4 \u2014 REVIEW-0001 pending V2 Management review of whether this is intentional or a typo. If a typo, this structure can be merged into the canonical ACK."
