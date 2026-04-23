@@ -103,6 +103,18 @@ echo ""
 echo "--- Copying IG Publisher files from ${SOURCE_BRANCH}... ---"
 git checkout build
 
+# IMPORTANT: `git checkout <ref> -- <path>` only adds/updates files; it does
+# NOT delete files that exist on build but no longer exist on main. Stale
+# .js files survived the JS-inlining cleanup that way and broke the
+# auto-ig-builder trust check (see ADR-0004). Wipe the synced trees first
+# so the re-checkout produces a faithful mirror of main.
+SYNC_PATHS=(input local-template)
+for path in "${SYNC_PATHS[@]}"; do
+    if git ls-files --error-unmatch "${path}" >/dev/null 2>&1; then
+        git rm -rf --quiet "${path}"
+    fi
+done
+
 # Copy only the paths the auto-ig-builder needs
 git checkout "${SOURCE_BRANCH}" -- \
     input/ \
