@@ -103,12 +103,6 @@
     },
     {
       "item": {
-        "reference": "StructureDefinition/...",
-        "display": "Variable"
-      }
-    },
-    {
-      "item": {
         "reference": "StructureDefinition/Hxx",
         "display": "Any segment or segment group"
       }

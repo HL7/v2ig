@@ -132,15 +132,15 @@
         ]
       },
       {
-        "id": "QBP_Q11-A.6-QBP.1-...",
-        "path": "QBP_Q11-A.6-QBP.1-...",
+        "id": "QBP_Q11-A.6-QBP.1-Hxx",
+        "path": "QBP_Q11-A.6-QBP.1-Hxx",
         "short": "Optional query by example segments",
         "min": 0,
         "max": "1",
         "definition": "Optional query by example segments",
         "type": [
           {
-            "code": "http://hl7.org/v2/StructureDefinition/..."
+            "code": "http://hl7.org/v2/StructureDefinition/Hxx"
           }
         ],
         "extension": [
