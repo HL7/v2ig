@@ -405,18 +405,28 @@ Is the `+` in clause 11.3.3 a typo (Word document drift), or is it semantically 
 
 ---
 
-## 16. `MFN_Znn` Site-Defined Segment Placeholder
+## 16. `...` Segment Placeholder Unification with `Hxx`
 
 ### Finding
 
-The `MFN_Znn` (Master File Notification — site-defined) message structure in CH08 (Master Files) contains a placeholder element representing "one or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment." In the V2.9.1 source, this placeholder is rendered as the literal token `...` (three dots), which appears both:
+The V2.9.1 standard uses the literal token `...` (three dots) as an "any segment / variable" placeholder in several message structures across multiple chapters. In the V2.9.1 source it appears as:
 
-1. As an entry in the segments registry (V2 segments CodeSystem) with display `"Variable"`
-2. As a row in the `MFN_Znn` message structure table at position 5.2
+1. An entry in the segments registry (V2 segments CodeSystem) with display `"Variable"`
+2. A row in 11 message structure tables, including:
+
+| Chapter | Message Structure | Element position | Description |
+|---------|------------------|------------------|-------------|
+| CH05 | `QBP_Q11-A`, `-B`, `-C`, `-D`, `-E` | `.6-QBP.1-...` | "Optional query by example segments" |
+| CH05 | `QBP_Q15` | `.5-...` | "Optional query by example segments" |
+| CH05 | `QVR_Q17` | `.5-QBP.1-...` | "Optional query by example segments" |
+| CH05 | `RSP_K11` | `.8-SEGMENT_PATTERN.1-...` | (no description in source) |
+| CH05 | `RSP_Znn` | `.8-...` | "(additional segments according to the data to be produced)" |
+| CH05 | `RTB_Knn` | `.8-...` | (description not yet recovered) |
+| CH08 | `MFN_Znn` | `.5-MF_SITE_DEFINED.2-...` | "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment" |
 
 ### Problem with literal `...`
 
-In the FHIR `StructureDefinition` for `MFN_Znn`, the element id and path were originally encoded with the literal `...`:
+In FHIR `StructureDefinition` element ids and paths, the literal `...` was carried through verbatim:
 
 ```
 "id":   "MFN_Znn.5-MF_SITE_DEFINED.2-..."
@@ -424,31 +434,35 @@ In the FHIR `StructureDefinition` for `MFN_Znn`, the element id and path were or
 "type": [ { "code": "http://hl7.org/v2/StructureDefinition/..." } ]
 ```
 
-The IG Publisher splits element paths on `.` to walk the parent hierarchy. The literal `...` produced empty path segments, causing snapshot generation to fail with:
+The IG Publisher splits element paths on `.` to walk the parent hierarchy. The literal `...` produces empty path segments, causing snapshot generation to fail with errors of the form:
 
-> *Unable to find parent path `MFN_Znn.5-MF_SITE_DEFINED.2-..` for element `MFN_Znn.5-MF_SITE_DEFINED.2-..`*
+> *Unable to find parent path `X.Y.Z-..` for element `X.Y.Z-..`*
 
 This blocked the IG build entirely. (Same class of bug as the previously-resolved `Varies` data type, whose id was originally `"..."` and broke Jekyll for the same reason.)
 
 ### Action taken
 
-To unblock the build, the following changes were made on `dev/framework`:
+The fix substitutes the existing `Hxx` placeholder (already used by 4 CH12 message structures: `PGL_PC6`, `PPG_PCG`, `PPP_PCB`, `PPR_PC1`) for the literal `...`:
 
-| Change | File | Detail |
-|--------|------|--------|
-| Replace `...` placeholder with `Hxx` | `input/sourceOfTruth/message-structure/message_structures/MFN_Znn.json` | Element id, path, and type code all use `Hxx` (the existing "any segment or segment group" placeholder, already used by 4 CH12 message structures) |
-| Fix cardinality | same file | `max: "1"` → `max: "*"` (the description says "one or more" — the `1` was contradictory) |
-| Remove `...` code | `input/sourceOfTruth/meta-resources/segment--v2-cs-segments.json` | The `{"code": "...", "display": "Variable"}` entry was removed; `Hxx` was already present in the same CodeSystem with display `"Any segment or segment group"` |
+| Change | Files affected | Detail |
+|--------|----------------|--------|
+| Replace `...` placeholder with `Hxx` in element id, path, and type code | 11 message structures (the table above) | One-shot script: `tooling/scripts/fix_dots_placeholder.py` (idempotent, has `--dry-run`) |
+| Fix cardinality on `MFN_Znn.5-MF_SITE_DEFINED.2` only | `MFN_Znn.json` | `max: "1"` → `max: "*"` — the description explicitly says "one or more". Cardinality on the other 10 was left as-is because the descriptions are weaker ("Optional", `null`, etc.) and per-file investigation is warranted. |
+| Remove `...` code from segments CodeSystem | `meta-resources/segment--v2-cs-segments.json` | The `{"code": "...", "display": "Variable"}` entry removed; `Hxx` was already present with display `"Any segment or segment group"` |
+| Remove dangling `StructureDefinition/...` reference from segments control manifest | `control-manifests/segments.json` | Hxx already present in the manifest, so the `...` reference was simply removed |
 
 ### Questions for V2 Management
 
-1. **Is `Hxx` semantically equivalent to the V2.9.1 `...` notation in `MFN_Znn`?** Both are open-ended segment placeholders, but `Hxx` was introduced in CH12 with description `"etc."` whereas `...` in CH08 has display `"Variable"`. The description on the `MFN_Znn` element ("one or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment") matches the `Hxx` semantic, but the V2 Management Group should confirm whether unifying these two notations is correct or whether `MFN_Znn` deserves a distinct placeholder.
+1. **Is `Hxx` semantically equivalent to the V2.9.1 `...` notation across all 11 message structures?** Both are open-ended segment placeholders, but `Hxx` was introduced in CH12 with description `"etc."` whereas `...` in the segments registry has display `"Variable"`. The descriptions on the affected elements range from "Optional query by example segments" (CH05 query patterns) to "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment" (CH08 MFN_Znn). The V2 Management Group should confirm whether unifying these two notations is correct everywhere, or whether some uses of `...` deserve a distinct placeholder (e.g., a query-specific placeholder, a site-defined placeholder).
 2. **Should the `...` segment-registry entry remain in any V2.9.1-faithful representation?** The V2.9.1 standard does enumerate `...` as a segment-table entry; removing it from the FHIR CodeSystem is a forward-looking simplification, not a faithful reproduction.
 3. **Was the original `max: "1"` on `MFN_Znn.5-MF_SITE_DEFINED.2` an intentional constraint or a typo?** The description explicitly says "one or more". Treating it as a typo and fixing to `max: "*"`, but flagging in case the cardinality was meant to be tighter than the description implies.
+4. **What should the cardinality of the other 10 `...`/`Hxx` placeholders be?** Most are currently `min: 0, max: "1"`, but the surrounding descriptions ("Optional query by example segments", "additional segments") suggest repeating semantics. Per-file review needed; we have not changed cardinality on these without committee input.
+5. **`RSP_K11.8-SEGMENT_PATTERN.1` has `null` short and definition.** The V2.9.1 source apparently provided no caption text for this row. Should it be filled in (and if so, with what), or is `null` faithful to the standard?
+6. **`RTB_Knn.8` description was not recovered during extraction.** Currently `"DESCRIPTION NEEDED"`. Should be captured during the next V2.9.1 extraction pass; flagging here as a known gap.
 
 ### Provenance
 
-These changes were made to unblock the auto-IG build (which had failed with the snapshot-generation error above). They are reversible — see commit history on `dev/framework`. The `Hxx` substitution was chosen over alternatives (e.g., creating a new `Site_Defined` placeholder, leaving the element unconstrained) because it reuses an existing convention already present in CH12 message structures, minimizing the surface area of the fix.
+These changes were made to unblock the auto-IG build (which had failed twice in succession with the snapshot-generation error above — first on `MFN_Znn`, then on `QBP_Q11-A`). They are reversible — see commit history on `dev/framework`. The `Hxx` substitution was chosen over alternatives (e.g., creating new chapter-specific placeholders, leaving the elements unconstrained) because it reuses an existing convention already present in CH12 message structures, minimizing the surface area of the fix and the number of new V2 Management questions raised.
 
 ---
 

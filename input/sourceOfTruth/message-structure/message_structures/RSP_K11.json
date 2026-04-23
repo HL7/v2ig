@@ -170,15 +170,15 @@
         ]
       },
       {
-        "id": "RSP_K11.8-SEGMENT_PATTERN.1-...",
-        "path": "RSP_K11.8-SEGMENT_PATTERN.1-...",
+        "id": "RSP_K11.8-SEGMENT_PATTERN.1-Hxx",
+        "path": "RSP_K11.8-SEGMENT_PATTERN.1-Hxx",
         "short": null,
         "min": 1,
         "max": "1",
         "definition": null,
         "type": [
           {
-            "code": "http://hl7.org/v2/StructureDefinition/..."
+            "code": "http://hl7.org/v2/StructureDefinition/Hxx"
           }
         ],
         "extension": [
