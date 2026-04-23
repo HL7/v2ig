@@ -405,6 +405,53 @@ Is the `+` in clause 11.3.3 a typo (Word document drift), or is it semantically 
 
 ---
 
+## 16. `MFN_Znn` Site-Defined Segment Placeholder
+
+### Finding
+
+The `MFN_Znn` (Master File Notification — site-defined) message structure in CH08 (Master Files) contains a placeholder element representing "one or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment." In the V2.9.1 source, this placeholder is rendered as the literal token `...` (three dots), which appears both:
+
+1. As an entry in the segments registry (V2 segments CodeSystem) with display `"Variable"`
+2. As a row in the `MFN_Znn` message structure table at position 5.2
+
+### Problem with literal `...`
+
+In the FHIR `StructureDefinition` for `MFN_Znn`, the element id and path were originally encoded with the literal `...`:
+
+```
+"id":   "MFN_Znn.5-MF_SITE_DEFINED.2-..."
+"path": "MFN_Znn.5-MF_SITE_DEFINED.2-..."
+"type": [ { "code": "http://hl7.org/v2/StructureDefinition/..." } ]
+```
+
+The IG Publisher splits element paths on `.` to walk the parent hierarchy. The literal `...` produced empty path segments, causing snapshot generation to fail with:
+
+> *Unable to find parent path `MFN_Znn.5-MF_SITE_DEFINED.2-..` for element `MFN_Znn.5-MF_SITE_DEFINED.2-..`*
+
+This blocked the IG build entirely. (Same class of bug as the previously-resolved `Varies` data type, whose id was originally `"..."` and broke Jekyll for the same reason.)
+
+### Action taken
+
+To unblock the build, the following changes were made on `dev/framework`:
+
+| Change | File | Detail |
+|--------|------|--------|
+| Replace `...` placeholder with `Hxx` | `input/sourceOfTruth/message-structure/message_structures/MFN_Znn.json` | Element id, path, and type code all use `Hxx` (the existing "any segment or segment group" placeholder, already used by 4 CH12 message structures) |
+| Fix cardinality | same file | `max: "1"` → `max: "*"` (the description says "one or more" — the `1` was contradictory) |
+| Remove `...` code | `input/sourceOfTruth/meta-resources/segment--v2-cs-segments.json` | The `{"code": "...", "display": "Variable"}` entry was removed; `Hxx` was already present in the same CodeSystem with display `"Any segment or segment group"` |
+
+### Questions for V2 Management
+
+1. **Is `Hxx` semantically equivalent to the V2.9.1 `...` notation in `MFN_Znn`?** Both are open-ended segment placeholders, but `Hxx` was introduced in CH12 with description `"etc."` whereas `...` in CH08 has display `"Variable"`. The description on the `MFN_Znn` element ("one or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment") matches the `Hxx` semantic, but the V2 Management Group should confirm whether unifying these two notations is correct or whether `MFN_Znn` deserves a distinct placeholder.
+2. **Should the `...` segment-registry entry remain in any V2.9.1-faithful representation?** The V2.9.1 standard does enumerate `...` as a segment-table entry; removing it from the FHIR CodeSystem is a forward-looking simplification, not a faithful reproduction.
+3. **Was the original `max: "1"` on `MFN_Znn.5-MF_SITE_DEFINED.2` an intentional constraint or a typo?** The description explicitly says "one or more". Treating it as a typo and fixing to `max: "*"`, but flagging in case the cardinality was meant to be tighter than the description implies.
+
+### Provenance
+
+These changes were made to unblock the auto-IG build (which had failed with the snapshot-generation error above). They are reversible — see commit history on `dev/framework`. The `Hxx` substitution was chosen over alternatives (e.g., creating a new `Site_Defined` placeholder, leaving the element unconstrained) because it reuses an existing convention already present in CH12 message structures, minimizing the surface area of the fix.
+
+---
+
 ## Methodology
 
 All findings are based on automated extraction from V2.9.1 Word documents (`v2plus_docx/*.docx`) using `tooling/scripts/extract_v291.py`, compared against FHIR StructureDefinitions in `input/sourceOfTruth/`. Comparison scripts:
