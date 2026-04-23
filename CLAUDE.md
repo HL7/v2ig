@@ -82,3 +82,19 @@ editor_instructions/        # Guidance for content editors
 ## UADF Configuration
 
 - uadf_team_mode: true
+
+## Project Documentation Layout (2026-04-23)
+
+Where each kind of context lives. Read in this order at session start; don't duplicate content across files.
+
+| File | Loaded at start? | Lifecycle | Purpose |
+|------|-----------------|-----------|---------|
+| `MEMORY.md` (auto-memory) | always | Edit on stable knowledge change | Paths, build rules, architecture, environment quirks |
+| `CLAUDE.md` (this file) | always | Edit when conventions change | Project conventions, build commands, this layout protocol |
+| `JOURNAL.md` ACTIVE section | always | **Overwrite each handoff** | Current branch, pending user actions, next session's first move, open blockers |
+| `JOURNAL.md` Session History | always | Append-only at top | Last few session entries: what was done, why, non-obvious context |
+| `JOURNAL-archive.md` | on demand only | Append on rolloff | Older session entries (target: keep `JOURNAL.md` under ~600 lines) |
+| `docs/adr/` | on demand only | Immutable once accepted | Significant architectural decisions, with rationale and consequences |
+| `v291-extracted/v2mgmt-review-report.md` | on demand only | Updated as findings emerge | The V2 Management discussion document — questions awaiting committee input |
+
+There is **no** `SESSION-HANDOFF.md` (deprecated 2026-04-23 — drift-prone duplicate of JOURNAL.md ACTIVE). Older planning artifacts (`spec.md`, `blueprint.md`, `TASKS.md`, `ARCHITECTURE.md`, etc.) are historical context from the project's early phases — read on demand only when investigating origin of a decision; do not treat as current.
