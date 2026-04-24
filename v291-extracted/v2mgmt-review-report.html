@@ -120,30 +120,33 @@
 <li class=""><a href="#8-varies-data-type-contextual-typing-in-fhir">8. Varies Data Type: Contextual Typing in FHIR</a></li>
 <li class="toc-h3"><a href="#finding-7">Finding</a></li>
 <li class="toc-h3"><a href="#open-questions">Open Questions</a></li>
-<li class=""><a href="#9-hxx-any-segment-or-segment-group-placeholder">9. Hxx: "Any Segment or Segment Group" Placeholder</a></li>
-<li class="toc-h3"><a href="#finding-8">Finding</a></li>
-<li class="toc-h3"><a href="#fhir-representation">FHIR Representation</a></li>
+<li class=""><a href="#9-hxx-and-etc-any-segment-or-segment-group-placeholder">9. Hxx and `...` (etc.): "Any Segment or Segment Group" Placeholder</a></li>
+<li class="toc-h3"><a href="#source-clauses-from-v2-9-1">Source clauses from V2.9.1</a></li>
+<li class="toc-h3"><a href="#what-this-tells-us">What this tells us</a></li>
+<li class="toc-h3"><a href="#where-the-placeholder-appears">Where the placeholder appears</a></li>
+<li class="toc-h3"><a href="#fhir-representation">FHIR representation</a></li>
 <li class="toc-h3"><a href="#questions-for-v2-management-5">Questions for V2 Management</a></li>
 <li class=""><a href="#10-choice-groups-in-message-structures">10. Choice Groups in Message Structures</a></li>
-<li class="toc-h3"><a href="#finding-9">Finding</a></li>
+<li class="toc-h3"><a href="#finding-8">Finding</a></li>
 <li class="toc-h3"><a href="#questions-for-v2-management-6">Questions for V2 Management</a></li>
 <li class=""><a href="#11-segment-field-data-quality-previously-resolved">11. Segment Field Data Quality (Previously Resolved)</a></li>
 <li class=""><a href="#12-data-type-component-conformance-length-previously-resolved">12. Data Type Component Conformance Length (Previously Resolved)</a></li>
 <li class=""><a href="#13-ack-structure-collapse-and-scheduling-outlier">13. ACK Structure Collapse and Scheduling Outlier</a></li>
-<li class="toc-h3"><a href="#finding-10">Finding</a></li>
+<li class="toc-h3"><a href="#finding-9">Finding</a></li>
 <li class="toc-h3"><a href="#fhir-representation-1">FHIR Representation</a></li>
 <li class="toc-h3"><a href="#caption-description-variants-exemplars">Caption-Description Variants (Exemplars)</a></li>
 <li class="toc-h3"><a href="#questions-for-v2-management-7">Questions for V2 Management</a></li>
 <li class=""><a href="#14-nte-description-form-in-mdm-t01-t02-ch09">14. NTE Description Form in MDM_T01/T02 (CH09)</a></li>
-<li class="toc-h3"><a href="#finding-11">Finding</a></li>
+<li class="toc-h3"><a href="#finding-10">Finding</a></li>
 <li class="toc-h3"><a href="#question-for-v2-management">Question for V2 Management</a></li>
 <li class=""><a href="#15-guarantor-insurance-group-name-in-rqi-i01">15. `GUARANTOR_INSURANCE` Group Name in RQI_I01</a></li>
-<li class="toc-h3"><a href="#finding-12">Finding</a></li>
+<li class="toc-h3"><a href="#finding-11">Finding</a></li>
 <li class="toc-h3"><a href="#question-for-v2-management-1">Question for V2 Management</a></li>
 <li class=""><a href="#16-segment-placeholder-unification-with-hxx">16. `...` Segment Placeholder Unification with `Hxx`</a></li>
-<li class="toc-h3"><a href="#finding-13">Finding</a></li>
+<li class="toc-h3"><a href="#finding-12">Finding</a></li>
 <li class="toc-h3"><a href="#problem-with-literal">Problem with literal `...`</a></li>
 <li class="toc-h3"><a href="#action-taken">Action taken</a></li>
+<li class="toc-h3"><a href="#note-on-equivalence">Note on equivalence</a></li>
 <li class="toc-h3"><a href="#questions-for-v2-management-8">Questions for V2 Management</a></li>
 <li class="toc-h3"><a href="#provenance">Provenance</a></li>
 <li class=""><a href="#methodology">Methodology</a></li>
@@ -329,29 +332,46 @@
 <p class="numbered"><strong>2.</strong> <strong>QPD.3–N</strong>: The current FHIR representation has a single QPD.3 element with <code>max: "1"</code>. The real QPD allows fields 3 through N (variable count, variable types). This likely needs a repeating element with <code>max: "*"</code>. FHIR logical models do preserve element order, so ordering semantics are maintained. However, the semantic that each position may have a <em>different</em> type is not expressible in a single repeating element.</p>
 <p class="numbered"><strong>3.</strong> <strong>RDT.1</strong>: Similar to QPD &mdash; variable number of columns, each with its own type defined by the RDF segment. Same representation challenge.</p>
 <hr>
-<h2 id="9-hxx-any-segment-or-segment-group-placeholder">9. Hxx: "Any Segment or Segment Group" Placeholder</h2>
-<h3 id="finding-8">Finding</h3>
-<p>The Hxx placeholder appears in 4 message structures in CH12 (Patient Care):</p>
+<h2 id="9-hxx-and-etc-any-segment-or-segment-group-placeholder">9. Hxx and <code>...</code> (etc.): "Any Segment or Segment Group" Placeholder</h2>
+<h3 id="source-clauses-from-v2-9-1">Source clauses from V2.9.1</h3>
+<p>Three clauses in V2.9.1 jointly establish the semantics. They are quoted verbatim:</p>
+<p>> <strong>§1.12 Errata</strong> &mdash; <em>Issue: Use of "etc." in various segment choices</em></p>
+<p>> <em>Resolution: The "etc." is used as a placeholder for various choice alternatives that may be represented in the abstract message syntax (AMS). "Etc." should be interpreted as meaning any segment can be used in this location; that is, "etc." does not limit your choice of segment or segment groups, except for MSH and other transmission control segments. <strong>In the future, explanation will be added to Chapter 2, section 12 proposing the use of "Hxx" as a formal representation in circumstance where a choice of any segment or segment group is allowed.</strong></em></p>
+<p>> <strong>§4.2.2.4 Order detail segment</strong> &mdash; <em>One of several segments that can carry order information. Examples are OBR and RXO. Future ancillary-specific segments may be defined in subsequent releases of the Standard if they become necessary.</em></p>
+<p>> <strong>§12.3 Message Definitions (Note)</strong> &mdash; <em>For all message definitions, the "OBR etc." notation represents all possible combinations of pharmacy and other order detail segments, as outlined in Chapter 4 conventions (See section 4.2.2.4, "Order detail segment").</em></p>
+<h3 id="what-this-tells-us">What this tells us</h3>
+<p class="numbered"><strong>1.</strong> <strong><code>Hxx</code>, <code>...</code>, and <code>etc.</code> are intended to be the same thing.</strong> §1.12 explicitly names <code>Hxx</code> as the <em>formal future representation</em> for the open-ended choice that is currently denoted by <code>etc.</code> (and, in the registry/structure tables, by the literal <code>...</code>). The standard itself signals the intended unification.</p>
+<p class="numbered"><strong>2.</strong> <strong>The placeholder has one stated exclusion</strong>: <code>MSH</code> and other <em>transmission control segments</em> are out of bounds. This is the only constraint on what may appear.</p>
+<p class="numbered"><strong>3.</strong> <strong>The CH12 use of <code>Hxx</code> is contextually narrower</strong> than the general definition. §12.3 binds the <code>OBR | Hxx</code> choice in Patient Care messages to the "order detail segment" family per §4.2.2.4 &mdash; so in CH12 the <code>Hxx</code> slot means "any <em>order detail</em> segment," not "any segment whatsoever." This narrowing is contextual (because the surrounding CHOICE is conventionally an order-detail choice), not a different definition of <code>Hxx</code>.</p>
+<h3 id="where-the-placeholder-appears">Where the placeholder appears</h3>
 <table>
-<thead><tr><th>Structure</th><th>Chapter</th><th>Context</th></tr></thead><tbody>
-<tr><td>PGL_PC6</td><td>CH12, Table 3</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
-<tr><td>PPG_PCG</td><td>CH12</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
-<tr><td>PPP_PCB</td><td>CH12</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
-<tr><td>PPR_PC1</td><td>CH12</td><td>ORDER_DETAIL CHOICE: `OBR \</td><td>Hxx`</td></tr>
+<thead><tr><th>Use site</th><th>Form in source</th><th>Apparent semantics</th></tr></thead><tbody>
+<tr><td>CH12 ORDER_DETAIL CHOICE in <code>PGL_PC6</code>, <code>PPG_PCG</code>, <code>PPP_PCB</code>, <code>PPR_PC1</code></td><td>`OBR \</td><td>Hxx`</td><td>Any order detail segment (per §12.3 binding to §4.2.2.4)</td></tr>
+<tr><td>CH05 query patterns (<code>QBP_Q11-A/B/C/D/E</code>, <code>QBP_Q15</code>, <code>QVR_Q17</code>, <code>RSP_K11</code>, <code>RSP_Znn</code>, <code>RTB_Knn</code>)</td><td><code>...</code> (literal)</td><td>Any segment, except MSH / transmission control</td></tr>
+<tr><td>CH08 <code>MFN_Znn.5-MF_SITE_DEFINED.2-...</code></td><td><code>...</code> (literal)</td><td>Any segment(s), explicitly "one or more" per the description</td></tr>
+<tr><td>Segments registry</td><td><code>{"code": "...", "display": "Variable"}</code></td><td>Catalog entry for the placeholder itself</td></tr>
 </tbody></table>
-<p>In all cases, Hxx appears as an alternative to OBR in a choice group, with description "etc." It means: "the order detail could be an OBR, or it could be some other segment (or group of segments) that we are not enumerating."</p>
-<h3 id="fhir-representation">FHIR Representation</h3>
-<p>For the "any segment" case, the abstract Segment base type (<code>http://hl7.org/v2/StructureDefinition/Segment</code>) can be referenced. This is already defined in <code>meta-resources/segment--segment.json</code>.</p>
-<p>The "any segment group" case is harder. FHIR uses BackboneElement for segment groups, but an unconstrained BackboneElement reference would allow arbitrary content. Options:</p>
-<p class="numbered"><strong>1.</strong> <strong>Constrain BackboneElement</strong>: Define a constraint that says the BackboneElement can only contain elements whose type is either a Segment or a recursive instance of the same BackboneElement (i.e., segments and nested groups of segments).</p>
-<p class="numbered"><strong>2.</strong> <strong>Leave unconstrained</strong>: Accept that Hxx is inherently open-ended and document the intent without formal constraints.</p>
-<p class="numbered"><strong>3.</strong> <strong>Use Extension</strong>: Add an extension on the Hxx element indicating "any segment or segment group" semantics.</p>
+<h3 id="fhir-representation">FHIR representation</h3>
+<p>The two semantic flavors (bounded order-detail choice vs. unbounded "any segment or segment group") are best represented differently.</p>
+<p><strong>Bounded use (CH12 ORDER_DETAIL CHOICE)</strong> &mdash; model as a CHOICE BackboneElement with explicit alternatives. The OBR slice is concrete; the <code>Hxx</code> slice acts as the "everything else order-detail" bucket and can be typed against an <code>OrderDetailSegment</code> abstract profile if we want to enforce family membership, or left as a typed <code>Reference(Segment)</code> if we accept §4.2.2.4's open-ended "future ancillary-specific segments" wording at face value.</p>
+<p><strong>Unbounded use (CH05 / CH08)</strong> &mdash; the placeholder slot is genuinely "any segment or segment group" minus MSH/transmission control. The cleanest FHIR mechanic is a recursive BackboneElement with <code>contentReference</code>:</p>
+<pre><code class="">
+placeholder (BackboneElement, 0..*)        ← "Hxx" slot, may repeat
+├── segment (0..1, Reference(SegmentSD))   ← any segment
+├── group   (0..1, contentReference → #placeholder)  ← recursive group
+└── inv-1: (segment.exists() and group.empty()) or (segment.empty() and group.exists())
+└── inv-2: segment.resolve().type != 'MSH' and not(segment.resolve().type in TransmissionControlSegments)
+</code></pre>
+<p><code>contentReference</code> is FHIR's standard pattern for recursive structures (used by <code>Questionnaire.item.item</code>, <code>ImplementationGuide.definition.page.page</code>, etc.). The XOR invariant enforces "exactly one of segment or group is populated." A second invariant captures the §1.12 transmission-control exclusion. IG Publisher renders this without special handling.</p>
+<p>This pattern does <strong>not</strong> model V2 <em>choice groups</em> (<code>< X | Y | Z ></code>) &mdash; those remain a separate problem (see Section 10) handled via slicing or documentation convention.</p>
 <h3 id="questions-for-v2-management-5">Questions for V2 Management</h3>
-<p class="numbered"><strong>1.</strong> <strong>Is "any segment or segment group" the correct interpretation of Hxx?</strong> Or does it specifically mean "any order-detail-like segment" (a narrower set)?</p>
-<p class="numbered"><strong>2.</strong> <strong>Should the V2+ IG attempt to constrain what Hxx allows?</strong> Or is it intentionally unconstrained?</p>
+<p class="numbered"><strong>1.</strong> <strong>Confirm the §1.12 future-direction is current intent.</strong> Does V2 Management endorse the unification of <code>etc.</code>, <code>...</code>, and <code>Hxx</code> as a single placeholder construct in V2+?</p>
+<p class="numbered"><strong>2.</strong> <strong>Endorse the MSH / transmission-control exclusion as enforceable.</strong> §1.12 lists it as a semantic restriction; should V2+ make it a validatable invariant?</p>
+<p class="numbered"><strong>3.</strong> <strong>Is the §12.3 narrowing of CH12 <code>Hxx</code> to "order detail family" preserved in V2+?</strong> Or should the four CH12 message structures be re-cast as standard CHOICE groups whose alternatives are explicitly enumerated (OBR, RXO, ODS, RXD, etc.), making <code>Hxx</code> redundant in CH12?</p>
+<p class="numbered"><strong>4.</strong> <strong>Should the segments-registry entry for <code>...</code> (display "Variable") be retained or replaced by <code>Hxx</code>?</strong> Per the §1.12 future-direction, replacing it with <code>Hxx</code> is the natural reading; a faithful reproduction of V2.9.1 would keep both.</p>
 <hr>
 <h2 id="10-choice-groups-in-message-structures">10. Choice Groups in Message Structures</h2>
-<h3 id="finding-9">Finding</h3>
+<h3 id="finding-8">Finding</h3>
 <p>22 V2.9.1 message structures use choice groups (denoted by <code><</code>, <code>|</code>, <code>></code> markers) where exactly one of several segment alternatives must appear. These are found in:</p>
 <table>
 <thead><tr><th>Chapter</th><th>Structures</th><th>Example</th></tr></thead><tbody>
@@ -381,7 +401,7 @@
 <p>71 conformance length flag corrections were applied across 26 FHIR complex data type files. In all cases, V2.9.1 specified <code>#</code> (truncation permitted) but FHIR had <code>noTruncate: true</code> (no truncation). The 10 bare <code>=</code> cases described in Section 1 remain unresolved.</p>
 <hr>
 <h2 id="13-ack-structure-collapse-and-scheduling-outlier">13. ACK Structure Collapse and Scheduling Outlier</h2>
-<h3 id="finding-10">Finding</h3>
+<h3 id="finding-9">Finding</h3>
 <p>The ACK (General Acknowledgment) message structure appears <strong>115 times</strong> across V2.9.1 (one per event using a standard acknowledgment response). After normalizing description text, ERR cardinality, and one extraction artifact (NMD_N02 caption-reuse), <strong>114 of the 115 occurrences are now structurally identical</strong> with the canonical 5-segment shape:</p>
 <table>
 <thead><tr><th>#</th><th>Segment</th><th>Description</th></tr></thead><tbody>
@@ -415,7 +435,7 @@
 <p class="numbered"><strong>3.</strong> <strong>NMD_N02 §14.3.2 second table</strong>: a structure captioned <code>ACK^N02^ACK</code> was extracted under <code>structureId=NMD_N02</code> because the Word doc reused the prior caption. We have reclassified it as a standard ACK (5-segment shape, matches the 114). Confirm this is correct.</p>
 <hr>
 <h2 id="14-nte-description-form-in-mdm-t01-t02-ch09">14. NTE Description Form in MDM_T01/T02 (CH09)</h2>
-<h3 id="finding-11">Finding</h3>
+<h3 id="finding-10">Finding</h3>
 <p>The NTE segment is described inconsistently across CH09 occurrences of <code>MDM_T01</code> and <code>MDM_T02</code>. Same segment, same role within the structure (notes attached to OBR/OBX), four different phrasings:</p>
 <table>
 <thead><tr><th>Form</th><th>Example text</th><th>Frequency</th></tr></thead><tbody>
@@ -433,7 +453,7 @@
 <p>The remaining variants (<code>"about the observation (OBR)"</code>, <code>"segment for OBX"</code>) should be dropped regardless.</p>
 <hr>
 <h2 id="15-guarantor-insurance-group-name-in-rqi-i01">15. <code>GUARANTOR_INSURANCE</code> Group Name in RQI_I01</h2>
-<h3 id="finding-12">Finding</h3>
+<h3 id="finding-11">Finding</h3>
 <p>The group surrounding <code>GT1</code>, <code>IN1</code>, <code>IN2</code>, <code>IN3</code> in <code>RQI_I01</code> is named four times in CH11 with two different separators:</p>
 <table>
 <thead><tr><th>Clause</th><th>Group name</th></tr></thead><tbody>
@@ -447,7 +467,7 @@
 <p>Is the <code>+</code> in clause 11.3.3 a typo (Word document drift), or is it semantically meaningful (e.g., concatenation, parallel structure)? Recommend treating as a typo and standardizing all four occurrences to <code>GUARANTOR_INSURANCE</code>.</p>
 <hr>
 <h2 id="16-segment-placeholder-unification-with-hxx">16. <code>...</code> Segment Placeholder Unification with <code>Hxx</code></h2>
-<h3 id="finding-13">Finding</h3>
+<h3 id="finding-12">Finding</h3>
 <p>The V2.9.1 standard uses the literal token <code>...</code> (three dots) as an "any segment / variable" placeholder in several message structures across multiple chapters. In the V2.9.1 source it appears as:</p>
 <p class="numbered"><strong>1.</strong> An entry in the segments registry (V2 segments CodeSystem) with display <code>"Variable"</code></p>
 <p class="numbered"><strong>2.</strong> A row in 11 message structure tables, including:</p>
@@ -480,13 +500,16 @@
 <tr><td>Remove <code>...</code> code from segments CodeSystem</td><td><code>meta-resources/segment--v2-cs-segments.json</code></td><td>The <code>{"code": "...", "display": "Variable"}</code> entry removed; <code>Hxx</code> was already present with display <code>"Any segment or segment group"</code></td></tr>
 <tr><td>Remove dangling <code>StructureDefinition/...</code> reference from segments control manifest</td><td><code>control-manifests/segments.json</code></td><td>Hxx already present in the manifest, so the <code>...</code> reference was simply removed</td></tr>
 </tbody></table>
+<h3 id="note-on-equivalence">Note on equivalence</h3>
+<p>The CH01 §1.12 errata (quoted in full in <strong>Section 9</strong>) explicitly states the future-direction intent that <code>Hxx</code> is the formal representation for the open-ended choice currently denoted by <code>etc.</code> / <code>...</code>. On that basis, the unification action documented above is consistent with the standard's own stated direction. The remaining open questions are about <em>constraints</em> (transmission-control exclusion, cardinality, individual descriptions) rather than about the equivalence itself.</p>
 <h3 id="questions-for-v2-management-8">Questions for V2 Management</h3>
-<p class="numbered"><strong>1.</strong> <strong>Is <code>Hxx</code> semantically equivalent to the V2.9.1 <code>...</code> notation across all 11 message structures?</strong> Both are open-ended segment placeholders, but <code>Hxx</code> was introduced in CH12 with description <code>"etc."</code> whereas <code>...</code> in the segments registry has display <code>"Variable"</code>. The descriptions on the affected elements range from "Optional query by example segments" (CH05 query patterns) to "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment" (CH08 MFN_Znn). The V2 Management Group should confirm whether unifying these two notations is correct everywhere, or whether some uses of <code>...</code> deserve a distinct placeholder (e.g., a query-specific placeholder, a site-defined placeholder).</p>
-<p class="numbered"><strong>2.</strong> <strong>Should the <code>...</code> segment-registry entry remain in any V2.9.1-faithful representation?</strong> The V2.9.1 standard does enumerate <code>...</code> as a segment-table entry; removing it from the FHIR CodeSystem is a forward-looking simplification, not a faithful reproduction.</p>
-<p class="numbered"><strong>3.</strong> <strong>Was the original <code>max: "1"</code> on <code>MFN_Znn.5-MF_SITE_DEFINED.2</code> an intentional constraint or a typo?</strong> The description explicitly says "one or more". Treating it as a typo and fixing to <code>max: "*"</code>, but flagging in case the cardinality was meant to be tighter than the description implies.</p>
-<p class="numbered"><strong>4.</strong> <strong>What should the cardinality of the other 10 <code>...</code>/<code>Hxx</code> placeholders be?</strong> Most are currently <code>min: 0, max: "1"</code>, but the surrounding descriptions ("Optional query by example segments", "additional segments") suggest repeating semantics. Per-file review needed; we have not changed cardinality on these without committee input.</p>
-<p class="numbered"><strong>5.</strong> <strong><code>RSP_K11.8-SEGMENT_PATTERN.1</code> has <code>null</code> short and definition.</strong> The V2.9.1 source apparently provided no caption text for this row. Should it be filled in (and if so, with what), or is <code>null</code> faithful to the standard?</p>
-<p class="numbered"><strong>6.</strong> <strong><code>RTB_Knn.8</code> description was not recovered during extraction.</strong> Currently <code>"DESCRIPTION NEEDED"</code>. Should be captured during the next V2.9.1 extraction pass; flagging here as a known gap.</p>
+<p class="numbered"><strong>1.</strong> <strong>Confirm the §1.12 future-direction (<code>Hxx</code> ≡ <code>...</code> ≡ <code>etc.</code>) is current intent in V2+.</strong> See Section 9 for the full source-clause discussion. If endorsed, the unification across all 11 affected message structures stands as documented above.</p>
+<p class="numbered"><strong>2.</strong> <strong>Should the transmission-control exclusion in §1.12 be enforced as a FHIR invariant</strong> on these 11 placeholder slots? §1.12 says the placeholder "does not limit your choice of segment or segment groups, except for MSH and other transmission control segments." A recursive BackboneElement model (proposed in Section 9) can encode this as a FHIRPath constraint.</p>
+<p class="numbered"><strong>3.</strong> <strong>Should the <code>...</code> segment-registry entry remain in any V2.9.1-faithful representation?</strong> The V2.9.1 standard does enumerate <code>...</code> as a segment-table entry; removing it from the FHIR CodeSystem in favor of <code>Hxx</code> is consistent with the §1.12 future-direction but is a forward-looking simplification, not a faithful reproduction.</p>
+<p class="numbered"><strong>4.</strong> <strong>Was the original <code>max: "1"</code> on <code>MFN_Znn.5-MF_SITE_DEFINED.2</code> an intentional constraint or a typo?</strong> The description explicitly says "one or more". Treating it as a typo and fixing to <code>max: "*"</code>, but flagging in case the cardinality was meant to be tighter than the description implies.</p>
+<p class="numbered"><strong>5.</strong> <strong>What should the cardinality of the other 10 <code>...</code>/<code>Hxx</code> placeholders be?</strong> Most are currently <code>min: 0, max: "1"</code>, but the surrounding descriptions ("Optional query by example segments", "additional segments") suggest repeating semantics. Per-file review needed; we have not changed cardinality on these without committee input.</p>
+<p class="numbered"><strong>6.</strong> <strong><code>RSP_K11.8-SEGMENT_PATTERN.1</code> has <code>null</code> short and definition.</strong> The V2.9.1 source apparently provided no caption text for this row. Should it be filled in (and if so, with what), or is <code>null</code> faithful to the standard?</p>
+<p class="numbered"><strong>7.</strong> <strong><code>RTB_Knn.8</code> description was not recovered during extraction.</strong> Currently <code>"DESCRIPTION NEEDED"</code>. Should be captured during the next V2.9.1 extraction pass; flagging here as a known gap.</p>
 <h3 id="provenance">Provenance</h3>
 <p>These changes were made to unblock the auto-IG build (which had failed twice in succession with the snapshot-generation error above &mdash; first on <code>MFN_Znn</code>, then on <code>QBP_Q11-A</code>). They are reversible &mdash; see commit history on <code>dev/framework</code>. The <code>Hxx</code> substitution was chosen over alternatives (e.g., creating new chapter-specific placeholders, leaving the elements unconstrained) because it reuses an existing convention already present in CH12 message structures, minimizing the surface area of the fix and the number of new V2 Management questions raised.</p>
 <hr>

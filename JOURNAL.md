@@ -18,46 +18,107 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-04-23 (end of session)
+## ACTIVE — 2026-04-24 (end of session)
 
-**Phase:** Setup for ADR-0006 multi-corpus V2.9.1 extraction. Reconciliation of FHIR vs python-docx-extracted V291 is largely complete; the remaining items need V2 Management input rather than more Claude work. Doc reorganization landed. ACK-collapse build bug discovered + fixed mid-session.
+**Phase:** ADR-0006 Phase 1 prototype is **scaffolded but not yet executed end-to-end** — needs ANTHROPIC_API_KEY. Two more `...` placeholder bugs of the same class as MFN_Znn surfaced + got fixed during the session. Auto-IG build still failing as of session end; new build from our 22:49 UTC push had not yet been picked up by the auto-IG builder.
 
-**Branch:** `dev/framework` at `3a4eae4b` (2 commits ahead of `origin/main`)
-**Already done by user this session:** merged `dev/framework` → `main` and ran `push-to-build.sh` (origin/build is at `104a92ac` — JS-cleanup did propagate this time, fix worked). However that build failed with a NEW error caused by my own bug — see below.
+**Branch:** `dev/framework` at `e003713e` (1 commit ahead of `origin/main` — tooling-only, doesn't need to be merged immediately)
+**`origin/main`** at `fd4693e2`, **`origin/build`** at `e62ee15c`. All `...` placeholder fixes are on main + build.
 
 ### Build state
 
-- The `.js` trust-policy issue is **resolved**. `origin/build` no longer carries `local-template/*.js`, confirming the `push-to-build.sh` `git rm -rf` fix worked.
-- The build still **failed**, this time with: *Invalid path 'ACK-Scheduling' in input differential in http://hl7.org/v2/StructureDefinition/ACK-Scheduling: must start with ACK-BY*. Root cause was a bug in my own `collapse_ack_structures.py`: the rewrite only updated `id`, `url`, and element ids — it missed the top-level `name`, `title`, `type` fields. The IG Publisher validates that differential element paths start with `type`, so when `type` was still `"ACK-BY"` but the differential paths were `"ACK-Scheduling.*"`, validation rejected the file. Same bug applied to `ACK.json` (had `type: "ACK-A"`). Both fixed in commit `3a4eae4b`.
+- All known instances of the literal `...` placeholder bug are fixed (MFN_Znn + 10 query/response patterns: QBP_Q11-A/B/C/D/E, QBP_Q15, QVR_Q17, RSP_K11, RSP_Znn, RTB_Knn). Same root cause as the previously-resolved Varies data type — IG Publisher splits paths on `.`, the literal `...` produced empty path segments.
+- Push to build went out at **22:49:43 UTC**, but the auto-IG listing was still showing the previous failure (build start 20:09:43 UTC, QBP_Q11-A error) at session end. **Background poller** still running (`/tmp/build-poller.sh`, bash id `bk1o7t4t3`, logs to `/tmp/build-status.log`, polls every 3 min). Next session: tail that log first, *then* hit the URL directly to confirm.
+- If the next failure is **another `...` instance**, re-run `python3 tooling/scripts/fix_dots_placeholder.py --dry-run` first to confirm the script still finds nothing — we may have missed a non-message-structure occurrence (e.g. inside an event or choreography file). If it's a **different bug class**, treat it as the next data-quality issue to chase.
 
 ### Pending user actions before next Claude session
 
-1. **Merge `dev/framework` → `main` again** (only 2 commits this time — the doc reorg `0f2c2644` + the ACK-Scheduling fix `3a4eae4b`): `git checkout main && git merge dev/framework && git push origin main`.
-2. **Run `./push-to-build.sh` again**: should now succeed cleanly. Both the trust-policy issue and the path-validation issue are addressed.
-3. **Verify the build**: `https://build.fhir.org/ig/HL7/v2ig/branches/build/` — confirm no `failure/` subdirectory, that the listing page shows `ACK` and `ACK-Scheduling` (not `ACK-A`/`ACK-BY` and not the full 115-row enumeration).
+1. **Set `ANTHROPIC_API_KEY`** in this shell so the LLM extraction can run. Use the `! export ANTHROPIC_API_KEY=sk-ant-...` form in the prompt (the `!` runs the command in the live session so the env var lands in the assistant's environment).
+2. **Verify auto-IG status** — visit `https://build.fhir.org/ig/HL7/v2ig/branches/build/`. If a new `failure/` directory has appeared with a build-start timestamp **after 22:49 UTC**, fetch `failure/build.log` and report the new error. If the build succeeded, you'll see `qa.html`, `index.html`, etc. instead of `failure/`.
+3. **Optional**: file a GitHub feature request at `https://github.com/anthropics/claude-code/issues` for per-message timestamps in Claude Code (user said they would).
 
 ### Next Claude session's first move
 
-Begin **ADR-0006 Phase 1**: prototype LLM-mediated V2.9.1 extraction on `CH02_Control.docx` (smallest chapter, most familiar content). Goal — emit JSON in the same schema as `v291-extracted/message-structures/*.json` so the existing comparison tooling (`compare_message_structures.py`, `compare_v291_occurrences.py`) applies unchanged. Once the CH02 prototype matches python-docx output to within tolerable noise, iterate on the prompt; then expand to all 17 chapters. After LLM is solid, do the pandoc-redo pass into the same schema. Final deliverable for the phase: a 4-way consensus report (FHIR ↔ python-docx ↔ LLM ↔ pandoc-redo).
+Once API key is set, do a **3-table sanity run** to validate the LLM round-trip end-to-end before spending real money:
 
-Use the `claude-api` skill for the LLM extraction implementation (it triggers when adding/tuning Claude API features). Default to Sonnet 4.6 with prompt caching across the static schema instructions.
+```bash
+python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3
+```
+
+Expected cost: ~$0.01. Should produce 3 files in `v291-llm/message-structures/` (the first 3 candidates are all message structures). Verify they parse, look schema-correct, and match the python-docx baseline visually.
+
+Then run the **full chapter** (estimated cost: $0.50–1.00 for all 129 candidate tables — 108 message structures + 21 segments):
+
+```bash
+python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx
+python3 tooling/scripts/compare_python_vs_llm.py
+```
+
+Read the resulting `v291-llm/comparison-report.md`. If `fully_agree` count is high (>80% of common files), the prototype is validated — proceed to CH02A (data types) by extending the schema in the script. If lots of disagreement, the disagreement *kinds* tell you what to iterate on (likely: prompt tweaks for V2 cardinality notation, or the `parsedStructure` group-marker handling).
 
 ### Open blockers (V2 Management decisions, not Claude work)
 
-These are documented in detail in `v291-extracted/v2mgmt-review-report.md` — the ACTIVE list here is just an index:
+Same list as the prior handoff — none have moved. All documented in `v291-extracted/v2mgmt-review-report.md` (Sections 1–16):
 
 - **REVIEW-0001** — ACK clause 10.4 UAC repeating intentional or typo? (drives whether `ACK-Scheduling` stays separate from `ACK`)
-- ACK caption description variants — 7 occurrences with non-standard descriptions (CH07 `"Acknowledgment"` / `"Observation Message"`, CH13 British spelling, CH17 anti-microbial responses)
+- ACK caption description variants — 7 occurrences with non-standard descriptions
 - NTE description form in MDM_T01/T02 — long vs short form
 - `GUARANTOR_INSURANCE` group name in RQI_I01 (typo `+` in clause 11.3.3?)
 - "for Additional Demographics" in PATIENT group (5 instances)
 - 358 bare "Participation" + 165 OBX mismatches — large-scale standardization
 - RDE_O11 RXO "Prescription Order" variant
-- 197 FHIR↔raw V291 diffs where FHIR has the better description (e.g. "Common Order" vs bare "ORC") — V291-side fixes needed in the canonical pipeline
+- 197 FHIR↔raw V291 diffs where FHIR has the better description
+- **NEW (Section 16)**: 6 questions about the `...` → `Hxx` unification — is `Hxx` semantically equivalent across all 11 message structures? Should `...` remain in any V2.9.1-faithful representation? Was `MFN_Znn.5-MF_SITE_DEFINED.2` `max:1` a typo? What cardinality should the other 10 placeholders have? `RSP_K11.8-SEGMENT_PATTERN.1` has `null` short/definition — fill in or keep faithful? `RTB_Knn.8` description was `"DESCRIPTION NEEDED"` — gap in extraction.
 
 ---
 
 ## Session History
+
+## 2026-04-24 — `...` placeholder cleanup + LLM extraction prototype scaffolded
+
+### Completed
+
+**Auto-IG build chase, second pass.** Yesterday's session ended with one `...`-placeholder bug fixed (MFN_Znn) and a push to build. That build failed with the **same class of bug** in `QBP_Q11-A`. A grep across `input/sourceOfTruth/message-structure/message_structures/` found 10 more instances of the same pattern (CH05 query patterns). Wrote `tooling/scripts/fix_dots_placeholder.py` — idempotent with `--dry-run` — to do the substitution across all of them in one batch, plus remove a dangling `StructureDefinition/...` reference in `control-manifests/segments.json`. Cardinality was deliberately **not** changed on these 10 (descriptions are weaker than MFN_Znn's "one or more" rationale; per-file review needed). Section 16 of the V2 mgmt review report rewritten to cover the full set of 11 structures + 6 specific questions for the WG. Commits: `5c4d6d82` (MFN_Znn solo) → `02049383` (10 more + script) → merged to main as `fd4693e2` → pushed to build as `e62ee15c`.
+
+**ADR-0006 Phase 1 prototype scaffolded.** Two new scripts on `dev/framework` (commit `e003713e`, tooling-only — not on main yet, doesn't need to go to build):
+- `tooling/scripts/extract_v291_llm.py` — walks a chapter docx via python-docx, identifies candidate tables by **caption-style detection** (`Msg Table Caption` / `Attribute Table Caption`), computes clause numbers from Heading 2/3+ counters (mirrors python-docx extractor logic), renders tables as Markdown, calls Claude Sonnet 4.6 with prompt caching on the static system prompt, validates output with Pydantic models (`MessageStructureRecord`, `SegmentRecord`, `NotExtractable` discriminated union), writes one file per occurrence to `v291-llm/{message-structures,segments}/`. Has `--dry-run`, `--limit N`, `--include-unknown` flags. Reports token usage + cost estimate at end.
+- `tooling/scripts/compare_python_vs_llm.py` — Phase 1 stretch goal. Per-occurrence diff between `v291-llm/message-structures/` and `v291-extracted/message-structures/`. Normalizes group-marker quirks (python-docx encodes `[{` and `}]` as `type:"segment"` with empty/`}]` codes — different from how the LLM emits them, so we strip both for fair comparison). Bucket classification: fully_agree / agree_with_metadata_diff / disagree_raw_only / disagree_parsed_only / disagree_both. Writes `v291-llm/comparison-report.md`.
+
+**Dry-run validated the doc-walker.** CH03_PatientAdmin.docx gives 129 candidate tables (108 message_structure, 21 segment). Captions correctly attributed (ADT_A01 → caption "ADT^A01^ADT_A01: ADT Message" at clause 3.3.1, table_idx 2 — matches python-docx output exactly). Filename naming convention also matches (`<structureId>_<chapter>_<tableIndex>.json`).
+
+**Memory + workflow updates.**
+- `MEMORY.md` Build Rules updated: "**DEFAULT VERIFICATION PATH IS PUSH-TO-BUILD, not local builds.**" User explicitly retired routine subset builds 2026-04-23 — postproc-g full builds run in <1hr, that's the local fallback when push-to-build can't tell us what we need. Don't propose subset builds as routine.
+- New feedback memory `feedback_merge_push_authority.md` — Claude is authorized to do `git checkout main && git merge dev/framework && git push origin main && ./push-to-build.sh` after committing build-relevant work, without asking each time. Still confirm before force-push, before bypassing main, or before merging multi-session work the user hasn't seen.
+
+### Why
+
+- **`...` cleanup**: same bug class kept biting us because the python-docx extractor faithfully copied the literal `...` from V2.9.1, but FHIR element-id semantics use `.` as a path separator. One unified script + a single review-report section is cheaper to maintain than chasing each instance separately.
+- **Caption-style detection over heading-text matching**: the V2.9.1 docs put the actual table captions (`ADT^A01^ADT_A01: ADT Message`) in dedicated styles (`Msg Table Caption`, `Attribute Table Caption`), separate from numbered headings (`Heading 3` says "ADT/ACK - Admit/Visit Notification (Event A01)"). Detecting on style is far more reliable than regex-matching the heading text.
+- **Per-table LLM call vs per-chapter**: per-table makes each extraction independently auditable + lets us iterate on prompts cheaply. Loses some cross-table context but for the V2 schema that doesn't matter much.
+- **Sonnet 4.6 + prompt caching, no thinking**: extraction is a structured table-parsing task — adaptive thinking would be overkill and expensive. Strict JSON via Pydantic gives us schema enforcement without prompt-engineering work.
+
+### Commits this session
+
+On `dev/framework` (with origin):
+- `5c4d6d82` — Replace literal '...' segment placeholder with Hxx in MFN_Znn
+- `02049383` — Replace literal '...' segment placeholder with Hxx in 10 more message structures
+- `e003713e` — Add LLM-mediated V2.9.1 extraction scripts (ADR-0006 Phase 1 prototype)
+
+On `main` / pushed to `build`:
+- `fd4693e2` — Merge dev/framework: '...' placeholder fix in 10 more message structures (origin/main)
+- `e62ee15c` — Update from main (origin/build)
+
+### Relevant context for next session
+
+- **Background process still running**: `bash_id: bk1o7t4t3` runs `/tmp/build-poller.sh` (3-min poll interval, logs `/tmp/build-status.log`). Either kill it (`kill $(pgrep -f build-poller)`) or just leave it — it's lightweight. The script is at `/tmp/build-poller.sh` (also lightweight, regenerated next session if needed).
+- **Pip packages installed this session**: `anthropic==0.97.0`, `pydantic==2.13.3`, plus their deps (httpx, anyio, etc.). Already added to `.claude-dev/provision.sh` so fresh containers will pick them up automatically.
+- **Sonnet 4.6 model ID**: `claude-sonnet-4-6` — explicit per the user's request (the `claude-api` skill defaults to Opus 4.7 unless the user names a different model; user named Sonnet 4.6 in CLAUDE.md / JOURNAL hint).
+- **The `extract_v291_llm.py` heuristic pre-filter** uses caption styles (`Msg Table Caption` / `Attribute Table Caption`). For chapters where these don't apply (e.g. CH02C vocabulary, CH02A data types may have a different style), pass `--include-unknown` to send all tables to the LLM and let it classify. More expensive but more thorough.
+- **The Pydantic discriminated union** in the script (`ExtractionResult` with `classification` field) lets the LLM choose between three shapes per table: `message_structure`, `segment`, or `not_extractable`. The "not_extractable" branch with a one-line reason is intentional — it lets us audit *why* the LLM skipped a table (e.g. "introductory matrix", "vocabulary listing") without pretending we extracted nothing.
+- **Lesson on the build-failure pattern**: when an IG Publisher snapshot-gen error mentions `"Unable to find parent path X.Y.Z..."` with double-dot at the end, that's almost certainly the literal-`...` bug. Grep for `StructureDefinition/...` first; that finds it instantly.
+- **Lesson on the "set env var across messages" pattern**: a regular `Bash` tool call to `export VAR=value` only sets it in that subshell — it doesn't persist. The user-side `! export VAR=value` form works because the runtime treats it as a session-level command. Tell the user to use the `!` prefix when they need to set an env var that I'll consume later.
+
+---
 
 ## 2026-04-23 — ACK collapse, V2 mgmt report sections, push-to-build CI fix, ADR-0006
 

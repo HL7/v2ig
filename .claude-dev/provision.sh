@@ -108,6 +108,11 @@ if ! python3 -c "import pytest" 2>/dev/null; then
   pip install --break-system-packages pytest 2>/dev/null || pip install pytest 2>/dev/null || true
 fi
 
+if ! python3 -c "import anthropic" 2>/dev/null; then
+  echo "Installing anthropic + pydantic (for LLM-mediated V291 extraction)..."
+  pip install --break-system-packages anthropic pydantic 2>/dev/null || pip install anthropic pydantic 2>/dev/null || true
+fi
+
 ###############################################################################
 # Summary
 ###############################################################################

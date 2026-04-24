@@ -239,35 +239,60 @@ The previous FHIR representation incorrectly classified Varies as a Segment Stru
 
 ---
 
-## 9. Hxx: "Any Segment or Segment Group" Placeholder
+## 9. Hxx and `...` (etc.): "Any Segment or Segment Group" Placeholder
 
-### Finding
+### Source clauses from V2.9.1
 
-The Hxx placeholder appears in 4 message structures in CH12 (Patient Care):
+Three clauses in V2.9.1 jointly establish the semantics. They are quoted verbatim:
 
-| Structure | Chapter | Context |
-|-----------|---------|---------|
-| PGL_PC6 | CH12, Table 3 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
-| PPG_PCG | CH12 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
-| PPP_PCB | CH12 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
-| PPR_PC1 | CH12 | ORDER_DETAIL CHOICE: `OBR \| Hxx` |
+> **§1.12 Errata** — *Issue: Use of "etc." in various segment choices*
+> *Resolution: The "etc." is used as a placeholder for various choice alternatives that may be represented in the abstract message syntax (AMS). "Etc." should be interpreted as meaning any segment can be used in this location; that is, "etc." does not limit your choice of segment or segment groups, except for MSH and other transmission control segments. **In the future, explanation will be added to Chapter 2, section 12 proposing the use of "Hxx" as a formal representation in circumstance where a choice of any segment or segment group is allowed.***
 
-In all cases, Hxx appears as an alternative to OBR in a choice group, with description "etc." It means: "the order detail could be an OBR, or it could be some other segment (or group of segments) that we are not enumerating."
+> **§4.2.2.4 Order detail segment** — *One of several segments that can carry order information. Examples are OBR and RXO. Future ancillary-specific segments may be defined in subsequent releases of the Standard if they become necessary.*
 
-### FHIR Representation
+> **§12.3 Message Definitions (Note)** — *For all message definitions, the "OBR etc." notation represents all possible combinations of pharmacy and other order detail segments, as outlined in Chapter 4 conventions (See section 4.2.2.4, "Order detail segment").*
 
-For the "any segment" case, the abstract Segment base type (`http://hl7.org/v2/StructureDefinition/Segment`) can be referenced. This is already defined in `meta-resources/segment--segment.json`.
+### What this tells us
 
-The "any segment group" case is harder. FHIR uses BackboneElement for segment groups, but an unconstrained BackboneElement reference would allow arbitrary content. Options:
+1. **`Hxx`, `...`, and `etc.` are intended to be the same thing.** §1.12 explicitly names `Hxx` as the *formal future representation* for the open-ended choice that is currently denoted by `etc.` (and, in the registry/structure tables, by the literal `...`). The standard itself signals the intended unification.
+2. **The placeholder has one stated exclusion**: `MSH` and other *transmission control segments* are out of bounds. This is the only constraint on what may appear.
+3. **The CH12 use of `Hxx` is contextually narrower** than the general definition. §12.3 binds the `OBR | Hxx` choice in Patient Care messages to the "order detail segment" family per §4.2.2.4 — so in CH12 the `Hxx` slot means "any *order detail* segment," not "any segment whatsoever." This narrowing is contextual (because the surrounding CHOICE is conventionally an order-detail choice), not a different definition of `Hxx`.
 
-1. **Constrain BackboneElement**: Define a constraint that says the BackboneElement can only contain elements whose type is either a Segment or a recursive instance of the same BackboneElement (i.e., segments and nested groups of segments).
-2. **Leave unconstrained**: Accept that Hxx is inherently open-ended and document the intent without formal constraints.
-3. **Use Extension**: Add an extension on the Hxx element indicating "any segment or segment group" semantics.
+### Where the placeholder appears
+
+| Use site | Form in source | Apparent semantics |
+|----------|---------------|--------------------|
+| CH12 ORDER_DETAIL CHOICE in `PGL_PC6`, `PPG_PCG`, `PPP_PCB`, `PPR_PC1` | `OBR \| Hxx` | Any order detail segment (per §12.3 binding to §4.2.2.4) |
+| CH05 query patterns (`QBP_Q11-A/B/C/D/E`, `QBP_Q15`, `QVR_Q17`, `RSP_K11`, `RSP_Znn`, `RTB_Knn`) | `...` (literal) | Any segment, except MSH / transmission control |
+| CH08 `MFN_Znn.5-MF_SITE_DEFINED.2-...` | `...` (literal) | Any segment(s), explicitly "one or more" per the description |
+| Segments registry | `{"code": "...", "display": "Variable"}` | Catalog entry for the placeholder itself |
+
+### FHIR representation
+
+The two semantic flavors (bounded order-detail choice vs. unbounded "any segment or segment group") are best represented differently.
+
+**Bounded use (CH12 ORDER_DETAIL CHOICE)** — model as a CHOICE BackboneElement with explicit alternatives. The OBR slice is concrete; the `Hxx` slice acts as the "everything else order-detail" bucket and can be typed against an `OrderDetailSegment` abstract profile if we want to enforce family membership, or left as a typed `Reference(Segment)` if we accept §4.2.2.4's open-ended "future ancillary-specific segments" wording at face value.
+
+**Unbounded use (CH05 / CH08)** — the placeholder slot is genuinely "any segment or segment group" minus MSH/transmission control. The cleanest FHIR mechanic is a recursive BackboneElement with `contentReference`:
+
+```
+placeholder (BackboneElement, 0..*)        ← "Hxx" slot, may repeat
+├── segment (0..1, Reference(SegmentSD))   ← any segment
+├── group   (0..1, contentReference → #placeholder)  ← recursive group
+└── inv-1: (segment.exists() and group.empty()) or (segment.empty() and group.exists())
+└── inv-2: segment.resolve().type != 'MSH' and not(segment.resolve().type in TransmissionControlSegments)
+```
+
+`contentReference` is FHIR's standard pattern for recursive structures (used by `Questionnaire.item.item`, `ImplementationGuide.definition.page.page`, etc.). The XOR invariant enforces "exactly one of segment or group is populated." A second invariant captures the §1.12 transmission-control exclusion. IG Publisher renders this without special handling.
+
+This pattern does **not** model V2 *choice groups* (`< X | Y | Z >`) — those remain a separate problem (see Section 10) handled via slicing or documentation convention.
 
 ### Questions for V2 Management
 
-1. **Is "any segment or segment group" the correct interpretation of Hxx?** Or does it specifically mean "any order-detail-like segment" (a narrower set)?
-2. **Should the V2+ IG attempt to constrain what Hxx allows?** Or is it intentionally unconstrained?
+1. **Confirm the §1.12 future-direction is current intent.** Does V2 Management endorse the unification of `etc.`, `...`, and `Hxx` as a single placeholder construct in V2+?
+2. **Endorse the MSH / transmission-control exclusion as enforceable.** §1.12 lists it as a semantic restriction; should V2+ make it a validatable invariant?
+3. **Is the §12.3 narrowing of CH12 `Hxx` to "order detail family" preserved in V2+?** Or should the four CH12 message structures be re-cast as standard CHOICE groups whose alternatives are explicitly enumerated (OBR, RXO, ODS, RXD, etc.), making `Hxx` redundant in CH12?
+4. **Should the segments-registry entry for `...` (display "Variable") be retained or replaced by `Hxx`?** Per the §1.12 future-direction, replacing it with `Hxx` is the natural reading; a faithful reproduction of V2.9.1 would keep both.
 
 ---
 
@@ -451,14 +476,19 @@ The fix substitutes the existing `Hxx` placeholder (already used by 4 CH12 messa
 | Remove `...` code from segments CodeSystem | `meta-resources/segment--v2-cs-segments.json` | The `{"code": "...", "display": "Variable"}` entry removed; `Hxx` was already present with display `"Any segment or segment group"` |
 | Remove dangling `StructureDefinition/...` reference from segments control manifest | `control-manifests/segments.json` | Hxx already present in the manifest, so the `...` reference was simply removed |
 
+### Note on equivalence
+
+The CH01 §1.12 errata (quoted in full in **Section 9**) explicitly states the future-direction intent that `Hxx` is the formal representation for the open-ended choice currently denoted by `etc.` / `...`. On that basis, the unification action documented above is consistent with the standard's own stated direction. The remaining open questions are about *constraints* (transmission-control exclusion, cardinality, individual descriptions) rather than about the equivalence itself.
+
 ### Questions for V2 Management
 
-1. **Is `Hxx` semantically equivalent to the V2.9.1 `...` notation across all 11 message structures?** Both are open-ended segment placeholders, but `Hxx` was introduced in CH12 with description `"etc."` whereas `...` in the segments registry has display `"Variable"`. The descriptions on the affected elements range from "Optional query by example segments" (CH05 query patterns) to "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment" (CH08 MFN_Znn). The V2 Management Group should confirm whether unifying these two notations is correct everywhere, or whether some uses of `...` deserve a distinct placeholder (e.g., a query-specific placeholder, a site-defined placeholder).
-2. **Should the `...` segment-registry entry remain in any V2.9.1-faithful representation?** The V2.9.1 standard does enumerate `...` as a segment-table entry; removing it from the FHIR CodeSystem is a forward-looking simplification, not a faithful reproduction.
-3. **Was the original `max: "1"` on `MFN_Znn.5-MF_SITE_DEFINED.2` an intentional constraint or a typo?** The description explicitly says "one or more". Treating it as a typo and fixing to `max: "*"`, but flagging in case the cardinality was meant to be tighter than the description implies.
-4. **What should the cardinality of the other 10 `...`/`Hxx` placeholders be?** Most are currently `min: 0, max: "1"`, but the surrounding descriptions ("Optional query by example segments", "additional segments") suggest repeating semantics. Per-file review needed; we have not changed cardinality on these without committee input.
-5. **`RSP_K11.8-SEGMENT_PATTERN.1` has `null` short and definition.** The V2.9.1 source apparently provided no caption text for this row. Should it be filled in (and if so, with what), or is `null` faithful to the standard?
-6. **`RTB_Knn.8` description was not recovered during extraction.** Currently `"DESCRIPTION NEEDED"`. Should be captured during the next V2.9.1 extraction pass; flagging here as a known gap.
+1. **Confirm the §1.12 future-direction (`Hxx` ≡ `...` ≡ `etc.`) is current intent in V2+.** See Section 9 for the full source-clause discussion. If endorsed, the unification across all 11 affected message structures stands as documented above.
+2. **Should the transmission-control exclusion in §1.12 be enforced as a FHIR invariant** on these 11 placeholder slots? §1.12 says the placeholder "does not limit your choice of segment or segment groups, except for MSH and other transmission control segments." A recursive BackboneElement model (proposed in Section 9) can encode this as a FHIRPath constraint.
+3. **Should the `...` segment-registry entry remain in any V2.9.1-faithful representation?** The V2.9.1 standard does enumerate `...` as a segment-table entry; removing it from the FHIR CodeSystem in favor of `Hxx` is consistent with the §1.12 future-direction but is a forward-looking simplification, not a faithful reproduction.
+4. **Was the original `max: "1"` on `MFN_Znn.5-MF_SITE_DEFINED.2` an intentional constraint or a typo?** The description explicitly says "one or more". Treating it as a typo and fixing to `max: "*"`, but flagging in case the cardinality was meant to be tighter than the description implies.
+5. **What should the cardinality of the other 10 `...`/`Hxx` placeholders be?** Most are currently `min: 0, max: "1"`, but the surrounding descriptions ("Optional query by example segments", "additional segments") suggest repeating semantics. Per-file review needed; we have not changed cardinality on these without committee input.
+6. **`RSP_K11.8-SEGMENT_PATTERN.1` has `null` short and definition.** The V2.9.1 source apparently provided no caption text for this row. Should it be filled in (and if so, with what), or is `null` faithful to the standard?
+7. **`RTB_Knn.8` description was not recovered during extraction.** Currently `"DESCRIPTION NEEDED"`. Should be captured during the next V2.9.1 extraction pass; flagging here as a known gap.
 
 ### Provenance
 
