@@ -54,10 +54,10 @@
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-TCD.html">TCD</a> ]</td><td>Test Code Details</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Detail)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Request)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-DG1.html">DG1</a> }]</td><td>Diagnosis</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-REL.html">REL</a> }]</td><td>Relationship (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-REL.html">REL</a> ]</td><td>Relationship (for Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
@@ -65,13 +65,13 @@
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Results)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Specimen Shipment begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">         <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Shipment Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (Additional Shipping Information)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Shipment Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for OBX)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Shipment Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Package begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Specimen In Package begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">               <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen Information</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Specimen)</td><td>A</td></tr>
@@ -93,7 +93,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Observation Request end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-FT1.html">FT1</a> }]</td><td>Financial Transaction</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-CTI.html">CTI</a> }]</td><td>Clinical Trial Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-BLG.html">BLG</a> ]</td><td>Billing</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-BLG.html">BLG</a> ]</td><td>Billing Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Order end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Device begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-DEV.html">DEV</a></td><td>Device (for Participation)</td><td>A</td></tr>

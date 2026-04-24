@@ -3,8 +3,8 @@
 <table class="v2-segment-table">
 <thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq"><a href="#a-SGT.1-setId">1</a></td><td>Set ID – SGT</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-SGT-definitions.html#SGT.1-setId">03394</a></td><td class="v2-col-mono">4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
-<tr><td class="v2-col-seq"><a href="#a-SGT.2-segmentGroupName">2</a></td><td>Segment Group Name</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-SGT-definitions.html#SGT.2-segmentGroupName">03395</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">60</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">1</td><td>Set ID – SGT</td><td class="v2-col-mono"><a href="StructureDefinition-SI.html">SI</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-SGT-definitions.html#SGT.1-setId">03394</a></td><td class="v2-col-mono">4</td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">2</td><td>Segment Group Name</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-SGT-definitions.html#SGT.2-segmentGroupName">03395</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">60</td><td class="v2-col-mono">=</td></tr>
 </tbody>
 </table>
 </div>

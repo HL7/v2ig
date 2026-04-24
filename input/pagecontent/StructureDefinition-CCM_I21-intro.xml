@@ -4,7 +4,7 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
@@ -19,18 +19,18 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Insurance begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance Additional Info.</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-IN3.html">IN3</a> ]</td><td>Insurance Additional Info - Cert.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-IN3.html">IN3</a> ]</td><td>Insurance Additional Info – Cert.</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Insurance end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Appointment History begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-SCH.html">SCH</a></td><td>Schedule Activity Information</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Resources begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-RGS.html">RGS</a></td><td>Resource Group</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-RGS.html">RGS</a></td><td>Resource Group Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Resource Detail begin</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         --- --- Resource Object begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-AIS.html">AIS</a> ]</td><td>Appointment Information - Service</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-AIG.html">AIG</a> ]</td><td>Appointment Information – General Resource</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-AIL.html">AIL</a> ]</td><td>Appointment Information – Location</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-AIP.html">AIP</a> ]</td><td>Appointment Information - Personnel</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [ <a href="StructureDefinition-AIP.html">AIP</a> ]</td><td>Appointment Information – Personnel</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         --- --- Resource Object end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Resource Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
@@ -78,7 +78,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Clinical History end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient Visits begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info.</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Patient Visits end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Medication History begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>

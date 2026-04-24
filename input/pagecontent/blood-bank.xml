@@ -1,3 +1,21 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>O27</td><td><a href="StructureDefinition-OMB-O27.html">OMB^O27</a></td><td>Product Order</td></tr>
+<tr><td>O29</td><td><a href="StructureDefinition-BPS-O29.html">BPS^O29</a></td><td>Product Dispense Status</td></tr>
+<tr><td>O31</td><td><a href="StructureDefinition-BTS-O31.html">BTS^O31</a></td><td>Product Transfusion/Disposition</td></tr>
+<tr><td>O41</td><td><a href="StructureDefinition-DBC-O41.html">DBC^O41</a></td><td>Donor Record</td></tr>
+<tr><td>O42</td><td><a href="StructureDefinition-DBU-O42.html">DBU^O42</a></td><td>Donor Record</td></tr>
+<tr><td>O43</td><td><a href="StructureDefinition-DRG-O43.html">DRG^O43</a></td><td>Registraiton</td></tr>
+<tr><td>O44</td><td><a href="StructureDefinition-DER-O44.html">DER^O44</a></td><td>Eligibility Request</td></tr>
+<tr><td>O45</td><td><a href="StructureDefinition-DEO-O45.html">DEO^O45</a></td><td>Eligibility Observations</td></tr>
+<tr><td>O46</td><td><a href="StructureDefinition-DEL-O46.html">DEL^O46</a></td><td>Eligibility Notification</td></tr>
+<tr><td>O47</td><td><a href="StructureDefinition-DRC-O47.html">DRC^O47</a></td><td>Request to Collect</td></tr>
+<tr><td>O48</td><td><a href="StructureDefinition-DPR-O48.html">DPR^O48</a></td><td>Procedure</td></tr>
+<tr><td>Q33</td><td><a href="StructureDefinition-QBP-Q33.html">QBP^Q33</a></td><td>Donor Record Candidates</td></tr>
+<tr><td>Q34</td><td><a href="StructureDefinition-QBP-Q34.html">QBP^Q34</a></td><td>Donor Record</td></tr>
+</tbody>
+</table>
 </div>

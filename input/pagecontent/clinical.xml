@@ -3,18 +3,18 @@
 <table class="grid">
 <thead><tr><th>Subdomain</th><th>Events</th></tr></thead>
 <tbody>
-<tr><td><a href="general-orders-and-results.html">General Orders and Results</a></td><td>0</td></tr>
-<tr><td><a href="laboratory.html">Laboratory</a></td><td>0</td></tr>
-<tr><td><a href="pharmacy.html">Pharmacy</a></td><td>0</td></tr>
+<tr><td><a href="general-orders-and-results.html">General Orders and Results</a></td><td>10</td></tr>
+<tr><td><a href="laboratory.html">Laboratory</a></td><td>9</td></tr>
+<tr><td><a href="pharmacy.html">Pharmacy</a></td><td>8</td></tr>
 <tr><td><a href="imaging.html">Imaging / Radiology</a></td><td>0</td></tr>
-<tr><td><a href="patient-care.html">Patient Care</a></td><td>0</td></tr>
-<tr><td><a href="immunizations.html">Immunizations</a></td><td>0</td></tr>
-<tr><td><a href="blood-bank.html">Blood Bank</a></td><td>0</td></tr>
-<tr><td><a href="medical-records.html">Medical Records / Information Management</a></td><td>0</td></tr>
-<tr><td><a href="clinical-trials.html">Clinical Trials</a></td><td>0</td></tr>
-<tr><td><a href="dietary.html">Dietary</a></td><td>0</td></tr>
-<tr><td><a href="product-experience.html">Product Experience</a></td><td>0</td></tr>
-<tr><td><a href="clinical-supply.html">Supply</a></td><td>0</td></tr>
+<tr><td><a href="patient-care.html">Patient Care</a></td><td>12</td></tr>
+<tr><td><a href="immunizations.html">Immunizations</a></td><td>1</td></tr>
+<tr><td><a href="blood-bank.html">Blood Bank</a></td><td>13</td></tr>
+<tr><td><a href="medical-records.html">Medical Records / Information Management</a></td><td>11</td></tr>
+<tr><td><a href="clinical-trials.html">Clinical Trials</a></td><td>12</td></tr>
+<tr><td><a href="dietary.html">Dietary</a></td><td>1</td></tr>
+<tr><td><a href="product-experience.html">Product Experience</a></td><td>2</td></tr>
+<tr><td><a href="clinical-supply.html">Supply</a></td><td>2</td></tr>
 </tbody>
 </table>
 </div>

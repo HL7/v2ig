@@ -3,8 +3,8 @@
 <table class="v2-segment-table">
 <thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq"><a href="#a-FTS.1-fileBatchCount">1</a></td><td>File Batch Count</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-FTS-definitions.html#FTS.1-fileBatchCount">00079</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">10</td><td class="v2-col-mono">#</td></tr>
-<tr><td class="v2-col-seq"><a href="#a-FTS.2-fileTrailerComment">2</a></td><td>File Trailer Comment</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-FTS-definitions.html#FTS.2-fileTrailerComment">00080</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">80</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">1</td><td>File Batch Count</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-FTS-definitions.html#FTS.1-fileBatchCount">00079</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">10</td><td class="v2-col-mono">=</td></tr>
+<tr><td class="v2-col-seq">2</td><td>File Trailer Comment</td><td class="v2-col-mono"><a href="StructureDefinition-ST.html">ST</a></td><td>O</td><td></td><td class="v2-col-mono">[0..1]</td><td class="v2-col-mono"><a href="StructureDefinition-FTS-definitions.html#FTS.2-fileTrailerComment">00080</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">80</td><td class="v2-col-mono">=</td></tr>
 </tbody>
 </table>
 </div>

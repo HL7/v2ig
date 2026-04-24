@@ -1,3 +1,16 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>P01</td><td><a href="StructureDefinition-BAR-P01.html">BAR^P01</a></td><td>Add Patient Account</td></tr>
+<tr><td>P02</td><td><a href="StructureDefinition-BAR-P02.html">BAR^P02</a></td><td>Purge Patient Accounts</td></tr>
+<tr><td>P03</td><td><a href="StructureDefinition-DFT-P03.html">DFT^P03</a></td><td>Post Detail Financial Transactions</td></tr>
+<tr><td>P05</td><td><a href="StructureDefinition-BAR-P05.html">BAR^P05</a></td><td>BAR/ACK - Update Account</td></tr>
+<tr><td>P06</td><td><a href="StructureDefinition-BAR-P06.html">BAR^P06</a></td><td>BAR/ACK - End Account</td></tr>
+<tr><td>P10</td><td><a href="StructureDefinition-BAR-P10.html">BAR^P10</a></td><td>Transmit Ambulatory Payment Classification (APC) Groups</td></tr>
+<tr><td>P11</td><td><a href="StructureDefinition-DFT-P11.html">DFT^P11</a></td><td>Post Detail Financial Transactions - Expanded</td></tr>
+<tr><td>P12</td><td><a href="StructureDefinition-BAR-P12.html">BAR^P12</a></td><td>Update Diagnosis/Procedure</td></tr>
+</tbody>
+</table>
 </div>

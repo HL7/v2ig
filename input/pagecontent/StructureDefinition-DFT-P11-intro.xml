@@ -1,5 +1,137 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-DFT_P11.html">DFT_P11</a></p>
+<div class="paragraph">
+<p>The Detail Financial Transaction (DFT) - Expanded message is used to describe a finan­cial transaction transmitted between systems, that is, to the billing system for ancillary charges, ADT to billing system for patient deposits, etc. It serves the same function as the Post Detail Financial Transactions (Event P03) message, but also supports the use cases described below.</p>
+</div>
+<div class="paragraph">
+<p>Use case for adding the INx and GT1 segments inside the FT1 repetition:</p>
+</div>
+<div class="paragraph">
+<p>If the insurance and/or the guarantor information is specific to a certain financial transaction of a patient and differs from the patient&#8217;s regular insurance and/or guarantor, you may use the INx and GT1 segments related to the FT1 segment. If being used, the information supersedes the information on the patient level.</p>
+</div>
+<div class="paragraph">
+<p>Example: Before being employed by a company, a pre-employment physical is required. The cost of the examinations is paid by the company, and not by the person&#8217;s private health insurance. One of the physicians examining the person is an eye doctor. For efficiency reasons, the person made an appointment for these examinations on the same day as he already had an appointment with his eye doctor in the same hospital. The costs for this eye doctor appointment are being paid by the patient&#8217;s private health insurance. Both financial transactions for the same patient/person could be sent in the same message. To bill the examination for the future-employer to that organization, you need to use the GT1 segment that is related to the FT1.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-DFT_P11.html">DFT_P11</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV1.html">PV1</a> ]</td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Visit end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-DB1.html">DB1</a> }]</td><td>Disability Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Common Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order (global across all FT1s)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Timing Quantity begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Timing Quantity end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBR.html">OBR</a></td><td>Order Detail Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (on Order Detail)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observations / Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (on Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Common Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Diagnosis begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis (global across all FT1s)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Diagnosis end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DRG.html">DRG</a> ]</td><td>Diagnosis Related Group (global across all FT1s)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GT1.html">GT1</a> }]</td><td>Guarantor (global across all FT1s)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Insurance begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance (global across all FT1s)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance - Additional Info.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-IN3.html">IN3</a> }]</td><td>Insurance - Add'l Info. - Cert.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Insurance end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ACC.html">ACC</a> ]</td><td>Accident Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Financial begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-FT1.html">FT1</a></td><td>Financial Transaction</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (on line item - FT1 - above)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Financial Procedure begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PR1.html">PR1</a></td><td>Procedure</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Financial Procedure end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Financial Observation Standalone begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comment (on Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Financial Observation Standalone end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Financial Order Standalone begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBR.html">OBR</a></td><td>Order Detail Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comment (on Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Financial Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comment (on Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Financial Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Financial Order Standalone end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Financial Common Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order (specific to above FT1)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Financial Timing Quantity begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Financial Timing Quantity end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Financial Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBR.html">OBR</a></td><td>Order Detail Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (on Order Detail)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Financial Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Financial Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observations / Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (on Result)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Financial Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Financial Common Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Diagnosis Ft1 begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis (specific to above FT1)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Diagnosis Ft1 end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-DRG.html">DRG</a> ]</td><td>Diagnosis Related Group (specific to above FT1)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GT1.html">GT1</a> }]</td><td>Guarantor (specific to above FT1)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Financial Insurance begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance (specific to above FT1)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance - Additional Info.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-IN3.html">IN3</a> }]</td><td>Insurance - Add'l Info. - Cert.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Financial Insurance end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Financial end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

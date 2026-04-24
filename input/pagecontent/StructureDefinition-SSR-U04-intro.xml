@@ -1,5 +1,24 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SSR_U04.html">SSR_U04</a></p>
+<div class="paragraph">
+<p>This message is used to request information concerning the location and status of specimens from one application to another (e.g., Laboratory Automation System to automated equipment). The request can be addressed for a specific container, a specific carrier, a specific tray or a specific location, depending on the arguments set in the SAC segment. The equipment specified in the EQU segment should respond with the "Specimen Status Update."</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SSR_U04.html">SSR_U04</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EQU.html">EQU</a></td><td>Equipment Detail</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Specimen Container begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-SAC.html">SAC</a></td><td>Specimen Container Detail</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-SPM.html">SPM</a> }</td><td>Specimen</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Specimen Container end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role Detail</td><td>B</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -1,5 +1,101 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-EHC_E02.html">EHC_E02</a></p>
+<div class="paragraph">
+<p>This message is used to cancel one HealthCare Services Invoices or one Product/Service Group in an Invoice or one Product/Service Line Item in an Invoice that have previously been submitted to a TPA/Payer for processing and payment. Invoice Control codes are used to indicate the specific action being requested of the Payer (CN for Cancel Invoice, CG for Cancel Product/Service Group and CI for Cancel Product/Service Line Item). An Invoice that is cancelled must be marked as cancel only and not purged from the Payer Application&#8217;s database.</p>
+</div>
+<div class="paragraph">
+<p>The Payer may/may not be able to cancel the Invoice/Product/Service Line Item, and will indicate processing results in the response message. In some situations, the Payer has already paid the Product/Service Line Item, and therefore will hold a debit amount for the Payee until subsequent billing from the Payee utilizes the debit amount.</p>
+</div>
+<div class="paragraph">
+<p>This message cannot be used to cancel or remove ancillary information for an Invoice and/or Product/Service Line Item such as Authorization or Contact information or any referenced health documents.</p>
+</div>
+<div class="paragraph">
+<p>Processing Rules:</p>
+</div>
+<div class="paragraph">
+<p>1) The Provider Application and the Payer Application must uniquely identify each Invoice, Product/Service Group, Product/Service Line Item and Adjustment.<br/>
+These numbers appear as a pair on the IVC, PSG, PSL and ADJ segments and must be echoed on any subsequent interactions for the Invoice, group or line item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>2) The Provider Application and/or Payer Application may also supply a tracking number for each Product/Service Line Item it processes, specified as the Provider Tracking Number or Payer Tracking Number.<br/>
+The Provider Tracking Number and Payer Tracking Number must be echoed on any subsequent interactions for the Product/Service Line Item between the Provider Application and Payer Application.</p>
+</div>
+<div class="paragraph">
+<p>3) At least one NTE segment must be included with this message to describe the cancellation reason for each Product/Service Line Item. The NTE segment may be specified with the Invoice (following the IVC segment) and applies to all Product/Service Line Items for that Invoice. If not specified with the Invoice, then it must be specified for each Product/Service Line Item (following the PSL segment).</p>
+</div>
+<div class="paragraph">
+<p>4) Sending Organization and Sending Application on input message must be the same as the Sending Organization and Sending Application from the original Invoice (submitted via the EHC^E01 – Submit HealthCare Services Invoice message) for the specified Invoice being queried.</p>
+</div>
+<div class="paragraph">
+<p>5) Provider reference numbers and Payer reference numbers must exist on Payer Application&#8217;s database and must point to the same Invoice, Product/Service Group or Product/Service Line Item, otherwise an error must be generated (mismatched Invoice and/or Product/Service Line Item).</p>
+</div>
+<div class="paragraph">
+<p>6) Product/Service Clarification Codes: Each Product/Service Line Item allows a number of clarification codes to be specified. These are specified as 2 fields: Product/Service Clarification Code Type and Product/Service Clarification Code Value. Both of these fields repeat within the PSL segment and must repeat the same number of times. For example, if 2 clarification codes are specified, then 2 repetitions of each field is required, the first repetition corresponding to the 1<sup>st</sup> clarification code, the second repetition corresponding to the 2<sup>nd</sup> clarification code.</p>
+</div>
+<div class="paragraph">
+<p>7) To cancel an Invoice, use Invoice Control Code on IVC of "CN". In addition, the following fields must be supplied and must match the original Invoice submitted:<br/>
+HDR.Sending Organization<br/>
+IVC.Provider Organization<br/>
+IVC.Invoice Amount<br/>
+IVC.Provider Invoice Number<br/>
+IVC.Payer Invoice Number<br/>
+PYE.Payee Identification List</p>
+</div>
+<div class="paragraph">
+<p>8) To cancel a Product/Service Group within an Invoice, use Invoice Control Code on IVC of "CG". In addition, the following fields must be supplied and must match the original Invoice submitted:<br/>
+HDR.Sending Organization<br/>
+IVC.Provider Organization<br/>
+IVC.Invoice Amount<br/>
+IVC.Provider Invoice Number<br/>
+IVC.Payer Invoice Number<br/>
+PYE.Payee Identification List<br/>
+PSG.Provider Product/Service Group Number<br/>
+PSG.Payer Product/Service Group Number</p>
+</div>
+<div class="paragraph">
+<p>9) To cancel a Product/Service Line Item within an Invoice, use Invoice Control Code on IVC of "CI". In addition, the following fields must be supplied and must match the original Invoice submitted:<br/>
+HDR.Sending Organization<br/>
+IVC.Provider Organization<br/>
+IVC.Invoice Amount<br/>
+IVC.Provider Invoice Number<br/>
+IVC.Payer Invoice Number<br/>
+PYE.Payee Identification List<br/>
+PSG.Provider Product/Service Group Number<br/>
+PSG.Payer Product/Service Group Number<br/>
+PSL.Provider Product/Service Line Item Number<br/>
+PSL.Payer Product/Service Line Item Number<br/>
+PSL.Product/Service Code<br/>
+PSL.Product/Service Effective Date<br/>
+PSL.Billed Amount</p>
+</div>
+<div class="paragraph">
+<p>10) This message must not be used to cancel a Product/Service Line Item in a Product/Service Group which was submitted with Adjudicated as Group = "Y".</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-EHC_E02.html">EHC_E02</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Secondary Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-UAC.html">UAC</a> }]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Cancel begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Group begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IVC.html">IVC</a></td><td>Invoice</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PYE.html">PYE</a></td><td>Payee Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CTD.html">CTD</a> }]</td><td>Contact Data</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Product Service Section begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PSS.html">PSS</a></td><td>DESCRIPTION NEEDED</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Psg begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-PSG.html">PSG</a></td><td>Product/Service Group</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PSL.html">PSL</a> }]</td><td>Product/Service Line Item</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Psg end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Product Service Section end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Group end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">--- --- Invoice Information Cancel end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

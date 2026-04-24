@@ -1,5 +1,69 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RCV_O59.html">RCV_O59</a></p>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-RCV_O59.html">RCV_O59</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Header)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Additional Demographics)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for PID)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient Visit end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Patient end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Timing begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Timing end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Order Detail begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-RXO.html">RXO</a></td><td>Pharmacy /Treatment Order</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Order Detail Supplement begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         { <a href="StructureDefinition-NTE.html">NTE</a> }</td><td>Notes and Comments (for RXO)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Component begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-RXC.html">RXC</a></td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for each RXC)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Component end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Order Detail Supplement end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Order Detail end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Order)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Encoding begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-RXE.html">RXE</a></td><td>Pharmacy/Treatment Encoded Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Order Encoding)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for RXE)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      { --- Timing Encoded begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Timing Encoded end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-RXC.html">RXC</a> }]</td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Encoding end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-RXD.html">RXD</a></td><td>Pharmacy/Treatment Dispense</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Treatment Dispense)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for RXD)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-RXC.html">RXC</a> }]</td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Results</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for OBX)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Observation end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-FT1.html">FT1</a> }]</td><td>Financial Transaction segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Order end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

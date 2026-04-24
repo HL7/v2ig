@@ -1,5 +1,40 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A43-A.html">ADT_A43</a></p>
+<div class="paragraph">
+<p>A move has been done at the patient identifier list level. Identifier to be moved in the <em>PID-3 - Patient Identifier List</em> and <em>MRG-1 - Prior Patient Identifier List</em> will have the same value. The "from" (incorrect source patient ID) and "to" (correct target patient ID) identifiers have different values. See A43 examples in section 5. The identifiers involved in identifying the patient to be moved (<em>MRG-1 - Prior Patient Identifier List</em>) may or may not have accounts, which may or may not have visits. In any case, all subordinate data sets associated with the identifier in <em>MRG-1 - Prior Patient Identifier List</em> are moved along with the identifier, from the "incorrect source patient ID" to the "correct target patient ID."</p>
+</div>
+<div class="paragraph">
+<p>No identifiers subordinate to the identifier (account number, visit number, alternate visit ID) are valued in this message. Specification of these other subordinate identifiers is not required.</p>
+</div>
+<div class="paragraph">
+<p>This event and the message syntax do, however, allow for the specification of a "new identifier" (<em>PID-3 - Patient Identifier List</em>), which may be application and/or implementation specific and therefore require site negotiation.</p>
+</div>
+<div class="paragraph">
+<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em>&#44;</a> "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#move"><em>3.6.2.1.3</em></a>, "<a href="#move"><em>Move</em></a>," for a discussion of issues related to the implementation of move messages.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When demographic data in other fields change, it is recommended that the A08 (update patient information) event be used in conjunction with this message. However, all PID data associated with the "correct target identifier" (<em>PID-3 - Patient Identifier List</em>) are treated as updated information.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ADT_A43-A.html">ADT_A43</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-MRG.html">MRG</a></td><td>Merge Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Patient end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -15,7 +15,7 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient Visit begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient Visit end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">] --- Patient end</td><td></td><td></td></tr>

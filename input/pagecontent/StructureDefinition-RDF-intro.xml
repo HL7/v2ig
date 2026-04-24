@@ -3,8 +3,8 @@
 <table class="v2-segment-table">
 <thead><tr><th>Seq#</th><th>Data Element Name</th><th>DataType</th><th>Usage</th><th>Vocabulary</th><th>Cardinality</th><th>Item#</th><th>Length</th><th>C.LEN</th><th>Flags</th></tr></thead>
 <tbody>
-<tr><td class="v2-col-seq"><a href="#a-RDF.1-numberOfColumnsPerRow">1</a></td><td>Number of Columns per Row</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-RDF-definitions.html#RDF.1-numberOfColumnsPerRow">00701</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">3</td><td class="v2-col-mono">=</td></tr>
-<tr><td class="v2-col-seq"><a href="#a-RDF.2-columnDescription">2</a></td><td>Column Description</td><td class="v2-col-mono"><a href="StructureDefinition-RCD.html">RCD</a></td><td>R</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0440">0440</a></td><td class="v2-col-mono">[1..*]</td><td class="v2-col-mono"><a href="StructureDefinition-RDF-definitions.html#RDF.2-columnDescription">00702</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
+<tr><td class="v2-col-seq">1</td><td>Number of Columns per Row</td><td class="v2-col-mono"><a href="StructureDefinition-NM.html">NM</a></td><td>R</td><td></td><td class="v2-col-mono">[1..1]</td><td class="v2-col-mono"><a href="StructureDefinition-RDF-definitions.html#RDF.1-numberOfColumnsPerRow">00701</a></td><td class="v2-col-mono"></td><td class="v2-col-mono">3</td><td class="v2-col-mono">#</td></tr>
+<tr><td class="v2-col-seq">2</td><td>Column Description</td><td class="v2-col-mono"><a href="StructureDefinition-RCD.html">RCD</a></td><td>R</td><td><a href="https://terminology.hl7.org/ValueSet/v2-0440">0440</a></td><td class="v2-col-mono">[1..*]</td><td class="v2-col-mono"><a href="StructureDefinition-RDF-definitions.html#RDF.2-columnDescription">00702</a></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td><td class="v2-col-mono"></td></tr>
 </tbody>
 </table>
 </div>

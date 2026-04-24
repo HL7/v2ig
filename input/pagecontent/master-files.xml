@@ -1,3 +1,25 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>M02</td><td><a href="StructureDefinition-MFN-M02.html">MFN^M02</a></td><td>Staff/Practitioner Master File</td></tr>
+<tr><td>M04</td><td><a href="StructureDefinition-MFN-M04.html">MFN^M04</a></td><td>Charge Description Master File Message</td></tr>
+<tr><td>M05</td><td><a href="StructureDefinition-MFN-M05.html">MFN^M05</a></td><td>Patient Location Master File</td></tr>
+<tr><td>M06</td><td><a href="StructureDefinition-MFN-M06.html">MFN^M06</a></td><td>Clinical Trials Master File</td></tr>
+<tr><td>M07</td><td><a href="StructureDefinition-MFN-M07.html">MFN^M07</a></td><td>Clinical Trials Master File</td></tr>
+<tr><td>M08</td><td><a href="StructureDefinition-MFN-M08.html">MFN^M08</a></td><td>Master File Notification - Test/Observation (Numeric)</td></tr>
+<tr><td>M09</td><td><a href="StructureDefinition-MFN-M09.html">MFN^M09</a></td><td>Master File Notification - Test/Observation (Categorical)</td></tr>
+<tr><td>M10</td><td><a href="StructureDefinition-MFN-M10.html">MFN^M10</a></td><td>Master File Notification - Test/Observation Batteries</td></tr>
+<tr><td>M11</td><td><a href="StructureDefinition-MFN-M11.html">MFN^M11</a></td><td>Master File Notification - Test/Calculated Observations</td></tr>
+<tr><td>M12</td><td><a href="StructureDefinition-MFN-M12.html">MFN^M12</a></td><td>Master File Notification - Additional Basic Observation/Service Attributes</td></tr>
+<tr><td>M13</td><td><a href="StructureDefinition-MFN-M13.html">MFN^M13</a></td><td>Master File Notification - General</td></tr>
+<tr><td>M14</td><td><a href="StructureDefinition-MFN-M14.html">MFN^M14</a></td><td>Master File Notification - Site Defined</td></tr>
+<tr><td>M15</td><td><a href="StructureDefinition-MFN-M15.html">MFN^M15</a></td><td>Inventory Item Master File Message</td></tr>
+<tr><td>M16</td><td><a href="StructureDefinition-MFN-M16.html">MFN^M16</a></td><td>Inventory Item Master File – Enhanced</td></tr>
+<tr><td>M17</td><td><a href="StructureDefinition-MFN-M17.html">MFN^M17</a></td><td>DRG Master File</td></tr>
+<tr><td>M18</td><td><a href="StructureDefinition-MFN-M18.html">MFN^M18</a></td><td>Master File Notification – Test/Observation (Payer)</td></tr>
+<tr><td>M19</td><td><a href="StructureDefinition-MFN-M19.html">MFN^M19</a></td><td>Contract Master File</td></tr>
+</tbody>
+</table>
 </div>

@@ -48,7 +48,7 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Order)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-CTD.html">CTD</a> ]</td><td>Contact Data</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-DG1.html">DG1</a> }]</td><td>Diagnosis</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-REL.html">REL</a> }]</td><td>Relationship (for Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-REL.html">REL</a> ]</td><td>Relationship (for Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>

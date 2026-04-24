@@ -1,5 +1,66 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-BAR_P05.html">BAR_P05</a></p>
+<div class="paragraph">
+<p>The P05 event is sent when an existing account is being updated. From version 2.3 onward, the P01 (add account) event should no longer be used for updating an existing account, but only for creating a new account. With the addition of P10 (transmit ambulatory payment classification [APC] groups) in version 2.4, it is expected that the P05 (update account) will be used to send inpatient coding information and the P10 (transmit ambulatory payment classification [APC] groups) will be used to send outpatient coding information.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-BAR_P05.html">BAR_P05</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-DB1.html">DB1</a> }]</td><td>Disability Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-OBX.html">OBX</a> }]</td><td>Observation/Result</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Diagnosis begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-DG1.html">DG1</a></td><td>Diagnosis</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Diagnosis end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-DRG.html">DRG</a> ]</td><td>Diagnosis Related Group</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Procedure begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PR1.html">PR1</a></td><td>Procedures</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Procedure end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GT1.html">GT1</a> }]</td><td>Guarantor</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NK1.html">NK1</a> }]</td><td>Next of Kin/Associated Parties</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Insurance begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-IN2.html">IN2</a> ]</td><td>Insurance - Additional Info.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-IN3.html">IN3</a> }]</td><td>Insurance - Add'l Info. - Cert.</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>Role</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Insurance end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-ACC.html">ACC</a> ]</td><td>Accident Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-UB1.html">UB1</a> ]</td><td>Universal Bill Information</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-UB2.html">UB2</a> ]</td><td>Universal Bill 92 Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-ABS.html">ABS</a> ]</td><td>Abstract</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-BLC.html">BLC</a> }]</td><td>Blood Code</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [ <a href="StructureDefinition-RMI.html">RMI</a> ]</td><td>Risk Management Incident</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Visit end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

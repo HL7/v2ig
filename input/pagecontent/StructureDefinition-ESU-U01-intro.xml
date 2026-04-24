@@ -1,5 +1,21 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ESU_U01.html">ESU_U01</a></p>
+<div class="paragraph">
+<p>This message is used to send information about the status of a device or equipment from one application to another (e.g., automated device to a Laboratory Automation System). The status update can be sent unsolicited or as a response to the trigger "Automated Equipment Status Request."</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ESU_U01.html">ESU_U01</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EQU.html">EQU</a></td><td>Equipment Detail</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-ISD.html">ISD</a> }</td><td>Interaction Status Detail</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role Detail</td><td>B</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

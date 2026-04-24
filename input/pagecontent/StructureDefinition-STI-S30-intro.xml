@@ -1,5 +1,19 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SLR_S28-C.html">SLR_S28</a></p>
+<div class="paragraph">
+<p>A request item is sent by the placer application to the filler application to request the ID and description of an item to be sterilized or decontaminated. If it is successful, the filler application returns an application acknowledgment (if requested under the enhanced acknowledgment mode, or if the original acknowledgment mode is in use).</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SLR_S28-C.html">SLR_S28</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-SLT.html">SLT</a> }</td><td>Sterilization Lot</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

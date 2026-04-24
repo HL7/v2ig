@@ -1,5 +1,25 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PMU_B08.html">PMU_B08</a></p>
+<div class="paragraph">
+<p>An event B08 indicates that a certificate/permission for a health professional is revoked.</p>
+</div>
+<div class="paragraph">
+<p>The EVN segment is used to indicate the effective or planned date.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-PMU_B08.html">PMU_B08</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-STF.html">STF</a></td><td>Staff</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PRA.html">PRA</a> ]</td><td>Practitioner</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-CER.html">CER</a> }]</td><td>Certificate</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

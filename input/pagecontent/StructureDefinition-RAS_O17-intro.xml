@@ -20,14 +20,14 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient Visit begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For access compatibiliy only as of V2.9.</td><td>B</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient Visit end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">] --- Patient end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Order begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Common Order)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for ORC)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Timing begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
@@ -54,7 +54,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">      } --- Timing Encoded end</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-RXC.html">RXC</a> }]</td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CDO.html">CDO</a> }]</td><td>Cumulative Dosage</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CDO.html">CDO</a> }]</td><td>Cumulative Dosage Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Encoding end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Administration begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      { <a href="StructureDefinition-RXA.html">RXA</a> }</td><td>Pharmacy/Treatment Administration</td><td>A</td></tr>

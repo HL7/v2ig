@@ -1,3 +1,24 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>I01</td><td><a href="StructureDefinition-RQI-I01.html">RQI^I01</a></td><td>Request for Insurance</td></tr>
+<tr><td>I02</td><td><a href="StructureDefinition-RQI-I02.html">RQI^I02</a></td><td>Request of Patient Selection Display List</td></tr>
+<tr><td>I03</td><td><a href="StructureDefinition-RQI-I03.html">RQI^I03</a></td><td>Request of Patient Selection List</td></tr>
+<tr><td>I04</td><td><a href="StructureDefinition-RQP-I04.html">RQP^I04</a></td><td>Request for Demographics</td></tr>
+<tr><td>I07</td><td><a href="StructureDefinition-PIN-I07.html">PIN^I07</a></td><td>Unsolicited Insurance Information</td></tr>
+<tr><td>I08</td><td><a href="StructureDefinition-RQA-I08.html">RQA^I08</a></td><td>Request for Treatment Authorization Information</td></tr>
+<tr><td>I09</td><td><a href="StructureDefinition-RQA-I09.html">RQA^I09</a></td><td>Request for Modification to an Authorization</td></tr>
+<tr><td>I10</td><td><a href="StructureDefinition-RQA-I10.html">RQA^I10</a></td><td>Request for Resubmission of an Authorization</td></tr>
+<tr><td>I11</td><td><a href="StructureDefinition-RQA-I11.html">RQA^I11</a></td><td>Request for Cancellation of an Authorization</td></tr>
+<tr><td>I16</td><td><a href="StructureDefinition-CCR-I16.html">CCR^I16</a></td><td>Collaborative Care Referral</td></tr>
+<tr><td>I17</td><td><a href="StructureDefinition-CCR-I17.html">CCR^I17</a></td><td>Modify Collaborative Care Referral</td></tr>
+<tr><td>I18</td><td><a href="StructureDefinition-CCR-I18.html">CCR^I18</a></td><td>Cancel Collaborative Care Referral</td></tr>
+<tr><td>I19</td><td><a href="StructureDefinition-CCQ-I19.html">CCQ^I19</a></td><td>Collaborative Care Query/Collaborative Care Query Update</td></tr>
+<tr><td>I20</td><td><a href="StructureDefinition-CCU-I20.html">CCU^I20</a></td><td>Asynchronous Collaborative Care Update</td></tr>
+<tr><td>I21</td><td><a href="StructureDefinition-CCM-I21.html">CCM^I21</a></td><td>Collaborative Care Message</td></tr>
+<tr><td>I22</td><td><a href="StructureDefinition-CCF-I22.html">CCF^I22</a></td><td>Collaborative Care Fetch / Collaborative Care Information</td></tr>
+</tbody>
+</table>
 </div>

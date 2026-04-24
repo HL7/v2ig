@@ -1,3 +1,18 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>O19</td><td><a href="StructureDefinition-OMG-O19.html">OMG^O19</a></td><td>Clinical Order</td></tr>
+<tr><td>O51</td><td><a href="StructureDefinition-OSU-O51.html">OSU^O51</a></td><td>Status Update</td></tr>
+<tr><td>O57</td><td><a href="StructureDefinition-OMQ-O57.html">OMQ^O57</a></td><td>Clinical Order with Supporting Document</td></tr>
+<tr><td>R01</td><td><a href="StructureDefinition-ORU-R01.html">ORU^R01</a></td><td>Observation</td></tr>
+<tr><td>R30</td><td><a href="StructureDefinition-ORU-R30.html">ORU^R30</a></td><td>Point-Of-Care Observation without Existing Order – Place an Order</td></tr>
+<tr><td>R31</td><td><a href="StructureDefinition-ORU-R31.html">ORU^R31</a></td><td>New Point-Of-Care Observation - Search for an Order</td></tr>
+<tr><td>R32</td><td><a href="StructureDefinition-ORU-R32.html">ORU^R32</a></td><td>Pre-Ordered Point-Of-Care Observation</td></tr>
+<tr><td>R40</td><td><a href="StructureDefinition-ORU-R40.html">ORU^R40</a></td><td>Message – Unsolicited Alert Observation</td></tr>
+<tr><td>R42</td><td><a href="StructureDefinition-ORU-R42.html">ORU^R42</a></td><td>Message – Unsolicited Device Event Observation</td></tr>
+<tr><td>R43</td><td><a href="StructureDefinition-ORU-R43.html">ORU^R43</a></td><td>Message – Unsolicited Patient-Device Association Observation</td></tr>
+</tbody>
+</table>
 </div>

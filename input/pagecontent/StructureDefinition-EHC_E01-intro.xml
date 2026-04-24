@@ -29,7 +29,7 @@
 <tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-GSC.html">GSC</a> ]</td><td>*Sex Parameter for Clinical Use*</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV1.html">PV1</a> ]</td><td>Patient Visit</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit - Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-ACC.html">ACC</a> }]</td><td>Accident</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">               { --- Insurance begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">                  <a href="StructureDefinition-IN1.html">IN1</a></td><td>Insurance</td><td>A</td></tr>

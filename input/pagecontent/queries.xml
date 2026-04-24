@@ -1,3 +1,14 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>J01</td><td><a href="StructureDefinition-QCN-J01.html">QCN^J01</a></td><td>Cancel query/acknowledge message</td></tr>
+<tr><td>J02</td><td><a href="StructureDefinition-QSX-J02.html">QSX^J02</a></td><td>Cancel subscription/acknowledge message</td></tr>
+<tr><td>Q11</td><td><a href="StructureDefinition-QBP-Q11.html">QBP^Q11</a></td><td>by parameter/segment pattern response</td></tr>
+<tr><td>Q15</td><td><a href="StructureDefinition-QBP-Q15.html">QBP^Q15</a></td><td>by parameter/display response</td></tr>
+<tr><td>Q16</td><td><a href="StructureDefinition-QSB-Q16.html">QSB^Q16</a></td><td>Create subscription</td></tr>
+<tr><td>Q17</td><td><a href="StructureDefinition-QVR-Q17.html">QVR^Q17</a></td><td>Query for previous events</td></tr>
+</tbody>
+</table>
 </div>

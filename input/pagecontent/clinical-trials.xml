@@ -1,3 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>C01</td><td><a href="StructureDefinition-CRM-C01.html">CRM^C01</a></td><td>a patient on a clinical trial</td></tr>
+<tr><td>C02</td><td><a href="StructureDefinition-CRM-C02.html">CRM^C02</a></td><td>a patient registration on clinical trial</td></tr>
+<tr><td>C03</td><td><a href="StructureDefinition-CRM-C03.html">CRM^C03</a></td><td>registration information</td></tr>
+<tr><td>C04</td><td><a href="StructureDefinition-CRM-C04.html">CRM^C04</a></td><td>has gone off a clinical trial</td></tr>
+<tr><td>C05</td><td><a href="StructureDefinition-CRM-C05.html">CRM^C05</a></td><td>enters phase of clinical trial</td></tr>
+<tr><td>C06</td><td><a href="StructureDefinition-CRM-C06.html">CRM^C06</a></td><td>patient entering a phase</td></tr>
+<tr><td>C07</td><td><a href="StructureDefinition-CRM-C07.html">CRM^C07</a></td><td>phase information</td></tr>
+<tr><td>C08</td><td><a href="StructureDefinition-CRM-C08.html">CRM^C08</a></td><td>has gone off phase of clinical trial</td></tr>
+<tr><td>C09</td><td><a href="StructureDefinition-CSU-C09.html">CSU^C09</a></td><td>time intervals for reporting, like monthly</td></tr>
+<tr><td>C10</td><td><a href="StructureDefinition-CSU-C10.html">CSU^C10</a></td><td>completes the clinical trial</td></tr>
+<tr><td>C11</td><td><a href="StructureDefinition-CSU-C11.html">CSU^C11</a></td><td>completes a phase of the clinical trial</td></tr>
+<tr><td>C12</td><td><a href="StructureDefinition-CSU-C12.html">CSU^C12</a></td><td>of patient order/result information</td></tr>
+</tbody>
+</table>
 </div>

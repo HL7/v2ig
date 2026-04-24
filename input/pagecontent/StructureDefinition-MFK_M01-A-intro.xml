@@ -9,7 +9,7 @@
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Acknowledgment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-MFA.html">MFA</a> }]</td><td>Master File ACK</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-MFA.html">MFA</a> }]</td><td>Master File ACK segment</td><td>A</td></tr>
 </tbody>
 </table>
 </div>

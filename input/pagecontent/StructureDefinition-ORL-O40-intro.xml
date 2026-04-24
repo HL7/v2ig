@@ -1,5 +1,50 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ORL_O40.html">ORL_O40</a></p>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ORL_O40.html">ORL_O40</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for Header)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[ --- Response begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Order)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Timing begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Timing end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Observation Request begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Request)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Specimen Shipment begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment Segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               { --- Package begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">                  <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package Segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">                  [{ --- Specimen In Package begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">                     <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">                     [{ --- Specimen Container In Package begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">                        <a href="StructureDefinition-SAC.html">SAC</a></td><td>Container Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">                     }] --- Specimen Container In Package end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">                  }] --- Specimen In Package end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">               } --- Package end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Specimen Shipment end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Observation Request end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">] --- Response end</td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -26,9 +26,9 @@
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Request)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Specimen Shipment begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">            <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            { --- Package begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package Segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">               [{ --- Specimen In Package begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">                  <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen Information</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">                  [{ --- Specimen Container In Package begin</td><td></td><td></td></tr>

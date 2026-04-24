@@ -1,5 +1,130 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-RSP_K31.html">RSP_K31</a></p>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Conformance Statement</caption>
+<colgroup>
+<col style="width: 39%;"/>
+<col style="width: 61%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Statement ID (Query ID=Q31):</th>
+<th class="tableblock halign-left valign-top">Q31</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dispense History</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger (= MSH-9):</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QBP<sup>Q31</sup>QBP_Q11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger (= MSH-9):</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RSP<sup>K31</sup>RSP_K31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May specify patient, medication, a date range, and how the response is to be sorted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To retrieve patient pharmacy dispense history information from the Server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Response Characteristics:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorted by Medication Dispensed unless otherwise specified in <strong>SortControl.</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Based on Segment Pattern:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RDS_O01</p></td>
+</tr>
+</tbody>
+</table>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-RSP_K31.html">RSP_K31</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSA.html">MSA</a></td><td>Message Acknowledgement</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ERR.html">ERR</a> }]</td><td>Error</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-QAK.html">QAK</a></td><td>Query Acknowledgement</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-RCP.html">RCP</a></td><td>Response Control Parameter</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Response begin</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Patient begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Additional Demographics)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for PID)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-AL1.html">AL1</a> }]</td><td>Allergy Information</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Patient Visit begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [ <a href="StructureDefinition-PV2.html">PV2</a> ]</td><td>Patient Visit – Additional Info</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Visit)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibility only as of V2.9.</td><td>B</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Patient Visit end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Patient end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Order begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for ORC)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Timing begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Timing end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Order Detail begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-RXO.html">RXO</a></td><td>Pharmacy/Treatment Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for RXO)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         [{ --- Components begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-RXC.html">RXC</a></td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for each RXC)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Components end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Order Detail end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [ --- Encoding begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-RXE.html">RXE</a></td><td>Pharmacy/Treatment Encoded Order</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for RXE)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for RXE)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         { --- Timing Encoded begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-TQ1.html">TQ1</a></td><td>Timing/Quantity</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-TQ2.html">TQ2</a> }]</td><td>Timing/Quantity Order Sequence</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">         } --- Timing Encoded end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-RXC.html">RXC</a> }]</td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      ] --- Encoding end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-RXD.html">RXD</a></td><td>Pharmacy/Treatment Dispense</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for RXD)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-RXR.html">RXR</a> }</td><td>Pharmacy/Treatment Route</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-RXC.html">RXC</a> }]</td><td>Pharmacy/Treatment Component</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-CDO.html">CDO</a> }]</td><td>Cumulative Dosage Segment</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Observation begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">         <a href="StructureDefinition-OBX.html">OBX</a></td><td>Results</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for OBX)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">         [{ <a href="StructureDefinition-NTE.html">NTE</a> }]</td><td>Notes and Comments (for OBX)</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Observation end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Order end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Response end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>Continuation Pointer</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

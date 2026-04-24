@@ -1,3 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>PC1</td><td><a href="StructureDefinition-PPR-PC1.html">PPR^PC1</a></td><td>Patient Problem Add</td></tr>
+<tr><td>PC2</td><td><a href="StructureDefinition-PPR-PC2.html">PPR^PC2</a></td><td>Patient Problem Update</td></tr>
+<tr><td>PC3</td><td><a href="StructureDefinition-PPR-PC3.html">PPR^PC3</a></td><td>Patient Problem Delete</td></tr>
+<tr><td>PC6</td><td><a href="StructureDefinition-PGL-PC6.html">PGL^PC6</a></td><td>Patient Goal Add</td></tr>
+<tr><td>PC7</td><td><a href="StructureDefinition-PGL-PC7.html">PGL^PC7</a></td><td>Patient Goal Update</td></tr>
+<tr><td>PC8</td><td><a href="StructureDefinition-PGL-PC8.html">PGL^PC8</a></td><td>Patient Goal Delete</td></tr>
+<tr><td>PCB</td><td><a href="StructureDefinition-PPP-PCB.html">PPP^PCB</a></td><td>Patient Pathway Add</td></tr>
+<tr><td>PCC</td><td><a href="StructureDefinition-PPP-PCC.html">PPP^PCC</a></td><td>Patient Pathway Update</td></tr>
+<tr><td>PCD</td><td><a href="StructureDefinition-PPP-PCD.html">PPP^PCD</a></td><td>Patient Pathway Delete</td></tr>
+<tr><td>PCG</td><td><a href="StructureDefinition-PPG-PCG.html">PPG^PCG</a></td><td>Patient Pathway Goal Add</td></tr>
+<tr><td>PCH</td><td><a href="StructureDefinition-PPG-PCH.html">PPG^PCH</a></td><td>Patient Pathway Goal Update</td></tr>
+<tr><td>PCJ</td><td><a href="StructureDefinition-PPG-PCJ.html">PPG^PCJ</a></td><td>Patient Pathway Goal Delete</td></tr>
+</tbody>
+</table>
 </div>

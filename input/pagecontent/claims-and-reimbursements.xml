@@ -1,3 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>E01</td><td><a href="StructureDefinition-EHC-E01.html">EHC^E01</a></td><td>Submit HealthCare Services Invoice</td></tr>
+<tr><td>E02</td><td><a href="StructureDefinition-EHC-E02.html">EHC^E02</a></td><td>Cancel HealthCare Services Invoice</td></tr>
+<tr><td>E03</td><td><a href="StructureDefinition-QBP-E03.html">QBP^E03</a></td><td>Query HealthCare Services Invoice Status</td></tr>
+<tr><td>E04</td><td><a href="StructureDefinition-EHC-E04.html">EHC^E04</a></td><td>Re-Assess HealthCare Services Invoice Request</td></tr>
+<tr><td>E10</td><td><a href="StructureDefinition-EHC-E10.html">EHC^E10</a></td><td>Edit/Adjudication Results</td></tr>
+<tr><td>E12</td><td><a href="StructureDefinition-EHC-E12.html">EHC^E12</a></td><td>Request Additional Information</td></tr>
+<tr><td>E13</td><td><a href="StructureDefinition-EHC-E13.html">EHC^E13</a></td><td>Additional Information Response</td></tr>
+<tr><td>E15</td><td><a href="StructureDefinition-EHC-E15.html">EHC^E15</a></td><td>Payment/Remittance Advice</td></tr>
+<tr><td>E20</td><td><a href="StructureDefinition-EHC-E20.html">EHC^E20</a></td><td>Submit Authorization Request</td></tr>
+<tr><td>E21</td><td><a href="StructureDefinition-EHC-E21.html">EHC^E21</a></td><td>Cancel Authorization Request</td></tr>
+<tr><td>E22</td><td><a href="StructureDefinition-QBP-E22.html">QBP^E22</a></td><td>Query Authorization Request Statu</td></tr>
+<tr><td>E24</td><td><a href="StructureDefinition-EHC-E24.html">EHC^E24</a></td><td>Authorization Response</td></tr>
+</tbody>
+</table>
 </div>

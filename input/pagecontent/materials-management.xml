@@ -1,3 +1,18 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p><i>No message events mapped to this subdomain.</i></p>
+<h3>Messages and Events</h3>
+<table class="grid">
+<thead><tr><th>Event</th><th>Message</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>S28</td><td><a href="StructureDefinition-SLR-S28.html">SLR^S28</a></td><td>Request New Sterilization Lot</td></tr>
+<tr><td>S29</td><td><a href="StructureDefinition-SLR-S29.html">SLR^S29</a></td><td>Request Sterilization Lot Deletion</td></tr>
+<tr><td>S30</td><td><a href="StructureDefinition-STI-S30.html">STI^S30</a></td><td>Request Item</td></tr>
+<tr><td>S31</td><td><a href="StructureDefinition-SDR-S31.html">SDR^S31</a></td><td>Request Anti-Microbial Device Data</td></tr>
+<tr><td>S32</td><td><a href="StructureDefinition-SMD-S32.html">SMD^S32</a></td><td>Request Anti-Microbial Device Cycle Data</td></tr>
+<tr><td>S33</td><td><a href="StructureDefinition-STC-S33.html">STC^S33</a></td><td>Notification of Sterilization Configuration</td></tr>
+<tr><td>S34</td><td><a href="StructureDefinition-SLN-S34.html">SLN^S34</a></td><td>Notification of New Sterilization Lot</td></tr>
+<tr><td>S35</td><td><a href="StructureDefinition-SLN-S35.html">SLN^S35</a></td><td>Notification of Sterilization Lot Deletion</td></tr>
+<tr><td>S36</td><td><a href="StructureDefinition-SDN-S36.html">SDN^S36</a></td><td>Notification of Anti-Microbial Device Data</td></tr>
+<tr><td>S37</td><td><a href="StructureDefinition-SCN-S37.html">SCN^S37</a></td><td>Notification of Anti-Microbial Device Cycle Data</td></tr>
+</tbody>
+</table>
 </div>

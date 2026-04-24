@@ -13,7 +13,7 @@
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-OMC.html">OMC</a> }]</td><td>Supporting Clinical Information</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [ --- Mf Test Cat Detail begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OM3.html">OM3</a></td><td>Categorical Service/Test/Observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-OM3.html">OM3</a></td><td>Categorical Service/Test/Observation Segment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-OM4.html">OM4</a> }]</td><td>Observations that Require Specimens</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   ] --- Mf Test Cat Detail end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Test Categorical end</td><td></td><td></td></tr>

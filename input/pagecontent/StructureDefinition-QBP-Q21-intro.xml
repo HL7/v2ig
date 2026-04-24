@@ -1,5 +1,61 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-QBP_Q21-A.html">QBP_Q21</a></p>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. This query/response is designed for interaction between a client system and an MPI (Master Person Index). The query consists of an identifier for a person, and the response of the demographics for that person.</caption>
+<colgroup>
+<col style="width: 39%;"/>
+<col style="width: 61%;"/>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Statement ID:</th>
+<th class="tableblock halign-left valign-top">Q21</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Type:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Name:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Q21 Get Person Demographics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Trigger:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QBP<sup>Q21</sup>QBP_Q21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Mode:</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Response Trigger:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RSP<sup>K21</sup>RSP_K21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Characteristics</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns demographics information for a specified person</p></td>
+</tr>
+</tbody>
+</table>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-QBP_Q21-A.html">QBP_Q21</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-QPD.html">QPD</a></td><td>Query Parameter Definition Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-RCP.html">RCP</a></td><td>Response Control Parameters</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-DSC.html">DSC</a> ]</td><td>Continuation Pointer</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

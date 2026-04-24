@@ -9,7 +9,7 @@
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MFI.html">MFI</a></td><td>Master File Identification</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Mf Site Defined begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-MFE.html">MFE</a></td><td>Master File Entry</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-Hxx.html">Hxx</a> }</td><td>One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            <a href="StructureDefinition-....html">...</a></td><td>One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Mf Site Defined end</td><td></td><td></td></tr>
 </tbody>
 </table>

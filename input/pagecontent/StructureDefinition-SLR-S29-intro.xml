@@ -1,5 +1,22 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SLR_S28-B.html">SLR_S28</a></p>
+<div class="paragraph">
+<p>A request sterilization lot deletion is sent by the placer application to the filler application to request that a lot that had been created in error be removed from the system. A delete trigger event differs from a cancel trigger event in that a delete acts to remove an error, whereas a cancel acts to prevent a valid request from occurring. If it is successful, an application acknowledgment is returned.</p>
+</div>
+<div class="paragraph">
+<p>The delete trigger event should be implemented with careful forethought, as it typically has different effects and repercussions in various applications. In some applications, a delete event cannot be undone. This means that if a delete transaction was sent erroneously, recovery will be difficult or impossible. In other applications, a delete transaction will not result in the physical deletion of the record(s), but will set a status or a flag. In these cases, the filler and/or placer appointment identifiers (the numbers or codes that uniquely identify the sterilization lot or request to the placer and filler applications) probably cannot be reused. Since an application may maintain a record of deleted sterilization lots, the reuse of an identifier may cause a conflict in the applications' processing of transactions.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SLR_S28-B.html">SLR_S28</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-SLT.html">SLT</a> }</td><td>Sterilization Lot</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

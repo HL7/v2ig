@@ -4,18 +4,18 @@
 <thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
 <tbody>
 <tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">{ <a href="StructureDefinition-ARV.html">ARV</a> }</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Shipment begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">   <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-SHP.html">SHP</a></td><td>Shipment Segment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">   { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation (for Shipment)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Shipping Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">      <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (Additional Shipping Information)</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Shipping Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Shipping Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   { --- Package begin</td><td></td><td></td></tr>
-<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-PAC.html">PAC</a></td><td>Shipping Package Segment</td><td>A</td></tr>
 <tr><td class="v2-classic-notation">      [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Shipping Package)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      [{ --- Specimen begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">         <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen Information</td><td>A</td></tr>
@@ -37,7 +37,7 @@
 <tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compability only as of V2.9.</td><td>B</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Patient Observation begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">               <a href="StructureDefinition-OBX.html">OBX</a></td><td>Observation/Result Segment (For Patient)</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Patient Observation)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">               [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            }] --- Patient Observation end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">            [{ --- Next Of Kin begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">               <a href="StructureDefinition-NK1.html">NK1</a></td><td>Next of Kin/Associated Parties (For Person/Animal)</td><td>A</td></tr>

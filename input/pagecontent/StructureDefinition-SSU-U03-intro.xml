@@ -1,5 +1,31 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-SSU_U03.html">SSU_U03</a></p>
+<div class="paragraph">
+<p>This message is used to send information concerning the location and status of specimens from one application to another (e.g., automated equipment to a Laboratory Automation System). The OBX segments attached to the SAC should be used for transfer of information not included in the SAC segment, but relevant for automating processing (e.g., additional characteristics of the specimen container). The NTE segments attached to the SAC should be used for transfer of descriptive information not included in the SAC segment, but relevant for the users (e.g., aliquot groups for an aliquot sample container).</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-SSU_U03.html">SSU_U03</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EQU.html">EQU</a></td><td>Equipment Detail</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Specimen Container begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   <a href="StructureDefinition-SAC.html">SAC</a></td><td>Specimen Container Detail</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-OBX.html">OBX</a> }</td><td>Additional specimen container characteristics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-NTE.html">NTE</a> }</td><td>Additional specimen container information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation for OBX</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   [{ --- Specimen begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">      <a href="StructureDefinition-SPM.html">SPM</a></td><td>Specimen</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-OBX.html">OBX</a> }</td><td>Specimen related observation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">      { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation for OBX</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">   }] --- Specimen end</td><td></td><td></td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">} --- Specimen Container end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-ROL.html">ROL</a> ]</td><td>Role Detail</td><td>B</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

@@ -31,7 +31,7 @@
 <tr class="v2-classic-group"><td class="v2-classic-notation">         }] --- Timing end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         [ --- Observation Request begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">            <a href="StructureDefinition-OBR.html">OBR</a></td><td>Observation Request</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation Request)</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">            [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation (for Observation)</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">         ] --- Observation Request end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">      }] --- Order end</td><td></td><td></td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">   } --- Specimen end</td><td></td><td></td></tr>

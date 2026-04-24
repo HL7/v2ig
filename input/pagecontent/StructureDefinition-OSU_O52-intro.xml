@@ -17,7 +17,7 @@
 <tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>For backwards compatibilitty only as of V2.9.</td><td>B</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">{ --- Order Status begin</td><td></td><td></td></tr>
 <tr><td class="v2-classic-notation">   <a href="StructureDefinition-ORC.html">ORC</a></td><td>Common Order</td><td>A</td></tr>
-<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   { <a href="StructureDefinition-PRT.html">PRT</a> }</td><td>Participation</td><td>A</td></tr>
 <tr class="v2-classic-group"><td class="v2-classic-notation">} --- Order Status end</td><td></td><td></td></tr>
 </tbody>
 </table>

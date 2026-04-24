@@ -1,5 +1,38 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-PMU_B01-B.html">PMU_B01</a></p>
+<div class="paragraph">
+<p>An event B02 signals to update the record with the healthcare administration information about an individual healthcare practitioner. This event should not be used to grant/revoke a certificate.</p>
+</div>
+<div class="paragraph">
+<p>The EVN segment is used to indicate the effective or planned date.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-PMU_B01-B.html">PMU_B01</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-STF.html">STF</a></td><td>Staff</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRA.html">PRA</a> }]</td><td>Practitioner</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ORG.html">ORG</a> }]</td><td>Organization</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-AFF.html">AFF</a> }]</td><td>Affiliation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-LAN.html">LAN</a> }]</td><td>Language</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-EDU.html">EDU</a> }]</td><td>Education</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-CER.html">CER</a> }]</td><td>Certificate</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">[{ --- Next Of Kin begin</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-NK1.html">NK1</a> }]</td><td>Next of Kin</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">   [{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr class="v2-classic-group"><td class="v2-classic-notation">}] --- Next Of Kin end</td><td></td><td></td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-PRT.html">PRT</a> }]</td><td>Participation</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ROL.html">ROL</a> }]</td><td>deprecated as of v2.9</td><td>d</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>

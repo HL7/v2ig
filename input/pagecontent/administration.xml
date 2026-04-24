@@ -3,9 +3,9 @@
 <table class="grid">
 <thead><tr><th>Subdomain</th><th>Events</th></tr></thead>
 <tbody>
-<tr><td><a href="registration.html">Registration (Patient Administration)</a></td><td>0</td></tr>
-<tr><td><a href="referral.html">Referral</a></td><td>0</td></tr>
-<tr><td><a href="scheduling.html">Scheduling</a></td><td>0</td></tr>
+<tr><td><a href="registration.html">Registration (Patient Administration)</a></td><td>59</td></tr>
+<tr><td><a href="referral.html">Referral</a></td><td>16</td></tr>
+<tr><td><a href="scheduling.html">Scheduling</a></td><td>26</td></tr>
 </tbody>
 </table>
 </div>

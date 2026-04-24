@@ -1,5 +1,39 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p class="v2-structure-link"><b>Message Structure:</b> <a href="StructureDefinition-ADT_A50-B.html">ADT_A50</a></p>
+<div class="paragraph">
+<p>A change has been done at the alternate visit identifier level. That is, a <em>PV1-50 - Alternate Visit ID</em> has been found to be incorrect and has been changed.</p>
+</div>
+<div class="paragraph">
+<p>An A51 event is used to signal a change of an incorrectly assigned alternate visit ID value. The "incorrect source alternate visit ID" value is stored in the MRG segment (<em>MRG-6 - Prior Alternate Visit ID</em>) and is to be changed to the "correct target alternate visit ID" value stored in the PV1 segment (<em>PV1-50 - Alternate Visit ID</em>).</p>
+</div>
+<div class="paragraph">
+<p>Each superior identifier associated with this alternate visit identifier level, i.e. PID-3/MRG-1 and PID-18/MRG-3 should have the same value in both the PID and MRG segments.</p>
+</div>
+<div class="paragraph">
+<p>See sections <a href="#merging-patientperson-information"><em>3.6.2</em>&#44;</a> "<a href="#merging-patientperson-information"><em>Merging patient/person information</em></a>," and <a href="#change-identifier"><em>3.6.2.1.4</em></a>, "<a href="#change-identifier"><em>Change identifier</em></a>," for a discussion of issues related to the implementation of change messages.</p>
+</div>
+<div class="paragraph">
+<p>The fields included when this message is sent should be the fields pertinent to communicate this event. When demographic data in other fields change, it is recommended that the A08 (update patient information) event be used in conjunction with this message.</p>
+</div>
+<div id="v2-classic-content" style="display:none;">
+<p>The full structure definition for <a href="StructureDefinition-ADT_A50-B.html">ADT_A50</a> is available on its own page.</p>
+<table class="grid">
+<thead><tr><th>Segment</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MSH.html">MSH</a></td><td>Message Header</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-ARV.html">ARV</a> }]</td><td>Access Restrictions</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-SFT.html">SFT</a> }]</td><td>Software Segment</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-UAC.html">UAC</a> ]</td><td>User Authentication Credential</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-EVN.html">EVN</a></td><td>Event Type</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PID.html">PID</a></td><td>Patient Identification</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[ <a href="StructureDefinition-PD1.html">PD1</a> ]</td><td>Additional Demographics</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSP.html">GSP</a> }]</td><td>Person Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSR.html">GSR</a> }]</td><td>Recorded Gender and Sex</td><td>A</td></tr>
+<tr><td class="v2-classic-notation">[{ <a href="StructureDefinition-GSC.html">GSC</a> }]</td><td>Sex Parameter for Clinical Use</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-MRG.html">MRG</a></td><td>Merge Information</td><td>A</td></tr>
+<tr><td class="v2-classic-notation"><a href="StructureDefinition-PV1.html">PV1</a></td><td>Patient Visit</td><td>A</td></tr>
+</tbody>
+</table>
+</div>
 <div id="v2-ack-content" style="display:none;">
 <table class="grid">
 <thead><tr><th>Mode</th><th>Response</th></tr></thead>
