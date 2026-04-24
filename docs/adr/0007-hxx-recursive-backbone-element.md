@@ -41,38 +41,54 @@ slot may actually contain.
 
 ## Decision
 
-Redefine `Hxx` as a **recursive `BackboneElement`-shaped logical model** with
-the following structure:
+Adopt the **recursive `BackboneElement`-shaped pattern** for the `Hxx` placeholder:
 
 ```
 Hxx (BackboneElement, 0..*)        ← repeats; each occurrence is one thing
 ├── segment (0..1, type=Segment)   ← a single segment
-├── group   (0..1, contentReference=#Hxx)  ← a recursive nested Hxx
+├── group   (0..1, contentReference=#<local-Hxx-slot-id>)  ← recursive nested Hxx
 ├── inv: exactly one of segment / group is set per occurrence
 └── inv: segment is not MSH, BHS, BTS, FHS, FTS, or DSC
 ```
 
-The `contentReference: "#Hxx"` is FHIR's standard mechanism for recursive
-logical-model structures (used by `Questionnaire.item.item`,
-`ImplementationGuide.definition.page.page`, `CodeSystem.concept.concept`).
 Each `Hxx` occurrence is XOR'd between a single segment slot and a recursive
 group slot. The repetition (`max: *`) of `Hxx` itself preserves
 **ordering of mixed segment-or-group sequences** — the V2 wire format
 requirement.
 
-Consuming message-structure SDs (the 15 sites) continue to reference `Hxx` by
-type (`"code": "http://hl7.org/v2/StructureDefinition/Hxx"`) and contribute
-their own tailored `short` and `definition` text describing what the slot
-means in that particular structure (e.g., "Optional query by example
-segments", "One or more HL7 and/or Z-segments carrying the data for the entry
-identified in the MFE segment", "etc."). The structural pattern is centralized
-in `Hxx.json`; per-site semantics remain at the use site.
+**The pattern is duplicated inline at each of the 15 consuming sites,
+not centralized in `Hxx.json`.** FHIR's `contentReference` is
+StructureDefinition-scoped: `#Hxx` written inside `Hxx.json` would either
+fail to resolve, or resolve back to the source `Hxx` SD rather than to
+the local Hxx slot, when `Hxx` is composed into a consuming SD via a
+`type` reference. The IG Publisher does not perform the rewrite that
+would be needed to make a centralized recursive logical model work
+through `type` composition. Inline duplication sidesteps the issue:
+each consuming SD's `group` element has a `contentReference` of the
+form `#<consuming-SD-id>.<...>.<Hxx-slot-id>`, which is always
+same-SD and therefore unambiguous.
 
-`Hxx`'s `baseDefinition` changes from `http://hl7.org/v2/StructureDefinition/Segment`
-to `http://hl7.org/fhir/StructureDefinition/Base`, matching `Segment`'s own
-parent. `Hxx` is no longer claimed to *be* a segment — it is a sibling
-structural pattern. The `meta.profile` reference to `Segment-Profile` is
-removed for the same reason.
+`Hxx.json` itself is preserved as the **canonical reference definition**
+of the pattern — it documents what an Hxx slot looks like, but is no
+longer referenced via `type` from any consuming SD. Its `baseDefinition`
+shifts from `http://hl7.org/v2/StructureDefinition/Segment` to
+`http://hl7.org/fhir/StructureDefinition/Base`, matching `Segment`'s own
+parent, because Hxx is no longer claimed to *be* a segment — it is a
+sibling structural pattern. The `meta.profile` reference to
+`Segment-Profile` is removed for the same reason.
+
+The 15 consuming message-structure SDs each have their original
+single-element Hxx slot replaced with three elements (parent
+`BackboneElement` + `.segment` child + `.group` child). Each consuming
+SD's parent element preserves its existing `short` and `definition`
+text — the per-site semantics ("Optional query by example segments",
+"One or more HL7 and/or Z-segments carrying the data for the entry
+identified in the MFE segment", "etc.", and so on) remain at the use
+site as the user requires. The `v2-segment-status: A` extension is
+removed from the parent element because Hxx slots are no longer typed
+as segments; this matches the convention for other BackboneElement
+slots in the project (PROVIDER, GOAL, ORDER_DETAIL, etc., do not carry
+this extension).
 
 ## Alternatives considered
 
@@ -92,11 +108,20 @@ and the group array `[GroupA, GroupB]` — there is no way to recover whether
 `DG1` came before or after `GroupA`. V2 message order is significant; this
 representation cannot faithfully encode it.
 
-**Inline pattern duplicated at each site.** Define the recursive
-`BackboneElement` structure inline in each of the 15 consuming SDs rather
-than centralizing in `Hxx.json`. Avoids cross-SD `contentReference`
-resolution. **Rejected** because it duplicates the same structure 15× and
-introduces drift risk; the invariants would have to be repeated in each file.
+**Centralized recursive Hxx logical model referenced via `type`.** Define the
+pattern once in `Hxx.json` with `contentReference: "#Hxx"` for the recursion,
+and have each of the 15 consuming SDs reference it as
+`type: http://hl7.org/v2/StructureDefinition/Hxx`. **Rejected** because
+`contentReference` is StructureDefinition-scoped — when the IG Publisher
+composes the Hxx SD into a consuming SD's snapshot via the `type`
+reference, the `#Hxx` fragment in the group element does not get rewritten
+to point to the local Hxx slot in the consuming SD. The result is either
+a snapshot-generation error or a silently dangling reference. The benefit
+(no duplication) is real but the resolution mechanic is not supported.
+The duplication cost is mitigated by a single idempotent script
+(`tooling/scripts/inline_hxx_pattern.py`) that applies the pattern
+uniformly to all 15 sites, and by retaining `Hxx.json` as the canonical
+reference definition that the script and any human reader can consult.
 
 ## Consequences
 

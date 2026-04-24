@@ -160,20 +160,50 @@
         "id": "RTB_Knn.8-Hxx",
         "path": "RTB_Knn.8-Hxx",
         "short": "DESCRIPTION NEEDED",
+        "definition": "DESCRIPTION NEEDED",
         "min": 1,
         "max": "1",
-        "definition": "DESCRIPTION NEEDED",
         "type": [
           {
-            "code": "http://hl7.org/v2/StructureDefinition/Hxx"
+            "code": "BackboneElement"
           }
         ],
-        "extension": [
+        "constraint": [
           {
-            "url": "http://hl7.org/v2/StructureDefinition/v2-segment-status",
-            "valueCode": "A"
+            "key": "v2-hxx-xor",
+            "severity": "error",
+            "human": "Each Hxx occurrence must contain exactly one of: a single segment (.segment) or a nested group (.group).",
+            "expression": "(segment.exists() and group.empty()) or (segment.empty() and group.exists())"
+          },
+          {
+            "key": "v2-hxx-no-control",
+            "severity": "error",
+            "human": "MSH and transmission-control segments (BHS, BTS, FHS, FTS, DSC) are not permitted in an Hxx placeholder slot (V2.9.1 \u00a71.12).",
+            "expression": "segment.empty() or not(segment.type.first().code.endsWith('/MSH') or segment.type.first().code.endsWith('/BHS') or segment.type.first().code.endsWith('/BTS') or segment.type.first().code.endsWith('/FHS') or segment.type.first().code.endsWith('/FTS') or segment.type.first().code.endsWith('/DSC'))"
           }
         ]
+      },
+      {
+        "id": "RTB_Knn.8-Hxx.segment",
+        "path": "RTB_Knn.8-Hxx.segment",
+        "short": "A single segment instance occupying this Hxx slot",
+        "definition": "When this Hxx occurrence is a single segment (not a nested group), the segment is provided here. Type is the abstract Segment base; any concrete V2 segment may appear, except those excluded by the slot-level invariant.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "http://hl7.org/v2/StructureDefinition/Segment"
+          }
+        ]
+      },
+      {
+        "id": "RTB_Knn.8-Hxx.group",
+        "path": "RTB_Knn.8-Hxx.group",
+        "short": "A nested group of Hxx slots (recursive)",
+        "definition": "When this Hxx occurrence is a nested group rather than a single segment, the group's contents are themselves a sequence of Hxx slots. The contentReference points to this Hxx slot in the same StructureDefinition, enabling arbitrary nesting depth.",
+        "min": 0,
+        "max": "1",
+        "contentReference": "#RTB_Knn.8-Hxx"
       },
       {
         "id": "RTB_Knn.9-DSC",

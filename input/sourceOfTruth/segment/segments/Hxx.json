@@ -30,7 +30,7 @@
           },
           {
             "key": "v2-hxx-no-control",
-            "severity": "warning",
+            "severity": "error",
             "human": "MSH and transmission-control segments (BHS, BTS, FHS, FTS, DSC) are not permitted in an Hxx placeholder slot (V2.9.1 §1.12).",
             "expression": "segment.empty() or not(segment.type.first().code.endsWith('/MSH') or segment.type.first().code.endsWith('/BHS') or segment.type.first().code.endsWith('/BTS') or segment.type.first().code.endsWith('/FHS') or segment.type.first().code.endsWith('/FTS') or segment.type.first().code.endsWith('/DSC'))"
           }
