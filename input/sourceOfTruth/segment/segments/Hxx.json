@@ -2,33 +2,64 @@
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/v2/StructureDefinition/Hxx",
   "id": "Hxx",
-  "meta": {
-    "profile": [
-      "http://hl7.org/v2/StructureDefinition/Segment-Profile"
-    ]
-  },
   "version": "0.0.1",
   "name": "Hxx",
-  "title": "HL7 v2 Hxx Segment Definition",
+  "title": "HL7 v2 Hxx Open-Ended Segment-or-Group Placeholder",
   "status": "active",
   "kind": "logical",
   "abstract": false,
   "type": "Hxx",
-  "description": "Placeholder representing any segment or segment group in a message structure choice. Hxx appears in V2 message structure tables (e.g., CH12 Patient Care) where the standard allows any applicable segment at that position. In the published standard, it is listed as 'Hxx' with description 'etc.' indicating an open-ended choice. The segment choice can be resolved to the abstract Segment base type. The segment group (BackboneElement) case requires further specification — see V2 Management Group discussion items.",
-  "baseDefinition": "http://hl7.org/v2/StructureDefinition/Segment",
+  "description": "Open-ended placeholder for any segment or segment group, per V2.9.1 §1.12 errata. Each occurrence is either a single segment OR a recursive nested group of further Hxx slots. MSH and other transmission-control segments (BHS, BTS, FHS, FTS, DSC) are not permitted. Used in message structure positions where the standard allows an open-ended choice (CH05 query patterns, CH08 MFN_Znn site-defined slot, CH12 ORDER_DETAIL choice, etc.). See ADR-0007 for design rationale and Section 9 of the V2 Management review report for source-clause analysis.",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
   "derivation": "specialization",
   "differential": {
     "element": [
       {
         "id": "Hxx",
         "path": "Hxx",
-        "short": "Any HL7 segment",
-        "definition": "A placeholder for any HL7 V2 segment or segment group. Used in message structure choice groups where the standard allows an open-ended set of segments at a given position (e.g., ORDER_DETAIL in Patient Care pathway messages). The notation 'Hxx' with description 'etc.' indicates that implementers may use whichever segment is appropriate for their use case.",
+        "short": "Open-ended segment-or-group placeholder",
+        "definition": "Per V2.9.1 §1.12 errata, this slot may contain any segment or segment group, except MSH and other transmission-control segments (BHS, BTS, FHS, FTS, DSC). Each occurrence is either a single segment or a recursive nested group; the slot may repeat to express ordered mixed sequences of segments and groups.",
         "min": 0,
-        "max": "*"
+        "max": "*",
+        "constraint": [
+          {
+            "key": "v2-hxx-xor",
+            "severity": "error",
+            "human": "Each Hxx occurrence must contain exactly one of: a single segment (Hxx.segment) or a nested group (Hxx.group).",
+            "expression": "(segment.exists() and group.empty()) or (segment.empty() and group.exists())"
+          },
+          {
+            "key": "v2-hxx-no-control",
+            "severity": "warning",
+            "human": "MSH and transmission-control segments (BHS, BTS, FHS, FTS, DSC) are not permitted in an Hxx placeholder slot (V2.9.1 §1.12).",
+            "expression": "segment.empty() or not(segment.type.first().code.endsWith('/MSH') or segment.type.first().code.endsWith('/BHS') or segment.type.first().code.endsWith('/BTS') or segment.type.first().code.endsWith('/FHS') or segment.type.first().code.endsWith('/FTS') or segment.type.first().code.endsWith('/DSC'))"
+          }
+        ]
+      },
+      {
+        "id": "Hxx.segment",
+        "path": "Hxx.segment",
+        "short": "A single segment instance occupying this Hxx slot",
+        "definition": "When this Hxx occurrence is a single segment (not a nested group), the segment is provided here. Type is the abstract Segment base; any concrete V2 segment may appear, except MSH and the transmission-control segments listed in the slot-level invariant.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "http://hl7.org/v2/StructureDefinition/Segment"
+          }
+        ]
+      },
+      {
+        "id": "Hxx.group",
+        "path": "Hxx.group",
+        "short": "A nested group of Hxx slots (recursive)",
+        "definition": "When this Hxx occurrence is a nested group rather than a single segment, the group's contents are themselves a sequence of Hxx slots, each in turn either a segment or a further nested group. The contentReference enables arbitrary nesting depth.",
+        "min": 0,
+        "max": "1",
+        "contentReference": "#Hxx"
       }
     ]
   },
-  "date": "2025-06-11T22:36:47Z",
-  "fhirVersion": "5.0.0"
+  "fhirVersion": "5.0.0",
+  "date": "2026-04-24"
 }
