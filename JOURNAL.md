@@ -18,27 +18,34 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-04-24 (mid-session, build in flight)
+## ACTIVE — 2026-04-24 (end of session, builds in flight)
 
-**Phase:** Hxx redefined as a recursive BackboneElement structure (ADR-0007). Pattern inlined at all 15 consuming sites. Pushed to build; **awaiting auto-IG result**. ADR-0006 Phase 1 LLM extraction prototype still scaffolded, still awaiting `ANTHROPIC_API_KEY`.
+**Phase:** Hxx redefined as a recursive BackboneElement structure (ADR-0007). Pattern inlined at all 15 consuming sites. Pushed to build and (separately) postproc-g full build kicked off; **awaiting both build results**. ADR-0006 Phase 1 LLM extraction prototype still scaffolded, still awaiting `ANTHROPIC_API_KEY`.
 
 **Branches:**
-- `dev/framework` at `6040b245` (in sync with origin)
+- `dev/framework` at `6a7e44da` (in sync with origin)
 - `origin/main` at `a61efd82` (Hxx changes merged)
 - `origin/build` at `35228d93` (pushed via `--no-preprocess` since FHIR-only change)
 
-### Build state
+### Next session's first move
 
-**Pushed to build at start of monitoring window today.** Monitor URL: `https://build.fhir.org/ig/HL7/v2ig/branches/build/`. Expected runtime ~1 hr. The push produced a much larger diff than expected (795 files changed at the build-branch level) — that's the cumulative carryover of files deleted on main (e.g., `StructureDefinition-ACK-Scheduling-intro.xml`, `StructureDefinition-ACK-intro.xml`) finally propagating to build now that `push-to-build.sh` properly `git rm -rf` the synced trees before re-checkout.
+**Read both build outputs and report.** Then act on what they tell us — either move forward (to LLM extraction once API key is set) or address whatever the build surfaced.
 
-### What to check first when the build finishes
+- **Auto-IG**: `https://build.fhir.org/ig/HL7/v2ig/branches/build/` — if `failure/` directory has appeared with build-start timestamp after this push (commit `35228d93`), fetch `failure/build.log`. Otherwise success means `qa.html`/`index.html` etc.
+- **postproc-g full build**: user kicked off via `./apptainer/remote-build.sh full` after this session ended. Check the script's output / logs for completion status.
 
-1. **Did snapshot generation succeed for the 15 Hxx-containing SDs?** The recursive BackboneElement pattern was inlined at each site with `contentReference` pointing to the local Hxx slot. If the IG Publisher chokes on the recursion, the failure will likely be in one of: `MFN_Znn`, `QBP_Q11-A` through `-E`, `QBP_Q15`, `QVR_Q17`, `RSP_K11`, `RSP_Znn`, `RTB_Knn`, `PGL_PC6`, `PPG_PCG`, `PPP_PCB`, `PPR_PC1`. The `Hxx.json` SD itself uses the same pattern via internal contentReference — if its snapshot fails, we'll see it directly.
-2. **Did the two new FHIRPath invariants validate?** They are `severity: error` (not warning). If the IG Publisher's FHIRPath engine can't parse the expressions, the build will fail with an invariant-related error.
+### Build state context
+
+Pushed to build with commit `35228d93`. Auto-IG expected runtime ~1 hr; postproc-g full build similar. The auto-IG push produced a much larger diff than expected (795 files at the build-branch level) — that's the cumulative carryover of files deleted on main (e.g., `StructureDefinition-ACK-Scheduling-intro.xml`, `StructureDefinition-ACK-intro.xml`) finally propagating to build now that `push-to-build.sh` properly `git rm -rf` the synced trees before re-checkout. Future pushes should be small again.
+
+### Hot spots if a build fails
+
+1. **Snapshot generation for the 15 Hxx-containing SDs.** The recursive BackboneElement pattern was inlined at each site with `contentReference` pointing to the local Hxx slot. If the IG Publisher chokes on the recursion, the failure will likely be in one of: `MFN_Znn`, `QBP_Q11-A` through `-E`, `QBP_Q15`, `QVR_Q17`, `RSP_K11`, `RSP_Znn`, `RTB_Knn`, `PGL_PC6`, `PPG_PCG`, `PPP_PCB`, `PPR_PC1`. The `Hxx.json` SD itself uses the same pattern via internal contentReference — if its snapshot fails, we'll see it directly.
+2. **The two new FHIRPath invariants** are `severity: error` (not warning). If the IG Publisher's FHIRPath engine can't parse the expressions, the build will fail with an invariant-related error.
    - `v2-hxx-xor` — exactly one of `.segment` / `.group`
    - `v2-hxx-no-control` — `.segment.type.first().code.endsWith('/MSH')` etc.
-   - If invariants are the failure: drop both to `severity: warning`, keep the human descriptions, push again.
-3. **Did Hxx.json itself build cleanly?** Its `baseDefinition` changed from `Segment` to `Base`, and it has its own internal `contentReference: "#Hxx"` (which is in-SD scope, so should work). If it fails, the standalone Hxx SD page in the IG would be the canary.
+   - **Rollback if invariants are the failure**: drop both to `severity: warning` in `Hxx.json` AND in all 15 inlined sites (edit `inline_hxx_pattern.py` constants and re-run, or sed across the message-structure files), push again.
+3. **`Hxx.json` itself**: `baseDefinition` changed from `Segment` to `Base`, has its own internal `contentReference: "#Hxx"` (in-SD scope, should work). If it fails, the standalone Hxx SD page in the IG is the canary.
 
 ### If the build succeeds
 
