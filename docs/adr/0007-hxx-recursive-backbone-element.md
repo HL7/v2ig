@@ -160,6 +160,31 @@ reference definition that the script and any human reader can consult.
   back to inline duplication (the rejected "inline" alternative above).
 
 **Open follow-ups.**
+- **Re-introduce machine-checkable enforcement of XOR + MSH-exclusion
+  semantics.** The 2026-04-27 build attempt failed in the IG Publisher's
+  FHIRPath type-checker (`StructureDefinitionValidator.validateElementDefinitionInvariant`
+  → `Unable to find http://hl7.org/v2/StructureDefinition/MFN_Znn#MFN_Znn.5-MF_SITE_DEFINED.2-Hxx`).
+  Two compounding problems with the original FHIRPath invariants:
+  (1) the type-checker cannot walk a recursive `contentReference` at
+  validation time (it tries to resolve the `.group` target back to the
+  parent element through the snapshot, which has not yet been generated
+  when invariant type-checking runs); (2) the MSH-exclusion expression
+  `segment.type.first().code.endsWith('/MSH')` cannot be type-checked
+  against the abstract `Segment` base (which is `kind: logical` with zero
+  differential elements — there is no `.type` field to walk). Severity
+  level (`error` vs `warning`) does not help: the type-check is
+  unconditional and the failure is a `java.lang.Error`. As an immediate
+  fix the constraints were dropped and the semantics moved to narrative
+  text in element `definition` fields. Options for re-introducing
+  machine-checkable enforcement: (a) **slicing** the inlined Hxx parent
+  into mutually exclusive `.segment`-only and `.group`-only slices to
+  encode the XOR structurally; (b) a **profile-level Constraint**
+  resource that runs at instance-validation time only (after snapshots
+  exist) rather than as an `ElementDefinition.constraint`; (c) a custom
+  validator extension that bypasses the recursive type-check; (d) a
+  binding on `.segment` to a closed value set that excludes the six
+  control segments. Option (a) is the most native FHIR mechanism; option
+  (d) is the simplest for the MSH exclusion alone.
 - Decide whether the existing `{"code": "Hxx"}` entry in the segments
   CodeSystem (`meta-resources/segment--v2-cs-segments.json`) should remain.
   Hxx is no longer a segment by this ADR; the CodeSystem entry is
