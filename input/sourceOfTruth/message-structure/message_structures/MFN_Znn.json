@@ -135,26 +135,12 @@
         "id": "MFN_Znn.5-MF_SITE_DEFINED.2-Hxx",
         "path": "MFN_Znn.5-MF_SITE_DEFINED.2-Hxx",
         "short": "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment",
-        "definition": "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment",
+        "definition": "One or more HL7 and/or Z-segments carrying the data for the entry identified in the MFE segment Per Hxx semantics (StructureDefinition/Hxx, ADR-0007): each occurrence carries exactly one segment OR one nested group, not both; MSH and transmission-control segments (BHS, BTS, FHS, FTS, DSC) are excluded.",
         "min": 1,
         "max": "*",
         "type": [
           {
             "code": "BackboneElement"
-          }
-        ],
-        "constraint": [
-          {
-            "key": "v2-hxx-xor",
-            "severity": "error",
-            "human": "Each Hxx occurrence must contain exactly one of: a single segment (.segment) or a nested group (.group).",
-            "expression": "(segment.exists() and group.empty()) or (segment.empty() and group.exists())"
-          },
-          {
-            "key": "v2-hxx-no-control",
-            "severity": "error",
-            "human": "MSH and transmission-control segments (BHS, BTS, FHS, FTS, DSC) are not permitted in an Hxx placeholder slot (V2.9.1 \u00a71.12).",
-            "expression": "segment.empty() or not(segment.type.first().code.endsWith('/MSH') or segment.type.first().code.endsWith('/BHS') or segment.type.first().code.endsWith('/BTS') or segment.type.first().code.endsWith('/FHS') or segment.type.first().code.endsWith('/FTS') or segment.type.first().code.endsWith('/DSC'))"
           }
         ]
       },
@@ -162,7 +148,7 @@
         "id": "MFN_Znn.5-MF_SITE_DEFINED.2-Hxx.segment",
         "path": "MFN_Znn.5-MF_SITE_DEFINED.2-Hxx.segment",
         "short": "A single segment instance occupying this Hxx slot",
-        "definition": "When this Hxx occurrence is a single segment (not a nested group), the segment is provided here. Type is the abstract Segment base; any concrete V2 segment may appear, except those excluded by the slot-level invariant.",
+        "definition": "When this Hxx occurrence is a single segment (not a nested group), the segment is provided here. Type is the abstract Segment base; any concrete V2 segment may appear, except MSH and the transmission-control segments (BHS, BTS, FHS, FTS, DSC) per Hxx semantics.",
         "min": 0,
         "max": "1",
         "type": [
