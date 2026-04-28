@@ -18,61 +18,122 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-04-24 (end of session)
+## ACTIVE — 2026-04-24 (end of session, builds in flight)
 
-**Phase:** ADR-0006 Phase 1 prototype is **scaffolded but not yet executed end-to-end** — needs ANTHROPIC_API_KEY. Two more `...` placeholder bugs of the same class as MFN_Znn surfaced + got fixed during the session. Auto-IG build still failing as of session end; new build from our 22:49 UTC push had not yet been picked up by the auto-IG builder.
+**Phase:** Hxx redefined as a recursive BackboneElement structure (ADR-0007). Pattern inlined at all 15 consuming sites. Pushed to build and (separately) postproc-g full build kicked off; **awaiting both build results**. ADR-0006 Phase 1 LLM extraction prototype still scaffolded, still awaiting `ANTHROPIC_API_KEY`.
 
-**Branch:** `dev/framework` at `e003713e` (1 commit ahead of `origin/main` — tooling-only, doesn't need to be merged immediately)
-**`origin/main`** at `fd4693e2`, **`origin/build`** at `e62ee15c`. All `...` placeholder fixes are on main + build.
+**Branches:**
+- `dev/framework` at `6a7e44da` (in sync with origin)
+- `origin/main` at `a61efd82` (Hxx changes merged)
+- `origin/build` at `35228d93` (pushed via `--no-preprocess` since FHIR-only change)
 
-### Build state
+### Next session's first move
 
-- All known instances of the literal `...` placeholder bug are fixed (MFN_Znn + 10 query/response patterns: QBP_Q11-A/B/C/D/E, QBP_Q15, QVR_Q17, RSP_K11, RSP_Znn, RTB_Knn). Same root cause as the previously-resolved Varies data type — IG Publisher splits paths on `.`, the literal `...` produced empty path segments.
-- Push to build went out at **22:49:43 UTC**, but the auto-IG listing was still showing the previous failure (build start 20:09:43 UTC, QBP_Q11-A error) at session end. **Background poller** still running (`/tmp/build-poller.sh`, bash id `bk1o7t4t3`, logs to `/tmp/build-status.log`, polls every 3 min). Next session: tail that log first, *then* hit the URL directly to confirm.
-- If the next failure is **another `...` instance**, re-run `python3 tooling/scripts/fix_dots_placeholder.py --dry-run` first to confirm the script still finds nothing — we may have missed a non-message-structure occurrence (e.g. inside an event or choreography file). If it's a **different bug class**, treat it as the next data-quality issue to chase.
+**Read both build outputs and report.** Then act on what they tell us — either move forward (to LLM extraction once API key is set) or address whatever the build surfaced.
+
+- **Auto-IG**: `https://build.fhir.org/ig/HL7/v2ig/branches/build/` — if `failure/` directory has appeared with build-start timestamp after this push (commit `35228d93`), fetch `failure/build.log`. Otherwise success means `qa.html`/`index.html` etc.
+- **postproc-g full build**: user kicked off via `./apptainer/remote-build.sh full` after this session ended. Check the script's output / logs for completion status.
+
+### Build state context
+
+Pushed to build with commit `35228d93`. Auto-IG expected runtime ~1 hr; postproc-g full build similar. The auto-IG push produced a much larger diff than expected (795 files at the build-branch level) — that's the cumulative carryover of files deleted on main (e.g., `StructureDefinition-ACK-Scheduling-intro.xml`, `StructureDefinition-ACK-intro.xml`) finally propagating to build now that `push-to-build.sh` properly `git rm -rf` the synced trees before re-checkout. Future pushes should be small again.
+
+### Hot spots if a build fails
+
+1. **Snapshot generation for the 15 Hxx-containing SDs.** The recursive BackboneElement pattern was inlined at each site with `contentReference` pointing to the local Hxx slot. If the IG Publisher chokes on the recursion, the failure will likely be in one of: `MFN_Znn`, `QBP_Q11-A` through `-E`, `QBP_Q15`, `QVR_Q17`, `RSP_K11`, `RSP_Znn`, `RTB_Knn`, `PGL_PC6`, `PPG_PCG`, `PPP_PCB`, `PPR_PC1`. The `Hxx.json` SD itself uses the same pattern via internal contentReference — if its snapshot fails, we'll see it directly.
+2. **The two new FHIRPath invariants** are `severity: error` (not warning). If the IG Publisher's FHIRPath engine can't parse the expressions, the build will fail with an invariant-related error.
+   - `v2-hxx-xor` — exactly one of `.segment` / `.group`
+   - `v2-hxx-no-control` — `.segment.type.first().code.endsWith('/MSH')` etc.
+   - **Rollback if invariants are the failure**: drop both to `severity: warning` in `Hxx.json` AND in all 15 inlined sites (edit `inline_hxx_pattern.py` constants and re-run, or sed across the message-structure files), push again.
+3. **`Hxx.json` itself**: `baseDefinition` changed from `Segment` to `Base`, has its own internal `contentReference: "#Hxx"` (in-SD scope, should work). If it fails, the standalone Hxx SD page in the IG is the canary.
+
+### If the build succeeds
+
+- The recursive BackboneElement pattern is validated. Outstanding follow-ups from ADR-0007 ("Open follow-ups" section): (a) decide whether to keep the `Hxx` entry in the segments CodeSystem, (b) decide whether to move `Hxx.json` out of the `segments/` directory, (c) decide whether to add the §12.3 order-detail-family narrowing as an additional invariant on the four CH12 sites. None are urgent.
+- Move on to: (1) ANTHROPIC_API_KEY → run LLM extraction sanity on CH03; (2) any of the V2 mgmt questions that have answers in hand (e.g., REVIEW-0001 ACK clause 10.4).
+
+### If the build fails
+
+- Tail the auto-IG log (the `failure/build.log` URL pattern is `https://build.fhir.org/ig/HL7/v2ig/branches/build/failure/build.log` if a failure dir appears).
+- If the failure is in the Hxx recursion (most likely): try inlining the `.group` element with a `type: BackboneElement` whose subelements re-enumerate the segment slot once at depth 1, accepting that depth-2+ nesting is unrepresented (unlikely to occur in practice in V2.9.1).
+- If the failure is in the invariant FHIRPath: drop both to `severity: warning` in `Hxx.json` and in all 15 inlined sites (the `inline_hxx_pattern.py` script can be re-run to re-emit, but it would also need editing first to drop severity).
 
 ### Pending user actions before next Claude session
 
-1. **Set `ANTHROPIC_API_KEY`** in this shell so the LLM extraction can run. Use the `! export ANTHROPIC_API_KEY=sk-ant-...` form in the prompt (the `!` runs the command in the live session so the env var lands in the assistant's environment).
-2. **Verify auto-IG status** — visit `https://build.fhir.org/ig/HL7/v2ig/branches/build/`. If a new `failure/` directory has appeared with a build-start timestamp **after 22:49 UTC**, fetch `failure/build.log` and report the new error. If the build succeeded, you'll see `qa.html`, `index.html`, etc. instead of `failure/`.
-3. **Optional**: file a GitHub feature request at `https://github.com/anthropics/claude-code/issues` for per-message timestamps in Claude Code (user said they would).
+1. **Set `ANTHROPIC_API_KEY`** in the shell (`! export ANTHROPIC_API_KEY=sk-ant-...`) so the LLM extraction can run if you want to advance ADR-0006 Phase 1.
+2. **Confirm auto-IG status** before doing anything else — the result of this push is the most important new input.
 
-### Next Claude session's first move
+### LLM extraction prototype (no change since prior session)
 
-Once API key is set, do a **3-table sanity run** to validate the LLM round-trip end-to-end before spending real money:
-
+3-table sanity run command (~$0.01):
 ```bash
 python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3
 ```
-
-Expected cost: ~$0.01. Should produce 3 files in `v291-llm/message-structures/` (the first 3 candidates are all message structures). Verify they parse, look schema-correct, and match the python-docx baseline visually.
-
-Then run the **full chapter** (estimated cost: $0.50–1.00 for all 129 candidate tables — 108 message structures + 21 segments):
-
+Then full chapter (~$0.50–1.00):
 ```bash
 python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx
 python3 tooling/scripts/compare_python_vs_llm.py
 ```
-
-Read the resulting `v291-llm/comparison-report.md`. If `fully_agree` count is high (>80% of common files), the prototype is validated — proceed to CH02A (data types) by extending the schema in the script. If lots of disagreement, the disagreement *kinds* tell you what to iterate on (likely: prompt tweaks for V2 cardinality notation, or the `parsedStructure` group-marker handling).
+Read `v291-llm/comparison-report.md`. >80% `fully_agree` → prototype validated, extend to CH02A.
 
 ### Open blockers (V2 Management decisions, not Claude work)
 
-Same list as the prior handoff — none have moved. All documented in `v291-extracted/v2mgmt-review-report.md` (Sections 1–16):
+Documented in `v291-extracted/v2mgmt-review-report.md` (Sections 1–16). Section 16's Q1 (`...` ≡ `Hxx` equivalence) is **now answered** by the V2.9.1 §1.12 errata clauses the user provided this session — Section 9 has been rewritten to reflect that. Remaining open items unchanged from prior handoff:
 
-- **REVIEW-0001** — ACK clause 10.4 UAC repeating intentional or typo? (drives whether `ACK-Scheduling` stays separate from `ACK`)
-- ACK caption description variants — 7 occurrences with non-standard descriptions
+- **REVIEW-0001** — ACK clause 10.4 UAC repeating intentional or typo?
+- ACK caption description variants (7 non-standard occurrences)
 - NTE description form in MDM_T01/T02 — long vs short form
 - `GUARANTOR_INSURANCE` group name in RQI_I01 (typo `+` in clause 11.3.3?)
 - "for Additional Demographics" in PATIENT group (5 instances)
 - 358 bare "Participation" + 165 OBX mismatches — large-scale standardization
 - RDE_O11 RXO "Prescription Order" variant
 - 197 FHIR↔raw V291 diffs where FHIR has the better description
-- **NEW (Section 16)**: 6 questions about the `...` → `Hxx` unification — is `Hxx` semantically equivalent across all 11 message structures? Should `...` remain in any V2.9.1-faithful representation? Was `MFN_Znn.5-MF_SITE_DEFINED.2` `max:1` a typo? What cardinality should the other 10 placeholders have? `RSP_K11.8-SEGMENT_PATTERN.1` has `null` short/definition — fill in or keep faithful? `RTB_Knn.8` description was `"DESCRIPTION NEEDED"` — gap in extraction.
+- **Section 9 + 16 (refined)**: confirm `Hxx` ≡ `...` ≡ `etc.` per §1.12 (was Q1, now framed as endorsement); confirm MSH/transmission-control exclusion as enforceable invariant; resolve cardinality on the 10 non-MFN placeholder slots; fill `RSP_K11.8-SEGMENT_PATTERN.1` null short/definition; recover `RTB_Knn.8` description in next extraction pass; decide whether the §12.3 CH12 order-detail-family narrowing should be encoded as an additional invariant.
 
 ---
 
 ## Session History
+
+## 2026-04-24 (PM) — Hxx redefined as recursive BackboneElement (ADR-0007), 15 sites inlined, pushed to build
+
+### Completed
+
+**V2 management report Sections 9 + 16 rewritten.** User pasted three V2.9.1 source clauses (CH01 §1.12 errata, CH04 §4.2.2.4 "Order detail segment", CH12 §12.3 "Note"). The §1.12 errata is the smoking gun: it explicitly states the future-direction intent that `Hxx` is the formal representation for the open-ended `etc.` / `...` placeholder. Folded the verbatim clauses into Section 9 as a "Source clauses from V2.9.1" subsection; Section 16 (the unification action log) updated with a "Note on equivalence" that defers to Section 9 and adds a new question about whether the MSH/transmission-control exclusion should be encoded as an enforceable invariant. The "is `...` ≡ `Hxx`?" question (was Section 16 Q1) is now answered "yes" per the standard's own stated direction.
+
+**ADR-0007 written and revised mid-session.** Initial draft proposed centralized `Hxx.json` as a recursive logical model with `contentReference: "#Hxx"` referenced via `type` from each consuming SD. User correctly flagged that contentReference is StructureDefinition-scoped — when `Hxx` is composed into a consuming SD via type reference, the `#Hxx` fragment doesn't get rewritten to point to the local Hxx slot. Decision revised to **inline duplication at each of the 15 consuming sites**, with the `.group` element's `contentReference` pointing to the local Hxx slot (always same-SD, always unambiguous). The ADR now documents inline as the decision and centralized-via-type as the rejected alternative, with the contentReference scoping rationale explained.
+
+**`Hxx.json` rewritten** as a recursive BackboneElement-shaped logical model (segment + group children, XOR + transmission-control invariants). `baseDefinition` shifted from `Segment` to `Base`, `meta.profile` reference to `Segment-Profile` removed — Hxx is no longer a segment; it is a sibling structural pattern. Kept in place at `input/sourceOfTruth/segment/segments/Hxx.json` even though it no longer belongs in `segments/` semantically — moving it deferred to ADR-0007's open follow-ups.
+
+**`tooling/scripts/inline_hxx_pattern.py` written + applied to 15 sites.** Idempotent, has `--dry-run`. Walks all message-structure JSON files, finds elements typed as `http://hl7.org/v2/StructureDefinition/Hxx`, replaces each with three elements: the parent BackboneElement (preserving the original `short`/`definition` so per-site semantics stay tailored, dropping the `v2-segment-status: A` extension since the slot is no longer typed as a segment), the `.segment` child (typed as Segment), and the `.group` child (contentReference to the local parent Hxx slot id). Both invariants set to `severity: error` per user direction (the §1.12 wording "*does not limit your choice...except for MSH and other transmission control segments*" is normative, not advisory). The 15 sites cover the 11 from Section 16 (CH05 query patterns + CH08 MFN_Znn) plus the 4 CH12 ORDER_DETAIL CHOICE sites (PGL_PC6, PPG_PCG, PPP_PCB, PPR_PC1).
+
+**Pushed to build.** `dev/framework` (`6040b245`) → `main` (`a61efd82`) → `build` (`35228d93`) via `./push-to-build.sh --no-preprocess` (FHIR-only change, no asciidoc to re-process). The build branch diff was unexpectedly large (795 files) — that's the cumulative carryover of files deleted on main (e.g., the unreferenced `StructureDefinition-ACK-*-intro.xml` files from the 2026-04-23 ACK collapse) finally reaching the build branch now that `push-to-build.sh` properly wipes synced trees before re-checkout. Auto-IG result pending at session-end.
+
+### Why
+
+- **Inline over centralized**: `contentReference` is SD-scoped. When the IG Publisher composes a logical model (Hxx) into a consuming SD via the `type` mechanism, it does not perform the fragment rewrite that would be needed to retarget `#Hxx` from the source SD to the consuming SD's local Hxx slot. The duplication cost (15 sites × ~30 lines of JSON each) is mitigated by an idempotent script and by retaining `Hxx.json` as the canonical reference definition. Centralized would have been cleaner architecturally; inline is the only thing that actually works.
+- **Recursive BackboneElement over flat or parallel-array alternatives**: V2.9.1 §1.12 admits both segments AND segment groups in the placeholder, and V2 message order is significant. A flat `Reference(Segment)` cannot represent groups. Parallel typed arrays (`segments[]` + `groups[]`) silently lose the interleaving order between segments and groups in mixed sequences. The single repeating BackboneElement with XOR-per-occurrence (each occurrence is one segment OR one group, the slot itself repeats to express ordered sequences) is the only shape that captures both semantics.
+- **Wrapper layer accepted as price of admission**: the BackboneElement adds a structural layer at FHIR-instance time (`{"segment": {...PID...}}`) that doesn't exist in V2 ER7 wire format (just `PID|...`). The wrapper does real work — it's the unit at which "segment XOR group" is decided per occurrence. ADR-0007 documents this explicitly.
+- **Severity = error, not warning**: V2.9.1 §1.12 wording "*does not limit your choice of segment or segment groups, except for MSH and other transmission control segments*" is normative — putting MSH in an Hxx slot is forbidden by the standard, not merely discouraged. If the IG Publisher's FHIRPath engine can't validate the expression as written, fall back to warning (documented in JOURNAL ACTIVE as the rollback plan).
+
+### Commits this session
+
+On `dev/framework` (and pushed to origin):
+- `43261b5c` — Redefine Hxx as recursive BackboneElement placeholder (ADR-0007) [first version, centralized design]
+- `6040b245` — Inline Hxx recursive BackboneElement pattern at 15 sites (ADR-0007 revised) [revised to inline after user feedback]
+
+On `main` / pushed to `build`:
+- `a61efd82` — Merge dev/framework: Hxx recursive BackboneElement (ADR-0007)
+- `35228d93` — Update from main (origin/build, pushed via `--no-preprocess`)
+
+### Relevant context for next session
+
+- **Auto-IG pending**: result drives next steps. The `.group`-element `contentReference` to local parent Hxx slot is the most novel structural feature in this push — never exercised before in this project. If IG Publisher snapshot generation handles it cleanly, the pattern is validated. If not, fall back is documented in ACTIVE.
+- **Why the build-branch diff was 795 files**: not a problem with this push, just a one-time catch-up of file deletions on main (mostly the 113 unreferenced `ACK-*` files from the 2026-04-23 collapse, plus other earlier deletions) finally propagating because `push-to-build.sh` now properly `git rm -rf` synced trees before re-checkout. Future pushes should be small again.
+- **The `v2-segment-status` extension on Hxx slots was removed by the inline script** — no consumers in the project enumerate elements by this extension that I'm aware of, but worth keeping in mind if downstream tooling complains.
+- **Hxx is no longer a segment by ADR-0007**: it remains in `input/sourceOfTruth/segment/segments/Hxx.json` for now (moving deferred). Tooling that walks `segments/segments/` and assumes segment conformance should either tolerate Hxx's new baseDefinition or filter it out explicitly. The `Hxx` entry in the segments CodeSystem (`meta-resources/segment--v2-cs-segments.json`) is now arguably stale per ADR-0007's open follow-ups; not removed in this session.
+- **`fix_dots_placeholder.py` from yesterday is still useful** — it remains the canonical fix for any future literal-`...` instances that surface (e.g., in event or choreography files we haven't grepped yet). `inline_hxx_pattern.py` only handles message-structure files and only converts existing Hxx-typed elements; it does not fix raw `...` literals.
+
+---
 
 ## 2026-04-24 — `...` placeholder cleanup + LLM extraction prototype scaffolded
 
