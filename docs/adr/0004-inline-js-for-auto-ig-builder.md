@@ -2,11 +2,21 @@
 
 ## Status
 
-Accepted (intended to be reversed when template whitelisting is available)
+**Reversed 2026-04-29.** Auto-IG's HTML scanner now rejects inline `<script>`
+blocks in output files with the message "put the script in a `.js` file in a
+trusted template (if it is justified and needed)." This is the opposite
+constraint from the original "Template has file extensions: [.js]" rejection
+that motivated the inlining. Both `v2-table-filter.js` and `v2-classic-tabs.js`
+were extracted back into standalone files under
+`local-template/content/assets/js/` and re-referenced via `<script src=...>`.
+If auto-IG rejects the `.js` files again with the original
+"Template has file extensions" message, the long-term fix is template
+whitelisting (see Reversal Plan below) — falling back to inline is no longer
+viable because of the new HTML-scanner check.
 
 ## Date
 
-2026-04-10
+2026-04-10 (originally accepted) / 2026-04-29 (reversed)
 
 ## Context
 
