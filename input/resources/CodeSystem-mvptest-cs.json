@@ -1,0 +1,19 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "mvptest-cs",
+  "url": "http://hl7.org/fhir/uv/v2plus/mvptest/CodeSystem/mvptest-cs",
+  "version": "0.0.1",
+  "name": "MVPTestCS",
+  "title": "MVP test CodeSystem",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-04-29",
+  "publisher": "HL7 International",
+  "description": "Trivial CodeSystem used solely to give the auto-ig-builder a non-trivial resource to render.",
+  "content": "complete",
+  "caseSensitive": true,
+  "concept": [
+    {"code": "ping", "display": "Ping"},
+    {"code": "pong", "display": "Pong"}
+  ]
+}

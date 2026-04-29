@@ -1,0 +1,47 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.v2plus.mvptest",
+  "url": "http://hl7.org/fhir/uv/v2plus/mvptest/ImplementationGuide/hl7.v2plus.mvptest",
+  "version": "0.0.1",
+  "name": "V2PlusMVPTest",
+  "title": "V2+ MVP test (auto-IG repro)",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-04-29",
+  "publisher": "HL7 International",
+  "contact": [
+    {
+      "name": "HL7 V2+ Project",
+      "telecom": [
+        {"system": "url", "value": "https://github.com/HL7/v2ig"}
+      ]
+    }
+  ],
+  "description": "Minimal test IG to exercise the auto-ig-builder pipeline against a known-trivial input. If this branch builds and the parent v2plus branch does not, the failure is content-specific. If both fail identically at terminology-server init, the failure is upstream of any IG content.",
+  "packageId": "hl7.v2plus.mvptest",
+  "license": "CC0-1.0",
+  "fhirVersion": ["5.0.0"],
+  "definition": {
+    "page": {
+      "name": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "name": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {"code": "copyrightyear", "value": "2026+"},
+      {"code": "releaselabel", "value": "ci-build"},
+      {"code": "path-resource", "value": "input/resources"},
+      {"code": "path-pages", "value": "input/pagecontent"},
+      {"code": "active-tables", "value": "false"},
+      {"code": "show-inherited-invariants", "value": "false"},
+      {"code": "usage-stats-opt-out", "value": "true"}
+    ]
+  }
+}
