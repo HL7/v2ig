@@ -96,6 +96,22 @@ else
 fi
 
 ###############################################################################
+# GitHub CLI (gh) — for inspecting webhooks, PRs, issues, releases
+###############################################################################
+if [ ! -f "$INSTALL_BASE/gh/bin/gh" ]; then
+  echo "Installing GitHub CLI (gh) for aarch64..."
+  GH_VERSION="2.92.0"
+  mkdir -p "$INSTALL_BASE/gh"
+  curl -fsSL "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_arm64.tar.gz" \
+    -o /tmp/gh.tar.gz
+  tar xzf /tmp/gh.tar.gz -C "$INSTALL_BASE/gh" --strip-components=1
+  rm /tmp/gh.tar.gz
+  echo "gh installed: $("$INSTALL_BASE/gh/bin/gh" --version | head -1)"
+else
+  echo "gh already installed."
+fi
+
+###############################################################################
 # Python packages (for vocabulary extraction/comparison)
 ###############################################################################
 if ! python3 -c "import docx" 2>/dev/null; then
@@ -123,7 +139,7 @@ echo "Ruby:    $("$INSTALL_BASE/ruby/arm64/bin/ruby" --version)"
 echo "Jekyll:  $("$INSTALL_BASE/bin/jekyll" --version)"
 echo ""
 echo "Add to PATH:"
-echo "  export PATH=\"$INSTALL_BASE/bin:$INSTALL_BASE/jdk/bin:$INSTALL_BASE/ruby/arm64/bin:\$PATH\""
+echo "  export PATH=\"$INSTALL_BASE/bin:$INSTALL_BASE/jdk/bin:$INSTALL_BASE/ruby/arm64/bin:$INSTALL_BASE/gh/bin:\$PATH\""
 echo "  export JAVA_TOOL_OPTIONS=\"-Dfile.encoding=UTF-8\""
 echo "  export GEM_HOME=\"$INSTALL_BASE/.gems\""
 echo "  export GEM_PATH=\"$INSTALL_BASE/.gems:$INSTALL_BASE/ruby/arm64/lib/ruby/gems/3.2.0\""
