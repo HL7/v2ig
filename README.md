@@ -11,3 +11,4 @@ The [input/sourceOfTruth](input/sourceOfTruth) directory contains FHIR structure
 Discussion about the v2+ IG are welcomed.  Please feel free to use the Discussions feature of this GitHub repository.
 
 A page indicating which editors have primary responsibility for the v2+ domains may be found [here](editor_instructions/editor_assignments.md).
+<!-- auto-IG retrigger probe 2026-04-29T18:48:49Z -->
