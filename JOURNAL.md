@@ -18,67 +18,55 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-04-24 (end of session, builds in flight)
+## ACTIVE — 2026-04-30 (blocked on HL7 template-trust whitelist)
 
-**Phase:** Hxx redefined as a recursive BackboneElement structure (ADR-0007). Pattern inlined at all 15 consuming sites. Pushed to build and (separately) postproc-g full build kicked off; **awaiting both build results**. ADR-0006 Phase 1 LLM extraction prototype still scaffolded, still awaiting `ANTHROPIC_API_KEY`.
+**Phase:** Hxx recursive BackboneElement pattern is **validated** (auto-IG built past validation on 2026-04-29). Auto-IG publication is now blocked solely on a JS-trust catch-22: inline `<script>` tags are rejected by the HTML scanner, AND `.js` files in `local-template/` are rejected by the template-trust check. **User to file a template-whitelist request to HL7.** Until granted, no shareable HTML at `build.fhir.org`.
 
 **Branches:**
-- `dev/framework` at `6a7e44da` (in sync with origin)
-- `origin/main` at `a61efd82` (Hxx changes merged)
-- `origin/build` at `35228d93` (pushed via `--no-preprocess` since FHIR-only change)
+- `dev/framework` at `7a7de99a` (in sync with origin) — JS extracted back to `.js` files, ready to ship the moment whitelist is granted
+- `origin/main` at `1f8bf2d5` (in sync)
+- `origin/build` at `865ecd74` — last attempt, fails at `Template has file extensions: [.js]` in <6 seconds
+- `origin/mvp-test` at `<commit-not-tracked-locally>` — orphan probe branch, broken on Jekyll `menu.xml` (separate issue)
 
 ### Next session's first move
 
-**Read both build outputs and report.** Then act on what they tell us — either move forward (to LLM extraction once API key is set) or address whatever the build surfaced.
-
-- **Auto-IG**: `https://build.fhir.org/ig/HL7/v2ig/branches/build/` — if `failure/` directory has appeared with build-start timestamp after this push (commit `35228d93`), fetch `failure/build.log`. Otherwise success means `qa.html`/`index.html` etc.
-- **postproc-g full build**: user kicked off via `./apptainer/remote-build.sh full` after this session ended. Check the script's output / logs for completion status.
-
-### Build state context
-
-Pushed to build with commit `35228d93`. Auto-IG expected runtime ~1 hr; postproc-g full build similar. The auto-IG push produced a much larger diff than expected (795 files at the build-branch level) — that's the cumulative carryover of files deleted on main (e.g., `StructureDefinition-ACK-Scheduling-intro.xml`, `StructureDefinition-ACK-intro.xml`) finally propagating to build now that `push-to-build.sh` properly `git rm -rf` the synced trees before re-checkout. Future pushes should be small again.
-
-### Hot spots if a build fails
-
-1. **Snapshot generation for the 15 Hxx-containing SDs.** The recursive BackboneElement pattern was inlined at each site with `contentReference` pointing to the local Hxx slot. If the IG Publisher chokes on the recursion, the failure will likely be in one of: `MFN_Znn`, `QBP_Q11-A` through `-E`, `QBP_Q15`, `QVR_Q17`, `RSP_K11`, `RSP_Znn`, `RTB_Knn`, `PGL_PC6`, `PPG_PCG`, `PPP_PCB`, `PPR_PC1`. The `Hxx.json` SD itself uses the same pattern via internal contentReference — if its snapshot fails, we'll see it directly.
-2. **The two new FHIRPath invariants** are `severity: error` (not warning). If the IG Publisher's FHIRPath engine can't parse the expressions, the build will fail with an invariant-related error.
-   - `v2-hxx-xor` — exactly one of `.segment` / `.group`
-   - `v2-hxx-no-control` — `.segment.type.first().code.endsWith('/MSH')` etc.
-   - **Rollback if invariants are the failure**: drop both to `severity: warning` in `Hxx.json` AND in all 15 inlined sites (edit `inline_hxx_pattern.py` constants and re-run, or sed across the message-structure files), push again.
-3. **`Hxx.json` itself**: `baseDefinition` changed from `Segment` to `Base`, has its own internal `contentReference: "#Hxx"` (in-SD scope, should work). If it fails, the standalone Hxx SD page in the IG is the canary.
-
-### If the build succeeds
-
-- The recursive BackboneElement pattern is validated. Outstanding follow-ups from ADR-0007 ("Open follow-ups" section): (a) decide whether to keep the `Hxx` entry in the segments CodeSystem, (b) decide whether to move `Hxx.json` out of the `segments/` directory, (c) decide whether to add the §12.3 order-detail-family narrowing as an additional invariant on the four CH12 sites. None are urgent.
-- Move on to: (1) ANTHROPIC_API_KEY → run LLM extraction sanity on CH03; (2) any of the V2 mgmt questions that have answers in hand (e.g., REVIEW-0001 ACK clause 10.4).
-
-### If the build fails
-
-- Tail the auto-IG log (the `failure/build.log` URL pattern is `https://build.fhir.org/ig/HL7/v2ig/branches/build/failure/build.log` if a failure dir appears).
-- If the failure is in the Hxx recursion (most likely): try inlining the `.group` element with a `type: BackboneElement` whose subelements re-enumerate the segment slot once at depth 1, accepting that depth-2+ nesting is unrepresented (unlikely to occur in practice in V2.9.1).
-- If the failure is in the invariant FHIRPath: drop both to `severity: warning` in `Hxx.json` and in all 15 inlined sites (the `inline_hxx_pattern.py` script can be re-run to re-emit, but it would also need editing first to drop severity).
+**Check whether the whitelist request landed.** If granted: push an empty commit to `build` to retrigger auto-IG; if it gets past the trust check we should publish in ~70 min. If still pending: pick up something else from the backlog (LLM extraction sanity, V2 mgmt section, MVP cleanup).
 
 ### Pending user actions before next Claude session
 
-1. **Set `ANTHROPIC_API_KEY`** in the shell (`! export ANTHROPIC_API_KEY=sk-ant-...`) so the LLM extraction can run if you want to advance ADR-0006 Phase 1.
-2. **Confirm auto-IG status** before doing anything else — the result of this push is the most important new input.
+1. **File the HL7 template-whitelist request.** The whole publication path is blocked on this. Two `.js` files are at issue: `local-template/content/assets/js/v2-table-filter.js` (table filter on listing pages) and `local-template/content/assets/js/v2-classic-tabs.js` (classic-tabs injection on segment / message-structure pages). Both are small (<100 lines), trivially auditable, derived from THO patterns.
+2. **Optionally set `ANTHROPIC_API_KEY`** to advance ADR-0006 Phase 1 LLM extraction sanity (unchanged from prior handoff).
+
+### Build verification status
+
+- ✅ **Hxx recursive BackboneElement works.** Auto-IG built past validation on the 2026-04-29 19:56 UTC run (commit `e175d9eb`). No FHIRPath errors, no snapshot errors, no `Unable to find ...` errors. The pattern in 15 message structures + standalone `Hxx.json` is valid FHIR R5.
+- ✅ **postproc-g full build passes** end-to-end (with `-tx n/a`). That's the structural verification when auto-IG is unavailable.
+- ❌ **Auto-IG output check rejects** the inline `<script>` tags AND the `.js` files (whichever form we use). See ADR-0004 (reversed 2026-04-29) for the catch-22 specifics.
+
+### What's true now (confirmed this session)
+
+- **tx.fhir.org is healthy.** Yesterday's outage caused two false-positive failures (28 Apr 17:19 UTC, 19:31 UTC); recovered by 29 Apr morning.
+- **Auto-IG processes new branches fast** (~2 min from push) but **backs off failing branches** (the `build` branch took ~70 min to retrigger after consecutive failures). Empty commits don't seem to break the dedupe — needed a real (non-empty) commit to be sure.
+- **Auto-IG hardcodes `-tx http://tx.fhir.org`** on the CLI; no IG-side parameter overrides this. Confirmed via web research against `Publisher.java#setTxServerValue`.
+- **mfaughn has `write` not `admin`** on `HL7/v2ig` — webhook listing endpoint returns 404. Cannot diagnose webhook-delivery issues from this side; need someone with admin access (or an HL7 ops person) to check.
+- **The MVP `mvp-test` branch is a working test article** for proving auto-IG infrastructure is alive even when our main IG is failing. It currently has two unrelated issues (Jekyll missing `menu.xml`, R5 parameter format wants `code` as Coding not string) — fix these next time we want to use it as a probe.
+
+### Hot spots if the next attempt fails after whitelist
+
+1. **R5 IG parameter format.** Our `v2plus.xml` may still use R4-style `code: "string"` parameters. R5 expects Coding `{system, code}`. Auto-IG warning seen on MVP: "property code is a class JsonPrimitive looking for an object". Not yet investigated for `v2plus.xml`.
+2. **Jekyll `menu.xml`.** Templates expect `input/includes/menu.xml`. v2plus.xml-based build is presumably fine here (existed before), but verify if the build chokes on missing includes.
+3. **Per-branch backoff.** Even after a successful build, if a subsequent push fails immediately the backoff window may re-engage. Build cycle planning should assume one shot per ~70 min on retries.
 
 ### LLM extraction prototype (no change since prior session)
 
-3-table sanity run command (~$0.01):
+Same as prior handoff. 3-table sanity (~$0.01):
 ```bash
 python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3
 ```
-Then full chapter (~$0.50–1.00):
-```bash
-python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx
-python3 tooling/scripts/compare_python_vs_llm.py
-```
-Read `v291-llm/comparison-report.md`. >80% `fully_agree` → prototype validated, extend to CH02A.
 
 ### Open blockers (V2 Management decisions, not Claude work)
 
-Documented in `v291-extracted/v2mgmt-review-report.md` (Sections 1–16). Section 16's Q1 (`...` ≡ `Hxx` equivalence) is **now answered** by the V2.9.1 §1.12 errata clauses the user provided this session — Section 9 has been rewritten to reflect that. Remaining open items unchanged from prior handoff:
+Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report.md` Sections 1–16. The Section 9 + 16 Hxx-equivalence question was answered last session by §1.12 errata; the rest stands:
 
 - **REVIEW-0001** — ACK clause 10.4 UAC repeating intentional or typo?
 - ACK caption description variants (7 non-standard occurrences)
@@ -88,13 +76,61 @@ Documented in `v291-extracted/v2mgmt-review-report.md` (Sections 1–16). Sectio
 - 358 bare "Participation" + 165 OBX mismatches — large-scale standardization
 - RDE_O11 RXO "Prescription Order" variant
 - 197 FHIR↔raw V291 diffs where FHIR has the better description
-- **Section 9 + 16 (refined)**: confirm `Hxx` ≡ `...` ≡ `etc.` per §1.12 (was Q1, now framed as endorsement); confirm MSH/transmission-control exclusion as enforceable invariant; resolve cardinality on the 10 non-MFN placeholder slots; fill `RSP_K11.8-SEGMENT_PATTERN.1` null short/definition; recover `RTB_Knn.8` description in next extraction pass; decide whether the §12.3 CH12 order-detail-family narrowing should be encoded as an additional invariant.
+- **Section 9 + 16 (refined)**: confirm `Hxx` ≡ `...` ≡ `etc.` per §1.12; confirm MSH/transmission-control exclusion as enforceable invariant; resolve cardinality on the 10 non-MFN placeholder slots; fill `RSP_K11.8-SEGMENT_PATTERN.1` null short/definition; recover `RTB_Knn.8` description; decide whether the §12.3 CH12 order-detail-family narrowing should be encoded as an additional invariant.
 
 ---
 
 ## Session History
 
-## 2026-04-24 (PM) — Hxx redefined as recursive BackboneElement (ADR-0007), 15 sites inlined, pushed to build
+## 2026-04-27 → 2026-04-30 — Hxx invariants dropped, tx.fhir.org chase, ADR-0004 reversal blocked on template trust
+
+### Completed
+
+**Dropped both Hxx FHIRPath invariants.** postproc-g full build (kicked off after the previous session) failed at
+`StructureDefinitionValidator.validateElementDefinitionInvariant` →
+`Unable to find http://hl7.org/v2/StructureDefinition/MFN_Znn#MFN_Znn.5-MF_SITE_DEFINED.2-Hxx`. Two compounding root causes diagnosed: (a) the FHIRPath type-checker can't walk a recursive `contentReference` at validation time (snapshot doesn't yet exist when invariants are checked), and (b) the MSH-exclusion expression `segment.type.first().code.endsWith('/MSH')` cannot be type-checked against the abstract `Segment` base, which is `kind: logical` with **zero differential elements** — there is no `.type` field to walk. Severity (`error` vs `warning`) is irrelevant: the type-check is unconditional and the failure is `java.lang.Error`, not a validation outcome. Stripped `v2-hxx-xor` and `v2-hxx-no-control` from `Hxx.json` and the 15 inlined message-structure sites. Updated `tooling/scripts/inline_hxx_pattern.py` to be self-healing — detect already-inlined parents, strip leftover constraints, refresh stale "slot-level invariant" wording in child definitions. Per-site `definition` now appended with "Per Hxx semantics (StructureDefinition/Hxx, ADR-0007): each occurrence carries exactly one segment OR one nested group, not both; MSH and transmission-control segments (BHS, BTS, FHS, FTS, DSC) are excluded." Added ADR-0007 follow-up listing four candidate paths to re-introduce machine-checkable enforcement (slicing, profile-level Constraint, custom validator, value-set binding on `.segment`). Commit `46ddaf80`.
+
+**Confirmed Hxx recursive BackboneElement pattern works.** After the constraint-drop push (commit `865ecd74` to build), auto-IG ran for 67 minutes and got past TX init, snapshot generation, validation, output generation — no Hxx-related errors anywhere. The recursive `contentReference: #<parent-id>` in the `.group` child resolves correctly when the parent is the same SD. Pattern is validated end-to-end.
+
+**tx.fhir.org outage chased and ruled out.** Two consecutive auto-IG runs on 2026-04-28 (17:19 UTC, 19:31 UTC) failed at TX init with `SocketTimeoutException` reading `https://tx.fhir.org/r5/metadata` (TLS handshake succeeded, then hung). Initial diagnosis was widespread tx.fhir.org outage, then revised when user found a Zulip thread confirming only-yesterday outage. Web research confirmed no IG-side parameter overrides the auto-IG-hardcoded `-tx http://tx.fhir.org` flag (verified against `Publisher.java#setTxServerValue`). By 2026-04-29 morning, tx.fhir.org was healthy — an MVP IG (orphan branch `mvp-test`) built within 2 minutes of push and got past TX init cleanly.
+
+**Reversed ADR-0004 (extracted JS back to .js files), blocked by trust catch-22.** With Hxx working and tx healthy, the next failure surfaced: auto-IG's HTML scanner rejected the inline `<script>` blocks in 15,033 generated `*-testing.html` files with "put the script in a `.js` file in a trusted template (if it is justified and needed)." Source: `local-template/includes/_append.fragment-css.html` injects the `v2-table-filter` IIFE into every page's CSS fragment, and `local-template/includes/fragment-pageend.html` injects `v2-classic-tabs` (under `{% if v2classictabs %}`). Both extracted to standalone files at `local-template/content/assets/js/v2-table-filter.js` and `v2-classic-tabs.js`; replaced the inline blocks with `<script src="assets/js/...">`. Pushed to build (commit `865ecd74`); auto-IG rejected within **5 seconds** with the exact original ADR-0004 error: `Unable to execute 'onLoad' in script 'scripts/ant.xml' as the template '#local-template' is not trusted (reason: Template has file extensions: [.js])`. **Catch-22 confirmed and unresolvable from our side.** ADR-0004 marked "Reversed 2026-04-29" with the new failure quoted; the reversal stays in place because inline is no longer fallback-able (the HTML scanner check would fire again). User to file template-whitelist request to HL7 — only real fix.
+
+**Created `mvp-test` orphan branch as auto-IG probe.** Bare-minimum IG (1 ImplementationGuide, 1 trivial CodeSystem with two concepts, 1 page, default `fhir.base.template`). Pushed at 2026-04-29 20:37 UTC; auto-IG picked it up in <2 min. Failed for two unrelated reasons: missing `input/includes/menu.xml` (template default expects it; Jekyll Liquid Exception during HTML generation), and R5 parameter-format warning ("property code is a class JsonPrimitive looking for an object" — R5 IG `parameter.code` is Coding `{system, code}`, not the R4-style string). Branch left in place as a known-good test article for future "is auto-IG infrastructure working?" probes — fix the two issues next time it's needed.
+
+**Installed `gh` CLI to /home/claude/gh/** (no sudo, no write perm to `/home/claude/bin`). Added to `.claude-dev/provision.sh` so fresh containers restore it. User authenticated as `mfaughn`; confirmed `write` perm on HL7/v2ig but not `admin`, so webhook-listing endpoints return 404. Cannot diagnose webhook delivery from this side. The token in chat scrollback (`ghp_rDDr...`) is 7-day; revoke at session-end if not already done.
+
+### Why
+
+- **Drop invariants over fix invariants**: the FHIRPath engine genuinely cannot type-check recursive contentReferences before snapshot generation. Even rewriting the expressions wouldn't help; the engine throws `java.lang.Error` from the path-walking code, not from semantic validation. Narrative documentation in `definition` text + the structural shape (BackboneElement with segment/group children) preserves what the invariants encoded; machine-checkable re-introduction is now an ADR-0007 follow-up.
+- **mvp-test branch over content bisection**: when auto-IG was silent on the build branch, the question was "is auto-IG broken, or is our IG broken?" Bisecting our IG content can't help (the failure mode in question is at TX init, before any content matters). A fresh orphan branch was the cleanest test: if it builds, auto-IG is fine and our build branch is being throttled. It built (got past TX init), proving auto-IG is alive — the build branch was on per-branch backoff.
+- **Reverse ADR-0004 over leave-it-inline**: the new HTML-scanner check made inline non-viable. We were going to be blocked either way; the `.js` form at least leaves a clean state for the moment whitelisting happens.
+
+### Commits this session
+
+On `dev/framework` (with origin):
+- `46ddaf80` — Drop Hxx FHIRPath invariants, document semantics narratively
+- `0cd8fd83` — Add gh CLI to provision.sh for fresh container restore
+- `7a7de99a` — Reverse ADR-0004: extract inline scripts back to .js files
+
+On `main` / pushed to `build`:
+- `1f8bf2d5` — Merge dev/framework: reverse ADR-0004 (re-externalize JS) (origin/main)
+- `865ecd74` — Update from main (origin/build) — currently rejected by auto-IG trust check
+
+On `mvp-test` (orphan, single commit):
+- MVP IG pushed at 2026-04-29 20:37 UTC; broken on Jekyll/menu.xml (low priority follow-up)
+
+### Relevant context for next session
+
+- **Whitelisting is the gating action.** The `local-template/content/assets/js/{v2-table-filter,v2-classic-tabs}.js` files are the artifacts the whitelist would cover. Both are <100 lines, minimally adapted from THO's `table.js` pattern, and have no external dependencies beyond jQuery (which is already loaded by the base template via `tabs.js` infrastructure).
+- **The base template (`fhir.base.template`) carries a security warning** in the build log: "This content depends on fhir.base.template which is no longer considered secure to use" (link: `https://www.fhir.org/guides/security-notices/2026-03-npm-dependencies.html`). Not blocking yet but worth following up on after whitelist; we may need to migrate to a different base template.
+- **Auto-IG output URL** when whitelisting lands: `https://build.fhir.org/ig/HL7/v2ig/branches/build/`. Expected runtime ~70 min for our full IG (the 2026-04-29 19:56 UTC run was 67 min). Per-branch backoff means the first attempt after whitelisting may take 1–2 hours to start.
+- **The `mvp-test` branch is left as-is** — orphan, broken on Jekyll/R5-parameter format. If we need the probe again, fix `input/includes/menu.xml` (stub will do) and convert IG `definition.parameter[].code` from string to `{system, code}` Coding form.
+- **Per-branch backoff observed**: 18:48 UTC push → auto-IG processed at 19:56 UTC (~70 min delay). New branches process fast (~2 min). Empty commits don't reset the backoff window.
+- **The 2026-04-29 19:56 UTC build log is the most informative artifact from this session.** It contains the proof that Hxx works structurally (it built past validation), the snapshot-generation timing (~5 min for the full IG), and the exact form of the HTML-scanner rejection. If diagnosing future builds, that log is worth pulling.
+- **postproc-g full build remains the reliable structural verifier** when auto-IG is unavailable — runs in <1 hour with `-tx n/a`. Use `./apptainer/remote-build.sh full` (per MEMORY.md Build Rules).
+
+---
 
 ### Completed
 
