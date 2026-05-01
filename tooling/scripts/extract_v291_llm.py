@@ -16,8 +16,10 @@ Cost-conscious design:
   * Per-call payload is small: the table as markdown plus a few lines of
     surrounding context.
 
+Auth: uses Google Cloud Vertex AI via Application Default Credentials.
+Reads project + region from ANTHROPIC_VERTEX_PROJECT_ID and CLOUD_ML_REGION.
+
 Usage:
-    export ANTHROPIC_API_KEY=...
     python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx
 
     # Dry-run: walk the doc and report what WOULD be sent to the LLM,
@@ -49,7 +51,7 @@ OUTPUT_DIR = PROJECT_ROOT / "v291-llm"
 MSG_STRUCT_OUT = OUTPUT_DIR / "message-structures"
 SEGMENTS_OUT = OUTPUT_DIR / "segments"
 
-MODEL = "claude-sonnet-4-6"
+MODEL = "claude-sonnet-4-6@default"
 MAX_TOKENS = 8000  # plenty for one table; far less than the 64K Sonnet ceiling
 
 
@@ -524,13 +526,10 @@ def main():
             print(f"  Table preview:\n{preview}")
         return 0
 
-    # Real extraction
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("ERROR: ANTHROPIC_API_KEY not set", file=sys.stderr)
-        return 2
-
-    import anthropic
-    client = anthropic.Anthropic()
+    # Real extraction — Vertex AI via Application Default Credentials.
+    # Picks up project_id / region from ANTHROPIC_VERTEX_PROJECT_ID / CLOUD_ML_REGION.
+    from anthropic import AnthropicVertex
+    client = AnthropicVertex()
 
     seg_registry = defaultdict(list)
     counts = defaultdict(int)
