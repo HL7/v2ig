@@ -18,24 +18,30 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-04-30 (blocked on HL7 template-trust whitelist)
+## ACTIVE — 2026-05-01 (two parallel blockers: HL7 template-trust whitelist + GCP org policy on structured_outputs)
 
-**Phase:** Hxx recursive BackboneElement pattern is **validated** (auto-IG built past validation on 2026-04-29). Auto-IG publication is now blocked solely on a JS-trust catch-22: inline `<script>` tags are rejected by the HTML scanner, AND `.js` files in `local-template/` are rejected by the template-trust check. **User to file a template-whitelist request to HL7.** Until granted, no shareable HTML at `build.fhir.org`.
+**Phase:** Two independent things blocked on user/admin action; both have been narrowed to a single specific request each.
+
+1. **Auto-IG publication** — still blocked on the JS-trust catch-22 from 2026-04-29 (`local-template/content/assets/js/{v2-table-filter,v2-classic-tabs}.js` reject by template-trust, inline `<script>` rejects by HTML scanner). Whitelist request to HL7 is the gating action. No change since prior handoff.
+2. **LLM extraction (ADR-0006 Phase 1)** — script switched to Vertex AI this session, connectivity works, but the SDK's `messages.parse()` helper requires the Vertex `structured_outputs` feature, which is **blocked by GCP org policy** on the NIST project for `claude-sonnet-4-6`. Either get the policy expanded OR refactor the script to use plain `messages.create()` + client-side Pydantic validation.
 
 **Branches:**
-- `dev/framework` at `7a7de99a` (in sync with origin) — JS extracted back to `.js` files, ready to ship the moment whitelist is granted
-- `origin/main` at `1f8bf2d5` (in sync)
-- `origin/build` at `865ecd74` — last attempt, fails at `Template has file extensions: [.js]` in <6 seconds
-- `origin/mvp-test` at `<commit-not-tracked-locally>` — orphan probe branch, broken on Jekyll `menu.xml` (separate issue)
+- `dev/framework` at `a0b4b04b` (1 ahead of origin) — Vertex switch + provision.sh update committed but not pushed; script doesn't run end-to-end yet
+- `origin/main` at `1f8bf2d5` (unchanged)
+- `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust
 
 ### Next session's first move
 
-**Check whether the whitelist request landed.** If granted: push an empty commit to `build` to retrigger auto-IG; if it gets past the trust check we should publish in ~70 min. If still pending: pick up something else from the backlog (LLM extraction sanity, V2 mgmt section, MVP cleanup).
+**Resolve which LLM-extraction path to take, then act.** Two options:
+- **(a) Pursue the GCP org policy expansion** — user/NIST admin adds `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` to the allowed-feature list at `https://docs.cloud.google.com/vertex-ai/generative-ai/docs/control-model-access`. Then re-run the limit-3 sanity check; should just work.
+- **(b) Refactor the script to use `messages.create()` instead of `messages.parse()`** — embed the JSON schema as text in the system prompt, parse the response with `json.loads()`, validate with `ExtractionResult.model_validate()`. Keeps prompt caching intact. Estimated 30 min of work + a second sanity check.
+
+If the whitelist also landed for HL7, push an empty commit to `build` and let auto-IG run in parallel (~70 min). The two paths don't conflict.
 
 ### Pending user actions before next Claude session
 
-1. **File the HL7 template-whitelist request.** The whole publication path is blocked on this. Two `.js` files are at issue: `local-template/content/assets/js/v2-table-filter.js` (table filter on listing pages) and `local-template/content/assets/js/v2-classic-tabs.js` (classic-tabs injection on segment / message-structure pages). Both are small (<100 lines), trivially auditable, derived from THO patterns.
-2. **Optionally set `ANTHROPIC_API_KEY`** to advance ADR-0006 Phase 1 LLM extraction sanity (unchanged from prior handoff).
+1. **(unchanged) File the HL7 template-whitelist request** for `local-template/content/assets/js/{v2-table-filter,v2-classic-tabs}.js`.
+2. **(NEW) Decide on LLM-extraction path**: chase the GCP org policy expansion, or authorize the manual-JSON refactor (option b above), or both in parallel.
 
 ### Build verification status
 
@@ -51,18 +57,22 @@ Everything else relevant to picking up work — paths, build commands, architect
 - **mfaughn has `write` not `admin`** on `HL7/v2ig` — webhook listing endpoint returns 404. Cannot diagnose webhook-delivery issues from this side; need someone with admin access (or an HL7 ops person) to check.
 - **The MVP `mvp-test` branch is a working test article** for proving auto-IG infrastructure is alive even when our main IG is failing. It currently has two unrelated issues (Jekyll missing `menu.xml`, R5 parameter format wants `code` as Coding not string) — fix these next time we want to use it as a probe.
 
-### Hot spots if the next attempt fails after whitelist
+### LLM extraction sanity (NEW state — 2026-05-01)
+
+- Script now uses `AnthropicVertex()` (commit `a0b4b04b`). Auth via Application Default Credentials (already present at `~/.config/gcloud/application_default_credentials.json`); project + region from `ANTHROPIC_VERTEX_PROJECT_ID=nist-gcp-itl-hit` + `CLOUD_ML_REGION=global` (already in env).
+- Model ID: `claude-sonnet-4-6@default` (matches user's convention; bare `claude-sonnet-4-6` would also work per Anthropic Vertex docs).
+- 3-table sanity check fails at the first call with: `Organization Policy constraint constraints/vertexai.allowedPartnerModelFeatures violated for projects/370789798156 attempting to use a disallowed feature structured_outputs for Partner model claude-sonnet-4-6`. Subsequent calls fail differently — `output_config.format: Extra inputs are not permitted` — same root cause manifesting at the schema level.
+- The SDK's `messages.parse()` helper sends `output_config.format` to enforce structured output, which is exactly what's gated. Three workaround options ranked by effort:
+  1. Get GCP admin to add `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` to allowed features (zero code change; admin turnaround unknown).
+  2. Refactor to `messages.create()` + manual JSON parsing — embed `ExtractionResult` schema as text in the system prompt with explicit "respond with JSON only, no preamble" instruction; parse response with `json.loads()` and validate with `ExtractionResult.model_validate()`. ~30 min of work; preserves prompt caching; modest risk of malformed-JSON responses (mitigation: retry once, then mark as error).
+  3. Try a different model where structured_outputs may not be blocked — but the org policy likely covers all partner models, not just Sonnet 4.6, so this probably doesn't help.
+- Test command after either resolution: `python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3` (~$0.01, ~30 sec).
+
+### Hot spots if the next auto-IG attempt fails after HL7 whitelist
 
 1. **R5 IG parameter format.** Our `v2plus.xml` may still use R4-style `code: "string"` parameters. R5 expects Coding `{system, code}`. Auto-IG warning seen on MVP: "property code is a class JsonPrimitive looking for an object". Not yet investigated for `v2plus.xml`.
 2. **Jekyll `menu.xml`.** Templates expect `input/includes/menu.xml`. v2plus.xml-based build is presumably fine here (existed before), but verify if the build chokes on missing includes.
 3. **Per-branch backoff.** Even after a successful build, if a subsequent push fails immediately the backoff window may re-engage. Build cycle planning should assume one shot per ~70 min on retries.
-
-### LLM extraction prototype (no change since prior session)
-
-Same as prior handoff. 3-table sanity (~$0.01):
-```bash
-python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3
-```
 
 ### Open blockers (V2 Management decisions, not Claude work)
 
@@ -81,6 +91,35 @@ Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report
 ---
 
 ## Session History
+
+## 2026-05-01 — LLM extraction switched to Vertex AI, blocked on GCP org policy
+
+### Completed
+
+**Switched `tooling/scripts/extract_v291_llm.py` from direct Anthropic API to Vertex AI** (commit `a0b4b04b`). Replaced `anthropic.Anthropic()` with `AnthropicVertex()` (constructor reads `ANTHROPIC_VERTEX_PROJECT_ID` + `CLOUD_ML_REGION` from env automatically). Removed the `ANTHROPIC_API_KEY` check. Updated model ID to `claude-sonnet-4-6@default` to match the user's convention from `ANTHROPIC_DEFAULT_SONNET_MODEL`. Updated `.claude-dev/provision.sh` to install `anthropic[vertex]` (which pulls `google-auth`) instead of bare `anthropic`. Verified `~/.config/gcloud/application_default_credentials.json` is in place from the user's Claude Code Vertex auth.
+
+**Discovered GCP org policy gate on `structured_outputs` feature.** The 3-table sanity check (`--limit 3` on CH03_PatientAdmin.docx) fails at the first call with `Organization Policy constraint constraints/vertexai.allowedPartnerModelFeatures violated for projects/370789798156 attempting to use a disallowed feature structured_outputs for Partner model claude-sonnet-4-6`. The remaining two calls fail at the schema layer with `output_config.format: Extra inputs are not permitted` — same root cause: the SDK's `messages.parse()` helper sends `output_config.format` to enforce structured output, which is exactly what the org policy gates. Three workarounds documented in JOURNAL ACTIVE; user to choose between requesting org policy expansion (zero code change) and refactoring to manual JSON parsing with client-side Pydantic validation (~30 min).
+
+### Why
+
+- **Vertex over direct API**: user has no Anthropic API key but already authenticates to Anthropic via Vertex (it's how Claude Code itself reaches the model). All the env vars (`ANTHROPIC_VERTEX_PROJECT_ID=nist-gcp-itl-hit`, `CLOUD_ML_REGION=global`) and ADC were already in place — switching the SDK class was the only real change. Pricing on global endpoints matches direct API rates ($3/$15 per M tokens for Sonnet 4.6, no Vertex premium), so the cost-estimate math in the script stays correct.
+- **`@default` suffix on model ID**: matches the user's existing convention (`ANTHROPIC_DEFAULT_SONNET_MODEL=claude-sonnet-4-6@default`); Anthropic Vertex docs confirm bare `claude-sonnet-4-6` would also work but `@default` is more explicit about routing intent.
+- **Stop and hand off rather than refactor**: the manual-JSON-parsing refactor is ~30 min of work plus a second sanity check, and the user signaled an imminent context clear. Better to commit the partial progress (Vertex switch is genuinely useful regardless of which workaround we pick) and let the next session decide between the two paths fresh.
+
+### Commits this session
+
+On `dev/framework`:
+- `a0b4b04b` — Switch LLM extraction to Vertex AI client (1 ahead of origin; not pushed)
+
+### Relevant context for next session
+
+- **`messages.parse()` is the gated call**, not `messages.create()`. If we go the manual-JSON-parsing route, the script structure stays the same except the LLM call wraps `client.messages.create()` and we parse `response.content[0].text` ourselves. The `SYSTEM_PROMPT` constant already contains the JSON shape examples — would need to add a "respond with JSON only, no preamble" instruction at the end and swap the Pydantic schema-injection for a textual schema description.
+- **Prompt caching still works on Vertex** for plain `messages.create()` — `cache_control: {"type": "ephemeral"}` is wire-compatible. The system-prompt cache savings the script was designed around survive the refactor.
+- **Org policy URL**: `https://docs.cloud.google.com/vertex-ai/generative-ai/docs/control-model-access` (from the error message). The specific allowlist entry to request: `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs`. If pursued, may also need entries for other models we plan to use later (Opus 4.7, Haiku 4.5).
+- **GCP project number** in the error message is `370789798156`, which corresponds to `ANTHROPIC_VERTEX_PROJECT_ID=nist-gcp-itl-hit`. Useful for the org policy ask if the admin needs the numeric project ID.
+- **Both blockers are independent.** The HL7 template-trust whitelist (auto-IG publication) and the GCP `structured_outputs` policy (LLM extraction) can be pursued in parallel — they touch different systems and different stakeholders.
+
+---
 
 ## 2026-04-27 → 2026-04-30 — Hxx invariants dropped, tx.fhir.org chase, ADR-0004 reversal blocked on template trust
 
