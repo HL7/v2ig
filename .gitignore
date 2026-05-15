@@ -34,6 +34,10 @@ __pycache__/
 /hl7.v2.terminology.v291/
 /utg
 
+# Template package staged for extraction to its own HL7/ig-template-v2plus repo #
+##################################################################################
+/ig-template-v2plus/
+
 # Scratch / working files #
 ############################
 /scratch/

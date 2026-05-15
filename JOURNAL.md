@@ -18,30 +18,29 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-05-01 (two parallel blockers: HL7 template-trust whitelist + GCP org policy on structured_outputs)
+## ACTIVE — 2026-05-15 (Vertex unblocked; HL7 template trust submission in flight)
 
-**Phase:** Two independent things blocked on user/admin action; both have been narrowed to a single specific request each.
-
-1. **Auto-IG publication** — still blocked on the JS-trust catch-22 from 2026-04-29 (`local-template/content/assets/js/{v2-table-filter,v2-classic-tabs}.js` reject by template-trust, inline `<script>` rejects by HTML scanner). Whitelist request to HL7 is the gating action. No change since prior handoff.
-2. **LLM extraction (ADR-0006 Phase 1)** — script switched to Vertex AI this session, connectivity works, but the SDK's `messages.parse()` helper requires the Vertex `structured_outputs` feature, which is **blocked by GCP org policy** on the NIST project for `claude-sonnet-4-6`. Either get the policy expanded OR refactor the script to use plain `messages.create()` + client-side Pydantic validation.
+**Phase:** Both prior blockers have moved. Vertex structured_outputs is **fully unblocked** (admin landed the org-policy expansion 2026-05-14; both Sonnet 4.6 and Opus 4.7 pass the probe). Template trust is **in process** (template extracted to its own repo on GitHub, Zulip thread posted in #IG creation asking how to proceed; awaiting reply from Grahame or someone else with context).
 
 **Branches:**
-- `dev/framework` at `a0b4b04b` (1 ahead of origin) — Vertex switch + provision.sh update committed but not pushed; script doesn't run end-to-end yet
+- `dev/framework` (latest commit, 4 ahead of origin if probe + .gitignore + JOURNAL all land) — see Commits this session below; tooling-only changes, none of them need to go to main/build
 - `origin/main` at `1f8bf2d5` (unchanged)
-- `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust
+- `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust until the trust PR lands
 
 ### Next session's first move
 
-**Resolve which LLM-extraction path to take, then act.** Two options:
-- **(a) Pursue the GCP org policy expansion** — user/NIST admin adds `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` to the allowed-feature list at `https://docs.cloud.google.com/vertex-ai/generative-ai/docs/control-model-access`. Then re-run the limit-3 sanity check; should just work.
-- **(b) Refactor the script to use `messages.create()` instead of `messages.parse()`** — embed the JSON schema as text in the system prompt, parse the response with `json.loads()`, validate with `ExtractionResult.model_validate()`. Keeps prompt caching intact. Estimated 30 min of work + a second sanity check.
+**Run the LLM extraction 3-table sanity check.** The Vertex switch + the org-policy expansion together mean `extract_v291_llm.py` should now work end-to-end with no further changes:
+```bash
+python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3
+```
+~$0.01, ~30 sec. Confirms the Pydantic-validated extraction path is real, then we can scale to a full-chapter run and start comparing against the python-docx corpus (Phase 1 stretch goal).
 
-If the whitelist also landed for HL7, push an empty commit to `build` and let auto-IG run in parallel (~70 min). The two paths don't conflict.
+If the sanity check passes, the natural follow-on is the full CH03 run (~108 message-structure tables + 21 segment tables) → run `compare_python_vs_llm.py` → bucket-classify the diffs.
 
 ### Pending user actions before next Claude session
 
-1. **(unchanged) File the HL7 template-whitelist request** for `local-template/content/assets/js/{v2-table-filter,v2-classic-tabs}.js`.
-2. **(NEW) Decide on LLM-extraction path**: chase the GCP org policy expansion, or authorize the manual-JSON refactor (option b above), or both in parallel.
+1. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", that's the next concrete step (one-line addition to `TemplateManager.java` in HL7/fhir-ig-publisher). If feedback to fix something first, do that.
+2. (No other pending user actions — Vertex is fully working.)
 
 ### Build verification status
 
@@ -57,18 +56,13 @@ If the whitelist also landed for HL7, push an empty commit to `build` and let au
 - **mfaughn has `write` not `admin`** on `HL7/v2ig` — webhook listing endpoint returns 404. Cannot diagnose webhook-delivery issues from this side; need someone with admin access (or an HL7 ops person) to check.
 - **The MVP `mvp-test` branch is a working test article** for proving auto-IG infrastructure is alive even when our main IG is failing. It currently has two unrelated issues (Jekyll missing `menu.xml`, R5 parameter format wants `code` as Coding not string) — fix these next time we want to use it as a probe.
 
-### LLM extraction sanity (NEW state — 2026-05-01)
+### LLM extraction status (NEW state — 2026-05-15)
 
-- Script now uses `AnthropicVertex()` (commit `a0b4b04b`). Auth via Application Default Credentials (already present at `~/.config/gcloud/application_default_credentials.json`); project + region from `ANTHROPIC_VERTEX_PROJECT_ID=nist-gcp-itl-hit` + `CLOUD_ML_REGION=global` (already in env).
-- Model ID: `claude-sonnet-4-6@default` (matches user's convention; bare `claude-sonnet-4-6` would also work per Anthropic Vertex docs).
-- 3-table sanity check fails at the first call with: `Organization Policy constraint constraints/vertexai.allowedPartnerModelFeatures violated for projects/370789798156 attempting to use a disallowed feature structured_outputs for Partner model claude-sonnet-4-6`. Subsequent calls fail differently — `output_config.format: Extra inputs are not permitted` — same root cause manifesting at the schema level.
-- The SDK's `messages.parse()` helper sends `output_config.format` to enforce structured output, which is exactly what's gated. Three workaround options ranked by effort:
-  1. Get GCP admin to add `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` to allowed features (zero code change; admin turnaround unknown).
-  2. Refactor to `messages.create()` + manual JSON parsing — embed `ExtractionResult` schema as text in the system prompt with explicit "respond with JSON only, no preamble" instruction; parse response with `json.loads()` and validate with `ExtractionResult.model_validate()`. ~30 min of work; preserves prompt caching; modest risk of malformed-JSON responses (mitigation: retry once, then mark as error).
-  3. Try a different model where structured_outputs may not be blocked — but the org policy likely covers all partner models, not just Sonnet 4.6, so this probably doesn't help.
-- Test command after either resolution: `python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3` (~$0.01, ~30 sec).
+- Vertex `structured_outputs` org-policy block resolved 2026-05-14. Admin added both `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` and `publishers/anthropic/models/claude-opus-4-7:structured_outputs` to the allowed-features list. Probe at `tooling/scripts/probe_structured_outputs.py` confirms both models return `Result: SUCCESS` with valid Pydantic objects.
+- `tooling/scripts/extract_v291_llm.py` is unchanged from the 2026-05-01 Vertex switch — no further code work needed before sanity-check.
+- Test command (the natural next-session first move): `python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3` (~$0.01, ~30 sec).
 
-### Hot spots if the next auto-IG attempt fails after HL7 whitelist
+### Hot spots if the next auto-IG attempt fails after HL7 trust PR lands
 
 1. **R5 IG parameter format.** Our `v2plus.xml` may still use R4-style `code: "string"` parameters. R5 expects Coding `{system, code}`. Auto-IG warning seen on MVP: "property code is a class JsonPrimitive looking for an object". Not yet investigated for `v2plus.xml`.
 2. **Jekyll `menu.xml`.** Templates expect `input/includes/menu.xml`. v2plus.xml-based build is presumably fine here (existed before), but verify if the build chokes on missing includes.
@@ -91,6 +85,44 @@ Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report
 ---
 
 ## Session History
+
+## 2026-05-07 → 2026-05-15 — Both blockers moved: Vertex unblocked, HL7 template trust path identified + submission in flight
+
+### Completed
+
+**Researched and documented the HL7 IG template trust submission process.** Prior memory framed it as "request inclusion at fhir.org/templates" — that turned out to be a *catalog*, not the trust gate. The actual gate is hardcoded in `HL7/fhir-ig-publisher` → `org.hl7.fhir.publisher.core/src/main/java/org/hl7/fhir/igtools/templates/TemplateManager.java` → `checkTemplateId()` method (~lines 355-373). The PR shape (per merged PRs #889, #1001, #1265) is a one-line addition to the trusted-package-ID array, and the code comment states "changes to this list require discussion with the FHIR Product Director first" — that's Grahame Grieve (`@grahamegrieve`), who has merged every recent template-trust PR. Discussion happens on **#IG creation** stream on chat.fhir.org. Not FHIR-I work group, not Lloyd McKenzie — this is tooling, not spec governance. Memory file `project_template_whitelisting.md` rewritten with the now-known process.
+
+**User extracted the v2plus template into its own GitHub repo and posted in Zulip.** The `local-template/` directory was copied out into `ig-template-v2plus/` (gitignored in this repo via `.gitignore` addition), then pushed to its own GitHub repo. User posted in #IG creation on FHIR Zulip asking how to proceed before opening the PR — the Zulip-first move is the cheapest first step (introduces the template, lets reviewers flag anything to fix before the PR).
+
+**Built `tooling/scripts/probe_structured_outputs.py` (multi-model + raw-error-body version).** Tests `messages.parse()` across Sonnet 4.6, Sonnet 4.5, Haiku 4.5, Opus 4.7, Opus 4.1 (with and without `@default` suffix). Dumps full HTTP status, request_id, and response body for every call so the output can be shown verbatim to GCP/IaaS administrators. Initial uncommitted version of the script (from a prior session) summarized errors as `BLOCKED by org policy` / `NOT FOUND` / `OTHER ERROR`; rewrote to expose the raw error envelope after the user's IaaS team gave a "curious response" suggesting they wanted hard evidence.
+
+**Confirmed Vertex `structured_outputs` policy expansion landed.** User reported on 2026-05-14 that the org policy had been updated; re-ran the probe and confirmed both `claude-sonnet-4-6@default` and `claude-opus-4-7@default` now return `Result: SUCCESS` with valid Pydantic-validated output. Sonnet 4.6 returned `color='ocean blue', reason='...'` (207 input / 34 output tokens); Opus 4.7 returned `color='teal', reason='...'` (265 input / 53 output tokens). The fix the IaaS team applied was adding two values to `constraints/vertexai.allowedPartnerModelFeatures`: `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` and `publishers/anthropic/models/claude-opus-4-7:structured_outputs` — exactly what the original error message had named.
+
+**Updated memory.** `project_vertex_structured_outputs_block.md` rewritten — was framed as an active blocker, now framed as historical context + a "what to do if it returns" guide pointing at the probe. `project_template_whitelisting.md` rewritten with the concrete TemplateManager.java + Grahame + #IG creation Zulip path. `MEMORY.md` "External Blockers" section renamed to "External State" since neither item is a blocker any more — Vertex is done, HL7 trust is in process.
+
+### Why
+
+- **Probe rewrite over relying on the existing summarizer**: the prior probe printed `BLOCKED by org policy` for the org-policy errors, which is informative for us but not enough to satisfy a skeptical IaaS team. The full GCP error envelope (`{"error":{"code":400,"status":"FAILED_PRECONDITION","message":"Organization Policy constraint constraints/vertexai.allowedPartnerModelFeatures violated for projects/370789798156 attempting to use a disallowed feature structured_outputs..."}}`) is unmistakable — it's GCP's standard error format (not Anthropic's), names the constraint by ID, names the project by number, and even tells the admin exactly what value to add. Letting the IaaS team see that verbatim removed the question of "is this really a GCP-side issue."
+- **Zulip-first over PR-first for template trust**: the trust-list change is a one-line PR, but the criteria for what gets accepted are not fully written down — the code comment says "discussion with the FHIR Product Director first." Posting in #IG creation up front is the lowest-cost way to discover whether the template is in shape to be PR'd, or whether something needs to be fixed first. PR feedback would surface the same info but with more wasted work.
+- **Memory framing shift "blockers → state"**: the prior framing locked us into thinking of these as walls. With both moving forward — one resolved, one in flight — the right framing is "state to track" so future sessions don't treat them as still-blocking.
+
+### Commits this session
+
+On `dev/framework`:
+- (probe + JOURNAL + .gitignore commits below — see "Final state" in handoff)
+
+On `main` / pushed to `build`:
+- None (no IG content changed; tooling-only)
+
+### Relevant context for next session
+
+- **Probe script (`tooling/scripts/probe_structured_outputs.py`) is now committed** as a permanent verification tool. Re-run it any time `messages.parse()` starts failing on Vertex — the GCP error envelope is unmistakable and immediately tells you which feature/model needs to be added to the allow list.
+- **The current probe still has a couple of cosmetic warts**: (1) older models without the `@default` suffix return Anthropic-format errors saying "output_config: Extra inputs are not permitted" — that's the older models not supporting structured_outputs at all, unrelated to org policy and won't change; (2) older models *with* `@default` return 404 — that's just Vertex not accepting the alias, also unrelated. These aren't bugs in the probe; they're legitimate state of those models on Vertex. If we add a future model (e.g. Sonnet 4.7), add it to the `MODELS` list.
+- **The template trust submission has not been opened yet** — waiting on Zulip reply. If the reply lands as "go ahead and PR it", the next concrete step is adding the v2plus template's package ID to the array in `org.hl7.fhir.publisher.core/src/main/java/org/hl7/fhir/igtools/templates/TemplateManager.java` (HL7/fhir-ig-publisher repo) and opening a PR with Grahame as reviewer.
+- **The Vertex switch in `extract_v291_llm.py` is from 2026-05-01** — that work is unchanged. With the policy now expanded, the script should run end-to-end. The 3-table sanity check is the natural next-session first move.
+- **No build was attempted this session** — auto-IG is still rejected by template-trust on the build branch. That branch's state is unchanged (`origin/build` at `865ecd74`). Don't try push-to-build until the template trust PR lands; it'll just fail in the same way.
+
+---
 
 ## 2026-05-01 — LLM extraction switched to Vertex AI, blocked on GCP org policy
 
