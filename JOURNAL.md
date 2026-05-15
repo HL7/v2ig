@@ -23,7 +23,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 **Phase:** Both prior blockers have moved. Vertex structured_outputs is **fully unblocked** (admin landed the org-policy expansion 2026-05-14; both Sonnet 4.6 and Opus 4.7 pass the probe). Template trust is **in process** (template extracted to its own repo on GitHub, Zulip thread posted in #IG creation asking how to proceed; awaiting reply from Grahame or someone else with context).
 
 **Branches:**
-- `dev/framework` (latest commit, 4 ahead of origin if probe + .gitignore + JOURNAL all land) — see Commits this session below; tooling-only changes, none of them need to go to main/build
+- `dev/framework` at `4a11e4fd` (in sync with origin) — tooling-only changes this session (Vertex switch from prior session + probe + JOURNAL); none need to go to main/build
 - `origin/main` at `1f8bf2d5` (unchanged)
 - `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust until the trust PR lands
 
