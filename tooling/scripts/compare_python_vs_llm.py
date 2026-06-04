@@ -34,12 +34,16 @@ def load_json(path):
 
 def is_pydocx_group_marker(elem):
     """python-docx misencodes group begin/end as type:'segment' with empty
-    or '}]' code. Recognize so we can normalize for comparison."""
-    return elem.get("type") == "segment" and (
-        elem.get("code", "") in ("", "}]")
-        or "begin" in elem.get("description", "")
-        or "end" in elem.get("description", "")
-    )
+    or '}]' code. Recognize so we can normalize for comparison.
+
+    Group descriptions follow the '--- NAME begin'/'--- NAME end' convention.
+    A substring match on 'begin'/'end' is unsafe — 'Gender' contains 'end'.
+    """
+    if elem.get("type") != "segment":
+        return False
+    code = elem.get("code", "")
+    desc = elem.get("description", "")
+    return code in ("", "}]") or desc.startswith("--- ")
 
 
 def normalize_parsed(elements, source):
@@ -120,20 +124,35 @@ def main():
         print(f"ERROR: {LLM_DIR} does not exist — run extract_v291_llm.py first", file=sys.stderr)
         return 2
 
-    llm_files = {p.name: p for p in LLM_DIR.glob("*.json")}
-    py_files = {p.name: p for p in PYDOCX_DIR.glob("*.json")}
+    # Join by provenance (structureId, clause, tableIndex), not filename:
+    # python-docx names files by enumerate() index, LLM names by tableIndex —
+    # filenames diverge even when the underlying table is identical.
+    def index_corpus(directory):
+        idx = {}
+        for p in directory.glob("*.json"):
+            doc = load_json(p)
+            key = (
+                doc.get("structureId", ""),
+                doc.get("provenance", {}).get("clause", ""),
+                doc.get("provenance", {}).get("tableIndex"),
+            )
+            idx[key] = p
+        return idx
+
+    llm_index = index_corpus(LLM_DIR)
+    py_index = index_corpus(PYDOCX_DIR)
 
     if args.filter:
-        llm_files = {n: p for n, p in llm_files.items() if n.startswith(args.filter)}
-        py_files = {n: p for n, p in py_files.items() if n.startswith(args.filter)}
+        llm_index = {k: p for k, p in llm_index.items() if k[0].startswith(args.filter)}
+        py_index = {k: p for k, p in py_index.items() if k[0].startswith(args.filter)}
 
-    common = set(llm_files) & set(py_files)
-    llm_only = set(llm_files) - set(py_files)
-    py_only = set(py_files) - set(llm_files)
+    common = set(llm_index) & set(py_index)
+    llm_only = set(llm_index) - set(py_index)
+    py_only = set(py_index) - set(llm_index)
 
     findings_list = []
-    for name in sorted(common):
-        findings_list.append(compare_one(py_files[name], llm_files[name]))
+    for key in sorted(common):
+        findings_list.append(compare_one(py_index[key], llm_index[key]))
 
     bucket = Counter()
     raw_disagreement_kinds = Counter()
@@ -171,17 +190,20 @@ def main():
     lines.append(f"## Raw-row disagreement kinds: {dict(raw_disagreement_kinds)}")
     lines.append(f"## Parsed-element disagreement kinds: {dict(parsed_disagreement_kinds)}")
 
+    def fmt_key(k):
+        return f"{k[0]} clause={k[1]} tableIndex={k[2]}"
+
     if llm_only:
         lines.append("")
-        lines.append(f"## LLM-only files (first 30)")
-        for n in sorted(llm_only)[:30]:
-            lines.append(f"- {n}")
+        lines.append(f"## LLM-only (first 30)")
+        for k in sorted(llm_only)[:30]:
+            lines.append(f"- {fmt_key(k)}")
 
     if py_only:
         lines.append("")
-        lines.append(f"## python-docx-only files (first 30)")
-        for n in sorted(py_only)[:30]:
-            lines.append(f"- {n}")
+        lines.append(f"## python-docx-only (first 30)")
+        for k in sorted(py_only)[:30]:
+            lines.append(f"- {fmt_key(k)}")
 
     # Detailed diffs for first N disagreeing files
     detailed = [f for f in findings_list if f["raw_diffs"] or f["parsed_diffs"]][: args.limit]
