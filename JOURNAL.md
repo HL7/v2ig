@@ -18,49 +18,49 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-05-15 (Vertex unblocked; HL7 template trust submission in flight)
+## ACTIVE — 2026-06-04 (LLM extraction end-to-end: CH03 cross-validated 98%)
 
-**Phase:** Both prior blockers have moved. Vertex structured_outputs is **fully unblocked** (admin landed the org-policy expansion 2026-05-14; both Sonnet 4.6 and Opus 4.7 pass the probe). Template trust is **in process** (template extracted to its own repo on GitHub, Zulip thread posted in #IG creation asking how to proceed; awaiting reply from Grahame or someone else with context).
+**Phase:** ADR-0006 Phase 1 is **working end-to-end** on CH03. The LLM-extracted corpus and the python-docx-extracted corpus agree on 104/106 message structures (98%); the 2 remaining diffs are minor (one whitespace, one 1-element length). Two surprises got resolved along the way: Vertex `structured_outputs` rejected the discriminated-union schema as too complex (refactored to per-hint schemas), and the comparison script had a substring-match bug (`"end" in "Gender"`) that was masking the real agreement level.
+
+Template trust submission still in flight on Zulip (#IG creation) — unchanged from prior handoff.
 
 **Branches:**
-- `dev/framework` at `4a11e4fd` (in sync with origin) — tooling-only changes this session (Vertex switch from prior session + probe + JOURNAL); none need to go to main/build
+- `dev/framework` at `bfb565b2` (**3 ahead of origin**, not pushed yet — gh auth expired) — tooling-only changes; not destined for main/build
 - `origin/main` at `1f8bf2d5` (unchanged)
 - `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust until the trust PR lands
 
 ### Next session's first move
 
-**Run the LLM extraction 3-table sanity check.** The Vertex switch + the org-policy expansion together mean `extract_v291_llm.py` should now work end-to-end with no further changes:
-```bash
-python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3
-```
-~$0.01, ~30 sec. Confirms the Pydantic-validated extraction path is real, then we can scale to a full-chapter run and start comparing against the python-docx corpus (Phase 1 stretch goal).
+**Push the 3 local commits.** Re-authenticate `gh auth login` (the 2026-04-30 session's 7-day token has lapsed), then `git push origin dev/framework`. Three commits: schema-split + --offset flag, compare-script bug fixes, gitignore + CH03 report.
 
-If the sanity check passes, the natural follow-on is the full CH03 run (~108 message-structure tables + 21 segment tables) → run `compare_python_vs_llm.py` → bucket-classify the diffs.
+After that, the natural next step is **scale to another chapter**. CH02_Control.docx is a good candidate — different table styles (vocabulary, control-field tables) will exercise the heuristic's edge cases. Or skip ahead to a high-stakes chapter (CH04A_Orders, CH07_Observations) where any python-docx parsing gaps would matter most. Either way: re-run `extract_v291_llm.py CHXX_*.docx` then `compare_python_vs_llm.py --filter <prefix>`.
+
+A second follow-on worth doing: **extend the comparison script to cover segments**. CH03 produced 21 LLM-extracted segments (EVN, PID, etc.) but `compare_python_vs_llm.py` currently only diffs message structures. Adding the segment-side comparison is the obvious gap.
 
 ### Pending user actions before next Claude session
 
-1. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", that's the next concrete step (one-line addition to `TemplateManager.java` in HL7/fhir-ig-publisher). If feedback to fix something first, do that.
-2. (No other pending user actions — Vertex is fully working.)
+1. **Refresh gh auth** so the next session can `git push origin dev/framework` and not need to ask. `gh auth login` (web flow) or paste a new PAT via `gh auth login --with-token`.
+2. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", that's the next concrete step (one-line addition to `TemplateManager.java` in HL7/fhir-ig-publisher). If feedback to fix something first, do that.
+
+### CH03 cross-validation result (NEW)
+
+| Metric | Value |
+|--------|-------|
+| Tables extracted | 129/129, 0 errors |
+| Cost | $2.31 (~$0.018/table; cache reads dominate after warmup) |
+| Wall time | ~30 min |
+| Message structures fully agreeing | **104/106 (98%)** |
+| Remaining diffs | ADT_A01_03_4 (OH3 description trailing "/" — Word multi-paragraph cell handling), ADT_A44_03_80 (1-element length) |
+
+Report: `v291-llm/comparison-report.md` (committed).
 
 ### Build verification status
 
-- ✅ **Hxx recursive BackboneElement works.** Auto-IG built past validation on the 2026-04-29 19:56 UTC run (commit `e175d9eb`). No FHIRPath errors, no snapshot errors, no `Unable to find ...` errors. The pattern in 15 message structures + standalone `Hxx.json` is valid FHIR R5.
-- ✅ **postproc-g full build passes** end-to-end (with `-tx n/a`). That's the structural verification when auto-IG is unavailable.
-- ❌ **Auto-IG output check rejects** the inline `<script>` tags AND the `.js` files (whichever form we use). See ADR-0004 (reversed 2026-04-29) for the catch-22 specifics.
+Unchanged from prior handoff.
 
-### What's true now (confirmed this session)
-
-- **tx.fhir.org is healthy.** Yesterday's outage caused two false-positive failures (28 Apr 17:19 UTC, 19:31 UTC); recovered by 29 Apr morning.
-- **Auto-IG processes new branches fast** (~2 min from push) but **backs off failing branches** (the `build` branch took ~70 min to retrigger after consecutive failures). Empty commits don't seem to break the dedupe — needed a real (non-empty) commit to be sure.
-- **Auto-IG hardcodes `-tx http://tx.fhir.org`** on the CLI; no IG-side parameter overrides this. Confirmed via web research against `Publisher.java#setTxServerValue`.
-- **mfaughn has `write` not `admin`** on `HL7/v2ig` — webhook listing endpoint returns 404. Cannot diagnose webhook-delivery issues from this side; need someone with admin access (or an HL7 ops person) to check.
-- **The MVP `mvp-test` branch is a working test article** for proving auto-IG infrastructure is alive even when our main IG is failing. It currently has two unrelated issues (Jekyll missing `menu.xml`, R5 parameter format wants `code` as Coding not string) — fix these next time we want to use it as a probe.
-
-### LLM extraction status (NEW state — 2026-05-15)
-
-- Vertex `structured_outputs` org-policy block resolved 2026-05-14. Admin added both `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` and `publishers/anthropic/models/claude-opus-4-7:structured_outputs` to the allowed-features list. Probe at `tooling/scripts/probe_structured_outputs.py` confirms both models return `Result: SUCCESS` with valid Pydantic objects.
-- `tooling/scripts/extract_v291_llm.py` is unchanged from the 2026-05-01 Vertex switch — no further code work needed before sanity-check.
-- Test command (the natural next-session first move): `python3 tooling/scripts/extract_v291_llm.py CH03_PatientAdmin.docx --limit 3` (~$0.01, ~30 sec).
+- ✅ **Hxx recursive BackboneElement works.** Auto-IG built past validation on the 2026-04-29 19:56 UTC run.
+- ✅ **postproc-g full build passes** end-to-end (with `-tx n/a`).
+- ❌ **Auto-IG output check rejects** the inline `<script>` tags AND the `.js` files. See ADR-0004 (reversed 2026-04-29). Resolution path: HL7 template trust submission (in flight on Zulip).
 
 ### Hot spots if the next auto-IG attempt fails after HL7 trust PR lands
 
@@ -85,6 +85,48 @@ Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report
 ---
 
 ## Session History
+
+## 2026-06-02 → 2026-06-04 — LLM extraction end-to-end on CH03, 98% cross-corpus agreement
+
+### Completed
+
+**Hit a new Vertex `structured_outputs` failure mode and fixed it by splitting the schema by hint.** The 3-table sanity check the prior handoff prescribed failed with `Schema is too complex.` (1 call) and `Grammar compilation timed out.` (2 calls) — different from the org-policy block, this time the structured-decoding grammar compiler rejecting our Pydantic schema. Root cause: `ExtractionResult` was a discriminated union with three `Optional[NestedModel]` fields, which Pydantic generates as `oneOf: [null, $ref]` per optional. The grammar compiler has to enumerate all combinations of which optionals are present × all nested shapes; with three independent optionals + several nested types it timed out. Refactored `extract_v291_llm.py` to drop the discriminated union: the `likely_extractable` heuristic already classifies CH03 tables with 100% coverage (108 msg_structure + 21 segment, 0 unknown), so the client picks the schema (`MessageStructureRecord` or `SegmentRecord`) per call. Each schema is now flat with required fields and small defaults; both compile cleanly. System prompt rewritten from "classify into one of three categories" to "extract per the mode the client picked" while preserving the cached prefix. Added `--offset N` flag to allow targeted segment-table validation (CH03's first segment is candidate 109, so without `--offset` we'd burn 108 message-structure calls to reach it).
+
+**Full CH03 extraction succeeded.** 129/129 tables, 0 errors, $2.31, ~30 minutes. Cache reads dominated after warmup (260k cache_read vs 36k cache_creation). Effective per-table cost dropped from the sanity check's ~$0.04/table to ~$0.018/table on the full run.
+
+**Found and fixed two bugs in `compare_python_vs_llm.py`.**
+1. The initial run reported 50/106 disagree_parsed_only and only 55/106 fully_agree. Investigation showed `is_pydocx_group_marker` used substring matching: `"end" in elem.get("description", "")`. "Person Gender and Sex" contains "end" because "Gender" contains "end" as a substring (G-E-N-D-E-R). The heuristic stripped 20 legitimate segments from python-docx and 12 from the LLM corpus, manufacturing fake disagreements at every position after the GSP/GSR row block. Replaced with `desc.startswith("--- ")` — the actual python-docx convention for group markers.
+2. The script joined corpuses by filename, but python-docx names files by `enumerate()` index while the LLM names by `tableIndex` — the filenames diverge even when the underlying data is identical. Joined 0 files by filename. Replaced with `(structureId, clause, tableIndex)` from provenance as the join key.
+
+After both fixes: **104/106 fully agreeing (98%)**. The 2 remaining diffs are minor (whitespace + 1-element length).
+
+### Why
+
+- **Per-hint schemas over manual JSON parsing**: the alternative was dropping `messages.parse()` and parsing JSON on our side with client-side Pydantic validation (the workaround weighed back in the 2026-05-01 session). Splitting schemas was both cheaper to implement (~15 lines changed) AND preserves wire-level schema enforcement, which is the whole point of using `structured_outputs` in the first place. The cost paid is that the LLM can no longer override the heuristic to bail out as "not_extractable" — but the heuristic was already 100% on CH03, so this is paying nothing in practice. The "not_extractable" escape hatch can be added back in a future schema-extension if we hit a chapter where it matters.
+- **`startswith("--- ")` over substring match**: the python-docx convention is precise — group markers always start with `--- ` (three dashes + space) and have either empty code or `}]`. The substring match was lazy; `startswith` is what the code should have been all along.
+- **Provenance-based join over filename-based**: filename should be considered a presentation concern, not the canonical identifier. The provenance triple `(structureId, clause, tableIndex)` is what makes a table-occurrence unique in the source document and is what both extractors agree on.
+
+### Commits this session
+
+On `dev/framework` (local — gh auth lapsed, 3 ahead of origin):
+- `3e3317f7` — Split LLM extraction schema by heuristic hint, add --offset flag
+- `12e31fd7` — Fix compare_python_vs_llm.py false positives and join key
+- `bfb565b2` — Add CH03 cross-validation report, gitignore v291-llm/
+
+On `main` / pushed to `build`:
+- None (no IG content changed; tooling-only).
+
+### Relevant context for next session
+
+- **Auth is the immediate blocker on push.** `gh auth status` reports "not logged into any GitHub hosts" — the 7-day PAT from the 2026-04-30 `gh` install lapsed. User refreshes auth → next session pushes. No commits will be lost in the meantime.
+- **The "Schema is too complex" failure mode is a Vertex `structured_outputs` constraint, not a Claude limit.** If we add more deeply-nested Pydantic schemas in future tooling, hit it again, the same split-by-classification pattern applies. Worth remembering that complex discriminated unions are the killer; flat schemas with small defaults compile fine.
+- **Cache warmup pays off.** First few calls in a run pay full `cache_creation_input_tokens` cost; thereafter `cache_read_input_tokens` dominates. Don't size cost estimates from a `--limit 3` sanity check — it overstates by ~2× compared to a full chapter run.
+- **The 2 remaining CH03 diffs are worth glancing at before broader rollout but neither is a script bug.** ADT_A01_03_4 row 12: LLM has "Usual Work /" (the Word cell has two paragraphs; `render_table_as_markdown` joins them with `" / "`), python-docx strips the trailing slash. ADT_A44_03_80: 1-element parsed length difference; not investigated in detail. Both are noise relative to the 98% agreement signal, but they are real signals about edge cases in Word cell handling.
+- **The comparison script is now message-structure-only.** CH03 produced 21 LLM-extracted segments at `v291-llm/segments/` (EVN, PID, PV1, ..., GSC) that have no diff counterpart. Adding the segment-side comparison is the natural next tooling extension.
+- **Cost calibration for future chapters.** CH03 at $2.31 for 129 tables. CH02_Control is probably similar (control-field tables + vocabulary). The full V2.9.1 corpus has ~696 messages + ~192 segments across 17 chapters; ballpark a $15-25 total LLM cost to extract everything once.
+- **`v291-llm/` is gitignored except `comparison-report.md`.** Parallel to how `v291-extracted/*` works. Re-runs locally regenerate the corpus; only the report is the trackable artifact.
+
+---
 
 ## 2026-05-07 → 2026-05-15 — Both blockers moved: Vertex unblocked, HL7 template trust path identified + submission in flight
 
