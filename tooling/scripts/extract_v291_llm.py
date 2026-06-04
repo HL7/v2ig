@@ -37,7 +37,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import List, Literal, Optional
+from typing import List, Literal
 
 from docx import Document
 from docx.table import Table
@@ -86,7 +86,6 @@ class ParsedElement(BaseModel):
 
 
 class MessageStructureRecord(BaseModel):
-    kind: Literal["message_structure"] = "message_structure"
     structureId: str
     caption: str
     provenance: Provenance
@@ -113,23 +112,19 @@ class SegmentOccurrence(BaseModel):
 
 
 class SegmentRecord(BaseModel):
-    kind: Literal["segment"] = "segment"
     code: str
     occurrence: SegmentOccurrence
 
 
-class NotExtractable(BaseModel):
-    kind: Literal["not_extractable"] = "not_extractable"
-    reason: str
-
-
-class ExtractionResult(BaseModel):
-    """Discriminated union: the LLM picks the right shape for each table."""
-
-    classification: Literal["message_structure", "segment", "not_extractable"]
-    message_structure: Optional[MessageStructureRecord] = None
-    segment: Optional[SegmentRecord] = None
-    not_extractable: Optional[NotExtractable] = None
+# Schema is split per heuristic hint rather than wrapped in a single
+# discriminated union: Vertex structured_outputs rejected the union form
+# as "Schema is too complex" / "Grammar compilation timed out" (2026-05-17).
+# The caption-style heuristic already classifies tables reliably enough
+# (CH03: 108 msg + 21 seg, 0 unknown), so the client picks the schema.
+SCHEMA_FOR_HINT = {
+    "message_structure": MessageStructureRecord,
+    "segment": SegmentRecord,
+}
 
 
 # ---------------------------------------------------------------------------
@@ -140,21 +135,17 @@ class ExtractionResult(BaseModel):
 SYSTEM_PROMPT = """\
 You extract structured records from HL7 V2.9.1 specification tables.
 
-# Your task
-
 You are given:
   * The chapter heading hierarchy (clause number + section heading)
   * Two or three paragraphs of surrounding context from the source document
   * One table rendered as a Markdown table
+  * A "mode" indicating which extraction shape the client wants
 
-Determine which of three categories the table falls into, then emit JSON
-in the matching schema. If the table is something else (an introductory
-matrix, a vocabulary listing, a usage example, etc.), classify it as
-"not_extractable" with a one-line reason.
+The client decides the mode upfront from caption styles in the source
+document, so you do not need to classify the table — just extract per the
+mode below.
 
-# Categories
-
-## 1. Message structure table
+# Mode: message_structure
 
 Lists the segments that make up an HL7 V2 message. The leftmost column shows
 segment codes wrapped in V2 cardinality notation. The other columns are
@@ -169,51 +160,46 @@ V2 cardinality notation:
   * `}]`          — end of a group (group_end)
   * `<` `>` `|`   — choice-group markers (rare; classify as group_begin/end with code preserved)
 
-Output schema:
+Output shape:
 {
-  "classification": "message_structure",
-  "message_structure": {
-    "structureId": "ADT_A01",   // from the section heading "ADT^A01^ADT_A01: ..."
-    "caption": "ADT^A01^ADT_A01: ADT Message",   // section heading verbatim
-    "provenance": { ... fields the user provides verbatim ... },
-    "rawRows": [
-      // EXACT rows from the table — preserve brackets, braces, whitespace,
-      // chapter numbers, status flags. This is the source-faithful view.
-      { "segments": "MSH",          "description": "Message Header",   "status": "", "chapter": "2" },
-      { "segments": "[{ SFT }]",    "description": "Software Segment", "status": "", "chapter": "2" }
-    ],
-    "parsedStructure": [
-      // Interpreted view: one element per logical row.
-      // Use type "segment" for actual segments, with the bare code (no brackets/braces).
-      // Use type "group_begin" for "[{" rows, type "group_end" for "}]" rows.
-      // For group_begin/group_end, leave `code` empty unless the source shows a name.
-      { "type": "segment",     "code": "MSH", "description": "Message Header", "optionality": "R", "repetition": false, "chapter": "2" },
-      { "type": "segment",     "code": "SFT", "description": "Software Segment", "optionality": "O", "repetition": true, "chapter": "2" }
-    ]
-  }
+  "structureId": "ADT_A01",   // from the section heading "ADT^A01^ADT_A01: ..."
+  "caption": "ADT^A01^ADT_A01: ADT Message",   // section heading verbatim
+  "provenance": { ... fields the user provides verbatim ... },
+  "rawRows": [
+    // EXACT rows from the table — preserve brackets, braces, whitespace,
+    // chapter numbers, status flags. This is the source-faithful view.
+    { "segments": "MSH",          "description": "Message Header",   "status": "", "chapter": "2" },
+    { "segments": "[{ SFT }]",    "description": "Software Segment", "status": "", "chapter": "2" }
+  ],
+  "parsedStructure": [
+    // Interpreted view: one element per logical row.
+    // Use type "segment" for actual segments, with the bare code (no brackets/braces).
+    // Use type "group_begin" for "[{" rows, type "group_end" for "}]" rows.
+    // For group_begin/group_end, leave `code` empty unless the source shows a name.
+    { "type": "segment",     "code": "MSH", "description": "Message Header", "optionality": "R", "repetition": false, "chapter": "2" },
+    { "type": "segment",     "code": "SFT", "description": "Software Segment", "optionality": "O", "repetition": true, "chapter": "2" }
+  ]
 }
 
-## 2. Segment field table (a.k.a. "HL7 Attribute Table")
+# Mode: segment
 
-Lists the fields of a segment. The section heading is typically of the form
-"HL7 Attribute Table - PID - Patient Identification". Columns are usually:
+Lists the fields of a segment (a.k.a. "HL7 Attribute Table"). The section
+heading is typically of the form "HL7 Attribute Table - PID - Patient
+Identification". Columns are usually:
 SEQ | LEN | C.LEN | DT | Optionality | RP/# | TBL# | ITEM# | ELEMENT NAME.
 
-Output schema:
+Output shape:
 {
-  "classification": "segment",
-  "segment": {
-    "code": "PID",
-    "occurrence": {
-      "name": "Patient Identification",
-      "provenance": { ... },
-      "fields": [
-        { "sequence": "1", "length": "1..4", "confLength": "", "dataType": "SI",
-          "optionality": "O", "repetition": "", "tableBinding": "",
-          "itemNumber": "00104", "name": "Set ID - PID" },
-        ...
-      ]
-    }
+  "code": "PID",
+  "occurrence": {
+    "name": "Patient Identification",
+    "provenance": { ... },
+    "fields": [
+      { "sequence": "1", "length": "1..4", "confLength": "", "dataType": "SI",
+        "optionality": "O", "repetition": "", "tableBinding": "",
+        "itemNumber": "00104", "name": "Set ID - PID" },
+      ...
+    ]
   }
 }
 
@@ -221,14 +207,6 @@ Rules for the fields array:
   * Preserve cells verbatim. If a cell is blank, emit "".
   * `repetition` is "Y" / "" / a number, copied from the source.
   * Don't normalize, don't fix typos. Source-faithful capture is the goal.
-
-## 3. Not extractable
-
-Anything else. Emit:
-{
-  "classification": "not_extractable",
-  "not_extractable": { "reason": "introductory matrix" }
-}
 
 # Universal rules
 
@@ -240,8 +218,10 @@ Anything else. Emit:
   * Never collapse or expand cardinality. `[{ X }]` stays as one row in
     rawRows; in parsedStructure the X segment is one element with optionality:O
     and repetition:true.
-  * If the table is malformed or the columns don't make sense, prefer
-    "not_extractable" over guessing.
+  * If a table is clearly not what the mode says (e.g. heuristic misfired),
+    extract what you can and leave fields empty where they don't apply —
+    downstream tooling diffs your output against an independent extractor
+    and will flag the mismatch.
 """
 
 
@@ -386,8 +366,8 @@ def likely_extractable(caption_style):
 # ---------------------------------------------------------------------------
 
 
-def call_claude(client, payload, model=MODEL, max_tokens=MAX_TOKENS):
-    """One LLM extraction call. Returns parsed ExtractionResult."""
+def call_claude(client, payload, schema, model=MODEL, max_tokens=MAX_TOKENS):
+    """One LLM extraction call. `schema` is the Pydantic class for the chosen mode."""
     user_message = (
         "Source file: {sourceFile}\n"
         "Chapter: {chapter}\n"
@@ -395,7 +375,7 @@ def call_claude(client, payload, model=MODEL, max_tokens=MAX_TOKENS):
         "Section heading: {sectionHeading}\n"
         "Table index in chapter: {tableIndex}\n"
         "Caption text: {captionText}\n"
-        "Hint from heuristic pre-filter: {hint}\n\n"
+        "Mode: {hint}\n\n"
         "Surrounding paragraphs (most recent first):\n{paragraphs}\n\n"
         "Table:\n{table}\n\n"
         "Use this exact provenance object verbatim in your output:\n{provenance_json}"
@@ -423,7 +403,7 @@ def call_claude(client, payload, model=MODEL, max_tokens=MAX_TOKENS):
             }
         ],
         messages=[{"role": "user", "content": user_message}],
-        output_format=ExtractionResult,
+        output_format=schema,
     )
     return response
 
@@ -482,6 +462,7 @@ def main():
     parser.add_argument("docx", help="Filename inside v2plus_docx/, e.g. CH03_PatientAdmin.docx")
     parser.add_argument("--dry-run", action="store_true", help="Walk the doc and report candidates; no LLM calls")
     parser.add_argument("--limit", type=int, default=None, help="Limit to first N candidate tables")
+    parser.add_argument("--offset", type=int, default=0, help="Skip the first N candidate tables (applied before --limit)")
     parser.add_argument("--include-unknown", action="store_true",
                         help="Also send tables that the heuristic doesn't classify (more thorough, more expensive)")
     args = parser.parse_args()
@@ -509,6 +490,10 @@ def main():
         by_hint[c["hint"]] += 1
     for k, v in sorted(by_hint.items()):
         print(f"  {k}: {v}")
+
+    if args.offset:
+        candidates = candidates[args.offset:]
+        print(f"Skipped first {args.offset} candidates ({len(candidates)} remaining)")
 
     if args.limit:
         candidates = candidates[: args.limit]
@@ -556,8 +541,14 @@ def main():
         }
         print(f"[{i}/{len(candidates)}] table#{c['table_idx']} clause={c['clause']} hint={c['hint']} ... ", end="", flush=True)
 
+        schema = SCHEMA_FOR_HINT.get(c["hint"])
+        if schema is None:
+            print("skip: no schema for hint (likely --include-unknown table; not supported yet)")
+            counts["skipped_unknown"] += 1
+            continue
+
         try:
-            resp = call_claude(client, payload)
+            resp = call_claude(client, payload, schema)
             result = resp.parsed_output
         except Exception as e:
             print(f"FAILED: {type(e).__name__}: {e}")
@@ -568,20 +559,14 @@ def main():
         for field in ("input_tokens", "output_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"):
             total_usage[field] += getattr(u, field, 0) or 0
 
-        if result.classification == "message_structure" and result.message_structure:
-            path = write_message_structure(result.message_structure)
+        if c["hint"] == "message_structure":
+            path = write_message_structure(result)
             print(f"msg_structure -> {path.name}")
             counts["msg_structure"] += 1
-        elif result.classification == "segment" and result.segment:
-            write_segment_occurrence(result.segment, seg_registry)
-            print(f"segment {result.segment.code} (queued)")
+        elif c["hint"] == "segment":
+            write_segment_occurrence(result, seg_registry)
+            print(f"segment {result.code} (queued)")
             counts["segment_occurrence"] += 1
-        elif result.classification == "not_extractable" and result.not_extractable:
-            print(f"skip: {result.not_extractable.reason}")
-            counts["not_extractable"] += 1
-        else:
-            print(f"BAD RESPONSE: classification={result.classification} but matching field empty")
-            counts["bad_response"] += 1
 
     seg_paths = flush_segment_registry(seg_registry)
 
