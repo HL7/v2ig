@@ -87,3 +87,9 @@ Thumbs.db
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
 /v2plus_docx/
+
+# LLM-extracted V2.9.1 corpus (ADR-0006 Phase 1) — generated, large #
+######################################################################
+/v291-llm/*
+# But track the cross-corpus comparison report
+!/v291-llm/comparison-report.md
