@@ -18,40 +18,37 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-06-08 (LLM extraction extended to data types, validated across 4 chapters)
+## ACTIVE — 2026-06-08 (three known pydocx/LLM bugs fixed; cross-validation cleaned up)
 
-**Phase:** ADR-0006 Phase 1 now covers **message structures + segments + complex data types** across 4 chapters (CH02, CH02A, CH03, CH07). Total cross-corpus stats: 109/125 msg structures (87%), 51/52 segments (98%), 70/71 data types (99%) fully agree. The 16 msg-structure "disagreements" are 100% python-docx chapter-column drops on CH07 harmony segments — LLM is right in every case. The 12 "LLM-only" data types are primitive types python-docx misses entirely (its 9-column filter excludes them) — a real coverage gain.
+**Phase:** ADR-0006 Phase 1 cross-validation now cleaner. The three follow-up paths from the prior handoff (chapter-column drop, primitive-type filter, ACK structureId prompt) are all addressed. Cumulative agreement across CH02/CH02A/CH03/CH07: **124/125 msg structures (99%), 51/52 segments (98%), 82/83 data types (98%)** fully agree. All three remaining diffs are minor known quirks, not bugs.
 
 Template trust submission still in flight on Zulip (#IG creation) — unchanged.
 
 **Branches:**
-- `dev/framework` at `4a3a76ae` (**in sync with origin** — gh auth restored this session, 7 commits pushed)
+- `dev/framework` at `877b19e8` (**2 commits ahead of origin** — push blocked, see Pending user actions)
 - `origin/main` at `1f8bf2d5` (unchanged)
 - `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust until the trust PR lands
 
 ### Next session's first move
 
-Pick one of three follow-up paths surfaced this session — all are independent.
+**Scale to more chapters.** With the cleanup landed, the comparison report will surface only genuine new findings on the next chapter run. CH04A_Orders is the natural next high-stakes target (orders are the largest single domain; any new pydocx parsing gaps would matter most there). Then CH04B, CH11_Patient_Admin, CH08, CH09, CH10. Each chapter is ~$0.5–2 in Sonnet 4.6 cost; full V2.9.1 should land under $15 total. Command: `python3 tooling/scripts/extract_v291_llm.py CHXX_*.docx && python3 tooling/scripts/compare_python_vs_llm.py`.
 
-1. **Scale to more chapters.** CH04A_Orders is the natural next high-stakes target (orders are the largest single domain; any pydocx parsing gaps would matter most there). Then CH04B, CH11_Patient_Admin, CH08, CH09, CH10. Each chapter is ~$0.5–2 in Sonnet 4.6 cost; full V2.9.1 should land under $15 total. Command: `python3 tooling/scripts/extract_v291_llm.py CHXX_*.docx && python3 tooling/scripts/compare_python_vs_llm.py`.
-2. **Fix the python-docx chapter-column bug.** All CH07 disagreements (and likely future-chapter ones) trace to `extract_v291.py` dropping the chapter cell for harmony-inserted segments. Same root cause as the 2026-04-15 CCM_I21/CCR_I16/CCU_I20 table-continuation fix. Fixing this in pydocx would make the comparison report cleaner for any new chapter run.
-3. **Fix the python-docx primitive-type gap.** `extract_v291.py` requires 9 columns for data type tables; primitives (DT, DTM, FT, GTS, ID, IS, NM, SI, SNM, ST, TM, TX) have fewer. Either relax the filter or add a separate primitive-table branch. LLM has already extracted all 12; pydocx side is the laggard.
-
-A minor LLM-side cleanup worth doing if time allows: **prompt clarification for ACK structureIds**. The LLM picks `ACK_A03` for legacy event-specific ACKs, while pydocx (correctly per the source convention) picks the third caption token `ACK`. Five "LLM-only" message structures fall out of this. One-line prompt tweak should align them.
+The ACK structureId prompt tweak is committed but **not yet validated** — the 5 existing `ACK_xxx` LLM-only entries are stale from before the tweak. They'll either drop off naturally when CH03/CH07 are re-extracted (e.g. as part of a broader re-run after another fix) or could be force-cleaned by deleting the 5 stale files and re-running CH03 alone (~$2.30). Not urgent; the cross-validation isn't blocked on it.
 
 ### Pending user actions before next Claude session
 
-1. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", next concrete step is the one-line PR to `TemplateManager.java` in HL7/fhir-ig-publisher. If feedback to fix something first, do that.
+1. **Refresh the GitHub PAT.** Push failed this session — `GITHUB_PERSONAL_ACCESS_TOKEN` from zshenv is being rejected by GitHub as "Invalid username or token". Credential helper is wired up correctly (it gets invoked; the password it returns just isn't accepted by GitHub). Most likely cause: the PAT generated 2026-06-08 has expired or was revoked. Generate a new fine-grained PAT with `contents: write` on `HL7/v2ig`, update `GITHUB_PERSONAL_ACCESS_TOKEN` in zshenv (and `GH_TOKEN`/`GITHUB_TOKEN` aliases), re-source, and push the two pending commits (`a6ac6ebf`, `877b19e8`).
+2. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", next concrete step is the one-line PR to `TemplateManager.java` in HL7/fhir-ig-publisher. If feedback to fix something first, do that.
 
 ### Cumulative cross-validation results (CH02 + CH02A + CH03 + CH07)
 
-| Section | Common | Fully agree | Notes |
-|---------|--------|-------------|-------|
-| Message structures | 125 | 109 (87%) | 16 disagree_both = CH07 chapter-column-only (pydocx bug); 5 LLM-only = ACK structureId variant |
-| Segments | 52 | 51 (98%) | 1 GSR extra empty row (LLM, prior session); 2 LLM duplicate provenance keys |
-| Complex data types | 71 | 70 (99%) | 1 curly-vs-straight apostrophe (DLN); **12 LLM-only primitive types** are coverage gain |
+| Section | Common | Fully agree | Remaining (all minor known quirks) |
+|---------|--------|-------------|--------|
+| Message structures | 125 | 124 (99%) | 1 = ADT_A01 "Usual Work /" Word-paragraph-join (LLM joins with " / ", pydocx strips); 5 LLM-only = stale ACK_xxx pre-tweak |
+| Segments | 52 | 51 (98%) | 1 = GSR extra empty row (LLM artifact, prior session); 2 LLM duplicate provenance keys |
+| Complex data types | 83 | 82 (98%) | 1 = curly-vs-straight apostrophe (DLN); **0 coverage gaps** (primitives now cross-validated) |
 
-Report: `v291-llm/comparison-report.md` (committed). Cumulative LLM cost across all 4 chapters: ~$4.60.
+Report: `v291-llm/comparison-report.md` (committed). Cumulative LLM cost across all 4 chapters: ~$4.60 (no new LLM calls this session).
 
 ### Build verification status
 
@@ -84,6 +81,56 @@ Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report
 ---
 
 ## Session History
+
+## 2026-06-08 (later) — Three known bugs fixed before scaling LLM extraction further
+
+### Completed
+
+**Fixed the python-docx chapter-column drop on harmony-inserted rows.** Inspected `parse_message_structure_table` in `extract_v291.py` and confirmed it reads `chapter_col = row[3].strip()` unconditionally. Then traced the actual Word cell shape for CH07's ORU_R30 table (`python3 -c "from docx import Document; ..."`): standard rows are 5-cell `['MSH', 'Message Header', '', '2', '2']` with chapter at index 3; harmony rows are 6-cell `['[{GSP}]', 'Person Gender and Sex', '', '', '3', '3']` with an extra empty cell at index 3 and chapter shifted to index 4. Factored out a new `_extract_msg_struct_cols` helper that detects the 6-cell variant — if `row[3]` is empty AND there's a non-empty cell at index 4+, walk forward to find the real chapter. Both `parse_message_structure_table` and `_parse_table_no_header_skip` (the continuation-table variant) now route through this helper, so the fix covers split tables too. Eliminates all 16 false `disagree_both` entries on CH07 from the comparison report.
+
+**Fixed the python-docx primitive-type column filter.** The handoff's framing was "9-column requirement excludes primitives" — that turned out to be wrong. Primitive tables ARE 9-column; the actual bug was the `if not row[0].strip(): continue` filter in `parse_data_type_components_table`. Primitives have empty `SEQ` cells (they're not subdivided into components) but carry real data in length/conf_length/name columns, so the row was being thrown away. Fix: change the empty-row filter to `if not any(cell.strip() for cell in row): continue` — only skip rows where every cell is empty. After re-running extraction, pydocx data type count went from 71 → 83 (added all 12 primitives: DT, DTM, FT, GTS, ID, IS, NM, SI, SNM, ST, TM, TX). All 12 cross-validate cleanly against the LLM extractions that already had them.
+
+**Tightened the LLM structureId prompt rule.** Changed the in-prompt comment from "from the section heading 'ADT^A01^ADT_A01: ...'" (ambiguous; LLM had been synthesizing per-event IDs like `ACK_A03` for legacy ACK captions) to "third caret-separated token of the caption, verbatim". Added an explicit follow-up paragraph with the ACK example: `ACK^R30^ACK` yields `ACK`, NOT `ACK_R30`. The 5 existing stale `ACK_xxx` LLM-only entries remain in place — would need a re-run to validate the prompt fix in practice. Not done this session (cost ~$2.30 for CH03 alone, not worth burning until there's another reason to re-run).
+
+**Re-ran pydocx extraction on the full corpus to verify the two pydocx fixes.** Took ~1 minute. Output counts: 191 segments (unchanged), 427 message structures (unchanged), 83 data types (+12 primitives), 517 events. No warnings, no errors. Spot-checked DT.json (new file, matches the LLM extraction exactly) and ORU_R30_07_233.json (harmony rows now have `chapter: '3'`).
+
+**Regenerated `v291-llm/comparison-report.md`.** New totals: 124/125 msg structures (99%), 51/52 segments (98%), 82/83 data types (98%). All remaining diffs are minor known quirks (1 paragraph-join, 1 GSR row, 1 DLN apostrophe) plus 5 stale ACK_xxx entries from before the prompt tweak.
+
+### Why fix before scaling
+
+The choice was: extract more chapters (potentially uncover more bugs) vs fix the known bugs first. Fixed first because:
+- The two known pydocx bugs would have polluted every future comparison report with the same false positives. Distinguishing new genuine findings from known noise on each new chapter is more expensive than fixing the bugs once.
+- The 12 primitive types were single-source (LLM-only). Fixing pydocx promoted them to cross-validated — confidence gain on data we already paid for.
+- Re-validating the fix on the existing 4 chapters cost $0 (LLM corpus on disk, only re-run pydocx + comparison). Cheaper than any new chapter run.
+- Bugs aren't self-correcting; discovering them on more chapters doesn't solve them, just produces more reports with the same noise.
+
+### Why the specific code shapes
+
+- **`_extract_msg_struct_cols` helper over inline branching**: the same row-shape logic is needed in two call sites (`parse_message_structure_table` and `_parse_table_no_header_skip`). Pulling it out avoids drift and gives the bug + fix a clear, named home.
+- **Forward-walk for chapter cell over special-casing harmony segments**: the original instinct was to hardcode `GSP/GSR/GSC → chapter '3'`, but that's a maintenance trap — every new harmony segment would need an addition. The structural rule (the 6-cell variant always has the real chapter at index 4 or 5 with empty index 3) generalizes to any future harmony insertions without code changes.
+- **`not any(cell.strip() for cell in row)` over a primitive-detection branch**: the alternative was adding a parallel "primitive table" code path. But primitive tables and complex-type tables have the *same shape* (9 columns, same headers) — they only differ in which cells happen to be empty. The right fix is to be less aggressive about row filtering, not to add a parallel branch.
+- **Prompt tweak + paragraph over schema change**: could have added a Pydantic validator that rejects synthesized IDs, but that would push the failure to API-call time (rejection + retry burn). Clarifying the prompt prevents the failure upstream and is cheaper.
+
+### Why NOT re-running LLM to validate the ACK prompt tweak
+
+Cost is the issue. Re-extracting CH03 alone (the chapter with multiple ACK captions) is ~$2.30. The tweak is small, the model is being asked to do something simpler than before (verbatim copy vs synthesize), and the existing pattern for non-ACK structures (verbatim copy of the third token) is already what the LLM does correctly. High confidence the tweak works; the only thing we lose by deferring is the empirical confirmation. Will pick up naturally on the next CH03/CH07 re-run.
+
+### Commits this session
+
+On `dev/framework` (NOT pushed — auth blocked, see ACTIVE pending user actions):
+- `877b19e8` — Fix pydocx harmony chapter-column drop and primitive-type filter; tweak LLM ACK structureId rule
+
+Branch is now 2 commits ahead of origin (this session's commit + last session's `a6ac6ebf` JOURNAL update).
+
+### Relevant context for next session
+
+- **The `v291-extracted/` corpus on disk is now the post-fix version.** It's gitignored, so the commit doesn't capture it — but any tooling that re-reads it will pick up the fixed data. If a future session inadvertently re-runs `extract_v291.py` against an older version of the script, the fixed data would regress.
+- **The 6-cell harmony row pattern is documented in `_extract_msg_struct_cols`'s docstring.** If a future chapter run surfaces a 7-cell or 8-cell variant (more extra empty cells from a different Word artifact), the forward-walk logic handles it automatically — only the docstring needs updating.
+- **Comparison report header counts: msg structures common is still 125** — the LLM corpus's 5 stale `ACK_xxx` entries remain as "LLM-only" rather than rejoining "common". The 5 will disappear if/when CH03 + CH07 are re-extracted with the new prompt.
+- **The remaining ADT_A01 "Usual Work /" diff is a `render_table_as_markdown` quirk in the LLM script, NOT a pydocx bug**: the Word cell has two paragraphs, the LLM script joins with " / ", pydocx walks raw cell text and gets just "Usual Work". Could be fixed by changing the markdown renderer to use `"\n"` instead of `" / "`, but that'd ripple through cached prompt tokens. Low priority.
+- **Push auth root cause**: the credential helper is being invoked correctly (verified via `GIT_TRACE=1`) — it just receives a PAT value that GitHub rejects. Either the value in `$GITHUB_PERSONAL_ACCESS_TOKEN` is expired/revoked, or the env var was unset when the bash session started. Worth checking `echo "$GITHUB_PERSONAL_ACCESS_TOKEN" | head -c 10` after the user refreshes the PAT to confirm the value is what they expect.
+
+---
 
 ## 2026-06-08 — LLM extraction extended to data types; CH02 + CH02A + CH07 cross-validated
 
