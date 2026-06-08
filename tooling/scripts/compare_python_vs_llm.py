@@ -8,8 +8,8 @@ disagreement into a small set of buckets so we can see at a glance whether the
 LLM corpus has a bias (e.g., always strips bracket whitespace, always preserves
 description suffixes that python-docx drops, etc.).
 
-Scope: message structures and segments. Both sections are produced in a single
-report file with separate bucket counts.
+Scope: message structures, segments, and complex data types. Each section is
+produced in the same report file with separate bucket counts.
 
 Usage:
     python3 tooling/scripts/compare_python_vs_llm.py
@@ -26,13 +26,20 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 LLM_MSG_DIR = PROJECT_ROOT / "v291-llm" / "message-structures"
 LLM_SEG_DIR = PROJECT_ROOT / "v291-llm" / "segments"
+LLM_DT_DIR = PROJECT_ROOT / "v291-llm" / "data-types" / "complex"
 PYDOCX_MSG_DIR = PROJECT_ROOT / "v291-extracted" / "message-structures"
 PYDOCX_SEG_DIR = PROJECT_ROOT / "v291-extracted" / "segments"
+PYDOCX_DT_DIR = PROJECT_ROOT / "v291-extracted" / "data-types" / "complex"
 REPORT_PATH = PROJECT_ROOT / "v291-llm" / "comparison-report.md"
 
 SEGMENT_FIELD_ATTRS = (
     "sequence", "length", "confLength", "dataType",
     "optionality", "repetition", "tableBinding", "itemNumber", "name",
+)
+
+DATA_TYPE_COMPONENT_ATTRS = (
+    "sequence", "length", "confLength", "dataType",
+    "optionality", "tableBinding", "name", "comments", "sectionRef",
 )
 
 
@@ -226,6 +233,65 @@ def bucket_segment_findings(findings_list):
 
 
 # ---------------------------------------------------------------------------
+# Data types
+# ---------------------------------------------------------------------------
+
+
+def normalize_data_type_component(c):
+    """All 9 schema attributes as stripped strings."""
+    return {a: (c.get(a) or "").strip() for a in DATA_TYPE_COMPONENT_ATTRS}
+
+
+def index_data_type_corpus(directory):
+    """Flatten per-file occurrences into {(code, clause, tableIndex): [occurrences]}.
+
+    Same structure as the segment indexer — data types are typically single-
+    occurrence per code, but the join key + duplicate surfacing pattern stays
+    consistent so a re-run that accidentally writes twice gets flagged.
+    """
+    idx = defaultdict(list)
+    for p in directory.glob("*.json"):
+        doc = load_json(p)
+        code = doc.get("code", p.stem)
+        for occ in doc.get("occurrences", []):
+            prov = occ.get("provenance", {})
+            key = (code, prov.get("clause", ""), prov.get("tableIndex"))
+            idx[key].append(occ)
+    return dict(idx)
+
+
+def compare_data_type_occurrence(code, py_occ, llm_occ):
+    findings = {
+        "code": code,
+        "py_clause": py_occ.get("provenance", {}).get("clause", ""),
+        "llm_clause": llm_occ.get("provenance", {}).get("clause", ""),
+        "py_tableIndex": py_occ.get("provenance", {}).get("tableIndex"),
+        "llm_tableIndex": llm_occ.get("provenance", {}).get("tableIndex"),
+        "name_match": (py_occ.get("name") or "") == (llm_occ.get("name") or ""),
+        "caption_match": (py_occ.get("caption") or "") == (llm_occ.get("caption") or ""),
+    }
+    py_components = [normalize_data_type_component(c) for c in py_occ.get("components", [])]
+    llm_components = [normalize_data_type_component(c) for c in llm_occ.get("components", [])]
+    findings["component_diffs"] = diff_lists(py_components, llm_components, key="component")
+    return findings
+
+
+def bucket_data_type_findings(findings_list):
+    bucket = Counter()
+    component_kinds = Counter()
+    for f in findings_list:
+        if not f["component_diffs"] and f["name_match"] and f["caption_match"]:
+            bucket["fully_agree"] += 1
+        elif not f["component_diffs"]:
+            bucket["agree_with_metadata_diff"] += 1
+        else:
+            bucket["disagree_components"] += 1
+        for d in f["component_diffs"]:
+            component_kinds[d["kind"]] += 1
+    return bucket, component_kinds
+
+
+# ---------------------------------------------------------------------------
 # Report rendering
 # ---------------------------------------------------------------------------
 
@@ -235,6 +301,10 @@ def fmt_msg_key(k):
 
 
 def fmt_seg_key(k):
+    return f"{k[0]} clause={k[1]} tableIndex={k[2]}"
+
+
+def fmt_dt_key(k):
     return f"{k[0]} clause={k[1]} tableIndex={k[2]}"
 
 
@@ -372,6 +442,76 @@ def render_segment_section(
 # ---------------------------------------------------------------------------
 
 
+def render_data_type_section(
+    common_keys, llm_only_keys, py_only_keys,
+    findings_list, llm_duplicates, py_duplicates, limit, lines,
+):
+    bucket, component_kinds = bucket_data_type_findings(findings_list)
+
+    lines.append("")
+    lines.append("## Complex data types")
+    lines.append("")
+    lines.append(f"- Common occurrence keys: {len(common_keys)}")
+    lines.append(f"- LLM-only: {len(llm_only_keys)}")
+    lines.append(f"- python-docx-only: {len(py_only_keys)}")
+    lines.append("")
+    lines.append("| Bucket | Count |")
+    lines.append("|--------|------:|")
+    for k in ("fully_agree", "agree_with_metadata_diff", "disagree_components"):
+        lines.append(f"| {k} | {bucket.get(k, 0)} |")
+    lines.append("")
+    lines.append(f"Component disagreement kinds: {dict(component_kinds)}")
+
+    if llm_duplicates or py_duplicates:
+        lines.append("")
+        lines.append("### Duplicate provenance keys")
+        lines.append("")
+        lines.append(
+            "More than one occurrence in the same corpus shares the same "
+            "(code, clause, tableIndex). The comparison uses the first occurrence; "
+            "extras are not compared."
+        )
+        if llm_duplicates:
+            lines.append("")
+            lines.append(f"LLM duplicates ({len(llm_duplicates)}):")
+            for k, n in sorted(llm_duplicates.items()):
+                lines.append(f"- {fmt_dt_key(k)}: {n} occurrences")
+        if py_duplicates:
+            lines.append("")
+            lines.append(f"python-docx duplicates ({len(py_duplicates)}):")
+            for k, n in sorted(py_duplicates.items()):
+                lines.append(f"- {fmt_dt_key(k)}: {n} occurrences")
+
+    if llm_only_keys:
+        lines.append("")
+        lines.append("### LLM-only data type occurrences (first 30)")
+        for k in sorted(llm_only_keys)[:30]:
+            lines.append(f"- {fmt_dt_key(k)}")
+    if py_only_keys:
+        lines.append("")
+        lines.append("### python-docx-only data type occurrences (first 30)")
+        for k in sorted(py_only_keys)[:30]:
+            lines.append(f"- {fmt_dt_key(k)}")
+
+    detailed = [f for f in findings_list if f["component_diffs"]][:limit]
+    if detailed:
+        lines.append("")
+        lines.append(f"### Detailed data type disagreements (first {len(detailed)})")
+        for f in detailed:
+            lines.append("")
+            lines.append(f"#### {f['code']} clause={f['py_clause']} tableIndex={f['py_tableIndex']}")
+            lines.append(f"- name match: {f['name_match']}")
+            lines.append(f"- caption match: {f['caption_match']}")
+            lines.append(f"- Component diffs ({len(f['component_diffs'])}):")
+            for d in f["component_diffs"][:6]:
+                if d["kind"] == "length":
+                    lines.append(f"  - LENGTH: pydocx={d['py_len']}, llm={d['llm_len']}")
+                else:
+                    lines.append(f"  - component {d['index']}: pydocx={d['py']} → llm={d['llm']}")
+
+    return bucket
+
+
 def run_message_comparison(filter_prefix):
     if not LLM_MSG_DIR.exists():
         return None
@@ -419,18 +559,43 @@ def run_segment_comparison(filter_prefix):
     return common, llm_only, py_only, findings_list, llm_duplicates, py_duplicates
 
 
+def run_data_type_comparison(filter_prefix):
+    if not LLM_DT_DIR.exists():
+        return None
+    llm_index = index_data_type_corpus(LLM_DT_DIR)
+    py_index = index_data_type_corpus(PYDOCX_DT_DIR)
+
+    if filter_prefix:
+        llm_index = {k: v for k, v in llm_index.items() if k[0].startswith(filter_prefix)}
+        py_index = {k: v for k, v in py_index.items() if k[0].startswith(filter_prefix)}
+
+    llm_duplicates = {k: len(v) for k, v in llm_index.items() if len(v) > 1}
+    py_duplicates = {k: len(v) for k, v in py_index.items() if len(v) > 1}
+
+    common = set(llm_index) & set(py_index)
+    llm_only = set(llm_index) - set(py_index)
+    py_only = set(py_index) - set(llm_index)
+
+    findings_list = [
+        compare_data_type_occurrence(key[0], py_index[key][0], llm_index[key][0])
+        for key in sorted(common)
+    ]
+    return common, llm_only, py_only, findings_list, llm_duplicates, py_duplicates
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--limit", type=int, default=20, help="Max detailed diffs to show per section")
     parser.add_argument("--filter", default=None,
                         help="Only consider IDs starting with this prefix "
-                             "(matches structureId for message structures, code for segments)")
+                             "(matches structureId for message structures, code for segments/data types)")
     args = parser.parse_args()
 
     lines = ["# python-docx vs LLM extraction — comparison report", ""]
 
     msg_summary = None
     seg_summary = None
+    dt_summary = None
 
     msg_result = run_message_comparison(args.filter)
     if msg_result is None:
@@ -448,6 +613,15 @@ def main():
             common, llm_only, py_only, findings_list, llm_dups, py_dups, args.limit, lines,
         )
 
+    dt_result = run_data_type_comparison(args.filter)
+    if dt_result is None:
+        lines.append("\n_(data-type LLM corpus not present — skipping)_\n")
+    else:
+        common, llm_only, py_only, findings_list, llm_dups, py_dups = dt_result
+        dt_summary = render_data_type_section(
+            common, llm_only, py_only, findings_list, llm_dups, py_dups, args.limit, lines,
+        )
+
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text("\n".join(lines) + "\n")
 
@@ -461,6 +635,13 @@ def main():
         common, llm_only, py_only, _, llm_dups, py_dups = seg_result
         print(f"Segments — common: {len(common)}, LLM-only: {len(llm_only)}, pydocx-only: {len(py_only)}")
         for k, v in sorted((seg_summary or {}).items()):
+            print(f"  {k}: {v}")
+        if llm_dups or py_dups:
+            print(f"  duplicate provenance keys — LLM: {len(llm_dups)}, pydocx: {len(py_dups)}")
+    if dt_result is not None:
+        common, llm_only, py_only, _, llm_dups, py_dups = dt_result
+        print(f"Data types — common: {len(common)}, LLM-only: {len(llm_only)}, pydocx-only: {len(py_only)}")
+        for k, v in sorted((dt_summary or {}).items()):
             print(f"  {k}: {v}")
         if llm_dups or py_dups:
             print(f"  duplicate provenance keys — LLM: {len(llm_dups)}, pydocx: {len(py_dups)}")

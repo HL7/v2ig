@@ -50,6 +50,7 @@ SOURCE_DIR = PROJECT_ROOT / "v2plus_docx"
 OUTPUT_DIR = PROJECT_ROOT / "v291-llm"
 MSG_STRUCT_OUT = OUTPUT_DIR / "message-structures"
 SEGMENTS_OUT = OUTPUT_DIR / "segments"
+DATA_TYPES_OUT = OUTPUT_DIR / "data-types" / "complex"
 
 MODEL = "claude-sonnet-4-6@default"
 MAX_TOKENS = 8000  # plenty for one table; far less than the 64K Sonnet ceiling
@@ -116,6 +117,30 @@ class SegmentRecord(BaseModel):
     occurrence: SegmentOccurrence
 
 
+class DataTypeComponent(BaseModel):
+    sequence: str
+    length: str = ""
+    confLength: str = ""
+    dataType: str = ""
+    optionality: str = ""
+    tableBinding: str = ""
+    name: str = ""
+    comments: str = ""
+    sectionRef: str = ""
+
+
+class DataTypeOccurrence(BaseModel):
+    name: str
+    caption: str = ""
+    provenance: Provenance
+    components: List[DataTypeComponent]
+
+
+class DataTypeRecord(BaseModel):
+    code: str
+    occurrence: DataTypeOccurrence
+
+
 # Schema is split per heuristic hint rather than wrapped in a single
 # discriminated union: Vertex structured_outputs rejected the union form
 # as "Schema is too complex" / "Grammar compilation timed out" (2026-05-17).
@@ -124,6 +149,7 @@ class SegmentRecord(BaseModel):
 SCHEMA_FOR_HINT = {
     "message_structure": MessageStructureRecord,
     "segment": SegmentRecord,
+    "data_type": DataTypeRecord,
 }
 
 
@@ -208,6 +234,38 @@ Rules for the fields array:
   * `repetition` is "Y" / "" / a number, copied from the source.
   * Don't normalize, don't fix typos. Source-faithful capture is the goal.
 
+# Mode: data_type
+
+Lists the components of an HL7 V2 complex data type (a.k.a. "HL7 Component
+Table"). The section heading is typically of the form "HL7 Component Table -
+CWE – Coded with Exceptions". Columns are usually:
+SEQ | LEN | C.LEN | DT | OPT | TBL# | COMPONENT NAME | COMMENTS | SEC.REF.
+
+Note the column differences from segment mode: data types have COMMENTS and
+SEC.REF. instead of segment's RP/# (repetition) and ITEM# (item number).
+
+Output shape:
+{
+  "code": "CWE",
+  "occurrence": {
+    "name": "Coded with Exceptions",
+    "caption": "HL7 Component Table - CWE – Coded with Exceptions",
+    "provenance": { ... },
+    "components": [
+      { "sequence": "1", "length": "", "confLength": "20=", "dataType": "ST",
+        "optionality": "O", "tableBinding": "", "name": "Identifier",
+        "comments": "", "sectionRef": "2A.2.76" },
+      ...
+    ]
+  }
+}
+
+Rules for the components array:
+  * Preserve cells verbatim. If a cell is blank, emit "".
+  * `confLength` often has trailing markers like "20=" or "199#"; copy verbatim.
+  * `sectionRef` is a clause number like "2A.2.76"; copy verbatim.
+  * Don't normalize, don't fix typos. Source-faithful capture is the goal.
+
 # Universal rules
 
   * COPY the `provenance` object verbatim from the user's input — do not
@@ -233,6 +291,7 @@ Rules for the fields array:
 HEADING_STYLE_RE = re.compile(r"^Heading\s*(\d+)$", re.IGNORECASE)
 MSG_CAPTION_STYLE = "Msg Table Caption"
 ATTR_CAPTION_STYLE = "Attribute Table Caption"
+COMPONENT_CAPTION_STYLE = "Component Table Caption"
 
 
 def iter_body(doc):
@@ -317,7 +376,7 @@ def walk_chapter(docx_path, chapter_num):
                 current_caption = ""
                 current_caption_style = ""
                 recent_paras = []
-            elif style in (MSG_CAPTION_STYLE, ATTR_CAPTION_STYLE):
+            elif style in (MSG_CAPTION_STYLE, ATTR_CAPTION_STYLE, COMPONENT_CAPTION_STYLE):
                 current_caption = text
                 current_caption_style = style
                 recent_paras = []
@@ -352,12 +411,14 @@ def walk_chapter(docx_path, chapter_num):
 def likely_extractable(caption_style):
     """Pre-filter using the caption style. Cheap and reliable for V2.9.1 docs.
 
-    Returns 'message_structure' | 'segment' | 'unknown'.
+    Returns 'message_structure' | 'segment' | 'data_type' | 'unknown'.
     """
     if caption_style == MSG_CAPTION_STYLE:
         return "message_structure"
     if caption_style == ATTR_CAPTION_STYLE:
         return "segment"
+    if caption_style == COMPONENT_CAPTION_STYLE:
+        return "data_type"
     return "unknown"
 
 
@@ -436,15 +497,43 @@ def write_segment_occurrence(record, registry):
 
 def flush_segment_registry(registry):
     SEGMENTS_OUT.mkdir(parents=True, exist_ok=True)
+    return _flush_registry(registry, SEGMENTS_OUT)
+
+
+def write_data_type_occurrence(record, registry):
+    registry[record.code].append(record.occurrence.model_dump())
+
+
+def flush_data_type_registry(registry):
+    DATA_TYPES_OUT.mkdir(parents=True, exist_ok=True)
+    return _flush_registry(registry, DATA_TYPES_OUT)
+
+
+def _flush_registry(registry, out_dir):
+    """Merge new occurrences into per-code files, deduping by (clause, tableIndex).
+
+    Re-running the same chapter would otherwise duplicate every occurrence. The
+    dedupe key matches what the comparison script uses to join corpuses.
+    """
     written = []
     for code, occurrences in registry.items():
-        path = SEGMENTS_OUT / f"{code}.json"
+        path = out_dir / f"{code}.json"
         if path.exists():
             existing = json.loads(path.read_text())
             existing_occurrences = existing.get("occurrences", [])
         else:
             existing_occurrences = []
-        merged = existing_occurrences + occurrences
+
+        seen = set()
+        merged = []
+        for occ in existing_occurrences + occurrences:
+            prov = occ.get("provenance", {})
+            key = (prov.get("clause", ""), prov.get("tableIndex"))
+            if key in seen:
+                continue
+            seen.add(key)
+            merged.append(occ)
+
         path.write_text(
             json.dumps({"code": code, "occurrences": merged}, indent=2, ensure_ascii=False) + "\n"
         )
@@ -472,10 +561,12 @@ def main():
         print(f"ERROR: {docx_path} does not exist", file=sys.stderr)
         return 2
 
-    chapter_match = re.match(r"CH(\d+)", args.docx)
+    # Capture an optional letter suffix (CH02A, CH04A, CH04B) — these have
+    # distinct chapter codes in the python-docx corpus ("02A", clause prefix "2A").
+    chapter_match = re.match(r"CH(\d+[A-Z]?)", args.docx)
     chapter_raw = chapter_match.group(1) if chapter_match else ""
-    chapter = chapter_raw  # used for provenance.chapter (zero-padded form e.g. "03")
-    chapter_num = chapter_raw.lstrip("0") or "0"  # used for clause prefix e.g. "3"
+    chapter = chapter_raw  # used for provenance.chapter (zero-padded form e.g. "02A")
+    chapter_num = chapter_raw.lstrip("0") or "0"  # used for clause prefix e.g. "2A"
 
     candidates = []
     for entry in walk_chapter(docx_path, chapter_num):
@@ -517,6 +608,7 @@ def main():
     client = AnthropicVertex()
 
     seg_registry = defaultdict(list)
+    dt_registry = defaultdict(list)
     counts = defaultdict(int)
     total_usage = defaultdict(int)
 
@@ -567,13 +659,19 @@ def main():
             write_segment_occurrence(result, seg_registry)
             print(f"segment {result.code} (queued)")
             counts["segment_occurrence"] += 1
+        elif c["hint"] == "data_type":
+            write_data_type_occurrence(result, dt_registry)
+            print(f"data_type {result.code} (queued)")
+            counts["data_type_occurrence"] += 1
 
     seg_paths = flush_segment_registry(seg_registry)
+    dt_paths = flush_data_type_registry(dt_registry)
 
     print("\n=== Summary ===")
     for k, v in sorted(counts.items()):
         print(f"  {k}: {v}")
     print(f"  segment files written: {len(seg_paths)}")
+    print(f"  data type files written: {len(dt_paths)}")
     print(f"\n=== Token usage ===")
     for k, v in total_usage.items():
         print(f"  {k}: {v}")
