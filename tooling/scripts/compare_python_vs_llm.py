@@ -53,17 +53,29 @@ def load_json(path):
 
 
 def is_pydocx_group_marker(elem):
-    """python-docx misencodes group begin/end as type:'segment' with empty
-    or '}]' code. Recognize so we can normalize for comparison.
+    """python-docx misencodes group begin/end as type:'segment' with a
+    bracket-only code. Recognize so we can normalize for comparison.
 
-    Group descriptions follow the '--- NAME begin'/'--- NAME end' convention.
+    Group descriptions usually follow the '--- NAME begin'/'--- NAME end'
+    convention, but a few markers come through with empty descriptions (e.g.
+    rows that source-side were bare '[{' or ']'). The code-only check catches
+    these. A real segment code is 2-4 alphanumeric chars; markers are pure
+    bracket/brace/pipe punctuation.
+
     A substring match on 'begin'/'end' is unsafe — 'Gender' contains 'end'.
     """
     if elem.get("type") != "segment":
         return False
     code = elem.get("code", "")
     desc = elem.get("description", "")
-    return code in ("", "}]") or desc.startswith("--- ")
+    if desc.startswith("--- "):
+        return True
+    if code == "":
+        return True
+    # Code with no alphanumerics is bracket-only — a marker, not a segment.
+    if not any(c.isalnum() for c in code):
+        return True
+    return False
 
 
 def normalize_parsed(elements, source):
