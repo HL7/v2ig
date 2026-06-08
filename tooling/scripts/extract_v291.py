@@ -218,6 +218,32 @@ def parse_segment_field_table(table: Table) -> List[Dict[str, Any]]:
     return fields
 
 
+def _extract_msg_struct_cols(row: List[str]) -> Tuple[str, str, str, str]:
+    """
+    Extract (segments, description, status, chapter) from a message structure row.
+
+    Handles two row shapes:
+      - Standard: 4 or 5 cells (Chapter sometimes duplicated as a Word artifact)
+      - Harmony-inserted: 6 cells with an extra empty cell at index 3, shifting
+        Chapter to index 4. Observed in CH07 message structures for GSP/GSR/GSC
+        rows that were inserted via gender-harmony content insertion.
+    """
+    segments_col = row[0].strip()
+    description_col = row[1].strip()
+    status_col = row[2].strip() if len(row) > 2 else ""
+    chapter_col = row[3].strip() if len(row) > 3 else ""
+
+    # 6-cell harmony variant: index 3 is empty, real chapter sits at index 4 or 5
+    if not chapter_col and len(row) > 4:
+        for cell in row[4:]:
+            cell_val = cell.strip()
+            if cell_val:
+                chapter_col = cell_val
+                break
+
+    return segments_col, description_col, status_col, chapter_col
+
+
 def parse_message_structure_table(table: Table) -> Tuple[List[Dict], List[Dict]]:
     """
     Parse a message structure table.
@@ -237,11 +263,7 @@ def parse_message_structure_table(table: Table) -> Tuple[List[Dict], List[Dict]]
         if len(row) < 4:
             continue
 
-        # Handle both 4 and 5 column tables (sometimes Chapter appears twice)
-        segments_col = row[0].strip()
-        description_col = row[1].strip()
-        status_col = row[2].strip() if len(row) > 2 else ""
-        chapter_col = row[3].strip() if len(row) > 3 else ""
+        segments_col, description_col, status_col, chapter_col = _extract_msg_struct_cols(row)
 
         # Skip empty rows
         if not segments_col:
@@ -281,10 +303,7 @@ def _parse_table_no_header_skip(table: Table) -> Tuple[List[Dict], List[Dict]]:
         if len(row) < 4:
             continue
 
-        segments_col = row[0].strip()
-        description_col = row[1].strip()
-        status_col = row[2].strip() if len(row) > 2 else ""
-        chapter_col = row[3].strip() if len(row) > 3 else ""
+        segments_col, description_col, status_col, chapter_col = _extract_msg_struct_cols(row)
 
         if not segments_col:
             continue
@@ -542,8 +561,11 @@ def parse_data_type_components_table(table: Table) -> List[Dict[str, Any]]:
         if len(row) < 9:
             continue
 
-        # Skip empty rows
-        if not row[0].strip():
+        # Skip rows where every cell is empty. Primitives (DT, DTM, FT, GTS, ID,
+        # IS, NM, SI, SNM, ST, TM, TX) have an empty SEQ cell — they're not
+        # subdivided into components — but carry length/name/etc. in other cells,
+        # so don't filter on row[0] alone.
+        if not any(cell.strip() for cell in row):
             continue
 
         component = {

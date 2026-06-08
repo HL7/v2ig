@@ -188,7 +188,7 @@ V2 cardinality notation:
 
 Output shape:
 {
-  "structureId": "ADT_A01",   // from the section heading "ADT^A01^ADT_A01: ..."
+  "structureId": "ADT_A01",   // third caret-separated token of the caption, verbatim
   "caption": "ADT^A01^ADT_A01: ADT Message",   // section heading verbatim
   "provenance": { ... fields the user provides verbatim ... },
   "rawRows": [
@@ -206,6 +206,11 @@ Output shape:
     { "type": "segment",     "code": "SFT", "description": "Software Segment", "optionality": "O", "repetition": true, "chapter": "2" }
   ]
 }
+
+structureId rule: take the third caret-separated token of the caption verbatim.
+Do NOT synthesize per-event IDs even when the third token is not unique. For
+example, the caption "ACK^R30^ACK: General Acknowledgment" yields structureId
+"ACK" (not "ACK_R30"); "ADT^A01^ADT_A01: ..." yields "ADT_A01".
 
 # Mode: segment
 
