@@ -18,41 +18,40 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-06-04 (LLM extraction end-to-end: CH03 cross-validated 98%)
+## ACTIVE — 2026-06-08 (LLM extraction extended to data types, validated across 4 chapters)
 
-**Phase:** ADR-0006 Phase 1 is **working end-to-end** on CH03. The LLM-extracted corpus and the python-docx-extracted corpus agree on 104/106 message structures (98%); the 2 remaining diffs are minor (one whitespace, one 1-element length). Two surprises got resolved along the way: Vertex `structured_outputs` rejected the discriminated-union schema as too complex (refactored to per-hint schemas), and the comparison script had a substring-match bug (`"end" in "Gender"`) that was masking the real agreement level.
+**Phase:** ADR-0006 Phase 1 now covers **message structures + segments + complex data types** across 4 chapters (CH02, CH02A, CH03, CH07). Total cross-corpus stats: 109/125 msg structures (87%), 51/52 segments (98%), 70/71 data types (99%) fully agree. The 16 msg-structure "disagreements" are 100% python-docx chapter-column drops on CH07 harmony segments — LLM is right in every case. The 12 "LLM-only" data types are primitive types python-docx misses entirely (its 9-column filter excludes them) — a real coverage gain.
 
-Template trust submission still in flight on Zulip (#IG creation) — unchanged from prior handoff.
+Template trust submission still in flight on Zulip (#IG creation) — unchanged.
 
 **Branches:**
-- `dev/framework` at `bfb565b2` (**3 ahead of origin**, not pushed yet — gh auth expired) — tooling-only changes; not destined for main/build
+- `dev/framework` at `4a3a76ae` (**in sync with origin** — gh auth restored this session, 7 commits pushed)
 - `origin/main` at `1f8bf2d5` (unchanged)
 - `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust until the trust PR lands
 
 ### Next session's first move
 
-**Push the 3 local commits.** Re-authenticate `gh auth login` (the 2026-04-30 session's 7-day token has lapsed), then `git push origin dev/framework`. Three commits: schema-split + --offset flag, compare-script bug fixes, gitignore + CH03 report.
+Pick one of three follow-up paths surfaced this session — all are independent.
 
-After that, the natural next step is **scale to another chapter**. CH02_Control.docx is a good candidate — different table styles (vocabulary, control-field tables) will exercise the heuristic's edge cases. Or skip ahead to a high-stakes chapter (CH04A_Orders, CH07_Observations) where any python-docx parsing gaps would matter most. Either way: re-run `extract_v291_llm.py CHXX_*.docx` then `compare_python_vs_llm.py --filter <prefix>`.
+1. **Scale to more chapters.** CH04A_Orders is the natural next high-stakes target (orders are the largest single domain; any pydocx parsing gaps would matter most there). Then CH04B, CH11_Patient_Admin, CH08, CH09, CH10. Each chapter is ~$0.5–2 in Sonnet 4.6 cost; full V2.9.1 should land under $15 total. Command: `python3 tooling/scripts/extract_v291_llm.py CHXX_*.docx && python3 tooling/scripts/compare_python_vs_llm.py`.
+2. **Fix the python-docx chapter-column bug.** All CH07 disagreements (and likely future-chapter ones) trace to `extract_v291.py` dropping the chapter cell for harmony-inserted segments. Same root cause as the 2026-04-15 CCM_I21/CCR_I16/CCU_I20 table-continuation fix. Fixing this in pydocx would make the comparison report cleaner for any new chapter run.
+3. **Fix the python-docx primitive-type gap.** `extract_v291.py` requires 9 columns for data type tables; primitives (DT, DTM, FT, GTS, ID, IS, NM, SI, SNM, ST, TM, TX) have fewer. Either relax the filter or add a separate primitive-table branch. LLM has already extracted all 12; pydocx side is the laggard.
 
-A second follow-on worth doing: **extend the comparison script to cover segments**. CH03 produced 21 LLM-extracted segments (EVN, PID, etc.) but `compare_python_vs_llm.py` currently only diffs message structures. Adding the segment-side comparison is the obvious gap.
+A minor LLM-side cleanup worth doing if time allows: **prompt clarification for ACK structureIds**. The LLM picks `ACK_A03` for legacy event-specific ACKs, while pydocx (correctly per the source convention) picks the third caption token `ACK`. Five "LLM-only" message structures fall out of this. One-line prompt tweak should align them.
 
 ### Pending user actions before next Claude session
 
-1. **Refresh gh auth** so the next session can `git push origin dev/framework` and not need to ask. `gh auth login` (web flow) or paste a new PAT via `gh auth login --with-token`.
-2. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", that's the next concrete step (one-line addition to `TemplateManager.java` in HL7/fhir-ig-publisher). If feedback to fix something first, do that.
+1. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", next concrete step is the one-line PR to `TemplateManager.java` in HL7/fhir-ig-publisher. If feedback to fix something first, do that.
 
-### CH03 cross-validation result (NEW)
+### Cumulative cross-validation results (CH02 + CH02A + CH03 + CH07)
 
-| Metric | Value |
-|--------|-------|
-| Tables extracted | 129/129, 0 errors |
-| Cost | $2.31 (~$0.018/table; cache reads dominate after warmup) |
-| Wall time | ~30 min |
-| Message structures fully agreeing | **104/106 (98%)** |
-| Remaining diffs | ADT_A01_03_4 (OH3 description trailing "/" — Word multi-paragraph cell handling), ADT_A44_03_80 (1-element length) |
+| Section | Common | Fully agree | Notes |
+|---------|--------|-------------|-------|
+| Message structures | 125 | 109 (87%) | 16 disagree_both = CH07 chapter-column-only (pydocx bug); 5 LLM-only = ACK structureId variant |
+| Segments | 52 | 51 (98%) | 1 GSR extra empty row (LLM, prior session); 2 LLM duplicate provenance keys |
+| Complex data types | 71 | 70 (99%) | 1 curly-vs-straight apostrophe (DLN); **12 LLM-only primitive types** are coverage gain |
 
-Report: `v291-llm/comparison-report.md` (committed).
+Report: `v291-llm/comparison-report.md` (committed). Cumulative LLM cost across all 4 chapters: ~$4.60.
 
 ### Build verification status
 
@@ -85,6 +84,63 @@ Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report
 ---
 
 ## Session History
+
+## 2026-06-08 — LLM extraction extended to data types; CH02 + CH02A + CH07 cross-validated
+
+### Completed
+
+**Added a `data_type` extraction mode to `extract_v291_llm.py`.** Third Pydantic schema alongside `MessageStructureRecord` and `SegmentRecord`: `DataTypeRecord` with a `DataTypeOccurrence` carrying a list of `DataTypeComponent` (9 attrs — sequence, length, confLength, dataType, optionality, tableBinding, name, comments, sectionRef — distinct from segment's 9 by swapping repetition+itemNumber for comments+sectionRef). New caption-style constant `COMPONENT_CAPTION_STYLE = "Component Table Caption"` extends the `likely_extractable` heuristic. System prompt gained a new "# Mode: data_type" section with the column shape and an explicit `comments`/`sectionRef` rules subsection. Also factored out `_flush_registry` as a shared helper between segments and data types, deduping appended occurrences by `(clause, tableIndex)` so re-runs of the same chapter are idempotent (closes the duplicate-provenance follow-up surfaced in the 2026-06-04 segment work).
+
+**Fixed a chapter-suffix regex bug in `extract_v291_llm.py`.** `re.match(r"CH(\d+)", ...)` was dropping the letter suffix on `CH02A_DataTypes.docx` → chapter `"02"` / clause prefix `"2."`, but python-docx uses `"02A"` / `"2A."`. The comparison join would have silently failed for every data type. Changed to `r"CH(\d+[A-Z]?)"`. Same fix prepares the ground for CH04A, CH04B.
+
+**Added a parallel data-type section to `compare_python_vs_llm.py`.** Indexes by `(code, clause, tableIndex)`, compares the 9 component attributes, buckets as `fully_agree` / `agree_with_metadata_diff` / `disagree_components`, surfaces duplicate provenance keys. Mirrors the segment section's shape (one report file, three sections now).
+
+**Fixed `is_pydocx_group_marker` to recognize bracket-only code variants.** CH07's CSU_C09 had two undescribed group markers (`{code: ']', desc: ''}` and `{code: '}', desc: ''}`) that the explicit allowlist `code in ("", "}]")` missed. Slipped markers caused cascading false diffs after position 20. Replaced with a structural check: any code with no alphanumeric chars is bracket-only and therefore a marker. Real segment codes always have alphanums; `ROL|` and similar choice-suffix segments have alphanums in the prefix. ADT_A44_03_80 now correctly buckets as `fully_agree` (was the second residual diff from the 2026-06-04 CH03 work).
+
+**Extracted CH02A_DataTypes (83 tables, $0.74), CH07_Observations (37 tables, $1.38), CH02_Control (16 tables, $0.18).** Total $2.30 for this session, ~$4.60 cumulative across all 4 chapters. Cache reads dominate at scale — CH02A landed at ~$0.009/table (cheaper than CH03's $0.018/table because more table-level homogeneity).
+
+**Restored push capability.** The 2026-04-30 PAT had lapsed (7-day expiry on the `gh` install token); user generated a new PAT and added it to zshenv as `GITHUB_PERSONAL_ACCESS_TOKEN` plus a `GH_TOKEN` alias for `gh`. The initial push attempt failed because the git remote URL had the OLD token baked in (`https://x-access-token:ghp_OLD@github.com/...`) — `git push` uses the URL-embedded credentials, bypassing both env vars and the credential helper. Fix: `git remote set-url origin https://github.com/HL7/v2ig.git` to strip the embedded token, after which `/home/claude/.git-credential-helper` reads `GITHUB_PERSONAL_ACCESS_TOKEN` at each invocation. All 7 commits pushed; branch in sync with origin.
+
+### Results (cumulative across CH02 + CH02A + CH03 + CH07)
+
+| Section | Common | Fully agree | Disagreements |
+|---------|--------|-------------|---------------|
+| Message structures | 125 | 109 (87%) | 16 = CH07 chapter-column-only (pydocx bug) |
+| Segments | 52 | 51 (98%) | 1 = CH03 GSR extra row (LLM, prior session) |
+| Complex data types | 71 | 70 (99%) | 1 = curly-vs-straight apostrophe (DLN) |
+
+Plus three "LLM-only" findings worth carrying forward:
+- **12 primitive data types** (DT, DTM, FT, GTS, ID, IS, NM, SI, SNM, ST, TM, TX) — python-docx's 9-column filter rejects them entirely; LLM captures them naturally
+- **5 ACK structure variants** (ACK_A03, ACK_A33, ACK_R01, ACK_R30, ACK_R31) — LLM picks per-event structureIds while pydocx uses the third caption token (`ACK`) consistently
+- **0 false coverage gaps from pydocx** — every pydocx-only entry is accounted for
+
+### Why
+
+- **Per-chapter data_type schema over a generic component schema**: data types and segments have overlapping but distinct 9-attribute shapes. Folding both into one schema (with all 11 attributes as optional) would have produced messier validation and likely confused the LLM about which fields apply. Three flat schemas (one per heuristic hint) keeps each one tight and compiles cleanly through Vertex `structured_outputs` (no repeat of the "schema too complex" failure from 2026-06-04).
+- **Idempotent `_flush_registry` over write-each-call**: the segment-side flush was append-only, and the 2026-06-04 handoff flagged that re-running CH03 would have duplicated every segment occurrence. Adding dedupe by `(clause, tableIndex)` while extracting `_flush_registry` for the new data-types code path was the right time to make it idempotent. Cost: ~15 LOC.
+- **Group-marker heuristic: structural over allowlist**: maintaining a growing list of bracket variants (`""`, `"}]"`, `"]"`, `"}"`, possibly `">"`, ...) is brittle. The structural rule "no alphanumerics = bracket-only = marker" generalizes cleanly and won't need updating when a new variant appears.
+- **Stop signal triggered + investigated, not blindly proceeded**: when CH07 dropped to 17% agreement vs CH03's 98%, the user's "stop if any of them have significant issues" criterion fired. Investigation found the disagreements were all caused by python-docx bugs, not LLM regressions, so proceeding to CH02 was the right call. The handoff documents both findings so the next session knows the LLM corpus is the more reliable source on these points.
+
+### Commits this session
+
+On `dev/framework` (all pushed to origin):
+- `27b4f71d` — Add data_type mode to LLM extraction and comparison scripts
+- `4a3a76ae` — Extend pydocx group-marker heuristic, add CH02/CH02A/CH07 results
+
+Plus 5 commits inherited from the 2026-06-04 session that were finally pushed this session (`3e3317f7`, `12e31fd7`, `bfb565b2`, `8c1c7a9b`, `f08f9356`).
+
+On `main` / pushed to `build`: none (tooling-only).
+
+### Relevant context for next session
+
+- **Git remote URL no longer carries an embedded token.** Future PAT rotations only need updating `GITHUB_PERSONAL_ACCESS_TOKEN` in zshenv — the credential helper picks up the new value automatically. The lesson: don't bake tokens into remote URLs (they bypass the credential helper and silently expire). If a fresh container re-bakes the URL via some provisioning script, the same `git remote set-url origin https://github.com/HL7/v2ig.git` strips it again.
+- **`gh` needs `GH_TOKEN` or `GITHUB_TOKEN`, not `GITHUB_PERSONAL_ACCESS_TOKEN`.** User's zshenv now exports both. If `gh auth status` reports "not logged into any GitHub hosts" in a future session, that's the cause — either re-source the env or re-run `gh auth login --with-token` against `$GITHUB_TOKEN`.
+- **The python-docx chapter-column bug is reproducible.** Any chapter that imports GSP/GSR/GSC (or other harmony segments) will show "disagree_both" in the comparison report, all chapter-only. Future-chapter false alarms aside, the fix is in `extract_v291.py` — same Word table-continuation logic that needed CCM_I21/CCR_I16/CCU_I20 splitting on 2026-04-15.
+- **CH02A primitives are real data, not LLM hallucination.** Spot-checked DT (`{length: "4..8", confLength: "8", name: "Date"}`) and SI (`{length: "1..4", confLength: "4=", name: "Sequence ID"}`) — both extract correctly from the narrow source tables. The empty `dataType`/`optionality`/`sectionRef` fields aren't missing — primitives genuinely don't have those attributes in the source.
+- **Cost calibration update.** Per-chapter LLM cost was: CH02A $0.74 (83 tables), CH07 $1.38 (37 tables but more output tokens — message structures are bigger), CH02 $0.18 (16 tables, mostly small segments). The output-token cost dominates on segment/message work; cache-reads dominate on data types (more schema reuse). Full V2.9.1 should still land under $15 total.
+- **`v291-llm/` directory is large now**: 197 message-structure files, 52 segment files, 83 data-type files. All gitignored except `comparison-report.md`. Re-runs locally regenerate; only the report is tracked.
+
+---
 
 ## 2026-06-02 → 2026-06-04 — LLM extraction end-to-end on CH03, 98% cross-corpus agreement
 
