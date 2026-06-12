@@ -13,10 +13,17 @@ fix OR the SD may already be correcting a known docx error. So each resolution
 carries a DIRECTION and a RATIONALE, and the SDs are treated as the next
 iteration of the standard.
 
+Some findings can't be resolved by the reviewer alone -- they need the V2
+Management Group. Put DIRECTION `escalate-v2mgmt` on those in the worklist; they
+move to status 'needs-v2mgmt' and are exported by the `escalations` subcommand
+for the v2mgmt-review-report.md workflow. Once the committee answers, set a real
+DIRECTION and re-run `ingest`.
+
 Artifacts (all under v291-review/):
   registry.json                 -- canonical source of truth, one entry per delta
   review-worklist.md            -- the items needing your decision; YOU edit this
   fhir-vs-docx-changelog.md     -- the complete change ledger (deviations only)
+  v2mgmt-escalations.md         -- findings handed off to the V2 Management Group
   apply-report.md               -- what the last `apply` run did to the SDs
 
 Subcommands:
@@ -28,6 +35,7 @@ Subcommands:
   apply      Auto-apply resolved direction=fix-fhir entries to the FHIR SDs and
              append them to the changelog. Use --write to actually modify files.
   changelog  Regenerate fhir-vs-docx-changelog.md (deviations-only ledger).
+  escalations Export needs-v2mgmt findings to v2mgmt-escalations.md.
 
 Typical loop:
   1. python3 review_registry.py build
@@ -56,17 +64,24 @@ REGISTRY_PATH = REVIEW_DIR / "registry.json"
 WORKLIST_PATH = REVIEW_DIR / "review-worklist.md"
 CHANGELOG_PATH = REVIEW_DIR / "fhir-vs-docx-changelog.md"
 APPLY_REPORT_PATH = REVIEW_DIR / "apply-report.md"
+ESCALATIONS_PATH = REVIEW_DIR / "v2mgmt-escalations.md"
 
 FHIR_SEG_DIR = c3.FHIR_SEG_DIR
 FHIR_DT_DIR = c3.FHIR_DT_DIR
 
 # Lifecycle vocab -----------------------------------------------------------
-STATUS_VALUES = {"needs-review", "resolved", "wont-fix", "deferred", "stale"}
+STATUS_VALUES = {"needs-review", "resolved", "wont-fix", "deferred",
+                 "needs-v2mgmt", "stale"}
 DIRECTION_VALUES = {
     "fix-fhir",            # SD has a defect; edit SD to match docx
     "fhir-already-correct",  # SD intentionally corrects a docx error; no SD change
     "fix-both-docx-defect",  # both wrong; SD gets corrected value, docx defect logged
 }
+# A special "direction" the reviewer can put in the worklist meaning "I can't
+# resolve this alone -- it needs the V2 Management Group." It does NOT apply to
+# SDs; it moves the finding to status 'needs-v2mgmt' and surfaces it in the
+# escalations export for the v2mgmt-review-report.md workflow.
+ESCALATE_DIRECTION = "escalate-v2mgmt"
 
 # Which dimensions the auto-applier knows how to write to an SD.
 APPLIABLE_DIMENSIONS = {"name", "data_type", "optionality", "length", "conf_length", "binding"}
@@ -263,7 +278,8 @@ def cmd_worklist(args):
     lines.append("**DIRECTION** (pick one):")
     lines.append("- `fix-fhir` — the SD has a defect; edit the SD to match the source value")
     lines.append("- `fhir-already-correct` — the SD intentionally corrects a docx error; no SD change (logged as a docx defect)")
-    lines.append("- `fix-both-docx-defect` — both are wrong; provide the corrected value in DECISION (logged as a docx defect)\n")
+    lines.append("- `fix-both-docx-defect` — both are wrong; provide the corrected value in DECISION (logged as a docx defect)")
+    lines.append("- `escalate-v2mgmt` — you can't resolve this alone; it needs the V2 Management Group. No SD change; put the open question in RATIONALE. Surfaces in the escalations export.\n")
     lines.append(
         "**DECISION** = the value to write into the SD (for `fix-fhir`, usually "
         "the agreeing source value; for `fix-both`, the corrected value). For "
@@ -317,14 +333,16 @@ def cmd_ingest(args):
     by_group = defaultdict(list)
     for f in registry["findings"]:
         by_group[_group_key(f)].append(f)
-    # also index by (structure, dimension, outlier) since the tag drops corrob
+    # also index by (structure, dimension, outlier) since the tag drops corrob.
+    # Include needs-v2mgmt so a previously-escalated item can be re-decided once
+    # the committee answers.
     by_tag = defaultdict(list)
     for f in registry["findings"]:
-        if f["status"] in ("needs-review", "deferred"):
+        if f["status"] in ("needs-review", "deferred", "needs-v2mgmt"):
             by_tag[(f["structure"], f["dimension"], f["outlier"])].append(f)
 
     blocks = re.split(r"^## \[", text, flags=re.MULTILINE)[1:]
-    applied = skipped = 0
+    applied = skipped = escalated = 0
     today = _now()
     for blk in blocks:
         m = re.match(r"([^\]]+)\]", blk)
@@ -337,7 +355,7 @@ def cmd_ingest(args):
         if not direction:
             skipped += 1
             continue
-        if direction not in DIRECTION_VALUES:
+        if direction not in DIRECTION_VALUES and direction != ESCALATE_DIRECTION:
             print(f"  ! [{tag}] invalid DIRECTION '{direction}' — skipped")
             skipped += 1
             continue
@@ -352,6 +370,17 @@ def cmd_ingest(args):
             skipped += 1
             continue
         for f in targets:
+            if direction == ESCALATE_DIRECTION:
+                # Hand off to the V2 Management Group. No SD change; the open
+                # question lives in rationale and surfaces in the escalations
+                # export. Stays out of the changelog until later resolved.
+                f["status"] = "needs-v2mgmt"
+                f["direction"] = None
+                f["disposition"] = None
+                f["rationale"] = rationale
+                f["escalated_on"] = today
+                escalated += 1
+                continue
             f["status"] = "resolved"
             f["direction"] = direction
             f["rationale"] = rationale
@@ -367,7 +396,8 @@ def cmd_ingest(args):
             applied += 1
 
     _write_registry(registry)
-    print(f"Ingested decisions: {applied} findings resolved, {skipped} blocks skipped.")
+    print(f"Ingested decisions: {applied} resolved, {escalated} escalated to "
+          f"V2 management, {skipped} blocks skipped.")
     _status_summary(registry)
 
 
@@ -572,9 +602,54 @@ def cmd_changelog(args):
         lines.append("")
 
     pending = sum(1 for f in registry["findings"] if f["status"] == "needs-review")
-    lines.append(f"\n_{len(resolved)} resolved deviations · {pending} still awaiting review._\n")
+    escalated = sum(1 for f in registry["findings"] if f["status"] == "needs-v2mgmt")
+    lines.append(f"\n_{len(resolved)} resolved deviations · {pending} awaiting "
+                 f"review · {escalated} escalated to V2 management._\n")
     CHANGELOG_PATH.write_text("\n".join(lines) + "\n")
     print(f"Changelog: {CHANGELOG_PATH}  ({len(resolved)} resolved deviations)")
+
+
+# ---------------------------------------------------------------------------
+# V2 management escalations export
+# ---------------------------------------------------------------------------
+
+def cmd_escalations(args):
+    """Export needs-v2mgmt findings for the v2mgmt-review-report.md workflow.
+
+    These are items the reviewer could not resolve alone. The open question is
+    in each finding's rationale. This file is the bridge into the existing
+    V2 Management discussion document.
+    """
+    registry = _load_registry()
+    items = [f for f in registry["findings"] if f["status"] == "needs-v2mgmt"]
+    lines = ["# FHIR-vs-docx Findings Escalated to V2 Management\n",
+             f"_Generated {_now()} · {len(items)} findings_\n",
+             "Structural findings the reviewer flagged for the V2 Management "
+             "Group — could not be resolved from the source `.docx` alone. Fold "
+             "these into `v291-extracted/v2mgmt-review-report.md` for committee "
+             "discussion. Once the committee answers, set a real DIRECTION on the "
+             "corresponding worklist group and re-run `ingest`.\n"]
+    if not items:
+        lines.append("_None currently escalated._\n")
+    else:
+        # Group by structure for readability.
+        by_struct = defaultdict(list)
+        for f in items:
+            by_struct[f["structure"]].append(f)
+        for struct in sorted(by_struct):
+            lines.append(f"\n## {struct}\n")
+            lines.append("| ID | Seq | Dimension | pydocx | llm | fhir | Open question (rationale) |")
+            lines.append("|---|---|---|---|---|---|---|")
+            for f in sorted(by_struct[struct], key=lambda x: (int(x["seq"]), x["dimension"])):
+                v = f["values"]
+                lines.append(
+                    f"| {f['id']} | {f['seq']} | {f['dimension']} | "
+                    f"{v.get('pydocx','')!r} | {v.get('llm','')!r} | "
+                    f"{v.get('fhir','')!r} | "
+                    f"{(f.get('rationale') or '').replace('|','/')} |")
+            lines.append("")
+    ESCALATIONS_PATH.write_text("\n".join(lines) + "\n")
+    print(f"Escalations: {ESCALATIONS_PATH}  ({len(items)} findings)")
 
 
 # ---------------------------------------------------------------------------
@@ -589,10 +664,12 @@ def main():
     ap_apply = sub.add_parser("apply", help="Apply resolved fix-fhir entries to SDs")
     ap_apply.add_argument("--write", action="store_true", help="Actually modify SD files")
     sub.add_parser("changelog", help="Regenerate the change ledger")
+    sub.add_parser("escalations", help="Export needs-v2mgmt findings for the committee")
     args = ap.parse_args()
 
     {"build": cmd_build, "worklist": cmd_worklist, "ingest": cmd_ingest,
-     "apply": cmd_apply, "changelog": cmd_changelog}[args.cmd](args)
+     "apply": cmd_apply, "changelog": cmd_changelog,
+     "escalations": cmd_escalations}[args.cmd](args)
 
 
 if __name__ == "__main__":

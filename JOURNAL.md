@@ -46,7 +46,9 @@ These are tooling + data only (no IG content / FHIR SD edits yet). Safe to commi
 **Walk the review worklist with the user.** `v291-review/review-worklist.md` has **222 findings grouped into 37 decision blocks** (group = structure+dimension+outlier, so one decision covers all affected fields). The user authored decisions get parsed back via `ingest`, then `apply --write` patches the SDs and `changelog` records them. The dominant finding (collapses ~191 raw splits): **18 segments whose FHIR field `short` is a positional placeholder** (`BPX-1`, `SAC-1`, …) instead of the real field name — both pipelines independently carry the real names. Groups by size: SAC 49, BPX 22, INV 22, BTX 20, TCC 15, BUI 13, TCD 11, then smaller. These are textbook `fix-fhir`.
 
 Registry workflow commands (documented in `review_registry.py` docstring):
-`build` → `worklist` → (user edits worklist) → `ingest` → `apply --write` → `changelog`. The round-trip is TESTED end-to-end (applied + reverted BPX as a smoke test this session).
+`build` → `worklist` → (user edits worklist) → `ingest` → `apply --write` → `changelog`. The round-trip is TESTED end-to-end (applied + reverted BPX as a smoke test this session). **A step-by-step refresher lives in `v291-review/HOW-TO-WALK-THE-WORKLIST.md`** — read that first next week.
+
+**Escalation to V2 management is built in.** Some worklist items the user won't be able to resolve alone. Putting DIRECTION `escalate-v2mgmt` on a group moves it to status `needs-v2mgmt` (no SD change, open question captured in RATIONALE), and `review_registry.py escalations` exports them to `v2mgmt-escalations.md` for folding into `v291-extracted/v2mgmt-review-report.md`. Escalated items are excluded from apply + changelog until the committee answers and a real DIRECTION is set. Tested end-to-end this session.
 
 ### Pending user actions before next Claude session
 

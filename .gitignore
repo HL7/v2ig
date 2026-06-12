@@ -99,6 +99,7 @@ Thumbs.db
 ###########################################
 # registry.json is AUTHORED (holds review decisions + rationale) — track it.
 # The change ledger is the durable output — track it.
-# The worklist and apply-report are regenerable views — ignore them.
+# The worklist, apply-report, and escalations export are regenerable views.
 /v291-review/review-worklist.md
 /v291-review/apply-report.md
+/v291-review/v2mgmt-escalations.md
