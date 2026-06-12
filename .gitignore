@@ -91,5 +91,14 @@ Thumbs.db
 # LLM-extracted V2.9.1 corpus (ADR-0006 Phase 1) — generated, large #
 ######################################################################
 /v291-llm/*
-# But track the cross-corpus comparison report
+# But track the cross-corpus comparison reports
 !/v291-llm/comparison-report.md
+!/v291-llm/three-way-comparison-report.md
+
+# FHIR-vs-docx review registry (ADR-0006) #
+###########################################
+# registry.json is AUTHORED (holds review decisions + rationale) — track it.
+# The change ledger is the durable output — track it.
+# The worklist and apply-report are regenerable views — ignore them.
+/v291-review/review-worklist.md
+/v291-review/apply-report.md

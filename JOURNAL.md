@@ -18,69 +18,101 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-06-08 (three known pydocx/LLM bugs fixed; cross-validation cleaned up)
+## ACTIVE — 2026-06-12 (full V2.9.1 three-way extraction + FHIR-vs-docx review registry built)
 
-**Phase:** ADR-0006 Phase 1 cross-validation now cleaner. The three follow-up paths from the prior handoff (chapter-column drop, primitive-type filter, ACK structureId prompt) are all addressed. Cumulative agreement across CH02/CH02A/CH03/CH07: **124/125 msg structures (99%), 51/52 segments (98%), 82/83 data types (98%)** fully agree. All three remaining diffs are minor known quirks, not bugs.
+**Phase:** ADR-0006 advanced substantially. All 17 chapters now extracted by BOTH the python-docx and LLM pipelines, and a **neutral three-way comparison** (python-docx | LLM | FHIR StructureDefinitions) is in place. Built a **persistent review registry + change-ledger system** to track every FHIR-vs-docx structural delta through its lifecycle (discovered → reviewed → resolved → implemented), with auto-apply to the SDs on resolve.
 
-Template trust submission still in flight on Zulip (#IG creation) — unchanged.
+Push auth is fixed (was the prior blocker). Template trust submission still in flight on Zulip — unchanged.
+
+**Key principle locked in (per user, this session):** the docx is the *source* but NOT the *authority*. When FHIR SD ≠ docx it may be an SD defect OR the SD already correcting a known docx error — the SDs are the next iteration of the standard. The comparison is peer-neutral (no pipeline "corrects" another based on a second pipeline's expectation); disagreements are flagged to examine against source `.docx`. Every resolution carries a **direction** (`fix-fhir` / `fhir-already-correct` / `fix-both-docx-defect`) + **rationale**.
 
 **Branches:**
-- `dev/framework` at `877b19e8` (**2 commits ahead of origin** — push blocked, see Pending user actions)
-- `origin/main` at `1f8bf2d5` (unchanged)
-- `origin/build` at `865ecd74` (unchanged) — still rejected by template-trust until the trust PR lands
+- `dev/framework` at `2cbff521` + **uncommitted new work** (see below) — origin in sync through `2cbff521` (pushed this session)
+- `origin/main` at `1f8bf2d5` (unchanged); `origin/build` at `865ecd74` (unchanged)
+
+### Uncommitted work this session (NOT yet committed)
+
+- `tooling/scripts/compare_three_way.py` — NEW. Neutral 3-way peer comparison.
+- `tooling/scripts/review_registry.py` — NEW. Registry/worklist/ingest/apply/changelog system.
+- `v291-llm/three-way-comparison-report.md` — NEW (tracked output).
+- `v291-review/registry.json` — NEW (tracked; AUTHORED — holds review decisions). 222 findings, all `needs-review`.
+- `.gitignore` — track registry.json + 3-way report + changelog; ignore worklist + apply-report.
+- `v291-llm/comparison-report.md` — regenerated over full 17-chapter corpus.
+
+These are tooling + data only (no IG content / FHIR SD edits yet). Safe to commit to `dev/framework`; nothing needs to go to `main`/`build` until SD edits are actually applied.
 
 ### Next session's first move
 
-**Scale to more chapters.** With the cleanup landed, the comparison report will surface only genuine new findings on the next chapter run. CH04A_Orders is the natural next high-stakes target (orders are the largest single domain; any new pydocx parsing gaps would matter most there). Then CH04B, CH11_Patient_Admin, CH08, CH09, CH10. Each chapter is ~$0.5–2 in Sonnet 4.6 cost; full V2.9.1 should land under $15 total. Command: `python3 tooling/scripts/extract_v291_llm.py CHXX_*.docx && python3 tooling/scripts/compare_python_vs_llm.py`.
+**Walk the review worklist with the user.** `v291-review/review-worklist.md` has **222 findings grouped into 37 decision blocks** (group = structure+dimension+outlier, so one decision covers all affected fields). The user authored decisions get parsed back via `ingest`, then `apply --write` patches the SDs and `changelog` records them. The dominant finding (collapses ~191 raw splits): **18 segments whose FHIR field `short` is a positional placeholder** (`BPX-1`, `SAC-1`, …) instead of the real field name — both pipelines independently carry the real names. Groups by size: SAC 49, BPX 22, INV 22, BTX 20, TCC 15, BUI 13, TCD 11, then smaller. These are textbook `fix-fhir`.
 
-The ACK structureId prompt tweak is committed but **not yet validated** — the 5 existing `ACK_xxx` LLM-only entries are stale from before the tweak. They'll either drop off naturally when CH03/CH07 are re-extracted (e.g. as part of a broader re-run after another fix) or could be force-cleaned by deleting the 5 stale files and re-running CH03 alone (~$2.30). Not urgent; the cross-validation isn't blocked on it.
+Registry workflow commands (documented in `review_registry.py` docstring):
+`build` → `worklist` → (user edits worklist) → `ingest` → `apply --write` → `changelog`. The round-trip is TESTED end-to-end (applied + reverted BPX as a smoke test this session).
 
 ### Pending user actions before next Claude session
 
-1. **Refresh the GitHub PAT.** Push failed this session — `GITHUB_PERSONAL_ACCESS_TOKEN` from zshenv is being rejected by GitHub as "Invalid username or token". Credential helper is wired up correctly (it gets invoked; the password it returns just isn't accepted by GitHub). Most likely cause: the PAT generated 2026-06-08 has expired or was revoked. Generate a new fine-grained PAT with `contents: write` on `HL7/v2ig`, update `GITHUB_PERSONAL_ACCESS_TOKEN` in zshenv (and `GH_TOKEN`/`GITHUB_TOKEN` aliases), re-source, and push the two pending commits (`a6ac6ebf`, `877b19e8`).
-2. **Check #IG creation Zulip thread** — reply may have landed re: template trust submission. If "send the PR", next concrete step is the one-line PR to `TemplateManager.java` in HL7/fhir-ig-publisher. If feedback to fix something first, do that.
+1. **Walk the worklist** — this is the main collaborative step; the user makes the FHIR-vs-docx resolution calls. Can be done in-session conversationally (I record) or by editing the markdown.
+2. **Check #IG creation Zulip thread** — template trust submission reply may have landed. If "send the PR", next step is the one-line PR to `TemplateManager.java`.
 
-### Cumulative cross-validation results (CH02 + CH02A + CH03 + CH07)
+### Extraction & comparison results (full V2.9.1 corpus)
 
-| Section | Common | Fully agree | Remaining (all minor known quirks) |
-|---------|--------|-------------|--------|
-| Message structures | 125 | 124 (99%) | 1 = ADT_A01 "Usual Work /" Word-paragraph-join (LLM joins with " / ", pydocx strips); 5 LLM-only = stale ACK_xxx pre-tweak |
-| Segments | 52 | 51 (98%) | 1 = GSR extra empty row (LLM artifact, prior session); 2 LLM duplicate provenance keys |
-| Complex data types | 83 | 82 (98%) | 1 = curly-vs-straight apostrophe (DLN); **0 coverage gaps** (primitives now cross-validated) |
+- **LLM extraction**: all 17 chapters, 424 msg structures + 191 segments + 83 data types. Batch cost ~$8.31; cumulative full-corpus LLM cost ~$13. Zero errors across all chapters.
+- **2-way (pydocx vs LLM)**: 353/418 msg structures, 184/193 segments, 82/83 data types fully agree. Report: `v291-llm/comparison-report.md`.
+- **3-way (pydocx | LLM | FHIR)**: 190 segments + 71 data types present in all three. 207 segment + 15 data-type dimension-level splits. Report: `v291-llm/three-way-comparison-report.md`. Data types near-total agreement (15 splits, all FHIR-outlier). FHIR has 71 complex data types (12 primitives stored elsewhere — coverage gap, not disagreement).
 
-Report: `v291-llm/comparison-report.md` (committed). Cumulative LLM cost across all 4 chapters: ~$4.60 (no new LLM calls this session).
+### Deferred (pinned, not blocking)
+
+- **Normative prose capture** — neither pipeline grabs the `Definition:`/`Note:`/`Example:` prose below field/component tables. Doesn't affect structural identity, so deferred until after the structural review completes. See memory `project_normative_prose_capture.md`. The FHIR StructureDefs are the third reference for that work too.
 
 ### Build verification status
 
 Unchanged from prior handoff.
 
-- ✅ **Hxx recursive BackboneElement works.** Auto-IG built past validation on the 2026-04-29 19:56 UTC run.
-- ✅ **postproc-g full build passes** end-to-end (with `-tx n/a`).
-- ❌ **Auto-IG output check rejects** the inline `<script>` tags AND the `.js` files. See ADR-0004 (reversed 2026-04-29). Resolution path: HL7 template trust submission (in flight on Zulip).
-
-### Hot spots if the next auto-IG attempt fails after HL7 trust PR lands
-
-1. **R5 IG parameter format.** Our `v2plus.xml` may still use R4-style `code: "string"` parameters. R5 expects Coding `{system, code}`. Auto-IG warning seen on MVP: "property code is a class JsonPrimitive looking for an object". Not yet investigated for `v2plus.xml`.
-2. **Jekyll `menu.xml`.** Templates expect `input/includes/menu.xml`. v2plus.xml-based build is presumably fine here (existed before), but verify if the build chokes on missing includes.
-3. **Per-branch backoff.** Even after a successful build, if a subsequent push fails immediately the backoff window may re-engage. Build cycle planning should assume one shot per ~70 min on retries.
+- ✅ Hxx recursive BackboneElement works; ✅ postproc-g full build passes (with `-tx n/a`).
+- ❌ Auto-IG output check rejects inline `<script>` + `.js` files. Resolution path: HL7 template trust submission (in flight on Zulip).
 
 ### Open blockers (V2 Management decisions, not Claude work)
 
-Unchanged from prior handoff. Documented in `v291-extracted/v2mgmt-review-report.md` Sections 1–16. The Section 9 + 16 Hxx-equivalence question was answered last session by §1.12 errata; the rest stands:
-
-- **REVIEW-0001** — ACK clause 10.4 UAC repeating intentional or typo?
-- ACK caption description variants (7 non-standard occurrences)
-- NTE description form in MDM_T01/T02 — long vs short form
-- `GUARANTOR_INSURANCE` group name in RQI_I01 (typo `+` in clause 11.3.3?)
-- "for Additional Demographics" in PATIENT group (5 instances)
-- 358 bare "Participation" + 165 OBX mismatches — large-scale standardization
-- RDE_O11 RXO "Prescription Order" variant
-- 197 FHIR↔raw V291 diffs where FHIR has the better description
-- **Section 9 + 16 (refined)**: confirm `Hxx` ≡ `...` ≡ `etc.` per §1.12; confirm MSH/transmission-control exclusion as enforceable invariant; resolve cardinality on the 10 non-MFN placeholder slots; fill `RSP_K11.8-SEGMENT_PATTERN.1` null short/definition; recover `RTB_Knn.8` description; decide whether the §12.3 CH12 order-detail-family narrowing should be encoded as an additional invariant.
+Unchanged. Documented in `v291-extracted/v2mgmt-review-report.md` Sections 1–16. Note: the new `v291-review/` registry is the *structural element-level* tracker (segment fields, data-type components); the v2mgmt report remains the home for *message-structure-level* and broader policy questions (REVIEW-0001 ACK UAC, caption variants, group-name typos, large-scale standardization). The two are complementary, not duplicates.
 
 ---
 
 ## Session History
+
+## 2026-06-11 → 2026-06-12 — Full V2.9.1 three-way extraction + FHIR-vs-docx review registry
+
+### Completed
+
+**Pushed the 3 pending commits** — the prior session's PAT-rejection blocker was resolved; `dev/framework` is back in sync with origin through `2cbff521`.
+
+**Extracted CH04A_Orders, then batch-extracted the remaining 13 chapters via LLM.** CH04A first as a high-value single test (28 tables, $1.19) — came back clean, validating last session's harmony-row fix on the doubled `Chapter|Chapter` columns. Then batched CH04, CH05, CH06, CH08, CH09, CH10, CH11, CH12, CH13, CH14, CH15, CH16, CH17 (the structural chapters; skipped CH01 intro + CH02C vocabulary). All exit 0, zero errors, batch cost ~$8.31, cumulative full-corpus LLM cost ~$13. The LLM corpus now covers all 17 chapters: 424 msg structures, 191 segments, 83 data types — matching python-docx counts.
+
+**Built `tooling/scripts/compare_three_way.py`** — neutral peer comparison of python-docx | LLM | FHIR StructureDefinitions. Reuses the existing FHIR extractors (`extract_fhir_fields`, `extract_fhir_components`). Per element/dimension it classifies the agreement *configuration* (agree / 2-vs-1 split / 3-way split / coverage gap) without declaring any source authoritative; a 2-vs-1 split names the outlier as the one to **examine against source `.docx`**, explicitly not "the wrong one." Uniform normalization across all three (notably binding zero-padding `00104`≡`104`, which initially produced 3109 false segment splits — fixed via `norm_binding`).
+
+**Built `tooling/scripts/review_registry.py`** — the systematic FHIR-vs-docx delta tracker the user asked for. Subcommands: `build` (reconcile `registry.json` from the comparison, idempotent — preserves authored decisions, refreshes observed values, marks vanished deltas stale, keeps resolved), `worklist` (group findings into walkable decision blocks), `ingest` (parse user decisions back, expand group→per-field, require rationale), `apply [--write]` (auto-apply `fix-fhir`/`fix-both` resolutions to the SDs, stamp `implemented_in`), `changelog` (deviations-only ledger sectioned by direction). Registry has 222 findings → 37 worklist groups. Round-trip TESTED end-to-end: filled BPX group → ingest (22 resolved) → apply --write (placeholders `BPX-1`→`Set ID – BPX` etc.) → changelog → rebuild correctly recognized the fix and did not re-flag. Reverted the BPX test edit afterward (it was a smoke test, not a user-authorized decision).
+
+**Dominant finding:** 18 segments (SAC, BPX, INV, BTX, TCC, BUI, TCD, CNS, EQU, ECD, EQP, NDS, SID, CNN, ECR, ISD, DST + QPD partial) have FHIR field `short` set to a positional placeholder (`BPX-1`) instead of the real field name. Both extraction pipelines independently carry the real names — strong corroboration this is a fix-fhir defect, not a source ambiguity. This collapses ~191 raw `name` splits into ~18 group decisions.
+
+### Why
+
+- **docx as source, not authority** (user's framing): a 2-vs-1 split where two pipelines agree could still be two pipelines sharing a blind spot; and FHIR-vs-docx differences can be the SD *correcting* a docx error, since the SDs are the next standard iteration. So the registry records direction + rationale per resolution rather than presupposing which side is right, and the change ledger doubles as a record of docx defects for the next iteration.
+- **Group-level worklist over per-finding**: 222 individual decisions would be unusable; 37 groups (structure+dimension+outlier) make it walkable. The 18-segment placeholder issue is one pattern, not 191 judgments.
+- **registry.json tracked, worklist/apply-report ignored**: registry.json is authored content (decisions + rationale) — must survive in git. The worklist and apply-report are regenerable views. The change ledger is durable output, tracked.
+- **Auto-apply on resolve** (user choice): resolving a `fix-fhir` entry feeds straight into `apply --write`, which patches the SD and stamps provenance — fast throughput, with the dry-run default and the changelog as the audit trail.
+- **Deferred normative-prose capture** (user choice): descriptive prose below tables doesn't affect structural identity, so it's pinned for after the structural review.
+
+### Commits this session
+
+On `dev/framework` (pushed): the 3 previously-pending commits (`a6ac6ebf`, `877b19e8`, `2cbff521`) — now on origin.
+Uncommitted at handoff: `compare_three_way.py`, `review_registry.py`, `three-way-comparison-report.md`, `registry.json`, regenerated `comparison-report.md`, `.gitignore` update. See ACTIVE for the list. Tooling/data only — none needs to reach `main`/`build` until SD edits are applied.
+
+### Relevant context for next session
+
+- **The `v291-extracted/` and `v291-llm/` corpora on disk are the post-full-extraction versions** (gitignored). Re-running either extractor regenerates them; the comparison reads them directly.
+- **`apply` only handles name / data_type / optionality** so far. length / conf_length live in nested FHIR extensions — `_apply_to_element` returns None for those (they'll show as `no_op` and need a manual pass or a future extension to the applier). Only a handful of findings are in those dimensions.
+- **The registry reconciles by deterministic finding id** (`SEG-BPX-001-name`). Re-extracting a chapter and re-running `build` updates values without churning ids or losing decisions.
+- **Two trackers, complementary**: `v291-review/registry.json` = element-level (segment fields, data-type components); `v291-extracted/v2mgmt-review-report.md` = message-structure-level + policy questions. Don't merge them.
+
+---
 
 ## 2026-06-08 (later) — Three known bugs fixed before scaling LLM extraction further
 
