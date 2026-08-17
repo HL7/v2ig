@@ -13,11 +13,32 @@ Extracts all 797 code tables, each containing up to 7 sub-sections:
 
 Output: One JSON file per table in v291-extracted/vocabulary/
         Plus a summary index at v291-extracted/vocabulary-index.json
+        Plus a deviation log at v291-extracted/vocabulary-deviations.json
+
+FIDELITY POLICY
+---------------
+The published Chapter 2C is the source. This extractor is deliberately
+conservative about "cleaning" it, because any silent cleanup is a divergence
+the reviewer never gets to see.
+
+Only ONE normalization is applied automatically: leading/trailing whitespace is
+stripped from every cell. Every strip is recorded in the deviation log so a
+reviewer can confirm it.
+
+Everything else is PRESERVED exactly as published, and merely *reported*:
+  * internal double spaces (e.g. "ADT/ACK -  Register a patient")
+  * non-breaking spaces
+  * newlines inside a cell (usually legitimate paragraph structure)
+  * en/em dashes and typographic quotes
+
+Anything the extractor cannot parse, or chooses to skip, is also recorded
+rather than dropped silently -- see `sourceIssues` on each table record.
 
 Usage:
     python3 tooling/scripts/extract_v291_vocabulary.py
 """
 
+import datetime
 import json
 import os
 import sys
@@ -34,25 +55,162 @@ except ImportError:
 DOCX_PATH = "v2plus_docx/CH02C_Tables.docx"
 OUTPUT_DIR = "v291-extracted/vocabulary"
 INDEX_PATH = "v291-extracted/vocabulary-index.json"
+DEVIATIONS_PATH = "v291-extracted/vocabulary-deviations.json"
+
+NBSP = " "
 
 
-def parse_kv_table(table):
-    """Parse a 2-column key-value table into a dict."""
+class DeviationLog:
+    """Collects every place the extracted value differs from the published text.
+
+    There are two kinds of entry:
+
+    ``normalized``
+        The extractor changed the text (currently only whitespace stripping).
+        The reviewer should confirm the change was safe.
+
+    ``preserved``
+        The text looks irregular but was kept exactly as published. The
+        reviewer decides whether the published text is a typo worth fixing
+        downstream. The extractor never makes that call on its own.
+    """
+
+    def __init__(self):
+        self.entries = []
+
+    def record(self, kind, action, table_number, location, raw, value=None):
+        """Record one deviation.
+
+        Args:
+            kind: What was observed, e.g. 'leading_trailing_whitespace'.
+            action: Either 'normalized' or 'preserved'.
+            table_number: The CH02C table the text came from, e.g. '0396'.
+            location: Where in the table, e.g. 'codedContent[12].value'.
+            raw: The published text, verbatim.
+            value: The text as emitted, when it differs from ``raw``.
+        """
+        entry = {
+            'kind': kind,
+            'action': action,
+            'tableNumber': table_number,
+            'location': location,
+            'raw': raw,
+        }
+        if value is not None and value != raw:
+            entry['normalized'] = value
+        entry['section'], entry['field'] = split_location(location)
+        self.entries.append(entry)
+
+    def grouped(self):
+        """Group the deviations by kind, then by which field they occurred in.
+
+        A flat list of 1,300 whitespace notes is not reviewable. Grouping makes
+        the question answerable one bucket at a time: "internal double spaces in
+        code display names" is a different decision from "internal double spaces
+        in prose descriptions."
+
+        Returns:
+            A list of group dicts, ordered by kind then by descending count.
+        """
+        buckets = {}
+        for entry in self.entries:
+            key = (entry['kind'], entry['action'], entry['section'], entry['field'])
+            buckets.setdefault(key, []).append(entry)
+
+        groups = []
+        for (kind, action, section, field), entries in buckets.items():
+            groups.append({
+                'kind': kind,
+                'action': action,
+                'section': section,
+                'field': field,
+                'count': len(entries),
+                'tables': sorted({e['tableNumber'] for e in entries}),
+                'deviations': entries,
+            })
+        groups.sort(key=lambda g: (g['kind'], -g['count'], g['section'], g['field']))
+        return groups
+
+
+def split_location(location):
+    """Split a location path into its sub-section and field name.
+
+    ``'codedContent[12].displayName'`` becomes ``('codedContent', 'displayName')``.
+    Row indices are dropped so that every row of the same column groups together.
+    """
+    without_index = re.sub(r'\[\d+\]', '', location)
+    if '.' in without_index:
+        section, field = without_index.split('.', 1)
+    else:
+        section, field = without_index, ''
+    return section, field
+
+
+def normalize_cell(raw, log, table_number, location):
+    """Strip surrounding whitespace from a published cell and report anomalies.
+
+    Stripping is the only change made. Internal irregularities (double spaces,
+    non-breaking spaces, embedded newlines) are left in place and reported so a
+    reviewer can decide about them.
+
+    Args:
+        raw: The cell text exactly as python-docx read it.
+        log: The DeviationLog to report into. May be None to skip reporting.
+        table_number: The CH02C table number, for the report.
+        location: A human-readable path to the cell, for the report.
+
+    Returns:
+        The cell text with leading/trailing whitespace removed.
+    """
+    value = raw.strip()
+
+    if log is None:
+        return value
+
+    if raw != value:
+        log.record('leading_trailing_whitespace', 'normalized',
+                   table_number, location, raw, value)
+    if NBSP in raw:
+        log.record('non_breaking_space', 'preserved', table_number, location, raw)
+    if '  ' in value:
+        log.record('internal_double_space', 'preserved', table_number, location, raw)
+    if '\n' in value:
+        log.record('embedded_newline', 'preserved', table_number, location, raw)
+
+    return value
+
+
+def parse_kv_table(table, log=None, table_number=None, section=None):
+    """Parse a 2-column key-value table into a dict.
+
+    Args:
+        table: The python-docx table.
+        log: Optional DeviationLog for whitespace reporting.
+        table_number: The CH02C table number, for the report.
+        section: Name of the sub-section, e.g. 'conceptDomain', for the report.
+    """
     result = {}
     for row in table.rows:
-        cells = [cell.text.strip() for cell in row.cells]
-        if len(cells) >= 2:
-            key = cells[0]
-            value = cells[1]
-            if key:
-                result[key] = value
+        raw_cells = [cell.text for cell in row.cells]
+        if len(raw_cells) < 2:
+            continue
+        key = normalize_cell(raw_cells[0], log, table_number, f"{section}.<key>")
+        if not key:
+            continue
+        value = normalize_cell(raw_cells[1], log, table_number, f"{section}.{key}")
+        result[key] = value
     return result
 
 
-def parse_coded_content_table(table):
-    """Parse a coded content table (Value, Display Name, Definition, Comment, Status)."""
+def parse_coded_content_table(table, log=None, table_number=None):
+    """Parse a coded content table (Value, Display Name, Definition, Comment, Status).
+
+    Rows with no Value but with content in other columns are NOT discarded --
+    they are returned with a ``_skipped`` marker so the caller can report them.
+    Silently dropping such a row is how real published content goes missing.
+    """
     if len(table.rows) < 1:
-        return []
+        return [], []
 
     # Get headers from first row
     headers = [cell.text.strip().lower() for cell in table.rows[0].cells]
@@ -74,42 +232,102 @@ def parse_coded_content_table(table):
             header_map[i] = h.replace(' ', '_').replace('/', '_')
 
     codes = []
+    skipped_rows = []
     for row_idx, row in enumerate(table.rows[1:], 1):
-        cells = [cell.text.strip() for cell in row.cells]
+        raw_cells = [cell.text for cell in row.cells]
+
+        # A row where every cell is empty is Word table padding, not content.
+        if not any(c.strip() for c in raw_cells):
+            continue
+
         entry = {}
-        for i, cell_text in enumerate(cells):
-            if i in header_map:
-                entry[header_map[i]] = cell_text
-        # Only include rows that have a value
+        for i, raw in enumerate(raw_cells):
+            if i not in header_map:
+                continue
+            field = header_map[i]
+            location = f"codedContent[{row_idx}].{field}"
+            entry[field] = normalize_cell(raw, log, table_number, location)
+
         if entry.get('value'):
             codes.append(entry)
+        else:
+            # Non-empty row with no code value. Never drop it silently --
+            # hand it back so the caller can report it for review.
+            skipped_rows.append({'rowIndex': row_idx, 'cells': entry})
 
-    return codes
+    return codes, skipped_rows
 
 
-def classify_table(table):
-    """Classify a Word table by its first cell content."""
+def classify_table(table, log=None, table_number=None):
+    """Classify a Word table by its first cell content.
+
+    Chapter 2C is not perfectly uniform: a handful of sections start their
+    Code System Version block with "Version" instead of "Effective Date", and
+    one starts its Table Metadata block with "Table OID" instead of "Table".
+    Those variants are recognized here so their content is not lost.
+
+    Returns:
+        A ``(kind, data)`` pair. For coded content ``data`` is itself a
+        ``(codes, skipped_rows)`` pair.
+    """
     if len(table.rows) < 1:
         return 'unknown', {}
 
     first_cell = table.rows[0].cells[0].text.strip().lower()
 
+    def kv(section):
+        return parse_kv_table(table, log, table_number, section)
+
     if 'concept domain name' in first_cell:
-        return 'concept_domain', parse_kv_table(table)
+        return 'concept_domain', kv('conceptDomain')
     elif 'code system oid' in first_cell:
-        return 'code_system', parse_kv_table(table)
-    elif first_cell in ('effective date',):
-        return 'code_system_version', parse_kv_table(table)
+        return 'code_system', kv('codeSystem')
+    elif first_cell in ('effective date', 'version'):
+        # "Version" is the CH02C variant heading for a Code System Version block.
+        return 'code_system_version', kv('codeSystemVersion')
     elif 'value set oid' in first_cell:
-        return 'value_set', parse_kv_table(table)
+        return 'value_set', kv('valueSet')
     elif first_cell in ('realm',):
-        return 'binding', parse_kv_table(table)
-    elif first_cell in ('table',):
-        return 'table_metadata', parse_kv_table(table)
+        return 'binding', kv('binding')
+    elif first_cell in ('table', 'table oid'):
+        # "Table OID" is the CH02C variant heading for a Table Metadata block.
+        return 'table_metadata', kv('tableMetadata')
     elif first_cell in ('value',) or ('value' in first_cell and 'display' in table.rows[0].cells[1].text.strip().lower() if len(table.rows[0].cells) > 1 else False):
-        return 'coded_content', parse_coded_content_table(table)
+        return 'coded_content', parse_coded_content_table(table, log, table_number)
     else:
-        return 'unknown', parse_kv_table(table)
+        return 'unknown', kv('unknown')
+
+
+# A code table heading looks like "0685 - Item Code - External (RQD-3)".
+# The four-digit form is required here because this pattern is also used to
+# rescue headings that carry the wrong Word style, and a looser pattern would
+# start matching ordinary body text.
+CODE_TABLE_HEADING_RE = re.compile(r'^\d{4}\s*[-‐‑‒–—]\s*\S')
+
+
+def is_code_table_heading(paragraph, style):
+    """Decide whether a paragraph starts a code table section.
+
+    Almost every section heading in Chapter 2C uses the "Heading 3" style.
+    Two do not: 0685 (Item Code - External) and 0767 (Bolus Dose Amount Units)
+    are styled "Normal" in the published document. That is a defect in the
+    source -- both tables are missing from the document's own table of
+    contents for the same reason -- and taking the style at face value drops
+    two complete code tables and silently merges their content into the
+    preceding section. So a "Normal" paragraph that otherwise looks exactly
+    like a section heading is accepted too.
+
+    Table-of-contents entries match the same text pattern, but they carry a tab
+    and a page number, which is what excludes them here.
+    """
+    text = paragraph.text.strip()
+    if not text:
+        return False
+    if style == 'Heading 3':
+        return text[0].isdigit()
+    if style == 'Normal' and '\t' not in text:
+        return bool(CODE_TABLE_HEADING_RE.match(text))
+    return False
 
 
 def build_paragraph_index(doc):
@@ -117,21 +335,35 @@ def build_paragraph_index(doc):
 
     Returns a list of (paragraph_index, heading_text, table_number, table_name) for
     all Heading 3 paragraphs that represent code tables.
+
+    Headings read "0001 - Administrative Sex", but the separator is not always a
+    plain hyphen -- at least one section (0827) uses an en dash. Splitting on
+    " - " alone leaves that section with the whole heading as its table number
+    and no name at all, so the separator is matched as a character class.
     """
+    heading_pattern = re.compile(r'^(\d[\w.]*)\s*[-‐‑‒–—]\s*(.*)$')
+
     table_headings = []
     for i, p in enumerate(doc.paragraphs):
-        if p.style and p.style.name == 'Heading 3':
+        style = (p.style.name or "") if p.style else ""
+        if is_code_table_heading(p, style):
             text = p.text.strip()
-            if text and text[0].isdigit():
-                parts = text.split(' - ', 1)
-                table_num = parts[0].strip()
-                table_name = parts[1].strip() if len(parts) > 1 else ''
-                table_headings.append({
-                    'para_idx': i,
-                    'table_number': table_num,
-                    'table_name': table_name,
-                    'heading_text': text,
-                })
+            match = heading_pattern.match(text)
+            if match:
+                table_num = match.group(1).strip()
+                table_name = match.group(2).strip()
+            else:
+                # No separator at all -- keep the whole heading as the number
+                # rather than guessing, and let the caller report it.
+                table_num = text
+                table_name = ''
+            table_headings.append({
+                'para_idx': i,
+                'table_number': table_num,
+                'table_name': table_name,
+                'heading_text': text,
+                'heading_style': style,
+            })
     return table_headings
 
 
@@ -206,6 +438,8 @@ def extract_all_tables(doc_path, output_dir):
     # Step 3: Extract each section
     os.makedirs(output_dir, exist_ok=True)
 
+    log = DeviationLog()
+
     index = []
     stats = {
         'total_sections': len(table_headings),
@@ -215,6 +449,8 @@ def extract_all_tables(doc_path, output_dir):
         'total_codes': 0,
         'with_code_system': 0,
         'with_value_set': 0,
+        'empty_source_tables': 0,
+        'skipped_code_rows': 0,
         'errors': [],
     }
 
@@ -238,12 +474,41 @@ def extract_all_tables(doc_path, output_dir):
             'tableMetadata': None,
             'codedContent': [],
             'unknownTables': [],
+            # Observations about the published source itself: empty tables,
+            # rows without a code, duplicated blocks. Not extraction errors.
+            'sourceIssues': [],
         }
+
+        if not tname:
+            record['sourceIssues'].append({
+                'issue': 'heading_has_no_table_name',
+                'detail': heading['heading_text'],
+            })
+
+        if heading.get('heading_style') != 'Heading 3':
+            record['sourceIssues'].append({
+                'issue': 'heading_has_wrong_word_style',
+                'detail': f"styled {heading.get('heading_style')!r} instead of 'Heading 3'; "
+                          f"this section is also missing from the document's table of contents",
+            })
 
         for ti in word_table_indices:
             try:
                 table = doc.tables[ti]
-                ttype, data = classify_table(table)
+
+                # A table with no text at all is an empty grid in the published
+                # document. Record it -- it may mean content is missing upstream.
+                if not any(cell.text.strip() for row in table.rows for cell in row.cells):
+                    record['sourceIssues'].append({
+                        'issue': 'empty_table_in_source',
+                        'wordTableIndex': ti,
+                        'rows': len(table.rows),
+                        'columns': len(table.columns),
+                    })
+                    stats['empty_source_tables'] += 1
+                    continue
+
+                ttype, data = classify_table(table, log, tnum)
 
                 if ttype == 'concept_domain':
                     if record['conceptDomain'] is None:
@@ -260,11 +525,42 @@ def extract_all_tables(doc_path, output_dir):
                 elif ttype == 'binding':
                     record['bindings'].append(data)
                 elif ttype == 'table_metadata':
-                    record['tableMetadata'] = data
+                    if record['tableMetadata'] is None:
+                        record['tableMetadata'] = data
+                    else:
+                        # Two metadata blocks in one section. Merge rather than
+                        # overwrite so the first block's keys are not lost, and
+                        # report the collision.
+                        clashes = {k: [record['tableMetadata'][k], v]
+                                   for k, v in data.items()
+                                   if k in record['tableMetadata']
+                                   and record['tableMetadata'][k] != v}
+                        record['sourceIssues'].append({
+                            'issue': 'duplicate_table_metadata_block',
+                            'wordTableIndex': ti,
+                            'conflictingKeys': clashes,
+                        })
+                        record['tableMetadata'].update(data)
                 elif ttype == 'coded_content':
-                    record['codedContent'] = data
+                    codes, skipped = data
+                    # Append, never replace: a section split across two Word
+                    # tables would otherwise lose the first half.
+                    record['codedContent'].extend(codes)
+                    for row in skipped:
+                        record['sourceIssues'].append({
+                            'issue': 'code_row_without_value',
+                            'wordTableIndex': ti,
+                            'rowIndex': row['rowIndex'],
+                            'cells': row['cells'],
+                        })
+                        stats['skipped_code_rows'] += 1
                 elif ttype == 'unknown':
                     record['unknownTables'].append(data)
+                    record['sourceIssues'].append({
+                        'issue': 'unclassified_table',
+                        'wordTableIndex': ti,
+                        'firstCell': table.rows[0].cells[0].text.strip()[:80],
+                    })
             except Exception as e:
                 stats['errors'].append({
                     'tableNumber': tnum,
@@ -275,6 +571,8 @@ def extract_all_tables(doc_path, output_dir):
         # Clean up empty lists
         if not record['unknownTables']:
             del record['unknownTables']
+        if not record['sourceIssues']:
+            del record['sourceIssues']
 
         # Update stats
         if record['codedContent']:
@@ -323,12 +621,16 @@ def extract_all_tables(doc_path, output_dir):
             index_entry['tableType'] = tm.get('Type', '')
             index_entry['steward'] = tm.get('Steward', '')
             index_entry['tableOID'] = tm.get('Table OID', '')
+        if record.get('sourceIssues'):
+            index_entry['sourceIssueCount'] = len(record['sourceIssues'])
 
         index.append(index_entry)
 
+    extraction_date = datetime.date.today().isoformat()
+
     # Write index
     index_output = {
-        'extractionDate': '2026-03-30',
+        'extractionDate': extraction_date,
         'sourceFile': 'CH02C_Tables.docx',
         'stats': stats,
         'tables': index,
@@ -336,6 +638,37 @@ def extract_all_tables(doc_path, output_dir):
     with open(INDEX_PATH, 'w') as f:
         json.dump(index_output, f, indent=2)
 
+    # Write the deviation log -- every difference between the published text
+    # and what was emitted, plus every irregularity left deliberately intact.
+    # Grouped by kind and by which field it occurred in, so each bucket is one
+    # reviewable decision rather than a thousand separate ones.
+    groups = log.grouped()
+
+    by_kind = {}
+    by_kind_and_field = {}
+    for entry in log.entries:
+        by_kind[entry['kind']] = by_kind.get(entry['kind'], 0) + 1
+    for group in groups:
+        where = f"{group['section']}.{group['field']}" if group['field'] else group['section']
+        by_kind_and_field.setdefault(group['kind'], {})[where] = group['count']
+
+    deviations_output = {
+        'extractionDate': extraction_date,
+        'sourceFile': 'CH02C_Tables.docx',
+        'policy': {
+            'normalized': ['leading_trailing_whitespace'],
+            'preserved': ['internal_double_space', 'non_breaking_space',
+                          'embedded_newline'],
+        },
+        'counts': by_kind,
+        'countsByField': by_kind_and_field,
+        'groups': groups,
+    }
+    with open(DEVIATIONS_PATH, 'w') as f:
+        json.dump(deviations_output, f, indent=2)
+
+    stats['deviations'] = by_kind
+    stats['deviationsByField'] = by_kind_and_field
     return stats
 
 
@@ -359,12 +692,22 @@ def main():
     print(f"  Total codes extracted: {stats['total_codes']}")
     print(f"  With code system: {stats['with_code_system']}")
     print(f"  With value set: {stats['with_value_set']}")
+    print(f"\n  Source observations (not extraction errors):")
+    print(f"    Empty tables in source: {stats['empty_source_tables']}")
+    print(f"    Code rows with no value: {stats['skipped_code_rows']}")
+    print(f"\n  Deviations from published text (by kind, then by field):")
+    by_field = stats.get('deviationsByField', {})
+    for kind, count in sorted(stats.get('deviations', {}).items()):
+        print(f"    {kind}: {count}")
+        for where, n in sorted(by_field.get(kind, {}).items(), key=lambda kv: -kv[1]):
+            print(f"        {n:5d}  {where}")
     if stats['errors']:
         print(f"  Errors: {len(stats['errors'])}")
         for err in stats['errors'][:5]:
             print(f"    Table {err['tableNumber']} (Word table {err['wordTableIndex']}): {err['error']}")
     print(f"\n  Output: {OUTPUT_DIR}/")
     print(f"  Index: {INDEX_PATH}")
+    print(f"  Deviations: {DEVIATIONS_PATH}")
 
 
 if __name__ == '__main__':
