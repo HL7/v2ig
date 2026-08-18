@@ -22217,7 +22217,7 @@
           "valueCode": "v2"
         }
       ],
-      "definition": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job.  In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches."
+      "definition": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job. In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches."
     },
     {
       "code": "LipemiaIndexUnits",

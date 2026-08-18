@@ -90,6 +90,8 @@ Thumbs.db
 # CH02C fidelity ledger: every divergence from the published text (reviewable)
 !/v291-extracted/vocabulary-deviations.json
 !/v291-extracted/vocabulary-review-report.html
+# Authored record of every change made to the published text -- not regenerable
+!/v291-extracted/vocabulary-changelog.md
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
 /v2plus_docx/

@@ -1198,7 +1198,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "Job Supervisory Level or Pay Grade",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job.  In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.",
+      "chapter2C": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job. In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.",
       "tables": [
         "0956"
       ]
@@ -1290,7 +1290,7 @@
       "conceptDomain": "Modality",
       "detail": "The tables declaring this domain describe it differently. The first was used.",
       "chapter2C": [
-        "The domain of possible values that define the imaging apparatus expected to be used to acquire an observation.  This table has been removed from the standard as of 2.7 in favor of table 0910.",
+        "The domain of possible values that define the imaging apparatus expected to be used to acquire an observation. This table has been removed from the standard as of 2.7 in favor of table 0910.",
         "The domain of possible values specifying the type of Modality ."
       ],
       "tables": [

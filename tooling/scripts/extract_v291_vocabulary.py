@@ -21,12 +21,16 @@ The published Chapter 2C is the source. This extractor is deliberately
 conservative about "cleaning" it, because any silent cleanup is a divergence
 the reviewer never gets to see.
 
-Only ONE normalization is applied automatically: leading/trailing whitespace is
-stripped from every cell. Every strip is recorded in the deviation log so a
-reviewer can confirm it.
+TWO normalizations are applied automatically, both defined in
+`vocabulary_text_policy.py` and both recorded in the deviation log:
+
+  1. Leading/trailing whitespace is stripped from every cell.   (ADR-0008 D2)
+  2. In descriptive prose only, a run of two or more spaces following a
+     period is collapsed to a single space.                     (ADR-0008 D3)
 
 Everything else is PRESERVED exactly as published, and merely *reported*:
-  * internal double spaces (e.g. "ADT/ACK -  Register a patient")
+  * internal double spaces that do NOT follow a period
+    (e.g. "Code system of concepts  which specify...")
   * non-breaking spaces
   * newlines inside a cell (usually legitimate paragraph structure)
   * en/em dashes and typographic quotes
@@ -51,6 +55,12 @@ except ImportError:
     print("ERROR: python-docx not installed. Run: pip install python-docx")
     sys.exit(1)
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from vocabulary_text_policy import (  # noqa: E402
+    DESCRIPTIVE_FIELDS,
+    normalize_descriptive_text,
+)
+
 
 DOCX_PATH = "v2plus_docx/CH02C_Tables.docx"
 OUTPUT_DIR = "v291-extracted/vocabulary"
@@ -66,8 +76,9 @@ class DeviationLog:
     There are two kinds of entry:
 
     ``normalized``
-        The extractor changed the text (currently only whitespace stripping).
-        The reviewer should confirm the change was safe.
+        The extractor changed the text -- surrounding whitespace stripped, or
+        spaces after a period collapsed in a descriptive field. The reviewer
+        should confirm the change was safe.
 
     ``preserved``
         The text looks irregular but was kept exactly as published. The
@@ -78,7 +89,8 @@ class DeviationLog:
     def __init__(self):
         self.entries = []
 
-    def record(self, kind, action, table_number, location, raw, value=None):
+    def record(self, kind, action, table_number, location, raw, value=None,
+               detail=None):
         """Record one deviation.
 
         Args:
@@ -88,6 +100,8 @@ class DeviationLog:
             location: Where in the table, e.g. 'codedContent[12].value'.
             raw: The published text, verbatim.
             value: The text as emitted, when it differs from ``raw``.
+            detail: Optional extra keys to merge into the entry, e.g. how many
+                separate runs of spaces a normalization collapsed.
         """
         entry = {
             'kind': kind,
@@ -98,6 +112,8 @@ class DeviationLog:
         }
         if value is not None and value != raw:
             entry['normalized'] = value
+        if detail:
+            entry.update(detail)
         entry['section'], entry['field'] = split_location(location)
         self.entries.append(entry)
 
@@ -147,11 +163,18 @@ def split_location(location):
 
 
 def normalize_cell(raw, log, table_number, location):
-    """Strip surrounding whitespace from a published cell and report anomalies.
+    """Normalize a published cell per the fidelity policy and report anomalies.
 
-    Stripping is the only change made. Internal irregularities (double spaces,
-    non-breaking spaces, embedded newlines) are left in place and reported so a
-    reviewer can decide about them.
+    Two changes are made: surrounding whitespace is stripped, and in
+    descriptive fields a run of two or more spaces after a period becomes one
+    space. Both are recorded. Every other irregularity -- double spaces
+    elsewhere in the text, non-breaking spaces, embedded newlines -- is left in
+    place and reported so a reviewer can decide about it.
+
+    The remaining-double-space check deliberately runs against the *emitted*
+    value rather than the published one, so that group tracks what is still
+    outstanding after the period rule rather than what was outstanding before
+    it.
 
     Args:
         raw: The cell text exactly as python-docx read it.
@@ -160,20 +183,27 @@ def normalize_cell(raw, log, table_number, location):
         location: A human-readable path to the cell, for the report.
 
     Returns:
-        The cell text with leading/trailing whitespace removed.
+        The normalized cell text.
     """
-    value = raw.strip()
+    stripped = raw.strip()
+    _, field = split_location(location)
+    value, collapsed_runs = normalize_descriptive_text(field, stripped)
 
     if log is None:
         return value
 
-    if raw != value:
+    if raw != stripped:
         log.record('leading_trailing_whitespace', 'normalized',
-                   table_number, location, raw, value)
+                   table_number, location, raw, stripped)
+    if collapsed_runs:
+        log.record('double_space_after_period', 'normalized',
+                   table_number, location, stripped, value,
+                   detail={'runsCollapsed': collapsed_runs})
     if NBSP in raw:
         log.record('non_breaking_space', 'preserved', table_number, location, raw)
     if '  ' in value:
-        log.record('internal_double_space', 'preserved', table_number, location, raw)
+        log.record('internal_double_space', 'preserved',
+                   table_number, location, stripped, value)
     if '\n' in value:
         log.record('embedded_newline', 'preserved', table_number, location, raw)
 
@@ -679,13 +709,29 @@ def extract_all_tables(doc_path, output_dir):
         where = f"{group['section']}.{group['field']}" if group['field'] else group['section']
         by_kind_and_field.setdefault(group['kind'], {})[where] = group['count']
 
+    runs_collapsed = sum(e.get('runsCollapsed', 0) for e in log.entries
+                         if e['kind'] == 'double_space_after_period')
+
     deviations_output = {
         'extractionDate': extraction_date,
         'sourceFile': 'CH02C_Tables.docx',
         'policy': {
-            'normalized': ['leading_trailing_whitespace'],
+            'normalized': ['leading_trailing_whitespace',
+                           'double_space_after_period'],
             'preserved': ['internal_double_space', 'non_breaking_space',
                           'embedded_newline'],
+            'descriptiveFields': sorted(DESCRIPTIVE_FIELDS),
+            'notes': {
+                'double_space_after_period':
+                    'ADR-0008 D3. Two or more spaces following a period are '
+                    'collapsed to one, in descriptive fields only. '
+                    f'{runs_collapsed} runs collapsed across '
+                    f'{by_kind.get("double_space_after_period", 0)} values.',
+                'internal_double_space':
+                    'What REMAINS after the period rule: runs of two or more '
+                    'spaces that do not follow a period, plus every run in a '
+                    'field outside the descriptive set. Still outstanding.',
+            },
         },
         'counts': by_kind,
         'countsByField': by_kind_and_field,

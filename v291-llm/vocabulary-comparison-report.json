@@ -1,10 +1,21 @@
 {
   "coverage": {
-    "pydocx_only": [
-      "0827 – Source Document Jurisdiction for Recorded Sex or  Gender"
-    ],
+    "pydocx_only": [],
     "llm_only": [],
     "common": 799
+  },
+  "policyAbsorbed": {
+    "total": 851,
+    "byField": {
+      "codeSystems[0].Description": 362,
+      "tableMetadata.Description": 210,
+      "conceptDomain.Description": 124,
+      "codedContent.comment": 74,
+      "valueSets[0].Description": 50,
+      "codedContent.displayName": 18,
+      "codedContent.definition": 13
+    },
+    "note": "Values equal once both corpuses are put through vocabulary_text_policy.py. Not disagreements between the pipelines; our own normalization applied to one side only."
   },
   "findings": {
     "0001": [
@@ -20,7 +31,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "typography",
-        "pydocx": "A categorical assessment, providing a rough qualitative interpretation of the observation value, such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. The value set is intended to be for ANY use where coded representation of an interpretation is needed.   Notes: This is being communicated in v2.x in OBX-8, in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts  (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version.",
+        "pydocx": "A categorical assessment, providing a rough qualitative interpretation of the observation value, such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. The value set is intended to be for ANY use where coded representation of an interpretation is needed. Notes: This is being communicated in v2.x in OBX-8, in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts  (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version.",
         "llm": "A categorical assessment, providing a rough qualitative interpretation of the observation value, such as \"normal\"/ \"abnormal\",\"low\" / \"high\", \"better\" / \"worse\", \"susceptible\" / \"resistant\", \"expected\"/ \"not expected\". The value set is intended to be for ANY use where coded representation of an interpretation is needed.   Notes: This is being communicated in v2.x in OBX-8, in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts  (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version."
       }
     ],
@@ -46,7 +57,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "whitespace",
-        "pydocx": "HL7-defined code system of concepts specifying file-level events for master files.  Used in HL7 Version 2 messaging in the MFI segment.",
+        "pydocx": "HL7-defined code system of concepts specifying file-level events for master files. Used in HL7 Version 2 messaging in the MFI segment.",
         "llm": "HL7-defined code system of concepts specifying file-level events for master files.  Used in HL7 Version 2 messaging in the MFI segment.   "
       }
     ],
@@ -125,13 +136,13 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "typography",
-        "pydocx": "The domain of possible values that identify the nation or national grouping to which the person belongs.  This information may be different from a person’s citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).",
+        "pydocx": "The domain of possible values that identify the nation or national grouping to which the person belongs. This information may be different from a person’s citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).",
         "llm": "The domain of possible values that identify the nation or national grouping to which the person belongs.  This information may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.)."
       },
       {
         "location": "tableMetadata.Description",
         "bucket": "typography",
-        "pydocx": "Table of codes that identify the nation or national grouping to which the person belongs.  This information may be different from a person’s citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  No suggested values.",
+        "pydocx": "Table of codes that identify the nation or national grouping to which the person belongs. This information may be different from a person’s citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.). No suggested values.",
         "llm": "Table of codes that identify the nation or national grouping to which the person belongs.  This information may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  No suggested values."
       }
     ],
@@ -139,13 +150,13 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "typography",
-        "pydocx": "The domain of possible values that indicate which adjustments should be made to a guarantor’s charges.  For example, when a hospital agrees to adjust a guarantor’s charges to a sliding scale.  No suggested values.",
+        "pydocx": "The domain of possible values that indicate which adjustments should be made to a guarantor’s charges. For example, when a hospital agrees to adjust a guarantor’s charges to a sliding scale. No suggested values.",
         "llm": "The domain of possible values that indicate which adjustments should be made to a guarantor's charges.  For example, when a hospital agrees to adjust a guarantor's charges to a sliding scale.  No suggested values."
       },
       {
         "location": "tableMetadata.Description",
         "bucket": "typography",
-        "pydocx": "Table of codes used to indicate which adjustments should be made to a guarantor’s charges.  For example, when a hospital agrees to adjust a guarantor’s charges to a sliding scale.  No suggested values.",
+        "pydocx": "Table of codes used to indicate which adjustments should be made to a guarantor’s charges. For example, when a hospital agrees to adjust a guarantor’s charges to a sliding scale. No suggested values.",
         "llm": "Table of codes used to indicate which adjustments should be made to a guarantor's charges.  For example, when a hospital agrees to adjust a guarantor's charges to a sliding scale.  No suggested values."
       }
     ],
@@ -153,7 +164,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "HL7-defined code system of concepts that identify specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient’s healthcare needs.  This information can be used for discharge planning.  Examples might include Spouse Dependent, Medical Supervision Required, Small Children Dependent.  Used in Version 2.s messaging in the NK1 segment.",
+        "pydocx": "HL7-defined code system of concepts that identify specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient’s healthcare needs. This information can be used for discharge planning. Examples might include Spouse Dependent, Medical Supervision Required, Small Children Dependent. Used in Version 2.s messaging in the NK1 segment.",
         "llm": "HL7-defined code system of concepts that identify specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient's healthcare needs.  This information can be used for discharge planning.  Examples might include Spouse Dependent, Medical Supervision Required, Small Children Dependent.  Used in Version 2.s messaging in the NK1 segment."
       }
     ],
@@ -175,19 +186,19 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "llm_truncated",
-        "pydocx": "The domain of possible values that describe the underlying kind of property represented by an observation.  The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth.  These are discussed more fully in the LOINC Users' Manual.   They are derived from the approach described in 1995 edition of the IUPAC Silver Book.  These distinctions are used in IUPAC and LOINC standard codes.    The distinctions of true quantities in this table are based primarily on dimensional analyses. The table contains a number of \"families,\" those related to simple counts (number, number concentration, etc.), to mass (mass, mass concentration, etc.), to enzyme activity (catalytic content, catalytic concentration, etc.), and molar or equivalents (substance content, substance concentration).",
+        "pydocx": "The domain of possible values that describe the underlying kind of property represented by an observation. The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth. These are discussed more fully in the LOINC Users' Manual. They are derived from the approach described in 1995 edition of the IUPAC Silver Book. These distinctions are used in IUPAC and LOINC standard codes. The distinctions of true quantities in this table are based primarily on dimensional analyses. The table contains a number of \"families,\" those related to simple counts (number, number concentration, etc.), to mass (mass, mass concentration, etc.), to enzyme activity (catalytic content, catalytic concentration, etc.), and molar or equivalents (substance content, substance concentration).",
         "llm": "The domain of possible values that describe the underlying kind of property represented by an observation.  The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth.  These are discussed more fully in the LOINC Users' Manual.   They are derived from the approach described in 1995 edition of the IUPAC Silver Book.  These distinctions are used in IUPAC and LOINC standard codes.    The distinctions of true quantities in this table are based primarily on dimensional analyses. The table contains a number of "
       },
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "HL7 published code system of concepts that describe categories of an underlying kind of property represented by an observation.  These are intended to distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth.  These are discussed more fully in the LOINC Users’ Manual.   These defined categories are derived from the approach described in 1995 edition of the IUPAC Silver Book.  These distinctions are used in IUPAC and LOINC standard codes.  Needs review by OO and HTA to determined if this is a value set built on LOINC part codes or some other external vocabulary.",
+        "pydocx": "HL7 published code system of concepts that describe categories of an underlying kind of property represented by an observation. These are intended to distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth. These are discussed more fully in the LOINC Users’ Manual. These defined categories are derived from the approach described in 1995 edition of the IUPAC Silver Book. These distinctions are used in IUPAC and LOINC standard codes. Needs review by OO and HTA to determined if this is a value set built on LOINC part codes or some other external vocabulary.",
         "llm": "HL7 published code system of concepts that describe categories of an underlying kind of property represented by an observation.  These are intended to distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so forth.  These are discussed more fully in the LOINC Users' Manual.   These defined categories are derived from the approach described in 1995 edition of the IUPAC Silver Book.  These distinctions are used in IUPAC and LOINC standard codes.  Needs review by OO and HTA to determined if this is a value set built on LOINC part codes or some other external vocabulary."
       },
       {
         "location": "valueSets[0].Description",
         "bucket": "whitespace",
-        "pydocx": "Value Set of codes that describe the underlying kind of property represented by an observation.  The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so",
+        "pydocx": "Value Set of codes that describe the underlying kind of property represented by an observation. The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so",
         "llm": "Value Set of codes that describe the underlying kind of property represented by an observation.  The categories distinguish concentrations from total amounts, molar concentrations from mass concentrations, partial pressures from colors, and so  "
       },
       {
@@ -757,7 +768,7 @@
         "location": "codedContent[2].comment",
         "code": "CLIP",
         "bucket": "typography",
-        "pydocx": "Allows for the ability to designate organization identifier as a “CLIP” assigned number (for labs).  Used by US Department of Defense.",
+        "pydocx": "Allows for the ability to designate organization identifier as a “CLIP” assigned number (for labs). Used by US Department of Defense.",
         "llm": "Allows for the ability to designate organization identifier as a \"CLIP\" assigned number (for labs).  Used by US Department of Defense."
       },
       {
@@ -771,14 +782,14 @@
         "location": "codedContent[4].definition",
         "code": "EUI64",
         "bucket": "typography",
-        "pydocx": "IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, “AABBCC1122334455”.  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., “MAC” address format for IPv4 & IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.html for a detailed explanation of the format.]",
+        "pydocx": "IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier. The value shall be formatted as 16 ASCII HEX digits, for example, “AABBCC1122334455”. The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique. The 40-bit extensions are assigned by manufacturers. This identifier is often used in equipment interfaces (e.g., “MAC” address format for IPv4 & IPv6). [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.html for a detailed explanation of the format.]",
         "llm": "IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, \"AABBCC1122334455\".  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., \"MAC\" address format for IPv4 & IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.html for a detailed explanation of the format.]"
       },
       {
         "location": "codedContent[4].comment",
         "code": "EUI64",
         "bucket": "typography",
-        "pydocx": "IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, “AABBCC1122334455”.  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., “MAC” address format for IPv4 & IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.htmlfor a detailed explanation of the format.]OUI-24 values are administered by the IEEE Registration Authority.",
+        "pydocx": "IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier. The value shall be formatted as 16 ASCII HEX digits, for example, “AABBCC1122334455”. The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique. The 40-bit extensions are assigned by manufacturers. This identifier is often used in equipment interfaces (e.g., “MAC” address format for IPv4 & IPv6). [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.htmlfor a detailed explanation of the format.]OUI-24 values are administered by the IEEE Registration Authority.",
         "llm": "IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, \"AABBCC1122334455\".  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., \"MAC\" address format for IPv4 & IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.htmlfor a detailed explanation of the format.]OUI-24 values are administered by the IEEE Registration Authority."
       }
     ],
@@ -786,7 +797,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "whitespace",
-        "pydocx": "Value Set of codes that specify whether or not the patient has a living will and, if so, whether a copy fo the living will is on file at the healthcare facility.  If the patient does not have a living will, the value of this field indicates whether the",
+        "pydocx": "Value Set of codes that specify whether or not the patient has a living will and, if so, whether a copy fo the living will is on file at the healthcare facility. If the patient does not have a living will, the value of this field indicates whether the",
         "llm": "Value Set of codes that specify whether or not the patient has a living will and, if so, whether a copy fo the living will is on file at the healthcare facility.  If the patient does not have a living will, the value of this field indicates whether the  "
       }
     ],
@@ -795,7 +806,7 @@
         "location": "codedContent[1].comment",
         "code": "HPC",
         "bucket": "typography",
-        "pydocx": "Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.\n\nUsage Note: The HCPCS code is divided into three \"levels.\"  Level I includes the entire CPT-4 code by reference.  Level II includes the American Dental Association’s Current Dental Terminology (CDT-2) code by reference.  Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers.  The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers.\n\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, www.ntis.gov) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to ist contractors.",
+        "pydocx": "Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.\n\nUsage Note: The HCPCS code is divided into three \"levels.\"  Level I includes the entire CPT-4 code by reference. Level II includes the American Dental Association’s Current Dental Terminology (CDT-2) code by reference. Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers. The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers.\n\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, www.ntis.gov) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to ist contractors.",
         "llm": "Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.\n\nUsage Note: The HCPCS code is divided into three \"levels.\"  Level I includes the entire CPT-4 code by reference.  Level II includes the American Dental Association's Current Dental Terminology (CDT-2) code by reference.  Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers.  The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers.\n\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, www.ntis.gov) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to ist contractors."
       }
     ],
@@ -836,19 +847,19 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "llm_truncated",
-        "pydocx": "The domain of possible values identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).  Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).  Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
+        "pydocx": "The domain of possible values identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures). Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits). Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
         "llm": "The domain of possible values identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "
       },
       {
         "location": "tableMetadata.Description",
         "bucket": "llm_truncated",
-        "pydocx": "HL7-defined table of codes identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).  Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).  Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
+        "pydocx": "HL7-defined table of codes identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures). Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits). Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
         "llm": "HL7-defined table of codes identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "
       },
       {
         "location": "codeSystems[0].Description",
         "bucket": "llm_truncated",
-        "pydocx": "HL7-defined code system of concepts identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values:\nRepeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).\nRepeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).\nReflex test — this test is performed as the consequence of rules triggered based on other test result(s).  Used in HL7 Version 2.x messaging in the Test Code Detail (TCD) segment.",
+        "pydocx": "HL7-defined code system of concepts identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values:\nRepeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).\nRepeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).\nReflex test — this test is performed as the consequence of rules triggered based on other test result(s). Used in HL7 Version 2.x messaging in the Test Code Detail (TCD) segment.",
         "llm": "HL7-defined code system of concepts identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values:\nRepeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "
       }
     ],
@@ -856,7 +867,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "whitespace",
-        "pydocx": "Value Set of codes identifying what search components (e.g., name, birthdate, social security number) of the record returned matched the original query where the responding system does not assign numeric match weights or confidence levels.  It",
+        "pydocx": "Value Set of codes identifying what search components (e.g., name, birthdate, social security number) of the record returned matched the original query where the responding system does not assign numeric match weights or confidence levels. It",
         "llm": "Value Set of codes identifying what search components (e.g., name, birthdate, social security number) of the record returned matched the original query where the responding system does not assign numeric match weights or confidence levels.  It  "
       }
     ],
@@ -921,14 +932,14 @@
         "location": "codedContent[58].comment",
         "code": "dbVar-GL",
         "bucket": "whitespace",
-        "pydocx": "dbVar is NCBI's database of genomic structural variations (including copy number variants) that are larger than 50 contiguous base pairs. It is the complement of dbSNP, which only contains variants occurring in 50 or fewer contiguous base pairs.   It contains insertions, deletions, duplications, inversions, multi-nucleotide substitutions, mobile element insertions, translocations, and complex chromosomal rearrangements.",
+        "pydocx": "dbVar is NCBI's database of genomic structural variations (including copy number variants) that are larger than 50 contiguous base pairs. It is the complement of dbSNP, which only contains variants occurring in 50 or fewer contiguous base pairs. It contains insertions, deletions, duplications, inversions, multi-nucleotide substitutions, mobile element insertions, translocations, and complex chromosomal rearrangements.",
         "llm": "dbVar is NCBI's database of genomic structural variations (including copy number variants) that are larger than 50 contiguous base pairs. It is the complement of dbSNP, which only contains variants occurring in 50 or fewer contiguous base pairs.   It contains insertions, deletions, duplications, inversions, multi-nucleotide substitutions, mobile element insertions, translocations, and complex chromosomal rearrangements.  "
       },
       {
         "location": "codedContent[59].comment",
         "code": "dbVar-som",
         "bucket": "whitespace",
-        "pydocx": "dbVar is NCBI's database of genomic structural variations (including copy number variants) that are larger than 50 contiguous base pairs. It is the complement of dbSNP, which only contains variants occurring in 50 or fewer contiguous base pairs.   It contains insertions, deletions, duplications, inversions, multi-nucleotide substitutions, mobile element insertions, translocations, and complex chromosomal rearrangements.",
+        "pydocx": "dbVar is NCBI's database of genomic structural variations (including copy number variants) that are larger than 50 contiguous base pairs. It is the complement of dbSNP, which only contains variants occurring in 50 or fewer contiguous base pairs. It contains insertions, deletions, duplications, inversions, multi-nucleotide substitutions, mobile element insertions, translocations, and complex chromosomal rearrangements.",
         "llm": "dbVar is NCBI's database of genomic structural variations (including copy number variants) that are larger than 50 contiguous base pairs. It is the complement of dbSNP, which only contains variants occurring in 50 or fewer contiguous base pairs.   It contains insertions, deletions, duplications, inversions, multi-nucleotide substitutions, mobile element insertions, translocations, and complex chromosomal rearrangements.  "
       },
       {
@@ -999,7 +1010,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "HL7-defined code system of concepts which specify a type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG’s), for example, exempt or non-exempt.  Used in HL7 Version 2 messaging in the DRG segment.",
+        "pydocx": "HL7-defined code system of concepts which specify a type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG’s), for example, exempt or non-exempt. Used in HL7 Version 2 messaging in the DRG segment.",
         "llm": "HL7-defined code system of concepts which specify a type of hospital receiving a transfer patient, which affects how a facility is reimbursed under diagnosis related group (DRG's), for example, exempt or non-exempt.  Used in HL7 Version 2 messaging in the DRG segment."
       }
     ],
@@ -1007,7 +1018,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "HL7-defined code system of concepts which specify a procedure’s priority ranking relative to its DRG.  Used in HL7 Version 2 messaging in the PR1 segment.",
+        "pydocx": "HL7-defined code system of concepts which specify a procedure’s priority ranking relative to its DRG. Used in HL7 Version 2 messaging in the PR1 segment.",
         "llm": "HL7-defined code system of concepts which specify a procedure's priority ranking relative to its DRG.  Used in HL7 Version 2 messaging in the PR1 segment."
       }
     ],
@@ -1015,7 +1026,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "HL7-defined code system of concepts which specify the ranking of a patient’s illness.  Used in HL7 Version 2 messaging in the ABS segment.",
+        "pydocx": "HL7-defined code system of concepts which specify the ranking of a patient’s illness. Used in HL7 Version 2 messaging in the ABS segment.",
         "llm": "HL7-defined code system of concepts which specify the ranking of a patient's illness.  Used in HL7 Version 2 messaging in the ABS segment."
       }
     ],
@@ -1031,7 +1042,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "HL7-defined code system of concepts which specify a type of incident that occurs during a patient’s stay.  Used in HL7 Version 2 messaging in the RMI segment.",
+        "pydocx": "HL7-defined code system of concepts which specify a type of incident that occurs during a patient’s stay. Used in HL7 Version 2 messaging in the RMI segment.",
         "llm": "HL7-defined code system of concepts which specify a type of incident that occurs during a patient's stay.  Used in HL7 Version 2 messaging in the RMI segment."
       }
     ],
@@ -1054,7 +1065,7 @@
       {
         "location": "tableMetadata.Description",
         "bucket": "typography",
-        "pydocx": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider’s practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization.  In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
+        "pydocx": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider’s practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization. In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
         "llm": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider's practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization.  In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification."
       }
     ],
@@ -1070,7 +1081,7 @@
         "location": "codedContent[1].comment",
         "code": "A",
         "bucket": "llm_truncated",
-        "pydocx": "Do the next specification in parallel with this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time).  The conjunction of \"A\" specifies two parallel instructions, as are sometimes used in medication, e.g., prednisone given at 1 tab on Monday, Wednesday, Friday, and at 1/2 tab on Tuesday, Thursday, Saturday, Sunday.",
+        "pydocx": "Do the next specification in parallel with this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time). The conjunction of \"A\" specifies two parallel instructions, as are sometimes used in medication, e.g., prednisone given at 1 tab on Monday, Wednesday, Friday, and at 1/2 tab on Tuesday, Thursday, Saturday, Sunday.",
         "llm": "Do the next specification in parallel with this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time).  The conjunction of "
       }
     ],
@@ -1087,7 +1098,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "whitespace",
-        "pydocx": "Value Set of codes that specify how important the most important waiting mesasge is.  For example, if there are 3 low priority messages, 1 medium priority message and 1 high priority message, the message waiting priority would be \"high\", because",
+        "pydocx": "Value Set of codes that specify how important the most important waiting mesasge is. For example, if there are 3 low priority messages, 1 medium priority message and 1 high priority message, the message waiting priority would be \"high\", because",
         "llm": "Value Set of codes that specify how important the most important waiting mesasge is.  For example, if there are 3 low priority messages, 1 medium priority message and 1 high priority message, the message waiting priority would be \"high\", because  "
       }
     ],
@@ -1107,7 +1118,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "llm_truncated",
-        "pydocx": "HL7-defined code system of concepts used to specify an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from \"the 5th of every month\").  Used in HL7 Version 2 messaging in the RPT segment.",
+        "pydocx": "HL7-defined code system of concepts used to specify an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from \"the 5th of every month\"). Used in HL7 Version 2 messaging in the RPT segment.",
         "llm": "HL7-defined code system of concepts used to specify an alignment of the repetition to a calendar (e.g., to distinguish every 30 days from "
       },
       {
@@ -1130,13 +1141,13 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "typography",
-        "pydocx": "The domain of possible values that specify the modifying or qualifying description(s) about the specimen collection site.  This Domain differs from SpecimenSourceSite in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be “antecubital fossa”.",
+        "pydocx": "The domain of possible values that specify the modifying or qualifying description(s) about the specimen collection site. This Domain differs from SpecimenSourceSite in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be “antecubital fossa”.",
         "llm": "The domain of possible values that specify the modifying or qualifying description(s) about the specimen collection site.  This Domain differs from SpecimenSourceSite in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be \"antecubital fossa\"."
       },
       {
         "location": "tableMetadata.Description",
         "bucket": "typography",
-        "pydocx": "Table of codes that specify the modifying or qualifying description(s) about the specimen collection site.  This field differs from Specimen Source Site in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be “antecubital fossa”.  No suggested values.",
+        "pydocx": "Table of codes that specify the modifying or qualifying description(s) about the specimen collection site. This field differs from Specimen Source Site in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be “antecubital fossa”. No suggested values.",
         "llm": "Table of codes that specify the modifying or qualifying description(s) about the specimen collection site.  This field differs from Specimen Source Site in those cases where the source site must be approached via a particular site (e.g., anatomic location). For example, in the case where a liver biopsy is obtained via a percutaneous needle, the collection site would be the point of entry of the needle. For venous blood collected from the left radial vein, the collection site could be \"antecubital fossa\".  No suggested values."
       }
     ],
@@ -1144,7 +1155,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "whitespace",
-        "pydocx": "Value Set of codes that specify at each receipt the status of the container in which the specimen is shipped in chain of custody cases where specimens are moved from lab to lab.  If the container is compromised in any way (seal broken, container",
+        "pydocx": "Value Set of codes that specify at each receipt the status of the container in which the specimen is shipped in chain of custody cases where specimens are moved from lab to lab. If the container is compromised in any way (seal broken, container",
         "llm": "Value Set of codes that specify at each receipt the status of the container in which the specimen is shipped in chain of custody cases where specimens are moved from lab to lab.  If the container is compromised in any way (seal broken, container  "
       }
     ],
@@ -1239,7 +1250,7 @@
         "location": "codedContent[11].comment",
         "code": "NO",
         "bucket": "typography",
-        "pydocx": "This code is for backwards compatibility only as of v2.9. \nIf no restrictions, don’t send an ARV segment altogether.  If sent, ARV-3 is a required element however. To emulate 0717 “NONE”, populate ARV-3 with code from new ActCode_ActPolicyType__ActInformationPolicy such as OrgNSI (organizational non-sensitive information policy) or PersNSI (personal non-sensitive information policy).   \nDon’t populate ARV-7.  E.g., Device record that is not sensitive. If you have a situation where an ARV-4 is valued, as required by, e.g., an organizational policy related to disclosure of  a VIP’s health status or location at a facility, and the VIP has authorized disclosure as public information, one may use OrgPI (organizational public information policy - Organizational policy on collection, access, use, or disclosure of public information as defined by the organization or governing jurisdiction) to value ARV-3 indicating that the policy permits the disclosure of VIP sensitive information as coded in ARV-4.",
+        "pydocx": "This code is for backwards compatibility only as of v2.9. \nIf no restrictions, don’t send an ARV segment altogether. If sent, ARV-3 is a required element however. To emulate 0717 “NONE”, populate ARV-3 with code from new ActCode_ActPolicyType__ActInformationPolicy such as OrgNSI (organizational non-sensitive information policy) or PersNSI (personal non-sensitive information policy). \nDon’t populate ARV-7. E.g., Device record that is not sensitive. If you have a situation where an ARV-4 is valued, as required by, e.g., an organizational policy related to disclosure of  a VIP’s health status or location at a facility, and the VIP has authorized disclosure as public information, one may use OrgPI (organizational public information policy - Organizational policy on collection, access, use, or disclosure of public information as defined by the organization or governing jurisdiction) to value ARV-3 indicating that the policy permits the disclosure of VIP sensitive information as coded in ARV-4.",
         "llm": "This code is for backwards compatibility only as of v2.9. \nIf no restrictions, don't send an ARV segment altogether.  If sent, ARV-3 is a required element however. To emulate 0717 \"NONE\", populate ARV-3 with code from new ActCode_ActPolicyType__ActInformationPolicy such as OrgNSI (organizational non-sensitive information policy) or PersNSI (personal non-sensitive information policy).   \nDon't populate ARV-7.  E.g., Device record that is not sensitive. If you have a situation where an ARV-4 is valued, as required by, e.g., an organizational policy related to disclosure of  a VIP's health status or location at a facility, and the VIP has authorized disclosure as public information, one may use OrgPI (organizational public information policy - Organizational policy on collection, access, use, or disclosure of public information as defined by the organization or governing jurisdiction) to value ARV-3 indicating that the policy permits the disclosure of VIP sensitive information as coded in ARV-4."
       },
       {
@@ -1344,7 +1355,7 @@
         "location": "codedContent[51].definition",
         "code": "HIPAAROACD",
         "bucket": "typography",
-        "pydocx": "A code representing U.S. Public Law 104-191 Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule 45 CFR Section 164.524 Access of individuals to protected health information https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-524.pdf, stipulating the policy elements of an individual’s written and signed right of access directive requesting that a covered entity send the individual’s protected health information (PHI) to a third party. \n\nSee 45 CFR 164.524(c)(3)(ii) If an individual's request for access directs the covered entity to transmit the copy of protected health information directly to another person designated by the individual, the covered entity must provide the copy to the person designated by the individual. The individual's request must be in writing, signed by the individual, and clearly identify the designated person and where to send the copy of protected health information.  https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-524.pdf \n\nThis right applies to PHI in a designated record set, which is defined as “Designated record set means: \n(1) A group of records maintained by or for a covered entity that is: \n(i) The medical records and billing records about individuals maintained by or for a covered health care provider; \n(ii) The enrollment, payment, claims adjudication, and case or medical management record systems maintained by or for a health plan; or \n(iii) Used, in whole or in part, by or for the covered entity to make decisions about individuals. [https://www.law.cornell.edu/cfr/text/45/164.501].\nAlso see HHS Individuals’ Right under HIPAA to Access their Health Information 45 CFR Section 164.524 [https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html#maximumflatfee].",
+        "pydocx": "A code representing U.S. Public Law 104-191 Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule 45 CFR Section 164.524 Access of individuals to protected health information https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-524.pdf, stipulating the policy elements of an individual’s written and signed right of access directive requesting that a covered entity send the individual’s protected health information (PHI) to a third party. \n\nSee 45 CFR 164.524(c)(3)(ii) If an individual's request for access directs the covered entity to transmit the copy of protected health information directly to another person designated by the individual, the covered entity must provide the copy to the person designated by the individual. The individual's request must be in writing, signed by the individual, and clearly identify the designated person and where to send the copy of protected health information. https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-524.pdf \n\nThis right applies to PHI in a designated record set, which is defined as “Designated record set means: \n(1) A group of records maintained by or for a covered entity that is: \n(i) The medical records and billing records about individuals maintained by or for a covered health care provider; \n(ii) The enrollment, payment, claims adjudication, and case or medical management record systems maintained by or for a health plan; or \n(iii) Used, in whole or in part, by or for the covered entity to make decisions about individuals. [https://www.law.cornell.edu/cfr/text/45/164.501].\nAlso see HHS Individuals’ Right under HIPAA to Access their Health Information 45 CFR Section 164.524 [https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html#maximumflatfee].",
         "llm": "A code representing U.S. Public Law 104-191 Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule 45 CFR Section 164.524 Access of individuals to protected health information https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-524.pdf, stipulating the policy elements of an individual's written and signed right of access directive requesting that a covered entity send the individual's protected health information (PHI) to a third party. \n\nSee 45 CFR 164.524(c)(3)(ii) If an individual's request for access directs the covered entity to transmit the copy of protected health information directly to another person designated by the individual, the covered entity must provide the copy to the person designated by the individual. The individual's request must be in writing, signed by the individual, and clearly identify the designated person and where to send the copy of protected health information.  https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-524.pdf \n\nThis right applies to PHI in a designated record set, which is defined as \"Designated record set means: \n(1) A group of records maintained by or for a covered entity that is: \n(i) The medical records and billing records about individuals maintained by or for a covered health care provider; \n(ii) The enrollment, payment, claims adjudication, and case or medical management record systems maintained by or for a health plan; or \n(iii) Used, in whole or in part, by or for the covered entity to make decisions about individuals. [https://www.law.cornell.edu/cfr/text/45/164.501].\nAlso see HHS Individuals' Right under HIPAA to Access their Health Information 45 CFR Section 164.524 [https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html#maximumflatfee]."
       },
       {
@@ -1400,7 +1411,7 @@
         "location": "codedContent[55].definition",
         "code": "GDPRCD",
         "bucket": "typography",
-        "pydocx": "A consent directive compliant with the European Union General Data Protection Regulation (GDPR) definition: Consent of the data subject means any freely given, specific, informed and unambiguous indication of the data subject’s wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.\n\nWhere processing is based on consent, the controller shall be able to demonstrate that the data subject has consented to processing of his or her personal data.\n\nIf the data subject’s consent is given in the context of a written declaration which also concerns other matters, the request for consent shall be presented in a manner which is clearly distinguishable from the other matters, in an intelligible and easily accessible form, using clear and plain language.  Any part of such a declaration which constitutes an infringement of this Regulation shall not be binding.\n\nThe data subject shall have the right to withdraw his or her consent at any time. The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal.  Prior to giving consent, the data subject shall be informed thereof. It shall be as easy to withdraw as to give consent.\n\nWhen assessing whether consent is freely given, utmost account shall be taken of whether, inter alia, the performance of a contract, including the provision of a service, is conditional on consent to the processing of personal data that is not necessary for the performance of that contract.\n\nConsent should be given by a clear affirmative act establishing a freely given, specific, informed and unambiguous indication of the data subject’s agreement to the processing of personal data relating to him or her, such as by a written statement, including by electronic means, or an oral statement. \n\nThis could include ticking a box when visiting an internet website, choosing technical settings for information society services or another statement or conduct which clearly indicates in this context the data subject’s acceptance of the proposed processing of his or her personal data. \n\nSilence, pre-ticked boxes or inactivity should not therefore constitute consent. \n\nConsent should cover all processing activities carried out for the same purpose or purposes. \n\nWhen the processing has multiple purposes, consent should be given for all of them. \n\nIf the data subject’s consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided.",
+        "pydocx": "A consent directive compliant with the European Union General Data Protection Regulation (GDPR) definition: Consent of the data subject means any freely given, specific, informed and unambiguous indication of the data subject’s wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.\n\nWhere processing is based on consent, the controller shall be able to demonstrate that the data subject has consented to processing of his or her personal data.\n\nIf the data subject’s consent is given in the context of a written declaration which also concerns other matters, the request for consent shall be presented in a manner which is clearly distinguishable from the other matters, in an intelligible and easily accessible form, using clear and plain language. Any part of such a declaration which constitutes an infringement of this Regulation shall not be binding.\n\nThe data subject shall have the right to withdraw his or her consent at any time. The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal. Prior to giving consent, the data subject shall be informed thereof. It shall be as easy to withdraw as to give consent.\n\nWhen assessing whether consent is freely given, utmost account shall be taken of whether, inter alia, the performance of a contract, including the provision of a service, is conditional on consent to the processing of personal data that is not necessary for the performance of that contract.\n\nConsent should be given by a clear affirmative act establishing a freely given, specific, informed and unambiguous indication of the data subject’s agreement to the processing of personal data relating to him or her, such as by a written statement, including by electronic means, or an oral statement. \n\nThis could include ticking a box when visiting an internet website, choosing technical settings for information society services or another statement or conduct which clearly indicates in this context the data subject’s acceptance of the proposed processing of his or her personal data. \n\nSilence, pre-ticked boxes or inactivity should not therefore constitute consent. \n\nConsent should cover all processing activities carried out for the same purpose or purposes. \n\nWhen the processing has multiple purposes, consent should be given for all of them. \n\nIf the data subject’s consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided.",
         "llm": "A consent directive compliant with the European Union General Data Protection Regulation (GDPR) definition: Consent of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.\n\nWhere processing is based on consent, the controller shall be able to demonstrate that the data subject has consented to processing of his or her personal data.\n\nIf the data subject's consent is given in the context of a written declaration which also concerns other matters, the request for consent shall be presented in a manner which is clearly distinguishable from the other matters, in an intelligible and easily accessible form, using clear and plain language.  Any part of such a declaration which constitutes an infringement of this Regulation shall not be binding.\n\nThe data subject shall have the right to withdraw his or her consent at any time. The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal.  Prior to giving consent, the data subject shall be informed thereof. It shall be as easy to withdraw as to give consent.\n\nWhen assessing whether consent is freely given, utmost account shall be taken of whether, inter alia, the performance of a contract, including the provision of a service, is conditional on consent to the processing of personal data that is not necessary for the performance of that contract.\n\nConsent should be given by a clear affirmative act establishing a freely given, specific, informed and unambiguous indication of the data subject's agreement to the processing of personal data relating to him or her, such as by a written statement, including by electronic means, or an oral statement. \n\nThis could include ticking a box when visiting an internet website, choosing technical settings for information society services or another statement or conduct which clearly indicates in this context the data subject's acceptance of the proposed processing of his or her personal data. \n\nSilence, pre-ticked boxes or inactivity should not therefore constitute consent. \n\nConsent should cover all processing activities carried out for the same purpose or purposes. \n\nWhen the processing has multiple purposes, consent should be given for all of them. \n\nIf the data subject's consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided."
       },
       {
@@ -1442,7 +1453,7 @@
         "location": "codedContent[58].comment",
         "code": "COMMONRULE",
         "bucket": "typography",
-        "pydocx": "Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, or disclosure of healthcare information or biospecimen is governed by the Common Rule use “COMMONRULE” as the security label policy code.  Information or biospecimen disclosed under the Common Rule are not protected by the HIPAA Privacy Rule. If protected under other laws such as confidentiality provisions under the Common Rule, assign the HL7 Confidentiality code “M” (moderate). \nSee ActReason_ActInformationManagementReason_ActHealthInformationManagementReason.PurposeOfUse. HRESCH for applicable security label purpose of use codes.\"",
+        "pydocx": "Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, or disclosure of healthcare information or biospecimen is governed by the Common Rule use “COMMONRULE” as the security label policy code. Information or biospecimen disclosed under the Common Rule are not protected by the HIPAA Privacy Rule. If protected under other laws such as confidentiality provisions under the Common Rule, assign the HL7 Confidentiality code “M” (moderate). \nSee ActReason_ActInformationManagementReason_ActHealthInformationManagementReason.PurposeOfUse. HRESCH for applicable security label purpose of use codes.\"",
         "llm": "Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, or disclosure of healthcare information or biospecimen is governed by the Common Rule use \"COMMONRULE\" as the security label policy code.  Information or biospecimen disclosed under the Common Rule are not protected by the HIPAA Privacy Rule. If protected under other laws such as confidentiality provisions under the Common Rule, assign the HL7 Confidentiality code \"M\" (moderate). \nSee ActReason_ActInformationManagementReason_ActHealthInformationManagementReason.PurposeOfUse. HRESCH for applicable security label purpose of use codes.\""
       },
       {
@@ -1611,7 +1622,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "llm_truncated",
-        "pydocx": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access.  Used in HL7 Version 2.x messaging in the ARV segment.",
+        "pydocx": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
         "llm": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code "
       }
     ],
@@ -1904,7 +1915,7 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "typography",
-        "pydocx": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job.  In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.",
+        "pydocx": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job. In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.",
         "llm": "A classification that reflects the amount of supervisory or management responsibilities for an individual's job.  In the military, this is the person's pay grade, which serves as a proxy for supervisory level and can be interpreted across branches."
       },
       {

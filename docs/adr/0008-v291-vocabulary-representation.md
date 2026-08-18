@@ -116,6 +116,59 @@ normalization is not, because the evidence is gone.
 Deviations are grouped by kind and by the field they occur in, so a group of
 375 identical double spaces in one field is one decision rather than 375.
 
+**Amended by D3**, which promotes one group of internal double spaces to an
+automatic correction. The principle is unchanged: the promotion was a
+reviewer's decision, taken group by group from the review report, not a rule
+the extractor applied on its own.
+
+### D3 — Spaces after a period are collapsed, in descriptive text only
+
+**Decided 2026-08-18.**
+
+In fields carrying descriptive prose — `Description` in all four metadata
+blocks, and `definition`, `comment` and `displayName` in coded content — a run
+of two or more ordinary spaces immediately following a period is collapsed to a
+single space. 890 values changed, 1,089 runs collapsed, across 537 of the 799
+tables.
+
+**Why this group and not the others.** D2 left every internal double space
+alone because collapsing one inside a display name would change a published
+value. The space *after a sentence-ending period* is the one case where that
+risk does not arise: double-spacing after a full stop is a typesetting
+convention of the era the document was written in, not content, and no reader
+or consumer of the resource can distinguish the two renderings. The remaining
+228 values are a different question — a double space between two words
+mid-sentence, or after a hyphen used as a separator, may well be a defect but
+it is not the same defect, and each group is decided on its own.
+
+**Why scoped to descriptive fields.** In an identifier, a code, a URI or a
+value set expression, a period is part of the value rather than punctuation.
+Restricting the rule to prose keeps it to the case where the reasoning above
+actually holds.
+
+**Why only the ordinary space character.** A tab, a newline or a non-breaking
+space after a period is a distinct irregularity with its own tracking group.
+Folding them in would resolve three questions under the authority of one
+decision.
+
+**Consequences.**
+
+- The rule lives in `tooling/scripts/vocabulary_text_policy.py`, not in the
+  extractor, because the python-docx-vs-LLM comparison has to apply the same
+  policy to both corpuses. Without that, our own deliberate normalization would
+  be reported as a disagreement between the pipelines. Cross-pipeline agreement
+  is unchanged at 739/799 tables; the 851 values the policy absorbs are counted
+  and stated in the comparison report.
+- One concept definition in `CodeSystem-conceptdomains.json` changed. The other
+  129 changed concept domain descriptions had no effect, because under D1 THO's
+  definitions win for the domains THO already publishes.
+- Six sentence ends were **not** caught, because a closing quote or bracket sits
+  between the period and the spaces (`."  `, `.)  `). They stay in the
+  outstanding group rather than being swept in, since widening the rule is a
+  further decision.
+- Every change is recorded per value in `vocabulary-deviations.json` under kind
+  `double_space_after_period`, so the whole group is reversible.
+
 ## Open batches
 
 Worked in dependency order; each is a short session, and each records its
@@ -172,4 +225,7 @@ system, an identity-only stub, or exclusion.
 - ADR-0005 — W vs B field policy (precedent for status-code handling in Batch B)
 - ADR-0006 — Multi-corpus V2.9.1 extraction (the fidelity method reused here)
 - `v291-extracted/vocabulary-review-report.html` — the review catalog
+- `v291-extracted/vocabulary-changelog.md` — every change made to the published
+  text, with its scope and where it took effect, plus what is still outstanding
+- `tooling/scripts/vocabulary_text_policy.py` — D2 and D3 as code
 - `v291-fhir/conceptdomains-divergences.json` — D1's divergence log

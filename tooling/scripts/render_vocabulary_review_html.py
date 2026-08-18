@@ -101,9 +101,17 @@ DEVIATION_PRESENTATION = {
         "confirm",
         "Stripped automatically. Confirm each was a typo and not meaningful text.",
     ),
+    "double_space_after_period": (
+        "confirm",
+        "Collapsed to a single space automatically, per ADR-0008 D3. Applies "
+        "to descriptive fields only. Confirm the change reads correctly.",
+    ),
     "internal_double_space": (
         "decide",
-        "Left exactly as published. Decide whether any should be collapsed.",
+        "What REMAINS after the period rule: runs of two or more spaces that "
+        "do not follow a period, plus every run in a field outside the "
+        "descriptive set. Left exactly as published. Decide whether any "
+        "should be collapsed too.",
     ),
     "embedded_newline": (
         "informational",
@@ -366,6 +374,7 @@ def build_sections(deviations, comparison, source_issues):
         action, blurb = DEVIATION_PRESENTATION.get(
             kind, ("decide", "Difference between published and emitted text."))
         where = f'{group["section"]}.{group["field"]}' if group["field"] else group["section"]
+        changed = group["action"] == "normalized"
         rows = []
         for entry in group["deviations"]:
             rows.append([
@@ -373,13 +382,17 @@ def build_sections(deviations, comparison, source_issues):
                 show_invisibles(truncate(entry["raw"])),
                 show_invisibles(truncate(entry.get("normalized", entry["raw"]))),
             ])
+        # The group label says outright whether the text was changed or left
+        # alone, so the report answers "what has been done" and "what is still
+        # outstanding" without the reader having to decode the kind name.
+        prefix = "Text changed" if changed else "Text outstanding"
         sections.append({
             "id": f"dev-{kind}-{where.replace('.', '-')}",
-            "group": f"Text: {kind.replace('_', ' ')}",
+            "group": f"{prefix}: {kind.replace('_', ' ')}",
             "title": where,
             "action": action,
             "blurb": blurb + (
-                "  These were changed." if group["action"] == "normalized"
+                "  These were changed." if changed
                 else "  These were left as published."),
             "count": group["count"],
             "columns": ["Table", "As published", "As emitted"],
@@ -476,9 +489,14 @@ def build_html(sections, deviations, comparison, coverage, generated):
         ("Extraction cross-check",
          "Where the python-docx and LLM extractions of the same document disagree",
          sum(s["count"] for s in sections if s["group"] == "Extraction cross-check")),
-        ("Text deviations",
-         "Where emitted text differs from published text, or published text is irregular",
-         sum(s["count"] for s in sections if s["group"].startswith("Text:"))),
+        ("Text changed",
+         "Published text the extractor normalized. See "
+         "<code>v291-extracted/vocabulary-changelog.md</code>",
+         sum(s["count"] for s in sections if s["group"].startswith("Text changed"))),
+        ("Text outstanding",
+         "Published text left exactly as-is, awaiting a decision or disclosed "
+         "for completeness",
+         sum(s["count"] for s in sections if s["group"].startswith("Text outstanding"))),
         ("Concept domains",
          "Choices made while extending THO's concept domains CodeSystem",
          sum(s["count"] for s in sections if s["group"] == "Concept domains")),

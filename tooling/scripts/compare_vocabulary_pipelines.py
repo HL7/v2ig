@@ -28,6 +28,14 @@ findings that need a human:
   content      A real disagreement about what the document says. These are the
                ones to examine against the source.
 
+Both sides are put through the shared text policy in
+`vocabulary_text_policy.py` before being compared. The python-docx corpus
+already has that policy baked in -- the extractor applies it -- so comparing
+against a raw LLM value would report our own deliberate normalization as a
+pipeline disagreement. Applying it to both keeps this a comparison of what the
+two pipelines read, not of which one we post-processed. How many differences
+the policy absorbs this way is counted and reported rather than hidden.
+
 Usage:
     python3 tooling/scripts/compare_vocabulary_pipelines.py
     python3 tooling/scripts/compare_vocabulary_pipelines.py --limit 40
@@ -41,6 +49,9 @@ import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from vocabulary_text_policy import normalize_descriptive_text  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PYDOCX_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -121,6 +132,42 @@ def classify_difference(left, right):
     return "content"
 
 
+# How many pairs the shared text policy made equal that would otherwise have
+# been reported as a spacing disagreement. Kept as a running tally so the
+# report can state the number instead of quietly dropping the findings.
+POLICY_ABSORBED = Counter()
+
+
+def under_policy(field, text):
+    """Return a value as the shared text policy would emit it.
+
+    Used on both sides of every comparison so that the normalization the
+    extractor already applied to the python-docx corpus is not mistaken for a
+    disagreement with the LLM corpus.
+    """
+    normalized, _ = normalize_descriptive_text(field, text or "")
+    return normalized
+
+
+def classify_under_policy(field, left, right, location):
+    """Classify a difference after putting both values through the policy.
+
+    Args:
+        field: The bare field name, used to decide whether the policy applies.
+        left: The python-docx value.
+        right: The LLM value.
+        location: Where the value sits, recorded against the absorbed tally.
+
+    Returns:
+        The bucket name, or None when the two agree under the policy.
+    """
+    bucket = classify_difference(under_policy(field, left),
+                                 under_policy(field, right))
+    if bucket is None and (left or "") != (right or ""):
+        POLICY_ABSORBED[location] += 1
+    return bucket
+
+
 def block_to_dict(block):
     """Normalize one metadata block from either corpus into a plain dict.
 
@@ -161,7 +208,8 @@ def compare_dicts(py_dict, llm_dict, location):
             findings.append({"location": f"{location}.{key}", "bucket": "missing_in_pydocx",
                              "pydocx": None, "llm": llm_dict[key]})
             continue
-        bucket = classify_difference(py_dict[key], llm_dict[key])
+        bucket = classify_under_policy(key, py_dict[key], llm_dict[key],
+                                       f"{location}.{key}")
         if bucket:
             findings.append({"location": f"{location}.{key}", "bucket": bucket,
                              "pydocx": py_dict[key], "llm": llm_dict[key]})
@@ -181,7 +229,9 @@ def compare_codes(py_codes, llm_codes):
 
     for index, (py_row, llm_row) in enumerate(zip(py_codes, llm_codes)):
         for field in CODE_FIELDS:
-            bucket = classify_difference(py_row.get(field, ""), llm_row.get(field, ""))
+            bucket = classify_under_policy(field, py_row.get(field, ""),
+                                           llm_row.get(field, ""),
+                                           f"codedContent.{field}")
             if bucket:
                 findings.append({
                     "location": f"codedContent[{index}].{field}",
@@ -281,6 +331,27 @@ def render_report(results, coverage, limit):
     for bucket, count in buckets.most_common():
         lines.append(f"| `{bucket}` | {count} | {meanings.get(bucket, '')} |")
     lines.append("")
+
+    absorbed_total = sum(POLICY_ABSORBED.values())
+    if absorbed_total:
+        lines += [
+            "### Absorbed by the shared text policy",
+            "",
+            f"A further **{absorbed_total}** values were textually different but "
+            "identical once both sides were put through "
+            "`vocabulary_text_policy.py`. These are not counted above, because "
+            "they are our own deliberate normalization (spaces collapsed after "
+            "a period in descriptive fields) showing up on only one side — the "
+            "python-docx corpus has the policy applied, the LLM corpus does "
+            "not. They are listed here so the number is visible rather than "
+            "silently removed.",
+            "",
+            "| Field | Values |",
+            "|---|---:|",
+        ]
+        for location, count in POLICY_ABSORBED.most_common():
+            lines.append(f"| `{location}` | {count} |")
+        lines.append("")
 
     priority = ("content", "pydocx_truncated", "row_count", "block_count",
                 "missing_in_llm", "missing_in_pydocx")
@@ -388,6 +459,13 @@ def main():
     REPORT_MD.write_text(render_report(results, coverage, args.limit))
     REPORT_JSON.write_text(json.dumps({
         "coverage": {**coverage, "common": len(common)},
+        "policyAbsorbed": {
+            "total": sum(POLICY_ABSORBED.values()),
+            "byField": dict(POLICY_ABSORBED.most_common()),
+            "note": "Values equal once both corpuses are put through "
+                    "vocabulary_text_policy.py. Not disagreements between the "
+                    "pipelines; our own normalization applied to one side only.",
+        },
         "findings": {t: f for t, f in results.items() if f},
     }, indent=2, ensure_ascii=False) + "\n")
 
@@ -398,6 +476,7 @@ def main():
     print(f"  identical in every field: {clean}/{len(common)}")
     for bucket, count in buckets.most_common():
         print(f"  {bucket}: {count}")
+    print(f"  absorbed by the shared text policy: {sum(POLICY_ABSORBED.values())}")
     print(f"\nReport: {REPORT_MD}")
     print(f"JSON:   {REPORT_JSON}")
     return 0

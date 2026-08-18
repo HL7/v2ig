@@ -7,10 +7,8 @@ the published document.
 ## Coverage
 
 - Tables in both corpuses: **799**
-- Tables only in python-docx: **1**
+- Tables only in python-docx: **0**
 - Tables only in the LLM corpus: **0**
-
-python-docx only: 0827 – Source Document Jurisdiction for Recorded Sex or  Gender
 
 ## Agreement
 
@@ -28,6 +26,20 @@ python-docx only: 0827 – Source Document Jurisdiction for Recorded Sex or  Gen
 | `missing_in_llm` | 1 | Key present in python-docx only |
 | `block_count` | 1 | Different number of metadata blocks |
 | `missing_in_pydocx` | 1 | Key present in the LLM corpus only |
+
+### Absorbed by the shared text policy
+
+A further **851** values were textually different but identical once both sides were put through `vocabulary_text_policy.py`. These are not counted above, because they are our own deliberate normalization (spaces collapsed after a period in descriptive fields) showing up on only one side — the python-docx corpus has the policy applied, the LLM corpus does not. They are listed here so the number is visible rather than silently removed.
+
+| Field | Values |
+|---|---:|
+| `codeSystems[0].Description` | 362 |
+| `tableMetadata.Description` | 210 |
+| `conceptDomain.Description` | 124 |
+| `codedContent.comment` | 74 |
+| `valueSets[0].Description` | 50 |
+| `codedContent.displayName` | 18 |
+| `codedContent.definition` | 13 |
 
 ## Findings needing adjudication (5)
 
@@ -64,16 +76,16 @@ never invents it.
 
 | Table | Location | Lost text |
 |---|---|---|
-| 0254 | `conceptDomain.Description` | `"families," those related to simple counts (number, number concentration, etc.), to mas...` |
-| 0389 | `conceptDomain.Description` | `"Panic" or mechanical failures).  Repeated with dilution — performed usually in the cas...` |
-| 0389 | `tableMetadata.Description` | `"Panic" or mechanical failures).  Repeated with dilution — performed usually in the cas...` |
-| 0389 | `codeSystems[0].Description` | `"Panic" or mechanical failures).\nRepeated with dilution — performed usually in the cas...` |
+| 0254 | `conceptDomain.Description` | `s," those related to simple counts (number, number concentration, etc.), to mass (mass,...` |
+| 0389 | `conceptDomain.Description` | `Panic" or mechanical failures). Repeated with dilution — performed usually in the case ...` |
+| 0389 | `tableMetadata.Description` | `Panic" or mechanical failures). Repeated with dilution — performed usually in the case ...` |
+| 0389 | `codeSystems[0].Description` | `Panic" or mechanical failures).\nRepeated with dilution — performed usually in the case...` |
 | 0433 | `codedContent[5].definition` | `"No-code" (i.e. Do not resuscitate)` |
 | 0472 | `codedContent[0].comment` | `"S" specification implies that the second timing sequence follows the first, e.g., when...` |
-| 0472 | `codedContent[1].comment` | `"A" specifies two parallel instructions, as are sometimes used in medication, e.g., pre...` |
+| 0472 | `codedContent[1].comment` | `A" specifies two parallel instructions, as are sometimes used in medication, e.g., pred...` |
 | 0527 | `conceptDomain.Description` | `"the 5th of every month").` |
 | 0527 | `tableMetadata.Description` | `"the 5th of every month").` |
-| 0527 | `codeSystems[0].Description` | `"the 5th of every month").  Used in HL7 Version 2 messaging in the RPT segment.` |
+| 0527 | `codeSystems[0].Description` | `"the 5th of every month"). Used in HL7 Version 2 messaging in the RPT segment.` |
 | 0527 | `valueSets[0].Description` | `"the 5th of every month").` |
 | 0717 | `codedContent[37].definition` | `"No Consent" policy scheme provides no opportunity for accommodation of an individual's...` |
 | 0719 | `codeSystems[0].Description` | `"potassium" together with and Act.classCode for "laboratory observation" to somehow mea...` |
