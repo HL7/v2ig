@@ -1,0 +1,2560 @@
+{
+  "generated": "2026-08-18",
+  "basedOn": {
+    "package": "hl7.terminology.r5",
+    "resource": "CodeSystem/conceptdomains",
+    "version": "3.0.0"
+  },
+  "counts": {
+    "symbolic_name_is_not_a_plain_token": 55,
+    "added_from_chapter_2c": 177,
+    "domain_declared_by_multiple_tables": 26,
+    "definition_differs_from_tho": 5,
+    "conflicting_descriptions_within_chapter": 5,
+    "symbolic_name_near_match_in_tho": 1,
+    "tho_v2_domain_absent_from_chapter_2c": 9,
+    "inherited_undeclared_property": 1,
+    "inherited_version": 1
+  },
+  "divergences": [
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "AbnormalText/CodesforCategoricalObservations",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "AbnormalText/CodesforCategoricalObservations",
+      "tables": [
+        "0655"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AbnormalText/CodesforCategoricalObservations",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Abnormal Text/Codes for Categorical Observations.",
+      "tables": [
+        "0655"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Active/Inactive",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Active/Inactive",
+      "tables": [
+        "0183"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ActualDispenseUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Actual Dispense Units.",
+      "tables": [
+        "0704"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ActualDosageForm",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Actual Dosage Form.",
+      "tables": [
+        "0705"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ActualDrugStrengthVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Actual Drug Strength Volume Units.",
+      "tables": [
+        "0713"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ActualStrengthUnit",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Actual Strength Unit.",
+      "tables": [
+        "0707"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Additive/Preservative",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Additive/Preservative",
+      "tables": [
+        "0371"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AdministeredBarcodeIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Administered Barcode Identifier.",
+      "tables": [
+        "0696"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AdministeredDosageForm",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Administered Dosage Form.",
+      "tables": [
+        "0690"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AdministeredDrugStrengthVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Administered Drug Strength Volume Units.",
+      "tables": [
+        "0695"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AdministeredStrengthUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Administered Strength Units.",
+      "tables": [
+        "0692"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AdministeredUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Administered Units.",
+      "tables": [
+        "0689"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "AdministrationNotes",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0691",
+        "0737"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AdministrationNotes",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Administration Notes.",
+      "tables": [
+        "0691",
+        "0737"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AnswerChoices",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Answer Choices.",
+      "tables": [
+        "0665"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Application/MethodIdentifier",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Application/MethodIdentifier",
+      "tables": [
+        "0783"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Application/MethodIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Application/Method Identifier.",
+      "tables": [
+        "0783"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ApprovalStatus",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Approval Status.",
+      "tables": [
+        "0563"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AuthorizationReferralType",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Authorization Referral Type.",
+      "tables": [
+        "0551"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "AuthorizedDiscipline(s)",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "AuthorizedDiscipline(s)",
+      "tables": [
+        "0546"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "AuthorizedDiscipline(s)",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Authorized Discipline(s).",
+      "tables": [
+        "0546"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BCBloodGroup",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BC Blood Group.",
+      "tables": [
+        "0583"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "BCComponent",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0577",
+        "0582"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BCComponent",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BC Component .",
+      "tables": [
+        "0577",
+        "0582"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "BCDonationType/IntendedUse",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "BCDonationType/IntendedUse",
+      "tables": [
+        "0578"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BCDonationType/IntendedUse",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BC Donation Type / Intended Use .",
+      "tables": [
+        "0578"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BCSpecialTesting",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BC Special Testing .",
+      "tables": [
+        "0580"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BPBloodGroup",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BP Blood Group .",
+      "tables": [
+        "0579"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "BPUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0576",
+        "0581",
+        "0584"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BPUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BP Units.",
+      "tables": [
+        "0576",
+        "0581",
+        "0584"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BPUniversalServiceIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of BP Universal Service Identifier.",
+      "tables": [
+        "0575"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "BloodProductTransfusion_DispositionStatus",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "BloodProductTransfusion_DispositionStatus",
+      "tables": [
+        "0513"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BolusDoseAmountUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Bolus Dose Amount Units.",
+      "tables": [
+        "0767"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "BolusDoseVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Bolus Dose Volume Units.",
+      "tables": [
+        "0768"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "CauseOfDeath",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Cause Of Death.",
+      "tables": [
+        "0680"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Charge_PriceIndicator",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Charge_PriceIndicator",
+      "tables": [
+        "0032"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ClinicalInformationRequest",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Clinical Information Request.",
+      "tables": [
+        "0664"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ClinicalService",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Clinical Service.",
+      "tables": [
+        "0573"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "CodedComment",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Coded Comment.",
+      "tables": [
+        "0611"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "CodedRepresentationofMethod",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Coded Representation of Method.",
+      "tables": [
+        "0635"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "CollectionEvent_ProcessStepLimit",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "CollectionEvent_ProcessStepLimit",
+      "tables": [
+        "0938"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Collector'sComment*",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Collector'sComment*",
+      "tables": [
+        "0619"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Collector'sComment*",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Collector's Comment *.",
+      "tables": [
+        "0619"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ComponentCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Component Code.",
+      "tables": [
+        "0697"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ComponentDrugStrengthVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Component Drug Strength Volume Units.",
+      "tables": [
+        "0701"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ComponentStrengthUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Component Strength Units.",
+      "tables": [
+        "0699"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ComponentUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Component Units.",
+      "tables": [
+        "0698"
+      ]
+    },
+    {
+      "kind": "definition_differs_from_tho",
+      "conceptDomain": "Confidentiality",
+      "detail": "Chapter 2C and THO describe the same domain differently. THO's definition was kept.",
+      "chapter2C": "Types of privacy metadata classifying an IT resource (data, information object, service, or system capability) according to its level of sensitivity, which is based on an analysis of applicable privacy policies and the risk of financial, reputational, or other harm to an individual or entity that could result if made available or disclosed to unauthorized individuals, entities, or processes.\nUsage Note : Confidentiality codes may be used in security labels and privacy markings to classify IT resources based on sensitivity to indicate the obligation of a custodian or receiver to ensure that the protected resource is not made available or disclosed to individuals, entities, or processes (security principals) unless authorized per applicable policies. Confidentiality codes may also be used in the clearances of initiators requesting access to protected resources.\nMap: Definition aligns with ISO 7498-2:1989 - Confidentiality is the property that information is not made available or disclosed to unauthorized individuals, entities, or processes",
+      "tho": "Types of privacy metadata classifying an IT resource (data, information object, service, or system capability) according to its level of sensitivity, which is based on an analysis of applicable privacy policies and the risk of financial, reputational, or other harm to an individual or entity that could result if made available or disclosed to unauthorized individuals, entities, or processes.\r\n\r\n*Usage Note:* Confidentiality codes may be used in security labels and privacy markings to classify IT resources based on sensitivity to indicate the obligation of a custodian or receiver to ensure that the protected resource is not made available or disclosed to individuals, entities, or processes (security principals) unless authorized per applicable policies. Confidentiality codes may also be used in the clearances of initiators requesting access to protected resources.\r\n\r\n*Map:* Definition aligns with ISO 7498-2:1989 - Confidentiality is the property that information is not made available or disclosed to unauthorized individuals, entities, or processes.",
+      "tables": [
+        "0952"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ContainerCarrierIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Container Carrier Identifier.",
+      "tables": [
+        "0600"
+      ]
+    },
+    {
+      "kind": "definition_differs_from_tho",
+      "conceptDomain": "ContainerForm",
+      "detail": "Chapter 2C and THO describe the same domain differently. THO's definition was kept.",
+      "chapter2C": "The domain of possible values describing shape or type of the container, e.g.:\n•\tTube/vial\n•\tJar\n•\tBag\n•\tBlock\n•\tSlide",
+      "tho": "Describes the nature (or type) of the container.\r\n\r\n**Examples:**\r\n\r\n *  Carton\r\n *  Bottle\r\n *  Vial\r\n\r\n**DesignNote:**The material of the container should be separately specified (e.g. the \"cardboard\" part of cardboard carton or the \"glass\" part of glass vial should be described elsewhere).\r\n\r\n**OpenIssue:**This usage of material form is used in Common Product Model,but it is at variance of what has been done in Specimen where the same information is captured in the Entity.code values. These differences need further study.",
+      "tables": [
+        "0967"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "ContainerHeight/Diameter/DeltaUnits",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "ContainerHeight/Diameter/DeltaUnits",
+      "tables": [
+        "0775"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ContainerHeight/Diameter/DeltaUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Container Height/Diameter/Delta Units.",
+      "tables": [
+        "0775"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ContainerType",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Container Type .",
+      "tables": [
+        "0785"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ContainerUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Container Units.",
+      "tables": [
+        "0658"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ContraindicationstoObservations",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Contraindications to Observations.",
+      "tables": [
+        "0640"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "CorrespondingSIUnitsofMeasure",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Corresponding SI Units of Measure.",
+      "tables": [
+        "0649"
+      ]
+    },
+    {
+      "kind": "definition_differs_from_tho",
+      "conceptDomain": "Country",
+      "detail": "Chapter 2C and THO describe the same domain differently. THO's definition was kept.",
+      "chapter2C": "The domain of possible values specifying the type of Country.",
+      "tho": "Countries of the world. ISO 3166, part 1, alpha-3 set.",
+      "tables": [
+        "0675"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "County/Parish",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "County/Parish",
+      "tables": [
+        "0289"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "CreatingSpecialty",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Creating Specialty.",
+      "tables": [
+        "0792"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "CriticalText/CodesforCategoricalObservations",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "CriticalText/CodesforCategoricalObservations",
+      "tables": [
+        "0656"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "CriticalText/CodesforCategoricalObservations",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Critical Text/Codes for Categorical Observations.",
+      "tables": [
+        "0656"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "CyclicEntry_ExitIndicator",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "CyclicEntry_ExitIndicator",
+      "tables": [
+        "0505"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DangerCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Danger Code.",
+      "tables": [
+        "0613"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Degree/License/Certificate",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Degree/License/Certificate",
+      "tables": [
+        "0360"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DeliverToID",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Deliver To ID.",
+      "tables": [
+        "0688"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "DeviceStatus",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0682",
+        "0962"
+      ]
+    },
+    {
+      "kind": "conflicting_descriptions_within_chapter",
+      "conceptDomain": "DeviceStatus",
+      "detail": "The tables declaring this domain describe it differently. The first was used.",
+      "chapter2C": [
+        "The domain of possible values for the state of a device.",
+        "The domain describing the availability status of a device."
+      ],
+      "tables": [
+        "0682",
+        "0962"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "DeviceType",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0657",
+        "0961"
+      ]
+    },
+    {
+      "kind": "conflicting_descriptions_within_chapter",
+      "conceptDomain": "DeviceType",
+      "detail": "The tables declaring this domain describe it differently. The first was used.",
+      "chapter2C": [
+        "The domain of possible values for the kind of device as defined by the manufacturer.",
+        "Domain of concepts describing what kind a particular device is. Focus here is on devices used in the medical field."
+      ],
+      "tables": [
+        "0657",
+        "0961"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Diet,Supplement,orPreferenceCode",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Diet,Supplement,orPreferenceCode",
+      "tables": [
+        "0628"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Diet,Supplement,orPreferenceCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Diet, Supplement, or Preference Code.",
+      "tables": [
+        "0628"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "DispensePackageSizeUnit",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0709",
+        "0726"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DispensePackageSizeUnit",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Dispense Package Size Unit.",
+      "tables": [
+        "0709",
+        "0726"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "DispenseUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0703",
+        "0720",
+        "0746"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DispenseUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Dispense Units.",
+      "tables": [
+        "0703",
+        "0720",
+        "0746"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DispensetoPharmacy",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Dispense to Pharmacy.",
+      "tables": [
+        "0714"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "DispensingPharmacy",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0733",
+        "0765"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DispensingPharmacy",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Dispensing Pharmacy.",
+      "tables": [
+        "0733",
+        "0765"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DocumentClass",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values for document classes.",
+      "tables": [
+        "0832"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "DocumentEvent",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values for document events.",
+      "tables": [
+        "0833"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Employment Status ODH",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Employment Status ODH",
+      "tables": [
+        "0957"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Employment Status ODH",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Concepts representing whether a person does or does not currently have a job or is not currently in the labor pool seeking employment.",
+      "tables": [
+        "0957"
+      ]
+    },
+    {
+      "kind": "definition_differs_from_tho",
+      "conceptDomain": "EmploymentStatus",
+      "detail": "Chapter 2C and THO describe the same domain differently. THO's definition was kept.",
+      "chapter2C": "The domain of possible values for the guarantor's employment status.",
+      "tho": "A code used to define the employment status of the insured individual identified in UB-92 FL 58. UB-92 Form locator 64:Employment Status Code of the Insured. Can be used with Employee\\_Employer\\_statusCode in HL7. Values include Employed Full Time, Employed Part Time, Not Employed, Retired, On Active Military Duty",
+      "tables": [
+        "0066"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EncounterType",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Encounter Type.",
+      "tables": [
+        "0574"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EndingNotificationCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Ending Notification Code.",
+      "tables": [
+        "0586"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EnteringDevice",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Entering Device.",
+      "tables": [
+        "0668"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EnteringOrganization",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Entering Organization.",
+      "tables": [
+        "0666"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Event",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values for the trigger event for Version 2.x interface messages.",
+      "tables": [
+        "0003"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EventIdentifiersUsed",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Event Identifiers Used.",
+      "tables": [
+        "0678"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "EventSymptom/DiagnosisCode",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "EventSymptom/DiagnosisCode",
+      "tables": [
+        "0679"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EventSymptom/DiagnosisCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Event Symptom/Diagnosis Code.",
+      "tables": [
+        "0679"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "ExpandedYes_NoIndicator",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "ExpandedYes_NoIndicator",
+      "tables": [
+        "0532"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "FibrinIndexUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Fibrin Index Units.",
+      "tables": [
+        "0782"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "FixedCannedMessage",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Fixed Canned Message.",
+      "tables": [
+        "0643"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "FolderAssignment",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Folder Assignment.",
+      "tables": [
+        "0791"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GenderHarmonyConcepts",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Concepts used to properly describe a person’s self-asserted attributes like gender identity, pronouns and sexual orientation.",
+      "tables": [
+        "0820"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GenderIdentity",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Gender identity values as identified by individuals",
+      "tables": [
+        "0821"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GenericName",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Generic Name.",
+      "tables": [
+        "0676"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveBarcodeIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Barcode Identifier.",
+      "tables": [
+        "0745"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "GiveDosageForm",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0716",
+        "0736"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveDosageForm",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Dosage Form.",
+      "tables": [
+        "0716",
+        "0736"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "GiveDrugStrengthVolumeUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0729",
+        "0744"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveDrugStrengthVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Drug Strength Volume Units.",
+      "tables": [
+        "0729",
+        "0744"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveIndication",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Indication.",
+      "tables": [
+        "0724"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "GiveRateUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0722",
+        "0740"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveRateUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Rate Units.",
+      "tables": [
+        "0722",
+        "0740"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "GiveStrengthUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0723",
+        "0741"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveStrengthUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Strength Units.",
+      "tables": [
+        "0723",
+        "0741"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "GiveUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0715",
+        "0735"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "GiveUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Give Units.",
+      "tables": [
+        "0715",
+        "0735"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "HemolysisIndexUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Hemolysis Index Units.",
+      "tables": [
+        "0779"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "HospitalItemCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Hospital Item Code.",
+      "tables": [
+        "0686"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "IcterusIndexUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Icterus Index Units.",
+      "tables": [
+        "0781"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "IdentityofInstrumentUsedtoPerformthisStudy",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Identity of Instrument Used to Perform this Study.",
+      "tables": [
+        "0633"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ImplantationStatus",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the implantation status.",
+      "tables": [
+        "0795"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ImplicatedProduct",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Implicated Product.",
+      "tables": [
+        "0670"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "Indication",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0694",
+        "0708",
+        "0743",
+        "0758"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Indication",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Indication.",
+      "tables": [
+        "0694",
+        "0708",
+        "0743",
+        "0758"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "IndicationForProductUse",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Indication For Product Use.",
+      "tables": [
+        "0672"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "IndustryODH",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "A self-reported title (with associated code) that identifies the kind of business, i.e., primary business activity, conducted by a person's employer.",
+      "tables": [
+        "0955"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "InitiatingLocation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Initiating Location.",
+      "tables": [
+        "0711"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "InstitutionRegisteringthePatient",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Institution Registering the Patient.",
+      "tables": [
+        "0589"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "InventoryContainerIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Inventory Container Identifier.",
+      "tables": [
+        "0599"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ItemCode-External",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Item Code - External.",
+      "tables": [
+        "0685"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ItemCode-Internal",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Item Code - Internal.",
+      "tables": [
+        "0684"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Job Supervisory Level or Pay Grade",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Job Supervisory Level or Pay Grade",
+      "tables": [
+        "0956"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Job Supervisory Level or Pay Grade",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job.  In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.",
+      "tables": [
+        "0956"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "LipemiaIndexUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Lipemia Index Units.",
+      "tables": [
+        "0780"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Local_RemoteControlState",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Local_RemoteControlState",
+      "tables": [
+        "0366"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Location",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Location.",
+      "tables": [
+        "0774"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Masterfile Action Code",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Masterfile Action Code",
+      "tables": [
+        "0180"
+      ]
+    },
+    {
+      "kind": "symbolic_name_near_match_in_tho",
+      "conceptDomain": "Masterfile Action Code",
+      "detail": "Treated as the existing THO concept 'MasterfileActionCode'; the Chapter 2C spelling looks like a typo. No new concept was added.",
+      "chapter2C": "Masterfile Action Code",
+      "tho": "MasterfileActionCode",
+      "tables": [
+        "0180"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "MaxDoseAmountUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Max Dose Amount Units.",
+      "tables": [
+        "0772"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "MaxDoseAmountVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Max Dose Amount Volume Units.",
+      "tables": [
+        "0773"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "MilitaryRank/grade",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "MilitaryRank/grade",
+      "tables": [
+        "0141"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "Modality",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0259",
+        "0604"
+      ]
+    },
+    {
+      "kind": "conflicting_descriptions_within_chapter",
+      "conceptDomain": "Modality",
+      "detail": "The tables declaring this domain describe it differently. The first was used.",
+      "chapter2C": [
+        "The domain of possible values that define the imaging apparatus expected to be used to acquire an observation.  This table has been removed from the standard as of 2.7 in favor of table 0910.",
+        "The domain of possible values specifying the type of Modality ."
+      ],
+      "tables": [
+        "0259",
+        "0604"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Name_AddressRepresentation",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Name_AddressRepresentation",
+      "tables": [
+        "0465"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "NatureOfService_Test_Observation",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "NatureOfService_Test_Observation",
+      "tables": [
+        "0174"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Non-concurCode_Description",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Non-concurCode_Description",
+      "tables": [
+        "0233"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "NormalText/CodesforCategoricalObservations",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "NormalText/CodesforCategoricalObservations",
+      "tables": [
+        "0654"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "NormalText/CodesforCategoricalObservations",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Normal Text/Codes for Categorical Observations.",
+      "tables": [
+        "0654"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "NotificationCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Notification Code.",
+      "tables": [
+        "0610"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ObservationIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Observation Identifier.",
+      "tables": [
+        "0622"
+      ]
+    },
+    {
+      "kind": "definition_differs_from_tho",
+      "conceptDomain": "ObservationMethod",
+      "detail": "Chapter 2C and THO describe the same domain differently. THO's definition was kept.",
+      "chapter2C": "The domain of possible values specifying the type of Observation Method.",
+      "tho": "A code that provides additional detail about the means or technique used to ascertain the observation.\r\n\r\n*Examples:* Blood pressure measurement method: arterial puncture vs. sphygmomanometer (Riva-Rocci), sitting vs. supine position, etc.\r\n\r\n*Constraints:* In all observations the method is already partially specified by the Act.code. In this case, the methodCode NEED NOT be used at all. The methodCode MAY still be used to identify this method more clearly in addition to what is implied from the Act.code. However, an information consumer system or process SHOULD NOT depend on this methodCode information for method detail that is implied by the Act.code.\r\n\r\nIf the methodCode is used to express method detail that is also implied by the Act.code, the methodCode MUST NOT be in conflict with the implied method of the Act.code.\r\n\r\n*Discussion:* In all observations the method is already partially specified by simply knowing the kind of observation (observation definition, Act.code) and this implicit information about the method does not need to be specified in Observation.methodCode. Particularly, most LOINC codes are defined for specific methods as long as the method makes a practical difference in interpretation. For example, the difference between susceptibility studies using the \"minimal inhibitory concentration\" (MIC) or the \"agar diffusion method\" (Kirby-Baur) are specifically assigned to different LOINC codes. The methodCode therefore is only an additional qualifier to specify what may not be known already from the Act.code.\r\n\r\nAlso, some variances in methods may be tied to the particular device used. The methodCode should not be used to identify the specific device or test-kit material used in the observation. Such information about devices or test-kits should be associated with the observation as \"device\" participations.",
+      "tables": [
+        "0626"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "ObservationProducingDepartment/Section",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "ObservationProducingDepartment/Section",
+      "tables": [
+        "0636"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ObservationProducingDepartment/Section",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Observation Producing Department/Section.",
+      "tables": [
+        "0636"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ObservationsRequiredtoInterpretthisObservation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Observations Required to Interpret this Observation.",
+      "tables": [
+        "0639"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Occupation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "A self-reported title (with an associated code) that identifies a person's type of work, i.e., the set of activities or tasks that a person is paid to perform or, if unpaid, the person’s contribution to a household/family business/community.",
+      "tables": [
+        "0958"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Organization_Agency_Department",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Organization_Agency_Department",
+      "tables": [
+        "0530"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "OtherService/Test/ObservationIDsfortheObservation",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "OtherService/Test/ObservationIDsfortheObservation",
+      "tables": [
+        "0632"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "OtherService/Test/ObservationIDsfortheObservation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Other Service/Test/Observation IDs for the Observation.",
+      "tables": [
+        "0632"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "OutsideSite(s)WhereObservationMayBePerformed",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "OutsideSite(s)WhereObservationMayBePerformed",
+      "tables": [
+        "0638"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "OutsideSite(s)WhereObservationMayBePerformed",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Outside Site(s) Where Observation May Be Performed.",
+      "tables": [
+        "0638"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PCADoseAmountUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of PCA Dose Amount Units.",
+      "tables": [
+        "0769"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PCADoseAmountVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of PCA Dose Amount Volume Units.",
+      "tables": [
+        "0770"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Packaging/AssemblyLocation",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Packaging/AssemblyLocation",
+      "tables": [
+        "0712"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Packaging/AssemblyLocation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Packaging/Assembly Location.",
+      "tables": [
+        "0712"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Patient'sRelationshipToInsured",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Patient'sRelationshipToInsured",
+      "tables": [
+        "0344"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PatientEvaluabilityStatus",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Patient Evaluability Status.",
+      "tables": [
+        "0593"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PatientStudyEligibilityStatus",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Patient Study Eligibility Status.",
+      "tables": [
+        "0590"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PersonalPronouns",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Pronouns used by an individual to describe themself.",
+      "tables": [
+        "0822"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PharmaceuticalSubstanceAlternative",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Pharmaceutical Substance Alternative.",
+      "tables": [
+        "0730"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PharmacyofMostRecentFill",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Pharmacy of Most Recent Fill.",
+      "tables": [
+        "0732"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PlannedPatientTransportComment",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Planned Patient Transport Comment.",
+      "tables": [
+        "0621"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PositiononCarrier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Position on Carrier.",
+      "tables": [
+        "0601"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PreferredCodingSystem",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Preferred Coding System.",
+      "tables": [
+        "0650"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "PreferredSpecimen_AttributeStatus",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "PreferredSpecimen_AttributeStatus",
+      "tables": [
+        "0920"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PrimaryKeyValue-MFA",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Primary Key Value - MFA.",
+      "tables": [
+        "0607"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PrimaryKeyValue-MFE",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Primary Key Value - MFE.",
+      "tables": [
+        "0608"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PrimaryKeyValue-PRA",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Primary Key Value - PRA.",
+      "tables": [
+        "0681"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "PrimaryKeyValue–STF",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "PrimaryKeyValue–STF",
+      "tables": [
+        "0786"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PrimaryKeyValue–STF",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Primary Key Value – STF.",
+      "tables": [
+        "0786"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "PrincipalLanguageOfMessage",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Principal Language Of Message.",
+      "tables": [
+        "0609"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Problem_GoalActionCode",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Problem_GoalActionCode",
+      "tables": [
+        "0287"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProcedureMedication",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Procedure Medication.",
+      "tables": [
+        "0644"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProcedurePractitionerIdentifierCodeType",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values of concepts which specify the different types of practitioners associated with this procedure.",
+      "tables": [
+        "0133"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Producer'sID",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Producer'sID",
+      "tables": [
+        "0624"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Producer'sID",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Producer's ID.",
+      "tables": [
+        "0624"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Producer'sService/Test/ObservationID",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Producer'sService/Test/ObservationID",
+      "tables": [
+        "0630"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Producer'sService/Test/ObservationID",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Producer's Service/Test/Observation ID.",
+      "tables": [
+        "0630"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProducerID",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Producer ID.",
+      "tables": [
+        "0631"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProductClass",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Product Class.",
+      "tables": [
+        "0671"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProductCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Product Code.",
+      "tables": [
+        "0677"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProductEvaluationPerformed",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Product Evaluation Performed.",
+      "tables": [
+        "0673"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProductEvaluationResults",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Product Evaluation Results.",
+      "tables": [
+        "0674"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Product_ServiceCode",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Product_ServiceCode",
+      "tables": [
+        "0879"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Product_ServiceCodeModifier",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Product_ServiceCodeModifier",
+      "tables": [
+        "0880"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Product_ServiceStatus",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Product_ServiceStatus",
+      "tables": [
+        "0559"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Product_ServicesClarificationCodes",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Product_ServicesClarificationCodes",
+      "tables": [
+        "0561"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ProtocolCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Protocol Code.",
+      "tables": [
+        "0605"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "Provider'sAdministrationInstructions",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0718",
+        "0752"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Provider'sAdministrationInstructions",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Provider'sAdministrationInstructions",
+      "tables": [
+        "0718",
+        "0752"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Provider'sAdministrationInstructions",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Provider's Administration Instructions.",
+      "tables": [
+        "0718",
+        "0752"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Provider'sPharmacy/TreatmentInstructions",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Provider'sPharmacy/TreatmentInstructions",
+      "tables": [
+        "0751"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Provider'sPharmacy/TreatmentInstructions",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Provider's Pharmacy/Treatment Instructions.",
+      "tables": [
+        "0751"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "QuantityUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0560",
+        "0602"
+      ]
+    },
+    {
+      "kind": "conflicting_descriptions_within_chapter",
+      "conceptDomain": "QuantityUnits",
+      "detail": "The tables declaring this domain describe it differently. The first was used.",
+      "chapter2C": [
+        "The domain of possible values that specify the adjustment quantity.",
+        "The domain of possible values specifying the type of Quantity Units."
+      ],
+      "tables": [
+        "0560",
+        "0602"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RandomizedStudyArm",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Randomized Study Arm.",
+      "tables": [
+        "0591"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ReasonEndedStudy",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Reason Ended Study.",
+      "tables": [
+        "0594"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RecordedSexOrGenderType",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Concepts that represent the type of the recorded sex or gender, where that is known, for example Sex at Birth in a medical record or Sex as defined by DICOM.",
+      "tables": [
+        "0824"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "ReflexTests/Observations",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "ReflexTests/Observations",
+      "tables": [
+        "0641"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ReflexTests/Observations",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Reflex Tests/Observations.",
+      "tables": [
+        "0641"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "ReplacementProducer'sService/Test/ObservationID",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "ReplacementProducer'sService/Test/ObservationID",
+      "tables": [
+        "0646"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ReplacementProducer'sService/Test/ObservationID",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Replacement Producer's Service/Test/Observation ID.",
+      "tables": [
+        "0646"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ReportSubheader",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Report Subheader.",
+      "tables": [
+        "0637"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "RequestedDiscipline(s)",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "RequestedDiscipline(s)",
+      "tables": [
+        "0522"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedDiscipline(s)",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Discipline(s).",
+      "tables": [
+        "0522"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedDispenseCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Dispense Code.",
+      "tables": [
+        "0753"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedDispenseUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Dispense Units.",
+      "tables": [
+        "0754"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedDosageForm",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Dosage Form.",
+      "tables": [
+        "0750"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedDrugStrengthVolumeUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Drug Strength Volume Units.",
+      "tables": [
+        "0764"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedGiveCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Give Code.",
+      "tables": [
+        "0747"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedGiveRateUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Give Rate Units.",
+      "tables": [
+        "0760"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedGiveStrengthUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Give Strength Units.",
+      "tables": [
+        "0756"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequestedGiveUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requested Give Units.",
+      "tables": [
+        "0748"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RequisitionUnitofMeasure",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Requisition Unit of Measure.",
+      "tables": [
+        "0687"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "RoutingInstruction",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Routing Instruction.",
+      "tables": [
+        "0766"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ScheduledProcedureStepLocation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Scheduled Procedure Step Location.",
+      "tables": [
+        "0606"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "SecurityLabelHandling Instructions",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "SecurityLabelHandling Instructions",
+      "tables": [
+        "0953"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SecurityLabelHandling Instructions",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "tbd",
+      "tables": [
+        "0953"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Sequence_ResultsFlag",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Sequence_ResultsFlag",
+      "tables": [
+        "0503"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "ServicePeriod",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0627",
+        "0629"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ServicePeriod",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Service Period.",
+      "tables": [
+        "0627",
+        "0629"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SexParameterForClinicalUse",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible concepts that represent the sex characterization appropriate for the associated clinical context.",
+      "tables": [
+        "0828"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SexualOrientation",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Concepts used to properly describe a person’s emotional, romantic, sexual, or affectional attraction to another person.",
+      "tables": [
+        "0823"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SourceDocumentJurisdictionForRecordedSexOrGender",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible concepts used to identify the jurisdiction that created the document referenced to obtain the recorded sex or gender value from; for example United States, California, Washington County, etc.",
+      "tables": [
+        "0827"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SourceDocumentTypeForRecordedSexOrGender",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible concepts used to identify what kind of document is referenced to obtain the recorded sex or gender value from; for example a passport, driver’s license, birth certificate etc.",
+      "tables": [
+        "0826"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SpecialAdministrationInstructions",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Special Administration Instructions.",
+      "tables": [
+        "0738"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "SpecialDispensingInstructions",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0706",
+        "0721"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SpecialDispensingInstructions",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Special Dispensing Instructions.",
+      "tables": [
+        "0706",
+        "0721"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Specimen",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Specimen.",
+      "tables": [
+        "0660"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SpecimenSourceSite",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Specimen Source Site.",
+      "tables": [
+        "0784"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "StartingNotificationCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Starting Notification Code.",
+      "tables": [
+        "0585"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "StratumforStudyRandomization",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Stratum for Study Randomization.",
+      "tables": [
+        "0592"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "StudyPhaseEvaluability",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Study Phase Evaluability.",
+      "tables": [
+        "0588"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "StudyPhaseIdentifier",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0587",
+        "0597"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "StudyPhaseIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Study Phase Identifier.",
+      "tables": [
+        "0587",
+        "0597"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "StudyQualityControlCodes",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Study Quality Control Codes.",
+      "tables": [
+        "0596"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "StudyScheduledTimePoint",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0595",
+        "0598"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "StudyScheduledTimePoint",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Study Scheduled Time Point.",
+      "tables": [
+        "0595",
+        "0598"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Substance/TreatmentRefusalReason",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Substance/TreatmentRefusalReason",
+      "tables": [
+        "0693"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Substance/TreatmentRefusalReason",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Substance/Treatment Refusal Reason.",
+      "tables": [
+        "0693"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "SupplementaryCode",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0700",
+        "0710",
+        "0727",
+        "0762"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "SupplementaryCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Supplementary Code.",
+      "tables": [
+        "0700",
+        "0710",
+        "0727",
+        "0762"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "TargetAnatomicSiteOfTest",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Target Anatomic Site Of Test.",
+      "tables": [
+        "0645"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "TaxonomicClassificationCode",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Taxonomic Classification Code.",
+      "tables": [
+        "0661"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Test/FluidIdentifier(s)",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Test/FluidIdentifier(s)",
+      "tables": [
+        "0603"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Test/FluidIdentifier(s)",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Test/Fluid Identifier(s).",
+      "tables": [
+        "0603"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Test/ServiceDefaultDurationUnits",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Test/ServiceDefaultDurationUnits",
+      "tables": [
+        "0663"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Test/ServiceDefaultDurationUnits",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Test/Service Default Duration Units.",
+      "tables": [
+        "0663"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "TransportArrangementResponsibility",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Transport Arrangement Responsibility.",
+      "tables": [
+        "0620"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "TransportLogisticsofCollectedSample*",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "TransportLogisticsofCollectedSample*",
+      "tables": [
+        "0614"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "TransportLogisticsofCollectedSample*",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Transport Logistics of Collected Sample *.",
+      "tables": [
+        "0614"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Unit",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the units.",
+      "tables": [
+        "0794"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "Units",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0623",
+        "0788"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "Units",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Units.",
+      "tables": [
+        "0623",
+        "0788"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "UnitsofMeasure",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Units of Measure.",
+      "tables": [
+        "0648"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "UniversalServiceIdentifier",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0612",
+        "0787",
+        "0789"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "UniversalServiceIdentifier",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Universal Service Identifier.",
+      "tables": [
+        "0612",
+        "0787",
+        "0789"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "ValidCoded\"Answers\"",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "ValidCoded\"Answers\"",
+      "tables": [
+        "0652"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "ValidCoded\"Answers\"",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Valid Coded \"Answers\".",
+      "tables": [
+        "0652"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "VendorID",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The domain of possible values specifying the type of Vendor ID.",
+      "tables": [
+        "0683"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "VolumeUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0568",
+        "0777",
+        "0930"
+      ]
+    },
+    {
+      "kind": "conflicting_descriptions_within_chapter",
+      "conceptDomain": "VolumeUnits",
+      "detail": "The tables declaring this domain describe it differently. The first was used.",
+      "chapter2C": [
+        "The domain of possible values of units of measure that are used to specify volume.",
+        "The domain of possible values specifying the type of Volume Units."
+      ],
+      "tables": [
+        "0568",
+        "0777",
+        "0930"
+      ]
+    },
+    {
+      "kind": "domain_declared_by_multiple_tables",
+      "conceptDomain": "WeightUnits",
+      "detail": "One concept domain is declared by several code tables, so the table-to-domain relationship is not one to one.",
+      "tables": [
+        "0567",
+        "0929"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "WorkScheduleODH",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "The coded typical arrangement of working hours for a person's job, as reported by the person.",
+      "tables": [
+        "0954"
+      ]
+    },
+    {
+      "kind": "symbolic_name_is_not_a_plain_token",
+      "conceptDomain": "Yes/noIndicator",
+      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
+      "chapter2C": "Yes/noIndicator",
+      "tables": [
+        "0136"
+      ]
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "ConfidentialityV2",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "ContainerFormV2",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "DeviceStatusSNAFU",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "DeviceTypeSNAFU",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "EmploymentStatusV2",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "EventType",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "MasterfileActionCode",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "VolumeUnitsSNAFU",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "tho_v2_domain_absent_from_chapter_2c",
+      "conceptDomain": "WeightUnitsSNAFU",
+      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
+    },
+    {
+      "kind": "inherited_undeclared_property",
+      "conceptDomain": "deprecated",
+      "detail": "A concept property used by THO's own content but not declared in its CodeSystem.property list. Left as-is; may draw a validator warning when published."
+    },
+    {
+      "kind": "inherited_version",
+      "conceptDomain": "3.0.0",
+      "detail": "The output carries THO's version because it carries THO's canonical URL. Publishing an extended code system at another body's canonical URL and version needs to be agreed with the UTG maintainers."
+    }
+  ]
+}

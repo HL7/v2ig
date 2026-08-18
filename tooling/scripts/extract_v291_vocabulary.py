@@ -420,6 +420,30 @@ def map_tables_to_sections(doc, table_headings):
     return sections
 
 
+def prune_stale_outputs(output_dir, current_table_numbers):
+    """Delete output files that no longer correspond to a section in the document.
+
+    The extractor writes one file per table, named after the table number. When
+    a parsing fix changes what a table number is, the file written under the old
+    name is left behind: fixing the en-dash heading of table 0827 produced a
+    correct `0827.json` while a file named after its entire heading stayed in
+    place from an earlier run, so the corpus held 800 files for 799 sections.
+
+    Only files inside the generated output directory are touched, and only ones
+    whose table number is not in the current document.
+
+    Returns:
+        A sorted list of the filenames that were removed.
+    """
+    expected = {f"{number}.json" for number in current_table_numbers}
+    removed = []
+    for path in sorted(Path(output_dir).glob("*.json")):
+        if path.name not in expected:
+            path.unlink()
+            removed.append(path.name)
+    return removed
+
+
 def extract_all_tables(doc_path, output_dir):
     """Extract all code tables from CH02C_Tables.docx."""
     print(f"Loading {doc_path}...")
@@ -626,6 +650,9 @@ def extract_all_tables(doc_path, output_dir):
 
         index.append(index_entry)
 
+    stats['pruned_files'] = prune_stale_outputs(output_dir,
+                                                {h['table_number'] for h in table_headings})
+
     extraction_date = datetime.date.today().isoformat()
 
     # Write index
@@ -695,6 +722,11 @@ def main():
     print(f"\n  Source observations (not extraction errors):")
     print(f"    Empty tables in source: {stats['empty_source_tables']}")
     print(f"    Code rows with no value: {stats['skipped_code_rows']}")
+    if stats.get('pruned_files'):
+        print(f"\n  Removed {len(stats['pruned_files'])} stale output file(s) "
+              f"left by an earlier run:")
+        for name in stats['pruned_files']:
+            print(f"    {name}")
     print(f"\n  Deviations from published text (by kind, then by field):")
     by_field = stats.get('deviationsByField', {})
     for kind, count in sorted(stats.get('deviations', {}).items()):

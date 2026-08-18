@@ -47,7 +47,56 @@ VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
 DEVIATIONS_PATH = PROJECT_ROOT / "v291-extracted" / "vocabulary-deviations.json"
 COMPARISON_PATH = PROJECT_ROOT / "v291-llm" / "vocabulary-comparison-report.json"
 THO_DIR = PROJECT_ROOT / "tho-r5"
+CONCEPT_DOMAINS_PATH = PROJECT_ROOT / "v291-fhir" / "conceptdomains-divergences.json"
 DEFAULT_OUT = PROJECT_ROOT / "v291-extracted" / "vocabulary-review-report.html"
+
+CONCEPT_DOMAIN_PRESENTATION = {
+    "added_from_chapter_2c": (
+        "confirm",
+        "Declared in Chapter 2C but absent from THO, so added as a new concept. "
+        "Confirm each really is a concept domain worth publishing.",
+    ),
+    "symbolic_name_is_not_a_plain_token": (
+        "decide",
+        "The Chapter 2C symbolic name is used verbatim as the concept code but "
+        "contains spaces, slashes or punctuation. Decide whether to keep it "
+        "exactly as published or mint a clean code and record the change.",
+    ),
+    "domain_declared_by_multiple_tables": (
+        "informational",
+        "Several code tables declare the same concept domain, so the "
+        "table-to-domain relationship is not one to one.",
+    ),
+    "definition_differs_from_tho": (
+        "decide",
+        "Chapter 2C and THO describe the same domain differently. THO's wording "
+        "was kept; decide whether Chapter 2C's should win instead.",
+    ),
+    "conflicting_descriptions_within_chapter": (
+        "decide",
+        "Chapter 2C itself gives this domain more than one description. The "
+        "first was used.",
+    ),
+    "symbolic_name_near_match_in_tho": (
+        "decide",
+        "The Chapter 2C spelling differs from THO's only by punctuation or "
+        "spacing, and looks like a typo in the published chapter.",
+    ),
+    "tho_v2_domain_absent_from_chapter_2c": (
+        "informational",
+        "THO marks these as v2-sourced but no Chapter 2C table declares them.",
+    ),
+    "inherited_undeclared_property": (
+        "informational",
+        "A property used by THO's own content but not declared in its "
+        "CodeSystem.property list. May draw a validator warning.",
+    ),
+    "inherited_version": (
+        "decide",
+        "Publishing an extended code system at another body's canonical URL and "
+        "version needs agreement with the UTG maintainers.",
+    ),
+}
 
 # How each deviation kind should be presented.
 #   action   -> decide | confirm | informational
@@ -217,6 +266,44 @@ def load_tho_coverage():
 # ---------------------------------------------------------------------------
 # Section building
 # ---------------------------------------------------------------------------
+
+
+def build_concept_domain_sections(concept_domains):
+    """Turn the concept domains divergence log into review sections."""
+    if not concept_domains:
+        return []
+
+    by_kind = defaultdict(list)
+    for entry in concept_domains.get("divergences", []):
+        by_kind[entry["kind"]].append(entry)
+
+    sections = []
+    for kind, entries in sorted(by_kind.items()):
+        action, blurb = CONCEPT_DOMAIN_PRESENTATION.get(
+            kind, ("decide", "Difference introduced while building the CodeSystem."))
+        rows = []
+        for entry in entries:
+            chapter_value = entry.get("chapter2C")
+            if isinstance(chapter_value, list):
+                chapter_value = " ⟂ ".join(chapter_value)
+            rows.append([
+                f'<code>{html.escape(str(entry["conceptDomain"]))}</code>',
+                ", ".join(entry.get("tables", [])) or "—",
+                show_invisibles(truncate(chapter_value)) if chapter_value is not None else "—",
+                show_invisibles(truncate(entry.get("tho"))) if entry.get("tho") is not None else "—",
+            ])
+        sections.append({
+            "id": f"cd-{kind}",
+            "group": "Concept domains",
+            "title": kind.replace("_", " ").capitalize(),
+            "action": action,
+            "blurb": blurb,
+            "count": len(entries),
+            "columns": ["Concept domain", "Tables", "Chapter 2C", "THO"],
+            "rows": rows,
+            "raw_html_columns": {0, 2, 3},
+        })
+    return sections
 
 
 def build_sections(deviations, comparison, source_issues):
@@ -397,6 +484,9 @@ def build_html(sections, deviations, comparison, coverage, generated):
         ("Text deviations",
          "Where emitted text differs from published text, or published text is irregular",
          sum(s["count"] for s in sections if s["group"].startswith("Text:"))),
+        ("Concept domains",
+         "Choices made while extending THO's concept domains CodeSystem",
+         sum(s["count"] for s in sections if s["group"] == "Concept domains")),
     ]
     for label, description, count in provenance_rows:
         add(f"<tr><td>{label}</td><td>{description}</td><td class='num'>{count}</td></tr>")
@@ -517,6 +607,7 @@ def main():
     deviations = load_json(DEVIATIONS_PATH)
     comparison = load_json(COMPARISON_PATH)
     source_issues = load_source_issues()
+    concept_domains = load_json(CONCEPT_DOMAINS_PATH)
     coverage = load_tho_coverage()
 
     if deviations is None:
@@ -525,6 +616,7 @@ def main():
         print(f"WARNING: no comparison report at {COMPARISON_PATH}")
 
     sections = build_sections(deviations, comparison, source_issues)
+    sections += build_concept_domain_sections(concept_domains)
     generated = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     html_text = build_html(sections, deviations, comparison, coverage, generated)
 

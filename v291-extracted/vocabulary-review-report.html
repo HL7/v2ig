@@ -44,7 +44,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <h2>Overview</h2>
 <a href='#summary'>Summary</a>
 <a href='#canonicals'>THO canonical coverage</a>
-<h2>Decide &mdash; 21 groups</h2>
+<h2>Decide &mdash; 26 groups</h2>
 <a href='#src-duplicate_table_metadata_block'>Published document: Duplicate table metadata block <span class='count'>(1)</span></a>
 <a href='#src-empty_table_in_source'>Published document: Empty table in source <span class='count'>(7)</span></a>
 <a href='#src-heading_has_wrong_word_style'>Published document: Heading has wrong word style <span class='count'>(2)</span></a>
@@ -66,7 +66,12 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <a href='#dev-non_breaking_space-codedContent-definition'>Text: non breaking space: codedContent.definition <span class='count'>(1)</span></a>
 <a href='#dev-non_breaking_space-conceptDomain-SymbolicName'>Text: non breaking space: conceptDomain.SymbolicName <span class='count'>(1)</span></a>
 <a href='#dev-non_breaking_space-valueSet-Description'>Text: non breaking space: valueSet.Description <span class='count'>(1)</span></a>
-<h2>Confirm &mdash; 13 groups</h2>
+<a href='#cd-conflicting_descriptions_within_chapter'>Concept domains: Conflicting descriptions within chapter <span class='count'>(5)</span></a>
+<a href='#cd-definition_differs_from_tho'>Concept domains: Definition differs from tho <span class='count'>(5)</span></a>
+<a href='#cd-inherited_version'>Concept domains: Inherited version <span class='count'>(1)</span></a>
+<a href='#cd-symbolic_name_is_not_a_plain_token'>Concept domains: Symbolic name is not a plain token <span class='count'>(55)</span></a>
+<a href='#cd-symbolic_name_near_match_in_tho'>Concept domains: Symbolic name near match in tho <span class='count'>(1)</span></a>
+<h2>Confirm &mdash; 14 groups</h2>
 <a href='#cmp-whitespace'>Extraction cross-check: Whitespace <span class='count'>(45)</span></a>
 <a href='#dev-leading_trailing_whitespace-codedContent-comment'>Text: leading trailing whitespace: codedContent.comment <span class='count'>(8)</span></a>
 <a href='#dev-leading_trailing_whitespace-codedContent-displayName'>Text: leading trailing whitespace: codedContent.displayName <span class='count'>(8)</span></a>
@@ -80,7 +85,8 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <a href='#dev-leading_trailing_whitespace-conceptDomain-SymbolicName'>Text: leading trailing whitespace: conceptDomain.SymbolicName <span class='count'>(1)</span></a>
 <a href='#dev-leading_trailing_whitespace-tableMetadata-Description'>Text: leading trailing whitespace: tableMetadata.Description <span class='count'>(1)</span></a>
 <a href='#dev-leading_trailing_whitespace-tableMetadata-SymbolicName'>Text: leading trailing whitespace: tableMetadata.SymbolicName <span class='count'>(1)</span></a>
-<h2>Informational &mdash; 10 groups</h2>
+<a href='#cd-added_from_chapter_2c'>Concept domains: Added from chapter 2c <span class='count'>(177)</span></a>
+<h2>Informational &mdash; 13 groups</h2>
 <a href='#cmp-llm_truncated'>Extraction cross-check: Llm truncated <span class='count'>(14)</span></a>
 <a href='#cmp-typography'>Extraction cross-check: Typography <span class='count'>(211)</span></a>
 <a href='#dev-embedded_newline-codedContent-comment'>Text: embedded newline: codedContent.comment <span class='count'>(149)</span></a>
@@ -91,16 +97,19 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <a href='#dev-embedded_newline-valueSet-Description'>Text: embedded newline: valueSet.Description <span class='count'>(6)</span></a>
 <a href='#dev-embedded_newline-tableMetadata-Description'>Text: embedded newline: tableMetadata.Description <span class='count'>(4)</span></a>
 <a href='#dev-embedded_newline-valueSet-Content Logical Definition'>Text: embedded newline: valueSet.Content Logical Definition <span class='count'>(2)</span></a>
+<a href='#cd-domain_declared_by_multiple_tables'>Concept domains: Domain declared by multiple tables <span class='count'>(26)</span></a>
+<a href='#cd-inherited_undeclared_property'>Concept domains: Inherited undeclared property <span class='count'>(1)</span></a>
+<a href='#cd-tho_v2_domain_absent_from_chapter_2c'>Concept domains: Tho v2 domain absent from chapter 2c <span class='count'>(9)</span></a>
 </div>
 <div id='main'>
 <h1>V2.9.1 Chapter 2C — review catalog</h1>
-<p class='sub'>Generated 2026-08-18 14:26 from <code>CH02C_Tables.docx</code>. Every item that needs a human decision before FHIR CodeSystem and ValueSet resources can be generated.</p>
+<p class='sub'>Generated 2026-08-18 14:42 from <code>CH02C_Tables.docx</code>. Every item that needs a human decision before FHIR CodeSystem and ValueSet resources can be generated.</p>
 <div class='callout'><b>How to read this.</b> Items are grouped by what is being asked of you. <span class='badge b-decide'>Decide</span> means a judgement is needed. <span class='badge b-confirm'>Confirm</span> means something was changed automatically and should be checked. <span class='badge b-info'>Informational</span> means no action is expected. Whitespace is shown with visible marks: <span class='ws'>&middot;</span> a space, <span class='ws'>&#8677;</span> a tab, <span class='ws'>&#9251;</span> a non-breaking space, <span class='ws'>&#182;</span> a line break.</div>
 <h2 id='summary'>Summary</h2>
 <div class='metric-grid'>
-<div class='metric-card mc-flag'><div class='number'>21</div><div class='label'>decisions to make<br><span class='faint'>covering 1,075 values</span></div></div>
-<div class='metric-card'><div class='number'>13</div><div class='label'>groups to confirm<br><span class='faint'>covering 89 values</span></div></div>
-<div class='metric-card'><div class='number'>10</div><div class='label'>informational groups<br><span class='faint'>covering 448 values</span></div></div>
+<div class='metric-card mc-flag'><div class='number'>26</div><div class='label'>decisions to make<br><span class='faint'>covering 1,142 values</span></div></div>
+<div class='metric-card'><div class='number'>14</div><div class='label'>groups to confirm<br><span class='faint'>covering 266 values</span></div></div>
+<div class='metric-card'><div class='number'>13</div><div class='label'>informational groups<br><span class='faint'>covering 484 values</span></div></div>
 <div class='metric-card mc-good'><div class='number'>739/799</div><div class='label'>tables both extractions agree on entirely</div></div>
 <div class='metric-card'><div class='number'>18</div><div class='label'>tables needing a new canonical URL</div></div>
 </div>
@@ -108,6 +117,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <tr><td>Published document</td><td>Irregularities in <code>CH02C_Tables.docx</code> itself</td><td class='num'>10</td></tr>
 <tr><td>Extraction cross-check</td><td>Where the python-docx and LLM extractions of the same document disagree</td><td class='num'>275</td></tr>
 <tr><td>Text deviations</td><td>Where emitted text differs from published text, or published text is irregular</td><td class='num'>1327</td></tr>
+<tr><td>Concept domains</td><td>Choices made while extending THO's concept domains CodeSystem</td><td class='num'>280</td></tr>
 </table>
 <h2 id='canonicals'>THO canonical URL coverage</h2>
 <p class='sub'>Checked against the staged <code>hl7.terminology.r5</code> package. 418 v2 CodeSystems and 440 v2 ValueSets are published there.</p>
@@ -140,7 +150,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <details><summary>THO CodeSystems with no matching CH02C table <span class='meta'>(19)</span></summary>
 <p><code>v2-0012</code>, <code>v2-0033</code>, <code>v2-0034</code>, <code>v2-0048</code>, <code>v2-0070</code>, <code>v2-0102</code>, <code>v2-0106</code>, <code>v2-0107</code>, <code>v2-0108</code>, <code>v2-0109</code>, <code>v2-0156</code>, <code>v2-0157</code>, <code>v2-0158</code>, <code>v2-0290</code>, <code>v2-0323</code>, <code>v2-0524</code>, <code>v2-0529</code>, <code>v2-4000</code>, <code>v2-tables</code></p>
 </details>
-<h2>Decide &mdash; 21 groups, 1,075 values</h2>
+<h2>Decide &mdash; 26 groups, 1,142 values</h2>
 <h3 id='dev-internal_double_space-codeSystem-Description'><span class='badge b-decide'>Decide</span> Text: internal double space: codeSystem.Description <span class='dim-tag'>375</span></h3>
 <p class='legend'>Left exactly as published. Decide whether any should be collapsed.  These were left as published.</p>
 <details><summary>Show the 375 entries</summary>
@@ -1188,6 +1198,66 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <tr><td>0948</td><td>Value Set of codes that specify the type of relationship that is established between the instances of Source Information and<span class="ws" title="2 spaces">&middot;&middot;</span>Target Information.</td><td>Value Set of codes that specify the type of relationship that is established between the instances of Source Information and<span class="ws" title="2 spaces">&middot;&middot;</span>Target Information.</td></tr>
 <tr><td>0952</td><td>Concepts drawn from the HL7 V3 Confidentiality code system .<span class="ws" title="line break">&#182;</span><br>Used in Version 2 messaging in the Security Classification elements<span class="ws" title="2 spaces">&middot;&middot;</span>in the Message Header segment (MSH) and the Access Restrictions segment (ARV).</td><td>Concepts drawn from the HL7 V3 Confidentiality code system .<span class="ws" title="line break">&#182;</span><br>Used in Version 2 messaging in the Security Classification elements<span class="ws" title="2 spaces">&middot;&middot;</span>in the Message Header segment (MSH) and the Access Restrictions segment (ARV).</td></tr>
 </table></details>
+<h3 id='cd-symbolic_name_is_not_a_plain_token'><span class='badge b-decide'>Decide</span> Concept domains: Symbolic name is not a plain token <span class='dim-tag'>55</span></h3>
+<p class='legend'>The Chapter 2C symbolic name is used verbatim as the concept code but contains spaces, slashes or punctuation. Decide whether to keep it exactly as published or mint a clean code and record the change.</p>
+<details><summary>Show the 55 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>AbnormalText/CodesforCategoricalObservations</code></td><td>0655</td><td>AbnormalText/CodesforCategoricalObservations</td><td>—</td></tr>
+<tr><td><code>Active/Inactive</code></td><td>0183</td><td>Active/Inactive</td><td>—</td></tr>
+<tr><td><code>Additive/Preservative</code></td><td>0371</td><td>Additive/Preservative</td><td>—</td></tr>
+<tr><td><code>Application/MethodIdentifier</code></td><td>0783</td><td>Application/MethodIdentifier</td><td>—</td></tr>
+<tr><td><code>AuthorizedDiscipline(s)</code></td><td>0546</td><td>AuthorizedDiscipline(s)</td><td>—</td></tr>
+<tr><td><code>BCDonationType/IntendedUse</code></td><td>0578</td><td>BCDonationType/IntendedUse</td><td>—</td></tr>
+<tr><td><code>BloodProductTransfusion_DispositionStatus</code></td><td>0513</td><td>BloodProductTransfusion_DispositionStatus</td><td>—</td></tr>
+<tr><td><code>Charge_PriceIndicator</code></td><td>0032</td><td>Charge_PriceIndicator</td><td>—</td></tr>
+<tr><td><code>CollectionEvent_ProcessStepLimit</code></td><td>0938</td><td>CollectionEvent_ProcessStepLimit</td><td>—</td></tr>
+<tr><td><code>Collector&#x27;sComment*</code></td><td>0619</td><td>Collector&#x27;sComment*</td><td>—</td></tr>
+<tr><td><code>ContainerHeight/Diameter/DeltaUnits</code></td><td>0775</td><td>ContainerHeight/Diameter/DeltaUnits</td><td>—</td></tr>
+<tr><td><code>County/Parish</code></td><td>0289</td><td>County/Parish</td><td>—</td></tr>
+<tr><td><code>CriticalText/CodesforCategoricalObservations</code></td><td>0656</td><td>CriticalText/CodesforCategoricalObservations</td><td>—</td></tr>
+<tr><td><code>CyclicEntry_ExitIndicator</code></td><td>0505</td><td>CyclicEntry_ExitIndicator</td><td>—</td></tr>
+<tr><td><code>Degree/License/Certificate</code></td><td>0360</td><td>Degree/License/Certificate</td><td>—</td></tr>
+<tr><td><code>Diet,Supplement,orPreferenceCode</code></td><td>0628</td><td>Diet,Supplement,orPreferenceCode</td><td>—</td></tr>
+<tr><td><code>Employment Status ODH</code></td><td>0957</td><td>Employment Status ODH</td><td>—</td></tr>
+<tr><td><code>EventSymptom/DiagnosisCode</code></td><td>0679</td><td>EventSymptom/DiagnosisCode</td><td>—</td></tr>
+<tr><td><code>ExpandedYes_NoIndicator</code></td><td>0532</td><td>ExpandedYes_NoIndicator</td><td>—</td></tr>
+<tr><td><code>Job Supervisory Level or Pay Grade</code></td><td>0956</td><td>Job Supervisory Level or Pay Grade</td><td>—</td></tr>
+<tr><td><code>Local_RemoteControlState</code></td><td>0366</td><td>Local_RemoteControlState</td><td>—</td></tr>
+<tr><td><code>Masterfile Action Code</code></td><td>0180</td><td>Masterfile Action Code</td><td>—</td></tr>
+<tr><td><code>MilitaryRank/grade</code></td><td>0141</td><td>MilitaryRank/grade</td><td>—</td></tr>
+<tr><td><code>Name_AddressRepresentation</code></td><td>0465</td><td>Name_AddressRepresentation</td><td>—</td></tr>
+<tr><td><code>NatureOfService_Test_Observation</code></td><td>0174</td><td>NatureOfService_Test_Observation</td><td>—</td></tr>
+<tr><td><code>Non-concurCode_Description</code></td><td>0233</td><td>Non-concurCode_Description</td><td>—</td></tr>
+<tr><td><code>NormalText/CodesforCategoricalObservations</code></td><td>0654</td><td>NormalText/CodesforCategoricalObservations</td><td>—</td></tr>
+<tr><td><code>ObservationProducingDepartment/Section</code></td><td>0636</td><td>ObservationProducingDepartment/Section</td><td>—</td></tr>
+<tr><td><code>Organization_Agency_Department</code></td><td>0530</td><td>Organization_Agency_Department</td><td>—</td></tr>
+<tr><td><code>OtherService/Test/ObservationIDsfortheObservation</code></td><td>0632</td><td>OtherService/Test/ObservationIDsfortheObservation</td><td>—</td></tr>
+<tr><td><code>OutsideSite(s)WhereObservationMayBePerformed</code></td><td>0638</td><td>OutsideSite(s)WhereObservationMayBePerformed</td><td>—</td></tr>
+<tr><td><code>Packaging/AssemblyLocation</code></td><td>0712</td><td>Packaging/AssemblyLocation</td><td>—</td></tr>
+<tr><td><code>Patient&#x27;sRelationshipToInsured</code></td><td>0344</td><td>Patient&#x27;sRelationshipToInsured</td><td>—</td></tr>
+<tr><td><code>PreferredSpecimen_AttributeStatus</code></td><td>0920</td><td>PreferredSpecimen_AttributeStatus</td><td>—</td></tr>
+<tr><td><code>PrimaryKeyValue–STF</code></td><td>0786</td><td>PrimaryKeyValue–STF</td><td>—</td></tr>
+<tr><td><code>Problem_GoalActionCode</code></td><td>0287</td><td>Problem_GoalActionCode</td><td>—</td></tr>
+<tr><td><code>Producer&#x27;sID</code></td><td>0624</td><td>Producer&#x27;sID</td><td>—</td></tr>
+<tr><td><code>Producer&#x27;sService/Test/ObservationID</code></td><td>0630</td><td>Producer&#x27;sService/Test/ObservationID</td><td>—</td></tr>
+<tr><td><code>Product_ServiceCode</code></td><td>0879</td><td>Product_ServiceCode</td><td>—</td></tr>
+<tr><td><code>Product_ServiceCodeModifier</code></td><td>0880</td><td>Product_ServiceCodeModifier</td><td>—</td></tr>
+<tr><td><code>Product_ServiceStatus</code></td><td>0559</td><td>Product_ServiceStatus</td><td>—</td></tr>
+<tr><td><code>Product_ServicesClarificationCodes</code></td><td>0561</td><td>Product_ServicesClarificationCodes</td><td>—</td></tr>
+<tr><td><code>Provider&#x27;sAdministrationInstructions</code></td><td>0718, 0752</td><td>Provider&#x27;sAdministrationInstructions</td><td>—</td></tr>
+<tr><td><code>Provider&#x27;sPharmacy/TreatmentInstructions</code></td><td>0751</td><td>Provider&#x27;sPharmacy/TreatmentInstructions</td><td>—</td></tr>
+<tr><td><code>ReflexTests/Observations</code></td><td>0641</td><td>ReflexTests/Observations</td><td>—</td></tr>
+<tr><td><code>ReplacementProducer&#x27;sService/Test/ObservationID</code></td><td>0646</td><td>ReplacementProducer&#x27;sService/Test/ObservationID</td><td>—</td></tr>
+<tr><td><code>RequestedDiscipline(s)</code></td><td>0522</td><td>RequestedDiscipline(s)</td><td>—</td></tr>
+<tr><td><code>SecurityLabelHandling Instructions</code></td><td>0953</td><td>SecurityLabelHandling Instructions</td><td>—</td></tr>
+<tr><td><code>Sequence_ResultsFlag</code></td><td>0503</td><td>Sequence_ResultsFlag</td><td>—</td></tr>
+<tr><td><code>Substance/TreatmentRefusalReason</code></td><td>0693</td><td>Substance/TreatmentRefusalReason</td><td>—</td></tr>
+<tr><td><code>Test/FluidIdentifier(s)</code></td><td>0603</td><td>Test/FluidIdentifier(s)</td><td>—</td></tr>
+<tr><td><code>Test/ServiceDefaultDurationUnits</code></td><td>0663</td><td>Test/ServiceDefaultDurationUnits</td><td>—</td></tr>
+<tr><td><code>TransportLogisticsofCollectedSample*</code></td><td>0614</td><td>TransportLogisticsofCollectedSample*</td><td>—</td></tr>
+<tr><td><code>ValidCoded&quot;Answers&quot;</code></td><td>0652</td><td>ValidCoded&quot;Answers&quot;</td><td>—</td></tr>
+<tr><td><code>Yes/noIndicator</code></td><td>0136</td><td>Yes/noIndicator</td><td>—</td></tr>
+</table></details>
 <h3 id='dev-internal_double_space-codedContent-definition'><span class='badge b-decide'>Decide</span> Text: internal double space: codedContent.definition <span class='dim-tag'>33</span></h3>
 <p class='legend'>Left exactly as published. Decide whether any should be collapsed.  These were left as published.</p>
 <details><summary>Show the 33 entries</summary>
@@ -1238,6 +1308,26 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <tr><td>0930</td><td>Volume Units</td><td>{&quot;wordTableIndex&quot;: 3566, &quot;rows&quot;: 1, &quot;columns&quot;: 2}</td></tr>
 <tr><td>0932</td><td>Donation Duration Units</td><td>{&quot;wordTableIndex&quot;: 3580, &quot;rows&quot;: 1, &quot;columns&quot;: 2}</td></tr>
 </table></details>
+<h3 id='cd-conflicting_descriptions_within_chapter'><span class='badge b-decide'>Decide</span> Concept domains: Conflicting descriptions within chapter <span class='dim-tag'>5</span></h3>
+<p class='legend'>Chapter 2C itself gives this domain more than one description. The first was used.</p>
+<details><summary>Show the 5 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>DeviceStatus</code></td><td>0682, 0962</td><td>The domain of possible values for the state of a device. ⟂ The domain describing the availability status of a device.</td><td>—</td></tr>
+<tr><td><code>DeviceType</code></td><td>0657, 0961</td><td>The domain of possible values for the kind of device as defined by the manufacturer. ⟂ Domain of concepts describing what kind a particular device is. Focus here is on devices used in the medical field.</td><td>—</td></tr>
+<tr><td><code>Modality</code></td><td>0259, 0604</td><td>The domain of possible values that define the imaging apparatus expected to be used to acquire an observation.<span class="ws" title="2 spaces">&middot;&middot;</span>This table has been removed from the standard as of 2.7 in favor of table 0910. ⟂ The domain of possible values specifying the type of Modality .</td><td>—</td></tr>
+<tr><td><code>QuantityUnits</code></td><td>0560, 0602</td><td>The domain of possible values that specify the adjustment quantity. ⟂ The domain of possible values specifying the type of Quantity Units.</td><td>—</td></tr>
+<tr><td><code>VolumeUnits</code></td><td>0568, 0777, 0930</td><td>The domain of possible values of units of measure that are used to specify volume. ⟂ The domain of possible values specifying the type of Volume Units.</td><td>—</td></tr>
+</table></details>
+<h3 id='cd-definition_differs_from_tho'><span class='badge b-decide'>Decide</span> Concept domains: Definition differs from tho <span class='dim-tag'>5</span></h3>
+<p class='legend'>Chapter 2C and THO describe the same domain differently. THO&#x27;s wording was kept; decide whether Chapter 2C&#x27;s should win instead.</p>
+<details><summary>Show the 5 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>Confidentiality</code></td><td>0952</td><td>Types of privacy metadata classifying an IT resource (data, information object, service, or system capability) according to its level of sensitivity, which is based on an analysis of applicable privacy policies and the risk of financial, reputational, or other harm to an individual or entity that co …</td><td>Types of privacy metadata classifying an IT resource (data, information object, service, or system capability) according to its level of sensitivity, which is based on an analysis of applicable privacy policies and the risk of financial, reputational, or other harm to an individual or entity that co …</td></tr>
+<tr><td><code>ContainerForm</code></td><td>0967</td><td>The domain of possible values describing shape or type of the container, e.g.:<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Tube/vial<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Jar<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Bag<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Block<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Slide</td><td>Describes the nature (or type) of the container.<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>**Examples:**<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br> *<span class="ws" title="2 spaces">&middot;&middot;</span>Carton<span class="ws" title="line break">&#182;</span><br> *<span class="ws" title="2 spaces">&middot;&middot;</span>Bottle<span class="ws" title="line break">&#182;</span><br> *<span class="ws" title="2 spaces">&middot;&middot;</span>Vial<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>**DesignNote:**The material of the container should be separately specified (e.g. the &quot;cardboard&quot; part of cardboard carton or the &quot;glass&quot; part of glass vial should be described elsewhere).<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>**O …</td></tr>
+<tr><td><code>Country</code></td><td>0675</td><td>The domain of possible values specifying the type of Country.</td><td>Countries of the world. ISO 3166, part 1, alpha-3 set.</td></tr>
+<tr><td><code>EmploymentStatus</code></td><td>0066</td><td>The domain of possible values for the guarantor&#x27;s employment status.</td><td>A code used to define the employment status of the insured individual identified in UB-92 FL 58. UB-92 Form locator 64:Employment Status Code of the Insured. Can be used with Employee\_Employer\_statusCode in HL7. Values include Employed Full Time, Employed Part Time, Not Employed, Retired, On Activ …</td></tr>
+<tr><td><code>ObservationMethod</code></td><td>0626</td><td>The domain of possible values specifying the type of Observation Method.</td><td>A code that provides additional detail about the means or technique used to ascertain the observation.<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>*Examples:* Blood pressure measurement method: arterial puncture vs. sphygmomanometer (Riva-Rocci), sitting vs. supine position, etc.<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>*Constraints:* In all observations the method is already<span class="ws" title="2 spaces">&middot;&middot;</span>…</td></tr>
+</table></details>
 <h3 id='dev-non_breaking_space-codeSystem-URL'><span class='badge b-decide'>Decide</span> Text: non breaking space: codeSystem.URL <span class='dim-tag'>4</span></h3>
 <p class='legend'>Left as published, except where leading or trailing. Note the ones inside URLs.  These were left as published.</p>
 <details><summary>Show the 4 entries</summary>
@@ -1260,6 +1350,18 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <table><tr><th>Table</th><th>Name</th><th>Detail</th></tr>
 <tr><td>0685</td><td>Item Code - External (RQD-3)</td><td>styled &#x27;Normal&#x27; instead of &#x27;Heading 3&#x27;; this section is also missing from the document&#x27;s table of contents</td></tr>
 <tr><td>0767</td><td>Bolus Dose Amount Units (RXV-4)</td><td>styled &#x27;Normal&#x27; instead of &#x27;Heading 3&#x27;; this section is also missing from the document&#x27;s table of contents</td></tr>
+</table></details>
+<h3 id='cd-inherited_version'><span class='badge b-decide'>Decide</span> Concept domains: Inherited version <span class='dim-tag'>1</span></h3>
+<p class='legend'>Publishing an extended code system at another body&#x27;s canonical URL and version needs agreement with the UTG maintainers.</p>
+<details><summary>Show the 1 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>3.0.0</code></td><td>—</td><td>—</td><td>—</td></tr>
+</table></details>
+<h3 id='cd-symbolic_name_near_match_in_tho'><span class='badge b-decide'>Decide</span> Concept domains: Symbolic name near match in tho <span class='dim-tag'>1</span></h3>
+<p class='legend'>The Chapter 2C spelling differs from THO&#x27;s only by punctuation or spacing, and looks like a typo in the published chapter.</p>
+<details><summary>Show the 1 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>Masterfile Action Code</code></td><td>0180</td><td>Masterfile Action Code</td><td>MasterfileActionCode</td></tr>
 </table></details>
 <h3 id='cmp-block_count'><span class='badge b-decide'>Decide</span> Extraction cross-check: Block count <span class='dim-tag'>1</span></h3>
 <p class='legend'>The two extractions found a different number of metadata blocks.</p>
@@ -1321,7 +1423,189 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <table><tr><th>Table</th><th>As published</th><th>As emitted</th></tr>
 <tr><td>0827</td><td>This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.<span class="ws" title="line break">&#182;</span><br>Note: The codes for countries and country subdivisions are taken from<span class="ws" title="non-breaking space">&#9251;</span>ISO 3166<span class="ws" title="non-breaking space">&#9251;</span><span class="ws" title="non-breaking space">&#9251;</span>while the codes for &quot;supra-national&quot; regions are from<span class="ws" title="non-breaking space">&#9251;</span>UN Standard country or<span class="ws" title="2 spaces">&middot;&middot;</span>…</td><td>This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.<span class="ws" title="line break">&#182;</span><br>Note: The codes for countries and country subdivisions are taken from<span class="ws" title="non-breaking space">&#9251;</span>ISO 3166<span class="ws" title="non-breaking space">&#9251;</span><span class="ws" title="non-breaking space">&#9251;</span>while the codes for &quot;supra-national&quot; regions are from<span class="ws" title="non-breaking space">&#9251;</span>UN Standard country or<span class="ws" title="2 spaces">&middot;&middot;</span>…</td></tr>
 </table></details>
-<h2>Confirm &mdash; 13 groups, 89 values</h2>
+<h2>Confirm &mdash; 14 groups, 266 values</h2>
+<h3 id='cd-added_from_chapter_2c'><span class='badge b-confirm'>Confirm</span> Concept domains: Added from chapter 2c <span class='dim-tag'>177</span></h3>
+<p class='legend'>Declared in Chapter 2C but absent from THO, so added as a new concept. Confirm each really is a concept domain worth publishing.</p>
+<details><summary>Show the 177 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>AbnormalText/CodesforCategoricalObservations</code></td><td>0655</td><td>The domain of possible values specifying the type of Abnormal Text/Codes for Categorical Observations.</td><td>—</td></tr>
+<tr><td><code>ActualDispenseUnits</code></td><td>0704</td><td>The domain of possible values specifying the type of Actual Dispense Units.</td><td>—</td></tr>
+<tr><td><code>ActualDosageForm</code></td><td>0705</td><td>The domain of possible values specifying the type of Actual Dosage Form.</td><td>—</td></tr>
+<tr><td><code>ActualDrugStrengthVolumeUnits</code></td><td>0713</td><td>The domain of possible values specifying the type of Actual Drug Strength Volume Units.</td><td>—</td></tr>
+<tr><td><code>ActualStrengthUnit</code></td><td>0707</td><td>The domain of possible values specifying the type of Actual Strength Unit.</td><td>—</td></tr>
+<tr><td><code>AdministeredBarcodeIdentifier</code></td><td>0696</td><td>The domain of possible values specifying the type of Administered Barcode Identifier.</td><td>—</td></tr>
+<tr><td><code>AdministeredDosageForm</code></td><td>0690</td><td>The domain of possible values specifying the type of Administered Dosage Form.</td><td>—</td></tr>
+<tr><td><code>AdministeredDrugStrengthVolumeUnits</code></td><td>0695</td><td>The domain of possible values specifying the type of Administered Drug Strength Volume Units.</td><td>—</td></tr>
+<tr><td><code>AdministeredStrengthUnits</code></td><td>0692</td><td>The domain of possible values specifying the type of Administered Strength Units.</td><td>—</td></tr>
+<tr><td><code>AdministeredUnits</code></td><td>0689</td><td>The domain of possible values specifying the type of Administered Units.</td><td>—</td></tr>
+<tr><td><code>AdministrationNotes</code></td><td>0691, 0737</td><td>The domain of possible values specifying the type of Administration Notes.</td><td>—</td></tr>
+<tr><td><code>AnswerChoices</code></td><td>0665</td><td>The domain of possible values specifying the type of Answer Choices.</td><td>—</td></tr>
+<tr><td><code>Application/MethodIdentifier</code></td><td>0783</td><td>The domain of possible values specifying the type of Application/Method Identifier.</td><td>—</td></tr>
+<tr><td><code>ApprovalStatus</code></td><td>0563</td><td>The domain of possible values specifying the type of Approval Status.</td><td>—</td></tr>
+<tr><td><code>AuthorizationReferralType</code></td><td>0551</td><td>The domain of possible values specifying the type of Authorization Referral Type.</td><td>—</td></tr>
+<tr><td><code>AuthorizedDiscipline(s)</code></td><td>0546</td><td>The domain of possible values specifying the type of Authorized Discipline(s).</td><td>—</td></tr>
+<tr><td><code>BCBloodGroup</code></td><td>0583</td><td>The domain of possible values specifying the type of BC Blood Group.</td><td>—</td></tr>
+<tr><td><code>BCComponent</code></td><td>0577, 0582</td><td>The domain of possible values specifying the type of BC Component .</td><td>—</td></tr>
+<tr><td><code>BCDonationType/IntendedUse</code></td><td>0578</td><td>The domain of possible values specifying the type of BC Donation Type / Intended Use .</td><td>—</td></tr>
+<tr><td><code>BCSpecialTesting</code></td><td>0580</td><td>The domain of possible values specifying the type of BC Special Testing .</td><td>—</td></tr>
+<tr><td><code>BPBloodGroup</code></td><td>0579</td><td>The domain of possible values specifying the type of BP Blood Group .</td><td>—</td></tr>
+<tr><td><code>BPUnits</code></td><td>0576, 0581, 0584</td><td>The domain of possible values specifying the type of BP Units.</td><td>—</td></tr>
+<tr><td><code>BPUniversalServiceIdentifier</code></td><td>0575</td><td>The domain of possible values specifying the type of BP Universal Service Identifier.</td><td>—</td></tr>
+<tr><td><code>BolusDoseAmountUnits</code></td><td>0767</td><td>The domain of possible values specifying the type of Bolus Dose Amount Units.</td><td>—</td></tr>
+<tr><td><code>BolusDoseVolumeUnits</code></td><td>0768</td><td>The domain of possible values specifying the type of Bolus Dose Volume Units.</td><td>—</td></tr>
+<tr><td><code>CauseOfDeath</code></td><td>0680</td><td>The domain of possible values specifying the type of Cause Of Death.</td><td>—</td></tr>
+<tr><td><code>ClinicalInformationRequest</code></td><td>0664</td><td>The domain of possible values specifying the type of Clinical Information Request.</td><td>—</td></tr>
+<tr><td><code>ClinicalService</code></td><td>0573</td><td>The domain of possible values specifying the type of Clinical Service.</td><td>—</td></tr>
+<tr><td><code>CodedComment</code></td><td>0611</td><td>The domain of possible values specifying the type of Coded Comment.</td><td>—</td></tr>
+<tr><td><code>CodedRepresentationofMethod</code></td><td>0635</td><td>The domain of possible values specifying the type of Coded Representation of Method.</td><td>—</td></tr>
+<tr><td><code>Collector&#x27;sComment*</code></td><td>0619</td><td>The domain of possible values specifying the type of Collector&#x27;s Comment *.</td><td>—</td></tr>
+<tr><td><code>ComponentCode</code></td><td>0697</td><td>The domain of possible values specifying the type of Component Code.</td><td>—</td></tr>
+<tr><td><code>ComponentDrugStrengthVolumeUnits</code></td><td>0701</td><td>The domain of possible values specifying the type of Component Drug Strength Volume Units.</td><td>—</td></tr>
+<tr><td><code>ComponentStrengthUnits</code></td><td>0699</td><td>The domain of possible values specifying the type of Component Strength Units.</td><td>—</td></tr>
+<tr><td><code>ComponentUnits</code></td><td>0698</td><td>The domain of possible values specifying the type of Component Units.</td><td>—</td></tr>
+<tr><td><code>ContainerCarrierIdentifier</code></td><td>0600</td><td>The domain of possible values specifying the type of Container Carrier Identifier.</td><td>—</td></tr>
+<tr><td><code>ContainerHeight/Diameter/DeltaUnits</code></td><td>0775</td><td>The domain of possible values specifying the type of Container Height/Diameter/Delta Units.</td><td>—</td></tr>
+<tr><td><code>ContainerType</code></td><td>0785</td><td>The domain of possible values specifying the type of Container Type .</td><td>—</td></tr>
+<tr><td><code>ContainerUnits</code></td><td>0658</td><td>The domain of possible values specifying the type of Container Units.</td><td>—</td></tr>
+<tr><td><code>ContraindicationstoObservations</code></td><td>0640</td><td>The domain of possible values specifying the type of Contraindications to Observations.</td><td>—</td></tr>
+<tr><td><code>CorrespondingSIUnitsofMeasure</code></td><td>0649</td><td>The domain of possible values specifying the type of Corresponding SI Units of Measure.</td><td>—</td></tr>
+<tr><td><code>CreatingSpecialty</code></td><td>0792</td><td>The domain of possible values specifying the type of Creating Specialty.</td><td>—</td></tr>
+<tr><td><code>CriticalText/CodesforCategoricalObservations</code></td><td>0656</td><td>The domain of possible values specifying the type of Critical Text/Codes for Categorical Observations.</td><td>—</td></tr>
+<tr><td><code>DangerCode</code></td><td>0613</td><td>The domain of possible values specifying the type of Danger Code.</td><td>—</td></tr>
+<tr><td><code>DeliverToID</code></td><td>0688</td><td>The domain of possible values specifying the type of Deliver To ID.</td><td>—</td></tr>
+<tr><td><code>Diet,Supplement,orPreferenceCode</code></td><td>0628</td><td>The domain of possible values specifying the type of Diet, Supplement, or Preference Code.</td><td>—</td></tr>
+<tr><td><code>DispensePackageSizeUnit</code></td><td>0709, 0726</td><td>The domain of possible values specifying the type of Dispense Package Size Unit.</td><td>—</td></tr>
+<tr><td><code>DispenseUnits</code></td><td>0703, 0720, 0746</td><td>The domain of possible values specifying the type of Dispense Units.</td><td>—</td></tr>
+<tr><td><code>DispensetoPharmacy</code></td><td>0714</td><td>The domain of possible values specifying the type of Dispense to Pharmacy.</td><td>—</td></tr>
+<tr><td><code>DispensingPharmacy</code></td><td>0733, 0765</td><td>The domain of possible values specifying the type of Dispensing Pharmacy.</td><td>—</td></tr>
+<tr><td><code>DocumentClass</code></td><td>0832</td><td>The domain of possible values for document classes.</td><td>—</td></tr>
+<tr><td><code>DocumentEvent</code></td><td>0833</td><td>The domain of possible values for document events.</td><td>—</td></tr>
+<tr><td><code>Employment Status ODH</code></td><td>0957</td><td>Concepts representing whether a person does or does not currently have a job or is not currently in the labor pool seeking employment.</td><td>—</td></tr>
+<tr><td><code>EncounterType</code></td><td>0574</td><td>The domain of possible values specifying the type of Encounter Type.</td><td>—</td></tr>
+<tr><td><code>EndingNotificationCode</code></td><td>0586</td><td>The domain of possible values specifying the type of Ending Notification Code.</td><td>—</td></tr>
+<tr><td><code>EnteringDevice</code></td><td>0668</td><td>The domain of possible values specifying the type of Entering Device.</td><td>—</td></tr>
+<tr><td><code>EnteringOrganization</code></td><td>0666</td><td>The domain of possible values specifying the type of Entering Organization.</td><td>—</td></tr>
+<tr><td><code>Event</code></td><td>0003</td><td>The domain of possible values for the trigger event for Version 2.x interface messages.</td><td>—</td></tr>
+<tr><td><code>EventIdentifiersUsed</code></td><td>0678</td><td>The domain of possible values specifying the type of Event Identifiers Used.</td><td>—</td></tr>
+<tr><td><code>EventSymptom/DiagnosisCode</code></td><td>0679</td><td>The domain of possible values specifying the type of Event Symptom/Diagnosis Code.</td><td>—</td></tr>
+<tr><td><code>FibrinIndexUnits</code></td><td>0782</td><td>The domain of possible values specifying the type of Fibrin Index Units.</td><td>—</td></tr>
+<tr><td><code>FixedCannedMessage</code></td><td>0643</td><td>The domain of possible values specifying the type of Fixed Canned Message.</td><td>—</td></tr>
+<tr><td><code>FolderAssignment</code></td><td>0791</td><td>The domain of possible values specifying the type of Folder Assignment.</td><td>—</td></tr>
+<tr><td><code>GenderHarmonyConcepts</code></td><td>0820</td><td>Concepts used to properly describe a person’s self-asserted attributes like gender identity, pronouns and sexual orientation.</td><td>—</td></tr>
+<tr><td><code>GenderIdentity</code></td><td>0821</td><td>Gender identity values as identified by individuals</td><td>—</td></tr>
+<tr><td><code>GenericName</code></td><td>0676</td><td>The domain of possible values specifying the type of Generic Name.</td><td>—</td></tr>
+<tr><td><code>GiveBarcodeIdentifier</code></td><td>0745</td><td>The domain of possible values specifying the type of Give Barcode Identifier.</td><td>—</td></tr>
+<tr><td><code>GiveDosageForm</code></td><td>0716, 0736</td><td>The domain of possible values specifying the type of Give Dosage Form.</td><td>—</td></tr>
+<tr><td><code>GiveDrugStrengthVolumeUnits</code></td><td>0729, 0744</td><td>The domain of possible values specifying the type of Give Drug Strength Volume Units.</td><td>—</td></tr>
+<tr><td><code>GiveIndication</code></td><td>0724</td><td>The domain of possible values specifying the type of Give Indication.</td><td>—</td></tr>
+<tr><td><code>GiveRateUnits</code></td><td>0722, 0740</td><td>The domain of possible values specifying the type of Give Rate Units.</td><td>—</td></tr>
+<tr><td><code>GiveStrengthUnits</code></td><td>0723, 0741</td><td>The domain of possible values specifying the type of Give Strength Units.</td><td>—</td></tr>
+<tr><td><code>GiveUnits</code></td><td>0715, 0735</td><td>The domain of possible values specifying the type of Give Units.</td><td>—</td></tr>
+<tr><td><code>HemolysisIndexUnits</code></td><td>0779</td><td>The domain of possible values specifying the type of Hemolysis Index Units.</td><td>—</td></tr>
+<tr><td><code>HospitalItemCode</code></td><td>0686</td><td>The domain of possible values specifying the type of Hospital Item Code.</td><td>—</td></tr>
+<tr><td><code>IcterusIndexUnits</code></td><td>0781</td><td>The domain of possible values specifying the type of Icterus Index Units.</td><td>—</td></tr>
+<tr><td><code>IdentityofInstrumentUsedtoPerformthisStudy</code></td><td>0633</td><td>The domain of possible values specifying the type of Identity of Instrument Used to Perform this Study.</td><td>—</td></tr>
+<tr><td><code>ImplantationStatus</code></td><td>0795</td><td>The domain of possible values specifying the implantation status.</td><td>—</td></tr>
+<tr><td><code>ImplicatedProduct</code></td><td>0670</td><td>The domain of possible values specifying the type of Implicated Product.</td><td>—</td></tr>
+<tr><td><code>Indication</code></td><td>0694, 0708, 0743, 0758</td><td>The domain of possible values specifying the type of Indication.</td><td>—</td></tr>
+<tr><td><code>IndicationForProductUse</code></td><td>0672</td><td>The domain of possible values specifying the type of Indication For Product Use.</td><td>—</td></tr>
+<tr><td><code>IndustryODH</code></td><td>0955</td><td>A self-reported title (with associated code) that identifies the kind of business, i.e., primary business activity, conducted by a person&#x27;s employer.</td><td>—</td></tr>
+<tr><td><code>InitiatingLocation</code></td><td>0711</td><td>The domain of possible values specifying the type of Initiating Location.</td><td>—</td></tr>
+<tr><td><code>InstitutionRegisteringthePatient</code></td><td>0589</td><td>The domain of possible values specifying the type of Institution Registering the Patient.</td><td>—</td></tr>
+<tr><td><code>InventoryContainerIdentifier</code></td><td>0599</td><td>The domain of possible values specifying the type of Inventory Container Identifier.</td><td>—</td></tr>
+<tr><td><code>ItemCode-External</code></td><td>0685</td><td>The domain of possible values specifying the type of Item Code - External.</td><td>—</td></tr>
+<tr><td><code>ItemCode-Internal</code></td><td>0684</td><td>The domain of possible values specifying the type of Item Code - Internal.</td><td>—</td></tr>
+<tr><td><code>Job Supervisory Level or Pay Grade</code></td><td>0956</td><td>A classification that reflects the amount of supervisory or management responsibilities for an individual’s job.<span class="ws" title="2 spaces">&middot;&middot;</span>In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.</td><td>—</td></tr>
+<tr><td><code>LipemiaIndexUnits</code></td><td>0780</td><td>The domain of possible values specifying the type of Lipemia Index Units.</td><td>—</td></tr>
+<tr><td><code>Location</code></td><td>0774</td><td>The domain of possible values specifying the type of Location.</td><td>—</td></tr>
+<tr><td><code>MaxDoseAmountUnits</code></td><td>0772</td><td>The domain of possible values specifying the type of Max Dose Amount Units.</td><td>—</td></tr>
+<tr><td><code>MaxDoseAmountVolumeUnits</code></td><td>0773</td><td>The domain of possible values specifying the type of Max Dose Amount Volume Units.</td><td>—</td></tr>
+<tr><td><code>NormalText/CodesforCategoricalObservations</code></td><td>0654</td><td>The domain of possible values specifying the type of Normal Text/Codes for Categorical Observations.</td><td>—</td></tr>
+<tr><td><code>NotificationCode</code></td><td>0610</td><td>The domain of possible values specifying the type of Notification Code.</td><td>—</td></tr>
+<tr><td><code>ObservationIdentifier</code></td><td>0622</td><td>The domain of possible values specifying the type of Observation Identifier.</td><td>—</td></tr>
+<tr><td><code>ObservationProducingDepartment/Section</code></td><td>0636</td><td>The domain of possible values specifying the type of Observation Producing Department/Section.</td><td>—</td></tr>
+<tr><td><code>ObservationsRequiredtoInterpretthisObservation</code></td><td>0639</td><td>The domain of possible values specifying the type of Observations Required to Interpret this Observation.</td><td>—</td></tr>
+<tr><td><code>Occupation</code></td><td>0958</td><td>A self-reported title (with an associated code) that identifies a person&#x27;s type of work, i.e., the set of activities or tasks that a person is paid to perform or, if unpaid, the person’s contribution to a household/family business/community.</td><td>—</td></tr>
+<tr><td><code>OtherService/Test/ObservationIDsfortheObservation</code></td><td>0632</td><td>The domain of possible values specifying the type of Other Service/Test/Observation IDs for the Observation.</td><td>—</td></tr>
+<tr><td><code>OutsideSite(s)WhereObservationMayBePerformed</code></td><td>0638</td><td>The domain of possible values specifying the type of Outside Site(s) Where Observation May Be Performed.</td><td>—</td></tr>
+<tr><td><code>PCADoseAmountUnits</code></td><td>0769</td><td>The domain of possible values specifying the type of PCA Dose Amount Units.</td><td>—</td></tr>
+<tr><td><code>PCADoseAmountVolumeUnits</code></td><td>0770</td><td>The domain of possible values specifying the type of PCA Dose Amount Volume Units.</td><td>—</td></tr>
+<tr><td><code>Packaging/AssemblyLocation</code></td><td>0712</td><td>The domain of possible values specifying the type of Packaging/Assembly Location.</td><td>—</td></tr>
+<tr><td><code>PatientEvaluabilityStatus</code></td><td>0593</td><td>The domain of possible values specifying the type of Patient Evaluability Status.</td><td>—</td></tr>
+<tr><td><code>PatientStudyEligibilityStatus</code></td><td>0590</td><td>The domain of possible values specifying the type of Patient Study Eligibility Status.</td><td>—</td></tr>
+<tr><td><code>PersonalPronouns</code></td><td>0822</td><td>Pronouns used by an individual to describe themself.</td><td>—</td></tr>
+<tr><td><code>PharmaceuticalSubstanceAlternative</code></td><td>0730</td><td>The domain of possible values specifying the type of Pharmaceutical Substance Alternative.</td><td>—</td></tr>
+<tr><td><code>PharmacyofMostRecentFill</code></td><td>0732</td><td>The domain of possible values specifying the type of Pharmacy of Most Recent Fill.</td><td>—</td></tr>
+<tr><td><code>PlannedPatientTransportComment</code></td><td>0621</td><td>The domain of possible values specifying the type of Planned Patient Transport Comment.</td><td>—</td></tr>
+<tr><td><code>PositiononCarrier</code></td><td>0601</td><td>The domain of possible values specifying the type of Position on Carrier.</td><td>—</td></tr>
+<tr><td><code>PreferredCodingSystem</code></td><td>0650</td><td>The domain of possible values specifying the type of Preferred Coding System.</td><td>—</td></tr>
+<tr><td><code>PrimaryKeyValue-MFA</code></td><td>0607</td><td>The domain of possible values specifying the type of Primary Key Value - MFA.</td><td>—</td></tr>
+<tr><td><code>PrimaryKeyValue-MFE</code></td><td>0608</td><td>The domain of possible values specifying the type of Primary Key Value - MFE.</td><td>—</td></tr>
+<tr><td><code>PrimaryKeyValue-PRA</code></td><td>0681</td><td>The domain of possible values specifying the type of Primary Key Value - PRA.</td><td>—</td></tr>
+<tr><td><code>PrimaryKeyValue–STF</code></td><td>0786</td><td>The domain of possible values specifying the type of Primary Key Value – STF.</td><td>—</td></tr>
+<tr><td><code>PrincipalLanguageOfMessage</code></td><td>0609</td><td>The domain of possible values specifying the type of Principal Language Of Message.</td><td>—</td></tr>
+<tr><td><code>ProcedureMedication</code></td><td>0644</td><td>The domain of possible values specifying the type of Procedure Medication.</td><td>—</td></tr>
+<tr><td><code>ProcedurePractitionerIdentifierCodeType</code></td><td>0133</td><td>The domain of possible values of concepts which specify the different types of practitioners associated with this procedure.</td><td>—</td></tr>
+<tr><td><code>Producer&#x27;sID</code></td><td>0624</td><td>The domain of possible values specifying the type of Producer&#x27;s ID.</td><td>—</td></tr>
+<tr><td><code>Producer&#x27;sService/Test/ObservationID</code></td><td>0630</td><td>The domain of possible values specifying the type of Producer&#x27;s Service/Test/Observation ID.</td><td>—</td></tr>
+<tr><td><code>ProducerID</code></td><td>0631</td><td>The domain of possible values specifying the type of Producer ID.</td><td>—</td></tr>
+<tr><td><code>ProductClass</code></td><td>0671</td><td>The domain of possible values specifying the type of Product Class.</td><td>—</td></tr>
+<tr><td><code>ProductCode</code></td><td>0677</td><td>The domain of possible values specifying the type of Product Code.</td><td>—</td></tr>
+<tr><td><code>ProductEvaluationPerformed</code></td><td>0673</td><td>The domain of possible values specifying the type of Product Evaluation Performed.</td><td>—</td></tr>
+<tr><td><code>ProductEvaluationResults</code></td><td>0674</td><td>The domain of possible values specifying the type of Product Evaluation Results.</td><td>—</td></tr>
+<tr><td><code>ProtocolCode</code></td><td>0605</td><td>The domain of possible values specifying the type of Protocol Code.</td><td>—</td></tr>
+<tr><td><code>Provider&#x27;sAdministrationInstructions</code></td><td>0718, 0752</td><td>The domain of possible values specifying the type of Provider&#x27;s Administration Instructions.</td><td>—</td></tr>
+<tr><td><code>Provider&#x27;sPharmacy/TreatmentInstructions</code></td><td>0751</td><td>The domain of possible values specifying the type of Provider&#x27;s Pharmacy/Treatment Instructions.</td><td>—</td></tr>
+<tr><td><code>RandomizedStudyArm</code></td><td>0591</td><td>The domain of possible values specifying the type of Randomized Study Arm.</td><td>—</td></tr>
+<tr><td><code>ReasonEndedStudy</code></td><td>0594</td><td>The domain of possible values specifying the type of Reason Ended Study.</td><td>—</td></tr>
+<tr><td><code>RecordedSexOrGenderType</code></td><td>0824</td><td>Concepts that represent the type of the recorded sex or gender, where that is known, for example Sex at Birth in a medical record or Sex as defined by DICOM.</td><td>—</td></tr>
+<tr><td><code>ReflexTests/Observations</code></td><td>0641</td><td>The domain of possible values specifying the type of Reflex Tests/Observations.</td><td>—</td></tr>
+<tr><td><code>ReplacementProducer&#x27;sService/Test/ObservationID</code></td><td>0646</td><td>The domain of possible values specifying the type of Replacement Producer&#x27;s Service/Test/Observation ID.</td><td>—</td></tr>
+<tr><td><code>ReportSubheader</code></td><td>0637</td><td>The domain of possible values specifying the type of Report Subheader.</td><td>—</td></tr>
+<tr><td><code>RequestedDiscipline(s)</code></td><td>0522</td><td>The domain of possible values specifying the type of Requested Discipline(s).</td><td>—</td></tr>
+<tr><td><code>RequestedDispenseCode</code></td><td>0753</td><td>The domain of possible values specifying the type of Requested Dispense Code.</td><td>—</td></tr>
+<tr><td><code>RequestedDispenseUnits</code></td><td>0754</td><td>The domain of possible values specifying the type of Requested Dispense Units.</td><td>—</td></tr>
+<tr><td><code>RequestedDosageForm</code></td><td>0750</td><td>The domain of possible values specifying the type of Requested Dosage Form.</td><td>—</td></tr>
+<tr><td><code>RequestedDrugStrengthVolumeUnits</code></td><td>0764</td><td>The domain of possible values specifying the type of Requested Drug Strength Volume Units.</td><td>—</td></tr>
+<tr><td><code>RequestedGiveCode</code></td><td>0747</td><td>The domain of possible values specifying the type of Requested Give Code.</td><td>—</td></tr>
+<tr><td><code>RequestedGiveRateUnits</code></td><td>0760</td><td>The domain of possible values specifying the type of Requested Give Rate Units.</td><td>—</td></tr>
+<tr><td><code>RequestedGiveStrengthUnits</code></td><td>0756</td><td>The domain of possible values specifying the type of Requested Give Strength Units.</td><td>—</td></tr>
+<tr><td><code>RequestedGiveUnits</code></td><td>0748</td><td>The domain of possible values specifying the type of Requested Give Units.</td><td>—</td></tr>
+<tr><td><code>RequisitionUnitofMeasure</code></td><td>0687</td><td>The domain of possible values specifying the type of Requisition Unit of Measure.</td><td>—</td></tr>
+<tr><td><code>RoutingInstruction</code></td><td>0766</td><td>The domain of possible values specifying the type of Routing Instruction.</td><td>—</td></tr>
+<tr><td><code>ScheduledProcedureStepLocation</code></td><td>0606</td><td>The domain of possible values specifying the type of Scheduled Procedure Step Location.</td><td>—</td></tr>
+<tr><td><code>SecurityLabelHandling Instructions</code></td><td>0953</td><td>tbd</td><td>—</td></tr>
+<tr><td><code>ServicePeriod</code></td><td>0627, 0629</td><td>The domain of possible values specifying the type of Service Period.</td><td>—</td></tr>
+<tr><td><code>SexParameterForClinicalUse</code></td><td>0828</td><td>The domain of possible concepts that represent the sex characterization appropriate for the associated clinical context.</td><td>—</td></tr>
+<tr><td><code>SexualOrientation</code></td><td>0823</td><td>Concepts used to properly describe a person’s emotional, romantic, sexual, or affectional attraction to another person.</td><td>—</td></tr>
+<tr><td><code>SourceDocumentJurisdictionForRecordedSexOrGender</code></td><td>0827</td><td>The domain of possible concepts used to identify the jurisdiction that created the document referenced to obtain the recorded sex or gender value from; for example United States, California, Washington County, etc.</td><td>—</td></tr>
+<tr><td><code>SourceDocumentTypeForRecordedSexOrGender</code></td><td>0826</td><td>The domain of possible concepts used to identify what kind of document is referenced to obtain the recorded sex or gender value from; for example a passport, driver’s license, birth certificate etc.</td><td>—</td></tr>
+<tr><td><code>SpecialAdministrationInstructions</code></td><td>0738</td><td>The domain of possible values specifying the type of Special Administration Instructions.</td><td>—</td></tr>
+<tr><td><code>SpecialDispensingInstructions</code></td><td>0706, 0721</td><td>The domain of possible values specifying the type of Special Dispensing Instructions.</td><td>—</td></tr>
+<tr><td><code>Specimen</code></td><td>0660</td><td>The domain of possible values specifying the type of Specimen.</td><td>—</td></tr>
+<tr><td><code>SpecimenSourceSite</code></td><td>0784</td><td>The domain of possible values specifying the type of Specimen Source Site.</td><td>—</td></tr>
+<tr><td><code>StartingNotificationCode</code></td><td>0585</td><td>The domain of possible values specifying the type of Starting Notification Code.</td><td>—</td></tr>
+<tr><td><code>StratumforStudyRandomization</code></td><td>0592</td><td>The domain of possible values specifying the type of Stratum for Study Randomization.</td><td>—</td></tr>
+<tr><td><code>StudyPhaseEvaluability</code></td><td>0588</td><td>The domain of possible values specifying the type of Study Phase Evaluability.</td><td>—</td></tr>
+<tr><td><code>StudyPhaseIdentifier</code></td><td>0587, 0597</td><td>The domain of possible values specifying the type of Study Phase Identifier.</td><td>—</td></tr>
+<tr><td><code>StudyQualityControlCodes</code></td><td>0596</td><td>The domain of possible values specifying the type of Study Quality Control Codes.</td><td>—</td></tr>
+<tr><td><code>StudyScheduledTimePoint</code></td><td>0595, 0598</td><td>The domain of possible values specifying the type of Study Scheduled Time Point.</td><td>—</td></tr>
+<tr><td><code>Substance/TreatmentRefusalReason</code></td><td>0693</td><td>The domain of possible values specifying the type of Substance/Treatment Refusal Reason.</td><td>—</td></tr>
+<tr><td><code>SupplementaryCode</code></td><td>0700, 0710, 0727, 0762</td><td>The domain of possible values specifying the type of Supplementary Code.</td><td>—</td></tr>
+<tr><td><code>TargetAnatomicSiteOfTest</code></td><td>0645</td><td>The domain of possible values specifying the type of Target Anatomic Site Of Test.</td><td>—</td></tr>
+<tr><td><code>TaxonomicClassificationCode</code></td><td>0661</td><td>The domain of possible values specifying the type of Taxonomic Classification Code.</td><td>—</td></tr>
+<tr><td><code>Test/FluidIdentifier(s)</code></td><td>0603</td><td>The domain of possible values specifying the type of Test/Fluid Identifier(s).</td><td>—</td></tr>
+<tr><td><code>Test/ServiceDefaultDurationUnits</code></td><td>0663</td><td>The domain of possible values specifying the type of Test/Service Default Duration Units.</td><td>—</td></tr>
+<tr><td><code>TransportArrangementResponsibility</code></td><td>0620</td><td>The domain of possible values specifying the type of Transport Arrangement Responsibility.</td><td>—</td></tr>
+<tr><td><code>TransportLogisticsofCollectedSample*</code></td><td>0614</td><td>The domain of possible values specifying the type of Transport Logistics of Collected Sample *.</td><td>—</td></tr>
+<tr><td><code>Unit</code></td><td>0794</td><td>The domain of possible values specifying the units.</td><td>—</td></tr>
+<tr><td><code>Units</code></td><td>0623, 0788</td><td>The domain of possible values specifying the type of Units.</td><td>—</td></tr>
+<tr><td><code>UnitsofMeasure</code></td><td>0648</td><td>The domain of possible values specifying the type of Units of Measure.</td><td>—</td></tr>
+<tr><td><code>UniversalServiceIdentifier</code></td><td>0612, 0787, 0789</td><td>The domain of possible values specifying the type of Universal Service Identifier.</td><td>—</td></tr>
+<tr><td><code>ValidCoded&quot;Answers&quot;</code></td><td>0652</td><td>The domain of possible values specifying the type of Valid Coded &quot;Answers&quot;.</td><td>—</td></tr>
+<tr><td><code>VendorID</code></td><td>0683</td><td>The domain of possible values specifying the type of Vendor ID.</td><td>—</td></tr>
+<tr><td><code>WorkScheduleODH</code></td><td>0954</td><td>The coded typical arrangement of working hours for a person&#x27;s job, as reported by the person.</td><td>—</td></tr>
+</table></details>
 <h3 id='cmp-whitespace'><span class='badge b-confirm'>Confirm</span> Extraction cross-check: Whitespace <span class='dim-tag'>45</span></h3>
 <p class='legend'>Differs only in spacing, normally the whitespace stripped by python-docx.</p>
 <details><summary>Show the 45 entries</summary>
@@ -1476,7 +1760,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <table><tr><th>Table</th><th>As published</th><th>As emitted</th></tr>
 <tr><td>0827</td><td><span class="ws" title="leading space">&middot;</span>SourceDocumentJurisdictionForRecordedSexOrGenderTable</td><td>SourceDocumentJurisdictionForRecordedSexOrGenderTable</td></tr>
 </table></details>
-<h2>Informational &mdash; 10 groups, 448 values</h2>
+<h2>Informational &mdash; 13 groups, 484 values</h2>
 <h3 id='cmp-typography'><span class='badge b-informational'>Informational</span> Extraction cross-check: Typography <span class='dim-tag'>211</span></h3>
 <p class='legend'>Known LLM defect: ASCII look-alikes for curly quotes and dashes.</p>
 <details><summary>Show the 211 entries</summary>
@@ -1881,6 +2165,37 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <tr><td>0971</td><td>English: online verification of authentication certificate is technically not possible<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>German: Onlineprüfung des Authentifizierungszerti-fikats technisch nicht möglich</td><td>English: online verification of authentication certificate is technically not possible<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>German: Onlineprüfung des Authentifizierungszerti-fikats technisch nicht möglich</td></tr>
 <tr><td>0971</td><td>English: update of insurance date is technically not possible due to maximum offline time exceeded<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>German: Aktualisierung VSD auf eGK technisch nicht möglich weil maximaler Offline-Zeitraum überschritten</td><td>English: update of insurance date is technically not possible due to maximum offline time exceeded<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>German: Aktualisierung VSD auf eGK technisch nicht möglich weil maximaler Offline-Zeitraum überschritten</td></tr>
 </table></details>
+<h3 id='cd-domain_declared_by_multiple_tables'><span class='badge b-informational'>Informational</span> Concept domains: Domain declared by multiple tables <span class='dim-tag'>26</span></h3>
+<p class='legend'>Several code tables declare the same concept domain, so the table-to-domain relationship is not one to one.</p>
+<details><summary>Show the 26 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>AdministrationNotes</code></td><td>0691, 0737</td><td>—</td><td>—</td></tr>
+<tr><td><code>BCComponent</code></td><td>0577, 0582</td><td>—</td><td>—</td></tr>
+<tr><td><code>BPUnits</code></td><td>0576, 0581, 0584</td><td>—</td><td>—</td></tr>
+<tr><td><code>DeviceStatus</code></td><td>0682, 0962</td><td>—</td><td>—</td></tr>
+<tr><td><code>DeviceType</code></td><td>0657, 0961</td><td>—</td><td>—</td></tr>
+<tr><td><code>DispensePackageSizeUnit</code></td><td>0709, 0726</td><td>—</td><td>—</td></tr>
+<tr><td><code>DispenseUnits</code></td><td>0703, 0720, 0746</td><td>—</td><td>—</td></tr>
+<tr><td><code>DispensingPharmacy</code></td><td>0733, 0765</td><td>—</td><td>—</td></tr>
+<tr><td><code>GiveDosageForm</code></td><td>0716, 0736</td><td>—</td><td>—</td></tr>
+<tr><td><code>GiveDrugStrengthVolumeUnits</code></td><td>0729, 0744</td><td>—</td><td>—</td></tr>
+<tr><td><code>GiveRateUnits</code></td><td>0722, 0740</td><td>—</td><td>—</td></tr>
+<tr><td><code>GiveStrengthUnits</code></td><td>0723, 0741</td><td>—</td><td>—</td></tr>
+<tr><td><code>GiveUnits</code></td><td>0715, 0735</td><td>—</td><td>—</td></tr>
+<tr><td><code>Indication</code></td><td>0694, 0708, 0743, 0758</td><td>—</td><td>—</td></tr>
+<tr><td><code>Modality</code></td><td>0259, 0604</td><td>—</td><td>—</td></tr>
+<tr><td><code>Provider&#x27;sAdministrationInstructions</code></td><td>0718, 0752</td><td>—</td><td>—</td></tr>
+<tr><td><code>QuantityUnits</code></td><td>0560, 0602</td><td>—</td><td>—</td></tr>
+<tr><td><code>ServicePeriod</code></td><td>0627, 0629</td><td>—</td><td>—</td></tr>
+<tr><td><code>SpecialDispensingInstructions</code></td><td>0706, 0721</td><td>—</td><td>—</td></tr>
+<tr><td><code>StudyPhaseIdentifier</code></td><td>0587, 0597</td><td>—</td><td>—</td></tr>
+<tr><td><code>StudyScheduledTimePoint</code></td><td>0595, 0598</td><td>—</td><td>—</td></tr>
+<tr><td><code>SupplementaryCode</code></td><td>0700, 0710, 0727, 0762</td><td>—</td><td>—</td></tr>
+<tr><td><code>Units</code></td><td>0623, 0788</td><td>—</td><td>—</td></tr>
+<tr><td><code>UniversalServiceIdentifier</code></td><td>0612, 0787, 0789</td><td>—</td><td>—</td></tr>
+<tr><td><code>VolumeUnits</code></td><td>0568, 0777, 0930</td><td>—</td><td>—</td></tr>
+<tr><td><code>WeightUnits</code></td><td>0567, 0929</td><td>—</td><td>—</td></tr>
+</table></details>
 <h3 id='dev-embedded_newline-codeSystem-Description'><span class='badge b-informational'>Informational</span> Text: embedded newline: codeSystem.Description <span class='dim-tag'>15</span></h3>
 <p class='legend'>Left as published. Usually genuine paragraph structure inside a cell.  These were left as published.</p>
 <details><summary>Show the 15 entries</summary>
@@ -1935,6 +2250,20 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <tr><td>0968</td><td>The domain of possible values describing the material a container is made of or indication that the container may be a virtual type, e.g.:<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Glass<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Plastic<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Whole Slide Image</td><td>The domain of possible values describing the material a container is made of or indication that the container may be a virtual type, e.g.:<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Glass<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Plastic<span class="ws" title="line break">&#182;</span><br>•<span class="ws" title="tab">&#8677;</span>Whole Slide Image</td></tr>
 <tr><td>0969</td><td>Codes created by an organization as a shorthand way to express a combination of container attributes; for example the combination of SAC-47 (Container Form) of “Tube/vial” + SAC-48 (Container Material) of “Glass” + SAC-27 (Additive) of “EDTA” may be referenced commonly in an organization as a “Laven …</td><td>Codes created by an organization as a shorthand way to express a combination of container attributes; for example the combination of SAC-47 (Container Form) of “Tube/vial” + SAC-48 (Container Material) of “Glass” + SAC-27 (Additive) of “EDTA” may be referenced commonly in an organization as a “Laven …</td></tr>
 </table></details>
+<h3 id='cd-tho_v2_domain_absent_from_chapter_2c'><span class='badge b-informational'>Informational</span> Concept domains: Tho v2 domain absent from chapter 2c <span class='dim-tag'>9</span></h3>
+<p class='legend'>THO marks these as v2-sourced but no Chapter 2C table declares them.</p>
+<details><summary>Show the 9 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>ConfidentialityV2</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>ContainerFormV2</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>DeviceStatusSNAFU</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>DeviceTypeSNAFU</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>EmploymentStatusV2</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>EventType</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>MasterfileActionCode</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>VolumeUnitsSNAFU</code></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><code>WeightUnitsSNAFU</code></td><td>—</td><td>—</td><td>—</td></tr>
+</table></details>
 <h3 id='dev-embedded_newline-codedContent-displayName'><span class='badge b-informational'>Informational</span> Text: embedded newline: codedContent.displayName <span class='dim-tag'>8</span></h3>
 <p class='legend'>Left as published. Usually genuine paragraph structure inside a cell.  These were left as published.</p>
 <details><summary>Show the 8 entries</summary>
@@ -1974,5 +2303,11 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <table><tr><th>Table</th><th>As published</th><th>As emitted</th></tr>
 <tr><td>0957</td><td>Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue where concept is-a _EmploymentStatus<span class="ws" title="line break">&#182;</span><br>Exclude codes where code= _EmploymentStatus</td><td>Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue where concept is-a _EmploymentStatus<span class="ws" title="line break">&#182;</span><br>Exclude codes where code= _EmploymentStatus</td></tr>
 <tr><td>0961</td><td>This value set includes codes from the following code systems:<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>Include codes from http://snomed.info/sct<span class="ws" title="3 spaces">&middot;&middot;&middot;</span>where concept is-a 49062001 (Device)</td><td>This value set includes codes from the following code systems:<span class="ws" title="line break">&#182;</span><br><span class="ws" title="line break">&#182;</span><br>Include codes from http://snomed.info/sct<span class="ws" title="3 spaces">&middot;&middot;&middot;</span>where concept is-a 49062001 (Device)</td></tr>
+</table></details>
+<h3 id='cd-inherited_undeclared_property'><span class='badge b-informational'>Informational</span> Concept domains: Inherited undeclared property <span class='dim-tag'>1</span></h3>
+<p class='legend'>A property used by THO&#x27;s own content but not declared in its CodeSystem.property list. May draw a validator warning.</p>
+<details><summary>Show the 1 entries</summary>
+<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
+<tr><td><code>deprecated</code></td><td>—</td><td>—</td><td>—</td></tr>
 </table></details>
 </div></body></html>

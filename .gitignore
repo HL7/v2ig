@@ -111,3 +111,10 @@ Thumbs.db
 /v291-review/review-worklist.md
 /v291-review/apply-report.md
 /v291-review/v2mgmt-escalations.md
+
+# Generated FHIR resources for the V2.9.1 vocabulary IG #
+##########################################################
+/v291-fhir/*
+# But track the divergence log (authored review content) and the resource itself
+!/v291-fhir/conceptdomains-divergences.json
+!/v291-fhir/CodeSystem-conceptdomains.json
