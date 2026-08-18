@@ -44,7 +44,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <h2>Overview</h2>
 <a href='#summary'>Summary</a>
 <a href='#canonicals'>THO canonical coverage</a>
-<h2>Decide &mdash; 26 groups</h2>
+<h2>Decide &mdash; 25 groups</h2>
 <a href='#src-duplicate_table_metadata_block'>Published document: Duplicate table metadata block <span class='count'>(1)</span></a>
 <a href='#src-empty_table_in_source'>Published document: Empty table in source <span class='count'>(7)</span></a>
 <a href='#src-heading_has_wrong_word_style'>Published document: Heading has wrong word style <span class='count'>(2)</span></a>
@@ -68,7 +68,6 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <a href='#dev-non_breaking_space-valueSet-Description'>Text: non breaking space: valueSet.Description <span class='count'>(1)</span></a>
 <a href='#cd-conflicting_descriptions_within_chapter'>Concept domains: Conflicting descriptions within chapter <span class='count'>(5)</span></a>
 <a href='#cd-definition_differs_from_tho'>Concept domains: Definition differs from tho <span class='count'>(5)</span></a>
-<a href='#cd-inherited_version'>Concept domains: Inherited version <span class='count'>(1)</span></a>
 <a href='#cd-symbolic_name_is_not_a_plain_token'>Concept domains: Symbolic name is not a plain token <span class='count'>(55)</span></a>
 <a href='#cd-symbolic_name_near_match_in_tho'>Concept domains: Symbolic name near match in tho <span class='count'>(1)</span></a>
 <h2>Confirm &mdash; 14 groups</h2>
@@ -103,11 +102,11 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 </div>
 <div id='main'>
 <h1>V2.9.1 Chapter 2C — review catalog</h1>
-<p class='sub'>Generated 2026-08-18 14:42 from <code>CH02C_Tables.docx</code>. Every item that needs a human decision before FHIR CodeSystem and ValueSet resources can be generated.</p>
+<p class='sub'>Generated 2026-08-18 16:36 from <code>CH02C_Tables.docx</code>. Every item that needs a human decision before FHIR CodeSystem and ValueSet resources can be generated.</p>
 <div class='callout'><b>How to read this.</b> Items are grouped by what is being asked of you. <span class='badge b-decide'>Decide</span> means a judgement is needed. <span class='badge b-confirm'>Confirm</span> means something was changed automatically and should be checked. <span class='badge b-info'>Informational</span> means no action is expected. Whitespace is shown with visible marks: <span class='ws'>&middot;</span> a space, <span class='ws'>&#8677;</span> a tab, <span class='ws'>&#9251;</span> a non-breaking space, <span class='ws'>&#182;</span> a line break.</div>
 <h2 id='summary'>Summary</h2>
 <div class='metric-grid'>
-<div class='metric-card mc-flag'><div class='number'>26</div><div class='label'>decisions to make<br><span class='faint'>covering 1,142 values</span></div></div>
+<div class='metric-card mc-flag'><div class='number'>25</div><div class='label'>decisions to make<br><span class='faint'>covering 1,141 values</span></div></div>
 <div class='metric-card'><div class='number'>14</div><div class='label'>groups to confirm<br><span class='faint'>covering 266 values</span></div></div>
 <div class='metric-card'><div class='number'>13</div><div class='label'>informational groups<br><span class='faint'>covering 484 values</span></div></div>
 <div class='metric-card mc-good'><div class='number'>739/799</div><div class='label'>tables both extractions agree on entirely</div></div>
@@ -117,7 +116,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <tr><td>Published document</td><td>Irregularities in <code>CH02C_Tables.docx</code> itself</td><td class='num'>10</td></tr>
 <tr><td>Extraction cross-check</td><td>Where the python-docx and LLM extractions of the same document disagree</td><td class='num'>275</td></tr>
 <tr><td>Text deviations</td><td>Where emitted text differs from published text, or published text is irregular</td><td class='num'>1327</td></tr>
-<tr><td>Concept domains</td><td>Choices made while extending THO's concept domains CodeSystem</td><td class='num'>280</td></tr>
+<tr><td>Concept domains</td><td>Choices made while extending THO's concept domains CodeSystem</td><td class='num'>279</td></tr>
 </table>
 <h2 id='canonicals'>THO canonical URL coverage</h2>
 <p class='sub'>Checked against the staged <code>hl7.terminology.r5</code> package. 418 v2 CodeSystems and 440 v2 ValueSets are published there.</p>
@@ -150,7 +149,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <details><summary>THO CodeSystems with no matching CH02C table <span class='meta'>(19)</span></summary>
 <p><code>v2-0012</code>, <code>v2-0033</code>, <code>v2-0034</code>, <code>v2-0048</code>, <code>v2-0070</code>, <code>v2-0102</code>, <code>v2-0106</code>, <code>v2-0107</code>, <code>v2-0108</code>, <code>v2-0109</code>, <code>v2-0156</code>, <code>v2-0157</code>, <code>v2-0158</code>, <code>v2-0290</code>, <code>v2-0323</code>, <code>v2-0524</code>, <code>v2-0529</code>, <code>v2-4000</code>, <code>v2-tables</code></p>
 </details>
-<h2>Decide &mdash; 26 groups, 1,142 values</h2>
+<h2>Decide &mdash; 25 groups, 1,141 values</h2>
 <h3 id='dev-internal_double_space-codeSystem-Description'><span class='badge b-decide'>Decide</span> Text: internal double space: codeSystem.Description <span class='dim-tag'>375</span></h3>
 <p class='legend'>Left exactly as published. Decide whether any should be collapsed.  These were left as published.</p>
 <details><summary>Show the 375 entries</summary>
@@ -1350,12 +1349,6 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 <table><tr><th>Table</th><th>Name</th><th>Detail</th></tr>
 <tr><td>0685</td><td>Item Code - External (RQD-3)</td><td>styled &#x27;Normal&#x27; instead of &#x27;Heading 3&#x27;; this section is also missing from the document&#x27;s table of contents</td></tr>
 <tr><td>0767</td><td>Bolus Dose Amount Units (RXV-4)</td><td>styled &#x27;Normal&#x27; instead of &#x27;Heading 3&#x27;; this section is also missing from the document&#x27;s table of contents</td></tr>
-</table></details>
-<h3 id='cd-inherited_version'><span class='badge b-decide'>Decide</span> Concept domains: Inherited version <span class='dim-tag'>1</span></h3>
-<p class='legend'>Publishing an extended code system at another body&#x27;s canonical URL and version needs agreement with the UTG maintainers.</p>
-<details><summary>Show the 1 entries</summary>
-<table><tr><th>Concept domain</th><th>Tables</th><th>Chapter 2C</th><th>THO</th></tr>
-<tr><td><code>3.0.0</code></td><td>—</td><td>—</td><td>—</td></tr>
 </table></details>
 <h3 id='cd-symbolic_name_near_match_in_tho'><span class='badge b-decide'>Decide</span> Concept domains: Symbolic name near match in tho <span class='dim-tag'>1</span></h3>
 <p class='legend'>The Chapter 2C spelling differs from THO&#x27;s only by punctuation or spacing, and looks like a typo in the published chapter.</p>

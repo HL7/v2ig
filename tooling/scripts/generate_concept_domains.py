@@ -18,6 +18,8 @@ destructively redefine a code system we do not own. Concretely:
   * Where Chapter 2C and THO describe the same domain differently, THO's
     definition is kept and the difference is RECORDED rather than silently
     resolved.
+  * The major version is incremented (3.0.0 -> 4.0.0), because adding concepts
+    changes the code system.
 
 Nothing is normalized quietly. Every place the output differs from what
 Chapter 2C literally says is written to the divergence report, because the
@@ -95,6 +97,19 @@ def load_chapter_domains():
     return dict(domains)
 
 
+def next_major_version(version):
+    """Increment the major version, resetting minor and patch to zero.
+
+    Adding concepts is a change to the code system, so "3.0.0" becomes "4.0.0".
+    A version that is not in major.minor.patch form is returned unchanged --
+    guessing at an unfamiliar scheme would be worse than leaving it alone.
+    """
+    match = re.fullmatch(r"(\d+)\.(\d+)\.(\d+)", version or "")
+    if not match:
+        return version
+    return f"{int(match.group(1)) + 1}.0.0"
+
+
 def normalize_for_match(text):
     """Reduce a symbolic name to letters and digits, for near-match detection."""
     return re.sub(r"[^a-z0-9]", "", text.lower())
@@ -131,6 +146,12 @@ def build(tho_resource, tho_index, chapter_domains):
         tho_by_normalized[normalize_for_match(code)].append(code)
 
     resource = copy.deepcopy(tho_resource)
+
+    # Adding concepts changes the code system, so the major version increments
+    # and minor and patch reset -- standard terminology versioning practice.
+    inherited_version = resource.get("version", "")
+    resource["version"] = next_major_version(inherited_version)
+
     additions = []
 
     for symbolic_name in sorted(chapter_domains):
@@ -217,11 +238,6 @@ def build(tho_resource, tho_index, chapter_domains):
                "its CodeSystem.property list. Left as-is; may draw a validator "
                "warning when published.")
 
-    record("inherited_version", resource.get("version", ""),
-           "The output carries THO's version because it carries THO's canonical "
-           "URL. Publishing an extended code system at another body's canonical "
-           "URL and version needs to be agreed with the UTG maintainers.")
-
     return resource, divergences, additions
 
 
@@ -263,6 +279,9 @@ def main():
             "package": "hl7.terminology.r5",
             "resource": "CodeSystem/conceptdomains",
             "version": tho_resource.get("version"),
+        },
+        "published": {
+            "version": resource.get("version"),
         },
         "counts": dict(by_kind),
         "divergences": divergences,

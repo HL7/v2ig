@@ -78,15 +78,26 @@ definitions match Chapter 2C exactly. Only 5 differ, so deferring to THO costs
 almost nothing in fidelity while keeping one coherent code system. All 5 are
 recorded for review and can be flipped individually.
 
+**Versioning.** Adding concepts changes the code system, so the major version
+increments and minor and patch reset: THO ships 3.0.0, this publishes **4.0.0**.
+That is standard terminology versioning practice and needs no special handling.
+
+**Authority.** This is not a coordination risk. The project lead is a UTG
+maintainer and a member of the HL7 Terminology Services Management Group, and
+has the authority to extend this code system.
+
 **Consequences.**
-- Publishing an extended code system at THO's canonical URL and version
-  requires agreement with the UTG maintainers. This is a coordination
-  dependency, not a technical one, and it is recorded as an open item.
 - The output carries v3- and CDA-sourced concepts that are outside Chapter
-  2C's scope. That is inherent to extending rather than forking.
-- The alternative shapes remain available if coordination fails: a CodeSystem
-  supplement against THO's canonical, or a separate code system under this
-  project's own canonical carrying only the 177.
+  2C's scope. That is inherent to extending rather than forking, and is the
+  correct trade against fragmenting the concept domain namespace.
+- Downstream consumers resolving `CodeSystem/conceptdomains` will get 4.0.0
+  from this IG and 3.0.0 from `hl7.terminology.r5`. Normal version resolution
+  handles that; it is worth being deliberate about which the IG pins.
+- A CodeSystem **supplement** is *not* an available alternative here.
+  Supplements may add properties and designations to an existing code system;
+  they may not add concepts. The real alternatives, should the extension ever
+  be unwound, are folding the 177 into THO upstream, or a separate code system
+  under this project's own canonical.
 
 ### D2 — Only obvious typographic defects are corrected automatically
 

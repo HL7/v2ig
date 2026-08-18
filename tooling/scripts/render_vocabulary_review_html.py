@@ -91,11 +91,6 @@ CONCEPT_DOMAIN_PRESENTATION = {
         "A property used by THO's own content but not declared in its "
         "CodeSystem.property list. May draw a validator warning.",
     ),
-    "inherited_version": (
-        "decide",
-        "Publishing an extended code system at another body's canonical URL and "
-        "version needs agreement with the UTG maintainers.",
-    ),
 }
 
 # How each deviation kind should be presented.

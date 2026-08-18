@@ -5,6 +5,9 @@
     "resource": "CodeSystem/conceptdomains",
     "version": "3.0.0"
   },
+  "published": {
+    "version": "4.0.0"
+  },
   "counts": {
     "symbolic_name_is_not_a_plain_token": 55,
     "added_from_chapter_2c": 177,
@@ -13,8 +16,7 @@
     "conflicting_descriptions_within_chapter": 5,
     "symbolic_name_near_match_in_tho": 1,
     "tho_v2_domain_absent_from_chapter_2c": 9,
-    "inherited_undeclared_property": 1,
-    "inherited_version": 1
+    "inherited_undeclared_property": 1
   },
   "divergences": [
     {
@@ -2550,11 +2552,6 @@
       "kind": "inherited_undeclared_property",
       "conceptDomain": "deprecated",
       "detail": "A concept property used by THO's own content but not declared in its CodeSystem.property list. Left as-is; may draw a validator warning when published."
-    },
-    {
-      "kind": "inherited_version",
-      "conceptDomain": "3.0.0",
-      "detail": "The output carries THO's version because it carries THO's canonical URL. Publishing an extended code system at another body's canonical URL and version needs to be agreed with the UTG maintainers."
     }
   ]
 }
