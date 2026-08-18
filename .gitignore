@@ -89,6 +89,7 @@ Thumbs.db
 !/v291-extracted/message-structures-decision-report.html
 # CH02C fidelity ledger: every divergence from the published text (reviewable)
 !/v291-extracted/vocabulary-deviations.json
+!/v291-extracted/vocabulary-review-report.html
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
 /v2plus_docx/
