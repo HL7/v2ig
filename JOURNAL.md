@@ -18,68 +18,141 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-08-18 (CH02C vocabulary IG: dual-pipeline extraction done, concept domains generated, ADR-0008 open)
+## ACTIVE — 2026-08-18 (CH02C vocabulary IG: text-fidelity decisions D1–D6 applied; ADR-0008 Batch A still the gate)
 
-**Phase:** New workstream, started this session. Building a **separate FHIR IG carrying the V2.9.1 Chapter 2C vocabulary** as CodeSystems and ValueSets. The prior workstream (structural review registry, 222 findings) is **paused mid-flight and untouched** — see the 2026-06-12 entry; `v291-review/registry.json` is still 222/222 `needs-review`.
+**Phase:** Building a **separate FHIR IG carrying the V2.9.1 Chapter 2C vocabulary** as CodeSystems and ValueSets. The prior workstream (structural review registry, 222 findings) is **paused mid-flight and untouched** — see the 2026-06-12 entry; `v291-review/registry.json` is still 222/222 `needs-review`.
 
-**Governing requirement (user, this session):** the IG must carry *exactly* what Chapter 2C publishes. The only automatic correction permitted is very obvious typographic defects, principally leading/trailing whitespace. **Every divergence must be recorded for review** — nothing resolved silently.
+**Governing requirement (user):** the IG must carry *exactly* what Chapter 2C publishes. Corrections are made **only** when the user decides a specific group is safe, walking the review report group by group. **Every divergence is recorded** — nothing resolved silently.
 
-**Branches:** `dev/framework` at `cfd4a6af` + this session's commits. **Not pushed.** `origin/main` and `origin/build` unchanged.
+**Branches:** `dev/framework` at `4dd40dbc`, **pushed to origin** (all 7 commits are safe; the user was restarting their machine for a macOS security update). `origin/main` and `origin/build` unchanged.
 
 ### Next session's first move
 
-**Work ADR-0008 Batch A (Identity).** Batches B, C and D all depend on it. Batch A decides: which tables get resources at all (the 384 concept-domain-only tables are already covered by D1; 7 have empty grids in the source), canonical URLs for the 18 code-bearing tables THO does not publish, whether every CodeSystem gets a ValueSet or only the 438 tables declaring a Value Set block, and resource metadata defaults (version/status/publisher).
+Ask the user which track to resume — they were mid-review and interrupted by a forced restart, not at a natural boundary.
 
-Bring Batch A to the user as a small set of concrete choices, not an open list. `docs/adr/0008-v291-vocabulary-representation.md` has the full batch breakdown.
+**Track 1 — finish the review report's text groups.** Three remain, all small and all already grouped in `vocabulary-changelog.md` under "Still outstanding". The obvious next one, because it is the mirror image of the change just made:
+
+- **Missing space after a comma — 10 places.** `Electroneuro (EEG, EMG,EP,PSG)` (0074), `Q23,Q24` (0354), `(e.g.,highest alert severity)` (0367, in all four Description fields), `provider,public health agency` (0396). Surfaced while doing change 004; not asked for, not changed.
+- **Mid-sentence double spaces — 129 runs, 94 values.** Dominated by one boilerplate defect: `code system of concepts··which specify` recurring across Code System descriptions. One template, not 38 typos — so it is one decision, not 38.
+- **Three dash defects the rule refused to repair** — 0357 `Message is not -conformant`, 0368 `Emergency -stop`, 0919 `Default -.will be assumed`. Each needs a human call; the rule deliberately left them rather than making them worse.
+
+**Track 2 — ADR-0008 Batch A (Identity).** This is the actual gate on generating any resources; B, C and D all depend on it. Batch A decides: which tables get resources at all (the 384 concept-domain-only tables are covered by D1; 7 have empty grids in the source), canonical URLs for the 18 code-bearing tables THO does not publish, whether every CodeSystem gets a ValueSet or only the 438 tables declaring a Value Set block, and resource metadata defaults (version/status/publisher).
+
+**Recommendation:** offer Track 1 first (three short decisions, finishes the text-fidelity pass cleanly), then Batch A. But say so and let the user choose — Batch A is what unblocks actual IG output, and the remaining text groups do not block it.
+
+When Batch A does come up: bring it as a small set of concrete choices with counts and a recommendation, not an open list. That is the format that has worked for every decision so far.
 
 ### Pending user actions
 
-1. **Review `v291-extracted/vocabulary-review-report.html`** — the user is doing this now and will come back with resolutions. 52 groups: 26 decide, 12 confirm, 14 informational. Grouped by what is being asked, not by source file.
-2. **Check #IG creation Zulip thread** — template trust submission, unchanged from June and unrelated to this workstream.
+1. **Continue through `v291-extracted/vocabulary-review-report.html`** — 76 sections now: 232 decide, 1,314 confirm, 484 informational. The "confirm" bulk is the 1,092 values already changed; the real remaining work is in "decide".
+2. **Check #IG creation Zulip thread** — template trust submission, unchanged since June and unrelated to this workstream.
 
-### What was built this session
+### Where things stand
 
-- **`tho-r5/`** (gitignored) — `hl7.terminology.r5` v7.3.0, the canonical-URL reference. 418 v2 CodeSystems, 440 v2 ValueSets, `CodeSystem-conceptdomains.json` with 1,345 concepts.
-- **`extract_v291_vocabulary.py`** hardened — explicit fidelity policy, deviation ledger, three classes of recovered data, stale-output pruning.
-- **`extract_v291_llm.py`** — new `vocabulary` mode (section-level, concurrent, resumable).
-- **`compare_vocabulary_pipelines.py`** — new; cross-validates the two corpuses.
-- **`render_vocabulary_review_html.py`** — new; the HTML review catalog.
-- **`generate_concept_domains.py`** — new; produces `v291-fhir/CodeSystem-conceptdomains.json`.
-- **`docs/adr/0008-v291-vocabulary-representation.md`** — open, decided in batches.
+**Text fidelity — six decisions applied, 1,092 values changed across 1,295 places.** All reproducible from the `.docx`; re-running the extractor gives identical numbers.
 
-### Results
+| Rule | ADR | Values | Places |
+|---|---|---:|---:|
+| Leading/trailing whitespace | D2 | 44 | 44 |
+| Spaces after a period | D3 | 890 | 1,089 |
+| Spaces after a sentence close (`."··`, `.)··`) | D4 | 6 | 6 |
+| Repeated spaces in `displayName` | D4 | 66 | 66 |
+| Spaces after a comma | D4 | 10 | 10 |
+| Dash spacing | D5 | 16 | 18 |
+| Comma after `e.g.` / `i.e.` | D6 | 60 | 62 |
 
-- **799 sections** (not 797 — see the published-document defect below), **5,540 codes**, both pipelines agreeing on the count exactly.
-- **739 / 799 tables identical in every compared field** across the two pipelines.
-- Concept domains CodeSystem: **1,522 concepts** = THO's 1,345 carried through unchanged + **177 Chapter 2C additions**, at THO's canonical URL, version bumped 3.0.0 → **4.0.0**.
-- **280 concept-domain divergences** logged; **1,327 text deviations** logged.
-- LLM extraction cost ≈ **$11.60**, ~20 min wall clock at concurrency 10.
+**Outstanding: 374 values** — 143 double spaces (all in prose fields; `displayName` is clear), 223 embedded newlines, 8 non-breaking spaces.
 
-### Decisions locked in (ADR-0008)
-
-- **D1** — Concept domains **extend** THO's CodeSystem: superset only, never a subset at THO's canonical URL. THO's definitions win on conflict (only 5 of 582 differ). Major version bump on content change is standard practice, not a coordination problem — **the user is a UTG maintainer and TSMG member with authority to do this**. A CodeSystem *supplement* is NOT an alternative: supplements add properties and designations, not concepts.
-- **D2** — Only leading/trailing whitespace is corrected automatically. Everything else preserved and reported, grouped by kind and by field.
+**Cross-pipeline agreement held at 739/799 through every change**, with all other buckets unchanged (211 typography, 45 whitespace, 14 LLM truncations, 2 content).
 
 ### Non-obvious things the next session must not re-derive
 
-- **python-docx is the character-faithful pipeline; the LLM is structural corroboration only.** The LLM has exactly two systematic infidelities, both one-directional and both detectable: typographic substitution (211 values — curly quotes/dashes → ASCII, and *prompt instructions do not stop it*), and intermittent truncation at a literal `"` (14 values — the quote closes the JSON string during constrained decoding; it only ever loses text). Generation must read from `v291-extracted/vocabulary/`.
-- **A defect in the published document.** Tables **0685** and **0767** have headings styled `Normal` instead of `Heading 3`, so they are missing from the document's own table of contents. Both were invisible to extraction, and their content was being absorbed into 0684 and 0766 — which silently carried the wrong OID, symbolic name and `where used`. Both extractors now special-case this. This is worth reporting to V2 Management.
-- **Do not re-run the LLM extraction casually** — it costs ~$11.60. The corpus is on disk at `v291-llm/vocabulary/` (gitignored). Use `--resume`.
-- **`render_table_as_markdown` flattens newlines**; vocabulary mode uses `render_vocab_table_as_markdown`, which escapes them. Do not route vocabulary through the structural renderer.
+- **The policy is a rule chain in `tooling/scripts/vocabulary_text_policy.py`, not inline in the extractor** — because three scripts must agree on it. Adding a rule means adding one entry to `RULES`; the extractor, the cross-pipeline comparison and the concept-domain generator all pick it up. **74 tests** in `test_vocabulary_text_policy.py`; every "leave it alone" case is a real published value. Run them before and after any rule change.
+- **Any comparison must apply the policy to BOTH sides.** The python-docx corpus has the rules baked in and nothing else does. D6 proved the point: inserting a comma made 6 concept domains "differ from THO" by nothing but our own comma, inflating `definition_differs_from_tho` 5 → 11. Fixed by normalizing THO's text too. Whitespace rules were forgiving because most comparisons already fold whitespace; **character-level rules are not**. Ask this question of every new comparison.
+- **The dash rule adjusts spacing, never inserts it.** 1,843 of the 2,516 dashes in Chapter 2C prose have no space on either side and are inside `HL7-defined`, `ICD-10`, `OBR-32`, URLs. Six further structural exclusions cover minus signs, `+/-`, German suspended hyphens (`Operationen- und`), line-initial/final dashes, dashes before punctuation, and `X -y` with a lowercase follower. **Do not "simplify" these away** — each one is a real value that would otherwise be corrupted.
+- **python-docx is the character-faithful pipeline; the LLM is structural corroboration only.** The LLM has exactly two systematic infidelities, both one-directional and detectable: typographic substitution (211 values — curly quotes/dashes → ASCII, and *prompt instructions do not stop it*), and intermittent truncation at a literal `"` (14 values). Generation must read from `v291-extracted/vocabulary/`.
+- **A defect in the published document.** Tables **0685** and **0767** have headings styled `Normal` instead of `Heading 3`, so they are missing from the document's own table of contents. Both were invisible to extraction and their content was being absorbed into 0684 and 0766. Both extractors special-case this. Worth reporting to V2 Management.
+- **Do not re-run the LLM extraction casually** — ~$11.60. The corpus is on disk at `v291-llm/vocabulary/` (gitignored). Use `--resume`.
 - **26 concept domains are declared by more than one table** (`VolumeUnits` by 0568/0777/0930), so table→domain is not 1:1.
-- **55 CH02C symbolic names are not valid code tokens** (`Collector'sComment*`, `PrimaryKeyValue–STF`). Currently emitted verbatim; this is an open Batch A/B-adjacent decision.
+- **55 CH02C symbolic names are not valid code tokens** (`Collector'sComment*`, `PrimaryKeyValue–STF`). Emitted verbatim; an open Batch A/B-adjacent decision.
+- **`v291-extracted/vocabulary-changelog.md` is authored content and needed a `.gitignore` exception.** It is not regenerable. New decisions get a new numbered entry there plus a new `D`-numbered decision in ADR-0008.
+
+### Regeneration sequence
+
+After any policy change, run in this order — each step feeds the next:
+
+```
+python3 -m pytest tooling/scripts/test_vocabulary_text_policy.py
+python3 tooling/scripts/extract_v291_vocabulary.py
+python3 tooling/scripts/compare_vocabulary_pipelines.py
+python3 tooling/scripts/generate_concept_domains.py
+python3 tooling/scripts/render_vocabulary_review_html.py
+```
+
+Then check `git diff --stat v291-fhir/` — unexpected drift there means a rule leaked into output that should only have affected comparison.
 
 ### Build verification status
 
-Untouched this session. No IG content or FHIR StructureDefinitions were modified — this workstream has produced tooling, extracted data and one generated CodeSystem, none of which is in a build yet.
+Untouched. No IG content or FHIR StructureDefinitions have been modified in this workstream — it has produced tooling, extracted data and one generated CodeSystem, none of which is in a build yet. Nothing needs to reach `main` or `build`.
 
 ### Open blockers
 
-None blocking. The work is gated on the user's review of the HTML report and the Batch A decisions.
+None. Gated only on the user's decisions.
 
 ---
 
 ## Session History
+
+## 2026-08-18 — CH02C text fidelity: six reviewer decisions applied as a shared rule chain
+
+### Completed
+
+**Walked the review report with the user and applied six text-correction decisions**, 1,092 values across 1,295 places. Each was the user's call on a specific group, not a rule the extractor invented; each is recorded per value and individually reversible.
+
+- **D3, spaces after a period** (890 values, 1,089 places) in descriptive fields — the four `Description` fields plus `definition`, `comment` and `displayName`.
+- **D4, three further collapses** — sentence ends where a closing quote or bracket sits between the period and the spaces (6), spaces after a comma (10), and every repeated-space run in `displayName` wherever it sits (66).
+- **D5, dash spacing** (16 values) — a separator dash gets one space each side.
+- **D6, the missing comma after `e.g.` and `i.e.`** (60 values), including the capitalised sentence-initial forms.
+
+**Built `tooling/scripts/vocabulary_text_policy.py` as an ordered rule chain**, with 74 tests. Each rule reports its own count and its own before/after, so a change is attributed to the decision that authorized it rather than several rules landing in one undifferentiated bucket.
+
+**Opened `v291-extracted/vocabulary-changelog.md`** as the durable ledger — one numbered entry per decision with its rule, scope, per-field counts, examples, downstream effects, and an appendix listing every affected table. Needed a `.gitignore` exception; it is authored content, not regenerable.
+
+**Relabelled the review report's text groups** as "Text changed" versus "Text outstanding", so it answers what has been done and what is still open without the reader decoding rule names.
+
+### Why the specific shapes
+
+- **The policy is a shared module, not extractor code.** The python-docx-vs-LLM comparison has to apply the same rules to both corpuses; otherwise our own deliberate normalization is reported as a pipeline disagreement. Cross-pipeline agreement held at 739/799 through all six changes precisely because of this. The absorbed count (982 values equal only after the policy) is stated in the comparison report rather than dropped.
+
+- **The dash rule adjusts spacing and never inserts it.** The user asked whether "a single space before and after every dash" was ever inadvisable. It is: 1,843 of the 2,516 dashes in Chapter 2C prose have no space on either side and are inside `HL7-defined` (387×), `ICD-10`, `UB-04`, `OBR-32` and URL path segments. Even the narrower "where a space already exists on one side" version breaks negative temperatures (`-16 to -20`), the German suspended hyphen `Operationen- und` (15×), `+/- 2 degrees`, and dashes dangling before a line break. The user chose the one-sided version with hand-built exclusions after seeing the evidence, and a seventh exclusion was added after the first run showed `not -conformant` and `Emergency -stop` becoming worse, not better. Every exclusion is structural rather than a list of table numbers, so it survives a source change.
+
+- **`displayName` gets every run collapsed; descriptions do not.** A display name is a short label, so no run of repeated spaces in one can be meaningful. That argument does not extend to a multi-sentence description, where a double space between two words may be evidence of something a reviewer should see — which is why 143 values remain outstanding, all in prose fields.
+
+- **Rule order encodes attribution.** The period, sentence-close and comma rules run before the display-name sweep, so a change lands under the most specific decision that authorized it. That is why the display-name rule reports 66 rather than 74.
+
+### The finding worth carrying forward
+
+**D6 is the first rule that edits prose rather than whitespace, and it immediately broke a comparison the whitespace rules never touched.** Inserting a comma made 6 concept domains differ from THO by nothing but that comma, inflating `definition_differs_from_tho` from 5 to 11. Fixed by applying the shared policy to THO's text before comparing — the same both-sides principle the cross-pipeline comparison already used. `CodeSystem-conceptdomains.json` came out byte-identical to before.
+
+The general lesson, recorded in ADR-0008 D6: whitespace-only rules are forgiving because most comparisons already fold whitespace. Character-level rules are not. Every comparison in this project now has to be asked whether the other side is subject to the same policy.
+
+### Corrections taken during the session
+
+Two scope questions were resolved by asking rather than guessing, and both changed the work: "description elements" turned out to mean all prose fields including `definition`, and the dash rule needed narrowing from the literal instruction. A third judgement — including the 13 capitalised `E.g.`/`I.e.` sites — was made without asking, since leaving them would have produced an obvious inconsistency within the same sentences.
+
+### Commits this session
+
+On `dev/framework`, **pushed to origin** (`2b38100a..4dd40dbc`):
+- `88933379` — Collapse spaces after a period in Chapter 2C descriptive text
+- `4dd40dbc` — Add five more Chapter 2C text corrections; restructure policy as a rule chain
+
+The five previously-unpushed commits from the prior session went up with them.
+
+### Still uncommitted, untouched, and not mine
+
+`tooling/scripts/render_message_structures_html.py`, `tooling/scripts/render_three_way_html.py`, `v291-extracted/message-structures-decision-report.html`, `v291-review/three-way-comparison-report.html`, `vocabulary-comparison-report.html` — all dated 2026-06-19, predating this workstream. Flagged to the user three times now; left alone.
+
+---
 
 ## 2026-08-17 → 2026-08-18 — CH02C vocabulary: dual-pipeline extraction, concept domains, ADR-0008
 
