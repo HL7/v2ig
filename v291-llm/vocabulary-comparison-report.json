@@ -5,15 +5,15 @@
     "common": 799
   },
   "policyAbsorbed": {
-    "total": 851,
+    "total": 982,
     "byField": {
       "codeSystems[0].Description": 362,
-      "tableMetadata.Description": 210,
-      "conceptDomain.Description": 124,
-      "codedContent.comment": 74,
-      "valueSets[0].Description": 50,
-      "codedContent.displayName": 18,
-      "codedContent.definition": 13
+      "tableMetadata.Description": 215,
+      "conceptDomain.Description": 128,
+      "codedContent.displayName": 103,
+      "codedContent.comment": 101,
+      "valueSets[0].Description": 54,
+      "codedContent.definition": 19
     },
     "note": "Values equal once both corpuses are put through vocabulary_text_policy.py. Not disagreements between the pipelines; our own normalization applied to one side only."
   },
@@ -31,7 +31,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "typography",
-        "pydocx": "A categorical assessment, providing a rough qualitative interpretation of the observation value, such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. The value set is intended to be for ANY use where coded representation of an interpretation is needed. Notes: This is being communicated in v2.x in OBX-8, in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts  (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version.",
+        "pydocx": "A categorical assessment, providing a rough qualitative interpretation of the observation value, such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. The value set is intended to be for ANY use where coded representation of an interpretation is needed. Notes: This is being communicated in v2.x in OBX-8, in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts  (i.e., particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version.",
         "llm": "A categorical assessment, providing a rough qualitative interpretation of the observation value, such as \"normal\"/ \"abnormal\",\"low\" / \"high\", \"better\" / \"worse\", \"susceptible\" / \"resistant\", \"expected\"/ \"not expected\". The value set is intended to be for ANY use where coded representation of an interpretation is needed.   Notes: This is being communicated in v2.x in OBX-8, in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts  (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version."
       }
     ],
@@ -82,7 +82,7 @@
         "location": "codedContent[7].comment",
         "code": "K",
         "bucket": "typography",
-        "pydocx": "A name used in a Professional or Business context. Also includes writer’s pseudonym, artist’s name, stage name, street name, etc.\n\nAn example of use is where a person with multiple proper names (i.e. married) uses one of the particular names in a professional",
+        "pydocx": "A name used in a Professional or Business context. Also includes writer’s pseudonym, artist’s name, stage name, street name, etc.\n\nAn example of use is where a person with multiple proper names (i.e., married) uses one of the particular names in a professional",
         "llm": "A name used in a Professional or Business context. Also includes writer's pseudonym, artist's name, stage name, street name, etc.\n\nAn example of use is where a person with multiple proper names (i.e. married) uses one of the particular names in a professional"
       }
     ],
@@ -806,7 +806,7 @@
         "location": "codedContent[1].comment",
         "code": "HPC",
         "bucket": "typography",
-        "pydocx": "Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.\n\nUsage Note: The HCPCS code is divided into three \"levels.\"  Level I includes the entire CPT-4 code by reference. Level II includes the American Dental Association’s Current Dental Terminology (CDT-2) code by reference. Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers. The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers.\n\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, www.ntis.gov) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to ist contractors.",
+        "pydocx": "Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.\n\nUsage Note: The HCPCS code is divided into three \"levels.\" Level I includes the entire CPT-4 code by reference. Level II includes the American Dental Association’s Current Dental Terminology (CDT-2) code by reference. Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers. The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers.\n\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, www.ntis.gov) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to ist contractors.",
         "llm": "Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.\n\nUsage Note: The HCPCS code is divided into three \"levels.\"  Level I includes the entire CPT-4 code by reference.  Level II includes the American Dental Association's Current Dental Terminology (CDT-2) code by reference.  Level II also includes the genuine HCPCS codes, approved and maintained jointly by the Alpha-Numeric Editorial Panel, consisting of CMS, the Health Insurance Association of America, and the Blue Cross and Blue Shield Association. Level III are codes developed locally by Medicare carriers.  The HCPCS modifiers are divided into the same three levels, I being CPT-4 modifiers, II CDT-2 and genuine HCPCS modifiers, and III being locally agreed modifiers.\n\nThe genuine HCPCS codes and modifiers of level II can be found at http://www.hcfa.gov/stats/anhcpcdl.htm. CMS distributes the HCPCS codes via the National Technical Information Service (NTIS, www.ntis.gov) and NTIS distribution includes the CDT-2 part of HCPCS Level II, but does not include the CPT-4 part (Level I). CMS may distribute the CPT-4 part to ist contractors."
       }
     ],
@@ -847,19 +847,19 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "llm_truncated",
-        "pydocx": "The domain of possible values identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures). Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits). Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
+        "pydocx": "The domain of possible values identifying the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures). Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits). Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
         "llm": "The domain of possible values identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "
       },
       {
         "location": "tableMetadata.Description",
         "bucket": "llm_truncated",
-        "pydocx": "HL7-defined table of codes identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures). Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits). Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
+        "pydocx": "HL7-defined table of codes identifying the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures). Repeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits). Reflex test — this test is performed as the consequence of rules triggered based on other test result(s).",
         "llm": "HL7-defined table of codes identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values: Repeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "
       },
       {
         "location": "codeSystems[0].Description",
         "bucket": "llm_truncated",
-        "pydocx": "HL7-defined code system of concepts identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values:\nRepeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).\nRepeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).\nReflex test — this test is performed as the consequence of rules triggered based on other test result(s). Used in HL7 Version 2.x messaging in the Test Code Detail (TCD) segment.",
+        "pydocx": "HL7-defined code system of concepts identifying the repeat status for the analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values:\nRepeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as \"Panic\" or mechanical failures).\nRepeated with dilution — performed usually in the case the original result exceeded the measurement range (technical limits).\nReflex test — this test is performed as the consequence of rules triggered based on other test result(s). Used in HL7 Version 2.x messaging in the Test Code Detail (TCD) segment.",
         "llm": "HL7-defined code system of concepts identifying the repeat status for the analyte/result (e.g. original, rerun, repeat, reflex).  The following are assumptions regarding the table values:\nRepeated without dilution — performed usually to confirm correctness of results (e.g., in case of results flagged as "
       }
     ],
@@ -904,7 +904,7 @@
         "location": "codedContent[47].comment",
         "code": "Chrom-Loc",
         "bucket": "typography",
-        "pydocx": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm – either “p” for the  short or “q” for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g. 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI’s ClinVar variation tables. It will expand as additional sources become available.",
+        "pydocx": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm – either “p” for the  short or “q” for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g., 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI’s ClinVar variation tables. It will expand as additional sources become available.",
         "llm": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm – either \"p\" for the  short or \"q\" for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g. 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI's ClinVar variation tables. It will expand as additional sources become available."
       },
       {
@@ -1051,7 +1051,7 @@
         "location": "codedContent[5].definition",
         "code": "N",
         "bucket": "llm_truncated",
-        "pydocx": "\"No-code\" (i.e. Do not resuscitate)",
+        "pydocx": "\"No-code\" (i.e., Do not resuscitate)",
         "llm": ""
       }
     ],
@@ -1439,7 +1439,7 @@
         "location": "codedContent[57].comment",
         "code": "42CFRPart2",
         "bucket": "typography",
-        "pydocx": "Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection,  access, use, and disclosure of healthcare information is governed by 42 CFR Part 2 Confidentiality of Substance Use Disorder Patient Records\nhttps://www.gpo.gov/fdsys/pkg/CFR-2010-title42-vol1/pdf/CFR-2010-title42-vol1-part2.pdf use “42CFRPart2” as the security label policy code. \n\nSince information governed by a 42 CFR Part 2 has a level of confidentiality protection that is more stringent than the normal level of protection under HIPAA 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf assign the HL7 Confidentiality code “R” (restricted).",
+        "pydocx": "Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, and disclosure of healthcare information is governed by 42 CFR Part 2 Confidentiality of Substance Use Disorder Patient Records\nhttps://www.gpo.gov/fdsys/pkg/CFR-2010-title42-vol1/pdf/CFR-2010-title42-vol1-part2.pdf use “42CFRPart2” as the security label policy code. \n\nSince information governed by a 42 CFR Part 2 has a level of confidentiality protection that is more stringent than the normal level of protection under HIPAA 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf assign the HL7 Confidentiality code “R” (restricted).",
         "llm": "Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection,  access, use, and disclosure of healthcare information is governed by 42 CFR Part 2 Confidentiality of Substance Use Disorder Patient Records\nhttps://www.gpo.gov/fdsys/pkg/CFR-2010-title42-vol1/pdf/CFR-2010-title42-vol1-part2.pdf use \"42CFRPart2\" as the security label policy code. \n\nSince information governed by a 42 CFR Part 2 has a level of confidentiality protection that is more stringent than the normal level of protection under HIPAA 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf assign the HL7 Confidentiality code \"R\" (restricted)."
       },
       {
@@ -1622,7 +1622,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "llm_truncated",
-        "pydocx": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
+        "pydocx": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g., physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
         "llm": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code "
       }
     ],
@@ -1805,7 +1805,7 @@
         "location": "codedContent[3].comment",
         "code": "UNK",
         "bucket": "typography",
-        "pydocx": "This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:\n1. Those properties themselves directly translate to a semantic of \"unknown\". (E.g. a local code sent as a translation that conveys 'unknown')\n2. Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of \"H\" and a URL prefix of \"tel:\" to convey that it is the home phone number that is unknown.)\n\nThis code is drawn from V3 Null Flavor (http://terminology.hl7.org/CodeSystem/v3-NullFlavor).\nThe HL70396 code for this code is ‘NULLFL’",
+        "pydocx": "This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:\n1. Those properties themselves directly translate to a semantic of \"unknown\". (E.g., a local code sent as a translation that conveys 'unknown')\n2. Those properties further qualify the nature of what is unknown. (E.g., specifying a use code of \"H\" and a URL prefix of \"tel:\" to convey that it is the home phone number that is unknown.)\n\nThis code is drawn from V3 Null Flavor (http://terminology.hl7.org/CodeSystem/v3-NullFlavor).\nThe HL70396 code for this code is ‘NULLFL’",
         "llm": "This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:\n1. Those properties themselves directly translate to a semantic of \"unknown\". (E.g. a local code sent as a translation that conveys 'unknown')\n2. Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of \"H\" and a URL prefix of \"tel:\" to convey that it is the home phone number that is unknown.)\n\nThis code is drawn from V3 Null Flavor (http://terminology.hl7.org/CodeSystem/v3-NullFlavor).\nThe HL70396 code for this code is 'NULLFL'"
       },
       {
@@ -1949,19 +1949,19 @@
       {
         "location": "conceptDomain.Description",
         "bucket": "typography",
-        "pydocx": "Types of a person’s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).",
+        "pydocx": "Types of a person’s employment type as defined by compensation and sector (e.g., paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).",
         "llm": "Types of a person's employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.)."
       },
       {
         "location": "codeSystems[0].Description",
         "bucket": "typography",
-        "pydocx": "Code system of concepts representing a person’s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).",
+        "pydocx": "Code system of concepts representing a person’s employment type as defined by compensation and sector (e.g., paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).",
         "llm": "Code system of concepts representing a person's employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.)."
       },
       {
         "location": "valueSets[0].Description",
         "bucket": "typography",
-        "pydocx": "A person’s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).",
+        "pydocx": "A person’s employment type as defined by compensation and sector (e.g., paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).",
         "llm": "A person's employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.)."
       }
     ],

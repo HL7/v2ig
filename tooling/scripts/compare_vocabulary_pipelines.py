@@ -51,7 +51,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vocabulary_text_policy import normalize_descriptive_text  # noqa: E402
+from vocabulary_text_policy import apply_text_policy  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PYDOCX_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -145,7 +145,7 @@ def under_policy(field, text):
     extractor already applied to the python-docx corpus is not mistaken for a
     disagreement with the LLM corpus.
     """
-    normalized, _ = normalize_descriptive_text(field, text or "")
+    normalized, _ = apply_text_policy(field, text or "")
     return normalized
 
 

@@ -29,17 +29,17 @@ the published document.
 
 ### Absorbed by the shared text policy
 
-A further **851** values were textually different but identical once both sides were put through `vocabulary_text_policy.py`. These are not counted above, because they are our own deliberate normalization (spaces collapsed after a period in descriptive fields) showing up on only one side — the python-docx corpus has the policy applied, the LLM corpus does not. They are listed here so the number is visible rather than silently removed.
+A further **982** values were textually different but identical once both sides were put through `vocabulary_text_policy.py`. These are not counted above, because they are our own deliberate normalization (spaces collapsed after a period in descriptive fields) showing up on only one side — the python-docx corpus has the policy applied, the LLM corpus does not. They are listed here so the number is visible rather than silently removed.
 
 | Field | Values |
 |---|---:|
 | `codeSystems[0].Description` | 362 |
-| `tableMetadata.Description` | 210 |
-| `conceptDomain.Description` | 124 |
-| `codedContent.comment` | 74 |
-| `valueSets[0].Description` | 50 |
-| `codedContent.displayName` | 18 |
-| `codedContent.definition` | 13 |
+| `tableMetadata.Description` | 215 |
+| `conceptDomain.Description` | 128 |
+| `codedContent.displayName` | 103 |
+| `codedContent.comment` | 101 |
+| `valueSets[0].Description` | 54 |
+| `codedContent.definition` | 19 |
 
 ## Findings needing adjudication (5)
 
@@ -77,10 +77,10 @@ never invents it.
 | Table | Location | Lost text |
 |---|---|---|
 | 0254 | `conceptDomain.Description` | `s," those related to simple counts (number, number concentration, etc.), to mass (mass,...` |
-| 0389 | `conceptDomain.Description` | `Panic" or mechanical failures). Repeated with dilution — performed usually in the case ...` |
-| 0389 | `tableMetadata.Description` | `Panic" or mechanical failures). Repeated with dilution — performed usually in the case ...` |
-| 0389 | `codeSystems[0].Description` | `Panic" or mechanical failures).\nRepeated with dilution — performed usually in the case...` |
-| 0433 | `codedContent[5].definition` | `"No-code" (i.e. Do not resuscitate)` |
+| 0389 | `conceptDomain.Description` | `"Panic" or mechanical failures). Repeated with dilution — performed usually in the case...` |
+| 0389 | `tableMetadata.Description` | `"Panic" or mechanical failures). Repeated with dilution — performed usually in the case...` |
+| 0389 | `codeSystems[0].Description` | `"Panic" or mechanical failures).\nRepeated with dilution — performed usually in the cas...` |
+| 0433 | `codedContent[5].definition` | `"No-code" (i.e., Do not resuscitate)` |
 | 0472 | `codedContent[0].comment` | `"S" specification implies that the second timing sequence follows the first, e.g., when...` |
 | 0472 | `codedContent[1].comment` | `A" specifies two parallel instructions, as are sometimes used in medication, e.g., pred...` |
 | 0527 | `conceptDomain.Description` | `"the 5th of every month").` |
@@ -88,6 +88,6 @@ never invents it.
 | 0527 | `codeSystems[0].Description` | `"the 5th of every month"). Used in HL7 Version 2 messaging in the RPT segment.` |
 | 0527 | `valueSets[0].Description` | `"the 5th of every month").` |
 | 0717 | `codedContent[37].definition` | `"No Consent" policy scheme provides no opportunity for accommodation of an individual's...` |
-| 0719 | `codeSystems[0].Description` | `"potassium" together with and Act.classCode for "laboratory observation" to somehow mea...` |
+| 0719 | `codeSystems[0].Description` | ` "potassium" together with and Act.classCode for "laboratory observation" to somehow me...` |
 | 0969 | `conceptDomain.Description` | `“Tube/vial” + SAC-48 (Container Material) of “Glass” + SAC-27 (Additive) of “EDTA” may ...` |
 

@@ -40,8 +40,12 @@ import datetime
 import glob
 import json
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from vocabulary_text_policy import apply_text_policy  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -116,8 +120,24 @@ def normalize_for_match(text):
 
 
 def normalize_prose(text):
-    """Collapse whitespace so prose can be compared without spacing noise."""
-    return re.sub(r"\s+", " ", text or "").strip()
+    """Reduce prose to a form in which two descriptions can be compared fairly.
+
+    Two adjustments, both applied to BOTH sides of any comparison:
+
+    Whitespace is folded, so spacing differences are not reported as editorial
+    differences.
+
+    The shared text policy is applied. The Chapter 2C corpus already has it
+    baked in -- the extractor applies it -- and THO's text does not, so
+    comparing raw would report our own normalization as a disagreement between
+    the two bodies. Six concept domains differed from THO by nothing but a
+    comma this rule had inserted on our side.
+
+    This affects comparison only. Whatever text is emitted is emitted
+    unchanged.
+    """
+    normalized, _ = apply_text_policy("Description", text or "")
+    return re.sub(r"\s+", " ", normalized).strip()
 
 
 def build(tho_resource, tho_index, chapter_domains):

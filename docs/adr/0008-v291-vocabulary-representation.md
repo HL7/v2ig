@@ -116,10 +116,11 @@ normalization is not, because the evidence is gone.
 Deviations are grouped by kind and by the field they occur in, so a group of
 375 identical double spaces in one field is one decision rather than 375.
 
-**Amended by D3**, which promotes one group of internal double spaces to an
-automatic correction. The principle is unchanged: the promotion was a
-reviewer's decision, taken group by group from the review report, not a rule
-the extractor applied on its own.
+**Amended by D3, D4, D5 and D6**, which promote further groups to automatic
+corrections. The principle is unchanged: each promotion was a reviewer's
+decision, taken group by group from the review report, not a rule the extractor
+applied on its own. D6 goes further than the others and edits prose rather than
+whitespace; the reasoning for allowing that is set out there.
 
 ### D3 — Spaces after a period are collapsed, in descriptive text only
 
@@ -163,11 +164,130 @@ decision.
   129 changed concept domain descriptions had no effect, because under D1 THO's
   definitions win for the domains THO already publishes.
 - Six sentence ends were **not** caught, because a closing quote or bracket sits
-  between the period and the spaces (`."  `, `.)  `). They stay in the
-  outstanding group rather than being swept in, since widening the rule is a
-  further decision.
+  between the period and the spaces (`."  `, `.)  `). **Superseded by D4**,
+  which covers them.
 - Every change is recorded per value in `vocabulary-deviations.json` under kind
   `double_space_after_period`, so the whole group is reversible.
+
+### D4 — Three further collapses: sentence closers, commas, display names
+
+**Decided 2026-08-18.**
+
+Three groups from the review report were promoted to automatic corrections in
+one sitting, because they are variations on the same judgement D3 made.
+
+**Spaces after a sentence that ends in a closing quote or bracket.** D3's rule
+required the period to sit immediately before the spaces, so `"levels."  Level
+I` and `(e.g., cannulas.)  Dispose` were missed. The closers `"` `'` `’` `”`
+`)` `]` are now allowed between the period and the spaces. 6 values. The two
+bracket cases are genuine sentence boundaries — the period closes a
+parenthetical and the next sentence begins — which is why brackets are included
+and not only quote marks.
+
+**Spaces after a comma.** The same reasoning as after a period: the space
+following a comma is presentation. 10 values.
+
+**Every repeated space in a code display name.** In `displayName` only, any run
+of two or more spaces collapses, wherever it sits. 66 values across 12 tables.
+
+*Why display names and nothing else.* A display name is a short label rather
+than prose, so no run of repeated spaces in one can be carrying meaning. That
+argument does not extend to a multi-sentence description, where a double space
+between two words might be evidence of something a reviewer should see — which
+is why the equivalent runs in `Description`, `definition` and `comment` remain
+outstanding.
+
+**Consequences.**
+
+- `codedContent.displayName` no longer appears in the outstanding double-space
+  group at all. The remaining 143 values are all prose fields.
+- Rules run in order, and each change is attributed to the most specific rule
+  that fired. Eight display-name values were already resolved by the period,
+  sentence-close or comma rules, which is why the display-name sweep reports 66
+  rather than 74.
+
+### D5 — A separator dash gets one space on each side; spacing is adjusted, never inserted
+
+**Decided 2026-08-18.**
+
+Where a dash is used as a separator it gets exactly one space on each side. 16
+values, 18 places.
+
+The rule **adjusts** the spacing around a dash and never **inserts** space
+around a dash that has none on either side.
+
+**Why that constraint is the whole decision.** 1,843 of the 2,516 dashes in
+Chapter 2C prose have no space on either side, and essentially all of them are
+part of a value rather than punctuation: `HL7-defined` (387 times), `ICD-10`,
+`UB-04`, `de-identified`, V2's own field references `OBR-32`, and URL path
+segments such as `CFR-2017-title45-vol1`. A rule that put a space around every
+dash would corrupt all of them. Restricting the rule to dashes that already
+have whitespace on at least one side means it can only ever tidy something that
+is already being used as a separator.
+
+Even so, five further exclusions were needed, each drawn from a real pattern in
+the chapter, and each expressed structurally rather than as a list of table
+numbers:
+
+| Excluded | Example |
+|---|---|
+| Followed by a digit | `Deep frozen: -16 to -20( C.` — a minus sign |
+| Preceded by `+` or `/` | `approximately 22 +/- 2 degrees C` |
+| Followed by a conjunction | `OPS Operationen- und Prozedurenschlussel` — a suspended hyphen |
+| At the start or end of a line | `Share To Be Determined -⏎Category to be determined` |
+| Followed by punctuation | `Default -.will be assumed` |
+| `X -y` with a lowercase follower | `Message is not -conformant`, `Emergency -stop` |
+
+The last of these was added after the rule was first run: every genuine
+separator in Chapter 2C introduces a capitalised phrase or a digit
+(`RSP -Dispense`, `4 -Deprecated`), so a lowercase follower joined to the dash
+means the hyphen belongs to that word. Spacing those two out would have made
+the published defect worse rather than better.
+
+**Consequences.**
+
+- The dash characters themselves are never changed. An en dash stays an en
+  dash, and the four values reading `Results entered -- not verified` keep both
+  hyphens; only the surrounding spaces move. Changing a dash run's length or
+  character would be a typographic decision, not a whitespace one.
+- Three published defects survive into the output unchanged and are recorded in
+  the outstanding section of the change log: tables 0357, 0368 and 0919.
+
+### D6 — The missing comma after "e.g." and "i.e." is inserted
+
+**Decided 2026-08-18.**
+
+60 values, 62 places, across 27 tables.
+
+This is the **first rule that adds a character** rather than adjusting
+whitespace, which puts it in a different class from D2–D5: those cannot change
+what a value says, and this one edits the published prose. It is admitted
+because the omission is unambiguous — 172 sites in the same chapter already
+carry the comma, so the chapter's own convention decides the question — and it
+is kept deliberately narrow to match.
+
+**Scope.** Fires only where the abbreviation is followed by a space. That
+excludes the sites that are already correct and the five where a colon
+introduces a bullet list (`e.g.:` in tables 0965–0969), where a comma would
+produce `e.g.,:`. The capitalised sentence-initial forms `E.g.` and `I.e.` are
+included — the same defect — and the replacement keeps whichever case was
+published.
+
+**Consequences.**
+
+- Because this rule changes characters rather than spacing, it broke the
+  concept domain comparison against THO: 6 domains suddenly differed from THO
+  by nothing but a comma we had inserted, inflating
+  `definition_differs_from_tho` from 5 to 11. `generate_concept_domains.py` now
+  applies the shared policy to THO's text before comparing, the same both-sides
+  principle the cross-pipeline comparison uses. Back to 5 genuine differences.
+- Every comparison in this project now has to be asked the same question: is
+  the other side of the comparison subject to the same policy? Whitespace-only
+  rules were forgiving because most comparisons already fold whitespace; a
+  character-level rule is not.
+- The rule is the natural precedent for any future prose correction, and the
+  bar it sets is the one to hold: an unambiguous omission, with the chapter's
+  own overwhelming majority usage as the authority.
 
 ## Open batches
 

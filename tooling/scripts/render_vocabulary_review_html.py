@@ -106,11 +106,38 @@ DEVIATION_PRESENTATION = {
         "Collapsed to a single space automatically, per ADR-0008 D3. Applies "
         "to descriptive fields only. Confirm the change reads correctly.",
     ),
+    "double_space_after_sentence_close": (
+        "confirm",
+        "A sentence ending in a closing quote or bracket before the spaces, "
+        "per ADR-0008 D4. Collapsed to a single space.",
+    ),
+    "double_space_after_comma": (
+        "confirm",
+        "Collapsed to a single space automatically, per ADR-0008 D4.",
+    ),
+    "repeated_space_in_display_name": (
+        "confirm",
+        "Every run of two or more spaces in a code display name is collapsed, "
+        "wherever it sits, per ADR-0008 D4. Display names are short labels, so "
+        "no run of repeated spaces in one is meaningful.",
+    ),
+    "dash_spacing": (
+        "confirm",
+        "A dash used as a separator was given exactly one space on each side, "
+        "per ADR-0008 D5. Spacing is only ever adjusted, never inserted around "
+        "a dash that had none, so hyphenated words, identifiers, URLs and "
+        "minus signs are untouched.",
+    ),
+    "missing_comma_after_abbreviation": (
+        "confirm",
+        "The missing comma after \"e.g.\" and \"i.e.\" was inserted, per "
+        "ADR-0008 D6. This is the only rule that adds a character rather than "
+        "adjusting whitespace, so it deserves a closer look than the others.",
+    ),
     "internal_double_space": (
         "decide",
-        "What REMAINS after the period rule: runs of two or more spaces that "
-        "do not follow a period, plus every run in a field outside the "
-        "descriptive set. Left exactly as published. Decide whether any "
+        "What REMAINS after every rule above: runs of two or more spaces that "
+        "no decision covers. Left exactly as published. Decide whether any "
         "should be collapsed too.",
     ),
     "embedded_newline": (

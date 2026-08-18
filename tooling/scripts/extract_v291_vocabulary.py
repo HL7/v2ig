@@ -58,7 +58,8 @@ except ImportError:
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vocabulary_text_policy import (  # noqa: E402
     DESCRIPTIVE_FIELDS,
-    normalize_descriptive_text,
+    RULE_KINDS,
+    apply_text_policy,
 )
 
 
@@ -165,16 +166,16 @@ def split_location(location):
 def normalize_cell(raw, log, table_number, location):
     """Normalize a published cell per the fidelity policy and report anomalies.
 
-    Two changes are made: surrounding whitespace is stripped, and in
-    descriptive fields a run of two or more spaces after a period becomes one
-    space. Both are recorded. Every other irregularity -- double spaces
-    elsewhere in the text, non-breaking spaces, embedded newlines -- is left in
-    place and reported so a reviewer can decide about it.
+    Surrounding whitespace is stripped, then every rule in
+    `vocabulary_text_policy.py` that applies to this field is run. Each rule
+    that changes something is recorded under its own kind, so a change can be
+    traced back to the decision that authorized it. Every other irregularity --
+    double spaces the rules do not cover, non-breaking spaces, embedded
+    newlines -- is left in place and reported so a reviewer can decide about it.
 
     The remaining-double-space check deliberately runs against the *emitted*
     value rather than the published one, so that group tracks what is still
-    outstanding after the period rule rather than what was outstanding before
-    it.
+    outstanding after the rules rather than what was outstanding before them.
 
     Args:
         raw: The cell text exactly as python-docx read it.
@@ -187,7 +188,7 @@ def normalize_cell(raw, log, table_number, location):
     """
     stripped = raw.strip()
     _, field = split_location(location)
-    value, collapsed_runs = normalize_descriptive_text(field, stripped)
+    value, applied = apply_text_policy(field, stripped)
 
     if log is None:
         return value
@@ -195,10 +196,9 @@ def normalize_cell(raw, log, table_number, location):
     if raw != stripped:
         log.record('leading_trailing_whitespace', 'normalized',
                    table_number, location, raw, stripped)
-    if collapsed_runs:
-        log.record('double_space_after_period', 'normalized',
-                   table_number, location, stripped, value,
-                   detail={'runsCollapsed': collapsed_runs})
+    for kind, count, before, after in applied:
+        log.record(kind, 'normalized', table_number, location, before, after,
+                   detail={'placesChanged': count})
     if NBSP in raw:
         log.record('non_breaking_space', 'preserved', table_number, location, raw)
     if '  ' in value:
@@ -709,28 +709,47 @@ def extract_all_tables(doc_path, output_dir):
         where = f"{group['section']}.{group['field']}" if group['field'] else group['section']
         by_kind_and_field.setdefault(group['kind'], {})[where] = group['count']
 
-    runs_collapsed = sum(e.get('runsCollapsed', 0) for e in log.entries
-                         if e['kind'] == 'double_space_after_period')
+    places_changed = {}
+    for entry in log.entries:
+        if entry['kind'] in RULE_KINDS:
+            places_changed[entry['kind']] = (places_changed.get(entry['kind'], 0)
+                                             + entry.get('placesChanged', 0))
 
     deviations_output = {
         'extractionDate': extraction_date,
         'sourceFile': 'CH02C_Tables.docx',
         'policy': {
-            'normalized': ['leading_trailing_whitespace',
-                           'double_space_after_period'],
+            'normalized': ['leading_trailing_whitespace'] + list(RULE_KINDS),
             'preserved': ['internal_double_space', 'non_breaking_space',
                           'embedded_newline'],
             'descriptiveFields': sorted(DESCRIPTIVE_FIELDS),
+            'placesChangedByRule': places_changed,
             'notes': {
+                'leading_trailing_whitespace':
+                    'ADR-0008 D2. Surrounding whitespace is stripped.',
                 'double_space_after_period':
                     'ADR-0008 D3. Two or more spaces following a period are '
-                    'collapsed to one, in descriptive fields only. '
-                    f'{runs_collapsed} runs collapsed across '
-                    f'{by_kind.get("double_space_after_period", 0)} values.',
+                    'collapsed to one, in descriptive fields only.',
+                'double_space_after_sentence_close':
+                    'ADR-0008 D4. The same, where a closing quote or bracket '
+                    'sits between the period and the spaces.',
+                'double_space_after_comma':
+                    'ADR-0008 D4. Two or more spaces following a comma are '
+                    'collapsed to one.',
+                'repeated_space_in_display_name':
+                    'ADR-0008 D4. Every run of two or more spaces in a code '
+                    'display name is collapsed to one, wherever it occurs.',
+                'dash_spacing':
+                    'ADR-0008 D5. A dash used as a separator gets exactly one '
+                    'space on each side. Spacing is only adjusted, never '
+                    'inserted around a dash that has none, so hyphenated '
+                    'words, identifiers, URLs and minus signs are untouched.',
+                'missing_comma_after_abbreviation':
+                    'ADR-0008 D6. The missing comma after "e.g." and "i.e." '
+                    'is inserted. The only rule that adds a character.',
                 'internal_double_space':
-                    'What REMAINS after the period rule: runs of two or more '
-                    'spaces that do not follow a period, plus every run in a '
-                    'field outside the descriptive set. Still outstanding.',
+                    'What REMAINS after every rule above: runs of two or more '
+                    'spaces no decision covers. Still outstanding.',
             },
         },
         'counts': by_kind,

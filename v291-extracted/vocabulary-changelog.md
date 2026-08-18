@@ -113,62 +113,243 @@ are listed in the appendix below.
 
 ### What this rule deliberately does not do
 
-It collapses spaces only where a period sits immediately before them. It does
-not attempt to detect sentence ends generally, and it does not touch any other
-run of repeated spaces. What remains is tracked below.
+It collapses spaces only where a period sits immediately before them, so a
+sentence ending in a closing quote or bracket was missed. Change 002 covers
+those.
+
+---
+
+## 002 — Collapse spaces where a sentence ends in a closing quote or bracket
+
+**Decided** 2026-08-18 · **ADR-0008 D4** · Extends change 001
+
+Where a closing quote or bracket sits between the sentence's final period and
+the spaces, change 001's rule did not fire. The same collapse now applies after
+`."`, `.'`, `.’`, `.”`, `.)` and `.]`.
+
+6 values, 6 places, in tables 0085, 0340, 0489, 0513, 0717 and 0871.
+
+| Table | Field | As published |
+|---|---|---|
+| 0340 | `codedContent.comment` | `…divided into three "levels."··Level I includes…` |
+| 0513 | `codeSystem.Description` | `…has actually been "transfused."··Used in the Blood Product…` |
+| 0717 | `codedContent.definition` | `…is termed a "consent."··The Privacy Rule permits…` |
+| 0085 | `codedContent.displayName` | `…already sent as 'preliminary.'··E.g., radiology changes…` |
+| 0489, 0871 | `codedContent.comment` | `…solid and sharp (e.g., cannulas.)··Dispose in hard container.` |
+
+The two bracket cases are genuine sentence boundaries — the period closes the
+parenthetical abbreviation and the next sentence begins — which is why `)` and
+`]` are included alongside the quote marks rather than only the quotes.
+
+---
+
+## 003 — Collapse every repeated space in a code display name
+
+**Decided** 2026-08-18 · **ADR-0008 D4**
+
+In `codedContent.displayName` only, every run of two or more spaces is
+collapsed to one, wherever it sits — not only after a period or a comma.
+
+**66 values across 12 tables**: 0003, 0190, 0203, 0207, 0256, 0325, 0359,
+0371, 0396, 0443, 0487, 0912.
+
+The count is 66 rather than 74 because the period, sentence-close and comma
+rules run first and had already resolved 8 of them; each change is attributed
+to the most specific decision that authorized it.
+
+**Why display names and not descriptions.** A display name is a short label,
+not prose, so no run of repeated spaces in one can be meaningful. The same
+cannot be said of a multi-sentence description, where a double space between
+two words might be carrying something a reviewer should see. Table 0003 alone
+accounts for most of these — the `ADT/ACK -··Register a patient` family.
+
+**Effect:** `codedContent.displayName` no longer appears in the outstanding
+double-space tracking at all.
+
+---
+
+## 004 — Collapse two or more spaces following a comma
+
+**Decided** 2026-08-18 · **ADR-0008 D4**
+
+10 values, 10 places, across 6 tables: 0074, 0203, 0487, 0550, 0717, 0935.
+
+| Table | Field | As published | As emitted |
+|---|---|---|---|
+| 0074 | `codedContent.displayName` | `Electrocardiac (e.g., EKG,··EEC, Holter)` | `…EKG, EEC, Holter)` |
+| 0550 | `codedContent.displayName` | `Blood,··Arterial` | `Blood, Arterial` |
+| 0717 | `codedContent.comment` | `…where collection,··access, use, and disclosure…` | `…collection, access, use…` |
+
+---
+
+## 005 — Give a separator dash one space on each side
+
+**Decided** 2026-08-18 · **ADR-0008 D5**
+
+**16 values, 18 places, across 8 tables**: 0003, 0076, 0354, 0376, 0396, 0440,
+0496, 0937.
+
+The rule **adjusts** spacing around a dash; it never **inserts** space around a
+dash that has none. That single constraint is what makes it safe, because
+1,843 of the 2,516 dashes in Chapter 2C prose have no space on either side and
+every one of them is part of a value rather than punctuation.
+
+| Table | As published | As emitted |
+|---|---|---|
+| 0003 | `RSP -Dispense History Response` | `RSP - Dispense History Response` |
+| 0003 | `OMQ- General Order Message` | `OMQ - General Order Message` |
+| 0076 | `4 -Deprecated` | `4 - Deprecated` |
+| 0354 | `Acknowledgment Message··– Multiple Order` | `Acknowledgment Message – Multiple Order` |
+| 0376 | `Critical refrigerated -··must not be allowed to freeze` | `Critical refrigerated - must not…` |
+| 0396 | `SNOMED- DICOM Microglossary` | `SNOMED - DICOM Microglossary` |
+| 0440 | `8.8.4.6.1- OM2-6.1` | `8.8.4.6.1 - OM2-6.1` |
+| 0496 | `Sterilization -Federally Funded` | `Sterilization - Federally Funded` |
+
+The dash characters themselves are untouched: an en dash stays an en dash, and
+the four values reading `Results entered -- not verified` keep both hyphens.
+Only the surrounding spaces change.
+
+### What the rule refuses to touch, and why
+
+Each exclusion is structural rather than a list of table numbers, so it keeps
+working if the source changes.
+
+| Excluded | Count | Example | Why |
+|---|---:|---|---|
+| A dash with no space on either side | 1,843 | `HL7-defined`, `ICD-10`, `UB-04`, `de-identified`, `OBR-32`, `www.gpo.gov/…/CFR-2017-title45-vol1/…` | Part of a word, an identifier or a URL. Spacing it out destroys the value |
+| A dash followed by a digit | 8 | `Deep frozen: -16 to -20( C.` | A minus sign, not a separator |
+| A dash preceded by `+` or `/` | 1 | `approximately 22 +/- 2 degrees C` | The dash of `+/-` |
+| A dash followed by a conjunction | 15 | `OPS Operationen- und Prozedurenschlussel` | A suspended hyphen — German here, `pre- and post-operative` in English |
+| A dash at the start or end of a line | 7 | `Share To Be Determined -⏎Category to be determined` | A bullet marker, or a dash left dangling before a line break |
+| A dash followed by punctuation | 1 | `Default -.will be assumed` | A defect the rule cannot repair |
+| `X -y` where the follower is lowercase | 2 | `Message is not -conformant`, `Emergency -stop` | Every genuine separator in Chapter 2C introduces a capital or a digit, so a lowercase follower means the hyphen belongs to that word |
+
+The last two rows are published defects that survive into the output unchanged.
+They are listed in the outstanding section below rather than silently repaired.
+
+---
+
+## 006 — Insert the missing comma after "e.g." and "i.e."
+
+**Decided** 2026-08-18 · **ADR-0008 D6**
+
+**60 values, 62 places, across 27 tables.** This is the first rule that adds a
+character to the published text rather than adjusting whitespace, so it is
+deliberately narrow: it fires only where the abbreviation is followed by a
+space.
+
+| | Count |
+|---|---:|
+| `e.g.` corrected | 37 |
+| `E.g.` corrected (sentence-initial) | 12 |
+| `i.e.` corrected | 12 |
+| `I.e.` corrected | 1 |
+| Already correct, untouched | 172 |
+
+The capitalised forms are the same defect at the start of a sentence
+(`…regarding immunization. E.g. From school, provider…`), and the replacement
+keeps whichever case was published.
+
+**Five sites are deliberately skipped** where a colon introduces a bullet list
+— tables 0965, 0966, 0967, 0968 and 0969 all read `e.g.:⏎•\tTier 1`. A comma
+there would produce `e.g.,:`.
+
+### Effect on the concept domains comparison
+
+Inserting a comma on our side made 6 concept domains differ from THO by nothing
+but that comma, which briefly inflated `definition_differs_from_tho` from 5 to
+11. `generate_concept_domains.py` now applies the shared policy to THO's text
+too before comparing — the same both-sides principle the cross-pipeline
+comparison uses. The count is back to 5 genuine differences, and
+`CodeSystem-conceptdomains.json` is byte-identical to before these changes.
+
+---
+
+## Cumulative effect
+
+| Rule | Change | Values | Places |
+|---|---|---:|---:|
+| Leading/trailing whitespace | D2 | 44 | 44 |
+| Spaces after a period | 001 / D3 | 890 | 1,089 |
+| Spaces after a sentence close | 002 / D4 | 6 | 6 |
+| Repeated spaces in a display name | 003 / D4 | 66 | 66 |
+| Spaces after a comma | 004 / D4 | 10 | 10 |
+| Dash spacing | 005 / D5 | 16 | 18 |
+| Comma after `e.g.` / `i.e.` | 006 / D6 | 60 | 62 |
+| **Total** | | **1,092** | **1,295** |
+
+Cross-pipeline agreement is **unchanged at 739 / 799 tables** through all six
+changes, with every other bucket also unchanged (211 typography, 45 whitespace,
+14 LLM truncations, 2 content). 982 values are now equal only after the shared
+policy is applied to both corpuses; that figure is stated in the comparison
+report rather than dropped.
 
 ---
 
 ## Still outstanding
 
-Whitespace irregularities in the published text that no decision covers yet.
-These are preserved exactly as published and reported. They appear in the
-review report under **Text outstanding: …**.
+Irregularities in the published text that no decision covers yet. These are
+preserved exactly as published and reported. They appear in the review report
+under **Text outstanding: …**.
 
-### Runs of two or more spaces not covered by change 001
+### Runs of two or more spaces
 
-Down from 1,052 values before change 001 to **228 values** (242 separate runs)
-across 92 tables. By field:
+Down from 1,052 values to **143 values** (155 separate runs). By field:
 
 | Field | Values |
 |---|---:|
-| `codedContent.displayName` | 74 |
-| `codedContent.comment` | 53 |
-| `codeSystem.Description` | 39 |
-| `codedContent.definition` | 18 |
+| `codedContent.comment` | 45 |
+| `codeSystem.Description` | 38 |
 | `tableMetadata.Description` | 18 |
+| `codedContent.definition` | 16 |
 | `conceptDomain.Description` | 13 |
 | `valueSet.Description` | 11 |
 | `tableMetadata.where used` | 1 |
 | `valueSet.Content Logical Definition` | 1 |
-| **Total** | **228** |
+| **Total** | **143** |
+
+`codedContent.displayName` is absent: change 003 cleared it completely.
 
 Grouped by what precedes the run, which is what a decision would turn on:
 
 | Context | Runs | Values | Example |
 |---|---:|---:|---|
-| Between two words, mid-sentence | 161 | 106 | `code system of concepts··which specify the room type` |
-| After punctuation other than a period | 41 | 28 | `Electrocardiac (e.g., EKG,··EEC, Holter)` |
-| After a hyphen or dash used as a separator | 36 | 2 | `ADT/ACK -··Register a patient` |
+| Between two words, mid-sentence | 129 | 94 | `code system of concepts··which specify the room type` |
+| After punctuation other than a period | 22 | 15 | `Usage Note: Class:··Insurance` |
 | At the start of a line inside a multi-line cell | 4 | 1 | `Examples:⏎···NCPDP1131RES = code set…` |
 
-Two of these are worth a reviewer's attention as candidate follow-up decisions:
+The mid-sentence group is still dominated by one boilerplate defect: the phrase
+`code system of concepts··which specify` recurs across Code System
+descriptions. That is one template that shipped with a double space in it,
+not 38 independent typos, so it is one decision.
 
-- **The mid-sentence group is dominated by one boilerplate defect.** The
-  phrase `code system of concepts··which specify` recurs across many Code
-  System descriptions — a template that shipped with a double space in it,
-  rather than 39 independent typos.
-- **Six sentence ends were missed by change 001** because a closing quote or
-  bracket sits between the period and the spaces: `.'··`, `."··`, `.)··`.
-  Affects tables 0085, 0340, 0489, 0513, 0717 and 0871. Extending the rule to
-  allow a closing quote or bracket after the period would cover them; that has
-  not been decided.
+### Dashes the rule refused to repair
 
-### Other whitespace kinds, unchanged
+Three published values where the rule fired nowhere and the text stays as
+printed:
+
+| Table | Field | As published | Probable intent |
+|---|---|---|---|
+| 0357 | `codedContent.definition` | `Message is not -conformant with the applicable specification` | `non-conformant`, or the hyphen is stray |
+| 0368 | `codedContent.displayName` | `Emergency -stop` | `Emergency stop` or `Emergency-stop` |
+| 0919 | `codedContent.comment` | `Default -.will be assumed when this field is empty` | Two defects at once — a stray hyphen and a missing space |
+
+### Missing space after a comma
+
+Not asked for and not changed, but surfaced while applying change 004: **10
+places** where a comma has no space after it at all.
+
+| Table | Field | As published |
+|---|---|---|
+| 0074 | `codedContent.displayName` | `Electroneuro (EEG, EMG,EP,PSG)` |
+| 0354 | `codedContent.displayName` | `Q21, Q22, Q23,Q24, Q25` |
+| 0367 | all four `Description` fields | `(e.g.,highest alert severity)` |
+| 0396 | `codedContent.comment` | `From school, provider,public health agency.` |
+
+### Other kinds, unchanged
 
 | Kind | Values | Status |
 |---|---:|---|
-| Leading/trailing whitespace | 44 | **Changed** — stripped automatically under ADR-0008 D2, recorded for confirmation |
 | Embedded newline | 223 | Preserved. Usually genuine paragraph structure inside a cell |
 | Non-breaking space | 8 | Preserved except where leading or trailing. The four inside `codeSystem.URL` values are the ones that matter |
 
