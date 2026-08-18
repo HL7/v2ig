@@ -36,6 +36,7 @@ Usage:
 
 import argparse
 import datetime
+import difflib
 import html
 import json
 import re
@@ -134,19 +135,64 @@ DEVIATION_PRESENTATION = {
         "ADR-0008 D6. This is the only rule that adds a character rather than "
         "adjusting whitespace, so it deserves a closer look than the others.",
     ),
+    "mojibake_non_breaking_space": (
+        "confirm",
+        "A non-breaking space that had been encoded twice, leaving a stray "
+        "\"Â\" in front of it, per ADR-0008 D7. Both characters became one "
+        "ordinary space.",
+    ),
+    "private_use_area_character": (
+        "confirm",
+        "A Symbol-font glyph from the Unicode private use area, deleted per "
+        "ADR-0008 D7. It renders as a box or nothing at all outside the font "
+        "it was typed in. The tab after it is kept, so the line reads as the "
+        "indented list item it was meant to be.",
+    ),
+    "non_breaking_space_in_text": (
+        "confirm",
+        "A run of non-breaking spaces in text became one ordinary space, per "
+        "ADR-0008 D7. Where lines break is the renderer's decision in a FHIR "
+        "resource, so a non-breaking space carries nothing.",
+    ),
+    "line_initial_indent": (
+        "confirm",
+        "An indent at the start of a line is deliberate structure, so it is "
+        "kept -- at a consistent two spaces, per ADR-0008 D7.",
+    ),
+    "repeated_space_collapsed": (
+        "confirm",
+        "Every run of two or more spaces the narrower rules did not claim, "
+        "collapsed to one per ADR-0008 D7. An indent and a ditto mark are the "
+        "two exceptions, and each has its own group.",
+    ),
+    "ditto_mark_space_run": (
+        "informational",
+        "A run of spaces held between two quote marks, which is a ditto mark "
+        "standing for the entry above. The spaces are the value, so ADR-0008 "
+        "D7 deliberately preserves them.",
+    ),
     "internal_double_space": (
         "decide",
         "What REMAINS after every rule above: runs of two or more spaces that "
         "no decision covers. Left exactly as published. Decide whether any "
         "should be collapsed too.",
     ),
+    "space_before_punctuation": (
+        "decide",
+        "A space between a word and the punctuation that closes the clause "
+        "(<code>Placer Applications .</code>). Left as published. Note that "
+        "one of these is ours: turning a non-breaking space into an ordinary "
+        "one in table 0827 under D7 left <code>(M49)&nbsp;.</code>",
+    ),
     "embedded_newline": (
         "informational",
         "Left as published. Usually genuine paragraph structure inside a cell.",
     ),
     "non_breaking_space": (
-        "decide",
-        "Left as published, except where leading or trailing. Note the ones inside URLs.",
+        "confirm",
+        "Leading or trailing, so it went with the surrounding whitespace under "
+        "ADR-0008 D2 and is already absent from the emitted value. Shown "
+        "because the published text still has it.",
     ),
 }
 
@@ -187,9 +233,146 @@ SOURCE_ISSUE_PRESENTATION = {
     ),
 }
 
-ACTION_ORDER = ["decide", "confirm", "informational"]
+# A note recorded against a section when the reviewer has settled it. The
+# section moves out of "Decide" and into "Decided", and the note travels with
+# it, so the report answers both "what is left" and "what did we conclude" --
+# the second of which is otherwise only in the ADR and easily lost.
+#
+# Keyed by section id. Add an entry here when a decision is taken; the wording
+# is what a reader six months from now needs, not a reminder for today.
+DECISION_NOTES = {
+    "src-heading_has_wrong_word_style": (
+        "2026-08-18",
+        "Nothing can be done about the published document now. Both tables are "
+        "known to exist, both extractors special-case the mis-styled heading, "
+        "and their content is extracted in full. Worth reporting to V2 "
+        "Management so a future publication fixes the style, but there is no "
+        "action here.",
+    ),
+    "src-duplicate_table_metadata_block": (
+        "2026-08-18",
+        "Table 0227 is MVX, which is not an HL7 code system: it is maintained "
+        "by the CDC. It maps to an <b>external metadata record</b>, and THO "
+        "already publishes one &mdash; <code>NamingSystem/MVX</code> at "
+        "<code>http://terminology.hl7.org/NamingSystem/MVX</code>, together "
+        "with <code>ValueSet/v2-0227</code>, which composes from "
+        "<code>http://hl7.org/fhir/sid/mvx</code>. The published URI "
+        "<code>http://terminology.hl7.org/CodeSystem/v2-0227</code> is "
+        "retained as the table moves to that representation. The duplicate "
+        "block is therefore parked behind that decision rather than resolved "
+        "on its own; if 0227 turns out not to be representable that way, come "
+        "back to it.",
+    ),
+    "cmp-content": (
+        "2026-08-18",
+        "Both adjudicated against the source, and one of them is now gone. "
+        "<b>Table 0496</b> &mdash; python-docx is correct; the value really is "
+        "spaces between two ditto marks, and the LLM's tab is its own "
+        "artifact. Those spaces are protected by ADR-0008 D7, and the "
+        "disagreement stays visible here because the LLM's version is still "
+        "wrong. <b>Table 0964</b> &mdash; the LLM is correct; python-docx was "
+        "carrying Symbol-font glyphs (U+F06C) that should never have been in "
+        "the text. D7 deletes them, leaving the indented list the LLM "
+        "produced, so that row has disappeared from this group.",
+    ),
+    "cmp-missing_in_pydocx": (
+        "2026-08-18",
+        "Not a content difference. The LLM emitted a metadata entry with an "
+        "empty key and an empty value in table 0823's value set block; "
+        "python-docx has no such key, which the comparison rendered as "
+        "&ldquo;absent&rdquo; against the LLM's &ldquo;empty&rdquo;. The two "
+        "descriptions are of the same nothing.",
+    ),
+    "cmp-missing_in_llm": (
+        "2026-08-18",
+        "The same root cause as the duplicate metadata block in table 0227, "
+        "and parked behind the same decision. Section 0227 has two grids that "
+        "both begin <code>Table OID</code>: the Code System Identification "
+        "block and the Table Metadata block. python-docx classifies a block by "
+        "its first cell, so it read both as Table Metadata and merged them "
+        "&mdash; which is why it reports <code>codeSystems: 0 blocks</code> "
+        "and carries <code>Version Info</code> on the wrong block. The LLM, "
+        "which sees the whole section, classified them correctly. <b>The LLM "
+        "is right here.</b> No content is lost either way; only the block the "
+        "content hangs from differs.",
+    ),
+    "cmp-block_count": (
+        "2026-08-18",
+        "The one difference is table 0227, explained under &ldquo;Missing in "
+        "llm&rdquo; above: two grids both headed <code>Table OID</code>, which "
+        "python-docx merged into one Table Metadata block and the LLM "
+        "correctly split into a Code System block plus a Table Metadata block.",
+    ),
+    "cd-symbolic_name_near_match_in_tho": (
+        "2026-08-18",
+        "THO's code wins. Chapter 2C's symbolic name "
+        "<code>Masterfile Action Code</code> became the code "
+        "<code>MasterfileActionCode</code> in THO, and the code without the "
+        "spaces is the one to keep. Recorded here rather than removed, because "
+        "the difference is real and a reader should be able to see it.",
+    ),
+    "cd-definition_differs_from_tho": (
+        "2026-08-18",
+        "All five go to <b>V2 Management and TSMG</b> for discussion; nothing "
+        "is settled unilaterally. Full text is shown below with no truncation. "
+        "Where the two versions are close enough for a difference to be worth "
+        "pointing at &mdash; only table 0952, which differs from THO by "
+        "formatting and a stray space &mdash; the differing words are "
+        "highlighted. The other four are wholly different texts, where "
+        "highlighting every word would say nothing.",
+    ),
+}
+
+# A note on a section that is still open. Same rendering as a decision, but it
+# does not move the section out of "Decide" -- it is context for the decision,
+# not the decision. Use it to record what has been established so the reviewer
+# is not re-deriving it, and to say plainly what is still being asked.
+OPEN_NOTES = {
+    "src-empty_table_in_source": (
+        "Six of these seven are the same harmless thing and one is not. "
+        "<b>0347, 0560, 0910, 0929, 0930 and 0932</b> each carry a stray "
+        "1&times;2 grid with nothing in it &mdash; a Word layout artifact "
+        "sitting beside content that extracted fine. (0347 and 0910 have no "
+        "codes because they are <code>Type: User</code>, which is expected, "
+        "not loss.) "
+        "<b>Table 0821, Gender Identity, is different and looks like a defect "
+        "in the published document.</b> Its coded content grid is six rows by "
+        "five columns with every single cell blank, while the section around "
+        "it declares three code systems (SNOMED CT, FHIR DataAbsentReason, V3 "
+        "NullFlavor) and a value set. Both extractions independently find zero "
+        "codes there, so this is the document and not the tooling. Compare "
+        "0823, Sexual Orientation, which is built the same way and does "
+        "publish its codes. "
+        "<b>What is still needed:</b> an earlier session discussed these at "
+        "length and agreed a note should go in this report. That discussion is "
+        "not recorded in the ADR, the change log, the journal or any retained "
+        "session transcript &mdash; only the bare count survived. The "
+        "conclusions need restating so they can be written down here properly "
+        "this time.",
+    ),
+    "cd-symbolic_name_is_not_a_plain_token": (
+        "Not yet decided, and not covered by the 2026-08-18 pass. Chapter 2C's "
+        "symbolic name is used verbatim as the concept code, and 55 of them "
+        "contain spaces, apostrophes, commas or an en dash "
+        "(<code>Collector'sComment*</code>, "
+        "<code>PrimaryKeyValue&ndash;STF</code>, "
+        "<code>Diet,Supplement,orPreferenceCode</code>). This overlaps the "
+        "0180 decision below, where THO's cleaned-up code was chosen over "
+        "Chapter 2C's spelling &mdash; the same reasoning may or may not "
+        "extend to all 55.",
+    ),
+    "cd-conflicting_descriptions_within_chapter": (
+        "Not yet decided, and not covered by the 2026-08-18 pass. Chapter 2C "
+        "gives the same concept domain more than one description in five "
+        "places; the first was used. Decide which wins, or whether the "
+        "difference should be reported to V2 Management as a source defect.",
+    ),
+}
+
+ACTION_ORDER = ["decide", "resolved", "confirm", "informational"]
 ACTION_LABEL = {
     "decide": "Decide",
+    "resolved": "Decided",
     "confirm": "Confirm",
     "informational": "Informational",
 }
@@ -232,12 +415,68 @@ def show_invisibles(text):
     return escaped
 
 
-def truncate(text, limit=300):
-    """Shorten very long prose so one row does not swamp the table."""
-    if text is None:
-        return None
-    text = str(text)
-    return text if len(text) <= limit else text[:limit] + " …"
+def scrollable(rendered):
+    """Wrap an already-rendered cell so a long value cannot swamp the table.
+
+    Nothing is cut. An earlier version of this report truncated long values at
+    300 characters, which hid the very thing a reviewer had opened the row to
+    see -- table 0952's definition differs from THO's about 900 characters in.
+    The full text is always present; it is the height of the box that is
+    limited, and the box scrolls.
+    """
+    return f'<div class="cell">{rendered}</div>'
+
+
+# Below this much word-level overlap, two texts are simply different texts and
+# marking every word as changed tells the reader nothing they cannot see. Above
+# it, the difference is worth pointing at. Chapter 2C's five disagreements with
+# THO sit at 0.97 (formatting only) and 0.02-0.20 (unrelated definitions), so
+# the threshold is nowhere near any of them.
+DIFF_SIMILARITY_FLOOR = 0.5
+
+# Splitting on whitespace-with-the-whitespace-kept means the rebuilt text keeps
+# its original spacing, which matters when the difference IS the spacing.
+_TOKEN_RE = re.compile(r"(\s+)")
+
+
+def diff_pair(left, right):
+    """Render two texts side by side with the differing words marked.
+
+    Args:
+        left: The first text, or None.
+        right: The second text, or None.
+
+    Returns:
+        A ``(left_html, right_html, note)`` triple. ``note`` is a sentence
+        explaining what the reader is looking at, or the empty string when the
+        marks speak for themselves.
+    """
+    if left is None or right is None:
+        return (show_invisibles(left), show_invisibles(right), "")
+
+    left_tokens = _TOKEN_RE.split(str(left))
+    right_tokens = _TOKEN_RE.split(str(right))
+    matcher = difflib.SequenceMatcher(None, left_tokens, right_tokens)
+
+    if matcher.ratio() < DIFF_SIMILARITY_FLOOR:
+        return (show_invisibles(left), show_invisibles(right),
+                "These are two unrelated definitions rather than two versions "
+                "of one, so nothing is highlighted.")
+
+    left_out, right_out = [], []
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        left_piece = show_invisibles("".join(left_tokens[i1:i2])) if i2 > i1 else ""
+        right_piece = show_invisibles("".join(right_tokens[j1:j2])) if j2 > j1 else ""
+        if tag == "equal":
+            left_out.append(left_piece)
+            right_out.append(right_piece)
+        else:
+            if left_piece:
+                left_out.append(f'<span class="diff-out">{left_piece}</span>')
+            if right_piece:
+                right_out.append(f'<span class="diff-in">{right_piece}</span>')
+    return ("".join(left_out), "".join(right_out),
+            "Only the highlighted words differ.")
 
 
 def load_json(path):
@@ -311,16 +550,31 @@ def build_concept_domain_sections(concept_domains):
     for kind, entries in sorted(by_kind.items()):
         action, blurb = CONCEPT_DOMAIN_PRESENTATION.get(
             kind, ("decide", "Difference introduced while building the CodeSystem."))
+        # Only the definition comparison benefits from a diff: the other kinds
+        # put a name against a name, where the difference is already obvious.
+        marks_differences = kind in ("definition_differs_from_tho",
+                                     "symbolic_name_near_match_in_tho")
+
         rows = []
         for entry in entries:
             chapter_value = entry.get("chapter2C")
             if isinstance(chapter_value, list):
                 chapter_value = " ⟂ ".join(chapter_value)
+            tho_value = entry.get("tho")
+
+            if marks_differences:
+                left, right, note = diff_pair(chapter_value, tho_value)
+                if note:
+                    left = f'<p class="diff-note">{note}</p>{left}'
+            else:
+                left = show_invisibles(chapter_value)
+                right = show_invisibles(tho_value)
+
             rows.append([
                 f'<code>{html.escape(str(entry["conceptDomain"]))}</code>',
                 ", ".join(entry.get("tables", [])) or "—",
-                show_invisibles(truncate(chapter_value)) if chapter_value is not None else "—",
-                show_invisibles(truncate(entry.get("tho"))) if entry.get("tho") is not None else "—",
+                scrollable(left),
+                scrollable(right),
             ])
         sections.append({
             "id": f"cd-{kind}",
@@ -334,6 +588,112 @@ def build_concept_domain_sections(concept_domains):
             "raw_html_columns": {0, 2, 3},
         })
     return sections
+
+
+# How to present each non-ASCII character the corpus contains. A character not
+# listed here is shown as needing a look, which is the safe default: the point
+# of the inventory is to catch the next "Â" without anybody having to notice it
+# by eye.
+CHARACTER_PRESENTATION = {
+    "“": ("informational", "Published typography."),
+    "”": ("informational", "Published typography."),
+    "‘": ("informational", "Published typography."),
+    "’": ("informational", "Published typography."),
+    "–": ("informational", "Published typography."),
+    "—": ("informational", "Published typography."),
+    "•": ("informational", "A list bullet."),
+    "®": ("informational", "A trademark symbol in a product name."),
+    "©": ("informational", "A copyright symbol in an attribution."),
+    "ä": ("informational", "German text, correctly spelled."),
+    "ö": ("informational", "German text, correctly spelled."),
+    "ü": ("informational", "German text, correctly spelled."),
+    "Ø": (
+        "decide",
+        "NCPDP writes zero as a slashed O, so table 0396 carries "
+        "<code>924Ø East Raintree Drive</code> and "
+        "<code>Phone: (48Ø) 477-1ØØØ</code>. Faithful to the published text, "
+        "but these are digits wearing a costume. Left as published.",
+    ),
+    "‑": (
+        "decide",
+        "A non-breaking hyphen in table 0945 "
+        "(<code>pre‑configured</code>). Reads as an ordinary hyphen and "
+        "almost certainly should be one; left as published for now.",
+    ),
+}
+
+
+def build_character_section():
+    """Inventory every non-ASCII character in the corpus, with its verdict.
+
+    A one-off scan found the double-encoded non-breaking space in table 0301.
+    Making the scan part of the report means the next such character is found
+    the same way, rather than by somebody noticing an odd glyph in a cell.
+    """
+    import unicodedata
+
+    counts = Counter()
+    examples = defaultdict(list)
+
+    def walk(node, table, path):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                walk(value, table, f"{path}.{key}" if path else key)
+        elif isinstance(node, list):
+            for index, value in enumerate(node):
+                walk(value, table, f"{path}[{index}]")
+        elif isinstance(node, str):
+            for character in node:
+                if ord(character) < 128:
+                    continue
+                counts[character] += 1
+                if len(examples[character]) < 3:
+                    examples[character].append(f"{table} {path}")
+
+    for path in sorted(VOCAB_DIR.glob("*.json")):
+        record = json.loads(path.read_text())
+        walk(record, record.get("tableNumber", path.stem), "")
+
+    if not counts:
+        return []
+
+    rows = []
+    needs_a_look = 0
+    for character, count in counts.most_common():
+        action, verdict = CHARACTER_PRESENTATION.get(
+            character, ("decide", "Not yet classified. Look at it."))
+        if action == "decide":
+            needs_a_look += 1
+        try:
+            name = unicodedata.name(character)
+        except ValueError:
+            name = "unnamed"
+        rows.append([
+            f'<code>{html.escape(character)}</code>',
+            f"U+{ord(character):04X}",
+            name.title(),
+            f"{count:,}",
+            verdict,
+            "<br>".join(html.escape(e) for e in examples[character]),
+        ])
+
+    return [{
+        "id": "chars-inventory",
+        "group": "Published document",
+        "title": "Non-ASCII characters in the emitted corpus",
+        "action": "decide" if needs_a_look else "informational",
+        "blurb": "Every character above ASCII that survives into the extracted "
+                 "corpus, counted. Most are ordinary published typography. The "
+                 "ones marked below are not, and each is its own small "
+                 "question. Characters already repaired by ADR-0008 D7 &mdash; "
+                 "the double-encoded non-breaking space in table 0301 and the "
+                 "Symbol-font bullets in 0964 &mdash; no longer appear here, "
+                 "which is the check that the repair worked.",
+        "count": len(rows),
+        "columns": ["Char", "Code point", "Name", "Count", "Verdict", "Where"],
+        "rows": rows,
+        "raw_html_columns": {0, 4, 5},
+    }]
 
 
 def build_sections(deviations, comparison, source_issues):
@@ -377,11 +737,14 @@ def build_sections(deviations, comparison, source_issues):
         entries = by_bucket[bucket]
         rows = []
         for table, finding in entries:
+            left, right, note = diff_pair(finding["pydocx"], finding["llm"])
+            if note:
+                left = f'<p class="diff-note">{note}</p>{left}'
             rows.append([
                 table,
                 f'<code>{html.escape(finding["location"])}</code>',
-                show_invisibles(truncate(finding["pydocx"])),
-                show_invisibles(truncate(finding["llm"])),
+                scrollable(left),
+                scrollable(right),
             ])
         sections.append({
             "id": f"cmp-{bucket}",
@@ -406,8 +769,8 @@ def build_sections(deviations, comparison, source_issues):
         for entry in group["deviations"]:
             rows.append([
                 entry["tableNumber"],
-                show_invisibles(truncate(entry["raw"])),
-                show_invisibles(truncate(entry.get("normalized", entry["raw"]))),
+                scrollable(show_invisibles(entry["raw"])),
+                scrollable(show_invisibles(entry.get("normalized", entry["raw"]))),
             ])
         # The group label says outright whether the text was changed or left
         # alone, so the report answers "what has been done" and "what is still
@@ -427,6 +790,28 @@ def build_sections(deviations, comparison, source_issues):
             "raw_html_columns": {1, 2},
         })
 
+    return sections
+
+
+def apply_decision_notes(sections):
+    """Attach recorded decisions and move those sections out of "Decide".
+
+    A section that has been settled is no longer something to decide, but it is
+    not nothing either -- the conclusion is the most valuable thing on the page
+    once the work is done. It gets its own class so the counts at the top say
+    honestly how much is left.
+    """
+    for section in sections:
+        note = DECISION_NOTES.get(section["id"])
+        if note:
+            date, text = note
+            section["note"] = f"<b>Decided {html.escape(date)}.</b> {text}"
+            section["action"] = "resolved"
+            continue
+        open_note = OPEN_NOTES.get(section["id"])
+        if open_note:
+            section["note"] = f"<b>Still open.</b> {open_note[0]}"
+            section["note_is_open"] = True
     return sections
 
 
@@ -477,6 +862,8 @@ def build_html(sections, deviations, comparison, coverage, generated):
     add("<div class='callout'>"
         "<b>How to read this.</b> Items are grouped by what is being asked of you. "
         f"<span class='badge b-decide'>Decide</span> means a judgement is needed. "
+        f"<span class='badge b-resolved'>Decided</span> means a judgement was made; "
+        "the reasoning is recorded with it. "
         f"<span class='badge b-confirm'>Confirm</span> means something was changed "
         "automatically and should be checked. "
         f"<span class='badge b-info'>Informational</span> means no action is expected. "
@@ -492,6 +879,9 @@ def build_html(sections, deviations, comparison, coverage, generated):
     add(f"<div class='metric-card mc-flag'><div class='number'>{action_groups['decide']}</div>"
         f"<div class='label'>decisions to make<br><span class='faint'>"
         f"covering {action_totals['decide']:,} values</span></div></div>")
+    add(f"<div class='metric-card mc-good'><div class='number'>{action_groups['resolved']}</div>"
+        f"<div class='label'>decided, with the reasoning<br><span class='faint'>"
+        f"covering {action_totals['resolved']:,} values</span></div></div>")
     add(f"<div class='metric-card'><div class='number'>{action_groups['confirm']}</div>"
         f"<div class='label'>groups to confirm<br><span class='faint'>"
         f"covering {action_totals['confirm']:,} values</span></div></div>")
@@ -577,7 +967,12 @@ def build_html(sections, deviations, comparison, coverage, generated):
                 f"<span class='badge b-{action}'>{ACTION_LABEL[action]}</span> "
                 f"{html.escape(section['group'])}: {html.escape(section['title'])} "
                 f"<span class='dim-tag'>{section['count']}</span></h3>")
-            add(f"<p class='legend'>{html.escape(section['blurb'])}</p>")
+            # Blurbs and notes are authored constants in this file, not data
+            # from the corpus, so they may carry markup and are not escaped.
+            add(f"<p class='legend'>{section['blurb']}</p>")
+            if section.get("note"):
+                note_class = "decision open" if section.get("note_is_open") else "decision"
+                add(f"<div class='{note_class}'>{section['note']}</div>")
             add("<details><summary>Show the "
                 f"{len(section['rows'])} entries</summary>")
             add("<table><tr>"
@@ -625,6 +1020,14 @@ tr:nth-child(even) td { background: #fbfcfd; }
 span.absent { color: #afb8c1; } span.empty { color: #afb8c1; font-style: italic; }
 .badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap; }
 .b-decide { background: #bc4c00; } .b-confirm { background: #0969da; } .b-info { background: #6e7781; }
+.b-resolved { background: #1a7f37; }
+.decision { background: #dafbe1; border: 1px solid #4ac26b; border-left-width: 4px;
+  border-radius: 6px; padding: 10px 14px; margin: 8px 0; font-size: 13px; }
+.decision.open { background: #fff8c5; border-color: #d4a72c; }
+.cell { max-height: 22em; overflow-y: auto; }
+.diff-note { margin: 0 0 6px; font-size: 12px; color: #57606a; font-style: italic; }
+.diff-out { background: #ffd8d3; text-decoration: line-through; }
+.diff-in { background: #d2f8d2; }
 details { margin: 6px 0; border: 1px solid #d0d7de; border-radius: 6px; padding: 0 12px; }
 details[open] { padding-bottom: 8px; }
 summary { cursor: pointer; padding: 10px 0; font-weight: 600; }
@@ -657,6 +1060,8 @@ def main():
 
     sections = build_sections(deviations, comparison, source_issues)
     sections += build_concept_domain_sections(concept_domains)
+    sections += build_character_section()
+    sections = apply_decision_notes(sections)
     generated = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     html_text = build_html(sections, deviations, comparison, coverage, generated)
 

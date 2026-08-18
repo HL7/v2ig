@@ -21,18 +21,24 @@ The published Chapter 2C is the source. This extractor is deliberately
 conservative about "cleaning" it, because any silent cleanup is a divergence
 the reviewer never gets to see.
 
-TWO normalizations are applied automatically, both defined in
-`vocabulary_text_policy.py` and both recorded in the deviation log:
+Normalizations are applied only where a reviewer has decided a group is safe.
+They are defined in `vocabulary_text_policy.py` -- not here, because the
+cross-pipeline comparison has to apply the same rules to both corpuses -- and
+every one is recorded per value in the deviation log:
 
-  1. Leading/trailing whitespace is stripped from every cell.   (ADR-0008 D2)
-  2. In descriptive prose only, a run of two or more spaces following a
-     period is collapsed to a single space.                     (ADR-0008 D3)
+  * Leading/trailing whitespace is stripped from every cell.    (ADR-0008 D2)
+  * Runs of spaces after a period, a sentence close or a comma, and every run
+    in a display name, collapse to one.                      (ADR-0008 D3, D4)
+  * A dash used as a separator gets one space each side.        (ADR-0008 D5)
+  * The missing comma after "e.g." and "i.e." is inserted.      (ADR-0008 D6)
+  * Corrupt characters are repaired, non-breaking spaces in text become
+    ordinary spaces, indents are set to two spaces, and every remaining run of
+    spaces collapses -- except a ditto mark.                    (ADR-0008 D7)
 
 Everything else is PRESERVED exactly as published, and merely *reported*:
-  * internal double spaces that do NOT follow a period
-    (e.g. "Code system of concepts  which specify...")
-  * non-breaking spaces
   * newlines inside a cell (usually legitimate paragraph structure)
+  * a space before the punctuation that closes a clause
+  * a non-breaking space that survived into an identifier
   * en/em dashes and typographic quotes
 
 Anything the extractor cannot parse, or chooses to skip, is also recorded
@@ -60,6 +66,7 @@ from vocabulary_text_policy import (  # noqa: E402
     DESCRIPTIVE_FIELDS,
     RULE_KINDS,
     apply_text_policy,
+    unresolved_space_runs,
 )
 
 
@@ -69,6 +76,13 @@ INDEX_PATH = "v291-extracted/vocabulary-index.json"
 DEVIATIONS_PATH = "v291-extracted/vocabulary-deviations.json"
 
 NBSP = " "
+
+# A space sitting between a word and the punctuation that closes the clause:
+# `Placer Applications .`, `the THREE versions, "2004" , "2005"`. Almost all of
+# these are published defects, but one of them is ours -- turning a non-breaking
+# space into an ordinary one under D7 left `(M49) .` in table 0827 -- so the
+# group is reported rather than silently repaired.
+SPACE_BEFORE_PUNCTUATION_RE = re.compile(r"\S +[.,;:](?:\s|$)")
 
 
 class DeviationLog:
@@ -199,11 +213,39 @@ def normalize_cell(raw, log, table_number, location):
     for kind, count, before, after in applied:
         log.record(kind, 'normalized', table_number, location, before, after,
                    detail={'placesChanged': count})
-    if NBSP in raw:
+
+    # A non-breaking space can leave by three different routes, and a reader
+    # deciding about them needs to know which. Only the first is still an open
+    # question.
+    if NBSP in value:
         log.record('non_breaking_space', 'preserved', table_number, location, raw)
-    if '  ' in value:
+    elif NBSP in raw and not any(k == 'non_breaking_space_in_text'
+                                 for k, _, _, _ in applied):
+        # Not claimed by the D7 rule, so it was leading or trailing and went
+        # with the strip under D2. Recorded so the group is honest about what
+        # actually happened rather than showing it as still present.
+        log.record('non_breaking_space', 'normalized', table_number, location,
+                   raw, value,
+                   detail={'detail': 'Leading or trailing; removed with the '
+                                     'surrounding whitespace (ADR-0008 D2).'})
+
+    # One entry per value, not per run, so the counts stay comparable with the
+    # earlier reports: a value with three surviving runs is still one thing to
+    # look at.
+    reasons = {reason for _, _, reason in unresolved_space_runs(field, value)}
+    if 'ditto' in reasons:
+        log.record('ditto_mark_space_run', 'preserved',
+                   table_number, location, stripped, value)
+    if 'not_in_scope' in reasons:
         log.record('internal_double_space', 'preserved',
                    table_number, location, stripped, value)
+    # An indent is deliberate under D7 and already reported by the rule that
+    # set its width, so it is not repeated here as an irregularity.
+
+    if SPACE_BEFORE_PUNCTUATION_RE.search(value):
+        log.record('space_before_punctuation', 'preserved',
+                   table_number, location, stripped, value)
+
     if '\n' in value:
         log.record('embedded_newline', 'preserved', table_number, location, raw)
 
@@ -720,8 +762,8 @@ def extract_all_tables(doc_path, output_dir):
         'sourceFile': 'CH02C_Tables.docx',
         'policy': {
             'normalized': ['leading_trailing_whitespace'] + list(RULE_KINDS),
-            'preserved': ['internal_double_space', 'non_breaking_space',
-                          'embedded_newline'],
+            'preserved': ['internal_double_space', 'ditto_mark_space_run',
+                          'non_breaking_space', 'embedded_newline'],
             'descriptiveFields': sorted(DESCRIPTIVE_FIELDS),
             'placesChangedByRule': places_changed,
             'notes': {
@@ -747,6 +789,24 @@ def extract_all_tables(doc_path, output_dir):
                 'missing_comma_after_abbreviation':
                     'ADR-0008 D6. The missing comma after "e.g." and "i.e." '
                     'is inserted. The only rule that adds a character.',
+                'mojibake_non_breaking_space':
+                    'ADR-0008 D7. A non-breaking space encoded twice, so the '
+                    'stray "Â" is dropped.',
+                'private_use_area_character':
+                    'ADR-0008 D7. Symbol-font glyphs from the Unicode private '
+                    'use area are deleted; they mean nothing outside the font.',
+                'non_breaking_space_in_text':
+                    'ADR-0008 D7. A run of non-breaking spaces in text becomes '
+                    'one ordinary space.',
+                'line_initial_indent':
+                    'ADR-0008 D7. An indent at the start of a line is kept, at '
+                    'a consistent width of two spaces.',
+                'repeated_space_collapsed':
+                    'ADR-0008 D7. Every remaining run of two or more spaces is '
+                    'collapsed to one, except an indent and a ditto mark.',
+                'ditto_mark_space_run':
+                    'ADR-0008 D7. A run of spaces held between two quote marks '
+                    'is the value, not spacing, so it is preserved.',
                 'internal_double_space':
                     'What REMAINS after every rule above: runs of two or more '
                     'spaces no decision covers. Still outstanding.',

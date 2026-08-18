@@ -92,6 +92,8 @@ Thumbs.db
 !/v291-extracted/vocabulary-review-report.html
 # Authored record of every change made to the published text -- not regenerable
 !/v291-extracted/vocabulary-changelog.md
+# Authored backlog for the pass after the fidelity load -- not regenerable
+!/v291-extracted/vocabulary-future-corrections.md
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
 /v2plus_docx/

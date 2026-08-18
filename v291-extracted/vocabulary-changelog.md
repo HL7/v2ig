@@ -16,6 +16,7 @@ with its rule, its scope, and where it took effect.
 | `v291-extracted/vocabulary-review-report.html` | The browsable review catalog — what was changed, what is still outstanding |
 | `v291-extracted/vocabulary-deviations.json` | Machine-readable: every changed value, before and after, and every irregularity left alone |
 | `tooling/scripts/vocabulary_text_policy.py` | The rules themselves, in code |
+| `v291-extracted/vocabulary-future-corrections.md` | The backlog for the pass *after* the fidelity load — content to improve once we are free to change it |
 
 The counts below are reproducible by re-running
 `python3 tooling/scripts/extract_v291_vocabulary.py`.
@@ -265,24 +266,208 @@ comparison uses. The count is back to 5 genuine differences, and
 
 ---
 
+## 007 — Clear the remaining runs of spaces, and repair three corrupt characters
+
+**Decided** 2026-08-18 · **ADR-0008 D7** · **Applied** in the extraction of
+2026-08-18
+
+Six rules decided in one sitting. Together they close out the whitespace work:
+after this change **no run of two or more spaces survives anywhere in the
+corpus** except the one the reviewer chose to keep.
+
+### 007a — Delete a stray "Â" in front of a space
+
+A non-breaking space that was encoded as UTF-8 and read back as Latin-1, so the
+two bytes `C2 A0` arrived as two characters. **1 value, 1 place** — table 0301.
+
+```
+...designate organization identifier as a "CLIP" assigned number (for labs).Â␣ Used by...
+...designate organization identifier as a "CLIP" assigned number (for labs). Used by...
+```
+
+The rule matches `Â` only when a space or non-breaking space follows it, which
+keeps it away from a real `Â` in a word. It deletes the stray letter and leaves
+the space for the later rules, so the change is attributed across three rules
+rather than one doing everything.
+
+It also has to accept an ordinary space and not just a non-breaking one,
+because the LLM extraction of the same cell substituted an ASCII space. A rule
+that repaired one corpus and not the other would show up as a disagreement
+between the pipelines — which is exactly what happened on the first run.
+
+### 007b — Delete private-use-area characters
+
+Symbol-font glyphs that mean nothing outside the font they were typed in.
+**1 value, 3 places** — table 0964's concept domain description, where `U+F06C`
+was used as a list bullet.
+
+```
+...ordered by mistake.⏎  U+F06C ⇥ Patient disability requires it
+...ordered by mistake.⏎         ⇥ Patient disability requires it
+```
+
+The tab after each glyph is kept, so the three lines read as the indented list
+they were meant to be. This is exactly what the LLM extraction produced
+independently, which is what settled the adjudication: the LLM was right about
+table 0964 and python-docx was carrying the corruption.
+
+Not confined to prose — a Symbol glyph is wrong in an identifier too.
+
+### 007c — A run of non-breaking spaces in text becomes one ordinary space
+
+**2 values, 5 places** — tables 0301 and 0827. Where lines break is the
+renderer's decision in a FHIR resource, so a non-breaking space in prose
+carries nothing.
+
+```
+...are taken from␣ISO 3166␣␣while the codes for "supra-national" regions...
+...are taken from ISO 3166 while the codes for "supra-national" regions...
+```
+
+Confined to the fields listed under 007e. A non-breaking space in a `URL` or a
+`URI` is **not** turned into a space — that would produce an invalid URL. See
+"What is now known about the URL cases" below.
+
+### 007d — An indent keeps its indent, at two spaces
+
+A run of spaces at the start of a line is deliberate structure, not a typo, so
+it is regularized rather than removed. **2 values, 4 places** — both in table
+0396, both published with three spaces.
+
+```
+Examples:⏎···NCPDP1131RES = code set defined for NCPDP data element 1131...
+Examples:⏎··NCPDP1131RES = code set defined for NCPDP data element 1131...
+```
+
+Line breaks are untouched by every rule in this change log — the collapse
+patterns match the ordinary space character only.
+
+### 007e — Collapse every remaining run of two or more spaces
+
+**141 values, 150 places.** This is the bulk of the change, and it empties the
+outstanding double-space group completely.
+
+| Field | Values |
+|---|---:|
+| `codedContent.comment` | 44 |
+| `codeSystem.Description` | 38 |
+| `tableMetadata.Description` | 18 |
+| `codedContent.definition` | 15 |
+| `conceptDomain.Description` | 13 |
+| `valueSet.Description` | 11 |
+| `tableMetadata.where used` | 1 |
+| `valueSet.Content Logical Definition` | 1 |
+| **Total** | **141** |
+
+The dominant case is the boilerplate defect noted under the previous
+outstanding list: `code system of concepts··which specify` recurring across
+Code System descriptions. One template that shipped with a double space in it,
+not 38 independent typos.
+
+Two fields are in scope for this rule that are not prose and are not in scope
+for any other rule in this log, each decided on its own evidence:
+
+| Field | The one run in Chapter 2C |
+|---|---|
+| `tableMetadata.where used` | `SPM-15, SAC-43,··PAC-7, OM4-15` in table 0376 — the run follows a comma in a reference list, exactly as in prose |
+| `valueSet.Content Logical Definition` | `http://snomed.info/sct···where concept is-a 49062001` in table 0961 — three spaces between a URL and a keyword |
+
+They are deliberately **not** added to the descriptive-field set, because the
+prose rules — the comma after `e.g.`, dash spacing — have no business editing a
+reference list or a value set expression.
+
+### 007f — Except a ditto mark
+
+**1 value preserved**, table 0496 code `028`:
+
+```
+""······"" w/o Surgery Capability
+```
+
+The pair of ditto marks stands for the entry above, so the spaces between them
+are the value rather than spacing around it. Collapsing them would turn a
+published, if peculiar, construct into nonsense.
+
+The protection is expressed structurally — a run of spaces with a quote mark
+immediately on both sides — not as a table number, so it survives a change to
+the source. Corpus-wide it fires exactly once, which is the check that it is
+narrow enough.
+
+This is also the adjudication of a cross-pipeline disagreement: python-docx is
+correct here and the LLM's `"""⇥"""` is its own artifact.
+
+### What is now known about the URL cases
+
+The previous outstanding list said eight non-breaking spaces were "preserved
+except where leading or trailing. The four inside `codeSystem.URL` values are
+the ones that matter." **That was wrong, and the report was misleading.** All
+six of the identifier cases are leading or trailing, so `str.strip()` had
+already removed them under D2 — they were never in the emitted output at all.
+The report was showing the published raw value with an action of `preserved`.
+
+| Table | Field | What was published | What was emitted |
+|---|---|---|---|
+| 0821 | `codeSystem.URL` (×2) | NBSP then the URL | the URL, since D2 |
+| 0823 | `codeSystem.URL` (×2) | NBSP then the URL | the URL, since D2 |
+| 0828 | `codeSystem.URI` | NBSP then the URL | the URL, since D2 |
+| 0826 | `conceptDomain.SymbolicName` | `SourceDocumentTypeForRecordedSexOrGender` then NBSP | the name, since D2 |
+
+These now report as **changed** rather than preserved, which is what actually
+happened. Only the two prose cases needed a new rule, and 007c is it.
+
+### Ordering, and why it matters here more than before
+
+The chain runs the character repairs first, because each produces text the next
+rule has to tidy: dropping the stray `Â` leaves a non-breaking space, turning
+that into an ordinary space leaves a double space after a period, which D3 then
+collapses. One published defect, three rules, three separate entries in the
+deviation log.
+
+Dash spacing was moved ahead of the general collapse. It is the more specific
+rule — it knows a separator dash from a hyphen — and running the collapse first
+silently absorbed five of its changes, moving them out of D5's count and into
+D7's. Caught by the counts moving, which is the reason each rule reports its
+own.
+
+### Effect on the cross-pipeline comparison
+
+Agreement **rose from 739 to 740 of 799 tables**: table 0964's disagreement
+disappeared, because the policy now removes the Symbol glyphs from the
+python-docx side and the two corpuses agree exactly. Typography fell 211 → 210
+for the same reason. The number of values equal only after the shared policy
+rose from 982 to 1,043.
+
+`CodeSystem-conceptdomains.json` came out **byte-identical**, as it did for D6.
+
+---
+
 ## Cumulative effect
 
 | Rule | Change | Values | Places |
 |---|---|---:|---:|
 | Leading/trailing whitespace | D2 | 44 | 44 |
-| Spaces after a period | 001 / D3 | 890 | 1,089 |
+| Spaces after a period | 001 / D3 | 891 | 1,090 |
 | Spaces after a sentence close | 002 / D4 | 6 | 6 |
 | Repeated spaces in a display name | 003 / D4 | 66 | 66 |
 | Spaces after a comma | 004 / D4 | 10 | 10 |
 | Dash spacing | 005 / D5 | 16 | 18 |
 | Comma after `e.g.` / `i.e.` | 006 / D6 | 60 | 62 |
-| **Total** | | **1,092** | **1,295** |
+| Stray `Â` before a space | 007a / D7 | 1 | 1 |
+| Private-use-area character | 007b / D7 | 1 | 3 |
+| Non-breaking space in text | 007c / D7 | 2 | 5 |
+| Line-initial indent set to two spaces | 007d / D7 | 2 | 4 |
+| Every remaining run of spaces | 007e / D7 | 141 | 150 |
+| **Total** | | **1,240** | **1,459** |
 
-Cross-pipeline agreement is **unchanged at 739 / 799 tables** through all six
-changes, with every other bucket also unchanged (211 typography, 45 whitespace,
-14 LLM truncations, 2 content). 982 values are now equal only after the shared
-policy is applied to both corpuses; that figure is stated in the comparison
-report rather than dropped.
+The period count moved 890 → 891 because change 007a turns table 0301's
+corrupt character into an ordinary space, which then leaves a double space for
+D3 to collapse. One defect, attributed across the three rules that each did
+part of the repair.
+
+Cross-pipeline agreement **rose to 740 / 799 tables** with change 007 (210
+typography, 45 whitespace, 14 LLM truncations, 1 content, 3 structural). 1,043
+values are now equal only after the shared policy is applied to both corpuses;
+that figure is stated in the comparison report rather than dropped.
 
 ---
 
@@ -290,43 +475,42 @@ report rather than dropped.
 
 Irregularities in the published text that no decision covers yet. These are
 preserved exactly as published and reported. They appear in the review report
-under **Text outstanding: …**.
+under **Text outstanding: …** and **Decide**.
 
-### Runs of two or more spaces
+### Runs of two or more spaces — none
 
-Down from 1,052 values to **143 values** (155 separate runs). By field:
+Cleared by change 007. Down from 1,052 values at the start to **0**. The single
+run that remains anywhere in the corpus is table 0496's ditto mark, which
+change 007f preserves deliberately and which the report shows as informational
+rather than outstanding.
 
-| Field | Values |
-|---|---:|
-| `codedContent.comment` | 45 |
-| `codeSystem.Description` | 38 |
-| `tableMetadata.Description` | 18 |
-| `codedContent.definition` | 16 |
-| `conceptDomain.Description` | 13 |
-| `valueSet.Description` | 11 |
-| `tableMetadata.where used` | 1 |
-| `valueSet.Content Logical Definition` | 1 |
-| **Total** | **143** |
+### A space before the punctuation that closes a clause
 
-`codedContent.displayName` is absent: change 003 cleared it completely.
+**20 places, in 4 fields.** A new group, surfaced by change 007 and not decided.
 
-Grouped by what precedes the run, which is what a decision would turn on:
+| Field | Places | Example |
+|---|---:|---|
+| `codedContent.comment` | 8 | `Placer Applications .` (0119) |
+| `conceptDomain.Description` | 8 | `...specifying the type of BC Component .` (0577) |
+| `codedContent.displayName` | 2 | `Specimen Procedure Step Successful , with Derived...` (0003) |
+| `valueSet.Description` | 2 | `...codes for statistical use (M49) .` (0827) |
 
-| Context | Runs | Values | Example |
-|---|---:|---:|---|
-| Between two words, mid-sentence | 129 | 94 | `code system of concepts··which specify the room type` |
-| After punctuation other than a period | 22 | 15 | `Usage Note: Class:··Insurance` |
-| At the start of a line inside a multi-line cell | 4 | 1 | `Examples:⏎···NCPDP1131RES = code set…` |
+**One of these is ours.** Table 0827 published `(M49)` followed by a
+non-breaking space and then a period; change 007c turned the non-breaking space
+into an ordinary one, so the emitted text reads `(M49) .` The other 19 are
+published as printed. The reviewer had asked to be told about anything hidden
+by the report's truncation, and this was hidden by it — the value is 339
+characters and the report was cutting at 300.
 
-The mid-sentence group is still dominated by one boilerplate defect: the phrase
-`code system of concepts··which specify` recurs across Code System
-descriptions. That is one template that shipped with a double space in it,
-not 38 independent typos, so it is one decision.
+The obvious variant of the rule — delete a non-breaking space that sits
+immediately before sentence punctuation rather than turning it into a space —
+would give `(M49).` and is probably right, but it is a different decision from
+the one that was taken, so it is asked rather than assumed.
 
 ### Dashes the rule refused to repair
 
-Three published values where the rule fired nowhere and the text stays as
-printed:
+Unchanged by change 007. Three published values where the rule fired nowhere
+and the text stays as printed:
 
 | Table | Field | As published | Probable intent |
 |---|---|---|---|
@@ -336,8 +520,10 @@ printed:
 
 ### Missing space after a comma
 
-Not asked for and not changed, but surfaced while applying change 004: **10
-places** where a comma has no space after it at all.
+Unchanged by change 007. Surfaced while applying change 004: **10 places**
+where a comma has no space after it at all. Note that this is the mirror image
+of change 004, which collapsed spaces after a comma — this group is about
+commas with no space at all.
 
 | Table | Field | As published |
 |---|---|---|
@@ -346,12 +532,27 @@ places** where a comma has no space after it at all.
 | 0367 | all four `Description` fields | `(e.g.,highest alert severity)` |
 | 0396 | `codedContent.comment` | `From school, provider,public health agency.` |
 
+### Characters worth a second look
+
+From the character inventory now carried in the review report. Every non-ASCII
+character in the emitted corpus is counted there and given a verdict; two have
+no verdict yet.
+
+| Character | Count | Where | The question |
+|---|---:|---|---|
+| `Ø` U+00D8 | 8 | 0396 | NCPDP writes zero as a slashed O, so the address and phone number read `924Ø East Raintree Drive` and `(48Ø) 477-1ØØØ`. Faithful, but these are digits |
+| `‑` U+2011 | 4 | 0945 | A non-breaking hyphen in `pre‑configured`. Reads as an ordinary hyphen and probably should be one |
+
+The three characters that **were** corrupt — `Â`, the non-breaking space and
+`U+F06C` — no longer appear in the inventory at all, which is the check that
+change 007 did what it claims.
+
 ### Other kinds, unchanged
 
 | Kind | Values | Status |
 |---|---:|---|
-| Embedded newline | 223 | Preserved. Usually genuine paragraph structure inside a cell |
-| Non-breaking space | 8 | Preserved except where leading or trailing. The four inside `codeSystem.URL` values are the ones that matter |
+| Embedded newline | 223 | Preserved. Genuine paragraph structure inside a cell, and every rule here leaves line breaks alone |
+| Ditto mark | 1 | Preserved by decision, change 007f |
 
 ---
 
