@@ -18,6 +18,26 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
+## Branch map — read this before anything else (2026-08-19)
+
+Two workstreams, two branches. **This journal is per-branch**, so what you read
+below depends on which branch you are on.
+
+| Branch | Workstream | Journal state |
+|---|---|---|
+| `dev/framework` (this one) | Structural review: the FHIR-vs-docx registry, three-way comparison, segments and message structures | The ACTIVE section below, from 2026-06-12. Paused mid-flight; `v291-review/registry.json` is still 222/222 `needs-review` |
+| `dev/v291-vocabulary-ig` | The **V2.9.1 Chapter 2C vocabulary IG** — CodeSystems and ValueSets from the code table chapter | Current. Its ACTIVE section is where that work stands |
+
+The vocabulary branch was split out of `dev/framework` on 2026-08-19 at the
+user's request, so that every commit for the terminology IG lives on its own
+branch. `dev/framework` was rewound to `2b38100a` and force-pushed; the nine
+commits it lost are all present on `dev/v291-vocabulary-ig` and none of them
+was ever on `main`. Nothing was lost.
+
+**If you are here to work on the vocabulary IG, you are on the wrong branch.**
+
+---
+
 ## ACTIVE — 2026-06-12 (full V2.9.1 three-way extraction + FHIR-vs-docx review registry built)
 
 **Phase:** ADR-0006 advanced substantially. All 17 chapters now extracted by BOTH the python-docx and LLM pipelines, and a **neutral three-way comparison** (python-docx | LLM | FHIR StructureDefinitions) is in place. Built a **persistent review registry + change-ledger system** to track every FHIR-vs-docx structural delta through its lifecycle (discovered → reviewed → resolved → implemented), with auto-apply to the SDs on resolve.
