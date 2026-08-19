@@ -2,7 +2,7 @@
 
 Older session entries, moved out of `JOURNAL.md` to keep session-start context lean. Append-only; read on demand only — not loaded at session start.
 
-The split moved to **2026-05-01** on 2026-08-18: every entry before that date is below. Entries from 2026-05-01 onward remain in the active `JOURNAL.md`.
+The split moved to **2026-06-11** on 2026-08-19: every entry before that date is below. Entries from 2026-06-11 onward remain in the active `JOURNAL.md`.
 
 ---
 
@@ -1407,3 +1407,225 @@ The `0f2c2644` commit was originally made on `main` by mistake (the user had mer
 - Last checkpoint: `ad83e520` — Fix ACK descriptions, ERR cardinality, add pending review support
 - Tests: 84 message structure comparison tests passing; other test suites not re-run
 - Working tree: clean (2 untracked .tiff files)
+
+## 2026-05-01 — LLM extraction switched to Vertex AI, blocked on GCP org policy
+
+### Completed
+
+**Switched `tooling/scripts/extract_v291_llm.py` from direct Anthropic API to Vertex AI** (commit `a0b4b04b`). Replaced `anthropic.Anthropic()` with `AnthropicVertex()` (constructor reads `ANTHROPIC_VERTEX_PROJECT_ID` + `CLOUD_ML_REGION` from env automatically). Removed the `ANTHROPIC_API_KEY` check. Updated model ID to `claude-sonnet-4-6@default` to match the user's convention from `ANTHROPIC_DEFAULT_SONNET_MODEL`. Updated `.claude-dev/provision.sh` to install `anthropic[vertex]` (which pulls `google-auth`) instead of bare `anthropic`. Verified `~/.config/gcloud/application_default_credentials.json` is in place from the user's Claude Code Vertex auth.
+
+**Discovered GCP org policy gate on `structured_outputs` feature.** The 3-table sanity check (`--limit 3` on CH03_PatientAdmin.docx) fails at the first call with `Organization Policy constraint constraints/vertexai.allowedPartnerModelFeatures violated for projects/370789798156 attempting to use a disallowed feature structured_outputs for Partner model claude-sonnet-4-6`. The remaining two calls fail at the schema layer with `output_config.format: Extra inputs are not permitted` — same root cause: the SDK's `messages.parse()` helper sends `output_config.format` to enforce structured output, which is exactly what the org policy gates. Three workarounds documented in JOURNAL ACTIVE; user to choose between requesting org policy expansion (zero code change) and refactoring to manual JSON parsing with client-side Pydantic validation (~30 min).
+
+### Why
+
+- **Vertex over direct API**: user has no Anthropic API key but already authenticates to Anthropic via Vertex (it's how Claude Code itself reaches the model). All the env vars (`ANTHROPIC_VERTEX_PROJECT_ID=nist-gcp-itl-hit`, `CLOUD_ML_REGION=global`) and ADC were already in place — switching the SDK class was the only real change. Pricing on global endpoints matches direct API rates ($3/$15 per M tokens for Sonnet 4.6, no Vertex premium), so the cost-estimate math in the script stays correct.
+- **`@default` suffix on model ID**: matches the user's existing convention (`ANTHROPIC_DEFAULT_SONNET_MODEL=claude-sonnet-4-6@default`); Anthropic Vertex docs confirm bare `claude-sonnet-4-6` would also work but `@default` is more explicit about routing intent.
+- **Stop and hand off rather than refactor**: the manual-JSON-parsing refactor is ~30 min of work plus a second sanity check, and the user signaled an imminent context clear. Better to commit the partial progress (Vertex switch is genuinely useful regardless of which workaround we pick) and let the next session decide between the two paths fresh.
+
+### Commits this session
+
+On `dev/framework`:
+- `a0b4b04b` — Switch LLM extraction to Vertex AI client (1 ahead of origin; not pushed)
+
+### Relevant context for next session
+
+- **`messages.parse()` is the gated call**, not `messages.create()`. If we go the manual-JSON-parsing route, the script structure stays the same except the LLM call wraps `client.messages.create()` and we parse `response.content[0].text` ourselves. The `SYSTEM_PROMPT` constant already contains the JSON shape examples — would need to add a "respond with JSON only, no preamble" instruction at the end and swap the Pydantic schema-injection for a textual schema description.
+- **Prompt caching still works on Vertex** for plain `messages.create()` — `cache_control: {"type": "ephemeral"}` is wire-compatible. The system-prompt cache savings the script was designed around survive the refactor.
+- **Org policy URL**: `https://docs.cloud.google.com/vertex-ai/generative-ai/docs/control-model-access` (from the error message). The specific allowlist entry to request: `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs`. If pursued, may also need entries for other models we plan to use later (Opus 4.7, Haiku 4.5).
+- **GCP project number** in the error message is `370789798156`, which corresponds to `ANTHROPIC_VERTEX_PROJECT_ID=nist-gcp-itl-hit`. Useful for the org policy ask if the admin needs the numeric project ID.
+- **Both blockers are independent.** The HL7 template-trust whitelist (auto-IG publication) and the GCP `structured_outputs` policy (LLM extraction) can be pursued in parallel — they touch different systems and different stakeholders.
+
+---
+
+---
+
+## 2026-05-07 → 2026-05-15 — Both blockers moved: Vertex unblocked, HL7 template trust path identified + submission in flight
+
+### Completed
+
+**Researched and documented the HL7 IG template trust submission process.** Prior memory framed it as "request inclusion at fhir.org/templates" — that turned out to be a *catalog*, not the trust gate. The actual gate is hardcoded in `HL7/fhir-ig-publisher` → `org.hl7.fhir.publisher.core/src/main/java/org/hl7/fhir/igtools/templates/TemplateManager.java` → `checkTemplateId()` method (~lines 355-373). The PR shape (per merged PRs #889, #1001, #1265) is a one-line addition to the trusted-package-ID array, and the code comment states "changes to this list require discussion with the FHIR Product Director first" — that's Grahame Grieve (`@grahamegrieve`), who has merged every recent template-trust PR. Discussion happens on **#IG creation** stream on chat.fhir.org. Not FHIR-I work group, not Lloyd McKenzie — this is tooling, not spec governance. Memory file `project_template_whitelisting.md` rewritten with the now-known process.
+
+**User extracted the v2plus template into its own GitHub repo and posted in Zulip.** The `local-template/` directory was copied out into `ig-template-v2plus/` (gitignored in this repo via `.gitignore` addition), then pushed to its own GitHub repo. User posted in #IG creation on FHIR Zulip asking how to proceed before opening the PR — the Zulip-first move is the cheapest first step (introduces the template, lets reviewers flag anything to fix before the PR).
+
+**Built `tooling/scripts/probe_structured_outputs.py` (multi-model + raw-error-body version).** Tests `messages.parse()` across Sonnet 4.6, Sonnet 4.5, Haiku 4.5, Opus 4.7, Opus 4.1 (with and without `@default` suffix). Dumps full HTTP status, request_id, and response body for every call so the output can be shown verbatim to GCP/IaaS administrators. Initial uncommitted version of the script (from a prior session) summarized errors as `BLOCKED by org policy` / `NOT FOUND` / `OTHER ERROR`; rewrote to expose the raw error envelope after the user's IaaS team gave a "curious response" suggesting they wanted hard evidence.
+
+**Confirmed Vertex `structured_outputs` policy expansion landed.** User reported on 2026-05-14 that the org policy had been updated; re-ran the probe and confirmed both `claude-sonnet-4-6@default` and `claude-opus-4-7@default` now return `Result: SUCCESS` with valid Pydantic-validated output. Sonnet 4.6 returned `color='ocean blue', reason='...'` (207 input / 34 output tokens); Opus 4.7 returned `color='teal', reason='...'` (265 input / 53 output tokens). The fix the IaaS team applied was adding two values to `constraints/vertexai.allowedPartnerModelFeatures`: `publishers/anthropic/models/claude-sonnet-4-6:structured_outputs` and `publishers/anthropic/models/claude-opus-4-7:structured_outputs` — exactly what the original error message had named.
+
+**Updated memory.** `project_vertex_structured_outputs_block.md` rewritten — was framed as an active blocker, now framed as historical context + a "what to do if it returns" guide pointing at the probe. `project_template_whitelisting.md` rewritten with the concrete TemplateManager.java + Grahame + #IG creation Zulip path. `MEMORY.md` "External Blockers" section renamed to "External State" since neither item is a blocker any more — Vertex is done, HL7 trust is in process.
+
+### Why
+
+- **Probe rewrite over relying on the existing summarizer**: the prior probe printed `BLOCKED by org policy` for the org-policy errors, which is informative for us but not enough to satisfy a skeptical IaaS team. The full GCP error envelope (`{"error":{"code":400,"status":"FAILED_PRECONDITION","message":"Organization Policy constraint constraints/vertexai.allowedPartnerModelFeatures violated for projects/370789798156 attempting to use a disallowed feature structured_outputs..."}}`) is unmistakable — it's GCP's standard error format (not Anthropic's), names the constraint by ID, names the project by number, and even tells the admin exactly what value to add. Letting the IaaS team see that verbatim removed the question of "is this really a GCP-side issue."
+- **Zulip-first over PR-first for template trust**: the trust-list change is a one-line PR, but the criteria for what gets accepted are not fully written down — the code comment says "discussion with the FHIR Product Director first." Posting in #IG creation up front is the lowest-cost way to discover whether the template is in shape to be PR'd, or whether something needs to be fixed first. PR feedback would surface the same info but with more wasted work.
+- **Memory framing shift "blockers → state"**: the prior framing locked us into thinking of these as walls. With both moving forward — one resolved, one in flight — the right framing is "state to track" so future sessions don't treat them as still-blocking.
+
+### Commits this session
+
+On `dev/framework`:
+- (probe + JOURNAL + .gitignore commits below — see "Final state" in handoff)
+
+On `main` / pushed to `build`:
+- None (no IG content changed; tooling-only)
+
+### Relevant context for next session
+
+- **Probe script (`tooling/scripts/probe_structured_outputs.py`) is now committed** as a permanent verification tool. Re-run it any time `messages.parse()` starts failing on Vertex — the GCP error envelope is unmistakable and immediately tells you which feature/model needs to be added to the allow list.
+- **The current probe still has a couple of cosmetic warts**: (1) older models without the `@default` suffix return Anthropic-format errors saying "output_config: Extra inputs are not permitted" — that's the older models not supporting structured_outputs at all, unrelated to org policy and won't change; (2) older models *with* `@default` return 404 — that's just Vertex not accepting the alias, also unrelated. These aren't bugs in the probe; they're legitimate state of those models on Vertex. If we add a future model (e.g. Sonnet 4.7), add it to the `MODELS` list.
+- **The template trust submission has not been opened yet** — waiting on Zulip reply. If the reply lands as "go ahead and PR it", the next concrete step is adding the v2plus template's package ID to the array in `org.hl7.fhir.publisher.core/src/main/java/org/hl7/fhir/igtools/templates/TemplateManager.java` (HL7/fhir-ig-publisher repo) and opening a PR with Grahame as reviewer.
+- **The Vertex switch in `extract_v291_llm.py` is from 2026-05-01** — that work is unchanged. With the policy now expanded, the script should run end-to-end. The 3-table sanity check is the natural next-session first move.
+- **No build was attempted this session** — auto-IG is still rejected by template-trust on the build branch. That branch's state is unchanged (`origin/build` at `865ecd74`). Don't try push-to-build until the template trust PR lands; it'll just fail in the same way.
+
+---
+
+---
+
+## 2026-06-02 → 2026-06-04 — LLM extraction end-to-end on CH03, 98% cross-corpus agreement
+
+### Completed
+
+**Hit a new Vertex `structured_outputs` failure mode and fixed it by splitting the schema by hint.** The 3-table sanity check the prior handoff prescribed failed with `Schema is too complex.` (1 call) and `Grammar compilation timed out.` (2 calls) — different from the org-policy block, this time the structured-decoding grammar compiler rejecting our Pydantic schema. Root cause: `ExtractionResult` was a discriminated union with three `Optional[NestedModel]` fields, which Pydantic generates as `oneOf: [null, $ref]` per optional. The grammar compiler has to enumerate all combinations of which optionals are present × all nested shapes; with three independent optionals + several nested types it timed out. Refactored `extract_v291_llm.py` to drop the discriminated union: the `likely_extractable` heuristic already classifies CH03 tables with 100% coverage (108 msg_structure + 21 segment, 0 unknown), so the client picks the schema (`MessageStructureRecord` or `SegmentRecord`) per call. Each schema is now flat with required fields and small defaults; both compile cleanly. System prompt rewritten from "classify into one of three categories" to "extract per the mode the client picked" while preserving the cached prefix. Added `--offset N` flag to allow targeted segment-table validation (CH03's first segment is candidate 109, so without `--offset` we'd burn 108 message-structure calls to reach it).
+
+**Full CH03 extraction succeeded.** 129/129 tables, 0 errors, $2.31, ~30 minutes. Cache reads dominated after warmup (260k cache_read vs 36k cache_creation). Effective per-table cost dropped from the sanity check's ~$0.04/table to ~$0.018/table on the full run.
+
+**Found and fixed two bugs in `compare_python_vs_llm.py`.**
+1. The initial run reported 50/106 disagree_parsed_only and only 55/106 fully_agree. Investigation showed `is_pydocx_group_marker` used substring matching: `"end" in elem.get("description", "")`. "Person Gender and Sex" contains "end" because "Gender" contains "end" as a substring (G-E-N-D-E-R). The heuristic stripped 20 legitimate segments from python-docx and 12 from the LLM corpus, manufacturing fake disagreements at every position after the GSP/GSR row block. Replaced with `desc.startswith("--- ")` — the actual python-docx convention for group markers.
+2. The script joined corpuses by filename, but python-docx names files by `enumerate()` index while the LLM names by `tableIndex` — the filenames diverge even when the underlying data is identical. Joined 0 files by filename. Replaced with `(structureId, clause, tableIndex)` from provenance as the join key.
+
+After both fixes: **104/106 fully agreeing (98%)**. The 2 remaining diffs are minor (whitespace + 1-element length).
+
+### Why
+
+- **Per-hint schemas over manual JSON parsing**: the alternative was dropping `messages.parse()` and parsing JSON on our side with client-side Pydantic validation (the workaround weighed back in the 2026-05-01 session). Splitting schemas was both cheaper to implement (~15 lines changed) AND preserves wire-level schema enforcement, which is the whole point of using `structured_outputs` in the first place. The cost paid is that the LLM can no longer override the heuristic to bail out as "not_extractable" — but the heuristic was already 100% on CH03, so this is paying nothing in practice. The "not_extractable" escape hatch can be added back in a future schema-extension if we hit a chapter where it matters.
+- **`startswith("--- ")` over substring match**: the python-docx convention is precise — group markers always start with `--- ` (three dashes + space) and have either empty code or `}]`. The substring match was lazy; `startswith` is what the code should have been all along.
+- **Provenance-based join over filename-based**: filename should be considered a presentation concern, not the canonical identifier. The provenance triple `(structureId, clause, tableIndex)` is what makes a table-occurrence unique in the source document and is what both extractors agree on.
+
+### Commits this session
+
+On `dev/framework` (local — gh auth lapsed, 3 ahead of origin):
+- `3e3317f7` — Split LLM extraction schema by heuristic hint, add --offset flag
+- `12e31fd7` — Fix compare_python_vs_llm.py false positives and join key
+- `bfb565b2` — Add CH03 cross-validation report, gitignore v291-llm/
+
+On `main` / pushed to `build`:
+- None (no IG content changed; tooling-only).
+
+### Relevant context for next session
+
+- **Auth is the immediate blocker on push.** `gh auth status` reports "not logged into any GitHub hosts" — the 7-day PAT from the 2026-04-30 `gh` install lapsed. User refreshes auth → next session pushes. No commits will be lost in the meantime.
+- **The "Schema is too complex" failure mode is a Vertex `structured_outputs` constraint, not a Claude limit.** If we add more deeply-nested Pydantic schemas in future tooling, hit it again, the same split-by-classification pattern applies. Worth remembering that complex discriminated unions are the killer; flat schemas with small defaults compile fine.
+- **Cache warmup pays off.** First few calls in a run pay full `cache_creation_input_tokens` cost; thereafter `cache_read_input_tokens` dominates. Don't size cost estimates from a `--limit 3` sanity check — it overstates by ~2× compared to a full chapter run.
+- **The 2 remaining CH03 diffs are worth glancing at before broader rollout but neither is a script bug.** ADT_A01_03_4 row 12: LLM has "Usual Work /" (the Word cell has two paragraphs; `render_table_as_markdown` joins them with `" / "`), python-docx strips the trailing slash. ADT_A44_03_80: 1-element parsed length difference; not investigated in detail. Both are noise relative to the 98% agreement signal, but they are real signals about edge cases in Word cell handling.
+- **The comparison script is now message-structure-only.** CH03 produced 21 LLM-extracted segments at `v291-llm/segments/` (EVN, PID, PV1, ..., GSC) that have no diff counterpart. Adding the segment-side comparison is the natural next tooling extension.
+- **Cost calibration for future chapters.** CH03 at $2.31 for 129 tables. CH02_Control is probably similar (control-field tables + vocabulary). The full V2.9.1 corpus has ~696 messages + ~192 segments across 17 chapters; ballpark a $15-25 total LLM cost to extract everything once.
+- **`v291-llm/` is gitignored except `comparison-report.md`.** Parallel to how `v291-extracted/*` works. Re-runs locally regenerate the corpus; only the report is the trackable artifact.
+
+---
+
+---
+
+## 2026-06-08 — LLM extraction extended to data types; CH02 + CH02A + CH07 cross-validated
+
+### Completed
+
+**Added a `data_type` extraction mode to `extract_v291_llm.py`.** Third Pydantic schema alongside `MessageStructureRecord` and `SegmentRecord`: `DataTypeRecord` with a `DataTypeOccurrence` carrying a list of `DataTypeComponent` (9 attrs — sequence, length, confLength, dataType, optionality, tableBinding, name, comments, sectionRef — distinct from segment's 9 by swapping repetition+itemNumber for comments+sectionRef). New caption-style constant `COMPONENT_CAPTION_STYLE = "Component Table Caption"` extends the `likely_extractable` heuristic. System prompt gained a new "# Mode: data_type" section with the column shape and an explicit `comments`/`sectionRef` rules subsection. Also factored out `_flush_registry` as a shared helper between segments and data types, deduping appended occurrences by `(clause, tableIndex)` so re-runs of the same chapter are idempotent (closes the duplicate-provenance follow-up surfaced in the 2026-06-04 segment work).
+
+**Fixed a chapter-suffix regex bug in `extract_v291_llm.py`.** `re.match(r"CH(\d+)", ...)` was dropping the letter suffix on `CH02A_DataTypes.docx` → chapter `"02"` / clause prefix `"2."`, but python-docx uses `"02A"` / `"2A."`. The comparison join would have silently failed for every data type. Changed to `r"CH(\d+[A-Z]?)"`. Same fix prepares the ground for CH04A, CH04B.
+
+**Added a parallel data-type section to `compare_python_vs_llm.py`.** Indexes by `(code, clause, tableIndex)`, compares the 9 component attributes, buckets as `fully_agree` / `agree_with_metadata_diff` / `disagree_components`, surfaces duplicate provenance keys. Mirrors the segment section's shape (one report file, three sections now).
+
+**Fixed `is_pydocx_group_marker` to recognize bracket-only code variants.** CH07's CSU_C09 had two undescribed group markers (`{code: ']', desc: ''}` and `{code: '}', desc: ''}`) that the explicit allowlist `code in ("", "}]")` missed. Slipped markers caused cascading false diffs after position 20. Replaced with a structural check: any code with no alphanumeric chars is bracket-only and therefore a marker. Real segment codes always have alphanums; `ROL|` and similar choice-suffix segments have alphanums in the prefix. ADT_A44_03_80 now correctly buckets as `fully_agree` (was the second residual diff from the 2026-06-04 CH03 work).
+
+**Extracted CH02A_DataTypes (83 tables, $0.74), CH07_Observations (37 tables, $1.38), CH02_Control (16 tables, $0.18).** Total $2.30 for this session, ~$4.60 cumulative across all 4 chapters. Cache reads dominate at scale — CH02A landed at ~$0.009/table (cheaper than CH03's $0.018/table because more table-level homogeneity).
+
+**Restored push capability.** The 2026-04-30 PAT had lapsed (7-day expiry on the `gh` install token); user generated a new PAT and added it to zshenv as `GITHUB_PERSONAL_ACCESS_TOKEN` plus a `GH_TOKEN` alias for `gh`. The initial push attempt failed because the git remote URL had the OLD token baked in (`https://x-access-token:ghp_OLD@github.com/...`) — `git push` uses the URL-embedded credentials, bypassing both env vars and the credential helper. Fix: `git remote set-url origin https://github.com/HL7/v2ig.git` to strip the embedded token, after which `/home/claude/.git-credential-helper` reads `GITHUB_PERSONAL_ACCESS_TOKEN` at each invocation. All 7 commits pushed; branch in sync with origin.
+
+### Results (cumulative across CH02 + CH02A + CH03 + CH07)
+
+| Section | Common | Fully agree | Disagreements |
+|---------|--------|-------------|---------------|
+| Message structures | 125 | 109 (87%) | 16 = CH07 chapter-column-only (pydocx bug) |
+| Segments | 52 | 51 (98%) | 1 = CH03 GSR extra row (LLM, prior session) |
+| Complex data types | 71 | 70 (99%) | 1 = curly-vs-straight apostrophe (DLN) |
+
+Plus three "LLM-only" findings worth carrying forward:
+- **12 primitive data types** (DT, DTM, FT, GTS, ID, IS, NM, SI, SNM, ST, TM, TX) — python-docx's 9-column filter rejects them entirely; LLM captures them naturally
+- **5 ACK structure variants** (ACK_A03, ACK_A33, ACK_R01, ACK_R30, ACK_R31) — LLM picks per-event structureIds while pydocx uses the third caption token (`ACK`) consistently
+- **0 false coverage gaps from pydocx** — every pydocx-only entry is accounted for
+
+### Why
+
+- **Per-chapter data_type schema over a generic component schema**: data types and segments have overlapping but distinct 9-attribute shapes. Folding both into one schema (with all 11 attributes as optional) would have produced messier validation and likely confused the LLM about which fields apply. Three flat schemas (one per heuristic hint) keeps each one tight and compiles cleanly through Vertex `structured_outputs` (no repeat of the "schema too complex" failure from 2026-06-04).
+- **Idempotent `_flush_registry` over write-each-call**: the segment-side flush was append-only, and the 2026-06-04 handoff flagged that re-running CH03 would have duplicated every segment occurrence. Adding dedupe by `(clause, tableIndex)` while extracting `_flush_registry` for the new data-types code path was the right time to make it idempotent. Cost: ~15 LOC.
+- **Group-marker heuristic: structural over allowlist**: maintaining a growing list of bracket variants (`""`, `"}]"`, `"]"`, `"}"`, possibly `">"`, ...) is brittle. The structural rule "no alphanumerics = bracket-only = marker" generalizes cleanly and won't need updating when a new variant appears.
+- **Stop signal triggered + investigated, not blindly proceeded**: when CH07 dropped to 17% agreement vs CH03's 98%, the user's "stop if any of them have significant issues" criterion fired. Investigation found the disagreements were all caused by python-docx bugs, not LLM regressions, so proceeding to CH02 was the right call. The handoff documents both findings so the next session knows the LLM corpus is the more reliable source on these points.
+
+### Commits this session
+
+On `dev/framework` (all pushed to origin):
+- `27b4f71d` — Add data_type mode to LLM extraction and comparison scripts
+- `4a3a76ae` — Extend pydocx group-marker heuristic, add CH02/CH02A/CH07 results
+
+Plus 5 commits inherited from the 2026-06-04 session that were finally pushed this session (`3e3317f7`, `12e31fd7`, `bfb565b2`, `8c1c7a9b`, `f08f9356`).
+
+On `main` / pushed to `build`: none (tooling-only).
+
+### Relevant context for next session
+
+- **Git remote URL no longer carries an embedded token.** Future PAT rotations only need updating `GITHUB_PERSONAL_ACCESS_TOKEN` in zshenv — the credential helper picks up the new value automatically. The lesson: don't bake tokens into remote URLs (they bypass the credential helper and silently expire). If a fresh container re-bakes the URL via some provisioning script, the same `git remote set-url origin https://github.com/HL7/v2ig.git` strips it again.
+- **`gh` needs `GH_TOKEN` or `GITHUB_TOKEN`, not `GITHUB_PERSONAL_ACCESS_TOKEN`.** User's zshenv now exports both. If `gh auth status` reports "not logged into any GitHub hosts" in a future session, that's the cause — either re-source the env or re-run `gh auth login --with-token` against `$GITHUB_TOKEN`.
+- **The python-docx chapter-column bug is reproducible.** Any chapter that imports GSP/GSR/GSC (or other harmony segments) will show "disagree_both" in the comparison report, all chapter-only. Future-chapter false alarms aside, the fix is in `extract_v291.py` — same Word table-continuation logic that needed CCM_I21/CCR_I16/CCU_I20 splitting on 2026-04-15.
+- **CH02A primitives are real data, not LLM hallucination.** Spot-checked DT (`{length: "4..8", confLength: "8", name: "Date"}`) and SI (`{length: "1..4", confLength: "4=", name: "Sequence ID"}`) — both extract correctly from the narrow source tables. The empty `dataType`/`optionality`/`sectionRef` fields aren't missing — primitives genuinely don't have those attributes in the source.
+- **Cost calibration update.** Per-chapter LLM cost was: CH02A $0.74 (83 tables), CH07 $1.38 (37 tables but more output tokens — message structures are bigger), CH02 $0.18 (16 tables, mostly small segments). The output-token cost dominates on segment/message work; cache-reads dominate on data types (more schema reuse). Full V2.9.1 should still land under $15 total.
+- **`v291-llm/` directory is large now**: 197 message-structure files, 52 segment files, 83 data-type files. All gitignored except `comparison-report.md`. Re-runs locally regenerate; only the report is tracked.
+
+---
+
+---
+
+## 2026-06-08 (later) — Three known bugs fixed before scaling LLM extraction further
+
+### Completed
+
+**Fixed the python-docx chapter-column drop on harmony-inserted rows.** Inspected `parse_message_structure_table` in `extract_v291.py` and confirmed it reads `chapter_col = row[3].strip()` unconditionally. Then traced the actual Word cell shape for CH07's ORU_R30 table (`python3 -c "from docx import Document; ..."`): standard rows are 5-cell `['MSH', 'Message Header', '', '2', '2']` with chapter at index 3; harmony rows are 6-cell `['[{GSP}]', 'Person Gender and Sex', '', '', '3', '3']` with an extra empty cell at index 3 and chapter shifted to index 4. Factored out a new `_extract_msg_struct_cols` helper that detects the 6-cell variant — if `row[3]` is empty AND there's a non-empty cell at index 4+, walk forward to find the real chapter. Both `parse_message_structure_table` and `_parse_table_no_header_skip` (the continuation-table variant) now route through this helper, so the fix covers split tables too. Eliminates all 16 false `disagree_both` entries on CH07 from the comparison report.
+
+**Fixed the python-docx primitive-type column filter.** The handoff's framing was "9-column requirement excludes primitives" — that turned out to be wrong. Primitive tables ARE 9-column; the actual bug was the `if not row[0].strip(): continue` filter in `parse_data_type_components_table`. Primitives have empty `SEQ` cells (they're not subdivided into components) but carry real data in length/conf_length/name columns, so the row was being thrown away. Fix: change the empty-row filter to `if not any(cell.strip() for cell in row): continue` — only skip rows where every cell is empty. After re-running extraction, pydocx data type count went from 71 → 83 (added all 12 primitives: DT, DTM, FT, GTS, ID, IS, NM, SI, SNM, ST, TM, TX). All 12 cross-validate cleanly against the LLM extractions that already had them.
+
+**Tightened the LLM structureId prompt rule.** Changed the in-prompt comment from "from the section heading 'ADT^A01^ADT_A01: ...'" (ambiguous; LLM had been synthesizing per-event IDs like `ACK_A03` for legacy ACK captions) to "third caret-separated token of the caption, verbatim". Added an explicit follow-up paragraph with the ACK example: `ACK^R30^ACK` yields `ACK`, NOT `ACK_R30`. The 5 existing stale `ACK_xxx` LLM-only entries remain in place — would need a re-run to validate the prompt fix in practice. Not done this session (cost ~$2.30 for CH03 alone, not worth burning until there's another reason to re-run).
+
+**Re-ran pydocx extraction on the full corpus to verify the two pydocx fixes.** Took ~1 minute. Output counts: 191 segments (unchanged), 427 message structures (unchanged), 83 data types (+12 primitives), 517 events. No warnings, no errors. Spot-checked DT.json (new file, matches the LLM extraction exactly) and ORU_R30_07_233.json (harmony rows now have `chapter: '3'`).
+
+**Regenerated `v291-llm/comparison-report.md`.** New totals: 124/125 msg structures (99%), 51/52 segments (98%), 82/83 data types (98%). All remaining diffs are minor known quirks (1 paragraph-join, 1 GSR row, 1 DLN apostrophe) plus 5 stale ACK_xxx entries from before the prompt tweak.
+
+### Why fix before scaling
+
+The choice was: extract more chapters (potentially uncover more bugs) vs fix the known bugs first. Fixed first because:
+- The two known pydocx bugs would have polluted every future comparison report with the same false positives. Distinguishing new genuine findings from known noise on each new chapter is more expensive than fixing the bugs once.
+- The 12 primitive types were single-source (LLM-only). Fixing pydocx promoted them to cross-validated — confidence gain on data we already paid for.
+- Re-validating the fix on the existing 4 chapters cost $0 (LLM corpus on disk, only re-run pydocx + comparison). Cheaper than any new chapter run.
+- Bugs aren't self-correcting; discovering them on more chapters doesn't solve them, just produces more reports with the same noise.
+
+### Why the specific code shapes
+
+- **`_extract_msg_struct_cols` helper over inline branching**: the same row-shape logic is needed in two call sites (`parse_message_structure_table` and `_parse_table_no_header_skip`). Pulling it out avoids drift and gives the bug + fix a clear, named home.
+- **Forward-walk for chapter cell over special-casing harmony segments**: the original instinct was to hardcode `GSP/GSR/GSC → chapter '3'`, but that's a maintenance trap — every new harmony segment would need an addition. The structural rule (the 6-cell variant always has the real chapter at index 4 or 5 with empty index 3) generalizes to any future harmony insertions without code changes.
+- **`not any(cell.strip() for cell in row)` over a primitive-detection branch**: the alternative was adding a parallel "primitive table" code path. But primitive tables and complex-type tables have the *same shape* (9 columns, same headers) — they only differ in which cells happen to be empty. The right fix is to be less aggressive about row filtering, not to add a parallel branch.
+- **Prompt tweak + paragraph over schema change**: could have added a Pydantic validator that rejects synthesized IDs, but that would push the failure to API-call time (rejection + retry burn). Clarifying the prompt prevents the failure upstream and is cheaper.
+
+### Why NOT re-running LLM to validate the ACK prompt tweak
+
+Cost is the issue. Re-extracting CH03 alone (the chapter with multiple ACK captions) is ~$2.30. The tweak is small, the model is being asked to do something simpler than before (verbatim copy vs synthesize), and the existing pattern for non-ACK structures (verbatim copy of the third token) is already what the LLM does correctly. High confidence the tweak works; the only thing we lose by deferring is the empirical confirmation. Will pick up naturally on the next CH03/CH07 re-run.
+
+### Commits this session
+
+On `dev/framework` (NOT pushed — auth blocked, see ACTIVE pending user actions):
+- `877b19e8` — Fix pydocx harmony chapter-column drop and primitive-type filter; tweak LLM ACK structureId rule
+
+Branch is now 2 commits ahead of origin (this session's commit + last session's `a6ac6ebf` JOURNAL update).
+
+### Relevant context for next session
+
+- **The `v291-extracted/` corpus on disk is now the post-fix version.** It's gitignored, so the commit doesn't capture it — but any tooling that re-reads it will pick up the fixed data. If a future session inadvertently re-runs `extract_v291.py` against an older version of the script, the fixed data would regress.
+- **The 6-cell harmony row pattern is documented in `_extract_msg_struct_cols`'s docstring.** If a future chapter run surfaces a 7-cell or 8-cell variant (more extra empty cells from a different Word artifact), the forward-walk logic handles it automatically — only the docstring needs updating.
+- **Comparison report header counts: msg structures common is still 125** — the LLM corpus's 5 stale `ACK_xxx` entries remain as "LLM-only" rather than rejoining "common". The 5 will disappear if/when CH03 + CH07 are re-extracted with the new prompt.
+- **The remaining ADT_A01 "Usual Work /" diff is a `render_table_as_markdown` quirk in the LLM script, NOT a pydocx bug**: the Word cell has two paragraphs, the LLM script joins with " / ", pydocx walks raw cell text and gets just "Usual Work". Could be fixed by changing the markdown renderer to use `"\n"` instead of `" / "`, but that'd ripple through cached prompt tokens. Low priority.
+- **Push auth root cause**: the credential helper is being invoked correctly (verified via `GIT_TRACE=1`) — it just receives a PAT value that GitHub rejects. Either the value in `$GITHUB_PERSONAL_ACCESS_TOKEN` is expired/revoked, or the env var was unset when the bash session started. Worth checking `echo "$GITHUB_PERSONAL_ACCESS_TOKEN" | head -c 10` after the user refreshes the PAT to confirm the value is what they expect.
