@@ -5,13 +5,13 @@
     "common": 799
   },
   "policyAbsorbed": {
-    "total": 1043,
+    "total": 1056,
     "byField": {
       "codeSystems[0].Description": 365,
       "tableMetadata.Description": 222,
-      "conceptDomain.Description": 135,
-      "codedContent.comment": 127,
-      "codedContent.displayName": 103,
+      "conceptDomain.Description": 142,
+      "codedContent.comment": 131,
+      "codedContent.displayName": 105,
       "valueSets[0].Description": 62,
       "codedContent.definition": 27,
       "tableMetadata.where used": 1,
@@ -899,7 +899,7 @@
         "location": "codedContent[47].comment",
         "code": "Chrom-Loc",
         "bucket": "typography",
-        "pydocx": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm – either “p” for the short or “q” for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g., 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI’s ClinVar variation tables. It will expand as additional sources become available.",
+        "pydocx": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm – either “p” for the short or “q” for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g., 2p16.3. There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI’s ClinVar variation tables. It will expand as additional sources become available.",
         "llm": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm – either \"p\" for the  short or \"q\" for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g. 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI's ClinVar variation tables. It will expand as additional sources become available."
       },
       {

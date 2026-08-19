@@ -51,7 +51,10 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vocabulary_text_policy import apply_text_policy  # noqa: E402
+from vocabulary_text_policy import (
+    apply_manual_corrections,
+    apply_text_policy,
+)  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PYDOCX_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -159,21 +162,28 @@ def classify_difference(left, right):
 POLICY_ABSORBED = Counter()
 
 
-def under_policy(field, text):
+def under_policy(table, field, text):
     """Return a value as the shared text policy would emit it.
 
     Used on both sides of every comparison so that the normalization the
     extractor already applied to the python-docx corpus is not mistaken for a
-    disagreement with the LLM corpus.
+    disagreement with the LLM corpus. That includes the individual corrections
+    of ADR-0008 D14: the python-docx corpus on disk already carries them, so
+    the LLM side has to be given them too or every one would be reported as a
+    disagreement. Applying them to both is safe, because a correction whose
+    published text is already gone does nothing.
     """
     normalized, _ = apply_text_policy(field, text or "")
+    normalized, _ = apply_manual_corrections(table, normalized)
     return normalized
 
 
-def classify_under_policy(field, left, right, location):
+def classify_under_policy(table, field, left, right, location):
     """Classify a difference after putting both values through the policy.
 
     Args:
+        table: The Chapter 2C table number, needed by the individual
+            corrections, which are keyed by table.
         field: The bare field name, used to decide whether the policy applies.
         left: The python-docx value.
         right: The LLM value.
@@ -182,8 +192,8 @@ def classify_under_policy(field, left, right, location):
     Returns:
         The bucket name, or None when the two agree under the policy.
     """
-    bucket = classify_difference(under_policy(field, left),
-                                 under_policy(field, right))
+    bucket = classify_difference(under_policy(table, field, left),
+                                 under_policy(table, field, right))
     if bucket is None and (left or "") != (right or ""):
         POLICY_ABSORBED[location] += 1
     return bucket
@@ -216,7 +226,7 @@ def repeated_blocks_to_dicts(blocks):
     return normalized
 
 
-def compare_dicts(py_dict, llm_dict, location):
+def compare_dicts(table, py_dict, llm_dict, location):
     """Compare two metadata dicts, returning a list of finding dicts."""
     findings = []
     for key in sorted(set(py_dict) | set(llm_dict)):
@@ -229,7 +239,7 @@ def compare_dicts(py_dict, llm_dict, location):
             findings.append({"location": f"{location}.{key}", "bucket": "missing_in_pydocx",
                              "pydocx": None, "llm": llm_dict[key]})
             continue
-        bucket = classify_under_policy(key, py_dict[key], llm_dict[key],
+        bucket = classify_under_policy(table, key, py_dict[key], llm_dict[key],
                                        f"{location}.{key}")
         if bucket:
             findings.append({"location": f"{location}.{key}", "bucket": bucket,
@@ -237,7 +247,7 @@ def compare_dicts(py_dict, llm_dict, location):
     return findings
 
 
-def compare_codes(py_codes, llm_codes):
+def compare_codes(table, py_codes, llm_codes):
     """Compare the coded content of one table, row by row in source order."""
     findings = []
     if len(py_codes) != len(llm_codes):
@@ -250,7 +260,7 @@ def compare_codes(py_codes, llm_codes):
 
     for index, (py_row, llm_row) in enumerate(zip(py_codes, llm_codes)):
         for field in CODE_FIELDS:
-            bucket = classify_under_policy(field, py_row.get(field, ""),
+            bucket = classify_under_policy(table, field, py_row.get(field, ""),
                                            llm_row.get(field, ""),
                                            f"codedContent.{field}")
             if bucket:
@@ -267,6 +277,7 @@ def compare_codes(py_codes, llm_codes):
 def compare_table(py_record, llm_record):
     """Compare one code table across both corpuses. Returns a findings list."""
     findings = []
+    table = py_record.get("tableNumber", "")
 
     bucket = classify_difference(py_record.get("tableName", ""),
                                  llm_record.get("tableName", ""))
@@ -276,7 +287,8 @@ def compare_table(py_record, llm_record):
                          "llm": llm_record.get("tableName", "")})
 
     for section in SINGLE_BLOCKS:
-        findings += compare_dicts(block_to_dict(py_record.get(section)),
+        findings += compare_dicts(table,
+                                  block_to_dict(py_record.get(section)),
                                   block_to_dict(llm_record.get(section)),
                                   section)
 
@@ -288,9 +300,10 @@ def compare_table(py_record, llm_record):
                              "pydocx": f"{len(py_blocks)} blocks",
                              "llm": f"{len(llm_blocks)} blocks"})
         for index, (py_block, llm_block) in enumerate(zip(py_blocks, llm_blocks)):
-            findings += compare_dicts(py_block, llm_block, f"{section}[{index}]")
+            findings += compare_dicts(table, py_block, llm_block,
+                                      f"{section}[{index}]")
 
-    findings += compare_codes(py_record.get("codedContent") or [],
+    findings += compare_codes(table, py_record.get("codedContent") or [],
                               llm_record.get("codedContent") or [])
     return findings
 

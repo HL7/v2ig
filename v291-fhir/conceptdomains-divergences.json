@@ -240,7 +240,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "BCComponent",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "The domain of possible values specifying the type of BC Component .",
+      "chapter2C": "The domain of possible values specifying the type of BC Component.",
       "tables": [
         "0577",
         "0582"
@@ -259,7 +259,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "BCDonationType/IntendedUse",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "The domain of possible values specifying the type of BC Donation Type / Intended Use .",
+      "chapter2C": "The domain of possible values specifying the type of BC Donation Type / Intended Use.",
       "tables": [
         "0578"
       ]
@@ -268,7 +268,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "BCSpecialTesting",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "The domain of possible values specifying the type of BC Special Testing .",
+      "chapter2C": "The domain of possible values specifying the type of BC Special Testing.",
       "tables": [
         "0580"
       ]
@@ -277,7 +277,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "BPBloodGroup",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "The domain of possible values specifying the type of BP Blood Group .",
+      "chapter2C": "The domain of possible values specifying the type of BP Blood Group.",
       "tables": [
         "0579"
       ]
@@ -507,7 +507,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "ContainerType",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "The domain of possible values specifying the type of Container Type .",
+      "chapter2C": "The domain of possible values specifying the type of Container Type.",
       "tables": [
         "0785"
       ]
@@ -1291,7 +1291,7 @@
       "detail": "The tables declaring this domain describe it differently. The first was used.",
       "chapter2C": [
         "The domain of possible values that define the imaging apparatus expected to be used to acquire an observation. This table has been removed from the standard as of 2.7 in favor of table 0910.",
-        "The domain of possible values specifying the type of Modality ."
+        "The domain of possible values specifying the type of Modality."
       ],
       "tables": [
         "0259",

@@ -65,6 +65,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vocabulary_text_policy import (  # noqa: E402
     DESCRIPTIVE_FIELDS,
     RULE_KINDS,
+    apply_manual_corrections,
     apply_text_policy,
     unresolved_space_runs,
 )
@@ -203,6 +204,11 @@ def normalize_cell(raw, log, table_number, location):
     stripped = raw.strip()
     _, field = split_location(location)
     value, applied = apply_text_policy(field, stripped)
+
+    # Individual corrections run last, against the text a reviewer was reading
+    # when they decided about it (ADR-0008 D14).
+    value, corrections = apply_manual_corrections(table_number, value)
+    applied = applied + corrections
 
     if log is None:
         return value
@@ -751,9 +757,12 @@ def extract_all_tables(doc_path, output_dir):
         where = f"{group['section']}.{group['field']}" if group['field'] else group['section']
         by_kind_and_field.setdefault(group['kind'], {})[where] = group['count']
 
+    # 'manual_correction' is not a rule, but it changes text and its places
+    # need counting the same way (ADR-0008 D14).
+    counted_kinds = tuple(RULE_KINDS) + ('manual_correction',)
     places_changed = {}
     for entry in log.entries:
-        if entry['kind'] in RULE_KINDS:
+        if entry['kind'] in counted_kinds:
             places_changed[entry['kind']] = (places_changed.get(entry['kind'], 0)
                                              + entry.get('placesChanged', 0))
 
@@ -761,7 +770,8 @@ def extract_all_tables(doc_path, output_dir):
         'extractionDate': extraction_date,
         'sourceFile': 'CH02C_Tables.docx',
         'policy': {
-            'normalized': ['leading_trailing_whitespace'] + list(RULE_KINDS),
+            'normalized': (['leading_trailing_whitespace']
+                           + list(RULE_KINDS) + ['manual_correction']),
             'preserved': ['internal_double_space', 'ditto_mark_space_run',
                           'non_breaking_space', 'embedded_newline'],
             'descriptiveFields': sorted(DESCRIPTIVE_FIELDS),

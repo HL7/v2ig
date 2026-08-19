@@ -521,6 +521,62 @@ the comparison is right when the difference is genuinely one of presentation
 
 ---
 
+## 009 — Thirteen individual corrections
+
+**ADR-0008 D14.** 13 values across 11 tables, 14 places.
+
+### Why these are not a rule
+
+Chapter 2C has 19 places with a space before closing punctuation. The reviewer
+went through them and wanted 14 changed and 5 left alone — including table
+0717's two values, retained exactly as published, line breaks and all. That
+split is not a pattern; it is a person reading each one. Rather than invent a
+discriminator the text does not contain, the corrections are recorded
+individually in `MANUAL_CORRECTIONS`.
+
+### What was corrected
+
+| Table | Field | As published | As emitted |
+|---|---|---|---|
+| 0003 | `codedContent.displayName` | `Successful , with Derived` | `Successful, with Derived` |
+| 0119 | `codedContent.comment` | `Placer Applications .` | `Placer Applications.` |
+| 0356 | `codedContent.displayName` | `Extension Technique". .` | `Extension Technique".` |
+| 0396 | `codedContent.comment` | `2p16.3 . There are` | `2p16.3. There are` |
+| 0396 | `codedContent.comment` ×3 | `versions, "2004" , "2005"` | `versions, "2004", "2005"` |
+| 0577 | `conceptDomain.Description` | `type of BC Component .` | `type of BC Component.` |
+| 0578 | `conceptDomain.Description` | `Donation Type / Intended Use .` | `Donation Type / Intended Use.` |
+| 0579 | `conceptDomain.Description` | `type of BP Blood Group .` | `type of BP Blood Group.` |
+| 0580 | `conceptDomain.Description` | `type of BC Special Testing .` | `type of BC Special Testing.` |
+| 0582 | `conceptDomain.Description` | `type of BC Component .` | `type of BC Component.` |
+| 0604 | `conceptDomain.Description` | `type of Modality .` | `type of Modality.` |
+| 0785 | `conceptDomain.Description` | `type of Container Type .` | `type of Container Type.` |
+
+### How they are matched, and why not by location
+
+Each correction is a text fragment within a named table. It is **not** keyed by
+a location path, for two reasons that would each have caused a silent failure:
+
+- **The pipelines index coded content differently.** The 0003 value is row 348
+  to python-docx and row 347 to the LLM. A location key would have corrected
+  one corpus and missed the other — the same failure mode as changes 006, 007a
+  and 008, reached from a fourth direction.
+- **A fragment that stops matching fails loudly.** If the source text moves,
+  the correction stops firing and the count here drops. A location key would
+  go on editing whatever now sits at that path.
+
+Fragments match the text **after** the rule chain has run, because that is what
+the reviewer was reading. Every fragment was checked to occur in both corpuses
+before being accepted, and the corrections are applied to both.
+
+### Effect
+
+The outstanding space-before-punctuation group falls from **19 places to 5**.
+Cross-pipeline agreement is unchanged at 740/799; the policy-absorbed count
+rises from 1,043 to 1,056, which is how the corrections show up on the
+comparison side rather than as disagreements.
+
+---
+
 ## Cumulative effect
 
 | Rule | Change | Values | Places |
@@ -538,7 +594,8 @@ the comparison is right when the difference is genuinely one of presentation
 | Line-initial indent set to two spaces | 007d / D7 | 2 | 4 |
 | Every remaining run of spaces | 007e / D7 | 141 | 150 |
 | Non-breaking space against closing punctuation | 008 / D10 | 1 | 1 |
-| **Total** | | **1,241** | **1,460** |
+| Individual corrections | 009 / D14 | 13 | 14 |
+| **Total** | | **1,254** | **1,474** |
 
 The period count moved 890 → 891 because change 007a turns table 0301's
 corrupt character into an ordinary space, which then leaves a double space for
@@ -567,20 +624,21 @@ rather than outstanding.
 
 ### A space before the punctuation that closes a clause
 
-**19 places, in 4 fields.** Surfaced by change 007; the one place that was ours
-is cleared by change 008, and every remaining place is printed this way in
-Chapter 2C.
+**5 places, in 3 fields.** Down from 20: change 008 cleared the one that was
+ours, and change 009 corrected 14 more individually. Each of the five is
+named, because a group this small should not make anyone re-derive it.
 
-| Field | Places | Example |
-|---|---:|---|
-| `codedContent.comment` | 8 | `Placer Applications .` (0119) |
-| `conceptDomain.Description` | 8 | `...specifying the type of BC Component .` (0577) |
-| `codedContent.displayName` | 2 | `Specimen Procedure Step Successful , with Derived...` (0003) |
-| `valueSet.Description` | 1 | `...quality code system .` (0952) |
+| Table | Field | What is left | Status |
+|---|---|---|---|
+| 0717 | `codedContent.comment` ×2 | `...sec164-506.pdf , which` | **Decided: leave entirely alone**, line breaks included |
+| 0440 | `codedContent.comment` | `...( OBR-32) , 4.5.3.33` | Open. The same construct was corrected in 0396, but the instruction for 0440 was about a double space before a hyphen — which D7 had already collapsed |
+| 0952 | `conceptDomain.Description` | `Usage Note : Confidentiality` | Open. A colon, not a period, so "remove the spaces before the periods" did not reach it |
+| 0952 | `valueSet.Description` | `Confidentiality code system .` | Open. The double space between `elements` and `in` that prompted the review had already gone under D7 |
 
-The remaining question is one decision covering all four fields: leave them as
-published, which is the current behaviour and the conservative default, or
-collapse them the way changes 001–007 collapsed the space runs.
+Two of the three open ones are open only because the reviewer was reading the
+**As published** column, where the defect they spotted was still visible even
+though a rule had already fixed it. The report now marks the outstanding site
+in the **As emitted** column so the question being asked is unambiguous.
 
 ### Dashes the rule refused to repair
 
@@ -607,19 +665,26 @@ commas with no space at all.
 | 0367 | all four `Description` fields | `(e.g.,highest alert severity)` |
 | 0396 | `codedContent.comment` | `From school, provider,public health agency.` |
 
-### Characters worth a second look
+### Characters worth a second look — none
 
-From the character inventory now carried in the review report. Every non-ASCII
-character in the emitted corpus is counted there and given a verdict; two have
-no verdict yet.
+**Closed by ADR-0008 D15.** The character inventory in the review report now
+checks every non-ASCII character in the corpus against every character the
+staged `hl7.terminology.r5` package publishes, and **all 14 of ours appear in
+THO**. Nothing here is a fidelity problem.
 
-| Character | Count | Where | The question |
+The two that had been left without a verdict are the clearest cases:
+
+| Character | Count | Where | Why it is closed |
 |---|---:|---|---|
-| `Ø` U+00D8 | 8 | 0396 | NCPDP writes zero as a slashed O, so the address and phone number read `924Ø East Raintree Drive` and `(48Ø) 477-1ØØØ`. Faithful, but these are digits |
-| `‑` U+2011 | 4 | 0945 | A non-breaking hyphen in `pre‑configured`. Reads as an ordinary hyphen and probably should be one |
+| `Ø` U+00D8 | 8 | 0396 | NCPDP writes zero as a slashed O, so the address reads `924Ø East Raintree Drive`. THO publishes the same address, character for character, in `CodeSystem/v2-0396` |
+| `‑` U+2011 | 4 | 0945 | A non-breaking hyphen in `pre‑configured`. THO carries the identical text in `CodeSystem/v2-0945` and in its concept domains |
+
+The rest — curly quotes, en and em dashes, bullets, `®`, `©`, and the German
+umlauts in `Operationen- und Prozedurenschlüssel` — were never in question, and
+the report no longer presents them as though they were.
 
 The three characters that **were** corrupt — `Â`, the non-breaking space and
-`U+F06C` — no longer appear in the inventory at all, which is the check that
+`U+F06C` — do not appear in the inventory at all, which is the check that
 change 007 did what it claims.
 
 ### Other kinds, unchanged

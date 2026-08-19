@@ -21447,7 +21447,7 @@
           "valueCode": "v2"
         }
       ],
-      "definition": "The domain of possible values specifying the type of BC Component ."
+      "definition": "The domain of possible values specifying the type of BC Component."
     },
     {
       "code": "BCDonationType/IntendedUse",
@@ -21458,7 +21458,7 @@
           "valueCode": "v2"
         }
       ],
-      "definition": "The domain of possible values specifying the type of BC Donation Type / Intended Use ."
+      "definition": "The domain of possible values specifying the type of BC Donation Type / Intended Use."
     },
     {
       "code": "BCSpecialTesting",
@@ -21469,7 +21469,7 @@
           "valueCode": "v2"
         }
       ],
-      "definition": "The domain of possible values specifying the type of BC Special Testing ."
+      "definition": "The domain of possible values specifying the type of BC Special Testing."
     },
     {
       "code": "BPBloodGroup",
@@ -21480,7 +21480,7 @@
           "valueCode": "v2"
         }
       ],
-      "definition": "The domain of possible values specifying the type of BP Blood Group ."
+      "definition": "The domain of possible values specifying the type of BP Blood Group."
     },
     {
       "code": "BPUnits",
@@ -21667,7 +21667,7 @@
           "valueCode": "v2"
         }
       ],
-      "definition": "The domain of possible values specifying the type of Container Type ."
+      "definition": "The domain of possible values specifying the type of Container Type."
     },
     {
       "code": "ContainerUnits",

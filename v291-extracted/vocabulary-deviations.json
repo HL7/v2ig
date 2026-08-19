@@ -15,7 +15,8 @@
       "dash_spacing",
       "line_initial_indent",
       "repeated_space_collapsed",
-      "missing_comma_after_abbreviation"
+      "missing_comma_after_abbreviation",
+      "manual_correction"
     ],
     "preserved": [
       "internal_double_space",
@@ -33,6 +34,7 @@
       "double_space_after_period": 1090,
       "repeated_space_in_display_name": 66,
       "dash_spacing": 18,
+      "manual_correction": 14,
       "double_space_after_comma": 10,
       "repeated_space_collapsed": 150,
       "missing_comma_after_abbreviation": 62,
@@ -64,7 +66,7 @@
     "double_space_after_period": 891,
     "repeated_space_in_display_name": 66,
     "dash_spacing": 16,
-    "space_before_punctuation": 19,
+    "manual_correction": 14,
     "double_space_after_comma": 10,
     "embedded_newline": 223,
     "repeated_space_collapsed": 141,
@@ -74,6 +76,7 @@
     "mojibake_non_breaking_space": 1,
     "non_breaking_space_in_text": 2,
     "line_initial_indent": 2,
+    "space_before_punctuation": 5,
     "ditto_mark_space_run": 1,
     "non_breaking_space": 6,
     "nbsp_before_punctuation": 1,
@@ -135,6 +138,11 @@
     "line_initial_indent": {
       "codedContent.comment": 2
     },
+    "manual_correction": {
+      "conceptDomain.Description": 7,
+      "codedContent.comment": 5,
+      "codedContent.displayName": 2
+    },
     "missing_comma_after_abbreviation": {
       "codedContent.comment": 24,
       "codeSystem.Description": 7,
@@ -176,9 +184,8 @@
       "codedContent.displayName": 66
     },
     "space_before_punctuation": {
-      "codedContent.comment": 8,
-      "conceptDomain.Description": 8,
-      "codedContent.displayName": 2,
+      "codedContent.comment": 3,
+      "conceptDomain.Description": 1,
       "valueSet.Description": 1
     }
   },
@@ -14169,6 +14176,204 @@
       ]
     },
     {
+      "kind": "manual_correction",
+      "action": "normalized",
+      "section": "conceptDomain",
+      "field": "Description",
+      "count": 7,
+      "tables": [
+        "0577",
+        "0578",
+        "0579",
+        "0580",
+        "0582",
+        "0604",
+        "0785"
+      ],
+      "deviations": [
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0577",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of BC Component .",
+          "normalized": "The domain of possible values specifying the type of BC Component.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0578",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of BC Donation Type / Intended Use .",
+          "normalized": "The domain of possible values specifying the type of BC Donation Type / Intended Use.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0579",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of BP Blood Group .",
+          "normalized": "The domain of possible values specifying the type of BP Blood Group.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0580",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of BC Special Testing .",
+          "normalized": "The domain of possible values specifying the type of BC Special Testing.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0582",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of BC Component .",
+          "normalized": "The domain of possible values specifying the type of BC Component.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0604",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of Modality .",
+          "normalized": "The domain of possible values specifying the type of Modality.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0785",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values specifying the type of Container Type .",
+          "normalized": "The domain of possible values specifying the type of Container Type.",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        }
+      ]
+    },
+    {
+      "kind": "manual_correction",
+      "action": "normalized",
+      "section": "codedContent",
+      "field": "comment",
+      "count": 5,
+      "tables": [
+        "0119",
+        "0396"
+      ],
+      "deviations": [
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0119",
+          "location": "codedContent[1].comment",
+          "raw": "Placer Applications .",
+          "normalized": "Placer Applications.",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0396",
+          "location": "codedContent[48].comment",
+          "raw": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm \u2013 either \u201cp\u201d for the short or \u201cq\u201d for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g., 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI\u2019s ClinVar variation tables. It will expand as additional sources become available.",
+          "normalized": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm \u2013 either \u201cp\u201d for the short or \u201cq\u201d for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g., 2p16.3. There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI\u2019s ClinVar variation tables. It will expand as additional sources become available.",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0396",
+          "location": "codedContent[81].comment",
+          "raw": "German Handbook for DRGs. The THREE versions, \"2004\" , \"2005\" and \"2006\" are active",
+          "normalized": "German Handbook for DRGs. The THREE versions, \"2004\", \"2005\" and \"2006\" are active",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0396",
+          "location": "codedContent[82].comment",
+          "raw": "German Handbook for DRGs. The THREE versions, \"2004\" , \"2005\" and \"2006\" are active",
+          "normalized": "German Handbook for DRGs. The THREE versions, \"2004\", \"2005\" and \"2006\" are active",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0396",
+          "location": "codedContent[83].comment",
+          "raw": "German Handbook for DRGs. The THREE versions, \"2004\" , \"2005\" and \"2006\" are active",
+          "normalized": "German Handbook for DRGs. The THREE versions, \"2004\", \"2005\" and \"2006\" are active",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        }
+      ]
+    },
+    {
+      "kind": "manual_correction",
+      "action": "normalized",
+      "section": "codedContent",
+      "field": "displayName",
+      "count": 2,
+      "tables": [
+        "0003",
+        "0356"
+      ],
+      "deviations": [
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0003",
+          "location": "codedContent[348].displayName",
+          "raw": "Specimen Procedure Step Successful , with Derived Specimen(s)",
+          "normalized": "Specimen Procedure Step Successful, with Derived Specimen(s)",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "displayName"
+        },
+        {
+          "kind": "manual_correction",
+          "action": "normalized",
+          "tableNumber": "0356",
+          "location": "codedContent[1].displayName",
+          "raw": "This standard is titled \"Information Technology - Character Code Structure and Extension Technique\". .",
+          "normalized": "This standard is titled \"Information Technology - Character Code Structure and Extension Technique\".",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "displayName"
+        }
+      ]
+    },
+    {
       "kind": "missing_comma_after_abbreviation",
       "action": "normalized",
       "section": "codedContent",
@@ -17666,60 +17871,12 @@
       "action": "preserved",
       "section": "codedContent",
       "field": "comment",
-      "count": 8,
+      "count": 3,
       "tables": [
-        "0119",
-        "0396",
         "0440",
         "0717"
       ],
       "deviations": [
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0119",
-          "location": "codedContent[1].comment",
-          "raw": "Placer Applications .",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0396",
-          "location": "codedContent[48].comment",
-          "raw": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm \u2013 either \u201cp\u201d for the  short or \u201cq\u201d for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g. 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI\u2019s ClinVar variation tables. It will expand as additional sources become available.",
-          "normalized": "Chromosome location (AKA chromosome locus or cytogenetic location), is the standardized syntax for recording the position of genes and large mutations. It consists of three parts: the Chromosome number (e 1-22, X, Y), an indicator of which arm \u2013 either \u201cp\u201d for the short or \u201cq\u201d for the long, and then a series of numbers separated by dots that indicate the band, sub band and sub-sub band of the locus - e.g., 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromosome locations was loaded initially with the all of the locations found in NCBI\u2019s ClinVar variation tables. It will expand as additional sources become available.",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0396",
-          "location": "codedContent[81].comment",
-          "raw": "German Handbook for DRGs. The THREE versions, \"2004\" , \"2005\" and \"2006\" are active",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0396",
-          "location": "codedContent[82].comment",
-          "raw": "German Handbook for DRGs. The THREE versions, \"2004\" , \"2005\" and \"2006\" are active",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0396",
-          "location": "codedContent[83].comment",
-          "raw": "German Handbook for DRGs. The THREE versions, \"2004\" , \"2005\" and \"2006\" are active",
-          "section": "codedContent",
-          "field": "comment"
-        },
         {
           "kind": "space_before_punctuation",
           "action": "preserved",
@@ -17755,81 +17912,11 @@
       "action": "preserved",
       "section": "conceptDomain",
       "field": "Description",
-      "count": 8,
+      "count": 1,
       "tables": [
-        "0577",
-        "0578",
-        "0579",
-        "0580",
-        "0582",
-        "0604",
-        "0785",
         "0952"
       ],
       "deviations": [
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0577",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of BC Component .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0578",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of BC Donation Type / Intended Use .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0579",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of BP Blood Group .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0580",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of BC Special Testing .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0582",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of BC Component .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0604",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of Modality .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0785",
-          "location": "conceptDomain.Description",
-          "raw": "The domain of possible values specifying the type of Container Type .",
-          "section": "conceptDomain",
-          "field": "Description"
-        },
         {
           "kind": "space_before_punctuation",
           "action": "preserved",
@@ -17838,37 +17925,6 @@
           "raw": "Types of privacy metadata classifying an IT resource (data, information object, service, or system capability) according to its level of sensitivity, which is based on an analysis of applicable privacy policies and the risk of financial, reputational, or other harm to an individual or entity that could result if made available or disclosed to unauthorized individuals, entities, or processes.\nUsage Note : Confidentiality codes may be used in security labels and privacy markings to classify IT resources based on sensitivity to indicate the obligation of a custodian or receiver to ensure that the protected resource is not made available or disclosed to individuals, entities, or processes (security principals) unless authorized per applicable policies. Confidentiality codes may also be used in the clearances of initiators requesting access to protected resources.\nMap: Definition aligns with ISO 7498-2:1989 - Confidentiality is the property that information is not made available or disclosed to unauthorized individuals, entities, or processes",
           "section": "conceptDomain",
           "field": "Description"
-        }
-      ]
-    },
-    {
-      "kind": "space_before_punctuation",
-      "action": "preserved",
-      "section": "codedContent",
-      "field": "displayName",
-      "count": 2,
-      "tables": [
-        "0003",
-        "0356"
-      ],
-      "deviations": [
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0003",
-          "location": "codedContent[348].displayName",
-          "raw": "Specimen Procedure Step Successful , with Derived Specimen(s)",
-          "section": "codedContent",
-          "field": "displayName"
-        },
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0356",
-          "location": "codedContent[1].displayName",
-          "raw": "This standard is titled \"Information Technology - Character Code Structure and Extension Technique\". .",
-          "section": "codedContent",
-          "field": "displayName"
         }
       ]
     },

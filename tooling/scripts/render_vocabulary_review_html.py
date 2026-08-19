@@ -58,9 +58,13 @@ DEFAULT_OUT = PROJECT_ROOT / "v291-extracted" / "vocabulary-review-report.html"
 
 CONCEPT_DOMAIN_PRESENTATION = {
     "added_from_chapter_2c": (
-        "confirm",
-        "Declared in Chapter 2C but absent from THO, so added as a new concept. "
-        "Confirm each really is a concept domain worth publishing.",
+        "resolved",
+        "Declared in Chapter 2C but absent from THO, so added as a new "
+        "concept. ADR-0008 D1 decided that all of them are added: publishing "
+        "a subset at THO's canonical URL would destructively redefine a code "
+        "system this project does not own, so a superset is the only safe "
+        "shape. Listed in full because the reader should be able to see what "
+        "the IG adds, not because a judgement is outstanding.",
     ),
     "symbolic_name_is_not_a_plain_token": (
         "decide",
@@ -218,7 +222,12 @@ COMPARISON_PRESENTATION = {
     "missing_in_pydocx": ("decide", "A key the LLM found and the python-docx extraction did not."),
     "llm_truncated": ("informational", "Known LLM defect: the value was cut short at a literal double quote."),
     "typography": ("informational", "Known LLM defect: ASCII look-alikes for curly quotes and dashes."),
-    "whitespace": ("confirm", "Differs only in spacing, normally the whitespace stripped by python-docx."),
+    "whitespace": (
+        "informational",
+        "Differs only in spacing, normally the whitespace python-docx strips "
+        "or a non-breaking space the LLM flattened. Not a decision: an "
+        "observation about how the two pipelines read the same cell.",
+    ),
 }
 
 SOURCE_ISSUE_PRESENTATION = {
@@ -383,6 +392,122 @@ DECISION_NOTES = {
     ),
 }
 
+# Where the outstanding construct actually is, per deviation kind.
+#
+# An outstanding group shows a value AS EMITTED, and that value has usually
+# been through several rules already -- so the thing still outstanding is one
+# space somewhere inside a 700-character paragraph. Without a mark on it, a
+# reader scanning the "As published" column finds a different defect, one that
+# was fixed three rules ago, and decides about that instead. That happened
+# twice in one review round, on tables 0440 and 0952.
+#
+# The pattern must match the same construct the extractor detected, or the
+# mark will point at the wrong place, which is worse than no mark.
+OUTSTANDING_SITE = {
+    # Mirrors SPACE_BEFORE_PUNCTUATION_RE in extract_v291_vocabulary.py.
+    "space_before_punctuation": re.compile(r"\S +(?=[.,;:](?:\s|$))"),
+    "internal_double_space": re.compile(r" {2,}"),
+    "ditto_mark_space_run": re.compile(r'(?<=["\u201c\u201d\u2018\u2019]) {2,}(?=["\u201c\u201d\u2018\u2019])'),
+}
+
+
+# Which ADR-0008 decision authorized each automatic change to the text.
+#
+# A group with an entry here is DECIDED, not awaiting confirmation. The
+# reviewer worked it, the reasoning is recorded in the ADR, and presenting it
+# again as something to check would be asking for the same judgement twice --
+# which is exactly the complaint that produced this table. "Confirm" is
+# reserved for a change that has been made but not yet reviewed by anyone.
+#
+# Adding a rule means adding a line here at the point the reviewer approves it.
+# Until then the group renders as "Confirm", which is accurate.
+DEVIATION_DECISION = {
+    "leading_trailing_whitespace": "D2",
+    "double_space_after_period": "D3",
+    "double_space_after_sentence_close": "D4",
+    "double_space_after_comma": "D4",
+    "repeated_space_in_display_name": "D4",
+    "dash_spacing": "D5",
+    "missing_comma_after_abbreviation": "D6",
+    "mojibake_non_breaking_space": "D7",
+    "private_use_area_character": "D7",
+    "non_breaking_space_in_text": "D7",
+    "line_initial_indent": "D7",
+    "repeated_space_collapsed": "D7",
+    "non_breaking_space": "D2",
+    "nbsp_before_punctuation": "D10",
+    "manual_correction": "D14",
+}
+
+
+# A note on a section that is still open. Same rendering as a decision, but it
+# does not move the section out of "Decide" -- it is context for the decision,
+# not the decision. Say plainly what is still being asked.
+# The five that survive the 2026-08-19 pass, named individually. A group with
+# five items left in it should say which five and why, or the next reader
+# re-derives it.
+OPEN_NOTES = {
+    "dev-space_before_punctuation-codedContent-comment": (
+        "Three left, and all three were looked at. "
+        "<b>0440</b> &mdash; the double space before a hyphen that prompted "
+        "the review was already gone: D7 collapsed it, and the emitted value "
+        "reads <code>7.4.1.33 - ( OBR-33)</code>. What is still outstanding "
+        "here is a different thing, marked below: a space before the comma in "
+        "<code>( OBR-32) ,</code>. It is the same construct that was corrected "
+        "in 0396, but it was not part of that instruction, so it is asked "
+        "rather than assumed. (The same value also puts a space after each "
+        "opening bracket, <code>( OBR-32)</code>, four times &mdash; a "
+        "separate defect nobody has raised.) "
+        "<b>0717</b>, twice &mdash; <b>decided: leave entirely alone.</b> "
+        "Both values are retained exactly as published, line breaks included.",
+    ),
+    "dev-space_before_punctuation-conceptDomain-Description": (
+        "One left. <b>0952</b> puts a space before a <i>colon</i> in "
+        "<code>Usage Note :</code>, not before a period, so the "
+        "&ldquo;remove the spaces before the periods&rdquo; instruction does "
+        "not reach it. The other seven in this group are corrected under D14. "
+        "Same treatment for the colon, or leave it?",
+    ),
+    "dev-space_before_punctuation-valueSet-Description": (
+        "One left, and it is not the one it looks like. The double space "
+        "between <code>elements</code> and <code>in</code> was already "
+        "collapsed by D7; the emitted value reads "
+        "<code>Security Classification elements in the Message Header</code>. "
+        "What is still outstanding in <b>0952</b> is the space before the "
+        "period in <code>Confidentiality code system .</code>, marked below. "
+        "Same treatment as the seven concept domain descriptions, or leave it?",
+    ),
+}
+
+# Which ADR-0008 decision authorized each automatic change to the text.
+#
+# A group with an entry here is DECIDED, not awaiting confirmation. The
+# reviewer worked it, the reasoning is recorded in the ADR, and presenting it
+# again as something to check would be asking for the same judgement twice --
+# which is exactly the complaint that produced this table. "Confirm" is
+# reserved for a change that has been made but not yet reviewed by anyone.
+#
+# Adding a rule means adding a line here at the point the reviewer approves it.
+# Until then the group renders as "Confirm", which is accurate.
+DEVIATION_DECISION = {
+    "leading_trailing_whitespace": "D2",
+    "double_space_after_period": "D3",
+    "double_space_after_sentence_close": "D4",
+    "double_space_after_comma": "D4",
+    "repeated_space_in_display_name": "D4",
+    "dash_spacing": "D5",
+    "missing_comma_after_abbreviation": "D6",
+    "mojibake_non_breaking_space": "D7",
+    "private_use_area_character": "D7",
+    "non_breaking_space_in_text": "D7",
+    "line_initial_indent": "D7",
+    "repeated_space_collapsed": "D7",
+    "non_breaking_space": "D2",
+    "nbsp_before_punctuation": "D10",
+    "manual_correction": "D14",
+}
+
+
 # A note on a section that is still open. Same rendering as a decision, but it
 # does not move the section out of "Decide" -- it is context for the decision,
 # not the decision. Say plainly what is still being asked.
@@ -497,18 +622,42 @@ def esc(text):
     return html.escape(str(text))
 
 
-def show_invisibles(text):
+# Sentinels for marking a span of text before it is HTML-escaped. Using
+# characters the corpus cannot contain means the highlight survives escaping
+# without having to be expressed in terms of entities.
+_MARK_OPEN = "\uE000"
+_MARK_CLOSE = "\uE001"
+
+
+def show_invisibles(text, highlight=None):
     """Make whitespace visible so a reader can actually see the difference.
 
     A report about stray whitespace is useless if the whitespace is invisible,
     so spaces at the ends of a value, tabs and newlines are shown as marks.
+
+    Args:
+        text: The value to render.
+        highlight: An optional compiled pattern. Every match is wrapped in a
+            highlight. This is what makes an *outstanding* group readable: the
+            emitted value has usually been through several rules already, so
+            without a mark on the part that is still outstanding a reader has
+            to diff two long strings by eye to find it -- and will find the
+            wrong thing.
+
+    Returns:
+        An HTML fragment.
     """
     if text is None:
         return '<span class="absent">&mdash; absent &mdash;</span>'
     if text == "":
         return '<span class="empty">(empty)</span>'
 
-    escaped = html.escape(str(text))
+    text = str(text)
+    if highlight is not None:
+        text = highlight.sub(
+            lambda m: f"{_MARK_OPEN}{m.group(0)}{_MARK_CLOSE}", text)
+
+    escaped = html.escape(text)
     escaped = escaped.replace(" ", '<span class="ws" title="non-breaking space">&#9251;</span>')
     escaped = escaped.replace("\t", '<span class="ws" title="tab">&#8677;</span>')
     escaped = escaped.replace("\n", '<span class="ws" title="line break">&#182;</span><br>')
@@ -517,6 +666,8 @@ def show_invisibles(text):
                      lambda m: f'<span class="ws" title="{len(m.group(0))} spaces">'
                                + "&middot;" * len(m.group(0)) + "</span>",
                      escaped)
+    escaped = (escaped.replace(_MARK_OPEN, '<mark class="site">')
+                      .replace(_MARK_CLOSE, "</mark>"))
     # Mark a single leading or trailing space.
     if str(text).startswith(" "):
         escaped = '<span class="ws" title="leading space">&middot;</span>' + escaped[1:]
@@ -700,37 +851,64 @@ def build_concept_domain_sections(concept_domains):
     return sections
 
 
-# How to present each non-ASCII character the corpus contains. A character not
-# listed here is shown as needing a look, which is the safe default: the point
-# of the inventory is to catch the next "Â" without anybody having to notice it
-# by eye.
-CHARACTER_PRESENTATION = {
-    "“": ("informational", "Published typography."),
-    "”": ("informational", "Published typography."),
-    "‘": ("informational", "Published typography."),
-    "’": ("informational", "Published typography."),
-    "–": ("informational", "Published typography."),
-    "—": ("informational", "Published typography."),
-    "•": ("informational", "A list bullet."),
-    "®": ("informational", "A trademark symbol in a product name."),
-    "©": ("informational", "A copyright symbol in an attribution."),
-    "ä": ("informational", "German text, correctly spelled."),
-    "ö": ("informational", "German text, correctly spelled."),
-    "ü": ("informational", "German text, correctly spelled."),
-    "Ø": (
-        "decide",
+# A verdict on a non-ASCII character, where one is worth recording beyond
+# "THO publishes it too". Most characters need no entry at all: the THO
+# cross-check below is the evidence, and a character THO already publishes is
+# not this project's problem.
+#
+# An entry here only ever adds detail. It cannot make an attested character
+# into a question.
+CHARACTER_NOTES = {
+    "\u201c": "Published typography.",
+    "\u201d": "Published typography.",
+    "\u2018": "Published typography.",
+    "\u2019": "Published typography.",
+    "\u2013": "Published typography.",
+    "\u2014": "Published typography.",
+    "\u2022": "A list bullet.",
+    "\u00ae": "A trademark symbol in a product name.",
+    "\u00a9": "A copyright symbol in an attribution.",
+    "\u00e4": "German text, correctly spelled.",
+    "\u00f6": "German text, correctly spelled.",
+    "\u00fc": "German text, correctly spelled.",
+    "\u00d8": (
         "NCPDP writes zero as a slashed O, so table 0396 carries "
-        "<code>924Ø East Raintree Drive</code> and "
-        "<code>Phone: (48Ø) 477-1ØØØ</code>. Faithful to the published text, "
-        "but these are digits wearing a costume. Left as published.",
+        "<code>924\u00d8 East Raintree Drive</code> and "
+        "<code>Phone: (48\u00d8) 477-1\u00d8\u00d8\u00d8</code>. THO publishes the same "
+        "address, character for character, in its own "
+        "<code>CodeSystem/v2-0396</code>."
     ),
-    "‑": (
-        "decide",
-        "A non-breaking hyphen in table 0945 "
-        "(<code>pre‑configured</code>). Reads as an ordinary hyphen and "
-        "almost certainly should be one; left as published for now.",
+    "\u2011": (
+        "A non-breaking hyphen in <code>pre\u2011configured</code>, table 0945. "
+        "THO carries the identical text in "
+        "<code>CodeSystem/v2-0945</code> and in its concept domains."
     ),
 }
+
+
+def load_tho_characters():
+    """Every non-ASCII character THO publishes, as a set.
+
+    This is the whole basis on which a character is judged. A character that
+    `hl7.terminology.r5` already publishes cannot be a problem for a project
+    whose output sits alongside it -- whatever it looks like. Umlauts,
+    trademark symbols and NCPDP's slashed zero all pass that test, and saying
+    so from evidence is better than saying so from taste.
+
+    Returns an empty set when THO is not staged, in which case the inventory
+    still renders and simply cannot make the comparison.
+    """
+    if not THO_DIR.is_dir():
+        return set()
+    characters = set()
+    for path in THO_DIR.glob("*.json"):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        characters.update(character for character in set(text)
+                          if ord(character) > 127)
+    return characters
 
 
 def build_character_section():
@@ -739,6 +917,10 @@ def build_character_section():
     A one-off scan found the double-encoded non-breaking space in table 0301.
     Making the scan part of the report means the next such character is found
     the same way, rather than by somebody noticing an odd glyph in a cell.
+
+    What makes it useful rather than noisy is the THO comparison: the question
+    is never "does this character look unusual" but "is it already published
+    in the terminology this IG sits beside".
     """
     import unicodedata
 
@@ -767,13 +949,18 @@ def build_character_section():
     if not counts:
         return []
 
+    tho_characters = load_tho_characters()
     rows = []
-    needs_a_look = 0
+    unattested = 0
     for character, count in counts.most_common():
-        action, verdict = CHARACTER_PRESENTATION.get(
-            character, ("decide", "Not yet classified. Look at it."))
-        if action == "decide":
-            needs_a_look += 1
+        in_tho = character in tho_characters
+        if tho_characters and not in_tho:
+            unattested += 1
+            attested = "<b>no &mdash; look at it</b>"
+        elif in_tho:
+            attested = "yes"
+        else:
+            attested = '<span class="absent">&mdash; THO not staged &mdash;</span>'
         try:
             name = unicodedata.name(character)
         except ValueError:
@@ -783,26 +970,48 @@ def build_character_section():
             f"U+{ord(character):04X}",
             name.title(),
             f"{count:,}",
-            verdict,
+            attested,
+            CHARACTER_NOTES.get(character, ""),
             "<br>".join(html.escape(e) for e in examples[character]),
         ])
+
+    if not tho_characters:
+        blurb_tail = (
+            "<b>THO is not staged, so the comparison could not be made.</b> "
+            "Stage <code>tho-r5/</code> and re-run to get a verdict.")
+    elif unattested:
+        blurb_tail = (
+            f"<b>{unattested} of them do not appear in THO at all</b>, which "
+            "is the only thing on this page that needs a look.")
+    else:
+        blurb_tail = (
+            "<b>Every one of them also appears in THO</b>, so none is a "
+            "problem: whatever this corpus carries, the terminology it will "
+            "sit beside already publishes the same character. For the two "
+            "that once looked doubtful &mdash; NCPDP's slashed zero and the "
+            "non-breaking hyphen &mdash; THO carries not just the character "
+            "but the identical text.")
 
     return [{
         "id": "chars-inventory",
         "group": "Published document",
         "title": "Non-ASCII characters in the emitted corpus",
-        "action": "decide" if needs_a_look else "informational",
+        # Never "decide" on the strength of a character looking odd. The
+        # inventory is a regression check first: characters repaired by
+        # ADR-0008 D7 are gone from it, which is how we know the repair held.
+        "action": "decide" if unattested else "informational",
         "blurb": "Every character above ASCII that survives into the extracted "
-                 "corpus, counted. Most are ordinary published typography. The "
-                 "ones marked below are not, and each is its own small "
-                 "question. Characters already repaired by ADR-0008 D7 &mdash; "
-                 "the double-encoded non-breaking space in table 0301 and the "
-                 "Symbol-font bullets in 0964 &mdash; no longer appear here, "
-                 "which is the check that the repair worked.",
+                 "corpus, counted, and checked against every character "
+                 "<code>hl7.terminology.r5</code> publishes. Characters "
+                 "already repaired by ADR-0008 D7 &mdash; the double-encoded "
+                 "non-breaking space in table 0301 and the Symbol-font bullets "
+                 "in 0964 &mdash; no longer appear here, which is the check "
+                 "that the repair worked. " + blurb_tail,
         "count": len(rows),
-        "columns": ["Char", "Code point", "Name", "Count", "Verdict", "Where"],
+        "columns": ["Char", "Code point", "Name", "Count", "In THO?", "Note",
+                    "Where"],
         "rows": rows,
-        "raw_html_columns": {0, 4, 5},
+        "raw_html_columns": {0, 4, 5, 6},
     }]
 
 
@@ -927,14 +1136,22 @@ def build_sections(deviations, comparison, source_issues):
         kind = group["kind"]
         action, blurb = DEVIATION_PRESENTATION.get(
             kind, ("decide", "Difference between published and emitted text."))
+        # A change made under a recorded decision is decided, not pending.
+        if group["action"] == "normalized" and kind in DEVIATION_DECISION:
+            action = "resolved"
         where = f'{group["section"]}.{group["field"]}' if group["field"] else group["section"]
         changed = group["action"] == "normalized"
+        # Only outstanding groups get the mark. In a changed group the two
+        # columns already differ exactly where the change was, so a highlight
+        # would add nothing.
+        site = None if changed else OUTSTANDING_SITE.get(kind)
         rows = []
         for entry in group["deviations"]:
             rows.append([
                 entry["tableNumber"],
                 scrollable(show_invisibles(entry["raw"])),
-                scrollable(show_invisibles(entry.get("normalized", entry["raw"]))),
+                scrollable(show_invisibles(
+                    entry.get("normalized", entry["raw"]), highlight=site)),
             ])
         # The group label says outright whether the text was changed or left
         # alone, so the report answers "what has been done" and "what is still
@@ -949,7 +1166,9 @@ def build_sections(deviations, comparison, source_issues):
                 "  These were changed." if changed
                 else "  These were left as published."),
             "count": group["count"],
-            "columns": ["Table", "As published", "As emitted"],
+            "columns": ["Table", "As published",
+                        "As emitted" + ("" if changed
+                                        else " \u2014 outstanding site marked")],
             "rows": rows,
             "raw_html_columns": {1, 2},
         })
@@ -1031,13 +1250,17 @@ def build_html(sections, deviations, comparison, coverage, generated):
         f"<span class='badge b-resolved'>Decided</span> means a judgement was made; "
         "the reasoning is recorded with it. "
         f"<span class='badge b-confirm'>Confirm</span> means something was changed "
-        "automatically and should be checked. "
+        "automatically and has not yet been reviewed by anyone &mdash; a change "
+        "made under a recorded decision is Decided, not Confirm. "
         f"<span class='badge b-info'>Informational</span> means no action is expected. "
         "Whitespace is shown with visible marks: "
         "<span class='ws'>&middot;</span> a space, "
         "<span class='ws'>&#8677;</span> a tab, "
         "<span class='ws'>&#9251;</span> a non-breaking space, "
-        "<span class='ws'>&#182;</span> a line break."
+        "<span class='ws'>&#182;</span> a line break. "
+        "In an outstanding group the <mark class='site'>marked span</mark> in "
+        "the emitted column is the part still awaiting a decision &mdash; the "
+        "rest of the value may already have been corrected by an earlier rule."
         "</div>")
 
     add("<h2 id='summary'>Summary</h2>")
@@ -1214,6 +1437,7 @@ code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 90%
 .dim-tag { display:inline-block; background:#eaeef2; border-radius:4px; padding:0 6px; font-size:11px; color:#424a53; margin-left:6px; }
 .faint { color: #8b949e; font-size: 11px; }
 .ws { background: #ffe0b2; color: #8a4b00; border-radius: 2px; font-weight: 700; }
+mark.site { background: #ffd8b0; outline: 2px solid #d4691e; border-radius: 2px; }
 """
 
 

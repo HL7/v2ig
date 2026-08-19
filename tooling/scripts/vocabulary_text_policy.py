@@ -23,6 +23,7 @@ Not handled here: leading and trailing whitespace, which is a plain
 """
 
 import re
+from collections import namedtuple
 
 # Fields whose content is descriptive prose. Every rule below is confined to
 # these unless it says otherwise.
@@ -421,6 +422,114 @@ def add_comma_after_abbreviation(text):
 # lands under the most specific decision that authorized it rather than all of
 # them falling into one undifferentiated bucket. This is why the display-name
 # sweep reports 66 changes and not 74.
+# --------------------------------------------------------------------------
+# Individual corrections                                          ADR-0008 D14
+# --------------------------------------------------------------------------
+#
+# Not every defect generalizes into a rule. Some of the spaces before closing
+# punctuation in Chapter 2C were worth removing and some were not, and the
+# difference is not expressible as a pattern -- it is a reviewer looking at
+# each one and saying. These are those, recorded individually.
+#
+# Matching is on a text fragment within a named table, NOT on a location path.
+# Two reasons, both learned the hard way:
+#
+#   * The two extraction pipelines index coded content rows differently -- the
+#     value below in table 0003 is row 348 to python-docx and row 347 to the
+#     LLM -- so a location key would apply the correction to one corpus and
+#     silently miss it in the other, which is the exact failure D6, D7 and D10
+#     each produced in a different form.
+#   * A fragment that no longer appears is a loud failure. If Chapter 2C is
+#     re-extracted and the text has moved, the correction stops firing and the
+#     count in the change log drops, rather than quietly editing the wrong
+#     cell.
+#
+# Fragments are matched against the text AFTER the rule chain has run, because
+# that is the text the reviewer was reading when they decided.
+Correction = namedtuple("Correction", "published corrected why")
+
+MANUAL_CORRECTIONS = {
+    "0003": (
+        Correction("Successful , with", "Successful, with",
+                   "Space before the comma in a display name."),
+    ),
+    "0119": (
+        Correction("Placer Applications .", "Placer Applications.",
+                   "Space before the period that ends the comment."),
+    ),
+    "0356": (
+        Correction('Extension Technique". .', 'Extension Technique".',
+                   "A second period, preceded by a space, after the period "
+                   "that already closed the sentence."),
+    ),
+    "0396": (
+        Correction("2p16.3 . ", "2p16.3. ",
+                   "Space before the period that ends the sentence."),
+        Correction('"2004" , ', '"2004", ',
+                   "Space before the comma. Three identical comments carry "
+                   "it, so this fires three times."),
+    ),
+    "0577": (
+        Correction("type of BC Component .", "type of BC Component.",
+                   "Space before the period that ends the description."),
+    ),
+    "0578": (
+        Correction("Donation Type / Intended Use .",
+                   "Donation Type / Intended Use.",
+                   "Space before the period that ends the description."),
+    ),
+    "0579": (
+        Correction("type of BP Blood Group .", "type of BP Blood Group.",
+                   "Space before the period that ends the description."),
+    ),
+    "0580": (
+        Correction("type of BC Special Testing .",
+                   "type of BC Special Testing.",
+                   "Space before the period that ends the description."),
+    ),
+    "0582": (
+        Correction("type of BC Component .", "type of BC Component.",
+                   "Space before the period that ends the description."),
+    ),
+    "0604": (
+        Correction("type of Modality .", "type of Modality.",
+                   "Space before the period that ends the description."),
+    ),
+    "0785": (
+        Correction("type of Container Type .", "type of Container Type.",
+                   "Space before the period that ends the description."),
+    ),
+}
+
+
+def apply_manual_corrections(table, text):
+    """Apply the individual corrections recorded for one table.
+
+    Runs after the rule chain, and must be applied to BOTH extraction corpuses
+    for the same reason every other character-level change must be.
+
+    Args:
+        table: The Chapter 2C table number, e.g. ``'0119'``.
+        text: The value after :func:`apply_text_policy`.
+
+    Returns:
+        A ``(text, applied)`` pair in the same shape :func:`apply_text_policy`
+        returns, so callers can log both the same way.
+    """
+    if not text:
+        return text, []
+
+    applied = []
+    for correction in MANUAL_CORRECTIONS.get(table, ()):
+        places = text.count(correction.published)
+        if not places:
+            continue
+        before = text
+        text = text.replace(correction.published, correction.corrected)
+        applied.append(("manual_correction", places, before, text))
+    return text, applied
+
+
 RULES = (
     # (kind, fields it applies to, function)
     ("mojibake_non_breaking_space", ANY_FIELD, repair_mojibake_nbsp),

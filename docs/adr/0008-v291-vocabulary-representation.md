@@ -628,6 +628,96 @@ ratified.
   entirely — the seven tables in D11 were disposed of without it — but the
   general rule waits.
 
+### D14 — Individual corrections, where the defect does not generalize into a rule
+
+**Decided 2026-08-19.**
+
+Thirteen values across eleven tables are corrected individually rather than by
+a rule. All are spaces before closing punctuation, or in one case a duplicated
+period.
+
+| Tables | Correction |
+|---|---|
+| 0577, 0578, 0579, 0580, 0582, 0604, 0785 | Space before the period ending a concept domain description |
+| 0119, 0396 | Space before the period ending a comment (0396 also ×3 before a comma) |
+| 0003 | Space before a comma in a display name |
+| 0356 | A second period, preceded by a space, after the period that already closed the sentence |
+
+**Why not a rule.** There are 19 places in Chapter 2C with a space before
+closing punctuation, and the reviewer wanted 14 of them changed and 5 left
+alone — table 0717's two values explicitly untouched, line breaks and all.
+That distinction is not a pattern. It is a person reading each one. Forcing it
+into a rule would mean inventing a discriminator that does not exist in the
+text, which is worse than admitting the corrections are individual.
+
+**Why matching is on a text fragment within a named table, and not on a
+location path.** Two reasons, both of which would otherwise have caused a
+silent failure:
+
+- **The two pipelines index coded content differently.** The corrected value in
+  table 0003 is row 348 to python-docx and row 347 to the LLM. A location key
+  would have applied the correction to one corpus and missed it in the other —
+  the same class of failure as D6, D7 and D10, arrived at from a fourth
+  direction.
+- **A fragment that stops matching is a loud failure.** If Chapter 2C is
+  re-extracted and the text has moved, the correction stops firing and the
+  count in the change log drops. A location key would have gone on editing
+  whatever now sits at that path.
+
+Fragments are matched **after** the rule chain has run, because that is the
+text the reviewer was reading when they decided. Every fragment was verified to
+occur in both corpuses before being accepted.
+
+**Consequences.**
+
+- The outstanding space-before-punctuation group falls from 19 places to 5. Of
+  those five, two are decided (0717, left alone) and three are open questions
+  that are open only because the instruction did not reach them: 0440's space
+  before a comma, and 0952's space before a colon and before a period.
+- Cross-pipeline agreement is unchanged at 740/799. The corrections are applied
+  to both corpuses and are absorbed by the shared policy, which is what the
+  count of policy-absorbed values rising from 1,043 to 1,056 records.
+- **This is the mechanism to reach for when the next batch of individual
+  judgements arrives**, and there will be more: the missing space after a
+  comma, the three dashes D5 refused to repair. A rule remains preferable when
+  one exists; `MANUAL_CORRECTIONS` is for when one honestly does not.
+
+### D15 — A non-ASCII character is judged against THO, not against taste
+
+**Decided 2026-08-19.**
+
+The character inventory previously marked two characters as needing a decision
+— `Ø` (NCPDP's slashed zero, 8 places in table 0396) and `‑` (a non-breaking
+hyphen, 4 places in table 0945) — on the grounds that they looked wrong. Both
+are now closed, and the inventory as a whole is informational.
+
+**The test is whether THO already publishes the character.** Every one of the
+14 non-ASCII characters in the corpus does. For the two that looked doubtful,
+THO carries not just the character but the identical text: the NCPDP address
+`924Ø East Raintree Drive` appears verbatim in `CodeSystem/v2-0396`, and
+`pre‑configured` in `CodeSystem/v2-0945` and in the concept domains. There is
+nothing to fix and nothing to decide.
+
+**Why this is worth an entry rather than just deleting two rows.** The
+inventory exists because a one-off scan found the double-encoded non-breaking
+space in table 0301, and making the scan permanent means the next such
+character is found the same way. That value is real, but it only survives if
+the inventory does not also cry wolf about German umlauts, trademark symbols
+and copyright signs — all of which it was implicitly doing by rendering the
+whole section under *Decide*.
+
+The check is now automatic: the report compares the corpus's character set
+against every character in the staged THO package and flags only the
+characters THO does not have. Today that is none, so the section is
+informational and stays that way until something genuinely new appears.
+
+**Consequences.**
+
+- The same principle generalises, and is worth applying before flagging
+  anything else as a fidelity problem: **is this already published in the
+  terminology the IG will sit beside?** If yes, it is not our defect. D12 is
+  the same reasoning applied to symbolic names, reached independently.
+
 ## Open batches
 
 Worked in dependency order; each is a short session, and each records its

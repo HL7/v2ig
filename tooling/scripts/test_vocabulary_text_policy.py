@@ -11,7 +11,9 @@ text, so the cases that matter most are the ones it must NOT change. Every
 import pytest
 
 from vocabulary_text_policy import (
+    MANUAL_CORRECTIONS,
     add_comma_after_abbreviation,
+    apply_manual_corrections,
     apply_text_policy,
     is_descriptive_field,
     normalize_dash_spacing,
@@ -506,3 +508,58 @@ class TestUnresolvedSpaceRuns:
         assert [reason for _, _, reason
                 in unresolved_space_runs("Full Name", "Some  Name")] == [
             "not_in_scope"]
+
+
+class TestManualCorrections:
+    """ADR-0008 D14: the corrections that do not generalize into a rule."""
+
+    def test_a_space_before_a_closing_period_goes(self):
+        assert apply_manual_corrections(
+            "0119", "Placer Applications .")[0] == "Placer Applications."
+
+    def test_the_duplicated_period_in_0356_goes(self):
+        text = ('This standard is titled "Information Technology - Character '
+                'Code Structure and Extension Technique". .')
+        assert apply_manual_corrections("0356", text)[0] == (
+            'This standard is titled "Information Technology - Character '
+            'Code Structure and Extension Technique".')
+
+    def test_one_correction_can_fire_more_than_once(self):
+        # Table 0396 carries the same comment three times, but each is its own
+        # value, so within one value the count is one.
+        text = 'The THREE versions, "2004" , "2005" and "2006" are active'
+        result, applied = apply_manual_corrections("0396", text)
+        assert result == (
+            'The THREE versions, "2004", "2005" and "2006" are active')
+        assert [(kind, count) for kind, count, _, _ in applied] == [
+            ("manual_correction", 1)]
+
+    def test_a_table_with_no_corrections_is_untouched(self):
+        # 0440 and 0717 both have a space before punctuation and neither was
+        # authorized, so neither may acquire a correction by accident.
+        for table in ("0440", "0717"):
+            assert table not in MANUAL_CORRECTIONS
+            text = "sections 7.4.1.32-( OBR-32) , 4.5.3.33"
+            assert apply_manual_corrections(table, text)[0] == text
+
+    def test_applying_twice_changes_nothing_the_second_time(self):
+        # The comparison applies corrections to a corpus that may already
+        # carry them, so they have to be idempotent.
+        once, _ = apply_manual_corrections("0119", "Placer Applications .")
+        twice, applied = apply_manual_corrections("0119", once)
+        assert twice == once
+        assert applied == []
+
+    def test_an_empty_value_is_returned_unchanged(self):
+        assert apply_manual_corrections("0119", "") == ("", [])
+        assert apply_manual_corrections("0119", None) == (None, [])
+
+    def test_corrections_only_ever_shorten_or_equal_the_text(self):
+        # Every correction so far removes a stray space or period. A future
+        # one that adds text is fine, but should be a deliberate choice rather
+        # than a typo in the table, so this asserts the current shape.
+        for table, corrections in MANUAL_CORRECTIONS.items():
+            for correction in corrections:
+                assert len(correction.corrected) < len(correction.published), (
+                    f"{table}: {correction.published!r}")
+                assert correction.why, f"{table}: a correction needs a reason"
