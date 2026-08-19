@@ -21,10 +21,13 @@ from three different directions:
 Plus a coverage check against the staged THO package (tho-r5/), which decides
 which tables can reuse a published canonical URL and which need a new one.
 
-Every entry is placed in one of three ACTION classes, so the reader can tell at
-a glance what is being asked of them:
+Every entry is placed in an ACTION class, so the reader can tell at a glance
+what is being asked of them:
 
+  escalate  A defect in the published chapter or in THO. Needs an answer from
+            V2 Management or TSMG; not this project's to resolve.
   decide    A judgement is needed before resources can be generated.
+  resolved  A judgement was made; the reasoning is recorded with it.
   confirm   Something was changed automatically; confirm it was right.
   informational
             Disclosed for completeness; no action expected.
@@ -42,6 +45,8 @@ import json
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
+
+from vocabulary_escalations import ESCALATIONS
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -177,12 +182,20 @@ DEVIATION_PRESENTATION = {
         "no decision covers. Left exactly as published. Decide whether any "
         "should be collapsed too.",
     ),
+    "nbsp_before_punctuation": (
+        "confirm",
+        "A non-breaking space sitting against the punctuation that closes the "
+        "clause, deleted per ADR-0008 D10. Deleted rather than turned into an "
+        "ordinary space, because spacing it out would leave "
+        "<code>(M49)&nbsp;.</code> &mdash; a defect of our own making.",
+    ),
     "space_before_punctuation": (
         "decide",
         "A space between a word and the punctuation that closes the clause "
-        "(<code>Placer Applications .</code>). Left as published. Note that "
-        "one of these is ours: turning a non-breaking space into an ordinary "
-        "one in table 0827 under D7 left <code>(M49)&nbsp;.</code>",
+        "(<code>Placer Applications .</code>). Left as published. The one that "
+        "was ours &mdash; table 0827's <code>(M49)&nbsp;.</code> &mdash; is "
+        "gone under D10, so every remaining place is printed this way in "
+        "Chapter 2C.",
     ),
     "embedded_newline": (
         "informational",
@@ -217,7 +230,9 @@ SOURCE_ISSUE_PRESENTATION = {
     ),
     "empty_table_in_source": (
         "decide",
-        "A table in the published document has no content at all.",
+        "A grid in the published document has no content at all. Six of the "
+        "seven are a stray 1&times;2 layout artifact; one, table 0821, is the "
+        "coded content grid itself.",
     ),
     "duplicate_table_metadata_block": (
         "decide", "Two Table Metadata blocks in one section; they were merged.",
@@ -241,6 +256,25 @@ SOURCE_ISSUE_PRESENTATION = {
 # Keyed by section id. Add an entry here when a decision is taken; the wording
 # is what a reader six months from now needs, not a reminder for today.
 DECISION_NOTES = {
+    "src-empty_table_in_source": (
+        "2026-08-19",
+        "All seven are settled, and the disposition of each is in the table "
+        "below. The empty grid itself turned out to be the least interesting "
+        "thing about them: in six of the seven it is a stray 1&times;2 Word "
+        "layout artifact sitting beside content that extracted perfectly well, "
+        "and chasing it down is what surfaced the real findings. "
+        "<b>Four of the seven need no CodeSystem at all</b> &mdash; 0347, "
+        "0929, 0930 and 0932 are backed by an external code system (ISO 3166-2 "
+        "or UCUM) for which THO already publishes a NamingSystem, which is the "
+        "same shape as the table 0227 decision in D8. <b>Two are concept "
+        "domain only</b> &mdash; 0560 and 0910, neither of which identifies a "
+        "code system in the published chapter. <b>One is a ValueSet composed "
+        "from three external systems</b> &mdash; 0821, where THO's "
+        "<code>ValueSet/gender-identity</code> is reused. "
+        "Six of the seven also raised something for <b>V2 Management or "
+        "TSMG</b>; those are gathered in the escalation register at the top of "
+        "this report rather than repeated here.",
+    ),
     "src-heading_has_wrong_word_style": (
         "2026-08-18",
         "Nothing can be done about the published document now. Both tables are "
@@ -311,6 +345,32 @@ DECISION_NOTES = {
         "spaces is the one to keep. Recorded here rather than removed, because "
         "the difference is real and a reader should be able to see it.",
     ),
+    "cd-symbolic_name_is_not_a_plain_token": (
+        "2026-08-19",
+        "<b>Kept verbatim; there is nothing to fix.</b> These names were "
+        "flagged on the assumption that a space, an apostrophe, a comma or an "
+        "en dash makes a string unusable as a FHIR code. It does not. The "
+        "<code>code</code> data type permits any character except whitespace, "
+        "and permits single internal spaces; every one of these 55 names is "
+        "valid. Since the names are only ever used in FHIR representations, "
+        "that is the only definition of &ldquo;valid&rdquo; that bears on the "
+        "question. "
+        "This does not disturb the 0180 decision below: THO's "
+        "<code>MasterfileActionCode</code> wins there because THO already "
+        "publishes that concept under that code, not because Chapter 2C's "
+        "spelling was invalid. The two decisions answer different questions.",
+    ),
+    "cd-conflicting_descriptions_within_chapter": (
+        "2026-08-19",
+        "<b>Escalated, not resolved here.</b> A concept domain has one "
+        "description by definition, so a domain with two is a defect in "
+        "Chapter 2C and not a representation choice this project gets to make. "
+        "All five go to <b>V2 Management</b> to be reconciled at source; see "
+        "the escalation register at the top of this report. Until they come "
+        "back, the first description in document order is the one emitted, "
+        "which keeps the output deterministic and is recorded per domain "
+        "below.",
+    ),
     "cd-definition_differs_from_tho": (
         "2026-08-18",
         "All five go to <b>V2 Management and TSMG</b> for discussion; nothing "
@@ -325,52 +385,102 @@ DECISION_NOTES = {
 
 # A note on a section that is still open. Same rendering as a decision, but it
 # does not move the section out of "Decide" -- it is context for the decision,
-# not the decision. Use it to record what has been established so the reviewer
-# is not re-deriving it, and to say plainly what is still being asked.
+# not the decision. Say plainly what is still being asked.
+_SPACE_BEFORE_PUNCTUATION_NOTE = (
+    "<b>Nothing in this group is ours any more.</b> The one place the "
+    "extraction had introduced &mdash; table 0827's "
+    "<code>(M49)&nbsp;.</code>, left behind when D7 turned a non-breaking "
+    "space into an ordinary one &mdash; is deleted under ADR-0008 D10. Every "
+    "remaining place is printed exactly this way in Chapter 2C. "
+    "<b>What is being asked:</b> whether to leave all 19 as published, which "
+    "is the current behaviour and the conservative default, or to collapse "
+    "them the way D3&ndash;D7 collapsed the space runs. It is one decision "
+    "covering the four groups, not four."
+)
+
 OPEN_NOTES = {
-    "src-empty_table_in_source": (
-        "Six of these seven are the same harmless thing and one is not. "
-        "<b>0347, 0560, 0910, 0929, 0930 and 0932</b> each carry a stray "
-        "1&times;2 grid with nothing in it &mdash; a Word layout artifact "
-        "sitting beside content that extracted fine. (0347 and 0910 have no "
-        "codes because they are <code>Type: User</code>, which is expected, "
-        "not loss.) "
-        "<b>Table 0821, Gender Identity, is different and looks like a defect "
-        "in the published document.</b> Its coded content grid is six rows by "
-        "five columns with every single cell blank, while the section around "
-        "it declares three code systems (SNOMED CT, FHIR DataAbsentReason, V3 "
-        "NullFlavor) and a value set. Both extractions independently find zero "
-        "codes there, so this is the document and not the tooling. Compare "
-        "0823, Sexual Orientation, which is built the same way and does "
-        "publish its codes. "
-        "<b>What is still needed:</b> an earlier session discussed these at "
-        "length and agreed a note should go in this report. That discussion is "
-        "not recorded in the ADR, the change log, the journal or any retained "
-        "session transcript &mdash; only the bare count survived. The "
-        "conclusions need restating so they can be written down here properly "
-        "this time.",
-    ),
-    "cd-symbolic_name_is_not_a_plain_token": (
-        "Not yet decided, and not covered by the 2026-08-18 pass. Chapter 2C's "
-        "symbolic name is used verbatim as the concept code, and 55 of them "
-        "contain spaces, apostrophes, commas or an en dash "
-        "(<code>Collector'sComment*</code>, "
-        "<code>PrimaryKeyValue&ndash;STF</code>, "
-        "<code>Diet,Supplement,orPreferenceCode</code>). This overlaps the "
-        "0180 decision below, where THO's cleaned-up code was chosen over "
-        "Chapter 2C's spelling &mdash; the same reasoning may or may not "
-        "extend to all 55.",
-    ),
-    "cd-conflicting_descriptions_within_chapter": (
-        "Not yet decided, and not covered by the 2026-08-18 pass. Chapter 2C "
-        "gives the same concept domain more than one description in five "
-        "places; the first was used. Decide which wins, or whether the "
-        "difference should be reported to V2 Management as a source defect.",
-    ),
+    f"dev-space_before_punctuation-{where}": (_SPACE_BEFORE_PUNCTUATION_NOTE,)
+    for where in ("codedContent-comment", "conceptDomain-Description",
+                  "codedContent-displayName", "valueSet-Description")
 }
 
-ACTION_ORDER = ["decide", "resolved", "confirm", "informational"]
+# What was decided about one individual row of a section, keyed by section id
+# and then by table number. A section-level note says what the group means; a
+# row note says what happens to that particular table, which is what Batch A
+# actually needs. Where a section has row notes, the table gains a Disposition
+# column.
+#
+# Authored prose, so it carries markup and is not escaped.
+SECTION_ROW_NOTES = {
+    "src-empty_table_in_source": {
+        "0347": (
+            "<b>External code system; no CodeSystem minted.</b> The empty grid "
+            "is the 1&times;2 layout artifact. Chapter 2C identifies ISO "
+            "3166-2 (OID <code>1.0.3166.2</code>), and THO publishes the "
+            "external metadata record for it: "
+            "<code>NamingSystem/ISO3166Part2</code>, whose unique identifiers "
+            "are <code>urn:oid:1.0.3166.2</code> and "
+            "<code>urn:iso:std:iso:3166:-2</code> &mdash; the OID matches the "
+            "chapter's exactly. That record is reused, and the ValueSet names "
+            "the system in its Content Logical Definition. Same shape as the "
+            "table 0227 decision in D8. Having no codes is expected for a "
+            "<code>Type: User</code> table and is not loss. "
+            "Two source defects went to V2 Management: the code system URI and "
+            "the &ldquo;all codes&rdquo; definition."),
+        "0560": (
+            "<b>Concept domain only.</b> No CodeSystem and no ValueSet. The "
+            "chapter identifies no code system for this table &mdash; the "
+            "block is the <code>noObject</code> / <code>noDescription</code> "
+            "placeholder &mdash; so there is nothing to mint a CodeSystem "
+            "from, whatever the five printed codes suggest. "
+            "Note the consequence: THO does publish "
+            "<code>CodeSystem/v2-0560</code>, so this IG will be silent where "
+            "THO is not. That is deliberate and reversible. The content itself "
+            "is wrong in both, and is with V2 Management and TSMG."),
+        "0821": (
+            "<b>ValueSet only, reusing THO.</b> All three declared code "
+            "systems are external and already published, so no CodeSystem is "
+            "minted. THO's <code>ValueSet/gender-identity</code> carries the "
+            "OID Chapter 2C prints for this value set and composes from "
+            "exactly the three systems the chapter declares, so it is reused "
+            "rather than rebuilt. The blank grid is a defect in the published "
+            "document and is with V2 Management; it does not block this "
+            "table, because the chapter's own Content Logical Definition says "
+            "&ldquo;as defined in the linked value set&rdquo;."),
+        "0910": (
+            "<b>Concept domain only.</b> Same reasoning as 0560, and cleaner: "
+            "the same <code>noObject</code> / <code>noDescription</code> "
+            "placeholder stands where a code system should be, no codes are "
+            "printed, and THO publishes neither a CodeSystem nor a ValueSet "
+            "for 0910. The Value Set block's &ldquo;all codes&rdquo; would "
+            "resolve to nothing. The placeholder text is with V2 Management."),
+        "0929": (
+            "<b>External code system; no CodeSystem minted.</b> Backed by "
+            "UCUM, whose external metadata record is THO's "
+            "<code>NamingSystem/v3-ucum</code> &mdash; identifiers "
+            "<code>2.16.840.1.113883.6.8</code> and "
+            "<code>http://unitsofmeasure.org</code>, both matching the "
+            "chapter exactly. The ValueSet enumerates the four published UCUM "
+            "codes, which is what THO's <code>ValueSet/v2-0929</code> already "
+            "does. The wrong code system Full Name is with V2 Management."),
+        "0930": (
+            "<b>External code system; no CodeSystem minted.</b> Identical "
+            "treatment to 0929, enumerating the three published UCUM codes. "
+            "THO's <code>ValueSet/v2-0930</code> is reused."),
+        "0932": (
+            "<b>External code system; no CodeSystem minted.</b> Identical "
+            "treatment to 0929 and 0930, enumerating <code>min</code> and "
+            "<code>s</code>. THO's <code>ValueSet/v2-0932</code> matches the "
+            "chapter exactly. This is the one table of the six for which the "
+            "code system Full Name &mdash; &ldquo;Donation Duration Units "
+            "&rdquo; &mdash; is at least about the right subject, though it "
+            "still names the table rather than UCUM."),
+    },
+}
+
+ACTION_ORDER = ["escalate", "decide", "resolved", "confirm", "informational"]
 ACTION_LABEL = {
+    "escalate": "For V2 Management / TSMG",
     "decide": "Decide",
     "resolved": "Decided",
     "confirm": "Confirm",
@@ -696,6 +806,40 @@ def build_character_section():
     }]
 
 
+def build_escalation_section():
+    """Render the escalation register as one section.
+
+    One section rather than one per item, because a committee agenda reads
+    better as a list than as a dozen separate headings, and because the reader
+    of this report is not being asked to act on them individually.
+    """
+    rows = []
+    for item in ESCALATIONS:
+        rows.append([
+            item["tables"],
+            f'<p><b>{item["title"]}</b></p><p>{item["body"]}</p>'
+            f'<p class="ask"><b>The ask:</b> {item["ask"]}</p>',
+            item["who"],
+        ])
+    return [{
+        "id": "escalations",
+        "group": "For V2 Management / TSMG",
+        "title": "Open items",
+        "action": "escalate",
+        "blurb":
+            "Defects in the published Chapter 2C, in THO, or in both. None of "
+            "these is this project's to resolve, and each needs a committee "
+            "answer. They are listed first because a representation decision "
+            "can be revisited at any time, whereas getting an item onto an "
+            "agenda has a lead time.",
+        "count": len(ESCALATIONS),
+        "columns": ["Tables", "Finding", "Goes to"],
+        "rows": rows,
+        "raw_html_columns": {1},
+        "open_by_default": True,
+    }]
+
+
 def build_sections(deviations, comparison, source_issues):
     """Assemble every reviewable item into an ordered list of section dicts.
 
@@ -708,20 +852,40 @@ def build_sections(deviations, comparison, source_issues):
     for issue_kind, entries in sorted(source_issues.items()):
         action, blurb = SOURCE_ISSUE_PRESENTATION.get(
             issue_kind, ("decide", "Observed in the published document."))
+        section_id = f"src-{issue_kind}"
+        row_notes = SECTION_ROW_NOTES.get(section_id, {})
+
+        columns = ["Table", "Name", "Detail"]
+        raw_html_columns = {2}
+        if row_notes:
+            columns.append("Disposition")
+            raw_html_columns.add(3)
+
+        rows = []
+        for entry in entries:
+            row = [
+                entry["tableNumber"],
+                entry.get("tableName", ""),
+                esc(entry.get("detail") or json.dumps(
+                    {k: v for k, v in entry.items()
+                     if k not in ("issue", "tableNumber", "tableName")})),
+            ]
+            if row_notes:
+                row.append(row_notes.get(
+                    entry["tableNumber"],
+                    '<span class="absent">&mdash; not yet decided &mdash;</span>'))
+            rows.append(row)
+
         sections.append({
-            "id": f"src-{issue_kind}",
+            "id": section_id,
             "group": "Published document",
             "title": issue_kind.replace("_", " ").capitalize(),
             "action": action,
             "blurb": blurb,
             "count": len(entries),
-            "columns": ["Table", "Name", "Detail"],
-            "rows": [[e["tableNumber"], e.get("tableName", ""),
-                      esc(e.get("detail") or json.dumps(
-                          {k: v for k, v in e.items()
-                           if k not in ("issue", "tableNumber", "tableName")}))]
-                     for e in entries],
-            "raw_html_columns": {2},
+            "columns": columns,
+            "rows": rows,
+            "raw_html_columns": raw_html_columns,
         })
 
     # --- Cross-pipeline disagreements -------------------------------------
@@ -861,6 +1025,8 @@ def build_html(sections, deviations, comparison, coverage, generated):
 
     add("<div class='callout'>"
         "<b>How to read this.</b> Items are grouped by what is being asked of you. "
+        f"<span class='badge b-escalate'>For V2 Management / TSMG</span> means a "
+        "defect that a committee has to resolve, not this project. "
         f"<span class='badge b-decide'>Decide</span> means a judgement is needed. "
         f"<span class='badge b-resolved'>Decided</span> means a judgement was made; "
         "the reasoning is recorded with it. "
@@ -876,6 +1042,10 @@ def build_html(sections, deviations, comparison, coverage, generated):
 
     add("<h2 id='summary'>Summary</h2>")
     add("<div class='metric-grid'>")
+    add(f"<div class='metric-card mc-escalate'>"
+        f"<div class='number'>{action_totals['escalate']}</div>"
+        "<div class='label'>items for V2 Management<br><span class='faint'>"
+        "or TSMG; not ours to resolve</span></div></div>")
     add(f"<div class='metric-card mc-flag'><div class='number'>{action_groups['decide']}</div>"
         f"<div class='label'>decisions to make<br><span class='faint'>"
         f"covering {action_totals['decide']:,} values</span></div></div>")
@@ -901,6 +1071,10 @@ def build_html(sections, deviations, comparison, coverage, generated):
     add("<table><tr><th>Where it came from</th><th>What it is</th>"
         "<th class='num'>Items</th></tr>")
     provenance_rows = [
+        ("For V2 Management / TSMG",
+         "Defects in the published chapter or in THO that a committee has to "
+         "resolve",
+         sum(s["count"] for s in sections if s["group"] == "For V2 Management / TSMG")),
         ("Published document", "Irregularities in <code>CH02C_Tables.docx</code> itself",
          sum(s["count"] for s in sections if s["group"] == "Published document")),
         ("Extraction cross-check",
@@ -973,7 +1147,8 @@ def build_html(sections, deviations, comparison, coverage, generated):
             if section.get("note"):
                 note_class = "decision open" if section.get("note_is_open") else "decision"
                 add(f"<div class='{note_class}'>{section['note']}</div>")
-            add("<details><summary>Show the "
+            open_attr = " open" if section.get("open_by_default") else ""
+            add(f"<details{open_attr}><summary>Show the "
                 f"{len(section['rows'])} entries</summary>")
             add("<table><tr>"
                 + "".join(f"<th>{html.escape(c)}</th>" for c in section["columns"])
@@ -1012,15 +1187,17 @@ td.num, th.num { text-align: right; }
 tr:nth-child(even) td { background: #fbfcfd; }
 .callout { background: #ddf4ff; border: 1px solid #54aeff; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
 .callout.warn { background: #fff8c5; border-color: #d4a72c; }
-.metric-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 16px 0; }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }
 .metric-card { border: 1px solid #d0d7de; border-radius: 6px; padding: 14px; text-align: center; background: #fff; }
 .metric-card .number { font-size: 26px; font-weight: 700; }
 .metric-card .label { font-size: 12px; color: #57606a; margin-top: 4px; }
 .mc-good .number { color: #1a7f37; } .mc-flag .number { color: #bc4c00; }
+.mc-escalate .number { color: #8250df; } .mc-escalate { border-color: #c297ff; }
 span.absent { color: #afb8c1; } span.empty { color: #afb8c1; font-style: italic; }
 .badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap; }
 .b-decide { background: #bc4c00; } .b-confirm { background: #0969da; } .b-info { background: #6e7781; }
-.b-resolved { background: #1a7f37; }
+.b-resolved { background: #1a7f37; } .b-escalate { background: #8250df; }
+p.ask { background: #faf5ff; border-left: 3px solid #c297ff; padding: 8px 12px; margin: 8px 0 0; }
 .decision { background: #dafbe1; border: 1px solid #4ac26b; border-left-width: 4px;
   border-radius: 6px; padding: 10px 14px; margin: 8px 0; font-size: 13px; }
 .decision.open { background: #fff8c5; border-color: #d4a72c; }
@@ -1058,7 +1235,8 @@ def main():
     if comparison is None:
         print(f"WARNING: no comparison report at {COMPARISON_PATH}")
 
-    sections = build_sections(deviations, comparison, source_issues)
+    sections = build_escalation_section()
+    sections += build_sections(deviations, comparison, source_issues)
     sections += build_concept_domain_sections(concept_domains)
     sections += build_character_section()
     sections = apply_decision_notes(sections)

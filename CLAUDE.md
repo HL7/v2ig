@@ -95,7 +95,8 @@ Where each kind of context lives. Read in this order at session start; don't dup
 | `JOURNAL.md` Session History | always | Append-only at top | Last few session entries: what was done, why, non-obvious context |
 | `JOURNAL-archive.md` | on demand only | Append on rolloff | Older session entries (target: keep `JOURNAL.md` under ~600 lines) |
 | `docs/adr/` | on demand only | Immutable once accepted | Significant architectural decisions, with rationale and consequences |
-| `v291-extracted/v2mgmt-review-report.md` | on demand only | Updated as findings emerge | The V2 Management discussion document — questions awaiting committee input |
+| `v291-extracted/v2mgmt-review-report.md` | on demand only | Updated as findings emerge | The V2 Management discussion document for the **structural** workstream — questions awaiting committee input |
+| `v291-extracted/vocabulary-v2mgmt-items.md` | on demand only | Regenerated, never hand-edited | The V2 Management / TSMG register for the **vocabulary** workstream. Authored in `tooling/scripts/vocabulary_escalations.py`; the same register is the first section of the HTML review report |
 | `v291-extracted/vocabulary-future-corrections.md` | on demand only | Append as observations emerge | The CH02C vocabulary backlog for the pass *after* the fidelity load — content that is correct as published but should be improved later |
 
 There is **no** `SESSION-HANDOFF.md` (deprecated 2026-04-23 — drift-prone duplicate of JOURNAL.md ACTIVE). Older planning artifacts (`spec.md`, `blueprint.md`, `TASKS.md`, `ARCHITECTURE.md`, etc.) are historical context from the project's early phases — read on demand only when investigating origin of a decision; do not treat as current.

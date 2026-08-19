@@ -139,6 +139,31 @@ PRIVATE_USE_AREA_RE = re.compile(r"[\uE000-\uF8FF\U000F0000-\U000FFFFD\U00100000
 NBSP_RUN_RE = re.compile(" +")
 
 
+# A run of spaces sitting immediately before the punctuation that closes a
+# clause, where at least one of them is non-breaking. One occurrence, in table
+# 0827: the chapter publishes `...for statistical use (M49)`, a non-breaking
+# space, then the full stop.
+#
+# The rule DELETES the run rather than turning it into an ordinary space, and
+# that is the whole reason it exists separately from the rule below. Spacing the
+# non-breaking space out leaves `(M49) .`, a defect we would have introduced
+# ourselves; deleting it gives `(M49).`, which is what the sentence says.
+#
+# It is confined to runs containing a non-breaking space on purpose. Nineteen
+# other places in Chapter 2C put an ORDINARY space before closing punctuation
+# (`Placer Applications .`); those are published that way and stay that way.
+# Only the spaces Word inserted are ours to remove.
+#
+# The lookahead matches the extractor's own detector: punctuation followed by
+# whitespace or the end of the value really is closing a clause, where the
+# period inside `2p16.3` is not.
+NBSP_BEFORE_PUNCTUATION_RE = re.compile(
+    r"(?<=\S)"                                  # a real character, not more space
+    r"[ \u00a0]*\u00a0[ \u00a0]*"               # spaces, at least one non-breaking
+    r"(?=[.,;:](?:\s|$))"                       # punctuation that closes the clause
+)
+
+
 def repair_mojibake_nbsp(text):
     """Drop the stray "Â" from a double-encoded non-breaking space.
 
@@ -156,6 +181,15 @@ def remove_private_use_characters(text):
 def non_breaking_space_to_space(text):
     """Turn every run of non-breaking spaces in prose into one ordinary space."""
     return NBSP_RUN_RE.subn(" ", text)
+
+
+def remove_nbsp_before_punctuation(text):
+    """Delete a non-breaking space that sits against closing punctuation.
+
+    Runs before :func:`non_breaking_space_to_space`, which would otherwise turn
+    the space into an ordinary one and leave the defect behind in a new form.
+    """
+    return NBSP_BEFORE_PUNCTUATION_RE.subn("", text)
 
 
 # --------------------------------------------------------------------------
@@ -391,6 +425,9 @@ RULES = (
     # (kind, fields it applies to, function)
     ("mojibake_non_breaking_space", ANY_FIELD, repair_mojibake_nbsp),
     ("private_use_area_character", ANY_FIELD, remove_private_use_characters),
+    # Ahead of the general non-breaking-space rule: a non-breaking space
+    # against closing punctuation is deleted (D10), not spaced out.
+    ("nbsp_before_punctuation", COLLAPSE_FIELDS, remove_nbsp_before_punctuation),
     ("non_breaking_space_in_text", COLLAPSE_FIELDS, non_breaking_space_to_space),
     ("double_space_after_period", DESCRIPTIVE_FIELDS,
      lambda t: _collapse(SPACES_AFTER_PERIOD_RE, t)),

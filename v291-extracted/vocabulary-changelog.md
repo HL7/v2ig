@@ -17,6 +17,7 @@ with its rule, its scope, and where it took effect.
 | `v291-extracted/vocabulary-deviations.json` | Machine-readable: every changed value, before and after, and every irregularity left alone |
 | `tooling/scripts/vocabulary_text_policy.py` | The rules themselves, in code |
 | `v291-extracted/vocabulary-future-corrections.md` | The backlog for the pass *after* the fidelity load — content to improve once we are free to change it |
+| `v291-extracted/vocabulary-v2mgmt-items.md` | Defects in the published chapter or in THO that a committee has to resolve — nothing this log can fix |
 
 The counts below are reproducible by re-running
 `python3 tooling/scripts/extract_v291_vocabulary.py`.
@@ -441,6 +442,85 @@ rose from 982 to 1,043.
 
 ---
 
+## 008 — Delete a non-breaking space that sits against closing punctuation
+
+**ADR-0008 D10.** One value, one place, in table 0827.
+
+### The rule
+
+A run of spaces immediately before the punctuation that closes a clause
+(`.` `,` `;` `:`), where at least one of them is non-breaking, is **deleted**.
+Not collapsed, not turned into an ordinary space — removed.
+
+### Why this is its own rule and not a change to 007c
+
+Change 007c turned every run of non-breaking spaces into one ordinary space,
+which is right nearly everywhere: the non-breaking space is standing in for a
+space, and in a FHIR resource nothing depends on where a line breaks.
+
+Against closing punctuation it is standing in for nothing. No typographic
+convention puts a space before a full stop. So 007c's treatment produced
+`(M49) .` in table 0827 — a defect this project had introduced itself, which is
+worse than the one it was fixing. The two cases want opposite treatment, so
+they are two rules, and this one runs first.
+
+### Scope, and the nineteen it does not touch
+
+Nineteen other places in Chapter 2C print an **ordinary** space before closing
+punctuation, `Placer Applications .` among them. Those are published that way,
+nobody has asked for a decision on them, and they are untouched. What separates
+them from 0827 is not the table number but the character: a non-breaking space
+there was inserted by Word, an ordinary space was typed by an author.
+
+The rule is confined to runs containing a non-breaking space, expressed
+structurally, and fires exactly once corpus-wide. The lookahead requires the
+punctuation to be followed by whitespace or the end of the value — the same
+test the extractor's own detector uses — so the period inside `2p16.3` is not
+mistaken for the end of a sentence.
+
+Fields: the same set as 007c.
+
+### Where it happened
+
+| Table | Field | As published | As emitted |
+|---|---|---|---|
+| 0827 | `valueSet.Description` | `...statistical use (M49)` + NBSP + `.` | `...statistical use (M49).` |
+
+### Effect on the cross-pipeline comparison
+
+**This rule broke the comparison, and the fix went into the comparison rather
+than the rule.** It is the third time a character-level rule has done this, and
+the pattern is now clear enough to state as a standing check.
+
+The LLM extraction of table 0827 had already flattened that non-breaking space
+to an ordinary one. Deleting it on the python-docx side and not on the LLM side
+put the two corpuses one space apart, and 0827 moved out of the benign
+`whitespace` bucket and into `content` — the bucket that means the two
+extractions genuinely disagree about what the document says. Agreement stayed
+at 740/799 but the composition was wrong: 44 whitespace, 2 content.
+
+Widening the rule to match ordinary spaces too was not an option: it would have
+swept in the nineteen published cases, which is a decision nobody has taken.
+
+The answer was that **the comparison's notion of "same" was too narrow**.
+Whether a space sits against closing punctuation is a spacing question by
+definition, so a pair differing by nothing else belongs in `whitespace`.
+`fold_whitespace` now drops such a space before comparing. Back to 45
+whitespace and 1 content (table 0496).
+
+`CodeSystem-conceptdomains.json` is byte-identical, as it has been since D6.
+
+### The standing check this leaves behind
+
+Three for three now — D6's comma, D7's `Â`, and this. **Any rule that edits
+characters has to be run against both corpuses before it is accepted.** If they
+cannot be made to agree, ask which is wrong: widening the rule is right when
+the other corpus has the same defect in a different spelling (D7), and widening
+the comparison is right when the difference is genuinely one of presentation
+(this change).
+
+---
+
 ## Cumulative effect
 
 | Rule | Change | Values | Places |
@@ -457,7 +537,8 @@ rose from 982 to 1,043.
 | Non-breaking space in text | 007c / D7 | 2 | 5 |
 | Line-initial indent set to two spaces | 007d / D7 | 2 | 4 |
 | Every remaining run of spaces | 007e / D7 | 141 | 150 |
-| **Total** | | **1,240** | **1,459** |
+| Non-breaking space against closing punctuation | 008 / D10 | 1 | 1 |
+| **Total** | | **1,241** | **1,460** |
 
 The period count moved 890 → 891 because change 007a turns table 0301's
 corrupt character into an ordinary space, which then leaves a double space for
@@ -486,26 +567,20 @@ rather than outstanding.
 
 ### A space before the punctuation that closes a clause
 
-**20 places, in 4 fields.** A new group, surfaced by change 007 and not decided.
+**19 places, in 4 fields.** Surfaced by change 007; the one place that was ours
+is cleared by change 008, and every remaining place is printed this way in
+Chapter 2C.
 
 | Field | Places | Example |
 |---|---:|---|
 | `codedContent.comment` | 8 | `Placer Applications .` (0119) |
 | `conceptDomain.Description` | 8 | `...specifying the type of BC Component .` (0577) |
 | `codedContent.displayName` | 2 | `Specimen Procedure Step Successful , with Derived...` (0003) |
-| `valueSet.Description` | 2 | `...codes for statistical use (M49) .` (0827) |
+| `valueSet.Description` | 1 | `...quality code system .` (0952) |
 
-**One of these is ours.** Table 0827 published `(M49)` followed by a
-non-breaking space and then a period; change 007c turned the non-breaking space
-into an ordinary one, so the emitted text reads `(M49) .` The other 19 are
-published as printed. The reviewer had asked to be told about anything hidden
-by the report's truncation, and this was hidden by it — the value is 339
-characters and the report was cutting at 300.
-
-The obvious variant of the rule — delete a non-breaking space that sits
-immediately before sentence punctuation rather than turning it into a space —
-would give `(M49).` and is probably right, but it is a different decision from
-the one that was taken, so it is asked rather than assumed.
+The remaining question is one decision covering all four fields: leave them as
+published, which is the current behaviour and the conservative default, or
+collapse them the way changes 001–007 collapsed the space runs.
 
 ### Dashes the rule refused to repair
 

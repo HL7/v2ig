@@ -1,11 +1,12 @@
 {
-  "extractionDate": "2026-08-18",
+  "extractionDate": "2026-08-19",
   "sourceFile": "CH02C_Tables.docx",
   "policy": {
     "normalized": [
       "leading_trailing_whitespace",
       "mojibake_non_breaking_space",
       "private_use_area_character",
+      "nbsp_before_punctuation",
       "non_breaking_space_in_text",
       "double_space_after_period",
       "double_space_after_sentence_close",
@@ -37,8 +38,9 @@
       "missing_comma_after_abbreviation": 62,
       "double_space_after_sentence_close": 6,
       "mojibake_non_breaking_space": 1,
-      "non_breaking_space_in_text": 5,
+      "non_breaking_space_in_text": 4,
       "line_initial_indent": 4,
+      "nbsp_before_punctuation": 1,
       "private_use_area_character": 3
     },
     "notes": {
@@ -62,7 +64,7 @@
     "double_space_after_period": 891,
     "repeated_space_in_display_name": 66,
     "dash_spacing": 16,
-    "space_before_punctuation": 20,
+    "space_before_punctuation": 19,
     "double_space_after_comma": 10,
     "embedded_newline": 223,
     "repeated_space_collapsed": 141,
@@ -74,6 +76,7 @@
     "line_initial_indent": 2,
     "ditto_mark_space_run": 1,
     "non_breaking_space": 6,
+    "nbsp_before_punctuation": 1,
     "private_use_area_character": 1
   },
   "countsByField": {
@@ -144,6 +147,9 @@
     "mojibake_non_breaking_space": {
       "codedContent.definition": 1
     },
+    "nbsp_before_punctuation": {
+      "valueSet.Description": 1
+    },
     "non_breaking_space": {
       "codeSystem.URL": 4,
       "codeSystem.URI": 1,
@@ -173,7 +179,7 @@
       "codedContent.comment": 8,
       "conceptDomain.Description": 8,
       "codedContent.displayName": 2,
-      "valueSet.Description": 2
+      "valueSet.Description": 1
     }
   },
   "groups": [
@@ -14968,6 +14974,29 @@
       ]
     },
     {
+      "kind": "nbsp_before_punctuation",
+      "action": "normalized",
+      "section": "valueSet",
+      "field": "Description",
+      "count": 1,
+      "tables": [
+        "0827"
+      ],
+      "deviations": [
+        {
+          "kind": "nbsp_before_punctuation",
+          "action": "normalized",
+          "tableNumber": "0827",
+          "location": "valueSet.Description",
+          "raw": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from\u00a0ISO 3166\u00a0\u00a0while the codes for \"supra-national\" regions are from\u00a0UN Standard country or area codes for statistical use (M49)\u00a0.",
+          "normalized": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from\u00a0ISO 3166\u00a0\u00a0while the codes for \"supra-national\" regions are from\u00a0UN Standard country or area codes for statistical use (M49).",
+          "placesChanged": 1,
+          "section": "valueSet",
+          "field": "Description"
+        }
+      ]
+    },
+    {
       "kind": "non_breaking_space",
       "action": "normalized",
       "section": "codeSystem",
@@ -15108,9 +15137,9 @@
           "action": "normalized",
           "tableNumber": "0827",
           "location": "valueSet.Description",
-          "raw": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from\u00a0ISO 3166\u00a0\u00a0while the codes for \"supra-national\" regions are from\u00a0UN Standard country or area codes for statistical use (M49)\u00a0.",
-          "normalized": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from ISO 3166 while the codes for \"supra-national\" regions are from UN Standard country or area codes for statistical use (M49) .",
-          "placesChanged": 4,
+          "raw": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from\u00a0ISO 3166\u00a0\u00a0while the codes for \"supra-national\" regions are from\u00a0UN Standard country or area codes for statistical use (M49).",
+          "normalized": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from ISO 3166 while the codes for \"supra-national\" regions are from UN Standard country or area codes for statistical use (M49).",
+          "placesChanged": 3,
           "section": "valueSet",
           "field": "Description"
         }
@@ -17848,22 +17877,11 @@
       "action": "preserved",
       "section": "valueSet",
       "field": "Description",
-      "count": 2,
+      "count": 1,
       "tables": [
-        "0827",
         "0952"
       ],
       "deviations": [
-        {
-          "kind": "space_before_punctuation",
-          "action": "preserved",
-          "tableNumber": "0827",
-          "location": "valueSet.Description",
-          "raw": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from\u00a0ISO 3166\u00a0\u00a0while the codes for \"supra-national\" regions are from\u00a0UN Standard country or area codes for statistical use (M49)\u00a0.",
-          "normalized": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from ISO 3166 while the codes for \"supra-national\" regions are from UN Standard country or area codes for statistical use (M49) .",
-          "section": "valueSet",
-          "field": "Description"
-        },
         {
           "kind": "space_before_punctuation",
           "action": "preserved",

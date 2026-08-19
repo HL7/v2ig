@@ -441,10 +441,192 @@ The divergence stays in the report rather than being removed, because the
 difference between the two spellings is real and a reader should be able to see
 it.
 
-**Not decided:** whether the same reasoning extends to the 55 Chapter 2C
-symbolic names that are not valid code tokens (`Collector'sComment*`,
-`PrimaryKeyValue–STF`, `Diet,Supplement,orPreferenceCode`). Those are still
-emitted verbatim and remain an open question in the review report.
+**Not decided at the time:** whether the same reasoning extends to the 55
+Chapter 2C symbolic names with unusual characters. **Settled by D12**, which
+answers it the other way, and for a different reason: those names are valid
+FHIR codes, so there was never a defect to fix. The two decisions do not
+conflict, because THO's code wins here on the strength of THO already
+publishing the concept, not on the strength of Chapter 2C's spelling being
+invalid.
+
+### D10 — A non-breaking space against closing punctuation is deleted, not spaced out
+
+**Decided 2026-08-19.**
+
+One value, in table 0827. The chapter publishes `...for statistical use (M49)`,
+a non-breaking space, then the full stop. D7's rule turned every run of
+non-breaking spaces into one ordinary space, which left `(M49) .` — a defect
+this project had introduced itself. A non-breaking space immediately before the
+punctuation that closes a clause is now deleted instead, giving `(M49).`
+
+**Why it is a separate rule rather than a change to D7's.** Everywhere else a
+non-breaking space is standing in for a space, and turning it into one is
+right. Against closing punctuation it is standing in for nothing: no
+typographic convention puts a space before a full stop. The two cases want
+opposite treatment, so they are two rules, and the deletion runs first.
+
+**Why it does not reach the other nineteen.** Nineteen further places in
+Chapter 2C print an ordinary space before closing punctuation
+(`Placer Applications .`, `...type of BC Component .`). Those are published
+that way and no decision has been asked for on them; the rule is confined to
+runs containing a non-breaking space, which is what makes the difference
+between a defect Word introduced and a defect the authors typed. The confinement
+is expressed structurally and fires exactly once corpus-wide.
+
+**Consequences.**
+
+- **It broke the cross-pipeline comparison, for the third time, in the way D6
+  and D7 warned about.** The LLM extraction had already flattened that
+  non-breaking space to an ordinary one, so deleting it on the python-docx side
+  and not the LLM side put the two corpuses one space apart, and table 0827
+  moved out of the benign `whitespace` bucket and into `content` — the bucket
+  reserved for the two extractions genuinely disagreeing about what the
+  document says.
+- **The fix is in the comparison, not the rule.** `fold_whitespace` now also
+  drops a space sitting against clause-closing punctuation, on the reasoning
+  that whether such a space is present is a spacing question by definition. Two
+  values equal after that fold differ only in spacing, which is exactly what
+  the bucket means. Agreement is unchanged at 740/799; `whitespace` is back to
+  45 and `content` back to 1 (table 0496).
+- The lesson is now three for three and belongs in any future rule review:
+  **a character-level rule must be checked against both corpuses, and if they
+  cannot be made to agree, the comparison's notion of "same" is what needs
+  widening — not the rule.**
+
+### D11 — The seven tables with an empty grid, disposed of individually
+
+**Decided 2026-08-19.**
+
+Seven sections carry a grid with no content. Chasing that down turned out to be
+worth more for what it surfaced than for the grids themselves: in six of the
+seven the empty grid is a stray 1×2 Word layout artifact sitting beside content
+that extracted perfectly well.
+
+| Table | Disposition |
+|---|---|
+| 0347 State/Province | External code system. Reuse THO's `NamingSystem/ISO3166Part2`; no CodeSystem minted |
+| 0560 Quantity Units | Concept domain only |
+| 0821 Gender Identity | ValueSet only, reusing THO's `ValueSet/gender-identity`; no CodeSystem minted |
+| 0910 Acquisition Modality | Concept domain only |
+| 0929 Weight Units | External code system (UCUM). Reuse THO's `NamingSystem/v3-ucum`; no CodeSystem minted |
+| 0930 Volume Units | As 0929 |
+| 0932 Donation Duration Units | As 0929 |
+
+**Four of them are D8's pattern again.** 0347 is backed by ISO 3166-2 and
+0929/0930/0932 by UCUM. In both cases Chapter 2C's own OID and URI match a THO
+`NamingSystem` exactly — `urn:oid:1.0.3166.2` for the first,
+`2.16.840.1.113883.6.8` and `http://unitsofmeasure.org` for the second — so
+these are external metadata records, represented the way D8 settled for MVX.
+That is four of Batch D's 26 tables resolved as a side effect, and it confirms
+the NamingSystem shape as the batch's starting point rather than
+`content: not-present`.
+
+**Two are concept domain only, on the evidence of the source.** 0560 and 0910
+each carry a Code System Identification block reading OID `-`, symbolic name
+`noObject`, description `noDescription`. That is a tool's placeholder for an
+empty field, published. It appears in exactly these two sections and nowhere
+else in Chapter 2C, and both are tables with no genuine code system, so the
+placeholder is a reliable marker of the condition rather than random noise.
+Whatever codes 0560 prints, there is no code system identified to mint one
+from.
+
+*This costs something and the cost is recorded.* THO does publish
+`CodeSystem/v2-0560`, so this IG will be silent where THO is not. That is
+deliberate, it is reversible, and the underlying content problem is with V2
+Management and TSMG.
+
+**One is a ValueSet over three external systems.** 0821 declares SNOMED CT,
+FHIR DataAbsentReason and V3 NullFlavor, all external, so no CodeSystem is
+minted. THO's `ValueSet/gender-identity` carries the OID Chapter 2C prints for
+this value set — `2.16.840.1.113883.4.642.3.3291` — and composes from exactly
+those three systems, so it is reused rather than rebuilt. The chapter's own
+Content Logical Definition says "as defined in the linked value set", which is
+consistent with reuse and means the blank grid does not block the table.
+
+**Consequences.**
+
+- Six of the seven raised something for V2 Management or TSMG, including the
+  most substantial finding in the workstream so far: table 0821's coded content
+  grid is published entirely blank, and the row count matches THO's value set
+  concept count exactly. See D13 and the escalation register.
+- The dispositions above are Batch A answers for seven tables, taken ahead of
+  the batch because the evidence was in front of us. They constrain Batch A
+  rather than pre-empting it: the rule they imply is *a table whose code system
+  is external gets no CodeSystem*, and that rule still has to be stated for the
+  other 792.
+
+### D12 — Chapter 2C symbolic names are valid FHIR codes and are kept verbatim
+
+**Decided 2026-08-19.**
+
+55 concept domain symbolic names contain apostrophes, commas, asterisks or an
+en dash — `Collector'sComment*`, `PrimaryKeyValue–STF`,
+`Diet,Supplement,orPreferenceCode`. They are emitted verbatim as concept codes.
+
+**There was no problem to solve.** These were flagged on the assumption that
+such characters make a string unusable as a FHIR `code`. They do not: the
+`code` data type admits any character other than whitespace and permits single
+internal spaces. Every one of the 55 is valid. Since the names are only ever
+used in FHIR representations, that is the only definition of "valid" that bears
+on the question.
+
+**Consequences.**
+
+- The group moves from *decide* to *decided* without any change to the
+  generated output, which is the cheapest kind of resolution and worth
+  recording precisely because nothing changed — otherwise the same false alarm
+  gets raised again.
+- Worth generalising: "looks unusual" is not "is invalid". A future flag of
+  this shape should cite the specific rule it believes is being broken before
+  it is raised as a decision.
+
+### D13 — Defects in the source are escalated, not adjudicated
+
+**Decided 2026-08-19.**
+
+Where a finding is wrong in Chapter 2C or in THO rather than wrong in this
+project's handling of it, it goes to the HL7 V2 Management Group or the
+Terminology Services Management Group. It is recorded in a register, given a
+concrete question, and left open until a committee answers.
+
+**Why a register and not a note per section.** These findings arrive one at a
+time, scattered across unrelated review groups, and each one on its own looks
+like a curiosity. Together they are an agenda — and one of them turns out to be
+a policy question that governs all the rest. Twelve items are registered as of
+this decision; five of the twelve came out of D11 alone.
+
+**The mechanism.** `tooling/scripts/vocabulary_escalations.py` holds the
+register. The HTML review catalog renders it as its first section, under a new
+`escalate` action class, and the module run directly writes
+`v291-extracted/vocabulary-v2mgmt-items.md` — a plain document that can be
+circulated to people who will not open a 1.6 MB HTML file. One source, two
+renderings, so they cannot drift.
+
+**The item that matters most is the first one.** The IG's governing requirement
+is fidelity, which is comfortable while the divergences are typographic and
+uncomfortable once the published content is simply wrong. Table 0560 publishes
+time units under the name Quantity Units; table 0931 publishes an invalid UCUM
+code beside the valid one that means the same thing. **THO has already answered
+this question differently at least once** — its `ValueSet/v2-0931` drops the
+bad code and records the history in the display text of the good one. So the
+register asks V2 Management to decide the rule rather than the instances:
+reproduce and record, reproduce and deprecate, or correct and annotate. The
+current answer is reproduce-and-record, and it is an assumption nobody has
+ratified.
+
+**Consequences.**
+
+- Two review groups move out of *decide* by being escalated rather than
+  settled: the five concept domains that Chapter 2C describes two different
+  ways, and the five whose definitions differ between Chapter 2C and THO. A
+  concept domain has one description by definition, so a domain with two is a
+  source defect and not a representation choice this project gets to make.
+  Meanwhile the first description in document order is emitted, which keeps the
+  output deterministic.
+- Batch A cannot be fully closed while item 1 is open, because the answer
+  changes what a defective table should produce. It does not block Batch A
+  entirely — the seven tables in D11 were disposed of without it — but the
+  general rule waits.
 
 ## Open batches
 
@@ -454,13 +636,19 @@ outcome above as a new decision.
 ### Batch A — Identity: which resources exist, and what are they called
 
 - Which tables get a CodeSystem and/or ValueSet at all. Candidates for
-  exclusion: the 384 concept-domain-only tables (covered by D1 instead), and
-  the 7 tables whose content is an empty grid in the published document.
+  exclusion: the 384 concept-domain-only tables (covered by D1 instead).
+  ~~and the 7 tables whose content is an empty grid~~ — **those 7 are settled
+  by D11**, and the rule they imply is the one to generalise here: *a table
+  whose code system is external gets no CodeSystem, only a ValueSet composing
+  from THO's NamingSystem for it.*
 - Canonical URL and id scheme for the 18 code-bearing tables THO does not
   cover, and whether ValueSets follow the same rule as CodeSystems.
 - Whether ValueSets are generated for every CodeSystem or only where Chapter
   2C declares a Value Set block (438 tables declare one).
 - Resource `version`, `status`, `experimental`, publisher and contact defaults.
+- **Blocked in part by escalation 1** (D13): what a table produces when its
+  published content is known to be wrong depends on whether the answer is
+  reproduce, deprecate or correct. Everything else in this batch can proceed.
 
 ### Batch B — Concept level: what each code carries
 
@@ -498,6 +686,13 @@ external code system as a **NamingSystem**, not a `CodeSystem` with
 `content: not-present`, which is the option this batch should probably start
 from.
 
+**D11 resolved four more of the 26 the same way** — 0347 against
+`NamingSystem/ISO3166Part2` and 0929/0930/0932 against `NamingSystem/v3-ucum`,
+in each case because Chapter 2C's own OID and URI match the THO record exactly.
+Five of 26 now share one shape, which is enough to treat NamingSystem reuse as
+the batch's default and to make the remaining question "which tables have no
+THO record" rather than "how should an external code system be modelled".
+
 ## Consequences
 
 - Decisions accumulate in one ADR rather than four, so the rationale for the
@@ -517,5 +712,9 @@ from.
 - `v291-extracted/vocabulary-future-corrections.md` — the backlog for the pass
   *after* the fidelity load: content that is correct as published but would be
   better expressed differently once we are free to change it
-- `tooling/scripts/vocabulary_text_policy.py` — D2 to D7 as code
+- `v291-extracted/vocabulary-v2mgmt-items.md` — D13's register, as a document
+  that can be circulated to a committee
+- `tooling/scripts/vocabulary_text_policy.py` — D2 to D7 and D10 as code
+- `tooling/scripts/vocabulary_escalations.py` — D13's register, as the single
+  source both renderings come from
 - `v291-fhir/conceptdomains-divergences.json` — D1's divergence log

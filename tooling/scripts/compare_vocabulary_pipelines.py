@@ -97,9 +97,30 @@ def fold_typography(text):
     return unicodedata.normalize("NFKC", text)
 
 
+# A space sitting between a word and the punctuation that closes a clause.
+# Whether that space is there or not is a spacing question, so a pair that
+# differs by nothing else belongs in the "whitespace" bucket rather than being
+# reported as the two extractions disagreeing about what the document says.
+#
+# Needed as of ADR-0008 D10. The chapter publishes table 0827 with a
+# non-breaking space before the full stop and D10 deletes it; the LLM had
+# already flattened that character to an ordinary space, which no rule removes.
+# The two corpuses therefore end up one space apart, for a reason that is
+# entirely ours. This is the third time a character-level rule has produced a
+# false disagreement -- see D6 and D7 -- and the same answer applies: both
+# sides of the comparison have to be asked the same question.
+SPACE_BEFORE_PUNCTUATION_RE = re.compile(r"(?<=\S) +(?=[.,;:](?:\s|$))")
+
+
 def fold_whitespace(text):
-    """Collapse all runs of whitespace to a single space and trim."""
-    return re.sub(r"\s+", " ", text).strip()
+    """Reduce a value to its content, ignoring how it was spaced.
+
+    Runs of whitespace collapse to a single space, the ends are trimmed, and a
+    space against clause-closing punctuation is dropped. Two values equal after
+    this differ only in spacing.
+    """
+    collapsed = re.sub(r"\s+", " ", text).strip()
+    return SPACE_BEFORE_PUNCTUATION_RE.sub("", collapsed)
 
 
 def classify_difference(left, right):

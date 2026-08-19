@@ -382,6 +382,53 @@ class TestNonBreakingSpaceInText:
         assert emitted("URL", text) == text
 
 
+class TestNonBreakingSpaceBeforePunctuation:
+    """ADR-0008 D10: it is deleted, not turned into an ordinary space."""
+
+    def test_the_table_0827_case(self):
+        nbsp = chr(0x00A0)
+        text = f"...codes for statistical use (M49){nbsp}."
+        assert emitted("Description", text) == (
+            "...codes for statistical use (M49).")
+
+    def test_it_runs_before_the_general_rule(self):
+        # If the general rule went first the space would already be an ordinary
+        # one and this rule would never see it, leaving `(M49) .` behind.
+        nbsp = chr(0x00A0)
+        assert kinds("Description", f"use (M49){nbsp}.") == [
+            "nbsp_before_punctuation"]
+
+    def test_an_ordinary_space_before_a_period_is_published_text(self):
+        # Nineteen places in Chapter 2C print this and none of them is ours.
+        assert emitted("comment", "Placer Applications .") == (
+            "Placer Applications .")
+
+    def test_a_non_breaking_space_elsewhere_still_becomes_a_space(self):
+        # The narrow rule must not swallow the broad one's work.
+        nbsp = chr(0x00A0)
+        assert kinds("Description", f"taken from{nbsp}ISO 3166") == [
+            "non_breaking_space_in_text"]
+
+    def test_a_period_inside_a_value_is_not_closing_punctuation(self):
+        # `2p16.3` -- the lookahead needs whitespace or end of value after the
+        # period, or this rule would eat the space in a chromosome locus.
+        nbsp = chr(0x00A0)
+        text = f"the locus{nbsp}2p16.3 and others"
+        assert emitted("comment", text) == "the locus 2p16.3 and others"
+
+    def test_a_comma_semicolon_and_colon_count_too(self):
+        nbsp = chr(0x00A0)
+        for mark in ",;:":
+            text = f"one{nbsp}{mark} two"
+            assert emitted("comment", text) == f"one{mark} two"
+
+    def test_it_does_not_reach_a_field_outside_the_collapse_set(self):
+        # Same scope as the rule it precedes. A URI is not prose.
+        nbsp = chr(0x00A0)
+        text = f"http://example.org/a{nbsp}."
+        assert emitted("URI", text) == text
+
+
 class TestIndentsAndDittoMarks:
     """ADR-0008 D7: the two runs of spaces the collapse deliberately spares."""
 

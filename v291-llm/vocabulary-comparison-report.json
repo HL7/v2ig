@@ -1861,7 +1861,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "whitespace",
-        "pydocx": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from ISO 3166 while the codes for \"supra-national\" regions are from UN Standard country or area codes for statistical use (M49) .",
+        "pydocx": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from ISO 3166 while the codes for \"supra-national\" regions are from UN Standard country or area codes for statistical use (M49).",
         "llm": "This value set defines a base set of codes for country, country subdivision and region for indicating where a resource is intended to be used.\nNote: The codes for countries and country subdivisions are taken from ISO 3166  while the codes for \"supra-national\" regions are from UN Standard country or area codes for statistical use (M49) .\n"
       }
     ],
