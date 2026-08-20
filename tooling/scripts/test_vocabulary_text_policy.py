@@ -16,6 +16,7 @@ from vocabulary_text_policy import (
     apply_manual_corrections,
     apply_text_policy,
     is_descriptive_field,
+    missing_space_after_period_sites,
     normalize_dash_spacing,
     unresolved_space_runs,
 )
@@ -535,12 +536,39 @@ class TestManualCorrections:
             ("manual_correction", 1)]
 
     def test_a_table_with_no_corrections_is_untouched(self):
-        # 0440 and 0717 both have a space before punctuation and neither was
-        # authorized, so neither may acquire a correction by accident.
-        for table in ("0440", "0717"):
-            assert table not in MANUAL_CORRECTIONS
-            text = "sections 7.4.1.32-( OBR-32) , 4.5.3.33"
-            assert apply_manual_corrections(table, text)[0] == text
+        text = "Placer Applications ."
+        assert apply_manual_corrections("0002", text)[0] == text
+
+    def test_a_correction_does_not_reach_a_different_table(self):
+        # Every correction is scoped to the one table it was decided for. The
+        # same construct elsewhere in the chapter stays as published unless
+        # somebody decides about it too.
+        assert apply_manual_corrections("0119", "Usage Note : here")[0] == (
+            "Usage Note : here")
+
+    def test_the_0440_passage_becomes_internally_consistent(self):
+        # Three defects at once: a space after each opening parenthesis, a
+        # space before the comma, and a bare hyphen where the other three in
+        # the same sentence have spaces around them.
+        published = (
+            "Replaces the CM data type used in sections 4.5.3.32 and "
+            "7.4.1.32-( OBR-32) , 4.5.3.33 and 7.4.1.33 - ( OBR-33) "
+            "4.5.3.34 and 7.4.1.34 - ( OBR-34) 4.5.3.35 and 7.4.1.35 - "
+            "( OBR-35) as of v 2.5.")
+        assert apply_manual_corrections("0440", published)[0] == (
+            "Replaces the CM data type used in sections 4.5.3.32 and "
+            "7.4.1.32 - (OBR-32), 4.5.3.33 and 7.4.1.33 - (OBR-33) "
+            "4.5.3.34 and 7.4.1.34 - (OBR-34) 4.5.3.35 and 7.4.1.35 - "
+            "(OBR-35) as of v 2.5.")
+
+    def test_the_0717_line_breaks_survive(self):
+        # The reviewer was explicit: fix the space, keep the paragraph breaks.
+        published = ("...operations https://example.org/x-sec164-506.pdf , "
+                     "which is considered\n\nthe norm.")
+        corrected, _ = apply_manual_corrections("0717", published)
+        assert corrected == ("...operations https://example.org/x-sec164-506."
+                             "pdf, which is considered\n\nthe norm.")
+        assert corrected.count("\n") == 2
 
     def test_applying_twice_changes_nothing_the_second_time(self):
         # The comparison applies corrections to a corpus that may already
@@ -563,3 +591,49 @@ class TestManualCorrections:
                 assert len(correction.corrected) < len(correction.published), (
                     f"{table}: {correction.published!r}")
                 assert correction.why, f"{table}: a correction needs a reason"
+
+
+class TestMissingSpaceAfterPeriodDetector:
+    """A detector, not a rule: it reports and never changes anything."""
+
+    def test_the_table_0821_case(self):
+        text = "concepts that are relevant within their community.Used in HL7"
+        assert len(missing_space_after_period_sites(text)) == 1
+
+    def test_it_never_changes_the_text(self):
+        # Belt and braces: the detector must not be wired into the rule chain.
+        text = "within their community.Used in HL7"
+        assert emitted("Description", text) == text
+
+    @pytest.mark.parametrize("text", [
+        "as of v 2.5. Then the next sentence",   # a space is present
+        "the file CFR-2017.pdf holds it",        # a file extension
+        "reported as v2.9.1 throughout",         # a version number
+        "the code HL7.ABC is used",              # an acronym follows
+        "see e.g. the note below",               # a lowercase word follows
+    ])
+    def test_ordinary_periods_are_not_flagged(self, text):
+        assert missing_space_after_period_sites(text) == []
+
+    def test_an_email_address_is_not_a_sentence_boundary(self):
+        # Table 0396 publishes a contact address in a comment.
+        text = "e-mail: Patrick.Revelle@ngc.com for details"
+        assert missing_space_after_period_sites(text) == []
+
+    def test_a_url_path_is_not_a_sentence_boundary(self):
+        text = "see https://example.org/a.Bcd/e for details"
+        assert missing_space_after_period_sites(text) == []
+
+    def test_a_dotted_identifier_is_reported_on_purpose(self):
+        # `Observation.Code` is not a defect, but nothing in the text tells it
+        # apart from one, so it is listed and a reader decides. Guessing here
+        # would hide real defects.
+        assert len(missing_space_after_period_sites(
+            "passed in HL7 OBX-3 or Observation.Code")) == 1
+
+    def test_the_span_covers_the_joined_characters(self):
+        # Three characters, not one, so the report can highlight something
+        # visible in the middle of a long paragraph.
+        text = "community.Used"
+        (start, end), = missing_space_after_period_sites(text)
+        assert text[start:end] == "y.U"

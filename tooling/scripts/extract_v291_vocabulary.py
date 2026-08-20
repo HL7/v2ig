@@ -67,6 +67,7 @@ from vocabulary_text_policy import (  # noqa: E402
     RULE_KINDS,
     apply_manual_corrections,
     apply_text_policy,
+    missing_space_after_period_sites,
     unresolved_space_runs,
 )
 
@@ -250,6 +251,13 @@ def normalize_cell(raw, log, table_number, location):
 
     if SPACE_BEFORE_PUNCTUATION_RE.search(value):
         log.record('space_before_punctuation', 'preserved',
+                   table_number, location, stripped, value)
+
+    # The mirror image: a sentence running into the next with no space at all.
+    # Reported only, never repaired -- inserting a space is a bigger licence
+    # than removing one, and D6 is the only rule so far that adds a character.
+    if missing_space_after_period_sites(value):
+        log.record('missing_space_after_period', 'preserved',
                    table_number, location, stripped, value)
 
     if '\n' in value:
@@ -773,7 +781,9 @@ def extract_all_tables(doc_path, output_dir):
             'normalized': (['leading_trailing_whitespace']
                            + list(RULE_KINDS) + ['manual_correction']),
             'preserved': ['internal_double_space', 'ditto_mark_space_run',
-                          'non_breaking_space', 'embedded_newline'],
+                          'non_breaking_space', 'embedded_newline',
+                          'space_before_punctuation',
+                          'missing_space_after_period'],
             'descriptiveFields': sorted(DESCRIPTIVE_FIELDS),
             'placesChangedByRule': places_changed,
             'notes': {

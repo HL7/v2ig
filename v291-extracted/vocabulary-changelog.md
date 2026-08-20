@@ -521,9 +521,10 @@ the comparison is right when the difference is genuinely one of presentation
 
 ---
 
-## 009 — Thirteen individual corrections
+## 009 — Eighteen individual corrections
 
-**ADR-0008 D14.** 13 values across 11 tables, 14 places.
+**ADR-0008 D14.** 18 values across 14 tables, 19 places, decided over two
+rounds.
 
 ### Why these are not a rule
 
@@ -550,6 +551,26 @@ individually in `MANUAL_CORRECTIONS`.
 | 0582 | `conceptDomain.Description` | `type of BC Component .` | `type of BC Component.` |
 | 0604 | `conceptDomain.Description` | `type of Modality .` | `type of Modality.` |
 | 0785 | `conceptDomain.Description` | `type of Container Type .` | `type of Container Type.` |
+| 0440 | `codedContent.comment` | `7.4.1.32-( OBR-32) , 4.5.3.33 and 7.4.1.33 - ( OBR-33)…` | `7.4.1.32 - (OBR-32), 4.5.3.33 and 7.4.1.33 - (OBR-33)…` |
+| 0717 | `codedContent.comment` ×2 | `…sec164-506.pdf , which` | `…sec164-506.pdf, which` |
+| 0952 | `conceptDomain.Description` | `Usage Note : Confidentiality` | `Usage Note: Confidentiality` |
+| 0952 | `valueSet.Description` | `Confidentiality code system .` | `Confidentiality code system.` |
+
+The 0440 entry is one correction covering three overlapping defects in a single
+passage: a space after each of four opening parentheses, a space before the
+comma after `(OBR-32)`, and no space around the hyphen in `7.4.1.32-(OBR-32)`
+where the other three references in the same sentence have one. Written out in
+full rather than as three narrow fragments, because the second and third would
+otherwise have to match text the first had already rewritten.
+
+Worth recording against 0440: the `CNN` row of the same table publishes this
+passage in corrected form, and it keeps the first hyphen **tight**. So spacing
+it out makes the NDL row internally consistent while diverging from its own
+sibling. That was an explicit instruction and is one line to reverse.
+
+The two 0717 entries are two different codes — `HIPAANOPP` and
+`HIPAAPsyNotes` — each carrying the defect once, not one value counted twice.
+Line breaks in both are untouched.
 
 ### How they are matched, and why not by location
 
@@ -570,10 +591,60 @@ before being accepted, and the corrections are applied to both.
 
 ### Effect
 
-The outstanding space-before-punctuation group falls from **19 places to 5**.
-Cross-pipeline agreement is unchanged at 740/799; the policy-absorbed count
-rises from 1,043 to 1,056, which is how the corrections show up on the
-comparison side rather than as disagreements.
+**The outstanding space-before-punctuation group is empty** — 19 places,
+all corrected, over two rounds. Cross-pipeline agreement is unchanged at
+740/799; the policy-absorbed count rises from 1,043 to 1,057, which is how the
+corrections show up on the comparison side rather than as disagreements.
+
+One trap worth knowing about. A fragment must be checked against the corpus
+**after** the rule chain, not against the raw extraction. The LLM's raw 0440
+value has `7.4.1.33  - (` with two spaces where python-docx has one, so the
+fragment matches neither raw corpus and both corrected ones — D5 and D7 having
+made them identical by the time corrections run.
+
+---
+
+## 010 — A detector for the missing space after a period
+
+**ADR-0008 D16.** Nothing changed. 12 places found, in 7 tables.
+
+The mirror image of the space-before-punctuation group: Chapter 2C sometimes
+runs one sentence straight into the next with no space at all. Table 0821's
+value set description is the one that surfaced it — *"…relevant within their
+community.Used in HL7 Version 2.x messages"*.
+
+### Reported, never repaired
+
+Inserting a character is a larger licence than removing one. Change 006 is the
+only rule here that adds anything, and it was admitted only because 172 sites
+in the same chapter already carried the comma, so the chapter's own usage
+settled it. There is no equivalent authority for this group. The correct fix
+for `community.Used` is obvious, but so was change 006's, and the bar it set is
+the one to hold.
+
+### What the pattern will and will not match
+
+A period between a lowercase letter and a capital-then-lowercase. That keeps it
+off decimals (`v 2.5`), file extensions (`.pdf`), version numbers, acronyms
+(`HL7.ABC`) and any abbreviation followed by a lowercase word (`e.g. the`).
+Emails and URL paths are excluded on structural evidence — an `@` or a `/` in
+the surrounding token — which keeps table 0396's contact address
+`Patrick.Revelle@ngc.com` out.
+
+**Two of the twelve are not defects and are listed anyway.**
+`Observation.Code` in table 0396 and `…ActHealthInformationManagementReason.
+PurposeOfUse` in 0717 are dotted identifiers. Nothing in the text distinguishes
+one from a genuine missing space, and a detector that guesses hides real
+defects.
+
+### Where the pattern lives
+
+In `vocabulary_text_policy.py` with the rules, not in the extractor, because
+the review report needs the same pattern to mark the exact spot inside a value.
+The report already carries one detector regex copied from the extractor; a
+second copy is where they would start to drift. The match spans the three
+joined characters (`y.U`) rather than the period alone, so the mark is visible
+in the middle of a 700-character paragraph.
 
 ---
 
@@ -594,8 +665,8 @@ comparison side rather than as disagreements.
 | Line-initial indent set to two spaces | 007d / D7 | 2 | 4 |
 | Every remaining run of spaces | 007e / D7 | 141 | 150 |
 | Non-breaking space against closing punctuation | 008 / D10 | 1 | 1 |
-| Individual corrections | 009 / D14 | 13 | 14 |
-| **Total** | | **1,254** | **1,474** |
+| Individual corrections | 009 / D14 | 18 | 19 |
+| **Total** | | **1,259** | **1,479** |
 
 The period count moved 890 → 891 because change 007a turns table 0301's
 corrupt character into an ordinary space, which then leaves a double space for
@@ -622,23 +693,30 @@ run that remains anywhere in the corpus is table 0496's ditto mark, which
 change 007f preserves deliberately and which the report shows as informational
 rather than outstanding.
 
-### A space before the punctuation that closes a clause
+### A space before the punctuation that closes a clause — none
 
-**5 places, in 3 fields.** Down from 20: change 008 cleared the one that was
-ours, and change 009 corrected 14 more individually. Each of the five is
-named, because a group this small should not make anyone re-derive it.
+Cleared by changes 008 and 009. Down from 20 places to **0**: one was ours and
+was deleted under D10, and the reviewer worked through the other 19
+individually over two rounds. Nothing in the corpus now carries a space before
+the punctuation that closes a clause.
 
-| Table | Field | What is left | Status |
-|---|---|---|---|
-| 0717 | `codedContent.comment` ×2 | `...sec164-506.pdf , which` | **Decided: leave entirely alone**, line breaks included |
-| 0440 | `codedContent.comment` | `...( OBR-32) , 4.5.3.33` | Open. The same construct was corrected in 0396, but the instruction for 0440 was about a double space before a hyphen — which D7 had already collapsed |
-| 0952 | `conceptDomain.Description` | `Usage Note : Confidentiality` | Open. A colon, not a period, so "remove the spaces before the periods" did not reach it |
-| 0952 | `valueSet.Description` | `Confidentiality code system .` | Open. The double space between `elements` and `in` that prompted the review had already gone under D7 |
+### A missing space after a period
 
-Two of the three open ones are open only because the reviewer was reading the
-**As published** column, where the defect they spotted was still visible even
-though a rule had already fixed it. The report now marks the outstanding site
-in the **As emitted** column so the question being asked is unambiguous.
+**12 places, in 7 tables.** The mirror image of the group above, and new: there
+was no detector for it until change 010. Reported only — see that change for
+why inserting a character is a bigger licence than removing one.
+
+| Field | Places | Example |
+|---|---:|---|
+| `codedContent.comment` | 8 | `...coding entity identifier.Retained for backward` (0301, ×5) |
+| `codeSystem.Description` | 2 | `ISO 3166 Part 1 Country Codes.This coding system` (0399) |
+| `tableMetadata.Description` | 1 | `...at a specific organization unit.Health Care Provider` (0454) |
+| `valueSet.Description` | 1 | `...within their community.Used in HL7 Version 2.x` (0821) |
+
+Two of the twelve are dotted identifiers rather than defects —
+`Observation.Code` in 0396 and `...Reason.PurposeOfUse` in 0717 — and are
+listed rather than guessed away, because nothing in the text tells them apart
+from the real ones.
 
 ### Dashes the rule refused to repair
 

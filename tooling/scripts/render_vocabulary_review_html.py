@@ -46,7 +46,11 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vocabulary_escalations import ESCALATIONS
+from vocabulary_text_policy import MISSING_SPACE_AFTER_PERIOD_RE
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -192,6 +196,19 @@ DEVIATION_PRESENTATION = {
         "clause, deleted per ADR-0008 D10. Deleted rather than turned into an "
         "ordinary space, because spacing it out would leave "
         "<code>(M49)&nbsp;.</code> &mdash; a defect of our own making.",
+    ),
+    "missing_space_after_period": (
+        "decide",
+        "A sentence running straight into the next with no space after the "
+        "period (<code>within their community.Used in HL7</code>). Left "
+        "exactly as published: inserting a space is a bigger licence than "
+        "removing one, and ADR-0008 D6 is the only rule so far that adds a "
+        "character at all. Two of these are not defects &mdash; "
+        "<code>Observation.Code</code> and "
+        "<code>&hellip;Reason.PurposeOfUse</code> in table 0396 and 0717 are "
+        "dotted identifiers &mdash; and they are listed rather than guessed "
+        "away, because nothing in the text tells them apart from the real "
+        "ones.",
     ),
     "space_before_punctuation": (
         "decide",
@@ -406,6 +423,69 @@ DECISION_NOTES = {
 OUTSTANDING_SITE = {
     # Mirrors SPACE_BEFORE_PUNCTUATION_RE in extract_v291_vocabulary.py.
     "space_before_punctuation": re.compile(r"\S +(?=[.,;:](?:\s|$))"),
+    # Shared with the extractor, not copied: see vocabulary_text_policy.
+    "missing_space_after_period": MISSING_SPACE_AFTER_PERIOD_RE,
+    "internal_double_space": re.compile(r" {2,}"),
+    "ditto_mark_space_run": re.compile(r'(?<=["\u201c\u201d\u2018\u2019]) {2,}(?=["\u201c\u201d\u2018\u2019])'),
+}
+
+
+# Which ADR-0008 decision authorized each automatic change to the text.
+#
+# A group with an entry here is DECIDED, not awaiting confirmation. The
+# reviewer worked it, the reasoning is recorded in the ADR, and presenting it
+# again as something to check would be asking for the same judgement twice --
+# which is exactly the complaint that produced this table. "Confirm" is
+# reserved for a change that has been made but not yet reviewed by anyone.
+#
+# Adding a rule means adding a line here at the point the reviewer approves it.
+# Until then the group renders as "Confirm", which is accurate.
+DEVIATION_DECISION = {
+    "leading_trailing_whitespace": "D2",
+    "double_space_after_period": "D3",
+    "double_space_after_sentence_close": "D4",
+    "double_space_after_comma": "D4",
+    "repeated_space_in_display_name": "D4",
+    "dash_spacing": "D5",
+    "missing_comma_after_abbreviation": "D6",
+    "mojibake_non_breaking_space": "D7",
+    "private_use_area_character": "D7",
+    "non_breaking_space_in_text": "D7",
+    "line_initial_indent": "D7",
+    "repeated_space_collapsed": "D7",
+    "non_breaking_space": "D2",
+    "nbsp_before_punctuation": "D10",
+    "manual_correction": "D14",
+}
+
+
+# A note on a section that is still open. Same rendering as a decision, but it
+# does not move the section out of "Decide" -- it is context for the decision,
+# not the decision. Say plainly what is still being asked.
+# The five that survive the 2026-08-19 pass, named individually. A group with
+# five items left in it should say which five and why, or the next reader
+# re-derives it.
+# Nothing is currently open-but-undecided. Add an entry when a group is worked
+# on and left unsettled, so the next reader inherits what was found. Keyed by
+# section id; the note renders above the group and leaves it under "Decide".
+OPEN_NOTES = {}
+
+# Where the outstanding construct actually is, per deviation kind.
+#
+# An outstanding group shows a value AS EMITTED, and that value has usually
+# been through several rules already -- so the thing still outstanding is one
+# space somewhere inside a 700-character paragraph. Without a mark on it, a
+# reader scanning the "As published" column finds a different defect, one that
+# was fixed three rules ago, and decides about that instead. That happened
+# twice in one review round, on tables 0440 and 0952.
+#
+# The pattern must match the same construct the extractor detected, or the
+# mark will point at the wrong place, which is worse than no mark.
+OUTSTANDING_SITE = {
+    # Mirrors SPACE_BEFORE_PUNCTUATION_RE in extract_v291_vocabulary.py.
+    "space_before_punctuation": re.compile(r"\S +(?=[.,;:](?:\s|$))"),
+    # Shared with the extractor, not copied: see vocabulary_text_policy.
+    "missing_space_after_period": MISSING_SPACE_AFTER_PERIOD_RE,
     "internal_double_space": re.compile(r" {2,}"),
     "ditto_mark_space_run": re.compile(r'(?<=["\u201c\u201d\u2018\u2019]) {2,}(?=["\u201c\u201d\u2018\u2019])'),
 }

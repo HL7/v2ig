@@ -5,11 +5,11 @@
     "common": 799
   },
   "policyAbsorbed": {
-    "total": 1056,
+    "total": 1057,
     "byField": {
       "codeSystems[0].Description": 365,
       "tableMetadata.Description": 222,
-      "conceptDomain.Description": 142,
+      "conceptDomain.Description": 143,
       "codedContent.comment": 131,
       "codedContent.displayName": 105,
       "valueSets[0].Description": 62,
@@ -1469,14 +1469,14 @@
         "location": "codedContent[59].comment",
         "code": "HIPAANOPP",
         "bucket": "typography",
-        "pydocx": "Used to indicate the legal authority for assigning security labels to HIPAA governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by a covered entity’s HIPAA Notice of Privacy Practices, use “HIPAANOPP” as the security label policy code.\n\n Information governed under a HIPAA Notice of Privacy Practices has the level of confidentiality protection afforded under the 45 CFR Section 164.506 - Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf , which is considered the “norm”, assign the HL7 Confidentiality code “N” (normal).",
+        "pydocx": "Used to indicate the legal authority for assigning security labels to HIPAA governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by a covered entity’s HIPAA Notice of Privacy Practices, use “HIPAANOPP” as the security label policy code.\n\n Information governed under a HIPAA Notice of Privacy Practices has the level of confidentiality protection afforded under the 45 CFR Section 164.506 - Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, which is considered the “norm”, assign the HL7 Confidentiality code “N” (normal).",
         "llm": "Used to indicate the legal authority for assigning security labels to HIPAA governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by a covered entity's HIPAA Notice of Privacy Practices, use \"HIPAANOPP\" as the security label policy code.\n\n Information governed under a HIPAA Notice of Privacy Practices has the level of confidentiality protection afforded under the 45 CFR Section 164.506 - Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf , which is considered the \"norm\", assign the HL7 Confidentiality code \"N\" (normal)."
       },
       {
         "location": "codedContent[60].comment",
         "code": "HIPAAPsyNotes",
         "bucket": "typography",
-        "pydocx": "Used to indicate the legal authority for assigning security labels to HIPAA governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by HIPAA 45 CFR 164.508 (2) Authorization required: Psychotherapy notes https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf , use “HIPAAPsyNotes” as the security label policy code.\n\nSince information governed by a HIPAA 45 CFR 164.508 (2) has a level of confidentiality protection that is more stringent than the normal level of protection under 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, assign the HL7 Confidentiality code “R” (restricted).",
+        "pydocx": "Used to indicate the legal authority for assigning security labels to HIPAA governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by HIPAA 45 CFR 164.508 (2) Authorization required: Psychotherapy notes https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, use “HIPAAPsyNotes” as the security label policy code.\n\nSince information governed by a HIPAA 45 CFR 164.508 (2) has a level of confidentiality protection that is more stringent than the normal level of protection under 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, assign the HL7 Confidentiality code “R” (restricted).",
         "llm": "Used to indicate the legal authority for assigning security labels to HIPAA governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by HIPAA 45 CFR 164.508 (2) Authorization required: Psychotherapy notes https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf , use \"HIPAAPsyNotes\" as the security label policy code.\n\nSince information governed by a HIPAA 45 CFR 164.508 (2) has a level of confidentiality protection that is more stringent than the normal level of protection under 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, assign the HL7 Confidentiality code \"R\" (restricted)."
       },
       {

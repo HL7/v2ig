@@ -150,10 +150,12 @@ NBSP_RUN_RE = re.compile(" +")
 # non-breaking space out leaves `(M49) .`, a defect we would have introduced
 # ourselves; deleting it gives `(M49).`, which is what the sentence says.
 #
-# It is confined to runs containing a non-breaking space on purpose. Nineteen
-# other places in Chapter 2C put an ORDINARY space before closing punctuation
-# (`Placer Applications .`); those are published that way and stay that way.
-# Only the spaces Word inserted are ours to remove.
+# It is confined to runs containing a non-breaking space on purpose. Chapter 2C
+# has 19 further places where an ORDINARY space sits before closing punctuation
+# (`Placer Applications .`), and those were not this rule's to take: the
+# reviewer worked through them one at a time and they are now in
+# MANUAL_CORRECTIONS under D14. Only the spaces Word inserted are a rule's
+# business.
 #
 # The lookahead matches the extractor's own detector: punctuation followed by
 # whitespace or the end of the value really is closing a clause, where the
@@ -423,6 +425,65 @@ def add_comma_after_abbreviation(text):
 # them falling into one undifferentiated bucket. This is why the display-name
 # sweep reports 66 changes and not 74.
 # --------------------------------------------------------------------------
+# Detectors -- things the policy reports but does not change
+# --------------------------------------------------------------------------
+#
+# These live here rather than in the extractor so that the review report can
+# mark the exact spot in a value without keeping its own copy of the pattern.
+# A report that highlights the wrong character is worse than one that
+# highlights nothing, and two copies of a regex drift.
+
+# A sentence running straight into the next with no space after the period:
+# `...within their community.Used in HL7 Version 2.x messages` (table 0821).
+#
+# Requiring a lowercase letter before, and a capital followed by a lowercase
+# after, keeps it off almost everything that legitimately contains a period --
+# decimals (`v 2.5`), file extensions (`.pdf`), version numbers, acronyms
+# (`HL7.ABC`) and any abbreviation followed by a lowercase word (`e.g. the`).
+#
+# The match spans the three joined characters rather than the period alone,
+# so that the review report can highlight something a reader can actually see.
+# A one-character mark in the middle of a 700-character paragraph is not much
+# better than no mark.
+MISSING_SPACE_AFTER_PERIOD_RE = re.compile(r"[a-z]\.[A-Z](?=[a-z])")
+
+# Characters that mean the period belongs to an address rather than a
+# sentence. `Patrick.Revelle@ngc.com` and any URL path would otherwise match.
+_ADDRESS_CHARACTERS = frozenset("@/:\\")
+
+
+def missing_space_after_period_sites(text):
+    """Find periods that look like a sentence boundary with the space missing.
+
+    Args:
+        text: The value as emitted.
+
+    Returns:
+        A list of ``(start, end)`` spans, one per site.
+
+    A dotted identifier such as ``Observation.Code`` or
+    ``HealthInformationManagementReason.PurposeOfUse`` is reported too. Nothing
+    in the text distinguishes one from a genuine missing space, and guessing
+    wrong in a detector means a real defect goes unseen -- so they are listed
+    and the reader decides. Two of them in Chapter 2C, both in table 0396.
+    """
+    if not text:
+        return []
+
+    sites = []
+    for match in MISSING_SPACE_AFTER_PERIOD_RE.finditer(text):
+        # Widen to the whitespace-delimited token the period sits in; if that
+        # token looks like an address, the period is part of it.
+        start = text.rfind(" ", 0, match.start()) + 1
+        end = text.find(" ", match.end())
+        token = text[start:end if end != -1 else len(text)]
+        if _ADDRESS_CHARACTERS & set(token):
+            continue
+        sites.append((match.start(), match.end()))
+    return sites
+
+
+# --------------------------------------------------------------------------
 # Individual corrections                                          ADR-0008 D14
 # --------------------------------------------------------------------------
 #
@@ -468,6 +529,35 @@ MANUAL_CORRECTIONS = {
         Correction('"2004" , ', '"2004", ',
                    "Space before the comma. Three identical comments carry "
                    "it, so this fires three times."),
+    ),
+    "0440": (
+        Correction(
+            "7.4.1.32-( OBR-32) , 4.5.3.33 and 7.4.1.33 - ( OBR-33) "
+            "4.5.3.34 and 7.4.1.34 - ( OBR-34) 4.5.3.35 and 7.4.1.35 - "
+            "( OBR-35)",
+            "7.4.1.32 - (OBR-32), 4.5.3.33 and 7.4.1.33 - (OBR-33) "
+            "4.5.3.34 and 7.4.1.34 - (OBR-34) 4.5.3.35 and 7.4.1.35 - "
+            "(OBR-35)",
+            "Three defects in one passage of the NDL comment, corrected "
+            "together because they overlap: a space after each of four "
+            "opening parentheses, a space before the comma after "
+            "(OBR-32), and no space around the hyphen in 7.4.1.32-(OBR-32) "
+            "where the other three have one. Written out in full rather "
+            "than as three narrow fragments, so the diff shows exactly what "
+            "the passage becomes."),
+    ),
+    "0717": (
+        Correction(".pdf , ", ".pdf, ",
+                   "Space before the comma that follows a URL. Two coded "
+                   "rows carry it, HIPAANOPP and HIPAAPsyNotes, once each. "
+                   "The line breaks in both values are untouched."),
+    ),
+    "0952": (
+        Correction("Usage Note : ", "Usage Note: ",
+                   "Space before the colon that introduces the usage note."),
+        Correction("code system .", "code system.",
+                   "Space before the period that ends the first sentence of "
+                   "the value set description."),
     ),
     "0577": (
         Correction("type of BC Component .", "type of BC Component.",

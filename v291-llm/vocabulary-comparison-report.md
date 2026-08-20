@@ -29,13 +29,13 @@ the published document.
 
 ### Absorbed by the shared text policy
 
-A further **1056** values were textually different but identical once both sides were put through `vocabulary_text_policy.py`. These are not counted above, because they are our own deliberate normalization (spaces collapsed after a period in descriptive fields) showing up on only one side — the python-docx corpus has the policy applied, the LLM corpus does not. They are listed here so the number is visible rather than silently removed.
+A further **1057** values were textually different but identical once both sides were put through `vocabulary_text_policy.py`. These are not counted above, because they are our own deliberate normalization (spaces collapsed after a period in descriptive fields) showing up on only one side — the python-docx corpus has the policy applied, the LLM corpus does not. They are listed here so the number is visible rather than silently removed.
 
 | Field | Values |
 |---|---:|
 | `codeSystems[0].Description` | 365 |
 | `tableMetadata.Description` | 222 |
-| `conceptDomain.Description` | 142 |
+| `conceptDomain.Description` | 143 |
 | `codedContent.comment` | 131 |
 | `codedContent.displayName` | 105 |
 | `valueSets[0].Description` | 62 |

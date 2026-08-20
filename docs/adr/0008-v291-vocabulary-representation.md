@@ -642,13 +642,37 @@ period.
 | 0119, 0396 | Space before the period ending a comment (0396 also ×3 before a comma) |
 | 0003 | Space before a comma in a display name |
 | 0356 | A second period, preceded by a space, after the period that already closed the sentence |
+| 0440 | Three defects in one passage, corrected together — see below |
+| 0717 | Space before the comma following a URL, in two coded rows |
+| 0952 | Space before a colon; space before a period |
 
 **Why not a rule.** There are 19 places in Chapter 2C with a space before
-closing punctuation, and the reviewer wanted 14 of them changed and 5 left
-alone — table 0717's two values explicitly untouched, line breaks and all.
-That distinction is not a pattern. It is a person reading each one. Forcing it
-into a rule would mean inventing a discriminator that does not exist in the
-text, which is worse than admitting the corrections are individual.
+closing punctuation, and the reviewer worked through them individually over
+two rounds rather than approving the group. Some needed more than the space
+removing, one was a colon rather than a period, and in two cases the defect
+that prompted the instruction had already been fixed by an earlier rule. That
+is not a pattern. It is a person reading each one. Forcing it into a rule would
+mean inventing a discriminator that does not exist in the text, which is worse
+than admitting the corrections are individual.
+
+**Table 0440 is the reason the mechanism takes a whole passage, not a
+fragment.** The NDL comment carries three overlapping defects — a space after
+each of four opening parentheses, a space before the comma after `(OBR-32)`,
+and no space around the hyphen in `7.4.1.32-(OBR-32)` where the other three
+references in the same sentence have one. Written as three narrow fragments
+the second and third would have had to match text the first had already
+rewritten, which is unreadable and fragile. Written out in full, the diff shows
+exactly what the passage becomes.
+
+*One piece of evidence points the other way on the hyphen, and is recorded
+here so the decision can be revisited cheaply.* Table 0440's `CNN` row
+publishes the same passage in corrected form — `7.4.1.32-(OBR-32),
+4.5.3.33 and 7.4.1.33 - (OBR-33)…` — with no space after the parentheses, no
+space before the comma, and **the first hyphen tight**, exactly as NDL has it.
+So the chapter is consistent in treating the first reference differently, and
+the instruction to space it out makes NDL internally consistent at the cost of
+diverging from its own sibling row. That was the reviewer's explicit call and
+it is one line to reverse.
 
 **Why matching is on a text fragment within a named table, and not on a
 location path.** Two reasons, both of which would otherwise have caused a
@@ -670,13 +694,18 @@ occur in both corpuses before being accepted.
 
 **Consequences.**
 
-- The outstanding space-before-punctuation group falls from 19 places to 5. Of
-  those five, two are decided (0717, left alone) and three are open questions
-  that are open only because the instruction did not reach them: 0440's space
-  before a comma, and 0952's space before a colon and before a period.
+- **The space-before-punctuation group is empty.** All 19 places are corrected:
+  14 in the first round, 5 in the second. Nothing in Chapter 2C now carries a
+  space before the punctuation that closes a clause.
 - Cross-pipeline agreement is unchanged at 740/799. The corrections are applied
   to both corpuses and are absorbed by the shared policy, which is what the
-  count of policy-absorbed values rising from 1,043 to 1,056 records.
+  count of policy-absorbed values rising from 1,043 to 1,057 records.
+- **Fragments match the post-policy text, and table 0440 proves why that
+  matters.** The published LLM value carries `7.4.1.33  - (` with two spaces
+  where python-docx has one. The fragment matches neither raw corpus reliably
+  and both corpuses after the rule chain has run, because D5 and D7 have by
+  then made them identical. Checking a fragment against the raw corpus is
+  therefore not a valid test of whether a correction will fire.
 - **This is the mechanism to reach for when the next batch of individual
   judgements arrives**, and there will be more: the missing space after a
   comma, the three dashes D5 refused to repair. A rule remains preferable when
@@ -717,6 +746,41 @@ informational and stays that way until something genuinely new appears.
   anything else as a fidelity problem: **is this already published in the
   terminology the IG will sit beside?** If yes, it is not our defect. D12 is
   the same reasoning applied to symbolic names, reached independently.
+
+### D16 — A missing space after a period is detected and reported, never inserted
+
+**Decided 2026-08-20.**
+
+Chapter 2C runs one sentence straight into the next, with no space after the
+period, in **12 places across 7 tables**. Table 0821's value set description is
+the one that surfaced it: *"…relevant within their community.Used in HL7
+Version 2.x messages"*. The rest are five identical comments in 0301, two in
+0396, and one each in 0399, 0454, 0717 and 0719.
+
+**Reported, not repaired.** Inserting a character is a larger licence than
+removing one. D6 is the only rule so far that adds anything, and it was
+admitted only because the chapter's own overwhelming majority usage — 172
+sites already carrying the comma — settled the question. There is no equivalent
+authority here: the correct fix for *"community.Used"* is obvious, but so was
+D6's, and the bar D6 set is the one to hold. This becomes a `decide` group,
+which is where the reviewer will settle it or not.
+
+**Two of the twelve are not defects, and they are listed anyway.**
+`Observation.Code` in table 0396 and `…ActHealthInformationManagementReason.
+PurposeOfUse` in 0717 are dotted identifiers. Nothing in the text distinguishes
+one from a genuine missing space, and a detector that guesses hides real
+defects — so both are shown and a reader decides. Emails and URL paths *are*
+excluded, because `@` and `/` in the surrounding token are structural evidence
+rather than a guess; that keeps table 0396's contact address
+(`Patrick.Revelle@ngc.com`) out.
+
+**Where the pattern lives.** In `vocabulary_text_policy.py` alongside the
+rules, not in the extractor, because the review report needs the same pattern
+to mark the site inside the value. The report already carries one detector
+regex copied from the extractor; a second copy would be the point at which
+they start to drift. The match deliberately spans the three joined characters
+(`y.U`) rather than the period alone, so the mark is visible in the middle of a
+700-character paragraph.
 
 ## Open batches
 
