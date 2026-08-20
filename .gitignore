@@ -98,6 +98,7 @@ Thumbs.db
 # tooling/scripts/vocabulary_escalations.py, but tracked so the register is
 # readable and diffable without running anything.
 !/v291-extracted/vocabulary-v2mgmt-items.md
+!/v291-extracted/utg-briefing-2026-08-20.md
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
 /v2plus_docx/
