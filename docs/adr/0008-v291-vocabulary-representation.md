@@ -835,6 +835,60 @@ other nine fragments were verified present in both corpuses before being
 written, per the standing rule that every character-level change is checked
 against both.
 
+### D18 — The IG is a staging workspace for THO, and canonicals say so
+
+**Decided 2026-08-20.** This is a premise the whole of Batch A rests on, so it
+is recorded before the batch rather than inside it.
+
+**What this IG is for.** It is a *workspace* in which the V2.9.1 terminology is
+made correct. It is not a publication in its own right and has no independent
+consumers. Once the content is deemed correct it is **integrated into THO**,
+which is its only destination.
+
+**Therefore the canonical origin is `http://terminology.hl7.org/`.** The
+resources are authored at the URLs they will ultimately live at, following
+THO's existing naming — `CodeSystem/v2-0nnn`, `ValueSet/v2-0nnn`, `hl7VS-…`
+titles. There is no interim canonical to migrate away from later, and no
+mapping table between a workspace URL and a THO URL for anyone to get wrong.
+
+The objection this overrides is namespace squatting: authoring at another
+body's canonical usually means two publishers can claim one URL. It does not
+apply here, for the same reason D1 gave — the project lead is a UTG maintainer
+and a member of TSMG, so this is not an outside body reaching into THO's
+namespace. It is THO's content being prepared, in the open, before it lands.
+
+**The output is not tied to V2.9.1.** V2.9.1 is the *source* being used to
+establish a correct baseline for v2 in THO; it is not the scope of the result.
+Consequences for Batch A and Batch C:
+
+- Resource `version` does **not** carry `2.9.1`. Versioning follows THO's own
+  scheme, as D1 already does for `conceptdomains` (THO 3.0.0 → this 4.0.0).
+- Chapter 2C's "HL7 Version Introduced" is provenance about a concept and
+  belongs in a property, never in `CodeSystem.version`.
+- Nothing in the resources should read as though V2.9.1 were the subject.
+
+**The existing THO v2 content is not a reference standard.** The project lead's
+assessment is that it is more error-ridden than what this effort is preparing.
+Two things follow:
+
+- Where this work and THO disagree, THO does not automatically win. D1's
+  tie-break for the 5 conflicting concept domain definitions was justified on
+  the grounds that deferring cost almost nothing in fidelity — that remains
+  true at 5 domains, and all 5 are already escalated under D13, so nothing
+  changes today. But the *reasoning* does not generalise, and no later decision
+  should cite "THO already publishes it" as authority on its own.
+- Where THO's existing v2 content agrees with Chapter 2C, that is corroboration
+  and worth stating; it is not deference.
+
+**This effort is the fidelity load, and only that.** The discipline is
+unchanged: the workspace carries what Chapter 2C publishes, corrected only
+where a reviewer has decided a specific case is safe, with every divergence
+recorded. A **subsequent** effort resolves the substantive problems in the v2
+terminology that go beyond this pass. Keeping the two separate is what makes
+the second one reviewable — a baseline nobody can diff against is not a
+baseline. `v291-extracted/vocabulary-future-corrections.md` is that second
+effort's inbox.
+
 ## Open batches
 
 Worked in dependency order; each is a short session, and each records its
