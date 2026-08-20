@@ -16,7 +16,8 @@
       "line_initial_indent",
       "repeated_space_collapsed",
       "missing_comma_after_abbreviation",
-      "manual_correction"
+      "manual_correction",
+      "missing_space_correction"
     ],
     "preserved": [
       "internal_double_space",
@@ -43,6 +44,7 @@
       "double_space_after_sentence_close": 6,
       "mojibake_non_breaking_space": 1,
       "non_breaking_space_in_text": 4,
+      "missing_space_correction": 10,
       "line_initial_indent": 4,
       "nbsp_before_punctuation": 1,
       "private_use_area_character": 3
@@ -77,8 +79,9 @@
     "leading_trailing_whitespace": 44,
     "mojibake_non_breaking_space": 1,
     "non_breaking_space_in_text": 2,
-    "missing_space_after_period": 12,
+    "missing_space_correction": 10,
     "line_initial_indent": 2,
+    "missing_space_after_period": 2,
     "ditto_mark_space_run": 1,
     "non_breaking_space": 6,
     "nbsp_before_punctuation": 1,
@@ -156,7 +159,10 @@
       "codedContent.definition": 3
     },
     "missing_space_after_period": {
-      "codedContent.comment": 8,
+      "codedContent.comment": 2
+    },
+    "missing_space_correction": {
+      "codedContent.comment": 6,
       "codeSystem.Description": 2,
       "tableMetadata.Description": 1,
       "valueSet.Description": 1
@@ -15234,9 +15240,8 @@
       "action": "preserved",
       "section": "codedContent",
       "field": "comment",
-      "count": 8,
+      "count": 2,
       "tables": [
-        "0301",
         "0396",
         "0717"
       ],
@@ -15244,63 +15249,9 @@
         {
           "kind": "missing_space_after_period",
           "action": "preserved",
-          "tableNumber": "0301",
-          "location": "codedContent[10].comment",
-          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
-          "tableNumber": "0301",
-          "location": "codedContent[11].comment",
-          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
-          "tableNumber": "0301",
-          "location": "codedContent[12].comment",
-          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
-          "tableNumber": "0301",
-          "location": "codedContent[13].comment",
-          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
-          "tableNumber": "0301",
-          "location": "codedContent[15].comment",
-          "raw": "Usually a base64 encoded string of random bits.Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers\n\nUsage Note: Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead.",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
           "tableNumber": "0396",
           "location": "codedContent[232].comment",
           "raw": "CDC Public Health Questions used in HL7 Message as observation identifiers. These question or observation identifiers are used in CDC's message implementation guides and will be passed in HL7 OBX-3 or Observation.Code",
-          "section": "codedContent",
-          "field": "comment"
-        },
-        {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
-          "tableNumber": "0396",
-          "location": "codedContent[244].comment",
-          "raw": "RxNorm provides standard names for clinical drugs (active ingredient + strength + dose form) and for dose forms as administered to a patient. It provides links from clinical drugs, both branded and generic, to their active ingredients, drug components (active ingredient + strength), and related brand names. NDCs (National Drug Codes) for specific drug products (where there are often many NDC codes for a single product) are linked to that product in RxNorm. RxNorm links its names to many of the drug vocabularies commonly used in pharmacy management and drug interaction software, including those of First Databank, Micromedex, MediSpan, and Multum. By providing links between these vocabularies, RxNorm can mediate messages between systems not using the same software and vocabulary.RxNorm is one of a suite of designated standards for use in U.S. Federal Government systems for the electronic exchange of clinical health information.",
           "section": "codedContent",
           "field": "comment"
         },
@@ -15317,8 +15268,87 @@
       ]
     },
     {
-      "kind": "missing_space_after_period",
-      "action": "preserved",
+      "kind": "missing_space_correction",
+      "action": "normalized",
+      "section": "codedContent",
+      "field": "comment",
+      "count": 6,
+      "tables": [
+        "0301",
+        "0396"
+      ],
+      "deviations": [
+        {
+          "kind": "missing_space_correction",
+          "action": "normalized",
+          "tableNumber": "0301",
+          "location": "codedContent[10].comment",
+          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
+          "normalized": "Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "missing_space_correction",
+          "action": "normalized",
+          "tableNumber": "0301",
+          "location": "codedContent[11].comment",
+          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
+          "normalized": "Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "missing_space_correction",
+          "action": "normalized",
+          "tableNumber": "0301",
+          "location": "codedContent[12].comment",
+          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
+          "normalized": "Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "missing_space_correction",
+          "action": "normalized",
+          "tableNumber": "0301",
+          "location": "codedContent[13].comment",
+          "raw": "Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8",
+          "normalized": "Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "missing_space_correction",
+          "action": "normalized",
+          "tableNumber": "0301",
+          "location": "codedContent[15].comment",
+          "raw": "Usually a base64 encoded string of random bits.Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers\n\nUsage Note: Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead.",
+          "normalized": "Usually a base64 encoded string of random bits. Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers\n\nUsage Note: Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead.",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        },
+        {
+          "kind": "missing_space_correction",
+          "action": "normalized",
+          "tableNumber": "0396",
+          "location": "codedContent[244].comment",
+          "raw": "RxNorm provides standard names for clinical drugs (active ingredient + strength + dose form) and for dose forms as administered to a patient. It provides links from clinical drugs, both branded and generic, to their active ingredients, drug components (active ingredient + strength), and related brand names. NDCs (National Drug Codes) for specific drug products (where there are often many NDC codes for a single product) are linked to that product in RxNorm. RxNorm links its names to many of the drug vocabularies commonly used in pharmacy management and drug interaction software, including those of First Databank, Micromedex, MediSpan, and Multum. By providing links between these vocabularies, RxNorm can mediate messages between systems not using the same software and vocabulary.RxNorm is one of a suite of designated standards for use in U.S. Federal Government systems for the electronic exchange of clinical health information.",
+          "normalized": "RxNorm provides standard names for clinical drugs (active ingredient + strength + dose form) and for dose forms as administered to a patient. It provides links from clinical drugs, both branded and generic, to their active ingredients, drug components (active ingredient + strength), and related brand names. NDCs (National Drug Codes) for specific drug products (where there are often many NDC codes for a single product) are linked to that product in RxNorm. RxNorm links its names to many of the drug vocabularies commonly used in pharmacy management and drug interaction software, including those of First Databank, Micromedex, MediSpan, and Multum. By providing links between these vocabularies, RxNorm can mediate messages between systems not using the same software and vocabulary. RxNorm is one of a suite of designated standards for use in U.S. Federal Government systems for the electronic exchange of clinical health information.",
+          "placesChanged": 1,
+          "section": "codedContent",
+          "field": "comment"
+        }
+      ]
+    },
+    {
+      "kind": "missing_space_correction",
+      "action": "normalized",
       "section": "codeSystem",
       "field": "Description",
       "count": 2,
@@ -15328,30 +15358,32 @@
       ],
       "deviations": [
         {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
+          "kind": "missing_space_correction",
+          "action": "normalized",
           "tableNumber": "0399",
           "location": "codeSystem.Description",
-          "raw": "ISO 3166 Part 1 Country Codes.This coding system is published in the ISO 3166-1 Standard for Country codes. This standard is released periodically, and  a new OID will be assigned by ISO for new editions.",
-          "normalized": "ISO 3166 Part 1 Country Codes.This coding system is published in the ISO 3166-1 Standard for Country codes. This standard is released periodically, and a new OID will be assigned by ISO for new editions.",
+          "raw": "ISO 3166 Part 1 Country Codes.This coding system is published in the ISO 3166-1 Standard for Country codes. This standard is released periodically, and a new OID will be assigned by ISO for new editions.",
+          "normalized": "ISO 3166 Part 1 Country Codes. This coding system is published in the ISO 3166-1 Standard for Country codes. This standard is released periodically, and a new OID will be assigned by ISO for new editions.",
+          "placesChanged": 1,
           "section": "codeSystem",
           "field": "Description"
         },
         {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
+          "kind": "missing_space_correction",
+          "action": "normalized",
           "tableNumber": "0719",
           "location": "codeSystem.Description",
-          "raw": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access.  Used in HL7 Version 2.x messaging in the ARV segment.",
-          "normalized": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g., physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
+          "raw": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g., physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
+          "normalized": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g., physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted. Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
+          "placesChanged": 1,
           "section": "codeSystem",
           "field": "Description"
         }
       ]
     },
     {
-      "kind": "missing_space_after_period",
-      "action": "preserved",
+      "kind": "missing_space_correction",
+      "action": "normalized",
       "section": "tableMetadata",
       "field": "Description",
       "count": 1,
@@ -15360,20 +15392,21 @@
       ],
       "deviations": [
         {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
+          "kind": "missing_space_correction",
+          "action": "normalized",
           "tableNumber": "0454",
           "location": "tableMetadata.Description",
-          "raw": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider\u2019s practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization.  In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
-          "normalized": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider\u2019s practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization. In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
+          "raw": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider\u2019s practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization. In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
+          "normalized": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider\u2019s practice relating to the services rendered of the practitioner at a specific organization unit. Health Care Provider Area of Specialization. In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
+          "placesChanged": 1,
           "section": "tableMetadata",
           "field": "Description"
         }
       ]
     },
     {
-      "kind": "missing_space_after_period",
-      "action": "preserved",
+      "kind": "missing_space_correction",
+      "action": "normalized",
       "section": "valueSet",
       "field": "Description",
       "count": 1,
@@ -15382,11 +15415,13 @@
       ],
       "deviations": [
         {
-          "kind": "missing_space_after_period",
-          "action": "preserved",
+          "kind": "missing_space_correction",
+          "action": "normalized",
           "tableNumber": "0821",
           "location": "valueSet.Description",
           "raw": "Codes that indicate a individual\u2019s gender identity. This value set is a minimum set of commonly used values. It is expected and encouraged that specific jurisdictions or communities will use additional gender identity concepts that are relevant within their community.Used in HL7 Version 2.x messages in the GSP segment.",
+          "normalized": "Codes that indicate a individual\u2019s gender identity. This value set is a minimum set of commonly used values. It is expected and encouraged that specific jurisdictions or communities will use additional gender identity concepts that are relevant within their community. Used in HL7 Version 2.x messages in the GSP segment.",
+          "placesChanged": 1,
           "section": "valueSet",
           "field": "Description"
         }

@@ -648,6 +648,69 @@ in the middle of a 700-character paragraph.
 
 ---
 
+## 011 — Ten of the twelve missing spaces put back
+
+**Decided** 2026-08-20 · **ADR-0008 D17** · **Applied** in the extraction of
+2026-08-20
+
+Change 010 built the detector and repaired nothing, on the grounds that no
+authority in the chapter licensed inserting a character. The reviewer then read
+all twelve sites and supplied that authority directly: ten of them are sentence
+boundaries that lost their space in publication, and the space goes back in.
+
+```
+"...relevant within their community.Used in HL7 Version 2.x messages"
+                                   ^
+"...relevant within their community. Used in HL7 Version 2.x messages"
+```
+
+### The ten
+
+| Table | Field | As published | Places |
+|---|---|---|---:|
+| 0301 | `codedContent.comment` | `coding entity identifier.Retained for backward` | 4 |
+| 0301 | `codedContent.comment` | `string of random bits.Retained for backward` | 1 |
+| 0396 | `codedContent.comment` | `the same software and vocabulary.RxNorm is one of` | 1 |
+| 0399 | `codeSystem.Description` | `ISO 3166 Part 1 Country Codes.This coding system` | 1 |
+| 0454 | `tableMetadata.Description` | `a specific organization unit.Health Care Provider` | 1 |
+| 0719 | `codeSystem.Description` | `Act.classCode is not permitted.Code system of concepts` | 1 |
+| 0821 | `valueSet.Description` | `within their community.Used in HL7 Version 2.x` | 1 |
+
+The four 0301 rows carry the identical comment, so one entry covers all four.
+
+### The two that are not repaired
+
+`Observation.Code` in 0396 and `…ActHealthInformationManagementReason.
+PurposeOfUse` in 0717 are dotted identifiers, where a space would corrupt the
+name. They stay exactly as published, and the detector goes on reporting them —
+it must, because nothing in the text tells an identifier apart from a sentence
+boundary, and a detector that guessed would hide the next real one.
+
+### Individual corrections, not a rule
+
+The same form as change 009, and for the reason change 010 gave, which these
+ten do not overturn: **no pattern separates the ten from the two.** The word
+before the period is lowercase in some of the real ones
+(`identifier.Retained`) and capitalized in others (`Codes.This`), which is
+equally true of the two identifiers. The only reliable test is a reader looking
+at the sentence, so what is recorded is what the reader decided, one site at a
+time, in `MISSING_SPACE_CORRECTIONS`.
+
+They sit in their own table rather than among change 009's, so that each change
+lands under the decision that authorized it — the same reason the rule chain
+runs its narrow rules ahead of its broad ones.
+
+### One of the ten only python-docx can see
+
+Table 0719's code system description is one of the 14 known LLM truncations:
+the LLM cut the value hundreds of characters before this sentence. The
+correction therefore fires once in the python-docx corpus and nowhere in the
+LLM's. That value already disagreed between the pipelines and still does, under
+the same `llm_truncated` heading; no new disagreement was created. The other
+nine fragments were checked in both corpuses before the correction was written.
+
+---
+
 ## Cumulative effect
 
 | Rule | Change | Values | Places |
@@ -666,7 +729,8 @@ in the middle of a 700-character paragraph.
 | Every remaining run of spaces | 007e / D7 | 141 | 150 |
 | Non-breaking space against closing punctuation | 008 / D10 | 1 | 1 |
 | Individual corrections | 009 / D14 | 18 | 19 |
-| **Total** | | **1,259** | **1,479** |
+| Missing space after a period restored | 011 / D17 | 10 | 10 |
+| **Total** | | **1,269** | **1,489** |
 
 The period count moved 890 → 891 because change 007a turns table 0301's
 corrupt character into an ordinary space, which then leaves a double space for
@@ -700,23 +764,17 @@ was deleted under D10, and the reviewer worked through the other 19
 individually over two rounds. Nothing in the corpus now carries a space before
 the punctuation that closes a clause.
 
-### A missing space after a period
+### A missing space after a period — none
 
-**12 places, in 7 tables.** The mirror image of the group above, and new: there
-was no detector for it until change 010. Reported only — see that change for
-why inserting a character is a bigger licence than removing one.
+Cleared by change 011. Down from 12 places to **0**: the reviewer read all
+twelve and the ten real ones now carry their space.
 
-| Field | Places | Example |
-|---|---:|---|
-| `codedContent.comment` | 8 | `...coding entity identifier.Retained for backward` (0301, ×5) |
-| `codeSystem.Description` | 2 | `ISO 3166 Part 1 Country Codes.This coding system` (0399) |
-| `tableMetadata.Description` | 1 | `...at a specific organization unit.Health Care Provider` (0454) |
-| `valueSet.Description` | 1 | `...within their community.Used in HL7 Version 2.x` (0821) |
-
-Two of the twelve are dotted identifiers rather than defects —
-`Observation.Code` in 0396 and `...Reason.PurposeOfUse` in 0717 — and are
-listed rather than guessed away, because nothing in the text tells them apart
-from the real ones.
+The detector still reports **two**, and they are not outstanding — they are
+`Observation.Code` in 0396 and `…Reason.PurposeOfUse` in 0717, dotted
+identifiers where a space would corrupt the name. They show in the review
+report as informational rather than under **Decide**, and the detector keeps
+reporting them on purpose: nothing in the text tells an identifier apart from a
+sentence boundary, so filtering them out would hide the next real one.
 
 ### Dashes the rule refused to repair
 

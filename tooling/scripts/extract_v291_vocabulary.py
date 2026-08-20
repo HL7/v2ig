@@ -63,6 +63,7 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vocabulary_text_policy import (  # noqa: E402
+    CORRECTION_KINDS,
     DESCRIPTIVE_FIELDS,
     RULE_KINDS,
     apply_manual_corrections,
@@ -765,9 +766,9 @@ def extract_all_tables(doc_path, output_dir):
         where = f"{group['section']}.{group['field']}" if group['field'] else group['section']
         by_kind_and_field.setdefault(group['kind'], {})[where] = group['count']
 
-    # 'manual_correction' is not a rule, but it changes text and its places
-    # need counting the same way (ADR-0008 D14).
-    counted_kinds = tuple(RULE_KINDS) + ('manual_correction',)
+    # The individual corrections are not rules, but they change text and their
+    # places need counting the same way (ADR-0008 D14, D17).
+    counted_kinds = tuple(RULE_KINDS) + CORRECTION_KINDS
     places_changed = {}
     for entry in log.entries:
         if entry['kind'] in counted_kinds:
@@ -779,7 +780,7 @@ def extract_all_tables(doc_path, output_dir):
         'sourceFile': 'CH02C_Tables.docx',
         'policy': {
             'normalized': (['leading_trailing_whitespace']
-                           + list(RULE_KINDS) + ['manual_correction']),
+                           + list(RULE_KINDS) + list(CORRECTION_KINDS)),
             'preserved': ['internal_double_space', 'ditto_mark_space_run',
                           'non_breaking_space', 'embedded_newline',
                           'space_before_punctuation',

@@ -465,7 +465,10 @@ def missing_space_after_period_sites(text):
     ``HealthInformationManagementReason.PurposeOfUse`` is reported too. Nothing
     in the text distinguishes one from a genuine missing space, and guessing
     wrong in a detector means a real defect goes unseen -- so they are listed
-    and the reader decides. Two of them in Chapter 2C, both in table 0396.
+    and the reader decides. Two of them in Chapter 2C, one in table 0396 and
+    one in 0717, and they are the only two sites the detector still reports:
+    the reviewer worked through the other ten and they are repaired
+    individually in MISSING_SPACE_CORRECTIONS under ADR-0008 D17.
     """
     if not text:
         return []
@@ -592,6 +595,91 @@ MANUAL_CORRECTIONS = {
 }
 
 
+# --------------------------------------------------------------------------
+# The missing space after a period                                ADR-0008 D17
+# --------------------------------------------------------------------------
+#
+# D16 built MISSING_SPACE_AFTER_PERIOD_RE as a detector and repaired nothing,
+# on the grounds that inserting a character is a bigger licence than removing
+# one. The reviewer then read the twelve sites it found and decided ten of
+# them: they are sentence boundaries that lost their space in publication, and
+# the space goes back in.
+#
+# The other two are NOT defects and are deliberately absent from this table:
+#
+#   0396  `...passed in HL7 OBX-3 or Observation.Code`
+#   0717  `...ActHealthInformationManagementReason.PurposeOfUse`
+#
+# Both are dotted identifiers, where a space would corrupt the name. The
+# detector still reports them, because nothing in the text tells an identifier
+# apart from a sentence boundary and a reader should be able to see that the
+# question was asked and answered.
+#
+# This is a separate table from MANUAL_CORRECTIONS rather than more entries in
+# it, so that each change lands under the decision that authorized it -- the
+# same reason the rule chain runs its narrow rules before its broad ones.
+#
+# Kept as individual corrections rather than a rule for the reason D16 gave and
+# these ten do not overturn: no pattern separates the ten from the two. The
+# word before the period is lowercase in some real ones (`identifier.Retained`)
+# and capitalized in others (`Codes.This`), which is also true of the two
+# identifiers, so the only reliable test is a reader looking at the sentence.
+MISSING_SPACE_CORRECTIONS = {
+    "0301": (
+        Correction("identifier.Retained", "identifier. Retained",
+                   "The sentence that begins \"Retained for backward "
+                   "compatibility\" runs into the one before it. Four coded "
+                   "rows carry the identical comment, so this fires four "
+                   "times."),
+        Correction("bits.Retained", "bits. Retained",
+                   "The same sentence in a fifth row, after a different "
+                   "opening clause."),
+    ),
+    "0396": (
+        Correction("vocabulary.RxNorm", "vocabulary. RxNorm",
+                   "The closing sentence of the RxNorm comment runs into the "
+                   "one before it."),
+    ),
+    "0399": (
+        Correction("Codes.This", "Codes. This",
+                   "The code system description opens with the title \"ISO "
+                   "3166 Part 1 Country Codes\" and runs straight into the "
+                   "sentence after it."),
+    ),
+    "0454": (
+        Correction("unit.Health", "unit. Health",
+                   "The table description runs into the phrase \"Health Care "
+                   "Provider Area of Specialization\"."),
+    ),
+    "0719": (
+        Correction("permitted.Code", "permitted. Code",
+                   "The code system description runs into the sentence "
+                   "beginning \"Code system of concepts\". Only python-docx "
+                   "can see this one: the LLM truncated the value well before "
+                   "this point, and it is one of the 14 known truncations."),
+    ),
+    "0821": (
+        Correction("community.Used", "community. Used",
+                   "The value set description runs into the sentence "
+                   "beginning \"Used in HL7 Version 2.x messages\"."),
+    ),
+}
+
+
+# Every table of individual corrections, with the rule kind each one reports
+# under. The kind is what the change log and the review report use to attribute
+# a change to its decision, so a new table needs a new kind, not a reused one.
+CORRECTION_TABLES = (
+    ("manual_correction", MANUAL_CORRECTIONS),
+    ("missing_space_correction", MISSING_SPACE_CORRECTIONS),
+)
+
+# The kinds the tables above report under. Callers that count or describe every
+# kind of change should use this rather than naming the kinds themselves, so a
+# new correction table cannot be added without appearing in the change log.
+CORRECTION_KINDS = tuple(kind for kind, _ in CORRECTION_TABLES)
+
+
 def apply_manual_corrections(table, text):
     """Apply the individual corrections recorded for one table.
 
@@ -610,13 +698,14 @@ def apply_manual_corrections(table, text):
         return text, []
 
     applied = []
-    for correction in MANUAL_CORRECTIONS.get(table, ()):
-        places = text.count(correction.published)
-        if not places:
-            continue
-        before = text
-        text = text.replace(correction.published, correction.corrected)
-        applied.append(("manual_correction", places, before, text))
+    for kind, corrections in CORRECTION_TABLES:
+        for correction in corrections.get(table, ()):
+            places = text.count(correction.published)
+            if not places:
+                continue
+            before = text
+            text = text.replace(correction.published, correction.corrected)
+            applied.append((kind, places, before, text))
     return text, applied
 
 

@@ -198,17 +198,24 @@ DEVIATION_PRESENTATION = {
         "<code>(M49)&nbsp;.</code> &mdash; a defect of our own making.",
     ),
     "missing_space_after_period": (
-        "decide",
-        "A sentence running straight into the next with no space after the "
-        "period (<code>within their community.Used in HL7</code>). Left "
-        "exactly as published: inserting a space is a bigger licence than "
-        "removing one, and ADR-0008 D6 is the only rule so far that adds a "
-        "character at all. Two of these are not defects &mdash; "
-        "<code>Observation.Code</code> and "
-        "<code>&hellip;Reason.PurposeOfUse</code> in table 0396 and 0717 are "
-        "dotted identifiers &mdash; and they are listed rather than guessed "
-        "away, because nothing in the text tells them apart from the real "
-        "ones.",
+        "informational",
+        "What the detector still finds after ADR-0008 D17 repaired the ten "
+        "real ones. <b>Neither of these is a defect.</b> "
+        "<code>Observation.Code</code> in table 0396 and "
+        "<code>&hellip;Reason.PurposeOfUse</code> in table 0717 are dotted "
+        "identifiers, where a space would corrupt the name. They are still "
+        "listed rather than filtered away, because nothing in the text tells "
+        "an identifier apart from a sentence boundary &mdash; so the detector "
+        "must keep reporting both kinds, and this is what a reader sees when "
+        "it has been asked and answered.",
+    ),
+    "missing_space_correction": (
+        "confirm",
+        "A sentence that ran straight into the next with no space after the "
+        "period (<code>within their community.Used in HL7</code>), with the "
+        "space put back per ADR-0008 D17. Ten sites, in six tables. Recorded "
+        "individually rather than as a rule: no pattern separates these from "
+        "the two dotted identifiers in the group below.",
     ),
     "space_before_punctuation": (
         "decide",
@@ -456,6 +463,7 @@ DEVIATION_DECISION = {
     "non_breaking_space": "D2",
     "nbsp_before_punctuation": "D10",
     "manual_correction": "D14",
+    "missing_space_correction": "D17",
 }
 
 
@@ -517,6 +525,7 @@ DEVIATION_DECISION = {
     "non_breaking_space": "D2",
     "nbsp_before_punctuation": "D10",
     "manual_correction": "D14",
+    "missing_space_correction": "D17",
 }
 
 
@@ -585,6 +594,7 @@ DEVIATION_DECISION = {
     "non_breaking_space": "D2",
     "nbsp_before_punctuation": "D10",
     "manual_correction": "D14",
+    "missing_space_correction": "D17",
 }
 
 

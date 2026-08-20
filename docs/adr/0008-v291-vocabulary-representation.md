@@ -782,6 +782,59 @@ they start to drift. The match deliberately spans the three joined characters
 (`y.U`) rather than the period alone, so the mark is visible in the middle of a
 700-character paragraph.
 
+### D17 — Ten of the twelve missing spaces are restored; the two identifiers are not
+
+**Decided 2026-08-20.** Supersedes D16's disposition of these twelve sites; the
+detector D16 built is unchanged and still runs.
+
+D16 declined to insert the space because no authority in the chapter licensed
+it. The reviewer read all twelve sites and supplied that authority directly:
+ten of them are sentence boundaries that lost their space in publication, and
+the space goes back in. That is the authority D16 said was missing — a reader
+adjudicating each site, which is the same standard D14 was decided on.
+
+| Table | Field | As published | Places |
+|---|---|---|---:|
+| 0301 | `codedContent.comment` | `coding entity identifier.Retained for backward` | 4 |
+| 0301 | `codedContent.comment` | `string of random bits.Retained for backward` | 1 |
+| 0396 | `codedContent.comment` | `the same software and vocabulary.RxNorm is one of` | 1 |
+| 0399 | `codeSystem.Description` | `ISO 3166 Part 1 Country Codes.This coding system` | 1 |
+| 0454 | `tableMetadata.Description` | `a specific organization unit.Health Care Provider` | 1 |
+| 0719 | `codeSystem.Description` | `Act.classCode is not permitted.Code system of concepts` | 1 |
+| 0821 | `valueSet.Description` | `within their community.Used in HL7 Version 2.x` | 1 |
+
+**The two dotted identifiers are not repaired.** `Observation.Code` in 0396 and
+`…ActHealthInformationManagementReason.PurposeOfUse` in 0717 are names, and a
+space would corrupt them. They stay as published, and the detector goes on
+reporting them — it must, because nothing in the text tells an identifier apart
+from a sentence boundary, and a detector that filtered them out would hide the
+next real one. They render as informational, not as something to decide.
+
+**Individual corrections, not a rule, and D16's argument is why.** No pattern
+separates the ten from the two. The word before the period is lowercase in some
+real ones (`identifier.Retained`) and capitalized in others (`Codes.This`),
+which is equally true of the two identifiers; the following word is a single
+capitalized token in both kinds. The only reliable test is a reader looking at
+the sentence, so the record is what the reader decided, site by site, in
+`MISSING_SPACE_CORRECTIONS`.
+
+**A separate table from D14's, deliberately.** Both are consulted for the same
+table number and both run after the rule chain, but each reports under its own
+kind, so a change lands under the decision that authorized it rather than
+inheriting D14's. Same reasoning as the rule chain running narrow rules ahead
+of broad ones. Table 0396 now carries corrections from both and demonstrates
+it.
+
+**One correction only python-docx can see.** Table 0719's code system
+description is one of the 14 known LLM truncations — the LLM cut the value
+hundreds of characters before this sentence — so the correction fires once in
+python-docx and nowhere in the LLM corpus. That value already disagreed between
+the pipelines and still does, under the same `llm_truncated` heading, so no new
+disagreement was created and cross-pipeline agreement holds at 740/799. The
+other nine fragments were verified present in both corpuses before being
+written, per the standing rule that every character-level change is checked
+against both.
+
 ## Open batches
 
 Worked in dependency order; each is a short session, and each records its

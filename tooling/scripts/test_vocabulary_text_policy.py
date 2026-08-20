@@ -12,6 +12,7 @@ import pytest
 
 from vocabulary_text_policy import (
     MANUAL_CORRECTIONS,
+    MISSING_SPACE_CORRECTIONS,
     add_comma_after_abbreviation,
     apply_manual_corrections,
     apply_text_policy,
@@ -637,3 +638,83 @@ class TestMissingSpaceAfterPeriodDetector:
         text = "community.Used"
         (start, end), = missing_space_after_period_sites(text)
         assert text[start:end] == "y.U"
+
+
+class TestMissingSpaceCorrections:
+    """ADR-0008 D17: the ten sites the reviewer decided to repair."""
+
+    @pytest.mark.parametrize("table, published, corrected", [
+        ("0301", "coding entity identifier.Retained for backward",
+                 "coding entity identifier. Retained for backward"),
+        ("0301", "string of random bits.Retained for backward",
+                 "string of random bits. Retained for backward"),
+        ("0396", "the same software and vocabulary.RxNorm is one of",
+                 "the same software and vocabulary. RxNorm is one of"),
+        ("0399", "ISO 3166 Part 1 Country Codes.This coding system",
+                 "ISO 3166 Part 1 Country Codes. This coding system"),
+        ("0454", "a specific organization unit.Health Care Provider",
+                 "a specific organization unit. Health Care Provider"),
+        ("0719", "Act.classCode is not permitted.Code system of concepts",
+                 "Act.classCode is not permitted. Code system of concepts"),
+        ("0821", "within their community.Used in HL7 Version 2.x",
+                 "within their community. Used in HL7 Version 2.x"),
+    ])
+    def test_each_site_gains_its_space(self, table, published, corrected):
+        assert apply_manual_corrections(table, published)[0] == corrected
+
+    def test_the_correction_is_reported_under_its_own_kind(self):
+        # Attribution matters: D14 and D17 are separate decisions, and a
+        # change logged under the wrong one is a change nobody can trace.
+        _, applied = apply_manual_corrections(
+            "0821", "within their community.Used in HL7")
+        assert [(kind, count) for kind, count, _, _ in applied] == [
+            ("missing_space_correction", 1)]
+
+    def test_the_four_identical_0301_rows_are_one_correction(self):
+        # The comment is repeated verbatim across four coded rows. One entry
+        # in the table covers all four; the count reports how many places.
+        row = "Locally defined coding entity identifier.Retained for now"
+        _, applied = apply_manual_corrections("0301", row + " " + row)
+        assert [(kind, count) for kind, count, _, _ in applied] == [
+            ("missing_space_correction", 2)]
+
+    @pytest.mark.parametrize("table, text", [
+        # `Observation.Code` -- a dotted identifier, not a sentence boundary.
+        ("0396", "will be passed in HL7 OBX-3 or Observation.Code"),
+        # `...Reason.PurposeOfUse` -- likewise.
+        ("0717", "ActHealthInformationManagementReason.PurposeOfUse. HRESCH"),
+    ])
+    def test_the_two_dotted_identifiers_are_left_alone(self, table, text):
+        # Repairing these would corrupt the name. They stay exactly as
+        # published, and the detector goes on reporting them.
+        assert apply_manual_corrections(table, text)[0] == text
+        assert missing_space_after_period_sites(text)
+
+    def test_applying_twice_changes_nothing_the_second_time(self):
+        # Same requirement as the D14 corrections: the comparison applies the
+        # policy to a corpus that may already carry it.
+        published = "within their community.Used in HL7"
+        once, _ = apply_manual_corrections("0821", published)
+        twice, applied = apply_manual_corrections("0821", once)
+        assert twice == once
+        assert applied == []
+
+    def test_a_table_with_both_kinds_reports_both(self):
+        # Table 0396 has D14 corrections and a D17 one. Both tables are
+        # consulted for the same table number, and the order is D14 first.
+        text = ('The date "2004" , and the same software and '
+                'vocabulary.RxNorm is one of')
+        corrected, applied = apply_manual_corrections("0396", text)
+        assert '"2004", and' in corrected
+        assert "vocabulary. RxNorm" in corrected
+        assert [kind for kind, _, _, _ in applied] == [
+            "manual_correction", "missing_space_correction"]
+
+    def test_every_correction_adds_exactly_one_space(self):
+        # The mirror of the D14 shape test. These only ever insert a single
+        # space at a sentence boundary; anything else is a typo in the table.
+        for table, corrections in MISSING_SPACE_CORRECTIONS.items():
+            for correction in corrections:
+                assert correction.corrected == correction.published.replace(
+                    ".", ". ", 1), f"{table}: {correction.published!r}"
+                assert correction.why, f"{table}: a correction needs a reason"

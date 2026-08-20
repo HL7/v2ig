@@ -5,12 +5,12 @@
     "common": 799
   },
   "policyAbsorbed": {
-    "total": 1057,
+    "total": 1063,
     "byField": {
       "codeSystems[0].Description": 365,
       "tableMetadata.Description": 222,
       "conceptDomain.Description": 143,
-      "codedContent.comment": 131,
+      "codedContent.comment": 137,
       "codedContent.displayName": 105,
       "valueSets[0].Description": 62,
       "codedContent.definition": 27,
@@ -1060,7 +1060,7 @@
       {
         "location": "tableMetadata.Description",
         "bucket": "typography",
-        "pydocx": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider’s practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization. In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
+        "pydocx": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider’s practice relating to the services rendered of the practitioner at a specific organization unit. Health Care Provider Area of Specialization. In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification.",
         "llm": "Table of codes specifying the segment of the population that a health care provider chooses to service, a specific medical service, a specialization in treating a specific disease, or any other descriptive characteristic about the provider's practice relating to the services rendered of the practitioner at a specific organization unit.Health Care Provider Area of Specialization.  In the US it is suggested to use ANSI ASC X12 Health Care Provider Taxonomy, Level 2 - Classification."
       }
     ],
@@ -1617,7 +1617,7 @@
       {
         "location": "codeSystems[0].Description",
         "bucket": "llm_truncated",
-        "pydocx": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g., physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
+        "pydocx": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g., physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted. Code system of concepts specifying the reason for the restricted access. Used in HL7 Version 2.x messaging in the ARV segment.",
         "llm": "A code specifying the particular kind of Act that the Act-instance represents within its class.\nConstraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code "
       }
     ],
@@ -1708,7 +1708,7 @@
       {
         "location": "valueSets[0].Description",
         "bucket": "typography",
-        "pydocx": "Codes that indicate a individual’s gender identity. This value set is a minimum set of commonly used values. It is expected and encouraged that specific jurisdictions or communities will use additional gender identity concepts that are relevant within their community.Used in HL7 Version 2.x messages in the GSP segment.",
+        "pydocx": "Codes that indicate a individual’s gender identity. This value set is a minimum set of commonly used values. It is expected and encouraged that specific jurisdictions or communities will use additional gender identity concepts that are relevant within their community. Used in HL7 Version 2.x messages in the GSP segment.",
         "llm": "Codes that indicate a individual's gender identity. This value set is a minimum set of commonly used values. It is expected and encouraged that specific jurisdictions or communities will use additional gender identity concepts that are relevant within their community.Used in HL7 Version 2.x messages in the GSP segment."
       }
     ],
