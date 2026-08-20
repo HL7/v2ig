@@ -18,226 +18,299 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-08-19 (CH02C vocabulary IG: text fidelity CLOSED; own branch; Batch A is the gate)
+## ACTIVE — 2026-08-20 (CH02C: text fidelity fully closed; Batch A is next and is the only thing left)
 
-**Branch: `dev/v291-vocabulary-ig`, at `34459a3d`, pushed.** As of 2026-08-19
-every commit for the V2.9.1 terminology IG lives on this branch and nowhere
-else. `dev/framework` was rewound to `2b38100a` and force-pushed; it now
-carries only the structural-review workstream plus a branch-map pointer at the
-top of its own copy of this file. None of the nine vocabulary commits was ever
-on `main`, so nothing was lost. **Do not commit vocabulary work to
+**Branch: `dev/v291-vocabulary-ig`, at `a20678fc`.** Three commits this session.
+All vocabulary work is on this branch and nowhere else; `dev/framework` carries
+only the structural-review workstream. **Do not commit vocabulary work to
 `dev/framework`.**
 
-**Phase:** Building a **separate FHIR IG carrying the V2.9.1 Chapter 2C
-vocabulary** as CodeSystems and ValueSets. The structural review registry
-workstream is **paused mid-flight and untouched** on `dev/framework` —
-`v291-review/registry.json` is still 222/222 `needs-review`.
+**Phase:** Building a separate FHIR IG carrying the V2.9.1 Chapter 2C
+vocabulary as CodeSystems and ValueSets. The structural review registry
+workstream is paused and untouched on `dev/framework`.
 
 **Governing requirement (user):** the IG must carry *exactly* what Chapter 2C
-publishes. Corrections are made **only** when the user decides a specific group
-is safe, walking the review report group by group. **Every divergence is
-recorded** — nothing resolved silently.
+publishes. Corrections only where the user has decided a specific case is safe.
+Every divergence recorded.
 
 ### Next session's first move
 
-**Answer the five open questions below**, then go to ADR-0008 Batch A. The user
-worked the entire "decide" queue on 2026-08-18 and asked for these five back;
-they are what is owed before the next decision round.
+**Batch A.** It is the only thing left before resources can be generated, and
+every question the user has been working through for three sessions is now
+answered. Bring it as a small set of concrete choices with counts and a
+recommendation — that format has worked for every decision so far.
 
-Batch A is the actual gate on generating any resources — B, C and D all depend
-on it. Bring it as a small set of concrete choices with counts and a
-recommendation, not an open list. That is the format that has worked for every
-decision so far.
+The user said explicitly on 2026-08-19 that they had been knocking out the
+accumulating small decisions before starting Batch A, and were not sure that
+was the right order. It was: the queue is empty now, and D11 answered seven
+tables' worth of Batch A in passing.
 
-### The five open questions, in the order they matter
+**What Batch A still needs from the user:**
 
-**1. The seven "empty tables" — the earlier discussion is gone, and one of them
-is a real defect.** The user recalls a long discussion and asked for a note in
-the report about it. It is **not recoverable**: not in the ADR, the change log,
-this journal, the V2-management report, or any of the six retained session
-transcripts under `~/.claude/projects/-workspace/*.jsonl`. No user turn in any
-transcript mentions it. Only the bare count of 7 survived. **It has to be
-restated.**
+1. Canonical URL and id scheme for the **18 code-bearing tables THO does not
+   cover**.
+2. Whether **ValueSets are generated for every CodeSystem**, or only where
+   Chapter 2C declares a Value Set block (438 tables declare one).
+3. Resource `version`, `status`, `experimental`, publisher and contact
+   defaults.
+4. Whether the rule D11 implies generalises: *a table whose code system is
+   external gets no CodeSystem, only a ValueSet composing from THO's
+   NamingSystem.*
 
-What was established this session, and is now recorded as an open note in the
-review report under `src-empty_table_in_source`:
-
-- **Six are harmless.** 0347, 0560, 0910, 0929, 0930 and 0932 each carry a
-  stray 1×2 grid with nothing in it — a Word layout artifact sitting beside
-  content that extracted fine. 0347 and 0910 have no codes because they are
-  `Type: User`, which is expected, not loss.
-- **0821 Gender Identity is a defect in the published document.** Its coded
-  content grid is six rows by five columns with *every cell blank*, while the
-  section declares three code systems (SNOMED CT, FHIR DataAbsentReason, V3
-  NullFlavor) and a value set. Both pipelines independently find zero codes, so
-  it is the document, not the tooling. Compare 0823 Sexual Orientation, built
-  the same way, which does publish its codes. **This one should go to V2
-  Management** — it is a bigger finding than the mis-styled headings.
-
-**2. Table 0827 now reads `(M49) .` — a space before the period.** Caused by
-this session's own rule: D7 turns a run of non-breaking spaces into one
-ordinary space, and 0827 published `(M49)` + NBSP + `.` The value is 339
-characters and the old report truncated at 300, so the user could not see it
-when they gave the instruction. Deleting a non-breaking space that sits
-immediately before sentence punctuation, rather than spacing it, would give
-`(M49).` and is probably right — but it is a different decision from the one
-taken, so it was asked rather than assumed. Now visible as a new **decide**
-group, `space_before_punctuation`, 20 places; the other 19 are published as
-printed (`Placer Applications .` in 0119, `...type of BC Component .` in 0577).
-
-**3. The user's "double space after the word *or*" in 0827 does not exist.**
-Searched the published raw and the emitted corpus: no `or` is followed by two
-spaces anywhere. Most likely they were reading the `␣␣` marks rendered for the
-double **non-breaking** space in `ISO 3166␣␣while`. Either way it is resolved —
-every NBSP in 0827 is now a single ordinary space. Mentioned so nobody hunts
-for it again.
-
-**4. Two "decide" groups the user did not cover**, both now flagged "Still
-open" in the report:
-- **55 symbolic names that are not valid code tokens** —
-  `Collector'sComment*`, `PrimaryKeyValue–STF`,
-  `Diet,Supplement,orPreferenceCode`. Emitted verbatim. Note that **D9 already
-  decided one case the other way**: concept domain `Masterfile Action Code`
-  (0180) uses THO's `MasterfileActionCode`. That is the precedent to weigh in
-  both directions.
-- **5 concept domains where Chapter 2C contradicts itself** — the first
-  description was used. Decide which wins, or report as a source defect.
-
-**5. 0078 was truncation, as the user guessed.** The double space sits at
-character ~684 of an 864-character value: `interpretation concepts  (i.e.` It
-was collapsed under their `valueSet.Description` instruction. No action; closed.
+**One piece of Batch A is blocked** on escalation 1 (below): what a table
+produces when its published content is known to be wrong. Everything else can
+proceed without it.
 
 ### Pending user actions
 
-1. **Answer the five above**, then Batch A.
-2. **Discuss the 5 THO definition differences with V2 Management and TSMG** —
-   0952, 0967, 0675, 0066, 0626. The report now shows them untruncated, with
-   word-level highlighting on 0952 (the only close one) and a note on the other
-   four saying they are unrelated definitions rather than two versions of one.
+1. **Batch A** (above).
+2. **Take the 12-item register to V2 Management and TSMG** —
+   `v291-extracted/vocabulary-v2mgmt-items.md`, also the first section of the
+   HTML review report. Item 1 is the policy question that governs the rest.
 3. **Check #IG creation Zulip thread** — template trust submission, unchanged
-   since June and unrelated to this workstream.
+   since June, unrelated to this workstream.
 
 ### Where things stand
 
-**Text fidelity is CLOSED.** Nine decisions (D1–D9), 1,240 values changed
-across 1,459 places. **No run of two or more spaces survives anywhere in the
-corpus** except table 0496's ditto mark, which is preserved deliberately.
+**The review report is down to 12 escalated, 12 to decide, 0 to confirm**, from
+8 decide / 55 confirm at the start of the session. The 12 to decide are all one
+new group: the missing space after a period, found by a detector built at the
+end of the session and not yet reviewed by anyone.
 
-| Rule | ADR | Values | Places |
-|---|---|---:|---:|
-| Leading/trailing whitespace | D2 | 44 | 44 |
-| Spaces after a period | D3 | 891 | 1,090 |
-| Spaces after a sentence close | D4 | 6 | 6 |
-| Repeated spaces in `displayName` | D4 | 66 | 66 |
-| Spaces after a comma | D4 | 10 | 10 |
-| Dash spacing | D5 | 16 | 18 |
-| Comma after `e.g.` / `i.e.` | D6 | 60 | 62 |
-| Stray `Â` before a space | D7 | 1 | 1 |
-| Private-use-area character | D7 | 1 | 3 |
-| Non-breaking space in text | D7 | 2 | 5 |
-| Line-initial indent → two spaces | D7 | 2 | 4 |
-| Every remaining run of spaces | D7 | 141 | 150 |
+| | Count | What it is |
+|---|---:|---|
+| For V2 Management / TSMG | 12 | Defects in the source or in THO. Not ours to fix |
+| Decide | 12 | All one group: missing space after a period, 7 tables |
+| Decided | 1,523 | Every rule and correction, with its ADR reference |
+| Confirm | 0 | Now means changed-but-unreviewed, and there is nothing |
+| Informational | 543 | Disclosed for completeness |
 
-**Still outstanding:** 223 embedded newlines (preserved — genuine paragraph
-structure), 20 spaces before punctuation (new, question 2 above), 10 missing
-spaces after a comma, 3 dash defects the rule refused to repair (0357, 0368,
-0919), and 2 characters with no verdict — `Ø` (NCPDP's slashed zero, 8 places
-in 0396) and `‑` non-breaking hyphen (4 places in 0945).
+**Text fidelity is now completely closed.** No run of two or more spaces
+anywhere (except 0496's deliberate ditto mark), and **no space before closing
+punctuation anywhere** — that group went 20 → 0 across D10 and D14.
 
-**Cross-pipeline agreement rose to 740/799** (was 739). Remaining: 210
-typography, 45 whitespace, 14 LLM truncations, 1 content (0496, adjudicated), 3
-structural (all table 0227, all parked behind D8).
+**Cross-pipeline agreement: 740/799**, unchanged all session. 210 typography,
+45 whitespace, 14 LLM truncations, 1 content (0496, adjudicated), 3 structural
+(all 0227, parked behind D8).
 
-**Review report: 8 decide, 8 decided, 55 confirm, 14 informational.**
+### What was decided this session — ADR-0008 D10 to D16
+
+- **D10** — a non-breaking space against closing punctuation is *deleted*, not
+  spaced out. Cleared the `(M49) .` that D7 had introduced in 0827.
+- **D11** — the seven empty-grid tables, disposed of individually. Four are
+  external code systems reusing a THO NamingSystem (0347 → ISO3166Part2;
+  0929/0930/0932 → v3-ucum); two are concept domain only (0560, 0910); one is a
+  ValueSet over three external systems reusing THO's `ValueSet/gender-identity`
+  (0821).
+- **D12** — the 55 "invalid" symbolic names are valid FHIR codes. No change to
+  output; the flag was wrong.
+- **D13** — source defects are escalated, not adjudicated. Created the register.
+- **D14** — 18 individual corrections, where the defect does not generalise.
+- **D15** — a non-ASCII character is judged against THO, not against taste.
+- **D16** — the missing space after a period is detected and reported, never
+  inserted.
 
 ### Non-obvious things the next session must not re-derive
 
-- **The policy is a rule chain in `tooling/scripts/vocabulary_text_policy.py`,
-  not inline in the extractor** — because three scripts must agree on it.
-  Adding a rule means adding one entry to `RULES`; the extractor, the
-  cross-pipeline comparison and the concept-domain generator all pick it up.
-  **96 tests** in `test_vocabulary_text_policy.py`; every "leave it alone" case
-  is a real published value. Run them before and after any rule change.
-- **Any comparison must apply the policy to BOTH sides.** Bitten twice now. D6:
-  inserting a comma made 6 concept domains "differ from THO" by nothing but our
-  own comma. D7: the `Â` repair originally matched `Â` + non-breaking space,
-  which is what python-docx sees, but the LLM substitutes an ASCII space there
-  — so the rule fixed one corpus and not the other and the comparison reported
-  our own rule as a pipeline disagreement. **Ask this question of every
-  character-level rule.**
-- **Rule order in `RULES` encodes attribution, and it is load-bearing.**
-  Character repairs run first because each leaves work for the next (drop the
-  `Â` → a non-breaking space remains → becomes an ordinary space → leaves a
-  double space after a period → D3 collapses it: one defect, three rules, three
-  log entries). Narrow space rules run before broad ones. **Dash spacing must
-  stay ahead of the general collapse** — putting the collapse first silently
-  absorbed five of D5's changes into D7's count. Caught only because each rule
-  reports its own count and D5's fell 16 → 11.
-- **The dash rule adjusts spacing, never inserts it.** 1,843 of the 2,516
-  dashes in Chapter 2C prose have no space on either side and are inside
-  `HL7-defined`, `ICD-10`, `OBR-32`, URLs. Six further structural exclusions
-  cover minus signs, `+/-`, German suspended hyphens (`Operationen- und`),
-  line-initial/final dashes, dashes before punctuation, and `X -y` with a
-  lowercase follower. **Do not "simplify" these away.**
-- **Exclusions are structural, never table numbers.** The ditto guard is "a run
-  of spaces with a quote mark immediately on both sides", which fires exactly
-  once corpus-wide (0496). Expressing it as a table number would not survive a
-  change to the source. Same principle throughout the dash rule.
+- **The policy is a rule chain in `tooling/scripts/vocabulary_text_policy.py`**,
+  plus `MANUAL_CORRECTIONS` for what does not generalise, plus detectors that
+  report without changing. **124 tests** in `test_vocabulary_text_policy.py`;
+  run them before and after any change.
+- **Every character-level change must be checked against BOTH corpuses.** Four
+  occurrences now: D6's comma, D7's `Â`, D10's non-breaking space, D14's
+  fragments. D10 taught the newest variant — when the two corpuses cannot be
+  made to agree, **widen the comparison's notion of "same", not the rule**.
+  `fold_whitespace` now drops a space against closing punctuation.
+- **A correction fragment must be checked against the corpus AFTER the rule
+  chain, not the raw extraction.** The LLM's raw 0440 value has two spaces
+  where python-docx has one; the fragment matches neither raw corpus and both
+  corrected ones.
+- **`MANUAL_CORRECTIONS` matches a text fragment within a named table, never a
+  location path.** The two pipelines index coded content differently — the
+  corrected value in 0003 is row 348 to python-docx and 347 to the LLM. A
+  location key would silently correct one corpus and miss the other.
+- **Rule order in `RULES` is load-bearing.** Character repairs first, narrow
+  space rules before broad ones, dash spacing ahead of the general collapse.
+  Each rule reports its own count, which is how a mis-ordering gets caught.
+- **The report's action classes mean specific things now.** `Confirm` is
+  changed-but-unreviewed and is empty; anything changed under a recorded
+  decision renders as `Decided` via the `DEVIATION_DECISION` table. Add a line
+  there when a rule is approved.
+- **Outstanding groups highlight the site still in question.** Without it a
+  reader scans the *As published* column, finds a defect a rule fixed three
+  changes ago, and decides about that instead — which happened twice, on 0440
+  and 0952, and cost a round trip.
+- **The escalation register is authored in
+  `tooling/scripts/vocabulary_escalations.py`** and rendered twice, into the
+  HTML report and into `vocabulary-v2mgmt-items.md`. Edit the module.
 - **python-docx is the character-faithful pipeline; the LLM is structural
-  corroboration only** — with two exceptions now on record where the LLM was
-  right: table 0964 (python-docx carried Symbol-font glyphs) and table 0227
-  (python-docx merged two metadata blocks). Generation must still read from
-  `v291-extracted/vocabulary/`.
-- **Table 0227's three findings are one defect.** The section has two grids
-  that both begin `Table OID`; python-docx classifies by first cell, so it read
-  both as Table Metadata and merged them. That produces the duplicate-block
-  source issue, `codeSystems: 0 blocks`, and `Version Info` on the wrong block.
-  The LLM split them correctly. 0227 is the **only** section in Chapter 2C with
-  a duplicate metadata block, so a fix would be a single-table special case.
-  All parked behind D8.
-- **Defects in the published document.** Tables **0685** and **0767** have
-  headings styled `Normal` instead of `Heading 3`, so they are missing from the
-  document's own table of contents; both extractors special-case them and the
-  user has decided there is nothing further to do. **Table 0821's blank code
-  grid** (question 1) is the newer and larger finding.
-- **Do not re-run the LLM extraction casually** — ~$11.60. The corpus is on
-  disk at `v291-llm/vocabulary/` (gitignored). Use `--resume`.
-- **26 concept domains are declared by more than one table** (`VolumeUnits` by
-  0568/0777/0930), so table→domain is not 1:1.
-- **Three authored files need `.gitignore` exceptions** and are not
-  regenerable: `vocabulary-changelog.md`, `vocabulary-future-corrections.md`,
-  and `vocabulary-review-report.html`. A new authored artifact under
-  `v291-extracted/` needs a new exception or it silently vanishes.
+  corroboration only** — two exceptions on record where the LLM was right,
+  tables 0964 and 0227. Generation reads from `v291-extracted/vocabulary/`.
+- **Do not re-run the LLM extraction casually** — ~$11.60. Corpus is on disk at
+  `v291-llm/vocabulary/` (gitignored). Use `--resume`.
+- **26 concept domains are declared by more than one table**, so table→domain
+  is not 1:1.
+- **Four authored files need `.gitignore` exceptions** and vanish silently
+  without one: `vocabulary-changelog.md`, `vocabulary-future-corrections.md`,
+  `vocabulary-review-report.html`, `vocabulary-v2mgmt-items.md`.
+
+### Loose ends nobody has decided about
+
+Found while working, not raised as questions, and not in the report:
+
+- **Table 0440 has missing-space defects in sibling values** the corrections
+  did not touch: `OBX-5Observation`, `OM2-6.3and`, `and8.8.4.8`. A different
+  shape from the missing-space-after-period detector, which only looks at
+  sentence boundaries.
+- **Table 0440's `CNN` row contradicts the D14 correction to its `NDL` row**
+  on one point — it keeps `7.4.1.32-(OBR-32)` tight. Recorded in the ADR; one
+  line to reverse if the user prefers the sibling.
 
 ### Regeneration sequence
 
-After any policy change, run in this order — each step feeds the next:
+After any policy change, in this order:
 
 ```
 python3 -m pytest tooling/scripts/test_vocabulary_text_policy.py
 python3 tooling/scripts/extract_v291_vocabulary.py
 python3 tooling/scripts/compare_vocabulary_pipelines.py
 python3 tooling/scripts/generate_concept_domains.py
+python3 tooling/scripts/vocabulary_escalations.py
 python3 tooling/scripts/render_vocabulary_review_html.py
 ```
 
-Then check `git diff --stat v291-fhir/` — unexpected drift there means a rule
-leaked into output that should only have affected comparison. It has been
-byte-identical through D6 and D7.
+Then check `git diff --stat v291-fhir/`. Drift there should only ever be the
+generation date plus concept domains Chapter 2C owns — under D1, THO's wording
+wins for the 582 domains THO already publishes, so a corrected Chapter 2C
+description only reaches the output for the 177 additions.
 
 ### Build verification status
 
-Untouched. No IG content or FHIR StructureDefinitions have been modified in
-this workstream — it has produced tooling, extracted data and one generated
-CodeSystem, none of which is in a build yet. Nothing needs to reach `main` or
-`build`.
+Untouched. This workstream has produced tooling, extracted data and one
+generated CodeSystem, none of which is in a build. Nothing needs to reach
+`main` or `build`.
 
 ### Open blockers
 
 None. Gated only on the user's decisions.
 
-
 ## Session History
+
+## 2026-08-19 → 2026-08-20 — CH02C decision queue emptied (D10–D16); V2 Management register opened
+
+### Completed
+
+**Worked the reviewer's entire remaining queue over three rounds**, as ADR-0008
+D10 through D16, and emptied it. The session began with 8 decide groups and 55
+confirm groups; it ends with one new group nobody has seen yet and nothing else
+outstanding.
+
+**D11 — the seven empty-grid tables.** The user had analysed these in a lost
+session and re-supplied their conclusions. Checking each against the source and
+against THO turned up more than the grids: four tables need no CodeSystem at
+all because their code system is external and Chapter 2C's own OID and URI
+match a THO `NamingSystem` exactly (0347 → `ISO3166Part2`; 0929/0930/0932 →
+`v3-ucum`), which is D8's MVX shape again and resolves five of Batch D's 26
+tables. Two are concept domain only (0560, 0910). One, 0821, is a ValueSet over
+three external systems where THO's `ValueSet/gender-identity` carries the exact
+OID Chapter 2C prints.
+
+**Three of the user's observations came out larger than stated, and the
+evidence is worth keeping:**
+
+- The wrong UCUM code system Full Name is not just 0930 — **all six**
+  UCUM-backed tables carry `Donation Duration Units Code System`, and it is
+  wrong in kind even on 0932, since the code system is UCUM.
+- The `noObject`/`noDescription` placeholder is in **0560 as well as 0910**,
+  and in **no other section of Chapter 2C**. Both are tables with no real code
+  system, so the placeholder is a reliable marker of the condition — which is
+  most of the argument for treating both as concept domain only.
+- **Table 0821's blank grid is 6 rows × 5 columns, and THO's value set holds
+  exactly five concepts.** A header plus five code rows. The grid was meant to
+  carry those five and lost them in publication. That is a much stronger
+  finding for V2 Management than "it is empty".
+
+**D13 — the escalation register**, 12 items, five of them out of D11. Item 1 is
+the one that matters: does publishing V2.9.1 "as published" extend to
+publishing known errors? Table 0560 publishes time units under the name
+Quantity Units and THO carries the same error; table 0931 publishes an invalid
+UCUM code beside the valid one. **THO has already answered this question once,
+by correcting rather than reproducing** — its `ValueSet/v2-0931` drops the bad
+code and puts the history in the display text. So the two bodies have diverged
+on the principle at least once, which is the concrete hook for the discussion.
+
+**D12 — the 55 "invalid" symbolic names were never invalid.** The user was
+right: the FHIR `code` type admits every character in them. Recorded with no
+change to output, precisely because nothing changed and the false alarm would
+otherwise be raised again.
+
+**D15 — the non-ASCII character question, closed with evidence.** The user
+asked what made me think German umlauts, `®` and `©` were problems. Fair: they
+were already marked informational, but the section rendered under *Decide*
+because two rows were unresolved, so the whole inventory read as a complaint.
+Their test — do these appear in THO? — closed the two unresolved ones as well.
+**All 14 characters in the corpus appear in THO**, and for `Ø` and the
+non-breaking hyphen THO carries the identical text, not just the character.
+The check is now automatic and only flags a character THO lacks.
+
+**D10 and D14 — the text corrections.** D10 deletes a non-breaking space
+against closing punctuation rather than spacing it out, clearing the `(M49) .`
+D7 had introduced. D14 adds `MANUAL_CORRECTIONS` for 18 values the reviewer
+decided one at a time, because the 14-change/5-leave split they drew is not a
+pattern. Space before closing punctuation is now **20 → 0**.
+
+**D16 — a detector for the missing space after a period**, the mirror image.
+12 places, 7 tables, reported and never repaired.
+
+**Two report fixes, both caused by the review itself:**
+
+- **A change made under a recorded decision now renders as Decided.** The user
+  pointed out that the report was asking for the same judgement twice — 1,469
+  values' worth. `Confirm` now means changed-but-unreviewed and is empty.
+- **Outstanding groups mark the site still in question.** The user twice
+  decided about a defect visible in the *As published* column that a rule had
+  already fixed — 0440's double space before a hyphen and 0952's double space
+  between `elements` and `in`. Both cost a round trip. The mark makes the
+  question unambiguous.
+
+### Why it was done this way
+
+**The register is authored once and rendered twice.** A committee will not open
+a 1.6 MB HTML file, and a second hand-written copy would drift within a month.
+`vocabulary_escalations.py` holds the data; the HTML report and
+`vocabulary-v2mgmt-items.md` both come from it.
+
+**Corrections match a text fragment inside a named table, never a location
+path.** The two pipelines index coded content differently — the corrected value
+in 0003 is row 348 to python-docx and 347 to the LLM — so a location key would
+have corrected one corpus and silently missed the other. That is the same
+failure D6, D7 and D10 each produced from a different direction.
+
+**D10's failure was fixed in the comparison, not the rule**, and that is the
+new part of the lesson. Deleting the non-breaking space on the python-docx side
+moved table 0827 into the `content` bucket, which means "the two extractions
+genuinely disagree". Widening the rule to ordinary spaces would have swept in
+19 places nobody had decided about. The right answer was that the comparison's
+notion of "same" was too narrow: whether a space sits against closing
+punctuation is a spacing question by definition.
+
+### Non-obvious context
+
+- **Table 0440's `CNN` row publishes the same passage as its `NDL` row, in
+  corrected form, but keeps `7.4.1.32-(OBR-32)` tight.** The user asked for
+  spaces around that hyphen. Applied as instructed and recorded in the ADR,
+  because it makes NDL internally consistent while diverging from its sibling —
+  one line to reverse.
+- **Table 0440 has other missing-space defects the corrections did not touch**:
+  `OBX-5Observation`, `OM2-6.3and`, `and8.8.4.8`. Nobody has raised them.
+- **0717's two entries are two different codes**, HIPAANOPP and HIPAAPsyNotes,
+  each carrying the defect once — the user asked whether they were missing
+  something, and they were not.
+- **A correction fragment must be verified against the post-policy corpus.**
+  Checking against the raw extraction says the 0440 fragment matches
+  python-docx and not the LLM, which is wrong: D5 and D7 make them identical
+  before corrections run.
+
 
 ## 2026-08-18 → 2026-08-19 — CH02C text fidelity closed (D7–D9); vocabulary work moved to its own branch
 
