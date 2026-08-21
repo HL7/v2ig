@@ -84,6 +84,15 @@ tr:nth-child(even) td { background: #fbfcfd; }
 .b-decide { background: #bc4c00; } .b-flag { background: #bf8700; }
 .b-info { background: #6e7781; }
 
+/* A count riding alongside a sidebar link, and the same idea inline in a
+   heading. Both are secondary to the text they sit beside and must not
+   compete with it. */
+#sidebar a .cnt { color: var(--muted); font-weight: 400; font-size: 11px;
+  white-space: nowrap; }
+.dim-tag { display: inline-block; background: #eaeef2; border-radius: 4px;
+  padding: 1px 7px; font-size: 11px; font-weight: 600; color: #424a53;
+  margin-left: 7px; vertical-align: 2px; }
+
 code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 89%;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 ol, ul { padding-left: 22px; }
@@ -403,5 +412,5 @@ is recorded with the decision that authorized it.</p>
 <tr><td class='num'>10</td><td>Five concept domains given two different descriptions within the chapter</td><td class='nowrap'>5 domains</td></tr>
 <tr><td class='num'>12</td><td>Two table headings styled <code>Normal</code> instead of <code>Heading 3</code>, so absent from the chapter's own TOC</td><td class='nowrap'>0685, 0767</td></tr>
 </table>
-<p class='faint'>Generated 2026-08-20 by <code>tooling/scripts/render_utg_briefing.py</code>. Edit the module, not this file.</p>
+<p class='faint'>Generated 2026-08-21 by <code>tooling/scripts/render_utg_briefing.py</code>. Edit the module, not this file.</p>
 </main></body></html>

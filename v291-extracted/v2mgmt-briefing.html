@@ -1,0 +1,327 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<title>V2.9.1 Chapter 2C terminology &mdash; V2 Management briefing</title>
+<style>
+:root { --line: #d0d7de; --muted: #57606a; --ask: #8250df; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  margin: 0; display: flex; color: #1f2328; line-height: 1.55; background: #fff; }
+
+#sidebar { position: fixed; top: 0; left: 0; width: 290px; height: 100vh; overflow-y: auto;
+  background: #f6f8fa; border-right: 1px solid var(--line); padding: 18px; font-size: 13px; }
+#sidebar .brand { font-weight: 700; font-size: 14px; line-height: 1.3; }
+#sidebar .brand-sub { color: var(--muted); font-size: 12px; margin: 2px 0 14px; }
+#sidebar h2 { font-size: 11px; margin: 18px 0 6px; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+#sidebar a { display: block; padding: 4px 0 4px 22px; color: #0969da; text-decoration: none;
+  text-indent: -22px; }
+#sidebar a:hover { text-decoration: underline; }
+#sidebar a .n { display: inline-block; width: 18px; color: var(--muted); font-weight: 600; }
+#sidebar a.top { padding-left: 0; text-indent: 0; font-weight: 600; margin-bottom: 4px; }
+
+#main { margin-left: 290px; padding: 28px 44px 80px; max-width: 1080px; }
+h1 { font-size: 25px; margin: 0; }
+h2 { font-size: 19px; margin-top: 46px; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+h2.plain { border: 0; margin: 0 0 2px; padding: 0; font-size: 17px; }
+h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35; }
+h3 .n { color: var(--muted); }
+p.sub { color: var(--muted); margin-top: 3px; }
+p.tight { margin-bottom: 0; }
+p.lede { font-size: 15px; color: #414a53; margin: 6px 0 10px; }
+p.tables { font-size: 12px; color: var(--muted); margin: 0 0 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* The asks card: the one thing a five-minute reader sees. */
+.asks-card { border: 2px solid var(--ask); border-radius: 10px; padding: 18px 22px;
+  margin: 26px 0 8px; background: #fbf7ff; }
+.asks-intro { color: var(--muted); margin: 0 0 12px; font-size: 14px; }
+.asks-list { margin: 0; padding-left: 20px; }
+.asks-list li { margin-bottom: 13px; }
+.asks-list a { color: #1f2328; font-weight: 600; text-decoration: none;
+  border-bottom: 1px solid #c297ff; }
+.asks-list a:hover { background: #f0e2ff; }
+.ask-line { color: #414a53; font-size: 13.5px; margin-top: 3px; }
+.asks-foot { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+
+.item { border: 1px solid var(--line); border-left-width: 5px; border-radius: 8px;
+  padding: 16px 20px; margin: 18px 0; }
+.item.k-decision { border-left-color: #bc4c00; }
+.item.k-finding { border-left-color: #bf8700; }
+.item.k-fyi { border-left-color: #8c959f; background: #fafbfc; }
+.item > p:last-of-type { margin-bottom: 0; }
+
+p.ask { background: #faf5ff; border: 1px solid #d8b9ff; border-left: 4px solid var(--ask);
+  border-radius: 6px; padding: 10px 14px; margin: 14px 0 0; font-size: 14px; }
+.ask-tag { display: inline-block; background: var(--ask); color: #fff; font-size: 10px;
+  font-weight: 700; letter-spacing: .06em; padding: 2px 7px; border-radius: 9px;
+  margin-right: 9px; vertical-align: 1px; }
+
+.counter { background: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px;
+  padding: 10px 14px; margin: 14px 0; font-size: 14px; }
+.settled { background: #dafbe1; border: 1px solid #4ac26b; border-radius: 6px;
+  padding: 10px 14px; margin: 4px 0 14px; font-size: 14px; }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 10px 0 14px; }
+table.narrow { width: auto; min-width: 380px; }
+th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+td.num, th.num { text-align: right; width: 1%; white-space: nowrap; }
+td.nowrap { white-space: nowrap; }
+tr:nth-child(even) td { background: #fbfcfd; }
+
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px; margin: 20px 0 4px; }
+.metric-card { border: 1px solid var(--line); border-radius: 8px; padding: 13px 10px;
+  text-align: center; background: #fff; }
+.metric-card .number { font-size: 23px; font-weight: 700; }
+.metric-card .label { font-size: 11.5px; color: var(--muted); margin-top: 3px; line-height: 1.3; }
+.mc-good .number { color: #1a7f37; }
+.mc-flag .number { color: #bf8700; } .mc-flag { border-color: #e5c55c; }
+.mc-escalate .number { color: var(--ask); } .mc-escalate { border-color: #c297ff; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px;
+  font-weight: 700; letter-spacing: .05em; color: #fff; white-space: nowrap;
+  vertical-align: 2px; }
+.b-decide { background: #bc4c00; } .b-flag { background: #bf8700; }
+.b-info { background: #6e7781; }
+
+/* A count riding alongside a sidebar link, and the same idea inline in a
+   heading. Both are secondary to the text they sit beside and must not
+   compete with it. */
+#sidebar a .cnt { color: var(--muted); font-weight: 400; font-size: 11px;
+  white-space: nowrap; }
+.dim-tag { display: inline-block; background: #eaeef2; border-radius: 4px;
+  padding: 1px 7px; font-size: 11px; font-weight: 600; color: #424a53;
+  margin-left: 7px; vertical-align: 2px; }
+
+code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 89%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+ol, ul { padding-left: 22px; }
+li { margin-bottom: 5px; }
+.faint { color: #8b949e; font-size: 11.5px; margin-top: 40px; }
+
+/* Shared as a PDF or printed for the room: the sidebar is noise on paper, and
+   an item must not be split across a page break. */
+@media print {
+  #sidebar { display: none; }
+  #main { margin: 0; max-width: none; padding: 0; }
+  .item, .asks-card { break-inside: avoid; page-break-inside: avoid; }
+  body { font-size: 11pt; }
+}
+</style></head><body>
+<nav id='sidebar'>
+<div class='brand'>V2.9.1 Chapter 2C terminology</div>
+<div class='brand-sub'>Executive briefing for V2 Management</div>
+<a class='top' href='#blockers'>&uarr; The three that block us</a>
+<h2>Blocking</h2>
+<a href='#policy'><span class='n'>1</span>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a>
+<a href='#all-codes'><span class='n'>2</span>Is &ldquo;all codes&rdquo; a defined term?</a>
+<a href='#duplicates'><span class='n'>3</span>Two pairs of tables are duplicates &mdash; do we publish one resource or two?</a>
+<h2>Defect classes</h2>
+<a href='#cls-lost'><span class='n'>&bull;</span>Content lost in publication <span class='cnt'>2 tables</span></a>
+<a href='#cls-copypaste'><span class='n'>&bull;</span>Copy-paste errors in code system metadata <span class='cnt'>9 tables</span></a>
+<a href='#cls-contradiction'><span class='n'>&bull;</span>Tables that contradict themselves <span class='cnt'>4 tables</span></a>
+<a href='#cls-identity'><span class='n'>&bull;</span>Code system identity that looks wrong <span class='cnt'>2 tables</span></a>
+<a href='#cls-internal'><span class='n'>&bull;</span>The chapter disagreeing with itself, and with THO <span class='cnt'>10 concept domains</span></a>
+<a href='#cls-typography'><span class='n'>&bull;</span>Typographic defects &mdash; already handled, no action <span class='cnt'>~1,500 corrections</span></a>
+<h2>Context</h2>
+<a href='#context'><span class='n'>&mdash;</span>Where this is going</a>
+</nav>
+<main id='main'>
+<h1>V2.9.1 Chapter 2C terminology</h1>
+<p class='sub'>Executive briefing for V2 Management &middot; 2026-08-21</p>
+
+<p>We have extracted the whole of Chapter 2C &mdash; <b>799 tables, 5,540
+codes</b> &mdash; and are turning it into FHIR CodeSystems and ValueSets. The
+extraction and text-fidelity pass is <b>complete and reviewed</b>. Nothing is
+outstanding on our side.</p>
+
+<p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
+for v2 terminology there. We met the UTG subcommittee of TSMG yesterday and
+they are receptive; the canonical URLs and the merge route are agreed.</p>
+
+<p><b>What we need from V2 Management is one ruling and a stack of
+acknowledgements.</b> Along the way we found defects in the published chapter.
+Most are mechanical and need only a nod. A few are not, and three of them
+block us.</p>
+
+<div class='metric-grid'>
+<div class='metric-card mc-good'><div class='number'>799</div><div class='label'>tables extracted</div></div>
+<div class='metric-card mc-good'><div class='number'>5,540</div><div class='label'>codes</div></div>
+<div class='metric-card mc-good'><div class='number'>100%</div><div class='label'>text fidelity pass complete</div></div>
+<div class='metric-card mc-escalate'><div class='number'>3</div><div class='label'>blocking questions</div></div>
+<div class='metric-card mc-flag'><div class='number'>~30</div><div class='label'>chapter defects found</div></div>
+</div>
+<section id='blockers' class='asks-card'>
+<h2 class='plain'>If you read one thing</h2>
+<p class='asks-intro'>Three questions block us. Everything else on this page needs acknowledgement rather than a decision.</p>
+<ol class='asks-list'>
+<li><span class='badge b-decide'>BLOCKS US</span> <a href='#policy'>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a><div class='ask-line'>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. We will apply whatever you decide and bring back the affected list.</div></li>
+<li><span class='badge b-decide'>BLOCKS US</span> <a href='#all-codes'>Is &ldquo;all codes&rdquo; a defined term?</a><div class='ask-line'>Is &ldquo;all codes&rdquo; meant to map to something specific in a value set definition, or is it prose? If prose, we will enumerate and say so.</div></li>
+<li><span class='badge b-decide'>BLOCKS US</span> <a href='#duplicates'>Two pairs of tables are duplicates &mdash; do we publish one resource or two?</a><div class='ask-line'>Confirm the older numbers are deprecated in favour of the newer, and say so in the chapter. We need to know whether to emit two resources or one with an alias.</div></li>
+</ol>
+<p class='asks-foot'>Below that: <b>~30 defects in the published chapter</b>, grouped into five classes. Most need only a nod that they are real and will be fixed in a future publication.</p>
+</section>
+<h2>The three that block us</h2>
+<section class='item k-decision' id='policy'>
+<h3><span class='badge b-decide'>BLOCKS US</span> <span class='n'>1.</span> When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</h3>
+<p class='lede'>This is the ruling we most need. It sets the default for every other item on this page, and we cannot generate the affected tables until it is answered.</p>
+
+<p>Our governing requirement has been fidelity &mdash; publish exactly what
+Chapter 2C publishes. That is easy while the differences are typographic. It
+stops being easy when the content is wrong:</p>
+<ul>
+<li><b>Table 0931 Temperature Units</b> publishes <code>degF</code>, which is
+not a valid UCUM code, beside the valid <code>[degF]</code> that means the same
+thing. The chapter's own comment on it says &ldquo;typo&rdquo;.</li>
+<li><b>Table 0560 Quantity Units</b> publishes five codes of which four are
+units of <i>time</i> &mdash; Hours, Days, Month, Years.</li>
+</ul>
+
+<div class="counter">
+<p class="tight"><b>THO has already answered this differently in the two
+cases</b>, which is why it needs settling rather than assuming. For 0931 THO
+<i>corrected</i> &mdash; its value set drops the bad code and folds the history
+into the display text. For 0560 THO <i>reproduced</i> the same error the
+chapter has. So the two bodies have diverged on the principle at least once,
+and THO has diverged from itself.</p>
+</div>
+
+<p class='ask'><span class='ask-tag'>Ask</span>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. We will apply whatever you decide and bring back the affected list.</p>
+</section>
+<section class='item k-decision' id='all-codes'>
+<h3><span class='badge b-decide'>BLOCKS US</span> <span class='n'>2.</span> Is &ldquo;all codes&rdquo; a defined term?</h3>
+<p class='lede'>Highest leverage question on the page. It affects how <b>all 438 value set blocks</b> in the chapter get translated, so one answer here settles hundreds of resources.</p>
+
+<p>Value Set blocks give a &ldquo;Content Logical Definition&rdquo;. Some say
+<i>&ldquo;enumerated per table content&rdquo;</i>, which is unambiguous. Others
+say <i>&ldquo;all codes&rdquo;</i> &mdash; including tables 0931 and 0932,
+which then list two or three UCUM codes. Read literally, &ldquo;all
+codes&rdquo; against UCUM means every unit of measure in existence.</p>
+<p>THO reads all four the same way and enumerates in every case, which suggests
+the phrase is informal. But we are translating 438 of these mechanically and we
+should not be guessing.</p>
+
+<p class='ask'><span class='ask-tag'>Ask</span>Is &ldquo;all codes&rdquo; meant to map to something specific in a value set definition, or is it prose? If prose, we will enumerate and say so.</p>
+</section>
+<section class='item k-decision' id='duplicates'>
+<h3><span class='badge b-decide'>BLOCKS US</span> <span class='n'>3.</span> Two pairs of tables are duplicates &mdash; do we publish one resource or two?</h3>
+<p class='lede'>A structural question we cannot answer from the document, and it changes what we emit.</p>
+
+<p><b>0567 / 0929</b> are both <i>Weight Units</i>, both declare the concept
+domain <code>WeightUnits</code>, and both publish the same four UCUM codes.
+<b>0568 / 0930</b> are both <i>Volume Units</i> with the same three codes.</p>
+<p>In both pairs, the older table's value set URI already points at the newer
+table's value set &mdash; so the chapter appears to know they are the same
+thing without saying so.</p>
+
+<p class='ask'><span class='ask-tag'>Ask</span>Confirm the older numbers are deprecated in favour of the newer, and say so in the chapter. We need to know whether to emit two resources or one with an alias.</p>
+</section>
+<h2>Defects in the published chapter, by class</h2>
+<p class='sub'>Counts are tables affected. None of these blocks us; we have a working treatment for each and it is recorded.</p>
+<section class='item k-finding' id='cls-lost'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> Content lost in publication <span class='dim-tag'>2 tables</span></h3>
+
+<p><b>0821 Gender Identity</b> publishes its coded content grid <b>completely
+blank</b> &mdash; six rows by five columns, every cell empty, while the section
+around it is fully populated. Six rows is a header plus five code rows, and
+THO's <code>ValueSet/gender-identity</code>, carrying the exact OID the chapter
+prints, holds exactly <b>five</b> concepts. The grid was meant to carry those
+five and lost them.</p>
+<p><b>0685 and 0767</b> have their headings styled <code>Normal</code> instead
+of <code>Heading 3</code>, so both are absent from the chapter's own table of
+contents and were invisible to extraction until we special-cased them.</p>
+
+<p class='ask'><span class='ask-tag'>Need</span>0821 needs its five codes restored in a future publication. This is the one class where a reader of the PDF is actively misled &mdash; the table looks empty.</p>
+</section>
+<section class='item k-finding' id='cls-copypaste'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> Copy-paste errors in code system metadata <span class='dim-tag'>9 tables</span></h3>
+
+<ul>
+<li><b>All six UCUM-backed tables</b> (0567, 0568, 0929&ndash;0932) name the
+code system <i>&ldquo;Donation Duration Units Code System&rdquo;</i>. Only 0932
+is about donation duration, and the name is wrong even there &mdash; the code
+system is UCUM.</li>
+<li><b>0560 and 0910</b> carry literal placeholder text: OID <code>-</code>,
+symbolic name <code>noObject</code>, description <code>noDescription</code>,
+and a full name copy-pasted from an unrelated table. These are a tool's way of
+saying &ldquo;left blank&rdquo;, and they were published.</li>
+<li><b>0347 State/Province</b> correctly identifies ISO 3166 <b>part 2</b> and
+then gives the URI for <b>part 1</b>.</li>
+</ul>
+
+<p class='ask'><span class='ask-tag'>Need</span>Acknowledgement and a technical correction. None of these should be controversial, but all change published text, so they are not ours to make unilaterally.</p>
+</section>
+<section class='item k-finding' id='cls-contradiction'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> Tables that contradict themselves <span class='dim-tag'>4 tables</span></h3>
+
+<p><b>0093, 0340 and 0451</b> each declare <code>Concept Domain Only: yes</code>
+and then publish rows in the code grid. The rows are not codes: 0093's third
+entry is literally <code>...</code> with the display &ldquo;user-defined
+codes&rdquo;; 0340's two entries name <i>coding systems</i> rather than
+modifiers; 0451's single entry is a query wildcard.</p>
+<p><b>0560</b> says <code>Type: User</code> and &ldquo;No suggested
+values&rdquo; and then lists five values.</p>
+
+<p class='ask'><span class='ask-tag'>Need</span>Our plan is to emit a concept domain and nothing else for the first three. Flagging in case any of them is meant to be read differently.</p>
+</section>
+<section class='item k-finding' id='cls-identity'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> Code system identity that looks wrong <span class='dim-tag'>2 tables</span></h3>
+
+<p><b>0459 Reimbursement Action Code</b> is labelled with the CMS OCE Edit Code
+symbolic name and OID, but its four codes are <code>0</code>&ndash;<code>3</code>
+with HL7-authored English displays. Those read as an HL7 enumeration
+<i>about</i> OCE behaviour, not as CMS codes.</p>
+<p><b>0411 Supplemental Service Information</b> prints the URI
+<code>http://terminology.hl7.org/CodeSystem/v2-0411</code>. <b>No such resource
+exists in THO</b> &mdash; a dangling canonical in a published HL7 standard.</p>
+
+<p class='ask'><span class='ask-tag'>Need</span>0459 needs its OID confirmed. 0411 needs the resource created in THO, or an explanation of why it never was.</p>
+</section>
+<section class='item k-finding' id='cls-internal'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> The chapter disagreeing with itself, and with THO <span class='dim-tag'>10 concept domains</span></h3>
+
+<p><b>Five concept domains are given two different descriptions within Chapter
+2C.</b> A concept domain has one description by definition, so this is a source
+defect rather than something we can adjudicate. We currently emit the first in
+document order to keep output deterministic.</p>
+<p><b>Five more differ between Chapter 2C and THO</b> (0952, 0967, 0675, 0066,
+0626). For 577 of the 582 shared domains the two agree word for word. Of these
+five, only 0952 is a near-match &mdash; <b>the other four are wholly different
+texts</b>, which usually means the two bodies have attached different meanings
+to the same domain rather than phrasing one meaning two ways.</p>
+
+<p class='ask'><span class='ask-tag'>Need</span>The five internal conflicts need reconciling at source. The four genuine disagreements with THO need a joint decision with TSMG &mdash; picking a wording does not fix a disagreement about meaning.</p>
+</section>
+<section class='item k-fyi' id='cls-typography'>
+<h3><span class='badge b-info'>FYI</span> Typographic defects &mdash; already handled, no action <span class='dim-tag'>~1,500 corrections</span></h3>
+
+<p>Doubled spaces, spaces before punctuation, missing spaces after periods,
+corrupt characters from Word, Symbol-font glyphs. Every one is corrected under
+a recorded decision, every change is logged with its before and after, and
+nothing was changed that a reviewer had not individually approved.</p>
+<p>Mentioned only so it is on the record that the chapter's published text
+needed roughly 1,500 corrections at this level, and that they are reversible.</p>
+
+<p class='ask'><span class='ask-tag'>Need</span>Nothing. Listed for visibility.</p>
+</section>
+<h2 id='context'>Where this is going</h2>
+
+<p><b>Where this is going.</b> The output is not scoped to V2.9.1. We are using
+V2.9.1 as the source to establish a corrected <i>v2 baseline</i> in THO, because
+the existing THO v2 content has more problems than what we are preparing. A
+subsequent effort will resolve the substantive terminology problems that go
+beyond this pass &mdash; keeping the two separate is what makes the second one
+reviewable.</p>
+
+<p><b>Method, briefly.</b> Two independent extractions of the same document
+&mdash; one character-faithful, one structural &mdash; agreeing on 740 of 799
+tables, with every remaining difference adjudicated against the source. Every
+change to published text is recorded with the decision that authorised it, and
+can be reversed.</p>
+
+<p><b>The full detail</b> is in a 12-item register written for V2 Management
+and TSMG. This page is the executive cut; the register has the evidence for
+each item.</p>
+
+<p class='faint'>Generated 2026-08-21 by <code>tooling/scripts/render_v2mgmt_briefing.py</code>. Edit the module, not this file.</p>
+</main></body></html>

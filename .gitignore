@@ -35,6 +35,7 @@ __pycache__/
 /utg
 # THO published package (hl7.terminology.r5 v7.3.0), downloaded reference copy
 /tho-r5/
+/utg/
 
 # Template package staged for extraction to its own HL7/ig-template-v2plus repo #
 ##################################################################################
@@ -99,6 +100,8 @@ Thumbs.db
 # readable and diffable without running anything.
 !/v291-extracted/vocabulary-v2mgmt-items.md
 !/v291-extracted/utg-briefing.html
+!/v291-extracted/v2mgmt-briefing.html
+!/v291-extracted/v2mgmt-briefing.md
 !/v291-extracted/utg-briefing.md
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
