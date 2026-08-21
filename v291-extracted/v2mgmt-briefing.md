@@ -11,21 +11,26 @@ The work is destined for THO, and it establishes a corrected baseline
 for v2 terminology there. We met the UTG subcommittee of TSMG yesterday and
 they are receptive; the canonical URLs and the merge route are agreed.
 
-What we need from V2 Management is one ruling and a stack of
+What we need from V2 Management is two rulings and a stack of
 acknowledgements. Along the way we found defects in the published chapter.
-Most are mechanical and need only a nod. A few are not, and three of them
-block us.
+Most are mechanical and need only a nod — and three items that were on
+an earlier draft of this page have already come off it, listed below so nobody
+raises them twice.
 
 ## If you read one thing
 
 1. **[BLOCKS US]** When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?  
    _Ask:_ Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. We will apply whatever you decide and bring back the affected list.
-2. **[BLOCKS US]** Is “all codes” a defined term?  
-   _Ask:_ Is “all codes” meant to map to something specific in a value set definition, or is it prose? If prose, we will enumerate and say so.
-3. **[BLOCKS US]** Two pairs of tables are duplicates — do we publish one resource or two?  
-   _Ask:_ Confirm the older numbers are deprecated in favour of the newer, and say so in the chapter. We need to know whether to emit two resources or one with an alias.
+2. **[BLOCKS US]** Five concept domains are declared by more than one table, with a different definition each time  
+   _Ask:_ Say which definition is correct for each of the five. We will take any of them — what we cannot do is keep choosing by document order.
 
-## The three that block us
+## Already settled — here so they are not raised twice
+
+- **“All codes” in a Content Logical Definition** (0929–0932) — Not ambiguous. A CLD reading “all codes from a given code system” is ordinary FHIR and is how value sets normally work; we express this in FHIR, so the term is already defined for us. What remains is a narrower chapter defect: 0931 and 0932 say “all codes” and then enumerate two or three UCUM codes, which is not what that phrase means. Filed under wording, below.
+- **The two duplicate table pairs** (0567/0929, 0568/0930) — One of each pair is deprecated and the other is in use. We publish both — the older marked deprecated. No decision needed.
+- **Concept-domain-only tables that also list codes** (0093, 0340, 0451) — Not a contradiction — we had this backwards. The V3 requirements for declaring a concept domain call for example codes, so these tables are correct as published. Likely treatment is to carry the examples as a property on the concept domain code system. Low priority; no action from V2 Management.
+
+## The two that block us
 
 ### 1. When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?
 
@@ -52,33 +57,44 @@ and THO has diverged from itself.
 
 **Ask:** Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. We will apply whatever you decide and bring back the affected list.
 
-### 2. Is “all codes” a defined term?
+### 2. Five concept domains are declared by more than one table, with a different definition each time
 
-Highest leverage question on the page. It affects how all 438 value set blocks in the chapter get translated, so one answer here settles hundreds of resources.
+A concept domain has one definition by definition. Two tables describing the same domain differently is a source defect we cannot adjudicate, and it is the only class here where we are currently emitting a guess.
 
-Value Set blocks give a “Content Logical Definition”. Some say
-“enumerated per table content”, which is unambiguous. Others
-say “all codes” — including tables 0931 and 0932,
-which then list two or three UCUM codes. Read literally, “all
-codes” against UCUM means every unit of measure in existence.
-THO reads all four the same way and enumerates in every case, which suggests
-the phrase is informal. But we are translating 438 of these mechanically and we
-should not be guessing.
+We emit the first description in document order, purely to keep the
+output deterministic. That is a coin toss, not a judgement — and in at
+least two cases below the second description is clearly the better one.
 
-**Ask:** Is “all codes” meant to map to something specific in a value set definition, or is it prose? If prose, we will enumerate and say so.
 
-### 3. Two pairs of tables are duplicates — do we publish one resource or two?
+Concept domainTablesThe competing definitions
+DeviceStatus0682, 0962
+“the state of a device” vs “the availability
+status of a device”
+DeviceType0657, 0961
+“the kind of device as defined by the manufacturer” vs
+“what kind a particular device is … devices used in the medical
+field”
+Modality0259, 0604
+“the imaging apparatus expected to be used … removed from
+the standard as of 2.7 in favour of table 0910” vs “the
+type of Modality”
+QuantityUnits0560, 0602
+“the adjustment quantity” vs “the type of Quantity
+Units”
+VolumeUnits0568, 0777, 0930
+“units of measure used to specify volume” vs “the
+type of Volume Units”
 
-A structural question we cannot answer from the document, and it changes what we emit.
 
-0567 / 0929 are both Weight Units, both declare the concept
-domain WeightUnits, and both publish the same four UCUM codes.
-0568 / 0930 are both Volume Units with the same three codes.
-In both pairs, the older table's value set URI already points at the newer
-table's value set — so the chapter appears to know they are the same
-thing without saying so.
 
-**Ask:** Confirm the older numbers are deprecated in favour of the newer, and say so in the chapter. We need to know whether to emit two resources or one with an alias.
+Two of these are entangled with other items.
+Modality's first definition says the table was removed from the
+standard as of 2.7 — so we are currently publishing a withdrawn
+table's wording as the live definition. And VolumeUnits is
+declared by three tables, two of which (0568, 0930) are the deprecated/current
+pair below.
+
+**Ask:** Say which definition is correct for each of the five. We will take any of them — what we cannot do is keep choosing by document order.
 
 ## Defects in the published chapter, by class
 
@@ -111,17 +127,18 @@ then gives the URI for part 1.
 
 **Need:** Acknowledgement and a technical correction. None of these should be controversial, but all change published text, so they are not ours to make unilaterally.
 
-### Tables that contradict themselves — 4 tables
+### Tables that contradict themselves — 3 tables
 
-0093, 0340 and 0451 each declare Concept Domain Only: yes
-and then publish rows in the code grid. The rows are not codes: 0093's third
-entry is literally ... with the display “user-defined
-codes”; 0340's two entries name coding systems rather than
-modifiers; 0451's single entry is a query wildcard.
 0560 says Type: User and “No suggested
-values” and then lists five values.
+values”, and then lists five values — the same five that are units
+of time under a name about quantity.
+0931 and 0932 give their Content Logical Definition as “all
+codes” and then enumerate two or three UCUM codes. Against UCUM,
+“all codes” means every unit of measure there is. Tables 0929 and
+0930 do the same thing and say “enumerated per table content”,
+which is right.
 
-**Need:** Our plan is to emit a concept domain and nothing else for the first three. Flagging in case any of them is meant to be read differently.
+**Need:** Wording corrections. 0931 and 0932 should say what 0929 and 0930 say. 0560 is really the same question as blocker 1.
 
 ### Code system identity that looks wrong — 2 tables
 
@@ -135,19 +152,19 @@ exists in THO — a dangling canonical in a published HL7 standard.
 
 **Need:** 0459 needs its OID confirmed. 0411 needs the resource created in THO, or an explanation of why it never was.
 
-### The chapter disagreeing with itself, and with THO — 10 concept domains
+### Concept domain definitions that differ from THO — 5 domains
 
-Five concept domains are given two different descriptions within Chapter
-2C. A concept domain has one description by definition, so this is a source
-defect rather than something we can adjudicate. We currently emit the first in
-document order to keep output deterministic.
-Five more differ between Chapter 2C and THO (0952, 0967, 0675, 0066,
-0626). For 577 of the 582 shared domains the two agree word for word. Of these
-five, only 0952 is a near-match — the other four are wholly different
-texts, which usually means the two bodies have attached different meanings
-to the same domain rather than phrasing one meaning two ways.
+Tables 0952, 0967, 0675, 0066, 0626. For 577 of the 582 concept
+domains the two bodies share, Chapter 2C and THO agree word for word. These
+five do not.
+Only 0952 is a near-match — it differs by formatting and a stray
+space. The other four are wholly different texts, which usually means
+the two bodies have attached different meanings to the same domain rather than
+phrasing one meaning two ways.
+Distinct from blocker 2: that one is the chapter disagreeing with
+itself. This is the chapter disagreeing with THO.
 
-**Need:** The five internal conflicts need reconciling at source. The four genuine disagreements with THO need a joint decision with TSMG — picking a wording does not fix a disagreement about meaning.
+**Need:** A joint decision with TSMG on the four. Picking a wording does not fix a disagreement about meaning.
 
 ### Typographic defects — already handled, no action — ~1,500 corrections
 

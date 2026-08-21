@@ -42,27 +42,34 @@ outstanding on our side.</p>
 for v2 terminology there. We met the UTG subcommittee of TSMG yesterday and
 they are receptive; the canonical URLs and the merge route are agreed.</p>
 
-<p><b>What we need from V2 Management is one ruling and a stack of
+<p><b>What we need from V2 Management is two rulings and a stack of
 acknowledgements.</b> Along the way we found defects in the published chapter.
-Most are mechanical and need only a nod. A few are not, and three of them
-block us.</p>
+Most are mechanical and need only a nod &mdash; and three items that were on
+an earlier draft of this page have already come off it, listed below so nobody
+raises them twice.</p>
 """
 
 METRICS = [
     ("799", "tables extracted", "good"),
     ("5,540", "codes", "good"),
     ("100%", "text fidelity pass complete", "good"),
-    ("3", "blocking questions", "escalate"),
+    ("2", "blocking questions", "escalate"),
     ("~30", "chapter defects found", "flag"),
 ]
 
 # --------------------------------------------------------------------------
-# The three that actually block generation
+# The ones that actually block generation
 # --------------------------------------------------------------------------
 #
-# Kept to three on purpose. A meeting with minutes in it can absorb three
-# things; a list of twelve gets nodded at and forgotten. Everything else is a
-# class below, and the register has the detail when they want it.
+# Kept very short on purpose. A meeting with minutes in it can absorb two or
+# three things; a list of twelve gets nodded at and forgotten.
+#
+# The bar for this list is strict, and it was set after an earlier draft failed
+# it: an item belongs here only if generation cannot proceed without the
+# answer AND the answer is not already determined by something we know. Two
+# items came off for the second reason -- "all codes" is ordinary FHIR, and the
+# duplicate pairs are a deprecated/current pair. Both were real register items,
+# but neither was ever a blocker. See RESOLVED below.
 
 BLOCKERS = [
     {
@@ -99,45 +106,83 @@ and THO has diverged from itself.</p>
                "apply whatever you decide and bring back the affected list.",
     },
     {
-        "id": "all-codes",
+        "id": "domain-conflicts",
         "n": 2,
-        "title": "Is &ldquo;all codes&rdquo; a defined term?",
-        "why": "Highest leverage question on the page. It affects how <b>all "
-               "438 value set blocks</b> in the chapter get translated, so one "
-               "answer here settles hundreds of resources.",
+        "title": "Five concept domains are declared by more than one table, "
+                 "with a different definition each time",
+        "why": "A concept domain has one definition by definition. Two tables "
+               "describing the same domain differently is a source defect we "
+               "cannot adjudicate, and it is the only class here where we are "
+               "currently emitting a guess.",
         "body": """
-<p>Value Set blocks give a &ldquo;Content Logical Definition&rdquo;. Some say
-<i>&ldquo;enumerated per table content&rdquo;</i>, which is unambiguous. Others
-say <i>&ldquo;all codes&rdquo;</i> &mdash; including tables 0931 and 0932,
-which then list two or three UCUM codes. Read literally, &ldquo;all
-codes&rdquo; against UCUM means every unit of measure in existence.</p>
-<p>THO reads all four the same way and enumerates in every case, which suggests
-the phrase is informal. But we are translating 438 of these mechanically and we
-should not be guessing.</p>
+<p>We emit the <b>first description in document order</b>, purely to keep the
+output deterministic. That is a coin toss, not a judgement &mdash; and in at
+least two cases below the second description is clearly the better one.</p>
+
+<table>
+<tr><th>Concept domain</th><th>Tables</th><th>The competing definitions</th></tr>
+<tr><td><code>DeviceStatus</code></td><td class='nowrap'>0682, 0962</td>
+<td>&ldquo;the state of a device&rdquo; <i>vs</i> &ldquo;the availability
+status of a device&rdquo;</td></tr>
+<tr><td><code>DeviceType</code></td><td class='nowrap'>0657, 0961</td>
+<td>&ldquo;the kind of device as defined by the manufacturer&rdquo; <i>vs</i>
+&ldquo;what kind a particular device is &hellip; devices used in the medical
+field&rdquo;</td></tr>
+<tr><td><code>Modality</code></td><td class='nowrap'>0259, 0604</td>
+<td>&ldquo;the imaging apparatus expected to be used &hellip; <b>removed from
+the standard as of 2.7 in favour of table 0910</b>&rdquo; <i>vs</i> &ldquo;the
+type of Modality&rdquo;</td></tr>
+<tr><td><code>QuantityUnits</code></td><td class='nowrap'>0560, 0602</td>
+<td>&ldquo;the adjustment quantity&rdquo; <i>vs</i> &ldquo;the type of Quantity
+Units&rdquo;</td></tr>
+<tr><td><code>VolumeUnits</code></td><td class='nowrap'>0568, 0777, 0930</td>
+<td>&ldquo;units of measure used to specify volume&rdquo; <i>vs</i> &ldquo;the
+type of Volume Units&rdquo;</td></tr>
+</table>
+
+<div class="counter">
+<p class="tight"><b>Two of these are entangled with other items.</b>
+<code>Modality</code>'s first definition says the table was <i>removed from the
+standard as of 2.7</i> &mdash; so we are currently publishing a withdrawn
+table's wording as the live definition. And <code>VolumeUnits</code> is
+declared by three tables, two of which (0568, 0930) are the deprecated/current
+pair below.</p>
+</div>
 """,
-        "ask": "Is &ldquo;all codes&rdquo; meant to map to something specific "
-               "in a value set definition, or is it prose? If prose, we will "
-               "enumerate and say so.",
+        "ask": "Say which definition is correct for each of the five. We will "
+               "take any of them &mdash; what we cannot do is keep choosing by "
+               "document order.",
     },
-    {
-        "id": "duplicates",
-        "n": 3,
-        "title": "Two pairs of tables are duplicates &mdash; do we publish one "
-                 "resource or two?",
-        "why": "A structural question we cannot answer from the document, and "
-               "it changes what we emit.",
-        "body": """
-<p><b>0567 / 0929</b> are both <i>Weight Units</i>, both declare the concept
-domain <code>WeightUnits</code>, and both publish the same four UCUM codes.
-<b>0568 / 0930</b> are both <i>Volume Units</i> with the same three codes.</p>
-<p>In both pairs, the older table's value set URI already points at the newer
-table's value set &mdash; so the chapter appears to know they are the same
-thing without saying so.</p>
-""",
-        "ask": "Confirm the older numbers are deprecated in favour of the "
-               "newer, and say so in the chapter. We need to know whether to "
-               "emit two resources or one with an alias.",
-    },
+]
+
+# --------------------------------------------------------------------------
+# Settled in discussion -- shown so they are not raised twice
+# --------------------------------------------------------------------------
+#
+# These were on the list and came off it. They stay visible for one meeting so
+# that anyone who read the earlier draft can see where they went; a question
+# that silently disappears looks like a question that was dropped.
+
+RESOLVED = [
+    ("&ldquo;All codes&rdquo; in a Content Logical Definition",
+     "0929&ndash;0932",
+     "Not ambiguous. A CLD reading &ldquo;all codes from a given code "
+     "system&rdquo; is ordinary FHIR and is how value sets normally work; we "
+     "express this in FHIR, so the term is already defined for us. <b>What "
+     "remains is a narrower chapter defect:</b> 0931 and 0932 say &ldquo;all "
+     "codes&rdquo; and then enumerate two or three UCUM codes, which is not "
+     "what that phrase means. Filed under wording, below."),
+    ("The two duplicate table pairs",
+     "0567/0929, 0568/0930",
+     "One of each pair is deprecated and the other is in use. We publish both "
+     "&mdash; the older marked deprecated. No decision needed."),
+    ("Concept-domain-only tables that also list codes",
+     "0093, 0340, 0451",
+     "Not a contradiction &mdash; we had this backwards. The V3 requirements "
+     "for declaring a concept domain call for <b>example codes</b>, so these "
+     "tables are correct as published. Likely treatment is to carry the "
+     "examples as a property on the concept domain code system. Low priority; "
+     "no action from V2 Management."),
 ]
 
 # --------------------------------------------------------------------------
@@ -196,19 +241,19 @@ then gives the URI for <b>part 1</b>.</li>
         "id": "cls-contradiction",
         "kind": "finding",
         "name": "Tables that contradict themselves",
-        "count": "4 tables",
+        "count": "3 tables",
         "body": """
-<p><b>0093, 0340 and 0451</b> each declare <code>Concept Domain Only: yes</code>
-and then publish rows in the code grid. The rows are not codes: 0093's third
-entry is literally <code>...</code> with the display &ldquo;user-defined
-codes&rdquo;; 0340's two entries name <i>coding systems</i> rather than
-modifiers; 0451's single entry is a query wildcard.</p>
 <p><b>0560</b> says <code>Type: User</code> and &ldquo;No suggested
-values&rdquo; and then lists five values.</p>
+values&rdquo;, and then lists five values &mdash; the same five that are units
+of time under a name about quantity.</p>
+<p><b>0931 and 0932</b> give their Content Logical Definition as &ldquo;all
+codes&rdquo; and then enumerate two or three UCUM codes. Against UCUM,
+&ldquo;all codes&rdquo; means every unit of measure there is. Tables 0929 and
+0930 do the same thing and say &ldquo;enumerated per table content&rdquo;,
+which is right.</p>
 """,
-        "need": "Our plan is to emit a concept domain and nothing else for the "
-                "first three. Flagging in case any of them is meant to be "
-                "read differently.",
+        "need": "Wording corrections. 0931 and 0932 should say what 0929 and "
+                "0930 say. 0560 is really the same question as blocker 1.",
     },
     {
         "id": "cls-identity",
@@ -230,23 +275,21 @@ exists in THO</b> &mdash; a dangling canonical in a published HL7 standard.</p>
     {
         "id": "cls-internal",
         "kind": "finding",
-        "name": "The chapter disagreeing with itself, and with THO",
-        "count": "10 concept domains",
+        "name": "Concept domain definitions that differ from THO",
+        "count": "5 domains",
         "body": """
-<p><b>Five concept domains are given two different descriptions within Chapter
-2C.</b> A concept domain has one description by definition, so this is a source
-defect rather than something we can adjudicate. We currently emit the first in
-document order to keep output deterministic.</p>
-<p><b>Five more differ between Chapter 2C and THO</b> (0952, 0967, 0675, 0066,
-0626). For 577 of the 582 shared domains the two agree word for word. Of these
-five, only 0952 is a near-match &mdash; <b>the other four are wholly different
-texts</b>, which usually means the two bodies have attached different meanings
-to the same domain rather than phrasing one meaning two ways.</p>
+<p>Tables <b>0952, 0967, 0675, 0066, 0626</b>. For 577 of the 582 concept
+domains the two bodies share, Chapter 2C and THO agree word for word. These
+five do not.</p>
+<p>Only 0952 is a near-match &mdash; it differs by formatting and a stray
+space. <b>The other four are wholly different texts</b>, which usually means
+the two bodies have attached different meanings to the same domain rather than
+phrasing one meaning two ways.</p>
+<p>Distinct from blocker 2: that one is the chapter disagreeing with
+<i>itself</i>. This is the chapter disagreeing with THO.</p>
 """,
-        "need": "The five internal conflicts need reconciling at source. The "
-                "four genuine disagreements with THO need a joint decision "
-                "with TSMG &mdash; picking a wording does not fix a "
-                "disagreement about meaning.",
+        "need": "A joint decision with TSMG on the four. Picking a wording "
+                "does not fix a disagreement about meaning.",
     },
     {
         "id": "cls-typography",
@@ -304,11 +347,14 @@ def render_html(generated):
     add("<nav id='sidebar'>")
     add(f"<div class='brand'>{TITLE}</div>")
     add(f"<div class='brand-sub'>{SUBTITLE}</div>")
-    add("<a class='top' href='#blockers'>&uarr; The three that block us</a>")
+    add("<a class='top' href='#blockers'>&uarr; The two that block us</a>")
     add("<h2>Blocking</h2>")
     for b in BLOCKERS:
         add(f"<a href='#{b['id']}'><span class='n'>{b['n']}</span>"
             f"{b['title']}</a>")
+    add("<h2>Settled</h2>")
+    add("<a href='#resolved'><span class='n'>&check;</span>Came off the "
+        "list</a>")
     add("<h2>Defect classes</h2>")
     for c in CLASSES:
         add(f"<a href='#{c['id']}'><span class='n'>&bull;</span>{c['name']} "
@@ -334,7 +380,7 @@ def render_html(generated):
     # ---- the three asks ----
     add("<section id='blockers' class='asks-card'>")
     add("<h2 class='plain'>If you read one thing</h2>")
-    add("<p class='asks-intro'>Three questions block us. Everything else on "
+    add("<p class='asks-intro'>Two questions block us. Everything else on "
         "this page needs acknowledgement rather than a decision.</p>")
     add("<ol class='asks-list'>")
     for b in BLOCKERS:
@@ -347,8 +393,20 @@ def render_html(generated):
         "they are real and will be fixed in a future publication.</p>")
     add("</section>")
 
+    # ---- what came off the list ----
+    add("<h2 id='resolved'>Already settled &mdash; here so they are not raised "
+        "twice</h2>")
+    add("<p class='sub'>These were on an earlier draft of this page as open "
+        "questions. They are not.</p>")
+    add("<table><tr><th>Was listed as</th><th>Tables</th>"
+        "<th>Where it landed</th></tr>")
+    for name, tables, outcome in RESOLVED:
+        add(f"<tr><td><b>{name}</b></td><td class='nowrap'>{tables}</td>"
+            f"<td>{outcome}</td></tr>")
+    add("</table>")
+
     # ---- blockers in full ----
-    add("<h2>The three that block us</h2>")
+    add("<h2>The two that block us</h2>")
     for b in BLOCKERS:
         add(f"<section class='item k-decision' id='{b['id']}'>")
         add(f"<h3><span class='badge b-decide'>BLOCKS US</span> "
@@ -396,7 +454,10 @@ def render_markdown(generated):
     for b in BLOCKERS:
         out.append(f"{b['n']}. **[BLOCKS US]** {_text(b['title'])}  ")
         out.append(f"   _Ask:_ {_text(b['ask'])}")
-    out += ["", "## The three that block us", ""]
+    out += ["", "## Already settled — here so they are not raised twice", ""]
+    for name, tables, outcome in RESOLVED:
+        out.append(f"- **{_text(name)}** ({_text(tables)}) — {_text(outcome)}")
+    out += ["", "## The two that block us", ""]
     for b in BLOCKERS:
         out += [f"### {b['n']}. {_text(b['title'])}", "",
                 _text(b["why"]).strip(), "", _text(b["body"]).strip(), "",

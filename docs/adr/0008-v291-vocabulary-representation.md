@@ -889,6 +889,57 @@ the second one reviewable — a baseline nobody can diff against is not a
 baseline. `v291-extracted/vocabulary-future-corrections.md` is that second
 effort's inbox.
 
+### D19 — Three register items closed without going to a committee
+
+**Decided 2026-08-21.** All three had been carried as open questions, and one
+of them had been escalated to a blocker in a briefing draft. None of them was
+ever a question.
+
+**&ldquo;All codes&rdquo; in a Content Logical Definition is ordinary FHIR.**
+Register item 8 asked whether the phrase is a defined term with a specific
+mapping to `ValueSet.compose` or informal prose. It is neither ambiguous nor
+informal: a CLD reading *"all codes from a given code system"* is a completely
+standard value set construction, and since the output is FHIR, FHIR's meaning
+is the operative one. No committee input is needed and none should have been
+sought.
+
+What survives is much narrower and is a chapter defect, not a semantic
+question: **0931 and 0932 say "all codes" and then enumerate two or three UCUM
+codes.** Against UCUM, "all codes" means every unit of measure there is. Tables
+0929 and 0930 do the same thing and correctly say "enumerated per table
+content". This is a wording correction in four tables, filed with the other
+wording defects.
+
+**The two duplicate table pairs are a deprecated/current pair each.** Register
+item 9 asked whether 0567/0929 and 0568/0930 should produce one resource or
+two. They produce two: in each pair the older table is deprecated and the newer
+is in use, which is the ordinary situation and needs no alias mechanism. The
+observation that the older table's value set URI already points at the newer
+one is consistent with that rather than evidence of a problem.
+
+**Concept-domain-only tables that also list codes are correct as published, and
+this ADR had it backwards.** D11 and the briefings treated 0093, 0340 and 0451
+as self-contradictory for declaring `Concept Domain Only: yes` and then
+publishing rows. **The V3 requirements for declaring a concept domain call for
+example codes**, so a concept domain declaration carrying a handful of codes is
+conforming, not contradictory — and it explains why the rows do not look like
+codes (`...` "user-defined codes", two coding-system names, a query wildcard).
+They are examples, and they read exactly as examples should.
+
+The likely representation is a **property on the concept domain code system**
+carrying the examples, rather than a CodeSystem of their own. Not decided here;
+it is low priority and belongs with Batch B.
+
+**What this changes about how items reach a committee.** Two of the three had
+been on the register for several sessions and one reached a briefing as a
+blocker. The failure was not in recording them — a register of open questions
+should be generous — but in promoting them without applying the test that
+promotion implies. **An item is a blocker only if generation cannot proceed
+without the answer AND the answer is not already determined by something we
+know.** "All codes" failed the second clause against ordinary FHIR knowledge.
+The register is now the place where a question waits; a briefing is where a
+question has been checked.
+
 ## Open batches
 
 Worked in dependency order; each is a short session, and each records its
