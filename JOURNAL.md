@@ -18,153 +18,191 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-08-20 (CH02C: text fidelity fully closed; Batch A is next and is the only thing left)
+## ACTIVE — 2026-08-24 (Both committees briefed; the XML writer is next and is blocked on a mount)
 
-**Branch: `dev/v291-vocabulary-ig`, at `a20678fc`.** Three commits this session.
-All vocabulary work is on this branch and nowhere else; `dev/framework` carries
-only the structural-review workstream. **Do not commit vocabulary work to
-`dev/framework`.**
+**Branch: `dev/v291-vocabulary-ig`, at `87b4bf3f`. 11 commits ahead of origin,
+unpushed.** All vocabulary work is on this branch and nowhere else;
+`dev/framework` carries only the structural-review workstream. **Do not commit
+vocabulary work to `dev/framework`.**
 
-**Phase:** Building a separate FHIR IG carrying the V2.9.1 Chapter 2C
-vocabulary as CodeSystems and ValueSets. The structural review registry
-workstream is paused and untouched on `dev/framework`.
+**Phase:** the fidelity load is finished and reviewed. Both governing
+committees have now been briefed. The next real engineering is the **XML
+writer** — and it is blocked on a filesystem mount, see below.
 
-**Governing requirement (user):** the IG must carry *exactly* what Chapter 2C
-publishes. Corrections only where the user has decided a specific case is safe.
-Every divergence recorded.
+### Read this first if you have dumped context
+
+Four things changed the shape of this project since Thursday, and none of them
+is derivable from the code:
+
+1. **The IG is a workspace, not a publication (D18).** Its only destination is
+   integration into THO. That is why resources are authored at
+   `http://terminology.hl7.org/` canonicals — it is not squatting, it is THO's
+   content prepared in the open at the URLs it will live at.
+2. **The output is not tied to V2.9.1 (D18).** V2.9.1 is the *source* used to
+   establish a corrected **v2 baseline** in THO. No `2.9.1` in `version`;
+   "HL7 Version Introduced" becomes a concept property.
+3. **THO's existing v2 content is *worse* than what we are preparing** (user's
+   own assessment). Never cite "THO already publishes it" as authority on its
+   own again. Agreement with THO is corroboration, not deference.
+4. **UTG does not need clean diffs.** Their curator said the repo is already
+   messy when anyone submits, and clean diffs are not something they rely on.
+   The byte-exact round-trip test dropped from a hard gate to a nice-to-have.
+   **This took real work off the critical path.**
 
 ### Next session's first move
 
-**Batch A.** It is the only thing left before resources can be generated, and
-every question the user has been working through for three sessions is now
-answered. Bring it as a small set of concrete choices with counts and a
-recommendation — that format has worked for every decision so far.
+**Unblock the UTG repo, then start the XML writer.**
 
-The user said explicitly on 2026-08-19 that they had been knocking out the
-accumulating small decisions before starting Batch A, and were not sure that
-was the right order. It was: the queue is empty now, and D11 answered seven
-tables' worth of Batch A in passing.
+`/workspace/utg` and `/workspace/UTG` both exist as symlinks to
+`/Users/mrf/repos/utg` — **a macOS host path that is not mounted into this
+container, so both are dangling.** Nothing under them resolves. Two ways out,
+user's call:
 
-**What Batch A still needs from the user:**
+- bind-mount `/Users/mrf/repos/utg` into the container, or
+- clone fresh inside the workspace: `git clone https://github.com/HL7/UTG.git
+  /workspace/utg` (verified reachable anonymously on 2026-08-20; `/utg` is
+  already gitignored).
 
-1. Canonical URL and id scheme for the **18 code-bearing tables THO does not
-   cover**.
-2. Whether **ValueSets are generated for every CodeSystem**, or only where
-   Chapter 2C declares a Value Set block (438 tables declare one).
-3. Resource `version`, `status`, `experimental`, publisher and contact
-   defaults.
-4. Whether the rule D11 implies generalises: *a table whose code system is
-   external gets no CodeSystem, only a ValueSet composing from THO's
-   NamingSystem.*
-
-**One piece of Batch A is blocked** on escalation 1 (below): what a table
-produces when its published content is known to be wrong. Everything else can
-proceed without it.
+Once it resolves, the writer work is: emit XML into
+`input/sourceOfTruth/v2/{codeSystems,valueSets}/`, close enough to their
+conventions to be idiomatic — but **no longer byte-exact**, per the UTG
+outcome above.
 
 ### Pending user actions
 
-1. **Batch A** (above).
-2. **Take the 12-item register to V2 Management and TSMG** —
-   `v291-extracted/vocabulary-v2mgmt-items.md`, also the first section of the
-   HTML review report. Item 1 is the policy question that governs the rest.
+1. **Close Batch A.** Mostly answered by D18 already. What is genuinely left
+   is the user's, not a committee's:
+   - ValueSets for every CodeSystem, or only where Chapter 2C declares a Value
+     Set block (438 tables do)?
+   - Does D11's rule generalise? **Evidence says yes** — THO independently
+     models 10 of the 18 exactly that way.
+   - `status`, `experimental`, publisher and contact defaults.
+2. **Answers still owed by V2 Management** — the two blockers in the briefing
+   (below). The meeting happened but was short.
 3. **Check #IG creation Zulip thread** — template trust submission, unchanged
    since June, unrelated to this workstream.
 
-### Where things stand
+### Where the two committee conversations landed
 
-**The review report is down to 12 escalated, 12 to decide, 0 to confirm**, from
-8 decide / 55 confirm at the start of the session. The 12 to decide are all one
-new group: the missing space after a period, found by a detector built at the
-end of the session and not yet reviewed by anyone.
+**UTG subcommittee of TSMG (2026-08-20)** — went well.
+- Clean diffs not required (above).
+- Canonical URLs and merge route agreed.
+- Briefing: `v291-extracted/utg-briefing.html`.
 
-| | Count | What it is |
+**V2 Management (2026-08-21)** — short meeting; the user corrected the
+briefing before it. **Three items came off the blocker list**, recorded as
+**D19**:
+- **"All codes" in a CLD is ordinary FHIR**, not an ambiguity. A CLD composing
+  a whole code system is standard. What survives is a narrow wording defect:
+  0931/0932 say "all codes" then enumerate 2–3 UCUM codes.
+- **The duplicate table pairs** (0567/0929, 0568/0930) are a
+  deprecated/current pair each. Publish both, older deprecated.
+- **0093/0340/0451 are conforming, not self-contradictory.** The V3
+  requirements for declaring a concept domain *call for example codes*. Likely
+  representation is a property on the concept domain code system — Batch B,
+  low priority.
+
+**D19 also records the process fix**, because two of those reached a briefing
+as blockers when they never were: *an item is a blocker only if generation
+cannot proceed without the answer AND the answer is not already determined by
+something we know.* The register is where a question waits; a briefing is
+where a question has been checked.
+
+### The two things V2 Management still owes us
+
+1. **Reproduce-vs-correct.** When the chapter publishes something demonstrably
+   wrong (0931's invalid UCUM code; 0560's time units under a quantity name),
+   do we reproduce, deprecate, or correct? THO has answered it **both ways** —
+   corrected 0931, reproduced 0560 — so it is a live inconsistency, not an
+   abstract question.
+2. **Five concept domains declared by more than one table with a different
+   definition each time.** We currently emit first-in-document-order, which is
+   a coin toss:
+
+   | Domain | Tables |
+   |---|---|
+   | `DeviceStatus` | 0682, 0962 |
+   | `DeviceType` | 0657, 0961 |
+   | `Modality` | 0259, 0604 |
+   | `QuantityUnits` | 0560, 0602 |
+   | `VolumeUnits` | 0568, 0777, 0930 |
+
+   **Two are entangled with other items.** `Modality`'s emitted definition is
+   0259's, which says the table was *removed from the standard as of 2.7* — so
+   we are publishing a withdrawn table's wording as the live definition. And
+   `VolumeUnits` is declared by three tables, two of which are the
+   deprecated/current pair.
+
+### What was decided this session — ADR-0008 D17 to D19
+
+- **D17** — ten of the twelve missing spaces after a period restored; the two
+  dotted identifiers (`Observation.Code` 0396, `…Reason.PurposeOfUse` 0717)
+  deliberately left, because a space would corrupt the name. The report is now
+  **0 to decide, 0 to confirm**.
+- **D18** — the IG is a THO staging workspace; canonicals, versioning and the
+  standing of THO's existing content all follow from that. See "Read this
+  first" above.
+- **D19** — three register items closed without a committee, plus the blocker
+  test.
+
+### The 18-table count was wrong, and the correction matters
+
+The long-standing note "397 of 415 code-bearing tables can reuse a THO
+canonical; **18 need minting**" is misleading. Checked against `tho-r5/` on
+2026-08-20: THO has **no CodeSystem for any of the 18**, but **does have a
+ValueSet for 10**, whose `compose` names the real system.
+
+| What it needs | Count | Tables |
 |---|---:|---|
-| For V2 Management / TSMG | 12 | Defects in the source or in THO. Not ours to fix |
-| Decide | 12 | All one group: missing space after a period, 7 tables |
-| Decided | 1,523 | Every rule and correction, with its ADR reference |
-| Confirm | 0 | Now means changed-but-unreviewed, and there is nothing |
-| Informational | 543 | Disclosed for completeness |
+| Nothing new — author at an existing THO canonical over an existing system | 10 | 0567, 0568, 0929–0932 (UCUM); 0725 (v3-ActMood); 0125 (v2-0440); 0136 (v2-0532); 0338 (v2-0203) |
+| A ValueSet only, over an external system | 3 | 0820 (LOINC), 0823 (SNOMED + DAR + NullFlavor), 0459 |
+| **A genuinely new CodeSystem** | **2** | 0411, 0460 |
+| Escalation, not a resource | 3 | 0093, 0340, 0451 — now closed by D19 |
 
-**Text fidelity is now completely closed.** No run of two or more spaces
-anywhere (except 0496's deliberate ditto mark), and **no space before closing
-punctuation anywhere** — that group went 20 → 0 across D10 and D14.
-
-**Cross-pipeline agreement: 740/799**, unchanged all session. 210 typography,
-45 whitespace, 14 LLM truncations, 1 content (0496, adjudicated), 3 structural
-(all 0227, parked behind D8).
-
-### What was decided this session — ADR-0008 D10 to D16
-
-- **D10** — a non-breaking space against closing punctuation is *deleted*, not
-  spaced out. Cleared the `(M49) .` that D7 had introduced in 0827.
-- **D11** — the seven empty-grid tables, disposed of individually. Four are
-  external code systems reusing a THO NamingSystem (0347 → ISO3166Part2;
-  0929/0930/0932 → v3-ucum); two are concept domain only (0560, 0910); one is a
-  ValueSet over three external systems reusing THO's `ValueSet/gender-identity`
-  (0821).
-- **D12** — the 55 "invalid" symbolic names are valid FHIR codes. No change to
-  output; the flag was wrong.
-- **D13** — source defects are escalated, not adjudicated. Created the register.
-- **D14** — 18 individual corrections, where the defect does not generalise.
-- **D15** — a non-ASCII character is judged against THO, not against taste.
-- **D16** — the missing space after a period is detected and reported, never
-  inserted.
+**0411 is a dangling canonical in the published chapter**: Chapter 2C prints
+`http://terminology.hl7.org/CodeSystem/v2-0411` and THO has no such resource.
 
 ### Non-obvious things the next session must not re-derive
 
-- **The policy is a rule chain in `tooling/scripts/vocabulary_text_policy.py`**,
-  plus `MANUAL_CORRECTIONS` for what does not generalise, plus detectors that
-  report without changing. **124 tests** in `test_vocabulary_text_policy.py`;
-  run them before and after any change.
-- **Every character-level change must be checked against BOTH corpuses.** Four
-  occurrences now: D6's comma, D7's `Â`, D10's non-breaking space, D14's
-  fragments. D10 taught the newest variant — when the two corpuses cannot be
-  made to agree, **widen the comparison's notion of "same", not the rule**.
-  `fold_whitespace` now drops a space against closing punctuation.
-- **A correction fragment must be checked against the corpus AFTER the rule
-  chain, not the raw extraction.** The LLM's raw 0440 value has two spaces
-  where python-docx has one; the fragment matches neither raw corpus and both
-  corrected ones.
+- **The briefings are generated, not hand-written.**
+  `tooling/scripts/render_utg_briefing.py` and `render_v2mgmt_briefing.py`,
+  sharing `briefing_style.py`. Each emits HTML *and* a Markdown twin. **Edit
+  the module, never the output.** The user reads HTML and shares it — do not
+  hand them Markdown for anything committee-facing.
+- **Four correction mechanisms now exist and they are not interchangeable:**
+  the rule chain in `RULES` (generalises), `MANUAL_CORRECTIONS` (D14, does
+  not), `MISSING_SPACE_CORRECTIONS` (D17, does not), and detectors that report
+  without changing. A new correction table needs a new kind in
+  `CORRECTION_TABLES`, or its changes get attributed to the wrong decision.
+- **138 tests** in `test_vocabulary_text_policy.py`; run before and after any
+  policy change.
+- **Every character-level change must be checked against BOTH corpuses** —
+  except where the LLM truncated the value. D17's table 0719 correction sits
+  past one of the 14 known truncations, so it fires in python-docx only and
+  creates no new disagreement.
 - **`MANUAL_CORRECTIONS` matches a text fragment within a named table, never a
-  location path.** The two pipelines index coded content differently — the
-  corrected value in 0003 is row 348 to python-docx and 347 to the LLM. A
-  location key would silently correct one corpus and miss the other.
-- **Rule order in `RULES` is load-bearing.** Character repairs first, narrow
-  space rules before broad ones, dash spacing ahead of the general collapse.
-  Each rule reports its own count, which is how a mis-ordering gets caught.
-- **The report's action classes mean specific things now.** `Confirm` is
-  changed-but-unreviewed and is empty; anything changed under a recorded
-  decision renders as `Decided` via the `DEVIATION_DECISION` table. Add a line
-  there when a rule is approved.
-- **Outstanding groups highlight the site still in question.** Without it a
-  reader scans the *As published* column, finds a defect a rule fixed three
-  changes ago, and decides about that instead — which happened twice, on 0440
-  and 0952, and cost a round trip.
-- **The escalation register is authored in
-  `tooling/scripts/vocabulary_escalations.py`** and rendered twice, into the
-  HTML report and into `vocabulary-v2mgmt-items.md`. Edit the module.
+  location path.** The two pipelines index coded content differently.
+- **Rule order in `RULES` is load-bearing.**
 - **python-docx is the character-faithful pipeline; the LLM is structural
-  corroboration only** — two exceptions on record where the LLM was right,
-  tables 0964 and 0227. Generation reads from `v291-extracted/vocabulary/`.
-- **Do not re-run the LLM extraction casually** — ~$11.60. Corpus is on disk at
-  `v291-llm/vocabulary/` (gitignored). Use `--resume`.
-- **26 concept domains are declared by more than one table**, so table→domain
-  is not 1:1.
+  corroboration only.** Generation reads `v291-extracted/vocabulary/`.
+- **Do not re-run the LLM extraction casually** — ~$11.60. Use `--resume`.
 - **Four authored files need `.gitignore` exceptions** and vanish silently
-  without one: `vocabulary-changelog.md`, `vocabulary-future-corrections.md`,
-  `vocabulary-review-report.html`, `vocabulary-v2mgmt-items.md`.
+  without one. The briefings needed them too; they are in place.
 
 ### Loose ends nobody has decided about
 
-Found while working, not raised as questions, and not in the report:
-
-- **Table 0440 has missing-space defects in sibling values** the corrections
-  did not touch: `OBX-5Observation`, `OM2-6.3and`, `and8.8.4.8`. A different
-  shape from the missing-space-after-period detector, which only looks at
-  sentence boundaries.
+- **The changelog's "missing space after a comma" list does not match the
+  corpus.** It documents 0074/0354/0367/0396; a scan finds 0074 (×2), 0354,
+  0396, 0399, 0550, 0953 — and misses 0367 because that one is `e.g.,highest`,
+  where a period precedes the comma. The two scans used different patterns and
+  disagree in both directions. **Nothing is wrong in the output**, but "Still
+  outstanding" is a record we rely on and needs one reconciliation pass.
+- **Three dashes the rule refused to repair** — 0357 `Message is not
+  -conformant`, 0368 `Emergency -stop`, 0919 `Default -.will be assumed`.
+- **Table 0440 sibling defects** — `OBX-5Observation`, `OM2-6.3and`,
+  `and8.8.4.8`. A different shape from the sentence-boundary detector.
 - **Table 0440's `CNN` row contradicts the D14 correction to its `NDL` row**
-  on one point — it keeps `7.4.1.32-(OBR-32)` tight. Recorded in the ADR; one
-  line to reverse if the user prefers the sibling.
+  on one point. One line to reverse if the user prefers the sibling.
 
 ### Regeneration sequence
 
@@ -177,24 +215,165 @@ python3 tooling/scripts/compare_vocabulary_pipelines.py
 python3 tooling/scripts/generate_concept_domains.py
 python3 tooling/scripts/vocabulary_escalations.py
 python3 tooling/scripts/render_vocabulary_review_html.py
+python3 tooling/scripts/render_utg_briefing.py
+python3 tooling/scripts/render_v2mgmt_briefing.py
 ```
 
-Then check `git diff --stat v291-fhir/`. Drift there should only ever be the
-generation date plus concept domains Chapter 2C owns — under D1, THO's wording
-wins for the 582 domains THO already publishes, so a corrected Chapter 2C
-description only reaches the output for the 177 additions.
+Then check `git diff --stat v291-fhir/`. D17 produced **no drift there at all**
+— the corrections touched comments and descriptions, not concept domains.
 
 ### Build verification status
 
-Untouched. This workstream has produced tooling, extracted data and one
-generated CodeSystem, none of which is in a build. Nothing needs to reach
-`main` or `build`.
+Untouched. This workstream has produced tooling, extracted data, one generated
+CodeSystem and two briefings, none of which is in a build. Nothing needs to
+reach `main` or `build`. **A smoke-test IG build was proposed and not yet
+run** — worth doing before generating ~800 resources, because D1 redefines
+`CodeSystem/conceptdomains` at THO's own canonical while `hl7.terminology`
+supplies 3.0.0 of it, and whether the publisher tolerates that is untested.
 
 ### Open blockers
 
-None. Gated only on the user's decisions.
+- **The UTG repo is not reachable from this container** (dangling symlinks,
+  above). This blocks the XML writer, which is the next real work.
+- Everything else is gated only on the user's decisions.
 
 ## Session History
+
+## 2026-08-20 → 2026-08-24 — D17–D19; both committees briefed; the 18-canonical count corrected
+
+### Completed
+
+**D17 — the missing spaces after a period, ten of twelve restored.** D16 had
+built the detector and repaired nothing, on the grounds that no authority in
+the chapter licensed inserting a character. The user supplied that authority
+directly. **The two dotted identifiers were deliberately not repaired** —
+`Observation.Code` in 0396 and `…Reason.PurposeOfUse` in 0717, where a space
+corrupts the name. They stay as published and the detector goes on reporting
+them, because nothing in the text tells an identifier from a sentence boundary
+and a detector that filtered would hide the next real one. Report went to **0
+to decide, 0 to confirm**; tests 124 → 138; agreement held at 740/799.
+
+One case worth remembering: **table 0719's site sits past one of the 14 known
+LLM truncations**, so that correction fires in python-docx only. It created no
+new pipeline disagreement because the value already disagreed. The other nine
+fragments were verified in both corpuses first.
+
+**D18 — what the IG actually is, which changed several answers.** The user
+explained the framing: this is a *workspace* whose only destination is
+integration into THO, establishing a corrected **v2 baseline** there because
+THO's existing v2 content is more error-ridden than what we are preparing.
+
+That reversed a recommendation made an hour earlier. I had argued against
+authoring at `terminology.hl7.org` on namespace-squatting grounds; with the
+destination known, that objection is void and authoring at the destination
+canonical is strictly better — no interim URL, no migration, no mapping table.
+
+Three consequences went into the ADR, two of which nothing in the code implies:
+the output is **not** scoped to V2.9.1 (so no `2.9.1` in `version`, and "HL7
+Version Introduced" becomes a property), and **"THO already publishes it" is no
+longer an argument by itself**. That last one has teeth — it is the stated or
+implied rationale in D1's tie-break and in D8 and D11's reuse decisions. Those
+hold on their own evidence, but the reasoning does not generalise, and D18 says
+so explicitly so a later decision cannot lean on it.
+
+**The 18-canonical count was wrong and is now corrected.** The long-carried
+note said 18 tables "need minting". Checked against `tho-r5/`: THO has no
+CodeSystem for any of the 18 but **does have a ValueSet for 10**, and each
+one's `compose` names the real system. So the real scope is **2 new
+CodeSystems** (0411, 0460), 3 ValueSet-only, 10 authored at an existing THO
+canonical, 3 escalations. This also confirmed D11's rule generalises further
+than expected — it covers not just external systems but tables borrowing
+another v2 table's code system (0125→v2-0440, 0136→v2-0532, 0338→v2-0203).
+
+Along the way: **0411 is a dangling canonical in a published HL7 standard** —
+Chapter 2C prints `http://terminology.hl7.org/CodeSystem/v2-0411`, THO has no
+such resource.
+
+**Two committee briefings, both generated rather than hand-written.** The user
+asked for HTML over Markdown for anything they read or share, and to be able to
+find the important parts without digging. Both are authored in Python modules
+sharing `briefing_style.py`, each emitting HTML plus a Markdown twin.
+
+- **UTG** (`render_utg_briefing.py`) — item-by-item, four asks, an "if you read
+  one thing" card at the top carrying every ask as a one-liner with jump links.
+- **V2 Management** (`render_v2mgmt_briefing.py`) — a different shape for a
+  different audience: minutes rather than an hour, and they own the *chapter*,
+  so it is organised by **class of defect with counts**.
+
+**D19 — three register items closed, and a process fix.** The user pushed back
+on the V2 Management draft, correctly. Two of its three blockers were not
+blockers: "all codes" in a CLD is ordinary FHIR, and the duplicate table pairs
+are a deprecated/current pair each. A third item was wrong in the other
+direction — 0093/0340/0451 are **conforming**, because the V3 requirements for
+declaring a concept domain call for example codes.
+
+Both of the false blockers were genuine register items carried from earlier
+sessions; the error was *promoting* them without re-testing them. D19 records
+the test: **an item is a blocker only if generation cannot proceed without the
+answer AND the answer is not already determined by something we know.** The
+register is where a question waits; a briefing is where a question has been
+checked.
+
+In their place, the briefing now carries the **five concept domains declared by
+more than one table with a different definition each time**, with table numbers
+and competing wordings inline rather than by reference. Pulling that data
+surfaced two things nobody had noticed: **`Modality`'s emitted definition is
+0259's, which says the table was removed from the standard as of 2.7** — we are
+publishing a withdrawn table's wording as the live definition — and
+**`VolumeUnits` is declared by three tables**, two of which are the
+deprecated/current pair.
+
+### Meeting outcomes
+
+**UTG subcommittee (2026-08-20).** Receptive. Canonicals and merge route
+agreed. **Their curator said clean diffs are not something they rely on** —
+the repo is already messy when anyone submits. That drops the byte-exact
+round-trip test from a hard gate to optional and takes real work off the
+critical path.
+
+**V2 Management (2026-08-21).** Short. The briefing was corrected before it
+went in; the two surviving blockers are still owed.
+
+### Why the specific shapes
+
+**Items that came off the blocker list stay visible for one meeting.** A
+question that silently disappears between drafts reads as a question that was
+dropped, and anyone who saw the earlier version will look for it.
+
+**The briefings are two documents, not one with two views.** UTG owns
+resources and had an hour; V2 Management owns the chapter and had minutes. The
+same material genuinely needs different organisation, and trying to
+parameterise one document would have served neither.
+
+**`MISSING_SPACE_CORRECTIONS` is a separate table from `MANUAL_CORRECTIONS`**
+rather than more entries in it, so each change reports under the decision that
+authorised it instead of inheriting D14's. Table 0396 now carries corrections
+from both and demonstrates it.
+
+### Corrections taken during the session
+
+- Argued against THO canonicals on squatting grounds before knowing the IG's
+  destination; reversed once the user explained it.
+- Promoted two non-blockers into a committee briefing. "All codes" should not
+  have survived my own review — composing a whole code system in a CLD is
+  bread-and-butter FHIR, and I carried the register's phrasing forward instead
+  of checking it.
+- Had the concept-domain-only tables backwards: treated example codes as a
+  contradiction when the V3 requirements call for them.
+
+### Commits this session
+
+`4b9d22e1` D17 · `a3a003f8` D18 · `d8fb247d` `a618538d` UTG briefing (Markdown,
+then superseded) · `1fb0be47` UTG briefing as HTML · `a817a61c` V2 Management
+briefing + shared stylesheet · `87b4bf3f` D19 and the blocker cut.
+
+### Still uncommitted, untouched, and not mine
+
+Five files from the structural workstream — two renderers and three HTML
+reports. They belong to `dev/framework`, not this branch. Left alone across
+five sessions now.
+
+---
 
 ## 2026-08-19 → 2026-08-20 — CH02C decision queue emptied (D10–D16); V2 Management register opened
 
@@ -448,136 +627,5 @@ On `dev/framework` (pushed): `a2419452` — Add a branch map to JOURNAL.
 workstream. Flagged to the user four times now; left alone. They belong to the
 structural workstream, so they will follow `dev/framework` rather than this
 branch.
-
----
-
-
-## 2026-08-18 — CH02C text fidelity: six reviewer decisions applied as a shared rule chain
-
-### Completed
-
-**Walked the review report with the user and applied six text-correction decisions**, 1,092 values across 1,295 places. Each was the user's call on a specific group, not a rule the extractor invented; each is recorded per value and individually reversible.
-
-- **D3, spaces after a period** (890 values, 1,089 places) in descriptive fields — the four `Description` fields plus `definition`, `comment` and `displayName`.
-- **D4, three further collapses** — sentence ends where a closing quote or bracket sits between the period and the spaces (6), spaces after a comma (10), and every repeated-space run in `displayName` wherever it sits (66).
-- **D5, dash spacing** (16 values) — a separator dash gets one space each side.
-- **D6, the missing comma after `e.g.` and `i.e.`** (60 values), including the capitalised sentence-initial forms.
-
-**Built `tooling/scripts/vocabulary_text_policy.py` as an ordered rule chain**, with 74 tests. Each rule reports its own count and its own before/after, so a change is attributed to the decision that authorized it rather than several rules landing in one undifferentiated bucket.
-
-**Opened `v291-extracted/vocabulary-changelog.md`** as the durable ledger — one numbered entry per decision with its rule, scope, per-field counts, examples, downstream effects, and an appendix listing every affected table. Needed a `.gitignore` exception; it is authored content, not regenerable.
-
-**Relabelled the review report's text groups** as "Text changed" versus "Text outstanding", so it answers what has been done and what is still open without the reader decoding rule names.
-
-### Why the specific shapes
-
-- **The policy is a shared module, not extractor code.** The python-docx-vs-LLM comparison has to apply the same rules to both corpuses; otherwise our own deliberate normalization is reported as a pipeline disagreement. Cross-pipeline agreement held at 739/799 through all six changes precisely because of this. The absorbed count (982 values equal only after the policy) is stated in the comparison report rather than dropped.
-
-- **The dash rule adjusts spacing and never inserts it.** The user asked whether "a single space before and after every dash" was ever inadvisable. It is: 1,843 of the 2,516 dashes in Chapter 2C prose have no space on either side and are inside `HL7-defined` (387×), `ICD-10`, `UB-04`, `OBR-32` and URL path segments. Even the narrower "where a space already exists on one side" version breaks negative temperatures (`-16 to -20`), the German suspended hyphen `Operationen- und` (15×), `+/- 2 degrees`, and dashes dangling before a line break. The user chose the one-sided version with hand-built exclusions after seeing the evidence, and a seventh exclusion was added after the first run showed `not -conformant` and `Emergency -stop` becoming worse, not better. Every exclusion is structural rather than a list of table numbers, so it survives a source change.
-
-- **`displayName` gets every run collapsed; descriptions do not.** A display name is a short label, so no run of repeated spaces in one can be meaningful. That argument does not extend to a multi-sentence description, where a double space between two words may be evidence of something a reviewer should see — which is why 143 values remain outstanding, all in prose fields.
-
-- **Rule order encodes attribution.** The period, sentence-close and comma rules run before the display-name sweep, so a change lands under the most specific decision that authorized it. That is why the display-name rule reports 66 rather than 74.
-
-### The finding worth carrying forward
-
-**D6 is the first rule that edits prose rather than whitespace, and it immediately broke a comparison the whitespace rules never touched.** Inserting a comma made 6 concept domains differ from THO by nothing but that comma, inflating `definition_differs_from_tho` from 5 to 11. Fixed by applying the shared policy to THO's text before comparing — the same both-sides principle the cross-pipeline comparison already used. `CodeSystem-conceptdomains.json` came out byte-identical to before.
-
-The general lesson, recorded in ADR-0008 D6: whitespace-only rules are forgiving because most comparisons already fold whitespace. Character-level rules are not. Every comparison in this project now has to be asked whether the other side is subject to the same policy.
-
-### Corrections taken during the session
-
-Two scope questions were resolved by asking rather than guessing, and both changed the work: "description elements" turned out to mean all prose fields including `definition`, and the dash rule needed narrowing from the literal instruction. A third judgement — including the 13 capitalised `E.g.`/`I.e.` sites — was made without asking, since leaving them would have produced an obvious inconsistency within the same sentences.
-
-### Commits this session
-
-On `dev/framework`, **pushed to origin** (`2b38100a..4dd40dbc`):
-- `88933379` — Collapse spaces after a period in Chapter 2C descriptive text
-- `4dd40dbc` — Add five more Chapter 2C text corrections; restructure policy as a rule chain
-
-The five previously-unpushed commits from the prior session went up with them.
-
-### Still uncommitted, untouched, and not mine
-
-`tooling/scripts/render_message_structures_html.py`, `tooling/scripts/render_three_way_html.py`, `v291-extracted/message-structures-decision-report.html`, `v291-review/three-way-comparison-report.html`, `vocabulary-comparison-report.html` — all dated 2026-06-19, predating this workstream. Flagged to the user three times now; left alone.
-
----
-
-## 2026-08-17 → 2026-08-18 — CH02C vocabulary: dual-pipeline extraction, concept domains, ADR-0008
-
-### Completed
-
-**Staged THO as the canonical-URL reference.** Downloaded `hl7.terminology.r5` v7.3.0. Confirmed the user's `terminology.hl7.org/hl7.terminology.r5.tgz` link and `packages.fhir.org` resolve to the same artifact. Coverage against CH02C: 397 of the 415 code-bearing tables can reuse a published THO canonical; 18 need minting; 19 THO v2 CodeSystems have no CH02C table.
-
-**Hardened the python-docx vocabulary extractor.** Made the fidelity policy explicit and enforced: strip leading/trailing whitespace and record it, preserve everything else and report it. Recovered three classes of silently-dropped data — Code System Version blocks headed `Version` rather than `Effective Date` (10 tables), a Table Metadata block headed `Table OID` (0227), and table 0827 whose heading uses an en dash. Fixed three latent data-loss bugs that were not yet firing: coded content now appends instead of overwrites, duplicate metadata blocks merge and report the collision, and code rows with content but no value are reported rather than discarded. Added `prune_stale_outputs()` after finding the corpus held 800 files for 799 sections.
-
-**Built LLM vocabulary extraction and cross-validated the whole chapter.** CH02C has no caption styles, so the unit of extraction is the section, not the table — 799 calls instead of 3,791. Metadata blocks are modelled as ordered key/value lists so one-off keys like `THO URL` survive. Ran all 799 concurrently behind a warmed prompt cache in ~20 minutes for ~$11.60. Result: 739 tables identical in every compared field, 5,540 codes on both sides.
-
-**Found a defect in the published document.** Tables 0685 and 0767 carry `Normal`-styled headings, which also drops them from the document's own table of contents. Both were absent from the corpus entirely and their content was being merged into 0684 and 0766, so those two tables were silently publishing the wrong OID, symbolic name and `where used`. The cross-validation surfaced it: the two pipelines disagreed on 0684 because python-docx's merge let the later block win while the LLM kept the first.
-
-**Characterized the LLM's fidelity limits precisely.** Two systematic infidelities, both one-directional: typographic substitution (211 values) and intermittent truncation at a literal double quote (14 values, 53 of 71 quote-bearing cells came through fine). Both are LLM-side; python-docx is correct in every case.
-
-**Built the HTML review catalog.** The user asked for HTML over Markdown and for issues to be categorized. `render_vocabulary_review_html.py` pulls the deviation ledger, the cross-check and the per-table `sourceIssues` into one page, grouped by what is being asked of the reader.
-
-**Generated the concept domains CodeSystem.** 1,522 concepts at THO's canonical URL, version 4.0.0.
-
-**Opened ADR-0008** with D1 and D2 decided and the remaining questions split into four dependency-ordered batches.
-
-### Why
-
-- **Dual-pipeline over single-pipeline** (user choice): the governing requirement is fidelity, and a single extractor's blind spots are invisible from inside it. It paid for itself immediately by exposing the 0685/0767 defect.
-- **Preserve internal double spaces, strip only surrounding whitespace**: "obvious typo" is a narrow licence. Stripping surrounding whitespace cannot change meaning; collapsing an internal double space in a display name changes a published value. The conservative default is reversible; silent normalization is not.
-- **Group deviations by kind and field** (user request): 375 identical double spaces in one field is one decision, not 375. The report counts decision groups and affected values separately for the same reason.
-- **Superset, never subset, at THO's canonical URL**: shipping fewer concepts than THO at THO's URL would make concepts vanish for anyone loading both packages.
-- **THO's definitions win on conflict**: 577 of 582 shared definitions already match Chapter 2C exactly, so deferring to THO costs almost nothing and keeps one coherent code system. All 5 exceptions are recorded and individually reversible.
-- **Sectioned the LLM calls rather than tabled them**: CH02C's 3,791 tables are small and clustered under 799 headings; per-section calls cut cost roughly fivefold and give the model the context to classify sub-tables.
-
-### Corrections taken from the user
-
-Two claims in an earlier summary were wrong and have been fixed in the artifacts: a CodeSystem **supplement cannot add concepts** (only properties and designations), and the version bump is **routine major-version practice**, not a coordination dependency. The user is a UTG maintainer and TSMG member with the authority to extend this code system.
-
-### Commits this session
-
-On `dev/framework`, not pushed: `42ba81fd` (dual-pipeline extraction + fidelity ledger), `05aa5b2e` (HTML review catalog), `8c686d5e` (concept domains CodeSystem + stale-output pruning), `cfd4a6af` (ADR-0008), plus the correction commit.
-
-### Still uncommitted, untouched, and not mine
-
-`tooling/scripts/render_message_structures_html.py`, `tooling/scripts/render_three_way_html.py`, `v291-extracted/message-structures-decision-report.html`, `v291-review/three-way-comparison-report.html` — all dated 2026-06-19, predating this session. Flagged to the user twice; left alone.
-
----
-
-## 2026-06-11 → 2026-06-12 — Full V2.9.1 three-way extraction + FHIR-vs-docx review registry
-
-### Completed
-
-**Pushed the 3 pending commits** — the prior session's PAT-rejection blocker was resolved; `dev/framework` is back in sync with origin through `2cbff521`.
-
-**Extracted CH04A_Orders, then batch-extracted the remaining 13 chapters via LLM.** CH04A first as a high-value single test (28 tables, $1.19) — came back clean, validating last session's harmony-row fix on the doubled `Chapter|Chapter` columns. Then batched CH04, CH05, CH06, CH08, CH09, CH10, CH11, CH12, CH13, CH14, CH15, CH16, CH17 (the structural chapters; skipped CH01 intro + CH02C vocabulary). All exit 0, zero errors, batch cost ~$8.31, cumulative full-corpus LLM cost ~$13. The LLM corpus now covers all 17 chapters: 424 msg structures, 191 segments, 83 data types — matching python-docx counts.
-
-**Built `tooling/scripts/compare_three_way.py`** — neutral peer comparison of python-docx | LLM | FHIR StructureDefinitions. Reuses the existing FHIR extractors (`extract_fhir_fields`, `extract_fhir_components`). Per element/dimension it classifies the agreement *configuration* (agree / 2-vs-1 split / 3-way split / coverage gap) without declaring any source authoritative; a 2-vs-1 split names the outlier as the one to **examine against source `.docx`**, explicitly not "the wrong one." Uniform normalization across all three (notably binding zero-padding `00104`≡`104`, which initially produced 3109 false segment splits — fixed via `norm_binding`).
-
-**Built `tooling/scripts/review_registry.py`** — the systematic FHIR-vs-docx delta tracker the user asked for. Subcommands: `build` (reconcile `registry.json` from the comparison, idempotent — preserves authored decisions, refreshes observed values, marks vanished deltas stale, keeps resolved), `worklist` (group findings into walkable decision blocks), `ingest` (parse user decisions back, expand group→per-field, require rationale), `apply [--write]` (auto-apply `fix-fhir`/`fix-both` resolutions to the SDs, stamp `implemented_in`), `changelog` (deviations-only ledger sectioned by direction). Registry has 222 findings → 37 worklist groups. Round-trip TESTED end-to-end: filled BPX group → ingest (22 resolved) → apply --write (placeholders `BPX-1`→`Set ID – BPX` etc.) → changelog → rebuild correctly recognized the fix and did not re-flag. Reverted the BPX test edit afterward (it was a smoke test, not a user-authorized decision).
-
-**Dominant finding:** 18 segments (SAC, BPX, INV, BTX, TCC, BUI, TCD, CNS, EQU, ECD, EQP, NDS, SID, CNN, ECR, ISD, DST + QPD partial) have FHIR field `short` set to a positional placeholder (`BPX-1`) instead of the real field name. Both extraction pipelines independently carry the real names — strong corroboration this is a fix-fhir defect, not a source ambiguity. This collapses ~191 raw `name` splits into ~18 group decisions.
-
-### Why
-
-- **docx as source, not authority** (user's framing): a 2-vs-1 split where two pipelines agree could still be two pipelines sharing a blind spot; and FHIR-vs-docx differences can be the SD *correcting* a docx error, since the SDs are the next standard iteration. So the registry records direction + rationale per resolution rather than presupposing which side is right, and the change ledger doubles as a record of docx defects for the next iteration.
-- **Group-level worklist over per-finding**: 222 individual decisions would be unusable; 37 groups (structure+dimension+outlier) make it walkable. The 18-segment placeholder issue is one pattern, not 191 judgments.
-- **registry.json tracked, worklist/apply-report ignored**: registry.json is authored content (decisions + rationale) — must survive in git. The worklist and apply-report are regenerable views. The change ledger is durable output, tracked.
-- **Auto-apply on resolve** (user choice): resolving a `fix-fhir` entry feeds straight into `apply --write`, which patches the SD and stamps provenance — fast throughput, with the dry-run default and the changelog as the audit trail.
-- **Deferred normative-prose capture** (user choice): descriptive prose below tables doesn't affect structural identity, so it's pinned for after the structural review.
-
-### Commits this session
-
-On `dev/framework` (pushed): the 3 previously-pending commits (`a6ac6ebf`, `877b19e8`, `2cbff521`) — now on origin.
-Uncommitted at handoff: `compare_three_way.py`, `review_registry.py`, `three-way-comparison-report.md`, `registry.json`, regenerated `comparison-report.md`, `.gitignore` update. See ACTIVE for the list. Tooling/data only — none needs to reach `main`/`build` until SD edits are applied.
-
-### Relevant context for next session
-
-- **The `v291-extracted/` and `v291-llm/` corpora on disk are the post-full-extraction versions** (gitignored). Re-running either extractor regenerates them; the comparison reads them directly.
-- **`apply` only handles name / data_type / optionality** so far. length / conf_length live in nested FHIR extensions — `_apply_to_element` returns None for those (they'll show as `no_op` and need a manual pass or a future extension to the applier). Only a handful of findings are in those dimensions.
-- **The registry reconciles by deterministic finding id** (`SEG-BPX-001-name`). Re-extracting a chapter and re-running `build` updates values without churning ids or losing decisions.
-- **Two trackers, complementary**: `v291-review/registry.json` = element-level (segment fields, data-type components); `v291-extracted/v2mgmt-review-report.md` = message-structure-level + policy questions. Don't merge them.
 
 ---

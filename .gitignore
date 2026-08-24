@@ -35,7 +35,6 @@ __pycache__/
 /utg
 # THO published package (hl7.terminology.r5 v7.3.0), downloaded reference copy
 /tho-r5/
-/utg/
 
 # Template package staged for extraction to its own HL7/ig-template-v2plus repo #
 ##################################################################################
