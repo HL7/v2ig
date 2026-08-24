@@ -133,7 +133,22 @@ where a question has been checked.
    `VolumeUnits` is declared by three tables, two of which are the
    deprecated/current pair.
 
-### What was decided this session — ADR-0008 D17 to D19
+### UTG's XML, characterised (2026-08-24)
+
+Read from a throwaway clone; conventions are simpler than feared and answer
+what had been ask 2 of the UTG briefing.
+
+- `input/sourceOfTruth/v2/{codeSystems,valueSets}/`, named `cs-v2-0001.xml` /
+  `vs-v2-0001.xml`. **416 CodeSystems, 439 ValueSets.**
+- XML declaration, blank line, `<CodeSystem xmlns="http://hl7.org/fhir">`,
+  **2-space indent, LF endings, self-closing value elements**, `&#39;` for an
+  apostrophe in an attribute.
+- **No `<text>` narrative in any of the 416** — narrative is generated
+  downstream, not stored. That was the flagged source of diff noise and it
+  simply is not there.
+- **No `<meta>`**, so no `lastUpdated` churn.
+
+### What was decided this session — ADR-0008 D17 to D20
 
 - **D17** — ten of the twelve missing spaces after a period restored; the two
   dotted identifiers (`Observation.Code` 0396, `…Reason.PurposeOfUse` 0717)
@@ -144,6 +159,12 @@ where a question has been checked.
   first" above.
 - **D19** — three register items closed without a committee, plus the blocker
   test.
+- **D20** — the text policy applies to `sourceOfTruth/v2/` only; external code
+  system records are reference-only and are never normalized, even where they
+  carry the same defect. **THO's v2 content has doubled spaces in 452
+  descriptions and 108 displays** — 361 of 416 files — and we elide ours
+  anyway. Note `external/v2/namingSystems/` (4 records) is v2-related *and*
+  external; external wins.
 
 ### The 18-table count was wrong, and the correction matters
 
@@ -233,8 +254,12 @@ supplies 3.0.0 of it, and whether the publisher tolerates that is untested.
 
 ### Open blockers
 
-- **The UTG repo is not reachable from this container** (dangling symlinks,
-  above). This blocks the XML writer, which is the next real work.
+- **The UTG repo needs to be inside `/workspace`.** Only `/workspace` is
+  mounted (virtiofs); `/Users` does not exist in the container, so a symlink
+  to a host path can never resolve. The user is removing the symlink and
+  cloning directly. Full `--depth 1` is **187 MB**; the part that matters,
+  `input/sourceOfTruth/v2/`, is **6.8 MB**, so a sparse checkout is an
+  option.
 - Everything else is gated only on the user's decisions.
 
 ## Session History

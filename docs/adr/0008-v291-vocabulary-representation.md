@@ -940,6 +940,47 @@ know.** "All codes" failed the second clause against ordinary FHIR knowledge.
 The register is now the place where a question waits; a briefing is where a
 question has been checked.
 
+### D20 — The text policy applies to v2 resources only, never to external records
+
+**Decided 2026-08-24.** Settles what happens when our normalization meets
+THO's existing text, and bounds the blast radius of the whole effort.
+
+**THO's own v2 content carries the same typographic defects the chapter does**,
+because it was derived from the chapter. In `input/sourceOfTruth/v2/`,
+**452 `description` values and 108 `display` values contain a doubled space** —
+`CodeSystem/v2-0001` reads *"...for administrative purposes.&nbsp;&nbsp;Used in
+HL7 Version 2.x messages..."* — and 361 of the 416 CodeSystem files have at
+least one. So this is not a rare collision; it is most of the corpus.
+
+**We still elide them.** D3 stands unchanged. The point of the effort is a
+corrected v2 baseline, and reproducing THO's whitespace to avoid a diff would
+be the tail wagging the dog — especially now that UTG has said clean diffs are
+not something they rely on.
+
+**But only for v2 resources.** External code system records are not ours, and
+their text is left exactly as it is even where it carries the same defect. The
+scope maps almost perfectly onto UTG's directory layout, which makes it
+mechanical rather than a judgement call per resource:
+
+| Path | Treatment |
+|---|---|
+| `input/sourceOfTruth/v2/{codeSystems,valueSets}/` | **Ours.** 416 + 439 resources. The text policy applies. |
+| `input/sourceOfTruth/external/v2/namingSystems/` | Reference only. 4 records — tables 0350, 0351, 0456, 0895. |
+| `input/sourceOfTruth/external/**`, `v3/`, `fhir/`, `cimi/`, `retired/`, `unified/` | Reference only. Never written, never normalized. |
+
+Note the one place the two halves of the rule point in different directions:
+**`external/v2/` is v2-related *and* external.** External wins — those four
+NamingSystems are records of somebody else's code system that happen to be
+reached from a v2 table. They are exactly the D8 and D11 shape, and the right
+relationship to them is composition, not editing.
+
+**The edge case does not arise in practice.** A v2 ValueSet enumerating codes
+from an external system could in principle carry that system's display strings,
+which would be external content sitting inside a resource we author. Checked:
+**no concept display in any of the 439 v2 ValueSets contains a doubled space.**
+All 108 display hits are in `v2/codeSystems/`, which are v2's own concepts.
+There is nothing to arbitrate.
+
 ## Open batches
 
 Worked in dependency order; each is a short session, and each records its
