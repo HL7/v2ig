@@ -20,6 +20,8 @@ Chapter 7 (General): Update Author: Hans Buitendijk  Reviewer:
 
 Chapter 7 (Product Experience, Clinical Trials and Specimen Shipment): Update Author: Craig Newman  Reviewer: Riki Merrick - **Pull Request created (#12)** - Reviewed by Riki with comments
 
+Chapter 7 (Blood Bank/Transfustions): Update Author: Craig Newman Reviewer: TBD
+
 Chapter 8: Update Author: Craig Newman  Reviewer: Riki Merrick - Pull Request created (#13)- reviewed with comments
 
 Chapter 9: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted**
