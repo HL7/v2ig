@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0653"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0653"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.381"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="DateFormat"/>
+  <title value="dateFormat"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts that identify the date format for a decontamination/sterilization instance. Used in HL7 Version 2.x messaging in the SCP segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0653 (Date Format)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0653"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="6274">
+    <code value="1"/>
+    <display value="mm/dd/yy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="USA standard"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6275">
+    <code value="2"/>
+    <display value="yy.mm.dd"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="ANSI standard"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6276">
+    <code value="3"/>
+    <display value="dd/mm/yy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Britain/France standard"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6277">
+    <code value="4"/>
+    <display value="dd.mm.yy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Germany standard"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6278">
+    <code value="5"/>
+    <display value="yy/mm/dd"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Japan standard"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6279">
+    <code value="6"/>
+    <display value="Yymmdd"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="ISO standard"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

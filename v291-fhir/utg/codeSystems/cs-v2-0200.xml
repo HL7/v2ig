@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0200"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0200"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.105"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="NameType2"/>
+  <title value="nameType2"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts for types of names for persons. Used in HL7 Version 2.x messaging in the XPN, PPN, XCN, PID and MRG segments."/>
+  <purpose value="Underlying Master Code System for V2 table 0200 (Name Type)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0200"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="1926">
+    <code value="A"/>
+    <display value="Assigned"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name assigned to a person. Reasons some organizations assign alternate names may include not knowing the person&#39;s name, or to maintain anonymity. Some, but not necessarily all, of the name types that people call &quot;alias&quot; may fit into this category."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1927">
+    <code value="B"/>
+    <display value="Birth name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name that a person had shortly after being born. Usually for family names but may be used to mark given names at birth that may have changed later.&#10;This is not for temporary names assigned at birth while a newborn is not yet named"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1928">
+    <code value="BAD"/>
+    <display value="Bad Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name that was wrongly used in the past and is now maintained only for the purposes of searching"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1929">
+    <code value="C"/>
+    <display value="Adopted Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name acquired by adoption"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1930">
+    <code value="D"/>
+    <display value="Customary Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Known as/conventional/the one you use. May also be known asa preferred name."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1931">
+    <code value="F"/>
+    <display value="Fathers Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fathers Name ( Patronymic Name)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1932">
+    <code value="I"/>
+    <display value="Licensing Name"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1933">
+    <code value="K"/>
+    <display value="Business name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name used in a Professional or Business context. Also includes writer’s pseudonym, artist’s name, stage name, street name, etc.&#10;&#10;An example of use is where a person with multiple proper names (i.e., married) uses one of the particular names in a professional"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1934">
+    <code value="L"/>
+    <display value="Official Registry Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="The formal name as registered in an official (government) registry, but which name might not be commonly used. May correspond to legal name&#10;For many people, customary name is also their official name"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1935">
+    <code value="M"/>
+    <display value="Maiden Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name you had just before you got married"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1936">
+    <code value="MSK"/>
+    <display value="Masked"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information.&#10;&#10;Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1937">
+    <code value="N"/>
+    <display value="Nickname"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Nickname /&quot;Call me&quot; Name/Street Name"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1938">
+    <code value="NAV"/>
+    <display value="Temporarily Unavailable"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Information is not available at this time but it is expected that it will be available later.&#10;Includes John or Jane Doe situations"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1939">
+    <code value="NB"/>
+    <display value="Newborn Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A name assigned on a temporary basis at birth. i.e., &quot;Baby of Smith&quot;"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1940">
+    <code value="NOUSE"/>
+    <display value="No Longer To Be Used"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Name not to be used anymore for personal reasons"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1941">
+    <code value="P"/>
+    <display value="Name of Partner/Spouse"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Retained for backward compatibility only as of v2.7."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1942">
+    <code value="R"/>
+    <display value="Registered Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="(animals only)&#10;Retained for backwards compatibility only as of v2.7. Use &quot;L&quot; instead - has same meaning"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1943">
+    <code value="REL"/>
+    <display value="Religious"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="e.g., Sister Mary Francis, Brother John"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1944">
+    <code value="S"/>
+    <display value="Pseudonym"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Coded Pseudo-Name to ensure anonymity"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1945">
+    <code value="T"/>
+    <display value="Indigenous/Tribal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Indigenous/Tribal/Community Name e.g., Chief Red Cloud"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1946">
+    <code value="TEMP"/>
+    <display value="Temporary Name"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A temporary name. Note that a name valid time can provide more detailed information."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1947">
+    <code value="U"/>
+    <display value="Unknown"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Unknown"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

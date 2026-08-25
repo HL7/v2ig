@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0119"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0119"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.48"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="OrderControlCodes"/>
+  <title value="orderControlCodes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which are used to determine the function of the order segment. Depending on the message, the action specified by one of these control codes may refer to an order or an individual service. Used in Version 2.x messaging of orders in the ORC segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0119 (Order Control Codes)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0119"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="1359">
+    <code value="AF"/>
+    <display value="Order/service refill request approval"/>
+    <definition value="AF is a response to RF where the placer authorizing a refill or quantity of refills."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1360">
+    <code value="CA"/>
+    <display value="Cancel order/service request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1361">
+    <code value="CH"/>
+    <display value="Child order/service"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications.&#10;&#10;Usage Note: Used in conjunction with the PA - Parent order control code. Refer to PA order control code for discussion."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1362">
+    <code value="CN"/>
+    <display value="Combined result"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1363">
+    <code value="CP"/>
+    <display value="Cancel process step"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1364">
+    <code value="CR"/>
+    <display value="Canceled as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler or Placer Applications.&#10;&#10;Usage Note: A response by the filler or placer application that a request to cancel (CA by the placer application) was performed successfully."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1365">
+    <code value="DC"/>
+    <display value="Discontinue order/service request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1366">
+    <code value="DE"/>
+    <display value="Data errors"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1367">
+    <code value="DF"/>
+    <display value="Order/service refill request denied"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1368">
+    <code value="DR"/>
+    <display value="Discontinued as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler or Placer Applications.&#10;&#10;Usage Note: The filler or placer, in response to a request to discontinue (DC from the placer or filler application), has discontinued the order/service."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1369">
+    <code value="FU"/>
+    <display value="Order/service refilled, unsolicited"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications.&#10;&#10;Usage Note: FU notifies the placer that the filler issued a refill for the order at the patient&#39;s request."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1370">
+    <code value="HD"/>
+    <display value="Hold order request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications.&#10;&#10;Usage Note: Typical responses include, but are not limited to, CR - Cancelled as requested, UC - Unable to Cancel."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1371">
+    <code value="HR"/>
+    <display value="On hold as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1372">
+    <code value="LI"/>
+    <display value="Link order/service to patient care problem or goal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications.&#10;&#10;Usage Note: Refer to Chapter 12 Patient Care for complete discussion."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1373">
+    <code value="MC"/>
+    <display value="Miscellaneous Charge - not associated with an order"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="applies to DFT^P03^DFT_P03 and DFT^P11^DFT_P11&#10;&#10;Usage Note: applies to DFT^P03^DFT_P03 and DFT^P11^DFT_P11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1374">
+    <code value="NA"/>
+    <display value="Number assigned"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1375">
+    <code value="NR"/>
+    <display value="Notification Received"/>
+    <definition value="Notifies the Filler that the Placer received a cancellation, discontinuance, or other state change notice"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1376">
+    <code value="NW"/>
+    <display value="New order/service"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications.&#10;&#10;Usage Note: See comments for NA - Number Assigned."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1377">
+    <code value="OC"/>
+    <display value="Order/service canceled"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1378">
+    <code value="OD"/>
+    <display value="Order/service discontinued"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1379">
+    <code value="OE"/>
+    <display value="Order/service released"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1380">
+    <code value="OF"/>
+    <display value="Order/service refilled as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications.&#10;&#10;Usage Note: OF directly responds to the placer system&#39;s request for a refill."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1381">
+    <code value="OH"/>
+    <display value="Order/service held"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1382">
+    <code value="OK"/>
+    <display value="Order/service accepted &amp; OK"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications.&#10;&#10;Usage Note: See comments for NA - Number Assigned."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1383">
+    <code value="OP"/>
+    <display value="Notification of order for outside dispense"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1384">
+    <code value="OR"/>
+    <display value="Released as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1385">
+    <code value="PA"/>
+    <display value="Parent order/service"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1386">
+    <code value="PR"/>
+    <display value="Previous Results with new order/service"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1387">
+    <code value="PY"/>
+    <display value="Notification of replacement order for outside dispense"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications.&#10;&#10;Usage Note: See comments for OP - Notification of order for outside dispense."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1388">
+    <code value="RA"/>
+    <display value="Recommendation Accepted"/>
+    <definition value="Identifies that this previously recommended replacement order has been accepted"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications: &#10;Used in the Recommendation Accepted message; includes the assigned placer order number for the accepted replacement order&#10;Filler Applications: &#10;Used in the acknowledgment response message to the Recommendation Accepted message"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1389">
+    <code value="RC"/>
+    <display value="Recommended Change"/>
+    <definition value="Identifies that this OBR represents a recommended replacement order"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications.&#10;Used in the recommendation message sent to the placer"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1390">
+    <code value="RD"/>
+    <display value="Recommendation Declined"/>
+    <definition value="Identifies that this previously sent recommended replacement order has been declined"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications:&#10;Used in the Recommendation Declined message &#10;Filler Applications: &#10;Used in the acknowledgment response message to the Recommendation Declined message"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1391">
+    <code value="RE"/>
+    <display value="Observations/Performed Service to follow"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1392">
+    <code value="RF"/>
+    <display value="Refill order/service request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1393">
+    <code value="RL"/>
+    <display value="Release previous hold"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1394">
+    <code value="RO"/>
+    <display value="Replacement order"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1395">
+    <code value="RP"/>
+    <display value="Order/service replace request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1396">
+    <code value="RQ"/>
+    <display value="Replaced as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1397">
+    <code value="RR"/>
+    <display value="Request received"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1398">
+    <code value="RU"/>
+    <display value="Replaced unsolicited"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1399">
+    <code value="SC"/>
+    <display value="Status changed"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1400">
+    <code value="SN"/>
+    <display value="Send order/service number"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications.&#10;&#10;Usage Note: See comments for NA - Number Assigned."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1401">
+    <code value="SQ"/>
+    <display value="Supplemented as requested"/>
+    <definition value="Supplementation confirmation message indicating that an order was supplemented as requested."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This code is used in the acknowledgment response to the request messages."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1402">
+    <code value="SR"/>
+    <display value="Response to send order/service status request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1403">
+    <code value="SS"/>
+    <display value="Send order/service status request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1404">
+    <code value="SU"/>
+    <display value="Supplement this order"/>
+    <definition value="Identifies existing orders to be supplemented in Supplementation Recommendation (filler to placer) and Supplementation Request (placer to filler) messages."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="For example this code is used in the filler’s order message to identify an order that is missing a recommended order based on organizational protocol for example as described in the IHE Laboratory Communication (LCC) profile (LAB-6)."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1405">
+    <code value="UA"/>
+    <display value="Unable to accept order/service"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1406">
+    <code value="UC"/>
+    <display value="Unable to cancel"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler or Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1407">
+    <code value="UD"/>
+    <display value="Unable to discontinue"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler or Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1408">
+    <code value="UF"/>
+    <display value="Unable to refill"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications.&#10;&#10;Usage Note: Negative response to RF Refill order/service request, indicating that the receiving application was not able to complete the refill request."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1409">
+    <code value="UH"/>
+    <display value="Unable to put on hold"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1410">
+    <code value="UM"/>
+    <display value="Unable to replace"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1411">
+    <code value="UN"/>
+    <display value="Unlink order/service from patient care problem or goal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer or Filler Applications.&#10;&#10;Usage Note: Refer to Chapter 12 Patient Care for complete discussion."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1412">
+    <code value="UR"/>
+    <display value="Unable to release"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1413">
+    <code value="UX"/>
+    <display value="Unable to change"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1414">
+    <code value="XO"/>
+    <display value="Change order/service request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Placer Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1415">
+    <code value="XR"/>
+    <display value="Changed as requested"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1416">
+    <code value="XX"/>
+    <display value="Order/service changed, unsol."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Filler Applications."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

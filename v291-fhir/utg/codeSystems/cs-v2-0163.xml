@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0163"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0163"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.81"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="BodySite"/>
+  <title value="bodySite"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts that specify a body site from which a specimen is obtained. Used in HL7 Version 2.x messaging in the OBX and CH7 segments."/>
+  <purpose value="Underlying Master Code System for V2 table 0163 (Body Site)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0163"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <concept id="1717">
+    <code value="BE"/>
+    <display value="Bilateral Ears"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1718">
+    <code value="OU"/>
+    <display value="Bilateral Eyes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1719">
+    <code value="BN"/>
+    <display value="Bilateral Nares"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1720">
+    <code value="BU"/>
+    <display value="Buttock"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1721">
+    <code value="CT"/>
+    <display value="Chest Tube"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1722">
+    <code value="LA"/>
+    <display value="Left Arm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1723">
+    <code value="LAC"/>
+    <display value="Left Anterior Chest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1724">
+    <code value="LACF"/>
+    <display value="Left Antecubital Fossa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1725">
+    <code value="LD"/>
+    <display value="Left Deltoid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1726">
+    <code value="LE"/>
+    <display value="Left Ear"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1727">
+    <code value="LEJ"/>
+    <display value="Left External Jugular"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1728">
+    <code value="OS"/>
+    <display value="Left Eye"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1729">
+    <code value="LF"/>
+    <display value="Left Foot"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1730">
+    <code value="LG"/>
+    <display value="Left Gluteus Medius"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1731">
+    <code value="LH"/>
+    <display value="Left Hand"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1732">
+    <code value="LIJ"/>
+    <display value="Left Internal Jugular"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1733">
+    <code value="LLAQ"/>
+    <display value="Left Lower Abd Quadrant"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1734">
+    <code value="LLFA"/>
+    <display value="Left Lower Forearm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1735">
+    <code value="LMFA"/>
+    <display value="Left Mid Forearm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1736">
+    <code value="LN"/>
+    <display value="Left Naris"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1737">
+    <code value="LPC"/>
+    <display value="Left Posterior Chest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1738">
+    <code value="LSC"/>
+    <display value="Left Subclavian"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1739">
+    <code value="LT"/>
+    <display value="Left Thigh"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1740">
+    <code value="LUA"/>
+    <display value="Left Upper Arm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1741">
+    <code value="LUAQ"/>
+    <display value="Left Upper Abd Quadrant"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1742">
+    <code value="LUFA"/>
+    <display value="Left Upper Forearm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1743">
+    <code value="LVG"/>
+    <display value="Left Ventragluteal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1744">
+    <code value="LVL"/>
+    <display value="Left Vastus Lateralis"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1745">
+    <code value="NB"/>
+    <display value="Nebulized"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1746">
+    <code value="PA"/>
+    <display value="Perianal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1747">
+    <code value="PERIN"/>
+    <display value="Perineal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1748">
+    <code value="RA"/>
+    <display value="Right Arm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1749">
+    <code value="RAC"/>
+    <display value="Right Anterior Chest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1750">
+    <code value="RACF"/>
+    <display value="Right Antecubital Fossa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1751">
+    <code value="RD"/>
+    <display value="Right Deltoid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1752">
+    <code value="RE"/>
+    <display value="Right Ear"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1753">
+    <code value="REJ"/>
+    <display value="Right External Jugular"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1754">
+    <code value="OD"/>
+    <display value="Right Eye"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1755">
+    <code value="RF"/>
+    <display value="Right Foot"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1756">
+    <code value="RG"/>
+    <display value="Right Gluteus Medius"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1757">
+    <code value="RH"/>
+    <display value="Right Hand"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1758">
+    <code value="RIJ"/>
+    <display value="Right Internal Jugular"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1759">
+    <code value="RLAQ"/>
+    <display value="Rt Lower Abd Quadrant"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1760">
+    <code value="RLFA"/>
+    <display value="Right Lower Forearm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1761">
+    <code value="RMFA"/>
+    <display value="Right Mid Forearm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1762">
+    <code value="RN"/>
+    <display value="Right Naris"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1763">
+    <code value="RPC"/>
+    <display value="Right Posterior Chest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1764">
+    <code value="RSC"/>
+    <display value="Right Subclavian"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1765">
+    <code value="RT"/>
+    <display value="Right Thigh"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1766">
+    <code value="RUA"/>
+    <display value="Right Upper Arm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1767">
+    <code value="RUAQ"/>
+    <display value="Right Upper Abd Quadrant"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1768">
+    <code value="RUFA"/>
+    <display value="Right Upper Forearm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1769">
+    <code value="RVL"/>
+    <display value="Right Vastus Lateralis"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1770">
+    <code value="RVG"/>
+    <display value="Right Ventragluteal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

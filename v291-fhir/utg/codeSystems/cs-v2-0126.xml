@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0126"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0126"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.53"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="QuantityLimitedRequest"/>
+  <title value="quantityLimitedRequest"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which specify the maximum length of a query response that can be accepted by a requesting system, and are expressed as units of mesaure of query response objects. Used in HL7 Version 2.x messaging in the RCP segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0126 (Quantity Limited Request)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0126"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="1538">
+    <code value="CH"/>
+    <display value="Characters"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="RSP/RTB/RDY"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1539">
+    <code value="LI"/>
+    <display value="Lines"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="RTB/RDY"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1540">
+    <code value="PG"/>
+    <display value="Pages"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="RDY"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1541">
+    <code value="RD"/>
+    <display value="Records"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="RSP/RTB/RDY"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1542">
+    <code value="ZO"/>
+    <display value="Locally defined"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

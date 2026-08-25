@@ -1,0 +1,3464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0487"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0487"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.311"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="SpecimenType"/>
+  <title value="specimenType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts that describe the precise nature of an entity that may be used as the source material for an observation. This is one of two code systems that are used instead of table 0070 (code system 2.16.840.1.113883.18.28) which conflated specimen types and specimen collection methods. Used in HL7 Version 2.x messaging in the SPM segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0487 (Specimen Type)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="4935">
+    <code value="ABS"/>
+    <display value="Abscess"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4937">
+    <code value="ACNE"/>
+    <display value="Tissue, Acne"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4938">
+    <code value="ACNFLD"/>
+    <display value="Fluid, Acne"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4939">
+    <code value="AIRS"/>
+    <display value="Air Sample"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4940">
+    <code value="ALL"/>
+    <display value="Allograft"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4941">
+    <code value="AMN"/>
+    <display value="Amniotic fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4942">
+    <code value="AMP"/>
+    <display value="Amputation"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4943">
+    <code value="ANGI"/>
+    <display value="Catheter Tip, Angio"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4944">
+    <code value="ARTC"/>
+    <display value="Catheter Tip, Arterial"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4945">
+    <code value="ASERU"/>
+    <display value="Serum, Acute"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4946">
+    <code value="ASP"/>
+    <display value="Aspirate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4947">
+    <code value="ATTE"/>
+    <display value="Environment, Attest"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="4948">
+    <code value="AUTOA"/>
+    <display value="Environmental, Autoclave Ampule"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4949">
+    <code value="AUTOC"/>
+    <display value="Environmental, Autoclave Capsule"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="4950">
+    <code value="AUTP"/>
+    <display value="Autopsy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4951">
+    <code value="BBL"/>
+    <display value="Blood bag"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4952">
+    <code value="BCYST"/>
+    <display value="Cyst, Baker&#39;s"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4953">
+    <code value="BDY"/>
+    <display value="Whole body"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Body submitted for autopsy / carcass submitted"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4954">
+    <code value="BIFL"/>
+    <display value="Bile Fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4955">
+    <code value="BITE"/>
+    <display value="Bite"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Conditions"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4956">
+    <code value="BLD"/>
+    <display value="Whole blood"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4957">
+    <code value="BLDA"/>
+    <display value="Blood arterial"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4958">
+    <code value="BLDCO"/>
+    <display value="Cord blood"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4959">
+    <code value="BLDV"/>
+    <display value="Blood venous"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4960">
+    <code value="BLEB"/>
+    <display value="Bleb"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition, Fluid/Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4961">
+    <code value="BLIST"/>
+    <display value="Blister"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition, Fluid/Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4962">
+    <code value="BOIL"/>
+    <display value="Boil"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4963">
+    <code value="BON"/>
+    <display value="Bone"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4964">
+    <code value="BOWL"/>
+    <display value="Bowel contents"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4965">
+    <code value="BPH"/>
+    <display value="Basophils"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4966">
+    <code value="BPU"/>
+    <display value="Blood product unit"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4967">
+    <code value="BRN"/>
+    <display value="Burn"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4968">
+    <code value="BRSH"/>
+    <display value="Brush"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product; Brush or brushing (these may be 2 separate entries as in a physical brush or a portion thereof vs the substance obtained after a surface has been brushed)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4969">
+    <code value="BRTH"/>
+    <display value="Breath (use EXHLD)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4970">
+    <code value="BRUS"/>
+    <display value="Brushing"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4971">
+    <code value="BUB"/>
+    <display value="Bubo"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4972">
+    <code value="BULLA"/>
+    <display value="Bulla/Bullae"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4973">
+    <code value="BX"/>
+    <display value="Biopsy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4974">
+    <code value="CALC"/>
+    <display value="Calculus (=Stone)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4976">
+    <code value="CARBU"/>
+    <display value="Carbuncle"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4977">
+    <code value="CAT"/>
+    <display value="Catheter"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4978">
+    <code value="CBITE"/>
+    <display value="Bite, Cat"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Conditions"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4979">
+    <code value="CDM"/>
+    <display value="Cardiac muscle"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4980">
+    <code value="CLIPP"/>
+    <display value="Clippings"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4981">
+    <code value="CNJT"/>
+    <display value="Conjunctiva"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4982">
+    <code value="CNL"/>
+    <display value="Cannula"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4983">
+    <code value="COL"/>
+    <display value="Colostrum"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4984">
+    <code value="CONE"/>
+    <display value="Biospy, Cone"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4985">
+    <code value="CSCR"/>
+    <display value="Scratch, Cat"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4986">
+    <code value="CSERU"/>
+    <display value="Serum, Convalescent"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4987">
+    <code value="CSF"/>
+    <display value="Cerebral spinal fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4988">
+    <code value="CSITE"/>
+    <display value="Catheter Insertion Site"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4989">
+    <code value="CSMY"/>
+    <display value="Fluid, Cystostomy Tube"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4990">
+    <code value="CST"/>
+    <display value="Fluid, Cyst"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4991">
+    <code value="CSVR"/>
+    <display value="Blood, Cell Saver"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Transfusion"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4992">
+    <code value="CTP"/>
+    <display value="Catheter tip"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4993">
+    <code value="CUR"/>
+    <display value="Curretage"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Uterine specimen obtained by curettage = Currettings"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4994">
+    <code value="CVM"/>
+    <display value="Cervical Mucus"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4995">
+    <code value="CVPS"/>
+    <display value="Site, CVP"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4996">
+    <code value="CVPT"/>
+    <display value="Catheter Tip, CVP"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4997">
+    <code value="CYN"/>
+    <display value="Nodule, Cystic"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4998">
+    <code value="CYST"/>
+    <display value="Cyst"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4999">
+    <code value="DBITE"/>
+    <display value="Bite, Dog"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Conditions"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5000">
+    <code value="DCS"/>
+    <display value="Sputum, Deep Cough"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5001">
+    <code value="DEC"/>
+    <display value="Ulcer, Decubitus"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5002">
+    <code value="DEION"/>
+    <display value="Environmental, Water (Deionized)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5003">
+    <code value="DIA"/>
+    <display value="Dialysate"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5004">
+    <code value="DIAF"/>
+    <display value="Dialysis Fluid"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid used for dialysis - is a product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5005">
+    <code value="DISCHG"/>
+    <display value="Discharge"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5006">
+    <code value="DIV"/>
+    <display value="Diverticulum"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5007">
+    <code value="DRN"/>
+    <display value="Drain"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5008">
+    <code value="DRNG"/>
+    <display value="Drainage, Tube"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5009">
+    <code value="DRNGP"/>
+    <display value="Drainage, Penrose"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5010">
+    <code value="DUFL"/>
+    <display value="Duodenal fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5011">
+    <code value="EARW"/>
+    <display value="Ear wax (cerumen)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5012">
+    <code value="EBRUSH"/>
+    <display value="Brush, Esophageal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5013">
+    <code value="EEYE"/>
+    <display value="Environmental, Eye Wash"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5014">
+    <code value="EFF"/>
+    <display value="Environmental, Effluent"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5015">
+    <code value="EFFUS"/>
+    <display value="Effusion"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5016">
+    <code value="EFOD"/>
+    <display value="Environmental, Food"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5017">
+    <code value="EISO"/>
+    <display value="Environmental, Isolette"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5018">
+    <code value="ELT"/>
+    <display value="Electrode"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5019">
+    <code value="ENVIR"/>
+    <display value="Environmental, Unidentified Substance"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5020">
+    <code value="EOS"/>
+    <display value="Eosinophils"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5021">
+    <code value="EOTH"/>
+    <display value="Environmental, Other Substance"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment; (Substance is Known but not in code Table)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5022">
+    <code value="ESOI"/>
+    <display value="Environmental, Soil"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5023">
+    <code value="ESOS"/>
+    <display value="Environmental, Solution (Sterile)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5024">
+    <code value="ETA"/>
+    <display value="Aspirate, Endotrach"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Aspirate"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5025">
+    <code value="ETTP"/>
+    <display value="Catheter Tip, Endotracheal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5026">
+    <code value="ETTUB"/>
+    <display value="Tube, Endotracheal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5027">
+    <code value="EWHI"/>
+    <display value="Environmental, Whirlpool"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5028">
+    <code value="EXG"/>
+    <display value="Gas, exhaled (=breath)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5029">
+    <code value="EXS"/>
+    <display value="Shunt, External"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5030">
+    <code value="EXUDTE"/>
+    <display value="Exudate"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5031">
+    <code value="FAW"/>
+    <display value="Environmental, Water (Well)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5032">
+    <code value="FBLOOD"/>
+    <display value="Blood, Fetal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5033">
+    <code value="FGA"/>
+    <display value="Fluid, Abdomen"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5034">
+    <code value="FIB"/>
+    <display value="Fibroblasts"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5035">
+    <code value="FIST"/>
+    <display value="Fistula"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5036">
+    <code value="FLD"/>
+    <display value="Fluid, Other"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5037">
+    <code value="FLT"/>
+    <display value="Filter"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5038">
+    <code value="FLU"/>
+    <display value="Fluid, Body unsp"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5039">
+    <code value="FLUID"/>
+    <display value="Fluid"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5040">
+    <code value="FOLEY"/>
+    <display value="Catheter Tip, Foley"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5041">
+    <code value="FRS"/>
+    <display value="Fluid, Respiratory"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5042">
+    <code value="FSCLP"/>
+    <display value="Scalp, Fetal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5043">
+    <code value="FUR"/>
+    <display value="Furuncle"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5044">
+    <code value="GAS"/>
+    <display value="Gas"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5045">
+    <code value="GASA"/>
+    <display value="Aspirate, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Aspirate"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5046">
+    <code value="GASAN"/>
+    <display value="Antrum, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5047">
+    <code value="GASBR"/>
+    <display value="Brushing, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5048">
+    <code value="GASD"/>
+    <display value="Drainage, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5049">
+    <code value="GAST"/>
+    <display value="Fluid/contents, Gastric"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5050">
+    <code value="GENL"/>
+    <display value="Genital lochia"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5051">
+    <code value="GENV"/>
+    <display value="Genital vaginal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5052">
+    <code value="GRAFT"/>
+    <display value="Graft"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5053">
+    <code value="GRAFTS"/>
+    <display value="Graft Site"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5054">
+    <code value="GRANU"/>
+    <display value="Granuloma"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5055">
+    <code value="GROSH"/>
+    <display value="Catheter, Groshong"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5056">
+    <code value="GSOL"/>
+    <display value="Solution, Gastrostomy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5057">
+    <code value="GSPEC"/>
+    <display value="Biopsy, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5058">
+    <code value="GT"/>
+    <display value="Tube, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5059">
+    <code value="GTUBE"/>
+    <display value="Drainage Tube, Drainage (Gastrostomy)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5060">
+    <code value="HAR"/>
+    <display value="Hair"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5061">
+    <code value="HBITE"/>
+    <display value="Bite, Human"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Conditions"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5062">
+    <code value="HBLUD"/>
+    <display value="Blood, Autopsy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5063">
+    <code value="HEMAQ"/>
+    <display value="Catheter Tip, Hemaquit"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5064">
+    <code value="HEMO"/>
+    <display value="Catheter Tip, Hemovac"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5065">
+    <code value="HERNI"/>
+    <display value="Tissue, Herniated"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5066">
+    <code value="HEV"/>
+    <display value="Drain, Hemovac"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5067">
+    <code value="HIC"/>
+    <display value="Catheter, Hickman"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5068">
+    <code value="HYDC"/>
+    <display value="Fluid, Hydrocele"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5069">
+    <code value="IBITE"/>
+    <display value="Bite, Insect"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Conditions"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5070">
+    <code value="ICYST"/>
+    <display value="Cyst, Inclusion"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5071">
+    <code value="IDC"/>
+    <display value="Catheter Tip, Indwelling"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5072">
+    <code value="IHG"/>
+    <display value="Gas, Inhaled"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5073">
+    <code value="ILEO"/>
+    <display value="Drainage, Ileostomy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5074">
+    <code value="ILLEG"/>
+    <display value="Source of Specimen Is Illegible"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5075">
+    <code value="IMP"/>
+    <display value="Implant"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5076">
+    <code value="INCI"/>
+    <display value="Site, Incision/Surgical"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5077">
+    <code value="INFIL"/>
+    <display value="Infiltrate"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5078">
+    <code value="INS"/>
+    <display value="Insect"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Object"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5079">
+    <code value="INTRD"/>
+    <display value="Catheter Tip, Introducer"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5080">
+    <code value="ISLT"/>
+    <display value="Isolate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5081">
+    <code value="IT"/>
+    <display value="Intubation tube"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5082">
+    <code value="IUD"/>
+    <display value="Intrauterine Device"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device (Common Usage)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5083">
+    <code value="IVCAT"/>
+    <display value="Catheter Tip, IV"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5084">
+    <code value="IVFLD"/>
+    <display value="Fluid, IV"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5085">
+    <code value="IVTIP"/>
+    <display value="Tubing Tip, IV"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5086">
+    <code value="JEJU"/>
+    <display value="Drainage, Jejunal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5087">
+    <code value="JNTFLD"/>
+    <display value="Fluid, Joint"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5088">
+    <code value="JP"/>
+    <display value="Drainage, Jackson Pratt"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5089">
+    <code value="KELOI"/>
+    <display value="Lavage"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5090">
+    <code value="KIDFLD"/>
+    <display value="Fluid, Kidney"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5091">
+    <code value="LAVG"/>
+    <display value="Lavage, Bronhial"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5092">
+    <code value="LAVGG"/>
+    <display value="Lavage, Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5093">
+    <code value="LAVGP"/>
+    <display value="Lavage, Peritoneal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5094">
+    <code value="LAVPG"/>
+    <display value="Lavage, Pre-Bronch"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5095">
+    <code value="LENS1"/>
+    <display value="Contact Lens"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5096">
+    <code value="LENS2"/>
+    <display value="Contact Lens Case"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5097">
+    <code value="LESN"/>
+    <display value="Lesion"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5098">
+    <code value="LIQ"/>
+    <display value="Liquid, Unspecified"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5099">
+    <code value="LIQO"/>
+    <display value="Liquid, Other"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5100">
+    <code value="LNA"/>
+    <display value="Line arterial"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Arterial blood collected via arterial line"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5101">
+    <code value="LNV"/>
+    <display value="Line venous"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Venous blood collected via venous line"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5102">
+    <code value="LSAC"/>
+    <display value="Fluid, Lumbar Sac"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5103">
+    <code value="LYM"/>
+    <display value="Lymphocytes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5104">
+    <code value="MAC"/>
+    <display value="Macrophages"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5105">
+    <code value="MAHUR"/>
+    <display value="Catheter Tip, Makurkour"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5106">
+    <code value="MAR"/>
+    <display value="Marrow"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Bone marrow"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5107">
+    <code value="MASS"/>
+    <display value="Mass"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5108">
+    <code value="MBLD"/>
+    <display value="Blood, Menstrual"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5109">
+    <code value="MEC"/>
+    <display value="Meconium"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5110">
+    <code value="MILK"/>
+    <display value="Breast milk"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Mother&#39;s milk specimen"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5111">
+    <code value="MLK"/>
+    <display value="Milk"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Food specimen"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5112">
+    <code value="MUCOS"/>
+    <display value="Mucosa"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5113">
+    <code value="MUCUS"/>
+    <display value="Mucus"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5114">
+    <code value="NAIL"/>
+    <display value="Nail"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Finger or toe nail sample"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5115">
+    <code value="NASDR"/>
+    <display value="Drainage, Nasal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5116">
+    <code value="NEDL"/>
+    <display value="Needle"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5117">
+    <code value="NEPH"/>
+    <display value="Site, Nephrostomy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5118">
+    <code value="NGASP"/>
+    <display value="Aspirate, Nasogastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Aspirate"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5119">
+    <code value="NGAST"/>
+    <display value="Drainage, Nasogastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5120">
+    <code value="NGS"/>
+    <display value="Site, Naso/Gastric"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5121">
+    <code value="NODUL"/>
+    <display value="Nodule(s)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5122">
+    <code value="NSECR"/>
+    <display value="Secretion, Nasal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5123">
+    <code value="ORH"/>
+    <display value="Other"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5124">
+    <code value="ORL"/>
+    <display value="Lesion, Oral"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition (Common Usage)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5125">
+    <code value="OTH"/>
+    <display value="Source, Other"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5126">
+    <code value="PACEM"/>
+    <display value="Pacemaker"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5127">
+    <code value="PAFL"/>
+    <display value="Pancreatic fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5128">
+    <code value="PCFL"/>
+    <display value="Fluid, Pericardial"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5129">
+    <code value="PDSIT"/>
+    <display value="Site, Peritoneal Dialysis"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5130">
+    <code value="PDTS"/>
+    <display value="Site, Peritoneal Dialysis Tunnel"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5131">
+    <code value="PELVA"/>
+    <display value="Abscess, Pelvic"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5132">
+    <code value="PENIL"/>
+    <display value="Lesion, Penile"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition (Common Usage)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5133">
+    <code value="PERIA"/>
+    <display value="Abscess, Perianal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition, Abscess &amp; Body Part"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5134">
+    <code value="PILOC"/>
+    <display value="Cyst, Pilonidal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5135">
+    <code value="PINS"/>
+    <display value="Site, Pin"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5136">
+    <code value="PIS"/>
+    <display value="Site, Pacemaker Insetion"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5137">
+    <code value="PLAN"/>
+    <display value="Plant Material"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Object"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5138">
+    <code value="PLAS"/>
+    <display value="Plasma"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5139">
+    <code value="PLB"/>
+    <display value="Plasma bag"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5140">
+    <code value="PLC"/>
+    <display value="Placenta"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5141">
+    <code value="PLEVS"/>
+    <display value="Serum, Peak Level"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5142">
+    <code value="PLR"/>
+    <display value="Pleural fluid (thoracentesis fluid)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5143">
+    <code value="PMN"/>
+    <display value="Polymorphonuclear neutrophils"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5144">
+    <code value="PND"/>
+    <display value="Drainage, Penile"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5145">
+    <code value="POL"/>
+    <display value="Polyps"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5146">
+    <code value="POPGS"/>
+    <display value="Graft Site, Popliteal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5147">
+    <code value="POPLG"/>
+    <display value="Graft, Popliteal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5148">
+    <code value="POPLV"/>
+    <display value="Site, Popliteal Vein"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5149">
+    <code value="PORTA"/>
+    <display value="Catheter, Porta"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5150">
+    <code value="PPP"/>
+    <display value="Plasma, Platelet poor"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5151">
+    <code value="PROST"/>
+    <display value="Prosthetic Device"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5152">
+    <code value="PRP"/>
+    <display value="Plasma, Platelet rich"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5153">
+    <code value="PSC"/>
+    <display value="Pseudocyst"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5154">
+    <code value="PUNCT"/>
+    <display value="Wound, Puncture"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5155">
+    <code value="PUS"/>
+    <display value="Pus"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5156">
+    <code value="PUSFR"/>
+    <display value="Pustule"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5157">
+    <code value="PUST"/>
+    <display value="Pus"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5158">
+    <code value="QC3"/>
+    <display value="Quality Control"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5159">
+    <code value="RANDU"/>
+    <display value="Urine, Random"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5160">
+    <code value="RBC"/>
+    <display value="Erythrocytes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5161">
+    <code value="RBITE"/>
+    <display value="Bite, Reptile"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Conditions"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5162">
+    <code value="RECT"/>
+    <display value="Drainage, Rectal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5163">
+    <code value="RECTA"/>
+    <display value="Abscess, Rectal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5164">
+    <code value="RENALC"/>
+    <display value="Cyst, Renal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5165">
+    <code value="RENC"/>
+    <display value="Fluid, Renal Cyst"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5166">
+    <code value="RES"/>
+    <display value="Respiratory"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition (Ambiguous)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5167">
+    <code value="SAL"/>
+    <display value="Saliva"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5168">
+    <code value="SCAR"/>
+    <display value="Tissue, Keloid (Scar)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5169">
+    <code value="SCLV"/>
+    <display value="Catheter Tip, Subclavian"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5170">
+    <code value="SCROA"/>
+    <display value="Abscess, Scrotal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5171">
+    <code value="SECRE"/>
+    <display value="Secretion(s)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid/Secretion"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5172">
+    <code value="SER"/>
+    <display value="Serum"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5173">
+    <code value="SHU"/>
+    <display value="Site, Shunt"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5174">
+    <code value="SHUNF"/>
+    <display value="Fluid, Shunt"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fluid"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5175">
+    <code value="SHUNT"/>
+    <display value="Shunt"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5176">
+    <code value="SITE"/>
+    <display value="Site"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5177">
+    <code value="SKBP"/>
+    <display value="Biopsy, Skin"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5178">
+    <code value="SKN"/>
+    <display value="Skin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5179">
+    <code value="SMM"/>
+    <display value="Mass, Sub-Mandibular"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5180">
+    <code value="SMN"/>
+    <display value="Seminal fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5181">
+    <code value="SNV"/>
+    <display value="Fluid, synovial (Joint fluid)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5182">
+    <code value="SPRM"/>
+    <display value="Spermatozoa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5183">
+    <code value="SPRP"/>
+    <display value="Catheter Tip, Suprapubic"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5184">
+    <code value="SPRPB"/>
+    <display value="Cathether Tip, Suprapubic"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5185">
+    <code value="SPS"/>
+    <display value="Environmental, Spore Strip"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5186">
+    <code value="SPT"/>
+    <display value="Sputum"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5187">
+    <code value="SPTC"/>
+    <display value="Sputum - coughed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5188">
+    <code value="SPTT"/>
+    <display value="Sputum - tracheal aspirate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5189">
+    <code value="SPUT1"/>
+    <display value="Sputum, Simulated"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5190">
+    <code value="SPUTIN"/>
+    <display value="Sputum, Inducted"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5191">
+    <code value="SPUTSP"/>
+    <display value="Sputum, Spontaneous"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5192">
+    <code value="STER"/>
+    <display value="Environmental, Sterrad"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5193">
+    <code value="STL"/>
+    <display value="Stool = Fecal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5194">
+    <code value="STONE"/>
+    <display value="Stone, Kidney"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5195">
+    <code value="SUBMA"/>
+    <display value="Abscess, Submandibular"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5196">
+    <code value="SUBMX"/>
+    <display value="Abscess, Submaxillary"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5197">
+    <code value="SUMP"/>
+    <display value="Drainage, Sump"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5198">
+    <code value="SUP"/>
+    <display value="Suprapubic Tap"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5199">
+    <code value="SUTUR"/>
+    <display value="Suture"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Object"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5200">
+    <code value="SWGZ"/>
+    <display value="Catheter Tip, Swan Gantz"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5201">
+    <code value="SWT"/>
+    <display value="Sweat"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5202">
+    <code value="TASP"/>
+    <display value="Aspirate, Tracheal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Aspirate"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5203">
+    <code value="TEAR"/>
+    <display value="Tears"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5204">
+    <code value="THRB"/>
+    <display value="Thrombocyte (platelet)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5205">
+    <code value="TISS"/>
+    <display value="Tissue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5206">
+    <code value="TISU"/>
+    <display value="Tissue ulcer"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5207">
+    <code value="TLC"/>
+    <display value="Cathether Tip, Triple Lumen"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5208">
+    <code value="TRAC"/>
+    <display value="Site, Tracheostomy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Site"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5209">
+    <code value="TRANS"/>
+    <display value="Transudate"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5210">
+    <code value="TSERU"/>
+    <display value="Serum, Trough"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5211">
+    <code value="TSTES"/>
+    <display value="Abscess, Testicular"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5212">
+    <code value="TTRA"/>
+    <display value="Aspirate, Transtracheal"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Aspirate"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5213">
+    <code value="TUBES"/>
+    <display value="Tubes"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5214">
+    <code value="TUMOR"/>
+    <display value="Tumor"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5215">
+    <code value="TZANC"/>
+    <display value="Smear, Tzanck"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5216">
+    <code value="UDENT"/>
+    <display value="Source, Unidentified"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5217">
+    <code value="UMED"/>
+    <display value="Unknown Medicine"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="for forensic and possibly chemistry testing"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5218">
+    <code value="UR"/>
+    <display value="Urine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5219">
+    <code value="URC"/>
+    <display value="Urine clean catch"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5220">
+    <code value="URINB"/>
+    <display value="Urine, Bladder Washings"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5221">
+    <code value="URINC"/>
+    <display value="Urine, Catheterized"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5222">
+    <code value="URINM"/>
+    <display value="Urine, Midstream"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5223">
+    <code value="URINN"/>
+    <display value="Urine, Nephrostomy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5224">
+    <code value="URINP"/>
+    <display value="Urine, Pedibag"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5225">
+    <code value="URNS"/>
+    <display value="Urine sediment"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5226">
+    <code value="URT"/>
+    <display value="Urine catheter"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5227">
+    <code value="USCOP"/>
+    <display value="Urine, Cystoscopy"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Condition"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5228">
+    <code value="USPEC"/>
+    <display value="Source, Unspecified"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5229">
+    <code value="USUB"/>
+    <display value="Unkown substance"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5230">
+    <code value="VASTIP"/>
+    <display value="Catheter Tip, Vas"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5231">
+    <code value="VENT"/>
+    <display value="Catheter Tip, Ventricular"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Device"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5232">
+    <code value="VITF"/>
+    <display value="Vitreous Fluid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5233">
+    <code value="VOM"/>
+    <display value="Vomitus"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5234">
+    <code value="WASH"/>
+    <display value="Wash"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5235">
+    <code value="WASI"/>
+    <display value="Washing, e.g., bronchial washing"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Product"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5236">
+    <code value="WAT"/>
+    <display value="Water"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5237">
+    <code value="WB"/>
+    <display value="Blood, Whole"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Blood"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5238">
+    <code value="WBC"/>
+    <display value="Leukocytes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5239">
+    <code value="WEN"/>
+    <display value="Wen"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5240">
+    <code value="WICK"/>
+    <display value="Wick"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5241">
+    <code value="WND"/>
+    <display value="Wound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5242">
+    <code value="WNDA"/>
+    <display value="Wound abscess"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5243">
+    <code value="WNDD"/>
+    <display value="Wound drainage"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5244">
+    <code value="WNDE"/>
+    <display value="Wound exudate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5245">
+    <code value="WORM"/>
+    <display value="Worm"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Object"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5246">
+    <code value="WRT"/>
+    <display value="Wart"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Tissue"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5247">
+    <code value="WWA"/>
+    <display value="Environmental, Water"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5248">
+    <code value="WWO"/>
+    <display value="Environmental, Water (Ocean)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5249">
+    <code value="WWT"/>
+    <display value="Environmental, Water (Tap)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Environment"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

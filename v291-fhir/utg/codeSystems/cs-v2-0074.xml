@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0074"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.29"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="DiagnosticServiceSectionId"/>
+  <title value="diagnosticServiceSectionId"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which specify a section of a diagnostic service where the observation may be performed. Used in HL7 Version 2.x messaging in the OBR and OM4 segments."/>
+  <purpose value="Underlying Master Code System for V2 table 0074 (Diagnostic Service Section ID)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0074"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <concept id="1036">
+    <code value="AU"/>
+    <display value="Audiology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1037">
+    <code value="BG"/>
+    <display value="Blood Gases"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1038">
+    <code value="BLB"/>
+    <display value="Blood Bank"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1039">
+    <code value="CG"/>
+    <display value="Cytogenetics"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1040">
+    <code value="CUS"/>
+    <display value="Cardiac Ultrasound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1041">
+    <code value="CTH"/>
+    <display value="Cardiac Catheterization"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1042">
+    <code value="CT"/>
+    <display value="CAT Scan"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1043">
+    <code value="CH"/>
+    <display value="Chemistry"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1044">
+    <code value="CP"/>
+    <display value="Cytopathology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1045">
+    <code value="EC"/>
+    <display value="Electrocardiac (e.g., EKG, EEC, Holter)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1046">
+    <code value="EN"/>
+    <display value="Electroneuro (EEG, EMG,EP,PSG)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1047">
+    <code value="GE"/>
+    <display value="Genetics"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1048">
+    <code value="HM"/>
+    <display value="Hematology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1050">
+    <code value="ICU"/>
+    <display value="Bedside ICU Monitoring"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1051">
+    <code value="IMM"/>
+    <display value="Immunology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1052">
+    <code value="LAB"/>
+    <display value="Laboratory"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1053">
+    <code value="MB"/>
+    <display value="Microbiology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1054">
+    <code value="MCB"/>
+    <display value="Mycobacteriology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1055">
+    <code value="MYC"/>
+    <display value="Mycology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1056">
+    <code value="NMS"/>
+    <display value="Nuclear Medicine Scan"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1057">
+    <code value="NMR"/>
+    <display value="Nuclear Magnetic Resonance"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1058">
+    <code value="NRS"/>
+    <display value="Nursing Service Measures"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1059">
+    <code value="OUS"/>
+    <display value="OB Ultrasound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1060">
+    <code value="OT"/>
+    <display value="Occupational Therapy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1061">
+    <code value="OTH"/>
+    <display value="Other"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1062">
+    <code value="OSL"/>
+    <display value="Outside Lab"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1064">
+    <code value="PHR"/>
+    <display value="Pharmacy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1066">
+    <code value="PT"/>
+    <display value="Physical Therapy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1067">
+    <code value="PHY"/>
+    <display value="Physician (Hx. Dx, admission note, etc.)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1068">
+    <code value="PF"/>
+    <display value="Pulmonary Function"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1069">
+    <code value="RAD"/>
+    <display value="Radiology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1070">
+    <code value="RX"/>
+    <display value="Radiograph"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1071">
+    <code value="RUS"/>
+    <display value="Radiology Ultrasound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1072">
+    <code value="RC"/>
+    <display value="Respiratory Care (therapy)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1073">
+    <code value="RT"/>
+    <display value="Radiation Therapy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1074">
+    <code value="SR"/>
+    <display value="Serology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1075">
+    <code value="SP"/>
+    <display value="Surgical Pathology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1076">
+    <code value="TX"/>
+    <display value="Toxicology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1077">
+    <code value="VUS"/>
+    <display value="Vascular Ultrasound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1078">
+    <code value="VR"/>
+    <display value="Virology"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1080">
+    <code value="XRC"/>
+    <display value="Cineradiograph"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

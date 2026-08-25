@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0365"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0365"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.223"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="EquipmentState"/>
+  <title value="equipmentState"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts that identify the status the equipment was in at the time the transaction was initiated. Used in HL7 Version 2.x messaging in the EQU segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0365 (Equipment State)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0365"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <concept id="3663">
+    <code value="IN"/>
+    <display value="Initializing"/>
+    <definition value="Software is ready, hardware not yet"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3664">
+    <code value="CO"/>
+    <display value="Configuring"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3665">
+    <code value="PU"/>
+    <display value="Powered Up"/>
+    <definition value="Software and hardware are not yet ready"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3666">
+    <code value="RS"/>
+    <display value="Ready to start"/>
+    <definition value="Software and hardware are ready, but user action is required to start"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3667">
+    <code value="ID"/>
+    <display value="Idle"/>
+    <definition value="Successfully started, new orders can be accepted, currently no orders are present"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3668">
+    <code value="OP"/>
+    <display value="Normal Operation"/>
+    <definition value="Successfully started, new orders can be accepted"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3669">
+    <code value="CL"/>
+    <display value="Clearing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3670">
+    <code value="PA"/>
+    <display value="Pausing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3671">
+    <code value="PD"/>
+    <display value="Paused"/>
+    <definition value="User action is required to continue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3672">
+    <code value="ES"/>
+    <display value="E-stopped"/>
+    <definition value="Error, remaining orders can be finished, new orders cannot be accepted"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3674">
+    <code value="TS"/>
+    <display value="Transport stopped"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3675">
+    <code value="SS"/>
+    <display value="Sampling stopped"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3676">
+    <code value="SD"/>
+    <display value="Shutting down"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3677">
+    <code value="DI"/>
+    <display value="Diagnose"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3679">
+    <code value="MA"/>
+    <display value="Maintenance"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3680">
+    <code value="FL"/>
+    <display value="Failure"/>
+    <definition value="Failure, remaining orders are aborted, new orders cannot be accepted"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3681">
+    <code value="UNK"/>
+    <display value="Unknown"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3682">
+    <code value="LT"/>
+    <display value="Limited test menu"/>
+    <definition value="For diagnostic instruments: some test types are unavailable"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

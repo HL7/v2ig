@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0162"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0162"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.80"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="RouteOfAdministration"/>
+  <title value="routeOfAdministration"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts which specify the route of administration. Used in HL7 Version 2.x messaging in the RXR segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0162 (Route of Administration)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0162"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="1668">
+    <code value="AP"/>
+    <display value="Apply Externally"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1669">
+    <code value="B"/>
+    <display value="Buccal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1670">
+    <code value="DT"/>
+    <display value="Dental"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1671">
+    <code value="EP"/>
+    <display value="Epidural"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1672">
+    <code value="ET"/>
+    <display value="Endotrachial Tube"/>
+    <definition value="Endotrachial Tube*"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="used primarily for respiratory therapy and anesthesia delivery"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1673">
+    <code value="GTT"/>
+    <display value="Gastrostomy Tube"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1674">
+    <code value="GU"/>
+    <display value="GU Irrigant"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1675">
+    <code value="IMR"/>
+    <display value="Immerse (Soak) Body Part"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1676">
+    <code value="IA"/>
+    <display value="Intra-arterial"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1677">
+    <code value="IB"/>
+    <display value="Intrabursal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1678">
+    <code value="IC"/>
+    <display value="Intracardiac"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1679">
+    <code value="ICV"/>
+    <display value="Intracervical (uterus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1680">
+    <code value="ID"/>
+    <display value="Intradermal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1681">
+    <code value="IH"/>
+    <display value="Inhalation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1682">
+    <code value="IHA"/>
+    <display value="Intrahepatic Artery"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1683">
+    <code value="IM"/>
+    <display value="Intramuscular"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1684">
+    <code value="IN"/>
+    <display value="Intranasal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1685">
+    <code value="IO"/>
+    <display value="Intraocular"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1686">
+    <code value="IP"/>
+    <display value="Intraperitoneal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1687">
+    <code value="IS"/>
+    <display value="Intrasynovial"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1688">
+    <code value="IT"/>
+    <display value="Intrathecal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1689">
+    <code value="IU"/>
+    <display value="Intrauterine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1690">
+    <code value="IV"/>
+    <display value="Intravenous"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1691">
+    <code value="MTH"/>
+    <display value="Mouth/Throat"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1692">
+    <code value="MM"/>
+    <display value="Mucous Membrane"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1693">
+    <code value="NS"/>
+    <display value="Nasal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1694">
+    <code value="NG"/>
+    <display value="Nasogastric"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1695">
+    <code value="NP"/>
+    <display value="Nasal Prongs"/>
+    <definition value="Nasal Prongs*"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="used primarily for respiratory therapy and anesthesia delivery"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1696">
+    <code value="NT"/>
+    <display value="Nasotrachial Tube"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1697">
+    <code value="OP"/>
+    <display value="Ophthalmic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1698">
+    <code value="OT"/>
+    <display value="Otic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1699">
+    <code value="OTH"/>
+    <display value="Other/Miscellaneous"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1700">
+    <code value="PF"/>
+    <display value="Perfusion"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1701">
+    <code value="PO"/>
+    <display value="Oral"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1702">
+    <code value="PR"/>
+    <display value="Rectal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1703">
+    <code value="RM"/>
+    <display value="Rebreather Mask"/>
+    <definition value="Rebreather Mask*"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="used primarily for respiratory therapy and anesthesia delivery"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1704">
+    <code value="SD"/>
+    <display value="Soaked Dressing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1705">
+    <code value="SC"/>
+    <display value="Subcutaneous"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1706">
+    <code value="SL"/>
+    <display value="Sublingual"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1707">
+    <code value="TP"/>
+    <display value="Topical"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1708">
+    <code value="TRA"/>
+    <display value="Tracheostomy"/>
+    <definition value="Tracheostomy*"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="used primarily for respiratory therapy and anesthesia delivery"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1709">
+    <code value="TD"/>
+    <display value="Transdermal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1710">
+    <code value="TL"/>
+    <display value="Translingual"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1711">
+    <code value="UR"/>
+    <display value="Urethral"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1712">
+    <code value="VG"/>
+    <display value="Vaginal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1713">
+    <code value="VM"/>
+    <display value="Ventimask"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1714">
+    <code value="WND"/>
+    <display value="Wound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

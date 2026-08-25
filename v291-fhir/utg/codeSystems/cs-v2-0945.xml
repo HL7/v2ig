@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0945"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0945"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.445"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="AutoDilutionType"/>
+  <title value="auto-DilutionType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Code system of vendor-defined codes that specify the pre‑configured dilution to be applied on the instrument, which can be used instead of a numeric declaration. Used in Version 2 messaging in the TCD segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0945 (Auto-Dilution Type)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0945"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="6754">
+    <code value="X2"/>
+    <display value="Dilution factor 2"/>
+    <definition value="Specimen pre-diluted by factor 2 applied on the instrument"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: corresponds to ^1^:^2 in TCD-2"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6755">
+    <code value="X5"/>
+    <display value="Dilution factor 5"/>
+    <definition value="Specimen pre-diluted by factor 5 applied on the instrument"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: corresponds to ^1^:^5 in TCD-2"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6756">
+    <code value="D1"/>
+    <display value="Dilution factor 1.23"/>
+    <definition value="Specimen pre-diluted by factor 1.23 applied on the instrument"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: corresponds to ^1^:^1.23 in TCD-2"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6757">
+    <code value="D2"/>
+    <display value="Dilution factor 1.45"/>
+    <definition value="Specimen pre-diluted by factor 1.45 applied on the instrument"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: corresponds to ^1^:^1.45 in TCD-2"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

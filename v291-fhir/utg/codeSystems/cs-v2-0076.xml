@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0076"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0076"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.30"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="MessageType"/>
+  <title value="messageType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which specify message types. Used in HL7 Version 2.x messaging in the MSH segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0076 (Message Type)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0076"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="1081">
+    <code value="ACK"/>
+    <display value="General acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="2"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1082">
+    <code value="ADR"/>
+    <display value="ADT response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="3 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1084">
+    <code value="ADT"/>
+    <display value="ADT message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="3"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1085">
+    <code value="BAR"/>
+    <display value="Add/change billing account"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1086">
+    <code value="BPS"/>
+    <display value="Blood product dispense status message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1088">
+    <code value="BRP"/>
+    <display value="Blood product dispense status acknowledgement message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1089">
+    <code value="BRT"/>
+    <display value="Blood product transfusion/disposition acknowledgement message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1090">
+    <code value="BTS"/>
+    <display value="Blood product transfusion/disposition message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1091">
+    <code value="CCF"/>
+    <display value="Collaborative Care Fetch"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1092">
+    <code value="CCI"/>
+    <display value="Collaborative Care Information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1093">
+    <code value="CCM"/>
+    <display value="Collaborative Care Message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1094">
+    <code value="CCQ"/>
+    <display value="Collaborative Care Referral"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1096">
+    <code value="CCU"/>
+    <display value="Collaborative Care Referral"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1097">
+    <code value="CQU"/>
+    <display value="Collaborative Care Referral"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1098">
+    <code value="CRM"/>
+    <display value="Clinical study registration message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1099">
+    <code value="CSU"/>
+    <display value="Unsolicited study data message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1101">
+    <code value="DBC"/>
+    <display value="Create Donor Record"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1103">
+    <code value="DBU"/>
+    <display value="Update Donor Record"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1105">
+    <code value="DEL"/>
+    <display value="Donor Eligibility"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1106">
+    <code value="DEO"/>
+    <display value="Donor Eligibility Observation"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1107">
+    <code value="DER"/>
+    <display value="Donor Eligibility Request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1108">
+    <code value="DFT"/>
+    <display value="Detail financial transactions"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1109">
+    <code value="DOC"/>
+    <display value="Document response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="9 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1110">
+    <code value="DPR"/>
+    <display value="Donation Procedure"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1111">
+    <code value="DRC"/>
+    <display value="Donor Request to Collect"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1112">
+    <code value="DSR"/>
+    <display value="Display response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1114">
+    <code value="EAC"/>
+    <display value="Automated equipment command message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1115">
+    <code value="EAN"/>
+    <display value="Automated equipment notification message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1116">
+    <code value="EAR"/>
+    <display value="Automated equipment response message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1117">
+    <code value="EHC"/>
+    <display value="Health Care Invoice"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="16"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1118">
+    <code value="ESR"/>
+    <display value="Automated equipment status update acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1119">
+    <code value="ESU"/>
+    <display value="Automated equipment status update message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1120">
+    <code value="INR"/>
+    <display value="Automated equipment inventory request message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1121">
+    <code value="INU"/>
+    <display value="Automated equipment inventory update message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1122">
+    <code value="LSR"/>
+    <display value="Automated equipment log/service request message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1123">
+    <code value="LSU"/>
+    <display value="Automated equipment log/service update message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1124">
+    <code value="MDM"/>
+    <display value="Medical document management"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1125">
+    <code value="MFD"/>
+    <display value="Master files delayed application acknowledgment"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="8 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1126">
+    <code value="MFK"/>
+    <display value="Master files application acknowledgment"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="8"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1127">
+    <code value="MFN"/>
+    <display value="Master files notification"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="8"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1128">
+    <code value="MFQ"/>
+    <display value="Master files query"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="8 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1129">
+    <code value="MFR"/>
+    <display value="Master files response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="8 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1130">
+    <code value="NMD"/>
+    <display value="Application management data message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="14"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1131">
+    <code value="NMQ"/>
+    <display value="Application management query message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="14 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1132">
+    <code value="NMR"/>
+    <display value="Application management response message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="14 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1133">
+    <code value="OMB"/>
+    <display value="Blood product order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1134">
+    <code value="OMD"/>
+    <display value="Dietary order"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1135">
+    <code value="OMG"/>
+    <display value="General clinical order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1136">
+    <code value="OMI"/>
+    <display value="Imaging order"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1139">
+    <code value="OML"/>
+    <display value="Laboratory order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1140">
+    <code value="OMN"/>
+    <display value="Non-stock requisition order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1141">
+    <code value="OMP"/>
+    <display value="Pharmacy/treatment order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1142">
+    <code value="OMQ"/>
+    <display value="General order message with document payload"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1143">
+    <code value="OMS"/>
+    <display value="Stock requisition order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1144">
+    <code value="OPL"/>
+    <display value="Population/Location-Based Laboratory Order Message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1145">
+    <code value="OPR"/>
+    <display value="Population/Location-Based Laboratory Order Acknowledgment Message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1146">
+    <code value="OPU"/>
+    <display value="Unsolicited Population/Location-Based Laboratory Observation Message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1147">
+    <code value="ORA"/>
+    <display value="Observation Report Acknowledgment"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1148">
+    <code value="ORB"/>
+    <display value="Blood product order acknowledgement message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1149">
+    <code value="ORD"/>
+    <display value="Dietary order acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1150">
+    <code value="ORF"/>
+    <display value="Query for results of observation"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1151">
+    <code value="ORG"/>
+    <display value="General clinical order acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1152">
+    <code value="ORI"/>
+    <display value="Imaging order acknowledgement message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1153">
+    <code value="ORL"/>
+    <display value="Laboratory acknowledgment message (unsolicited)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1154">
+    <code value="ORM"/>
+    <display value="Pharmacy/treatment order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1155">
+    <code value="ORN"/>
+    <display value="Non-stock requisition - General order acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1156">
+    <code value="ORP"/>
+    <display value="Pharmacy/treatment order acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1157">
+    <code value="ORR"/>
+    <display value="General order response message response to any ORM"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1158">
+    <code value="ORS"/>
+    <display value="Stock requisition - Order acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1159">
+    <code value="ORU"/>
+    <display value="Unsolicited transmission of an observation message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1160">
+    <code value="ORX"/>
+    <display value="General Order Message with Document Payload Acknowledgement"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1161">
+    <code value="OSM"/>
+    <display value="Specimen Shipment Message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1162">
+    <code value="OSQ"/>
+    <display value="Query response for order status"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1163">
+    <code value="OSR"/>
+    <display value="Query response for order status"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1164">
+    <code value="OSU"/>
+    <display value="Order status update"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1165">
+    <code value="OUL"/>
+    <display value="Unsolicited laboratory observation message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1166">
+    <code value="PEX"/>
+    <display value="Product experience message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1167">
+    <code value="PGL"/>
+    <display value="Patient goal message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="12"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1168">
+    <code value="PIN"/>
+    <display value="Patient insurance information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1169">
+    <code value="PMU"/>
+    <display value="Add personnel record"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="15"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1170">
+    <code value="PPG"/>
+    <display value="Patient pathway message (goal-oriented)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="12"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1171">
+    <code value="PPP"/>
+    <display value="Patient pathway message (problem-oriented)"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="12"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1172">
+    <code value="PPR"/>
+    <display value="Patient problem message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="12"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1173">
+    <code value="PPT"/>
+    <display value="Patient pathway goal-oriented response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1174">
+    <code value="PPV"/>
+    <display value="Patient goal response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1175">
+    <code value="PRR"/>
+    <display value="Patient problem response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1176">
+    <code value="PTR"/>
+    <display value="Patient pathway problem-oriented response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1177">
+    <code value="QBP"/>
+    <display value="Query by parameter"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1178">
+    <code value="QCK"/>
+    <display value="Query general acknowledgment"/>
+    <definition value="Deferred query"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1179">
+    <code value="QCN"/>
+    <display value="Cancel query"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1180">
+    <code value="QRY"/>
+    <display value="Query, original mode"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="3"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1181">
+    <code value="QSB"/>
+    <display value="Create subscription"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1182">
+    <code value="QSX"/>
+    <display value="Cancel subscription/acknowledge message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1183">
+    <code value="QVR"/>
+    <display value="Query for previous events"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1184">
+    <code value="RAR"/>
+    <display value="Pharmacy/treatment administration information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1185">
+    <code value="RAS"/>
+    <display value="Pharmacy/treatment administration message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1186">
+    <code value="RCI"/>
+    <display value="Return clinical information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1187">
+    <code value="RCL"/>
+    <display value="Return clinical list"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1189">
+    <code value="RDE"/>
+    <display value="Pharmacy/treatment encoded order message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1190">
+    <code value="RDR"/>
+    <display value="Pharmacy/treatment dispense information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1191">
+    <code value="RDS"/>
+    <display value="Pharmacy/treatment dispense message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1192">
+    <code value="RDY"/>
+    <display value="Display based response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1193">
+    <code value="REF"/>
+    <display value="Patient referral"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1194">
+    <code value="RER"/>
+    <display value="Pharmacy/treatment encoded order information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1195">
+    <code value="RGR"/>
+    <display value="Pharmacy/treatment dose information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1196">
+    <code value="RGV"/>
+    <display value="Pharmacy/treatment give message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1197">
+    <code value="ROR"/>
+    <display value="Pharmacy/treatment order response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1199">
+    <code value="RPA"/>
+    <display value="Return patient authorization"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1200">
+    <code value="RPI"/>
+    <display value="Return patient information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1201">
+    <code value="RPL"/>
+    <display value="Return patient display list"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1202">
+    <code value="RPR"/>
+    <display value="Return patient list"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1203">
+    <code value="RQA"/>
+    <display value="Request patient authorization"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1204">
+    <code value="RQC"/>
+    <display value="Request clinical information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1205">
+    <code value="RQI"/>
+    <display value="Request patient information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1206">
+    <code value="RQP"/>
+    <display value="Request patient demographics"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1207">
+    <code value="RRA"/>
+    <display value="Pharmacy/treatment administration acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1208">
+    <code value="RRD"/>
+    <display value="Pharmacy/treatment dispense acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1209">
+    <code value="RRE"/>
+    <display value="Pharmacy/treatment encoded order acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1210">
+    <code value="RRG"/>
+    <display value="Pharmacy/treatment give acknowledgment message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1212">
+    <code value="RRI"/>
+    <display value="Return referral information"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="11"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1213">
+    <code value="RSP"/>
+    <display value="Segment pattern response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1214">
+    <code value="RTB"/>
+    <display value="Tabular response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1215">
+    <code value="SCN"/>
+    <display value="Notification of Anti-Microbial Device Cycle Data"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1216">
+    <code value="SDN"/>
+    <display value="Notification of Anti-Microbial Device Data"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1217">
+    <code value="SDR"/>
+    <display value="Sterilization anti-microbial device data request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1218">
+    <code value="SET"/>
+    <display value="Specimen Event Tracking"/>
+    <definition value="This message type is used to report how the specimen moves through its lifecycle from collection, identification, transport, acceptance or rejection, processing to storage and disposition."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1219">
+    <code value="SIU"/>
+    <display value="Schedule information unsolicited"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="10"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1220">
+    <code value="SLN"/>
+    <display value="Notification of New Sterilization Lot"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1221">
+    <code value="SLR"/>
+    <display value="Sterilization lot request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1222">
+    <code value="SMD"/>
+    <display value="Sterilization anti-microbial device cycle data request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1223">
+    <code value="SQM"/>
+    <display value="Schedule query message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="10 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1224">
+    <code value="SQR"/>
+    <display value="Schedule query response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="10 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1225">
+    <code value="SRM"/>
+    <display value="Schedule request message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="10"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1226">
+    <code value="SRR"/>
+    <display value="Scheduled request response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="10"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1227">
+    <code value="SSR"/>
+    <display value="Specimen status request message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1228">
+    <code value="SSU"/>
+    <display value="Specimen status update message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1229">
+    <code value="STC"/>
+    <display value="Notification of Sterilization Configuration"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1230">
+    <code value="STI"/>
+    <display value="Sterilization item request"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="17"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1231">
+    <code value="SUR"/>
+    <display value="Summary product experience report"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="7 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1232">
+    <code value="TBR"/>
+    <display value="Tabular data response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1233">
+    <code value="TCR"/>
+    <display value="Automated equipment test code settings request message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1234">
+    <code value="TCU"/>
+    <display value="Automated equipment test code settings update message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="13"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1235">
+    <code value="UDM"/>
+    <display value="Unsolicited display update message"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1236">
+    <code value="VXQ"/>
+    <display value="Query for vaccination record"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1237">
+    <code value="VXR"/>
+    <display value="Vaccination record response"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1238">
+    <code value="VXU"/>
+    <display value="Unsolicited vaccination record update"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1239">
+    <code value="VXX"/>
+    <display value="Response for vaccination query with multiple PID matches"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="4 - Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

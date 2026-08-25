@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0008"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0008"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.10"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="AcknowledgmentCodes"/>
+  <title value="acknowledgmentCodes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts specifying acknowledgment codes. For details of usage, see message processing rules in the published Standard. Used in HL7 Version 2.x messaging in the MSA segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0008 (Acknowledgment code)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0008"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <concept id="629">
+    <code value="AA"/>
+    <display value="Original mode: Application Accept - Enhanced mode: Application acknowledgment: Accept"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="630">
+    <code value="AE"/>
+    <display value="Original mode: Application Error - Enhanced mode: Application acknowledgment: Error"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="631">
+    <code value="AR"/>
+    <display value="Original mode: Application Reject - Enhanced mode: Application acknowledgment: Reject"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="632">
+    <code value="CA"/>
+    <display value="Enhanced mode: Accept acknowledgment: Commit Accept"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="633">
+    <code value="CE"/>
+    <display value="Enhanced mode: Accept acknowledgment: Commit Error"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="634">
+    <code value="CR"/>
+    <display value="Enhanced mode: Accept acknowledgment: Commit Reject"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

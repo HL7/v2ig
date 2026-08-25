@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0528"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0528"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.344"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="EventRelatedPeriod"/>
+  <title value="eventRelatedPeriod"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts specifying a common (periodical) activity of daily living. Used in HL7 Version 2 messaging in the RPT segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0528 (Event Related Period)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0528"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <concept id="5613">
+    <code value="HS"/>
+    <display value="the hour of sleep (e.g., H18-22)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5614">
+    <code value="AC"/>
+    <display value="before meal (from lat. ante cibus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5615">
+    <code value="PC"/>
+    <display value="after meal (from lat. post cibus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5616">
+    <code value="IC"/>
+    <display value="between meals (from lat. inter cibus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5617">
+    <code value="ACM"/>
+    <display value="before breakfast (from lat. ante cibus matutinus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5618">
+    <code value="ACD"/>
+    <display value="before lunch (from lat. ante cibus diurnus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5619">
+    <code value="ACV"/>
+    <display value="before dinner (from lat. ante cibus vespertinus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5620">
+    <code value="PCM"/>
+    <display value="after breakfast (from lat. post cibus matutinus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5621">
+    <code value="PCD"/>
+    <display value="after lunch (from lat. post cibus diurnus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5622">
+    <code value="PCV"/>
+    <display value="after dinner (from lat. post cibus vespertinus)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5623">
+    <code value="ICM"/>
+    <display value="between breakfast and lunch"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5624">
+    <code value="ICD"/>
+    <display value="between lunch and dinner"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="5625">
+    <code value="ICV"/>
+    <display value="between dinner and the hour of sleep"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

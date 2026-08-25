@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0871"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0871"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.410"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="SupplyRisk"/>
+  <title value="supplyRisk"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts specifying any known or suspected hazard associated with this material item. Used in HL7 Version 2.x messaging in the ITM segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0871 (Supply Risk Codes)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0871"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="6502">
+    <code value="COR"/>
+    <display value="Corrosive"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material is corrosive and may cause severe injury to skin, mucous membranes and eyes. Avoid any unprotected contact."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6503">
+    <code value="FLA"/>
+    <display value="Flammable"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material is highly flammable and in certain mixtures (with air) may lead to explosions. Keep away from fire, sparks and excessive heat."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6504">
+    <code value="EXP"/>
+    <display value="Explosive"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material is an explosive mixture. Keep away from fire, sparks, and heat."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6505">
+    <code value="INJ"/>
+    <display value="Injury Hazard"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material is solid and sharp (e.g., cannulas.) Dispose in hard container."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6506">
+    <code value="TOX"/>
+    <display value="Toxic"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material is toxic to humans and/or animals. Special care must be taken to avoid incorporation, even of small amounts."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6507">
+    <code value="RAD"/>
+    <display value="Radioactive"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material is a source for ionizing radiation and must be handled with special care to avoid injury of those who handle it and to avoid environmental hazards."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="6508">
+    <code value="UNK"/>
+    <display value="Unknown"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Material hazard level is unknown."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

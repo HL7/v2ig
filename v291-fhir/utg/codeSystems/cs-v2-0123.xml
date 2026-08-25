@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0123"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0123"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.51"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="ResultStatus"/>
+  <title value="resultStatus"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which specify a status of results for an order. Used in HL7 Version 2.x messaging in the OBR segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0123 (Result Status)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0123"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <concept id="1430">
+    <code value="O"/>
+    <display value="Order received; specimen not yet received"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1431">
+    <code value="I"/>
+    <display value="No results available; specimen received, procedure incomplete"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1432">
+    <code value="S"/>
+    <display value="No results available; procedure scheduled, but not done"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1433">
+    <code value="A"/>
+    <display value="Some, but not all, results available"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1434">
+    <code value="P"/>
+    <display value="Preliminary"/>
+    <definition value="A verified early result is available, final results not yet obtained"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1435">
+    <code value="C"/>
+    <display value="Corrected, final"/>
+    <definition value="A result under an order, that has been finalized has been corrected"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1436">
+    <code value="R"/>
+    <display value="Results stored; not yet verified"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1437">
+    <code value="F"/>
+    <display value="Final results"/>
+    <definition value="Final results; results stored and verified."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Can only be changed with a corrected result."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1438">
+    <code value="X"/>
+    <display value="No results available; Order canceled"/>
+    <definition value="No results available; Order canceled."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1439">
+    <code value="Y"/>
+    <display value="No order on record for this test"/>
+    <definition value="No order on record for this test."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: Used only on queries"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1440">
+    <code value="Z"/>
+    <display value="No record of this patient"/>
+    <definition value="No record of this patient."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: Used only on queries"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1441">
+    <code value="M"/>
+    <display value="Corrected, not final"/>
+    <definition value="A result under an order, that has not yet been finalized has been corrected"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1442">
+    <code value="N"/>
+    <display value="Procedure completed, results pending"/>
+    <definition value="No result available; requested procedure done. To indicate that a requested test is performed but results are pending/not yet available."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Usage Note: Transitions/Relationships: &#10;OBR-25 Valid preceding state (... to N): O, I, S. Succeeding state (N to ...): P, A, R, F, X&#10;OBX-11 No OBX segments can be present where OBX-29 = RSLT"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

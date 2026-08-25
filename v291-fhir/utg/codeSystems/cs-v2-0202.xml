@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0202"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0202"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.107"/>
+  </identifier>
+  <version value="3.0.0"/>
+  <name value="TelecommunicationEquipmentType"/>
+  <title value="telecommunicationEquipmentType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts for specifying a type of telecommunication equipment. Best practice is to use this concept whenever a telecommunication number or access string for particular equipment is specified. Used in HL7 Version 2.x messaging in the XTN segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0202 (Telecommunication Equipment Type)"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0202"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept"/>
+    <type value="code"/>
+  </property>
+  <concept id="1963">
+    <code value="BP"/>
+    <display value="Beeper"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1961">
+    <code value="CP"/>
+    <display value="Cellular or Mobile Phone"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="55006">
+    <code value="DSM"/>
+    <display value="Direct Secure Messaging"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="1959">
+    <code value="FX"/>
+    <display value="Fax"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1964">
+    <code value="Internet"/>
+    <display value="Internet Address"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1960">
+    <code value="MD"/>
+    <display value="Modem"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1958">
+    <code value="PH"/>
+    <display value="Telephone"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1962">
+    <code value="SAT"/>
+    <display value="Satellite Phone"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1966">
+    <code value="TDD"/>
+    <display value="Telecommunications Device for the Deaf"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1967">
+    <code value="TTY"/>
+    <display value="Teletypewriter"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1965">
+    <code value="X.400"/>
+    <display value="X.400 email address"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

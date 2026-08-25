@@ -33,6 +33,9 @@ __pycache__/
 ############################################
 /hl7.v2.terminology.v291/
 /utg
+# Both spellings: the workspace is mounted from a case-insensitive filesystem,
+# so /utg and /UTG are one directory here but would be two on Linux.
+/UTG
 # THO published package (hl7.terminology.r5 v7.3.0), downloaded reference copy
 /tho-r5/
 
@@ -130,3 +133,9 @@ Thumbs.db
 # But track the divergence log (authored review content) and the resource itself
 !/v291-fhir/conceptdomains-divergences.json
 !/v291-fhir/CodeSystem-conceptdomains.json
+# The UTG-shaped XML is the deliverable this workstream exists to produce, and
+# it cannot be regenerated from the repository alone -- the corpus it is built
+# from, /v291-extracted/vocabulary/, is itself ignored.
+!/v291-fhir/utg/
+!/v291-fhir/utg/**
+!/v291-fhir/utg-write-report.json
