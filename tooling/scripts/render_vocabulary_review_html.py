@@ -1106,6 +1106,27 @@ def build_character_section():
     }]
 
 
+def render_evidence_table(evidence):
+    """Render one register item's computed evidence as a nested HTML table.
+
+    A few register items need every affected table listed with its text, which
+    is too much to carry as authored prose and would drift the first time the
+    corpus is re-extracted. The register module computes those lists; this
+    turns one into a table inside the item's own cell, so it stays attached to
+    the finding it is evidence for.
+    """
+    columns, rows = evidence()
+    if not rows:
+        return '<p class="ask">No matching entries in the current corpus.</p>'
+
+    head = "".join(f"<th>{esc(name)}</th>" for name in columns)
+    body = "".join(
+        "<tr>" + "".join(f"<td>{esc(str(value))}</td>" for value in row) + "</tr>"
+        for row in rows)
+    return (f'<table class="evidence"><thead><tr>{head}</tr></thead>'
+            f"<tbody>{body}</tbody></table>")
+
+
 def build_escalation_section():
     """Render the escalation register as one section.
 
@@ -1115,12 +1136,11 @@ def build_escalation_section():
     """
     rows = []
     for item in ESCALATIONS:
-        rows.append([
-            item["tables"],
-            f'<p><b>{item["title"]}</b></p><p>{item["body"]}</p>'
-            f'<p class="ask"><b>The ask:</b> {item["ask"]}</p>',
-            item["who"],
-        ])
+        finding = (f'<p><b>{item["title"]}</b></p><p>{item["body"]}</p>'
+                   f'<p class="ask"><b>The ask:</b> {item["ask"]}</p>')
+        if item.get("evidence"):
+            finding += render_evidence_table(item["evidence"])
+        rows.append([item["tables"], finding, item["who"]])
     return [{
         "id": "escalations",
         "group": "For V2 Management / TSMG",
@@ -1149,16 +1169,24 @@ BATCH_A_DEFAULTS = [
     (
         "<code>version</code>",
         "Inherited per resource from the existing UTG file. "
-        "<b>3.0.0 only as a fallback, for the 16 resources UTG does not have.</b>",
+        "<b>1.0.0 for the 14 resources UTG does not have.</b>",
         "UTG's own corpus is not uniform: its CodeSystems carry 3.0.0 (412), "
         "5.0.0 (3) and 4.0.0 (1); its ValueSets carry 3.0.0 (430), 2.0.0 (6) "
         "and 4.0.0 (3). Inheriting keeps 807 of 823 resources exactly where "
         "UTG has them and confines the question to genuinely new content.",
-        "<b>The open decision is only what a new resource should start at.</b> "
-        "3.0.0 is a placeholder chosen to match the neighbours, not a "
-        "considered answer &mdash; arguably new content should start lower, or "
-        "at whatever release it first appears in. The 16 are listed in the "
-        "write report under <code>usedDefaultVersion</code>.",
+        "<b>Decided (2026-08-25): a brand-new CodeSystem or ValueSet starts at "
+        "1.0.0.</b> This replaces a 3.0.0 placeholder that had been chosen only "
+        "to match the neighbouring resources. A first publication is a first "
+        "version regardless of what sits beside it, and starting at 3.0.0 would "
+        "imply two releases that never happened. The 14 affected resources, "
+        "across 12 tables, are listed in the write report under "
+        "<code>usedDefaultVersion</code>, which now records the fallback per "
+        "resource rather than per table &mdash; a table can inherit a version "
+        "for its CodeSystem and not for its ValueSet, and three do. "
+        "<b>Two of those fourteen should probably not be in the list at all:</b> "
+        "0291 and 0347 fall back only because UTG files their value sets under "
+        "<code>v2-notAllCodes-NNNN</code>, so the name-based lookup misses "
+        "them. See the field-mapping document.",
     ),
     (
         "<code>date</code>",
@@ -1668,6 +1696,8 @@ span.absent { color: #afb8c1; } span.empty { color: #afb8c1; font-style: italic;
 .b-decide { background: #bc4c00; } .b-confirm { background: #0969da; } .b-info { background: #6e7781; }
 .b-resolved { background: #1a7f37; } .b-escalate { background: #8250df; }
 p.ask { background: #faf5ff; border-left: 3px solid #c297ff; padding: 8px 12px; margin: 8px 0 0; }
+table.evidence { font-size: 12px; margin-top: 12px; }
+table.evidence th { background: #f3eefc; }
 .decision { background: #dafbe1; border: 1px solid #4ac26b; border-left-width: 4px;
   border-radius: 6px; padding: 10px 14px; margin: 8px 0; font-size: 13px; }
 .decision.open { background: #fff8c5; border-color: #d4a72c; }

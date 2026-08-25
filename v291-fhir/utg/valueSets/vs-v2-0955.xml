@@ -7,7 +7,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.114222.4.11.7187"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="1.0.0"/>
   <name value="PHVSIndustryCDCCensus2010"/>
   <title value="PHVS_Industry_CDC_Census2010"/>
   <status value="active"/>

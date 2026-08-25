@@ -24,11 +24,139 @@ Usage:
 """
 
 import html
+import json
 import re
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from vocabulary_text_policy import apply_text_policy  # noqa: E402
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
+THO_DIR = PROJECT_ROOT / "tho-r5"
 DEFAULT_OUT = PROJECT_ROOT / "v291-extracted" / "vocabulary-v2mgmt-items.md"
+
+
+# --------------------------------------------------------------------------
+# Evidence gathered from the corpus
+# --------------------------------------------------------------------------
+#
+# Most register entries are authored prose. A few need a list of every affected
+# table attached to them, and a hand-maintained list would drift the first time
+# the corpus is re-extracted. Those are computed here instead, and an entry
+# points at the function that computes its evidence through the `evidence` key.
+
+# The band a truncated Value Set description falls in. Every one found sits
+# between 242 and 252 characters, which is what identifies the cause as a length
+# cap of about 250 characters rather than an authoring habit. The band is
+# deliberately a little wider than the observed range so a description clipped a
+# few characters either side is still caught.
+#
+# The band matters as much as the missing full stop does. Four other Value Set
+# descriptions also end without terminal punctuation and none of them is
+# truncated: 0424 and 0566 are short one-line descriptions, 0971's is the
+# placeholder "tbd", and 0955's runs to 864 characters and ends in a URL.
+TRUNCATION_BAND = (230, 260)
+
+
+def _fold(text):
+    """Reduce prose to a form in which two descriptions can be compared fairly.
+
+    The Chapter 2C corpus has the shared text policy baked in and THO's text
+    does not, so comparing raw would report our own normalization as a
+    disagreement between the two bodies. Whitespace is folded for the same
+    reason: THO keeps the two spaces after a period that the chapter's own
+    publication produced.
+    """
+    normalized, _ = apply_text_policy("Description", text or "")
+    return re.sub(r"\s+", " ", normalized).strip()
+
+
+def truncated_value_set_descriptions():
+    """Find every Value Set description that stops mid-word, and check THO.
+
+    Returns:
+        A list of dicts in table order, each with the table number and name,
+        the incomplete description as published, its length, and what THO's
+        corresponding ValueSet says -- which is the question of whether the
+        full text can be recovered from somewhere that already has it.
+    """
+    low, high = TRUNCATION_BAND
+    findings = []
+
+    for path in sorted(VOCAB_DIR.glob("*.json")):
+        record = json.loads(path.read_text())
+        value_sets = record.get("valueSets") or []
+        if not value_sets:
+            continue
+        description = (value_sets[0].get("Description") or "").strip()
+        if not description:
+            continue
+        if description[-1] in '.!?)"”':
+            continue
+        if not low <= len(description) <= high:
+            continue
+
+        findings.append({
+            "table": record["tableNumber"],
+            "name": record.get("tableName", ""),
+            "description": description,
+            "length": len(description),
+            **_tho_description_status(record["tableNumber"], description),
+        })
+
+    return findings
+
+
+def _tho_description_status(table, description):
+    """Say whether THO's ValueSet for a table carries the full description.
+
+    Three outcomes matter, and they mean different things for recovery:
+    `complete` means the missing text exists and can simply be taken; `same`
+    means THO was populated from the identical truncated field and is not a
+    recovery source; `absent` means there is nothing to compare against.
+    """
+    path = THO_DIR / f"ValueSet-v2-{table}.json"
+    if not path.is_file():
+        return {"tho": "absent",
+                "thoNote": "THO has no ValueSet for this table."}
+
+    tho_description = (json.loads(path.read_text()).get("description") or "").strip()
+    if not tho_description:
+        return {"tho": "absent",
+                "thoNote": "THO's ValueSet carries no description."}
+
+    folded_chapter = _fold(description)
+    folded_tho = _fold(tho_description)
+
+    if folded_tho == folded_chapter:
+        return {"tho": "same",
+                "thoNote": "Identical, truncated at the same point."}
+    if folded_tho.startswith(folded_chapter):
+        recovered = folded_tho[len(folded_chapter):]
+        return {"tho": "complete",
+                "thoNote": "THO carries the complete text.",
+                "recovered": recovered}
+    return {"tho": "differs",
+            "thoNote": "THO's description differs from the chapter's by more "
+                       "than the truncation, so it is not a straight recovery."}
+
+
+def truncation_evidence():
+    """Columns and rows for the truncated-description table, for both renderers."""
+    columns = ["Table", "Name", "Chars", "Value Set description as published",
+               "In THO"]
+    rows = []
+    for finding in truncated_value_set_descriptions():
+        rows.append([
+            finding["table"],
+            finding["name"],
+            str(finding["length"]),
+            finding["description"],
+            finding["thoNote"],
+        ])
+    return columns, rows
 
 
 # --------------------------------------------------------------------------
@@ -450,15 +578,46 @@ ESCALATIONS = [
             "<b>This one does reach the output.</b> Unlike the Full Name "
             "defects, the Value Set Description becomes "
             "<code>ValueSet.description</code>, so sixteen generated "
-            "ValueSets currently carry a sentence that stops mid-word.",
+            "ValueSets currently carry a sentence that stops mid-word. "
+            "<b>THO was checked as a recovery source and is not one.</b> All "
+            "sixteen tables have a ValueSet in "
+            "<code>hl7.terminology.r5</code>, all sixteen carry a description, "
+            "and <b>fifteen of them are truncated at exactly the same "
+            "point</b> &mdash; identical text once whitespace and this "
+            "project's own text policy are normalized on both sides. So the "
+            "defect did not originate in this extraction and it did not "
+            "originate in the chapter's rendering: the same clipped field fed "
+            "both documents, and the truncated text is already published in "
+            "THO. "
+            "<b>The single exception is table 0227, and it is the proof.</b> "
+            "THO's <code>ValueSet/v2-0227</code> continues past the cut with "
+            "171 more characters, completing the very word the chapter stops "
+            "in the middle of &mdash; &ldquo;may be acce&rdquo; becomes "
+            "&ldquo;may be accessed via&rdquo; followed by the PHIN VADS link "
+            "for the MVX code system. One table's full text therefore survives "
+            "somewhere, which is good evidence the other fifteen do too.",
         "ask":
-            "The truncated text needs recovering from whatever source the "
-            "chapter was generated from &mdash; this project cannot "
-            "reconstruct it, only detect it. On the errata guidance this is "
-            "content lost during the editing process rather than a change of "
-            "meaning, so it should qualify as a technical correction. Until "
-            "the full text is available the truncated form is published as-is, "
-            "since inventing an ending would be worse.",
+            "<b>Recover the fifteen full descriptions from whatever source "
+            "Chapter 2C is generated from</b> &mdash; most likely whoever "
+            "maintains the chapter's underlying table content holds them "
+            "intact, since the loss is at publication rather than at "
+            "authoring. This project can detect the truncation but cannot "
+            "reconstruct the text, and inventing an ending would be worse than "
+            "publishing the fragment. "
+            "On the errata guidance this is content lost during the editing "
+            "process rather than a change of meaning, so <b>restoring it "
+            "should qualify as a technical correction</b> and need no ballot. "
+            "Two things follow that are worth deciding at the same time. "
+            "0227's full text is available now from THO and can be restored "
+            "immediately on the same reasoning; say whether to take it. And "
+            "because the truncated text is already published in THO, the "
+            "correction needs to be made in both places or the two will "
+            "diverge. Every affected table is listed below with the text as it "
+            "currently stands.",
+        # Attached rather than authored: a hand-written list of sixteen tables
+        # and their descriptions would drift the first time the corpus is
+        # re-extracted. See `truncation_evidence`.
+        "evidence": truncation_evidence,
     },
     {
         "id": "esc-0954-cld-exclude",
@@ -486,13 +645,31 @@ ESCALATIONS = [
             "two tables genuinely differ &mdash; and nothing in the text says "
             "which. This project builds what the chapter says, so <b>the "
             "generated <code>ValueSet/v2-0954</code> currently has no "
-            "exclude</b> and differs from THO on exactly this point.",
+            "exclude</b> and differs from THO on exactly this point. "
+            "<b>There is a second line of defence, and it is the reason this "
+            "is worth stating carefully rather than simply fixing.</b> Both "
+            "groupers carry <code>notSelectable = true</code> as a concept "
+            "property in THO's <code>CodeSystem/v3-ObservationValue</code> "
+            "&mdash; verified on both <code>_WorkSchedule</code> and "
+            "<code>_EmploymentStatus</code>. A terminology server that honours "
+            "that property will keep the abstract concept out of the expansion "
+            "whether or not the value set excludes it, which makes the exclude "
+            "clause <i>optional</i> rather than load-bearing. But "
+            "<code>notSelectable</code> is an advisory property, and honouring "
+            "it in expansion is a matter of server implementation rather than "
+            "something the value set can require. An explicit exclude does not "
+            "depend on any server behaviour; relying on the property does.",
         "ask":
             "Confirm that 0954 is missing an <i>Exclude codes where code = "
             "<code>_WorkSchedule</code></i> clause, in which case it is a "
             "technical correction and one line to apply. If the omission is "
             "deliberate, say so, because the value set then diverges from "
-            "THO's and somebody will raise it again.",
+            "THO's and somebody will raise it again. "
+            "The recommendation is to add it regardless of the "
+            "<code>notSelectable</code> safety net: the clause costs nothing, "
+            "it makes 0954 consistent with its sibling 0957 and with THO, and "
+            "it removes a dependency on how a given expansion engine treats an "
+            "advisory property.",
     },
     {
         "id": "esc-domain-example-codes",
@@ -635,14 +812,68 @@ def render_markdown():
             f"**The ask:** {to_markdown_text(item['ask'])}",
             "",
         ]
+        if item.get("evidence"):
+            lines += render_markdown_evidence(item["evidence"]) + [""]
 
     return "\n".join(lines)
+
+
+def render_markdown_evidence(evidence):
+    """Render one item's computed evidence as a markdown table.
+
+    Cell text is escaped for the pipe character only. The descriptions in this
+    table are published prose and can contain anything; a stray pipe would
+    otherwise split a row into the wrong number of columns.
+    """
+    columns, rows = evidence()
+    if not rows:
+        return ["_No matching entries found in the current corpus._"]
+
+    def cell(text):
+        return str(text).replace("|", "\\|")
+
+    lines = [
+        "| " + " | ".join(columns) + " |",
+        "|" + "|".join(["---"] * len(columns)) + "|",
+    ]
+    for row in rows:
+        lines.append("| " + " | ".join(cell(value) for value in row) + " |")
+    return lines
+
+
+def check_table_lists():
+    """Warn where an item's stated tables no longer match its computed evidence.
+
+    An item's `tables` field is authored, because a committee reading the
+    contents list wants to see the numbers rather than a promise that they are
+    listed further down. That means it can fall out of step with the evidence
+    the same item computes, so it is checked rather than trusted.
+    """
+    warnings = []
+    for item in ESCALATIONS:
+        if not item.get("evidence"):
+            continue
+        _, rows = item["evidence"]()
+        computed = [row[0] for row in rows]
+        stated = [t.strip() for t in item["tables"].split(",") if t.strip()]
+        if computed != stated:
+            warnings.append(
+                f"  {item['id']}: states {len(stated)} tables, evidence finds "
+                f"{len(computed)}\n"
+                f"    stated:   {', '.join(stated)}\n"
+                f"    computed: {', '.join(computed)}")
+    return warnings
 
 
 def main():
     DEFAULT_OUT.parent.mkdir(parents=True, exist_ok=True)
     DEFAULT_OUT.write_text(render_markdown())
     print(f"{len(ESCALATIONS)} items -> {DEFAULT_OUT}")
+
+    warnings = check_table_lists()
+    if warnings:
+        print("\nWARNING: an item's stated tables no longer match its evidence:")
+        print("\n".join(warnings))
     return 0
 
 

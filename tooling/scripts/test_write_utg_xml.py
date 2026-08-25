@@ -499,3 +499,56 @@ def test_output_is_parseable_and_carries_no_meta_or_narrative():
     assert "<meta>" not in document and "<text>" not in document
     assert not document.endswith("\n")
     ElementTree.fromstring(document)      # raises if malformed
+
+
+# --------------------------------------------------------------------------
+# Reporting the version fallback
+# --------------------------------------------------------------------------
+#
+# A resource UTG does not already publish starts at DEFAULT_VERSION. The point
+# of these tests is that the fallback is reported per resource: a table can
+# inherit for its CodeSystem and not for its ValueSet, and the write report has
+# to say so or the fallback is silent for exactly the cases that need it.
+
+def test_a_table_inheriting_nothing_reports_both_resources():
+    _, report = writer.process([make_record()], empty_repo(), {})
+    assert report[0]["usedDefaultVersion"] == {
+        "version": writer.DEFAULT_VERSION,
+        "resources": ["CodeSystem", "ValueSet"],
+    }
+
+
+def test_a_table_inheriting_both_reports_no_fallback():
+    utg = empty_repo()
+    utg.code_systems["0001"] = {"version": "3.0.0", "date": "2019-12-01",
+                                "conceptIds": {}}
+    utg.value_sets["0001"] = {"version": "3.0.0", "date": "2019-12-01"}
+    _, report = writer.process([make_record()], utg, {})
+    assert "usedDefaultVersion" not in report[0]
+
+
+def test_inheriting_only_the_code_system_still_reports_the_value_set():
+    """The `notAllCodes` case: UTG files the value set under another name."""
+    utg = empty_repo()
+    utg.code_systems["0291"] = {"version": "3.0.0", "date": "2019-12-01",
+                                "conceptIds": {}}
+    _, report = writer.process([make_record(table="0291")], utg, {})
+    assert report[0]["usedDefaultVersion"]["resources"] == ["ValueSet"]
+
+
+def test_a_blocked_table_reports_no_fallback():
+    """Nothing was written, so nothing fell back to a default."""
+    record = make_record()
+    record["valueSets"][0]["Content Logical Definition"] = "unspecified"
+    record["codeSystems"] = [{"URI": "http://unitsofmeasure.org",
+                              "SymbolicName": "ucum", "Description": "UCUM"}]
+    _, report = writer.process([record], empty_repo(), {})
+    assert report[0]["action"] == "needs-decision"
+    assert "usedDefaultVersion" not in report[0]
+
+
+def test_new_resources_start_at_one_zero_zero():
+    """The user's answer to what a brand-new resource should be versioned at."""
+    assert writer.DEFAULT_VERSION == "1.0.0"
+    root, _ = build(make_record())
+    assert root.find(f"{FHIR}version").get("value") == "1.0.0"

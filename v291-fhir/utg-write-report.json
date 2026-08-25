@@ -425,7 +425,12 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.83",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0080",
@@ -2346,7 +2351,13 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0291",
       "resolvedBy": "published URI",
-      "note": "No work group extension: steward None is not a work group we map."
+      "note": "No work group extension: steward None is not a work group we map.",
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0292",
@@ -2845,7 +2856,12 @@
       ],
       "systemUrl": "urn:iso:std:iso:3166",
       "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0350",
@@ -3355,8 +3371,7 @@
       "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'.",
       "written": [],
       "systemUrl": "urn:iso:std:iso:3166",
-      "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "resolvedBy": "published URI"
     },
     {
       "table": "0401",
@@ -3448,7 +3463,13 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0411",
       "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "CodeSystem",
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0412",
@@ -3921,7 +3942,13 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0460",
       "resolvedBy": "OID 2.16.840.1.113883.18.294 is in the HL7 v2 code system arc",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "CodeSystem",
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0461",
@@ -6174,7 +6201,12 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.4",
       "published": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0720",
@@ -6835,7 +6867,12 @@
       ],
       "systemUrl": "http://loinc.org",
       "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0821",
@@ -6856,8 +6893,7 @@
       "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.",
       "written": [],
       "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "resolvedBy": "published URI"
     },
     {
       "table": "0823",
@@ -6878,8 +6914,7 @@
       "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.",
       "written": [],
       "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "resolvedBy": "published URI"
     },
     {
       "table": "0826",
@@ -7582,7 +7617,12 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
       "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0955",
@@ -7594,7 +7634,12 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/PHIndustryCDCCensus2010",
       "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.315",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0956",
@@ -7603,8 +7648,7 @@
       "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'unspecified'.",
       "written": [],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH",
-      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.327",
-      "usedDefaultVersion": "3.0.0"
+      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.327"
     },
     {
       "table": "0957",
@@ -7617,7 +7661,12 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
       "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0958",
@@ -7629,7 +7678,12 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/PHOccupationCDCCensus2010",
       "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.314",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0959",
@@ -7653,7 +7707,12 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
       "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "usedDefaultVersion": {
+        "version": "1.0.0",
+        "resources": [
+          "ValueSet"
+        ]
+      }
     },
     {
       "table": "0961",
@@ -7685,8 +7744,7 @@
       "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'See content logical definition of the referenced value set'.",
       "written": [],
       "systemUrl": "Not yet approved by HTA",
-      "resolvedBy": "published URI",
-      "usedDefaultVersion": "3.0.0"
+      "resolvedBy": "published URI"
     },
     {
       "table": "0964",

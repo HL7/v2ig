@@ -1,0 +1,428 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<title>Chapter 2C field mapping</title>
+<style>
+:root { --line: #d0d7de; --muted: #57606a; --ask: #8250df; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  margin: 0; display: flex; color: #1f2328; line-height: 1.55; background: #fff; }
+
+#sidebar { position: fixed; top: 0; left: 0; width: 290px; height: 100vh; overflow-y: auto;
+  background: #f6f8fa; border-right: 1px solid var(--line); padding: 18px; font-size: 13px; }
+#sidebar .brand { font-weight: 700; font-size: 14px; line-height: 1.3; }
+#sidebar .brand-sub { color: var(--muted); font-size: 12px; margin: 2px 0 14px; }
+#sidebar h2 { font-size: 11px; margin: 18px 0 6px; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+#sidebar a { display: block; padding: 4px 0 4px 22px; color: #0969da; text-decoration: none;
+  text-indent: -22px; }
+#sidebar a:hover { text-decoration: underline; }
+#sidebar a .n { display: inline-block; width: 18px; color: var(--muted); font-weight: 600; }
+#sidebar a.top { padding-left: 0; text-indent: 0; font-weight: 600; margin-bottom: 4px; }
+
+#main { margin-left: 290px; padding: 28px 44px 80px; max-width: 1080px; }
+h1 { font-size: 25px; margin: 0; }
+h2 { font-size: 19px; margin-top: 46px; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+h2.plain { border: 0; margin: 0 0 2px; padding: 0; font-size: 17px; }
+h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35; }
+h3 .n { color: var(--muted); }
+p.sub { color: var(--muted); margin-top: 3px; }
+p.tight { margin-bottom: 0; }
+p.lede { font-size: 15px; color: #414a53; margin: 6px 0 10px; }
+p.tables { font-size: 12px; color: var(--muted); margin: 0 0 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* The asks card: the one thing a five-minute reader sees. */
+.asks-card { border: 2px solid var(--ask); border-radius: 10px; padding: 18px 22px;
+  margin: 26px 0 8px; background: #fbf7ff; }
+.asks-intro { color: var(--muted); margin: 0 0 12px; font-size: 14px; }
+.asks-list { margin: 0; padding-left: 20px; }
+.asks-list li { margin-bottom: 13px; }
+.asks-list a { color: #1f2328; font-weight: 600; text-decoration: none;
+  border-bottom: 1px solid #c297ff; }
+.asks-list a:hover { background: #f0e2ff; }
+.ask-line { color: #414a53; font-size: 13.5px; margin-top: 3px; }
+.asks-foot { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+
+.item { border: 1px solid var(--line); border-left-width: 5px; border-radius: 8px;
+  padding: 16px 20px; margin: 18px 0; }
+.item.k-decision { border-left-color: #bc4c00; }
+.item.k-finding { border-left-color: #bf8700; }
+.item.k-fyi { border-left-color: #8c959f; background: #fafbfc; }
+.item > p:last-of-type { margin-bottom: 0; }
+
+p.ask { background: #faf5ff; border: 1px solid #d8b9ff; border-left: 4px solid var(--ask);
+  border-radius: 6px; padding: 10px 14px; margin: 14px 0 0; font-size: 14px; }
+.ask-tag { display: inline-block; background: var(--ask); color: #fff; font-size: 10px;
+  font-weight: 700; letter-spacing: .06em; padding: 2px 7px; border-radius: 9px;
+  margin-right: 9px; vertical-align: 1px; }
+
+.counter { background: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px;
+  padding: 10px 14px; margin: 14px 0; font-size: 14px; }
+.settled { background: #dafbe1; border: 1px solid #4ac26b; border-radius: 6px;
+  padding: 10px 14px; margin: 4px 0 14px; font-size: 14px; }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 10px 0 14px; }
+table.narrow { width: auto; min-width: 380px; }
+th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+td.num, th.num { text-align: right; width: 1%; white-space: nowrap; }
+td.nowrap { white-space: nowrap; }
+tr:nth-child(even) td { background: #fbfcfd; }
+
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px; margin: 20px 0 4px; }
+.metric-card { border: 1px solid var(--line); border-radius: 8px; padding: 13px 10px;
+  text-align: center; background: #fff; }
+.metric-card .number { font-size: 23px; font-weight: 700; }
+.metric-card .label { font-size: 11.5px; color: var(--muted); margin-top: 3px; line-height: 1.3; }
+.mc-good .number { color: #1a7f37; }
+.mc-flag .number { color: #bf8700; } .mc-flag { border-color: #e5c55c; }
+.mc-escalate .number { color: var(--ask); } .mc-escalate { border-color: #c297ff; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px;
+  font-weight: 700; letter-spacing: .05em; color: #fff; white-space: nowrap;
+  vertical-align: 2px; }
+.b-decide { background: #bc4c00; } .b-flag { background: #bf8700; }
+.b-info { background: #6e7781; }
+
+/* A count riding alongside a sidebar link, and the same idea inline in a
+   heading. Both are secondary to the text they sit beside and must not
+   compete with it. */
+#sidebar a .cnt { color: var(--muted); font-weight: 400; font-size: 11px;
+  white-space: nowrap; }
+.dim-tag { display: inline-block; background: #eaeef2; border-radius: 4px;
+  padding: 1px 7px; font-size: 11px; font-weight: 600; color: #424a53;
+  margin-left: 7px; vertical-align: 2px; }
+
+code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; font-size: 89%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+ol, ul { padding-left: 22px; }
+li { margin-bottom: 5px; }
+.faint { color: #8b949e; font-size: 11.5px; margin-top: 40px; }
+
+/* Shared as a PDF or printed for the room: the sidebar is noise on paper, and
+   an item must not be split across a page break. */
+@media print {
+  #sidebar { display: none; }
+  #main { margin: 0; max-width: none; padding: 0; }
+  .item, .asks-card { break-inside: avoid; page-break-inside: avoid; }
+  body { font-size: 11pt; }
+}
+
+.b-good { background: #1a7f37; }
+td.small { font-size: 11.5px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  word-break: break-all; }
+span.yes { color: #1a7f37; font-weight: 700; }
+span.no { color: #bc4c00; font-weight: 700; }
+.faint-inline { color: #8b949e; }
+</style></head><body>
+<nav id='sidebar'>
+<div class='brand'>Chapter 2C field mapping</div>
+<div class='brand-sub'>What the chapter publishes about each table, and how much of it reaches the FHIR resources</div>
+<a class='top' href='#losses'>&uarr; What is not carried</a>
+<h2>The mapping</h2>
+<a href='#conceptDomain'><span class='n'>&bull;</span>Concept Domain</a>
+<a href='#codeSystems'><span class='n'>&bull;</span>Code System Identification Information</a>
+<a href='#codeSystemVersions'><span class='n'>&bull;</span>Code System Version</a>
+<a href='#valueSets'><span class='n'>&bull;</span>Value Set Identification Information</a>
+<a href='#bindings'><span class='n'>&bull;</span>Binding Information</a>
+<a href='#tableMetadata'><span class='n'>&bull;</span>Table metadata</a>
+<a href='#codedContent'><span class='n'>&bull;</span>Coded content (the rows)</a>
+<h2>By output class</h2>
+<a href='#classes'><span class='n'>&mdash;</span>How the mapping changes</a>
+<a href='#domains'><span class='n'>&mdash;</span>Concept domain only</a>
+<h2>Found while mapping</h2>
+<a href='#findings'><span class='n'>!</span>The Value Set canonical nobody reads</a>
+<h2>Housekeeping</h2>
+<a href='#completeness'><span class='n'>&check;</span>Completeness check</a>
+</nav>
+<main id='main'>
+<h1>Chapter 2C field mapping</h1>
+<p class='sub'>What the chapter publishes about each table, and how much of it reaches the FHIR resources &middot; 2026-08-25</p>
+
+<p class='lede'>Chapter 2C publishes far more about each code table than a
+CodeSystem and a ValueSet have room for. This document sets out, field by
+field, what reaches the generated resources and what does not &mdash; so that
+the information being dropped is dropped on purpose.</p>
+
+<p>The question that prompted it was a narrow one: the Code System
+Identification block has a <b>Full Name</b> field, and nothing in the output
+appears to carry it. That turned out to be true, and to be one of
+<b>twenty-four</b> such fields. Two of them carry a value on all 799 tables.</p>
+
+<p>This is the systematic version of what ADR-0008 calls <b>Batch C</b>
+&mdash; container-level metadata &mdash; which has been open since the ADR was
+written and lists four of these questions individually. Rather than answer them
+one at a time, the whole surface is laid out here with counts attached, so the
+ones worth spending effort on are visible next to the ones that are not.</p>
+
+<p><b>Nothing here is a proposal.</b> A field recorded as not carried is a
+question, not a defect: some of these have no sensible FHIR home, and some
+describe the chapter rather than the terminology. The purpose is to make the
+choice explicit.</p>
+
+<div class='metric-grid'>
+<div class='metric-card mc-good'><div class='number'>43</div><div class='label'>fields Chapter 2C publishes</div></div>
+<div class='metric-card mc-escalate'><div class='number'>24</div><div class='label'>read by nothing</div></div>
+<div class='metric-card mc-flag'><div class='number'>4</div><div class='label'>used but not carried</div></div>
+<div class='metric-card mc-good'><div class='number'>15</div><div class='label'>reach a FHIR element</div></div>
+</div>
+<section id='losses' class='asks-card'>
+<h2 class='plain'>What is not carried</h2>
+<p class='asks-intro'>Every field below exists in Chapter 2C and in none of the generated resources. The count is how many tables carry the field with a value in it. This is the decision list: for each one, either a way of preserving it is worth devising, or the loss is worth accepting on the record.</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Block</th><th>Why it goes nowhere</th></tr>
+<tr><td class='nowrap'><b>Description</b></td><td class='num'>799</td><td class='nowrap'>Table metadata</td><td><b>A description of the table, on all 799 tables, going nowhere.</b> It is not a duplicate of the code system or value set description &mdash; it describes the table as a whole, and it is present on the 355 tables that have no code system block at all and therefore no other description of any kind. For a concept-domain-only table this is the only prose the chapter offers beyond the domain definition.</td></tr>
+<tr><td class='nowrap'><b>Type</b></td><td class='num'>799</td><td class='nowrap'>Table metadata</td><td><code>User</code>, <code>HL7</code> and the other table types. This is a real classification with consequences &mdash; a User table is site-extensible and an HL7 table is not &mdash; and it is the kind of thing an implementer needs. FHIR has no standard place for it, so it would need a concept property or an extension.</td></tr>
+<tr><td class='nowrap'><b>Concept Domain Name</b></td><td class='num'>796</td><td class='nowrap'>Concept Domain</td><td>Not a name but a sequence label &mdash; the values are <code>DOM: 1</code>, <code>DOM: 2</code> and so on. The usable name is <code>SymbolicName</code>. Nothing is lost by dropping it unless the numbering means something to somebody.</td></tr>
+<tr><td class='nowrap'><b>where used</b></td><td class='num'>779</td><td class='nowrap'>Table metadata</td><td>The message fields the table is bound to &mdash; <code>PID-8</code> and so on &mdash; on 779 tables. This is the link between the vocabulary and the rest of the standard, and it is the single richest piece of information in the chapter that reaches nothing. It arguably belongs on the <i>binding</i> rather than on the value set, which is why it has no natural home in a terminology-only IG. Worth deciding deliberately rather than by omission.</td></tr>
+<tr><td class='nowrap'><b>HL7 Version Introduced</b></td><td class='num'>607</td><td class='nowrap'>Table metadata</td><td>The release the <i>table</i> was introduced in, on 607 tables. A different fact from the code system version block's field of the same name, and dropped for the same reason: no property has been defined for it. D18 covers both.</td></tr>
+<tr><td class='nowrap'><b>SymbolicName</b></td><td class='num'>593</td><td class='nowrap'>Table metadata</td><td>The table's own symbolic name, distinct from the code system's and the value set's. Populated on 593 tables and read by nothing.</td></tr>
+<tr><td class='nowrap'><b>Realm</b></td><td class='num'>439</td><td class='nowrap'>Binding Information</td><td>On 439 tables, almost all of them <code>representative</code>. FHIR has <code>ValueSet.jurisdiction</code>, which is the obvious candidate, but &ldquo;representative&rdquo; is not a jurisdiction &mdash; it is a statement about the <i>status</i> of the binding, closer to an HL7 realm concept than to a country code. Recorded as an open Batch C question in ADR-0008 and still open.</td></tr>
+<tr><td class='nowrap'><b>Full Name</b></td><td class='num'>437</td><td class='nowrap'>Code System Identification Information</td><td><b>The field this document was commissioned over.</b> Carries a value on 437 of the 444 tables that declare a code system, and is read by nothing. There is no obvious FHIR home: <code>title</code> is already taken by <code>SymbolicName</code>, and the two are not the same string &mdash; Full Name is a human-readable label of the form <i>&lt;Table Name&gt; Code System</i>. It is also the field with the known copy-paste defects: 412 of 444 follow the pattern and the exceptions include names carried over from a different table. Because nothing reads it, <b>those defects never reach the output</b> &mdash; which is a reason the field is low-risk, not a reason it is worthless.</td></tr>
+<tr><td class='nowrap'><b>Full Name</b></td><td class='num'>432</td><td class='nowrap'>Value Set Identification Information</td><td>The Value Set counterpart of the Code System Full Name, on 432 tables, and read by nothing for the same reason: <code>title</code> already holds <code>SymbolicName</code>.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>429</td><td class='nowrap'>Value Set Identification Information</td><td><b>Read by nothing, and it should be.</b> The writer constructs <code>ValueSet.url</code> from the table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of 429 tables that is character-for-character what the chapter prints, which is why this was invisible until the mapping was written out. <b>For 17 tables it is not</b>, and for four of those the chapter, THO and UTG all agree on a canonical we are not using. See the findings section.</td></tr>
+<tr><td class='nowrap'><b>Version</b></td><td class='num'>426</td><td class='nowrap'>Code System Version</td><td>The chapter's own version number for the code system. <code>CodeSystem.version</code> is taken from the existing UTG resource instead, and where UTG has none, from a default. The two are on different schemes &mdash; the chapter counts <code>1</code>, <code>2</code>, <code>3</code>; THO uses semantic versions &mdash; so they cannot simply be substituted, but nobody has reconciled them either.</td></tr>
+<tr><td class='nowrap'><b>HL7 Version Introduced</b></td><td class='num'>422</td><td class='nowrap'>Code System Version</td><td>ADR-0008 D18 already ruled on this one: it is provenance about the concept and <b>belongs in a property</b>, never in <code>CodeSystem.version</code>. The ruling has not been implemented, so the information is currently dropped. This is the clearest actionable gap in the document &mdash; the decision exists, only the property does not.</td></tr>
+<tr><td class='nowrap'><b>Effective Date</b></td><td class='num'>416</td><td class='nowrap'>Code System Version</td><td>In <code>DD.MM.YYYY</code> form. <code>CodeSystem.date</code> comes from UTG, where 414 of 416 resources carry the same <code>2019-12-01</code> &mdash; the date of a bulk load, not a date anyone chose. <b>The chapter has the better information here and it is the one being thrown away.</b></td></tr>
+<tr><td class='nowrap'><b>URL</b></td><td class='num'>4</td><td class='nowrap'>Code System Identification Information</td><td><b>A variant spelling of <code>URI</code> that nothing reads.</b> Four tables (0821, 0823, 0955, 0958), eight rows between them, use <code>URL</code> as the key where every other table uses <code>URI</code>. The writer looks up <code>URI</code> only, so these are invisible to it. Two of the four tables are resolved anyway by their OID; two are blocked for other reasons. Worth fixing at source so the chapter uses one key, and worth reading both keys here in the meantime.</td></tr>
+<tr><td class='nowrap'><b>THO URL</b></td><td class='num'>3</td><td class='nowrap'>Value Set Identification Information</td><td>Three tables (0821, 0822, 0823) carry an <code>hl7.org/permalink</code> address under this key. A permalink is not a canonical and could not be used as one, but it does point at the intended value set, which is more than those three tables otherwise give us &mdash; all three are currently blocked.</td></tr>
+<tr><td class='nowrap'><b>Full Name</b></td><td class='num'>3</td><td class='nowrap'>Table metadata</td><td>Three tables carry it at table level as well.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>2</td><td class='nowrap'>Table metadata</td><td>Two tables.</td></tr>
+<tr><td class='nowrap'><b>UTG Name</b></td><td class='num'>1</td><td class='nowrap'>Code System Identification Information</td><td>One table, 0083, carries an extra key naming the UTG resource (<code>v2 Outlier Type</code>). Nothing else in the corpus has it. Almost certainly an editing artefact rather than a field.</td></tr>
+<tr><td class='nowrap'><b>Comments</b></td><td class='num'>1</td><td class='nowrap'>Code System Identification Information</td><td>One table, 0719: <i>replaces 2.16.840.1.113883.18.389</i>. That is a substantive statement about supersession and it reaches nothing. A single instance, but the kind of information that is expensive to recover once lost.</td></tr>
+<tr><td class='nowrap'><b>Comments</b></td><td class='num'>1</td><td class='nowrap'>Value Set Identification Information</td><td>Two tables. 0719's says <i>replaces 2.16.840.1.113883.21.406</i> &mdash; supersession again, and again dropped. 0821's is empty.</td></tr>
+<tr><td class='nowrap'><b>UTG Name</b></td><td class='num'>1</td><td class='nowrap'>Value Set Identification Information</td><td>Table 0083 only, as with the code system block.</td></tr>
+<tr><td class='nowrap'><b>UTG Title</b></td><td class='num'>1</td><td class='nowrap'>Value Set Identification Information</td><td>Table 0083 only.</td></tr>
+<tr><td class='nowrap'><b>Version Info</b></td><td class='num'>1</td><td class='nowrap'>Table metadata</td><td>One table.</td></tr>
+<tr><td class='nowrap'><b>Code System OID</b></td><td class='num'>1</td><td class='nowrap'>Table metadata</td><td>One table carries a Code System OID in its table metadata block rather than in its code system block. An editing slip, but it means one table's code system OID is invisible to the writer.</td></tr>
+</table>
+<p class='asks-foot'>Fields marked <b>Used, not carried</b> in the tables below are a softer version of the same problem: they are read, they change what is generated, and the value itself is still absent from the output.</p>
+</section>
+<h2>How to read the tables</h2>
+<table class='narrow'><tr><th>Status</th><th>Meaning</th></tr>
+<tr><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td>Nothing reads it. The information is in the chapter and not in the resources.</td></tr>
+<tr><td class='nowrap'><span class='badge b-flag'>Used, not carried</span></td><td>Read, and it changes what is generated, but the value itself does not appear in any resource.</td></tr>
+<tr><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td>Reaches the output in a changed form. Not always reversible.</td></tr>
+<tr><td class='nowrap'><span class='badge b-good'>Carried</span></td><td>Reaches a FHIR element unchanged, and can be read back out.</td></tr>
+</table>
+<h2 id='conceptDomain'>Concept Domain<span class='dim-tag'>796 tables</span></h2>
+<p class='sub'>Feeds <code>CodeSystem/conceptdomains</code></p>
+<p>Every table declares a concept domain, whether or not it also has a code system. The domain is the abstract idea the table is about; the code system is one way of expressing it. These fields feed the single shared <code>conceptdomains</code> CodeSystem, which this project extends rather than replaces (ADR-0008 D1).</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>Concept Domain Name</b></td><td class='num'>796</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Not a name but a sequence label &mdash; the values are <code>DOM: 1</code>, <code>DOM: 2</code> and so on. The usable name is <code>SymbolicName</code>. Nothing is lost by dropping it unless the numbering means something to somebody.</td></tr>
+<tr><td class='nowrap'><b>SymbolicName</b></td><td class='num'>794</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td>conceptdomains: <code>concept.code</code>, <code>concept.display</code></td><td>Used verbatim as the concept code, including where it contains characters unusual in a code. Fidelity wins and the irregular ones are reported rather than normalized.</td></tr>
+<tr><td class='nowrap'><b>Description</b></td><td class='num'>796</td><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td>conceptdomains: <code>concept.definition</code></td><td>Carried only where THO does not already publish the domain. Where it does, <b>THO's definition is kept and the chapter's is discarded</b> (ADR-0008 D1). That affects 5 domains where the two genuinely differ; for 577 others the two texts are identical, so nothing turns on it. Where one domain is declared by several tables with different wordings, the first in document order wins.</td></tr>
+<tr><td class='nowrap'><b>Concept Domain Only</b></td><td class='num'>796</td><td class='nowrap'><span class='badge b-flag'>Used, not carried</span></td><td>decides whether any CodeSystem or ValueSet is written</td><td>The single most consequential field in the corpus: <code>yes</code> on 360 tables, and every one of those produces no CodeSystem and no ValueSet. The flag itself is not recorded anywhere in the output, so nothing in the published resources says why a table has no terminology.</td></tr>
+</table>
+<h2 id='codeSystems'>Code System Identification Information<span class='dim-tag'>437 tables</span></h2>
+<p class='sub'>Feeds <code>CodeSystem/v2-NNNN</code></p>
+<p>The identity of the code system the table's codes belong to. Where the table owns that code system, these fields become a CodeSystem resource. Where the code system belongs to somebody else &mdash; UCUM, SNOMED, a v3 code system, another v2 table &mdash; no CodeSystem is written at all, and everything in this block except the identifier has nowhere to go. That second case is set out separately below.</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>Code System OID</b></td><td class='num'>437</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>CodeSystem.identifier[0].value</code> as <code>urn:oid:&hellip;</code></td><td>Also the fallback identifier when the chapter prints no usable canonical URL, which resolved seven tables by itself. Omitted from the resource where the value is blank or a bare hyphen.</td></tr>
+<tr><td class='nowrap'><b>SymbolicName</b></td><td class='num'>437</td><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td><code>CodeSystem.name</code> (PascalCase), <code>CodeSystem.title</code> (verbatim)</td><td>One source field feeding two elements, which is how UTG does it. <code>name</code> is a computed form and <code>title</code> the original, so nothing is lost. The same field doubles as the <code>noObject</code> placeholder marker that identifies a table with no real code system.</td></tr>
+<tr><td class='nowrap'><b>Description</b></td><td class='num'>437</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>CodeSystem.description</code></td><td>Carried in full. Unlike the Value Set descriptions, these are not truncated &mdash; they run past 500 characters and end cleanly, which is the evidence that the truncation is a cap on one field rather than a general limit.</td></tr>
+<tr><td class='nowrap'><b>Full Name</b></td><td class='num'>437</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><b>The field this document was commissioned over.</b> Carries a value on 437 of the 444 tables that declare a code system, and is read by nothing. There is no obvious FHIR home: <code>title</code> is already taken by <code>SymbolicName</code>, and the two are not the same string &mdash; Full Name is a human-readable label of the form <i>&lt;Table Name&gt; Code System</i>. It is also the field with the known copy-paste defects: 412 of 444 follow the pattern and the exceptions include names carried over from a different table. Because nothing reads it, <b>those defects never reach the output</b> &mdash; which is a reason the field is low-risk, not a reason it is worthless.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>423</td><td class='nowrap'><span class='badge b-flag'>Used, not carried</span></td><td><code>CodeSystem.url</code>, or the system named in <code>ValueSet.compose.include.system</code></td><td>Decides the single most important thing about a table: whether we own the code system or somebody else does. Where the URI is the table's own THO canonical it becomes <code>CodeSystem.url</code> and is carried; where it names an external system, no CodeSystem is written and the URI appears only inside the value set's compose. Page URLs ending <code>.html</code> are discarded and the OID used instead.</td></tr>
+<tr><td class='nowrap'><b>URL</b></td><td class='num'>4</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><b>A variant spelling of <code>URI</code> that nothing reads.</b> Four tables (0821, 0823, 0955, 0958), eight rows between them, use <code>URL</code> as the key where every other table uses <code>URI</code>. The writer looks up <code>URI</code> only, so these are invisible to it. Two of the four tables are resolved anyway by their OID; two are blocked for other reasons. Worth fixing at source so the chapter uses one key, and worth reading both keys here in the meantime.</td></tr>
+<tr><td class='nowrap'><b>UTG Name</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>One table, 0083, carries an extra key naming the UTG resource (<code>v2 Outlier Type</code>). Nothing else in the corpus has it. Almost certainly an editing artefact rather than a field.</td></tr>
+<tr><td class='nowrap'><b>Comments</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>One table, 0719: <i>replaces 2.16.840.1.113883.18.389</i>. That is a substantive statement about supersession and it reaches nothing. A single instance, but the kind of information that is expensive to recover once lost.</td></tr>
+</table>
+<h2 id='codeSystemVersions'>Code System Version<span class='dim-tag'>426 tables</span></h2>
+<p class='sub'>Feeds <code>nothing at present</code></p>
+<p><b>This whole block is unread.</b> The chapter states a version, an effective date and the HL7 release the code system was introduced in, and none of the three reaches any resource. Resource <code>version</code> and <code>date</code> are inherited from the existing UTG file instead, which is a deliberate choice &mdash; but it means the chapter's own version information is discarded rather than reconciled. This is the largest single block of unused information in the corpus.</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>Version</b></td><td class='num'>426</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>The chapter's own version number for the code system. <code>CodeSystem.version</code> is taken from the existing UTG resource instead, and where UTG has none, from a default. The two are on different schemes &mdash; the chapter counts <code>1</code>, <code>2</code>, <code>3</code>; THO uses semantic versions &mdash; so they cannot simply be substituted, but nobody has reconciled them either.</td></tr>
+<tr><td class='nowrap'><b>Effective Date</b></td><td class='num'>416</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>In <code>DD.MM.YYYY</code> form. <code>CodeSystem.date</code> comes from UTG, where 414 of 416 resources carry the same <code>2019-12-01</code> &mdash; the date of a bulk load, not a date anyone chose. <b>The chapter has the better information here and it is the one being thrown away.</b></td></tr>
+<tr><td class='nowrap'><b>HL7 Version Introduced</b></td><td class='num'>422</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>ADR-0008 D18 already ruled on this one: it is provenance about the concept and <b>belongs in a property</b>, never in <code>CodeSystem.version</code>. The ruling has not been implemented, so the information is currently dropped. This is the clearest actionable gap in the document &mdash; the decision exists, only the property does not.</td></tr>
+</table>
+<h2 id='valueSets'>Value Set Identification Information<span class='dim-tag'>438 tables</span></h2>
+<p class='sub'>Feeds <code>ValueSet/v2-NNNN</code></p>
+<p>The identity of the value set, and the rule for what it contains. Most of this block is carried. The exception matters: the canonical URL the chapter prints is not read, and the writer constructs one from the table number instead. For 412 of 429 tables those are the same string, which is why it went unnoticed.</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>Value Set OID</b></td><td class='num'>438</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>ValueSet.identifier[0].value</code> as <code>urn:oid:&hellip;</code></td><td>Carried unchanged, on the same rule as the code system OID.</td></tr>
+<tr><td class='nowrap'><b>SymbolicName</b></td><td class='num'>437</td><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td><code>ValueSet.name</code> (PascalCase), <code>ValueSet.title</code> (verbatim)</td><td>Same two-element treatment as the code system's.</td></tr>
+<tr><td class='nowrap'><b>Description</b></td><td class='num'>438</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>ValueSet.description</code></td><td>Carried verbatim &mdash; including for the <b>16 tables whose description is truncated mid-word at the source</b>. This is the one published defect that reaches the generated resources. THO carries the same truncation on 15 of the 16, so it is not something this project introduced. Listed in full in the escalation register.</td></tr>
+<tr><td class='nowrap'><b>Full Name</b></td><td class='num'>432</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>The Value Set counterpart of the Code System Full Name, on 432 tables, and read by nothing for the same reason: <code>title</code> already holds <code>SymbolicName</code>.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>429</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><b>Read by nothing, and it should be.</b> The writer constructs <code>ValueSet.url</code> from the table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of 429 tables that is character-for-character what the chapter prints, which is why this was invisible until the mapping was written out. <b>For 17 tables it is not</b>, and for four of those the chapter, THO and UTG all agree on a canonical we are not using. See the findings section.</td></tr>
+<tr><td class='nowrap'><b>Content Logical Definition</b></td><td class='num'>438</td><td class='nowrap'><span class='badge b-flag'>Used, not carried</span></td><td>the shape of <code>ValueSet.compose</code></td><td><code>all codes</code> composes the whole code system; <code>enumerated per table content</code> lists the table's rows; an <i>Include &hellip; where concept is-a X</i> clause becomes a filter. The <i>rule</i> survives in the compose, but the sentence the chapter wrote does not, and anything the writer cannot parse sends the table to the blocked list rather than being recorded.</td></tr>
+<tr><td class='nowrap'><b>THO URL</b></td><td class='num'>3</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Three tables (0821, 0822, 0823) carry an <code>hl7.org/permalink</code> address under this key. A permalink is not a canonical and could not be used as one, but it does point at the intended value set, which is more than those three tables otherwise give us &mdash; all three are currently blocked.</td></tr>
+<tr><td class='nowrap'><b>Comments</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Two tables. 0719's says <i>replaces 2.16.840.1.113883.21.406</i> &mdash; supersession again, and again dropped. 0821's is empty.</td></tr>
+<tr><td class='nowrap'><b>UTG Name</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Table 0083 only, as with the code system block.</td></tr>
+<tr><td class='nowrap'><b>UTG Title</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Table 0083 only.</td></tr>
+</table>
+<h2 id='bindings'>Binding Information<span class='dim-tag'>439 tables</span></h2>
+<p class='sub'>Feeds <code>nothing at present</code></p>
+<p>One field, on 439 tables, and nothing reads it. ADR-0008 lists &ldquo;whether Binding Information (realm) is represented at all&rdquo; as an open Batch C question; this is that question with a count attached.</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>Realm</b></td><td class='num'>439</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>On 439 tables, almost all of them <code>representative</code>. FHIR has <code>ValueSet.jurisdiction</code>, which is the obvious candidate, but &ldquo;representative&rdquo; is not a jurisdiction &mdash; it is a statement about the <i>status</i> of the binding, closer to an HL7 realm concept than to a country code. Recorded as an open Batch C question in ADR-0008 and still open.</td></tr>
+</table>
+<h2 id='tableMetadata'>Table metadata<span class='dim-tag'>799 tables</span></h2>
+<p class='sub'>Feeds <code>resource id, work group</code></p>
+<p>The chapter's own description of the table as a table, rather than of the terminology it carries. Two fields are read. The rest &mdash; including the table's own description, its type, and every field it is used in &mdash; are not.</p>
+<table><tr><th>Field</th><th class='num'>Tables</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>Table</b></td><td class='num'>799</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>CodeSystem.id</code> / <code>ValueSet.id</code> as <code>v2-NNNN</code>, and the canonical URL</td><td>The table number is the spine of the whole output: resource id, file name and canonical URL all derive from it.</td></tr>
+<tr><td class='nowrap'><b>Table OID</b></td><td class='num'>798</td><td class='nowrap'><span class='badge b-flag'>Used, not carried</span></td><td>resolves an external code system where the chapter names none</td><td>Table 0227 is the whole of this case: no code system block, but the table's own OID is registered in THO as a NamingSystem for MVX. The OID itself is not written to the resource &mdash; the identifier on the output comes from the Code System OID or Value Set OID, not from this one.</td></tr>
+<tr><td class='nowrap'><b>SymbolicName</b></td><td class='num'>593</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>The table's own symbolic name, distinct from the code system's and the value set's. Populated on 593 tables and read by nothing.</td></tr>
+<tr><td class='nowrap'><b>Description</b></td><td class='num'>799</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><b>A description of the table, on all 799 tables, going nowhere.</b> It is not a duplicate of the code system or value set description &mdash; it describes the table as a whole, and it is present on the 355 tables that have no code system block at all and therefore no other description of any kind. For a concept-domain-only table this is the only prose the chapter offers beyond the domain definition.</td></tr>
+<tr><td class='nowrap'><b>Type</b></td><td class='num'>799</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><code>User</code>, <code>HL7</code> and the other table types. This is a real classification with consequences &mdash; a User table is site-extensible and an HL7 table is not &mdash; and it is the kind of thing an implementer needs. FHIR has no standard place for it, so it would need a concept property or an extension.</td></tr>
+<tr><td class='nowrap'><b>Steward</b></td><td class='num'>581</td><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td><code>structuredefinition-wg</code> extension</td><td>Mapped through a lookup from the chapter's initials to HL7 work group codes. Two lossy points: a steward naming two groups (<code>InM/PA</code>) is attributed to the first, and an unrecognised steward produces no extension at all rather than a wrong one. Where UTG already records a work group, UTG's wins.</td></tr>
+<tr><td class='nowrap'><b>where used</b></td><td class='num'>779</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>The message fields the table is bound to &mdash; <code>PID-8</code> and so on &mdash; on 779 tables. This is the link between the vocabulary and the rest of the standard, and it is the single richest piece of information in the chapter that reaches nothing. It arguably belongs on the <i>binding</i> rather than on the value set, which is why it has no natural home in a terminology-only IG. Worth deciding deliberately rather than by omission.</td></tr>
+<tr><td class='nowrap'><b>HL7 Version Introduced</b></td><td class='num'>607</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>The release the <i>table</i> was introduced in, on 607 tables. A different fact from the code system version block's field of the same name, and dropped for the same reason: no property has been defined for it. D18 covers both.</td></tr>
+<tr><td class='nowrap'><b>Full Name</b></td><td class='num'>3</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Three tables carry it at table level as well.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>2</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Two tables.</td></tr>
+<tr><td class='nowrap'><b>Version Info</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>One table.</td></tr>
+<tr><td class='nowrap'><b>Code System OID</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>One table carries a Code System OID in its table metadata block rather than in its code system block. An editing slip, but it means one table's code system OID is invisible to the writer.</td></tr>
+</table>
+<h2 id='codedContent'>Coded content (the rows)<span class='dim-tag'>415 tables</span></h2>
+<p class='sub'>Feeds <code>CodeSystem.concept</code></p>
+<p>The codes themselves. This is the part of the chapter the whole exercise exists to carry, and all five columns reach the output. Counts here are rows rather than tables: 5,540 concepts across the corpus.</p>
+<table><tr><th>Field</th><th class='num'>Rows</th><th>Status</th><th>Where it goes</th><th>Notes</th></tr>
+<tr><td class='nowrap'><b>value</b></td><td class='num'>5540</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>concept.code</code></td><td>Also <code>compose.include.concept.code</code> where the value set enumerates rather than including the whole system.</td></tr>
+<tr><td class='nowrap'><b>displayName</b></td><td class='num'>5407</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>concept.display</code></td><td>And <code>compose.include.concept.display</code> in an enumerated value set.</td></tr>
+<tr><td class='nowrap'><b>definition</b></td><td class='num'>371</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>concept.definition</code></td><td>Omitted where the chapter gives none, which is most concepts. <b>It is deliberately not back-filled from <code>display</code></b>, although UTG does that; the publisher warns <code>CODESYSTEM_CONCEPT_NO_DEFINITION</code> corpus-wide and the warning is accepted.</td></tr>
+<tr><td class='nowrap'><b>comment</b></td><td class='num'>1783</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>concept.property[v2-concComment].valueString</code></td><td>UTG's own property for this, reused rather than invented. The property is declared on the CodeSystem only where some concept in it actually uses one.</td></tr>
+<tr><td class='nowrap'><b>status</b></td><td class='num'>300</td><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td><code>concept.property[status].valueCode</code></td><td>Blank becomes <code>active</code>, <code>D</code> becomes <code>deprecated</code>, <code>R</code> becomes <code>retired</code>. <code>N</code> and <code>B</code> have no FHIR equivalent and are <b>passed through as themselves</b>, which is what UTG does; they are not valid concept status codes, so a validator may object.</td></tr>
+</table>
+<h2 id='classes'>How the mapping changes with the output class</h2>
+
+<p>The mapping above assumes the ordinary case: a table that owns its code
+system. Most tables do not. Which fields have a destination at all depends on
+which of these classes a table falls into, and the counts are lopsided &mdash;
+the largest class writes almost nothing.</p>
+
+<table><tr><th>Class</th><th class='num'>Tables</th><th>What it means for the mapping</th></tr>
+<tr><td class='nowrap'><b>Own code system</b><br><code>code-system-and-value-set</code></td><td class='num'>398</td><td>The table owns its code system and publishes codes. A CodeSystem and a ValueSet are written, and the mapping below applies in full.</td></tr>
+<tr><td class='nowrap'><b>External code system</b><br><code>value-set-only</code></td><td class='num'>24</td><td>The codes belong to somebody else &mdash; UCUM, SNOMED, ISO 3166, a v3 code system, or another v2 table. Only a ValueSet is written. <b>Everything in the Code System Identification block except the OID therefore has no destination for these tables</b>, even the fields marked Carried above, because there is no CodeSystem to carry them.</td></tr>
+<tr><td class='nowrap'><b>Concept domain only</b><br><code>concept-domain-only</code></td><td class='num'>360</td><td>The table declares a domain and no code system. Nothing is written but a concept in the shared <code>conceptdomains</code> CodeSystem, so only the Concept Domain block has any destination at all.</td></tr>
+<tr><td class='nowrap'><b>Nothing declared</b><br><code>nothing-to-write</code></td><td class='num'>3</td><td>The chapter declares the table and no terminology of any kind.</td></tr>
+<tr><td class='nowrap'><b>Blocked</b><br><code>needs-decision</code></td><td class='num'>14</td><td>Something about the table could not be settled mechanically, so nothing is written yet and no field has a destination.</td></tr>
+</table>
+
+<p>The <b>external code system</b> class is the one the original question
+pointed at. For those 24 tables Chapter 2C still publishes a complete Code
+System Identification block &mdash; OID, symbolic name, description, full name
+&mdash; describing a code system somebody else owns. We write no CodeSystem for
+them, correctly, so <b>none of that block is carried</b>, not just the Full
+Name.</p>
+
+<p>The natural FHIR home for &ldquo;here is what we know about a code system we
+do not own&rdquo; is a <code>NamingSystem</code>, and THO already publishes
+those &mdash; that is how tables like 0227 were resolved in the first place.
+<b>This project reads THO's NamingSystems and writes none of its own.</b> So
+where Chapter 2C's description of an external code system differs from THO's,
+or adds something THO lacks, that difference is currently invisible. Whether it
+should be reconciled, and whether any NamingSystem should be authored here, is
+an open question this document does not answer.</p>
+
+<h2 id='domains'>The concept-domain-only tables</h2>
+
+<p>360 tables declare a concept domain and no code system, and 3 declare
+nothing at all. The mapping treats them almost entirely as a lost cause,
+because every block except Concept Domain is written for a table that has
+terminology. In practice the loss is much smaller than that suggests.</p>
+
+<table class='narrow'><tr><th>Of those tables&hellip;</th><th class='num'>Count</th></tr>
+<tr><td>tables</td><td class='num'>363</td></tr>
+<tr><td>with a Code System block</td><td class='num'>2</td></tr>
+<tr><td>with a Value Set block</td><td class='num'>2</td></tr>
+<tr><td>with a Code System Version block</td><td class='num'>0</td></tr>
+<tr><td>with a Binding block</td><td class='num'>3</td></tr>
+<tr><td>with codes</td><td class='num'>4</td></tr>
+<tr><td>coded rows</td><td class='num'>11</td></tr>
+</table>
+
+<p>So the picture for concept-domain-only tables is <b>not</b> that 360 tables
+lose six blocks of content each. Nearly all of them carry the Concept Domain
+block and the table metadata block and nothing else, and the Concept Domain
+block is carried in full. What they lose is what every table loses: the table
+metadata. That matters more here than elsewhere, because for these tables the
+table-level <b>Description</b> is the only prose the chapter offers apart from
+the domain definition itself, and it reaches nothing.</p>
+
+<p>The handful of exceptions are already known and already escalated. The two
+carrying a Code System block are 0560 and 0910, whose block is the
+<code>noObject</code> placeholder. The four carrying codes are the tables that
+publish example codes for a domain &mdash; conforming behaviour under the V3
+requirements, and the subject of an open register item about where those
+examples should live.</p>
+
+<h2 id='findings'>Found while writing this down</h2>
+
+<p>Writing the mapping out surfaced something the pipeline had not reported,
+which is the usual argument for doing this kind of exercise. It concerns the
+Value Set <code>URI</code> field.</p>
+
+<p>The writer never reads it. <code>ValueSet.url</code> is constructed from the
+table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of the 429
+tables that print a URI, the constructed string and the printed string are
+identical, which is why nobody noticed.</p>
+
+<p><b>17 tables print a Value Set canonical that is not the one we generate.</b> &ldquo;Published?&rdquo; means THO or UTG has a ValueSet at that exact URL.</p>
+<table><tr><th>Table</th><th>Name</th><th>Chapter prints</th><th>Published?</th><th>We generate</th><th>Published?</th><th>Status</th></tr>
+<tr><td class='nowrap'>0291</td><td>Subtype of Referenced Data</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0291</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0291</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>code-system-and-value-set</td></tr>
+<tr><td class='nowrap'>0347</td><td>State/Province</td><td class='small'>http://terminology.hl7.org/ValueSet-v2-notAllCodes-0347.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0347</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0399</td><td>Country Code</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0399</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+<tr><td class='nowrap'>0567</td><td>Weight Units</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0929</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0567</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0568</td><td>Volume Units</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0930</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0568</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0719</td><td>Access Restriction Reason Code</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-ActInformationSensitivityPolicy.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0719</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0824</td><td>Recorded Sex or Gender Type</td><td class='small'>www.hl7.org/permalink/?ValueSetRecordedSexOrGenderType</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0824</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+<tr><td class='nowrap'>0827</td><td>Source Document Jurisdiction for Recorded Sex or  Gender</td><td class='small'>http://hl7.org/fhir/ValueSet/jurisdiction</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0827</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+<tr><td class='nowrap'>0828</td><td>Sex Parameter for Clinical Use</td><td class='small'>https://terminology.hl7.org/ValueSet-sex-parameter-for-clinical-use.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0828</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+<tr><td class='nowrap'>0834</td><td>MIME Types</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0834</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0834</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>code-system-and-value-set</td></tr>
+<tr><td class='nowrap'>0953</td><td>Security Label Handling Instructions</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-SecurityControlObservationValue.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0953</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+<tr><td class='nowrap'>0954</td><td>Work Schedule ODH</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-WorkScheduleODH.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0954</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0955</td><td>Industry</td><td class='small'>https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0955</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0957</td><td>Employment Status (ODH)</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-employmentStatusODH.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0957</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0958</td><td>Occupation</td><td class='small'>https://phinvads.cdc.gov/vads/ViewValueSet.action?id=1445D71C-F37F-4504-8B6C-BA48C5A3F4CA</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0958</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0960</td><td>Data Absent Reason</td><td class='small'>http://hl7.org/fhir/ValueSet/data-absent-reason</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0960</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
+<tr><td class='nowrap'>0963</td><td>Device Safety</td><td class='small'>http://hl7.org/fhir/ValueSet/device-safety</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0963</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+</table>
+
+<p>Most of the seventeen are already-known defect classes appearing in a field
+nobody had checked &mdash; links to rendered pages where a canonical belongs,
+<code>hl7.org/permalink</code> addresses, and references to genuinely external
+value sets at FHIR or PHIN VADS canonicals. Those tables are mostly blocked
+already for other reasons.</p>
+
+<div class='counter'>
+<p><b>Four of them are a real divergence, and they point the same way.</b>
+Tables <b>0291, 0347, 0399 and 0834</b> print a canonical of the form
+<code>&hellip;/ValueSet/v2-notAllCodes-NNNN</code> &mdash; THO's convention for
+a value set that enumerates a subset of its code system rather than including
+all of it. <b>THO and UTG both publish exactly that canonical, and neither
+publishes the <code>v2-NNNN</code> form we generate.</b> So for these four,
+the chapter, THO and UTG agree with each other and this project agrees with
+none of them: it mints a fifth canonical that has never existed.</p>
+
+<p>There is a second-order effect worth knowing about. The writer inherits
+version and date from the existing UTG file by matching on the table number in
+the file name, and UTG's files for three of these are named
+<code>vs-v2-notAllCodes-NNNN.xml</code>. The match fails, so those three
+inherit nothing and fall back to the default version &mdash; which means three
+of the &ldquo;16 resources UTG does not have&rdquo; are resources UTG has all
+along, under a name the parser did not recognise. Table 0347 is currently
+emitted at version 1.0.0 where UTG publishes 2.0.0.</p>
+</div>
+
+<p>A separate pair, <b>0567 and 0568</b>, print another table's value set
+canonical &mdash; <code>v2-0929</code> and <code>v2-0930</code> respectively.
+Both the printed and the generated canonical exist in THO, so this is not a
+dangling reference; it is the value-set counterpart of the pattern ADR-0008 D11
+found for code systems, where one table borrows another's terminology. It needs
+the same treatment and has not had it.</p>
+
+<p><b>None of this has been changed.</b> Honouring the printed URI is not a
+blanket rule &mdash; a page URL and a permalink are not canonicals, and
+adopting them would be worse than ignoring them. It needs the same
+classify-then-resolve treatment the Code System URI already has, and that is a
+decision rather than a fix.</p>
+
+<h2 id='completeness'>Completeness check</h2>
+
+<p>The mapping is authored by hand and the corpus is regenerated by machine, so
+they can drift. This check compares them on every run: any field that appears
+in an extracted table and not in the mapping is reported here, and so is any
+field in the mapping that no longer appears in the corpus.</p>
+
+<div class='settled'><b>Every field in the corpus is accounted for</b>, and every field in the mapping still exists in the corpus. Nothing to do.</div>
+<p class='faint'>Generated 2026-08-25 by <code>tooling/scripts/render_field_mapping.py</code> from <code>tooling/scripts/field_mapping_spec.py</code>. Edit the spec module, not this file.</p>
+</main></body></html>

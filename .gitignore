@@ -105,6 +105,11 @@ Thumbs.db
 !/v291-extracted/v2mgmt-briefing.html
 !/v291-extracted/v2mgmt-briefing.md
 !/v291-extracted/utg-briefing.md
+# What each Chapter 2C field maps to in the generated resources, and what is
+# dropped. Generated from tooling/scripts/render_field_mapping.py, tracked so
+# the loss list is readable and diffable without running anything.
+!/v291-extracted/vocabulary-field-mapping.html
+!/v291-extracted/vocabulary-field-mapping.md
 /v291-canonical/message-structures/
 /v291-canonical/fixes-report.html
 /v2plus_docx/

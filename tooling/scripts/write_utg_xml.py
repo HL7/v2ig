@@ -101,14 +101,18 @@ VS_CANONICAL = "http://terminology.hl7.org/ValueSet/v2-{table}"
 # UTG's own values, read off their existing files; they are Batch A questions
 # that have not been answered, and every one of them is a single edit here.
 #
-# DEFAULT_VERSION is emphatically NOT a claim that every resource is at 3.0.0.
+# DEFAULT_VERSION is emphatically NOT a claim that every resource is at 1.0.0.
 # Version is inherited per resource from the existing UTG file, and UTG's own
-# corpus is not uniform -- it carries 4.0.0 and 5.0.0 as well. The default is
+# corpus is not uniform -- it carries 3.0.0, 4.0.0 and 5.0.0. The default is
 # reached only by a resource UTG does not yet have, and every resource that
 # reaches it is listed in the write report under `usedDefaultVersion` so the
-# fallback is never silent. For genuinely new content 3.0.0 is a placeholder,
-# not a considered answer.
-DEFAULT_VERSION = "3.0.0"
+# fallback is never silent.
+#
+# 1.0.0 is the user's answer (2026-08-25) to what a genuinely new CodeSystem or
+# ValueSet should start at. It replaces a 3.0.0 placeholder that had been chosen
+# only to match the neighbours. A first publication of a resource nobody has
+# published before is a first version, whatever its neighbours happen to carry.
+DEFAULT_VERSION = "1.0.0"
 DEFAULT_DATE = "2019-12-01"
 DEFAULT_STATUS = "active"
 DEFAULT_EXPERIMENTAL = "false"
@@ -781,11 +785,12 @@ def process(records, utg, oid_index):
             if key in plan:
                 entry[key] = plan[key]
 
-        if plan["action"] in ("code-system-and-value-set", "value-set-only"):
-            inherited = (utg.code_systems.get(table, {}).get("version")
-                         or utg.value_sets.get(table, {}).get("version"))
-            if not inherited:
-                entry["usedDefaultVersion"] = DEFAULT_VERSION
+        # Which resources fell back to DEFAULT_VERSION, tracked per resource
+        # rather than per table. A table can inherit a version for its
+        # CodeSystem and not for its ValueSet -- that is what happens when UTG
+        # files the value set under a different name, as it does for the
+        # `notAllCodes` tables -- and a per-table flag hides exactly that case.
+        used_default = []
 
         if plan["action"] == "code-system-and-value-set":
             metadata = record.get("tableMetadata") or {}
@@ -795,6 +800,8 @@ def process(records, utg, oid_index):
                     f"No work group extension: steward "
                     f"{metadata.get('Steward')!r} is not a work group we map."
                 )
+            if not utg.code_systems.get(table, {}).get("version"):
+                used_default.append("CodeSystem")
             document = render_document(build_code_system(record, plan, utg))
             path = f"codeSystems/cs-v2-{table}.xml"
             files[path] = document
@@ -815,10 +822,18 @@ def process(records, utg, oid_index):
                         f"{unbuildable!r}."
                     )
                 else:
+                    if not utg.value_sets.get(table, {}).get("version"):
+                        used_default.append("ValueSet")
                     document = render_document(build_value_set(record, plan, utg))
                     path = f"valueSets/vs-v2-{table}.xml"
                     files[path] = document
                     entry["written"].append(path)
+
+        if used_default:
+            entry["usedDefaultVersion"] = {
+                "version": DEFAULT_VERSION,
+                "resources": used_default,
+            }
 
         report.append(entry)
     return files, report
