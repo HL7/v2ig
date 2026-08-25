@@ -1140,6 +1140,105 @@ def build_escalation_section():
     }]
 
 
+# Batch A is the set of publication-metadata defaults Chapter 2C does not
+# carry. They are the user's decisions, not a committee's, and every one of
+# them is a constant at the top of `tooling/scripts/write_utg_xml.py`. Each
+# entry states what is emitted now, what the evidence for it is, and what the
+# alternative would be, so the decision can be made from this table alone.
+BATCH_A_DEFAULTS = [
+    (
+        "<code>version</code>",
+        "Inherited per resource from the existing UTG file. "
+        "<b>3.0.0 only as a fallback, for the 16 resources UTG does not have.</b>",
+        "UTG's own corpus is not uniform: its CodeSystems carry 3.0.0 (412), "
+        "5.0.0 (3) and 4.0.0 (1); its ValueSets carry 3.0.0 (430), 2.0.0 (6) "
+        "and 4.0.0 (3). Inheriting keeps 807 of 823 resources exactly where "
+        "UTG has them and confines the question to genuinely new content.",
+        "<b>The open decision is only what a new resource should start at.</b> "
+        "3.0.0 is a placeholder chosen to match the neighbours, not a "
+        "considered answer &mdash; arguably new content should start lower, or "
+        "at whatever release it first appears in. The 16 are listed in the "
+        "write report under <code>usedDefaultVersion</code>.",
+    ),
+    (
+        "<code>date</code>",
+        "Inherited from UTG; <code>2019-12-01</code> as the fallback.",
+        "414 of 416 UTG CodeSystems and 437 of 439 ValueSets carry "
+        "<code>2019-12-01</code> &mdash; the date of the bulk v2 load, not a "
+        "date anyone chose per resource.",
+        "Using it for new content asserts the resource existed in 2019, which "
+        "is false. The alternatives are the date this work is published, or "
+        "omitting <code>date</code> on new resources. Note that a build date "
+        "would churn on every regeneration, which is why it is not a "
+        "generated value today.",
+    ),
+    (
+        "<code>status</code>, <code>experimental</code>",
+        "<code>active</code> and <code>false</code> for everything.",
+        "Unanimous in UTG: all 416 CodeSystems and all 439 ValueSets carry "
+        "exactly these two values.",
+        "Defensible to adopt without further thought for content that mirrors "
+        "UTG. Worth a moment's thought for the two genuinely new CodeSystems "
+        "(0411, 0460), which have never been published anywhere and are "
+        "arguably <code>draft</code> until they have.",
+    ),
+    (
+        "<code>publisher</code>, <code>contact</code>",
+        "&ldquo;Health Level Seven International&rdquo;, with "
+        "<code>http://hl7.org</code> and <code>hq@HL7.org</code>.",
+        "Unanimous across all 855 UTG files.",
+        "No reason to diverge. The one thing to know is that the IG Publisher "
+        "will <b>overwrite these</b> from the IG's own values unless "
+        "<code>apply-publisher</code> and <code>apply-contact</code> are set "
+        "false &mdash; along with <code>apply-version</code>, "
+        "<code>apply-copyright</code>, <code>apply-wg</code>, "
+        "<code>apply-jurisdiction</code> and <code>apply-license</code>, all "
+        "of which the base template defaults to true.",
+    ),
+    (
+        "ValueSet coverage",
+        "One ValueSet wherever Chapter 2C declares a Value Set block.",
+        "<b>This question turned out to be moot.</b> Across all 799 tables, "
+        "&ldquo;declares a Value Set block&rdquo; and &ldquo;Concept Domain "
+        "Only = no&rdquo; coincide exactly &mdash; 438 of each, the same set, "
+        "no exceptions. The two candidate policies produce identical output.",
+        "Nothing to decide. Recorded so it is not reopened.",
+    ),
+]
+
+
+def build_batch_a_section():
+    """Render the publication-metadata defaults as one decision table.
+
+    These are not committee questions and not defects; they are the handful of
+    values Chapter 2C does not supply, which somebody has to choose. They are
+    gathered here rather than left in the source so the choice can be made
+    against the evidence rather than by reading a constants block.
+    """
+    rows = [[name,
+             f"<p><b>{emitted}</b></p><p>{evidence}</p>"
+             f'<p class="ask"><b>To decide:</b> {decision}</p>']
+            for name, emitted, evidence, decision in BATCH_A_DEFAULTS]
+    return [{
+        "id": "batch-a-defaults",
+        "group": "For the editor",
+        "title": "Publication metadata Chapter 2C does not carry",
+        "action": "decide",
+        "blurb":
+            "Every generated resource needs a version, a date, a status and a "
+            "publisher, and the chapter supplies none of them. Each value "
+            "below is a single constant in "
+            "<code>tooling/scripts/write_utg_xml.py</code>. None blocks "
+            "generation; all of them are cheap to change now and expensive to "
+            "change after the resources are in front of a committee.",
+        "count": len(BATCH_A_DEFAULTS),
+        "columns": ["Field", "What is emitted, and why"],
+        "rows": rows,
+        "raw_html_columns": {1},
+        "open_by_default": True,
+    }]
+
+
 def build_writer_blocker_section():
     """Render the tables the XML writer could not settle by itself.
 
@@ -1609,6 +1708,7 @@ def main():
 
     sections = build_escalation_section()
     sections += build_writer_blocker_section()
+    sections += build_batch_a_section()
     sections += build_sections(deviations, comparison, source_issues)
     sections += build_concept_domain_sections(concept_domains)
     sections += build_character_section()

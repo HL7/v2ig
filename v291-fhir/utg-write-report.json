@@ -3,8 +3,8 @@
     "code-system-and-value-set": 398,
     "concept-domain-only": 360,
     "nothing-to-write": 3,
-    "value-set-only": 23,
-    "needs-decision": 15
+    "value-set-only": 24,
+    "needs-decision": 14
   },
   "tables": [
     {
@@ -424,7 +424,8 @@
         "valueSets/vs-v2-0078.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
-      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.83"
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.83",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0080",
@@ -1657,9 +1658,13 @@
     {
       "table": "0227",
       "name": "Manufacturers of Vaccines (code=MVX)",
-      "action": "needs-decision",
-      "reason": "A value set is declared but no code system, so there is nothing to compose over.",
-      "written": []
+      "action": "value-set-only",
+      "reason": "The chapter declares no code system, but the table's own OID is registered in THO as a NamingSystem for an external one.",
+      "written": [
+        "valueSets/vs-v2-0227.xml"
+      ],
+      "systemUrl": "http://hl7.org/fhir/sid/mvx",
+      "resolvedBy": "THO NamingSystem for table OID 2.16.840.1.113883.12.227"
     },
     {
       "table": "0228",
@@ -2839,7 +2844,8 @@
         "valueSets/vs-v2-0347.xml"
       ],
       "systemUrl": "urn:iso:std:iso:3166",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0350",
@@ -3346,10 +3352,11 @@
       "table": "0399",
       "name": "Country Code",
       "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'ISO 3166-1 alpha-3 axis'.",
+      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'.",
       "written": [],
       "systemUrl": "urn:iso:std:iso:3166",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0401",
@@ -3440,7 +3447,8 @@
         "valueSets/vs-v2-0411.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0411",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0412",
@@ -3912,7 +3920,8 @@
         "valueSets/vs-v2-0460.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0460",
-      "resolvedBy": "OID 2.16.840.1.113883.18.294 is in the HL7 v2 code system arc"
+      "resolvedBy": "OID 2.16.840.1.113883.18.294 is in the HL7 v2 code system arc",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0461",
@@ -6164,7 +6173,8 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.4",
-      "published": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html"
+      "published": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0720",
@@ -6824,7 +6834,8 @@
         "valueSets/vs-v2-0820.xml"
       ],
       "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0821",
@@ -6842,10 +6853,11 @@
       "table": "0822",
       "name": "Personal Pronouns",
       "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'as defined in the linked value set'.",
+      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.",
       "written": [],
       "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0823",
@@ -6863,10 +6875,11 @@
       "table": "0824",
       "name": "Recorded Sex or Gender Type",
       "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'as defined in the linked value set'.",
+      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.",
       "written": [],
       "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0826",
@@ -7568,7 +7581,8 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
-      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html"
+      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0955",
@@ -7579,16 +7593,18 @@
         "valueSets/vs-v2-0955.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/PHIndustryCDCCensus2010",
-      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.315"
+      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.315",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0956",
       "name": "Job Supervisory Level or Pay Grade",
       "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'unspecified'.",
+      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'unspecified'.",
       "written": [],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH",
-      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.327"
+      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.327",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0957",
@@ -7600,7 +7616,8 @@
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
-      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html"
+      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0958",
@@ -7611,7 +7628,8 @@
         "valueSets/vs-v2-0958.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/PHOccupationCDCCensus2010",
-      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.314"
+      "resolvedBy": "THO resolves OID 2.16.840.1.114222.4.5.314",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0959",
@@ -7634,7 +7652,8 @@
         "valueSets/vs-v2-0960.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0961",
@@ -7663,10 +7682,11 @@
       "table": "0963",
       "name": "Device Safety",
       "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'See content logical definition of the referenced value set'.",
+      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'See content logical definition of the referenced value set'.",
       "written": [],
       "systemUrl": "Not yet approved by HTA",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "usedDefaultVersion": "3.0.0"
     },
     {
       "table": "0964",

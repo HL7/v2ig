@@ -24,15 +24,18 @@ this file.
 3. [Table 0821 _Gender Identity_ publishes its coded content grid completely blank](#3) — 0821
 4. [Table 0931 _Temperature Units_ publishes three codes, two of which are the same unit, and one of which is invalid](#4) — 0931
 5. [All six UCUM-backed tables name the code system “Donation Duration Units Code System”](#5) — 0567, 0568, 0929, 0930, 0931, 0932
-6. [Two tables publish literal placeholder text — `noObject` and `noDescription`](#6) — 0560, 0910
-7. [Table 0347 _State/Province_ gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes”](#7) — 0347
-8. [“All codes” is used where a value set enumerates a handful of UCUM codes](#8) — 0929, 0930, 0931, 0932
-9. [Two pairs of tables are duplicates of each other](#9) — 0567 / 0929, 0568 / 0930
-10. [Five concept domains are given two different descriptions within Chapter 2C](#10) — 5 concept domains
-11. [Five concept domain definitions differ between Chapter 2C and THO](#11) — 0952, 0967, 0675, 0066, 0626
-12. [Where should a concept domain’s example codes live?](#12) — 0093, 0340, 0451
-13. [Three “tables” that carry no terminology at all](#13) — 0010, 0188, 9999
-14. [Two table headings are styled `Normal` instead of `Heading 3`](#14) — 0685, 0767
+6. [The copy-pasted Full Name is not confined to the UCUM tables](#6) — 0001, 0125, 0180, 0203, 0458, 0820 and others
+7. [Two tables publish literal placeholder text — `noObject` and `noDescription`](#7) — 0560, 0910
+8. [Table 0347 _State/Province_ gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes”](#8) — 0347
+9. [“All codes” is used where a value set enumerates a handful of UCUM codes](#9) — 0929, 0930, 0931, 0932
+10. [Two pairs of tables are duplicates of each other](#10) — 0567 / 0929, 0568 / 0930
+11. [Five concept domains are given two different descriptions within Chapter 2C](#11) — 5 concept domains
+12. [Five concept domain definitions differ between Chapter 2C and THO](#12) — 0952, 0967, 0675, 0066, 0626
+13. [Sixteen Value Set descriptions stop mid-word, all at about 250 characters](#13) — 0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544
+14. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#14) — 0954, 0957
+15. [Where should a concept domain’s example codes live?](#15) — 0093, 0340, 0451
+16. [Three “tables” that carry no terminology at all](#16) — 0010, 0188, 9999
+17. [Two table headings are styled `Normal` instead of `Heading 3`](#17) — 0685, 0767
 
 ---
 
@@ -89,22 +92,33 @@ The three codes are `degF` (status `D`, comment “typo”), `[degF]`, and `Cel`
 
 Every table in Chapter 2C backed by UCUM carries the same Code System Identification block — OID `2.16.840.1.113883.6.8`, symbolic name `ucum`, URI `http://unitsofmeasure.org` — with `Full Name: Donation Duration Units Code System`. Only 0932 is about donation duration; the name was copy-pasted across Weight Units, Volume Units and Temperature Units, twice over, since 0567/0568 duplicate 0929/0930. The name is wrong even on 0932. The code system being identified is UCUM, so its full name is the Unified Code for Units of Measure, not the name of whichever table happens to point at it.
 
-**The ask:** A technical correction: set the Full Name to UCUM's own name in all six. Expected to be uncontroversial, but it is a change to published text and so is not ours to make unilaterally.
+**The ask:** **Cleared to correct.** Measured against HL7's errata guidance this is squarely a technical correction — a name inconsistently applied during editing, where fixing it makes the chapter say what was plainly intended. Set the Full Name to UCUM's own name in all six. **Note that this changes no generated resource.** UCUM is an external code system, so these six tables produce a ValueSet and no CodeSystem, and the ValueSet takes its name and description from the Value Set block rather than the Code System block. The correction is to the chapter, and to the report that mirrors it.
 
 <a id="6"></a>
 
-## 6. Two tables publish literal placeholder text — `noObject` and `noDescription`
+## 6. The copy-pasted Full Name is not confined to the UCUM tables
+
+**Tables:** 0001, 0125, 0180, 0203, 0458, 0820 and others  
+**Goes to:** V2 Management
+
+Checking the UCUM finding against the whole chapter turned up the same defect elsewhere. **412 of the 444 Code System Identification blocks follow the pattern `<Table Name> Code System` exactly**, which makes the exceptions easy to see. Some are legitimate — a table pointing at SNOMED CT or ISO 3166 should name that system, not itself. Others are the UCUM defect again, a name carried over from a different table: 0001 _Administrative Sex_ is named “Jurisdiction Gender Code System”, 0125 _Value Type_ is “Data Types”, 0180 _Masterfile Action Code_ is “Record-level Event Code”, 0203 _Identifier Type_ is “Practitioner ID Number Type”, 0458 _OCE Edit Code_ is “Reimbursement Action Code”, 0820 _Gender Harmony Concepts_ is “Personal Pronouns”. One more, 0232, begins with a stray hyphen: `- Insurance Company Contact Reason Code System`. Like the UCUM case, none of this reaches a generated resource; the emitted name and title come from the symbolic name.
+
+**The ask:** If the UCUM correction is approved as a technical correction, the same reasoning covers these. Someone who knows the tables needs to separate the genuine exceptions from the copy-paste errors — this project can produce the candidate list but cannot make that call.
+
+<a id="7"></a>
+
+## 7. Two tables publish literal placeholder text — `noObject` and `noDescription`
 
 **Tables:** 0560, 0910  
 **Goes to:** V2 Management
 
-Tables 0560 (Quantity Units) and 0910 (Acquisition Modality) each carry a Code System Identification block reading OID `-`, symbolic name `noObject`, description `noDescription`, and — again copy-pasted from somewhere else — `Full Name: Name Representation Code System`. These are not values; they are a tool's way of saying the field was left blank, and they were published. Worth noting that this placeholder appears in exactly these two sections and nowhere else in Chapter 2C, and that both are tables with no genuine code system. The placeholder is a reliable marker of the condition, not random noise, which is part of why both are treated as concept domain only.
+Tables 0560 (Quantity Units) and 0910 (Acquisition Modality) each carry a Code System Identification block reading OID `-`, symbolic name `noObject`, description `noDescription`, and — again copy-pasted from somewhere else — `Full Name: Name Representation Code System`. These are not values; they are a tool's way of saying the field was left blank, and they were published. Worth noting that this placeholder appears in exactly these two sections and nowhere else in Chapter 2C, and that both are tables with no genuine code system. The placeholder is a reliable marker of the condition, not random noise, which is part of why both are treated as concept domain only. **The two tables have then been treated completely differently downstream, and that is the finding.** They present identically in the chapter: same placeholder block, same absence of a code system, both declaring a concept domain and a value set. **For 0910, THO has nothing** — no CodeSystem, no ValueSet, and neither does the UTG repository. The chapter declares no code system, so none was minted. That is the treatment that follows from the source. **For 0560, THO publishes both** `CodeSystem/v2-0560` and `ValueSet/v2-0560` at version 3.0.0, and so does UTG. The CodeSystem is `content: complete` and carries five concepts — `FL` Units, `DY` Days, `HS` Hours, `MN` Month, `YY` Years — under the title _Quantity Units_ and the description “HL7-defined code system of concepts specifying the adjustment quantity”. Four of the five are units of time. So a code system was minted at an HL7 canonical for a table whose source declares none, and the content it was filled with is the same content flagged as wrong elsewhere on this list. 0560 is the _only_ table this project treats as concept domain only where THO carries resources; there are eight such tables in total and the other seven have nothing.
 
-**The ask:** Should the placeholder blocks be removed from the published chapter? And, for this IG: is there any reason to preserve them verbatim as evidence of what was published, or should a table with no code system simply have no Code System Identification block?
+**The ask:** Two questions, and the second is the one that needs both groups. First, should the placeholder blocks be removed from the published chapter, and should a table with no code system simply have no Code System Identification block? Second: **0560 and 0910 are the same case and have been handled in opposite ways.** Either 0910 is missing resources or 0560 has resources it should never have had. This project's working decision treats both as concept domain only, which means it declines to carry forward THO's existing 0560 CodeSystem and ValueSet — a divergence from published THO content that needs TSMG's agreement as well as V2 Management's. **Nothing will be altered in THO's existing records on this project's initiative.**
 
-<a id="7"></a>
+<a id="8"></a>
 
-## 7. Table 0347 _State/Province_ gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes”
+## 8. Table 0347 _State/Province_ gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes”
 
 **Tables:** 0347  
 **Goes to:** V2 Management
@@ -113,9 +127,9 @@ The Code System Identification block correctly identifies ISO 3166-2 — OID `1.
 
 **The ask:** Two technical corrections — the URI, and the Content Logical Definition. Neither should be contentious, but both change published text.
 
-<a id="8"></a>
+<a id="9"></a>
 
-## 8. “All codes” is used where a value set enumerates a handful of UCUM codes
+## 9. “All codes” is used where a value set enumerates a handful of UCUM codes
 
 **Tables:** 0929, 0930, 0931, 0932  
 **Goes to:** V2 Management
@@ -124,9 +138,9 @@ Tables 0929 and 0930 give their Content Logical Definition as “enumerated per 
 
 **The ask:** Align the wording on the four tables. More usefully: is “all codes” meant to be a defined term with a specific mapping to `ValueSet.compose`, or is it informal prose? The answer affects how every one of the 438 value set blocks in the chapter is translated.
 
-<a id="9"></a>
+<a id="10"></a>
 
-## 9. Two pairs of tables are duplicates of each other
+## 10. Two pairs of tables are duplicates of each other
 
 **Tables:** 0567 / 0929, 0568 / 0930  
 **Goes to:** V2 Management
@@ -135,9 +149,9 @@ Table 0567 and table 0929 are both named Weight Units, declare the concept domai
 
 **The ask:** Confirm the older numbers are deprecated in favour of the newer ones, and say so in the chapter. This IG needs to know whether to publish two resources or one with an alias.
 
-<a id="10"></a>
+<a id="11"></a>
 
-## 10. Five concept domains are given two different descriptions within Chapter 2C
+## 11. Five concept domains are given two different descriptions within Chapter 2C
 
 **Tables:** 5 concept domains  
 **Goes to:** V2 Management
@@ -146,9 +160,9 @@ A concept domain has one description by definition, so a domain described two di
 
 **The ask:** Reconcile the five at source and say which description is correct.
 
-<a id="11"></a>
+<a id="12"></a>
 
-## 11. Five concept domain definitions differ between Chapter 2C and THO
+## 12. Five concept domain definitions differ between Chapter 2C and THO
 
 **Tables:** 0952, 0967, 0675, 0066, 0626  
 **Goes to:** V2 Management + TSMG
@@ -157,9 +171,31 @@ For 577 of the 582 shared concept domains, Chapter 2C and THO agree word for wor
 
 **The ask:** Reconcile the five between the two bodies. The four unrelated definitions matter more than the near-match: if Chapter 2C and THO genuinely disagree about what a domain means, choosing a wording does not fix that.
 
-<a id="12"></a>
+<a id="13"></a>
 
-## 12. Where should a concept domain’s example codes live?
+## 13. Sixteen Value Set descriptions stop mid-word, all at about 250 characters
+
+**Tables:** 0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544  
+**Goes to:** V2 Management
+
+Found while checking a generated resource rather than by looking for it. Table 0227's value set description ends “… the code system may be acce”. Sweeping the corpus for the same shape found **sixteen Value Set descriptions that end without terminal punctuation, every one of them between 242 and 252 characters long**. Nothing else in the chapter behaves this way: Code System descriptions run to 500 and 800 characters and end in complete sentences, and the same tables' own table-level descriptions are complete — 0227's runs to 582 characters and finishes cleanly. So this is not extraction loss and not an authoring habit; it is **a length cap of roughly 250 characters applied to one field** somewhere in the publication toolchain. **This one does reach the output.** Unlike the Full Name defects, the Value Set Description becomes `ValueSet.description`, so sixteen generated ValueSets currently carry a sentence that stops mid-word.
+
+**The ask:** The truncated text needs recovering from whatever source the chapter was generated from — this project cannot reconstruct it, only detect it. On the errata guidance this is content lost during the editing process rather than a change of meaning, so it should qualify as a technical correction. Until the full text is available the truncated form is published as-is, since inventing an ending would be worse.
+
+<a id="14"></a>
+
+## 14. Table 0954's logical definition would include an abstract concept THO's equivalent excludes
+
+**Tables:** 0954, 0957  
+**Goes to:** V2 Management + TSMG
+
+Both tables define their value set as a subtree of `v3-ObservationValue`. 0957 _Employment Status_ says it in two clauses — _Include codes … where concept is-a `_EmploymentStatus`_, then _Exclude codes where code = `_EmploymentStatus`_. That second clause matters: in FHIR, an `is-a` filter includes the concept it is rooted at, and `_EmploymentStatus` is an abstract grouper that should never be sent in a message. The exclusion is what makes the value set mean “the actual statuses”. **0954 _Work Schedule_ has the include clause and no exclude clause**, so read literally its value set contains the abstract `_WorkSchedule` grouper. THO's own `ValueSet/v3-WorkScheduleODH` **does** exclude it, and is otherwise identical to 0957's shape. So either the chapter dropped a clause from 0954, or the two tables genuinely differ — and nothing in the text says which. This project builds what the chapter says, so **the generated `ValueSet/v2-0954` currently has no exclude** and differs from THO on exactly this point.
+
+**The ask:** Confirm that 0954 is missing an _Exclude codes where code = `_WorkSchedule`_ clause, in which case it is a technical correction and one line to apply. If the omission is deliberate, say so, because the value set then diverges from THO's and somebody will raise it again.
+
+<a id="15"></a>
+
+## 15. Where should a concept domain’s example codes live?
 
 **Tables:** 0093, 0340, 0451  
 **Goes to:** V2 Management
@@ -168,9 +204,9 @@ These three tables are declared _Concept Domain Only_ and yet each publishes a s
 
 **The ask:** The likely representation is a **concept property on the concept in the concept domain code system**, carrying the example codes. Confirm that shape, or name another. Until it is decided the example codes are extracted and held but not published anywhere.
 
-<a id="13"></a>
+<a id="16"></a>
 
-## 13. Three “tables” that carry no terminology at all
+## 16. Three “tables” that carry no terminology at all
 
 **Tables:** 0010, 0188, 9999  
 **Goes to:** V2 Management
@@ -179,9 +215,9 @@ Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no c
 
 **The ask:** Confirm that 0010 and 0188 should be concept domains rather than code tables, and decide what becomes of 9999 — a placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically. This project writes nothing for any of the three.
 
-<a id="14"></a>
+<a id="17"></a>
 
-## 14. Two table headings are styled `Normal` instead of `Heading 3`
+## 17. Two table headings are styled `Normal` instead of `Heading 3`
 
 **Tables:** 0685, 0767  
 **Goes to:** V2 Management

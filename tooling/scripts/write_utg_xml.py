@@ -34,6 +34,15 @@ How a table is classified
       a canonical we do not own, so only the ValueSet is written and its
       `compose` names the real system. This is ADR-0008 D8 and D11 generalised.
 
+      Two of these are worth knowing about because they look like defects and
+      are not. Table 0962 resolves to `http://hl7.org/fhir/device-status`,
+      which is a FHIR canonical rather than a THO one -- a known outlier that
+      TSMG has already discussed, not something to raise again. Table 0227
+      (MVX) resolves through `NamingSystem/MVX` to
+      `http://hl7.org/fhir/sid/mvx`; THO deliberately has no CodeSystem for
+      MVX and should not have one, so a ValueSet over the external system is
+      the correct and complete output.
+
   concept-domain-only
       The table declares a domain and no code system. Concept domains do not
       need a ValueSet -- a binding to a domain is expressed with an extension
@@ -91,6 +100,14 @@ VS_CANONICAL = "http://terminology.hl7.org/ValueSet/v2-{table}"
 # Defaults for the publication metadata Chapter 2C does not carry. These are
 # UTG's own values, read off their existing files; they are Batch A questions
 # that have not been answered, and every one of them is a single edit here.
+#
+# DEFAULT_VERSION is emphatically NOT a claim that every resource is at 3.0.0.
+# Version is inherited per resource from the existing UTG file, and UTG's own
+# corpus is not uniform -- it carries 4.0.0 and 5.0.0 as well. The default is
+# reached only by a resource UTG does not yet have, and every resource that
+# reaches it is listed in the write report under `usedDefaultVersion` so the
+# fallback is never silent. For genuinely new content 3.0.0 is a placeholder,
+# not a considered answer.
 DEFAULT_VERSION = "3.0.0"
 DEFAULT_DATE = "2019-12-01"
 DEFAULT_STATUS = "active"
@@ -455,6 +472,21 @@ def classify(record, oid_index):
                           "so there is no code system (ADR-0008 D11)."}
 
     if not systems:
+        # Table 0227 (MVX) is the whole of this case. The chapter declares a
+        # value set and no code system block at all -- but the table's own OID
+        # is registered in THO as a NamingSystem for the real, external code
+        # system. That is ADR-0008 D8, and the lookup generalises: a table with
+        # no code system whose OID names one is a value set over that system.
+        table_oid = ((record.get("tableMetadata") or {})
+                     .get("Table OID") or "").strip()
+        if table_oid in oid_index:
+            return {"action": "value-set-only",
+                    "reason": "The chapter declares no code system, but the "
+                              "table's own OID is registered in THO as a "
+                              "NamingSystem for an external one.",
+                    "systemUrl": oid_index[table_oid],
+                    "resolvedBy": f"THO NamingSystem for table OID {table_oid}",
+                    "hasValueSet": bool(value_sets)}
         return {"action": "needs-decision",
                 "reason": "A value set is declared but no code system, so "
                           "there is nothing to compose over."}
@@ -749,6 +781,12 @@ def process(records, utg, oid_index):
             if key in plan:
                 entry[key] = plan[key]
 
+        if plan["action"] in ("code-system-and-value-set", "value-set-only"):
+            inherited = (utg.code_systems.get(table, {}).get("version")
+                         or utg.value_sets.get(table, {}).get("version"))
+            if not inherited:
+                entry["usedDefaultVersion"] = DEFAULT_VERSION
+
         if plan["action"] == "code-system-and-value-set":
             metadata = record.get("tableMetadata") or {}
             if not (utg.code_systems.get(table, {}).get("workGroup")
@@ -831,6 +869,12 @@ def main():
     print("\nResources built:")
     for kind, count in sorted(written.items()):
         print(f"  {count:5d}  {kind}")
+
+    defaulted = [e for e in report if e.get("usedDefaultVersion")]
+    if defaulted:
+        print(f"\nVersion fell back to {DEFAULT_VERSION} (no UTG resource to "
+              f"inherit from), {len(defaulted)}:")
+        print("  " + ", ".join(e["table"] for e in defaulted))
 
     undecided = [e for e in report if e["action"] == "needs-decision"]
     if undecided:

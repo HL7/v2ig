@@ -222,9 +222,47 @@ ESCALATIONS = [
             "is UCUM, so its full name is the Unified Code for Units of "
             "Measure, not the name of whichever table happens to point at it.",
         "ask":
-            "A technical correction: set the Full Name to UCUM's own name in "
-            "all six. Expected to be uncontroversial, but it is a change to "
-            "published text and so is not ours to make unilaterally.",
+            "<b>Cleared to correct.</b> Measured against HL7's errata "
+            "guidance this is squarely a technical correction &mdash; a name "
+            "inconsistently applied during editing, where fixing it makes the "
+            "chapter say what was plainly intended. Set the Full Name to "
+            "UCUM's own name in all six. "
+            "<b>Note that this changes no generated resource.</b> UCUM is an "
+            "external code system, so these six tables produce a ValueSet and "
+            "no CodeSystem, and the ValueSet takes its name and description "
+            "from the Value Set block rather than the Code System block. The "
+            "correction is to the chapter, and to the report that mirrors it.",
+    },
+    {
+        "id": "esc-full-name-copy-paste",
+        "who": "V2 Management",
+        "tables": "0001, 0125, 0180, 0203, 0458, 0820 and others",
+        "title": "The copy-pasted Full Name is not confined to the UCUM tables",
+        "body":
+            "Checking the UCUM finding against the whole chapter turned up the "
+            "same defect elsewhere. <b>412 of the 444 Code System "
+            "Identification blocks follow the pattern <code>&lt;Table Name&gt; "
+            "Code System</code> exactly</b>, which makes the exceptions easy "
+            "to see. Some are legitimate &mdash; a table pointing at SNOMED CT "
+            "or ISO 3166 should name that system, not itself. Others are the "
+            "UCUM defect again, a name carried over from a different table: "
+            "0001 <i>Administrative Sex</i> is named &ldquo;Jurisdiction "
+            "Gender Code System&rdquo;, 0125 <i>Value Type</i> is &ldquo;Data "
+            "Types&rdquo;, 0180 <i>Masterfile Action Code</i> is "
+            "&ldquo;Record-level Event Code&rdquo;, 0203 <i>Identifier "
+            "Type</i> is &ldquo;Practitioner ID Number Type&rdquo;, 0458 "
+            "<i>OCE Edit Code</i> is &ldquo;Reimbursement Action Code&rdquo;, "
+            "0820 <i>Gender Harmony Concepts</i> is &ldquo;Personal "
+            "Pronouns&rdquo;. One more, 0232, begins with a stray hyphen: "
+            "<code>- Insurance Company Contact Reason Code System</code>. "
+            "Like the UCUM case, none of this reaches a generated resource; "
+            "the emitted name and title come from the symbolic name.",
+        "ask":
+            "If the UCUM correction is approved as a technical correction, the "
+            "same reasoning covers these. Someone who knows the tables needs "
+            "to separate the genuine exceptions from the copy-paste errors "
+            "&mdash; this project can produce the candidate list but cannot "
+            "make that call.",
     },
     {
         "id": "esc-placeholder-metadata",
@@ -244,13 +282,44 @@ ESCALATIONS = [
             "sections and nowhere else in Chapter 2C, and that both are "
             "tables with no genuine code system. The placeholder is a reliable "
             "marker of the condition, not random noise, which is part of why "
-            "both are treated as concept domain only.",
+            "both are treated as concept domain only. "
+            "<b>The two tables have then been treated completely differently "
+            "downstream, and that is the finding.</b> They present identically "
+            "in the chapter: same placeholder block, same absence of a code "
+            "system, both declaring a concept domain and a value set. "
+            "<b>For 0910, THO has nothing</b> &mdash; no CodeSystem, no "
+            "ValueSet, and neither does the UTG repository. The chapter "
+            "declares no code system, so none was minted. That is the "
+            "treatment that follows from the source. "
+            "<b>For 0560, THO publishes both</b> "
+            "<code>CodeSystem/v2-0560</code> and "
+            "<code>ValueSet/v2-0560</code> at version 3.0.0, and so does UTG. "
+            "The CodeSystem is <code>content: complete</code> and carries five "
+            "concepts &mdash; <code>FL</code> Units, <code>DY</code> Days, "
+            "<code>HS</code> Hours, <code>MN</code> Month, <code>YY</code> "
+            "Years &mdash; under the title <i>Quantity Units</i> and the "
+            "description &ldquo;HL7-defined code system of concepts specifying "
+            "the adjustment quantity&rdquo;. Four of the five are units of "
+            "time. So a code system was minted at an HL7 canonical for a table "
+            "whose source declares none, and the content it was filled with is "
+            "the same content flagged as wrong elsewhere on this list. "
+            "0560 is the <i>only</i> table this project treats as concept "
+            "domain only where THO carries resources; there are eight such "
+            "tables in total and the other seven have nothing.",
         "ask":
-            "Should the placeholder blocks be removed from the published "
-            "chapter? And, for this IG: is there any reason to preserve them "
-            "verbatim as evidence of what was published, or should a table "
-            "with no code system simply have no Code System Identification "
-            "block?",
+            "Two questions, and the second is the one that needs both groups. "
+            "First, should the placeholder blocks be removed from the "
+            "published chapter, and should a table with no code system simply "
+            "have no Code System Identification block? "
+            "Second: <b>0560 and 0910 are the same case and have been handled "
+            "in opposite ways.</b> Either 0910 is missing resources or 0560 "
+            "has resources it should never have had. This project's working "
+            "decision treats both as concept domain only, which means it "
+            "declines to carry forward THO's existing 0560 CodeSystem and "
+            "ValueSet &mdash; a divergence from published THO content that "
+            "needs TSMG's agreement as well as V2 Management's. <b>Nothing "
+            "will be altered in THO's existing records on this project's "
+            "initiative.</b>",
     },
     {
         "id": "esc-0347-iso3166",
@@ -357,6 +426,73 @@ ESCALATIONS = [
             "definitions matter more than the near-match: if Chapter 2C and "
             "THO genuinely disagree about what a domain means, choosing a "
             "wording does not fix that.",
+    },
+    {
+        "id": "esc-truncated-value-set-descriptions",
+        "who": "V2 Management",
+        "tables": "0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, "
+                  "0406, 0508, 0510, 0511, 0513, 0520, 0544",
+        "title": "Sixteen Value Set descriptions stop mid-word, all at about "
+                 "250 characters",
+        "body":
+            "Found while checking a generated resource rather than by looking "
+            "for it. Table 0227's value set description ends &ldquo;&hellip; "
+            "the code system may be acce&rdquo;. Sweeping the corpus for the "
+            "same shape found <b>sixteen Value Set descriptions that end "
+            "without terminal punctuation, every one of them between 242 and "
+            "252 characters long</b>. Nothing else in the chapter behaves this "
+            "way: Code System descriptions run to 500 and 800 characters and "
+            "end in complete sentences, and the same tables' own table-level "
+            "descriptions are complete &mdash; 0227's runs to 582 characters "
+            "and finishes cleanly. So this is not extraction loss and not an "
+            "authoring habit; it is <b>a length cap of roughly 250 characters "
+            "applied to one field</b> somewhere in the publication toolchain. "
+            "<b>This one does reach the output.</b> Unlike the Full Name "
+            "defects, the Value Set Description becomes "
+            "<code>ValueSet.description</code>, so sixteen generated "
+            "ValueSets currently carry a sentence that stops mid-word.",
+        "ask":
+            "The truncated text needs recovering from whatever source the "
+            "chapter was generated from &mdash; this project cannot "
+            "reconstruct it, only detect it. On the errata guidance this is "
+            "content lost during the editing process rather than a change of "
+            "meaning, so it should qualify as a technical correction. Until "
+            "the full text is available the truncated form is published as-is, "
+            "since inventing an ending would be worse.",
+    },
+    {
+        "id": "esc-0954-cld-exclude",
+        "who": "V2 Management + TSMG",
+        "tables": "0954, 0957",
+        "title": "Table 0954's logical definition would include an abstract "
+                 "concept THO's equivalent excludes",
+        "body":
+            "Both tables define their value set as a subtree of "
+            "<code>v3-ObservationValue</code>. 0957 <i>Employment Status</i> "
+            "says it in two clauses &mdash; <i>Include codes &hellip; where "
+            "concept is-a <code>_EmploymentStatus</code></i>, then <i>Exclude "
+            "codes where code = <code>_EmploymentStatus</code></i>. That "
+            "second clause matters: in FHIR, an <code>is-a</code> filter "
+            "includes the concept it is rooted at, and "
+            "<code>_EmploymentStatus</code> is an abstract grouper that should "
+            "never be sent in a message. The exclusion is what makes the value "
+            "set mean &ldquo;the actual statuses&rdquo;. "
+            "<b>0954 <i>Work Schedule</i> has the include clause and no "
+            "exclude clause</b>, so read literally its value set contains the "
+            "abstract <code>_WorkSchedule</code> grouper. "
+            "THO's own <code>ValueSet/v3-WorkScheduleODH</code> "
+            "<b>does</b> exclude it, and is otherwise identical to 0957's "
+            "shape. So either the chapter dropped a clause from 0954, or the "
+            "two tables genuinely differ &mdash; and nothing in the text says "
+            "which. This project builds what the chapter says, so <b>the "
+            "generated <code>ValueSet/v2-0954</code> currently has no "
+            "exclude</b> and differs from THO on exactly this point.",
+        "ask":
+            "Confirm that 0954 is missing an <i>Exclude codes where code = "
+            "<code>_WorkSchedule</code></i> clause, in which case it is a "
+            "technical correction and one line to apply. If the omission is "
+            "deliberate, say so, because the value set then diverges from "
+            "THO's and somebody will raise it again.",
     },
     {
         "id": "esc-domain-example-codes",
