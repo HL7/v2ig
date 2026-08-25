@@ -139,3 +139,13 @@ Thumbs.db
 !/v291-fhir/utg/
 !/v291-fhir/utg/**
 !/v291-fhir/utg-write-report.json
+
+# Canonical-collision smoke test #
+##################################
+# The harness is tracked; its build products are not.
+/smoke-test/output/
+/smoke-test/temp/
+/smoke-test/template/
+/smoke-test/input-cache/
+/smoke-test/*.log
+/smoke-test/input/resources/

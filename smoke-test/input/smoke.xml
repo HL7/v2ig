@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.v2plus.smoke"/>
+  <url value="http://hl7.org/v2plus/smoke/ImplementationGuide/hl7.v2plus.smoke"/>
+  <version value="0.1.0"/>
+  <name value="V2PlusVocabularySmokeTest"/>
+  <title value="V2+ Vocabulary Smoke Test"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International"/>
+  <description value="Canonical-collision smoke test for the CH02C vocabulary workstream."/>
+  <packageId value="hl7.v2plus.smoke"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="5.0.0"/>
+  <definition>
+    <page>
+      <sourceUrl value="toc.html"/>
+      <name value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <sourceUrl value="index.html"/>
+        <name value="index.html"/>
+        <title value="Home"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="autoload-resources"/>
+      </code>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="path-resource"/>
+      </code>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/ValueSet/v2-0001"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/CodeSystem/v2-0411"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/ValueSet/v2-0411"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/CodeSystem/v2-0460"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/ValueSet/v2-0460"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url"/>
+      </code>
+      <value value="http://terminology.hl7.org/CodeSystem/conceptdomains"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>
