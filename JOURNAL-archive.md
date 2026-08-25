@@ -1759,3 +1759,145 @@ Branch is now 2 commits ahead of origin (this session's commit + last session's 
 - **Comparison report header counts: msg structures common is still 125** — the LLM corpus's 5 stale `ACK_xxx` entries remain as "LLM-only" rather than rejoining "common". The 5 will disappear if/when CH03 + CH07 are re-extracted with the new prompt.
 - **The remaining ADT_A01 "Usual Work /" diff is a `render_table_as_markdown` quirk in the LLM script, NOT a pydocx bug**: the Word cell has two paragraphs, the LLM script joins with " / ", pydocx walks raw cell text and gets just "Usual Work". Could be fixed by changing the markdown renderer to use `"\n"` instead of `" / "`, but that'd ripple through cached prompt tokens. Low priority.
 - **Push auth root cause**: the credential helper is being invoked correctly (verified via `GIT_TRACE=1`) — it just receives a PAT value that GitHub rejects. Either the value in `$GITHUB_PERSONAL_ACCESS_TOKEN` is expired/revoked, or the env var was unset when the bash session started. Worth checking `echo "$GITHUB_PERSONAL_ACCESS_TOKEN" | head -c 10` after the user refreshes the PAT to confirm the value is what they expect.
+Read on demand only.
+
+## 2026-08-18 → 2026-08-19 — CH02C text fidelity closed (D7–D9); vocabulary work moved to its own branch
+
+### Completed
+
+**Applied the reviewer's whole remaining "decide" queue in one pass**, as
+ADR-0008 D7, D8 and D9. The user went through the report field by field and
+gave per-field instructions; those became six new rules plus two
+representation decisions.
+
+**D7 — six rules.** Three repair characters that should not be in the document
+at all: a stray `Â` left by a doubly-encoded non-breaking space (0301),
+Symbol-font glyphs from the Unicode private use area (0964), and runs of
+non-breaking spaces in prose (0301, 0827). Three deal with the space runs D3–D6
+did not claim: an indent at the start of a line is *kept* at two spaces, every
+other run collapses, and a run held between two quote marks is preserved
+because there the spaces are the value. 148 values changed. The outstanding
+double-space group went from 143 values to **zero**.
+
+**D8 — table 0227 (MVX) maps to an external metadata record.** The user was
+right that THO already has one: `NamingSystem/MVX` plus `ValueSet/v2-0227`,
+which composes from `http://hl7.org/fhir/sid/mvx`. The published URI is
+retained. Three separate open findings about 0227 collapse into this one
+decision.
+
+**D9 — THO's `MasterfileActionCode` wins** over Chapter 2C's spaced spelling
+for table 0180.
+
+**Rebuilt how the review report presents itself**, because three of the user's
+observations were really complaints about the report rather than the data:
+
+- **Truncation removed.** Values were cut at 300 characters, which hid the very
+  thing being reviewed — table 0952's difference from THO is ~900 characters
+  in, and 0078's double space is at ~684. Cells now scroll instead.
+- **Word-level diff highlighting**, with a similarity floor. 0952 shows its
+  three real differences; the other four THO disagreements say "these are two
+  unrelated definitions rather than two versions of one" and highlight nothing,
+  which is what the user asked for.
+- **A "Decided" class.** A settled group moves out of *Decide* and carries the
+  reasoning with it, so the report answers both "what is left" and "what did we
+  conclude". Eight groups are now decided; eight remain.
+- **A character inventory.** Every non-ASCII character in the emitted corpus,
+  counted, with a verdict — the user asked for a scan for more oddities like
+  the `Â`, and making it permanent means the next one is found by the report
+  rather than by eye.
+
+**Opened `v291-extracted/vocabulary-future-corrections.md`**, the backlog for
+the pass *after* the fidelity load. Seeded with eight entries; the user's own
+was 001, cross-references into V2 with no version attached.
+
+**Split the workstream onto its own branch** at the user's request (2026-08-19).
+
+### Why the specific shapes
+
+- **Two non-prose fields joined the collapse rule and nothing else.**
+  `tableMetadata.where used` and `valueSet.Content Logical Definition` each
+  have exactly one run in the whole chapter and the user decided both. They are
+  deliberately *not* added to `DESCRIPTIVE_FIELDS`, because the prose rules —
+  the comma after `e.g.`, dash spacing — must not reach a reference list or a
+  value set expression. The rule chain already supported per-rule field sets,
+  so this cost one line.
+- **An indent is kept, not collapsed.** A run of spaces at the start of a line
+  is doing something: 0396 uses it to indent a list of NCPDP code sets. Two
+  spaces is the same judgement D3 made about the space after a period — the
+  shape is meaningful, the exact width is not. Only two values in the corpus
+  have one, both in 0396, both published at three spaces.
+- **A no-op is not a change.** `re.subn` counts a replacement even when the
+  result is identical, so an indent already two spaces wide would have been
+  logged as changed. The indent rule counts real changes only; a change log
+  full of no-op entries makes the real ones harder to find.
+- **The report distinguishes three ways a non-breaking space can leave.** Six
+  of the eight were leading or trailing and had been removed by D2's strip all
+  along — the report was showing them as `preserved` with a note that the four
+  in `codeSystem.URL` were "the ones that matter". They were the ones that did
+  not. Only two needed a new rule.
+
+### The findings worth carrying forward
+
+**D6's lesson bit a second time, in a new way.** The `Â` rule originally
+matched `Â` followed by a non-breaking space — correct for python-docx. The LLM
+substitutes an ASCII space there, so the rule repaired one corpus and not the
+other, and the comparison reported our own rule as a pipeline disagreement. Now
+matches either. **Any rule that edits characters has to be checked against both
+corpuses**, not just the one it was written from.
+
+**Rule order silently moved five changes between decisions.** Placing the
+general collapse before dash spacing absorbed five of D5's changes into D7's
+count. Nothing was wrong in the output; the attribution was wrong. It was
+caught only because every rule reports its own count and D5's fell from 16 to
+11. This is the argument for per-rule counts, restated: they are not
+bookkeeping, they are the regression test on the chain's order.
+
+**Table 0821 looks like a hole in the published standard.** Its coded content
+grid is six rows by five columns, entirely blank, in a section that declares
+three code systems and a value set. Both pipelines agree. This was found while
+answering the user's question about the empty tables and is the most
+substantive thing to come out of it.
+
+**A discussion the user remembered is not in the record.** They asked for a
+note in the report about the empty tables, recalling a long conversation. It is
+in no artifact and no retained transcript. The lesson is narrow and practical:
+**a decision that only exists in chat does not exist.** The report now has a
+"Still open" note class for exactly this — context recorded against a section
+that has not been settled, so the next round starts from what is known rather
+than from nothing.
+
+### Branch split
+
+The user asked that every commit for the terminology IG live on its own branch.
+Nine commits, contiguous at the tip of `dev/framework` and none on `main`, so
+they split cleanly:
+
+- `dev/v291-vocabulary-ig` created at `34459a3d` and pushed. Holds all nine.
+- `dev/framework` reset to `2b38100a` and **force-pushed** (with the user's
+  explicit approval — eight of the nine were already on origin). It now carries
+  only the structural-review workstream.
+- One follow-up commit on `dev/framework` adds a **branch map** to the top of
+  its copy of `JOURNAL.md`. This file is per-branch, so without it a session
+  starting on `dev/framework` would read a June ACTIVE section and never learn
+  the vocabulary workstream exists.
+
+### Commits this session
+
+On `dev/v291-vocabulary-ig` (pushed): `34459a3d` — Clear the remaining Chapter
+2C space runs and repair corrupt characters.
+On `dev/framework` (pushed): `a2419452` — Add a branch map to JOURNAL.
+
+### Still uncommitted, untouched, and not mine
+
+`tooling/scripts/render_message_structures_html.py`,
+`tooling/scripts/render_three_way_html.py`,
+`v291-extracted/message-structures-decision-report.html`,
+`v291-review/three-way-comparison-report.html`,
+`vocabulary-comparison-report.html` — all dated 2026-06-19, predating this
+workstream. Flagged to the user four times now; left alone. They belong to the
+structural workstream, so they will follow `dev/framework` rather than this
+branch.
+
+---
+
+---

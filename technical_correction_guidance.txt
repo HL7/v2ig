@@ -1,0 +1,58 @@
+Created by 
+ Daniel Vreeman, last updated on Feb 18, 2026  4 minute read
+a.k.a. The Errata Process
+
+WORKING DRAFT
+
+As our standards development processes evolve and our community of practice expands, we must work collectively to maintain a shared understanding. The TSC has sought to clarify guidance on standards advancement with two specific mechanism: STU Updates and STU Additional Ballot. At the same time, we want to be clear about the mechanism for updating standards with technical corrections via the errata process. These are related, but different mechanisms, and we want to be sure that people know, understand, and use the right mechanism for the kinds of updates they want to make in our specifications.
+
+Let's begin with a few definitions.
+
+Definitions
+Technical Corrections
+A technical correction is a type of non-substantive change.  A technical correction is a non-controversial change that alters a document so that it says what the WG intended to say. Technical corrections typically involve correcting changes to normative content that were not made, were incorrectly made, or were inconsistently made during the editing process.
+
+When there is doubt, a WG may ask the TSC to rule whether a change is a technical correction.
+
+The definitions address four cases:
+
+Non-substantive technical corrections to a balloted specification published as Normative
+Substantive technical corrections to a balloted specification published as Normative
+Changes to a balloted specification published as STU
+Changes to a balloted specification published as Informative
+Errata
+Errata is the vehicle by which a technical correction is published. An HL7 errata is a package of documents that conveys the application of a technical correction to one or more published versions of a standard. 
+
+Understanding the Kinds of Issue Resolutions that fit the Notion of a Technical Correction
+The definition above sets the boundaries for what changes to a standard are consider a Technical Correction. Given our move to Jira for tracking specification feedback, we can now be more explicit about the kinds of issue resolutions that qualify to be published as errata (and those that don't).
+
+In general, an Errata would be allowed to have resolved tickets of Type:
+
+Technical Correction
+Change Request: Correction
+Change Request: Clarification
+Having these designations provides greater transparency and traceability of our process. 
+
+A few notes for your consideration about whether an Errata publication with Technical Corrections fits your needs:
+STUs are allowed to undergo substantive changes without requiring a ballot; they can go through the Update process. See TSC Guidance on Use of STU Updates vs STU Additional Ballots. 
+Updates based on tickets of type Change Request: Enhancement would need to go through the STU Update or STU Ballot process. Enhancements don't meet the rubric of "making the spec say what the WG always intended it to say".
+For Normative specifications, these same resolved tickets of Type categories listed above are allowed with the additional criteria that all changes must be non-substantive. Any substantive changes to a normative specification need to be balloted.
+Appropriate classification of issue Type categories in Jira helps facilitate this process
+Process for Requesting a Publication of an Errata
+Ok, so you think you'd like to request an Errata publication. What's next? Per the GOM (Section 14.03), the current process for publishing technical corrections as errata is relatively straightforward:
+
+A publication request for errata addressing either an informative document or a Standard for Trial Use (STU) shall comply with TSC guidance on technical corrections and be accompanied by a cover letter drafted by the responsible Work Group. The cover letter shall cite the rationale supporting such a request and be submitted for the approval of the Chief Standards Development Officer (CSDO).
+
+When the specification content is ready, you'll need to create a Publication Request and prepare a CSDO Errata Letter from the template. Both of these must be approved by your project's Work Group.
+
+Of note, the CSDO Errata Letter requires a change list. It would be helpful to have this change list also captured in the publication request so reviewers have easy access to it. The TSC recently approved (and soon-to-be-created) a field for a change list on the Publication Request form, and this would be the designated place to document such a list. (Ideally as a JIRA query).
+
+Once the Publication Request and draft CSDO Errata Letter are approved by the WG, please send them to the HL7's Chief Standards Development Officer and Director of Technical Publications for review. If the specification is part of an HL7 Product Family with a Management Group (e.g. FHIR, CDA, V2), approval from the Management Group is required for that errata publication. It is not necessary to notify or get approval from the TSC for Errata publications, though Work Groups and the CSDO may seek advice from the TSC for specific issues and situations during the process.
+
+Prior Art (Background and References)
+TSC eVote and Discussion on Use of STU Updates vs STU Additional Ballots (DRAFT)
+ARB Definition of Errata, Technical Correction
+ARB notes on developing the definition
+SGB notes on ARB's definition
+TSC guidance on technical corrections (linked to in the GOM)
+Co-chair Handbook definition of Technical Correction (subsection under section about what constitutes a substantive change)
