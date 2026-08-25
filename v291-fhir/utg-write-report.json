@@ -3,8 +3,8 @@
     "code-system-and-value-set": 398,
     "concept-domain-only": 360,
     "nothing-to-write": 3,
-    "value-set-only": 17,
-    "needs-decision": 21
+    "value-set-only": 23,
+    "needs-decision": 15
   },
   "tables": [
     {
@@ -3890,7 +3890,7 @@
       "table": "0458",
       "name": "OCE Edit Code",
       "action": "needs-decision",
-      "reason": "The code system is given only as OID 2.16.840.1.113883.6.301.9, which no THO NamingSystem resolves to a canonical URL.",
+      "reason": "The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.",
       "written": [],
       "published": "2.16.840.1.113883.6.301.9"
     },
@@ -3898,7 +3898,7 @@
       "table": "0459",
       "name": "Reimbursement Action Code",
       "action": "needs-decision",
-      "reason": "The code system is given only as OID 2.16.840.1.113883.6.301.9, which no THO NamingSystem resolves to a canonical URL.",
+      "reason": "The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.",
       "written": [],
       "published": "2.16.840.1.113883.6.301.9"
     },
@@ -6157,13 +6157,14 @@
     {
       "table": "0719",
       "name": "Access Restriction Reason Code",
-      "action": "needs-decision",
-      "reason": "The chapter gives a link to a rendered THO page instead of a canonical URL. A page URL cannot identify a code system in a compose.",
-      "written": [],
-      "published": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html",
-      "candidates": [
-        "http://terminology.hl7.org/CodeSystem/v3-ActCode"
-      ]
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0719.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.4",
+      "published": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html"
     },
     {
       "table": "0720",
@@ -7537,13 +7538,14 @@
     {
       "table": "0952",
       "name": "Confidentiality Classification",
-      "action": "needs-decision",
-      "reason": "The chapter gives a link to a rendered THO page instead of a canonical URL. A page URL cannot identify a code system in a compose.",
-      "written": [],
-      "published": "http://terminology.hl7.org/ValueSet-v2-0952.html",
-      "candidates": [
-        "http://terminology.hl7.org/ValueSet/v2-0952"
-      ]
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0952.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.25",
+      "published": "http://terminology.hl7.org/ValueSet-v2-0952.html"
     },
     {
       "table": "0953",
@@ -7559,11 +7561,14 @@
     {
       "table": "0954",
       "name": "Work Schedule ODH",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue where concept is-a _WorkSchedule'.",
-      "written": [],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
-      "resolvedBy": "published URI"
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0954.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
+      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html"
     },
     {
       "table": "0955",
@@ -7588,11 +7593,14 @@
     {
       "table": "0957",
       "name": "Employment Status (ODH)",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue where concept is-a _EmploymentStatus\\nExclude codes where code= _EmploymentStatus'.",
-      "written": [],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
-      "resolvedBy": "published URI"
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0957.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
+      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html"
     },
     {
       "table": "0958",
@@ -7608,13 +7616,14 @@
     {
       "table": "0959",
       "name": "Work Classification ODH",
-      "action": "needs-decision",
-      "reason": "The chapter gives a link to a rendered THO page instead of a canonical URL. A page URL cannot identify a code system in a compose.",
-      "written": [],
-      "published": "http://terminology.hl7.org/CodeSystem-v3-WorkClassificationODH.html",
-      "candidates": [
-        "http://terminology.hl7.org/CodeSystem/v3-WorkClassificationODH"
-      ]
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0959.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-WorkClassificationODH",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1139",
+      "published": "http://terminology.hl7.org/CodeSystem-v3-WorkClassificationODH.html"
     },
     {
       "table": "0960",
@@ -7630,9 +7639,11 @@
     {
       "table": "0961",
       "name": "Device Type",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the two shapes we build: 'This value set includes codes from the following code systems:\\n\\nInclude codes from http://snomed.info/sct where concept is-a 49062001 (Device)'.",
-      "written": [],
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0961.xml"
+      ],
       "systemUrl": "http://snomed.info/sct",
       "resolvedBy": "published URI"
     },
@@ -7644,8 +7655,9 @@
       "written": [
         "valueSets/vs-v2-0962.xml"
       ],
-      "systemUrl": "http://hl7.org/fhir/codesystem-device-status.html",
-      "resolvedBy": "published URI"
+      "systemUrl": "http://hl7.org/fhir/device-status",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.4.642.1.200",
+      "published": "http://hl7.org/fhir/codesystem-device-status.html"
     },
     {
       "table": "0963",

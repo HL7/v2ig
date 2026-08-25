@@ -58,6 +58,7 @@ DEVIATIONS_PATH = PROJECT_ROOT / "v291-extracted" / "vocabulary-deviations.json"
 COMPARISON_PATH = PROJECT_ROOT / "v291-llm" / "vocabulary-comparison-report.json"
 THO_DIR = PROJECT_ROOT / "tho-r5"
 CONCEPT_DOMAINS_PATH = PROJECT_ROOT / "v291-fhir" / "conceptdomains-divergences.json"
+WRITER_REPORT_PATH = PROJECT_ROOT / "v291-fhir" / "utg-write-report.json"
 DEFAULT_OUT = PROJECT_ROOT / "v291-extracted" / "vocabulary-review-report.html"
 
 CONCEPT_DOMAIN_PRESENTATION = {
@@ -1139,6 +1140,63 @@ def build_escalation_section():
     }]
 
 
+def build_writer_blocker_section():
+    """Render the tables the XML writer could not settle by itself.
+
+    The writer emits a resource only where Chapter 2C says clearly enough what
+    the resource should be; everything else is reported rather than guessed at.
+    Those reports belong here, in the document the reviewer actually opens,
+    rather than only in a JSON file beside the generated XML.
+
+    Grouped by obstacle rather than listed per table, because the tables that
+    share an obstacle are answered by one decision, not by several.
+    """
+    report = load_json(WRITER_REPORT_PATH)
+    if not report:
+        return []
+
+    blocked = [e for e in report.get("tables", [])
+               if e.get("action") == "needs-decision"]
+    if not blocked:
+        return []
+
+    grouped = defaultdict(list)
+    for entry in blocked:
+        grouped[entry["reason"]].append(entry)
+
+    rows = []
+    for reason, entries in sorted(grouped.items(), key=lambda kv: -len(kv[1])):
+        tables = ", ".join(f'{e["table"]} <i>{esc(e["name"])}</i>'
+                           for e in sorted(entries, key=lambda e: e["table"]))
+        detail = f"<p>{esc(reason)}</p><p class=\"ask\">{tables}</p>"
+        published = [e["published"] for e in entries if e.get("published")]
+        if published:
+            detail += ("<p>As published: "
+                       + ", ".join(f"<code>{esc(p)}</code>"
+                                   for p in sorted(set(published)))
+                       + "</p>")
+        rows.append([str(len(entries)), detail])
+
+    return [{
+        "id": "writer-blockers",
+        "group": "For V2 Management / TSMG",
+        "title": "Tables the XML writer will not guess at",
+        "action": "decide",
+        "blurb":
+            "The writer produces a CodeSystem or ValueSet only where the "
+            "chapter says clearly enough what it should be. These tables it "
+            "leaves alone, and each group below is one decision rather than "
+            "one per table. Nothing here is a defect in the tooling; each is a "
+            "place the published chapter is ambiguous, incomplete, or points "
+            "somewhere that does not resolve.",
+        "count": len(blocked),
+        "columns": ["Tables", "What stopped it"],
+        "rows": rows,
+        "raw_html_columns": {1},
+        "open_by_default": True,
+    }]
+
+
 def build_sections(deviations, comparison, source_issues):
     """Assemble every reviewable item into an ordered list of section dicts.
 
@@ -1550,6 +1608,7 @@ def main():
         print(f"WARNING: no comparison report at {COMPARISON_PATH}")
 
     sections = build_escalation_section()
+    sections += build_writer_blocker_section()
     sections += build_sections(deviations, comparison, source_issues)
     sections += build_concept_domain_sections(concept_domains)
     sections += build_character_section()

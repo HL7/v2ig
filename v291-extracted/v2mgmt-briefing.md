@@ -196,4 +196,4 @@ The full detail is in a 12-item register written for V2 Management
 and TSMG. This page is the executive cut; the register has the evidence for
 each item.
 
-_Generated 2026-08-21 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._
+_Generated 2026-08-25 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._

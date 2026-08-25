@@ -70,7 +70,22 @@ ESCALATIONS = [
             "<b>THO chose to correct rather than reproduce</b>. Its "
             "<code>ValueSet/v2-0931</code> drops the bad code and records the "
             "history in the display text of the good one. So the two bodies "
-            "have, at least once, answered this question differently.",
+            "have, at least once, answered this question differently. "
+            "<b>HL7's own errata guidance gives a usable test.</b> A technical "
+            "correction is defined there as &ldquo;a non-controversial change "
+            "that alters a document so that it says what the WG intended to "
+            "say&rdquo;, typically repairing changes to normative content "
+            "&ldquo;that were not made, were incorrectly made, or were "
+            "inconsistently made during the editing process&rdquo;. That "
+            "cleanly separates the items on this list into two kinds. The "
+            "editing-process defects &mdash; table 0821's grid emptied in "
+            "publication, table 0411's canonical printed for a resource that "
+            "does not exist, the links to rendered pages where canonical URLs "
+            "belong, the missing spaces after a period &mdash; are technical "
+            "corrections on that definition. The content defects &mdash; "
+            "0931's invalid UCUM code, 0560's time units &mdash; change what "
+            "the standard <i>means</i>, and for normative content the same "
+            "guidance requires any substantive change to be balloted.",
         "ask":
             "Decide the rule, not the instance. When Chapter 2C publishes "
             "something demonstrably wrong, does this IG (a) reproduce it and "
@@ -78,7 +93,12 @@ ESCALATIONS = [
             "inactive, or (c) correct it and publish the correction with a "
             "note? The answer sets the default for every item below, and "
             "the current answer &mdash; (a) &mdash; is an assumption nobody "
-            "has ratified.",
+            "has ratified. "
+            "<b>A narrower question would unblock most of the list:</b> may "
+            "this project treat the editing-process defects above as technical "
+            "corrections, leaving only the substantive ones for a ballot? The "
+            "guidance also notes that where there is doubt, a Work Group may "
+            "ask the TSC to rule.",
     },
     {
         "id": "esc-0560-content",
@@ -99,14 +119,28 @@ ESCALATIONS = [
             "same way, so correcting one without the other would fork them. "
             "The chapter also contradicts itself here &mdash; the table "
             "metadata says <code>Type: User</code> and &ldquo;No suggested "
-            "values&rdquo;, and then lists five values.",
+            "values&rdquo;, and then lists five values. "
+            "<b>There is a second, sharper problem.</b> Chapter 2C's code "
+            "system block for 0560 is the <code>noObject</code> / "
+            "<code>noDescription</code> placeholder &mdash; the chapter does "
+            "not declare a code system for this table at all. THO nevertheless "
+            "publishes both <code>CodeSystem/v2-0560</code> and "
+            "<code>ValueSet/v2-0560</code>, and so does the UTG repository. So "
+            "THO has minted a code system for a table whose source declares "
+            "none. Of the tables this project treats as concept domain only, "
+            "<b>0560 is the only one where THO carries resources</b>; 0910 "
+            "carries the identical placeholder and THO has nothing for it, "
+            "which is the treatment that looks correct.",
         "ask":
             "Is this table salvageable, or is it a concept domain with no "
             "usable code system? If it is to be fixed, the fix has to be "
             "coordinated with TSMG so Chapter 2C and THO move together. "
             "<b>This project's working decision is concept domain only</b> "
             "&mdash; no CodeSystem and no ValueSet minted &mdash; which is "
-            "reversible once the committee rules.",
+            "reversible once the committee rules. Note that this decision "
+            "puts us in direct conflict with content THO already publishes, "
+            "so it needs TSMG as well as V2 Management. <b>We are not "
+            "proposing to alter THO's existing records unilaterally.</b>",
     },
     {
         "id": "esc-0821-blank-grid",
@@ -323,6 +357,57 @@ ESCALATIONS = [
             "definitions matter more than the near-match: if Chapter 2C and "
             "THO genuinely disagree about what a domain means, choosing a "
             "wording does not fix that.",
+    },
+    {
+        "id": "esc-domain-example-codes",
+        "who": "V2 Management",
+        "tables": "0093, 0340, 0451",
+        "title": "Where should a concept domain&rsquo;s example codes live?",
+        "body":
+            "These three tables are declared <i>Concept Domain Only</i> and yet "
+            "each publishes a small set of codes &mdash; three, two and one "
+            "respectively. That is not a contradiction: the V3 requirements "
+            "for declaring a concept domain <b>call for example codes</b>, so "
+            "the tables are conforming. It does leave the codes with nowhere "
+            "obvious to go. A concept domain is not a code system, so the "
+            "examples cannot be concepts; and a domain is bound with an "
+            "extension on the binding rather than through a value set, so "
+            "there is no value set to put them in either. "
+            "<b>No CodeSystem and no ValueSet is minted for any of the three</b>, "
+            "and nothing in THO or UTG carries one today, so nothing has to be "
+            "unpicked whichever way this goes.",
+        "ask":
+            "The likely representation is a <b>concept property on the "
+            "concept in the concept domain code system</b>, carrying the "
+            "example codes. Confirm that shape, or name another. Until it is "
+            "decided the example codes are extracted and held but not "
+            "published anywhere.",
+    },
+    {
+        "id": "esc-tables-that-should-be-domains",
+        "who": "V2 Management",
+        "tables": "0010, 0188, 9999",
+        "title": "Three &ldquo;tables&rdquo; that carry no terminology at all",
+        "body":
+            "Of the 799 sections in Chapter 2C, exactly three declare no "
+            "concept domain, no code system, no value set and no codes. "
+            "<code>0010</code> <i>Physician ID</i> and <code>0188</code> "
+            "<i>Operator ID</i> are User tables whose descriptions end "
+            "&ldquo;No suggested values&rdquo; &mdash; they are site-defined "
+            "identifiers, and were arguably never code tables. "
+            "<code>9999</code> <i>Placeholder Table Representation</i> is not "
+            "a table at all: it carries the literal placeholder strings "
+            "<code>noObject</code> and <code>noDescription</code>, the same "
+            "markers that appear in the two concept-domain-only tables. "
+            "<b>Checked against both THO and the UTG repository: there is no "
+            "CodeSystem and no ValueSet for any of the three.</b> Nothing has "
+            "been minted for them and nothing needs to be withdrawn.",
+        "ask":
+            "Confirm that 0010 and 0188 should be concept domains rather than "
+            "code tables, and decide what becomes of 9999 &mdash; a "
+            "placeholder that occupies a table number is a trap for anyone "
+            "generating resources from the chapter mechanically. This project "
+            "writes nothing for any of the three.",
     },
     {
         "id": "esc-heading-styles",

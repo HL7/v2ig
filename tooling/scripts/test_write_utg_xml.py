@@ -217,15 +217,122 @@ def test_an_unresolvable_oid_stops_for_a_decision():
     assert writer.classify(record, {})["action"] == "needs-decision"
 
 
-def test_a_rendered_page_url_stops_and_offers_the_canonical():
-    """Tables 0719, 0952 and 0959 print a page link instead of a canonical."""
+def test_a_rendered_page_url_is_discarded_for_the_oid():
+    """Seven tables print a page link where a canonical belongs -- 0719, 0952,
+    0954, 0957, 0959 and 0962 among them. Each also prints the OID, so the OID
+    resolves the system and nobody has to decide anything."""
     record = make_record(codeSystems=[{
         "URI": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html",
+        "Code System OID": "2.16.840.1.113883.5.4",
         "SymbolicName": "x", "Description": "y"}])
+    index = {"2.16.840.1.113883.5.4":
+             "http://terminology.hl7.org/CodeSystem/v3-ActCode"}
+    plan = writer.classify(record, index)
+    assert plan["action"] == "value-set-only"
+    assert plan["systemUrl"] == "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+    assert plan["published"] == \
+        "http://terminology.hl7.org/CodeSystem-v3-ActCode.html"
+
+
+def test_a_page_url_with_no_resolvable_oid_still_stops():
+    """The page URL must never reach a compose, even with nothing to replace it."""
+    record = make_record(codeSystems=[{
+        "URI": "http://hl7.org/fhir/codesystem-device-status.html",
+        "Code System OID": "9.9.9.9", "SymbolicName": "x", "Description": "y"}])
     plan = writer.classify(record, {})
     assert plan["action"] == "needs-decision"
-    assert plan["candidates"] == [
-        "http://terminology.hl7.org/CodeSystem/v3-ActCode"]
+    assert plan["published"] == "http://hl7.org/fhir/codesystem-device-status.html"
+
+
+@pytest.mark.parametrize("url, expected", [
+    ("http://terminology.hl7.org/CodeSystem-v3-ActCode.html", True),
+    ("https://terminology.hl7.org/CodeSystem-x.html", True),
+    ("http://hl7.org/fhir/codesystem-device-status.html", True),
+    ("http://terminology.hl7.org/CodeSystem/v3-ActCode", False),
+    ("http://unitsofmeasure.org", False),
+])
+def test_page_url_detection(url, expected):
+    assert writer.is_page_url(url) is expected
+
+
+# --------------------------------------------------------------------------
+# Content Logical Definitions
+# --------------------------------------------------------------------------
+
+def test_a_filter_logical_definition_is_read_into_an_is_a_filter():
+    shape = writer.parse_logical_definition(
+        "Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+        " where concept is-a _WorkSchedule")
+    assert shape == {
+        "kind": "filter",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+        "isA": "_WorkSchedule",
+        "excludeRoot": None,
+    }
+
+
+def test_an_exclude_clause_is_read_as_the_root_exclusion():
+    shape = writer.parse_logical_definition(
+        "Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+        " where concept is-a _EmploymentStatus\n"
+        "Exclude codes where code= _EmploymentStatus")
+    assert shape["excludeRoot"] == "_EmploymentStatus"
+
+
+def test_a_filter_ignores_a_trailing_gloss_on_the_code():
+    """Table 0961 writes the SNOMED code as `49062001 (Device)`."""
+    shape = writer.parse_logical_definition(
+        "This value set includes codes from the following code systems:\n\n"
+        "Include codes from http://snomed.info/sct where concept is-a 49062001 (Device)")
+    assert shape["system"] == "http://snomed.info/sct"
+    assert shape["isA"] == "49062001"
+
+
+def test_a_filtered_value_set_matches_thos_own_shape():
+    """THO's ValueSet/v3-employmentStatusODH is an include filter plus an
+    exclude of the root concept; ours has to be the same or it means something
+    different."""
+    record = make_record()
+    record["valueSets"][0]["Content Logical Definition"] = (
+        "Include codes from http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+        " where concept is-a _EmploymentStatus\n"
+        "Exclude codes where code= _EmploymentStatus")
+    plan = writer.classify(record, {})
+    root = ElementTree.fromstring(
+        render_document(writer.build_value_set(record, plan, empty_repo())))
+    compose = root.find(f"{FHIR}compose")
+
+    include = compose.find(f"{FHIR}include")
+    criterion = include.find(f"{FHIR}filter")
+    assert include.find(f"{FHIR}system").get("value").endswith("v3-ObservationValue")
+    assert criterion.find(f"{FHIR}property").get("value") == "concept"
+    assert criterion.find(f"{FHIR}op").get("value") == "is-a"
+    assert criterion.find(f"{FHIR}value").get("value") == "_EmploymentStatus"
+
+    exclude = compose.find(f"{FHIR}exclude")
+    assert exclude.find(f"{FHIR}system").get("value").endswith("v3-ObservationValue")
+    assert exclude.find(f"{FHIR}concept").find(f"{FHIR}code").get("value") == \
+        "_EmploymentStatus"
+
+
+def test_a_filter_without_an_exclude_emits_no_exclude():
+    record = make_record()
+    record["valueSets"][0]["Content Logical Definition"] = (
+        "Include codes from http://snomed.info/sct where concept is-a 49062001 (Device)")
+    plan = writer.classify(record, {})
+    root = ElementTree.fromstring(
+        render_document(writer.build_value_set(record, plan, empty_repo())))
+    assert root.find(f"{FHIR}compose").find(f"{FHIR}exclude") is None
+
+
+@pytest.mark.parametrize("definition", [
+    "as defined in the linked value set",
+    "ISO 3166-1 alpha-3 axis",
+    "unspecified",
+    "See content logical definition of the referenced value set",
+])
+def test_logical_definitions_we_do_not_interpret(definition):
+    assert writer.parse_logical_definition(definition) is None
 
 
 def test_several_code_systems_stop_for_a_decision():

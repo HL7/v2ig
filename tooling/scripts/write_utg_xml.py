@@ -149,12 +149,23 @@ WORK_GROUP_MAP = {
     "MM": "mnm",
 }
 
-# The chapter writes some code system references as a link to THO's rendered
-# page rather than as a canonical URL. A page URL is not a code system
-# identifier and must not be used in a `compose`, so those tables stop for a
-# decision -- with the canonical the page corresponds to offered in the report.
-THO_PAGE_URL_RE = re.compile(
-    r"^https?://terminology\.hl7\.org/(CodeSystem|ValueSet)-(.+)\.html$"
+# Chapter 2C writes some code system references as a link to a rendered page
+# rather than as a canonical URL -- `.../CodeSystem-v3-ActCode.html`. A page URL
+# is not a code system identifier and must never reach a `compose`.
+PAGE_URL_RE = re.compile(r"^https?://\S+\.html$", re.IGNORECASE)
+
+# The two halves of a filter-shaped Content Logical Definition. Four tables use
+# this shape: 0719, 0954, 0957 and 0961. The `Exclude` half is optional, and
+# where it appears it always names the same concept the `is-a` filter is rooted
+# at -- the standard way of saying "the descendants, but not the abstract
+# concept itself". THO writes exactly this pair; see `ValueSet/v3-WorkScheduleODH`.
+CLD_INCLUDE_IS_A_RE = re.compile(
+    r"Include\s+codes\s+from\s+(?P<system>\S+)\s+where\s+concept\s+is-a\s+(?P<value>\S+)",
+    re.IGNORECASE,
+)
+CLD_EXCLUDE_CODE_RE = re.compile(
+    r"Exclude\s+codes\s+where\s+code\s*=\s*(?P<value>\S+)",
+    re.IGNORECASE,
 )
 
 # The marker Chapter 2C leaves where a table has no real code system. It
@@ -168,46 +179,67 @@ PLACEHOLDER_SYMBOLIC_NAME = "noObject"
 V2_OID_ARC = "2.16.840.1.113883.18."
 
 
+def code_system_directories():
+    """Directories to read code system definitions from, lowest authority first.
+
+    THO is the main source. The FHIR core package is added because a handful of
+    tables name a code system FHIR owns rather than THO -- table 0962's Device
+    Status is `http://hl7.org/fhir/device-status` -- and without it those OIDs
+    look unresolvable when they are merely defined somewhere else.
+    """
+    directories = []
+    package_cache = Path.home() / ".fhir" / "packages"
+    if package_cache.is_dir():
+        for package in sorted(package_cache.glob("hl7.fhir.r5.core#*/package")):
+            directories.append(package)
+    if THO_DIR.is_dir():
+        directories.append(THO_DIR)
+    return directories
+
+
 def load_oid_index():
     """Map OIDs to canonical URLs, using THO as the authority.
 
-    Chapter 2C often gives a code system by OID and no URI. THO is what turns
-    one into the other; this is the same lookup that settled table 0227 in
-    ADR-0008 D8 and four more tables in D11.
+    Chapter 2C often gives a code system by OID and no URI, or gives a link to
+    a rendered page where a canonical belongs. Either way the OID is the
+    reliable identifier, and this is what turns one into the other -- the same
+    lookup that settled table 0227 in ADR-0008 D8 and four more in D11.
 
-    Two sources, in order of authority. A NamingSystem exists precisely to say
-    which identifiers name the same system, so it wins. But THO records most
-    OIDs on the CodeSystem itself instead -- v3 ActMood and v3
+    Two kinds of source, in order of authority. A NamingSystem exists precisely
+    to say which identifiers name the same system, so it wins. But most OIDs
+    are recorded on the CodeSystem itself instead -- v3 ActMood and v3
     ObservationInterpretation both carry theirs that way and have no
-    NamingSystem -- so CodeSystem identifiers are read as well, and fill gaps
-    the NamingSystems leave.
+    NamingSystem -- so CodeSystem identifiers are read as well, and fill the
+    gaps the NamingSystems leave.
 
     Returns:
-        A dict of OID string to canonical URL. Empty if `tho-r5/` is absent,
-        in which case OID-only tables fall through to the report rather than
-        being resolved wrongly.
+        A dict of OID string to canonical URL. Empty if no source directory is
+        present, in which case OID-only tables fall through to the report
+        rather than being resolved wrongly.
     """
     index = {}
+
+    for directory in code_system_directories():
+        for path in sorted(directory.glob("CodeSystem-*.json")):
+            try:
+                resource = json.loads(path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, UnicodeDecodeError):
+                continue
+            url = resource.get("url")
+            if not url:
+                continue
+            identifiers = resource.get("identifier") or []
+            if isinstance(identifiers, dict):      # R4 spelled this 0..1
+                identifiers = [identifiers]
+            for identifier in identifiers:
+                value = identifier.get("value") or ""
+                if value.startswith("urn:oid:"):
+                    index[value[len("urn:oid:"):]] = url
+
     if not THO_DIR.is_dir():
         return index
 
-    for path in sorted(THO_DIR.glob("CodeSystem-*.json")):
-        try:
-            resource = json.loads(path.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, UnicodeDecodeError):
-            continue
-        url = resource.get("url")
-        if not url:
-            continue
-        identifiers = resource.get("identifier") or []
-        if isinstance(identifiers, dict):      # R4 spelled this 0..1
-            identifiers = [identifiers]
-        for identifier in identifiers:
-            value = identifier.get("value") or ""
-            if value.startswith("urn:oid:"):
-                index.setdefault(value[len("urn:oid:"):], url)
-
-    # NamingSystems are loaded second and overwrite, because they outrank a
+    # NamingSystems are loaded last and overwrite, because they outrank a
     # CodeSystem's own identifier list when the two disagree.
     for path in sorted(THO_DIR.glob("NamingSystem-*.json")):
         try:
@@ -352,6 +384,46 @@ def is_placeholder(code_system):
     return (code_system.get("SymbolicName") or "").strip() == PLACEHOLDER_SYMBOLIC_NAME
 
 
+def is_page_url(url):
+    """Is this a link to a rendered HTML page rather than a canonical URL?"""
+    return bool(url) and bool(PAGE_URL_RE.match(url))
+
+
+def parse_logical_definition(text):
+    """Read a Content Logical Definition into the compose it describes.
+
+    Returns one of:
+        {"kind": "all-codes"}       include the whole system
+        {"kind": "enumerated"}      include the codes the table itself lists
+        {"kind": "filter", ...}     include a subtree of another system
+        None                        not a shape we build; the table is reported
+
+    The filter shape is copied from THO rather than invented. 1,423 of THO's
+    1,432 filtered ValueSets use `concept is-a` and nothing else, and the three
+    subtrees Chapter 2C asks for already exist there --
+    `ValueSet/v3-WorkScheduleODH`, `ValueSet/v3-employmentStatusODH` and
+    `ValueSet/device-kind` -- so the pattern is not in doubt.
+    """
+    text = (text or "").strip()
+    if text.lower() in ("all codes", ""):
+        return {"kind": "all-codes"}
+    if text.lower() == "enumerated per table content":
+        return {"kind": "enumerated"}
+
+    include = CLD_INCLUDE_IS_A_RE.search(text)
+    if not include:
+        return None
+    exclude = CLD_EXCLUDE_CODE_RE.search(text)
+    return {
+        "kind": "filter",
+        # The filter clause carries a real canonical even where the table's own
+        # code system block carries a page link, so it is the better source.
+        "system": include.group("system"),
+        "isA": include.group("value"),
+        "excludeRoot": exclude.group("value") if exclude else None,
+    }
+
+
 def classify(record, oid_index):
     """Decide what, if anything, to write for one table.
 
@@ -398,15 +470,15 @@ def classify(record, oid_index):
     declared_uri = (system.get("URI") or "").strip()
     oid = (system.get("Code System OID") or "").strip()
 
-    page_url = THO_PAGE_URL_RE.match(declared_uri)
-    if page_url:
-        kind, slug = page_url.groups()
-        return {"action": "needs-decision",
-                "reason": "The chapter gives a link to a rendered THO page "
-                          "instead of a canonical URL. A page URL cannot "
-                          "identify a code system in a compose.",
-                "published": declared_uri,
-                "candidates": [f"http://terminology.hl7.org/{kind}/{slug}"]}
+    # Seven tables print a link to a rendered page where a canonical URL
+    # belongs. A page URL cannot identify a code system in a compose, so it is
+    # discarded -- but every one of those tables also prints the OID, and the
+    # OID is a perfectly good identifier. Falling back to it resolves them all
+    # without anybody having to decide anything.
+    page_url = None
+    if is_page_url(declared_uri):
+        page_url = declared_uri
+        declared_uri = ""
 
     if declared_uri:
         system_url = declared_uri
@@ -423,13 +495,23 @@ def classify(record, oid_index):
     elif oid and oid not in ("", "-"):
         return {"action": "needs-decision",
                 "reason": f"The code system is given only as OID {oid}, which "
-                          "no THO NamingSystem resolves to a canonical URL.",
-                "published": oid}
+                          "nothing in THO or FHIR core resolves to a canonical "
+                          "URL.",
+                "published": page_url or oid}
     else:
         # No URI and no usable OID. The chapter simply did not print the
         # canonical for its own table; UTG publishes one, so we do too.
         system_url = own_system
         resolved_by = "table's own canonical (the chapter printed neither)"
+
+    common = {"systemUrl": system_url,
+              "resolvedBy": resolved_by,
+              "hasValueSet": bool(value_sets)}
+    if page_url:
+        common["published"] = page_url
+        common["note"] = ("The chapter printed a link to a rendered page, "
+                          f"{page_url}, where a canonical URL belongs. The OID "
+                          "beside it resolved instead.")
 
     if system_url == own_system:
         if not codes:
@@ -439,16 +521,12 @@ def classify(record, oid_index):
                               "built."}
         return {"action": "code-system-and-value-set",
                 "reason": "The code system is this table's own canonical.",
-                "systemUrl": system_url,
-                "resolvedBy": resolved_by,
-                "hasValueSet": bool(value_sets)}
+                **common}
 
     return {"action": "value-set-only",
             "reason": "The code system belongs to another authority, so only "
                       "the value set is ours to author.",
-            "systemUrl": system_url,
-            "resolvedBy": resolved_by,
-            "hasValueSet": bool(value_sets)}
+            **common}
 
 
 def add_common_metadata(root, *, resource_id, url, oid, version, date,
@@ -603,12 +681,28 @@ def build_value_set(record, plan, utg):
     )
     root.add_value("copyright", COPYRIGHT)
 
+    shape = parse_logical_definition(value_set.get("Content Logical Definition"))
     compose = root.add(Node("compose"))
+
+    if shape["kind"] == "filter":
+        include = compose.add(Node("include"))
+        include.add_value("system", shape["system"])
+        criterion = include.add(Node("filter"))
+        criterion.add_value("property", "concept")
+        criterion.add_value("op", "is-a")
+        criterion.add_value("value", shape["isA"])
+        if shape["excludeRoot"]:
+            # `is-a` includes the concept it is rooted at, so excluding that
+            # one code is how "the descendants only" is written.
+            exclude = compose.add(Node("exclude"))
+            exclude.add_value("system", shape["system"])
+            concept = exclude.add(Node("concept"))
+            concept.add_value("code", shape["excludeRoot"])
+        return root
+
     include = compose.add(Node("include"))
     include.add_value("system", plan["systemUrl"])
-
-    definition = (value_set.get("Content Logical Definition") or "").strip()
-    if definition.lower() == "enumerated per table content":
+    if shape["kind"] == "enumerated":
         for entry in record.get("codedContent") or []:
             concept = include.add(Node("concept"))
             concept.add_value("code", entry.get("value"))
@@ -625,7 +719,7 @@ def compose_shape(record):
     if not value_sets:
         return None
     definition = (value_sets[0].get("Content Logical Definition") or "").strip()
-    if definition.lower() in ("all codes", "enumerated per table content", ""):
+    if parse_logical_definition(definition) is not None:
         return None
     return definition
 
@@ -677,8 +771,10 @@ def process(records, utg, oid_index):
                 if unbuildable:
                     entry["action"] = "needs-decision"
                     entry["reason"] = (
-                        "The Content Logical Definition is not one of the two "
-                        f"shapes we build: {unbuildable!r}."
+                        "The Content Logical Definition is not one of the "
+                        "shapes we build -- all codes, enumerated per table "
+                        "content, or an is-a filter: "
+                        f"{unbuildable!r}."
                     )
                 else:
                     document = render_document(build_value_set(record, plan, utg))

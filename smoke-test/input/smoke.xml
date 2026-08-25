@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="hl7.v2plus.smoke"/>
-  <url value="http://hl7.org/v2plus/smoke/ImplementationGuide/hl7.v2plus.smoke"/>
+  <url value="http://terminology.hl7.org/ImplementationGuide/hl7.v2plus.smoke"/>
   <version value="0.1.0"/>
   <name value="V2PlusVocabularySmokeTest"/>
   <title value="V2+ Vocabulary Smoke Test"/>
@@ -42,51 +42,51 @@
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-version"/>
       </code>
-      <value value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-publisher"/>
       </code>
-      <value value="http://terminology.hl7.org/ValueSet/v2-0001"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-contact"/>
       </code>
-      <value value="http://terminology.hl7.org/CodeSystem/v2-0411"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-copyright"/>
       </code>
-      <value value="http://terminology.hl7.org/ValueSet/v2-0411"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-wg"/>
       </code>
-      <value value="http://terminology.hl7.org/CodeSystem/v2-0460"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-jurisdiction"/>
       </code>
-      <value value="http://terminology.hl7.org/ValueSet/v2-0460"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="special-url"/>
+        <code value="apply-license"/>
       </code>
-      <value value="http://terminology.hl7.org/CodeSystem/conceptdomains"/>
+      <value value="false"/>
     </parameter>
   </definition>
 </ImplementationGuide>
