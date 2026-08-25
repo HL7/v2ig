@@ -408,14 +408,18 @@ FIELDS = [
         "status": NOT_USED,
         "target": "",
         "note":
-            "<b>Read by nothing, and it should be.</b> The writer constructs "
-            "<code>ValueSet.url</code> from the table number as "
-            "<code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of 429 tables that "
-            "is character-for-character what the chapter prints, which is why "
-            "this was invisible until the mapping was written out. "
-            "<b>For 17 tables it is not</b>, and for four of those the chapter, "
-            "THO and UTG all agree on a canonical we are not using. See the "
-            "findings section.",
+            "<b>Read by nothing, and that is now deliberate.</b> "
+            "<code>ValueSet.url</code> is taken from THO, which already "
+            "publishes a canonical for 440 of these tables, and constructed as "
+            "<code>&hellip;/ValueSet/v2-NNNN</code> only where THO publishes "
+            "none. A canonical is an identifier: the existing one is the "
+            "answer, and the chapter's copy of it adds nothing and can be "
+            "wrong. It is wrong for 14 tables &mdash; page links, permalinks "
+            "and references to external value sets. "
+            "The field was <i>also</i> unread before, when the canonical was "
+            "always constructed, and that version of &ldquo;unread&rdquo; was a "
+            "defect: it put four tables at canonicals nobody publishes. See "
+            "the findings section.",
     },
     {
         "block": "valueSets",

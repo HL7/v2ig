@@ -143,6 +143,105 @@ def _tho_description_status(table, description):
                        "than the truncation, so it is not a straight recovery."}
 
 
+def is_punctuation_code(code):
+    """True where a code contains no letter and no digit anywhere.
+
+    That is the whole test, and it is deliberately blunt. A code with letters
+    in it is a code however much punctuation it also carries --
+    `x-hl7-cda-level-one` and `Octet-stream` are ordinary. A code with none at
+    all is a punctuation mark standing in for a concept, which is what needs
+    looking at.
+    """
+    return bool(code.strip()) and not any(ch.isalnum() for ch in code)
+
+
+def punctuation_codes():
+    """Every concept whose code is nothing but punctuation, ours and THO's.
+
+    Both sides are scanned because they disagree, and the disagreement is the
+    interesting part. Chapter 2C has a handful; THO's v2 code systems have
+    three times as many, including five tables that carry the three-character
+    `...` and the single-character ellipsis as two separate concepts with the
+    same meaning.
+
+    Returns:
+        A list of dicts in table order, each with the table, the code, its
+        display text and which of the two sources it appears in.
+    """
+    chapter = {}
+    names = {}
+
+    for path in sorted(VOCAB_DIR.glob("*.json")):
+        record = json.loads(path.read_text())
+        table = record["tableNumber"]
+        names[table] = record.get("tableName", "")
+        for entry in record.get("codedContent") or []:
+            code = entry.get("value") or ""
+            if is_punctuation_code(code):
+                chapter[(table, code)] = (entry.get("displayName") or "").strip()
+
+    tho = _tho_punctuation_codes()
+
+    findings = []
+    for key in sorted(set(chapter) | set(tho)):
+        table, code = key
+        in_chapter, in_tho = key in chapter, key in tho
+        findings.append({
+            "table": table,
+            "name": names.get(table, ""),
+            "code": code,
+            "display": chapter.get(key) or tho.get(key, ""),
+            "source": ("both" if in_chapter and in_tho
+                       else "chapter" if in_chapter else "tho"),
+        })
+    return findings
+
+
+def _tho_punctuation_codes():
+    """Punctuation-only codes in THO's own v2 CodeSystems, keyed by table."""
+    found = {}
+    if not THO_DIR.is_dir():
+        return found
+
+    for path in sorted(THO_DIR.glob("CodeSystem-v2-*.json")):
+        try:
+            resource = json.loads(path.read_text())
+        except (json.JSONDecodeError, OSError):
+            continue
+        match = re.search(r"/CodeSystem/v2-(?:.*-)?(\d{4})$",
+                          resource.get("url") or "")
+        if not match:
+            continue
+        table = match.group(1)
+        for concept in resource.get("concept", []):
+            code = concept.get("code") or ""
+            if is_punctuation_code(code):
+                found[(table, code)] = (concept.get("display") or "").strip()
+    return found
+
+
+SOURCE_LABEL = {
+    "both": "Chapter 2C and THO",
+    "chapter": "Chapter 2C only",
+    "tho": "THO only",
+}
+
+
+def punctuation_evidence():
+    """Columns and rows for the punctuation-code table, for both renderers."""
+    columns = ["Table", "Name", "Code", "Display", "Appears in"]
+    rows = []
+    for finding in punctuation_codes():
+        rows.append([
+            finding["table"],
+            finding["name"],
+            finding["code"],
+            finding["display"] or "(none)",
+            SOURCE_LABEL[finding["source"]],
+        ])
+    return columns, rows
+
+
 def truncation_evidence():
     """Columns and rows for the truncated-description table, for both renderers."""
     columns = ["Table", "Name", "Chars", "Value Set description as published",
@@ -620,6 +719,66 @@ ESCALATIONS = [
         "evidence": truncation_evidence,
     },
     {
+        "id": "esc-punctuation-codes",
+        "who": "V2 Management + TSMG",
+        "tables": "0005, 0066, 0093, 0200, 0255, 0291, 0359, 0365, 0366, 0367, "
+                  "0418, 0466, 0487, 0492, 0505, 0523, 0544",
+        "title": "Twenty-three concepts have a code that is nothing but "
+                 "punctuation",
+        "body":
+            "Noticed in table 0291, whose code system carries a concept whose "
+            "code is a single ellipsis character. Sweeping both Chapter 2C and "
+            "THO's v2 code systems for the same shape &mdash; a code with no "
+            "letter and no digit anywhere in it &mdash; found <b>23 concepts "
+            "across 17 tables</b>. They are not one problem but three, and "
+            "only the first is defensible. "
+            "<b>Four are genuine codes and should be left alone.</b> "
+            "<code>*</code> in 0255 and 0505, <code>#</code> in 0505 and "
+            "<code>%</code> in 0523 all carry real definitions &mdash; "
+            "<i>Indicates a percent change</i>, <i>The first service request "
+            "in a cyclic group</i>. A single-character symbol is an awkward "
+            "code but it is a code, and all four are in both sources. "
+            "<b>Eighteen are an ellipsis placeholder masquerading as a "
+            "concept</b> &mdash; 13 written as three full stops and 5 as the "
+            "single ellipsis character. Their display text gives them away: "
+            "<i>No suggested "
+            "values defined</i>, <i>user-defined codes</i>, <i>see chapter "
+            "3</i>. These are rows that said &ldquo;nothing to see here&rdquo; "
+            "in a printed table and were then loaded as though they were "
+            "content. Nobody can send <code>...</code> in a message and mean "
+            "anything by it. "
+            "<b>Five tables carry the same placeholder twice.</b> 0291, 0365, "
+            "0366, 0367 and 0418 each have <code>...</code> (three full stops) "
+            "<i>and</i> <code>&hellip;</code> (one ellipsis character) as two "
+            "separate concepts, with identical display text where they have "
+            "any. That is one placeholder encoded two ways and minted as two "
+            "codes. In 0418 the ellipsis concept has <b>no display text at "
+            "all</b>. "
+            "<b>This is overwhelmingly a THO problem rather than a chapter "
+            "problem.</b> Sixteen of the 23 exist only in THO, six are in "
+            "both, and one &mdash; 0093's <code>...</code> &mdash; is only in "
+            "Chapter 2C. Every duplicate pair is THO-only. So the chapter has "
+            "largely stopped publishing these and THO has gone on carrying "
+            "them, which is the pattern this whole baseline exercise exists to "
+            "correct. "
+            "One further oddity: 0492's code is <code>??</code>, displayed "
+            "<i>Inappropriate due to ...</i> &mdash; a display that is itself "
+            "truncated, beside a code that looks like a data-entry artefact.",
+        "ask":
+            "<b>Review all 23 and say which are real.</b> The recommendation "
+            "is: keep the four symbol codes; retire the ellipsis "
+            "placeholders, which were never concepts; and for the five "
+            "duplicate pairs retire at least the redundant spelling even if "
+            "the placeholder itself is kept. "
+            "Nothing is proposed for this release &mdash; the chapter is "
+            "reproduced as published, so 0093's placeholder is currently "
+            "emitted as a concept and the THO-only ones are untouched. But "
+            "these codes are in published code systems today, so retiring them "
+            "is a change to content in the field and needs a decision from the "
+            "owners rather than from this project. Listed in full below.",
+        "evidence": punctuation_evidence,
+    },
+    {
         "id": "esc-0954-cld-exclude",
         "who": "V2 Management + TSMG",
         "tables": "0954, 0957",
@@ -854,7 +1013,10 @@ def check_table_lists():
         if not item.get("evidence"):
             continue
         _, rows = item["evidence"]()
-        computed = [row[0] for row in rows]
+        # Unique, in the order the evidence lists them. An item can have more
+        # than one row per table -- table 0505 has two punctuation codes --
+        # and the stated list names each table once.
+        computed = list(dict.fromkeys(row[0] for row in rows))
         stated = [t.strip() for t in item["tables"].split(",") if t.strip()]
         if computed != stated:
             warnings.append(

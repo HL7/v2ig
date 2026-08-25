@@ -300,6 +300,7 @@ class UtgRepo:
         self.available = False
         self.code_systems = {}   # table number -> parsed metadata
         self.value_sets = {}
+        self.collisions = []     # (table, file name) pairs, reported not resolved
         self.next_concept_id = 100
         if root is None:
             return
@@ -312,8 +313,15 @@ class UtgRepo:
 
     @staticmethod
     def _table_number(path):
-        """Pull the table number out of a `cs-v2-0001.xml` style filename."""
-        match = re.fullmatch(r"(?:cs|vs)-v2-(.+)\.xml", path.name)
+        """Pull the table number out of a `cs-v2-0001.xml` style filename.
+
+        A few of UTG's value set files carry something between the prefix and
+        the number -- `vs-v2-notAllCodes-0291.xml`. The table number is the
+        four digits at the end either way, and matching on anything else meant
+        those files were invisible, so their tables inherited no version, no
+        date and no concept element ids.
+        """
+        match = re.fullmatch(r"(?:cs|vs)-v2-(?:.*-)?(\d{4})\.xml", path.name)
         return match.group(1) if match else None
 
     @staticmethod
@@ -354,6 +362,14 @@ class UtgRepo:
                 "date": self._value_of(root, "date"),
                 "workGroup": work_group,
                 "conceptIds": concept_ids,
+                # `CodeSystem.valueSet` means "the value set containing the
+                # entire code system", so a code system whose value set omits
+                # a code must not carry it. UTG leaves it off exactly twice --
+                # 0291 and 0834, the two notAllCodes tables that have a code
+                # system -- and 414 of 416 carry it. Mirroring that is safer
+                # than re-deriving the rule.
+                "hasValueSetElement":
+                    self._value_of(root, "valueSet") is not None,
             }
         self.next_concept_id = highest + 1
 
@@ -368,9 +384,22 @@ class UtgRepo:
                 root = ElementTree.parse(path).getroot()
             except ElementTree.ParseError:
                 continue
+            if table in self.value_sets:
+                # Two UTG files claiming one table would make the inherited
+                # metadata depend on directory order. There are none today;
+                # this exists so that a new one is noticed rather than
+                # silently winning.
+                self.collisions.append((table, path.name))
+                continue
             self.value_sets[table] = {
                 "version": self._value_of(root, "version"),
                 "date": self._value_of(root, "date"),
+                # UTG's own file name and canonical, kept so the output can
+                # overwrite the right file at the right URL rather than at one
+                # derived from the table number.
+                "fileName": path.name,
+                "url": self._value_of(root, "url"),
+                "resourceId": self._value_of(root, "id"),
             }
 
     def allocate_concept_id(self):
@@ -378,6 +407,65 @@ class UtgRepo:
         element_id = self.next_concept_id
         self.next_concept_id += 1
         return str(element_id)
+
+
+def load_published_value_set_urls():
+    """Index the ValueSet canonicals THO already publishes, by table number.
+
+    A canonical URL is an identifier and nothing more. Where one already exists
+    for a table, it is the URL, and this project must use it rather than
+    construct its own -- even where the existing one looks like it means
+    something. Four tables have a canonical of the form
+    `.../ValueSet/v2-notAllCodes-NNNN`; that string is not a statement about
+    the value set's contents that we are entitled to reproduce or to ignore, it
+    is simply the identifier THO issued.
+
+    Read from the `url` element rather than from the file name, because the two
+    disagree: UTG's file for table 0834 is `vs-v2-0834.xml` and declares the
+    canonical `.../v2-notAllCodes-0834`.
+
+    Returns:
+        A dict of table number to canonical URL. Tables THO does not publish
+        are absent, and the writer constructs a canonical for those.
+    """
+    index = {}
+    pattern = re.compile(
+        r"^http://terminology\.hl7\.org/ValueSet/v2-(?:.*-)?(\d{4})$")
+
+    for path in sorted(THO_DIR.glob("ValueSet-*.json")):
+        try:
+            url = json.loads(path.read_text()).get("url") or ""
+        except (json.JSONDecodeError, OSError):
+            continue
+        match = pattern.match(url)
+        if match:
+            index[match.group(1)] = url
+
+    return index
+
+
+def value_set_identity(table, published_urls=None, utg=None):
+    """Decide the canonical, resource id and file name for a table's ValueSet.
+
+    Three things have to agree, and all three follow from the canonical:
+
+      * `ValueSet.url` is whatever THO already publishes, or a constructed
+        `.../ValueSet/v2-NNNN` where THO publishes nothing.
+      * `ValueSet.id` is the last segment of that canonical, which is how every
+        UTG resource is built.
+      * the file name mirrors UTG's own, so that copying the output tree over
+        UTG's overwrites the right file instead of adding a second one. UTG is
+        not internally consistent here -- three of the four odd tables are
+        filed under their canonical and the fourth under its table number --
+        so its file name is read rather than derived.
+    """
+    url = (published_urls or {}).get(table) or VS_CANONICAL.format(table=table)
+    resource_id = url.rsplit("/", 1)[-1]
+
+    inherited = (utg.value_sets.get(table, {}) if utg else {})
+    file_name = inherited.get("fileName") or f"vs-{resource_id}.xml"
+
+    return {"url": url, "id": resource_id, "file": f"valueSets/{file_name}"}
 
 
 def pascal_case(symbolic_name):
@@ -616,7 +704,7 @@ def build_concept(entry, element_id):
     return concept
 
 
-def build_code_system(record, plan, utg):
+def build_code_system(record, plan, utg, published_urls=None):
     """Build the CodeSystem for a table that owns its code system."""
     table = record["tableNumber"]
     system = (record.get("codeSystems") or [{}])[0]
@@ -656,8 +744,19 @@ def build_code_system(record, plan, utg):
     )
     root.add_value("copyright", COPYRIGHT)
     root.add_value("caseSensitive", "true")
-    if plan.get("hasValueSet"):
-        root.add_value("valueSet", VS_CANONICAL.format(table=table))
+    # `CodeSystem.valueSet` names the value set that contains the *entire* code
+    # system, so it is wrong on a code system whose value set leaves a code
+    # out. Where UTG already publishes the code system, follow what it does;
+    # it omits the element on exactly the two tables where the value set is not
+    # all-codes. Where UTG has nothing, the value set we write is built from
+    # the chapter's own content, so the element is correct.
+    inherited_has_element = inherited.get("hasValueSetElement")
+    if inherited_has_element is None:
+        inherited_has_element = True
+    if plan.get("hasValueSet") and inherited_has_element:
+        root.add_value(
+            "valueSet",
+            value_set_identity(table, published_urls, utg)["url"])
     root.add_value("hierarchyMeaning", "is-a")
     root.add_value("compositional", "false")
     root.add_value("versionNeeded", "false")
@@ -690,7 +789,7 @@ def build_code_system(record, plan, utg):
     return root
 
 
-def build_value_set(record, plan, utg):
+def build_value_set(record, plan, utg, published_urls=None):
     """Build the ValueSet for a table, composed over `plan["systemUrl"]`.
 
     The chapter's Content Logical Definition says which shape the compose
@@ -703,11 +802,12 @@ def build_value_set(record, plan, utg):
     inherited = utg.value_sets.get(table, {})
     symbolic_name = (value_set.get("SymbolicName") or "").strip()
 
+    identity = value_set_identity(table, published_urls, utg)
     root = Node("ValueSet")
     add_common_metadata(
         root,
-        resource_id=f"v2-{table}",
-        url=VS_CANONICAL.format(table=table),
+        resource_id=identity["id"],
+        url=identity["url"],
         oid=value_set.get("Value Set OID"),
         version=inherited.get("version") or DEFAULT_VERSION,
         date=inherited.get("date") or DEFAULT_DATE,
@@ -760,7 +860,7 @@ def compose_shape(record):
     return definition
 
 
-def process(records, utg, oid_index):
+def process(records, utg, oid_index, published_urls=None):
     """Classify every table and build the resources for those that qualify.
 
     Returns:
@@ -802,7 +902,8 @@ def process(records, utg, oid_index):
                 )
             if not utg.code_systems.get(table, {}).get("version"):
                 used_default.append("CodeSystem")
-            document = render_document(build_code_system(record, plan, utg))
+            document = render_document(
+                build_code_system(record, plan, utg, published_urls))
             path = f"codeSystems/cs-v2-{table}.xml"
             files[path] = document
             entry["written"].append(path)
@@ -824,8 +925,15 @@ def process(records, utg, oid_index):
                 else:
                     if not utg.value_sets.get(table, {}).get("version"):
                         used_default.append("ValueSet")
-                    document = render_document(build_value_set(record, plan, utg))
-                    path = f"valueSets/vs-v2-{table}.xml"
+                    identity = value_set_identity(table, published_urls, utg)
+                    if identity["url"] != VS_CANONICAL.format(table=table):
+                        entry["valueSetUrl"] = identity["url"]
+                        entry["valueSetUrlNote"] = (
+                            "Published at THO's existing canonical rather than "
+                            "one constructed from the table number.")
+                    document = render_document(
+                        build_value_set(record, plan, utg, published_urls))
+                    path = identity["file"]
                     files[path] = document
                     entry["written"].append(path)
 
@@ -867,13 +975,21 @@ def main():
     records = [json.loads(p.read_text(encoding="utf-8")) for p in paths]
     utg = UtgRepo(args.utg_repo)
     oid_index = load_oid_index()
+    published_urls = load_published_value_set_urls()
 
     print(f"Tables read            : {len(records)}")
     print(f"UTG checkout           : "
           f"{'yes, ' + str(len(utg.code_systems)) + ' code systems' if utg.available else 'not found -- using defaults'}")
     print(f"THO OID index          : {len(oid_index)} OIDs")
+    print(f"THO value set canonicals: {len(published_urls)} tables")
 
-    files, report = process(records, utg, oid_index)
+    if utg.collisions:
+        print("\nWARNING: more than one UTG file claims the same table; the "
+              "later ones were ignored:")
+        for table, file_name in utg.collisions:
+            print(f"  {table}  {file_name}")
+
+    files, report = process(records, utg, oid_index, published_urls)
 
     actions = Counter(entry["action"] for entry in report)
     print("\nWhat the chapter supports:")

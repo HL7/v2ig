@@ -97,25 +97,47 @@ def test_an_empty_value_is_not_counted():
     assert counts[("codeSystems", "Description")] == 1
 
 
+NOT_ALL_CODES_0291 = ("http://terminology.hl7.org/ValueSet/"
+                      "v2-notAllCodes-0291")
+
+
 def test_a_declared_canonical_matching_the_generated_one_is_not_a_finding():
     records = [{
         "tableNumber": "0001",
         "tableName": "Administrative Sex",
         "valueSets": [{"URI": mapping.VS_CANONICAL.format(table="0001")}],
     }]
-    assert mapping.divergent_value_set_urls(records, {}) == []
+    assert mapping.divergent_value_set_urls(records, {}, {}) == []
 
 
-def test_a_declared_canonical_differing_from_the_generated_one_is_reported():
+def test_a_declared_canonical_we_do_not_publish_at_is_reported():
+    """With no THO canonical to use, the writer constructs one and they differ."""
     records = [{
         "tableNumber": "0291",
         "tableName": "Subtype of Referenced Data",
-        "valueSets": [{"URI": "http://terminology.hl7.org/ValueSet/"
-                              "v2-notAllCodes-0291"}],
+        "valueSets": [{"URI": NOT_ALL_CODES_0291}],
     }]
-    found = mapping.divergent_value_set_urls(records, {})
+    found = mapping.divergent_value_set_urls(records, {}, {})
     assert len(found) == 1
     assert found[0]["generated"].endswith("v2-0291")
+
+
+def test_thos_own_canonical_is_not_reported_as_a_divergence():
+    """The fix: once we publish at THO's URL, there is nothing to report."""
+    records = [{
+        "tableNumber": "0291",
+        "tableName": "Subtype of Referenced Data",
+        "valueSets": [{"URI": NOT_ALL_CODES_0291}],
+    }]
+    published = {"0291": NOT_ALL_CODES_0291}
+    assert mapping.divergent_value_set_urls(records, {}, published) == []
+
+
+def test_the_four_notallcodes_tables_are_published_at_thos_canonical():
+    """Against the real THO corpus, not a fixture."""
+    published = mapping.load_published_value_set_urls()
+    for table in ("0291", "0347", "0399", "0834"):
+        assert published[table].endswith(f"v2-notAllCodes-{table}"), table
 
 
 # --------------------------------------------------------------------------
@@ -173,3 +195,53 @@ def test_the_evidence_table_has_a_row_per_finding():
     columns, rows = register.truncation_evidence()
     assert len(columns) == 5
     assert len(rows) == len(register.truncated_value_set_descriptions())
+
+
+# --------------------------------------------------------------------------
+# Codes that are punctuation marks
+# --------------------------------------------------------------------------
+
+def test_a_code_with_letters_is_not_punctuation():
+    for code in ("x-hl7-cda-level-one", "Octet-stream", "A", "0", "7.4.1"):
+        assert not register.is_punctuation_code(code)
+
+
+def test_a_code_with_no_letter_or_digit_is_punctuation():
+    for code in ("...", "…", "*", "#", "%", "??"):
+        assert register.is_punctuation_code(code)
+
+
+def test_an_empty_code_is_not_reported():
+    assert not register.is_punctuation_code("")
+    assert not register.is_punctuation_code("   ")
+
+
+def test_the_symbol_codes_are_in_both_sources():
+    """The four defensible ones. If any drops to a single source, say so."""
+    found = {(f["table"], f["code"]): f for f in register.punctuation_codes()}
+    for key in (("0255", "*"), ("0505", "*"), ("0505", "#"), ("0523", "%")):
+        assert found[key]["source"] == "both", key
+
+
+def test_five_tables_carry_the_placeholder_in_two_spellings():
+    """`...` and `…` minted as separate concepts with the same meaning."""
+    findings = register.punctuation_codes()
+    dots = {f["table"] for f in findings if f["code"] == "..."}
+    ellipsis = {f["table"] for f in findings if f["code"] == "…"}
+    assert sorted(dots & ellipsis) == ["0291", "0365", "0366", "0367", "0418"]
+
+
+def test_the_placeholders_outnumber_the_real_codes():
+    findings = register.punctuation_codes()
+    placeholders = [f for f in findings if f["code"] in ("...", "…")]
+    symbols = [f for f in findings if f["code"] in ("*", "#", "%")]
+    assert len(placeholders) == 18
+    assert len(symbols) == 4
+
+
+def test_most_of_them_are_thos_rather_than_the_chapters():
+    """The chapter has largely stopped publishing these; THO has not."""
+    by_source = {}
+    for finding in register.punctuation_codes():
+        by_source[finding["source"]] = by_source.get(finding["source"], 0) + 1
+    assert by_source["tho"] > by_source["chapter"] + by_source["both"]

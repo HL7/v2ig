@@ -179,7 +179,7 @@ choice explicit.</p>
 <tr><td class='nowrap'><b>Realm</b></td><td class='num'>439</td><td class='nowrap'>Binding Information</td><td>On 439 tables, almost all of them <code>representative</code>. FHIR has <code>ValueSet.jurisdiction</code>, which is the obvious candidate, but &ldquo;representative&rdquo; is not a jurisdiction &mdash; it is a statement about the <i>status</i> of the binding, closer to an HL7 realm concept than to a country code. Recorded as an open Batch C question in ADR-0008 and still open.</td></tr>
 <tr><td class='nowrap'><b>Full Name</b></td><td class='num'>437</td><td class='nowrap'>Code System Identification Information</td><td><b>The field this document was commissioned over.</b> Carries a value on 437 of the 444 tables that declare a code system, and is read by nothing. There is no obvious FHIR home: <code>title</code> is already taken by <code>SymbolicName</code>, and the two are not the same string &mdash; Full Name is a human-readable label of the form <i>&lt;Table Name&gt; Code System</i>. It is also the field with the known copy-paste defects: 412 of 444 follow the pattern and the exceptions include names carried over from a different table. Because nothing reads it, <b>those defects never reach the output</b> &mdash; which is a reason the field is low-risk, not a reason it is worthless.</td></tr>
 <tr><td class='nowrap'><b>Full Name</b></td><td class='num'>432</td><td class='nowrap'>Value Set Identification Information</td><td>The Value Set counterpart of the Code System Full Name, on 432 tables, and read by nothing for the same reason: <code>title</code> already holds <code>SymbolicName</code>.</td></tr>
-<tr><td class='nowrap'><b>URI</b></td><td class='num'>429</td><td class='nowrap'>Value Set Identification Information</td><td><b>Read by nothing, and it should be.</b> The writer constructs <code>ValueSet.url</code> from the table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of 429 tables that is character-for-character what the chapter prints, which is why this was invisible until the mapping was written out. <b>For 17 tables it is not</b>, and for four of those the chapter, THO and UTG all agree on a canonical we are not using. See the findings section.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>429</td><td class='nowrap'>Value Set Identification Information</td><td><b>Read by nothing, and that is now deliberate.</b> <code>ValueSet.url</code> is taken from THO, which already publishes a canonical for 440 of these tables, and constructed as <code>&hellip;/ValueSet/v2-NNNN</code> only where THO publishes none. A canonical is an identifier: the existing one is the answer, and the chapter's copy of it adds nothing and can be wrong. It is wrong for 14 tables &mdash; page links, permalinks and references to external value sets. The field was <i>also</i> unread before, when the canonical was always constructed, and that version of &ldquo;unread&rdquo; was a defect: it put four tables at canonicals nobody publishes. See the findings section.</td></tr>
 <tr><td class='nowrap'><b>Version</b></td><td class='num'>426</td><td class='nowrap'>Code System Version</td><td>The chapter's own version number for the code system. <code>CodeSystem.version</code> is taken from the existing UTG resource instead, and where UTG has none, from a default. The two are on different schemes &mdash; the chapter counts <code>1</code>, <code>2</code>, <code>3</code>; THO uses semantic versions &mdash; so they cannot simply be substituted, but nobody has reconciled them either.</td></tr>
 <tr><td class='nowrap'><b>HL7 Version Introduced</b></td><td class='num'>422</td><td class='nowrap'>Code System Version</td><td>ADR-0008 D18 already ruled on this one: it is provenance about the concept and <b>belongs in a property</b>, never in <code>CodeSystem.version</code>. The ruling has not been implemented, so the information is currently dropped. This is the clearest actionable gap in the document &mdash; the decision exists, only the property does not.</td></tr>
 <tr><td class='nowrap'><b>Effective Date</b></td><td class='num'>416</td><td class='nowrap'>Code System Version</td><td>In <code>DD.MM.YYYY</code> form. <code>CodeSystem.date</code> comes from UTG, where 414 of 416 resources carry the same <code>2019-12-01</code> &mdash; the date of a bulk load, not a date anyone chose. <b>The chapter has the better information here and it is the one being thrown away.</b></td></tr>
@@ -242,7 +242,7 @@ choice explicit.</p>
 <tr><td class='nowrap'><b>SymbolicName</b></td><td class='num'>437</td><td class='nowrap'><span class='badge b-info'>Transformed</span></td><td><code>ValueSet.name</code> (PascalCase), <code>ValueSet.title</code> (verbatim)</td><td>Same two-element treatment as the code system's.</td></tr>
 <tr><td class='nowrap'><b>Description</b></td><td class='num'>438</td><td class='nowrap'><span class='badge b-good'>Carried</span></td><td><code>ValueSet.description</code></td><td>Carried verbatim &mdash; including for the <b>16 tables whose description is truncated mid-word at the source</b>. This is the one published defect that reaches the generated resources. THO carries the same truncation on 15 of the 16, so it is not something this project introduced. Listed in full in the escalation register.</td></tr>
 <tr><td class='nowrap'><b>Full Name</b></td><td class='num'>432</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>The Value Set counterpart of the Code System Full Name, on 432 tables, and read by nothing for the same reason: <code>title</code> already holds <code>SymbolicName</code>.</td></tr>
-<tr><td class='nowrap'><b>URI</b></td><td class='num'>429</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><b>Read by nothing, and it should be.</b> The writer constructs <code>ValueSet.url</code> from the table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of 429 tables that is character-for-character what the chapter prints, which is why this was invisible until the mapping was written out. <b>For 17 tables it is not</b>, and for four of those the chapter, THO and UTG all agree on a canonical we are not using. See the findings section.</td></tr>
+<tr><td class='nowrap'><b>URI</b></td><td class='num'>429</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td><b>Read by nothing, and that is now deliberate.</b> <code>ValueSet.url</code> is taken from THO, which already publishes a canonical for 440 of these tables, and constructed as <code>&hellip;/ValueSet/v2-NNNN</code> only where THO publishes none. A canonical is an identifier: the existing one is the answer, and the chapter's copy of it adds nothing and can be wrong. It is wrong for 14 tables &mdash; page links, permalinks and references to external value sets. The field was <i>also</i> unread before, when the canonical was always constructed, and that version of &ldquo;unread&rdquo; was a defect: it put four tables at canonicals nobody publishes. See the findings section.</td></tr>
 <tr><td class='nowrap'><b>Content Logical Definition</b></td><td class='num'>438</td><td class='nowrap'><span class='badge b-flag'>Used, not carried</span></td><td>the shape of <code>ValueSet.compose</code></td><td><code>all codes</code> composes the whole code system; <code>enumerated per table content</code> lists the table's rows; an <i>Include &hellip; where concept is-a X</i> clause becomes a filter. The <i>rule</i> survives in the compose, but the sentence the chapter wrote does not, and anything the writer cannot parse sends the table to the blocked list rather than being recorded.</td></tr>
 <tr><td class='nowrap'><b>THO URL</b></td><td class='num'>3</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Three tables (0821, 0822, 0823) carry an <code>hl7.org/permalink</code> address under this key. A permalink is not a canonical and could not be used as one, but it does point at the intended value set, which is more than those three tables otherwise give us &mdash; all three are currently blocked.</td></tr>
 <tr><td class='nowrap'><b>Comments</b></td><td class='num'>1</td><td class='nowrap'><span class='badge b-decide'>Not used</span></td><td><span class='faint-inline'>&mdash;</span></td><td>Two tables. 0719's says <i>replaces 2.16.840.1.113883.21.406</i> &mdash; supersession again, and again dropped. 0821's is empty.</td></tr>
@@ -349,25 +349,51 @@ examples should live.</p>
 
 <p>Writing the mapping out surfaced something the pipeline had not reported,
 which is the usual argument for doing this kind of exercise. It concerns the
-Value Set <code>URI</code> field.</p>
+Value Set <code>URI</code> field, and it has since been fixed.</p>
 
-<p>The writer never reads it. <code>ValueSet.url</code> is constructed from the
-table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of the 429
-tables that print a URI, the constructed string and the printed string are
-identical, which is why nobody noticed.</p>
+<div class='settled'>
+<p><b>Fixed: the writer now publishes at THO's existing canonical.</b> It used
+to construct <code>ValueSet.url</code> from the table number in every case.
+That agreed with the chapter for 412 of the 429 tables that print a URI, which
+is why nobody noticed the other seventeen.</p>
 
-<p><b>17 tables print a Value Set canonical that is not the one we generate.</b> &ldquo;Published?&rdquo; means THO or UTG has a ValueSet at that exact URL.</p>
+<p>Four of them mattered. Tables <b>0291, 0347, 0399 and 0834</b> are published
+by THO and UTG at <code>&hellip;/ValueSet/v2-notAllCodes-NNNN</code>, and
+neither publishes the <code>v2-NNNN</code> form the writer was minting. <b>A
+canonical URL is an identifier and nothing more</b>; that one happens to read
+like a description of the value set's contents, but that is incidental and
+gives nobody licence to issue a different one. The rule now is simply: where
+THO already has a canonical for the table, use it.</p>
+
+<p>Three things follow from getting the canonical right, and all three now
+match UTG exactly. The resource <code>id</code> is the last segment of the
+canonical. The output file keeps UTG's own name, which is not derivable &mdash;
+three of the four are filed under the canonical and 0834 under its table
+number. And the version is inherited again: the file-name parser had been
+reading <code>notAllCodes-0291</code> as the table number and finding nothing,
+so those tables were falling back to a default. Table 0347 is back at UTG's
+2.0.0 from a wrongly-defaulted 1.0.0, and the number of resources needing a
+default version drops from 14 to 12.</p>
+
+<p>One more consequence, which UTG had right and we did not.
+<code>CodeSystem.valueSet</code> means <i>the value set containing the entire
+code system</i>, so a code system whose value set leaves a code out must not
+carry it. UTG omits the element on exactly two of its 416 code systems &mdash;
+0291 and 0834 &mdash; and the generated output now does the same.</p>
+</div>
+
+<p>Fourteen tables still print a canonical that is not the one we publish at.
+These are a different problem and are not fixed:</p>
+
+<p>&ldquo;Published?&rdquo; means THO or UTG has a ValueSet at that exact URL.</p>
 <table><tr><th>Table</th><th>Name</th><th>Chapter prints</th><th>Published?</th><th>We generate</th><th>Published?</th><th>Status</th></tr>
-<tr><td class='nowrap'>0291</td><td>Subtype of Referenced Data</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0291</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0291</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>code-system-and-value-set</td></tr>
-<tr><td class='nowrap'>0347</td><td>State/Province</td><td class='small'>http://terminology.hl7.org/ValueSet-v2-notAllCodes-0347.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0347</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
-<tr><td class='nowrap'>0399</td><td>Country Code</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0399</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
+<tr><td class='nowrap'>0347</td><td>State/Province</td><td class='small'>http://terminology.hl7.org/ValueSet-v2-notAllCodes-0347.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
 <tr><td class='nowrap'>0567</td><td>Weight Units</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0929</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0567</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
 <tr><td class='nowrap'>0568</td><td>Volume Units</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0930</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0568</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
 <tr><td class='nowrap'>0719</td><td>Access Restriction Reason Code</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-ActInformationSensitivityPolicy.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0719</td><td class='nowrap'><span class='yes'>yes</span></td><td class='nowrap small'>value-set-only</td></tr>
 <tr><td class='nowrap'>0824</td><td>Recorded Sex or Gender Type</td><td class='small'>www.hl7.org/permalink/?ValueSetRecordedSexOrGenderType</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0824</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
 <tr><td class='nowrap'>0827</td><td>Source Document Jurisdiction for Recorded Sex or  Gender</td><td class='small'>http://hl7.org/fhir/ValueSet/jurisdiction</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0827</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
 <tr><td class='nowrap'>0828</td><td>Sex Parameter for Clinical Use</td><td class='small'>https://terminology.hl7.org/ValueSet-sex-parameter-for-clinical-use.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0828</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
-<tr><td class='nowrap'>0834</td><td>MIME Types</td><td class='small'>http://terminology.hl7.org/ValueSet/v2-notAllCodes-0834</td><td class='nowrap'><span class='yes'>yes</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0834</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>code-system-and-value-set</td></tr>
 <tr><td class='nowrap'>0953</td><td>Security Label Handling Instructions</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-SecurityControlObservationValue.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0953</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
 <tr><td class='nowrap'>0954</td><td>Work Schedule ODH</td><td class='small'>http://terminology.hl7.org/ValueSet-v3-WorkScheduleODH.html</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0954</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
 <tr><td class='nowrap'>0955</td><td>Industry</td><td class='small'>https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0955</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>value-set-only</td></tr>
@@ -377,44 +403,34 @@ identical, which is why nobody noticed.</p>
 <tr><td class='nowrap'>0963</td><td>Device Safety</td><td class='small'>http://hl7.org/fhir/ValueSet/device-safety</td><td class='nowrap'><span class='no'>no</span></td><td class='small'>http://terminology.hl7.org/ValueSet/v2-0963</td><td class='nowrap'><span class='no'>no</span></td><td class='nowrap small'>needs-decision</td></tr>
 </table>
 
-<p>Most of the seventeen are already-known defect classes appearing in a field
-nobody had checked &mdash; links to rendered pages where a canonical belongs,
-<code>hl7.org/permalink</code> addresses, and references to genuinely external
-value sets at FHIR or PHIN VADS canonicals. Those tables are mostly blocked
-already for other reasons.</p>
+<p>Two of the fourteen are cosmetic and already resolved in substance. <b>0347
+and 0719</b> print a link to a rendered page where a canonical belongs &mdash;
+the defect class ADR-0008 already knows about, showing up in a field nobody had
+checked. The URL we publish at is right in both cases, so nothing turns on it
+beyond fixing the chapter.</p>
 
-<div class='counter'>
-<p><b>Four of them are a real divergence, and they point the same way.</b>
-Tables <b>0291, 0347, 0399 and 0834</b> print a canonical of the form
-<code>&hellip;/ValueSet/v2-notAllCodes-NNNN</code> &mdash; THO's convention for
-a value set that enumerates a subset of its code system rather than including
-all of it. <b>THO and UTG both publish exactly that canonical, and neither
-publishes the <code>v2-NNNN</code> form we generate.</b> So for these four,
-the chapter, THO and UTG agree with each other and this project agrees with
-none of them: it mints a fifth canonical that has never existed.</p>
+<p><b>0567 and 0568</b> print another table's value set canonical &mdash;
+<code>v2-0929</code> and <code>v2-0930</code> respectively. Both the printed
+and the generated canonical exist in THO, so this is not a dangling reference;
+it is the value-set counterpart of the pattern ADR-0008 D11 found for code
+systems, where one table borrows another's terminology. D11 settled that case
+for code systems and nobody has applied it here. <b>These two are the open
+question in this section.</b></p>
 
-<p>There is a second-order effect worth knowing about. The writer inherits
-version and date from the existing UTG file by matching on the table number in
-the file name, and UTG's files for three of these are named
-<code>vs-v2-notAllCodes-NNNN.xml</code>. The match fails, so those three
-inherit nothing and fall back to the default version &mdash; which means three
-of the &ldquo;16 resources UTG does not have&rdquo; are resources UTG has all
-along, under a name the parser did not recognise. Table 0347 is currently
-emitted at version 1.0.0 where UTG publishes 2.0.0.</p>
-</div>
+<p>The remaining ten point at genuinely external value sets &mdash; FHIR core's
+<code>jurisdiction</code>, <code>data-absent-reason</code> and
+<code>device-safety</code>, two PHIN VADS value sets, an
+<code>hl7.org/permalink</code> address, and three v3 value sets given as page
+links. THO publishes nothing at the v2 canonical for any of them. These are not
+naming problems but content questions: whether the table has its own value set
+at all, or is a pointer to somebody else's. Most are already blocked for
+related reasons.</p>
 
-<p>A separate pair, <b>0567 and 0568</b>, print another table's value set
-canonical &mdash; <code>v2-0929</code> and <code>v2-0930</code> respectively.
-Both the printed and the generated canonical exist in THO, so this is not a
-dangling reference; it is the value-set counterpart of the pattern ADR-0008 D11
-found for code systems, where one table borrows another's terminology. It needs
-the same treatment and has not had it.</p>
-
-<p><b>None of this has been changed.</b> Honouring the printed URI is not a
+<p><b>Nothing further has been changed.</b> Honouring the printed URI is not a
 blanket rule &mdash; a page URL and a permalink are not canonicals, and
-adopting them would be worse than ignoring them. It needs the same
-classify-then-resolve treatment the Code System URI already has, and that is a
-decision rather than a fix.</p>
+adopting them would be worse than ignoring them. The rule that was adopted is
+narrower and safer: <i>use the canonical THO already publishes for this
+table</i>, which needs nothing from the chapter at all.</p>
 
 <h2 id='completeness'>Completeness check</h2>
 

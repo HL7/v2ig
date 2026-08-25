@@ -42,6 +42,12 @@ from field_mapping_spec import (  # noqa: E402
     BLOCKS, CARRIED, EXTRACTION_ONLY, FIELDS, NOT_USED, STATUS_BLURB,
     STATUS_LABEL, STATUS_ORDER, TRANSFORMED, USED,
 )
+# The writer is the authority on what canonical a value set is published at.
+# Re-deriving it here would let the document and the output disagree, which is
+# the one thing this document exists to prevent.
+from write_utg_xml import (  # noqa: E402
+    load_published_value_set_urls, value_set_identity,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -141,16 +147,19 @@ def count_fields(records):
     return counts, blocks_present, observed
 
 
-def divergent_value_set_urls(records, actions):
-    """Tables whose printed Value Set canonical is not the one we generate.
+def divergent_value_set_urls(records, actions, published_urls=None):
+    """Tables whose printed Value Set canonical is not the one we publish at.
 
-    The writer builds `ValueSet.url` from the table number and never reads the
-    URI the chapter prints. That is invisible for most of the corpus because
-    the two agree; this finds the tables where they do not, and checks each
-    against THO and UTG so the reader can tell a defect in the chapter from a
-    defect in the writer.
+    The writer never reads the URI the chapter prints. It takes THO's existing
+    canonical where there is one and constructs `.../ValueSet/v2-NNNN` where
+    there is not. That agrees with the chapter for almost the whole corpus;
+    this finds the tables where it does not, and checks both strings against
+    what THO and UTG actually publish, so a defect in the chapter can be told
+    apart from a gap in the writer.
     """
-    tho_urls = _published_value_set_urls()
+    published_urls = published_urls if published_urls is not None else \
+        load_published_value_set_urls()
+    known = _published_value_set_urls()
     rows = []
 
     for record in records:
@@ -159,7 +168,7 @@ def divergent_value_set_urls(records, actions):
         if not value_sets:
             continue
         declared = (value_sets[0].get("URI") or "").strip()
-        generated = VS_CANONICAL.format(table=table)
+        generated = value_set_identity(table, published_urls)["url"]
         if not declared or declared == generated:
             continue
         rows.append({
@@ -168,8 +177,8 @@ def divergent_value_set_urls(records, actions):
             "declared": declared,
             "generated": generated,
             "action": actions.get(table, "?"),
-            "declaredPublished": declared in tho_urls,
-            "generatedPublished": generated in tho_urls,
+            "declaredPublished": declared in known,
+            "generatedPublished": generated in known,
         })
     return rows
 
@@ -388,9 +397,8 @@ def render_html(data, generated):
     add("<h2 id='findings'>Found while writing this down</h2>")
     add(FINDINGS_INTRO)
     rows = data["divergent_urls"]
-    add(f"<p><b>{len(rows)} tables print a Value Set canonical that is not the "
-        "one we generate.</b> &ldquo;Published?&rdquo; means THO or UTG has a "
-        "ValueSet at that exact URL.</p>")
+    add("<p>&ldquo;Published?&rdquo; means THO or UTG has a ValueSet at that "
+        "exact URL.</p>")
     add("<table><tr><th>Table</th><th>Name</th><th>Chapter prints</th>"
         "<th>Published?</th><th>We generate</th><th>Published?</th>"
         "<th>Status</th></tr>")
@@ -528,53 +536,72 @@ examples should live.</p>
 FINDINGS_INTRO = """
 <p>Writing the mapping out surfaced something the pipeline had not reported,
 which is the usual argument for doing this kind of exercise. It concerns the
-Value Set <code>URI</code> field.</p>
+Value Set <code>URI</code> field, and it has since been fixed.</p>
 
-<p>The writer never reads it. <code>ValueSet.url</code> is constructed from the
-table number as <code>&hellip;/ValueSet/v2-NNNN</code>. For 412 of the 429
-tables that print a URI, the constructed string and the printed string are
-identical, which is why nobody noticed.</p>
+<div class='settled'>
+<p><b>Fixed: the writer now publishes at THO's existing canonical.</b> It used
+to construct <code>ValueSet.url</code> from the table number in every case.
+That agreed with the chapter for 412 of the 429 tables that print a URI, which
+is why nobody noticed the other seventeen.</p>
+
+<p>Four of them mattered. Tables <b>0291, 0347, 0399 and 0834</b> are published
+by THO and UTG at <code>&hellip;/ValueSet/v2-notAllCodes-NNNN</code>, and
+neither publishes the <code>v2-NNNN</code> form the writer was minting. <b>A
+canonical URL is an identifier and nothing more</b>; that one happens to read
+like a description of the value set's contents, but that is incidental and
+gives nobody licence to issue a different one. The rule now is simply: where
+THO already has a canonical for the table, use it.</p>
+
+<p>Three things follow from getting the canonical right, and all three now
+match UTG exactly. The resource <code>id</code> is the last segment of the
+canonical. The output file keeps UTG's own name, which is not derivable &mdash;
+three of the four are filed under the canonical and 0834 under its table
+number. And the version is inherited again: the file-name parser had been
+reading <code>notAllCodes-0291</code> as the table number and finding nothing,
+so those tables were falling back to a default. Table 0347 is back at UTG's
+2.0.0 from a wrongly-defaulted 1.0.0, and the number of resources needing a
+default version drops from 14 to 12.</p>
+
+<p>One more consequence, which UTG had right and we did not.
+<code>CodeSystem.valueSet</code> means <i>the value set containing the entire
+code system</i>, so a code system whose value set leaves a code out must not
+carry it. UTG omits the element on exactly two of its 416 code systems &mdash;
+0291 and 0834 &mdash; and the generated output now does the same.</p>
+</div>
+
+<p>Fourteen tables still print a canonical that is not the one we publish at.
+These are a different problem and are not fixed:</p>
 """
 
 FINDINGS_OUTRO = """
-<p>Most of the seventeen are already-known defect classes appearing in a field
-nobody had checked &mdash; links to rendered pages where a canonical belongs,
-<code>hl7.org/permalink</code> addresses, and references to genuinely external
-value sets at FHIR or PHIN VADS canonicals. Those tables are mostly blocked
-already for other reasons.</p>
+<p>Two of the fourteen are cosmetic and already resolved in substance. <b>0347
+and 0719</b> print a link to a rendered page where a canonical belongs &mdash;
+the defect class ADR-0008 already knows about, showing up in a field nobody had
+checked. The URL we publish at is right in both cases, so nothing turns on it
+beyond fixing the chapter.</p>
 
-<div class='counter'>
-<p><b>Four of them are a real divergence, and they point the same way.</b>
-Tables <b>0291, 0347, 0399 and 0834</b> print a canonical of the form
-<code>&hellip;/ValueSet/v2-notAllCodes-NNNN</code> &mdash; THO's convention for
-a value set that enumerates a subset of its code system rather than including
-all of it. <b>THO and UTG both publish exactly that canonical, and neither
-publishes the <code>v2-NNNN</code> form we generate.</b> So for these four,
-the chapter, THO and UTG agree with each other and this project agrees with
-none of them: it mints a fifth canonical that has never existed.</p>
+<p><b>0567 and 0568</b> print another table's value set canonical &mdash;
+<code>v2-0929</code> and <code>v2-0930</code> respectively. Both the printed
+and the generated canonical exist in THO, so this is not a dangling reference;
+it is the value-set counterpart of the pattern ADR-0008 D11 found for code
+systems, where one table borrows another's terminology. D11 settled that case
+for code systems and nobody has applied it here. <b>These two are the open
+question in this section.</b></p>
 
-<p>There is a second-order effect worth knowing about. The writer inherits
-version and date from the existing UTG file by matching on the table number in
-the file name, and UTG's files for three of these are named
-<code>vs-v2-notAllCodes-NNNN.xml</code>. The match fails, so those three
-inherit nothing and fall back to the default version &mdash; which means three
-of the &ldquo;16 resources UTG does not have&rdquo; are resources UTG has all
-along, under a name the parser did not recognise. Table 0347 is currently
-emitted at version 1.0.0 where UTG publishes 2.0.0.</p>
-</div>
+<p>The remaining ten point at genuinely external value sets &mdash; FHIR core's
+<code>jurisdiction</code>, <code>data-absent-reason</code> and
+<code>device-safety</code>, two PHIN VADS value sets, an
+<code>hl7.org/permalink</code> address, and three v3 value sets given as page
+links. THO publishes nothing at the v2 canonical for any of them. These are not
+naming problems but content questions: whether the table has its own value set
+at all, or is a pointer to somebody else's. Most are already blocked for
+related reasons.</p>
 
-<p>A separate pair, <b>0567 and 0568</b>, print another table's value set
-canonical &mdash; <code>v2-0929</code> and <code>v2-0930</code> respectively.
-Both the printed and the generated canonical exist in THO, so this is not a
-dangling reference; it is the value-set counterpart of the pattern ADR-0008 D11
-found for code systems, where one table borrows another's terminology. It needs
-the same treatment and has not had it.</p>
-
-<p><b>None of this has been changed.</b> Honouring the printed URI is not a
+<p><b>Nothing further has been changed.</b> Honouring the printed URI is not a
 blanket rule &mdash; a page URL and a permalink are not canonicals, and
-adopting them would be worse than ignoring them. It needs the same
-classify-then-resolve treatment the Code System URI already has, and that is a
-decision rather than a fix.</p>
+adopting them would be worse than ignoring them. The rule that was adopted is
+narrower and safer: <i>use the canonical THO already publishes for this
+table</i>, which needs nothing from the chapter at all.</p>
 """
 
 COMPLETENESS_INTRO = """

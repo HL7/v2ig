@@ -552,3 +552,73 @@ def test_new_resources_start_at_one_zero_zero():
     assert writer.DEFAULT_VERSION == "1.0.0"
     root, _ = build(make_record())
     assert root.find(f"{FHIR}version").get("value") == "1.0.0"
+
+
+# --------------------------------------------------------------------------
+# Existing THO canonicals
+# --------------------------------------------------------------------------
+#
+# A canonical URL is an identifier. Where THO already has one for a table, that
+# is the URL, and nothing about how it looks entitles this project to construct
+# a different one. Four tables are published at `v2-notAllCodes-NNNN`.
+
+def test_a_table_with_no_published_canonical_gets_a_constructed_one():
+    identity = writer.value_set_identity("0001", {}, empty_repo())
+    assert identity["url"] == writer.VS_CANONICAL.format(table="0001")
+    assert identity["id"] == "v2-0001"
+    assert identity["file"] == "valueSets/vs-v2-0001.xml"
+
+
+def test_an_existing_canonical_is_used_rather_than_constructed():
+    published = {"0291": "http://terminology.hl7.org/ValueSet/"
+                         "v2-notAllCodes-0291"}
+    identity = writer.value_set_identity("0291", published, empty_repo())
+    assert identity["url"] == published["0291"]
+    assert identity["id"] == "v2-notAllCodes-0291"
+
+
+def test_the_file_name_mirrors_utgs_own():
+    """UTG files 0834's value set under the table number, not the canonical."""
+    utg = empty_repo()
+    utg.value_sets["0834"] = {"fileName": "vs-v2-0834.xml"}
+    published = {"0834": "http://terminology.hl7.org/ValueSet/"
+                         "v2-notAllCodes-0834"}
+    identity = writer.value_set_identity("0834", published, utg)
+    assert identity["file"] == "valueSets/vs-v2-0834.xml"
+    assert identity["id"] == "v2-notAllCodes-0834"
+
+
+def test_the_value_set_is_written_at_the_published_canonical():
+    published = {"0001": "http://terminology.hl7.org/ValueSet/"
+                         "v2-notAllCodes-0001"}
+    record = make_record()
+    plan = writer.classify(record, {})
+    root = ElementTree.fromstring(render_document(
+        writer.build_value_set(record, plan, empty_repo(), published)))
+    assert root.find(f"{FHIR}url").get("value") == published["0001"]
+    assert root.find(f"{FHIR}id").get("value") == "v2-notAllCodes-0001"
+
+
+def test_a_code_system_points_at_its_value_set_by_default():
+    root, _ = build(make_record())
+    assert root.find(f"{FHIR}valueSet") is not None
+
+
+def test_a_code_system_omits_the_value_set_where_utg_does():
+    """`CodeSystem.valueSet` means the value set holding the ENTIRE system.
+
+    UTG leaves it off exactly where the value set is not all-codes, and this
+    follows UTG rather than re-deriving the rule.
+    """
+    utg = empty_repo()
+    utg.code_systems["0001"] = {"version": "3.0.0", "date": "2019-12-01",
+                                "conceptIds": {}, "hasValueSetElement": False}
+    root, _ = build(make_record(), utg)
+    assert root.find(f"{FHIR}valueSet") is None
+
+
+def test_a_table_number_is_read_from_a_prefixed_file_name():
+    """`vs-v2-notAllCodes-0291.xml` is table 0291, not table notAllCodes-0291."""
+    assert writer.UtgRepo._table_number(Path("vs-v2-notAllCodes-0291.xml")) == "0291"
+    assert writer.UtgRepo._table_number(Path("cs-v2-0001.xml")) == "0001"
+    assert writer.UtgRepo._table_number(Path("readme.md")) is None

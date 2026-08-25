@@ -2347,17 +2347,13 @@
       "reason": "The code system is this table's own canonical.",
       "written": [
         "codeSystems/cs-v2-0291.xml",
-        "valueSets/vs-v2-0291.xml"
+        "valueSets/vs-v2-notAllCodes-0291.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0291",
       "resolvedBy": "published URI",
       "note": "No work group extension: steward None is not a work group we map.",
-      "usedDefaultVersion": {
-        "version": "1.0.0",
-        "resources": [
-          "ValueSet"
-        ]
-      }
+      "valueSetUrl": "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0291",
+      "valueSetUrlNote": "Published at THO's existing canonical rather than one constructed from the table number."
     },
     {
       "table": "0292",
@@ -2852,16 +2848,12 @@
       "action": "value-set-only",
       "reason": "The code system belongs to another authority, so only the value set is ours to author.",
       "written": [
-        "valueSets/vs-v2-0347.xml"
+        "valueSets/vs-v2-notAllCodes-0347.xml"
       ],
       "systemUrl": "urn:iso:std:iso:3166",
       "resolvedBy": "published URI",
-      "usedDefaultVersion": {
-        "version": "1.0.0",
-        "resources": [
-          "ValueSet"
-        ]
-      }
+      "valueSetUrl": "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347",
+      "valueSetUrlNote": "Published at THO's existing canonical rather than one constructed from the table number."
     },
     {
       "table": "0350",
@@ -6969,7 +6961,9 @@
         "valueSets/vs-v2-0834.xml"
       ],
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0834",
-      "resolvedBy": "published URI"
+      "resolvedBy": "published URI",
+      "valueSetUrl": "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0834",
+      "valueSetUrlNote": "Published at THO's existing canonical rather than one constructed from the table number."
     },
     {
       "table": "0836",

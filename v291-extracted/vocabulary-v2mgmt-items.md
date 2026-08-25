@@ -32,10 +32,11 @@ this file.
 11. [Five concept domains are given two different descriptions within Chapter 2C](#11) — 5 concept domains
 12. [Five concept domain definitions differ between Chapter 2C and THO](#12) — 0952, 0967, 0675, 0066, 0626
 13. [Sixteen Value Set descriptions stop mid-word, all at about 250 characters](#13) — 0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544
-14. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#14) — 0954, 0957
-15. [Where should a concept domain’s example codes live?](#15) — 0093, 0340, 0451
-16. [Three “tables” that carry no terminology at all](#16) — 0010, 0188, 9999
-17. [Two table headings are styled `Normal` instead of `Heading 3`](#17) — 0685, 0767
+14. [Twenty-three concepts have a code that is nothing but punctuation](#14) — 0005, 0066, 0093, 0200, 0255, 0291, 0359, 0365, 0366, 0367, 0418, 0466, 0487, 0492, 0505, 0523, 0544
+15. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#15) — 0954, 0957
+16. [Where should a concept domain’s example codes live?](#16) — 0093, 0340, 0451
+17. [Three “tables” that carry no terminology at all](#17) — 0010, 0188, 9999
+18. [Two table headings are styled `Normal` instead of `Heading 3`](#18) — 0685, 0767
 
 ---
 
@@ -203,7 +204,44 @@ Found while checking a generated resource rather than by looking for it. Table 0
 
 <a id="14"></a>
 
-## 14. Table 0954's logical definition would include an abstract concept THO's equivalent excludes
+## 14. Twenty-three concepts have a code that is nothing but punctuation
+
+**Tables:** 0005, 0066, 0093, 0200, 0255, 0291, 0359, 0365, 0366, 0367, 0418, 0466, 0487, 0492, 0505, 0523, 0544  
+**Goes to:** V2 Management + TSMG
+
+Noticed in table 0291, whose code system carries a concept whose code is a single ellipsis character. Sweeping both Chapter 2C and THO's v2 code systems for the same shape — a code with no letter and no digit anywhere in it — found **23 concepts across 17 tables**. They are not one problem but three, and only the first is defensible. **Four are genuine codes and should be left alone.** `*` in 0255 and 0505, `#` in 0505 and `%` in 0523 all carry real definitions — _Indicates a percent change_, _The first service request in a cyclic group_. A single-character symbol is an awkward code but it is a code, and all four are in both sources. **Eighteen are an ellipsis placeholder masquerading as a concept** — 13 written as three full stops and 5 as the single ellipsis character. Their display text gives them away: _No suggested values defined_, _user-defined codes_, _see chapter 3_. These are rows that said “nothing to see here” in a printed table and were then loaded as though they were content. Nobody can send `...` in a message and mean anything by it. **Five tables carry the same placeholder twice.** 0291, 0365, 0366, 0367 and 0418 each have `...` (three full stops) _and_ `…` (one ellipsis character) as two separate concepts, with identical display text where they have any. That is one placeholder encoded two ways and minted as two codes. In 0418 the ellipsis concept has **no display text at all**. **This is overwhelmingly a THO problem rather than a chapter problem.** Sixteen of the 23 exist only in THO, six are in both, and one — 0093's `...` — is only in Chapter 2C. Every duplicate pair is THO-only. So the chapter has largely stopped publishing these and THO has gone on carrying them, which is the pattern this whole baseline exercise exists to correct. One further oddity: 0492's code is `??`, displayed _Inappropriate due to ..._ — a display that is itself truncated, beside a code that looks like a data-entry artefact.
+
+**The ask:** **Review all 23 and say which are real.** The recommendation is: keep the four symbol codes; retire the ellipsis placeholders, which were never concepts; and for the five duplicate pairs retire at least the redundant spelling even if the placeholder itself is kept. Nothing is proposed for this release — the chapter is reproduced as published, so 0093's placeholder is currently emitted as a concept and the THO-only ones are untouched. But these codes are in published code systems today, so retiring them is a change to content in the field and needs a decision from the owners rather than from this project. Listed in full below.
+
+| Table | Name | Code | Display | Appears in |
+|---|---|---|---|---|
+| 0005 | Race | ... | see chapter 3 | THO only |
+| 0066 | Employment Status | ... | see chapter 6 | THO only |
+| 0093 | Release Information | ... | user-defined codes | Chapter 2C only |
+| 0200 | Name Type | ... | No suggested values defined | THO only |
+| 0255 | Duration Categories | * | (asterisk) Life of the "unit" | Chapter 2C and THO |
+| 0291 | Subtype of Referenced Data | ... | Source RFC 2046 | THO only |
+| 0291 | Subtype of Referenced Data | … | Source RFC 2046 | THO only |
+| 0359 | Diagnosis Priority | ... | No suggested values defined | THO only |
+| 0365 | Equipment State | ... | (null) No state change | THO only |
+| 0365 | Equipment State | … | (null) No state change | THO only |
+| 0366 | Local/Remote Control State | ... | (null) No state change | THO only |
+| 0366 | Local/Remote Control State | … | (null) No state change | THO only |
+| 0367 | Alert Level | ... | (null) No level change | THO only |
+| 0367 | Alert Level | … | (null) No level change | THO only |
+| 0418 | Procedure Priority | ... | No suggested values defined | Chapter 2C and THO |
+| 0418 | Procedure Priority | … | (none) | THO only |
+| 0466 | Ambulatory Payment Classification Code | ... | No suggested values defined | Chapter 2C and THO |
+| 0487 | Specimen Type | ... | No suggested values | THO only |
+| 0492 | Specimen Appropriateness | ?? | Inappropriate due to ... | THO only |
+| 0505 | Cyclic Entry/Exit Indicator | # | The last service request in a cyclic group. | Chapter 2C and THO |
+| 0505 | Cyclic Entry/Exit Indicator | * | The first service request in a cyclic group | Chapter 2C and THO |
+| 0523 | Computation Type | % | Indicates a percent change | Chapter 2C and THO |
+| 0544 | Container Condition | ... | No suggested values | THO only |
+
+<a id="15"></a>
+
+## 15. Table 0954's logical definition would include an abstract concept THO's equivalent excludes
 
 **Tables:** 0954, 0957  
 **Goes to:** V2 Management + TSMG
@@ -212,9 +250,9 @@ Both tables define their value set as a subtree of `v3-ObservationValue`. 0957 _
 
 **The ask:** Confirm that 0954 is missing an _Exclude codes where code = `_WorkSchedule`_ clause, in which case it is a technical correction and one line to apply. If the omission is deliberate, say so, because the value set then diverges from THO's and somebody will raise it again. The recommendation is to add it regardless of the `notSelectable` safety net: the clause costs nothing, it makes 0954 consistent with its sibling 0957 and with THO, and it removes a dependency on how a given expansion engine treats an advisory property.
 
-<a id="15"></a>
+<a id="16"></a>
 
-## 15. Where should a concept domain’s example codes live?
+## 16. Where should a concept domain’s example codes live?
 
 **Tables:** 0093, 0340, 0451  
 **Goes to:** V2 Management
@@ -223,9 +261,9 @@ These three tables are declared _Concept Domain Only_ and yet each publishes a s
 
 **The ask:** The likely representation is a **concept property on the concept in the concept domain code system**, carrying the example codes. Confirm that shape, or name another. Until it is decided the example codes are extracted and held but not published anywhere.
 
-<a id="16"></a>
+<a id="17"></a>
 
-## 16. Three “tables” that carry no terminology at all
+## 17. Three “tables” that carry no terminology at all
 
 **Tables:** 0010, 0188, 9999  
 **Goes to:** V2 Management
@@ -234,9 +272,9 @@ Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no c
 
 **The ask:** Confirm that 0010 and 0188 should be concept domains rather than code tables, and decide what becomes of 9999 — a placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically. This project writes nothing for any of the three.
 
-<a id="17"></a>
+<a id="18"></a>
 
-## 17. Two table headings are styled `Normal` instead of `Heading 3`
+## 18. Two table headings are styled `Normal` instead of `Heading 3`
 
 **Tables:** 0685, 0767  
 **Goes to:** V2 Management
