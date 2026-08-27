@@ -17,6 +17,7 @@ Run:
 
 import argparse
 import html
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -30,7 +31,7 @@ DEFAULT_MD = PROJECT_ROOT / "v291-extracted" / "v2mgmt-briefing.md"
 
 TITLE = "V2.9.1 Chapter 2C terminology"
 SUBTITLE = "Executive briefing for V2 Management"
-MEETING_DATE = "2026-08-21"
+MEETING_DATE = "2026-08-28"
 
 SUMMARY = """
 <p>We have extracted the whole of Chapter 2C &mdash; <b>799 tables, 5,540
@@ -38,23 +39,28 @@ codes</b> &mdash; and are turning it into FHIR CodeSystems and ValueSets. The
 extraction and text-fidelity pass is <b>complete and reviewed</b>. Nothing is
 outstanding on our side.</p>
 
-<p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
-for v2 terminology there. We met the UTG subcommittee of TSMG yesterday and
-they are receptive; the canonical URLs and the merge route are agreed.</p>
+<p><b>Since we last met on 21 August, the resources exist.</b> The generator is
+built and produces <b>398 CodeSystems and 422 ValueSets</b>, every one of which
+validates against the IG Publisher with no errors. 329 of the value sets come
+out byte-identical to the ones UTG already publishes, without any tuning, which
+is the best evidence we have that the extraction is faithful.</p>
 
-<p><b>What we need from V2 Management is two rulings and a stack of
-acknowledgements.</b> Along the way we found defects in the published chapter.
-Most are mechanical and need only a nod &mdash; and three items that were on
-an earlier draft of this page have already come off it, listed below so nobody
-raises them twice.</p>
+<p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
+for v2 terminology there. The UTG subcommittee of TSMG is receptive; the
+canonical URLs and the merge route are agreed.</p>
+
+<p><b>What we need from V2 Management is two rulings, one new steer, and a
+stack of acknowledgements.</b> The two rulings are unchanged from last time and
+still outstanding. Building the resources turned up three further classes of
+defect, marked <span class="badge b-new">NEW</span> below.</p>
 """
 
 METRICS = [
     ("799", "tables extracted", "good"),
-    ("5,540", "codes", "good"),
+    ("820", "resources generated", "good"),
     ("100%", "text fidelity pass complete", "good"),
     ("2", "blocking questions", "escalate"),
-    ("~30", "chapter defects found", "flag"),
+    ("8", "classes of chapter defect", "flag"),
 ]
 
 # --------------------------------------------------------------------------
@@ -100,10 +106,31 @@ into the display text. For 0560 THO <i>reproduced</i> the same error the
 chapter has. So the two bodies have diverged on the principle at least once,
 and THO has diverged from itself.</p>
 </div>
+
+<div class="settled">
+<p class="tight"><b>HL7's own errata guidance may already answer most of
+this, and would let you give us a narrow answer instead of a broad one.</b> It
+defines a technical correction as a non-controversial change that makes a
+document say what the Work Group intended, typically repairing normative
+content that was &ldquo;not made, incorrectly made, or inconsistently made
+during the editing process&rdquo;. That test splits our list cleanly in two.
+The <i>editing-process</i> defects &mdash; 0821's grid emptied in publication,
+the truncated descriptions, the links to rendered pages where canonical URLs
+belong, the missing spaces &mdash; are technical corrections on that
+definition. The <i>content</i> defects &mdash; 0931's invalid UCUM code,
+0560's time units &mdash; change what the standard means, and the same
+guidance requires a substantive change to normative content to be
+balloted.</p>
+</div>
 """,
         "ask": "Rule on the principle, not the instances: reproduce and record, "
-               "reproduce but deprecate, or correct and annotate. We will "
-               "apply whatever you decide and bring back the affected list.",
+               "reproduce but deprecate, or correct and annotate. "
+               "<b>If the full question is too broad for the time available, "
+               "the narrow one would unblock most of the list:</b> may we treat "
+               "the editing-process defects as technical corrections, leaving "
+               "only the genuinely substantive ones for a ballot? The guidance "
+               "notes that where there is doubt a Work Group may ask the TSC "
+               "to rule.",
     },
     {
         "id": "domain-conflicts",
@@ -164,26 +191,90 @@ pair below.</p>
 # that silently disappears looks like a question that was dropped.
 
 RESOLVED = [
-    ("&ldquo;All codes&rdquo; in a Content Logical Definition",
-     "0929&ndash;0932",
-     "Not ambiguous. A CLD reading &ldquo;all codes from a given code "
-     "system&rdquo; is ordinary FHIR and is how value sets normally work; we "
-     "express this in FHIR, so the term is already defined for us. <b>What "
-     "remains is a narrower chapter defect:</b> 0931 and 0932 say &ldquo;all "
-     "codes&rdquo; and then enumerate two or three UCUM codes, which is not "
-     "what that phrase means. Filed under wording, below."),
-    ("The two duplicate table pairs",
-     "0567/0929, 0568/0930",
-     "One of each pair is deprecated and the other is in use. We publish both "
-     "&mdash; the older marked deprecated. No decision needed."),
+    ("Where the value sets are published",
+     "0291, 0347, 0399, 0834",
+     "We were minting canonical URLs of the form <code>&hellip;/v2-NNNN</code> "
+     "for four tables that THO already publishes at "
+     "<code>&hellip;/v2-notAllCodes-NNNN</code>. <b>Settled: a canonical is an "
+     "identifier, and where one already exists it is the one to use</b>, "
+     "whatever it looks like. Corrected; the four now match THO and UTG "
+     "exactly. No action from V2 Management &mdash; recorded because it "
+     "changed generated output."),
+    ("Table 0227 Manufacturers of Vaccines",
+     "0227",
+     "The chapter declares a value set and no code system. Resolved: MVX is an "
+     "external CDC code system that THO records as a NamingSystem and "
+     "deliberately does <i>not</i> publish a CodeSystem for. We compose a "
+     "value set over the external system, which is correct and complete. No "
+     "decision needed."),
     ("Concept-domain-only tables that also list codes",
      "0093, 0340, 0451",
-     "Not a contradiction &mdash; we had this backwards. The V3 requirements "
-     "for declaring a concept domain call for <b>example codes</b>, so these "
-     "tables are correct as published. Likely treatment is to carry the "
-     "examples as a property on the concept domain code system. Low priority; "
-     "no action from V2 Management."),
+     "Carried over from the last meeting because it was corrected there rather "
+     "than answered. Not a contradiction &mdash; the V3 requirements for "
+     "declaring a concept domain call for <b>example codes</b>, so these "
+     "tables are correct as published. Where the examples should live is a "
+     "representation question for TSMG, not a chapter defect."),
 ]
+
+# --------------------------------------------------------------------------
+# The one genuinely new ask
+# --------------------------------------------------------------------------
+#
+# Not a defect and not a blocker, so it sits between the blockers and the
+# defect classes rather than in either. It is here because it is the one thing
+# on this page that is cheap to answer now and expensive to revisit: once the
+# resources are loaded into THO, information that was dropped is gone.
+
+NEW_QUESTION = {
+    "id": "not-carried",
+    "title": "Chapter 2C publishes a lot about each table that a CodeSystem "
+             "and a ValueSet have nowhere to put. How much of it do you want "
+             "kept?",
+    "why": "Not a defect &mdash; a design question, and the only one on this "
+           "page with a deadline attached. Once this content is in THO, "
+           "whatever we did not carry across is not recoverable from the "
+           "resources.",
+    "body": """
+<p>We mapped every field the chapter publishes about a table against the FHIR
+resources we generate. <b>Of 43 fields, 24 reach no resource at all.</b> Some
+plainly do not matter. Others are real information with no obvious FHIR
+home:</p>
+
+<table>
+<tr><th>Field</th><th class='num'>Tables</th><th>Comment</th></tr>
+<tr><td><b>Table Description</b></td><td class='num'>799</td>
+<td>Describes the table as a whole. For the 355 tables with no code system
+block, it is the only prose the chapter offers.</td></tr>
+<tr><td><b>Type</b></td><td class='num'>799</td>
+<td><code>User</code> vs <code>HL7</code> and the rest &mdash; a real
+distinction with conformance consequences, and one implementers ask
+about.</td></tr>
+<tr><td><b>where used</b></td><td class='num'>779</td>
+<td>The fields a table is bound to, <code>PID-8</code> and so on. The link
+between the vocabulary and the rest of the standard.</td></tr>
+<tr><td><b>HL7 Version Introduced</b></td><td class='num'>607</td>
+<td>Which release the table first appeared in.</td></tr>
+<tr><td><b>Code System Full Name</b></td><td class='num'>437</td>
+<td>A human-readable label. <code>title</code> already carries the symbolic
+name, so there is no room for it.</td></tr>
+<tr><td><b>Version, Effective Date</b></td><td class='num'>426</td>
+<td>The chapter's own version and date for the code system. We currently
+inherit THO's instead &mdash; and THO's date is a bulk-load date, so
+<b>the chapter has the better information and we are discarding it</b>.</td></tr>
+</table>
+
+<p>Each of these could be preserved as a concept property or an extension, but
+every one we add is a thing THO has to carry forever, so it is worth being
+deliberate rather than exhaustive.</p>
+""",
+    "ask": "You do not need to answer field by field today. What we need is a "
+           "steer: <b>is the intent that a FHIR consumer can recover what "
+           "Chapter 2C says about a table, or only the codes it defines?</b> "
+           "That one answer tells us whether to design extensions for the "
+           "list above or to record the loss and move on. The full mapping, "
+           "with all 43 fields and counts, is a separate document we can "
+           "circulate.",
+}
 
 # --------------------------------------------------------------------------
 # Everything else, as classes
@@ -194,6 +285,101 @@ RESOLVED = [
 # keeps the meeting short.
 
 CLASSES = [
+    {
+        "id": "cls-truncated",
+        "kind": "finding",
+        "new": True,
+        "name": "Value Set descriptions that stop mid-word",
+        "count": "16 tables",
+        "body": """
+<p>Table 0227's value set description ends <i>&ldquo;&hellip; and the code
+system may be acce&rdquo;</i>. Sweeping the corpus found <b>sixteen descriptions
+that stop without punctuation, every one between 242 and 252 characters</b>.
+Nothing else behaves this way &mdash; code system descriptions in the same
+tables run past 500 characters and end in complete sentences. It is a length
+cap of about 250 characters applied to one field somewhere in the publication
+toolchain.</p>
+
+<div class="counter">
+<p class="tight"><b>This is the only defect on this page that reaches the
+generated resources.</b> The Value Set Description becomes
+<code>ValueSet.description</code>, so sixteen published FHIR resources will
+carry a sentence that stops mid-word unless the text is recovered.</p>
+</div>
+
+<p><b>We checked whether THO could supply the missing text. It cannot:</b> all
+sixteen tables have a ValueSet in THO, all sixteen carry a description, and
+<b>fifteen are truncated at exactly the same character</b>. The same clipped
+field fed both documents, so the truncated text is already published in THO
+as well as in the chapter.</p>
+
+<p><b>The exception is the useful part.</b> THO's value set for 0227 continues
+past the cut with 171 more characters, completing the very word the chapter
+breaks in the middle of &mdash; <i>&ldquo;may be accessed via&rdquo;</i>
+followed by the PHIN VADS link. So the full text survived somewhere for at
+least one of them, which is good reason to think the other fifteen exist
+too.</p>
+""",
+        "need": "<b>Please find out who holds the source these descriptions "
+                "are generated from</b> &mdash; the loss is at publication, not "
+                "at authoring, so the full text is likely intact upstream. "
+                "Restoring it should be a technical correction rather than a "
+                "ballot. Two riders: 0227's text is available from THO right "
+                "now and we can restore it immediately if you say so; and "
+                "because THO carries the same truncation, any fix has to be "
+                "made in both places or the two will fork. All sixteen are "
+                "listed in the register.",
+    },
+    {
+        "id": "cls-punctuation",
+        "kind": "finding",
+        "new": True,
+        "name": "Concepts whose code is nothing but punctuation",
+        "count": "17 tables, 23 codes",
+        "body": """
+<p>Noticed because table 0291's code system carries a concept whose code is a
+single ellipsis character. Scanning Chapter 2C and THO's v2 code systems for
+codes containing no letter or digit found <b>23 concepts across 17
+tables</b>, in three quite different groups.</p>
+
+<ul>
+<li><b>Four are genuine codes.</b> <code>*</code> in 0255 and 0505,
+<code>#</code> in 0505, <code>%</code> in 0523 &mdash; each with a real
+definition, such as <i>Indicates a percent change</i>. A single-character
+symbol is an awkward code but it is a code. <b>Leave these alone.</b></li>
+<li><b>Eighteen are an ellipsis placeholder minted as a concept.</b> Their
+display text gives them away: <i>No suggested values defined</i>,
+<i>user-defined codes</i>, <i>see chapter 3</i>. These were rows in a printed
+table saying &ldquo;nothing here&rdquo;, and they were loaded as though they
+were content. Nobody can send <code>...</code> in a message and mean anything
+by it.</li>
+<li><b>Five tables carry that placeholder twice.</b> 0291, 0365, 0366, 0367
+and 0418 each have <code>...</code> (three full stops) <i>and</i>
+<code>&hellip;</code> (one ellipsis character) as two separate concepts with
+identical display text. In 0418 the ellipsis concept has no display text at
+all.</li>
+</ul>
+
+<p>One oddity beyond the three groups: 0492's code is <code>??</code>,
+displayed <i>Inappropriate due to &hellip;</i> &mdash; a truncated display
+beside what looks like a data-entry artefact.</p>
+
+<div class="counter">
+<p class="tight"><b>This is mostly THO's problem rather than the chapter's,
+and that is the interesting part.</b> Sixteen of the 23 exist only in THO, six
+in both, and one only in Chapter 2C. <b>Every duplicate pair is THO-only.</b>
+So the chapter has largely stopped publishing these and THO has gone on
+carrying them &mdash; which is exactly the drift this baseline exercise exists
+to correct.</p>
+</div>
+""",
+        "need": "Acknowledgement that the placeholders were never concepts, "
+                "and a view on retiring them. We are changing nothing for this "
+                "release &mdash; these are live published code systems and "
+                "retiring a code is the owners' call, jointly with TSMG. The "
+                "cheapest useful outcome is agreeing the four symbol codes "
+                "stay and the rest go on a retirement list.",
+    },
     {
         "id": "cls-lost",
         "kind": "finding",
@@ -322,9 +508,11 @@ tables, with every remaining difference adjudicated against the source. Every
 change to published text is recorded with the decision that authorised it, and
 can be reversed.</p>
 
-<p><b>The full detail</b> is in a 12-item register written for V2 Management
-and TSMG. This page is the executive cut; the register has the evidence for
-each item.</p>
+<p><b>The full detail</b> is in an 18-item register written for V2 Management
+and TSMG, which now lists every affected table for the truncated descriptions
+and the punctuation codes. This page is the executive cut; the register has the
+evidence for each item. The field-by-field mapping behind the new question is a
+separate document and can be circulated on request.</p>
 """
 
 KIND_LABEL = {
@@ -332,6 +520,16 @@ KIND_LABEL = {
     "finding": ("NEEDS ATTENTION", "b-flag"),
     "fyi": ("FYI", "b-info"),
 }
+
+# Half this room read the 21 August version. Marking what has appeared since
+# means they can skim to it rather than re-read the whole page.
+NEW_BADGE = "<span class='badge b-new'>NEW</span> "
+
+EXTRA_STYLE = """
+.badge.b-new { background: #1a7f37; }
+.new-question { border: 2px solid #bc4c00; border-radius: 10px;
+  padding: 18px 22px; margin: 22px 0; background: #fffaf5; }
+"""
 
 
 def render_html(generated):
@@ -341,7 +539,7 @@ def render_html(generated):
 
     add("<!DOCTYPE html><html><head><meta charset='utf-8'>")
     add(f"<title>{html.escape(TITLE)} &mdash; V2 Management briefing</title>")
-    add(f"<style>{STYLE}</style></head><body>")
+    add(f"<style>{STYLE}{EXTRA_STYLE}</style></head><body>")
 
     # ---- sidebar ----
     add("<nav id='sidebar'>")
@@ -352,12 +550,16 @@ def render_html(generated):
     for b in BLOCKERS:
         add(f"<a href='#{b['id']}'><span class='n'>{b['n']}</span>"
             f"{b['title']}</a>")
+    add("<h2>New ask</h2>")
+    add(f"<a href='#{NEW_QUESTION['id']}'><span class='n'>?</span>"
+        "What to keep that FHIR has no room for</a>")
     add("<h2>Settled</h2>")
     add("<a href='#resolved'><span class='n'>&check;</span>Came off the "
         "list</a>")
     add("<h2>Defect classes</h2>")
     for c in CLASSES:
-        add(f"<a href='#{c['id']}'><span class='n'>&bull;</span>{c['name']} "
+        flag = "&#9733; " if c.get("new") else ""
+        add(f"<a href='#{c['id']}'><span class='n'>&bull;</span>{flag}{c['name']} "
             f"<span class='cnt'>{c['count']}</span></a>")
     add("<h2>Context</h2>")
     add("<a href='#context'><span class='n'>&mdash;</span>Where this is "
@@ -388,9 +590,19 @@ def render_html(generated):
             f"<a href='#{b['id']}'>{b['title']}</a>"
             f"<div class='ask-line'>{b['ask']}</div></li>")
     add("</ol>")
-    add("<p class='asks-foot'>Below that: <b>~30 defects in the published "
-        "chapter</b>, grouped into five classes. Most need only a nod that "
-        "they are real and will be fixed in a future publication.</p>")
+    add("<p class='asks-foot'>Then <b>one new question</b> that is not a "
+        "defect but has a deadline, and <b>defects in the published chapter</b> "
+        f"grouped into {len(CLASSES)} classes. Most of those need only a nod "
+        "that they are real and will be fixed in a future publication.</p>")
+    add("</section>")
+
+    # ---- the new question ----
+    add(f"<section class='new-question' id='{NEW_QUESTION['id']}'>")
+    add(f"<h2 class='plain'>{NEW_BADGE}{NEW_QUESTION['title']}</h2>")
+    add(f"<p class='lede'>{NEW_QUESTION['why']}</p>")
+    add(NEW_QUESTION["body"])
+    add(f"<p class='ask'><span class='ask-tag'>Ask</span>"
+        f"{NEW_QUESTION['ask']}</p>")
     add("</section>")
 
     # ---- what came off the list ----
@@ -424,7 +636,8 @@ def render_html(generated):
         label, cls = KIND_LABEL[c["kind"]]
         kind_css = "k-fyi" if c["kind"] == "fyi" else "k-finding"
         add(f"<section class='item {kind_css}' id='{c['id']}'>")
-        add(f"<h3><span class='badge {cls}'>{label}</span> {c['name']} "
+        add(f"<h3><span class='badge {cls}'>{label}</span> "
+            f"{NEW_BADGE if c.get('new') else ''}{c['name']} "
             f"<span class='dim-tag'>{c['count']}</span></h3>")
         add(c["body"])
         add(f"<p class='ask'><span class='ask-tag'>Need</span>{c['need']}</p>")
@@ -441,10 +654,81 @@ def render_html(generated):
     return "\n".join(out)
 
 
+# The Markdown twin is what gets pasted into minutes and email, so it has to
+# survive the trip as more than a wall of text. Inline emphasis becomes its
+# Markdown equivalent rather than being stripped, and list and table structure
+# is preserved -- both were being flattened, which ran three distinct groups of
+# a finding together into one paragraph.
+_INLINE_TAGS = [
+    (re.compile(r"</?(?:b|strong)>"), "**"),
+    (re.compile(r"</?(?:i|em)>"), "_"),
+    (re.compile(r"</?code>"), "`"),
+]
+
+_LIST_ITEM = "\x00- "
+_ROW = "\x00| "
+_CELL = " | "
+_BREAK = "\x00\x00"
+
+
 def _text(s):
-    """Crude HTML-to-text, for the Markdown twin."""
-    import re
-    return html.unescape(re.sub(r"<[^>]+>", "", s))
+    """Convert one authored HTML fragment to Markdown.
+
+    The authored fragments are hard-wrapped HTML, so lines inside a paragraph
+    are joined back up; only the structural breaks this inserts survive as line
+    breaks. Without that, a list item spanning three source lines would come
+    out as three separate items.
+    """
+    text = s
+    for pattern, replacement in _INLINE_TAGS:
+        text = pattern.sub(replacement, text)
+
+    text = re.sub(r"<li[^>]*>", _LIST_ITEM, text)
+    text = re.sub(r"<tr[^>]*>", _ROW, text)
+    text = re.sub(r"</t[dh]>\s*<t[dh][^>]*>", _CELL, text)
+    text = re.sub(r"</?(?:p|div|ul|ol|table|tbody|thead|h\d)[^>]*>", _BREAK, text)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = html.unescape(text)
+
+    lines = []
+    for chunk in text.split("\x00"):
+        collapsed = re.sub(r"\s+", " ", chunk).strip()
+        # A leading `#` or `|` is Markdown structure. These fragments are prose
+        # about codes, and table 0505's code really is `#`, so a line can begin
+        # with one by accident and turn a sentence into a heading.
+        if collapsed.startswith("#"):
+            collapsed = "\\" + collapsed
+        lines.append(collapsed)
+
+    # Collapse runs of blank lines to one, so paragraph spacing stays even.
+    out = []
+    for line in lines:
+        if line or (out and out[-1]):
+            out.append(line)
+    return "\n".join(_close_tables(out)).strip()
+
+
+def _close_tables(lines):
+    """Finish the Markdown tables that cell conversion leaves half-built.
+
+    Splitting on `<tr>` gets the rows but not the syntax around them: a
+    Markdown table needs a closing pipe on every row and a separator under the
+    header, or it renders as a run of literal pipes.
+    """
+    finished = []
+    for line in lines:
+        if not line.startswith("| "):
+            finished.append(line)
+            continue
+        row = line + " |"
+        finished.append(row)
+        # The header is whichever row opens the run; the separator goes under
+        # it and needs one cell per column.
+        opening_row = len(finished) < 2 or not finished[-2].startswith("| ")
+        if opening_row:
+            columns = row.count("|") - 1
+            finished.append("|" + "|".join([" --- "] * columns) + "|")
+    return finished
 
 
 def render_markdown(generated):
@@ -454,7 +738,10 @@ def render_markdown(generated):
     for b in BLOCKERS:
         out.append(f"{b['n']}. **[BLOCKS US]** {_text(b['title'])}  ")
         out.append(f"   _Ask:_ {_text(b['ask'])}")
-    out += ["", "## Already settled — here so they are not raised twice", ""]
+    out += ["", f"## NEW — {_text(NEW_QUESTION['title'])}", "",
+            _text(NEW_QUESTION["why"]), "", _text(NEW_QUESTION["body"]).strip(),
+            "", f"**Ask:** {_text(NEW_QUESTION['ask'])}", ""]
+    out += ["## Already settled — here so they are not raised twice", ""]
     for name, tables, outcome in RESOLVED:
         out.append(f"- **{_text(name)}** ({_text(tables)}) — {_text(outcome)}")
     out += ["", "## The two that block us", ""]
@@ -464,7 +751,8 @@ def render_markdown(generated):
                 f"**Ask:** {_text(b['ask'])}", ""]
     out += ["## Defects in the published chapter, by class", ""]
     for c in CLASSES:
-        out += [f"### {_text(c['name'])} — {c['count']}", "",
+        marker = "NEW — " if c.get("new") else ""
+        out += [f"### {marker}{_text(c['name'])} — {c['count']}", "",
                 _text(c["body"]).strip(), "",
                 f"**Need:** {_text(c['need'])}", ""]
     out += ["## Where this is going", "", _text(CONTEXT).strip(), "",

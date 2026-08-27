@@ -107,6 +107,10 @@ li { margin-bottom: 5px; }
   .item, .asks-card { break-inside: avoid; page-break-inside: avoid; }
   body { font-size: 11pt; }
 }
+
+.badge.b-new { background: #1a7f37; }
+.new-question { border: 2px solid #bc4c00; border-radius: 10px;
+  padding: 18px 22px; margin: 22px 0; background: #fffaf5; }
 </style></head><body>
 <nav id='sidebar'>
 <div class='brand'>V2.9.1 Chapter 2C terminology</div>
@@ -115,9 +119,13 @@ li { margin-bottom: 5px; }
 <h2>Blocking</h2>
 <a href='#policy'><span class='n'>1</span>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a>
 <a href='#domain-conflicts'><span class='n'>2</span>Five concept domains are declared by more than one table, with a different definition each time</a>
+<h2>New ask</h2>
+<a href='#not-carried'><span class='n'>?</span>What to keep that FHIR has no room for</a>
 <h2>Settled</h2>
 <a href='#resolved'><span class='n'>&check;</span>Came off the list</a>
 <h2>Defect classes</h2>
+<a href='#cls-truncated'><span class='n'>&bull;</span>&#9733; Value Set descriptions that stop mid-word <span class='cnt'>16 tables</span></a>
+<a href='#cls-punctuation'><span class='n'>&bull;</span>&#9733; Concepts whose code is nothing but punctuation <span class='cnt'>17 tables, 23 codes</span></a>
 <a href='#cls-lost'><span class='n'>&bull;</span>Content lost in publication <span class='cnt'>2 tables</span></a>
 <a href='#cls-copypaste'><span class='n'>&bull;</span>Copy-paste errors in code system metadata <span class='cnt'>9 tables</span></a>
 <a href='#cls-contradiction'><span class='n'>&bull;</span>Tables that contradict themselves <span class='cnt'>3 tables</span></a>
@@ -129,45 +137,88 @@ li { margin-bottom: 5px; }
 </nav>
 <main id='main'>
 <h1>V2.9.1 Chapter 2C terminology</h1>
-<p class='sub'>Executive briefing for V2 Management &middot; 2026-08-21</p>
+<p class='sub'>Executive briefing for V2 Management &middot; 2026-08-28</p>
 
 <p>We have extracted the whole of Chapter 2C &mdash; <b>799 tables, 5,540
 codes</b> &mdash; and are turning it into FHIR CodeSystems and ValueSets. The
 extraction and text-fidelity pass is <b>complete and reviewed</b>. Nothing is
 outstanding on our side.</p>
 
-<p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
-for v2 terminology there. We met the UTG subcommittee of TSMG yesterday and
-they are receptive; the canonical URLs and the merge route are agreed.</p>
+<p><b>Since we last met on 21 August, the resources exist.</b> The generator is
+built and produces <b>398 CodeSystems and 422 ValueSets</b>, every one of which
+validates against the IG Publisher with no errors. 329 of the value sets come
+out byte-identical to the ones UTG already publishes, without any tuning, which
+is the best evidence we have that the extraction is faithful.</p>
 
-<p><b>What we need from V2 Management is two rulings and a stack of
-acknowledgements.</b> Along the way we found defects in the published chapter.
-Most are mechanical and need only a nod &mdash; and three items that were on
-an earlier draft of this page have already come off it, listed below so nobody
-raises them twice.</p>
+<p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
+for v2 terminology there. The UTG subcommittee of TSMG is receptive; the
+canonical URLs and the merge route are agreed.</p>
+
+<p><b>What we need from V2 Management is two rulings, one new steer, and a
+stack of acknowledgements.</b> The two rulings are unchanged from last time and
+still outstanding. Building the resources turned up three further classes of
+defect, marked <span class="badge b-new">NEW</span> below.</p>
 
 <div class='metric-grid'>
 <div class='metric-card mc-good'><div class='number'>799</div><div class='label'>tables extracted</div></div>
-<div class='metric-card mc-good'><div class='number'>5,540</div><div class='label'>codes</div></div>
+<div class='metric-card mc-good'><div class='number'>820</div><div class='label'>resources generated</div></div>
 <div class='metric-card mc-good'><div class='number'>100%</div><div class='label'>text fidelity pass complete</div></div>
 <div class='metric-card mc-escalate'><div class='number'>2</div><div class='label'>blocking questions</div></div>
-<div class='metric-card mc-flag'><div class='number'>~30</div><div class='label'>chapter defects found</div></div>
+<div class='metric-card mc-flag'><div class='number'>8</div><div class='label'>classes of chapter defect</div></div>
 </div>
 <section id='blockers' class='asks-card'>
 <h2 class='plain'>If you read one thing</h2>
 <p class='asks-intro'>Two questions block us. Everything else on this page needs acknowledgement rather than a decision.</p>
 <ol class='asks-list'>
-<li><span class='badge b-decide'>BLOCKS US</span> <a href='#policy'>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a><div class='ask-line'>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. We will apply whatever you decide and bring back the affected list.</div></li>
+<li><span class='badge b-decide'>BLOCKS US</span> <a href='#policy'>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a><div class='ask-line'>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. <b>If the full question is too broad for the time available, the narrow one would unblock most of the list:</b> may we treat the editing-process defects as technical corrections, leaving only the genuinely substantive ones for a ballot? The guidance notes that where there is doubt a Work Group may ask the TSC to rule.</div></li>
 <li><span class='badge b-decide'>BLOCKS US</span> <a href='#domain-conflicts'>Five concept domains are declared by more than one table, with a different definition each time</a><div class='ask-line'>Say which definition is correct for each of the five. We will take any of them &mdash; what we cannot do is keep choosing by document order.</div></li>
 </ol>
-<p class='asks-foot'>Below that: <b>~30 defects in the published chapter</b>, grouped into five classes. Most need only a nod that they are real and will be fixed in a future publication.</p>
+<p class='asks-foot'>Then <b>one new question</b> that is not a defect but has a deadline, and <b>defects in the published chapter</b> grouped into 8 classes. Most of those need only a nod that they are real and will be fixed in a future publication.</p>
+</section>
+<section class='new-question' id='not-carried'>
+<h2 class='plain'><span class='badge b-new'>NEW</span> Chapter 2C publishes a lot about each table that a CodeSystem and a ValueSet have nowhere to put. How much of it do you want kept?</h2>
+<p class='lede'>Not a defect &mdash; a design question, and the only one on this page with a deadline attached. Once this content is in THO, whatever we did not carry across is not recoverable from the resources.</p>
+
+<p>We mapped every field the chapter publishes about a table against the FHIR
+resources we generate. <b>Of 43 fields, 24 reach no resource at all.</b> Some
+plainly do not matter. Others are real information with no obvious FHIR
+home:</p>
+
+<table>
+<tr><th>Field</th><th class='num'>Tables</th><th>Comment</th></tr>
+<tr><td><b>Table Description</b></td><td class='num'>799</td>
+<td>Describes the table as a whole. For the 355 tables with no code system
+block, it is the only prose the chapter offers.</td></tr>
+<tr><td><b>Type</b></td><td class='num'>799</td>
+<td><code>User</code> vs <code>HL7</code> and the rest &mdash; a real
+distinction with conformance consequences, and one implementers ask
+about.</td></tr>
+<tr><td><b>where used</b></td><td class='num'>779</td>
+<td>The fields a table is bound to, <code>PID-8</code> and so on. The link
+between the vocabulary and the rest of the standard.</td></tr>
+<tr><td><b>HL7 Version Introduced</b></td><td class='num'>607</td>
+<td>Which release the table first appeared in.</td></tr>
+<tr><td><b>Code System Full Name</b></td><td class='num'>437</td>
+<td>A human-readable label. <code>title</code> already carries the symbolic
+name, so there is no room for it.</td></tr>
+<tr><td><b>Version, Effective Date</b></td><td class='num'>426</td>
+<td>The chapter's own version and date for the code system. We currently
+inherit THO's instead &mdash; and THO's date is a bulk-load date, so
+<b>the chapter has the better information and we are discarding it</b>.</td></tr>
+</table>
+
+<p>Each of these could be preserved as a concept property or an extension, but
+every one we add is a thing THO has to carry forever, so it is worth being
+deliberate rather than exhaustive.</p>
+
+<p class='ask'><span class='ask-tag'>Ask</span>You do not need to answer field by field today. What we need is a steer: <b>is the intent that a FHIR consumer can recover what Chapter 2C says about a table, or only the codes it defines?</b> That one answer tells us whether to design extensions for the list above or to record the loss and move on. The full mapping, with all 43 fields and counts, is a separate document we can circulate.</p>
 </section>
 <h2 id='resolved'>Already settled &mdash; here so they are not raised twice</h2>
 <p class='sub'>These were on an earlier draft of this page as open questions. They are not.</p>
 <table><tr><th>Was listed as</th><th>Tables</th><th>Where it landed</th></tr>
-<tr><td><b>&ldquo;All codes&rdquo; in a Content Logical Definition</b></td><td class='nowrap'>0929&ndash;0932</td><td>Not ambiguous. A CLD reading &ldquo;all codes from a given code system&rdquo; is ordinary FHIR and is how value sets normally work; we express this in FHIR, so the term is already defined for us. <b>What remains is a narrower chapter defect:</b> 0931 and 0932 say &ldquo;all codes&rdquo; and then enumerate two or three UCUM codes, which is not what that phrase means. Filed under wording, below.</td></tr>
-<tr><td><b>The two duplicate table pairs</b></td><td class='nowrap'>0567/0929, 0568/0930</td><td>One of each pair is deprecated and the other is in use. We publish both &mdash; the older marked deprecated. No decision needed.</td></tr>
-<tr><td><b>Concept-domain-only tables that also list codes</b></td><td class='nowrap'>0093, 0340, 0451</td><td>Not a contradiction &mdash; we had this backwards. The V3 requirements for declaring a concept domain call for <b>example codes</b>, so these tables are correct as published. Likely treatment is to carry the examples as a property on the concept domain code system. Low priority; no action from V2 Management.</td></tr>
+<tr><td><b>Where the value sets are published</b></td><td class='nowrap'>0291, 0347, 0399, 0834</td><td>We were minting canonical URLs of the form <code>&hellip;/v2-NNNN</code> for four tables that THO already publishes at <code>&hellip;/v2-notAllCodes-NNNN</code>. <b>Settled: a canonical is an identifier, and where one already exists it is the one to use</b>, whatever it looks like. Corrected; the four now match THO and UTG exactly. No action from V2 Management &mdash; recorded because it changed generated output.</td></tr>
+<tr><td><b>Table 0227 Manufacturers of Vaccines</b></td><td class='nowrap'>0227</td><td>The chapter declares a value set and no code system. Resolved: MVX is an external CDC code system that THO records as a NamingSystem and deliberately does <i>not</i> publish a CodeSystem for. We compose a value set over the external system, which is correct and complete. No decision needed.</td></tr>
+<tr><td><b>Concept-domain-only tables that also list codes</b></td><td class='nowrap'>0093, 0340, 0451</td><td>Carried over from the last meeting because it was corrected there rather than answered. Not a contradiction &mdash; the V3 requirements for declaring a concept domain call for <b>example codes</b>, so these tables are correct as published. Where the examples should live is a representation question for TSMG, not a chapter defect.</td></tr>
 </table>
 <h2>The two that block us</h2>
 <section class='item k-decision' id='policy'>
@@ -194,7 +245,23 @@ chapter has. So the two bodies have diverged on the principle at least once,
 and THO has diverged from itself.</p>
 </div>
 
-<p class='ask'><span class='ask-tag'>Ask</span>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. We will apply whatever you decide and bring back the affected list.</p>
+<div class="settled">
+<p class="tight"><b>HL7's own errata guidance may already answer most of
+this, and would let you give us a narrow answer instead of a broad one.</b> It
+defines a technical correction as a non-controversial change that makes a
+document say what the Work Group intended, typically repairing normative
+content that was &ldquo;not made, incorrectly made, or inconsistently made
+during the editing process&rdquo;. That test splits our list cleanly in two.
+The <i>editing-process</i> defects &mdash; 0821's grid emptied in publication,
+the truncated descriptions, the links to rendered pages where canonical URLs
+belong, the missing spaces &mdash; are technical corrections on that
+definition. The <i>content</i> defects &mdash; 0931's invalid UCUM code,
+0560's time units &mdash; change what the standard means, and the same
+guidance requires a substantive change to normative content to be
+balloted.</p>
+</div>
+
+<p class='ask'><span class='ask-tag'>Ask</span>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. <b>If the full question is too broad for the time available, the narrow one would unblock most of the list:</b> may we treat the editing-process defects as technical corrections, leaving only the genuinely substantive ones for a ballot? The guidance notes that where there is doubt a Work Group may ask the TSC to rule.</p>
 </section>
 <section class='item k-decision' id='domain-conflicts'>
 <h3><span class='badge b-decide'>BLOCKS US</span> <span class='n'>2.</span> Five concept domains are declared by more than one table, with a different definition each time</h3>
@@ -238,6 +305,80 @@ pair below.</p>
 </section>
 <h2>Defects in the published chapter, by class</h2>
 <p class='sub'>Counts are tables affected. None of these blocks us; we have a working treatment for each and it is recorded.</p>
+<section class='item k-finding' id='cls-truncated'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> <span class='badge b-new'>NEW</span> Value Set descriptions that stop mid-word <span class='dim-tag'>16 tables</span></h3>
+
+<p>Table 0227's value set description ends <i>&ldquo;&hellip; and the code
+system may be acce&rdquo;</i>. Sweeping the corpus found <b>sixteen descriptions
+that stop without punctuation, every one between 242 and 252 characters</b>.
+Nothing else behaves this way &mdash; code system descriptions in the same
+tables run past 500 characters and end in complete sentences. It is a length
+cap of about 250 characters applied to one field somewhere in the publication
+toolchain.</p>
+
+<div class="counter">
+<p class="tight"><b>This is the only defect on this page that reaches the
+generated resources.</b> The Value Set Description becomes
+<code>ValueSet.description</code>, so sixteen published FHIR resources will
+carry a sentence that stops mid-word unless the text is recovered.</p>
+</div>
+
+<p><b>We checked whether THO could supply the missing text. It cannot:</b> all
+sixteen tables have a ValueSet in THO, all sixteen carry a description, and
+<b>fifteen are truncated at exactly the same character</b>. The same clipped
+field fed both documents, so the truncated text is already published in THO
+as well as in the chapter.</p>
+
+<p><b>The exception is the useful part.</b> THO's value set for 0227 continues
+past the cut with 171 more characters, completing the very word the chapter
+breaks in the middle of &mdash; <i>&ldquo;may be accessed via&rdquo;</i>
+followed by the PHIN VADS link. So the full text survived somewhere for at
+least one of them, which is good reason to think the other fifteen exist
+too.</p>
+
+<p class='ask'><span class='ask-tag'>Need</span><b>Please find out who holds the source these descriptions are generated from</b> &mdash; the loss is at publication, not at authoring, so the full text is likely intact upstream. Restoring it should be a technical correction rather than a ballot. Two riders: 0227's text is available from THO right now and we can restore it immediately if you say so; and because THO carries the same truncation, any fix has to be made in both places or the two will fork. All sixteen are listed in the register.</p>
+</section>
+<section class='item k-finding' id='cls-punctuation'>
+<h3><span class='badge b-flag'>NEEDS ATTENTION</span> <span class='badge b-new'>NEW</span> Concepts whose code is nothing but punctuation <span class='dim-tag'>17 tables, 23 codes</span></h3>
+
+<p>Noticed because table 0291's code system carries a concept whose code is a
+single ellipsis character. Scanning Chapter 2C and THO's v2 code systems for
+codes containing no letter or digit found <b>23 concepts across 17
+tables</b>, in three quite different groups.</p>
+
+<ul>
+<li><b>Four are genuine codes.</b> <code>*</code> in 0255 and 0505,
+<code>#</code> in 0505, <code>%</code> in 0523 &mdash; each with a real
+definition, such as <i>Indicates a percent change</i>. A single-character
+symbol is an awkward code but it is a code. <b>Leave these alone.</b></li>
+<li><b>Eighteen are an ellipsis placeholder minted as a concept.</b> Their
+display text gives them away: <i>No suggested values defined</i>,
+<i>user-defined codes</i>, <i>see chapter 3</i>. These were rows in a printed
+table saying &ldquo;nothing here&rdquo;, and they were loaded as though they
+were content. Nobody can send <code>...</code> in a message and mean anything
+by it.</li>
+<li><b>Five tables carry that placeholder twice.</b> 0291, 0365, 0366, 0367
+and 0418 each have <code>...</code> (three full stops) <i>and</i>
+<code>&hellip;</code> (one ellipsis character) as two separate concepts with
+identical display text. In 0418 the ellipsis concept has no display text at
+all.</li>
+</ul>
+
+<p>One oddity beyond the three groups: 0492's code is <code>??</code>,
+displayed <i>Inappropriate due to &hellip;</i> &mdash; a truncated display
+beside what looks like a data-entry artefact.</p>
+
+<div class="counter">
+<p class="tight"><b>This is mostly THO's problem rather than the chapter's,
+and that is the interesting part.</b> Sixteen of the 23 exist only in THO, six
+in both, and one only in Chapter 2C. <b>Every duplicate pair is THO-only.</b>
+So the chapter has largely stopped publishing these and THO has gone on
+carrying them &mdash; which is exactly the drift this baseline exercise exists
+to correct.</p>
+</div>
+
+<p class='ask'><span class='ask-tag'>Need</span>Acknowledgement that the placeholders were never concepts, and a view on retiring them. We are changing nothing for this release &mdash; these are live published code systems and retiring a code is the owners' call, jointly with TSMG. The cheapest useful outcome is agreeing the four symbol codes stay and the rest go on a retirement list.</p>
+</section>
 <section class='item k-finding' id='cls-lost'>
 <h3><span class='badge b-flag'>NEEDS ATTENTION</span> Content lost in publication <span class='dim-tag'>2 tables</span></h3>
 
@@ -340,9 +481,11 @@ tables, with every remaining difference adjudicated against the source. Every
 change to published text is recorded with the decision that authorised it, and
 can be reversed.</p>
 
-<p><b>The full detail</b> is in a 12-item register written for V2 Management
-and TSMG. This page is the executive cut; the register has the evidence for
-each item.</p>
+<p><b>The full detail</b> is in an 18-item register written for V2 Management
+and TSMG, which now lists every affected table for the truncated descriptions
+and the punctuation codes. This page is the executive cut; the register has the
+evidence for each item. The field-by-field mapping behind the new question is a
+separate document and can be circulated on request.</p>
 
-<p class='faint'>Generated 2026-08-25 by <code>tooling/scripts/render_v2mgmt_briefing.py</code>. Edit the module, not this file.</p>
+<p class='faint'>Generated 2026-08-27 by <code>tooling/scripts/render_v2mgmt_briefing.py</code>. Edit the module, not this file.</p>
 </main></body></html>
