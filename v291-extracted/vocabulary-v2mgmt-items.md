@@ -36,7 +36,13 @@ this file.
 15. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#15) — 0954, 0957
 16. [Where should a concept domain’s example codes live?](#16) — 0093, 0340, 0451
 17. [Three “tables” that carry no terminology at all](#17) — 0010, 0188, 9999
-18. [Two table headings are styled `Normal` instead of `Heading 3`](#18) — 0685, 0767
+18. [Chapter 2C deprecates tables 0567 and 0568 — does anything in THO get deprecated with them?](#18) — 0567, 0568
+19. [Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO](#19) — 0823
+20. [Table 0459 names its code system only by an OID that nothing resolves](#20) — 0459
+21. [User-defined tables are treated three different ways, and two of them get a freshly minted canonical](#21) — 0460, 0411, 0093
+22. [Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from](#22) — 0725
+23. [Table 0340's code grid lists code systems, not codes](#23) — 0340
+24. [Two table headings are styled `Normal` instead of `Heading 3`](#24) — 0685, 0767
 
 ---
 
@@ -274,7 +280,73 @@ Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no c
 
 <a id="18"></a>
 
-## 18. Two table headings are styled `Normal` instead of `Heading 3`
+## 18. Chapter 2C deprecates tables 0567 and 0568 — does anything in THO get deprecated with them?
+
+**Tables:** 0567, 0568  
+**Goes to:** V2 Management + TSMG
+
+Both table descriptions say so outright: _“Note this table has been deprecated and is replacaced by table 0929”_ for Weight Units, and the same sentence naming 0930 for Volume Units. (The misspelling is the chapter's.) But the deprecation was recorded in prose only, and nothing downstream reflects it. **The value sets were not deprecated.** THO publishes `ValueSet/v2-0567` and `ValueSet/v2-0568` as live resources alongside `v2-0929` and `v2-0930`, none of them carrying a deprecation marker, and this project reproduces all four. So a consumer reading THO cannot tell that two of the four are superseded. **The chapter contradicts itself on identity.** Table 0567 prints its own value set URI as `http://terminology.hl7.org/ValueSet/v2-0929` and 0568 prints `…/v2-0930` — the replacement's canonical, not its own. Under the rule that a canonical URL is an identifier and THO's existing one wins, this project publishes them at `v2-0567` and `v2-0568`, which is why no collision occurred. Had the chapter's printed URI been honoured, two pairs of resources would have claimed the same canonical. **Separately, the contents do not match the description.** 0568's concept domain is “the domain of possible values of units of measure that are used to specify volume” and its code system is UCUM, but it enumerates three codes; 0567 enumerates four. These are a small subset of the UCUM units for the quantity, so the CLD and the description promise a great deal more than the value set delivers.
+
+**The ask:** Two questions, and the first is the one that needs a group rather than an individual. **(1)** Chapter 2C deprecated these tables; does a concomitant deprecation need to be reflected in THO — marking `ValueSet/v2-0567` and `v2-0568` deprecated or retired — or does the chapter's prose deprecation stop at the chapter? This project currently publishes both as live, which is fidelity to THO and arguably not fidelity to the chapter. **(2)** Is the enumerated subset intended, or should these value sets be an intensional reference to the UCUM units for the quantity? Note that whichever way (2) goes, it applies equally to the replacements 0929 and 0930.
+
+<a id="19"></a>
+
+## 19. Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO
+
+**Tables:** 0823  
+**Goes to:** V2 Management + TSMG
+
+The table is `Type: HL7-EXT`, stewarded by PA, and declares three code systems — SNOMED CT, `DataAbsentReason` and `NullFlavor`. Drawing a value set from three code systems is perfectly normal, and the table does print its five codes. **What is missing is the value set itself: THO publishes no `ValueSet/v2-0823`.** The writer cannot proceed because the chapter does not state which of the three declared systems each code belongs to, so it emits nothing. The pattern is worth noting: this is the sister table to `0821` _Gender Identity_, built the same way and recorded above for having its grid emptied in publication. Both are Gender Harmony Project material. The plausible reading is that both were entered into Chapter 2C in anticipation of a V2 implementation that was subsequently not carried through — which would explain why one lost its codes and the other never got a value set in THO.
+
+**The ask:** Confirm whether tables 0821 and 0823 are live commitments or abandoned ones. If live, the per-code system assignments are needed before a value set can be generated, and a `ValueSet/v2-0823` needs to exist in THO. If they were dropped, say so and this project will record them as published-but-unimplemented rather than as blockers.
+
+<a id="20"></a>
+
+## 20. Table 0459 names its code system only by an OID that nothing resolves
+
+**Tables:** 0459  
+**Goes to:** V2 Management + TSMG
+
+`0459` _Reimbursement Action Code_ is an External table stewarded by FM. It declares one code system, `cms-OCEEditCode-cs`, identified solely by OID `2.16.840.1.113883.6.301.9` with no URI. **Neither THO nor the FHIR core packages resolve that OID to a canonical URL**, so there is no way to say what code system the table's four codes belong to. The writer therefore emits nothing for this table — not a CodeSystem, not a ValueSet — and it is one of only two tables in the chapter blocked this way. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.
+
+**The ask:** Supply the canonical URL for the CMS OCE Edit Code system, or confirm that an external code system record needs to be created in THO for it. If neither is available, decide whether 0459 should become concept-domain-only, in which case no value set is needed and the OID becomes documentation rather than a dependency.
+
+<a id="21"></a>
+
+## 21. User-defined tables are treated three different ways, and two of them get a freshly minted canonical
+
+**Tables:** 0460, 0411, 0093  
+**Goes to:** V2 Management
+
+`0460` _Denial or Rejection Code_ and `0411` _Supplemental Service Information Values_ are the **only two tables in the whole chapter** for which this project mints a new CodeSystem canonical — every other code-bearing table either reuses a THO canonical or draws on another authority's code system. Both are `Type: User`. A user-defined table is by definition a set of suggested values that an implementation is expected to replace, so minting `CodeSystem/v2-0460` publishes suggestions with the authority of a standard code system. **The chapter is not consistent about this.** Compare `0093` _Release Information_, also `Type: User`, which is declared concept-domain-only and so produces no code system and no value set at all — even though it lists `Y` and `N` in its grid. Three user tables, three outcomes: 0460 and 0411 get minted resources, 0093 gets nothing. Nothing in the chapter explains the difference. 0411 additionally has the defect already recorded above — the chapter prints a canonical for a resource that does not exist — and is a mess independent of this question.
+
+**The ask:** Decide what a user-defined table should produce. Options: a CodeSystem and ValueSet like any other (the current behaviour), a concept domain only (as 0093 is treated), or a ValueSet whose codes are marked as examples. The answer decides whether these two new canonicals should exist at all, and it should be applied to 0093 at the same time so that like tables are treated alike.
+
+<a id="22"></a>
+
+## 22. Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from
+
+**Tables:** 0725  
+**Goes to:** V2 Management
+
+The table's code system block gives a symbolic name `actMood`, a description of `tbd`, and OID `2.16.840.1.113883.5.1001` — and **no URI field at all**. The codes are v3 ActMood codes, not v2 codes; THO's own `ValueSet/v2-0725` draws them from `http://terminology.hl7.org/CodeSystem/v3-ActMood`. **The output is already correct**, because the OID the chapter does print resolves through THO to exactly that URL, so the writer emits a value set only and points it at the v3 code system. Recorded because the defect is in the published chapter and will mislead anyone reading it directly: a reader sees a code system with no URI and a description of `tbd`, with nothing to indicate the codes are v3. It also means the correct result here depends entirely on OID resolution succeeding.
+
+**The ask:** Confirm this as a technical correction under the editing-process test — add the URI `http://terminology.hl7.org/CodeSystem/v3-ActMood` and replace the `tbd` description. Nothing in the generated output changes.
+
+<a id="23"></a>
+
+## 23. Table 0340's code grid lists code systems, not codes
+
+**Tables:** 0340  
+**Goes to:** V2 Management
+
+`0340` _Procedure Code Modifier_ is declared concept-domain-only, so this project writes nothing for it and nothing is blocked. But its code grid is not empty: it holds two rows, `CPTM` “CPT Modifier Code” and `HPC` “CMS (formerly HCFA) Procedure Codes (HCPCS)”, both with long comments citing the publishing body. **These are identifiers of external code systems, not concepts in a code system of the table's own.** The chapter is using the code grid for two incompatible purposes without distinguishing them, which is a trap for anyone generating resources from it mechanically — a naive reading mints a code system whose concepts are the names of other code systems. If the intent is that a procedure code modifier is drawn from CPT or HCPCS, those are external code systems that may warrant external code system records in THO.
+
+**The ask:** Confirm that 0340 is correctly concept-domain-only and that the two rows are documentation of candidate external code systems rather than codes. If they are meant to be usable, they need to be expressed as external code system references rather than as grid rows.
+
+<a id="24"></a>
+
+## 24. Two table headings are styled `Normal` instead of `Heading 3`
 
 **Tables:** 0685, 0767  
 **Goes to:** V2 Management

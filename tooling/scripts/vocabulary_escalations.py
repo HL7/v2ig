@@ -882,6 +882,210 @@ ESCALATIONS = [
             "writes nothing for any of the three.",
     },
     {
+        "id": "esc-0567-0568-deprecation",
+        "who": "V2 Management + TSMG",
+        "tables": "0567, 0568",
+        "title": "Chapter 2C deprecates tables 0567 and 0568 &mdash; does "
+                 "anything in THO get deprecated with them?",
+        "body":
+            "Both table descriptions say so outright: <i>&ldquo;Note this "
+            "table has been deprecated and is replacaced by table "
+            "0929&rdquo;</i> for Weight Units, and the same sentence naming "
+            "0930 for Volume Units. (The misspelling is the chapter's.) "
+            "But the deprecation was recorded in prose only, and nothing "
+            "downstream reflects it. "
+            "<b>The value sets were not deprecated.</b> THO publishes "
+            "<code>ValueSet/v2-0567</code> and <code>ValueSet/v2-0568</code> "
+            "as live resources alongside <code>v2-0929</code> and "
+            "<code>v2-0930</code>, none of them carrying a deprecation "
+            "marker, and this project reproduces all four. So a consumer "
+            "reading THO cannot tell that two of the four are superseded. "
+            "<b>The chapter contradicts itself on identity.</b> Table 0567 "
+            "prints its own value set URI as "
+            "<code>http://terminology.hl7.org/ValueSet/v2-0929</code> and "
+            "0568 prints <code>&hellip;/v2-0930</code> &mdash; the "
+            "replacement's canonical, not its own. Under the rule that a "
+            "canonical URL is an identifier and THO's existing one wins, "
+            "this project publishes them at <code>v2-0567</code> and "
+            "<code>v2-0568</code>, which is why no collision occurred. Had "
+            "the chapter's printed URI been honoured, two pairs of resources "
+            "would have claimed the same canonical. "
+            "<b>Separately, the contents do not match the description.</b> "
+            "0568's concept domain is &ldquo;the domain of possible values of "
+            "units of measure that are used to specify volume&rdquo; and its "
+            "code system is UCUM, but it enumerates three codes; 0567 "
+            "enumerates four. These are a small subset of the UCUM units for "
+            "the quantity, so the CLD and the description promise a great "
+            "deal more than the value set delivers.",
+        "ask":
+            "Two questions, and the first is the one that needs a group "
+            "rather than an individual. <b>(1)</b> Chapter 2C deprecated "
+            "these tables; does a concomitant deprecation need to be "
+            "reflected in THO &mdash; marking <code>ValueSet/v2-0567</code> "
+            "and <code>v2-0568</code> deprecated or retired &mdash; or does "
+            "the chapter's prose deprecation stop at the chapter? This "
+            "project currently publishes both as live, which is fidelity to "
+            "THO and arguably not fidelity to the chapter. <b>(2)</b> Is the "
+            "enumerated subset intended, or should these value sets be an "
+            "intensional reference to the UCUM units for the quantity? "
+            "Note that whichever way (2) goes, it applies equally to the "
+            "replacements 0929 and 0930.",
+    },
+    {
+        "id": "esc-0823-not-in-tho",
+        "who": "V2 Management + TSMG",
+        "tables": "0823",
+        "title": "Table 0823 <i>Sexual Orientation</i> draws on three code "
+                 "systems and has no value set in THO",
+        "body":
+            "The table is <code>Type: HL7-EXT</code>, stewarded by PA, and "
+            "declares three code systems &mdash; SNOMED CT, "
+            "<code>DataAbsentReason</code> and <code>NullFlavor</code>. "
+            "Drawing a value set from three code systems is perfectly normal, "
+            "and the table does print its five codes. <b>What is missing is "
+            "the value set itself: THO publishes no "
+            "<code>ValueSet/v2-0823</code>.</b> The writer cannot proceed "
+            "because the chapter does not state which of the three declared "
+            "systems each code belongs to, so it emits nothing. "
+            "The pattern is worth noting: this is the sister table to "
+            "<code>0821</code> <i>Gender Identity</i>, built the same way and "
+            "recorded above for having its grid emptied in publication. Both "
+            "are Gender Harmony Project material. The plausible reading is "
+            "that both were entered into Chapter 2C in anticipation of a V2 "
+            "implementation that was subsequently not carried through &mdash; "
+            "which would explain why one lost its codes and the other never "
+            "got a value set in THO.",
+        "ask":
+            "Confirm whether tables 0821 and 0823 are live commitments or "
+            "abandoned ones. If live, the per-code system assignments are "
+            "needed before a value set can be generated, and a "
+            "<code>ValueSet/v2-0823</code> needs to exist in THO. If they "
+            "were dropped, say so and this project will record them as "
+            "published-but-unimplemented rather than as blockers.",
+    },
+    {
+        "id": "esc-0459-unresolvable-oid",
+        "who": "V2 Management + TSMG",
+        "tables": "0459",
+        "title": "Table 0459 names its code system only by an OID that "
+                 "nothing resolves",
+        "body":
+            "<code>0459</code> <i>Reimbursement Action Code</i> is an "
+            "External table stewarded by FM. It declares one code system, "
+            "<code>cms-OCEEditCode-cs</code>, identified solely by OID "
+            "<code>2.16.840.1.113883.6.301.9</code> with no URI. "
+            "<b>Neither THO nor the FHIR core packages resolve that OID to a "
+            "canonical URL</b>, so there is no way to say what code system "
+            "the table's four codes belong to. The writer therefore emits "
+            "nothing for this table &mdash; not a CodeSystem, not a ValueSet "
+            "&mdash; and it is one of only two tables in the chapter blocked "
+            "this way. "
+            "Note the reviewer's separate reading that this table may be "
+            "better modelled as a concept domain, which would dissolve the "
+            "question rather than answer it.",
+        "ask":
+            "Supply the canonical URL for the CMS OCE Edit Code system, or "
+            "confirm that an external code system record needs to be created "
+            "in THO for it. If neither is available, decide whether 0459 "
+            "should become concept-domain-only, in which case no value set "
+            "is needed and the OID becomes documentation rather than a "
+            "dependency.",
+    },
+    {
+        "id": "esc-0460-user-defined-mint",
+        "who": "V2 Management",
+        "tables": "0460, 0411, 0093",
+        "title": "User-defined tables are treated three different ways, and "
+                 "two of them get a freshly minted canonical",
+        "body":
+            "<code>0460</code> <i>Denial or Rejection Code</i> and "
+            "<code>0411</code> <i>Supplemental Service Information Values</i> "
+            "are the <b>only two tables in the whole chapter</b> for which "
+            "this project mints a new CodeSystem canonical &mdash; every "
+            "other code-bearing table either reuses a THO canonical or draws "
+            "on another authority's code system. Both are <code>Type: "
+            "User</code>. A user-defined table is by definition a set of "
+            "suggested values that an implementation is expected to replace, "
+            "so minting <code>CodeSystem/v2-0460</code> publishes suggestions "
+            "with the authority of a standard code system. "
+            "<b>The chapter is not consistent about this.</b> Compare "
+            "<code>0093</code> <i>Release Information</i>, also <code>Type: "
+            "User</code>, which is declared concept-domain-only and so "
+            "produces no code system and no value set at all &mdash; even "
+            "though it lists <code>Y</code> and <code>N</code> in its grid. "
+            "Three user tables, three outcomes: 0460 and 0411 get minted "
+            "resources, 0093 gets nothing. Nothing in the chapter explains "
+            "the difference. "
+            "0411 additionally has the defect already recorded above &mdash; "
+            "the chapter prints a canonical for a resource that does not "
+            "exist &mdash; and is a mess independent of this question.",
+        "ask":
+            "Decide what a user-defined table should produce. Options: a "
+            "CodeSystem and ValueSet like any other (the current behaviour), "
+            "a concept domain only (as 0093 is treated), or a ValueSet whose "
+            "codes are marked as examples. The answer decides whether these "
+            "two new canonicals should exist at all, and it should be "
+            "applied to 0093 at the same time so that like tables are "
+            "treated alike.",
+    },
+    {
+        "id": "esc-0725-missing-uri",
+        "who": "V2 Management",
+        "tables": "0725",
+        "title": "Table 0725 <i>Mood Codes</i> omits the URI of the v3 code "
+                 "system it draws from",
+        "body":
+            "The table's code system block gives a symbolic name "
+            "<code>actMood</code>, a description of <code>tbd</code>, and OID "
+            "<code>2.16.840.1.113883.5.1001</code> &mdash; and <b>no URI "
+            "field at all</b>. The codes are v3 ActMood codes, not v2 codes; "
+            "THO's own <code>ValueSet/v2-0725</code> draws them from "
+            "<code>http://terminology.hl7.org/CodeSystem/v3-ActMood</code>. "
+            "<b>The output is already correct</b>, because the OID the "
+            "chapter does print resolves through THO to exactly that URL, so "
+            "the writer emits a value set only and points it at the v3 code "
+            "system. Recorded because the defect is in the published chapter "
+            "and will mislead anyone reading it directly: a reader sees a "
+            "code system with no URI and a description of <code>tbd</code>, "
+            "with nothing to indicate the codes are v3. It also means the "
+            "correct result here depends entirely on OID resolution "
+            "succeeding.",
+        "ask":
+            "Confirm this as a technical correction under the "
+            "editing-process test &mdash; add the URI "
+            "<code>http://terminology.hl7.org/CodeSystem/v3-ActMood</code> "
+            "and replace the <code>tbd</code> description. Nothing in the "
+            "generated output changes.",
+    },
+    {
+        "id": "esc-0340-code-grid-misuse",
+        "who": "V2 Management",
+        "tables": "0340",
+        "title": "Table 0340's code grid lists code systems, not codes",
+        "body":
+            "<code>0340</code> <i>Procedure Code Modifier</i> is declared "
+            "concept-domain-only, so this project writes nothing for it and "
+            "nothing is blocked. But its code grid is not empty: it holds two "
+            "rows, <code>CPTM</code> &ldquo;CPT Modifier Code&rdquo; and "
+            "<code>HPC</code> &ldquo;CMS (formerly HCFA) Procedure Codes "
+            "(HCPCS)&rdquo;, both with long comments citing the publishing "
+            "body. <b>These are identifiers of external code systems, not "
+            "concepts in a code system of the table's own.</b> The chapter is "
+            "using the code grid for two incompatible purposes without "
+            "distinguishing them, which is a trap for anyone generating "
+            "resources from it mechanically &mdash; a naive reading mints a "
+            "code system whose concepts are the names of other code systems. "
+            "If the intent is that a procedure code modifier is drawn from "
+            "CPT or HCPCS, those are external code systems that may warrant "
+            "external code system records in THO.",
+        "ask":
+            "Confirm that 0340 is correctly concept-domain-only and that the "
+            "two rows are documentation of candidate external code systems "
+            "rather than codes. If they are meant to be usable, they need to "
+            "be expressed as external code system references rather than as "
+            "grid rows.",
+    },
+    {
         "id": "esc-heading-styles",
         "who": "V2 Management",
         "tables": "0685, 0767",

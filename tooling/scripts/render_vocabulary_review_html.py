@@ -850,11 +850,28 @@ def load_source_issues():
 
 
 def load_tho_coverage():
-    """Work out which CH02C tables can reuse a THO canonical URL.
+    """Report how every table's code system canonical was settled.
 
-    Returns None when the THO package has not been staged.
+    This section used to answer the question by subtraction: a table that
+    listed codes but had no ``CodeSystem-v2-<number>`` in THO was declared to
+    need a freshly minted canonical. That test is wrong in one specific and
+    very common way -- it only ever looks for a code system filed under the
+    table's *own* number, so any table whose codes live in somebody else's
+    code system trips it. It reported 18 tables needing a new canonical when
+    the true figure is 2, and every one of the other 16 was a table correctly
+    deferring to UCUM, LOINC, a v3 code system or a sibling v2 table.
+
+    So the classification is no longer recomputed here. It is read from the
+    writer's own report, which is the thing that actually decided it, and
+    which resolves each table through its declared URI and then its OID. Two
+    computations of the same fact can disagree; one cannot.
+
+    Returns None when the THO package or the writer report is absent.
     """
     if not THO_DIR.exists():
+        return None
+    writer = load_json(WRITER_REPORT_PATH)
+    if not writer:
         return None
 
     tho_codesystems, tho_valuesets = set(), set()
@@ -863,23 +880,37 @@ def load_tho_coverage():
     for path in THO_DIR.glob("ValueSet-v2-*.json"):
         tho_valuesets.add(path.stem.replace("ValueSet-v2-", ""))
 
-    with_codes, all_tables = set(), set()
-    names = {}
+    all_tables, names = set(), {}
     for path in sorted(VOCAB_DIR.glob("*.json")):
         record = json.loads(path.read_text())
         number = record.get("tableNumber", path.stem)
         all_tables.add(number)
         names[number] = record.get("tableName", "")
-        if record.get("codedContent"):
-            with_codes.add(number)
+
+    # A table mints a canonical only where the writer both wrote a CodeSystem
+    # and the URL it used is the table's own -- which is the definition of
+    # "new" once THO already publishes everything else under that pattern.
+    minted, borrowed, undecided = [], [], []
+    for entry in writer.get("tables", []):
+        number = entry["table"]
+        url = entry.get("systemUrl") or ""
+        if entry["action"] == "code-system-and-value-set":
+            if number not in tho_codesystems:
+                minted.append((number, url, entry.get("resolvedBy", "")))
+        elif entry["action"] == "value-set-only":
+            borrowed.append((number, url, entry.get("resolvedBy", "")))
+        elif entry["action"] == "needs-decision":
+            undecided.append((number, entry.get("reason", "")))
 
     return {
         "tho_codesystems": tho_codesystems,
         "tho_valuesets": tho_valuesets,
-        "with_codes": with_codes,
         "all_tables": all_tables,
         "names": names,
-        "needs_new_canonical": sorted(with_codes - tho_codesystems),
+        "counts": writer.get("counts", {}),
+        "minted": sorted(minted),
+        "borrowed": sorted(borrowed),
+        "undecided": sorted(undecided),
         "tho_without_table": sorted(tho_codesystems - all_tables),
     }
 
@@ -1562,8 +1593,10 @@ def build_html(sections, deviations, comparison, coverage, generated):
         add(f"<div class='metric-card mc-good'><div class='number'>{clean}/{common}</div>"
             "<div class='label'>tables both extractions agree on entirely</div></div>")
     if coverage:
-        add(f"<div class='metric-card'><div class='number'>{len(coverage['needs_new_canonical'])}</div>"
-            "<div class='label'>tables needing a new canonical URL</div></div>")
+        add(f"<div class='metric-card'><div class='number'>{len(coverage['minted'])}</div>"
+            "<div class='label'>tables needing a new canonical URL<br>"
+            f"<span class='faint'>{len(coverage['borrowed'])} more defer to "
+            "another authority's</span></div></div>")
     add("</div>")
 
     add("<table><tr><th>Where it came from</th><th>What it is</th>"
@@ -1601,24 +1634,73 @@ def build_html(sections, deviations, comparison, coverage, generated):
             f"<code>hl7.terminology.r5</code> package. "
             f"{len(coverage['tho_codesystems'])} v2 CodeSystems and "
             f"{len(coverage['tho_valuesets'])} v2 ValueSets are published there.</p>")
-        reusable = len(coverage["with_codes"] & coverage["tho_codesystems"])
-        add("<table><tr><th>Situation</th><th class='num'>Tables</th><th>Meaning</th></tr>")
-        add(f"<tr><td>Code-bearing table with a THO CodeSystem</td>"
-            f"<td class='num'>{reusable}</td>"
-            "<td>Reuse the published canonical URL as-is</td></tr>")
-        add(f"<tr><td>Code-bearing table with no THO CodeSystem</td>"
-            f"<td class='num'>{len(coverage['needs_new_canonical'])}</td>"
-            "<td>A canonical URL must be minted</td></tr>")
+        counts = coverage["counts"]
+        reuse = counts.get("code-system-and-value-set", 0) - len(coverage["minted"])
+        add("<div class='callout'><b>How a table's code system canonical is "
+            "settled.</b> Every table takes one of four routes, and which one "
+            "is read from the writer's own report rather than recomputed here "
+            "&mdash; so this table and the generated resources cannot "
+            "disagree. The distinction that matters: a table listing codes "
+            "that live in <i>another authority's</i> code system needs no new "
+            "canonical, and most do. Only where the codes are the table's own "
+            "and THO has never published them is anything minted.</div>")
+        add("<table><tr><th>Route</th><th class='num'>Tables</th>"
+            "<th>Meaning</th></tr>")
+        add(f"<tr><td>Reuses its own THO canonical</td>"
+            f"<td class='num'>{reuse}</td>"
+            "<td>THO already publishes <code>CodeSystem/v2-&lt;table&gt;</code>; "
+            "used as-is</td></tr>")
+        add(f"<tr><td>Defers to another authority's code system</td>"
+            f"<td class='num'>{len(coverage['borrowed'])}</td>"
+            "<td>Codes belong to UCUM, LOINC, a v3 system or a sibling v2 "
+            "table &mdash; only the ValueSet is ours to author, and no "
+            "canonical is minted</td></tr>")
+        add(f"<tr><td><b>Mints a new canonical</b></td>"
+            f"<td class='num'>{len(coverage['minted'])}</td>"
+            "<td>The codes are the table's own and THO publishes no code "
+            "system for it</td></tr>")
+        add(f"<tr><td>Unsettled &mdash; nothing written</td>"
+            f"<td class='num'>{len(coverage['undecided'])}</td>"
+            "<td>The chapter does not say clearly enough which code system "
+            "the codes belong to</td></tr>")
+        add(f"<tr><td>Concept domain only</td>"
+            f"<td class='num'>{counts.get('concept-domain-only', 0)}</td>"
+            "<td>No code system and no value set is needed at all</td></tr>")
         add(f"<tr><td>THO CodeSystem with no CH02C table</td>"
             f"<td class='num'>{len(coverage['tho_without_table'])}</td>"
             "<td>Present in THO but not in this chapter; likely retired</td></tr>")
         add("</table>")
 
-        add("<details><summary>Tables needing a new canonical URL "
-            f"<span class='meta'>({len(coverage['needs_new_canonical'])})</span></summary>")
-        add("<table><tr><th>Table</th><th>Name</th></tr>")
-        for number in coverage["needs_new_canonical"]:
-            add(f"<tr><td>{esc(number)}</td><td>{esc(coverage['names'].get(number, ''))}</td></tr>")
+        add("<details open><summary>Tables minting a new canonical URL "
+            f"<span class='meta'>({len(coverage['minted'])})</span></summary>")
+        add("<p class='legend'>These are the only two, and both are "
+            "<code>Type: User</code> tables &mdash; see the register item "
+            "<i>User-defined tables are treated three different ways</i>, "
+            "which asks whether they should be minted at all.</p>")
+        add("<table><tr><th>Table</th><th>Name</th><th>Canonical minted</th>"
+            "<th>How the code system was identified</th></tr>")
+        for number, url, resolved in coverage["minted"]:
+            add(f"<tr><td>{esc(number)}</td>"
+                f"<td>{esc(coverage['names'].get(number, ''))}</td>"
+                f"<td><code>{esc(url)}</code></td>"
+                f"<td>{esc(resolved)}</td></tr>")
+        add("</table></details>")
+
+        add("<details><summary>Tables deferring to another authority's code "
+            f"system <span class='meta'>({len(coverage['borrowed'])})</span>"
+            "</summary>")
+        add("<p class='legend'>For all of these the value set is ours to "
+            "author and the code system is not, so no canonical is minted. "
+            "Eleven of them &mdash; those that enumerate their codes rather "
+            "than referencing them &mdash; were reported as needing a new "
+            "canonical until this section was rewritten.</p>")
+        add("<table><tr><th>Table</th><th>Name</th>"
+            "<th>Code system it draws from</th><th>How it was resolved</th></tr>")
+        for number, url, resolved in coverage["borrowed"]:
+            add(f"<tr><td>{esc(number)}</td>"
+                f"<td>{esc(coverage['names'].get(number, ''))}</td>"
+                f"<td><code>{esc(url)}</code></td>"
+                f"<td>{esc(resolved)}</td></tr>")
         add("</table></details>")
 
         add("<details><summary>THO CodeSystems with no matching CH02C table "
