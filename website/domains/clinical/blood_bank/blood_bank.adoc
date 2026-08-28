@@ -26,6 +26,16 @@ image::blood_product_dispense_message_part1.png[blood_product_dispense_message_p
 
 image::blood_product_dispense_message_part2.png[blood_product_dispense_message_part2]
 
+== Technical Specs
+
+xref:technical_specs/O27.adoc[Message - O27 Blood Product Order]
+
+NOTE THAT WE ARE MISSING O28, O30 AND O32
+
+xref:technical_specs/O29.adoc[Message - O29 Blood Product Dispense Status]
+
+xref:technical_specs/O31.adoc[Message - O31 Blood Product Transfusion/Disposition]
+
 === Usage Notes for Donation Service (Blood Bank)
 [v291_section="4.16.1"]
 
