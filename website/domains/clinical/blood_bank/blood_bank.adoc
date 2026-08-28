@@ -15,7 +15,7 @@ image::blood_product_order_message.png[blood_product_order_message]
 
 image::blood_product_message_flow_2.png[blood_product_message_flow_2]
 
-image::blood_product_dispense_message_part1.png[blood_product_dispense_message]
+image::blood_product_dispense_message.png[blood_product_dispense_message]
 
 
 == Technical Specs
