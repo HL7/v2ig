@@ -15,8 +15,6 @@ image::blood_product_order_message.png[blood_product_order_message]
 
 image::blood_product_message_flow_2.png[blood_product_message_flow_2]
 
-image::blood_product_dispense_message.png[blood_product_dispense_message]
-
 == Technical Specs
 
 xref:technical_specs/O27.adoc[Message - O27 Blood Product Order]
