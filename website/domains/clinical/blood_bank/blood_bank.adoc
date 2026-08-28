@@ -94,18 +94,7 @@ This system keeps the master list of providers.
 
 This system is used to document the shipping manifest from information received from the actual donations.
 
-== Implementation Considerations
-
-=== Usage notes for transfusion service messages
-[v291_section="4.13.1"]
-
 == Technical Specs
-
-xref:technical_specs/O27.adoc[Message - O27 Blood Product Order]
-
-xref:technical_specs/O29.adoc[Message - O29 Blood Product Dispense Status]
-
-xref:technical_specs/O31.adoc[Message - O31 Blood Product Transfusion/Disposition]
 
 xref:technical_specs/O41.adoc[Message - O41 Create Donor Record]
 
