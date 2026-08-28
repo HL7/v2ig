@@ -2,9 +2,6 @@
 
 == Introduction
 
-=== Transfusion Service (Blood Bank) Trigger Events & Messages
-[v291_section="4.13"]
-
 == General Use Cases / Background
 
 === Transfusion Service (Blood Bank) Transaction Flow Diagram
@@ -16,15 +13,10 @@ image::blood_product_message_flow_1.png[blood_product_message_flow_1.png]
 
 image::blood_product_order_message.png[blood_product_order_message]
 
-// image::extracted-media/media/image5.wmf[] // duplicate of above
-
-// image::extracted-media/media/image6.wmf[] // duplicate of above
-
 image::blood_product_message_flow_2.png[blood_product_message_flow_2]
 
-image::blood_product_dispense_message_part1.png[blood_product_dispense_message_part1]
+image::blood_product_dispense_message_part1.png[blood_product_dispense_message]
 
-image::blood_product_dispense_message_part2.png[blood_product_dispense_message_part2]
 
 == Technical Specs
 
@@ -36,7 +28,9 @@ xref:technical_specs/O29.adoc[Message - O29 Blood Product Dispense Status]
 
 xref:technical_specs/O31.adoc[Message - O31 Blood Product Transfusion/Disposition]
 
-=== Usage Notes for Donation Service (Blood Bank)
+== General Use Cases / Background
+
+=== Donation Service (Blood Bank) Transaction Flow Diagram
 [v291_section="4.16.1"]
 
 The Donation Service (BLOOD BANK) uses a different methodology than the similar Transfusion Service (BLOOD BANK) already present in this standard. Each of the segments defined for the Transfusion Service groups together all the 'transfusion' information in one segment, each. The Donation Service was developed breaking out the blood product 'donated' from the donation event itself. This is a more sustainable and interoperable approach. Future changes to the Transfusion Service should uptake this style.
