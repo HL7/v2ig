@@ -14,6 +14,8 @@ Chapter 4 (Blood Bank/Transfustions): Update Author: Craig Newman Reviewer: TBD 
 
 Chapter 4A: Update Author: Hans Buitendijk  Reviewer:
 
+Chapter 4A (Immunizations): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#31)** - needs review
+
 Chapter 5: Update Author: Craig Newman  Reviewer:
 
 Chapter 6: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
