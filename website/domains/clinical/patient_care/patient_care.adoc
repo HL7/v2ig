@@ -98,14 +98,13 @@ A new diagnosis/problem is attached to a goal (e.g., a Goal is to "discharge an 
 [NOTE]
 If there is a requirement to modify information contained on a segment and unlink that same problem/goal, two segments must be transmitted (one for the modification and one for the unlink request).
 
-=== Message Construction Rules
+=== Message Construction Guidance
 [v291_section="12.2.5"]
-
-FIXME - decide if we are going to keep these rules or not
 
 The semantic meaning of a message is contained in the message through the use of the trigger events, the implicit hierarchical linkages of the segments, and the segment action codes. Each of these has a scope within the message. The message event as included in the MSH-9 Message Type has a scope which is global to the message. The segment hierarchical linkage has a scope which includes both the segment itself and its relationship to its parent. The segment action code's scope is to the segment itself. It may further define link and unlink actions in the hierarchical structure.
 
-==== Rule 1
+The Problem, Goal, and Pathway messages integrate order segments as a method for establishing causal linkages between orders, problems, goals, and pathways. However, orders referenced in Patient Care messages are used for linkage purposes only.  Initiation and status changes to orders are accomplished by using dedicated messages defined in the Order Entry Chapter. For purposes of these messages, an LI (Link) and a UL (Unlink) code have been added to HL7 Table 0119 - Order Control Codes. 
+
 [v291_section="12.2.5.1"]
 
 The trigger event defines the action at the first level of the hierarchy, and should not be contradicted by either hierarchical linkages or segment action codes. Thus, a PC1 (problem add) event should only contain problem, goal, and role segments that have action codes *ADD*.
@@ -122,12 +121,10 @@ Dependent segment action codes - Any are allowed at the lower hierarchical level
 Dependent segments' action codes must be DELETE
 |===
 
-==== Rule 2
 [v291_section="12.2.5.2"]
 
 When using the segment action codes *LINK* and *UNLINK*, only those fields which are used to define a unique instance of the object are used. This action cannot be used to send changes and updates to the other fields of that segment.
 
-==== Rule 3
 [v291_section="12.2.5.3"]
 
 In dependent segments *ADD* is the action code to use to establish the initial relationship between parent-child objects. The receiving system must be ready to handle multiple adds of the same object. An example is a Problem List of three (3) problems which is being sent. Attached to these problems are three (3) goals. Problem A has Goals 1 and 2 attached to it. Problem B has the same Goal 2 and a new Goal 3 attached to it. All of these will have the *ADD* action code in the segment, and when Problem B is transmitted with Goals 2 and 3, Goal 2 will have been previously transmitted with Problem A. The message construct would look like this:
@@ -144,23 +141,6 @@ PID...
           PRB (Problem C) (No attached goals)
 
 When two (or more) instances of the same problem or goal segment are present in a message both such segments must have identical values for all fields.
-
-==== Rule 4
-[v291_section="12.2.5.4"]
-
-Remember that HL7 only provides for error messages at the message level. Thus, if the receiving system cannot process one segment, the entire message is going to be treated as an error (See Chapter 2).
-
-==== Rule 5
-[v291_section="12.2.5.5"]
-
-The Problem, Goal, and Pathway messages integrate order segments as a method for establishing causal linkages. Linkages or relationships between orders, problems, goals, and pathways can therefore be presented in the Patient Care messages.
-
-Orders referenced in Patient Care messages are used for linkage purposes only. Initiation and status changes to orders are accomplished by using dedicated messages defined in the Order Entry Chapter.
-
-==== Rule 6
-[v291_section="12.2.5.6"]
-
-Order segments are sent with Problem and Goal segments in order to establish a linkage between them, NOT to communicate new orders or changes to those orders. For purposes of these messages, an LI (Link) and a UL (Unlink) code have been added to HL7 Table 0119 - Order Control Codes.
 
 == Technical Specs
 [v291_section="12.3"]
