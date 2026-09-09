@@ -18,4 +18,12 @@ image::images/extraneous_choreography_text.png[]
 
 image::images/example_messages2.png[]
 
+* Acknowledgment Choreography tables are controlled by the message JSON file in the input/sourceOfTruth/message/messages folder on GitHub (for example https://github.com/HL7/v2ig/blob/51dfdd968cf2a14038505c5b2f3d97edd21f1b02/input/sourceOfTruth/message/messages/EHC-E12.json[EHC^E12])
 
+Within that file, there are elements for the original mode response, enhanced mode immediate acknowledgment and enhanced mode application acknowledgment. Within these elements, the target profile should point to the message structure definition. So to create a table that looks like this:
+
+image::Ack Choreography table.jpg[]
+
+Make the JSON file look like this:
+
+image::Ack Choreography JSON.jpg[]
