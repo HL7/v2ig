@@ -26,4 +26,4 @@ image::Ack Choreography table.jpg[]
 
 Make the JSON file look like this:
 
-image::Ack Choreography JSON.jpg[]
+image::Ack Choreography JSON.jpg[] 
