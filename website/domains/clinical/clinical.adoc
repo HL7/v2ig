@@ -2,15 +2,27 @@
 
 == Introduction
 
-FIXME
+The Clinical Domain is comprised of the message sets related to the exchange of patient focused clinical data. This includes content previously documented in Chapter 4/4a (Orders), Chapter 7 (Observations), Chapter 9 (Medical Records), and Chapter 12 (Patient Care). Note that following changes relative to the v2.9.1 Edition:
 
-== Clinical Subdomains
+* The content of Chapter 9 (Medical Records) related to documents (MDM messages) has been renamed Document Management
+
+* The content of Chapter 9 (Medical Records) related to Patient Consent has been incorporated into the Administration Domain
+
+* The content of Chapter 4/4a (Orders) and Chapter 7 (Observations) have been broken out as dedicated topics for diffferent types of orders (general, dietary, pharmacy, etc)
+
+* A portion of the content of Chapter 4/4a (Orders) and Chapter 7 (Observations) has been integated into singluar topics to better align with the ordering and resulting workflow.
+
+* The content of Chapter 7 (Observation) related to Specimen Shipping Manifests has been incorporated into the ERP Domain.
+
+== Clinical Topics
 
 xref:blood_bank/blood_bank.adoc[Blood Bank]
 
 xref:clinical_trials/clinical_trials.adoc[Clinical Trials]
 
 xref:dietary/dietary.adoc[Dietary]
+
+xref:medical records/document_management.adoc[Document Management]
 
 xref:general_orders_and_results/general_orders_and_results.adoc[General Orders And Results]
 
@@ -19,8 +31,6 @@ xref:imaging/imaging.adoc[Imaging]
 xref:immunizations/immunizations.adoc[Immunizations]
 
 xref:laboratory/laboratory.adoc[Laboratory]
-
-xref:medical records/medical records.adoc[Medical Records]
 
 xref:patient_care/patient_care.adoc[Patient Care]
 
