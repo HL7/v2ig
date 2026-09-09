@@ -67,3 +67,6 @@ xref:technical_specs/O49.adoc[Message - O49 Pharmacy/Treatment Dispense Request]
 xref:technical_specs/O59.adoc[Message - O59 Pharmacy/Treatment Dispense Receipt]
 
 xref:technical_specs/Q11_K31.adoc.adoc[Message - Q11/K31 Pharmacy Query/Response]
+
+
+FIX ME - SEEM TO BE MISSING THE EXAMPLES FROM SECTION 4A.5
