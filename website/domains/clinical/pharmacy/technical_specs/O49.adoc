@@ -12,9 +12,6 @@ The order to dispense refers to the “clinical” order, the original RDE^O25 (
 [tabset]
 O49
 
-[NOTE]
-
-
 The RXCs which follow the RXO may not be fully encoded, but those that follow the RXE must be fully encoded.
 
 The NTE segment(s) following the PD1 segment are intended to communicate notes and comments relative to the patient.
