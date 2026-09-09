@@ -22,8 +22,8 @@ image::images/example_messages2.png[]
 
 Within that file, there are elements for the original mode response, enhanced mode immediate acknowledgment and enhanced mode application acknowledgment. Within these elements, the target profile should point to the message structure definition. So to create a table that looks like this:
 
-image::Ack Choreography table.jpg[]
+image::Ack_Choreography_table.jpg[]
 
 Make the JSON file look like this:
 
-image::Ack Choreography JSON.jpg[] 
+image::Ack_Choreography_JSON.jpg[] 
