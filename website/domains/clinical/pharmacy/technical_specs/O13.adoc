@@ -17,23 +17,23 @@ Payment for the dispense event completed by a single payor:
 
 [.er7]
 ....
-MSH|^&~\|Pharm|GenHosp|CIS|GenHosp|2006082911150700||RDS^O13^RDS_O13|...<cr>
+MSH|^&~\|Pharm|GenHosp|CIS|GenHosp|2026082911150700||RDS^O13^RDS_O13|...<cr>
 PID|...<cr>
 ORC|RE|...<cr>
 RXD|1|00310-0131-10^LISINOPRIL 10MG TABLET^NDC|200607150830|100|TAB|...<cr>
-FT1|1|||200607151035||PY|00310-0131-10^LISINOPRIL 10MG TABLET^NDC|||100|125.43&USD|...<cr>
+FT1|1|||202607151035||PY|00310-0131-10^LISINOPRIL 10MG TABLET^NDC|||100|125.43&USD|...<cr>
 ....
 
 Payment for the dispense event involves multiple payment sources:
 
 [.er7]
 ....
-MSH|^&~\|Pharm|GenHosp|CIS|GenHosp|2006082213000700||RDS^O13^RDS_O13|...<cr>
+MSH|^&~\|Pharm|GenHosp|CIS|GenHosp|2026082213000700||RDS^O13^RDS_O13|...<cr>
 PID|...<cr>
 ORC|RE|...<cr>
 RXD|1|00340-0241-10^VERAPAMIL 120MG TABLET^NDC|200607200940|100|TAB|...<cr>
-FT1|1|||200607211055||CD|00340024110^VERAPAMIL 120MG TABLET ^NDC|||100|55.43&USD|...<cr> (amount paid by insurance)
-FT1|2|||200607211055||CP|00340024110^VERAPAMIL 120MG TABLET ^NDC|||100|5.00&USD|...<cr> (copay paid by patient)
+FT1|1|||202607211055||CD|00340024110^VERAPAMIL 120MG TABLET ^NDC|||100|55.43&USD|...<cr> (amount paid by insurance)
+FT1|2|||202607211055||CP|00340024110^VERAPAMIL 120MG TABLET ^NDC|||100|5.00&USD|...<cr> (copay paid by patient)
 ....
 
 [tabset]
