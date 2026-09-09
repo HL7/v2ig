@@ -3,7 +3,7 @@
 :v2_section_name: "QBP - Get Donor Record (Event Q34)"
 :generated: "Thu, 01 Aug 2024 15:25:17 -0600"
 
-.This query/response is designed for interaction between a viewing system and the system which contains the Donor Book of Record. The query consists of query parameters, and the response of the demographics for that donor.
+This query/response is designed for interaction between a viewing system and the system which contains the Donor Book of Record. The query consists of query parameters, and the response of the demographics for that donor.
 [width="100%",cols="39%,61%",options="header",]
 |===
 |Query Statement ID: |Q34

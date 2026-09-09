@@ -3,7 +3,7 @@
 :v2_section_name: "QBP - Get Donor Record Candidates (Event Q33)"
 :generated: "Thu, 01 Aug 2024 15:25:17 -0600"
 
-.This query/response is designed for interaction between a registration system and the system which contains the Donor Book of Record. The query consists of query parameters which assist in determining if the Donor already has a record in the Donor Book or Record system. The query parameters are minimal and number of elements returned in the query response for each candidate is minimal.
+This query/response is designed for interaction between a registration system and the system which contains the Donor Book of Record. The query consists of query parameters which assist in determining if the Donor already has a record in the Donor Book or Record system. The query parameters are minimal and number of elements returned in the query response for each candidate is minimal.
 [width="100%",cols="39%,61%",options="header",]
 |===
 |Query Statement ID: |Q33
