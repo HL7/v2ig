@@ -26,6 +26,8 @@ Diet codes govern foods in two ways. First, there are foods which are simply not
 
 == Technical Specs
 
+FIX ME - MISSING THE O04 EVENT/MESSAGE AS THE APPLICATION LEVEL ACKNOWLEDGMENT
+
 xref:technical_specs/O03.adoc[Message O03 - Dietary Order]
 
 == Examples
