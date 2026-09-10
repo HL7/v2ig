@@ -38,32 +38,8 @@
         "patternCode": "active"
       },
       {
-        "id": "Message.acknowledgementChoreography.originalModeResponse",
-        "path": "Message.acknowledgementChoreography.originalModeResponse",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Message/ACK-E13"
-            ]
-          }
-        ]
-      },
-      {
         "id": "Message.acknowledgementChoreography.enhancedModeImmediateResponse",
         "path": "Message.acknowledgementChoreography.enhancedModeImmediateResponse",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Message/ACK-E13"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Message.acknowledgementChoreography.enhancedModeApplicationResponse",
-        "path": "Message.acknowledgementChoreography.enhancedModeApplicationResponse",
         "type": [
           {
             "code": "Reference",
