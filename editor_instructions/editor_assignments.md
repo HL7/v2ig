@@ -8,7 +8,9 @@ Chapter 2C: Update Author:
 
 Chapter 3: Update Author: Riki Merrick  Reviewer:
 
-Chapter 4 (General Orders): Upddate Author: Hans Buitendijk
+Chapter 4 (General Orders): Update Author: Hans Buitendijk
+
+Chapter 4 (Supply and Dietary Orders): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#34)** - needs review
 
 Chapter 4 (Blood Bank/Transfustions): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#29)** - needs review
 
