@@ -10,6 +10,8 @@ Chapter 3: Update Author: Riki Merrick  Reviewer:
 
 Chapter 4 (General Orders): Update Author: Hans Buitendijk
 
+Chapter 4 (Imaging Orders): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#35)** - needs review
+
 Chapter 4 (Supply and Dietary Orders): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#34)** - needs review
 
 Chapter 4 (Blood Bank/Transfustions): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#29)** - needs review
