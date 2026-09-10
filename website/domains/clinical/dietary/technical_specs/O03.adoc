@@ -5,7 +5,5 @@
 
 Dietary orders use the OMD and ORD messages described below. Some systems may use the deprecated ORM message with diet order segments for backward compatibility.
 
-FIX ME - MISSING THE O04 EVENT/MESSAGE AS THE APPLICATION LEVEL ACKNOWLEDGMENT
-
 [tabset]
 O03
