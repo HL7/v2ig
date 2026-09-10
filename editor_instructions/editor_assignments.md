@@ -8,11 +8,9 @@ Chapter 2C: Update Author:
 
 Chapter 3: Update Author: Riki Merrick  Reviewer:
 
-Chapter 4 (Pharmacy): Update Author: Craig Newman  Reviewer:TBD - **Pull Request created (#31)** - needs review
-
 Chapter 4 (Blood Bank/Transfustions): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#29)** - needs review
 
-Chapter 4A: Update Author: Hans Buitendijk  Reviewer:
+Chapter 4A (Pharmacy): Update Author: Craig Newman  Reviewer:TBD - **Pull Request created (#31)** - needs review
 
 Chapter 4A (Immunizations): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#31)** - needs review
 
