@@ -18,33 +18,45 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-08-27 (V2 Management meets tomorrow morning; the full IG build is still the next build move)
+## ACTIVE — 2026-09-10 (the 28 Aug meeting outcome was never captured; the full IG build is still the next build move)
 
-**Branch: `dev/v291-vocabulary-ig`, at `9b77181d`. 21 commits ahead of origin,
+**Branch: `dev/v291-vocabulary-ig`, at `6b01350c`. 23 commits ahead of origin,
 unpushed.** All vocabulary work is on this branch and nowhere else;
 `dev/framework` carries only the structural-review workstream. **Do not commit
 vocabulary work to `dev/framework`.**
 
 **Phase:** the writer produces 398 CodeSystems and 422 ValueSets, all
-validating in a real IG Publisher smoke test. 329 of the value sets are now
-byte-identical to UTG's own. Both committee documents are current.
+validating in a real IG Publisher smoke test. 329 of the value sets are
+byte-identical to UTG's own. 243 tests pass; every document regenerates clean.
 
 ### First thing to check next session
 
-**The V2 Management meeting was the morning of 2026-08-28.** Ask what came
-back. Three things were put to them and each unblocks different work:
+**The V2 Management meeting of 2026-08-28 happened and its outcome was never
+recorded.** It was asked at the start of the last session, the session went
+elsewhere, and the answer never came back. **Ask again — this is the single
+biggest gap in the project's state.** Three things were put to them:
 
-1. **The reproduce-vs-correct ruling** (blocker 1), now offered in a narrow
-   form: *may we treat editing-process defects as technical corrections?* A yes
-   releases the truncated descriptions, 0821's emptied grid, the page-URL
-   defects and the missing spaces in one go.
+1. **The reproduce-vs-correct ruling** (blocker 1), in its narrow form: *may we
+   treat editing-process defects as technical corrections?* A yes releases the
+   truncated descriptions, 0821's emptied grid, the page-URL defects and the
+   missing spaces in one go.
 2. **The five conflicting concept domain definitions** (blocker 2). Until
-   answered we emit the first in document order, which is a coin toss.
-3. **The new information-preservation steer** — *is the intent that a FHIR
-   consumer can recover what Chapter 2C says about a table, or only the codes
-   it defines?* One answer decides whether to design extensions for the 24
-   unmapped fields or record the loss. This is the one with a deadline: it is
-   cheap now and unrecoverable after the load into THO.
+   answered we emit the first in document order, which is a coin toss. Detail
+   in `v291-fhir/conceptdomains-divergences.json`, kind
+   `conflicting_descriptions_within_chapter`: DeviceStatus (0682/0962),
+   DeviceType (0657/0961), Modality (0259/0604), QuantityUnits (0560/0602),
+   VolumeUnits (0568/0777/0930). **Four of the five have a template stub as
+   the second description** — 0602, 0604 and 0777 all have no `Type`, no
+   steward, and a segment reference in the table name, so they look like
+   field-specific stubs rather than rival definitions. The Device pair is the
+   one genuinely contested; that needs OO.
+3. **The information-preservation steer** — *can a FHIR consumer recover what
+   Chapter 2C says about a table, or only the codes it defines?* Decides
+   whether to design extensions for the 24 unmapped fields or record the loss.
+   Cheap now, unrecoverable after the load into THO.
+
+**Six new register items (18–23) were added after the meeting** and have not
+been put to anyone. If V2 Management meets again, they are the agenda.
 
 ### Next build move
 
@@ -76,19 +88,24 @@ A 7-resource build took ~3.5 min; budget accordingly and expect the
 
 | Document | Audience | State |
 |---|---|---|
-| `v291-extracted/v2mgmt-briefing.html` + `.md` | V2 Management | Current as of the 28 Aug meeting |
-| `v291-extracted/utg-briefing.html` + `.md` | UTG subcommittee of TSMG | Content last changed 2026-08-21 — **stale, check before reusing** |
-| `v291-extracted/vocabulary-v2mgmt-items.md` | Both, as the detail | 18 items, regenerated |
-| `v291-extracted/vocabulary-field-mapping.html` + `.md` | Backs the new ask | New this session |
-| `v291-extracted/vocabulary-review-report.html` | The reviewer, day to day | Regenerated |
+| `v291-extracted/v2mgmt-briefing.html` + `.md` | V2 Management | Written for the 28 Aug meeting — **predates register items 18–23** |
+| `v291-extracted/utg-briefing.html` + `.md` | UTG subcommittee of TSMG | Content last changed 2026-08-21 — **three weeks stale** |
+| `v291-extracted/vocabulary-v2mgmt-items.md` | Both, as the detail | **24 items**, regenerated |
+| `v291-extracted/vocabulary-field-mapping.html` + `.md` | Backs the preservation ask | Current |
+| `v291-extracted/vocabulary-review-report.html` | The reviewer, day to day | Current; canonical section rewritten |
 
-**The UTG briefing is the stale one.** It has been re-rendered since, but its
-content has not been revisited since `a817a61c` on 2026-08-21, and four things
-found since then concern UTG and TSMG directly: the `notAllCodes` canonicals,
-the `CodeSystem.valueSet` omission, the punctuation codes in THO's own v2 code
-systems, and the fact that THO carries the same truncated descriptions the
-chapter does. **If UTG meets before it is rewritten, that briefing understates
-what we have for them.**
+**The UTG briefing is the stale one, and getting staler.** Its content has not
+been revisited since `a817a61c` on 2026-08-21. Five things found since concern
+UTG and TSMG directly: the `notAllCodes` canonicals, the `CodeSystem.valueSet`
+omission, the punctuation codes in THO's own v2 code systems, the fact that
+THO carries the same truncated descriptions the chapter does, and now the
+0567/0568 question of whether THO should deprecate alongside the chapter.
+**If UTG meets before it is rewritten, that briefing badly understates what we
+have for them.** This is the cheapest high-value task available and does not
+depend on the 28 Aug outcome.
+
+**The V2 Management briefing is also now behind** — it was current for the
+28 Aug meeting, but register items 18–23 postdate it.
 
 ### Rules settled that must not be re-derived
 
@@ -119,23 +136,125 @@ python3 tooling/scripts/render_v2mgmt_briefing.py
 ```
 
 The first two are expensive and only needed if the text policy changed.
-`render_field_mapping.py` is new and must run after `write_utg_xml.py`, since
-it reads the write report. Three scripts self-check and print a warning rather
-than failing: the register's stated-vs-computed table lists, the mapping's
-corpus-vs-spec completeness, and the writer's UTG file-name collisions. **A
-silent run is the expected outcome; read the output if it is not.**
+`render_field_mapping.py` must run after `write_utg_xml.py`, since it reads the
+write report — and as of this session **so must
+`render_vocabulary_review_html.py`**, whose canonical section now reads
+`utg-write-report.json` rather than recomputing coverage. Three scripts
+self-check and print a warning rather than failing: the register's
+stated-vs-computed table lists, the mapping's corpus-vs-spec completeness, and
+the writer's UTG file-name collisions. **A silent run is the expected outcome;
+read the output if it is not.**
 
 ### Open blockers
 
 - **None on our side.** 243 tests pass, every document regenerates clean.
 - Everything outstanding is gated on committee or user decisions, and none of
   it blocks the full build.
-- The 14 writer blockers and the two open canonical questions (0567/0568
-  borrowing another table's value set; the 10 external value-set references)
-  are all recorded with evidence in the review report and the field-mapping
-  document.
+- The 14 writer blockers are recorded with evidence in the review report. The
+  0567/0568 question is no longer "which canonical" — it is resolved and
+  registered as item 18, a deprecation question for THO. The 10 external
+  value-set references remain open.
+
+### Two items that are not ours and have no home yet
+
+Found during an out-of-scope discussion; they belong to the **structural**
+workstream (`dev/framework`, `v291-extracted/v2mgmt-review-report.md`) and were
+deliberately not written to this branch. The reviewer was asked which document
+should carry them and had not answered when the session ended:
+
+1. CH02 systematically calls the segment **`FSH`** rather than `FHS` in the
+   file-header section (the §2.13.3 field heading is literally "FSH-15").
+2. The `BHS-15` and `FHS-15` conditionality predicates **invert the containment
+   hierarchy** — a batch contains messages and a file contains batches, but
+   `BHS-15` reaches for "any contained FSH-16/FSH-17" and `FHS-15` skips the
+   BHS level entirely.
+
+Both look like editing-process defects, so they fit the same technical-
+correction test as blocker 1.
 
 ## Session History
+
+## 2026-08-27 → 2026-09-10 — The canonical section was wrong; six findings registered
+
+### Completed
+
+**The reviewer walked the "tables needing a new canonical URL" list and
+rejected almost all of it — correctly.** The section was computed by one crude
+subtraction in `render_vocabulary_review_html.py`: a table that listed codes
+and had no `CodeSystem-v2-<its own number>` in THO was declared to need a
+canonical minted. That test only ever looks for a code system filed under the
+table's *own* number, so **every table whose codes live in another authority's
+code system tripped it**. It reported 18; the true figure is **2** (0411 and
+0460), which matches the independent count reached on 2026-08-20.
+
+**The writer already had this right for 16 of the 18.** The section no longer
+recomputes anything — it reads `v291-fhir/utg-write-report.json`, so the report
+and the generated resources cannot disagree. It now shows six routes with
+counts (396 reuse their own THO canonical, 24 defer to another authority, 2
+mint, 14 unsettled, 360 concept-domain-only, 19 THO code systems with no
+chapter table) plus two detail tables giving, for each table, which code system
+it resolved to and how.
+
+**Six items added to the V2 Management register**, five previously unrecorded.
+Register is now 24 items. Commit `6b01350c`. 243 tests pass.
+
+### The findings worth carrying
+
+**0567/0568 is a deprecation question, not a canonical question.** The
+reviewer's framing, and it replaced mine: Chapter 2C deprecates both tables in
+prose, but THO publishes `ValueSet/v2-0567` and `v2-0568` as live resources
+with no deprecation marker, so **a consumer cannot tell that two of the four
+are superseded**. The ask is whether a concomitant deprecation belongs in THO.
+Secondary: both tables print the *replacement's* canonical as their own URI
+(0567→`v2-0929`, 0568→`v2-0930`), and only the "THO's existing canonical wins"
+rule stopped two pairs of resources claiming the same URL.
+
+**0725 was already correct, by OID resolution.** The chapter omits the URI
+entirely and gives only OID `2.16.840.1.113883.5.1001`, which THO resolves to
+`CodeSystem/v3-ActMood` — the same URL the reviewer found independently in
+THO's CLD. Registered as a technical correction that changes no output.
+
+**0460/0411/0093 is the sharpest management item.** All three are `Type: User`
+and the chapter treats them three different ways: 0411 and 0460 get minted
+resources, 0093 is declared concept-domain-only and gets nothing. Nothing in
+the chapter explains the difference. That contrast is the frame for the
+user-defined-table question the reviewer did not know how to answer.
+
+**0340's code grid holds code system identifiers, not concepts** — `CPTM` and
+`HPC`, with citations to AMA and CMS. The table is concept-domain-only so
+nothing is written, but the chapter is using the code grid for two
+incompatible purposes.
+
+**0459 is a hard stop**: code system given only as OID
+`2.16.840.1.113883.6.301.9`, which nothing in THO or FHIR core resolves.
+
+### Corrections taken during the session
+
+- Claimed the 24 deferring tables were "each previously reported as needing a
+  new canonical". Only 11 were — the old test also required enumerated codes,
+  so it never saw the 13 that reference their codes intensionally. Caught and
+  fixed before the final render.
+- Asserted the reason for that as "THO publishes no same-numbered code system
+  for them". Wrong reason for a right number.
+
+### Out-of-scope discussion worth not losing
+
+A long thread on V2 delimiter/escape corner cases (whether `MSH-2` may declare
+`F`, `S`, `T`… as separators). Two **CH02 document defects** surfaced that are
+recorded nowhere and belong to the structural workstream, not this one:
+
+1. **The chapter calls the segment `FSH` in places** — not a typo but
+   systematic: the field heading at §2.13.3 is literally "FSH-15 Security
+   Classification Tag", and `BHS-15`'s conditionality predicate reads "any
+   contained FSH-16 or FSH-17".
+2. **Those same predicates invert the containment hierarchy.** A batch contains
+   messages; a *file* contains batches. `BHS-15` referring to "any contained
+   FSH/FHS" is backwards; `FHS-15` reaches for "any contained MSH-26" and skips
+   the BHS level.
+
+Also established, if it recurs: **no rule anywhere in CH02 requires the six
+delimiters to be distinct from one another**, so `MSHFzzzzzF` is not
+prohibited by any text — searched and confirmed.
 
 ## 2026-08-25 → 2026-08-27 — The field mapping, THO's canonicals, and the briefing brought current
 
