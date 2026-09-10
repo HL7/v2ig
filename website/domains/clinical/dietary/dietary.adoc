@@ -6,7 +6,23 @@
 == Introduction
 [v291_section="4.7"]
 
-A diet office needs to receive specific information, the most important being the diet order itself. Diet restrictions (often called diet codes) are the basic building blocks of a diet order. The diet order segments may be sent as part of the ORM and ORR message structure to support backwards compatibility, or may be sent as part of the following dedicated message structures.
+A diet office needs to receive specific information, the most important being the diet order itself. Diet restrictions (often called diet codes) are the basic building blocks of a diet order. 
+
+The ODS segment is intended to cover the basic diet definition of one diet code. A diet can be ordered as a combination of one or more diet specifications, followed by any number of supplements and/or preferences. Many diets are common to all institutions, such as an ADA 1500 calorie diet, and may exist in a table. Each diet code is limited to a six-character abbreviation.
+
+A dietary message never specifies more than one diet. However, a single diet order may be used to discontinue one diet and specify its replacement. In this instance, the dietary message will contain two ORCs. The first ORC will not contain an ODT. A tray specification order may follow the second ORC.
+
+Often a complete diet order consists of a single diet code. The diet code defines which foods a patient may receive. In cases where a patient cannot make food selections, a diet code often causes service of a predefined set of foods. A patient must have at least one diet code to receive food.
+
+Supplements provide a mechanism for giving any additional desired foods to a patient. Supplements are foods given to a patient regardless of their diet codes. These foods are part of the patient's diet without being restricted by any other part of the order. Therefore, supplement assignment needs to be a controlled and supervised process to ensure that a patient does not receive improper or potentially harmful foods.
+
+Preferences consist of likes, dislikes, substitutions, and complementary foods. Preferences are diet orders, effectively from the patient, but transmitted from the ward. They are subject to change. A mechanism is included for defining patient preferences with this proposal. Preferences are independent of the diet order and do not change when the order changes. However, if a preference violates the conditions of the diet order, then that preference is not allowed.
+
+There is additional information that the dietary service requires for proper operation, including tray delivery times, extra trays, and messages regarding tray delivery and handling.
+
+A patient can have only one effective diet order at a time. A diet order consists of the diet codes, supplements, and preferences effective at a given time. These three specifications govern which foods a patient will receive. Diets generally do not have a stated ending time to ensure that the patient always receives food (unless an NPO order is received).
+
+Diet codes govern foods in two ways. First, there are foods which are simply not allowed on a specified diet. Second, some diets imply a nutrient exchange pattern which controls the amounts of certain foods that a patient can receive. Some diet codes can combine to make a single diet order. An ADA 1500 and a 2 gram sodium (NA2GM) diet can coexist since they do not address the same exchanges. The patterns for these diets can combine without conflicting or overlapping. Certain kinds of diet codes cannot be combined, such as ADA 1500 and ADA 2000. It is impossible to feed a patient at two different calorie levels. These constraints are not defined in the table, but rather are implied by the semantics of the codes.
 
 == Technical Specs
 
@@ -17,71 +33,71 @@ xref:technical_specs/O03.adoc[Message O03 - Dietary Order]
 [v291_section="4.9.1"]
 === Typical progression of orders for a surgery patient 
  
-.First order:
+First order:
 [.er7]
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|NW|1235^NURS|||||^^^199108021700||200608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1235^NURS|||||^^^202608021700||202608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||321^DB15^99DO3|...<cr>
 ODS|D||322^NA2GM^99DO3|<cr>
 ....
 
-.Hold first order:
+Hold first order:
 [.er7]
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|HD|1235^NURS|||||^^^200608031700||200608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|HD|1235^NURS|||||^^^202608031700||202608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ....
 
-.NPO order with guest tray:
+NPO order with guest tray:
 [.er7]
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|NW|1236^NURS|||||^^^200608031700||200608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1236^NURS|||||^^^202608031700||202608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||323^NPO^99DO3|...<cr>
-ORC|NW|1244^NURS|||||^^^200608031700||200608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1244^NURS|||||^^^202608031700||202608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|GUEST^Guest tray^HL70160|5^^99CBD|...<cr>
 ....
 
-.Clear liquid with guest tray:
+Clear liquid with guest tray:
 [.er7]
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|DC|1236^NURS|||||^^^200608041700||200608041200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
-ORC|NW|1237^NURS|||||^^^200608041700||200608041200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|DC|1236^NURS|||||^^^202608041700||202608041200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1237^NURS|||||^^^202608041700||202608041200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||321^DB15^99DO3|...<cr>
 ODS|D||322^NA2GM^99DO3|...<cr>
 ODS|D||324^CLRLIQ^99DO3|...<cr>
-ORC|NW|1245^NURS|||||^^^200608041700||200608041200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1245^NURS|||||^^^202608041700||202608041200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|GUEST^Guest tray^HL70160|5^^99CBD|...<cr>
 ....
 
-.Full liquid with guest tray:
+Full liquid with guest tray:
 [.er7]
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|DC|1237^NURS|||||^^^200608051700||200608051200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
-ORC|NW|1238^NURS|||||^^^200608051700||200608051200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|DC|1237^NURS|||||^^^202608051700||202608051200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1238^NURS|||||^^^202608051700||202608051200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||321^DB15^99DO3|...<cr>
 ODS|D||322^NA2GM^99DO3|...<cr>
 ODS|D||325^FULLIQ^99DO3|...<cr>
-ORC|NW|1246^NURS|||||^^^200608051700||200608051200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1246^NURS|||||^^^202608051700||202608051200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|GUEST^Guest tray^HL70160|3^^99CBD|...<cr>
 ....
 
-.Release hold on previous order and give discharge message:
+Release hold on previous order and give discharge message:
 [.er7]
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|DC|1238^NURS|||||^^^200608061700||200608061200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
-ORC|RL|1235^NURS|||||^^^200608061700||200608061200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
-ORC|NW|1247^NURS|||||^^^200608061700||200608061200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|DC|1238^NURS|||||^^^202608061700||202608061200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|RL|1235^NURS|||||^^^202608061700||202608061200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1247^NURS|||||^^^202608061700||202608061200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|MSG^Tray message only^HL70160|5^^99CBD|You Will Be Leaving Tomorrow|...<cr>
 ....
 
@@ -94,16 +110,16 @@ Basic diet: high protein, low fat. Supplements are ice cream at service period 4
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|NW|1234^NURS|||||^^^200608021700||200608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1234^NURS|||||^^^202608021700||202608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||011^HIPRO100^99FD1|...<cr>
 ODS|D||123^LOFAT20^99FD1|...<cr>
 ODS|S|4|119^ICE CREAM^99FD8|...<cr>
 ODS|S|6|320^1/2 HAM SANDWICH^99FD8|...<cr>
-ORC|NW|1244^NURS|||||^^^200608031700||200608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1244^NURS|||||^^^202608031700||202608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|EARLY^Early tray^HL70160|1^^99CBD|...<cr>
-ORC|NW|1245^NURS|||||^^^200608031700||200608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1245^NURS|||||^^^202608031700||202608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|LATE^Late tray^HL70160|3^^99CBD|...<cr>
-ORC|NW|1246^NURS|||||^^^200608031700||200608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1246^NURS|||||^^^202608031700||202608031200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODT|GUEST^Guest tray^HL70160|5^DINNER^99CBD|...<cr>
 ....
 
@@ -116,7 +132,7 @@ This order specifies Similac with MCT oil and polycose additives.
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|NW|1232^NURS|||||60^Q3H^^200608021700||200608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1232^NURS|||||60^Q3H^^202608021700||202608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||010^SIMILAC^99DO1|...<cr>
 ODS|D||011^MCT^99DO1|...<cr>
 ODS|D||012^POLYCOSE^99DO1|...<cr>
@@ -131,7 +147,7 @@ This order specifies that the patient is a vegetarian.
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|NW|1232^NURS|||||60^Q3H^^200608021700||200608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
+ORC|NW|1232^NURS|||||60^Q3H^^202608021700||202608021200|333-77-7777^COMRAD^CONNOR^C|999-99-9999^VERIFY^VIRGIL^V|...<cr>
 ODS|D||123^LOFAT20^99FD1|...<cr>
 ODS|S|4|119^ICE CREAM^99FD8|...<cr>
 ODS|P||^VEGETARIAN|...<cr>
