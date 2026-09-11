@@ -8,7 +8,7 @@ Chapter 2C: Update Author:
 
 Chapter 3: Update Author: Riki Merrick  Reviewer:
 
-Chapter 4 (General Orders): Update Author: Hans Buitendijk
+Chapter 4 (General Orders): Update Author: Craig Newman
 
 Chapter 4 (Imaging Orders): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#35)** - needs review
 
