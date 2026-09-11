@@ -8,6 +8,8 @@ Chapter 2C: Update Author:
 
 Chapter 3: Update Author: Riki Merrick  Reviewer:
 
+Chapter 4 (Lab Orders): Update Author: Hans Buitendijk
+
 Chapter 4 (General Orders): Update Author: Craig Newman
 
 Chapter 4 (Imaging Orders): Update Author: Craig Newman Reviewer: TBD - **Pull Request created (#35)** - needs review
@@ -24,7 +26,9 @@ Chapter 5: Update Author: Craig Newman  Reviewer:
 
 Chapter 6: Update Author: Craig Newman  Reviewer: Riki - **Pull Request created, reviewed, merged and deleted** 
 
-Chapter 7 (General): Update Author: Hans Buitendijk  Reviewer:
+Chapter 7 (General): Update Author: Craig Newman  Reviewer:
+
+Chapter 7 (Lab): Update Author: Hans Buitendijk  Reviewer:
 
 Chapter 7 (Product Experience, Clinical Trials and Specimen Shipment): Update Author: Craig Newman  Reviewer: Riki Merrick - **Pull Request created (#12)** - Reviewed by Riki with comments
 
