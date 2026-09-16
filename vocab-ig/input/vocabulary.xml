@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CH02C Vocabulary IG.
+
+  The seven apply-* parameters below are set false DELIBERATELY. The base
+  template defaults every one of them to true, and when true it overwrites the
+  matching metadata on every resource in the IG with the IG's own values. These
+  resources are authored at THO canonicals and carry THO's version, publisher
+  and copyright; letting the template rewrite them would silently corrupt the
+  very fields this workstream exists to get right. Established by smoke test
+  2026-08-25 — do not remove without re-running it.
+
+  There are no special-url parameters. The IG's own url is under
+  terminology.hl7.org, which makes resources at THO canonicals native to this
+  IG rather than foreign to it. Adding special-url was a wrong turn, corrected.
+-->
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.v2plus.vocabulary"/>
+  <url value="http://terminology.hl7.org/ImplementationGuide/hl7.v2plus.vocabulary"/>
+  <version value="0.1.0"/>
+  <name value="V2PlusVocabulary"/>
+  <title value="HL7 V2+ Vocabulary (Chapter 2C)"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International"/>
+  <description value="The code systems and value sets of HL7 V2.9.1 Chapter 2C, rendered as FHIR R5 terminology resources at their THO canonical URLs. Draft, for committee review — not a publication."/>
+  <packageId value="hl7.v2plus.vocabulary"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="5.0.0"/>
+  <definition>
+    <page>
+      <sourceUrl value="toc.html"/>
+      <name value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <sourceUrl value="index.html"/>
+        <name value="index.html"/>
+        <title value="Home"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <sourceUrl value="provenance.html"/>
+        <name value="provenance.html"/>
+        <title value="How these resources were produced"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <sourceUrl value="known-issues.html"/>
+        <name value="known-issues.html"/>
+        <title value="Known issues in this build"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="autoload-resources"/>
+      </code>
+      <value value="true"/>
+    </parameter>
+    <!-- path-resource is NOT recursive: every leaf directory must be named. -->
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="path-resource"/>
+      </code>
+      <value value="input/resources/codeSystems"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="path-resource"/>
+      </code>
+      <value value="input/resources/valueSets"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="path-resource"/>
+      </code>
+      <value value="input/resources/conceptdomains"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-version"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-publisher"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-contact"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-copyright"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-wg"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-jurisdiction"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="apply-license"/>
+      </code>
+      <value value="false"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

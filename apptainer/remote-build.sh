@@ -15,6 +15,10 @@ REMOTE_SIF="~/ig-publisher.sif"
 LOCAL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 MODE="${1:-subset}"
 
+# Leading slashes matter. An unanchored rsync pattern matches that basename at
+# ANY depth, so a bare 'utg' excluded v291-fhir/utg — the whole 820-resource
+# vocabulary corpus — and the vocab build silently published nothing. Keep the
+# top-level-only excludes anchored.
 RSYNC_EXCLUDES=(
     --delete
     --exclude='.git'
@@ -22,10 +26,10 @@ RSYNC_EXCLUDES=(
     --exclude='output-subset'
     --exclude='temp'
     --exclude='template'
-    --exclude='v291-extracted'
-    --exclude='hl7.v2.terminology.v291'
-    --exclude='utg'
-    --exclude='v2plus_docx'
+    --exclude='/v291-extracted'
+    --exclude='/hl7.v2.terminology.v291'
+    --exclude='/utg'
+    --exclude='/v2plus_docx'
     --exclude='.claude*'
     --exclude='Scratch'
     --exclude='*.sif'
@@ -40,6 +44,12 @@ sync_to_remote() {
 run_remote_preprocessing() {
     echo "--- Running preprocessing on ${REMOTE}... ---"
     ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} bash tooling/preprocess.sh"
+    echo ""
+}
+
+run_remote_vocab_staging() {
+    echo "--- Staging the vocabulary corpus on ${REMOTE}... ---"
+    ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} python3 tooling/scripts/stage_vocab_ig.py"
     echo ""
 }
 
@@ -109,6 +119,42 @@ case "$MODE" in
         echo "=== Done. Output at: ${LOCAL_DIR}/output/ ==="
         ;;
 
+    vocab)
+        echo "=== CH02C vocabulary IG build (vocab-ig/ig.ini) ==="
+        echo ""
+        sync_to_remote
+        # Deliberately NOT run_remote_preprocessing: tooling/preprocess.sh
+        # generates v2+ segment/message/domain pages and has nothing to do
+        # with this IG.
+        run_remote_vocab_staging
+        # NOTE: no '-tx n/a' here, unlike the v2+ builds above. This corpus is
+        # value sets, and ValueSetRenderer.genInclude dereferences the
+        # terminology client while generating narratives -- with '-tx n/a' it
+        # is null and the publisher dies with an NPE at "Generating
+        # Narratives", about a minute in. Verified 2026-09-14.
+        #
+        # That means this build needs terminology access. If tx.fhir.org is
+        # unreachable from NIST, the fallback is to populate input-cache/txcache
+        # on a networked machine and sync it up; the publisher reads cached
+        # responses from there. rsync already carries input-cache.
+        echo "--- Running IG Publisher (vocabulary)... ---"
+        ssh "${REMOTE}" "cd ${REMOTE_DIR} && apptainer exec ${REMOTE_SIF} java -Xmx16g -jar input-cache/publisher.jar -ig vocab-ig/ig.ini -no-sushi"
+        echo ""
+        echo "--- Fetching output to output-vocab/... ---"
+        mkdir -p "${LOCAL_DIR}/output-vocab"
+        rsync -az --info=progress2 "${REMOTE}:${REMOTE_DIR}/vocab-ig/output/" "${LOCAL_DIR}/output-vocab/"
+        echo ""
+        echo "=== Done. Open: ${LOCAL_DIR}/output-vocab/index.html ==="
+        ;;
+
+    fetch-vocab)
+        echo "--- Fetching vocabulary output to output-vocab/... ---"
+        mkdir -p "${LOCAL_DIR}/output-vocab"
+        rsync -az --info=progress2 "${REMOTE}:${REMOTE_DIR}/vocab-ig/output/" "${LOCAL_DIR}/output-vocab/"
+        echo ""
+        echo "=== Done. Open: ${LOCAL_DIR}/output-vocab/index.html ==="
+        ;;
+
     fetch-subset)
         echo "--- Fetching output to output-subset/... ---"
         mkdir -p "${LOCAL_DIR}/output-subset"
@@ -126,15 +172,17 @@ case "$MODE" in
         ;;
 
     *)
-        echo "Usage: $0 {setup|subset|full|preprocess|preprocess-fetch|fetch-subset|fetch-full}"
+        echo "Usage: $0 {setup|subset|full|vocab|preprocess|preprocess-fetch|fetch-subset|fetch-full|fetch-vocab}"
         echo ""
         echo "  setup            — Build the Apptainer image on ${REMOTE} (one-time)"
         echo "  subset           — Sync, preprocess, build subset IG, fetch output (default)"
         echo "  full             — Sync, preprocess, build full IG, fetch output"
+        echo "  vocab            — Sync, stage corpus, build CH02C vocabulary IG, fetch to output-vocab/"
         echo "  preprocess       — Sync + preprocess only (no IG build)"
         echo "  preprocess-fetch — Sync, preprocess on ${REMOTE}, fetch preprocessed files back"
         echo "  fetch-subset     — Fetch subset output from ${REMOTE} to output-subset/"
         echo "  fetch-full       — Fetch full output from ${REMOTE} to output/"
+        echo "  fetch-vocab      — Fetch vocabulary output from ${REMOTE} to output-vocab/"
         exit 1
         ;;
 esac

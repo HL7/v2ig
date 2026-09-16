@@ -1,0 +1,6 @@
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+  <li><a href="provenance.html">Provenance</a></li>
+  <li><a href="known-issues.html">Known issues</a></li>
+</ul>

@@ -154,3 +154,12 @@ Thumbs.db
 /smoke-test/input-cache/
 /smoke-test/*.log
 /smoke-test/input/resources/
+
+# Vocabulary IG build artifacts
+# - input/resources/ is staged by tooling/scripts/stage_vocab_ig.py
+# - input-cache/ is the publisher's own package and terminology cache,
+#   ignored for the same reason /input-cache is. rsync still carries it to
+#   postproc-g, which is what the offline-terminology fallback relies on.
+vocab-ig/input/resources/
+vocab-ig/input-cache/
+output-vocab
