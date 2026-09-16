@@ -18,107 +18,113 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-10 (the 28 Aug meeting outcome was never captured; the full IG build is still the next build move)
+## ACTIVE — 2026-09-16 (the vocabulary IG builds and is viewable; no canonical collisions; the 28 Aug meeting outcome is still unrecorded)
 
-**Branch: `dev/v291-vocabulary-ig`, at `6b01350c`. 23 commits ahead of origin,
+**Branch: `dev/v291-vocabulary-ig`, at `330d7c34`. 25 commits ahead of origin,
 unpushed.** All vocabulary work is on this branch and nowhere else;
 `dev/framework` carries only the structural-review workstream. **Do not commit
 vocabulary work to `dev/framework`.**
 
-**Phase:** the writer produces 398 CodeSystems and 422 ValueSets, all
-validating in a real IG Publisher smoke test. 329 of the value sets are
-byte-identical to UTG's own. 243 tests pass; every document regenerates clean.
+**Phase:** the IG builds. 821 resources (398 CodeSystems, 422 ValueSets,
+conceptdomains 4.0.0) publish in **31m19s** with **zero canonical collisions**
+against `hl7.terminology.r5#7.3.0`. 243 tests pass; every document regenerates
+clean.
+
+### How to look at the IG
+
+The build output is at **`vocab-ig/output/index.html`** — open the file
+directly. `/workspace` is a virtiofs bind mount of the project directory, so
+the files are already on the user's side, and the output is pre-rendered
+static HTML with relative links: no XHR, no root-relative paths, no ES
+modules. **A web server buys nothing here** and the container's ports are not
+mapped. Keep the `output/` tree together — `qa.html`'s links are relative.
+
+To rebuild:
+
+```
+python3 tooling/scripts/stage_vocab_ig.py
+GEM_HOME=/home/claude/.gems GEM_PATH=/home/claude/.gems \
+PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
+/home/claude/jdk/bin/java -Xmx8g -jar input-cache/publisher.jar \
+  -ig vocab-ig/ig.ini -no-sushi
+```
+
+Peak memory was 4 GB, so `-Xmx8g` is ample. **Local is fine for this IG** —
+postproc-g is not needed at 31 minutes. `./apptainer/remote-build.sh vocab`
+exists and is wired, but has never been run (see blockers).
 
 ### First thing to check next session
 
 **The V2 Management meeting of 2026-08-28 happened and its outcome was never
-recorded.** It was asked at the start of the last session, the session went
-elsewhere, and the answer never came back. **Ask again — this is the single
-biggest gap in the project's state.** Three things were put to them:
+recorded.** Asked at the start of the last two sessions; both went elsewhere.
+**Ask again.** Three things were put to them:
 
-1. **The reproduce-vs-correct ruling** (blocker 1), in its narrow form: *may we
-   treat editing-process defects as technical corrections?* A yes releases the
+1. **The reproduce-vs-correct ruling** (blocker 1), narrowly: *may we treat
+   editing-process defects as technical corrections?* A yes releases the
    truncated descriptions, 0821's emptied grid, the page-URL defects and the
-   missing spaces in one go.
-2. **The five conflicting concept domain definitions** (blocker 2). Until
-   answered we emit the first in document order, which is a coin toss. Detail
-   in `v291-fhir/conceptdomains-divergences.json`, kind
+   missing spaces together.
+2. **The five conflicting concept domain definitions** (blocker 2). Detail in
+   `v291-fhir/conceptdomains-divergences.json`, kind
    `conflicting_descriptions_within_chapter`: DeviceStatus (0682/0962),
    DeviceType (0657/0961), Modality (0259/0604), QuantityUnits (0560/0602),
-   VolumeUnits (0568/0777/0930). **Four of the five have a template stub as
-   the second description** — 0602, 0604 and 0777 all have no `Type`, no
-   steward, and a segment reference in the table name, so they look like
-   field-specific stubs rather than rival definitions. The Device pair is the
-   one genuinely contested; that needs OO.
-3. **The information-preservation steer** — *can a FHIR consumer recover what
-   Chapter 2C says about a table, or only the codes it defines?* Decides
-   whether to design extensions for the 24 unmapped fields or record the loss.
-   Cheap now, unrecoverable after the load into THO.
+   VolumeUnits (0568/0777/0930). Four of five have a template stub as the
+   second description; **the Device pair is the genuinely contested one** and
+   needs OO.
+3. **The information-preservation steer** — can a FHIR consumer recover what
+   Chapter 2C says about a table, or only its codes? Decides whether to design
+   extensions for the 24 unmapped fields or record the loss. Cheap now,
+   unrecoverable after the load into THO.
 
-**Six new register items (18–23) were added after the meeting** and have not
-been put to anyone. If V2 Management meets again, they are the agenda.
+Register items 18–23 postdate the meeting and have not been put to anyone.
 
-### Next build move
+### What the build found
 
-**Run a full IG build over the whole generated corpus.** Unchanged from last
-session and still untested at scale — everything is verified on a
-seven-resource smoke test. The working configuration is in `smoke-test/` and is
-the thing to copy, not re-derive:
+216 errors, 416 warnings, 1 broken link — but they collapse to very little:
 
-- IG `url` is `http://terminology.hl7.org/ImplementationGuide/...`, so
-  resources at THO canonicals are native to the IG. **No `special-url`
-  parameters anywhere** — that was a wrong turn, corrected.
-- Seven `apply-*` parameters set false: `version`, `publisher`, `contact`,
-  `copyright`, `wg`, `jurisdiction`, `license`. The base template defaults
-  them all to **true** and silently overwrites resource metadata otherwise.
-- Jekyll needs `GEM_HOME=/home/claude/.gems GEM_PATH=/home/claude/.gems` on the
-  environment or the publisher fails at the last step with a gem-not-found.
-- An `input/includes/menu.xml` must exist or Jekyll dies on a missing include.
-
-```
-GEM_HOME=/home/claude/.gems GEM_PATH=/home/claude/.gems \
-PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
-/home/claude/jdk/bin/java -Xmx4g -jar input-cache/publisher.jar -ig ig.ini -no-sushi
-```
-
-A 7-resource build took ~3.5 min; budget accordingly and expect the
-`conceptdomains` narrative to dominate the error count.
-
-### The documents, and who they are for
-
-| Document | Audience | State |
+| Count | What | Verdict |
 |---|---|---|
-| `v291-extracted/v2mgmt-briefing.html` + `.md` | V2 Management | Written for the 28 Aug meeting — **predates register items 18–23** |
-| `v291-extracted/utg-briefing.html` + `.md` | UTG subcommittee of TSMG | Content last changed 2026-08-21 — **three weeks stale** |
-| `v291-extracted/vocabulary-v2mgmt-items.md` | Both, as the detail | **24 items**, regenerated |
-| `v291-extracted/vocabulary-field-mapping.html` + `.md` | Backs the preservation ask | Current |
-| `v291-extracted/vocabulary-review-report.html` | The reviewer, day to day | Current; canonical section rewritten |
+| 192 | `conceptdomains` narrative links to v3 pages not in this guide — ActClass 97, RoleClass 60, EntityClass 26, ActMood 4, ParticipationType 3, ActCode 1 | One root cause. Packaging, not content. Fix is a decision about declaring a v3 dependency |
+| 5 | `[lb_av]`, `l` (UCUM), `76691-5` (LOINC) | **Not content defects** — `tx.fhir.org` `validate-code: timeout`. The text reads "not valid in the system"; the parenthetical is what matters |
+| 1 | `L&I` unknown in THO's `v2-0203` v5.0.0, from ValueSet `v2-0338` | **Real.** Build evidence for the punctuation-code item already open for UTG. Also the single broken link (anchor `#v2-0203-L.38I`) |
+| 1 | `EXP` unknown in THO's `v3-ActMood`, from ValueSet `v2-0725` | **Real, and may reopen a closed item** — see below |
 
-**The UTG briefing is the stale one, and getting staler.** Its content has not
-been revisited since `a817a61c` on 2026-08-21. Five things found since concern
-UTG and TSMG directly: the `notAllCodes` canonicals, the `CodeSystem.valueSet`
-omission, the punctuation codes in THO's own v2 code systems, the fact that
-THO carries the same truncated descriptions the chapter does, and now the
-0567/0568 question of whether THO should deprecate alongside the chapter.
-**If UTG meets before it is rewritten, that briefing badly understates what we
-have for them.** This is the cheapest high-value task available and does not
-depend on the 28 Aug outcome.
+**0725 needs a second look.** It was registered last session as *already
+correct by OID resolution* (`2.16.840.1.113883.5.1001` → `v3-ActMood`),
+changing no output. The build says one of its codes does not exist in the code
+system it resolved to. The OID resolution may still be right and the chapter's
+code list wrong — but "already correct" is no longer safe to assert.
 
-**The V2 Management briefing is also now behind** — it was current for the
-28 Aug meeting, but register items 18–23 postdate it.
+### Next moves, in order of value
+
+1. **Rewrite the UTG briefing.** Content unchanged since `a817a61c` on
+   2026-08-21 — now nearly four weeks stale, and the **cheapest high-value task
+   available**. Six things concern UTG/TSMG directly: the `notAllCodes`
+   canonicals, the `CodeSystem.valueSet` omission, the punctuation codes in
+   THO's own v2 code systems (**now with build evidence — `L&I`**), THO
+   carrying the same truncated descriptions as the chapter, the 0567/0568
+   deprecation question, and now `EXP`/`v3-ActMood`. Does not depend on the
+   28 Aug outcome.
+2. **Decide the conceptdomains v3 links.** 192 of 216 errors. Either declare a
+   dependency on the v3 code systems or accept and document. Currently
+   documented on the Known Issues page.
+3. **Bring the V2 Management briefing current** — register items 18–23
+   postdate it.
 
 ### Rules settled that must not be re-derived
 
 - **A canonical URL is an identifier and nothing more.** Where THO already
   publishes one for a table, that is the URL, whatever it appears to mean. Do
-  not construct an alternative and do not read meaning out of `notAllCodes`.
+  not construct an alternative; do not read meaning out of `notAllCodes`.
 - **A brand-new CodeSystem or ValueSet starts at `1.0.0`.**
 - **`definition` is never back-filled from `display`**, and the resulting
   `CODESYSTEM_CONCEPT_NO_DEFINITION` warning is accepted.
 - **We do not tamper with existing external code system records in THO.**
 - **An item is a briefing blocker only if generation cannot proceed without the
-  answer AND the answer is not already determined** (D19). Findings go in the
-  register; only tested blockers go in a briefing.
+  answer AND the answer is not already determined** (D19).
+- **The seven `apply-*` parameters stay false** in `vocab-ig/input/vocabulary.xml`.
+  The base template defaults them to true and silently overwrites resource
+  metadata. **No `special-url` parameters** — that was a wrong turn, corrected.
+- **Never add `-tx n/a` to the vocabulary build.** See blockers.
 
 ### Regeneration sequence
 
@@ -128,6 +134,7 @@ python3 tooling/scripts/extract_v291_vocabulary.py
 python3 tooling/scripts/compare_vocabulary_pipelines.py
 python3 tooling/scripts/generate_concept_domains.py
 python3 tooling/scripts/write_utg_xml.py
+python3 tooling/scripts/stage_vocab_ig.py
 python3 tooling/scripts/vocabulary_escalations.py
 python3 tooling/scripts/render_vocabulary_review_html.py
 python3 tooling/scripts/render_field_mapping.py
@@ -136,31 +143,36 @@ python3 tooling/scripts/render_v2mgmt_briefing.py
 ```
 
 The first two are expensive and only needed if the text policy changed.
-`render_field_mapping.py` must run after `write_utg_xml.py`, since it reads the
-write report — and as of this session **so must
-`render_vocabulary_review_html.py`**, whose canonical section now reads
-`utg-write-report.json` rather than recomputing coverage. Three scripts
-self-check and print a warning rather than failing: the register's
-stated-vs-computed table lists, the mapping's corpus-vs-spec completeness, and
-the writer's UTG file-name collisions. **A silent run is the expected outcome;
-read the output if it is not.**
+`render_field_mapping.py` and `render_vocabulary_review_html.py` must both run
+after `write_utg_xml.py` — they read `utg-write-report.json` rather than
+recomputing. **`stage_vocab_ig.py` must run after `write_utg_xml.py` and before
+any build.** Four scripts self-check and warn rather than fail: the register's
+stated-vs-computed table lists, the mapping's corpus-vs-spec completeness, the
+writer's UTG file-name collisions, and the stager's index-page resource counts.
+**A silent run is the expected outcome; read the output if it is not.**
 
 ### Open blockers
 
-- **None on our side.** 243 tests pass, every document regenerates clean.
-- Everything outstanding is gated on committee or user decisions, and none of
-  it blocks the full build.
+- **None on our side.** 243 tests pass, the IG builds, every document
+  regenerates clean.
+- **`./apptainer/remote-build.sh vocab` has never been executed.** It is
+  written and shellcheck-clean, but **cannot be run from this container** —
+  postproc-g uses Kerberos and is reachable only from the Mac. Two things about
+  it are therefore unverified: whether postproc-g can fetch
+  `fhir.base.template#current` (the v2+ builds use `#local-template` and have
+  never pulled a template package — if the registry is blocked it fails at
+  initialization, ~45s, and the fix is vendoring the template), and whether
+  terminology is reachable there at all.
+- Everything else outstanding is gated on committee or user decisions.
 - The 14 writer blockers are recorded with evidence in the review report. The
-  0567/0568 question is no longer "which canonical" — it is resolved and
-  registered as item 18, a deprecation question for THO. The 10 external
-  value-set references remain open.
+  10 external value-set references remain open.
 
 ### Two items that are not ours and have no home yet
 
 Found during an out-of-scope discussion; they belong to the **structural**
 workstream (`dev/framework`, `v291-extracted/v2mgmt-review-report.md`) and were
 deliberately not written to this branch. The reviewer was asked which document
-should carry them and had not answered when the session ended:
+should carry them and has not answered across three sessions:
 
 1. CH02 systematically calls the segment **`FSH`** rather than `FHS` in the
    file-header section (the §2.13.3 field heading is literally "FSH-15").
@@ -173,6 +185,107 @@ Both look like editing-process defects, so they fit the same technical-
 correction test as blocker 1.
 
 ## Session History
+
+## 2026-09-10 → 2026-09-16 — The vocabulary IG builds: 821 resources, no canonical collisions
+
+### Completed
+
+**The IG exists and can be looked at.** `vocab-ig/` is a build root for this
+workstream, separate from the v2+ structural IG at the repository root. The two
+share the repository, the Apptainer image and `input-cache/publisher.jar`, and
+nothing else. First full build: **821 resources in 31m19s, exit 0**, 4,932 HTML
+pages, peak 4 GB.
+
+**Zero canonical collisions.** The build loaded `hl7.terminology.r5#7.3.0` —
+THO itself — alongside 821 resources authored at THO canonicals and produced no
+duplicate-canonical errors at all. That was the premise the whole smoke test was
+built to probe, and it now holds at full scale rather than across seven
+resources. Commit `330d7c34`. 243 tests pass.
+
+**The handoff understated what "run a full build" required.** It read as though
+the config just needed copying from `smoke-test/`. There was no IG definition
+covering the corpus at all: `smoke.xml` is named `hl7.v2plus.smoke`, marked
+experimental, and points `path-resource` at a directory of seven hand-copied
+files. Authoring the real definition was the task.
+
+**Resources are staged, not authored.** `tooling/scripts/stage_vocab_ig.py`
+copies the writer's output out of `v291-fhir/` into leaf directories under
+`vocab-ig/input/resources/`. The copy is not incidental: `path-resource` is not
+recursive *and* treats every file in a named directory as a resource, so
+pointing it at `v291-fhir/` would feed the publisher `utg-write-report.json` and
+`conceptdomains-divergences.json`. Staging does a full replace of each
+directory, so a resource deleted upstream cannot survive and quietly reappear.
+
+**Three pages were written, not just a stub**: Home (what the guide is, the
+six-route table, the conceptdomains explanation), Provenance (what is
+authoritative and what is deliberately not done), and Known Issues — which
+exists so a reviewer can tell a pipeline defect from a defect we already know
+about, including the ones reproduced from the chapter on purpose.
+
+### Two defects fixed that would both have failed on postproc-g
+
+**The rsync exclude `'utg'` was unanchored.** rsync matches a slashless pattern
+against the basename at *any* depth, so it caught `v291-fhir/utg` — the entire
+820-resource corpus. Verified with a dry run. The build would have **succeeded**
+and published an IG containing only conceptdomains, with nothing anywhere
+reporting a problem. That is the worst failure shape available. Now anchored to
+`/utg`, with a comment at the array saying why.
+
+**`-tx n/a` kills this build.** It is what the v2+ builds use, because
+`tx.fhir.org` is unreachable from NIST, so it was the natural thing to carry
+over — and it was carried over, and it broke the first attempt. This corpus is
+value sets: `ValueSetRenderer.genInclude` dereferences the terminology client
+while generating narratives, and with `-tx n/a` that client is null. NPE at
+"Generating Narratives", ~57 seconds in. Removed from `vocab` mode. If NIST
+blocks terminology, the fallback is to populate `input-cache/txcache` on a
+networked machine and let rsync carry it up.
+
+### The findings worth carrying
+
+**Of 216 errors, 197 are not content.** 192 are one root cause — the
+`conceptdomains` narrative linking to v3 code system pages this guide does not
+contain (ActClass 97, RoleClass 60, EntityClass 26, ActMood 4, ParticipationType
+3, ActCode 1) — and 5 are `tx.fhir.org` `validate-code: timeout` on UCUM and
+LOINC codes. **The timeout messages read "The code 'x' is not valid in the
+system"** and only the parenthetical distinguishes them from real defects; do
+not report them as content without reading to the end of the line.
+
+**`L&I` is unknown in THO's `v2-0203` v5.0.0**, referenced from ValueSet
+`v2-0338`. This is the punctuation-code problem already open for UTG, now with
+build evidence rather than inspection. It is also the single broken link in the
+guide — the anchor `#v2-0203-L.38I` has nothing to point at.
+
+**`EXP` is unknown in THO's `v3-ActMood`**, from ValueSet `v2-0725` — and this
+may reopen a closed item. 0725 was registered last session as *already correct
+by OID resolution*, changing no output. The build says one of its codes does not
+exist in the code system that OID resolved to. The resolution may still be right
+and the chapter's code list wrong, but "already correct" can no longer be
+asserted without checking.
+
+### Corrections taken during the session
+
+- Added `-tx n/a` to the first build attempt on the assumption it matched
+  postproc-g. The proven smoke-test command has no such flag; adding it
+  introduced a variable the working configuration never had, and cost a build.
+- Budgeted "an hour, and treat the real figure as unknown" for the build. It
+  was 31 minutes at 4 GB peak, so **postproc-g is not needed for this IG** —
+  which is the opposite of the conclusion the estimate was steering toward.
+- Started an HTTP server to present the output without first checking that the
+  container's ports are mapped (they are not) or that `/workspace` is a bind
+  mount of the project directory (it is, via virtiofs). The file path was the
+  right answer from the start. Verified afterwards that the output has no XHR,
+  no root-relative links and no ES modules, so `file://` loses nothing.
+- Wrote a `pgrep`-based wait loop whose own command line contained the pattern
+  it searched for. It matched itself, could never exit, and reported a finished
+  build as "still running".
+
+### Not done
+
+The UTG briefing was not rewritten — it is the top of the next session's list
+and now has one more piece of evidence behind it. The five structural-workstream
+files remain uncommitted, untouched, and not ours.
+
+---
 
 ## 2026-08-27 → 2026-09-10 — The canonical section was wrong; six findings registered
 
@@ -456,142 +569,5 @@ register items, Batch A.
 
 The same five files from the structural workstream, now dated across six
 sessions. They belong to `dev/framework`.
-
----
-
-
-## 2026-08-20 → 2026-08-24 — D17–D19; both committees briefed; the 18-canonical count corrected
-
-### Completed
-
-**D17 — the missing spaces after a period, ten of twelve restored.** D16 had
-built the detector and repaired nothing, on the grounds that no authority in
-the chapter licensed inserting a character. The user supplied that authority
-directly. **The two dotted identifiers were deliberately not repaired** —
-`Observation.Code` in 0396 and `…Reason.PurposeOfUse` in 0717, where a space
-corrupts the name. They stay as published and the detector goes on reporting
-them, because nothing in the text tells an identifier from a sentence boundary
-and a detector that filtered would hide the next real one. Report went to **0
-to decide, 0 to confirm**; tests 124 → 138; agreement held at 740/799.
-
-One case worth remembering: **table 0719's site sits past one of the 14 known
-LLM truncations**, so that correction fires in python-docx only. It created no
-new pipeline disagreement because the value already disagreed. The other nine
-fragments were verified in both corpuses first.
-
-**D18 — what the IG actually is, which changed several answers.** The user
-explained the framing: this is a *workspace* whose only destination is
-integration into THO, establishing a corrected **v2 baseline** there because
-THO's existing v2 content is more error-ridden than what we are preparing.
-
-That reversed a recommendation made an hour earlier. I had argued against
-authoring at `terminology.hl7.org` on namespace-squatting grounds; with the
-destination known, that objection is void and authoring at the destination
-canonical is strictly better — no interim URL, no migration, no mapping table.
-
-Three consequences went into the ADR, two of which nothing in the code implies:
-the output is **not** scoped to V2.9.1 (so no `2.9.1` in `version`, and "HL7
-Version Introduced" becomes a property), and **"THO already publishes it" is no
-longer an argument by itself**. That last one has teeth — it is the stated or
-implied rationale in D1's tie-break and in D8 and D11's reuse decisions. Those
-hold on their own evidence, but the reasoning does not generalise, and D18 says
-so explicitly so a later decision cannot lean on it.
-
-**The 18-canonical count was wrong and is now corrected.** The long-carried
-note said 18 tables "need minting". Checked against `tho-r5/`: THO has no
-CodeSystem for any of the 18 but **does have a ValueSet for 10**, and each
-one's `compose` names the real system. So the real scope is **2 new
-CodeSystems** (0411, 0460), 3 ValueSet-only, 10 authored at an existing THO
-canonical, 3 escalations. This also confirmed D11's rule generalises further
-than expected — it covers not just external systems but tables borrowing
-another v2 table's code system (0125→v2-0440, 0136→v2-0532, 0338→v2-0203).
-
-Along the way: **0411 is a dangling canonical in a published HL7 standard** —
-Chapter 2C prints `http://terminology.hl7.org/CodeSystem/v2-0411`, THO has no
-such resource.
-
-**Two committee briefings, both generated rather than hand-written.** The user
-asked for HTML over Markdown for anything they read or share, and to be able to
-find the important parts without digging. Both are authored in Python modules
-sharing `briefing_style.py`, each emitting HTML plus a Markdown twin.
-
-- **UTG** (`render_utg_briefing.py`) — item-by-item, four asks, an "if you read
-  one thing" card at the top carrying every ask as a one-liner with jump links.
-- **V2 Management** (`render_v2mgmt_briefing.py`) — a different shape for a
-  different audience: minutes rather than an hour, and they own the *chapter*,
-  so it is organised by **class of defect with counts**.
-
-**D19 — three register items closed, and a process fix.** The user pushed back
-on the V2 Management draft, correctly. Two of its three blockers were not
-blockers: "all codes" in a CLD is ordinary FHIR, and the duplicate table pairs
-are a deprecated/current pair each. A third item was wrong in the other
-direction — 0093/0340/0451 are **conforming**, because the V3 requirements for
-declaring a concept domain call for example codes.
-
-Both of the false blockers were genuine register items carried from earlier
-sessions; the error was *promoting* them without re-testing them. D19 records
-the test: **an item is a blocker only if generation cannot proceed without the
-answer AND the answer is not already determined by something we know.** The
-register is where a question waits; a briefing is where a question has been
-checked.
-
-In their place, the briefing now carries the **five concept domains declared by
-more than one table with a different definition each time**, with table numbers
-and competing wordings inline rather than by reference. Pulling that data
-surfaced two things nobody had noticed: **`Modality`'s emitted definition is
-0259's, which says the table was removed from the standard as of 2.7** — we are
-publishing a withdrawn table's wording as the live definition — and
-**`VolumeUnits` is declared by three tables**, two of which are the
-deprecated/current pair.
-
-### Meeting outcomes
-
-**UTG subcommittee (2026-08-20).** Receptive. Canonicals and merge route
-agreed. **Their curator said clean diffs are not something they rely on** —
-the repo is already messy when anyone submits. That drops the byte-exact
-round-trip test from a hard gate to optional and takes real work off the
-critical path.
-
-**V2 Management (2026-08-21).** Short. The briefing was corrected before it
-went in; the two surviving blockers are still owed.
-
-### Why the specific shapes
-
-**Items that came off the blocker list stay visible for one meeting.** A
-question that silently disappears between drafts reads as a question that was
-dropped, and anyone who saw the earlier version will look for it.
-
-**The briefings are two documents, not one with two views.** UTG owns
-resources and had an hour; V2 Management owns the chapter and had minutes. The
-same material genuinely needs different organisation, and trying to
-parameterise one document would have served neither.
-
-**`MISSING_SPACE_CORRECTIONS` is a separate table from `MANUAL_CORRECTIONS`**
-rather than more entries in it, so each change reports under the decision that
-authorised it instead of inheriting D14's. Table 0396 now carries corrections
-from both and demonstrates it.
-
-### Corrections taken during the session
-
-- Argued against THO canonicals on squatting grounds before knowing the IG's
-  destination; reversed once the user explained it.
-- Promoted two non-blockers into a committee briefing. "All codes" should not
-  have survived my own review — composing a whole code system in a CLD is
-  bread-and-butter FHIR, and I carried the register's phrasing forward instead
-  of checking it.
-- Had the concept-domain-only tables backwards: treated example codes as a
-  contradiction when the V3 requirements call for them.
-
-### Commits this session
-
-`4b9d22e1` D17 · `a3a003f8` D18 · `d8fb247d` `a618538d` UTG briefing (Markdown,
-then superseded) · `1fb0be47` UTG briefing as HTML · `a817a61c` V2 Management
-briefing + shared stylesheet · `87b4bf3f` D19 and the blocker cut.
-
-### Still uncommitted, untouched, and not mine
-
-Five files from the structural workstream — two renderers and three HTML
-reports. They belong to `dev/framework`, not this branch. Left alone across
-five sessions now.
 
 ---

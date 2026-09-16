@@ -6,6 +6,144 @@ The split moved to **2026-08-18 (evening)** on 2026-08-24: every entry before th
 
 ---
 
+## 2026-08-20 → 2026-08-24 — D17–D19; both committees briefed; the 18-canonical count corrected
+
+### Completed
+
+**D17 — the missing spaces after a period, ten of twelve restored.** D16 had
+built the detector and repaired nothing, on the grounds that no authority in
+the chapter licensed inserting a character. The user supplied that authority
+directly. **The two dotted identifiers were deliberately not repaired** —
+`Observation.Code` in 0396 and `…Reason.PurposeOfUse` in 0717, where a space
+corrupts the name. They stay as published and the detector goes on reporting
+them, because nothing in the text tells an identifier from a sentence boundary
+and a detector that filtered would hide the next real one. Report went to **0
+to decide, 0 to confirm**; tests 124 → 138; agreement held at 740/799.
+
+One case worth remembering: **table 0719's site sits past one of the 14 known
+LLM truncations**, so that correction fires in python-docx only. It created no
+new pipeline disagreement because the value already disagreed. The other nine
+fragments were verified in both corpuses first.
+
+**D18 — what the IG actually is, which changed several answers.** The user
+explained the framing: this is a *workspace* whose only destination is
+integration into THO, establishing a corrected **v2 baseline** there because
+THO's existing v2 content is more error-ridden than what we are preparing.
+
+That reversed a recommendation made an hour earlier. I had argued against
+authoring at `terminology.hl7.org` on namespace-squatting grounds; with the
+destination known, that objection is void and authoring at the destination
+canonical is strictly better — no interim URL, no migration, no mapping table.
+
+Three consequences went into the ADR, two of which nothing in the code implies:
+the output is **not** scoped to V2.9.1 (so no `2.9.1` in `version`, and "HL7
+Version Introduced" becomes a property), and **"THO already publishes it" is no
+longer an argument by itself**. That last one has teeth — it is the stated or
+implied rationale in D1's tie-break and in D8 and D11's reuse decisions. Those
+hold on their own evidence, but the reasoning does not generalise, and D18 says
+so explicitly so a later decision cannot lean on it.
+
+**The 18-canonical count was wrong and is now corrected.** The long-carried
+note said 18 tables "need minting". Checked against `tho-r5/`: THO has no
+CodeSystem for any of the 18 but **does have a ValueSet for 10**, and each
+one's `compose` names the real system. So the real scope is **2 new
+CodeSystems** (0411, 0460), 3 ValueSet-only, 10 authored at an existing THO
+canonical, 3 escalations. This also confirmed D11's rule generalises further
+than expected — it covers not just external systems but tables borrowing
+another v2 table's code system (0125→v2-0440, 0136→v2-0532, 0338→v2-0203).
+
+Along the way: **0411 is a dangling canonical in a published HL7 standard** —
+Chapter 2C prints `http://terminology.hl7.org/CodeSystem/v2-0411`, THO has no
+such resource.
+
+**Two committee briefings, both generated rather than hand-written.** The user
+asked for HTML over Markdown for anything they read or share, and to be able to
+find the important parts without digging. Both are authored in Python modules
+sharing `briefing_style.py`, each emitting HTML plus a Markdown twin.
+
+- **UTG** (`render_utg_briefing.py`) — item-by-item, four asks, an "if you read
+  one thing" card at the top carrying every ask as a one-liner with jump links.
+- **V2 Management** (`render_v2mgmt_briefing.py`) — a different shape for a
+  different audience: minutes rather than an hour, and they own the *chapter*,
+  so it is organised by **class of defect with counts**.
+
+**D19 — three register items closed, and a process fix.** The user pushed back
+on the V2 Management draft, correctly. Two of its three blockers were not
+blockers: "all codes" in a CLD is ordinary FHIR, and the duplicate table pairs
+are a deprecated/current pair each. A third item was wrong in the other
+direction — 0093/0340/0451 are **conforming**, because the V3 requirements for
+declaring a concept domain call for example codes.
+
+Both of the false blockers were genuine register items carried from earlier
+sessions; the error was *promoting* them without re-testing them. D19 records
+the test: **an item is a blocker only if generation cannot proceed without the
+answer AND the answer is not already determined by something we know.** The
+register is where a question waits; a briefing is where a question has been
+checked.
+
+In their place, the briefing now carries the **five concept domains declared by
+more than one table with a different definition each time**, with table numbers
+and competing wordings inline rather than by reference. Pulling that data
+surfaced two things nobody had noticed: **`Modality`'s emitted definition is
+0259's, which says the table was removed from the standard as of 2.7** — we are
+publishing a withdrawn table's wording as the live definition — and
+**`VolumeUnits` is declared by three tables**, two of which are the
+deprecated/current pair.
+
+### Meeting outcomes
+
+**UTG subcommittee (2026-08-20).** Receptive. Canonicals and merge route
+agreed. **Their curator said clean diffs are not something they rely on** —
+the repo is already messy when anyone submits. That drops the byte-exact
+round-trip test from a hard gate to optional and takes real work off the
+critical path.
+
+**V2 Management (2026-08-21).** Short. The briefing was corrected before it
+went in; the two surviving blockers are still owed.
+
+### Why the specific shapes
+
+**Items that came off the blocker list stay visible for one meeting.** A
+question that silently disappears between drafts reads as a question that was
+dropped, and anyone who saw the earlier version will look for it.
+
+**The briefings are two documents, not one with two views.** UTG owns
+resources and had an hour; V2 Management owns the chapter and had minutes. The
+same material genuinely needs different organisation, and trying to
+parameterise one document would have served neither.
+
+**`MISSING_SPACE_CORRECTIONS` is a separate table from `MANUAL_CORRECTIONS`**
+rather than more entries in it, so each change reports under the decision that
+authorised it instead of inheriting D14's. Table 0396 now carries corrections
+from both and demonstrates it.
+
+### Corrections taken during the session
+
+- Argued against THO canonicals on squatting grounds before knowing the IG's
+  destination; reversed once the user explained it.
+- Promoted two non-blockers into a committee briefing. "All codes" should not
+  have survived my own review — composing a whole code system in a CLD is
+  bread-and-butter FHIR, and I carried the register's phrasing forward instead
+  of checking it.
+- Had the concept-domain-only tables backwards: treated example codes as a
+  contradiction when the V3 requirements call for them.
+
+### Commits this session
+
+`4b9d22e1` D17 · `a3a003f8` D18 · `d8fb247d` `a618538d` UTG briefing (Markdown,
+then superseded) · `1fb0be47` UTG briefing as HTML · `a817a61c` V2 Management
+briefing + shared stylesheet · `87b4bf3f` D19 and the blocker cut.
+
+### Still uncommitted, untouched, and not mine
+
+Five files from the structural workstream — two renderers and three HTML
+reports. They belong to `dev/framework`, not this branch. Left alone across
+five sessions now.
+
+---
+
+---
+
 ## 2026-08-19 → 2026-08-20 — CH02C decision queue emptied (D10–D16); V2 Management register opened
 
 ### Completed
