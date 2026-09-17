@@ -1101,6 +1101,209 @@ ESCALATIONS = [
         "ask":
             "Fix the styles in a future publication.",
     },
+    {
+        "id": "esc-tho-dangling-value-sets",
+        "who": "TSMG / UTG",
+        "tables": "0350, 0351, 0456, 0895",
+        "title": "Four THO value sets draw from v2 code systems that THO does "
+                 "not publish, so they cannot expand",
+        "body":
+            "Found by putting this corpus side by side with "
+            "<code>hl7.terminology.r5#7.3.0</code> rather than by inspection. "
+            "Each of these four value sets is published by THO at "
+            "<code>ValueSet/v2-NNNN</code> and composes from "
+            "<code>CodeSystem/v2-NNNN</code> at the matching canonical &mdash; "
+            "and THO publishes no such code system. An expansion has nothing "
+            "to draw from. "
+            "<b>This is not a defect this project introduces or can repair.</b> "
+            "Chapter 2C agrees with THO that these tables have no codes of "
+            "their own: 0350 <i>Occurrence Code</i>, 0351 <i>Occurrence "
+            "Span</i> and 0456 <i>Revenue code</i> all point at the National "
+            "Uniform Billing Committee, and the chapter declares a concept "
+            "domain for each rather than a code set. This guide therefore "
+            "writes nothing for them, which is correct. The dangling value "
+            "sets are THO's, and they predate us. "
+            "0895 <i>Present On Admission (POA) Indicator</i> is the same "
+            "shape but arrives by a different route: this project has it on "
+            "the needs-decision list because its Content Logical Definition is "
+            "not one of the shapes we build. "
+            "Two neighbouring cases are <b>not</b> defects and should not be "
+            "swept in: 0005 <i>Race</i> and 0292 <i>Vaccines Administered</i> "
+            "also have THO value sets with no v2 code system, but they compose "
+            "from the CDC race codes and CVX respectively &mdash; an external "
+            "authority owning the codes is the intended arrangement, not a "
+            "gap.",
+        "ask":
+            "Decide what should happen to the four. Either the missing v2 code "
+            "systems should be published, or the value sets should compose "
+            "from the external authority that actually owns the codes (NUBC "
+            "for three of them), or they should be retired. Whichever way it "
+            "goes, it is worth asking how four unexpandable value sets came to "
+            "be published, because the same process would produce more.",
+    },
+    {
+        "id": "esc-v2tables-domain-gaps",
+        "who": "TSMG / UTG",
+        "tables": "35 tables in v2-tables, none of them in Chapter 2C 2.9.1",
+        "title": "THO's <code>v2-tables</code> names 35 concept domains that "
+                 "<code>conceptdomains</code> does not define",
+        "body":
+            "<code>CodeSystem/v2-tables</code> is THO's own index of V2 tables "
+            "&mdash; 628 entries, each carrying properties including "
+            "<code>vocab-domain</code>, the concept domain the table names. "
+            "624 entries carry a domain, and <b>37 of those name a concept "
+            "that THO's own <code>conceptdomains</code> 3.0.0 does not "
+            "contain</b>. This project's proposed additions happen to cover "
+            "two of them (<code>DangerCode</code>, <code>Location</code>), "
+            "leaving 35. "
+            "<b>The gap is confined to tables the chapter has dropped.</b> "
+            "All 35 sit among the 39 <code>v2-tables</code> entries that "
+            "Chapter 2C 2.9.1 no longer carries at all, so no row of this "
+            "guide is affected and nothing here is blocked. That also suggests "
+            "the cause: when a table left the chapter its concept domain "
+            "stopped being maintained, but its <code>vocab-domain</code> "
+            "property stayed behind. Only three of the 39 are typed "
+            "<i>no longer used</i>; the rest are still typed <i>HL7</i> or "
+            "<i>User</i>, so the index does not mark them as retired. "
+            "<b>One caveat on how hard to push this.</b> "
+            "<code>vocab-domain</code> is declared as type <code>string</code> "
+            "rather than <code>code</code>, so it is not formally a reference "
+            "into <code>conceptdomains</code> and nothing validates it. But "
+            "587 of 624 values do resolve, which makes the 37 look like drift "
+            "rather than design.",
+        "ask":
+            "Confirm that <code>vocab-domain</code> is meant to resolve into "
+            "<code>conceptdomains</code>. If it is, either the 35 missing "
+            "domains should be restored, or the entries that name them should "
+            "be marked as no longer used, or the property should be cleared "
+            "for tables that have left the standard. If it is genuinely a free "
+            "string with no such contract, that is worth stating, because "
+            "readers will assume otherwise. Retyping it as <code>code</code> "
+            "would let validation catch the next occurrence.",
+    },
+    {
+        "id": "esc-v2tables-siteadministered",
+        "who": "TSMG / UTG",
+        "tables": "0034",
+        "title": "<code>v2-tables</code> misspells the concept domain for "
+                 "table 0034 as <code>SiteAdminstered</code>",
+        "body":
+            "<code>CodeSystem/v2-tables</code> gives table 0034 the "
+            "<code>vocab-domain</code> <code>SiteAdminstered</code>, missing "
+            "the second <i>i</i> of <i>Administered</i>. The same entry's "
+            "display is <b>SITE ADMINISTERED</b>, spelled correctly, which "
+            "settles that this is a typo rather than a deliberate name. "
+            "Neither <code>SiteAdminstered</code> nor a correctly spelled "
+            "<code>SiteAdministered</code> exists in "
+            "<code>conceptdomains</code>, so the property also resolves to "
+            "nothing &mdash; it is one of the 35 gaps in "
+            "<code>esc-v2tables-domain-gaps</code>. "
+            "<b>This one is cheaper to fix than it looks, and it is worth "
+            "being precise about why.</b> <code>v2-tables</code> is a "
+            "convenience index that makes V2 table metadata available in THO. "
+            "Nobody sends <code>SiteAdminstered</code> in a message and no "
+            "instance data binds to it, so correcting the string breaks no "
+            "implementation. That makes it a technical correction rather than "
+            "a substantive change. "
+            "<b>A typo in a real code, in a real code system, is a different "
+            "problem entirely</b> &mdash; there the code is an identifier that "
+            "implementations have already sent and stored, and the remedy is "
+            "deprecation plus a correctly spelled replacement, not an edit. "
+            "Nothing in that harder category has been found in the v2 tables "
+            "so far; this item is deliberately not making that claim.",
+        "ask":
+            "Correct the <code>vocab-domain</code> value for table 0034 to "
+            "<code>SiteAdministered</code> as a technical correction. The "
+            "change should still be traceable &mdash; recorded in the UTG "
+            "change history like any other edit &mdash; but it does not need "
+            "the deprecate-and-replace treatment that a published code would. "
+            "Separately, whether the corrected domain should then be "
+            "<i>defined</i> in <code>conceptdomains</code>, or the property "
+            "cleared because table 0034 has left the standard, is part of "
+            "<code>esc-v2tables-domain-gaps</code>.",
+    },
+    {
+        "id": "esc-0133-contradictory",
+        "who": "V2 Management",
+        "tables": "0133",
+        "title": "Table 0133 says three incompatible things about itself, and "
+                 "THO publishes nine codes for it",
+        "body":
+            "Table 0133 <i>Procedure practitioner identifier code type</i> "
+            "carries three statements that cannot all hold. "
+            "<b>One:</b> its concept domain block sets <code>Concept Domain "
+            "Only: yes</code>, and it publishes no code system, no value set "
+            "and no codes &mdash; so this project writes nothing for it, which "
+            "is the correct reading of that flag. "
+            "<b>Two:</b> its own table metadata describes it as a code set: "
+            "&ldquo;HL7-defined table of concepts which specify the different "
+            "types of practitioners associated with this procedure. <i>This "
+            "set of codes is known to be incomplete.</i>&rdquo; A table that "
+            "is concept-domain-only has no set of codes to be incomplete. "
+            "<b>Three:</b> the same description says the table is obsolete "
+            "&mdash; &ldquo;as of v2.6, this table and the field(s) it was "
+            "used in was replaced by table 443 used in the ROL segment&rdquo; "
+            "&mdash; yet its <code>Type</code> is <code>undefined</code> "
+            "rather than anything marking it withdrawn, and it is still "
+            "published in 2.9.1. "
+            "<b>Meanwhile THO publishes <code>CodeSystem/v2-0133</code> with "
+            "nine codes, <code>content: complete</code> and <code>status: "
+            "active</code>,</b> plus a matching value set. So the chapter says "
+            "there are no codes, says the codes are incomplete, and says the "
+            "table was superseded in v2.6, while THO says there are nine "
+            "active ones. "
+            "This is why 0133 shows as <i>In THO, not here</i> on the table "
+            "index: the divergence is real and is not ours to resolve.",
+        "ask":
+            "Decide what 0133 is. If it was genuinely replaced by table 0443 "
+            "in v2.6, it should be marked withdrawn in the chapter and its THO "
+            "code system and value set retired or deprecated, rather than left "
+            "active. If it is still live, the <code>Concept Domain Only</code> "
+            "flag contradicts both its own description and THO's nine codes, "
+            "and one of the three has to give. Either way the description "
+            "should stop asserting an incomplete code set for a table that "
+            "publishes none.",
+    },
+    {
+        "id": "esc-oid-conflicts",
+        "who": "V2 Management + TSMG",
+        "tables": "0001, 0719",
+        "title": "Chapter 2C and THO give different OIDs for the same two "
+                 "artifacts, which versioning cannot reconcile",
+        "body":
+            "Two artifacts carry a different <code>identifier</code> OID in "
+            "Chapter 2C than the one THO publishes at the same canonical URL. "
+            "<b><code>CodeSystem/v2-0001</code> <i>Administrative Sex</i>:</b> "
+            "the chapter gives <code>2.16.840.1.113883.18.458</code>, THO "
+            "publishes <code>2.16.840.1.113883.18.2</code>. Both sit in the "
+            "HL7 v2 code system arc, so neither is obviously a stray. This is "
+            "the most widely implemented table in V2. "
+            "<b><code>ValueSet/v2-0719</code>:</b> the chapter gives "
+            "<code>2.16.840.1.113883.1.11.20429</code>, THO publishes "
+            "<code>...20428</code> &mdash; adjacent values, which has the "
+            "shape of a transcription error in one of the two, though which "
+            "one cannot be settled from either document alone. "
+            "<b>Why this is not a versioning question.</b> The THO artifact "
+            "versioning policy treats every other divergence found in this "
+            "comparison as something a version increment covers. Identifiers "
+            "are the exception: the policy states that an identifier cannot be "
+            "changed or removed, that adding one makes it immutable, and that "
+            "an identifier change requires a <i>new</i> artifact rather than a "
+            "new version &mdash; &ldquo;extreme care must be taken with "
+            "identifiers&rdquo;. Publishing our OID at THO's canonical would "
+            "therefore be a policy violation, not a bump. "
+            "Every other artifact agrees: 395 of 396 code systems and 412 of "
+            "413 value sets carry identical identifiers.",
+        "ask":
+            "Adjudicate each OID. For 0001, establish which of "
+            "<code>...18.458</code> and <code>...18.2</code> is the registered "
+            "identifier for the Administrative Sex code system, and correct "
+            "the other source. For 0719, establish whether "
+            "<code>...20429</code> or <code>...20428</code> is right. Until "
+            "both are settled this project should publish THO's identifier "
+            "rather than the chapter's, because the policy forbids changing a "
+            "published identifier and the canonical URL is THO's.",
+    },
 ]
 
 
