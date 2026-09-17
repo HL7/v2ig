@@ -392,16 +392,20 @@ def test_a_matching_oid_is_not_a_change():
     assert observe.records == []
 
 
-def test_a_conflicting_oid_cannot_be_expressed_as_a_version():
-    """Chapter 2C and THO disagree on the OID for v2-0001. The chapter's is
-    published, and the policy consequence is reported rather than absorbed."""
+def test_a_conflicting_oid_defers_to_tho():
+    """The one place "the chapter wins" does not reach. An identifier is
+    identity, not content: the canonical is THO's and the policy forbids
+    changing a published identifier, so writing the chapter's OID there would
+    assert this is a different artifact. See the register's
+    `esc-oid-conflicts`."""
     observe = tho_merge.Observations()
     oid, changed = tho_merge.merge_identifier(
         "2.16.840.1.113883.18.458", tho_with_oid("2.16.840.1.113883.18.2"),
         observe, {"table": "0001", "resource": "CodeSystem"})
-    assert oid == "2.16.840.1.113883.18.458"
-    assert changed == ["identifier.changed"]
+    assert oid == "2.16.840.1.113883.18.2"
+    assert changed == []
     assert observe.records[0]["kind"] == "discrepancy"
+    assert observe.records[0]["published"] == "tho"
 
 
 def test_adding_an_oid_tho_lacks_is_an_ordinary_increment():

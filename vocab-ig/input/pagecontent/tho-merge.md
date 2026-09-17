@@ -98,15 +98,6 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 | 0227 | valueSet | description | 5.0.0 |
 | 0719 | valueSet | description | 4.0.0 |
 
-### Changes a version number cannot express
-
-The policy puts a few elements outside the version system entirely: changing one of them means a **new artifact at a new canonical**, not a new version. Any listed here need resolving before publication.
-
-| Table | Resource | Element |
-|---|---|---|
-| 0001 | codeSystem | identifier.changed |
-| 0719 | valueSet | identifier.changed |
-
 ## The artifacts THO has and this guide does not
 
 46 of them, across 26 tables. Each is listed with the reason the writer gave for publishing nothing.

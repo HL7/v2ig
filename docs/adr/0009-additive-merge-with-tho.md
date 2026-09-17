@@ -114,6 +114,14 @@ run by comparing the merged artifact against THO's:
   `url`, `id`, `content`, or a changed or removed `identifier` — is reported
   as needing a *new artifact*, not converted into an increment.
 
+**The identifier is the one element where the chapter does not win a
+disagreement.** An identifier is identity, not content: the canonical URL is
+THO's, and the policy says a published identifier cannot be changed at all, so
+writing the chapter's OID there would assert that this is a different artifact
+rather than publish the chapter faithfully. Where the two conflict, THO's OID
+is published and the conflict is registered for adjudication. This follows the
+reasoning already recorded in the escalation register's `esc-oid-conflicts`.
+
 Three comparison rules are judgement calls rather than readings of the policy,
 and each is stated on the guide's **General questions** page with what rides on
 it:
@@ -144,8 +152,9 @@ questions page.
 
 Against 383 of 396 code systems that would have incremented before.
 
-Two artifacts carry a change no version can express, both OID conflicts
-between Chapter 2C and THO: `CodeSystem/v2-0001` and `ValueSet/v2-0719`.
+Two artifacts have an OID conflict between Chapter 2C and THO —
+`CodeSystem/v2-0001` and `ValueSet/v2-0719`. Both publish THO's identifier
+pending adjudication, so neither is a version question.
 
 ### 4. Everything is recorded
 
@@ -198,7 +207,9 @@ reviewer, which a column-position heuristic cannot.
 - Version numbers are reproducible: delete them all and re-run, and the same
   numbers come back.
 - The two OID conflicts surfaced as a computed result rather than as a
-  hand-maintained note, and they are the only two of their kind in the corpus.
+  hand-maintained note, they are the only two of their kind in the corpus, and
+  the register's standing recommendation on them is now enforced by the
+  pipeline instead of being advice in a document.
 - Every judgement call is in one of two named functions, so reversing one after
   a TSMG ruling is a small, located change.
 

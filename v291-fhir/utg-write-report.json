@@ -26,9 +26,7 @@
           "concept"
         ],
         "judgement": [],
-        "newArtifact": [
-          "identifier.changed"
-        ]
+        "newArtifact": []
       },
       "valueSetVersion": {
         "version": "3.0.0",
@@ -11808,9 +11806,7 @@
         "judgement": [
           "description"
         ],
-        "newArtifact": [
-          "identifier.changed"
-        ]
+        "newArtifact": []
       }
     },
     {

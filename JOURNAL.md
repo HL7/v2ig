@@ -27,9 +27,9 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 **Phase:** items 1, 2 and 3 of the 2026-09-17 plan are done — the additive
 merge with THO, version numbers computed from the TSMG policy, and table 0560.
 ADR-0009 and ADR-0010 are written and Accepted. 386 tests pass (up from 290).
-The IG builds clean (exit 0, 19m51s, **0 broken links**), but the QA report
-carries 3,479 errors, all but ~212 of them the terminology server failing on
-designation languages — see "the one thing left unverified" below.
+The IG builds clean (exit 0, 18m34s, **0 broken links**). The QA report says
+3,478 errors; **211 of those are ours** and 3,267 are a terminology server
+being unreachable — settled, nothing to do, see below.
 
 ### First thing next session
 
@@ -95,8 +95,16 @@ point of the coupling: most of the bumps were the cost of the deletions.
   no carve-out: 4 definitions and 21 displays increment for punctuation alone.
 - **The merge never creates an artifact, never splices two pieces of prose, and
   never merges codes across a compose-shape difference.**
-- **Version and identifier are different problems.** A changed identifier
-  cannot be expressed as a version at all.
+- **Version and identifier are different problems, and the identifier is the
+  one element where the chapter does NOT win a disagreement.** An identifier is
+  identity, not content: the canonical is THO's, and the policy forbids
+  changing a published identifier, so writing the chapter's OID there would
+  assert this is a different artifact rather than publish the chapter
+  faithfully. Where the two conflict — `CodeSystem/v2-0001` and
+  `ValueSet/v2-0719` — **THO's OID is published** and the conflict is
+  registered. This follows the reasoning already recorded in
+  `esc-oid-conflicts`; the first implementation contradicted it and was
+  corrected.
 
 ### Where `N` comes from — asked and answered this session
 
@@ -130,9 +138,9 @@ This is question 5 on the new **General questions** page.
 ### Two things needing a person, both surfaced computably
 
 - **`CodeSystem/v2-0001` and `ValueSet/v2-0719` carry OID conflicts** between
-  Chapter 2C and THO. The policy puts identifiers outside the version system:
-  the remedy is a new artifact, not an increment. These are the only two in the
-  corpus, and they are what the register's `esc-oid-conflicts` describes.
+  Chapter 2C and THO. THO's OID is published pending adjudication, so neither
+  is a version question. These are the only two in the corpus, and they are
+  what the register's `esc-oid-conflicts` describes.
 - **`ValueSet/v2-0227` and `ValueSet/v2-0719` descriptions differ in words, not
   punctuation.** THO's 0227 carries a PHIN VADS source URL ours drops; THO's
   0719 ends *"this resource was created in THO in error due to an oversight in
@@ -147,11 +155,26 @@ This is question 5 on the new **General questions** page.
 - The V2 Management meeting of 2026-08-28 is still unrecorded — asked across
   five sessions. Ask once, do not spend the session on it.
 
-### Register — 29 items, unchanged
+### Register — 33 items, four added and three corrected
 
-The `N`/`B` status finding went to the General questions page rather than the
-register, because it needs to be visible to every reader of the guide. Move it
-to the register as well if V2 Management would rather see it there.
+Added: `esc-status-n-b-undefined`, `esc-concept-ordering`,
+`esc-description-editorial-carveout`, `esc-tho-descriptions-say-more`. Each
+mirrors a question on the General questions page — the page is what a reader of
+the guide meets, the register is what goes to the committees, and they must not
+drift apart.
+
+Corrected, because this session changed what the pipeline does and the register
+still described the old behaviour:
+
+- **`esc-0560-content`** said the working decision was concept domain only. It
+  now records the reversal (ADR-0010) and keeps the escalation live, because
+  the naming problem — four of five codes are units of *time* under a table
+  called Quantity Units — is untouched by publishing the artifacts.
+- **`esc-placeholder-metadata`** said both 0560 and 0910 were treated as
+  concept domain only. It now explains the evidence-based split.
+- **`esc-oid-conflicts`** recommended publishing THO's identifier rather than
+  the chapter's. That recommendation is now **enforced in the pipeline** rather
+  than sitting in a document — see the rule below.
 
 ### How to look at the IG
 
@@ -189,39 +212,44 @@ a URL will 404. **`kill <pid>` on the shell wrapper does not stop the JVM**;
 check with `ps -eo pid,cmd | grep '[j]dk/bin/java'` and kill the java process,
 or two publishers will write the same directory at once.
 
-### The one thing left unverified — do this first, it costs nothing extra
+### The designation errors — settled, and the answer is "nothing to do"
 
-**`vocab-ig/input/ignoreWarnings.txt` is new and NOT yet proven to work.**
+**The build is `errors 3478, warnings 136, broken links 0`. Read that as 211
+errors that are ours and 3,267 that are a terminology server being down.**
+191 of the 211 are the unresolved `conceptdomains` hyperlinks already on the
+Known issues page. The baseline before this session was 216 / 416 / 1.
 
-The build of 2026-09-17 came back **errors 3479, warnings 136, broken links 0**,
-against 216 / 416 / 1 before this session. Every one of the 3,263 new errors is
-`designation.language`: the 1,061 designations inherited from THO each need
-their language validated against
+The 3,267 are `designation.language`. The 1,061 designations inherited from THO
+each need their language validated against
 `http://hl7.org/fhir/ValueSet/all-languages`, which includes `urn:ietf:bcp:47`,
 which no package defines — so the validator asks `tx.fhir.org/r5`, and that
-answers with a cache error every time. Three errors per designation. **The
-content is correct**: `de` is a valid BCP 47 tag and THO publishes exactly these
+answers with a cache error every time. Three errors per designation. The
+content is correct: `de` is a valid BCP 47 tag and THO publishes exactly these
 values. Dropping the designations is not an option; they are what the merge
 exists to keep.
 
-The first version of the suppression file did nothing. The publisher read
-**every line, including the `#` comments**, as a pattern — qa.html showed 35
-entries at "(0 uses)", so nothing unintended was suppressed, but nothing
-intended was either. Reverse-engineering `PublisherIGLoader` and
-`SuppressedMessageInformation` in `input-cache/publisher.jar` gives the real
-format, and the file has been rewritten to match it:
+**`vocab-ig/input/ignoreWarnings.txt` cannot fix this, and now says so.** Two
+wrong turns went into learning that, both worth not repeating:
 
-- the file must open with `== Suppressed Messages ==`, or the publisher calls
-  it "not using the new format";
-- `#` lines are reasons, and a pattern with no reason is an error;
-- `%` is the wildcard — `%text%` is a contains match, `text%` startsWith,
-  `%text` endsWith. There is **no** `%regex%`; that was the wrong guess.
+1. The first version used a `%regex%` prefix. There is no such syntax. The
+   publisher read **every line including the `#` comments** as a pattern and
+   reported 35 entries at "(0 uses)".
+2. The rewrite uses the real format, found in `PublisherIGLoader` and
+   `SuppressedMessageInformation` inside `input-cache/publisher.jar`: a
+   `== Suppressed Messages ==` header, `#` lines as reasons, `%` as the
+   wildcard (`%text%` contains, `text%` startsWith, `%text` endsWith). **It
+   matches — qa.html reports 3,267 uses — and the error count did not move.**
+   The publisher only suppresses **warnings, hints and broken links, never
+   errors**, which qa.html states in the heading of that very section.
 
-**Next session: run the build and check `Errors:` on the last line of the log.
-Expect roughly 212.** If it is still 3479, read the "Supressed Messages" row in
-`vocab-ig/output/qa.html` — it prints each pattern with a use count, which is
-the fastest way to see what is not matching. **Revisit the whole file when the
-terminology server is reachable again**; none of it should be needed then.
+So there is no suppression route while these are errors. **The remedy is a
+reachable terminology server**, and `-tx n/a` is not an option for this build.
+The entry is kept because it is precisely scoped and starts working by itself
+if these are ever downgraded to warnings. **Do not spend another build on it.**
+
+The fastest diagnostic if this ever needs revisiting: qa.html prints every
+pattern with a use count, next to the heading that says which severities it
+can touch.
 
 ### Regeneration sequence
 

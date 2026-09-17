@@ -1,18 +1,33 @@
 == Suppressed Messages ==
 
-# Designation languages cannot be validated without a working terminology
-# server. This guide carries 1,061 designations inherited from THO -- German
-# translations, mostly -- each with a `language` of `de` or similar. FHIR binds
-# designation.language to http://hl7.org/fhir/ValueSet/all-languages, which
-# includes the system urn:ietf:bcp:47. No package defines that system's codes,
-# so the validator has to ask a terminology server, and https://tx.fhir.org/r5
-# answers with a cache error on every request. That is 3,267 errors -- three
-# per designation -- against roughly 212 of every other kind, which buries
-# everything worth reading. The designations are correct: `de` is a valid
-# BCP 47 tag and THO publishes exactly these values. Dropping them instead is
-# not an option; they are content THO already publishes at these canonicals,
-# and deleting them is what this guide's merge with THO exists to prevent.
-# Revisit when the terminology server is reachable again. Scoped to the
-# all-languages value set alone, so a language problem that is not this one
-# still surfaces.
+# READ THIS BEFORE ASSUMING THE FILE IS DOING ANYTHING.
+#
+# The pattern below matches, and matches a lot: qa.html reports it at 3,267
+# uses. It nevertheless has NO EFFECT on the build's error count, because the
+# IG Publisher only suppresses warnings, hints and broken links -- never
+# errors. qa.html says so in the heading of the section it prints these under.
+# The 3,267 messages are errors, so they are matched, counted as suppressed,
+# and reported anyway.
+#
+# What the messages are. This guide carries 1,061 designations inherited from
+# THO -- German translations, mostly -- each with a `language` of `de` or
+# similar. FHIR binds designation.language to
+# http://hl7.org/fhir/ValueSet/all-languages, which includes the system
+# urn:ietf:bcp:47. No package defines that system's codes, so the validator
+# has to ask a terminology server, and https://tx.fhir.org/r5 answers with a
+# cache error on every request. Three errors per designation.
+#
+# The content is correct: `de` is a valid BCP 47 tag, and THO publishes
+# exactly these values. Dropping the designations is not an option -- they are
+# content THO already publishes at these canonicals, and deleting them is what
+# this guide's merge with THO exists to prevent.
+#
+# So the real remedy is a reachable terminology server, and there is nothing
+# to do here until there is one. `-tx n/a` is not an option for this build.
+# The entry is kept because it is scoped precisely, it costs nothing, and it
+# starts working by itself if these are ever downgraded to warnings.
+#
+# Read the error count as 3,478 minus 3,267 = 211 that are genuinely ours,
+# of which 191 are the unresolved conceptdomains hyperlinks described on the
+# Known issues page.
 %http://hl7.org/fhir/ValueSet/all-languages%

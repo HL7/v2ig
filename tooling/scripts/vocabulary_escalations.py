@@ -362,12 +362,24 @@ ESCALATIONS = [
             "Is this table salvageable, or is it a concept domain with no "
             "usable code system? If it is to be fixed, the fix has to be "
             "coordinated with TSMG so Chapter 2C and THO move together. "
-            "<b>This project's working decision is concept domain only</b> "
-            "&mdash; no CodeSystem and no ValueSet minted &mdash; which is "
-            "reversible once the committee rules. Note that this decision "
-            "puts us in direct conflict with content THO already publishes, "
-            "so it needs TSMG as well as V2 Management. <b>We are not "
-            "proposing to alter THO's existing records unilaterally.</b>",
+            "<b>This project's working decision changed on 2026-09-17 "
+            "(ADR-0010): it now publishes both the CodeSystem and the "
+            "ValueSet</b>, carrying the chapter's five codes. The earlier "
+            "decision was concept domain only, and it was reversed because "
+            "the <code>noObject</code> marker is contradicted by everything "
+            "around it &mdash; the chapter's own five codes, the value set "
+            "OID it prints, its <code>all codes</code> content logical "
+            "definition, and THO's existing pair. Treating the marker as "
+            "authoritative was losing published content <i>and</i> putting us "
+            "in conflict with THO rather than agreement with it. "
+            "<b>The naming problem this item is really about is untouched by "
+            "that change</b>: four of the five codes are still units of time "
+            "under a table called Quantity Units, in our output and in THO's "
+            "alike. That still needs V2 Management and TSMG together, and "
+            "<b>we are not proposing to alter THO's existing records "
+            "unilaterally.</b> The contradiction is stated in the guide "
+            "itself, on the General questions page, so a reader meets it "
+            "rather than having to find this register.",
     },
     {
         "id": "esc-0821-blank-grid",
@@ -508,8 +520,7 @@ ESCALATIONS = [
             "Worth noting that this placeholder appears in exactly these two "
             "sections and nowhere else in Chapter 2C, and that both are "
             "tables with no genuine code system. The placeholder is a reliable "
-            "marker of the condition, not random noise, which is part of why "
-            "both are treated as concept domain only. "
+            "marker of the condition, not random noise. "
             "<b>The two tables have then been treated completely differently "
             "downstream, and that is the finding.</b> They present identically "
             "in the chapter: same placeholder block, same absence of a code "
@@ -530,22 +541,28 @@ ESCALATIONS = [
             "time. So a code system was minted at an HL7 canonical for a table "
             "whose source declares none, and the content it was filled with is "
             "the same content flagged as wrong elsewhere on this list. "
-            "0560 is the <i>only</i> table this project treats as concept "
-            "domain only where THO carries resources; there are eight such "
-            "tables in total and the other seven have nothing.",
+            "<b>Since 2026-09-17 this project publishes both 0560 resources "
+            "(ADR-0010) and still writes nothing for 0910.</b> The two are "
+            "separated on evidence rather than by name: the placeholder is "
+            "overridden only where the chapter lists codes under it, THO "
+            "publishes a code system at the table's own canonical, and the "
+            "chapter declares a value set. 0560 is the only table in the "
+            "corpus that meets all three; 0910 meets none. The placeholders "
+            "themselves remain a defect in the published chapter either way.",
         "ask":
             "Two questions, and the second is the one that needs both groups. "
             "First, should the placeholder blocks be removed from the "
             "published chapter, and should a table with no code system simply "
             "have no Code System Identification block? "
-            "Second: <b>0560 and 0910 are the same case and have been handled "
-            "in opposite ways.</b> Either 0910 is missing resources or 0560 "
-            "has resources it should never have had. This project's working "
-            "decision treats both as concept domain only, which means it "
-            "declines to carry forward THO's existing 0560 CodeSystem and "
-            "ValueSet &mdash; a divergence from published THO content that "
-            "needs TSMG's agreement as well as V2 Management's. <b>Nothing "
-            "will be altered in THO's existing records on this project's "
+            "Second: <b>0560 and 0910 present identically in the chapter and "
+            "have been handled in opposite ways downstream.</b> Either 0910 "
+            "is missing resources or 0560 has resources it should never have "
+            "had. This project now follows THO on both &mdash; publishing "
+            "0560's pair and nothing for 0910 &mdash; which removes the "
+            "divergence from published THO content but does not answer the "
+            "question. Confirm whether that split is correct, or whether both "
+            "tables should be treated the same way. <b>Nothing will be "
+            "altered in THO's existing records on this project's "
             "initiative.</b>",
     },
     {
@@ -1300,9 +1317,165 @@ ESCALATIONS = [
             "identifier for the Administrative Sex code system, and correct "
             "the other source. For 0719, establish whether "
             "<code>...20429</code> or <code>...20428</code> is right. Until "
-            "both are settled this project should publish THO's identifier "
-            "rather than the chapter's, because the policy forbids changing a "
-            "published identifier and the canonical URL is THO's.",
+            "both are settled this project publishes THO's identifier rather "
+            "than the chapter's, because the policy forbids changing a "
+            "published identifier and the canonical URL is THO's. <b>That is "
+            "now enforced in the pipeline</b> rather than left as a "
+            "recommendation: the identifier is the one element where the "
+            "chapter does not win a disagreement, because an identifier is "
+            "identity rather than content. Both conflicts are recomputed on "
+            "every run, so neither can drift out of view.",
+    },
+    {
+        "id": "esc-status-n-b-undefined",
+        "who": "V2 Management + TSMG",
+        "tables": "25 tables, 261 concepts",
+        "title": "The concept statuses <code>N</code> and <code>B</code> are "
+                 "defined nowhere, and <code>N</code> decays",
+        "body":
+            "Chapter 2C carries its own legend for the status column: blank "
+            "means an active code, <code>B</code> means &ldquo;backwards-"
+            "compatible use only&rdquo;, <code>D</code> means &ldquo;deprecated "
+            "or inactive&rdquo;, <code>R</code> means &ldquo;retired&rdquo;, "
+            "and <code>N</code> means <b>&ldquo;new in this release&rdquo;</b>. "
+            "Blank, <code>D</code> and <code>R</code> have unambiguous FHIR "
+            "equivalents and are written as <code>active</code>, "
+            "<code>deprecated</code> and <code>retired</code>. <code>N</code> "
+            "and <code>B</code> do not, and both this project and THO pass "
+            "them through as themselves. "
+            "<b>Neither is defined anywhere.</b> The property they are written "
+            "to is <code>status</code>, defined by FHIR at "
+            "<code>http://hl7.org/fhir/concept-properties#status</code>, whose "
+            "own definition reads &ldquo;a code that indicates the status of "
+            "the concept. Typical values are active, experimental, deprecated, "
+            "and retired.&rdquo; Neither <code>N</code> nor <code>B</code> is "
+            "among them. They are not in <code>utg-concept-properties</code> "
+            "either, and no value set enumerates them. Across the whole of "
+            "<code>hl7.terminology.r5</code> they appear <i>only</i> in v2 "
+            "code systems &mdash; 210 concepts carry <code>N</code> and 6 "
+            "carry <code>B</code>. "
+            "<b><code>N</code> is worse than undefined, because it decays.</b> "
+            "&ldquo;New in this release&rdquo; was a statement about whichever "
+            "release first printed it, and nothing updates it afterwards. That "
+            "is visible in the data: THO still marks 210 concepts "
+            "<code>N</code> from past releases while the 2.9.1 chapter marks "
+            "only 70, and <b>205 of the 261 status disagreements between the "
+            "chapter and THO are exactly this</b> &mdash; THO saying "
+            "<code>N</code> where the current chapter says nothing, so this "
+            "project publishes <code>active</code>.",
+        "ask":
+            "Three remedies would each resolve this, and they are not the same "
+            "decision. <b>One:</b> define <code>N</code> and <code>B</code> as "
+            "concept properties in <code>utg-concept-properties</code>, so "
+            "that what is already published is at least legal. <b>Two:</b> "
+            "replace <code>N</code> with something that does not decay &mdash; "
+            "the version a concept was introduced in is a fact that stays "
+            "true, where a &ldquo;new&rdquo; flag silently expires. "
+            "<b>Three:</b> rule that <code>N</code> is not a status at all and "
+            "should not survive into FHIR. Meanwhile this project publishes "
+            "the chapter's value, passes <code>N</code> and <code>B</code> "
+            "through unchanged, and records all 261 disagreements.",
+    },
+    {
+        "id": "esc-concept-ordering",
+        "who": "TSMG",
+        "tables": "32 tables",
+        "title": "Does reordering a code system's concepts count as a change "
+                 "for versioning?",
+        "body":
+            "This project compares its concepts against THO's as a set keyed "
+            "by code, so a code system whose codes are identical to THO's but "
+            "listed in a different order is treated as unchanged and keeps "
+            "THO's version. The reasoning is that order is not information in "
+            "a flat code system: a <code>CodeSystem</code> with "
+            "<code>hierarchyMeaning</code> of <code>is-a</code> and no nesting "
+            "says nothing by putting one code before another. "
+            "<b>32 tables carry exactly THO's codes in a different order.</b> "
+            "If order is a change under the artifact versioning policy, those "
+            "32 all increment &mdash; and they increment again every time the "
+            "chapter is re-laid-out, which is a version number spent on "
+            "typesetting.",
+        "ask":
+            "Confirm that concept order is not a versionable change, or say "
+            "that it is. Either answer is one line in this project's "
+            "comparison. The question is asked because the policy's element "
+            "table lists <code>CodeSystem.concept (and all subelements)</code> "
+            "without qualification, and a literal reading could be taken to "
+            "cover sequence.",
+    },
+    {
+        "id": "esc-description-editorial-carveout",
+        "who": "TSMG",
+        "tables": "policy; 12 descriptions, 25 concepts",
+        "title": "How far does the description &ldquo;editorial "
+                 "corrections&rdquo; carve-out reach?",
+        "body":
+            "The Code Systems versioning policy qualifies exactly one element: "
+            "<code>CodeSystem.description</code> is &ldquo;major unless only "
+            "change is improved clarity or perform editorial "
+            "corrections&rdquo;. This project applies that where it can do so "
+            "honestly &mdash; where our description and THO's contain exactly "
+            "the same words in the same order, so that only punctuation or "
+            "spacing moved. <b>12 descriptions across 7 tables</b> are waived "
+            "on that basis, every one of them our <code>e.g.,</code> against "
+            "THO's <code>e.g.</code>, or our <code>code system.</code> against "
+            "THO's <code>code system .</code>. "
+            "Three things about this need confirming. "
+            "<b>First, the rule itself:</b> is a punctuation-only difference an "
+            "editorial correction? "
+            "<b>Second, the asymmetry it creates.</b> The carve-out is written "
+            "against <code>description</code> alone, while "
+            "<code>CodeSystem.concept (and all subelements)</code> is listed "
+            "unqualified. So <b>4 concept definitions and 21 concept displays "
+            "that differ from THO only in punctuation do increment</b>. A "
+            "comma in a description is free; the same comma in a display costs "
+            "a major version. This project has not smoothed that over, because "
+            "guessing at an unwritten carve-out is how a pipeline quietly "
+            "stops matching the rules it claims to follow &mdash; but it looks "
+            "more like an oversight than a decision. "
+            "<b>Third, the Value Sets policy has no equivalent carve-out at "
+            "all</b>, so read literally it makes every description difference "
+            "a major increment however trivial. This project treats "
+            "<code>ValueSet.description</code> exactly as it treats "
+            "<code>CodeSystem.description</code>, rather than encode an "
+            "asymmetry believed to be a drafting slip.",
+        "ask":
+            "Confirm the punctuation waiver, say whether it should extend to "
+            "concept definitions and displays, and confirm whether the missing "
+            "ValueSet carve-out is deliberate. Each answer is a located change "
+            "in this project; none of them is a rewrite.",
+    },
+    {
+        "id": "esc-tho-descriptions-say-more",
+        "who": "V2 Management + TSMG",
+        "tables": "0227, 0719",
+        "title": "Two THO descriptions carry text the chapter's do not, "
+                 "including THO documenting its own error",
+        "body":
+            "Of the description differences between this project's output and "
+            "THO, all but two are punctuation. These two are not, and in both "
+            "THO's text carries something the chapter's does not. "
+            "<b><code>ValueSet/v2-0227</code>:</b> THO's description ends with "
+            "a link to the code system on PHIN VADS. The chapter's stops "
+            "before it, so publishing the chapter's drops a working source "
+            "reference for a code system HL7 does not itself maintain. "
+            "<b><code>ValueSet/v2-0719</code>:</b> THO's description ends "
+            "&ldquo;Note that this resource was created in THO in error due to "
+            "an oversight in the import processing.&rdquo; That is THO "
+            "documenting its own mistake in the artifact's description. It is "
+            "not something Chapter 2C should inherit, but it does say the "
+            "artifact needs attention rather than a redraft &mdash; and 0719 "
+            "is also one of the two artifacts with an OID conflict. "
+            "This project publishes the chapter's description in both cases "
+            "and increments the version. The merge fills an absent value from "
+            "THO but never splices two pieces of prose together, because "
+            "concatenating them would publish text neither source wrote.",
+        "ask":
+            "For 0227, decide whether the source reference should be carried "
+            "into the chapter's description or dropped. For 0719, decide what "
+            "should happen to a THO artifact whose own description says it was "
+            "created in error &mdash; and settle that together with its OID "
+            "conflict, since the two are likely the same story.",
     },
 ]
 

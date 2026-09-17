@@ -459,9 +459,16 @@ def merge_identifier(our_oid, tho_resource, observe, context):
 
     The additive rule applies as everywhere else -- if THO has an OID and the
     chapter gives none, THO's stands, which is also what keeps us from
-    silently removing an identifier. Where both give one and they differ, the
-    chapter's is published and `identifier.changed` is returned so that the
-    consequence is reported rather than absorbed into a version bump.
+    silently removing an identifier.
+
+    **Where both give one and they differ, THO's is published, not the
+    chapter's.** This is the one place the "chapter wins" rule does not reach,
+    and deliberately so: an identifier is identity rather than content. The
+    canonical URL is THO's, and the policy says a published identifier cannot
+    be changed at all -- so writing the chapter's OID at THO's canonical would
+    not be publishing the chapter faithfully, it would be asserting that this
+    is a different artifact. Both conflicts are registered for adjudication
+    (`esc-oid-conflicts`), and neither is a version question.
 
     Returns:
         An ``(oid, changed)`` pair.
@@ -488,8 +495,8 @@ def merge_identifier(our_oid, tho_resource, observe, context):
 
     if ours not in theirs:
         observe.discrepancy(element="identifier", ours=ours, tho=theirs[0],
-                            **context)
-        return ours, ["identifier.changed"]
+                            published="tho", **context)
+        return theirs[0], []
     return ours, []
 
 

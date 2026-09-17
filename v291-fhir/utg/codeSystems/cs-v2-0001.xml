@@ -8,7 +8,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.18.458"/>
+    <value value="urn:oid:2.16.840.1.113883.18.2"/>
   </identifier>
   <version value="4.0.0"/>
   <name value="AdministrativeSex"/>

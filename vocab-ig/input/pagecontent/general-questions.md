@@ -51,7 +51,7 @@ them is our `e.g.,` against THO's `e.g.`, or our `code system.` against THO's
 this guide publishes the chapter's and leaves the version alone.
 
 **Where it does not apply:** where the words themselves differ. Two remain —
-see questions 6 and 7 — and both increment.
+see question 8 — and both increment.
 
 **If the answer is no:** the waiver is a single named function and a single
 list of fields; turning it off increments those 12.
@@ -180,9 +180,13 @@ remedy is not a version increment — and publishing the other one at the same
 canonical is, by the policy's own terms, not something a new version can
 express.
 
-**What we do:** publish the chapter's OID and report the consequence. These
-two are the only artifacts in the build flagged as carrying a change a version
-number cannot express.
+**What we do:** publish **THO's** OID in both cases, and report the conflict.
+This is the one place where the chapter does not win a disagreement, and
+deliberately so — an identifier is identity rather than content, the canonical
+URL is THO's, and writing the chapter's OID there would assert that this is a
+different artifact rather than publish the chapter faithfully. Neither is
+therefore a version question. Both are in the escalation register as
+`esc-oid-conflicts`, which is where the adjudication belongs.
 
 ### 8. Two descriptions where THO says more than the chapter
 
