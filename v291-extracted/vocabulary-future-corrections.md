@@ -204,3 +204,40 @@ markdown emphasis plus a stray space before a colon.
 Going to **V2 Management and TSMG** for discussion. Whichever way each one
 lands, the losing text should not simply be dropped: at minimum it is evidence
 about what the two communities each thought the domain meant.
+
+---
+
+## 009 — Concept domain codes elide spaces, at a cost to readability
+
+**Raised** 2026-09-16 · **Scope** 4 concept domains now, and the pattern generally
+
+Four Chapter 2C symbolic names carried internal spaces where the other 759 did
+not: `Employment Status ODH`, `Job Supervisory Level or Pay Grade`,
+`SecurityLabelHandling Instructions` and `Masterfile Action Code` (0180). All
+four are now written with the spaces removed, conforming to THO, which carries
+no spaces in any concept domain code.
+
+Conforming was the right call and it fixed two real problems. A spaced code is
+unreachable by link — the IG Publisher drops spaces when it builds a page
+anchor, so `#conceptdomains-Employment Status ODH` resolves to nothing. And
+`Masterfile Action Code` squishes to `MasterfileActionCode`, which THO already
+publishes, so 0180 stopped looking like a new concept and became the match it
+always was. Concept count was unchanged at 1522: nothing merged, nothing
+duplicated.
+
+**The note worth keeping.** THO's own rendering elides the spaces rather than
+preserving them for display. It arguably did not need to: a code and its
+display string are different fields, and nothing stops a code system from
+carrying `JobSupervisoryLevelorPayGrade` as the code while displaying *Job
+Supervisory Level or Pay Grade*. The elision makes the longer codes measurably
+harder to read — `JobSupervisoryLevelorPayGrade` hides the word boundary
+between "Level" and "or". We are matching THO's pattern, not endorsing it. If
+UTG ever revisits how concept domain codes are displayed, the display string is
+the place to restore the spaces, and this is the argument for doing so.
+
+**Not addressed here.** 51 codes still contain slashes, apostrophes,
+parentheses, underscores, asterisks, commas, quotation marks or an en dash
+(`Yes/noIndicator`, `Collector'sComment*`, `ValidCoded"Answers"`,
+`PrimaryKeyValue–STF`). Those are recorded as
+`symbolic_name_is_not_a_plain_token` divergences and are a separate question,
+because removing them changes the code rather than only its spacing.

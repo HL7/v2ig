@@ -21824,8 +21824,8 @@
       "definition": "The domain of possible values for document events."
     },
     {
-      "code": "Employment Status ODH",
-      "display": "Employment Status ODH",
+      "code": "EmploymentStatusODH",
+      "display": "EmploymentStatusODH",
       "property": [
         {
           "code": "source",
@@ -22209,8 +22209,8 @@
       "definition": "The domain of possible values specifying the type of Item Code - Internal."
     },
     {
-      "code": "Job Supervisory Level or Pay Grade",
-      "display": "Job Supervisory Level or Pay Grade",
+      "code": "JobSupervisoryLevelorPayGrade",
+      "display": "JobSupervisoryLevelorPayGrade",
       "property": [
         {
           "code": "source",
@@ -22858,8 +22858,8 @@
       "definition": "The domain of possible values specifying the type of Scheduled Procedure Step Location."
     },
     {
-      "code": "SecurityLabelHandling Instructions",
-      "display": "SecurityLabelHandling Instructions",
+      "code": "SecurityLabelHandlingInstructions",
+      "display": "SecurityLabelHandlingInstructions",
       "property": [
         {
           "code": "source",

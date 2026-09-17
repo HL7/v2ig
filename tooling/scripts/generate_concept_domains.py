@@ -73,6 +73,24 @@ def load_tho():
     return resource, index
 
 
+def squish_spaces(symbolic_name):
+    """Remove internal whitespace from a concept domain symbolic name.
+
+    THO's own concept codes carry no spaces, and the IG Publisher drops spaces
+    when it builds a page anchor, so a spaced code is unreachable by link and
+    inconsistent with every neighbouring concept. Conforming is the right call
+    for now.
+
+    It is worth recording that THO's rendering of these codes elides the spaces
+    rather than preserving them for display -- which it arguably did not need
+    to do, and which makes the codes harder to read
+    (`JobSupervisoryLevelorPayGrade`). Conforming to the pattern is a decision
+    to match THO, not an endorsement of it. See
+    `v291-extracted/vocabulary-future-corrections.md`.
+    """
+    return re.sub(r"\s+", "", symbolic_name)
+
+
 def load_chapter_domains():
     """Collect the concept domains declared in Chapter 2C.
 
@@ -84,7 +102,7 @@ def load_chapter_domains():
     for path in sorted(VOCAB_DIR.glob("*.json")):
         record = json.loads(path.read_text())
         block = record.get("conceptDomain") or {}
-        symbolic_name = (block.get("SymbolicName") or "").strip()
+        symbolic_name = squish_spaces((block.get("SymbolicName") or "").strip())
         if not symbolic_name:
             continue
         entry = domains[symbolic_name]

@@ -163,4 +163,4 @@ Mentioned only so it is on the record that the chapter's published text needed r
 
 **The full detail** is in an 18-item register written for V2 Management and TSMG, which now lists every affected table for the truncated descriptions and the punctuation codes. This page is the executive cut; the register has the evidence for each item. The field-by-field mapping behind the new question is a separate document and can be circulated on request.
 
-_Generated 2026-08-27 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._
+_Generated 2026-09-16 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._

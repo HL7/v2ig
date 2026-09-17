@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-20",
+  "generated": "2026-09-16",
   "basedOn": {
     "package": "hl7.terminology.r5",
     "resource": "CodeSystem/conceptdomains",
@@ -9,13 +9,12 @@
     "version": "4.0.0"
   },
   "counts": {
-    "symbolic_name_is_not_a_plain_token": 55,
+    "symbolic_name_is_not_a_plain_token": 51,
     "added_from_chapter_2c": 177,
     "domain_declared_by_multiple_tables": 26,
     "definition_differs_from_tho": 5,
     "conflicting_descriptions_within_chapter": 5,
-    "symbolic_name_near_match_in_tho": 1,
-    "tho_v2_domain_absent_from_chapter_2c": 9,
+    "tho_v2_domain_absent_from_chapter_2c": 8,
     "inherited_undeclared_property": 1
   },
   "divergences": [
@@ -770,24 +769,6 @@
       ]
     },
     {
-      "kind": "symbolic_name_is_not_a_plain_token",
-      "conceptDomain": "Employment Status ODH",
-      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
-      "chapter2C": "Employment Status ODH",
-      "tables": [
-        "0957"
-      ]
-    },
-    {
-      "kind": "added_from_chapter_2c",
-      "conceptDomain": "Employment Status ODH",
-      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "Concepts representing whether a person does or does not currently have a job or is not currently in the labor pool seeking employment.",
-      "tables": [
-        "0957"
-      ]
-    },
-    {
       "kind": "definition_differs_from_tho",
       "conceptDomain": "EmploymentStatus",
       "detail": "Chapter 2C and THO describe the same domain differently. THO's definition was kept.",
@@ -795,6 +776,15 @@
       "tho": "A code used to define the employment status of the insured individual identified in UB-92 FL 58. UB-92 Form locator 64:Employment Status Code of the Insured. Can be used with Employee\\_Employer\\_statusCode in HL7. Values include Employed Full Time, Employed Part Time, Not Employed, Retired, On Active Military Duty",
       "tables": [
         "0066"
+      ]
+    },
+    {
+      "kind": "added_from_chapter_2c",
+      "conceptDomain": "EmploymentStatusODH",
+      "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
+      "chapter2C": "Concepts representing whether a person does or does not currently have a job or is not currently in the labor pool seeking employment.",
+      "tables": [
+        "0957"
       ]
     },
     {
@@ -1186,17 +1176,8 @@
       ]
     },
     {
-      "kind": "symbolic_name_is_not_a_plain_token",
-      "conceptDomain": "Job Supervisory Level or Pay Grade",
-      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
-      "chapter2C": "Job Supervisory Level or Pay Grade",
-      "tables": [
-        "0956"
-      ]
-    },
-    {
       "kind": "added_from_chapter_2c",
-      "conceptDomain": "Job Supervisory Level or Pay Grade",
+      "conceptDomain": "JobSupervisoryLevelorPayGrade",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
       "chapter2C": "A classification that reflects the amount of supervisory or management responsibilities for an individual’s job. In the military, this is the person’s pay grade, which serves as a proxy for supervisory level and can be interpreted across branches.",
       "tables": [
@@ -1228,25 +1209,6 @@
       "chapter2C": "The domain of possible values specifying the type of Location.",
       "tables": [
         "0774"
-      ]
-    },
-    {
-      "kind": "symbolic_name_is_not_a_plain_token",
-      "conceptDomain": "Masterfile Action Code",
-      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
-      "chapter2C": "Masterfile Action Code",
-      "tables": [
-        "0180"
-      ]
-    },
-    {
-      "kind": "symbolic_name_near_match_in_tho",
-      "conceptDomain": "Masterfile Action Code",
-      "detail": "Treated as the existing THO concept 'MasterfileActionCode'; the Chapter 2C spelling looks like a typo. No new concept was added.",
-      "chapter2C": "Masterfile Action Code",
-      "tho": "MasterfileActionCode",
-      "tables": [
-        "0180"
       ]
     },
     {
@@ -2044,17 +2006,8 @@
       ]
     },
     {
-      "kind": "symbolic_name_is_not_a_plain_token",
-      "conceptDomain": "SecurityLabelHandling Instructions",
-      "detail": "Used verbatim as the concept code. Contains characters unusual in a code, such as spaces, slashes or punctuation.",
-      "chapter2C": "SecurityLabelHandling Instructions",
-      "tables": [
-        "0953"
-      ]
-    },
-    {
       "kind": "added_from_chapter_2c",
-      "conceptDomain": "SecurityLabelHandling Instructions",
+      "conceptDomain": "SecurityLabelHandlingInstructions",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
       "chapter2C": "tbd",
       "tables": [
@@ -2531,11 +2484,6 @@
     {
       "kind": "tho_v2_domain_absent_from_chapter_2c",
       "conceptDomain": "EventType",
-      "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
-    },
-    {
-      "kind": "tho_v2_domain_absent_from_chapter_2c",
-      "conceptDomain": "MasterfileActionCode",
       "detail": "THO marks this domain as v2-sourced but no Chapter 2C table declares it. Retained unchanged."
     },
     {

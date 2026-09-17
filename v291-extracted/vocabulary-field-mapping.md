@@ -314,4 +314,4 @@ field in the mapping that no longer appears in the corpus.
 
 Every field in the corpus is accounted for.
 
-_Generated 2026-08-25 by `tooling/scripts/render_field_mapping.py` from `tooling/scripts/field_mapping_spec.py`. Edit the spec module, not this file._
+_Generated 2026-09-16 by `tooling/scripts/render_field_mapping.py` from `tooling/scripts/field_mapping_spec.py`. Edit the spec module, not this file._
