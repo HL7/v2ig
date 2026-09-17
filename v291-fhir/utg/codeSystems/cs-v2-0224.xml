@@ -45,6 +45,7 @@
   <concept id="2198">
     <code value="A"/>
     <display value="Arranged"/>
+    <definition value="Arranged"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2199">
     <code value="N"/>
     <display value="Not Arranged"/>
+    <definition value="Not Arranged"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2200">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

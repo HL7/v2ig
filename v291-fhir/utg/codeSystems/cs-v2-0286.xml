@@ -45,6 +45,7 @@
   <concept id="2736">
     <code value="RP"/>
     <display value="Referring Provider"/>
+    <definition value="Referring Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2737">
     <code value="PP"/>
     <display value="Primary Care Provider"/>
+    <definition value="Primary Care Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2738">
     <code value="CP"/>
     <display value="Consulting Provider"/>
+    <definition value="Consulting Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2739">
     <code value="RT"/>
     <display value="Referred to Provider"/>
+    <definition value="Referred to Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

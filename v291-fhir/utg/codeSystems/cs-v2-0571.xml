@@ -48,9 +48,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6243">
     <code value="ACK"/>
     <display value="Acknowledge"/>
+    <definition value="Acknowledge"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Empfangsbestätigung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +74,7 @@
   <concept id="6244">
     <code value="REJECT"/>
     <display value="Reject"/>
+    <definition value="Reject"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +83,7 @@
   <concept id="6245">
     <code value="PEND"/>
     <display value="Pending"/>
+    <definition value="Pending"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +92,7 @@
   <concept id="6246">
     <code value="ADJZER"/>
     <display value="Adjudicated to Zero"/>
+    <definition value="Adjudicated to Zero"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +101,7 @@
   <concept id="6247">
     <code value="ADJSUB"/>
     <display value="Adjudicated as Submitted"/>
+    <definition value="Adjudicated as Submitted"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +110,7 @@
   <concept id="6248">
     <code value="ADJ"/>
     <display value="Adjudicated with Adjustments"/>
+    <definition value="Adjudicated with Adjustments"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -99,6 +119,7 @@
   <concept id="6249">
     <code value="PAID"/>
     <display value="Paid"/>
+    <definition value="Paid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -107,6 +128,7 @@
   <concept id="6250">
     <code value="PRED"/>
     <display value="Pre-Determination"/>
+    <definition value="Pre-Determination"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Indicates that the IPR has been adjudicated but will not be paid. Equivalent to ADJUD (Adjudicate)"/>
@@ -114,6 +136,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Indicates that the IPR has been adjudicated but will not be paid.  Equivalent to ADJUD (Adjudicate)"/>
     </property>
   </concept>
 </CodeSystem>

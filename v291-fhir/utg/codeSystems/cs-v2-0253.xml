@@ -45,6 +45,7 @@
   <concept id="2379">
     <code value="B"/>
     <display value="Breast milk"/>
+    <definition value="Breast milk"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2380">
     <code value="P"/>
     <display value="Transplacental"/>
+    <definition value="Transplacental"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2381">
     <code value="F"/>
     <display value="Father"/>
+    <definition value="Father"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2382">
     <code value="X"/>
     <display value="Blood product"/>
+    <definition value="Blood product"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2383">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

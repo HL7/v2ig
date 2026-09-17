@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6683">
     <code value="WBL"/>
     <display value="Whole Blood"/>
+    <definition value="Whole Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6684">
     <code value="2RC"/>
     <display value="Double Red Cells"/>
+    <definition value="Double Red Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="6685">
     <code value="PLS"/>
     <display value="Plasma"/>
+    <definition value="Plasma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +84,7 @@
   <concept id="6686">
     <code value="PLT"/>
     <display value="Platelets"/>
+    <definition value="Platelets"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +93,7 @@
   <concept id="6687">
     <code value="PNP"/>
     <display value="Platelets and Plasma"/>
+    <definition value="Platelets and Plasma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +102,7 @@
   <concept id="6688">
     <code value="PNR"/>
     <display value="Platelets and Red Cells"/>
+    <definition value="Platelets and Red Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -99,6 +111,7 @@
   <concept id="6689">
     <code value="PPR"/>
     <display value="Platelets, Plasma, and Red Cells"/>
+    <definition value="Platelets, Plasma, and Red Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -107,6 +120,7 @@
   <concept id="6690">
     <code value="GRN"/>
     <display value="Granulocytes"/>
+    <definition value="Granulocytes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -115,6 +129,7 @@
   <concept id="6691">
     <code value="HEM"/>
     <display value="Hemachromatosis"/>
+    <definition value="Hemachromatosis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -123,6 +138,7 @@
   <concept id="6692">
     <code value="HPC"/>
     <display value="Hematopoietic Progenitor Cells"/>
+    <definition value="Hematopoietic Progenitor Cells"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Stem Cells and other cells classified as Hematopoietic"/>
@@ -131,10 +147,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Stem Cells and other cells classified as Hematopoietic"/>
+    </property>
   </concept>
   <concept id="6693">
     <code value="LYM"/>
     <display value="Lymphocytes"/>
+    <definition value="Lymphocytes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -143,6 +164,7 @@
   <concept id="6694">
     <code value="THA"/>
     <display value="Therapeutic Apheresis"/>
+    <definition value="Therapeutic Apheresis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -151,6 +173,7 @@
   <concept id="6695">
     <code value="THW"/>
     <display value="Therapeutic Whole Blood"/>
+    <definition value="Therapeutic Whole Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

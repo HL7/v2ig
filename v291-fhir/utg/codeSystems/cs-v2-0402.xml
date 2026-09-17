@@ -45,6 +45,7 @@
   <concept id="4523">
     <code value="D"/>
     <display value="Dental"/>
+    <definition value="Dental"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4524">
     <code value="G"/>
     <display value="Graduate"/>
+    <definition value="Graduate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4525">
     <code value="M"/>
     <display value="Medical"/>
+    <definition value="Medical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4526">
     <code value="U"/>
     <display value="Undergraduate"/>
+    <definition value="Undergraduate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

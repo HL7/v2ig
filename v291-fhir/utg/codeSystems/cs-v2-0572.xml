@@ -45,6 +45,7 @@
   <concept id="6251">
     <code value="RVAT"/>
     <display value="Registered in VAT register"/>
+    <definition value="Registered in VAT register"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6252">
     <code value="UVAT"/>
     <display value="Unregistered in VAT register"/>
+    <definition value="Unregistered in VAT register"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

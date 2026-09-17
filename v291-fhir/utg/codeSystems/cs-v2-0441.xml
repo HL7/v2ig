@@ -45,6 +45,7 @@
   <concept id="4783">
     <code value="A"/>
     <display value="Active"/>
+    <definition value="Active"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4784">
     <code value="I"/>
     <display value="Inactive"/>
+    <definition value="Inactive"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4785">
     <code value="L"/>
     <display value="Inactive - Lost to follow-up (cancel contract)"/>
+    <definition value="Inactive - Lost to follow-up (cancel contract)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4786">
     <code value="M"/>
     <display value="Inactive - Moved or gone elsewhere (cancel contract)"/>
+    <definition value="Inactive - Moved or gone elsewhere (cancel contract)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4787">
     <code value="P"/>
     <display value="Inactive - Permanently inactive (Do not reactivate or add new entries to the record)"/>
+    <definition value="Inactive - Permanently inactive (Do not reactivate or add new entries to the record)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4788">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4789">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

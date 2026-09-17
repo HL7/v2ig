@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5632">
     <code value="AE"/>
     <display value="American Express"/>
+    <definition value="American Express"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="5633">
     <code value="DEA"/>
     <display value="Drug Enforcement Agency"/>
+    <definition value="Drug Enforcement Agency"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital’s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Assigning Authority is necessary in addition to DEA as an Identifier Type."/>
@@ -67,10 +75,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital’s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Assigning Authority is necessary in addition to DEA as an Identifier Type."/>
+    </property>
   </concept>
   <concept id="5634">
     <code value="DOD"/>
     <display value="Department of Defense"/>
+    <definition value="Department of Defense"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In some countries e.g., the US, more than one department may issue a military identifier. Hence, US is not sufficient as the Assigning Authority."/>
@@ -79,10 +92,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In some countries e.g., the US, more than one department may issue a military identifier. Hence, US is not sufficient as the Assigning Authority."/>
+    </property>
   </concept>
   <concept id="5635">
     <code value="MC"/>
     <display value="Master Card"/>
+    <definition value="Master Card"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +109,7 @@
   <concept id="5636">
     <code value="VA"/>
     <display value="Veterans Affairs"/>
+    <definition value="Veterans Affairs"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -99,6 +118,7 @@
   <concept id="5637">
     <code value="VI"/>
     <display value="Visa"/>
+    <definition value="Visa"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

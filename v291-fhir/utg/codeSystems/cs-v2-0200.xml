@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.105"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="NameType2"/>
   <title value="nameType2"/>
   <status value="active"/>
@@ -43,14 +43,35 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="1926">
     <code value="A"/>
     <display value="Assigned"/>
+    <definition value="Assigned"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aliasname"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name assigned to a person. Reasons some organizations assign alternate names may include not knowing the person&#39;s name, or to maintain anonymity. Some, but not necessarily all, of the name types that people call &quot;alias&quot; may fit into this category."/>
@@ -59,10 +80,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name assigned to a person. Reasons some organizations assign alternate names may include not knowing the person&#39;s name, or to maintain anonymity. Some, but not necessarily all, of the name types that people call &quot;alias&quot; may fit into this category."/>
+    </property>
   </concept>
   <concept id="1927">
     <code value="B"/>
     <display value="Birth name"/>
+    <definition value="Birth name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Geburtsname"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name that a person had shortly after being born. Usually for family names but may be used to mark given names at birth that may have changed later.&#10;This is not for temporary names assigned at birth while a newborn is not yet named"/>
@@ -71,10 +105,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name that a person had shortly after being born. Usually for family names but may be used to mark given names at birth that may have changed later.&lt;p&gt;This is not for temporary names assigned at birth while a newborn is not yet named"/>
+    </property>
   </concept>
   <concept id="1928">
     <code value="BAD"/>
     <display value="Bad Name"/>
+    <definition value="Bad Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="ungültiger Name"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name that was wrongly used in the past and is now maintained only for the purposes of searching"/>
@@ -83,10 +130,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name that was wrongly used in the past and is now maintained only for the purposes of searching"/>
+    </property>
   </concept>
   <concept id="1929">
     <code value="C"/>
     <display value="Adopted Name"/>
+    <definition value="Adopted Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="angenommener Name"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name acquired by adoption"/>
@@ -95,10 +155,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name acquired by adoption"/>
+    </property>
   </concept>
   <concept id="1930">
     <code value="D"/>
     <display value="Customary Name"/>
+    <definition value="Customary Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="angezeigter Name"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Known as/conventional/the one you use. May also be known asa preferred name."/>
@@ -107,10 +180,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Known as/conventional/the one you use.  May also be known asa preferred name."/>
+    </property>
   </concept>
   <concept id="1931">
     <code value="F"/>
     <display value="Fathers Name"/>
+    <definition value="Fathers Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Name des Vaters"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Fathers Name ( Patronymic Name)"/>
@@ -119,10 +205,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Fathers Name ( Patronymic Name)"/>
+    </property>
   </concept>
   <concept id="1932">
     <code value="I"/>
     <display value="Licensing Name"/>
+    <definition value="Licensing Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="nicht verwendet"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -131,6 +230,15 @@
   <concept id="1933">
     <code value="K"/>
     <display value="Business name"/>
+    <definition value="Business name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Geschäftsname"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name used in a Professional or Business context. Also includes writer’s pseudonym, artist’s name, stage name, street name, etc.&#10;&#10;An example of use is where a person with multiple proper names (i.e., married) uses one of the particular names in a professional"/>
@@ -139,10 +247,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name used in a Professional or Business context. Also includes writer’s pseudonym, artist’s name, stage name, street name, etc.&#13;&#10;&#13;&#10;An example of use is where a person with multiple proper names (i.e. married) uses one of the particular names in a professional"/>
+    </property>
   </concept>
   <concept id="1934">
     <code value="L"/>
     <display value="Official Registry Name"/>
+    <definition value="Official Registry Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="gesetzlicher Name"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The formal name as registered in an official (government) registry, but which name might not be commonly used. May correspond to legal name&#10;For many people, customary name is also their official name"/>
@@ -151,10 +272,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The formal name as registered in an official (government) registry, but which name might not be commonly used. May correspond to legal name&lt;p&gt;For many people, customary name is also their official name"/>
+    </property>
   </concept>
   <concept id="1935">
     <code value="M"/>
     <display value="Maiden Name"/>
+    <definition value="Maiden Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Name als ledige Person (Ledigenname)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name you had just before you got married"/>
@@ -163,10 +297,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name you had just before you got married"/>
+    </property>
   </concept>
   <concept id="1936">
     <code value="MSK"/>
     <display value="Masked"/>
+    <definition value="Masked"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Name ist maskiert"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information.&#10;&#10;Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail."/>
@@ -175,10 +322,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information.&#13;&#10;&#13;&#10;Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail."/>
+    </property>
   </concept>
   <concept id="1937">
     <code value="N"/>
     <display value="Nickname"/>
+    <definition value="Nickname"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Spitzname"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Nickname /&quot;Call me&quot; Name/Street Name"/>
@@ -187,10 +347,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Nickname /&quot;Call me&quot; Name/Street Name"/>
+    </property>
   </concept>
   <concept id="1938">
     <code value="NAV"/>
     <display value="Temporarily Unavailable"/>
+    <definition value="Temporarily Unavailable"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Name zeitweise nicht verfügbar"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Information is not available at this time but it is expected that it will be available later.&#10;Includes John or Jane Doe situations"/>
@@ -199,10 +372,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Information is not available at this time but it is expected that it will be available later.&lt;p&gt;Includes John or Jane Doe situations"/>
+    </property>
   </concept>
   <concept id="1939">
     <code value="NB"/>
     <display value="Newborn Name"/>
+    <definition value="Newborn Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Name zeitweise nicht verfügbar"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A name assigned on a temporary basis at birth. i.e., &quot;Baby of Smith&quot;"/>
@@ -211,10 +397,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A name assigned on a temporary basis at birth. i.e. &quot;Baby of Smith&quot;"/>
+    </property>
   </concept>
   <concept id="1940">
     <code value="NOUSE"/>
     <display value="No Longer To Be Used"/>
+    <definition value="No Longer To Be Used"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="nicht länger in Benutzung"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Name not to be used anymore for personal reasons"/>
@@ -223,10 +422,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Name not to be used anymore for personal reasons"/>
+    </property>
   </concept>
   <concept id="1941">
     <code value="P"/>
     <display value="Name of Partner/Spouse"/>
+    <definition value="Name of Partner/Spouse"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="nicht verwendet"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Retained for backward compatibility only as of v2.7."/>
@@ -235,10 +447,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v2.7."/>
+    </property>
   </concept>
   <concept id="1942">
     <code value="R"/>
     <display value="Registered Name"/>
+    <definition value="Registered Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zuchtname bei Tieren"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="(animals only)&#10;Retained for backwards compatibility only as of v2.7. Use &quot;L&quot; instead - has same meaning"/>
@@ -247,10 +472,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(animals only)&lt;p&gt;Retained for backwards compatibility only as of v2.7. Use &quot;L&quot; instead - has same meaning"/>
+    </property>
   </concept>
   <concept id="1943">
     <code value="REL"/>
     <display value="Religious"/>
+    <definition value="Religious"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="e.g., Sister Mary Francis, Brother John"/>
@@ -259,10 +489,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="e.g. Sister Mary Francis, Brother John"/>
+    </property>
   </concept>
   <concept id="1944">
     <code value="S"/>
     <display value="Pseudonym"/>
+    <definition value="Pseudonym"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Pseudonym (z.B. für Studien)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Coded Pseudo-Name to ensure anonymity"/>
@@ -271,10 +514,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Coded Pseudo-Name to ensure anonymity"/>
+    </property>
   </concept>
   <concept id="1945">
     <code value="T"/>
     <display value="Indigenous/Tribal"/>
+    <definition value="Indigenous/Tribal"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammesname"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Indigenous/Tribal/Community Name e.g., Chief Red Cloud"/>
@@ -283,10 +539,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Indigenous/Tribal/Community Name  e.g. Chief Red Cloud"/>
+    </property>
   </concept>
   <concept id="1946">
     <code value="TEMP"/>
     <display value="Temporary Name"/>
+    <definition value="Temporary Name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="temporärer Name"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A temporary name. Note that a name valid time can provide more detailed information."/>
@@ -295,10 +564,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A temporary name. Note that a name valid time can provide more detailed information."/>
+    </property>
   </concept>
   <concept id="1947">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Name unbekannt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Unknown"/>
@@ -306,6 +588,44 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Unknown"/>
+    </property>
+  </concept>
+  <concept id="1925">
+    <code value="O"/>
+    <display value="Other"/>
+    <definition value="Other"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="sonstiger Name"/>
+    </designation>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1948">
+    <code value="..."/>
+    <display value="No suggested values defined"/>
+    <definition value="No suggested values defined"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
     </property>
   </concept>
 </CodeSystem>

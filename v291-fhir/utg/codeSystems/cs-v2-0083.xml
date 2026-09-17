@@ -45,6 +45,7 @@
   <concept id="1286">
     <code value="D"/>
     <display value="Outlier days"/>
+    <definition value="Outlier days"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="1287">
     <code value="C"/>
     <display value="Outlier cost"/>
+    <definition value="Outlier cost"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

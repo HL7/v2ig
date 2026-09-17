@@ -45,6 +45,7 @@
   <concept id="6283">
     <code value="1"/>
     <display value="OR Mode Without Operator"/>
+    <definition value="OR Mode Without Operator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6284">
     <code value="2"/>
     <display value="OR Mode with Operator"/>
+    <definition value="OR Mode with Operator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6285">
     <code value="3"/>
     <display value="CPD Mode Without Operator"/>
+    <definition value="CPD Mode Without Operator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6286">
     <code value="4"/>
     <display value="CPD Mode With Operator"/>
+    <definition value="CPD Mode With Operator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6287">
     <code value="5"/>
     <display value="Offline Mode"/>
+    <definition value="Offline Mode"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,15 @@
   <concept id="1580">
     <code value="Y"/>
     <display value="Yes"/>
+    <definition value="Yes"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ja"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1581">
     <code value="N"/>
     <display value="No"/>
+    <definition value="No"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nein"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1582">
     <code value="M"/>
     <display value="Modified assignment"/>
+    <definition value="Modified assignment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sonderabmachung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

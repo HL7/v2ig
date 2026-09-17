@@ -45,6 +45,15 @@
   <concept id="2259">
     <code value="C"/>
     <display value="Consultation"/>
+    <definition value="Consultation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Behandlung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="2260">
     <code value="D"/>
     <display value="Diagnosis"/>
+    <definition value="Diagnosis"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Diagnose"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="2261">
     <code value="M"/>
     <display value="Medication (antibiotic)"/>
+    <definition value="Medication (antibiotic)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Medikation"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="2262">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="andere"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="2263">
     <code value="R"/>
     <display value="Radiological scheduling (not using ICDA codes)"/>
+    <definition value="Radiological scheduling (not using ICDA codes)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Planung von radiologischen Untersuchungen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +130,15 @@
   <concept id="2264">
     <code value="S"/>
     <display value="Sign and symptom"/>
+    <definition value="Sign and symptom"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Symptome"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +147,15 @@
   <concept id="2265">
     <code value="T"/>
     <display value="Tissue diagnosis"/>
+    <definition value="Tissue diagnosis"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Gewebebestimmung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +164,15 @@
   <concept id="2266">
     <code value="I"/>
     <display value="Invasive procedure not classified elsewhere (I.V., catheter, etc.)"/>
+    <definition value="Invasive procedure not classified elsewhere (I.V., catheter, etc.)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Maßnahme"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

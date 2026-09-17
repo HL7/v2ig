@@ -45,6 +45,7 @@
   <concept id="6644">
     <code value="NIN"/>
     <display value="Process was not interrupted"/>
+    <definition value="Process was not interrupted"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6645">
     <code value="WOT"/>
     <display value="Walk Out: Process interrupted before the Phlebotomist inserts the needle in the Donor&#39;s arm"/>
+    <definition value="Walk Out: Process interrupted before the Phlebotomist inserts the needle in the Donor&#39;s arm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6646">
     <code value="ABR"/>
     <display value="Aborted Run: Process interrupted after the Phlebotomist inserts the needle in the Donor&#39;s arm"/>
+    <definition value="Aborted Run: Process interrupted after the Phlebotomist inserts the needle in the Donor&#39;s arm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6647">
     <code value="A"/>
     <display value="Annual"/>
+    <definition value="Annual"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6648">
     <code value="D"/>
     <display value="Per Day"/>
+    <definition value="Per Day"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="6649">
     <code value="M"/>
     <display value="Per Month"/>
+    <definition value="Per Month"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +84,7 @@
   <concept id="6650">
     <code value="O"/>
     <display value="Duration of the Order"/>
+    <definition value="Duration of the Order"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Not from UCUM"/>
@@ -82,11 +92,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Not from UCUM"/>
     </property>
   </concept>
   <concept id="6651">
     <code value="PL"/>
     <display value="Patients Lifetime"/>
+    <definition value="Patients Lifetime"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Not from UCUM"/>
@@ -95,10 +110,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Not from UCUM"/>
+    </property>
   </concept>
   <concept id="6652">
     <code value="WK"/>
     <display value="Per Week"/>
+    <definition value="Per Week"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

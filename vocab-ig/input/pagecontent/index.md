@@ -1,7 +1,7 @@
 # HL7 V2+ Vocabulary — Chapter 2C
 
 This guide carries the code tables of **HL7 V2.9.1 Chapter 2C** as FHIR R5
-terminology resources: **398 CodeSystems**, **422 ValueSets**, and an extended
+terminology resources: **399 CodeSystems**, **423 ValueSets**, and an extended
 `conceptdomains` CodeSystem.
 
 > **This is a draft for committee review, not a publication.** It exists so
@@ -20,8 +20,8 @@ Of the 799 tables in the chapter:
 
 | Route | Tables | What was written |
 |---|---|---|
-| Code system and value set | 398 | Both, at the table's own THO canonical |
-| Concept domain only | 360 | No resource — the table names a domain, not a code set |
+| Code system and value set | 399 | Both, at the table's own THO canonical |
+| Concept domain only | 359 | No resource — the table names a domain, not a code set |
 | Value set only | 24 | The codes belong to another authority; only the value set is ours |
 | Needs a decision | 14 | Nothing written — see [Known issues](known-issues.html) |
 | Nothing to write | 3 | Tables 0010, 0188 and 9999 |
@@ -45,5 +45,10 @@ difference is recorded** rather than quietly resolved.
 - **[Table index](table-index.html)** — every Chapter 2C table, and the artifacts
   that represent it, here or in THO. Start here if you have a table number
 - **[Artifacts](artifacts.html)** — every code system and value set in the build
+- **[What this guide keeps from THO](tho-merge.html)** — what the merge with
+  THO's published content preserved, where the two disagree, and what that
+  does to version numbers
 - **[How these resources were produced](provenance.html)** — the pipeline, and what is authoritative
+- **[General questions](general-questions.html)** — the judgement calls this
+  guide had to make, what it currently does about each, and who should confirm
 - **[Known issues in this build](known-issues.html)** — read before filing anything

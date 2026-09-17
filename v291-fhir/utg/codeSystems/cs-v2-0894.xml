@@ -45,6 +45,7 @@
   <concept id="6514">
     <code value="L"/>
     <display value="Left"/>
+    <definition value="Left"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6515">
     <code value="R"/>
     <display value="Right"/>
+    <definition value="Right"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

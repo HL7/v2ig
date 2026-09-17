@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6274">
     <code value="1"/>
     <display value="mm/dd/yy"/>
+    <definition value="mm/dd/yy"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="USA standard"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="USA standard"/>
+    </property>
   </concept>
   <concept id="6275">
     <code value="2"/>
     <display value="yy.mm.dd"/>
+    <definition value="yy.mm.dd"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ANSI standard"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ANSI standard"/>
+    </property>
   </concept>
   <concept id="6276">
     <code value="3"/>
     <display value="dd/mm/yy"/>
+    <definition value="dd/mm/yy"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Britain/France standard"/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Britain/France standard"/>
+    </property>
   </concept>
   <concept id="6277">
     <code value="4"/>
     <display value="dd.mm.yy"/>
+    <definition value="dd.mm.yy"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Germany standard"/>
@@ -95,10 +117,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Germany standard"/>
+    </property>
   </concept>
   <concept id="6278">
     <code value="5"/>
     <display value="yy/mm/dd"/>
+    <definition value="yy/mm/dd"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Japan standard"/>
@@ -107,10 +134,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Japan standard"/>
+    </property>
   </concept>
   <concept id="6279">
     <code value="6"/>
     <display value="Yymmdd"/>
+    <definition value="Yymmdd"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ISO standard"/>
@@ -118,6 +150,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ISO standard"/>
     </property>
   </concept>
 </CodeSystem>

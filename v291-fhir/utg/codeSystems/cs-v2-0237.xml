@@ -45,6 +45,7 @@
   <concept id="2301">
     <code value="I"/>
     <display value="Interaction"/>
+    <definition value="Interaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2302">
     <code value="O"/>
     <display value="Overdose"/>
+    <definition value="Overdose"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2303">
     <code value="A"/>
     <display value="Abuse"/>
+    <definition value="Abuse"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2304">
     <code value="M"/>
     <display value="Misuse"/>
+    <definition value="Misuse"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2305">
     <code value="D"/>
     <display value="Dependency"/>
+    <definition value="Dependency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2306">
     <code value="L"/>
     <display value="Lack of expect therapeutic effect"/>
+    <definition value="Lack of expect therapeutic effect"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2307">
     <code value="W"/>
     <display value="Drug withdrawal"/>
+    <definition value="Drug withdrawal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2308">
     <code value="B"/>
     <display value="Unexpected beneficial effect"/>
+    <definition value="Unexpected beneficial effect"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

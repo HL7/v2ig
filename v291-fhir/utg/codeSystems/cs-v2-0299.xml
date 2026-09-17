@@ -45,9 +45,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="2974">
     <code value="A"/>
     <display value="No encoding - data are displayable ASCII characters."/>
+    <definition value="No encoding - data are displayable ASCII characters."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="keine Kodierung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -56,6 +71,7 @@
   <concept id="2975">
     <code value="Hex"/>
     <display value="Hexadecimal encoding - consecutive pairs of hexadecimal digits represent consecutive single octets."/>
+    <definition value="Hexadecimal encoding - consecutive pairs of hexadecimal digits represent consecutive single octets."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -72,6 +88,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The Request For Comment (RFC) 1521 standard is available at: http://www.ietf.org/rfc/rfc1521.txt"/>
     </property>
   </concept>
 </CodeSystem>

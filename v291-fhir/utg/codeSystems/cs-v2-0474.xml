@@ -42,9 +42,16 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
   <concept id="4876">
     <code value="D"/>
     <display value="Department"/>
+    <definition value="Department"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +60,7 @@
   <concept id="4877">
     <code value="F"/>
     <display value="Facility"/>
+    <definition value="Facility"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +69,7 @@
   <concept id="4879">
     <code value="U"/>
     <display value="Subdepartment"/>
+    <definition value="Subdepartment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +78,7 @@
   <concept id="4881">
     <code value="S"/>
     <display value="Subdivision"/>
+    <definition value="Subdivision"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +87,33 @@
   <concept id="4882">
     <code value="V"/>
     <display value="Division"/>
+    <definition value="Division"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4878">
+    <code value="L"/>
+    <display value="Local market area"/>
+    <definition value="Local market area"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="4880">
+    <code value="M"/>
+    <display value="Medical Center Area"/>
+    <definition value="Medical Center Area"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6178">
     <code value="ORG"/>
     <display value="Payee Organization"/>
+    <definition value="Payee Organization"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The payee is not a person/individual/being, but an entity commonly identified as an organization. Examples could be a country healthcare payer, or an insurance company responsible for payment."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The payee is not a person/individual/being, but an entity commonly identified as an organization.  Examples could be a country healthcare payer, or an insurance company responsible for payment."/>
+    </property>
   </concept>
   <concept id="6179">
     <code value="PERS"/>
     <display value="Person"/>
+    <definition value="Person"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A person/individual/being."/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A person/individual/being."/>
+    </property>
   </concept>
   <concept id="6180">
     <code value="PPER"/>
     <display value="Pay Person"/>
+    <definition value="Pay Person"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Person/individual/being responsible for payment."/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Person/individual/being responsible for payment."/>
+    </property>
   </concept>
   <concept id="6181">
     <code value="EMPL"/>
     <display value="Employer"/>
+    <definition value="Employer"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A legal entity that controls and directs a worker under an express or implied contract of employment and a salary or wages in compensation.&#10;&#10;In worker’s compensation cases, the Employer may be the “organization” responsible for paying the healthcare charges for employment related illness or injury."/>
@@ -94,6 +116,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A legal entity that controls and directs a worker under an express or implied contract of employment and a salary or wages in compensation.&#13;&#10;&#13;&#10;In worker’s compensation cases, the Employer may be the “organization” responsible for paying the healthcare charges for employment related illness or injury."/>
     </property>
   </concept>
 </CodeSystem>

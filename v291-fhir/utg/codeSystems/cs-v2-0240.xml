@@ -45,6 +45,7 @@
   <concept id="2315">
     <code value="D"/>
     <display value="Death"/>
+    <definition value="Death"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2316">
     <code value="L"/>
     <display value="Life threatening"/>
+    <definition value="Life threatening"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2317">
     <code value="H"/>
     <display value="Caused hospitalized"/>
+    <definition value="Caused hospitalized"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2318">
     <code value="P"/>
     <display value="Prolonged hospitalization"/>
+    <definition value="Prolonged hospitalization"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2319">
     <code value="C"/>
     <display value="Congenital anomaly/birth defect"/>
+    <definition value="Congenital anomaly/birth defect"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2320">
     <code value="I"/>
     <display value="Incapacity which is significant, persistent or permanent"/>
+    <definition value="Incapacity which is significant, persistent or permanent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2321">
     <code value="J"/>
     <display value="Disability which is significant, persistent or permanent"/>
+    <definition value="Disability which is significant, persistent or permanent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2322">
     <code value="R"/>
     <display value="Required intervention to prevent permanent impairment/damage"/>
+    <definition value="Required intervention to prevent permanent impairment/damage"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="2323">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

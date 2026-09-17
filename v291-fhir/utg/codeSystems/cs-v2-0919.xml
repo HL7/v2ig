@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6633">
     <code value="Y"/>
     <display value="This test should be exclusive"/>
+    <definition value="This test should be exclusive"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6634">
     <code value="N"/>
     <display value="This test can be included with any number of other tests"/>
+    <definition value="This test can be included with any number of other tests"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Default -.will be assumed when this field is empty"/>
@@ -67,10 +75,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Default -.will be assumed when this field is empty"/>
+    </property>
   </concept>
   <concept id="6635">
     <code value="D"/>
     <display value="In some cases, this test should be only exclusively with like tests (examples are cyto or pathology)"/>
+    <definition value="In some cases, this test should be only exclusively with like tests (examples are cyto or pathology)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="When D is specified for this field, using field OM1-49 determines how tests must be grouped together. Tests within the same Diagnostic Service Sector may be on the same requisition, and therefore in the same message"/>
@@ -78,6 +91,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="When  D is specified for this field, using field OM1-49 determines how tests must be grouped together.  Tests within the same Diagnostic Service Sector may be on the same requisition, and therefore in the same message"/>
     </property>
   </concept>
 </CodeSystem>

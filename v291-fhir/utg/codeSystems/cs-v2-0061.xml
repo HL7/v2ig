@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="829">
     <code value="BCV"/>
     <display value="Bank Card Validation Number"/>
+    <definition value="Bank Card Validation Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A non-embossed number included on bank cards and used to validate authenticity of the card and the person presenting the card"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A non-embossed number included on bank cards and used to validate authenticity of the card and the person presenting the card"/>
+    </property>
   </concept>
   <concept id="830">
     <code value="NPI"/>
     <display value="Check digit algorithm in the US National Provider Identifier"/>
+    <definition value="Check digit algorithm in the US National Provider Identifier"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -71,6 +83,15 @@
   <concept id="831">
     <code value="ISO"/>
     <display value="ISO 7064: 1983"/>
+    <definition value="ISO 7064: 1983"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="ISO 7064: 1983"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -79,6 +100,15 @@
   <concept id="832">
     <code value="M10"/>
     <display value="Mod 10 algorithm"/>
+    <definition value="Mod 10 algorithm"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Modulo10-Verfahren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -87,6 +117,15 @@
   <concept id="833">
     <code value="M11"/>
     <display value="Mod 11 algorithm"/>
+    <definition value="Mod 11 algorithm"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Modulo11-Verfahren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

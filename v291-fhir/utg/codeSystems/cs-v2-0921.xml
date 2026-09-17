@@ -45,6 +45,7 @@
   <concept id="6638">
     <code value="ADM"/>
     <display value="Admitting"/>
+    <definition value="Admitting"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6639">
     <code value="SERV"/>
     <display value="Service"/>
+    <definition value="Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6640">
     <code value="PROC"/>
     <display value="Procedure"/>
+    <definition value="Procedure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,15 @@
   <concept id="1622">
     <code value="ANC"/>
     <display value="Ancillary"/>
+    <definition value="Ancillary"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zusatzversicherung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1623">
     <code value="2ANC"/>
     <display value="Second ancillary"/>
+    <definition value="Second ancillary"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="weitere Zusatzversicherung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1624">
     <code value="MMD"/>
     <display value="Major medical"/>
+    <definition value="Major medical"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Hauptversicherung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="1625">
     <code value="2MMD"/>
     <display value="Second major medical"/>
+    <definition value="Second major medical"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="weitere Hauptversicherung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="1626">
     <code value="3MMD"/>
     <display value="Third major medical"/>
+    <definition value="Third major medical"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="weitere Hauptversicherung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

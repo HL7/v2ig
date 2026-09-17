@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.107"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="TelecommunicationEquipmentType"/>
   <title value="telecommunicationEquipmentType"/>
   <status value="active"/>
@@ -45,6 +45,15 @@
   <concept id="1963">
     <code value="BP"/>
     <display value="Beeper"/>
+    <definition value="Beeper"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Beeper/Pager"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,12 +62,21 @@
   <concept id="1961">
     <code value="CP"/>
     <display value="Cellular or Mobile Phone"/>
+    <definition value="Cellular or Mobile Phone"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Mobiltelephon"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
   </concept>
-  <concept id="55006">
+  <concept id="55007">
     <code value="DSM"/>
     <display value="Direct Secure Messaging"/>
     <property>
@@ -69,6 +87,15 @@
   <concept id="1959">
     <code value="FX"/>
     <display value="Fax"/>
+    <definition value="Fax"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fax"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +104,15 @@
   <concept id="1964">
     <code value="Internet"/>
     <display value="Internet Address"/>
+    <definition value="Internet Address"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Internet"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +121,15 @@
   <concept id="1960">
     <code value="MD"/>
     <display value="Modem"/>
+    <definition value="Modem"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Modem"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +138,15 @@
   <concept id="1958">
     <code value="PH"/>
     <display value="Telephone"/>
+    <definition value="Telephone"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Telephon"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +155,15 @@
   <concept id="1962">
     <code value="SAT"/>
     <display value="Satellite Phone"/>
+    <definition value="Satellite Phone"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Satellitentelefon"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +172,7 @@
   <concept id="1966">
     <code value="TDD"/>
     <display value="Telecommunications Device for the Deaf"/>
+    <definition value="Telecommunications Device for the Deaf"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +181,7 @@
   <concept id="1967">
     <code value="TTY"/>
     <display value="Teletypewriter"/>
+    <definition value="Teletypewriter"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +190,15 @@
   <concept id="1965">
     <code value="X.400"/>
     <display value="X.400 email address"/>
+    <definition value="X.400 email address"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="X.400-Nummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

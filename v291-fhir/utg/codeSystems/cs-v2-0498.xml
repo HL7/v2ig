@@ -45,6 +45,7 @@
   <concept id="5494">
     <code value="A"/>
     <display value="Active - Consent has been granted"/>
+    <definition value="Active - Consent has been granted"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5495">
     <code value="L"/>
     <display value="Limited - Consent has been granted with limitations"/>
+    <definition value="Limited - Consent has been granted with limitations"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5496">
     <code value="R"/>
     <display value="Refused - Consent has been refused"/>
+    <definition value="Refused - Consent has been refused"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5497">
     <code value="P"/>
     <display value="Pending - Consent has not yet been sought"/>
+    <definition value="Pending - Consent has not yet been sought"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5498">
     <code value="X"/>
     <display value="Rescinded - Consent was initially granted, but was subsequently revoked or ended."/>
+    <definition value="Rescinded - Consent was initially granted, but was subsequently revoked or ended."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="5499">
     <code value="B"/>
     <display value="Bypassed (Consent not sought)"/>
+    <definition value="Bypassed (Consent not sought)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

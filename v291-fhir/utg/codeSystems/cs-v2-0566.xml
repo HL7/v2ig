@@ -45,6 +45,7 @@
   <concept id="6216">
     <code value="WBL"/>
     <display value="Whole Blood"/>
+    <definition value="Whole Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6217">
     <code value="RBC"/>
     <display value="Red Blood Cells"/>
+    <definition value="Red Blood Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6218">
     <code value="PLS"/>
     <display value="Plasma"/>
+    <definition value="Plasma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6219">
     <code value="PLT"/>
     <display value="Platelets"/>
+    <definition value="Platelets"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6220">
     <code value="GRN"/>
     <display value="Granulocytes"/>
+    <definition value="Granulocytes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="6221">
     <code value="PSC"/>
     <display value="Peripheral Stem Cells"/>
+    <definition value="Peripheral Stem Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="6222">
     <code value="LYM"/>
     <display value="Lymphocytes"/>
+    <definition value="Lymphocytes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.41"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="VersionId"/>
   <title value="versionId"/>
   <status value="active"/>
@@ -43,14 +43,35 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="1321">
     <code value="2.0"/>
     <display value="Release 2.0"/>
+    <definition value="Release 2.0"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Version 2.0, September 1988"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="September 1988"/>
@@ -59,10 +80,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="September 1988"/>
+    </property>
   </concept>
   <concept id="1322">
     <code value="2.0D"/>
     <display value="Demo 2.0"/>
+    <definition value="Demo 2.0"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Version 2.0, October 1988 (nur zu Demonstrationszwecken)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="October 1988"/>
@@ -71,10 +105,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="October 1988"/>
+    </property>
   </concept>
   <concept id="1323">
     <code value="2.1"/>
     <display value="Release 2.1"/>
+    <definition value="Release 2.1"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Version 2.1, März 1990"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="March 1990"/>
@@ -83,10 +130,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="March 1990"/>
+    </property>
   </concept>
   <concept id="1324">
     <code value="2.2"/>
     <display value="Release 2.2"/>
+    <definition value="Release 2.2"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Version 2.2, Dezember 1994"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="December 1994"/>
@@ -95,10 +155,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="December 1994"/>
+    </property>
   </concept>
   <concept id="1325">
     <code value="2.3"/>
     <display value="Release 2.3"/>
+    <definition value="Release 2.3"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="March 1997"/>
@@ -107,10 +172,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="March 1997"/>
+    </property>
   </concept>
   <concept id="1326">
     <code value="2.3.1"/>
     <display value="Release 2.3.1"/>
+    <definition value="Release 2.3.1"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="May 1999"/>
@@ -119,10 +189,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="May 1999"/>
+    </property>
   </concept>
   <concept id="1328">
     <code value="2.4"/>
     <display value="Release 2.4"/>
+    <definition value="Release 2.4"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="November 2000"/>
@@ -131,10 +206,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="November 2000"/>
+    </property>
   </concept>
   <concept id="1329">
     <code value="2.5"/>
     <display value="Release 2.5"/>
+    <definition value="Release 2.5"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="May 2003"/>
@@ -143,10 +223,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="May 2003"/>
+    </property>
   </concept>
   <concept id="1330">
     <code value="2.5.1"/>
     <display value="Release 2.5.1"/>
+    <definition value="Release 2.5.1"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="January 2007"/>
@@ -155,10 +240,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="January 2007"/>
+    </property>
   </concept>
   <concept id="1331">
     <code value="2.6"/>
     <display value="Release 2.6"/>
+    <definition value="Release 2.6"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="July 2007"/>
@@ -167,10 +257,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="July 2007"/>
+    </property>
   </concept>
   <concept id="1332">
     <code value="2.7"/>
     <display value="Release 2.7"/>
+    <definition value="Release 2.7"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="November 2010"/>
@@ -179,10 +274,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="November 2010"/>
+    </property>
   </concept>
   <concept id="1333">
     <code value="2.7.1"/>
     <display value="Release 2.7.1"/>
+    <definition value="Release 2.7.1"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="July 2012"/>
@@ -191,10 +291,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="July 2012"/>
+    </property>
   </concept>
   <concept id="1334">
     <code value="2.8"/>
     <display value="Release 2.8"/>
+    <definition value="Release 2.8"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="February 2014"/>
@@ -203,10 +308,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="February 2014"/>
+    </property>
   </concept>
   <concept id="1335">
     <code value="2.8.1"/>
     <display value="Release 2.8.1"/>
+    <definition value="Release 2.8.1"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="April 2014"/>
@@ -215,10 +325,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="April 2014"/>
+    </property>
   </concept>
   <concept id="1336">
     <code value="2.8.2"/>
     <display value="Release 2.8.2"/>
+    <definition value="Release 2.8.2"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="May 2015"/>
@@ -227,10 +342,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="May 2015"/>
+    </property>
   </concept>
   <concept id="1337">
     <code value="2.9"/>
     <display value="Release 2.9"/>
+    <definition value="Draft 2.9"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sep. 2019"/>
@@ -238,6 +358,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sep. 2017"/>
     </property>
   </concept>
   <concept id="55005">
@@ -250,6 +374,19 @@
     <property>
       <code value="status"/>
       <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="1327">
+    <code value="2.3.2"/>
+    <display value="Release 2.3.2"/>
+    <definition value="Release 2.3.2"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
   </concept>
 </CodeSystem>

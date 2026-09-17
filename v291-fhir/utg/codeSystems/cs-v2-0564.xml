@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6207">
     <code value="EA"/>
     <display value="Edit/Adjudication Response"/>
+    <definition value="Edit/Adjudication Response"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Payer adjustment"/>
@@ -58,11 +65,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Payer adjustment"/>
     </property>
   </concept>
   <concept id="6208">
     <code value="IN"/>
     <display value="Information"/>
+    <definition value="Information"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Payer adjustment"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Payer adjustment"/>
+    </property>
   </concept>
   <concept id="6209">
     <code value="PA"/>
     <display value="Provider Adjustment"/>
+    <definition value="Provider Adjustment"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Provider adjustment"/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Provider adjustment"/>
+    </property>
   </concept>
   <concept id="6210">
     <code value="PR"/>
     <display value="Processing Result"/>
+    <definition value="Processing Result"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Payer adjustment"/>
@@ -94,6 +116,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Payer adjustment"/>
     </property>
   </concept>
 </CodeSystem>

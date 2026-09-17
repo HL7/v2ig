@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.4"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Event"/>
   <title value="event"/>
   <status value="active"/>
@@ -43,142 +43,299 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="332">
     <code value="Q09"/>
     <display value="RQQ - event replay query"/>
+    <definition value="RQQ - event replay query"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="360">
     <code value="R09"/>
     <display value="ERP - Event Replay Response"/>
+    <definition value="ERP - Event Replay Response"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="321">
     <code value="RDR"/>
     <display value="RDR - Pharmacy dispense information query response"/>
+    <definition value="RDR - Pharmacy dispense information query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort bzgl. des zu verabreichenden Medikamentes bzw. der Behandlung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="123">
     <code value="X01"/>
     <display value="PEX - Product experience"/>
+    <definition value="PEX - Product experience"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="322">
     <code value="Q04"/>
     <display value="EQQ - Embedded query language query"/>
+    <definition value="EQQ - Embedded query language query"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="319">
     <code value="RAR"/>
     <display value="RAR - Pharmacy administration information query response"/>
+    <definition value="RAR - Pharmacy administration information query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort bzgl. der Behandlungs-/Darreichungsform"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="269">
     <code value="R0R"/>
     <display value="R0R - Pharmacy prescription order query response"/>
+    <definition value="R0R - Pharmacy prescription order query response"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="351">
     <code value="R03"/>
     <display value="QRY/DSR Display-oriented results, query/unsol. update (for backward compatibility only) (Replaced by Q05)"/>
+    <definition value="QRY/DSR Display-oriented results, query/unsol. update (for backward compatibility only) (Replaced by Q05)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anzeigeorientiertes Ergebnis"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="324">
     <code value="RER"/>
     <display value="RER - Pharmacy encoded order information query response"/>
+    <definition value="RER - Pharmacy encoded order information query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort bzgl. des zu verabreichenden Medikamentes bzw. der Behandlung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="330">
     <code value="Q08"/>
     <display value="SPQ - Stored procedure request"/>
+    <definition value="SPQ - Stored procedure request"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="328">
     <code value="Q07"/>
     <display value="VQQ - Virtual table query"/>
+    <definition value="VQQ - Virtual table query"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="310">
     <code value="R05"/>
     <display value="QRY/DSR - query for display results (See Q01)"/>
+    <definition value="QRY/DSR - query for display results (See Q01)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage nach anzeigeorientierten Ergebnissen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="312">
     <code value="R06"/>
     <display value="UDM - unsolicited update/display results (See Q05)"/>
+    <definition value="UDM - unsolicited update/display results (See Q05)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unaufgeforderte Änderung anzeigeorientierter Ergebnisse"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="355">
     <code value="R07"/>
     <display value="EDR - Enhanced Display Response"/>
+    <definition value="EDR - Enhanced Display Response"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="357">
     <code value="R08"/>
     <display value="TBR - Tabular Data Response"/>
+    <definition value="TBR - Tabular Data Response"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="326">
     <code value="RGR"/>
     <display value="RGR - Pharmacy dose information query response"/>
+    <definition value="RGR - Pharmacy dose information query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort bzgl. der Dosis bzw. der Frequenz der Behandlung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
   </concept>
   <concept id="124">
     <code value="A01"/>
     <display value="ADT/ACK - Admit/visit notification"/>
+    <definition value="ADT/ACK - Admit/visit notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="stationäre Aufnahme"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -187,6 +344,15 @@
   <concept id="125">
     <code value="A02"/>
     <display value="ADT/ACK - Transfer a patient"/>
+    <definition value="ADT/ACK - Transfer a patient"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Verlegung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -195,6 +361,15 @@
   <concept id="126">
     <code value="A03"/>
     <display value="ADT/ACK - Discharge/end visit"/>
+    <definition value="ADT/ACK -  Discharge/end visit"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Entlassung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -203,6 +378,15 @@
   <concept id="127">
     <code value="A04"/>
     <display value="ADT/ACK - Register a patient"/>
+    <definition value="ADT/ACK -  Register a patient"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Besuchsmeldung (nicht-stationär)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -211,6 +395,15 @@
   <concept id="128">
     <code value="A05"/>
     <display value="ADT/ACK - Pre-admit a patient"/>
+    <definition value="ADT/ACK -  Pre-admit a patient"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Voraufnahme eines Patienten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -219,6 +412,15 @@
   <concept id="129">
     <code value="A06"/>
     <display value="ADT/ACK - Change an outpatient to an inpatient"/>
+    <definition value="ADT/ACK -  Change an outpatient to an inpatient"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung von ambulant in stationär"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -227,6 +429,15 @@
   <concept id="130">
     <code value="A07"/>
     <display value="ADT/ACK - Change an inpatient to an outpatient"/>
+    <definition value="ADT/ACK -  Change an inpatient to an outpatient"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung von stationär in ambulant"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -235,6 +446,15 @@
   <concept id="131">
     <code value="A08"/>
     <display value="ADT/ACK - Update patient information"/>
+    <definition value="ADT/ACK -  Update patient information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung von Patienteninformationen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -243,6 +463,15 @@
   <concept id="132">
     <code value="A09"/>
     <display value="ADT/ACK - Patient departing - tracking"/>
+    <definition value="ADT/ACK -  Patient departing - tracking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient verläßt Einrichtung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -251,6 +480,15 @@
   <concept id="133">
     <code value="A10"/>
     <display value="ADT/ACK - Patient arriving - tracking"/>
+    <definition value="ADT/ACK -  Patient arriving - tracking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient erreicht Einrichtung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -259,6 +497,15 @@
   <concept id="134">
     <code value="A11"/>
     <display value="ADT/ACK - Cancel admit/visit notification"/>
+    <definition value="ADT/ACK -  Cancel admit/visit notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung für A01 und A04"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -267,6 +514,15 @@
   <concept id="135">
     <code value="A12"/>
     <display value="ADT/ACK - Cancel transfer"/>
+    <definition value="ADT/ACK -  Cancel transfer"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung für A02"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -275,6 +531,15 @@
   <concept id="136">
     <code value="A13"/>
     <display value="ADT/ACK - Cancel discharge/end visit"/>
+    <definition value="ADT/ACK -  Cancel discharge/end visit"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung für A03"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -283,6 +548,15 @@
   <concept id="137">
     <code value="A14"/>
     <display value="ADT/ACK - Pending admit"/>
+    <definition value="ADT/ACK -  Pending admit"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Geplante Aufnahme"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -291,6 +565,15 @@
   <concept id="138">
     <code value="A15"/>
     <display value="ADT/ACK - Pending transfer"/>
+    <definition value="ADT/ACK -  Pending transfer"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Geplante Verlegung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -299,6 +582,15 @@
   <concept id="139">
     <code value="A16"/>
     <display value="ADT/ACK - Pending discharge"/>
+    <definition value="ADT/ACK -  Pending discharge"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Geplante Entlassung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -307,6 +599,15 @@
   <concept id="140">
     <code value="A17"/>
     <display value="ADT/ACK - Swap patients"/>
+    <definition value="ADT/ACK -  Swap patients"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Bettentausch zweier Patienten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -315,6 +616,15 @@
   <concept id="141">
     <code value="A18"/>
     <display value="ADT/ACK - Merge patient information"/>
+    <definition value="ADT/ACK -  Merge patient information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patienteninformation zusammenführen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -322,11 +632,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="142">
     <code value="A19"/>
     <display value="QRY/ADR - Patient query"/>
+    <definition value="QRY/ADR -  Patient query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage nach Patientendaten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -335,10 +658,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="143">
     <code value="A20"/>
     <display value="ADT/ACK - Bed status update"/>
+    <definition value="ADT/ACK -  Bed status update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung des Bettenstatus"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -347,6 +683,15 @@
   <concept id="144">
     <code value="A21"/>
     <display value="ADT/ACK - Patient goes on a &quot;leave of absence&quot;"/>
+    <definition value="ADT/ACK -  Patient goes on a &quot;leave of absence&quot;"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Beginn einer Patientenabwesenheit"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -355,6 +700,15 @@
   <concept id="145">
     <code value="A22"/>
     <display value="ADT/ACK - Patient returns from a &quot;leave of absence&quot;"/>
+    <definition value="ADT/ACK -  Patient returns from a &quot;leave of absence&quot;"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ende einer Patientenabwesenheit"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -363,6 +717,15 @@
   <concept id="146">
     <code value="A23"/>
     <display value="ADT/ACK - Delete a patient record"/>
+    <definition value="ADT/ACK -  Delete a patient record"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Löschen eines Patientensatzes"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -371,6 +734,15 @@
   <concept id="147">
     <code value="A24"/>
     <display value="ADT/ACK - Link patient information"/>
+    <definition value="ADT/ACK -  Link patient information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Verknüpfen von Patientendaten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -379,6 +751,15 @@
   <concept id="148">
     <code value="A25"/>
     <display value="ADT/ACK - Cancel pending discharge"/>
+    <definition value="ADT/ACK -  Cancel pending discharge"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung einer eingeleiteten Entlassung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -387,6 +768,15 @@
   <concept id="149">
     <code value="A26"/>
     <display value="ADT/ACK - Cancel pending transfer"/>
+    <definition value="ADT/ACK -  Cancel pending transfer"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung einer eingeleiteten Verlegung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -395,6 +785,15 @@
   <concept id="150">
     <code value="A27"/>
     <display value="ADT/ACK - Cancel pending admit"/>
+    <definition value="ADT/ACK -  Cancel pending admit"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung einer eingeleiteten Aufnahme"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -403,6 +802,15 @@
   <concept id="151">
     <code value="A28"/>
     <display value="ADT/ACK - Add person information"/>
+    <definition value="ADT/ACK -  Add person information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Personendaten hinzufügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -411,6 +819,15 @@
   <concept id="152">
     <code value="A29"/>
     <display value="ADT/ACK - Delete person information"/>
+    <definition value="ADT/ACK -  Delete person information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Löschung von personenbezogenen Daten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -419,6 +836,15 @@
   <concept id="153">
     <code value="A30"/>
     <display value="ADT/ACK - Merge person information"/>
+    <definition value="ADT/ACK -  Merge person information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="veraltet"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -427,10 +853,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="154">
     <code value="A31"/>
     <display value="ADT/ACK - Update person information"/>
+    <definition value="ADT/ACK -  Update person information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ändern personenbezogener Daten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -439,6 +878,15 @@
   <concept id="155">
     <code value="A32"/>
     <display value="ADT/ACK - Cancel patient arriving - tracking"/>
+    <definition value="ADT/ACK -  Cancel patient arriving - tracking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung eines Patientenzugangs (Bettenzuweisung)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -447,6 +895,15 @@
   <concept id="156">
     <code value="A33"/>
     <display value="ADT/ACK - Cancel patient departing - tracking"/>
+    <definition value="ADT/ACK -  Cancel patient departing - tracking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung eines Patientenabgangs (Bettenfreigabe)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -455,6 +912,15 @@
   <concept id="157">
     <code value="A34"/>
     <display value="ADT/ACK - Merge patient information - patient ID only"/>
+    <definition value="ADT/ACK -  Merge patient information - patient ID only"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Abgleich nur der Patientennummer (veraltet)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -462,11 +928,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="158">
     <code value="A35"/>
     <display value="ADT/ACK - Merge patient information - account number only"/>
+    <definition value="ADT/ACK -  Merge patient information - account number only"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Abgleich nur der Abrechnungsnummer / Debitorenkontonummer (veraltet)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -474,11 +953,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="159">
     <code value="A36"/>
     <display value="ADT/ACK - Merge patient information - patient ID and account number"/>
+    <definition value="ADT/ACK -  Merge patient information - patient ID and account number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Abgleich von Patientennummer und Abrechnungsnummer / Debitorenkontonummer (veraltet)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -487,10 +979,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="160">
     <code value="A37"/>
     <display value="ADT/ACK - Unlink patient information"/>
+    <definition value="ADT/ACK -  Unlink patient information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auflösung einer Verknüpfung von Patientendaten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -499,6 +1004,15 @@
   <concept id="161">
     <code value="A38"/>
     <display value="ADT/ACK - Cancel pre-admit"/>
+    <definition value="ADT/ACK - Cancel pre-admit"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung zu A05"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -507,6 +1021,15 @@
   <concept id="162">
     <code value="A39"/>
     <display value="ADT/ACK - Merge person - patient ID"/>
+    <definition value="ADT/ACK - Merge person - patient ID"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zusammenführung von Information über externe ID (veraltet)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -515,10 +1038,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="163">
     <code value="A40"/>
     <display value="ADT/ACK - Merge patient - patient identifier list"/>
+    <definition value="ADT/ACK - Merge patient - patient identifier list"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zusammenführung v. Pat-Information über ID-Liste"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -527,6 +1063,15 @@
   <concept id="164">
     <code value="A41"/>
     <display value="ADT/ACK - Merge account - patient account number"/>
+    <definition value="ADT/ACK - Merge account - patient account number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zusammenführung von Konten über Kontonummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -535,6 +1080,15 @@
   <concept id="165">
     <code value="A42"/>
     <display value="ADT/ACK - Merge visit - visit number"/>
+    <definition value="ADT/ACK - Merge visit - visit number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zusammenführung v.Fall-Information über Fallnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -543,6 +1097,15 @@
   <concept id="166">
     <code value="A43"/>
     <display value="ADT/ACK - Move patient information - patient identifier list"/>
+    <definition value="ADT/ACK - Move patient information - patient identifier list"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Korrektur einer falschen Zuordnung bzgl. PID-Liste"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -551,6 +1114,15 @@
   <concept id="167">
     <code value="A44"/>
     <display value="ADT/ACK - Move account information - patient account number"/>
+    <definition value="ADT/ACK - Move account information - patient account number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Korrektur einer falschen Zuordnung bzgl.Abrechungsnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -559,6 +1131,15 @@
   <concept id="168">
     <code value="A45"/>
     <display value="ADT/ACK - Move visit information - visit number"/>
+    <definition value="ADT/ACK - Move visit information - visit number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Korrektur einer falschen Zuordnung bzgl.Fallnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -567,6 +1148,15 @@
   <concept id="169">
     <code value="A46"/>
     <display value="ADT/ACK - Change patient ID"/>
+    <definition value="ADT/ACK - Change patient ID"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung der externen Pat.ID (PID-2)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -575,10 +1165,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="170">
     <code value="A47"/>
     <display value="ADT/ACK - Change patient identifier list"/>
+    <definition value="ADT/ACK - Change patient identifier list"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung der internen Pat.ID (PID-3)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -587,6 +1190,15 @@
   <concept id="171">
     <code value="A48"/>
     <display value="ADT/ACK - Change alternate patient ID"/>
+    <definition value="ADT/ACK - Change alternate patient ID"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung der alternativen Pat.ID (PID-4)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -595,10 +1207,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="172">
     <code value="A49"/>
     <display value="ADT/ACK - Change patient account number"/>
+    <definition value="ADT/ACK - Change patient account number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung der Abrechungsnummer (PID-18)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -607,6 +1232,15 @@
   <concept id="173">
     <code value="A50"/>
     <display value="ADT/ACK - Change visit number"/>
+    <definition value="ADT/ACK - Change visit number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung der Fallnummer (PV1-19)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -615,6 +1249,15 @@
   <concept id="174">
     <code value="A51"/>
     <display value="ADT/ACK - Change alternate visit ID"/>
+    <definition value="ADT/ACK - Change alternate visit ID"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung der alternativen Fallnummer (PV1-50)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -623,6 +1266,7 @@
   <concept id="175">
     <code value="A52"/>
     <display value="ADT/ACK - Cancel leave of absence for a patient"/>
+    <definition value="ADT/ACK - Cancel leave of absence for a patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -631,6 +1275,7 @@
   <concept id="176">
     <code value="A53"/>
     <display value="ADT/ACK - Cancel patient returns from a leave of absence"/>
+    <definition value="ADT/ACK - Cancel patient returns from a leave of absence"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -639,6 +1284,15 @@
   <concept id="177">
     <code value="A54"/>
     <display value="ADT/ACK - Change attending doctor"/>
+    <definition value="ADT/ACK - Change attending doctor"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung des behandelnden Arztes"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -647,6 +1301,15 @@
   <concept id="178">
     <code value="A55"/>
     <display value="ADT/ACK - Cancel change attending doctor"/>
+    <definition value="ADT/ACK - Cancel change attending doctor"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung der Änderung des behandelnden Arztes"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -655,6 +1318,15 @@
   <concept id="179">
     <code value="A60"/>
     <display value="ADT/ACK - Update allergy information"/>
+    <definition value="ADT/ACK - Update allergy information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aktualisierung der Allergie-Informationen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -663,6 +1335,7 @@
   <concept id="180">
     <code value="A61"/>
     <display value="ADT/ACK - Change consulting doctor"/>
+    <definition value="ADT/ACK - Change consulting doctor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -671,6 +1344,7 @@
   <concept id="181">
     <code value="A62"/>
     <display value="ADT/ACK - Cancel change consulting doctor"/>
+    <definition value="ADT/ACK - Cancel change consulting doctor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -679,6 +1353,7 @@
   <concept id="182">
     <code value="B01"/>
     <display value="PMU/ACK - Add personnel record"/>
+    <definition value="PMU/ACK - Add personnel record"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -687,6 +1362,7 @@
   <concept id="183">
     <code value="B02"/>
     <display value="PMU/ACK - Update personnel record"/>
+    <definition value="PMU/ACK - Update personnel record"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -695,6 +1371,7 @@
   <concept id="184">
     <code value="B03"/>
     <display value="PMU/ACK - Delete personnel re cord"/>
+    <definition value="PMU/ACK - Delete personnel re cord"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -703,6 +1380,7 @@
   <concept id="185">
     <code value="B04"/>
     <display value="PMU/ACK - Active practicing person"/>
+    <definition value="PMU/ACK - Active practicing person"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -711,6 +1389,7 @@
   <concept id="186">
     <code value="B05"/>
     <display value="PMU/ACK - Deactivate practicing person"/>
+    <definition value="PMU/ACK - Deactivate practicing person"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -719,6 +1398,7 @@
   <concept id="187">
     <code value="B06"/>
     <display value="PMU/ACK - Terminate practicing person"/>
+    <definition value="PMU/ACK - Terminate practicing person"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -727,6 +1407,7 @@
   <concept id="188">
     <code value="B07"/>
     <display value="PMU/ACK - Grant Certificate/Permission"/>
+    <definition value="PMU/ACK - Grant Certificate/Permission"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -735,6 +1416,7 @@
   <concept id="189">
     <code value="B08"/>
     <display value="PMU/ACK - Revoke Certificate/Permission"/>
+    <definition value="PMU/ACK - Revoke Certificate/Permission"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -743,6 +1425,15 @@
   <concept id="190">
     <code value="C01"/>
     <display value="CRM - Register a patient on a clinical trial"/>
+    <definition value="CRM - Register a patient on a clinical trial"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Registrierung eines Patienten f.eine klin.Studie"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -751,6 +1442,15 @@
   <concept id="191">
     <code value="C02"/>
     <display value="CRM - Cancel a patient registration on clinical trial (for clerical mistakes only)"/>
+    <definition value="CRM - Cancel a patient registration on clinical trial (for clerical mistakes only)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Löschung der Registrierung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -759,6 +1459,15 @@
   <concept id="192">
     <code value="C03"/>
     <display value="CRM - Correct/update registration information"/>
+    <definition value="CRM - Correct/update registration information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Korrektur/Änderung der Registrierung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -767,6 +1476,15 @@
   <concept id="193">
     <code value="C04"/>
     <display value="CRM - Patient has gone off a clinical trial"/>
+    <definition value="CRM - Patient has gone off a clinical trial"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient ist aus der Studie ausgeschieden"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -775,6 +1493,15 @@
   <concept id="194">
     <code value="C05"/>
     <display value="CRM - Patient enters phase of clinical trial"/>
+    <definition value="CRM - Patient enters phase of clinical trial"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient tritt in Studienphase ein"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -783,6 +1510,15 @@
   <concept id="195">
     <code value="C06"/>
     <display value="CRM - Cancel patient entering a phase (clerical mistake)"/>
+    <definition value="CRM - Cancel patient entering a phase (clerical mistake)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Löschung des Eintritts in eine Studienphase"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -791,6 +1527,15 @@
   <concept id="196">
     <code value="C07"/>
     <display value="CRM - Correct/update phase information"/>
+    <definition value="CRM - Correct/update phase information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Korrektur/Änderung der Angaben zur Studienphase"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -799,6 +1544,15 @@
   <concept id="197">
     <code value="C08"/>
     <display value="CRM - Patient has gone off phase of clinical trial"/>
+    <definition value="CRM - Patient has gone off phase of clinical trial"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient ist aus Studienphase ausgeschieden"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -807,6 +1561,15 @@
   <concept id="198">
     <code value="C09"/>
     <display value="CSU - Automated time intervals for reporting, like monthly"/>
+    <definition value="CSU - Automated time intervals for reporting, like monthly"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Festlegung des Zeitintervalls für autom. Berichte"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -815,6 +1578,15 @@
   <concept id="199">
     <code value="C10"/>
     <display value="CSU - Patient completes the clinical trial"/>
+    <definition value="CSU - Patient completes the clinical trial"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient beendet Studie"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -823,6 +1595,15 @@
   <concept id="200">
     <code value="C11"/>
     <display value="CSU - Patient completes a phase of the clinical trial"/>
+    <definition value="CSU - Patient completes a phase of the clinical trial"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient beendet eine Studienphase"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -831,6 +1612,15 @@
   <concept id="201">
     <code value="C12"/>
     <display value="CSU - Update/correction of patient order/result information"/>
+    <definition value="CSU - Update/correction of patient order/result information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Korrektur/Änderung von Anforderungen/Ergebnissen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -839,6 +1629,15 @@
   <concept id="202">
     <code value="CNQ"/>
     <display value="Cancel Query"/>
+    <definition value="Cancel Query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung einer Anfrage"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -847,6 +1646,7 @@
   <concept id="203">
     <code value="E01"/>
     <display value="Submit HealthCare Services Invoice"/>
+    <definition value="Submit HealthCare Services Invoice"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -855,6 +1655,7 @@
   <concept id="204">
     <code value="E02"/>
     <display value="Cancel HealthCare Services Invoice"/>
+    <definition value="Cancel HealthCare Services Invoice"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -863,6 +1664,7 @@
   <concept id="205">
     <code value="E03"/>
     <display value="HealthCare Services Invoice Status"/>
+    <definition value="HealthCare Services Invoice Status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -871,6 +1673,7 @@
   <concept id="207">
     <code value="E04"/>
     <display value="Re-Assess HealthCare Services Invoice Request"/>
+    <definition value="Re-Assess HealthCare Services Invoice Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -879,6 +1682,7 @@
   <concept id="208">
     <code value="E10"/>
     <display value="Edit/Adjudication Results"/>
+    <definition value="Edit/Adjudication Results"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -887,6 +1691,7 @@
   <concept id="209">
     <code value="E12"/>
     <display value="Request Additional Information"/>
+    <definition value="Request Additional Information"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -895,6 +1700,7 @@
   <concept id="210">
     <code value="E13"/>
     <display value="Additional Information Response"/>
+    <definition value="Additional Information Response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -903,6 +1709,7 @@
   <concept id="211">
     <code value="E15"/>
     <display value="Payment/Remittance Advice"/>
+    <definition value="Payment/Remittance Advice"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -911,6 +1718,7 @@
   <concept id="212">
     <code value="E20"/>
     <display value="Submit Authorization Request"/>
+    <definition value="Submit Authorization Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -919,6 +1727,7 @@
   <concept id="213">
     <code value="E21"/>
     <display value="Cancel Authorization Request"/>
+    <definition value="Cancel Authorization Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -927,6 +1736,7 @@
   <concept id="214">
     <code value="E22"/>
     <display value="Authorization Request Status"/>
+    <definition value="Authorization Request Status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -935,6 +1745,7 @@
   <concept id="215">
     <code value="E24"/>
     <display value="Authorization Response"/>
+    <definition value="Authorization Response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -943,6 +1754,7 @@
   <concept id="216">
     <code value="E30"/>
     <display value="Submit Health Document related to Authorization Request"/>
+    <definition value="Submit Health Document related to Authorization Request"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="reserved for future/not yet defined"/>
@@ -950,11 +1762,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="reserved for future/not yet defined"/>
     </property>
   </concept>
   <concept id="217">
     <code value="E31"/>
     <display value="Cancel Health Document related to Authorization Request"/>
+    <definition value="Cancel Health Document related to Authorization Request"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="reserved for future/not yet defined"/>
@@ -963,10 +1780,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="reserved for future/not yet defined"/>
+    </property>
   </concept>
   <concept id="218">
     <code value="I01"/>
     <display value="RQI/RPI - Request for insurance information"/>
+    <definition value="RQI/RPI - Request for insurance information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung von Versicherungsdaten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -975,6 +1805,15 @@
   <concept id="219">
     <code value="I02"/>
     <display value="RQI/RPL - Request/receipt of patient selection display list"/>
+    <definition value="RQI/RPL - Request/receipt of patient selection display list"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderg.einer Patientenauswahlliste (zur Anzeige)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -983,6 +1822,15 @@
   <concept id="220">
     <code value="I03"/>
     <display value="RQI/RPR - Request/receipt of patient selection list"/>
+    <definition value="RQI/RPR - Request/receipt of patient selection list"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderg.einer strukt. Patientenauswahlliste"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -991,6 +1839,15 @@
   <concept id="221">
     <code value="I04"/>
     <display value="RQD/RPI - Request for patient demographic data"/>
+    <definition value="RQD/RPI - Request for patient demographic data"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung demographischer Informationen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -999,6 +1856,15 @@
   <concept id="222">
     <code value="I05"/>
     <display value="RQC/RCI - Request for patient clinical information"/>
+    <definition value="RQC/RCI - Request for patient clinical information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung klinischer Informationen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1006,11 +1872,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="223">
     <code value="I06"/>
     <display value="RQC/RCL - Request/receipt of clinical data listing"/>
+    <definition value="RQC/RCL - Request/receipt of clinical data listing"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung strukt. klinischer Informationen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1019,10 +1898,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="224">
     <code value="I07"/>
     <display value="PIN/ACK - Unsolicited insurance information"/>
+    <definition value="PIN/ACK - Unsolicited insurance information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unaufgeforderte Übermittlung v. Versicherungsdaten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1031,6 +1923,15 @@
   <concept id="225">
     <code value="I08"/>
     <display value="RQA/RPA - Request for treatment authorization information"/>
+    <definition value="RQA/RPA - Request for treatment authorization information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung Kostenübernahmeerklärung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1039,6 +1940,15 @@
   <concept id="226">
     <code value="I09"/>
     <display value="RQA/RPA - Request for modification to an authorization"/>
+    <definition value="RQA/RPA - Request for modification to an authorization"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderg bzgl. Änderung Kostenübernahmeerklärung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1047,6 +1957,15 @@
   <concept id="227">
     <code value="I10"/>
     <display value="RQA/RPA - Request for resubmission of an authorization"/>
+    <definition value="RQA/RPA - Request for resubmission of an authorization"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="erneute Anforderung Kostenübernahmeerklärung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1055,6 +1974,15 @@
   <concept id="228">
     <code value="I11"/>
     <display value="RQA/RPA - Request for cancellation of an authorization"/>
+    <definition value="RQA/RPA - Request for cancellation of an authorization"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfordrg Stornierg einer Kostenübernahmeerklärung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1063,6 +1991,15 @@
   <concept id="229">
     <code value="I12"/>
     <display value="REF/RRI - Patient referral"/>
+    <definition value="REF/RRI - Patient referral"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Überweisung eines Patienten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1071,6 +2008,15 @@
   <concept id="230">
     <code value="I13"/>
     <display value="REF/RRI - Modify patient referral"/>
+    <definition value="REF/RRI - Modify patient referral"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung einer Patientenüberweisung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1079,6 +2025,15 @@
   <concept id="231">
     <code value="I14"/>
     <display value="REF/RRI - Cancel patient referral"/>
+    <definition value="REF/RRI - Cancel patient referral"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung einer Patientenüberweisung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1087,6 +2042,15 @@
   <concept id="232">
     <code value="I15"/>
     <display value="REF/RRI - Request patient referral status"/>
+    <definition value="REF/RRI - Request patient referral status"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Statusabfrage bzgl. Patientenüberweisung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1095,6 +2059,7 @@
   <concept id="233">
     <code value="I16"/>
     <display value="Collaborative Care Referral"/>
+    <definition value="Collaborative Care Referral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1103,6 +2068,7 @@
   <concept id="234">
     <code value="I17"/>
     <display value="Modify Collaborative Care Referral"/>
+    <definition value="Modify Collaborative Care Referral"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1110,11 +2076,16 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="235">
     <code value="I18"/>
     <display value="Cancel Collaborative Care Referral"/>
+    <definition value="Cancel Collaborative Care Referral"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1123,10 +2094,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="236">
     <code value="I19"/>
     <display value="Collaborative Care Query/Collaborative Care Query Update"/>
+    <definition value="Collaborative Care Query/Collaborative Care Query Update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1135,6 +2111,7 @@
   <concept id="237">
     <code value="I20"/>
     <display value="Asynchronous Collaborative Care Update"/>
+    <definition value="Asynchronous Collaborative Care Update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1143,6 +2120,7 @@
   <concept id="238">
     <code value="I21"/>
     <display value="Collaborative Care Message"/>
+    <definition value="Collaborative Care Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1151,6 +2129,7 @@
   <concept id="239">
     <code value="I22"/>
     <display value="Collaborative Care Fetch / Collaborative Care Information"/>
+    <definition value="Collaborative Care Fetch / Collaborative Care Information"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1159,6 +2138,7 @@
   <concept id="240">
     <code value="J01"/>
     <display value="QCN/ACK - Cancel query/acknowledge message"/>
+    <definition value="QCN/ACK - Cancel query/acknowledge message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1167,6 +2147,7 @@
   <concept id="241">
     <code value="J02"/>
     <display value="QSX/ACK - Cancel subscription/acknowledge message"/>
+    <definition value="QSX/ACK - Cancel subscription/acknowledge message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1175,6 +2156,7 @@
   <concept id="242">
     <code value="K11"/>
     <display value="RSP - Segment pattern response in response to QBP^Q11"/>
+    <definition value="RSP - Segment pattern response in response to QBP^Q11"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1183,6 +2165,7 @@
   <concept id="243">
     <code value="K13"/>
     <display value="RTB - Tabular response in response to QBP^Q13"/>
+    <definition value="RTB - Tabular response in response to QBP^Q13"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1191,6 +2174,7 @@
   <concept id="244">
     <code value="K15"/>
     <display value="RDY - Display response in response to QBP^Q15"/>
+    <definition value="RDY - Display response in response to QBP^Q15"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1199,6 +2183,7 @@
   <concept id="245">
     <code value="K21"/>
     <display value="RSP - Get person demographics response"/>
+    <definition value="RSP - Get person demographics response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1207,6 +2192,7 @@
   <concept id="246">
     <code value="K22"/>
     <display value="RSP - Find candidates response"/>
+    <definition value="RSP - Find candidates response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1215,6 +2201,7 @@
   <concept id="247">
     <code value="K23"/>
     <display value="RSP - Get corresponding identifiers response"/>
+    <definition value="RSP - Get corresponding identifiers response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1223,6 +2210,7 @@
   <concept id="248">
     <code value="K24"/>
     <display value="RSP - Allocate identifiers response"/>
+    <definition value="RSP - Allocate identifiers response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1231,6 +2219,7 @@
   <concept id="249">
     <code value="K25"/>
     <display value="RSP - Personnel Information by Segment Response"/>
+    <definition value="RSP - Personnel Information by Segment Response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1239,6 +2228,7 @@
   <concept id="250">
     <code value="K31"/>
     <display value="RSP - Dispense History Response"/>
+    <definition value="RSP -Dispense History Response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1247,6 +2237,7 @@
   <concept id="251">
     <code value="K32"/>
     <display value="Find Candidates including Visit Information Response"/>
+    <definition value="Find Candidates including Visit Information Response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1255,6 +2246,7 @@
   <concept id="252">
     <code value="K33"/>
     <display value="Get Donor Record Candidates Response Message"/>
+    <definition value="Get Donor Record Candidates Response Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1263,6 +2255,7 @@
   <concept id="253">
     <code value="K34"/>
     <display value="Segment Pattern Response Message"/>
+    <definition value="Segment Pattern Response Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1271,6 +2264,15 @@
   <concept id="254">
     <code value="M01"/>
     <display value="MFN/MFK - Master file not otherwise specified"/>
+    <definition value="MFN/MFK - Master file not otherwise specified"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung (veraltet)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1279,10 +2281,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="255">
     <code value="M02"/>
     <display value="MFN/MFK - Master file - staff practitioner"/>
+    <definition value="MFN/MFK - Master file - staff practitioner"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Ärzte"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1291,6 +2306,15 @@
   <concept id="256">
     <code value="M03"/>
     <display value="MFN/MFK - Master file - test/observation"/>
+    <definition value="MFN/MFK - Master file - test/observation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Tests / Untersuchungen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1299,10 +2323,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="257">
     <code value="M04"/>
     <display value="MFN/MFK - Master files charge description"/>
+    <definition value="MFN/MFK - Master files charge description"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - delayed appl ack"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1311,6 +2348,15 @@
   <concept id="258">
     <code value="M05"/>
     <display value="MFN/MFK - Patient location master file"/>
+    <definition value="MFN/MFK - Patient location master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Aufenthaltsorte"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1319,6 +2365,15 @@
   <concept id="259">
     <code value="M06"/>
     <display value="MFN/MFK - Clinical study with phases and schedules master file"/>
+    <definition value="MFN/MFK - Clinical study with phases and schedules master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Abrechnungskataloge"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1327,6 +2382,15 @@
   <concept id="260">
     <code value="M07"/>
     <display value="MFN/MFK - Clinical study without phases but with schedules master file"/>
+    <definition value="MFN/MFK - Clinical study without phases but with schedules master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - klinische Studien ohne Phasen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1335,6 +2399,15 @@
   <concept id="261">
     <code value="M08"/>
     <display value="MFN/MFK - Test/observation (numeric) master file"/>
+    <definition value="MFN/MFK - Test/observation (numeric) master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Tests/Untersuchung mit numerischen Ergebnissen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1343,6 +2416,15 @@
   <concept id="262">
     <code value="M09"/>
     <display value="MFN/MFK - Test/observation (categorical) master file"/>
+    <definition value="MFN/MFK - Test/observation (categorical) master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Tests mit nicht numerischen Ergebnissen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1351,6 +2433,15 @@
   <concept id="263">
     <code value="M10"/>
     <display value="MFN/MFK - Test /observation batteries master file"/>
+    <definition value="MFN/MFK - Test /observation batteries master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - Testprofile"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1359,6 +2450,15 @@
   <concept id="264">
     <code value="M11"/>
     <display value="MFN/MFK - Test/calculated observations master file"/>
+    <definition value="MFN/MFK - Test/calculated observations master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stammdatenänderung - berechnete Ergebnisse"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1367,6 +2467,7 @@
   <concept id="265">
     <code value="M12"/>
     <display value="MFN/MFK - Master file notification message"/>
+    <definition value="MFN/MFK - Master file notification message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1375,6 +2476,7 @@
   <concept id="266">
     <code value="M13"/>
     <display value="MFN/MFK - Master file notification - general"/>
+    <definition value="MFN/MFK - Master file notification - general"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1383,6 +2485,7 @@
   <concept id="267">
     <code value="M14"/>
     <display value="MFN/MFK - Master file notification - site defined"/>
+    <definition value="MFN/MFK - Master file notification - site defined"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1391,6 +2494,7 @@
   <concept id="268">
     <code value="M15"/>
     <display value="MFN/MFK - Inventory item master file notification"/>
+    <definition value="MFN/MFK - Inventory item master file notification"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1399,6 +2503,7 @@
   <concept id="270">
     <code value="M16"/>
     <display value="MFN/MFK - Master File Notification Inventory Item Enhanced"/>
+    <definition value="MFN/MFK - Master File Notification Inventory Item Enhanced"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1407,6 +2512,7 @@
   <concept id="271">
     <code value="M17"/>
     <display value="DRG Master File Message"/>
+    <definition value="DRG Master File Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1415,6 +2521,7 @@
   <concept id="272">
     <code value="M18"/>
     <display value="MFN/MFK - Master file notification - Test/Observation (Payer)"/>
+    <definition value="MFN/MFK - Master file notification - Test/Observation (Payer)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1423,6 +2530,7 @@
   <concept id="273">
     <code value="N01"/>
     <display value="NMQ/NMR - Application management query message"/>
+    <definition value="NMQ/NMR - Application management query message"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1431,10 +2539,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="274">
     <code value="N02"/>
     <display value="NMD/ACK - Application management data message (unsolicited)"/>
+    <definition value="NMD/ACK - Application management data message (unsolicited)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1443,6 +2556,15 @@
   <concept id="275">
     <code value="O01"/>
     <display value="ORM - Order message (also RDE, RDS, RGV, RAS)"/>
+    <definition value="ORM - Order message (also RDE, RDS, RGV, RAS)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag / Verordnung"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1450,11 +2572,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="276">
     <code value="O02"/>
     <display value="ORR - Order response (also RRE, RRD, RRG, RRA)"/>
+    <definition value="ORR - Order response (also RRE, RRD, RRG, RRA)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftragsbestätigung"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1463,10 +2598,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="277">
     <code value="O03"/>
     <display value="OMD - Diet order"/>
+    <definition value="OMD - Diet order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1475,6 +2615,7 @@
   <concept id="278">
     <code value="O04"/>
     <display value="ORD - Diet order acknowledgment"/>
+    <definition value="ORD - Diet order acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1483,6 +2624,7 @@
   <concept id="279">
     <code value="O05"/>
     <display value="OMS - Stock requisition order"/>
+    <definition value="OMS - Stock requisition order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1491,6 +2633,7 @@
   <concept id="280">
     <code value="O06"/>
     <display value="ORS - Stock requisition acknowledgment"/>
+    <definition value="ORS - Stock requisition acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1499,6 +2642,7 @@
   <concept id="281">
     <code value="O07"/>
     <display value="OMN - Non-stock requisition order"/>
+    <definition value="OMN - Non-stock requisition order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1507,6 +2651,7 @@
   <concept id="282">
     <code value="O08"/>
     <display value="ORN - Non-stock requisition acknowledgment"/>
+    <definition value="ORN - Non-stock requisition acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1515,6 +2660,7 @@
   <concept id="283">
     <code value="O09"/>
     <display value="OMP - Pharmacy/treatment order"/>
+    <definition value="OMP - Pharmacy/treatment order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1523,6 +2669,7 @@
   <concept id="284">
     <code value="O10"/>
     <display value="ORP - Pharmacy/treatment order acknowledgment"/>
+    <definition value="ORP - Pharmacy/treatment order acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1531,6 +2678,7 @@
   <concept id="285">
     <code value="O11"/>
     <display value="RDE - Pharmacy/treatment encoded order"/>
+    <definition value="RDE - Pharmacy/treatment encoded order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1539,6 +2687,7 @@
   <concept id="286">
     <code value="O12"/>
     <display value="RRE - Pharmacy/treatment encoded order acknowledgment"/>
+    <definition value="RRE - Pharmacy/treatment encoded order acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1547,6 +2696,7 @@
   <concept id="287">
     <code value="O13"/>
     <display value="RDS - Pharmacy/treatment dispense"/>
+    <definition value="RDS - Pharmacy/treatment dispense"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1555,6 +2705,7 @@
   <concept id="288">
     <code value="O14"/>
     <display value="RRD - Pharmacy/treatment dispense acknowledgment"/>
+    <definition value="RRD - Pharmacy/treatment dispense acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1563,6 +2714,7 @@
   <concept id="289">
     <code value="O15"/>
     <display value="RGV - Pharmacy/treatment give"/>
+    <definition value="RGV - Pharmacy/treatment give"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1571,6 +2723,7 @@
   <concept id="290">
     <code value="O16"/>
     <display value="RRG - Pharmacy/treatment give acknowledgment"/>
+    <definition value="RRG - Pharmacy/treatment give acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1579,6 +2732,7 @@
   <concept id="291">
     <code value="O17"/>
     <display value="RAS - Pharmacy/treatment administration"/>
+    <definition value="RAS - Pharmacy/treatment administration"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1587,6 +2741,7 @@
   <concept id="292">
     <code value="O18"/>
     <display value="RRA - Pharmacy/treatment administration acknowledgment"/>
+    <definition value="RRA - Pharmacy/treatment administration acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1595,6 +2750,7 @@
   <concept id="293">
     <code value="O19"/>
     <display value="OMG - General clinical order"/>
+    <definition value="OMG - General clinical order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1603,6 +2759,7 @@
   <concept id="294">
     <code value="O20"/>
     <display value="ORG/ORL - General clinical order response"/>
+    <definition value="ORG/ORL - General clinical order response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1611,6 +2768,7 @@
   <concept id="295">
     <code value="O21"/>
     <display value="OML - Laboratory order"/>
+    <definition value="OML - Laboratory order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1619,6 +2777,7 @@
   <concept id="296">
     <code value="O22"/>
     <display value="ORL - General laboratory order response message to any OML"/>
+    <definition value="ORL - General laboratory order response message to any OML"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1627,6 +2786,7 @@
   <concept id="297">
     <code value="O23"/>
     <display value="OMI - Imaging order"/>
+    <definition value="OMI - Imaging order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1635,6 +2795,7 @@
   <concept id="298">
     <code value="O24"/>
     <display value="ORI - Imaging order response message to any OMI"/>
+    <definition value="ORI - Imaging order response message to any OMI"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1643,6 +2804,7 @@
   <concept id="299">
     <code value="O25"/>
     <display value="RDE - Pharmacy/treatment refill authorization request"/>
+    <definition value="RDE - Pharmacy/treatment refill authorization request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1651,6 +2813,7 @@
   <concept id="300">
     <code value="O26"/>
     <display value="RRE - Pharmacy/Treatment Refill Authorization Acknowledgement"/>
+    <definition value="RRE - Pharmacy/Treatment Refill Authorization Acknowledgement"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1659,6 +2822,7 @@
   <concept id="301">
     <code value="O27"/>
     <display value="OMB - Blood product order"/>
+    <definition value="OMB - Blood product order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1667,6 +2831,7 @@
   <concept id="302">
     <code value="O28"/>
     <display value="ORB - Blood product order acknowledgment"/>
+    <definition value="ORB - Blood product order acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1675,6 +2840,7 @@
   <concept id="303">
     <code value="O29"/>
     <display value="BPS - Blood product dispense status"/>
+    <definition value="BPS - Blood product dispense status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1683,6 +2849,7 @@
   <concept id="304">
     <code value="O30"/>
     <display value="BRP - Blood product dispense status acknowledgment"/>
+    <definition value="BRP - Blood product dispense status acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1691,6 +2858,7 @@
   <concept id="305">
     <code value="O31"/>
     <display value="BTS - Blood product transfusion/disposition"/>
+    <definition value="BTS - Blood product transfusion/disposition"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1699,6 +2867,7 @@
   <concept id="306">
     <code value="O32"/>
     <display value="BRT - Blood product transfusion/disposition acknowledgment"/>
+    <definition value="BRT - Blood product transfusion/disposition acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1707,6 +2876,7 @@
   <concept id="307">
     <code value="O33"/>
     <display value="OML - Laboratory order for multiple orders related to a single specimen"/>
+    <definition value="OML - Laboratory order for multiple orders related to a single specimen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1715,6 +2885,7 @@
   <concept id="308">
     <code value="O34"/>
     <display value="ORL - Laboratory order response message to a multiple order related to single specimen OML"/>
+    <definition value="ORL - Laboratory order response message to a multiple order related to single specimen OML"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1723,6 +2894,7 @@
   <concept id="309">
     <code value="O35"/>
     <display value="OML - Laboratory order for multiple orders related to a single container of a specimen"/>
+    <definition value="OML - Laboratory order for multiple orders related to a single container of a specimen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1731,6 +2903,7 @@
   <concept id="311">
     <code value="O36"/>
     <display value="ORL - Laboratory order response message to a single container of a specimen OML"/>
+    <definition value="ORL - Laboratory order response message to a single container of a specimen OML"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1739,6 +2912,7 @@
   <concept id="313">
     <code value="O37"/>
     <display value="OPL - Population/Location-Based Laboratory Order Message"/>
+    <definition value="OPL - Population/Location-Based Laboratory Order Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1747,6 +2921,7 @@
   <concept id="314">
     <code value="O38"/>
     <display value="OPR - Population/Location-Based Laboratory Order Acknowledgment Message"/>
+    <definition value="OPR - Population/Location-Based Laboratory Order Acknowledgment Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1755,6 +2930,7 @@
   <concept id="315">
     <code value="O39"/>
     <display value="Specimen shipment centric laboratory order"/>
+    <definition value="Specimen shipment centric laboratory order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1763,6 +2939,7 @@
   <concept id="316">
     <code value="O40"/>
     <display value="Specimen Shipment Centric Laboratory Order Acknowledgment Message"/>
+    <definition value="Specimen Shipment Centric Laboratory Order Acknowledgment Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1771,6 +2948,7 @@
   <concept id="317">
     <code value="O41"/>
     <display value="DBC - Create Donor Record Message"/>
+    <definition value="DBC - Create Donor Record Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1779,6 +2957,7 @@
   <concept id="318">
     <code value="O42"/>
     <display value="DBU - Update Donor Record Message"/>
+    <definition value="DBU - Update Donor Record Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1787,6 +2966,7 @@
   <concept id="320">
     <code value="O43"/>
     <display value="General Order Message with Document Payload Acknowledgement Message"/>
+    <definition value="General Order Message with Document Payload Acknowledgement Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1795,6 +2975,7 @@
   <concept id="323">
     <code value="O44"/>
     <display value="Donor Registration - Minimal Message"/>
+    <definition value="Donor Registration - Minimal Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1803,6 +2984,7 @@
   <concept id="325">
     <code value="O45"/>
     <display value="Donor Eligibility Observations Message"/>
+    <definition value="Donor Eligibility Observations Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1811,6 +2993,7 @@
   <concept id="327">
     <code value="O46"/>
     <display value="Donor Eligiblity Message"/>
+    <definition value="Donor Eligiblity Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1819,6 +3002,7 @@
   <concept id="329">
     <code value="O47"/>
     <display value="Donor Request to Collect Message"/>
+    <definition value="Donor Request to Collect Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1827,6 +3011,7 @@
   <concept id="331">
     <code value="O48"/>
     <display value="Donation Procedure Message"/>
+    <definition value="Donation Procedure Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1835,6 +3020,7 @@
   <concept id="333">
     <code value="O49"/>
     <display value="Pharmacy/Treatment Dispense Request Message"/>
+    <definition value="Pharmacy/Treatment Dispense Request Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1843,6 +3029,7 @@
   <concept id="334">
     <code value="O50"/>
     <display value="Pharmacy/Treatment Encoded Order Acknowledgment"/>
+    <definition value="Pharmacy/Treatment Encoded Order Acknowledgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1851,6 +3038,7 @@
   <concept id="335">
     <code value="O51"/>
     <display value="OSU – Order Status Update"/>
+    <definition value="OSU – Order Status Update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1859,6 +3047,7 @@
   <concept id="336">
     <code value="O52"/>
     <display value="OSU – Order Status Update Acknowledgement"/>
+    <definition value="OSU – Order Status Update Acknowledgement"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1867,6 +3056,7 @@
   <concept id="337">
     <code value="O53"/>
     <display value="ORL - General Laboratory Order Acknowledgment Message (Patient Optional)"/>
+    <definition value="ORL - General Laboratory Order Acknowledgment Message (Patient Optional)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1875,6 +3065,7 @@
   <concept id="338">
     <code value="O54"/>
     <display value="ORL - Laboratory Order Acknowledgment Message – Multiple Order Per Specimen (Patient Optional)"/>
+    <definition value="ORL - Laboratory Order Acknowledgment Message  – Multiple Order Per Specimen (Patient Optional)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1883,6 +3074,7 @@
   <concept id="339">
     <code value="O55"/>
     <display value="ORL - Laboratory Order Acknowledgment Message – Multiple Order Per Container of Specimen (Patient Optional)"/>
+    <definition value="ORL - Laboratory Order Acknowledgment Message  – Multiple Order Per Container of Specimen (Patient Optional)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1891,6 +3083,7 @@
   <concept id="340">
     <code value="O56"/>
     <display value="ORL - Specimen Shipment Centric Laboratory Order Acknowledgment Message (Patient Optional)"/>
+    <definition value="ORL - Specimen Shipment Centric Laboratory Order Acknowledgment Message (Patient Optional)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1899,6 +3092,7 @@
   <concept id="341">
     <code value="O57"/>
     <display value="OMQ - General Order Message with Document Payload"/>
+    <definition value="OMQ- General Order Message with Document Payload"/>
     <property>
       <code value="status"/>
       <valueCode value="B"/>
@@ -1907,6 +3101,7 @@
   <concept id="342">
     <code value="O58"/>
     <display value="ORX - General Order Message with Document Payload Acknowledgement Message"/>
+    <definition value="ORX - General Order Message with Document Payload Acknowledgement Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1928,6 +3123,15 @@
   <concept id="344">
     <code value="P01"/>
     <display value="BAR/ACK - Add patient accounts"/>
+    <definition value="BAR/ACK - Add patient accounts"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Eröffnung eines Patientenkontos"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1936,6 +3140,15 @@
   <concept id="345">
     <code value="P02"/>
     <display value="BAR/ACK - Purge patient accounts"/>
+    <definition value="BAR/ACK - Purge patient accounts"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Löschen der Abrechnungsdaten eines Patientenkontos"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1944,6 +3157,15 @@
   <concept id="346">
     <code value="P03"/>
     <display value="DFT/ACK - Post detail financial transaction"/>
+    <definition value="DFT/ACK - Post detail financial transaction"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Leistungs- und Abrechnungsinformationen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1952,6 +3174,15 @@
   <concept id="347">
     <code value="P04"/>
     <display value="QRY/DSP - Generate bill and A/R statements"/>
+    <definition value="QRY/DSP - Generate bill and A/R statements"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Druck und Anzeige von Rechnungen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -1960,10 +3191,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="348">
     <code value="P05"/>
     <display value="BAR/ACK - Update account"/>
+    <definition value="BAR/ACK - Update account"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung eines Patientenkontos"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1972,6 +3216,15 @@
   <concept id="349">
     <code value="P06"/>
     <display value="BAR/ACK - End account"/>
+    <definition value="BAR/ACK - End account"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Abschluß eines Patientenkontos"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1980,6 +3233,15 @@
   <concept id="350">
     <code value="P07"/>
     <display value="PEX - Unsolicited initial individual product experience report"/>
+    <definition value="PEX - Unsolicited initial individual product experience report"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unaufgeforderte individueller Produktersterfahrungsbericht"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1988,6 +3250,15 @@
   <concept id="352">
     <code value="P08"/>
     <display value="PEX - Unsolicited update individual product experience report"/>
+    <definition value="PEX - Unsolicited update individual product experience report"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderung individueller Produktersterfahrungsbericht"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1996,6 +3267,15 @@
   <concept id="353">
     <code value="P09"/>
     <display value="SUR - Summary product experience report"/>
+    <definition value="SUR - Summary product experience report"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="zusammenfassender Produkterfahrungsbericht"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2004,10 +3284,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="354">
     <code value="P10"/>
     <display value="BAR/ACK - Transmit Ambulatory Payment Classification(APC)"/>
+    <definition value="BAR/ACK -Transmit Ambulatory Payment  Classification(APC)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2016,6 +3301,7 @@
   <concept id="356">
     <code value="P11"/>
     <display value="DFT/ACK - Post Detail Financial Transactions - New"/>
+    <definition value="DFT/ACK - Post Detail Financial Transactions - New"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2024,6 +3310,7 @@
   <concept id="358">
     <code value="P12"/>
     <display value="BAR/ACK - Update Diagnosis/Procedure"/>
+    <definition value="BAR/ACK - Update Diagnosis/Procedure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2032,6 +3319,15 @@
   <concept id="359">
     <code value="PC1"/>
     <display value="PPR - PC/ problem add"/>
+    <definition value="PPR - PC/ problem add"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Problem hinzufügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2040,6 +3336,15 @@
   <concept id="361">
     <code value="PC2"/>
     <display value="PPR - PC/ problem update"/>
+    <definition value="PPR - PC/ problem update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Problem ändern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2048,6 +3353,15 @@
   <concept id="362">
     <code value="PC3"/>
     <display value="PPR - PC/ problem delete"/>
+    <definition value="PPR - PC/ problem delete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Problem löschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2056,6 +3370,15 @@
   <concept id="363">
     <code value="PC4"/>
     <display value="QRY - PC/ problem query"/>
+    <definition value="QRY - PC/ problem query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Problem abfragen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2063,11 +3386,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="364">
     <code value="PC5"/>
     <display value="PRR - PC/ problem response"/>
+    <definition value="PRR - PC/ problem response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Problem Anfrage beantworten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2076,10 +3412,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="365">
     <code value="PC6"/>
     <display value="PGL - PC/ goal add"/>
+    <definition value="PGL - PC/ goal add"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ziel hinzufügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2088,6 +3437,15 @@
   <concept id="366">
     <code value="PC7"/>
     <display value="PGL - PC/ goal update"/>
+    <definition value="PGL - PC/ goal update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ziel ändern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2096,6 +3454,15 @@
   <concept id="367">
     <code value="PC8"/>
     <display value="PGL - PC/ goal delete"/>
+    <definition value="PGL - PC/ goal delete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ziel löschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2104,6 +3471,15 @@
   <concept id="368">
     <code value="PC9"/>
     <display value="QRY - PC/ goal query"/>
+    <definition value="QRY - PC/ goal query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ziel abfragen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2111,11 +3487,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="369">
     <code value="PCA"/>
     <display value="PPV - PC/ goal response"/>
+    <definition value="PPV - PC/ goal response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ziel Anfrage beantworten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2124,10 +3513,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="370">
     <code value="PCB"/>
     <display value="PPP - PC/ pathway (problem-oriented) add"/>
+    <definition value="PPP - PC/ pathway (problem-oriented) add"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(problemorientierte) Leitlinie hinzufügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2136,6 +3538,15 @@
   <concept id="371">
     <code value="PCC"/>
     <display value="PPP - PC/ pathway (problem-oriented) update"/>
+    <definition value="PPP - PC/ pathway (problem-oriented) update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(problemorientierte) Leitlinie ändern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2144,6 +3555,15 @@
   <concept id="372">
     <code value="PCD"/>
     <display value="PPP - PC/ pathway (problem-oriented) delete"/>
+    <definition value="PPP - PC/ pathway (problem-oriented) delete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(problemorientierte) Leitlinie löschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2152,6 +3572,15 @@
   <concept id="373">
     <code value="PCE"/>
     <display value="QRY - PC/ pathway (problem-oriented) query"/>
+    <definition value="QRY - PC/ pathway (problem-oriented) query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(problemorientierte) Leitlinie abfragen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2159,11 +3588,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="374">
     <code value="PCF"/>
     <display value="PTR - PC/ pathway (problem-oriented) query response"/>
+    <definition value="PTR - PC/ pathway (problem-oriented) query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(problemorientierte) Leitlinie Anfrage beantworten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2172,10 +3614,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="375">
     <code value="PCG"/>
     <display value="PPG - PC/ pathway (goal-oriented) add"/>
+    <definition value="PPG - PC/ pathway (goal-oriented) add"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(zielorientierte) Leitlinie hinzufügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2184,6 +3639,15 @@
   <concept id="376">
     <code value="PCH"/>
     <display value="PPG - PC/ pathway (goal-oriented) update"/>
+    <definition value="PPG - PC/ pathway (goal-oriented) update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(zielorientierte) Leitlinie ändern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2192,6 +3656,15 @@
   <concept id="377">
     <code value="PCJ"/>
     <display value="PPG - PC/ pathway (goal-oriented) delete"/>
+    <definition value="PPG - PC/ pathway (goal-oriented) delete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(zielorientierte) Leitlinie löschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2200,6 +3673,15 @@
   <concept id="378">
     <code value="PCK"/>
     <display value="QRY - PC/ pathway (goal-oriented) query"/>
+    <definition value="QRY - PC/ pathway (goal-oriented) query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(zielorientierte) Leitlinie abfragen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2207,11 +3689,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="379">
     <code value="PCL"/>
     <display value="PPT - PC/ pathway (goal-oriented) query response"/>
+    <definition value="PPT - PC/ pathway (goal-oriented) query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(zielorientierte) Leitlinie Anfrage beantworten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2219,11 +3714,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="380">
     <code value="Q01"/>
     <display value="QRY/DSR - Query sent for immediate response"/>
+    <definition value="QRY/DSR - Query sent for immediate response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage mit sofortiger Antwort"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2231,11 +3739,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="381">
     <code value="Q02"/>
     <display value="QRY/QCK - Query sent for deferred response"/>
+    <definition value="QRY/QCK - Query sent for deferred response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage mit verzögerter Antwort"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2243,11 +3764,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="382">
     <code value="Q03"/>
     <display value="DSR/ACK - Deferred response to a query"/>
+    <definition value="DSR/ACK - Deferred response to a query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Verzögerte Antwort auf Anfrage"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2256,10 +3790,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="383">
     <code value="Q05"/>
     <display value="UDM/ACK - Unsolicited display update message"/>
+    <definition value="UDM/ACK - Unsolicited display update message"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sofortige Bildschirmanzeige (Eilmeldung)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2268,6 +3815,15 @@
   <concept id="384">
     <code value="Q06"/>
     <display value="OSQ/OSR - Query for order status"/>
+    <definition value="OSQ/OSR - Query for order status"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Abfrage des Auftragsstatus"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2276,10 +3832,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="385">
     <code value="Q11"/>
     <display value="QBP - Query by parameter requesting an RSP segment pattern response"/>
+    <definition value="QBP - Query by parameter requesting an RSP segment pattern response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2288,6 +3849,7 @@
   <concept id="386">
     <code value="Q13"/>
     <display value="QBP - Query by parameter requesting an RTB - tabular response"/>
+    <definition value="QBP - Query by parameter requesting an  RTB - tabular response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2296,6 +3858,7 @@
   <concept id="387">
     <code value="Q15"/>
     <display value="QBP - Query by parameter requesting an RDY display response"/>
+    <definition value="QBP - Query by parameter requesting an RDY display response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2304,6 +3867,7 @@
   <concept id="388">
     <code value="Q16"/>
     <display value="QSB - Create subscription"/>
+    <definition value="QSB - Create subscription"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2312,6 +3876,7 @@
   <concept id="389">
     <code value="Q17"/>
     <display value="QVR - Query for previous events"/>
+    <definition value="QVR - Query for previous events"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2320,6 +3885,7 @@
   <concept id="390">
     <code value="Q21"/>
     <display value="QBP - Get person demographics"/>
+    <definition value="QBP - Get person demographics"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2328,6 +3894,7 @@
   <concept id="391">
     <code value="Q22"/>
     <display value="QBP - Find candidates"/>
+    <definition value="QBP - Find candidates"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2336,6 +3903,7 @@
   <concept id="392">
     <code value="Q23"/>
     <display value="QBP - Get corresponding identifiers"/>
+    <definition value="QBP - Get corresponding identifiers"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2344,6 +3912,7 @@
   <concept id="393">
     <code value="Q24"/>
     <display value="QBP - Allocate identifiers"/>
+    <definition value="QBP - Allocate identifiers"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2352,6 +3921,7 @@
   <concept id="394">
     <code value="Q25"/>
     <display value="QBP - Personnel Information by Segment Query"/>
+    <definition value="QBP - Personnel Information by Segment Query"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2360,6 +3930,7 @@
   <concept id="395">
     <code value="Q26"/>
     <display value="ROR - Pharmacy/treatment order response"/>
+    <definition value="ROR - Pharmacy/treatment order response"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2367,11 +3938,16 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="396">
     <code value="Q27"/>
     <display value="RAR - Pharmacy/treatment administration information"/>
+    <definition value="RAR - Pharmacy/treatment administration information"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2379,11 +3955,16 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="397">
     <code value="Q28"/>
     <display value="RDR - Pharmacy/treatment dispense information"/>
+    <definition value="RDR - Pharmacy/treatment dispense information"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2391,11 +3972,16 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="398">
     <code value="Q29"/>
     <display value="RER - Pharmacy/treatment encoded order information"/>
+    <definition value="RER - Pharmacy/treatment encoded order information"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2403,11 +3989,16 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="399">
     <code value="Q30"/>
     <display value="RGR - Pharmacy/treatment dose information"/>
+    <definition value="RGR - Pharmacy/treatment dose information"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2416,10 +4007,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="400">
     <code value="Q31"/>
     <display value="QBP Query Dispense history"/>
+    <definition value="QBP Query Dispense history"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2428,6 +4024,7 @@
   <concept id="401">
     <code value="Q32"/>
     <display value="Find Candidates including Visit Information"/>
+    <definition value="Find Candidates including Visit Information"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2436,6 +4033,7 @@
   <concept id="402">
     <code value="Q33"/>
     <display value="QBP - Get Donor Record Candidates"/>
+    <definition value="QBP - Get Donor Record Candidates"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2444,6 +4042,7 @@
   <concept id="403">
     <code value="Q34"/>
     <display value="QBP - Get Donor Record"/>
+    <definition value="QBP - Get Donor Record"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2452,6 +4051,15 @@
   <concept id="404">
     <code value="R01"/>
     <display value="ORU/ACK - Unsolicited transmission of an observation message"/>
+    <definition value="ORU/ACK - Unsolicited transmission of an observation message"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unangeforderte Übermittlung eines Befundes"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2460,6 +4068,15 @@
   <concept id="405">
     <code value="R02"/>
     <display value="QRY - Query for results of observation"/>
+    <definition value="QRY - Query for results of observation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage nach Untersuchungsergebnis"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2467,11 +4084,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="406">
     <code value="R04"/>
     <display value="ORF - Response to query; transmission of requested observation"/>
+    <definition value="ORF - Response to query; transmission of requested observation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort auf Anfrage / Übermittlung eines angeforderten Ergebnisses"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2479,11 +4109,16 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="407">
     <code value="R21"/>
     <display value="OUL - Unsolicited laboratory observation"/>
+    <definition value="OUL - Unsolicited laboratory observation"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2492,10 +4127,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="408">
     <code value="R22"/>
     <display value="OUL - Unsolicited Specimen Oriented Observation Message"/>
+    <definition value="OUL - Unsolicited Specimen Oriented Observation Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2504,6 +4144,7 @@
   <concept id="409">
     <code value="R23"/>
     <display value="OUL - Unsolicited Specimen Container Oriented Observation Message"/>
+    <definition value="OUL - Unsolicited Specimen Container Oriented Observation Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2512,6 +4153,7 @@
   <concept id="410">
     <code value="R24"/>
     <display value="OUL - Unsolicited Order Oriented Observation Message"/>
+    <definition value="OUL - Unsolicited Order Oriented Observation Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2520,6 +4162,7 @@
   <concept id="411">
     <code value="R25"/>
     <display value="OPU - Unsolicited Population/Location-Based Laboratory Observation Message"/>
+    <definition value="OPU - Unsolicited Population/Location-Based Laboratory Observation Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2528,6 +4171,7 @@
   <concept id="412">
     <code value="R26"/>
     <display value="OSM - Unsolicited Specimen Shipment Manifest Message"/>
+    <definition value="OSM - Unsolicited Specimen Shipment Manifest Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2536,6 +4180,7 @@
   <concept id="413">
     <code value="R30"/>
     <display value="ORU - Unsolicited Point-Of-Care Observation Message Without Existing Order - Place An Order"/>
+    <definition value="ORU - Unsolicited Point-Of-Care Observation Message Without Existing Order - Place An Order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2544,6 +4189,7 @@
   <concept id="414">
     <code value="R31"/>
     <display value="ORU - Unsolicited New Point-Of-Care Observation Message - Search For An Order"/>
+    <definition value="ORU - Unsolicited New Point-Of-Care Observation Message - Search For An Order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2552,6 +4198,7 @@
   <concept id="415">
     <code value="R32"/>
     <display value="ORU - Unsolicited Pre-Ordered Point-Of-Care Observation"/>
+    <definition value="ORU - Unsolicited Pre-Ordered Point-Of-Care Observation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2560,6 +4207,7 @@
   <concept id="416">
     <code value="R33"/>
     <display value="ORA - Observation Report Acknowledgement"/>
+    <definition value="ORA - Observation Report Acknowledgement"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2568,6 +4216,7 @@
   <concept id="417">
     <code value="R40"/>
     <display value="ORU - Unsolicited Report Alarm"/>
+    <definition value="ORU - Unsolicited Report Alarm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2576,6 +4225,7 @@
   <concept id="418">
     <code value="R41"/>
     <display value="Observation Report Alert Acknowledgement"/>
+    <definition value="Observation Report Alert Acknowledgement"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2584,6 +4234,7 @@
   <concept id="419">
     <code value="R42"/>
     <display value="ORU – Unsolicited Device Event Observation Message"/>
+    <definition value="ORU – Unsolicited Device Event Observation Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2592,6 +4243,7 @@
   <concept id="420">
     <code value="R43"/>
     <display value="ORU – Unsolicited Patient-Device Association Observation Message"/>
+    <definition value="ORU – Unsolicited Patient-Device Association Observation Message"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2600,6 +4252,15 @@
   <concept id="421">
     <code value="ROR"/>
     <display value="ROR - Pharmacy prescription order query response"/>
+    <definition value="ROR - Pharmacy prescription order query response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort bzgl. der Verschreibungsanforderung des Arzneiverordnung bzw. d.Behandlg"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2608,10 +4269,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="422">
     <code value="S01"/>
     <display value="SRM/SRR - Request new appointment booking"/>
+    <definition value="SRM/SRR - Request new appointment booking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Terminanforderung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2620,6 +4294,15 @@
   <concept id="423">
     <code value="S02"/>
     <display value="SRM/SRR - Request appointment rescheduling"/>
+    <definition value="SRM/SRR - Request appointment rescheduling"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung für Terminverschiebung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2628,6 +4311,15 @@
   <concept id="424">
     <code value="S03"/>
     <display value="SRM/SRR - Request appointment modification"/>
+    <definition value="SRM/SRR - Request appointment modification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung für inhaltliche Terminänderung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2636,6 +4328,15 @@
   <concept id="425">
     <code value="S04"/>
     <display value="SRM/SRR - Request appointment cancellation"/>
+    <definition value="SRM/SRR - Request appointment cancellation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Absage eines Termins"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2644,6 +4345,15 @@
   <concept id="426">
     <code value="S05"/>
     <display value="SRM/SRR - Request appointment discontinuation"/>
+    <definition value="SRM/SRR - Request appointment discontinuation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aussetzung des aktuellen oder weiterer Termine"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2652,6 +4362,15 @@
   <concept id="427">
     <code value="S06"/>
     <display value="SRM/SRR - Request appointment deletion"/>
+    <definition value="SRM/SRR - Request appointment deletion"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung eines Termins"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2660,6 +4379,15 @@
   <concept id="428">
     <code value="S07"/>
     <display value="SRM/SRR - Request addition of service/resource on appointment"/>
+    <definition value="SRM/SRR - Request addition of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anforderung zusätzlicher Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2668,6 +4396,15 @@
   <concept id="429">
     <code value="S08"/>
     <display value="SRM/SRR - Request modification of service/resource on appointment"/>
+    <definition value="SRM/SRR - Request modification of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderungsanforderung für zusätzliche Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2676,6 +4413,15 @@
   <concept id="430">
     <code value="S09"/>
     <display value="SRM/SRR - Request cancellation of service/resource on appointment"/>
+    <definition value="SRM/SRR - Request cancellation of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Absage für zusätzliche Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2684,6 +4430,15 @@
   <concept id="431">
     <code value="S10"/>
     <display value="SRM/SRR - Request discontinuation of service/resource on appointment"/>
+    <definition value="SRM/SRR - Request discontinuation of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aussetzung für zusätzliche Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2692,6 +4447,15 @@
   <concept id="432">
     <code value="S11"/>
     <display value="SRM/SRR - Request deletion of service/resource on appointment"/>
+    <definition value="SRM/SRR - Request deletion of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Stornierung für zusätzliche Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2700,6 +4464,15 @@
   <concept id="433">
     <code value="S12"/>
     <display value="SIU/ACK - Notification of new appointment booking"/>
+    <definition value="SIU/ACK - Notification of new appointment booking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über Terminvergabe"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2708,6 +4481,15 @@
   <concept id="434">
     <code value="S13"/>
     <display value="SIU/ACK - Notification of appointment rescheduling"/>
+    <definition value="SIU/ACK - Notification of appointment rescheduling"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung für Terminverschiebung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2716,6 +4498,15 @@
   <concept id="435">
     <code value="S14"/>
     <display value="SIU/ACK - Notification of appointment modification"/>
+    <definition value="SIU/ACK - Notification of appointment modification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung für inhaltliche Terminänderung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2724,6 +4515,15 @@
   <concept id="436">
     <code value="S15"/>
     <display value="SIU/ACK - Notification of appointment cancellation"/>
+    <definition value="SIU/ACK - Notification of appointment cancellation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über Terminabsage"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2732,6 +4532,15 @@
   <concept id="437">
     <code value="S16"/>
     <display value="SIU/ACK - Notification of appointment discontinuation"/>
+    <definition value="SIU/ACK - Notification of appointment discontinuation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über Aussetzung des aktuellen oder weiterer Termine"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2740,6 +4549,15 @@
   <concept id="438">
     <code value="S17"/>
     <display value="SIU/ACK - Notification of appointment deletion"/>
+    <definition value="SIU/ACK - Notification of appointment deletion"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über Stornierung eines Termins"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2748,6 +4566,15 @@
   <concept id="439">
     <code value="S18"/>
     <display value="SIU/ACK - Notification of addition of service/resource on appointment"/>
+    <definition value="SIU/ACK - Notification of addition of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über  zusätzlicher Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2756,6 +4583,15 @@
   <concept id="440">
     <code value="S19"/>
     <display value="SIU/ACK - Notification of modification of service/resource on appointment"/>
+    <definition value="SIU/ACK - Notification of modification of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Änderungsbenachrichtigung f.zusätzl. Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2764,6 +4600,15 @@
   <concept id="441">
     <code value="S20"/>
     <display value="SIU/ACK - Notification of cancellation of service/resource on appointment"/>
+    <definition value="SIU/ACK - Notification of cancellation of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung f. zusätzliche Leistungen/Voraussetzungen zu einem Terminabsage"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2772,6 +4617,15 @@
   <concept id="442">
     <code value="S21"/>
     <display value="SIU/ACK - Notification of discontinuation of service/resource on appointment"/>
+    <definition value="SIU/ACK - Notification of discontinuation of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über Aussetzung für zusätzliche Leistungen/Voraussetzungen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2780,6 +4634,15 @@
   <concept id="443">
     <code value="S22"/>
     <display value="SIU/ACK - Notification of deletion of service/resource on appointment"/>
+    <definition value="SIU/ACK - Notification of deletion of service/resource on appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung Stornierg.f.zusätzl.Leistungen/Voraussetzungen zu einem Termin"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2788,6 +4651,15 @@
   <concept id="444">
     <code value="S23"/>
     <display value="SIU/ACK - Notification of blocked schedule time slot(s)"/>
+    <definition value="SIU/ACK - Notification of blocked schedule time slot(s)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über nicht verfügbare Zeitbereiche"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2796,6 +4668,15 @@
   <concept id="445">
     <code value="S24"/>
     <display value="SIU/ACK - Notification of opened (&quot;unblocked&quot;) schedule time slot(s)"/>
+    <definition value="SIU/ACK - Notification of opened (&quot;unblocked&quot;) schedule time slot(s)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über (wieder) verfügbare Zeitbereiche"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2804,6 +4685,15 @@
   <concept id="446">
     <code value="S25"/>
     <display value="SQM/SQR - Schedule query message and response"/>
+    <definition value="SQM/SQR - Schedule query message and response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage nach Zeitplaninformation"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -2812,10 +4702,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="447">
     <code value="S26"/>
     <display value="SIU/ACK Notification that patient did not show up for schedule appointment"/>
+    <definition value="SIU/ACK Notification that patient did not show up for schedule appointment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über Nichterscheinen eines Patienten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2824,6 +4727,7 @@
   <concept id="448">
     <code value="S27"/>
     <display value="SIU/ACK - Broadcast Notification of Scheduled Appointments"/>
+    <definition value="SIU/ACK - Broadcast Notification of Scheduled Appointments"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2832,6 +4736,7 @@
   <concept id="449">
     <code value="S28"/>
     <display value="SLR/SLS - Request new sterilization lot"/>
+    <definition value="SLR/SLS - Request new sterilization lot"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2840,6 +4745,7 @@
   <concept id="450">
     <code value="S29"/>
     <display value="SLR/SLS - Request Sterilization lot deletion"/>
+    <definition value="SLR/SLS - Request Sterilization lot deletion"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2848,6 +4754,7 @@
   <concept id="451">
     <code value="S30"/>
     <display value="STI/STS - Request item"/>
+    <definition value="STI/STS - Request item"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2856,6 +4763,7 @@
   <concept id="452">
     <code value="S31"/>
     <display value="SDR/SDS - Request anti-microbial device data"/>
+    <definition value="SDR/SDS - Request anti-microbial device data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2864,6 +4772,7 @@
   <concept id="453">
     <code value="S32"/>
     <display value="SMD/SMS - Request anti-microbial device cycle data"/>
+    <definition value="SMD/SMS - Request anti-microbial device cycle data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2872,6 +4781,7 @@
   <concept id="454">
     <code value="S33"/>
     <display value="STC/ACK - Notification of sterilization configuration"/>
+    <definition value="STC/ACK - Notification of sterilization configuration"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2880,6 +4790,7 @@
   <concept id="455">
     <code value="S34"/>
     <display value="SLN/ACK - Notification of sterilization lot"/>
+    <definition value="SLN/ACK - Notification of sterilization lot"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2888,6 +4799,7 @@
   <concept id="456">
     <code value="S35"/>
     <display value="SLN/ACK - Notification of sterilization lot deletion"/>
+    <definition value="SLN/ACK - Notification of sterilization lot deletion"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2896,6 +4808,7 @@
   <concept id="457">
     <code value="S36"/>
     <display value="SDN/ACK - Notification of anti-microbial device data"/>
+    <definition value="SDN/ACK - Notification of anti-microbial device data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2904,6 +4817,7 @@
   <concept id="458">
     <code value="S37"/>
     <display value="SCN/ACK - Notification of anti-microbial device cycle data"/>
+    <definition value="SCN/ACK - Notification of anti-microbial device cycle data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2994,6 +4908,14 @@
     <code value="S47"/>
     <display value="Specimen Sent to Archive"/>
     <definition value="Describes the event when a specimen has been moved into storage"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="&gt;"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3047,6 +4969,15 @@
   <concept id="474">
     <code value="T01"/>
     <display value="MDM/ACK - Original document notification"/>
+    <definition value="MDM/ACK - Original document notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Neuanlage eines Dokuments ohne Inhalt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3055,6 +4986,15 @@
   <concept id="475">
     <code value="T02"/>
     <display value="MDM/ACK - Original document notification and content"/>
+    <definition value="MDM/ACK - Original document notification and content"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Neuanlage eines Dokuments mit Inhaltsübermittlung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3063,6 +5003,15 @@
   <concept id="476">
     <code value="T03"/>
     <display value="MDM/ACK - Document status change notification"/>
+    <definition value="MDM/ACK - Document status change notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Statusänderung eines Dokuments (ohne Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3071,6 +5020,15 @@
   <concept id="477">
     <code value="T04"/>
     <display value="MDM/ACK - Document status change notification and content"/>
+    <definition value="MDM/ACK - Document status change notification and content"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Statusänderung eines Dokuments (mit Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3079,6 +5037,15 @@
   <concept id="478">
     <code value="T05"/>
     <display value="MDM/ACK - Document addendum notification"/>
+    <definition value="MDM/ACK - Document addendum notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Ergänzung eines Dokuments (ohne Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3087,6 +5054,15 @@
   <concept id="479">
     <code value="T06"/>
     <display value="MDM/ACK - Document addendum notification and content"/>
+    <definition value="MDM/ACK - Document addendum notification and content"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Ergänzung eines Dokuments (mit Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3095,6 +5071,15 @@
   <concept id="480">
     <code value="T07"/>
     <display value="MDM/ACK - Document edit notification"/>
+    <definition value="MDM/ACK - Document edit notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Änderung eines Dokuments (ohne Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3103,6 +5088,15 @@
   <concept id="481">
     <code value="T08"/>
     <display value="MDM/ACK - Document edit notification and content"/>
+    <definition value="MDM/ACK - Document edit notification and content"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Änderung eines Dokuments (mit Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3111,6 +5105,15 @@
   <concept id="482">
     <code value="T09"/>
     <display value="MDM/ACK - Document replacement notification"/>
+    <definition value="MDM/ACK - Document replacement notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über den Austausch eines Dokuments (ohne Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3119,6 +5122,15 @@
   <concept id="483">
     <code value="T10"/>
     <display value="MDM/ACK - Document replacement notification and content"/>
+    <definition value="MDM/ACK - Document replacement notification and content"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über den Austausch eines Dokuments (mit Inhalt)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3127,6 +5139,15 @@
   <concept id="484">
     <code value="T11"/>
     <display value="MDM/ACK - Document cancel notification"/>
+    <definition value="MDM/ACK - Document cancel notification"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Benachrichtigung über die Löschung eines Dokuments"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3135,6 +5156,15 @@
   <concept id="485">
     <code value="T12"/>
     <display value="QRY/DOC - Document query"/>
+    <definition value="QRY/DOC - Document query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Dokumentanfrage"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -3143,10 +5173,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="486">
     <code value="U01"/>
     <display value="ESU/ACK - Automated equipment status update"/>
+    <definition value="ESU/ACK - Automated equipment status update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3155,6 +5190,7 @@
   <concept id="487">
     <code value="U02"/>
     <display value="ESR/ACK - Automated equipment status request"/>
+    <definition value="ESR/ACK - Automated equipment status request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3163,6 +5199,7 @@
   <concept id="488">
     <code value="U03"/>
     <display value="SSU/ACK - Specimen status update"/>
+    <definition value="SSU/ACK - Specimen status update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3171,6 +5208,7 @@
   <concept id="489">
     <code value="U04"/>
     <display value="SSR/ACK - specimen status request"/>
+    <definition value="SSR/ACK - specimen status request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3179,6 +5217,7 @@
   <concept id="490">
     <code value="U05"/>
     <display value="INU/ACK - Automated equipment inventory update"/>
+    <definition value="INU/ACK  - Automated equipment inventory update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3187,6 +5226,7 @@
   <concept id="491">
     <code value="U06"/>
     <display value="INR/ACK - Automated equipment inventory request"/>
+    <definition value="INR/ACK - Automated equipment inventory request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3195,6 +5235,7 @@
   <concept id="492">
     <code value="U07"/>
     <display value="EAC/ACK - Automated equipment command"/>
+    <definition value="EAC/ACK - Automated equipment command"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3203,6 +5244,7 @@
   <concept id="493">
     <code value="U08"/>
     <display value="EAR/ACK - Automated equipment response"/>
+    <definition value="EAR/ACK - Automated equipment response"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3211,6 +5253,7 @@
   <concept id="494">
     <code value="U09"/>
     <display value="EAN/ACK - Automated equipment notification"/>
+    <definition value="EAN/ACK - Automated equipment notification"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3219,6 +5262,7 @@
   <concept id="495">
     <code value="U10"/>
     <display value="TCU/ACK - Automated equipment test code settings update"/>
+    <definition value="TCU/ACK - Automated equipment test code settings update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3227,6 +5271,7 @@
   <concept id="496">
     <code value="U11"/>
     <display value="TCR/ACK - Automated equipment test code settings request"/>
+    <definition value="TCR/ACK - Automated equipment test code settings request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3235,6 +5280,7 @@
   <concept id="497">
     <code value="U12"/>
     <display value="LSU/ACK - Automated equipment log/service update"/>
+    <definition value="LSU/ACK - Automated equipment log/service update"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3243,6 +5289,7 @@
   <concept id="498">
     <code value="U13"/>
     <display value="LSR/ACK - Automated equipment log/service request"/>
+    <definition value="LSR/ACK - Automated equipment log/service request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3251,6 +5298,7 @@
   <concept id="499">
     <code value="U14"/>
     <display value="INR/ACK – Automated Equipment Inventory Request"/>
+    <definition value="INR/ACK – Automated Equipment Inventory Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3259,6 +5307,15 @@
   <concept id="500">
     <code value="V01"/>
     <display value="VXQ - Query for vaccination record"/>
+    <definition value="VXQ - Query for vaccination record"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Anfrage nach Impfstatus eines Patienten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -3266,11 +5323,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="501">
     <code value="V02"/>
     <display value="VXX - Response to vaccination query returning multiple PID matches"/>
+    <definition value="VXX - Response to vaccination query returning multiple PID matches"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort auf Impfstatusanfrage bei nicht-eindeutiger Patienten-ID"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -3278,11 +5348,24 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
     </property>
   </concept>
   <concept id="502">
     <code value="V03"/>
     <display value="VXR - Vaccination record response"/>
+    <definition value="VXR - Vaccination record response"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Antwort auf Impfstatusanfrage zu einem Patienten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -3291,10 +5374,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="503">
     <code value="V04"/>
     <display value="VXU - Unsolicited vaccination record update"/>
+    <definition value="VXU - Unsolicited vaccination record update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unaufgeforderte Änderung zu dem Impfstatus eines Patienten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3303,6 +5399,15 @@
   <concept id="504">
     <code value="Varies"/>
     <display value="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)"/>
+    <definition value="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="allgemeine Stammdatenanfrage"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -3311,6 +5416,15 @@
   <concept id="505">
     <code value="W01"/>
     <display value="ORU - Waveform result, unsolicited transmission of requested information"/>
+    <definition value="ORU - Waveform result, unsolicited transmission of requested information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unaufgeforderte Übermittlung von Signaldaten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
@@ -3319,13 +5433,51 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
   </concept>
   <concept id="506">
     <code value="W02"/>
     <display value="QRF - Waveform result, response to query"/>
+    <definition value="QRF - Waveform result, response to query"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="angeforderte Übermittlung von Signaldaten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated"/>
+    </property>
+  </concept>
+  <concept id="206">
+    <code value="varies"/>
+    <display value="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)"/>
+    <definition value="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="allgemeine Stammdatenanfrage"/>
+    </designation>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
     <property>
       <code value="status"/>

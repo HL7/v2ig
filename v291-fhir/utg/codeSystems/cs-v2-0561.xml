@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6194">
     <code value="DTCTR"/>
     <display value="Data Center Number"/>
+    <definition value="Data Center Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="MSP: Data Center Number associated with the Provider&#39;s Network Application ID"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="MSP: Data Center Number associated with the Provider&#39;s Network Application ID"/>
+    </property>
   </concept>
   <concept id="6195">
     <code value="SEQ"/>
     <display value="Sequence Number"/>
+    <definition value="Sequence Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="MSP: Must be sequential by Data Center Number"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="MSP: Must be sequential by Data Center Number"/>
+    </property>
   </concept>
   <concept id="6196">
     <code value="DGAPP"/>
     <display value="Diagnostic Approval Number"/>
+    <definition value="Diagnostic Approval Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="MSP: assigned by MSP"/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="MSP: assigned by MSP"/>
+    </property>
   </concept>
   <concept id="6197">
     <code value="CLCTR"/>
     <display value="Claim Center"/>
+    <definition value="Claim Center"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -95,6 +117,7 @@
   <concept id="6198">
     <code value="ENC"/>
     <display value="Encounter Number"/>
+    <definition value="Encounter Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -103,6 +126,7 @@
   <concept id="6199">
     <code value="OOP"/>
     <display value="Out of Province Indicator"/>
+    <definition value="Out of Province Indicator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -111,6 +135,7 @@
   <concept id="6200">
     <code value="GFTH"/>
     <display value="Good Faith Indicator"/>
+    <definition value="Good Faith Indicator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

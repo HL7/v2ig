@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.186"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="UniversalIdType"/>
   <title value="universalIdType"/>
   <status value="active"/>
@@ -46,6 +46,18 @@
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
     <type value="string"/>
   </property>
   <concept id="2977">
@@ -91,6 +103,14 @@
     <code value="DNS"/>
     <display value="Domain Name System"/>
     <definition value="An Internet host name, in accordance with RFC 1035; or an IP address. Either in ASCII or as integers, with periods between components (&quot;dotted&quot; notation)."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Internet-Adresse"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="An Internet host name, in accordance with RFC 1035; or an IP address. Either in ASCII or as integers, with periods between components (“dotted” notation)."/>
@@ -112,11 +132,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OUI-24 values are administered by the IEEE Registration Authority."/>
+    </property>
   </concept>
   <concept id="2982">
     <code value="GUID"/>
     <display value="globally unique identifier"/>
     <definition value="Same as UUID."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="GUID"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Same as UUID. Retained for backward compatibility only as of v2.7; use UUID instead"/>
@@ -124,6 +156,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v2.7; use UUID instead"/>
     </property>
   </concept>
   <concept id="2983">
@@ -138,10 +174,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v2.7; does not identify Assigning Authorities"/>
+    </property>
   </concept>
   <concept id="2984">
     <code value="HL7"/>
     <display value="HL7 registration schemes"/>
+    <definition value="HL7 registration schemes"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="für HL7 reserviert"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Retained for backward compatibility only as of v2.7; HL7 assigns ISO OIDs for Assigning Authorities"/>
@@ -150,11 +199,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v2.7; HL7 assigns ISO OIDs for Assigning Authorities"/>
+    </property>
   </concept>
   <concept id="2985">
     <code value="ISO"/>
     <display value="ISO Object Identifier"/>
     <definition value="An International Standards Organization Object Identifier (OID), in accordance with ISO/IEC 8824. Formatted as decimal digits separated by periods; recommended limit of 64 characters"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="ISO-ID"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="An International Standards Organization Object Identifier (OID), in accordance with ISO/IEC 8824. Formatted as decimal digits separated by periods; recommended limit of 64 characters"/>
@@ -168,6 +229,14 @@
     <code value="L"/>
     <display value="Local"/>
     <definition value="These are reserved for locally defined coding schemes."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="reserviert für lokale Tabellen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8"/>
@@ -181,6 +250,14 @@
     <code value="L,M,N"/>
     <display value="Local"/>
     <definition value="These are reserved for locally defined coding schemes."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="reserviert für lokale Tabellen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8"/>
@@ -189,11 +266,23 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v 2.8"/>
+    </property>
   </concept>
   <concept id="2988">
     <code value="M"/>
     <display value="Local"/>
     <definition value="These are reserved for locally defined coding schemes."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="reserviert für lokale Tabellen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8"/>
@@ -207,6 +296,14 @@
     <code value="N"/>
     <display value="Local"/>
     <definition value="These are reserved for locally defined coding schemes."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="reserviert für lokale Tabellen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8"/>
@@ -233,6 +330,14 @@
     <code value="Random"/>
     <display value="Random"/>
     <definition value="Usually a base64 encoded string of random bits.&#10;Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="beliebig"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usually a base64 encoded string of random bits. Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers&#10;&#10;Usage Note: Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead."/>
@@ -241,10 +346,27 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead."/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead."/>
+    </property>
   </concept>
   <concept id="2992">
     <code value="URI"/>
     <display value="Uniform Resource Identifier"/>
+    <definition value="Uniform Resource Identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="URI"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -254,6 +376,14 @@
     <code value="UUID"/>
     <display value="Universal Unique Identifier"/>
     <definition value="The DCE Universal Unique Identifier, in accordance with RFC 4122. Recommended format is 32 hexadecimal digits separated by hyphens, in the digit grouping 8-4-4-4-12"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="UUID"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The DCE Universal Unique Identifier, in accordance with RFC 4122. Recommended format is 32 hexadecimal digits separated by hyphens, in the digit grouping 8-4-4-4-12"/>
@@ -267,6 +397,14 @@
     <code value="x400"/>
     <display value="X.400 MHS identifier"/>
     <definition value="An X.400 MHS identifier. Recommended format is in accordance with RFC 1649"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="X.400"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Recommended format is in accordance with RFC 1649"/>
@@ -280,6 +418,14 @@
     <code value="x500"/>
     <display value="X500 directory Name"/>
     <definition value="An X.500 directory name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="X.500 Verzeichnis­name"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

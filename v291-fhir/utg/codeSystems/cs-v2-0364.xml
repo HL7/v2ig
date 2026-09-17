@@ -45,6 +45,7 @@
   <concept id="3655">
     <code value="PI"/>
     <display value="Patient Instructions"/>
+    <definition value="Patient Instructions"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3656">
     <code value="AI"/>
     <display value="Ancillary Instructions"/>
+    <definition value="Ancillary Instructions"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3657">
     <code value="GI"/>
     <display value="General Instructions"/>
+    <definition value="General Instructions"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3658">
     <code value="1R"/>
     <display value="Primary Reason"/>
+    <definition value="Primary Reason"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3659">
     <code value="2R"/>
     <display value="Secondary Reason"/>
+    <definition value="Secondary Reason"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="3660">
     <code value="GR"/>
     <display value="General Reason"/>
+    <definition value="General Reason"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="3661">
     <code value="RE"/>
     <display value="Remark"/>
+    <definition value="Remark"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="3662">
     <code value="DR"/>
     <display value="Duplicate/Interaction Reason"/>
+    <definition value="Duplicate/Interaction Reason"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

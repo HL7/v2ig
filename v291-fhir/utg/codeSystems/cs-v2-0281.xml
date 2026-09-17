@@ -42,9 +42,16 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
   <concept id="2718">
     <code value="Lab"/>
     <display value="Laboratory"/>
+    <definition value="Laboratory"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +60,7 @@
   <concept id="2719">
     <code value="Rad"/>
     <display value="Radiology"/>
+    <definition value="Radiology"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +69,7 @@
   <concept id="2720">
     <code value="Med"/>
     <display value="Medical"/>
+    <definition value="Medical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +78,7 @@
   <concept id="2721">
     <code value="Skn"/>
     <display value="Skilled Nursing"/>
+    <definition value="Skilled Nursing"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +87,7 @@
   <concept id="2722">
     <code value="Psy"/>
     <display value="Psychiatric"/>
+    <definition value="Psychiatric"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +96,85 @@
   <concept id="2723">
     <code value="Hom"/>
     <display value="Home Care"/>
+    <definition value="Home Care"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2712">
+    <code value="HOM"/>
+    <display value="Home Care"/>
+    <definition value="Home Care"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2713">
+    <code value="LAB"/>
+    <display value="Laboratory"/>
+    <definition value="Laboratory"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2714">
+    <code value="MED"/>
+    <display value="Medical"/>
+    <definition value="Medical"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2715">
+    <code value="PSY"/>
+    <display value="Psychiatric"/>
+    <definition value="Psychiatric"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2716">
+    <code value="RAD"/>
+    <display value="Radiology"/>
+    <definition value="Radiology"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2717">
+    <code value="SKN"/>
+    <display value="Skilled Nursing"/>
+    <definition value="Skilled Nursing"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

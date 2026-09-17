@@ -48,9 +48,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="1921">
     <code value="AT"/>
     <display value="Amount"/>
+    <definition value="Amount"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Betrag"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Retained for backward compatibility only as of v 2.5"/>
@@ -59,10 +74,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v 2.5"/>
+    </property>
   </concept>
   <concept id="1922">
     <code value="LM"/>
     <display value="Limit"/>
+    <definition value="Limit"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Höchstbetrag"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -71,6 +99,15 @@
   <concept id="1923">
     <code value="PC"/>
     <display value="Percentage"/>
+    <definition value="Percentage"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Prozentsatz"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Retained for backward compatibility only as of v 2.5"/>
@@ -79,10 +116,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backward compatibility only as of v 2.5"/>
+    </property>
   </concept>
   <concept id="1924">
     <code value="UL"/>
     <display value="Unlimited"/>
+    <definition value="Unlimited"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Unbegrenzt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

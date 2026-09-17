@@ -45,6 +45,15 @@
   <concept id="629">
     <code value="AA"/>
     <display value="Original mode: Application Accept - Enhanced mode: Application acknowledgment: Accept"/>
+    <definition value="Original mode: Application Accept - Enhanced mode: Application acknowledgment: Accept"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="akzeptiert durch Anwendung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="630">
     <code value="AE"/>
     <display value="Original mode: Application Error - Enhanced mode: Application acknowledgment: Error"/>
+    <definition value="Original mode: Application Error - Enhanced mode: Application acknowledgment: Error"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fehler in Anwendung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="631">
     <code value="AR"/>
     <display value="Original mode: Application Reject - Enhanced mode: Application acknowledgment: Reject"/>
+    <definition value="Original mode: Application Reject - Enhanced mode: Application acknowledgment: Reject"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Abgelehnt durch Anwendung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="632">
     <code value="CA"/>
     <display value="Enhanced mode: Accept acknowledgment: Commit Accept"/>
+    <definition value="Enhanced mode: Accept acknowledgment: Commit Accept"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Bei Eingangsprüfung akzeptiert (&quot;committed&quot;)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="633">
     <code value="CE"/>
     <display value="Enhanced mode: Accept acknowledgment: Commit Error"/>
+    <definition value="Enhanced mode: Accept acknowledgment: Commit Error"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fehler bei Eingangsprüfung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +130,15 @@
   <concept id="634">
     <code value="CR"/>
     <display value="Enhanced mode: Accept acknowledgment: Commit Reject"/>
+    <definition value="Enhanced mode: Accept acknowledgment: Commit Reject"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Bei Eingangsprüfung abgelehnt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

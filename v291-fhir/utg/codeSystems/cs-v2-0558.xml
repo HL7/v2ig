@@ -45,6 +45,7 @@
   <concept id="6182">
     <code value="PT"/>
     <display value="Patient"/>
+    <definition value="Patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6183">
     <code value="FM"/>
     <display value="Family Member"/>
+    <definition value="Family Member"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6184">
     <code value="SB"/>
     <display value="Subscriber"/>
+    <definition value="Subscriber"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6185">
     <code value="GT"/>
     <display value="Guarantor"/>
+    <definition value="Guarantor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

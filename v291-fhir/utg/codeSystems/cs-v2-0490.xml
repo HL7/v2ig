@@ -45,6 +45,7 @@
   <concept id="5303">
     <code value="EX"/>
     <display value="Expired"/>
+    <definition value="Expired"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5304">
     <code value="QS"/>
     <display value="Quantity not sufficient"/>
+    <definition value="Quantity not sufficient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5305">
     <code value="RB"/>
     <display value="Broken container"/>
+    <definition value="Broken container"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5306">
     <code value="RC"/>
     <display value="Clotting"/>
+    <definition value="Clotting"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5307">
     <code value="RD"/>
     <display value="Missing collection date"/>
+    <definition value="Missing collection date"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="5308">
     <code value="RA"/>
     <display value="Missing patient ID number"/>
+    <definition value="Missing patient ID number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="5309">
     <code value="RE"/>
     <display value="Missing patient name"/>
+    <definition value="Missing patient name"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="5310">
     <code value="RH"/>
     <display value="Hemolysis"/>
+    <definition value="Hemolysis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="5311">
     <code value="RI"/>
     <display value="Identification problem"/>
+    <definition value="Identification problem"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="5312">
     <code value="RM"/>
     <display value="Labeling"/>
+    <definition value="Labeling"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="5313">
     <code value="RN"/>
     <display value="Contamination"/>
+    <definition value="Contamination"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="5314">
     <code value="RP"/>
     <display value="Missing phlebotomist ID"/>
+    <definition value="Missing phlebotomist ID"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="5315">
     <code value="RR"/>
     <display value="Improper storage"/>
+    <definition value="Improper storage"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="5316">
     <code value="RS"/>
     <display value="Name misspelling"/>
+    <definition value="Name misspelling"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

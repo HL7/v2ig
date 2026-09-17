@@ -45,6 +45,15 @@
   <concept id="1338">
     <code value="L"/>
     <display value="Ancillary (filler) department is source of comment"/>
+    <definition value="Ancillary (filler) department is source of comment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Leistungsstelle"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1339">
     <code value="P"/>
     <display value="Orderer (placer) is source of comment"/>
+    <definition value="Orderer (placer) is source of comment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftraggeber / auftraggebende Stelle"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1340">
     <code value="O"/>
     <display value="Other system is source of comment"/>
+    <definition value="Other system is source of comment"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Andere Stelle"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

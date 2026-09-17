@@ -45,6 +45,7 @@
   <concept id="3107">
     <code value="S"/>
     <display value="Second Opinion"/>
+    <definition value="Second Opinion"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3108">
     <code value="P"/>
     <display value="Patient Preference"/>
+    <definition value="Patient Preference"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3109">
     <code value="O"/>
     <display value="Provider Ordered"/>
+    <definition value="Provider Ordered"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3110">
     <code value="W"/>
     <display value="Work Load"/>
+    <definition value="Work Load"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

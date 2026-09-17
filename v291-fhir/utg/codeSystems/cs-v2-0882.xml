@@ -45,6 +45,7 @@
   <concept id="6512">
     <code value="E"/>
     <display value="Employed"/>
+    <definition value="Employed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6513">
     <code value="SE"/>
     <display value="Self-employed"/>
+    <definition value="Self-employed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

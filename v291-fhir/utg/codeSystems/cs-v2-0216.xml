@@ -45,6 +45,7 @@
   <concept id="2179">
     <code value="AI"/>
     <display value="Active Inpatient"/>
+    <definition value="Active Inpatient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2180">
     <code value="DI"/>
     <display value="Discharged Inpatient"/>
+    <definition value="Discharged Inpatient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,15 @@
   <concept id="1817">
     <code value="P"/>
     <display value="Parent Observation"/>
+    <definition value="Parent Observation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Untersuchung an primärem Probenmaterial"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1818">
     <code value="C"/>
     <display value="Child Observation"/>
+    <definition value="Child Observation"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Untersuchung an sekundärem Probenmaterial"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1819">
     <code value="N"/>
     <display value="Not Applicable"/>
+    <definition value="Not Applicable"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nicht Anwendbar"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="4903">
     <code value="EL"/>
     <display value="Electronic"/>
+    <definition value="Electronic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4904">
     <code value="EM"/>
     <display value="E-mail"/>
+    <definition value="E-mail"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4905">
     <code value="FX"/>
     <display value="Fax"/>
+    <definition value="Fax"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4906">
     <code value="IP"/>
     <display value="In Person"/>
+    <definition value="In Person"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4907">
     <code value="MA"/>
     <display value="Mail"/>
+    <definition value="Mail"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4908">
     <code value="PA"/>
     <display value="Paper"/>
+    <definition value="Paper"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4909">
     <code value="PH"/>
     <display value="Phone"/>
+    <definition value="Phone"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="4910">
     <code value="RE"/>
     <display value="Reflexive (Automated system)"/>
+    <definition value="Reflexive (Automated system)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="4911">
     <code value="VC"/>
     <display value="Video-conference"/>
+    <definition value="Video-conference"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="4912">
     <code value="VO"/>
     <display value="Voice"/>
+    <definition value="Voice"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

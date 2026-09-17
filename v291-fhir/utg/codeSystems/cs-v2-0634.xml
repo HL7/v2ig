@@ -45,6 +45,7 @@
   <concept id="6268">
     <code value="CRT"/>
     <display value="Critical"/>
+    <definition value="Critical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

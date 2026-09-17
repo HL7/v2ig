@@ -45,6 +45,7 @@
   <concept id="2357">
     <code value="H"/>
     <display value="Highly probable"/>
+    <definition value="Highly probable"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2358">
     <code value="M"/>
     <display value="Moderately probable"/>
+    <definition value="Moderately probable"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2359">
     <code value="S"/>
     <display value="Somewhat probable"/>
+    <definition value="Somewhat probable"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2360">
     <code value="I"/>
     <display value="Improbable"/>
+    <definition value="Improbable"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2361">
     <code value="N"/>
     <display value="Not related"/>
+    <definition value="Not related"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

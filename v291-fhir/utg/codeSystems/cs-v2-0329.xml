@@ -45,6 +45,7 @@
   <concept id="3061">
     <code value="A"/>
     <display value="Actual count"/>
+    <definition value="Actual count"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3062">
     <code value="E"/>
     <display value="Estimated (see comment)"/>
+    <definition value="Estimated (see comment)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

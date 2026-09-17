@@ -45,6 +45,7 @@
   <concept id="4018">
     <code value="R"/>
     <display value="Real Time"/>
+    <definition value="Real Time"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4019">
     <code value="T"/>
     <display value="Bolus (a series of responses sent at the same time without use of batch formatting)"/>
+    <definition value="Bolus (a series of responses sent at the same time without use of batch formatting)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4020">
     <code value="B"/>
     <display value="Batch"/>
+    <definition value="Batch"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="4532">
     <code value="1"/>
     <display value="Excellent"/>
+    <definition value="Excellent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4533">
     <code value="2"/>
     <display value="Good"/>
+    <definition value="Good"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4534">
     <code value="3"/>
     <display value="Fair"/>
+    <definition value="Fair"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4535">
     <code value="4"/>
     <display value="Poor"/>
+    <definition value="Poor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4536">
     <code value="5"/>
     <display value="Some (level unknown)"/>
+    <definition value="Some (level unknown)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4537">
     <code value="6"/>
     <display value="None"/>
+    <definition value="None"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

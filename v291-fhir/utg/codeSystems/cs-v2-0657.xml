@@ -45,6 +45,7 @@
   <concept id="6280">
     <code value="1"/>
     <display value="EO Gas Sterilizer"/>
+    <definition value="EO Gas Sterilizer"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6281">
     <code value="2"/>
     <display value="Steam Sterilizer"/>
+    <definition value="Steam Sterilizer"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6282">
     <code value="3"/>
     <display value="Peracetic Acid"/>
+    <definition value="Peracetic Acid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6290">
     <code value="LLD"/>
     <display value="Building a Load"/>
+    <definition value="Building a Load"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A load is being built"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A load is being built"/>
+    </property>
   </concept>
   <concept id="6291">
     <code value="LCP"/>
     <display value="Load In Process"/>
+    <definition value="Load In Process"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The load is running"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The load is running"/>
+    </property>
   </concept>
   <concept id="6292">
     <code value="LCC"/>
     <display value="Load is Complete"/>
+    <definition value="Load is Complete"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The load is complete"/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The load is complete"/>
+    </property>
   </concept>
   <concept id="6293">
     <code value="LCN"/>
     <display value="Load Canceled"/>
+    <definition value="Load Canceled"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The load is canceled"/>
@@ -94,6 +116,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The load is canceled"/>
     </property>
   </concept>
 </CodeSystem>

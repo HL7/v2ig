@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6233">
     <code value="CASH"/>
     <display value="Cash"/>
+    <definition value="Cash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6234">
     <code value="CCCA"/>
     <display value="Credit Card"/>
+    <definition value="Credit Card"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="6235">
     <code value="CCHK"/>
     <display value="Cashier&#39;s Check"/>
+    <definition value="Cashier&#39;s Check"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +84,7 @@
   <concept id="6236">
     <code value="CDAC"/>
     <display value="Credit/Debit Account"/>
+    <definition value="Credit/Debit Account"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +93,7 @@
   <concept id="6237">
     <code value="CHCK"/>
     <display value="Check"/>
+    <definition value="Check"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +102,7 @@
   <concept id="6238">
     <code value="DDPO"/>
     <display value="Direct Deposit"/>
+    <definition value="Direct Deposit"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="EFT"/>
@@ -99,10 +111,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="EFT"/>
+    </property>
   </concept>
   <concept id="6239">
     <code value="DEBC"/>
     <display value="Debit Card"/>
+    <definition value="Debit Card"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -111,6 +128,7 @@
   <concept id="6240">
     <code value="SWFT"/>
     <display value="Society for Worldwide Interbank Financial Telecommunications (S.W.I.F.T.)"/>
+    <definition value="Society for Worldwide Interbank Financial Telecommunications (S.W.I.F.T.)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -119,6 +137,7 @@
   <concept id="6241">
     <code value="TRAC"/>
     <display value="Traveler&#39;s Check"/>
+    <definition value="Traveler&#39;s Check"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -127,6 +146,7 @@
   <concept id="6242">
     <code value="VISN"/>
     <display value="VISA Special Electronic Funds Transfer Network"/>
+    <definition value="VISA Special Electronic Funds Transfer Network"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

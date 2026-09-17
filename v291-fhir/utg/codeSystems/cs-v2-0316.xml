@@ -45,6 +45,7 @@
   <concept id="3016">
     <code value="Y"/>
     <display value="Yes, patient is a documented donor and documentation is on file"/>
+    <definition value="Yes, patient is a documented donor and documentation is on file"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3017">
     <code value="F"/>
     <display value="Yes, patient is a documented donor, but documentation is not on file"/>
+    <definition value="Yes, patient is a documented donor, but documentation is not on file"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3018">
     <code value="N"/>
     <display value="No, patient has not agreed to be a donor"/>
+    <definition value="No, patient has not agreed to be a donor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3019">
     <code value="I"/>
     <display value="No, patient is not a documented donor, but information was provided"/>
+    <definition value="No, patient is not a documented donor, but information was provided"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3020">
     <code value="R"/>
     <display value="Patient leaves organ donation decision to relatives"/>
+    <definition value="Patient leaves organ donation decision to relatives"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="3021">
     <code value="P"/>
     <display value="Patient leaves organ donation decision to a specific person"/>
+    <definition value="Patient leaves organ donation decision to a specific person"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="3022">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

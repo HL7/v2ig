@@ -45,6 +45,15 @@
   <concept id="1660">
     <code value="EARLY"/>
     <display value="Early tray"/>
+    <definition value="Early tray"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="früh servieren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1661">
     <code value="LATE"/>
     <display value="Late tray"/>
+    <definition value="Late tray"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="spät servieren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1662">
     <code value="GUEST"/>
     <display value="Guest tray"/>
+    <definition value="Guest tray"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Gästeessen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="1663">
     <code value="NO"/>
     <display value="No tray"/>
+    <definition value="No tray"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="kein Essen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="1664">
     <code value="MSG"/>
     <display value="Tray message only"/>
+    <definition value="Tray message only"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ergänzende Hinweise"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

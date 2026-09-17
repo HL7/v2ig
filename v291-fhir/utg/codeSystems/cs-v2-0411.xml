@@ -42,7 +42,7 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
-  <concept id="55043">
+  <concept id="55044">
     <code value="NDBS"/>
     <display value="Observation of type Newborn Dried Blood Screening (NDBS)"/>
     <property>
@@ -50,7 +50,7 @@
       <valueCode value="active"/>
     </property>
   </concept>
-  <concept id="55044">
+  <concept id="55045">
     <code value="CG"/>
     <display value="Observation of type Clinical Genomics (CG)"/>
     <property>

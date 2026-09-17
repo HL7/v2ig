@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3079">
     <code value="Q&lt;integer&gt;S"/>
     <display value="every &lt;integer&gt; seconds"/>
+    <definition value="every &lt;integer&gt; seconds"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -63,6 +70,7 @@
   <concept id="3080">
     <code value="Q&lt;integer&gt;M"/>
     <display value="every &lt;integer&gt; minutes"/>
+    <definition value="every &lt;integer&gt; minutes"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -75,6 +83,7 @@
   <concept id="3081">
     <code value="Q&lt;integer&gt;H"/>
     <display value="every &lt;integer&gt; hours"/>
+    <definition value="every &lt;integer&gt; hours"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -87,6 +96,7 @@
   <concept id="3082">
     <code value="Q&lt;integer&gt;D"/>
     <display value="every &lt;integer&gt; days"/>
+    <definition value="every &lt;integer&gt; days"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -99,6 +109,7 @@
   <concept id="3083">
     <code value="Q&lt;integer&gt;W"/>
     <display value="every &lt;integer&gt; weeks"/>
+    <definition value="every &lt;integer&gt; weeks"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -111,6 +122,7 @@
   <concept id="3084">
     <code value="Q&lt;integer&gt;L"/>
     <display value="every &lt;integer&gt; months (Lunar cycle)"/>
+    <definition value="every &lt;integer&gt; months (Lunar cycle)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -123,6 +135,7 @@
   <concept id="3085">
     <code value="Q&lt;integer&gt;J&lt;day#&gt;"/>
     <display value="repeats on a particular day of the week,"/>
+    <definition value="repeats on a particular day of the week,"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -131,10 +144,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="From the French jour (day). If &lt;integer&gt; is missing, the repeat rate is assumed to be 1. Day numbers are counted from 1=Monday to 7=Sunday. So Q2J2 means every second Tuesday; Q1J6 means every Saturday."/>
+    </property>
   </concept>
   <concept id="3086">
     <code value="BID"/>
     <display value="twice a day at institution-specified times"/>
+    <definition value="twice a day at institution-specified times"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="(e.g., 9AM-4PM)"/>
@@ -143,10 +161,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(e.g., 9AM-4PM)"/>
+    </property>
   </concept>
   <concept id="3087">
     <code value="TID"/>
     <display value="three times a day at institution-specified times"/>
+    <definition value="three times a day at institution-specified times"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="(e.g., 9AM-4PM-9PM)"/>
@@ -155,10 +178,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(e.g., 9AM-4PM-9PM)"/>
+    </property>
   </concept>
   <concept id="3088">
     <code value="QID"/>
     <display value="four times a day at institution-specified times"/>
+    <definition value="four times a day at institution-specified times"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="(e.g., 9AM-11AM-4PM-9PM)"/>
@@ -167,10 +195,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(e.g., 9AM-11AM-4PM-9PM)"/>
+    </property>
   </concept>
   <concept id="3089">
     <code value="xID"/>
     <display value="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater."/>
+    <definition value="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -179,10 +212,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(e.g., 5ID=five times per day; 8ID=8 times per day)"/>
+    </property>
   </concept>
   <concept id="3090">
     <code value="QAM"/>
     <display value="in the morning at institution-specified time"/>
+    <definition value="in the morning at institution-specified time"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -191,6 +229,7 @@
   <concept id="3091">
     <code value="QSHIFT"/>
     <display value="during each of three eight-hour shifts at institution-specified times"/>
+    <definition value="during each of three eight-hour shifts at institution-specified times"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -199,6 +238,7 @@
   <concept id="3092">
     <code value="QOD"/>
     <display value="every other day"/>
+    <definition value="every other day"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="(same as Q2D)"/>
@@ -207,10 +247,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(same as Q2D)"/>
+    </property>
   </concept>
   <concept id="3093">
     <code value="QHS"/>
     <display value="every day before the hour of sleep"/>
+    <definition value="every day before the hour of sleep"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -219,6 +264,7 @@
   <concept id="3094">
     <code value="QPM"/>
     <display value="in the evening at institution-specified time"/>
+    <definition value="in the evening at institution-specified time"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -227,6 +273,7 @@
   <concept id="3095">
     <code value="C"/>
     <display value="service is provided continuously between start time and stop time"/>
+    <definition value="service is provided continuously between start time and stop time"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -235,6 +282,7 @@
   <concept id="3096">
     <code value="U &lt;spec&gt;"/>
     <display value="for future use, where &lt;spec&gt; is an interval specification as defined by the UNIX cron specification."/>
+    <definition value="for future use, where &lt;spec&gt; is an interval specification as defined by the UNIX cron specification."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -247,6 +295,7 @@
   <concept id="3097">
     <code value="PRN"/>
     <display value="given as needed"/>
+    <definition value="given as needed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -255,6 +304,7 @@
   <concept id="3098">
     <code value="PRNxxx"/>
     <display value="where xxx is some frequency code"/>
+    <definition value="where xxx is some frequency code"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -263,10 +313,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(e.g., PRNQ6H); given as needed over the frequency period."/>
+    </property>
   </concept>
   <concept id="3099">
     <code value="Once"/>
     <display value="one time only."/>
+    <definition value="one time only."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is also the default when this component is null."/>
@@ -275,10 +330,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This is also the default when this component is null."/>
+    </property>
   </concept>
   <concept id="3100">
     <code value="Meal Related Timings"/>
     <display value="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
+    <definition value="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -291,6 +351,7 @@
   <concept id="3101">
     <code value="A"/>
     <display value="Ante (before)"/>
+    <definition value="Ante (before)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -303,6 +364,7 @@
   <concept id="3102">
     <code value="P"/>
     <display value="Post (after)"/>
+    <definition value="Post (after)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -315,6 +377,7 @@
   <concept id="3103">
     <code value="I"/>
     <display value="Inter"/>
+    <definition value="Inter"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -323,10 +386,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="(e.g., between this meal and the next, between dinner and sleep"/>
+    </property>
   </concept>
   <concept id="3104">
     <code value="M"/>
     <display value="Cibus Matutinus (breakfast)"/>
+    <definition value="Cibus Matutinus (breakfast)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -339,6 +407,7 @@
   <concept id="3105">
     <code value="D"/>
     <display value="Cibus Diurnus (lunch)"/>
+    <definition value="Cibus Diurnus (lunch)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>
@@ -351,6 +420,7 @@
   <concept id="3106">
     <code value="V"/>
     <display value="Cibus Vespertinus (dinner)"/>
+    <definition value="Cibus Vespertinus (dinner)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is not a real code, but guidelines how to construct the codes."/>

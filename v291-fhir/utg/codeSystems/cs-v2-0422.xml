@@ -45,6 +45,7 @@
   <concept id="4576">
     <code value="1"/>
     <display value="Non-acute"/>
+    <definition value="Non-acute"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4577">
     <code value="2"/>
     <display value="Acute"/>
+    <definition value="Acute"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4578">
     <code value="3"/>
     <display value="Urgent"/>
+    <definition value="Urgent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4579">
     <code value="4"/>
     <display value="Severe"/>
+    <definition value="Severe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4580">
     <code value="5"/>
     <display value="Dead on Arrival (DOA)"/>
+    <definition value="Dead on Arrival (DOA)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4581">
     <code value="99"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

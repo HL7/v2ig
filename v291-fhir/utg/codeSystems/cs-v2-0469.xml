@@ -45,6 +45,7 @@
   <concept id="4856">
     <code value="0"/>
     <display value="Not packaged"/>
+    <definition value="Not packaged"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4857">
     <code value="1"/>
     <display value="Packaged service (status indicator N, or no HCPCS code and certain revenue codes)"/>
+    <definition value="Packaged service (status indicator N, or no HCPCS code and certain revenue codes)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4858">
     <code value="2"/>
     <display value="Packaged as part of partial hospitalization per diem or daily mental health service per diem"/>
+    <definition value="Packaged as part of partial hospitalization per diem or daily mental health service per diem"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

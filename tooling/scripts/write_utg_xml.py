@@ -67,6 +67,21 @@ opinion about would bury the changes that matter. Concept element ids are
 preserved the same way -- UTG numbers them from a counter that runs across the
 whole repository, so a fresh numbering would collide.
 
+What THO contributes
+--------------------
+
+We publish at THO's canonicals, so THO's own content is merged in additively:
+anything it carries that Chapter 2C is silent about survives into our output
+rather than being dropped. `tho_merge` does the merging and records every fill,
+every disagreement and every artifact THO has that we do not; `v291-fhir/
+tho-fill-report.json` is the result.
+
+Version numbers follow from the same comparison. An artifact that ends up
+matching THO keeps THO's version; one that differs on an element the TSMG
+versioning policy counts increments its major version; one THO does not publish
+starts at 1.0.0. `tho_versioning_policy` holds the policy's element table and
+does the arithmetic, so nothing is hand-applied.
+
 Usage:
     python3 tooling/scripts/write_utg_xml.py
     python3 tooling/scripts/write_utg_xml.py --dry-run
@@ -83,6 +98,8 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import tho_merge  # noqa: E402
+import tho_versioning_policy as versioning  # noqa: E402
 from utg_xml import Node, render_document  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -91,6 +108,7 @@ THO_DIR = PROJECT_ROOT / "tho-r5"
 DEFAULT_UTG_REPO = PROJECT_ROOT / "UTG"
 OUTPUT_DIR = PROJECT_ROOT / "v291-fhir" / "utg"
 REPORT_PATH = PROJECT_ROOT / "v291-fhir" / "utg-write-report.json"
+FILL_REPORT_PATH = PROJECT_ROOT / "v291-fhir" / "tho-fill-report.json"
 
 UTG_V2_SUBPATH = Path("input") / "sourceOfTruth" / "v2"
 
@@ -533,7 +551,7 @@ def parse_logical_definition(text):
     }
 
 
-def classify(record, oid_index):
+def classify(record, oid_index, snapshot=None):
     """Decide what, if anything, to write for one table.
 
     Returns:
@@ -559,9 +577,32 @@ def classify(record, oid_index):
                           "domain needs no value set."}
 
     if systems and all(is_placeholder(s) for s in systems):
+        # The placeholder usually means exactly what it says. Table 0560 is
+        # the exception, and it is an exception on evidence rather than by
+        # name: the chapter lists five codes underneath the placeholder, gives
+        # the value set's OID, and THO publishes a code system carrying those
+        # same five codes at this table's own canonical. Three independent
+        # signals that the placeholder is a defect in the chapter rather than
+        # a statement that the table has no code system. See ADR-0010.
+        #
+        # Table 0910 has the same placeholder, no codes and no THO code
+        # system, so it stays where it was.
+        if codes and snapshot is not None and snapshot.code_system(table):
+            return {"action": "code-system-and-value-set",
+                    "reason": "The code system block is the noObject "
+                              "placeholder, but the chapter lists codes under "
+                              "it and THO publishes a code system at this "
+                              "table's own canonical, so the placeholder is a "
+                              "defect in the chapter rather than an absent "
+                              "code system.",
+                    "systemUrl": own_system,
+                    "resolvedBy": "THO publishes a CodeSystem at the table's "
+                                  "own canonical and the chapter lists codes",
+                    "placeholderOverridden": True,
+                    "hasValueSet": bool(value_sets)}
         return {"action": "concept-domain-only",
                 "reason": "The code system block is the noObject placeholder, "
-                          "so there is no code system (ADR-0008 D11)."}
+                          "so there is no code system (ADR-0008)."}
 
     if not systems:
         # Table 0227 (MVX) is the whole of this case. The chapter declares a
@@ -682,68 +723,205 @@ def add_common_metadata(root, *, resource_id, url, oid, version, date,
     root.add_value("description", description)
 
 
-def build_concept(entry, element_id):
-    """Build one `<concept>` from a row of the chapter's coded content."""
-    concept = Node("concept", id=element_id)
-    concept.add_value("code", entry.get("value"))
-    concept.add_value("display", entry.get("displayName"))
-    concept.add_value("definition", entry.get("definition"))
+def chapter_concept_row(entry, element_id):
+    """Turn a row of the chapter's coded content into a merge row.
 
+    The row shape is the one `tho_merge` joins on; see that module for the
+    field list. Building rows first and XML afterwards is what lets THO's
+    content be merged in on values rather than spliced into a node tree.
+    """
+    properties = []
     comment = (entry.get("comment") or "").strip()
     if comment:
-        prop = concept.add(Node("property"))
-        prop.add_value("code", "v2-concComment")
-        prop.add_value("valueString", comment)
+        properties.append(("v2-concComment", "valueString", comment))
 
     raw_status = (entry.get("status") or "").strip()
     status = STATUS_MAP.get(raw_status, raw_status)
     if status:
+        properties.append(("status", "valueCode", status))
+
+    return {
+        "code": entry.get("value"),
+        "display": entry.get("displayName"),
+        "definition": entry.get("definition"),
+        "designations": [],
+        "properties": properties,
+        "elementId": element_id,
+        "origin": "chapter",
+    }
+
+
+def xml_value(value):
+    """Render a property value as FHIR XML spells it.
+
+    Python's `True` is `"True"`, and FHIR's is `"true"`. Every other type is
+    its own string.
+    """
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    return value
+
+
+def build_concept(row):
+    """Build one `<concept>` from a merged concept row.
+
+    Element order is the one FHIR fixes for `CodeSystem.concept`: code,
+    display, definition, designation, property.
+    """
+    concept = Node("concept", id=row.get("elementId"))
+    concept.add_value("code", row.get("code"))
+    concept.add_value("display", row.get("display"))
+    concept.add_value("definition", row.get("definition"))
+
+    for designation in row.get("designations") or []:
+        node = concept.add(Node("designation"))
+        node.add_value("language", designation.get("language"))
+        use = designation.get("use") or {}
+        if use:
+            use_node = node.add(Node("use"))
+            use_node.add_value("system", use.get("system"))
+            use_node.add_value("code", use.get("code"))
+        node.add_value("value", designation.get("value"))
+
+    for code, value_key, value in row.get("properties") or []:
         prop = concept.add(Node("property"))
-        prop.add_value("code", "status")
-        prop.add_value("valueCode", status)
+        prop.add_value("code", code)
+        prop.add_value(value_key, xml_value(value))
     return concept
 
 
-def build_code_system(record, plan, utg, published_urls=None):
-    """Build the CodeSystem for a table that owns its code system."""
+def property_declarations(used_codes, tho_resource):
+    """The `<property>` declarations a file needs for the codes it uses.
+
+    A declaration is taken from THO's own resource wherever THO has one, so
+    that a property we inherited is described exactly as THO describes it, and
+    from our own transcription of UTG's wording otherwise.
+
+    Order follows THO's declaration order, then our fixed order for anything
+    left, so that adding an inherited property does not reshuffle the ones
+    already there.
+
+    Returns:
+        A ``(declarations, unknown)`` pair. `declarations` are dicts ready to
+        write; `unknown` are property codes nobody defines, which are reported
+        rather than written, because an undeclared property is invalid FHIR.
+    """
+    from_tho = {}
+    for declaration in (tho_resource or {}).get("property") or []:
+        if declaration.get("code"):
+            from_tho[declaration["code"]] = declaration
+
+    ordered = [code for code in from_tho if code in used_codes]
+    ordered += [code for code in ("status", "v2-concComment")
+                if code in used_codes and code not in ordered]
+    ordered += [code for code in sorted(used_codes) if code not in ordered]
+
+    declarations = []
+    unknown = []
+    for code in ordered:
+        if code in from_tho:
+            declaration = from_tho[code]
+            declarations.append({
+                "code": code,
+                "uri": declaration.get("uri"),
+                "description": declaration.get("description"),
+                "type": declaration.get("type"),
+            })
+        elif code in PROPERTY_DEFINITIONS:
+            declarations.append({"code": code, **PROPERTY_DEFINITIONS[code]})
+        else:
+            unknown.append(code)
+    return declarations, unknown
+
+
+def resolve_version(resource_type, snapshot, tho_resource, inherited, changed):
+    """Decide the version to publish, and say why.
+
+    With no THO snapshot to compare against the writer keeps its old
+    behaviour and inherits the version from the UTG checkout -- that is the
+    path the unit tests take, and it keeps the builders usable without a
+    2,000-file package on disk. With a snapshot, the version follows from the
+    TSMG policy and the comparison.
+    """
+    if snapshot is None:
+        return {
+            "version": inherited.get("version") or DEFAULT_VERSION,
+            "reason": "Inherited from the UTG checkout; no THO snapshot to "
+                      "compare against.",
+            "incremented": False,
+            "triggers": [],
+            "judgement": [],
+            "newArtifact": [],
+        }
+    baseline = tho_resource.get("version") if tho_resource else None
+    return versioning.next_version(resource_type, baseline, changed)
+
+
+def plan_code_system(record, plan, utg, published_urls=None, snapshot=None,
+                     observe=None):
+    """Settle every value the CodeSystem will carry, before any XML is built.
+
+    This is where THO's content is merged in and the version is worked out.
+    Doing it on values rather than on a node tree keeps the merge readable and
+    means the XML is built once, from an answer nothing else will change.
+
+    Returns:
+        A dict of resolved values, plus a `version` record saying how the
+        version was arrived at and an `unknownProperties` list.
+    """
     table = record["tableNumber"]
     system = (record.get("codeSystems") or [{}])[0]
     metadata = record.get("tableMetadata") or {}
     inherited = utg.code_systems.get(table, {})
+    observe = observe if observe is not None else tho_merge.Observations()
+    tho = snapshot.code_system(table) if snapshot else None
+    context = {"table": table, "resource": "CodeSystem"}
 
-    root = Node("CodeSystem")
-    root.add_value("id", f"v2-{table}")
-
-    group = inherited.get("workGroup") or work_group_code(metadata.get("Steward"))
-    if group:
-        extension = root.add(Node(
-            "extension",
-            url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-        ))
-        extension.add_value("valueCode", group)
-
-    # `id` is added by add_common_metadata for the ValueSet, but the CodeSystem
-    # puts the work group extension between id and url, so id is added above
-    # and the shared helper is given the rest.
     symbolic_name = (system.get("SymbolicName") or "").strip()
-    add_common_metadata(
-        root,
-        resource_id=None,
-        url=plan["systemUrl"],
-        oid=system.get("Code System OID"),
-        version=inherited.get("version") or DEFAULT_VERSION,
-        date=inherited.get("date") or DEFAULT_DATE,
-        name=pascal_case(symbolic_name),
-        title=symbolic_name,
-        description=(system.get("Description") or "").strip(),
-    )
-    root.add_value(
-        "purpose",
-        f"Underlying Master Code System for V2 table {table} "
-        f"({record.get('tableName', '')})",
-    )
-    root.add_value("copyright", COPYRIGHT)
-    root.add_value("caseSensitive", "true")
+    if is_placeholder(system):
+        # `noObject` is a marker, not a name. Emptying it here is what lets the
+        # merge fill name and title from THO rather than publishing the marker.
+        symbolic_name = ""
+    fields = {
+        "name": pascal_case(symbolic_name),
+        "title": symbolic_name,
+        "status": DEFAULT_STATUS,
+        "experimental": DEFAULT_EXPERIMENTAL,
+        "description": (system.get("Description") or "").strip(),
+        "purpose": f"Underlying Master Code System for V2 table {table} "
+                   f"({record.get('tableName', '')})",
+        "caseSensitive": "true",
+        "hierarchyMeaning": "is-a",
+        "compositional": "false",
+        "content": "complete",
+    }
+    fields = tho_merge.merge_fields(
+        fields, tho, tho_merge.FILLABLE_CODE_SYSTEM_FIELDS, observe, context)
+
+    known_ids = inherited.get("conceptIds", {})
+    chapter_rows = [
+        chapter_concept_row(entry, known_ids.get(entry.get("value")))
+        for entry in record.get("codedContent") or []
+    ]
+    rows = (tho_merge.merge_concepts(chapter_rows, tho, observe, table)
+            if tho else chapter_rows)
+    # Ids are handed out after the merge so that a concept inherited from THO
+    # keeps THO's id rather than being given a fresh one.
+    for row in rows:
+        if not row.get("elementId"):
+            row["elementId"] = utg.allocate_concept_id()
+
+    used_properties = {code for row in rows
+                       for code, _key, _value in row.get("properties") or []}
+    declarations, unknown = property_declarations(used_properties, tho)
+
+    oid, changed = tho_merge.merge_identifier(
+        system.get("Code System OID"), tho, observe, context)
+    changed += tho_merge.changed_fields(
+        fields, tho, tho_merge.COMPARED_CODE_SYSTEM_FIELDS, observe, context)
+    if tho and tho_merge.concepts_changed(rows, tho):
+        changed.append("concept")
+
     # `CodeSystem.valueSet` names the value set that contains the *entire* code
     # system, so it is wrong on a code system whose value set leaves a code
     # out. Where UTG already publishes the code system, follow what it does;
@@ -753,97 +931,208 @@ def build_code_system(record, plan, utg, published_urls=None):
     inherited_has_element = inherited.get("hasValueSetElement")
     if inherited_has_element is None:
         inherited_has_element = True
+    value_set_url = None
     if plan.get("hasValueSet") and inherited_has_element:
-        root.add_value(
-            "valueSet",
-            value_set_identity(table, published_urls, utg)["url"])
-    root.add_value("hierarchyMeaning", "is-a")
-    root.add_value("compositional", "false")
+        value_set_url = value_set_identity(table, published_urls, utg)["url"]
+
+    return {
+        "resourceId": f"v2-{table}",
+        "url": plan["systemUrl"],
+        "oid": oid,
+        "workGroup": (inherited.get("workGroup")
+                      or work_group_code(metadata.get("Steward"))),
+        "fields": fields,
+        "date": inherited.get("date") or DEFAULT_DATE,
+        "valueSetUrl": value_set_url,
+        "concepts": rows,
+        "propertyDeclarations": declarations,
+        "unknownProperties": unknown,
+        "version": resolve_version("CodeSystem", snapshot, tho, inherited,
+                                   changed),
+        "changed": changed,
+    }
+
+
+def render_code_system(resolved):
+    """Build the CodeSystem XML from the values `plan_code_system` settled.
+
+    Element order matters: FHIR XML is ordered, and a resource whose elements
+    are shuffled will not validate.
+    """
+    fields = resolved["fields"]
+    root = Node("CodeSystem")
+    root.add_value("id", resolved["resourceId"])
+
+    if resolved["workGroup"]:
+        extension = root.add(Node(
+            "extension",
+            url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        ))
+        extension.add_value("valueCode", resolved["workGroup"])
+
+    # `id` is added by add_common_metadata for the ValueSet, but the CodeSystem
+    # puts the work group extension between id and url, so id is added above
+    # and the shared helper is given the rest.
+    add_common_metadata(
+        root,
+        resource_id=None,
+        url=resolved["url"],
+        oid=resolved["oid"],
+        version=resolved["version"]["version"],
+        date=resolved["date"],
+        name=fields["name"],
+        title=fields["title"],
+        description=fields["description"],
+    )
+    root.add_value("purpose", fields["purpose"])
+    root.add_value("copyright", COPYRIGHT)
+    root.add_value("caseSensitive", fields["caseSensitive"])
+    if resolved["valueSetUrl"]:
+        root.add_value("valueSet", resolved["valueSetUrl"])
+    root.add_value("hierarchyMeaning", fields["hierarchyMeaning"])
+    root.add_value("compositional", fields["compositional"])
     root.add_value("versionNeeded", "false")
-    root.add_value("content", "complete")
+    root.add_value("content", fields["content"])
 
-    known_ids = inherited.get("conceptIds", {})
-    concepts = []
-    used_properties = set()
-    for entry in record.get("codedContent") or []:
-        code = entry.get("value")
-        element_id = known_ids.get(code) or utg.allocate_concept_id()
-        concept = build_concept(entry, element_id)
-        concepts.append(concept)
-        for child in concept.children:
-            if child.name == "property":
-                used_properties.add(child.children[0].attributes["value"])
-
-    for code in ("status", "v2-concComment"):
-        if code not in used_properties:
-            continue
-        definition = PROPERTY_DEFINITIONS[code]
+    for declaration in resolved["propertyDeclarations"]:
         prop = root.add(Node("property"))
-        prop.add_value("code", code)
-        prop.add_value("uri", definition["uri"])
-        prop.add_value("description", definition["description"])
-        prop.add_value("type", definition["type"])
+        prop.add_value("code", declaration["code"])
+        prop.add_value("uri", declaration["uri"])
+        prop.add_value("description", declaration["description"])
+        prop.add_value("type", declaration["type"])
 
-    for concept in concepts:
-        root.add(concept)
+    for row in resolved["concepts"]:
+        root.add(build_concept(row))
     return root
 
 
-def build_value_set(record, plan, utg, published_urls=None):
-    """Build the ValueSet for a table, composed over `plan["systemUrl"]`.
+def build_code_system(record, plan, utg, published_urls=None, snapshot=None,
+                      observe=None):
+    """Build the CodeSystem for a table that owns its code system."""
+    return render_code_system(plan_code_system(
+        record, plan, utg, published_urls, snapshot, observe))
 
-    The chapter's Content Logical Definition says which shape the compose
-    takes. `all codes` includes the whole system; `enumerated per table
-    content` lists the table's own rows. Anything else is not interpreted here
-    -- `classify` sends those tables to the report instead.
+
+def chapter_compose(record, plan, shape):
+    """The compose the chapter asks for, as plain data.
+
+    The chapter's Content Logical Definition says which shape it takes. `all
+    codes` includes the whole system; `enumerated per table content` lists the
+    table's own rows; an is-a filter names a subtree. Anything else is not
+    interpreted here -- `classify` sends those tables to the report instead.
     """
+    if shape["kind"] == "filter":
+        compose = {
+            "include": [{
+                "system": shape["system"],
+                "filter": [{"property": "concept", "op": "is-a",
+                            "value": shape["isA"]}],
+            }],
+            "exclude": [],
+        }
+        if shape["excludeRoot"]:
+            # `is-a` includes the concept it is rooted at, so excluding that
+            # one code is how "the descendants only" is written.
+            compose["exclude"].append({
+                "system": shape["system"],
+                "concept": [{"code": shape["excludeRoot"]}],
+            })
+        return compose
+
+    include = {"system": plan["systemUrl"]}
+    if shape["kind"] == "enumerated":
+        include["concept"] = [
+            {"code": entry.get("value"), "display": entry.get("displayName")}
+            for entry in record.get("codedContent") or []
+        ]
+    return {"include": [include], "exclude": []}
+
+
+def plan_value_set(record, plan, utg, published_urls=None, snapshot=None,
+                   observe=None):
+    """Settle every value the ValueSet will carry, before any XML is built."""
     table = record["tableNumber"]
     value_set = (record.get("valueSets") or [{}])[0]
     inherited = utg.value_sets.get(table, {})
     symbolic_name = (value_set.get("SymbolicName") or "").strip()
-
     identity = value_set_identity(table, published_urls, utg)
+    observe = observe if observe is not None else tho_merge.Observations()
+    tho = snapshot.value_set(identity["url"]) if snapshot else None
+    context = {"table": table, "resource": "ValueSet"}
+
+    fields = {
+        "name": pascal_case(symbolic_name),
+        "title": symbolic_name,
+        "status": DEFAULT_STATUS,
+        "experimental": DEFAULT_EXPERIMENTAL,
+        "description": (value_set.get("Description") or "").strip(),
+    }
+    fields = tho_merge.merge_fields(
+        fields, tho, tho_merge.FILLABLE_VALUE_SET_FIELDS, observe, context)
+
+    shape = parse_logical_definition(value_set.get("Content Logical Definition"))
+    compose = tho_merge.merge_compose(
+        chapter_compose(record, plan, shape), tho, observe, context)
+
+    oid, changed = tho_merge.merge_identifier(
+        value_set.get("Value Set OID"), tho, observe, context)
+    changed += tho_merge.changed_fields(
+        fields, tho, tho_merge.COMPARED_VALUE_SET_FIELDS, observe, context)
+    if tho and tho_merge.compose_changed(compose, tho):
+        changed.append("compose.include")
+
+    return {
+        "resourceId": identity["id"],
+        "url": identity["url"],
+        "oid": oid,
+        "fields": fields,
+        "date": inherited.get("date") or DEFAULT_DATE,
+        "compose": compose,
+        "version": resolve_version("ValueSet", snapshot, tho, inherited,
+                                   changed),
+        "changed": changed,
+    }
+
+
+def render_value_set(resolved):
+    """Build the ValueSet XML from the values `plan_value_set` settled."""
+    fields = resolved["fields"]
     root = Node("ValueSet")
     add_common_metadata(
         root,
-        resource_id=identity["id"],
-        url=identity["url"],
-        oid=value_set.get("Value Set OID"),
-        version=inherited.get("version") or DEFAULT_VERSION,
-        date=inherited.get("date") or DEFAULT_DATE,
-        name=pascal_case(symbolic_name),
-        title=symbolic_name,
-        description=(value_set.get("Description") or "").strip(),
+        resource_id=resolved["resourceId"],
+        url=resolved["url"],
+        oid=resolved["oid"],
+        version=resolved["version"]["version"],
+        date=resolved["date"],
+        name=fields["name"],
+        title=fields["title"],
+        description=fields["description"],
     )
     root.add_value("copyright", COPYRIGHT)
 
-    shape = parse_logical_definition(value_set.get("Content Logical Definition"))
     compose = root.add(Node("compose"))
-
-    if shape["kind"] == "filter":
-        include = compose.add(Node("include"))
-        include.add_value("system", shape["system"])
-        criterion = include.add(Node("filter"))
-        criterion.add_value("property", "concept")
-        criterion.add_value("op", "is-a")
-        criterion.add_value("value", shape["isA"])
-        if shape["excludeRoot"]:
-            # `is-a` includes the concept it is rooted at, so excluding that
-            # one code is how "the descendants only" is written.
-            exclude = compose.add(Node("exclude"))
-            exclude.add_value("system", shape["system"])
-            concept = exclude.add(Node("concept"))
-            concept.add_value("code", shape["excludeRoot"])
-        return root
-
-    include = compose.add(Node("include"))
-    include.add_value("system", plan["systemUrl"])
-    if shape["kind"] == "enumerated":
-        for entry in record.get("codedContent") or []:
-            concept = include.add(Node("concept"))
-            concept.add_value("code", entry.get("value"))
-            concept.add_value("display", entry.get("displayName"))
+    for kind in ("include", "exclude"):
+        for group in resolved["compose"].get(kind) or []:
+            node = compose.add(Node(kind))
+            node.add_value("system", group.get("system"))
+            for concept in group.get("concept") or []:
+                child = node.add(Node("concept"))
+                child.add_value("code", concept.get("code"))
+                child.add_value("display", concept.get("display"))
+            for criterion in group.get("filter") or []:
+                child = node.add(Node("filter"))
+                child.add_value("property", criterion.get("property"))
+                child.add_value("op", criterion.get("op"))
+                child.add_value("value", criterion.get("value"))
     return root
+
+
+def build_value_set(record, plan, utg, published_urls=None, snapshot=None,
+                    observe=None):
+    """Build the ValueSet for a table, composed over `plan["systemUrl"]`."""
+    return render_value_set(plan_value_set(
+        record, plan, utg, published_urls, snapshot, observe))
 
 
 def compose_shape(record):
@@ -860,7 +1149,8 @@ def compose_shape(record):
     return definition
 
 
-def process(records, utg, oid_index, published_urls=None):
+def process(records, utg, oid_index, published_urls=None, snapshot=None,
+            observe=None):
     """Classify every table and build the resources for those that qualify.
 
     Returns:
@@ -870,10 +1160,11 @@ def process(records, utg, oid_index, published_urls=None):
     """
     files = {}
     report = []
+    observe = observe if observe is not None else tho_merge.Observations()
 
     for record in records:
         table = record["tableNumber"]
-        plan = classify(record, oid_index)
+        plan = classify(record, oid_index, snapshot)
         entry = {
             "table": table,
             "name": record.get("tableName", ""),
@@ -900,10 +1191,14 @@ def process(records, utg, oid_index, published_urls=None):
                     f"No work group extension: steward "
                     f"{metadata.get('Steward')!r} is not a work group we map."
                 )
-            if not utg.code_systems.get(table, {}).get("version"):
+            if snapshot is None and not utg.code_systems.get(table, {}).get("version"):
                 used_default.append("CodeSystem")
-            document = render_document(
-                build_code_system(record, plan, utg, published_urls))
+            resolved = plan_code_system(record, plan, utg, published_urls,
+                                        snapshot, observe)
+            entry["codeSystemVersion"] = resolved["version"]
+            if resolved["unknownProperties"]:
+                entry["unknownProperties"] = resolved["unknownProperties"]
+            document = render_document(render_code_system(resolved))
             path = f"codeSystems/cs-v2-{table}.xml"
             files[path] = document
             entry["written"].append(path)
@@ -923,7 +1218,8 @@ def process(records, utg, oid_index, published_urls=None):
                         f"{unbuildable!r}."
                     )
                 else:
-                    if not utg.value_sets.get(table, {}).get("version"):
+                    if (snapshot is None
+                            and not utg.value_sets.get(table, {}).get("version")):
                         used_default.append("ValueSet")
                     identity = value_set_identity(table, published_urls, utg)
                     if identity["url"] != VS_CANONICAL.format(table=table):
@@ -931,8 +1227,11 @@ def process(records, utg, oid_index, published_urls=None):
                         entry["valueSetUrlNote"] = (
                             "Published at THO's existing canonical rather than "
                             "one constructed from the table number.")
-                    document = render_document(
-                        build_value_set(record, plan, utg, published_urls))
+                    resolved = plan_value_set(record, plan, utg,
+                                              published_urls, snapshot,
+                                              observe)
+                    entry["valueSetVersion"] = resolved["version"]
+                    document = render_document(render_value_set(resolved))
                     path = identity["file"]
                     files[path] = document
                     entry["written"].append(path)
@@ -945,6 +1244,252 @@ def process(records, utg, oid_index, published_urls=None):
 
         report.append(entry)
     return files, report
+
+
+def record_omissions(report, snapshot, observe):
+    """Report THO artifacts this guide publishes nothing for.
+
+    Publishing nothing at a canonical destroys nothing -- THO's artifact
+    stands untouched -- so the merge is not entitled to invent one. But a
+    reviewer needs to know where this guide is silent and THO is not, so each
+    one is recorded together with the reason the writer gave for that table.
+
+    Only meaningful on a full run; a run filtered to a few tables would report
+    every other table as an omission, so `main` calls this only when it has
+    processed the whole corpus.
+    """
+    entries = {entry["table"]: entry for entry in report}
+    written_code_systems = {
+        entry["table"] for entry in report
+        if any(path.startswith("codeSystems/") for path in entry["written"])
+    }
+    written_value_sets = {
+        entry.get("valueSetUrl") or VS_CANONICAL.format(table=entry["table"])
+        for entry in report
+        if any(path.startswith("valueSets/") for path in entry["written"])
+    }
+
+    for table in sorted(snapshot.code_system_tables() - written_code_systems):
+        entry = entries.get(table, {})
+        observe.omission(
+            table=table, resource="CodeSystem",
+            element="resource",
+            url=CS_CANONICAL.format(table=table),
+            action=entry.get("action", "not a Chapter 2C table"),
+            reason=entry.get("reason", "The chapter has no section for it."))
+
+    for url in sorted(snapshot.value_set_urls() - written_value_sets):
+        match = re.search(r"(\d{4})$", url)
+        table = match.group(1) if match else None
+        entry = entries.get(table, {})
+        observe.omission(
+            table=table, resource="ValueSet",
+            element="resource",
+            url=url,
+            action=entry.get("action", "not a Chapter 2C table"),
+            reason=entry.get("reason", "The chapter has no section for it."))
+
+
+# What each class of observation means, in words a reviewer can use. Keyed by
+# the observation's kind and element; a property observation is keyed by its
+# property code as well, because inheriting a comment-as-published and
+# inheriting a deprecation marker are not the same finding.
+#
+# An unlisted combination still appears in the report -- with a title built
+# from its key -- so a new kind of finding shows up rather than vanishing.
+OBSERVATION_CLASSES = {
+    ("fill", "concept.definition"):
+        ("Concept definitions kept from THO",
+         "Chapter 2C has no definition column at all, so without this every "
+         "definition THO has written would be deleted from the artifact."),
+    ("fill", "concept.display"):
+        ("Concept displays kept from THO",
+         "The chapter leaves the display blank for these codes."),
+    ("fill", "concept.designation"):
+        ("Translations kept from THO",
+         "The chapter has no way to express a translation, so there is no "
+         "disagreement to have -- only a loss to avoid."),
+    ("fill", "concept"):
+        ("Codes kept from THO that the chapter does not list",
+         "THO publishes these codes at this canonical. Dropping them would "
+         "remove codes implementers may already be sending."),
+    ("fill", "compose.include.concept"):
+        ("Value set members kept from THO",
+         "Codes THO enumerates in the value set that the chapter's table "
+         "does not."),
+    ("fill", "description"):
+        ("Resource descriptions kept from THO",
+         "Where the chapter's description is missing or a placeholder such "
+         "as 'tbd', THO's text stands."),
+    ("fill", "name"):
+        ("Resource names kept from THO", "The chapter supplies no name."),
+    ("fill", "title"):
+        ("Resource titles kept from THO", "The chapter supplies no title."),
+    ("fill", "concept.property:v2-concCommentAsPub"):
+        ("Comments-as-published kept from THO",
+         "THO records the comment text as the chapter of the day printed it, "
+         "alongside the current one. Nothing in Chapter 2C corresponds to it, "
+         "so it can only be kept or lost."),
+    ("fill", "concept.property:HL7usageNotes"):
+        ("Usage notes kept from THO",
+         "Guidance THO carries on individual concepts, with no counterpart "
+         "in the chapter's grid."),
+    ("fill", "concept.property:v2-table-deprecated"):
+        ("Deprecation markers kept from THO",
+         "The HL7 version in which a code was deprecated. The chapter's "
+         "status column says that a code is deprecated but not when."),
+    ("addition", "concept.display"):
+        ("Displays the chapter supplies for codes THO leaves bare",
+         "THO has the code with no display; the chapter names it."),
+    ("addition", "concept.definition"):
+        ("Definitions the chapter supplies where THO has none",
+         "New content this guide contributes."),
+    ("addition", "concept.property:v2-concComment"):
+        ("Concept comments the chapter adds", ""),
+    ("discrepancy", "concept.property:status"):
+        ("Concept status where the chapter and THO disagree",
+         "Most of these are codes THO still marks 'N' -- new, in some past "
+         "release -- that the 2.9.1 chapter no longer flags, so ours reads "
+         "'active'."),
+    ("discrepancy", "concept.property:v2-concComment"):
+        ("Concept comments where the chapter and THO disagree", ""),
+    ("discrepancy", "name"):
+        ("Resource names where the chapter and THO disagree", ""),
+    ("discrepancy", "title"):
+        ("Resource titles where the chapter and THO disagree", ""),
+    ("discrepancy", "status"):
+        ("Resource status where the chapter and THO disagree", ""),
+    ("discrepancy", "concept.definition"):
+        ("Definitions where the chapter and THO disagree",
+         "Both carry a definition and they differ. The chapter's wins, "
+         "because this guide publishes the chapter."),
+    ("discrepancy", "concept.display"):
+        ("Displays where the chapter and THO disagree",
+         "Both carry a display and they differ beyond whitespace."),
+    ("discrepancy", "description (editorial)"):
+        ("Descriptions differing only in punctuation",
+         "Same words in the same order; only punctuation or spacing moved. "
+         "The chapter's text is published and no version is incremented, "
+         "which is the versioning policy's editorial-correction carve-out "
+         "applied as far as a program honestly can. Recorded so the waiver "
+         "can be reversed in one place if TSMG rules otherwise."),
+    ("discrepancy", "description"):
+        ("Descriptions that differ in what they say",
+         "The words themselves differ, so this is not an editorial "
+         "correction and it does increment the version."),
+    ("discrepancy", "purpose"):
+        ("Purposes where the chapter and THO disagree",
+         "The purpose is generated from the table number and name, so a "
+         "difference here is a disagreement about the table's name."),
+    ("discrepancy", "compose.include.concept.display"):
+        ("Value set member displays where the chapter and THO disagree", ""),
+    ("addition", "concept"):
+        ("Codes the chapter lists that THO does not publish",
+         "New content this guide contributes."),
+    ("addition", "compose.include.concept"):
+        ("Value set members the chapter lists that THO does not", ""),
+    ("fill", "identifier"):
+        ("Identifiers kept from THO",
+         "The chapter gives no OID. Publishing without THO's would be "
+         "*removing* an identifier, which the policy says needs a whole new "
+         "artifact rather than a new version."),
+    ("discrepancy", "identifier"):
+        ("Identifiers where the chapter and THO disagree",
+         "The chapter's OID is published. Under the versioning policy a "
+         "changed identifier cannot be expressed as a version at all — it "
+         "calls for a new artifact at a new canonical — so each of these "
+         "needs resolving before publication."),
+    ("addition", "hierarchyMeaning"):
+        ("A hierarchy meaning the chapter states and THO omits", ""),
+    ("omission", "resource"):
+        ("Artifacts THO publishes that this guide does not",
+         "Publishing nothing at a canonical destroys nothing -- THO's "
+         "artifact stands -- so the merge does not invent one. Listed so "
+         "that the silence is deliberate and visible."),
+}
+
+
+def observation_class(record):
+    """The class key and human title for one observation."""
+    element = record.get("element", "")
+    if record.get("property"):
+        element = f"{element}:{record['property']}"
+    if record.get("editorial"):
+        element = f"{element} (editorial)"
+    key = (record["kind"], element)
+    if key in OBSERVATION_CLASSES:
+        title, why = OBSERVATION_CLASSES[key]
+    elif (record["kind"], record.get("element", "")) in OBSERVATION_CLASSES:
+        title, why = OBSERVATION_CLASSES[(record["kind"], record["element"])]
+        if record.get("property"):
+            title = f"{title} — {record['property']}"
+    else:
+        title, why = f"{record['kind']} in {element}", ""
+    return f"{record['kind']}:{element}", title, why
+
+
+def build_fill_report(observe, snapshot, report):
+    """Assemble the computable record of the merge.
+
+    Every observation is kept individually under `records`, because the point
+    of a computable report is that somebody can ask it a question we have not
+    thought of. `classes` is the summary a person reads: one row per kind of
+    finding, with a count and the tables it touches.
+    """
+    classes = {}
+    for record in observe.records:
+        key, title, why = observation_class(record)
+        bucket = classes.setdefault(key, {
+            "class": key, "kind": record["kind"],
+            "element": record.get("element"), "property": record.get("property"),
+            "title": title, "why": why, "count": 0, "tables": set(),
+        })
+        bucket["count"] += record.get("count", 1)
+        if record.get("table"):
+            bucket["tables"].add(record["table"])
+
+    summary = []
+    for bucket in sorted(classes.values(), key=lambda b: -b["count"]):
+        tables = sorted(bucket.pop("tables"))
+        bucket["tableCount"] = len(tables)
+        bucket["tables"] = tables
+        summary.append(bucket)
+
+    versions = Counter()
+    judgement = []
+    new_artifact = []
+    for entry in report:
+        for which in ("codeSystemVersion", "valueSetVersion"):
+            note = entry.get(which)
+            if not note:
+                continue
+            kind = which.replace("Version", "")
+            if note["version"] == versioning.INITIAL_VERSION and not note["triggers"]:
+                versions[f"{kind}: first publication at 1.0.0"] += 1
+            elif note["incremented"]:
+                versions[f"{kind}: incremented"] += 1
+            else:
+                versions[f"{kind}: unchanged, THO's version kept"] += 1
+            if note["judgement"]:
+                judgement.append({"table": entry["table"], "resource": kind,
+                                  "elements": note["judgement"],
+                                  "version": note["version"]})
+            if note["newArtifact"]:
+                new_artifact.append({"table": entry["table"], "resource": kind,
+                                     "elements": note["newArtifact"]})
+
+    return {
+        "source": snapshot.provenance(),
+        "counts": {
+            "observations": len(observe.records),
+            "byKind": dict(Counter(r["kind"] for r in observe.records)),
+            "versions": dict(versions),
+        },
+        "classes": summary,
+        "needsJudgement": judgement,
+        "cannotBeVersioned": new_artifact,
+        "records": observe.records,
+    }
 
 
 def main():
@@ -962,6 +1507,10 @@ def main():
                              "group and concept element ids from")
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR),
                         help="Where to write the XML tree")
+    parser.add_argument("--no-tho-merge", action="store_true",
+                        help="Write only what Chapter 2C says, without "
+                             "merging THO's content in or computing versions "
+                             "from the versioning policy")
     args = parser.parse_args()
 
     paths = sorted(VOCAB_DIR.glob("*.json"))
@@ -976,6 +1525,12 @@ def main():
     utg = UtgRepo(args.utg_repo)
     oid_index = load_oid_index()
     published_urls = load_published_value_set_urls()
+    snapshot = None if args.no_tho_merge else tho_merge.ThoSnapshot()
+    if snapshot is not None and not snapshot.available:
+        print(f"No THO snapshot at {tho_merge.THO_DIR}; nothing to merge and "
+              f"no baseline to version against.", file=sys.stderr)
+        return 1
+    observe = tho_merge.Observations()
 
     print(f"Tables read            : {len(records)}")
     print(f"UTG checkout           : "
@@ -989,7 +1544,14 @@ def main():
         for table, file_name in utg.collisions:
             print(f"  {table}  {file_name}")
 
-    files, report = process(records, utg, oid_index, published_urls)
+    if snapshot is not None:
+        print(f"THO snapshot           : "
+              f"{snapshot.package.get('name')} {snapshot.package.get('version')}")
+
+    files, report = process(records, utg, oid_index, published_urls, snapshot,
+                            observe)
+    if snapshot is not None and not args.table:
+        record_omissions(report, snapshot, observe)
 
     actions = Counter(entry["action"] for entry in report)
     print("\nWhat the chapter supports:")
@@ -1017,6 +1579,37 @@ def main():
             print(f"  {len(tables):3d}  {reason}")
             print(f"       {', '.join(tables)}")
 
+    fill_report = None
+    if snapshot is not None:
+        fill_report = build_fill_report(observe, snapshot, report)
+        print("\nAgainst THO "
+              f"{snapshot.package.get('version')}, "
+              f"{fill_report['counts']['observations']} observations:")
+        for kind, count in sorted(fill_report["counts"]["byKind"].items(),
+                                  key=lambda kv: -kv[1]):
+            print(f"  {count:5d}  {kind}")
+        print("\nThe classes behind them:")
+        for bucket in fill_report["classes"]:
+            print(f"  {bucket['count']:5d}  {bucket['title']} "
+                  f"({bucket['tableCount']} tables)")
+        print("\nVersions:")
+        for label, count in sorted(fill_report["counts"]["versions"].items()):
+            print(f"  {count:5d}  {label}")
+        if fill_report["needsJudgement"]:
+            print(f"\nIncremented on an element the policy leaves to human "
+                  f"judgement ({len(fill_report['needsJudgement'])}) -- "
+                  f"waivable:")
+            for item in fill_report["needsJudgement"]:
+                print(f"  {item['table']}  {item['resource']}  "
+                      f"{', '.join(item['elements'])}")
+        if fill_report["cannotBeVersioned"]:
+            print(f"\nChanges the policy says cannot be expressed as a "
+                  f"version ({len(fill_report['cannotBeVersioned'])}) -- "
+                  f"these need a new artifact, not a new version:")
+            for item in fill_report["cannotBeVersioned"]:
+                print(f"  {item['table']}  {item['resource']}  "
+                      f"{', '.join(item['elements'])}")
+
     if args.dry_run:
         print("\n(dry run — nothing written)")
         return 0
@@ -1034,8 +1627,16 @@ def main():
         encoding="utf-8",
     )
 
+    if fill_report is not None:
+        FILL_REPORT_PATH.write_text(
+            json.dumps(fill_report, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
     print(f"\nXML:    {output_dir}")
     print(f"Report: {REPORT_PATH}")
+    if fill_report is not None:
+        print(f"THO:    {FILL_REPORT_PATH}")
     return 0
 
 

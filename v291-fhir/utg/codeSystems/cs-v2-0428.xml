@@ -45,6 +45,7 @@
   <concept id="4620">
     <code value="P"/>
     <display value="Preventable"/>
+    <definition value="Preventable"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4621">
     <code value="U"/>
     <display value="User Error"/>
+    <definition value="User Error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4622">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

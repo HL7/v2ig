@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.418"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Confidentiality"/>
   <title value="confidentiality"/>
   <status value="active"/>
@@ -54,6 +54,7 @@
   <concept id="6546">
     <code value="D"/>
     <display value="Clinician - Only clinicians may see this item, billing and administration persons can not access this item without special permission."/>
+    <definition value="Clinician - Only clinicians may see this item, billing and administration persons can not access this item without special permission."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -62,6 +63,7 @@
   <concept id="6547">
     <code value="I"/>
     <display value="Individual - Access only to individual persons who are mentioned explicitly as actors of this service and whose actor type warrants that access (cf. to actor typed code)."/>
+    <definition value="Individual - Access only to individual persons who are mentioned explicitly as actors of this service and whose actor type warrants that access (cf. to actor typed code)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -70,6 +72,7 @@
   <concept id="6548">
     <code value="L"/>
     <display value="Low - No patient record item can be of low confidentiality. However, some service objects are not patient related and therefore may have low confidentiality."/>
+    <definition value="Low - No patient record item can be of low confidentiality.  However, some service objects are not patient related and therefore may have low confidentiality."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -78,6 +81,7 @@
   <concept id="6549">
     <code value="N"/>
     <display value="Normal - Normal confidentiality rules (according to good health care practice) apply, that is, only authorized individuals with a legitimate medical or business need may access this item."/>
+    <definition value="Normal - Normal confidentiality rules (according to good health care practice) apply, that is, only authorized individuals with a legitimate medical or business need may access this item."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -86,6 +90,7 @@
   <concept id="6550">
     <code value="R"/>
     <display value="Restricted - Restricted access, e.g., only to providers having a current care relationship to the patient."/>
+    <definition value="Restricted - Restricted access, e.g. only to providers having a current care relationship to the patient."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -94,6 +99,7 @@
   <concept id="6551">
     <code value="V"/>
     <display value="Very restricted - Very restricted access as declared by the Privacy Officer of the record holder."/>
+    <definition value="Very restricted - Very restricted access as declared by the Privacy Officer of the record holder."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -102,6 +108,7 @@
   <concept id="6552">
     <code value="ETH"/>
     <display value="Substance abuse related - Alcohol/drug-abuse related item"/>
+    <definition value="Substance abuse related - Alcohol/drug-abuse related item"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -110,6 +117,7 @@
   <concept id="6553">
     <code value="HIV"/>
     <display value="HIV Related - HIV and AIDS related item"/>
+    <definition value="HIV Related - HIV and AIDS related item"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -118,6 +126,7 @@
   <concept id="6554">
     <code value="PSY"/>
     <display value="Psychiatry related - Psychiatry related item"/>
+    <definition value="Psychiatry related - Psychiatry related item"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -126,6 +135,7 @@
   <concept id="6555">
     <code value="SDV"/>
     <display value="Sexual and domestic violence related - Sexual assault / domestic violence related item"/>
+    <definition value="Sexual and domestic violence related - Sexual assault / domestic violence related item"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -134,6 +144,7 @@
   <concept id="6556">
     <code value="C"/>
     <display value="Celebrity - Celebrities are people of public interest (VIP) including employees, whose information require special protection."/>
+    <definition value="Celebrity - Celebrities are people of public interest (VIP) including employees, whose information require special protection."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -151,6 +162,7 @@
   <concept id="6558">
     <code value="T"/>
     <display value="Taboo - Information not to be disclosed or discussed with patient except through physician assigned to patient in this case. This is usually a temporary constraint only; example use is a new fatal diagnosis or finding, such as malignancy or HIV."/>
+    <definition value="Taboo - Information not to be disclosed or discussed with patient except through physician assigned to patient in this case.  This is usually a temporary constraint only; example use is a new fatal diagnosis or finding, such as malignancy or HIV."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

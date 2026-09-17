@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.183"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="TimeSelectionCriteriaParameterClass"/>
   <title value="timeSelectionCriteriaParameterClass"/>
   <status value="active"/>
@@ -43,14 +43,27 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="2955">
     <code value="Prefstart"/>
     <display value="An indicator that there is a preferred start time for the appointment request, service or resource."/>
+    <definition value="An indicator that there is a preferred start time for the appointment request, service or resource."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
@@ -58,11 +71,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
     </property>
   </concept>
   <concept id="2957">
     <code value="Prefend"/>
     <display value="An indicator that there is a preferred end time for the appointment request, service or resource."/>
+    <definition value="An indicator that there is a preferred end time for the appointment request, service or resource."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
@@ -71,10 +89,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
+    </property>
   </concept>
   <concept id="2959">
     <code value="Mon"/>
     <display value="An indicator that Monday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Monday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
@@ -82,11 +105,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
     </property>
   </concept>
   <concept id="2961">
     <code value="Tue"/>
     <display value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
@@ -94,11 +122,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
     </property>
   </concept>
   <concept id="2963">
     <code value="Wed"/>
     <display value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
@@ -106,11 +139,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
     </property>
   </concept>
   <concept id="2965">
     <code value="Thu"/>
     <display value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
@@ -118,11 +156,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
     </property>
   </concept>
   <concept id="2967">
     <code value="Fri"/>
     <display value="An indicator that Friday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Friday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
@@ -130,11 +173,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
     </property>
   </concept>
   <concept id="2969">
     <code value="Sat"/>
     <display value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
@@ -143,13 +191,139 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </property>
   </concept>
   <concept id="2971">
     <code value="Sun"/>
     <display value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In component 2, specify OK or NO.&#10;OK = Preferred appointment day NO = Day is not preferred"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </property>
+  </concept>
+  <concept id="2954">
+    <code value="PREFSTART"/>
+    <display value="The preferred start time for the appointment request, service or resource.   Any legal time specification in the format HHMM, using 24-hour clock notation"/>
+    <definition value="The preferred start time for the appointment request, service or resource.   Any legal time specification in the format HHMM, using 24-hour clock notation"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2956">
+    <code value="PREFEND"/>
+    <display value="The preferred end time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
+    <definition value="The preferred end time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2958">
+    <code value="MON"/>
+    <display value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2960">
+    <code value="TUE"/>
+    <display value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2962">
+    <code value="WED"/>
+    <display value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2964">
+    <code value="THU"/>
+    <display value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2966">
+    <code value="FRI"/>
+    <display value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2968">
+    <code value="SAT"/>
+    <display value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2970">
+    <code value="SUN"/>
+    <display value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
     </property>
     <property>
       <code value="status"/>

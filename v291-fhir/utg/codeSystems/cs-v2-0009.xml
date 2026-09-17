@@ -45,6 +45,15 @@
   <concept id="635">
     <code value="A0"/>
     <display value="No functional limitations"/>
+    <definition value="No functional limitations"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Keine funktionalen Einschränkungen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="636">
     <code value="A1"/>
     <display value="Ambulates with assistive device"/>
+    <definition value="Ambulates with assistive device"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient benötigt Hilfsmittel"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="637">
     <code value="A2"/>
     <display value="Wheelchair/stretcher bound"/>
+    <definition value="Wheelchair/stretcher bound"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Rollstuhl / Trage notwendig"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="638">
     <code value="A3"/>
     <display value="Comatose; non-responsive"/>
+    <definition value="Comatose; non-responsive"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Komatös; nicht ansprechbar"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="639">
     <code value="A4"/>
     <display value="Disoriented"/>
+    <definition value="Disoriented"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Desorientiert"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +130,15 @@
   <concept id="640">
     <code value="A5"/>
     <display value="Vision impaired"/>
+    <definition value="Vision impaired"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sehstörung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +147,15 @@
   <concept id="641">
     <code value="A6"/>
     <display value="Hearing impaired"/>
+    <definition value="Hearing impaired"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Schwerhörigkeit"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +164,15 @@
   <concept id="642">
     <code value="A7"/>
     <display value="Speech impaired"/>
+    <definition value="Speech impaired"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sprachstörung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +181,15 @@
   <concept id="643">
     <code value="A8"/>
     <display value="Non-English speaking"/>
+    <definition value="Non-English speaking"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="der Landessprache nicht mächtig"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +198,15 @@
   <concept id="644">
     <code value="A9"/>
     <display value="Functional level unknown"/>
+    <definition value="Functional level unknown"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Unbekannter Zustand"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +215,15 @@
   <concept id="645">
     <code value="B1"/>
     <display value="Oxygen therapy"/>
+    <definition value="Oxygen therapy"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sauerstofftherapie"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +232,15 @@
   <concept id="646">
     <code value="B2"/>
     <display value="Special equipment (tubes, IVs, catheters)"/>
+    <definition value="Special equipment (tubes, IVs, catheters)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Besondere Hilsfmittel"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +249,15 @@
   <concept id="647">
     <code value="B3"/>
     <display value="Amputee"/>
+    <definition value="Amputee"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Amputation"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +266,15 @@
   <concept id="648">
     <code value="B4"/>
     <display value="Mastectomy"/>
+    <definition value="Mastectomy"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Brustamputation"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +283,15 @@
   <concept id="649">
     <code value="B5"/>
     <display value="Paraplegic"/>
+    <definition value="Paraplegic"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(Querschnitt-) Lähmung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -165,6 +300,15 @@
   <concept id="650">
     <code value="B6"/>
     <display value="Pregnant"/>
+    <definition value="Pregnant"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Schwanger"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

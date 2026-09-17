@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3564">
     <code value="PL"/>
     <display value="Person location"/>
+    <definition value="Person location"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="3565">
     <code value="CE"/>
     <display value="Coded element"/>
+    <definition value="Coded element"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Withdrawn as of v2.6 - CE has been replaced by CNE and CWE"/>
@@ -67,10 +75,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Withdrawn as of v2.6 - CE has been replaced by CNE and CWE"/>
+    </property>
   </concept>
   <concept id="3566">
     <code value="CWE"/>
     <display value="Coded with Exceptions"/>
+    <definition value="Coded with Exceptions"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

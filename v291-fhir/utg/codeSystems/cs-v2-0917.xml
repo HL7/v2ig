@@ -45,6 +45,7 @@
   <concept id="6628">
     <code value="C"/>
     <display value="Supplemental"/>
+    <definition value="Supplemental"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6629">
     <code value="L"/>
     <display value="Loading"/>
+    <definition value="Loading"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

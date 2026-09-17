@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="4898">
     <code value="M"/>
     <display value="Medication"/>
+    <definition value="Medication"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Default value. Includes, but is not limited to, tables, capsules, powders, puffs, and other non-injected/non-infused products."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Default value.  Includes, but is not limited to, tables, capsules, powders, puffs, and other non-injected/non-infused products."/>
+    </property>
   </concept>
   <concept id="4899">
     <code value="S"/>
     <display value="IV Large Volume Solutions"/>
+    <definition value="IV Large Volume Solutions"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Includes, but is not limited to, TPNs, admixtures, solutions and drips."/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Includes, but is not limited to, TPNs, admixtures, solutions and drips."/>
+    </property>
   </concept>
   <concept id="4900">
     <code value="O"/>
     <display value="Other solution as medication orders"/>
+    <definition value="Other solution as medication orders"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Includes, but is not limited to, piggybacks and syringes"/>
@@ -82,6 +99,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Includes, but is not limited to, piggybacks and syringes"/>
     </property>
   </concept>
 </CodeSystem>

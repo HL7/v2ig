@@ -45,6 +45,15 @@
   <concept id="2309">
     <code value="Y"/>
     <display value="Yes"/>
+    <definition value="Yes"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ja"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,7 @@
   <concept id="2310">
     <code value="S"/>
     <display value="Significant"/>
+    <definition value="Significant"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,15 @@
   <concept id="2311">
     <code value="N"/>
     <display value="No"/>
+    <definition value="No"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nein"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

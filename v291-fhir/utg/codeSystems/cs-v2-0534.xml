@@ -45,6 +45,15 @@
   <concept id="5647">
     <code value="Y"/>
     <display value="Yes"/>
+    <definition value="Yes"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ja"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="5648">
     <code value="N"/>
     <display value="No"/>
+    <definition value="No"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nein"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,7 @@
   <concept id="5649">
     <code value="L"/>
     <display value="Last Rites only"/>
+    <definition value="Last Rites only"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +88,7 @@
   <concept id="5650">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +97,15 @@
   <concept id="5651">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unbekannt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

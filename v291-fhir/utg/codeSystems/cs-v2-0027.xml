@@ -45,6 +45,15 @@
   <concept id="674">
     <code value="S"/>
     <display value="Stat (do immediately)"/>
+    <definition value="Stat (do immediately)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="sofort"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="675">
     <code value="A"/>
     <display value="As soon as possible (a priority lower than stat)"/>
+    <definition value="As soon as possible (a priority lower than stat)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="schnellstmöglich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="676">
     <code value="R"/>
     <display value="Routine"/>
+    <definition value="Routine"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Routine"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="677">
     <code value="P"/>
     <display value="Preoperative (to be done prior to surgery)"/>
+    <definition value="Preoperative (to be done prior to surgery)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="präoperativ"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="678">
     <code value="T"/>
     <display value="Timing critical (do as near as possible to requested time)"/>
+    <definition value="Timing critical (do as near as possible to requested time)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="zum vereinbarten Zeitpunkt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

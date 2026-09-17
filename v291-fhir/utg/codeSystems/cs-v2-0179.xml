@@ -45,6 +45,15 @@
   <concept id="1865">
     <code value="NE"/>
     <display value="Never. No application-level response needed"/>
+    <definition value="Never.  No application-level response needed"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Keine Rückmeldung erforderlich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1866">
     <code value="ER"/>
     <display value="Error/Reject conditions only. Only MFA segments denoting errors must be returned via the application-level acknowledgment for this message"/>
+    <definition value="Error/Reject conditions only.  Only MFA segments denoting errors must be returned via the application-level acknowledgment for this message"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Rückmeldung bei auftretenden Fehlern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1867">
     <code value="AL"/>
     <display value="Always. All MFA segments (whether denoting errors or not) must be returned via the application-level acknowledgment message"/>
+    <definition value="Always.  All MFA segments (whether denoting errors or not) must be returned via the application-level acknowledgment message"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Rückmeldung immer erforderlich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="1868">
     <code value="SU"/>
     <display value="Success. Only MFA segments denoting success must be returned via the application-level acknowledgment for this message"/>
+    <definition value="Success.  Only MFA segments denoting success must be returned via the application-level acknowledgment for this message"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Rückmeldung bei erfolgreicher Verarbeitung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

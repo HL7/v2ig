@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.108"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="IdentifierType"/>
   <title value="identifierType"/>
   <status value="active"/>
@@ -48,6 +48,18 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="1968">
     <code value="AC"/>
     <display value="Accreditation/Certification Identifier"/>
@@ -69,6 +81,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Accession Identifier"/>
+    </property>
   </concept>
   <concept id="1970">
     <code value="AIN"/>
@@ -86,6 +102,15 @@
   <concept id="1971">
     <code value="AM"/>
     <display value="American Express"/>
+    <definition value="American Express"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="American Express"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
@@ -93,6 +118,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </property>
   </concept>
   <concept id="1972">
@@ -103,14 +132,30 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A physician identifier assigned by the AMA."/>
+    </property>
   </concept>
   <concept id="1973">
     <code value="AN"/>
     <display value="Account number"/>
     <definition value="Account An identifier that is unique to an account."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Kontonummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to an account."/>
     </property>
   </concept>
   <concept id="1974">
@@ -125,6 +170,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial&lt;p&gt;A more precise definition of an account number: sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.&lt;p&gt;Kreditorenkontonummer"/>
+    </property>
   </concept>
   <concept id="1975">
     <code value="AND"/>
@@ -137,6 +186,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial&lt;p&gt;A more precise definition of an account number: sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.&lt;p&gt;Debitorenkontonummer"/>
     </property>
   </concept>
   <concept id="1976">
@@ -151,6 +204,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier for a living subject whose real identity is protected or suppressed&#13;&#10;Justification: For public health reporting purposes, anonymous identifiers are occasionally used for protecting patient identity in reporting certain results. For instance, a state health department may choose to use a scheme for generating an anonymous identifier for reporting a patient that has had a positive human immunodeficiency virus antibody test. Anonymous identifiers can be used in PID 3 by replacing the medical record number or other non-anonymous identifier. The assigning authority for an anonymous identifier would be the state/local health department."/>
+    </property>
   </concept>
   <concept id="1977">
     <code value="ANT"/>
@@ -164,6 +221,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial&#13;&#10;Temporary version of an Account Number.&#13;&#10;Use Case: An ancillary system that does not normally assign account numbers is the first time to register a patient. This ancillary system will generate a temporary account number that will only be used until an official account number is assigned."/>
+    </property>
   </concept>
   <concept id="1978">
     <code value="APRN"/>
@@ -172,6 +233,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to an advanced practice registered nurse within the jurisdiction of a certifying board"/>
     </property>
   </concept>
   <concept id="1979">
@@ -186,10 +251,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A unique identifier for the ancestor specimen. All child, grandchild, etc. specimens of the ancestor specimen share the same Ancestor Specimen ID."/>
+    </property>
   </concept>
   <concept id="1980">
     <code value="BA"/>
     <display value="Bank Account Number"/>
+    <definition value="Bank Account Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Financial"/>
@@ -197,6 +267,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial"/>
     </property>
   </concept>
   <concept id="1981">
@@ -210,6 +284,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial&lt;p&gt;An identifier that is unique to a person&#39;s bank card. Replaces AM, DI, DS, MS, and VS beginning in v 2.5."/>
     </property>
   </concept>
   <concept id="1982">
@@ -229,19 +307,36 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a document identifying the event of a person&#39;s birth."/>
+    </property>
   </concept>
   <concept id="1984">
     <code value="BR"/>
     <display value="Birth registry number"/>
     <definition value="An identifier unique within the Assigning Authority that is the official legal record of a person&#39;s birth."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Geburtsregisternummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier unique within the Assigning Authority that is the official legal record of a person&#39;s birth."/>
     </property>
   </concept>
   <concept id="1985">
     <code value="BRN"/>
     <display value="Breed Registry Number"/>
+    <definition value="Breed Registry Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -250,6 +345,7 @@
   <concept id="1986">
     <code value="BSNR"/>
     <display value="Primary physician office number"/>
+    <definition value="Primary physician office number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Betriebsstättennummer - for use in the German realm."/>
@@ -257,6 +353,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Betriebsstättennummer - for use in the German realm."/>
     </property>
   </concept>
   <concept id="1987">
@@ -275,6 +375,7 @@
   <concept id="1988">
     <code value="CC"/>
     <display value="Cost Center number"/>
+    <definition value="Cost Center number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Financial&#10;Use Case: needed especially for transmitting information about invoices."/>
@@ -282,6 +383,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial&lt;p&gt;Use Case: needed especially for transmitting information about invoices."/>
     </property>
   </concept>
   <concept id="1989">
@@ -292,10 +397,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a document identifying a person&#39;s legal change of name."/>
+    </property>
   </concept>
   <concept id="1990">
     <code value="CY"/>
     <display value="County number"/>
+    <definition value="County number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -308,6 +418,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number assigned by a person&#39;s country of residence to identify a person&#39;s citizenship."/>
     </property>
   </concept>
   <concept id="1992">
@@ -336,6 +450,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a dentist within the jurisdiction of the licensing board"/>
+    </property>
   </concept>
   <concept id="1995">
     <code value="DEA"/>
@@ -348,6 +466,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier for an individual or organization relative to controlled substance regulation and transactions.&#13;&#10;Use case: This is a registration number that identifies an individual or organization relative to controlled substance regulation and transactions. &#13;&#10;A DEA number has a very precise and widely accepted meaning within the United States. Surprisingly, the US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital’s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Identifier Type is necessary in addition to DEA as an Assigning Authority."/>
     </property>
   </concept>
   <concept id="1996">
@@ -362,10 +484,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier issued to a health care provider authorizing the person to write drug orders&lt;p&gt;Use Case: A nurse practitioner has authorization to furnish or prescribe pharmaceutical substances; this identifier is in component 1."/>
+    </property>
   </concept>
   <concept id="1997">
     <code value="DI"/>
     <display value="Diner&#39;s Club card"/>
+    <definition value="Diner&#39;s Club card"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Diners Club"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
@@ -374,10 +509,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </property>
   </concept>
   <concept id="1998">
     <code value="DL"/>
     <display value="Driver&#39;s license number"/>
+    <definition value="Driver&#39;s license number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Führerscheinnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -386,6 +534,15 @@
   <concept id="1999">
     <code value="DN"/>
     <display value="Doctor number"/>
+    <definition value="Doctor number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Arztnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -399,6 +556,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to an osteopath within the jurisdiction of a licensing board."/>
+    </property>
   </concept>
   <concept id="2001">
     <code value="DP"/>
@@ -407,6 +568,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number assigned to a diplomatic passport."/>
     </property>
   </concept>
   <concept id="2002">
@@ -417,10 +582,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a podiatrist within the jurisdiction of the licensing board."/>
+    </property>
   </concept>
   <concept id="2003">
     <code value="DR"/>
     <display value="Donor Registration Number"/>
+    <definition value="Donor Registration Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -429,6 +599,15 @@
   <concept id="2004">
     <code value="DS"/>
     <display value="Discover Card"/>
+    <definition value="Discover Card"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Discover Card"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
@@ -436,6 +615,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </property>
   </concept>
   <concept id="2005">
@@ -455,14 +638,35 @@
     <code value="EI"/>
     <display value="Employee number"/>
     <definition value="A number that uniquely identifies an employee to an employer."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Arbeitnehmernummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number that uniquely identifies an employee to an employer."/>
     </property>
   </concept>
   <concept id="2007">
     <code value="EN"/>
     <display value="Employer number"/>
+    <definition value="Employer number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Arbeitgebernummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -475,6 +679,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a staff member within an enterprise (as identified by the Assigning Authority)."/>
     </property>
   </concept>
   <concept id="2009">
@@ -511,6 +719,7 @@
   <concept id="2012">
     <code value="FI"/>
     <display value="Facility ID"/>
+    <definition value="Facility ID"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -528,6 +737,15 @@
   <concept id="2014">
     <code value="GI"/>
     <display value="Guarantor internal identifier"/>
+    <definition value="Guarantor internal identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="interne ID des Zahlungspflichtigen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Financial"/>
@@ -535,6 +753,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial"/>
     </property>
   </concept>
   <concept id="2015">
@@ -553,6 +775,7 @@
   <concept id="2105">
     <code value="GKV"/>
     <display value="insured&#39;s ID with public insurance"/>
+    <definition value="Identifier that can be used to unambiguously describe the ID of a patient with a public insurance company."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -565,6 +788,7 @@
   <concept id="2016">
     <code value="GL"/>
     <display value="General ledger number"/>
+    <definition value="General ledger number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Financial"/>
@@ -572,11 +796,24 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial"/>
     </property>
   </concept>
   <concept id="2017">
     <code value="GN"/>
     <display value="Guarantor external identifier"/>
+    <definition value="Guarantor external  identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="externe ID des Zahlungspflichtigen"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Financial"/>
@@ -585,10 +822,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Financial"/>
+    </property>
   </concept>
   <concept id="2018">
     <code value="HC"/>
     <display value="Health Card Number"/>
+    <definition value="Health Card Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -602,10 +844,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number assigned to a member of an indigenous or aboriginal group outside of Canada."/>
+    </property>
   </concept>
   <concept id="2020">
     <code value="JHN"/>
     <display value="Jurisdictional health number"/>
+    <definition value="Jurisdictional health number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;2 uses: a) UK jurisdictional CHI number; b) Canadian provincial health card number:"/>
@@ -614,10 +861,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&lt;p&gt;2 uses: a) UK jurisdictional CHI number; b) Canadian provincial health card number:"/>
+    </property>
   </concept>
   <concept id="2108">
     <code value="KZVA"/>
     <display value="dentist office number"/>
+    <definition value="Identifier that can be used to unambiguously identify the practice of a dentist."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -639,10 +891,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A laboratory accession id is used in the laboratory domain. The concept of accession is used in other domains such as radiology, so the LACSN is used to distinguish a lab accession id from an radiology accession id"/>
+    </property>
   </concept>
   <concept id="2022">
     <code value="LANR"/>
     <display value="Lifelong physician number"/>
+    <definition value="Lifelong physician number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Lebenslange Arztnummer - for use in German realm."/>
@@ -651,10 +908,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Lebenslange Arztnummer - for use in German realm."/>
+    </property>
   </concept>
   <concept id="2023">
     <code value="LI"/>
     <display value="Labor and industries number"/>
+    <definition value="Labor and industries number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -663,6 +925,7 @@
   <concept id="2024">
     <code value="LN"/>
     <display value="License number"/>
+    <definition value="License number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -671,6 +934,7 @@
   <concept id="2025">
     <code value="LR"/>
     <display value="Local Registry ID"/>
+    <definition value="Local Registry ID"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -679,6 +943,15 @@
   <concept id="2026">
     <code value="MA"/>
     <display value="Patient Medicaid number"/>
+    <definition value="Patient Medicaid number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Armennummer"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -686,6 +959,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance"/>
     </property>
   </concept>
   <concept id="2027">
@@ -700,10 +977,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier for the insured of an insurance policy (this insured always has a subscriber), usually assigned by the insurance carrier.&lt;p&gt;Use Case: Person is covered by an insurance policy. This person may or may not be the subscriber of the policy."/>
+    </property>
   </concept>
   <concept id="2028">
     <code value="MC"/>
     <display value="Patient&#39;s Medicare number"/>
+    <definition value="Patient&#39;s Medicare number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Rentnernummer"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -711,11 +1001,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance"/>
     </property>
   </concept>
   <concept id="2029">
     <code value="MCD"/>
     <display value="Practitioner Medicaid number"/>
+    <definition value="Practitioner Medicaid number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -724,10 +1019,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance"/>
+    </property>
   </concept>
   <concept id="2030">
     <code value="MCN"/>
     <display value="Microchip Number"/>
+    <definition value="Microchip Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -736,6 +1036,7 @@
   <concept id="2031">
     <code value="MCR"/>
     <display value="Practitioner Medicare number"/>
+    <definition value="Practitioner Medicare number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -743,6 +1044,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance"/>
     </property>
   </concept>
   <concept id="2032">
@@ -752,6 +1057,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a document identifying the event of a person&#39;s marriage."/>
     </property>
   </concept>
   <concept id="2033">
@@ -766,6 +1075,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a medical doctor within the jurisdiction of a licensing board.&#13;&#10;Use Case: These license numbers are sometimes used as identifiers. In some states, the same authority issues all three identifiers, e.g., medical, osteopathic, and physician assistant licenses all issued by one state medical board. For this case, the CX data type requires distinct identifier types to accurately interpret component 1. Additionally, the distinction among these license types is critical in most health care settings (this is not to convey full licensing information, which requires a segment to support all related attributes)."/>
+    </property>
   </concept>
   <concept id="2034">
     <code value="MI"/>
@@ -775,14 +1088,30 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number assigned to an individual who has had military duty, but is not currently on active duty. The number is assigned by the DOD or Veterans&#39; Affairs (VA)."/>
+    </property>
   </concept>
   <concept id="2035">
     <code value="MR"/>
     <display value="Medical record number"/>
     <definition value="An identifier that is unique to a patient within a set of medical records, not necessarily unique within an application."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Krankenaktennummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a patient within a set of medical records, not necessarily unique within an application."/>
     </property>
   </concept>
   <concept id="2036">
@@ -797,10 +1126,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Temporary version of a Medical Record Number&#13;&#10;Use Case: An ancillary system that does not normally assign medical record numbers is the first time to register a patient. This ancillary system will generate a temporary medical record number that will only be used until an official medical record number is assigned."/>
+    </property>
   </concept>
   <concept id="2037">
     <code value="MS"/>
     <display value="MasterCard"/>
+    <definition value="MasterCard"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="MasterCard"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
@@ -809,10 +1151,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </property>
   </concept>
   <concept id="2038">
     <code value="NBSNR"/>
     <display value="Secondary physician office number"/>
+    <definition value="Secondary physician office number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Nebenbetriebsstättennummer - for use in the German realm."/>
@@ -820,6 +1167,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Nebenbetriebsstättennummer - for use in the German realm."/>
     </property>
   </concept>
   <concept id="2039">
@@ -830,10 +1181,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a document identifying a person&#39;s retention of citizenship in a particular country."/>
+    </property>
   </concept>
   <concept id="2040">
     <code value="NE"/>
     <display value="National employer identifier"/>
+    <definition value="National employer identifier"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
@@ -842,10 +1198,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
+    </property>
   </concept>
   <concept id="2041">
     <code value="NH"/>
     <display value="National Health Plan Identifier"/>
+    <definition value="National Health Plan Identifier"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;Used for the UK NHS national identifier."/>
@@ -854,10 +1215,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&lt;p&gt;Used for the UK NHS national identifier.&lt;p&gt;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
+    </property>
   </concept>
   <concept id="2042">
     <code value="NI"/>
     <display value="National unique individual identifier"/>
+    <definition value="National unique individual identifier"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
@@ -866,10 +1232,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&#13;&#10;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
+    </property>
   </concept>
   <concept id="2043">
     <code value="NII"/>
     <display value="National Insurance Organization Identifier"/>
+    <definition value="National Insurance Organization Identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Institutskennzeichen der Krankenkasse"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;In Germany a national identifier for an insurance company. It is printed on the insurance card (health card). It is not to be confused with the health card number itself.&#10;Krankenkassen-ID der KV-Karte"/>
@@ -878,10 +1257,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&#13;&#10;In Germany a national identifier for an insurance company. It is printed on the insurance card (health card). It is not to be confused with the health card number itself.&lt;p&gt;Krankenkassen-ID der KV-Karte"/>
+    </property>
   </concept>
   <concept id="2044">
     <code value="NIIP"/>
     <display value="National Insurance Payor Identifier (Payor)"/>
+    <definition value="National Insurance Payor Identifier (Payor)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Vertragskassennummer (VKNR)"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;In Germany the insurance identifier addressed as the payor.&#10;Krankenkassen-ID des Rechnungsempfängers&#10;Use case: a subdivision issues the card with their identifier, but the main division is going to pay the invoices."/>
@@ -890,10 +1282,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&#13;&#10;In Germany the insurance identifier addressed as the payor.&lt;p&gt;Krankenkassen-ID des Rechnungsempfängers&lt;p&gt;Use case: a subdivision issues the card with their identifier, but the main division is going to pay the invoices."/>
+    </property>
   </concept>
   <concept id="2045">
     <code value="NNxxx"/>
     <display value="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"/>
+    <definition value="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -907,10 +1304,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a nurse practitioner within the jurisdiction of a certifying board."/>
+    </property>
   </concept>
   <concept id="2047">
     <code value="NPI"/>
     <display value="National provider identifier"/>
+    <definition value="National provider identifier"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
@@ -918,6 +1320,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&#13;&#10;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
     </property>
   </concept>
   <concept id="2048">
@@ -941,14 +1347,30 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number that is unique to an individual optometrist within the jurisdiction of the licensing board."/>
+    </property>
   </concept>
   <concept id="2050">
     <code value="PA"/>
     <display value="Physician Assistant number"/>
     <definition value="An identifier that is unique to a physician assistant within the jurisdiction of a licensing board"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Assistenzarztnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a physician assistant within the jurisdiction of a licensing board"/>
     </property>
   </concept>
   <concept id="2051">
@@ -959,6 +1381,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number identifying a person on parole."/>
+    </property>
   </concept>
   <concept id="2052">
     <code value="PCN"/>
@@ -967,6 +1393,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number assigned to individual who is incarcerated."/>
     </property>
   </concept>
   <concept id="2053">
@@ -977,10 +1407,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a living subject within an enterprise (as identified by the Assigning Authority)."/>
+    </property>
   </concept>
   <concept id="2054">
     <code value="PEN"/>
     <display value="Pension Number"/>
+    <definition value="Pension Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1042,9 +1477,21 @@
     <code value="PI"/>
     <display value="Patient internal identifier"/>
     <definition value="A number that is unique to a patient within an Assigning Authority."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="interne Patienten-ID"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number that is unique to a patient within an Assigning Authority."/>
     </property>
   </concept>
   <concept id="2060">
@@ -1063,6 +1510,7 @@
   <concept id="2106">
     <code value="PKV"/>
     <display value="insured&#39;s ID with private insurance"/>
+    <definition value="Identifier that can be used to unambiguously describe the ID of a patient with a private insurance company."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -1085,9 +1533,21 @@
     <code value="PN"/>
     <display value="Person number"/>
     <definition value="A number that is unique to a living subject within an Assigning Authority."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Personen-ID"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number that is unique to a living subject within an Assigning Authority."/>
     </property>
   </concept>
   <concept id="2063">
@@ -1098,10 +1558,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Temporary version of a Lining Subject Number."/>
+    </property>
   </concept>
   <concept id="2064">
     <code value="PPIN"/>
     <display value="Medicare/CMS Performing Provider Identification Number"/>
+    <definition value="Medicare/CMS Performing Provider Identification Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance&#10;&#10;Usage Note: Class: Insurance"/>
@@ -1110,11 +1575,27 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class:  Insurance"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Class:  Insurance"/>
+    </property>
   </concept>
   <concept id="2065">
     <code value="PPN"/>
     <display value="Passport number"/>
     <definition value="A unique number assigned to the document affirming that a person is a citizen of the country."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Passnummer"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="In the US this number is issued only by the State Department."/>
@@ -1123,10 +1604,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A unique number assigned to the document affirming that a person is a citizen of the country. In the US this number is issued only by the State Department."/>
+    </property>
   </concept>
   <concept id="2066">
     <code value="PRC"/>
     <display value="Permanent Resident Card Number"/>
+    <definition value="Permanent Resident Card Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1144,10 +1630,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number that is unique to an individual provider, a provider group or an organization within an Assigning Authority.&lt;p&gt;Use case: This allows PRN to represent either an individual (a nurse) or a group/organization (orthopedic surgery team)."/>
+    </property>
   </concept>
   <concept id="2068">
     <code value="PT"/>
     <display value="Patient external identifier"/>
+    <definition value="Patient external identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="externe Patienten-ID"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1156,6 +1655,7 @@
   <concept id="2069">
     <code value="QA"/>
     <display value="QA number"/>
+    <definition value="QA number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1173,6 +1673,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A generalized resource identifier.&#13;&#10;Use Case: An identifier type is needed to accommodate what are commonly known as resources. The resources can include human (e.g. a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., diabetic education class) or any other physical or logical entity."/>
+    </property>
   </concept>
   <concept id="2071">
     <code value="RN"/>
@@ -1181,6 +1685,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a registered nurse within the jurisdiction of the licensing board."/>
     </property>
   </concept>
   <concept id="2072">
@@ -1191,19 +1699,36 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier that is unique to a pharmacist within the jurisdiction of the licensing board."/>
+    </property>
   </concept>
   <concept id="2073">
     <code value="RR"/>
     <display value="Railroad Retirement number"/>
     <definition value="An identifier for an individual enrolled with the Railroad Retirement Administration. Analogous to, but distinct from, a Social Security Number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Seniorenkartennummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An identifier for an individual enrolled with the Railroad Retirement Administration.  Analogous to, but distinct from, a Social Security Number"/>
     </property>
   </concept>
   <concept id="2074">
     <code value="RRI"/>
     <display value="Regional registry ID"/>
+    <definition value="Regional registry ID"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1212,6 +1737,7 @@
   <concept id="2075">
     <code value="RRP"/>
     <display value="Railroad Retirement Provider"/>
+    <definition value="Railroad Retirement Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -1219,6 +1745,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class:  Insurance"/>
     </property>
   </concept>
   <concept id="2076">
@@ -1255,10 +1785,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Identifier for a specimen. Used when it is not known if the specimen ID is a unique specimen ID (USID) or an ancestor ID (ASID)."/>
+    </property>
   </concept>
   <concept id="2079">
     <code value="SL"/>
     <display value="State license"/>
+    <definition value="State license"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1275,6 +1810,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&#13;&#10;An identifier for a subscriber of an insurance policy which is unique for, and usually assigned by, the insurance carrier.&#13;&#10;Use Case: A person is the subscriber of an insurance policy. The person’s family may be plan members, but are not the subscriber."/>
     </property>
   </concept>
   <concept id="2081">
@@ -1307,10 +1846,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a permit identifying a person who is a resident of a jurisdiction for the purpose of education."/>
+    </property>
   </concept>
   <concept id="2084">
     <code value="SR"/>
     <display value="State registry ID"/>
+    <definition value="State registry ID"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1332,6 +1876,15 @@
   <concept id="2086">
     <code value="SS"/>
     <display value="Social Security number"/>
+    <definition value="Social Security number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sozialversicherungsnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1353,6 +1906,15 @@
   <concept id="2088">
     <code value="TAX"/>
     <display value="Tax ID number"/>
+    <definition value="Tax ID number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Steueridentifikationsnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1370,6 +1932,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number assigned to a member of an indigenous group in Canada.&lt;p&gt;Use Case: First Nation."/>
+    </property>
   </concept>
   <concept id="2090">
     <code value="TPR"/>
@@ -1378,6 +1944,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a document identifying a person&#39;s temporary permanent resident status."/>
     </property>
   </concept>
   <concept id="2091">
@@ -1392,6 +1962,7 @@
   <concept id="2092">
     <code value="U"/>
     <display value="Unspecified identifier"/>
+    <definition value="Unspecified identifier"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1418,6 +1989,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance&lt;p&gt;An identifier for a provider within the CMS/Medicare program.  A globally unique identifier for the provider in the Medicare program."/>
+    </property>
   </concept>
   <concept id="2095">
     <code value="USID"/>
@@ -1427,10 +2002,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A unique identifier for a specimen."/>
+    </property>
   </concept>
   <concept id="2096">
     <code value="VN"/>
     <display value="Visit number"/>
+    <definition value="Visit number"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fallnummer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1440,14 +2028,35 @@
     <code value="VP"/>
     <display value="Visitor Permit"/>
     <definition value="A number associated with a document identifying a person as a visitor of a jurisdiction or country."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Besucherkennung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a document identifying a person as a visitor of a jurisdiction or country."/>
     </property>
   </concept>
   <concept id="2098">
     <code value="VS"/>
     <display value="VISA"/>
+    <definition value="VISA"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="VISA"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
@@ -1456,10 +2065,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </property>
   </concept>
   <concept id="2099">
     <code value="WC"/>
     <display value="WIC identifier"/>
+    <definition value="WIC identifier"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1468,6 +2082,7 @@
   <concept id="2100">
     <code value="WCN"/>
     <display value="Workers&#39; Comp Number"/>
+    <definition value="Workers&#39; Comp Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1480,6 +2095,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A number associated with a permit for a person who is granted permission to work in a country for a specified time period."/>
     </property>
   </concept>
   <concept id="2102">
@@ -1494,10 +2113,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The code value ‘XV’ is used in CMS mandated Health Insurance Portability and Accountability Act (HIPAA) transactions."/>
+    </property>
   </concept>
   <concept id="2103">
     <code value="XX"/>
     <display value="Organization identifier"/>
+    <definition value="Organization identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Organisations-ID"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1506,6 +2138,7 @@
   <concept id="2107">
     <code value="ZANR"/>
     <display value="dentist identifier"/>
+    <definition value="Identifier that can be used to unambiguously describe the ID of a dentist."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Class: Insurance"/>
@@ -1513,6 +2146,89 @@
     <property>
       <code value="status"/>
       <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="12008">
+    <code value="ETIN"/>
+    <display value="Electronic Transmitter Identification Number"/>
+    <definition value="A unique identifier usually assigned by a health plan or clearinghouse to an organization or provider that electronically transmits healthcare transactions, such as claims, eligibility inquiries, or remittance advices."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2104">
+    <code value="IRISTEM"/>
+    <display value="An IRI stem"/>
+    <definition value="An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See https://hl7.org/fhir/rdf.html#iri-stem for details on how this value may be used."/>
+  </concept>
+  <concept id="8023">
+    <code value="L&amp;I"/>
+    <display value="Labor and industries number"/>
+    <definition value="Labor and industries number.  Note that this was introduced erroneously (with an ampersand in the code value) many years ago."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Deprecated as of v 2.5; Use LI instead."/>
+    </property>
+  </concept>
+  <concept id="2110">
+    <code value="NIIH"/>
+    <display value="National Insurance Headquarters Organization Identifier"/>
+    <definition value="National Insurance Headquarters Organization Identifier"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Institutskennzeichen des Krankenkassensitzes"/>
+    </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Class: Insurance"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Class: Insurance"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="12050">
+    <code value="PAYERID"/>
+    <display value="Payer Identifier"/>
+    <definition value="A unique identifier, usually assigned by a health plan or clearinghouse, used in electronic healthcare transactions to designate the specific health insurance company or plan that is the recipient or sender of the transaction."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="12093">
+    <code value="UCID"/>
+    <display value="Unique Claim Identifier"/>
+    <definition value="A unique identifier assigned by a payer for a claim received from a provider or subscriber."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="12094">
+    <code value="UMB"/>
+    <display value="Unique Product-independent Payer Person Identifier"/>
+    <definition value="A unique identifier assigned to an individual by a payer that remains consistent regardless of the individual&#39;s role (e.g., subscriber, dependent) or the specific product(s) they are enrolled in with that payer."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Use Case: Introduced by Da Vinci to support cross-coverage member/patient identifiers assigned by payers."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
   </concept>
 </CodeSystem>

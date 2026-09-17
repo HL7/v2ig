@@ -45,6 +45,7 @@
   <concept id="2728">
     <code value="A"/>
     <display value="Accepted"/>
+    <definition value="Accepted"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2729">
     <code value="P"/>
     <display value="Pending"/>
+    <definition value="Pending"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2730">
     <code value="R"/>
     <display value="Rejected"/>
+    <definition value="Rejected"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2731">
     <code value="E"/>
     <display value="Expired"/>
+    <definition value="Expired"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

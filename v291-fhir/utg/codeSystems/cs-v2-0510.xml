@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5543">
     <code value="RI"/>
     <display value="Received into inventory (for specified patient)"/>
+    <definition value="Received into inventory (for specified patient)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -58,11 +65,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5544">
     <code value="RD"/>
     <display value="Reserved and ready to dispense"/>
+    <definition value="Reserved and ready to dispense"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -70,11 +82,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5545">
     <code value="RS"/>
     <display value="Reserved (ordered and product allocated for the patient)"/>
+    <definition value="Reserved (ordered and product allocated for the patient)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
+    </property>
   </concept>
   <concept id="5546">
     <code value="RE"/>
     <display value="Released (no longer allocated for the patient)"/>
+    <definition value="Released (no longer allocated for the patient)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Placer or Filler"/>
@@ -95,10 +117,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Placer or Filler"/>
+    </property>
   </concept>
   <concept id="5547">
     <code value="DS"/>
     <display value="Dispensed to patient location"/>
+    <definition value="Dispensed to patient location"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -106,11 +133,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5548">
     <code value="RA"/>
     <display value="Returned unused/no longer needed"/>
+    <definition value="Returned unused/no longer needed"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -118,11 +150,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5549">
     <code value="RL"/>
     <display value="Returned unused/keep linked to patient for possible use later"/>
+    <definition value="Returned unused/keep linked to patient for possible use later"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -130,11 +167,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5550">
     <code value="WA"/>
     <display value="Wasted (product no longer viable)"/>
+    <definition value="Wasted (product no longer viable)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -142,11 +184,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5551">
     <code value="PT"/>
     <display value="Presumed transfused (dispensed and not returned)"/>
+    <definition value="Presumed transfused (dispensed and not returned)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -154,11 +201,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
     </property>
   </concept>
   <concept id="5552">
     <code value="CR"/>
     <display value="Released into inventory for general availability"/>
+    <definition value="Released into inventory for general availability"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Filler"/>
@@ -167,10 +219,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Filler"/>
+    </property>
   </concept>
   <concept id="5553">
     <code value="RQ"/>
     <display value="Request to dispense blood product"/>
+    <definition value="Request to dispense blood product"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Status determined by Placer"/>
@@ -178,6 +235,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Status determined by Placer"/>
     </property>
   </concept>
 </CodeSystem>

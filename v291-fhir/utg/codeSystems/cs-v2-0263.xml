@@ -45,6 +45,7 @@
   <concept id="2586">
     <code value="A"/>
     <display value="Ambulatory"/>
+    <definition value="Ambulatory"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2587">
     <code value="E"/>
     <display value="Emergency"/>
+    <definition value="Emergency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2588">
     <code value="F"/>
     <display value="Isolation"/>
+    <definition value="Isolation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2589">
     <code value="N"/>
     <display value="Intensive care"/>
+    <definition value="Intensive care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2590">
     <code value="C"/>
     <display value="Critical care"/>
+    <definition value="Critical care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2591">
     <code value="R"/>
     <display value="Routine"/>
+    <definition value="Routine"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2592">
     <code value="S"/>
     <display value="Surgery"/>
+    <definition value="Surgery"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

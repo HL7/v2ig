@@ -45,6 +45,7 @@
   <concept id="5500">
     <code value="E"/>
     <display value="Emergency"/>
+    <definition value="Emergency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5501">
     <code value="PJ"/>
     <display value="Professional Judgment"/>
+    <definition value="Professional Judgment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

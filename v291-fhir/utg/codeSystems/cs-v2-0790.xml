@@ -45,6 +45,7 @@
   <concept id="6480">
     <code value="FDA"/>
     <display value="Food and Drug Administration"/>
+    <definition value="Food and Drug Administration"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6481">
     <code value="AMA"/>
     <display value="American Medical Association"/>
+    <definition value="American Medical Association"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

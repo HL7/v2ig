@@ -45,6 +45,7 @@
   <concept id="2362">
     <code value="WP"/>
     <display value="Product withdrawn permanently"/>
+    <definition value="Product withdrawn permanently"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2363">
     <code value="WT"/>
     <display value="Product withdrawn temporarily"/>
+    <definition value="Product withdrawn temporarily"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2364">
     <code value="DR"/>
     <display value="Product dose or frequency of use reduced"/>
+    <definition value="Product dose or frequency of use reduced"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2365">
     <code value="DI"/>
     <display value="Product dose or frequency of use increased"/>
+    <definition value="Product dose or frequency of use increased"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2366">
     <code value="OT"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2367">
     <code value="N"/>
     <display value="None"/>
+    <definition value="None"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

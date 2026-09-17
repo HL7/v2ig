@@ -45,6 +45,7 @@
   <concept id="5613">
     <code value="HS"/>
     <display value="the hour of sleep (e.g., H18-22)"/>
+    <definition value="the hour of sleep (e.g., H18-22)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,15 @@
   <concept id="5614">
     <code value="AC"/>
     <display value="before meal (from lat. ante cibus)"/>
+    <definition value="before meal (from lat. ante cibus)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="vor der Mahlzeit (from lat. Ante cibus)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,7 @@
   <concept id="5615">
     <code value="PC"/>
     <display value="after meal (from lat. post cibus)"/>
+    <definition value="after meal (from lat. post cibus)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +80,7 @@
   <concept id="5616">
     <code value="IC"/>
     <display value="between meals (from lat. inter cibus)"/>
+    <definition value="between meals (from lat. inter cibus)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +89,15 @@
   <concept id="5617">
     <code value="ACM"/>
     <display value="before breakfast (from lat. ante cibus matutinus)"/>
+    <definition value="before breakfast (from lat. ante cibus matutinus)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="vor dem Frühstück (from lat. Ante cibus matutinus)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +106,15 @@
   <concept id="5618">
     <code value="ACD"/>
     <display value="before lunch (from lat. ante cibus diurnus)"/>
+    <definition value="before lunch (from lat. ante cibus diurnus)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="vor dem Mittagessen (from lat. Ante cibus diurnus)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +123,15 @@
   <concept id="5619">
     <code value="ACV"/>
     <display value="before dinner (from lat. ante cibus vespertinus)"/>
+    <definition value="before dinner (from lat. ante cibus vespertinus)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="vor dem Abendessen (from lat. Ante cibus vespertinus)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +140,7 @@
   <concept id="5620">
     <code value="PCM"/>
     <display value="after breakfast (from lat. post cibus matutinus)"/>
+    <definition value="after breakfast (from lat. post cibus matutinus)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +149,7 @@
   <concept id="5621">
     <code value="PCD"/>
     <display value="after lunch (from lat. post cibus diurnus)"/>
+    <definition value="after lunch (from lat. post cibus diurnus)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +158,7 @@
   <concept id="5622">
     <code value="PCV"/>
     <display value="after dinner (from lat. post cibus vespertinus)"/>
+    <definition value="after dinner (from lat. post cibus vespertinus)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +167,7 @@
   <concept id="5623">
     <code value="ICM"/>
     <display value="between breakfast and lunch"/>
+    <definition value="between breakfast and lunch"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +176,7 @@
   <concept id="5624">
     <code value="ICD"/>
     <display value="between lunch and dinner"/>
+    <definition value="between lunch and dinner"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +185,7 @@
   <concept id="5625">
     <code value="ICV"/>
     <display value="between dinner and the hour of sleep"/>
+    <definition value="between dinner and the hour of sleep"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="4844">
     <code value="I"/>
     <display value="Ideographic (i.e., Kanji)"/>
+    <definition value="Ideographic (i.e., Kanji)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,15 @@
   <concept id="4845">
     <code value="A"/>
     <display value="Alphabetic (i.e., Default or some single-byte)"/>
+    <definition value="Alphabetic (i.e., Default or some single-byte)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="alphabetisch"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,7 @@
   <concept id="4846">
     <code value="P"/>
     <display value="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)"/>
+    <definition value="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

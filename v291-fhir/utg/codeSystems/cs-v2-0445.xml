@@ -45,6 +45,7 @@
   <concept id="4819">
     <code value="US"/>
     <display value="Unknown/Default Social Security Number"/>
+    <definition value="Unknown/Default Social Security Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4820">
     <code value="UD"/>
     <display value="Unknown/Default Date of Birth"/>
+    <definition value="Unknown/Default Date of Birth"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4821">
     <code value="UA"/>
     <display value="Unknown/Default Address"/>
+    <definition value="Unknown/Default Address"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4822">
     <code value="AL"/>
     <display value="Patient/Person Name is an Alias"/>
+    <definition value="Patient/Person Name is an Alias"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

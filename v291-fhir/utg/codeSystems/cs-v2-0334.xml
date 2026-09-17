@@ -45,6 +45,15 @@
   <concept id="3075">
     <code value="PT"/>
     <display value="Patient"/>
+    <definition value="Patient"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="3076">
     <code value="GT"/>
     <display value="Guarantor"/>
+    <definition value="Guarantor"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zahlugnspflichtiger"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="3077">
     <code value="IN"/>
     <display value="Insured"/>
+    <definition value="Insured"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Versicherter"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,7 @@
   <concept id="3078">
     <code value="AP"/>
     <display value="Associated party"/>
+    <definition value="Associated party"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

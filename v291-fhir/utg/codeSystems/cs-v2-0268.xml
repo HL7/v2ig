@@ -45,6 +45,7 @@
   <concept id="2626">
     <code value="X"/>
     <display value="Override not allowed"/>
+    <definition value="Override not allowed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2627">
     <code value="A"/>
     <display value="Override allowed"/>
+    <definition value="Override allowed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2628">
     <code value="R"/>
     <display value="Override required"/>
+    <definition value="Override required"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

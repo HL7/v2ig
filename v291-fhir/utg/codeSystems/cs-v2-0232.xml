@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.132"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="InsuranceCompanyContactReason"/>
   <title value="insuranceCompanyContactReason"/>
   <status value="active"/>
@@ -45,6 +45,7 @@
   <concept id="2274">
     <code value="01"/>
     <display value="Medicare claim status"/>
+    <definition value="Medicare claim status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2275">
     <code value="02"/>
     <display value="Medicaid claim status"/>
+    <definition value="Medicaid claim status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2276">
     <code value="03"/>
     <display value="Name/address change"/>
+    <definition value="Name/address change"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

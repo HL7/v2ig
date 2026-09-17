@@ -45,6 +45,7 @@
   <concept id="6469">
     <code value="0"/>
     <display value="Neither operation relevant nor non-operation relevant procedure"/>
+    <definition value="Neither operation relevant nor non-operation relevant procedure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6470">
     <code value="1"/>
     <display value="Operation relevant procedure"/>
+    <definition value="Operation relevant procedure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6471">
     <code value="2"/>
     <display value="Non-operation relevant procedure"/>
+    <definition value="Non-operation relevant procedure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

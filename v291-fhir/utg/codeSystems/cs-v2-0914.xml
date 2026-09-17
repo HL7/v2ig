@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.421"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="RootCause"/>
   <title value="rootCause"/>
   <status value="active"/>
@@ -48,9 +48,22 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="6619">
     <code value="AP"/>
     <display value="Analysis Process"/>
+    <definition value="Analysis Process"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Enter (AP) when ANALYSIS PROCESS is the reason due to:&#10;• Product or supply failure (reagents, calibrators, QC material)&#10;• Equipment or instrumentation failure&#10;&#10;Usage Note: Enter (AP) when ANALYSIS PROCESS is the reason due to:&#10;• Product or supply failure (reagents, calibrators, QC material)&#10;• Equipment or instrumentation failure"/>
@@ -59,10 +72,19 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Enter (AP) when ANALYSIS PROCESS is the reason due to:&#13;&#10;• Product or supply failure (reagents, calibrators, QC material)&#13;&#10;• Equipment or instrumentation failure"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Enter (AP) when ANALYSIS PROCESS is the reason due to:&#13;&#10;• Product or supply failure (reagents, calibrators, QC material)&#13;&#10;• Equipment or instrumentation failure"/>
+    </property>
   </concept>
   <concept id="6620">
     <code value="IM"/>
     <display value="Information Management"/>
+    <definition value="Information Management"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Enter (IM) when INFORMATION MANAGEMENT is the reason due to:&#10;• Database or Programming issues&#10;• Overriding of test results&#10;• Inaccurate calculations&#10;• Inaccurate flagging, reference ranges, units of measure&#10;• Incomplete/inaccurate transmission of test results&#10;• Other&#10;&#10;Usage Note: Enter (IM) when INFORMATION MANAGEMENT is the reason due to:&#10;• Database or Programming issues&#10;• Overriding of test results&#10;• Inaccurate calculations&#10;• Inaccurate flagging, reference ranges, units of measure&#10;• Incomplete/inaccurate transmission of test results&#10;• Other"/>
@@ -71,10 +93,19 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Enter (IM) when INFORMATION MANAGEMENT is the reason due to:&#13;&#10;• Database or Programming issues&#13;&#10;• Overriding of test results&#13;&#10;• Inaccurate calculations&#13;&#10;• Inaccurate flagging, reference ranges, units of measure&#13;&#10;• Incomplete/inaccurate transmission of test results&#13;&#10;• Other"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Enter (IM) when INFORMATION MANAGEMENT is the reason due to:&#13;&#10;• Database or Programming issues&#13;&#10;• Overriding of test results&#13;&#10;• Inaccurate calculations&#13;&#10;• Inaccurate flagging, reference ranges, units of measure&#13;&#10;• Incomplete/inaccurate transmission of test results&#13;&#10;• Other"/>
+    </property>
   </concept>
   <concept id="6621">
     <code value="L"/>
     <display value="Laboratory"/>
+    <definition value="Laboratory"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Enter (L) when LABORATORY is the reason due to:&#10;• Data Entry error&#10;• Testing/Technical error&#10;• Repeat testing causing change to test result&#10;&#10;Usage Note: Enter (L) when LABORATORY is the reason due to:&#10;• Data Entry error&#10;• Testing/Technical error&#10;• Repeat testing causing change to test result"/>
@@ -83,10 +114,19 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Enter (L) when LABORATORY is the reason due to:&lt;p&gt;â¢ Data Entry error&lt;p&gt;â¢ Testing/Technical error&lt;p&gt;â¢ Repeat testing causing change to test result"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Enter (L) when LABORATORY is the reason due to:&#13;&#10;• Data Entry error&#13;&#10;• Testing/Technical error&#13;&#10;• Repeat testing causing change to test result"/>
+    </property>
   </concept>
   <concept id="6622">
     <code value="NA"/>
     <display value="Not Applicable"/>
+    <definition value="Not Applicable"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Enter (NA) when NOT-APPLICABLE is the reason due to:&#10;• If no revisions performed or &#10;• unable to determine reason for revision&#10;Note: Do not use NA if result code status is not corrected (revised) or if a preliminary release of results with a correction (revision)&#10;&#10;Usage Note: Enter (NA) when NOT-APPLICABLE is the reason due to:&#10;• If no revisions performed or&#10;• unable to determine reason for revision&#10;Note: Do not use NA if result code status is not corrected (revised) or if a preliminary release of results with a correction (revision)"/>
@@ -95,10 +135,19 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Enter (NA) when NOT-APPLICABLE is the reason due to:&#13;&#10;• If no revisions performed or &#13;&#10;• unable to determine reason for revision&#13;&#10;Note:  Do not use NA if result code status is not corrected (revised) or if a preliminary release of results with a correction (revision)"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Enter (NA) when NOT-APPLICABLE is the reason due to:&#13;&#10;• If no revisions performed or&#13;&#10;• unable to determine reason for revision&#13;&#10;Note: Do not use NA if result code status is not corrected (revised) or if a preliminary release of results with a correction (revision)"/>
+    </property>
   </concept>
   <concept id="6623">
     <code value="PD"/>
     <display value="Placer Data"/>
+    <definition value="Placer Data"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Enter (PD) when new or changed PLACER DATA information is the reason due to:&#10;• Changed patient demographics or&#10;• Result code data provided by the client on the requisition or specimen manifest that will be entered during order entry (i.e., Previous Biopsy Date, Clinical Information, Source, etc...)&#10;&#10;Usage Note: Enter (PD) when new or changed PLACER DATA information is the reason due to:&#10;• Changed patient demographics or&#10;• Result code data provided by the client on the requisition or specimen manifest that will be entered during order entry (i.e., Previous Biopsy Date, Clinical Information, Source, etc...)"/>
@@ -106,6 +155,14 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Enter (PD) when new or changed PLACER DATA information is the reason due to:&#13;&#10;• Changed patient demographics or&#13;&#10;• Result code data provided by the client on the requisition or specimen manifest that will be entered during order entry (i.e. Previous Biopsy Date, Clinical Information, Source, etc...)"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Enter (PD) when new or changed PLACER DATA information is the reason due to:&#13;&#10;• Changed patient demographics or&#13;&#10;• Result code data provided by the client on the requisition or specimen manifest that will be entered during order entry (i.e. Previous Biopsy Date, Clinical Information, Source, etc...)"/>
     </property>
   </concept>
 </CodeSystem>

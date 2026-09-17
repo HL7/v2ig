@@ -45,6 +45,7 @@
   <concept id="5502">
     <code value="F"/>
     <display value="Full Disclosure"/>
+    <definition value="Full Disclosure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5503">
     <code value="P"/>
     <display value="Partial Disclosure"/>
+    <definition value="Partial Disclosure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5504">
     <code value="N"/>
     <display value="No Disclosure"/>
+    <definition value="No Disclosure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

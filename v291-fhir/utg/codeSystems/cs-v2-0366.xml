@@ -42,9 +42,16 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
   <concept id="3683">
     <code value="L"/>
     <display value="Local"/>
+    <definition value="Local"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,9 +60,36 @@
   <concept id="3684">
     <code value="R"/>
     <display value="Remote"/>
+    <definition value="Remote"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="3685">
+    <code value="..."/>
+    <display value="(null) No state change"/>
+    <definition value="(null) No state change"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="3686">
+    <code value="…"/>
+    <display value="(null) No state change"/>
+    <definition value="(null) No state change"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
     </property>
   </concept>
 </CodeSystem>

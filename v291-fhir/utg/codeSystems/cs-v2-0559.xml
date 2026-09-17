@@ -45,6 +45,7 @@
   <concept id="6186">
     <code value="P"/>
     <display value="Processed"/>
+    <definition value="Processed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6187">
     <code value="D"/>
     <display value="Denied"/>
+    <definition value="Denied"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6188">
     <code value="R"/>
     <display value="Rejected"/>
+    <definition value="Rejected"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="6176">
     <code value="AMB"/>
     <display value="AMBULATORY CARE"/>
+    <definition value="AMBULATORY CARE"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6177">
     <code value="DENT"/>
     <display value="DENTAL"/>
+    <definition value="DENTAL"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

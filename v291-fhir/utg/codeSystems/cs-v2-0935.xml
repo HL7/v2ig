@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6696">
     <code value="NRG"/>
     <display value="No reason given, donor decided to stop without giving a reason"/>
+    <definition value="No reason given, donor decided to stop without giving a reason"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6697">
     <code value="PCD"/>
     <display value="Phone Call-Donor"/>
+    <definition value="Phone Call-Donor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="6698">
     <code value="DCW"/>
     <display value="Couldn&#39;t wait"/>
+    <definition value="Couldn&#39;t wait"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +84,7 @@
   <concept id="6699">
     <code value="CFT"/>
     <display value="Couldn&#39;t follow through with donation (scared)"/>
+    <definition value="Couldn&#39;t follow through with donation (scared)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +93,7 @@
   <concept id="6700">
     <code value="DBB"/>
     <display value="Bathroom"/>
+    <definition value="Bathroom"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +102,7 @@
   <concept id="6701">
     <code value="DNI"/>
     <display value="Phlebotomy Issue"/>
+    <definition value="Phlebotomy Issue"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -99,6 +111,7 @@
   <concept id="6702">
     <code value="ASC"/>
     <display value="Apheresis Software Crash"/>
+    <definition value="Apheresis Software Crash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -107,6 +120,7 @@
   <concept id="6703">
     <code value="BSC"/>
     <display value="Manufacturing Software Crash"/>
+    <definition value="Manufacturing Software Crash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -115,6 +129,7 @@
   <concept id="6704">
     <code value="GFE"/>
     <display value="General Facility Emergency"/>
+    <definition value="General Facility Emergency"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Power outage, natural disaster (tornado, flood, hurricane, etc.), air conditioning failure, etc."/>
@@ -122,6 +137,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Power outage,  natural disaster (tornado, flood, hurricane, etc.), air conditioning failure, etc."/>
     </property>
   </concept>
 </CodeSystem>

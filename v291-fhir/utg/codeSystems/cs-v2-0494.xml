@@ -45,6 +45,7 @@
   <concept id="5335">
     <code value="A"/>
     <display value="Aliquot"/>
+    <definition value="Aliquot"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5336">
     <code value="C"/>
     <display value="Component"/>
+    <definition value="Component"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5337">
     <code value="M"/>
     <display value="Modified from original specimen"/>
+    <definition value="Modified from original specimen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

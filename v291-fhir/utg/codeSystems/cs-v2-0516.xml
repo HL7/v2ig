@@ -48,10 +48,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5586">
     <code value="W"/>
     <display value="Warning"/>
     <definition value="Transaction successful, but there may be issues"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Warnung"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Use this severity when parts of the message may not have been stored."/>
@@ -60,11 +74,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Transaction successful, but there may issues"/>
+    </property>
   </concept>
   <concept id="5587">
     <code value="I"/>
     <display value="Information"/>
     <definition value="Transaction was successful but includes information"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Information"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="e.g., inform patient"/>
@@ -73,14 +99,30 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Transaction was successful but includes information e.g., inform patient"/>
+    </property>
   </concept>
   <concept id="5588">
     <code value="E"/>
     <display value="Error"/>
     <definition value="Transaction was unsuccessful"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fehler"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Transaction was unsuccessful"/>
     </property>
   </concept>
   <concept id="5589">
@@ -90,6 +132,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Message not processed due to application or network failure condition"/>
     </property>
   </concept>
 </CodeSystem>

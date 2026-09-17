@@ -45,6 +45,7 @@
   <concept id="5700">
     <code value="JUGE"/>
     <display value="Jugular, External"/>
+    <definition value="Jugular, External"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5701">
     <code value="ADB"/>
     <display value="Abdomen"/>
+    <definition value="Abdomen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5702">
     <code value="ACET"/>
     <display value="Acetabulum"/>
+    <definition value="Acetabulum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5703">
     <code value="ACHIL"/>
     <display value="Achilles"/>
+    <definition value="Achilles"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5704">
     <code value="ADE"/>
     <display value="Adenoids"/>
+    <definition value="Adenoids"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="5705">
     <code value="ADR"/>
     <display value="Adrenal"/>
+    <definition value="Adrenal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="5706">
     <code value="AMN"/>
     <display value="Amniotic fluid"/>
+    <definition value="Amniotic fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="5707">
     <code value="AMS"/>
     <display value="Amniotic Sac"/>
+    <definition value="Amniotic Sac"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="5708">
     <code value="ANAL"/>
     <display value="Anal"/>
+    <definition value="Anal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="5709">
     <code value="ANKL"/>
     <display value="Ankle"/>
+    <definition value="Ankle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="5710">
     <code value="ANTEC"/>
     <display value="Antecubital"/>
+    <definition value="Antecubital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="5711">
     <code value="ANTECF"/>
     <display value="Antecubital Fossa"/>
+    <definition value="Antecubital Fossa"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="5712">
     <code value="ANTR"/>
     <display value="Antrum"/>
+    <definition value="Antrum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="5713">
     <code value="ANUS"/>
     <display value="Anus"/>
+    <definition value="Anus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +171,7 @@
   <concept id="5714">
     <code value="AORTA"/>
     <display value="Aorta"/>
+    <definition value="Aorta"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -165,6 +180,7 @@
   <concept id="5715">
     <code value="AR"/>
     <display value="Aortic Rim"/>
+    <definition value="Aortic Rim"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -173,6 +189,7 @@
   <concept id="5716">
     <code value="AV"/>
     <display value="Aortic Valve"/>
+    <definition value="Aortic Valve"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -181,6 +198,7 @@
   <concept id="5717">
     <code value="APDX"/>
     <display value="Appendix"/>
+    <definition value="Appendix"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -189,6 +207,7 @@
   <concept id="5718">
     <code value="AREO"/>
     <display value="Areola"/>
+    <definition value="Areola"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -197,6 +216,7 @@
   <concept id="5719">
     <code value="ARM"/>
     <display value="Arm"/>
+    <definition value="Arm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -205,6 +225,7 @@
   <concept id="5720">
     <code value="ARTE"/>
     <display value="Artery"/>
+    <definition value="Artery"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -213,6 +234,7 @@
   <concept id="5721">
     <code value="ASCIT"/>
     <display value="Ascites"/>
+    <definition value="Ascites"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -221,6 +243,7 @@
   <concept id="5722">
     <code value="ASCT"/>
     <display value="Ascitic Fluid"/>
+    <definition value="Ascitic Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -229,6 +252,7 @@
   <concept id="5723">
     <code value="ATR"/>
     <display value="Atrium"/>
+    <definition value="Atrium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -237,6 +261,7 @@
   <concept id="5724">
     <code value="AURI"/>
     <display value="Auricular"/>
+    <definition value="Auricular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -245,6 +270,7 @@
   <concept id="5725">
     <code value="AXI"/>
     <display value="Axilla"/>
+    <definition value="Axilla"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -253,6 +279,7 @@
   <concept id="5726">
     <code value="BACK"/>
     <display value="Back"/>
+    <definition value="Back"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -261,6 +288,7 @@
   <concept id="5727">
     <code value="BARTD"/>
     <display value="Bartholin Duct"/>
+    <definition value="Bartholin Duct"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -269,6 +297,7 @@
   <concept id="5728">
     <code value="BARTG"/>
     <display value="Bartholin Gland"/>
+    <definition value="Bartholin Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -277,6 +306,7 @@
   <concept id="5729">
     <code value="BRTGF"/>
     <display value="Bartholin Gland Fluid"/>
+    <definition value="Bartholin Gland Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -285,6 +315,7 @@
   <concept id="5730">
     <code value="BPH"/>
     <display value="Basophils"/>
+    <definition value="Basophils"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -293,6 +324,7 @@
   <concept id="5731">
     <code value="BID"/>
     <display value="Bile Duct"/>
+    <definition value="Bile Duct"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -301,6 +333,7 @@
   <concept id="5732">
     <code value="BIFL"/>
     <display value="Bile fluid"/>
+    <definition value="Bile fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -309,6 +342,7 @@
   <concept id="5733">
     <code value="BLAD"/>
     <display value="Bladder"/>
+    <definition value="Bladder"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -317,6 +351,7 @@
   <concept id="5734">
     <code value="BLOOD"/>
     <display value="Blood"/>
+    <definition value="Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -325,6 +360,7 @@
   <concept id="5735">
     <code value="BLDA"/>
     <display value="Blood, Arterial"/>
+    <definition value="Blood,  Arterial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -333,6 +369,7 @@
   <concept id="5736">
     <code value="BLDC"/>
     <display value="Blood, Capillary"/>
+    <definition value="Blood,  Capillary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -341,6 +378,7 @@
   <concept id="5737">
     <code value="BLDV"/>
     <display value="Blood, Venous"/>
+    <definition value="Blood,  Venous"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -349,6 +387,7 @@
   <concept id="5738">
     <code value="CBLD"/>
     <display value="Blood, Cord"/>
+    <definition value="Blood, Cord"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -357,6 +396,7 @@
   <concept id="5739">
     <code value="BLD"/>
     <display value="Blood, Whole"/>
+    <definition value="Blood, Whole"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -365,6 +405,7 @@
   <concept id="5740">
     <code value="BDY"/>
     <display value="Body, Whole"/>
+    <definition value="Body, Whole"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -373,6 +414,7 @@
   <concept id="5741">
     <code value="BON"/>
     <display value="Bone"/>
+    <definition value="Bone"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -381,6 +423,7 @@
   <concept id="5742">
     <code value="BMAR"/>
     <display value="Bone marrow"/>
+    <definition value="Bone marrow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -389,6 +432,7 @@
   <concept id="5743">
     <code value="BOWEL"/>
     <display value="Bowel"/>
+    <definition value="Bowel"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -397,6 +441,7 @@
   <concept id="5744">
     <code value="BOWLA"/>
     <display value="Bowel, Large"/>
+    <definition value="Bowel, Large"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -405,6 +450,7 @@
   <concept id="5745">
     <code value="BOWSM"/>
     <display value="Bowel, Small"/>
+    <definition value="Bowel, Small"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -413,6 +459,7 @@
   <concept id="5746">
     <code value="BRA"/>
     <display value="Brachial"/>
+    <definition value="Brachial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -421,6 +468,7 @@
   <concept id="5747">
     <code value="BRAIN"/>
     <display value="Brain"/>
+    <definition value="Brain"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -429,6 +477,7 @@
   <concept id="5748">
     <code value="BCYS"/>
     <display value="Brain Cyst Fluid"/>
+    <definition value="Brain Cyst Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -437,6 +486,7 @@
   <concept id="5749">
     <code value="BRST"/>
     <display value="Breast"/>
+    <definition value="Breast"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -445,6 +495,7 @@
   <concept id="5750">
     <code value="BRSTFL"/>
     <display value="Breast fluid"/>
+    <definition value="Breast fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -453,6 +504,7 @@
   <concept id="5751">
     <code value="BRO"/>
     <display value="Bronchial"/>
+    <definition value="Bronchial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -461,6 +513,7 @@
   <concept id="5752">
     <code value="BROCH"/>
     <display value="Bronchiole/Bronchiolar"/>
+    <definition value="Bronchiole/Bronchiolar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -469,6 +522,7 @@
   <concept id="5753">
     <code value="BRONC"/>
     <display value="Bronchus/Bronchial"/>
+    <definition value="Bronchus/Bronchial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -477,6 +531,7 @@
   <concept id="5754">
     <code value="BRV"/>
     <display value="Broviac"/>
+    <definition value="Broviac"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -485,6 +540,7 @@
   <concept id="5755">
     <code value="BUCCA"/>
     <display value="Buccal"/>
+    <definition value="Buccal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -493,6 +549,7 @@
   <concept id="5756">
     <code value="BURSA"/>
     <display value="Bursa"/>
+    <definition value="Bursa"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -501,6 +558,7 @@
   <concept id="5757">
     <code value="BURSF"/>
     <display value="Bursa Fluid"/>
+    <definition value="Bursa Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -509,6 +567,7 @@
   <concept id="5758">
     <code value="BUTT"/>
     <display value="Buttocks"/>
+    <definition value="Buttocks"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -517,6 +576,7 @@
   <concept id="5759">
     <code value="CALF"/>
     <display value="Calf"/>
+    <definition value="Calf"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -525,6 +585,7 @@
   <concept id="5760">
     <code value="CANAL"/>
     <display value="Canal"/>
+    <definition value="Canal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -533,6 +594,7 @@
   <concept id="5761">
     <code value="CANLI"/>
     <display value="Canaliculis"/>
+    <definition value="Canaliculis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -541,6 +603,7 @@
   <concept id="5762">
     <code value="CNL"/>
     <display value="Cannula"/>
+    <definition value="Cannula"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -549,6 +612,7 @@
   <concept id="5763">
     <code value="CANTH"/>
     <display value="Canthus"/>
+    <definition value="Canthus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -557,6 +621,7 @@
   <concept id="5764">
     <code value="CDM"/>
     <display value="Cardiac Muscle"/>
+    <definition value="Cardiac Muscle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -565,6 +630,7 @@
   <concept id="5765">
     <code value="CARO"/>
     <display value="Carotid"/>
+    <definition value="Carotid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -573,6 +639,7 @@
   <concept id="5766">
     <code value="CARP"/>
     <display value="Carpal"/>
+    <definition value="Carpal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -581,6 +648,7 @@
   <concept id="5767">
     <code value="CAVIT"/>
     <display value="Cavity"/>
+    <definition value="Cavity"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -589,6 +657,7 @@
   <concept id="5768">
     <code value="CHE"/>
     <display value="Cavity, Chest"/>
+    <definition value="Cavity, Chest"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -597,6 +666,7 @@
   <concept id="5769">
     <code value="CECUM"/>
     <display value="Cecum/Cecal"/>
+    <definition value="Cecum/Cecal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -605,6 +675,7 @@
   <concept id="5770">
     <code value="CSF"/>
     <display value="Cerebral Spinal Fluid"/>
+    <definition value="Cerebral Spinal Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -613,6 +684,7 @@
   <concept id="5771">
     <code value="CVX"/>
     <display value="Cervix"/>
+    <definition value="Cervix"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -621,6 +693,7 @@
   <concept id="5772">
     <code value="CERVUT"/>
     <display value="Cervix/Uterus"/>
+    <definition value="Cervix/Uterus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -629,6 +702,7 @@
   <concept id="5773">
     <code value="CHEEK"/>
     <display value="Cheek"/>
+    <definition value="Cheek"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -637,6 +711,7 @@
   <concept id="5774">
     <code value="CHES"/>
     <display value="Chest"/>
+    <definition value="Chest"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -645,6 +720,7 @@
   <concept id="5775">
     <code value="CHEST"/>
     <display value="Chest Tube"/>
+    <definition value="Chest Tube"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -653,6 +729,7 @@
   <concept id="5777">
     <code value="CHIN"/>
     <display value="Chin"/>
+    <definition value="Chin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -661,6 +738,7 @@
   <concept id="5778">
     <code value="CIRCU"/>
     <display value="Circumcision Site"/>
+    <definition value="Circumcision Site"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -669,6 +747,7 @@
   <concept id="5779">
     <code value="CLAVI"/>
     <display value="Clavicle/Clavicular"/>
+    <definition value="Clavicle/Clavicular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -677,6 +756,7 @@
   <concept id="5780">
     <code value="CLITO"/>
     <display value="Clitoral"/>
+    <definition value="Clitoral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -685,6 +765,7 @@
   <concept id="5781">
     <code value="CLIT"/>
     <display value="Clitoris"/>
+    <definition value="Clitoris"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -693,6 +774,7 @@
   <concept id="5782">
     <code value="COCCG"/>
     <display value="Coccygeal"/>
+    <definition value="Coccygeal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -701,6 +783,7 @@
   <concept id="5783">
     <code value="COCCY"/>
     <display value="Coccyx"/>
+    <definition value="Coccyx"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -709,6 +792,7 @@
   <concept id="5784">
     <code value="COLON"/>
     <display value="Colon"/>
+    <definition value="Colon"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -717,6 +801,7 @@
   <concept id="5785">
     <code value="COLOS"/>
     <display value="Colostomy"/>
+    <definition value="Colostomy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -725,6 +810,7 @@
   <concept id="5786">
     <code value="COS"/>
     <display value="Colostomy Stoma"/>
+    <definition value="Colostomy Stoma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -733,6 +819,7 @@
   <concept id="5787">
     <code value="CDUCT"/>
     <display value="Common Duct"/>
+    <definition value="Common Duct"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -741,6 +828,7 @@
   <concept id="5788">
     <code value="CONJ"/>
     <display value="Conjunctiva"/>
+    <definition value="Conjunctiva"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -749,6 +837,7 @@
   <concept id="5789">
     <code value="CORAL"/>
     <display value="Coral"/>
+    <definition value="Coral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -757,6 +846,7 @@
   <concept id="5790">
     <code value="COR"/>
     <display value="Cord"/>
+    <definition value="Cord"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -765,6 +855,7 @@
   <concept id="5791">
     <code value="CORD"/>
     <display value="Cord Blood"/>
+    <definition value="Cord Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -773,6 +864,7 @@
   <concept id="5792">
     <code value="CORN"/>
     <display value="Cornea"/>
+    <definition value="Cornea"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -781,6 +873,7 @@
   <concept id="5793">
     <code value="CRANE"/>
     <display value="Cranium, ethmoid"/>
+    <definition value="Cranium, ethmoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -789,6 +882,7 @@
   <concept id="5794">
     <code value="CRANF"/>
     <display value="Cranium, frontal"/>
+    <definition value="Cranium, frontal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -797,6 +891,7 @@
   <concept id="5795">
     <code value="CRANO"/>
     <display value="Cranium, occipital"/>
+    <definition value="Cranium, occipital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -805,6 +900,7 @@
   <concept id="5796">
     <code value="CRANP"/>
     <display value="Cranium, parietal"/>
+    <definition value="Cranium, parietal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -813,6 +909,7 @@
   <concept id="5797">
     <code value="CRANS"/>
     <display value="Cranium, sphenoid"/>
+    <definition value="Cranium, sphenoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -821,6 +918,7 @@
   <concept id="5798">
     <code value="CRANT"/>
     <display value="Cranium, temporal"/>
+    <definition value="Cranium, temporal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -829,6 +927,7 @@
   <concept id="5799">
     <code value="CUBIT"/>
     <display value="Cubitus"/>
+    <definition value="Cubitus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -837,6 +936,7 @@
   <concept id="5800">
     <code value="CUFF"/>
     <display value="Cuff"/>
+    <definition value="Cuff"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -845,6 +945,7 @@
   <concept id="5801">
     <code value="CULD"/>
     <display value="Cul De Sac"/>
+    <definition value="Cul De Sac"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -853,6 +954,7 @@
   <concept id="5802">
     <code value="CULDO"/>
     <display value="Culdocentesis"/>
+    <definition value="Culdocentesis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -861,6 +963,7 @@
   <concept id="5803">
     <code value="DELT"/>
     <display value="Deltoid"/>
+    <definition value="Deltoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -869,6 +972,7 @@
   <concept id="5804">
     <code value="DENTA"/>
     <display value="Dental"/>
+    <definition value="Dental"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -877,6 +981,7 @@
   <concept id="5805">
     <code value="DEN"/>
     <display value="Dental Gingiva"/>
+    <definition value="Dental Gingiva"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -885,6 +990,7 @@
   <concept id="5806">
     <code value="DIAF"/>
     <display value="Dialysis Fluid"/>
+    <definition value="Dialysis Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -893,6 +999,7 @@
   <concept id="5807">
     <code value="DPH"/>
     <display value="Diaphragm"/>
+    <definition value="Diaphragm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -901,6 +1008,7 @@
   <concept id="5808">
     <code value="DIGIT"/>
     <display value="Digit"/>
+    <definition value="Digit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -909,6 +1017,7 @@
   <concept id="5809">
     <code value="DISC"/>
     <display value="Disc"/>
+    <definition value="Disc"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -917,6 +1026,7 @@
   <concept id="5810">
     <code value="DORS"/>
     <display value="Dorsum/Dorsal"/>
+    <definition value="Dorsum/Dorsal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -925,6 +1035,7 @@
   <concept id="5811">
     <code value="DUFL"/>
     <display value="Duodenal Fluid"/>
+    <definition value="Duodenal Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -933,6 +1044,7 @@
   <concept id="5812">
     <code value="DUODE"/>
     <display value="Duodenum/Duodenal"/>
+    <definition value="Duodenum/Duodenal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -941,6 +1053,7 @@
   <concept id="5813">
     <code value="DUR"/>
     <display value="Dura"/>
+    <definition value="Dura"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -949,6 +1062,7 @@
   <concept id="5814">
     <code value="EAR"/>
     <display value="Ear"/>
+    <definition value="Ear"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -957,6 +1071,7 @@
   <concept id="5815">
     <code value="EARBI"/>
     <display value="Ear bone, incus"/>
+    <definition value="Ear bone, incus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -965,6 +1080,7 @@
   <concept id="5816">
     <code value="EARBM"/>
     <display value="Ear bone, malleus"/>
+    <definition value="Ear bone, malleus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -973,6 +1089,7 @@
   <concept id="5817">
     <code value="EARBS"/>
     <display value="Ear bone,stapes"/>
+    <definition value="Ear bone,stapes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -981,6 +1098,7 @@
   <concept id="5818">
     <code value="EARLO"/>
     <display value="Ear Lobe"/>
+    <definition value="Ear Lobe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -989,6 +1107,7 @@
   <concept id="5819">
     <code value="ELBOW"/>
     <display value="Elbow"/>
+    <definition value="Elbow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -997,6 +1116,7 @@
   <concept id="5820">
     <code value="ELBOWJ"/>
     <display value="Elbow Joint"/>
+    <definition value="Elbow Joint"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1005,6 +1125,7 @@
   <concept id="5821">
     <code value="ENDC"/>
     <display value="Endocardium"/>
+    <definition value="Endocardium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1013,6 +1134,7 @@
   <concept id="5822">
     <code value="EC"/>
     <display value="Endocervical"/>
+    <definition value="Endocervical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1021,6 +1143,7 @@
   <concept id="5823">
     <code value="EOLPH"/>
     <display value="endolpthamitis"/>
+    <definition value="endolpthamitis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1029,6 +1152,7 @@
   <concept id="5824">
     <code value="ENDM"/>
     <display value="Endometrium"/>
+    <definition value="Endometrium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1037,6 +1161,7 @@
   <concept id="5825">
     <code value="ET"/>
     <display value="Endotracheal"/>
+    <definition value="Endotracheal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1045,6 +1170,7 @@
   <concept id="5826">
     <code value="EUR"/>
     <display value="Endourethral"/>
+    <definition value="Endourethral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1053,6 +1179,7 @@
   <concept id="5827">
     <code value="EOS"/>
     <display value="Eosinophils"/>
+    <definition value="Eosinophils"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1061,6 +1188,7 @@
   <concept id="5828">
     <code value="EPICA"/>
     <display value="Epicardial"/>
+    <definition value="Epicardial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1069,6 +1197,7 @@
   <concept id="5829">
     <code value="EPICM"/>
     <display value="Epicardium"/>
+    <definition value="Epicardium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1077,6 +1206,7 @@
   <concept id="5830">
     <code value="EPD"/>
     <display value="Epididymis"/>
+    <definition value="Epididymis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1085,6 +1215,7 @@
   <concept id="5831">
     <code value="EPIDU"/>
     <display value="Epidural"/>
+    <definition value="Epidural"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1093,6 +1224,7 @@
   <concept id="5832">
     <code value="EPIGL"/>
     <display value="Epiglottis"/>
+    <definition value="Epiglottis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1101,6 +1233,7 @@
   <concept id="5833">
     <code value="ESOPG"/>
     <display value="Esophageal"/>
+    <definition value="Esophageal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1109,6 +1242,7 @@
   <concept id="5834">
     <code value="ESO"/>
     <display value="Esophagus"/>
+    <definition value="Esophagus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1117,6 +1251,7 @@
   <concept id="5835">
     <code value="ETHMO"/>
     <display value="Ethmoid"/>
+    <definition value="Ethmoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1125,6 +1260,7 @@
   <concept id="5838">
     <code value="EYE"/>
     <display value="Eye"/>
+    <definition value="Eye"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1133,6 +1269,7 @@
   <concept id="5839">
     <code value="BROW"/>
     <display value="Eyebrow"/>
+    <definition value="Eyebrow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1141,6 +1278,7 @@
   <concept id="5840">
     <code value="EYELI"/>
     <display value="Eyelid"/>
+    <definition value="Eyelid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1149,6 +1287,7 @@
   <concept id="5841">
     <code value="FACE"/>
     <display value="Face"/>
+    <definition value="Face"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1157,6 +1296,7 @@
   <concept id="5842">
     <code value="FBINC"/>
     <display value="Facial bone, inferior nasal concha"/>
+    <definition value="Facial bone, inferior nasal concha"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1165,6 +1305,7 @@
   <concept id="5843">
     <code value="FBLAC"/>
     <display value="Facial bone, lacrimal"/>
+    <definition value="Facial bone, lacrimal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1173,6 +1314,7 @@
   <concept id="5844">
     <code value="FBMAX"/>
     <display value="Facial bone, maxilla"/>
+    <definition value="Facial bone, maxilla"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1181,6 +1323,7 @@
   <concept id="5845">
     <code value="FBNAS"/>
     <display value="Facial bone, nasal"/>
+    <definition value="Facial bone, nasal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1189,6 +1332,7 @@
   <concept id="5846">
     <code value="FBPAL"/>
     <display value="Facial bone, palatine"/>
+    <definition value="Facial bone, palatine"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1197,6 +1341,7 @@
   <concept id="5847">
     <code value="FBVOM"/>
     <display value="Facial bone, vomer"/>
+    <definition value="Facial bone, vomer"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1205,6 +1350,7 @@
   <concept id="5848">
     <code value="FBZYG"/>
     <display value="Facial bone, zygomatic"/>
+    <definition value="Facial bone, zygomatic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1213,6 +1359,7 @@
   <concept id="5849">
     <code value="FALLT"/>
     <display value="Fallopian Tube"/>
+    <definition value="Fallopian Tube"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1221,6 +1368,7 @@
   <concept id="5850">
     <code value="FEMOR"/>
     <display value="Femoral"/>
+    <definition value="Femoral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1229,6 +1377,7 @@
   <concept id="5851">
     <code value="FMH"/>
     <display value="Femoral Head"/>
+    <definition value="Femoral Head"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1237,6 +1386,7 @@
   <concept id="5852">
     <code value="FEMUR"/>
     <display value="Femur"/>
+    <definition value="Femur"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1245,6 +1395,7 @@
   <concept id="5853">
     <code value="FET"/>
     <display value="Fetus"/>
+    <definition value="Fetus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1253,6 +1404,7 @@
   <concept id="5854">
     <code value="FIBU"/>
     <display value="Fibula"/>
+    <definition value="Fibula"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1261,6 +1413,7 @@
   <concept id="5855">
     <code value="FING"/>
     <display value="Finger"/>
+    <definition value="Finger"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1269,6 +1422,7 @@
   <concept id="5856">
     <code value="FINGN"/>
     <display value="Finger Nail"/>
+    <definition value="Finger Nail"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1277,6 +1431,7 @@
   <concept id="5857">
     <code value="FOL"/>
     <display value="Follicle"/>
+    <definition value="Follicle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1285,6 +1440,7 @@
   <concept id="5858">
     <code value="FOOT"/>
     <display value="Foot"/>
+    <definition value="Foot"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1293,6 +1449,7 @@
   <concept id="5859">
     <code value="FOREA"/>
     <display value="Forearm"/>
+    <definition value="Forearm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1301,6 +1458,7 @@
   <concept id="5860">
     <code value="FOREH"/>
     <display value="Forehead"/>
+    <definition value="Forehead"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1309,6 +1467,7 @@
   <concept id="5861">
     <code value="FORES"/>
     <display value="Foreskin"/>
+    <definition value="Foreskin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1317,6 +1476,7 @@
   <concept id="5862">
     <code value="FOURC"/>
     <display value="Fourchette"/>
+    <definition value="Fourchette"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1325,6 +1485,7 @@
   <concept id="5863">
     <code value="GB"/>
     <display value="Gall Bladder"/>
+    <definition value="Gall Bladder"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1333,6 +1494,7 @@
   <concept id="5864">
     <code value="GEN"/>
     <display value="Genital"/>
+    <definition value="Genital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1341,6 +1503,7 @@
   <concept id="5865">
     <code value="GVU"/>
     <display value="Genital - Vulva"/>
+    <definition value="Genital - Vulva"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1349,6 +1512,7 @@
   <concept id="5866">
     <code value="GENC"/>
     <display value="Genital Cervix"/>
+    <definition value="Genital Cervix"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1357,6 +1521,7 @@
   <concept id="5867">
     <code value="GL"/>
     <display value="Genital Lesion"/>
+    <definition value="Genital Lesion"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1365,6 +1530,7 @@
   <concept id="5868">
     <code value="GENL"/>
     <display value="Genital Lochia"/>
+    <definition value="Genital Lochia"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1373,6 +1539,7 @@
   <concept id="5869">
     <code value="GLAND"/>
     <display value="Gland"/>
+    <definition value="Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1381,6 +1548,7 @@
   <concept id="5870">
     <code value="GLANS"/>
     <display value="Glans"/>
+    <definition value="Glans"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1389,6 +1557,7 @@
   <concept id="5871">
     <code value="GLUTE"/>
     <display value="Gluteal"/>
+    <definition value="Gluteal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1397,6 +1566,7 @@
   <concept id="5872">
     <code value="GLUT"/>
     <display value="Gluteus"/>
+    <definition value="Gluteus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1405,6 +1575,7 @@
   <concept id="5873">
     <code value="GLUTM"/>
     <display value="Gluteus Medius"/>
+    <definition value="Gluteus Medius"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1413,6 +1584,7 @@
   <concept id="5874">
     <code value="GROIN"/>
     <display value="Groin"/>
+    <definition value="Groin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1421,6 +1593,7 @@
   <concept id="5875">
     <code value="GUM"/>
     <display value="Gum"/>
+    <definition value="Gum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1429,6 +1602,7 @@
   <concept id="5876">
     <code value="HAR"/>
     <display value="Hair"/>
+    <definition value="Hair"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1437,6 +1611,7 @@
   <concept id="5877">
     <code value="HAL"/>
     <display value="Hallux"/>
+    <definition value="Hallux"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1445,6 +1620,7 @@
   <concept id="5878">
     <code value="HAND"/>
     <display value="Hand"/>
+    <definition value="Hand"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1453,6 +1629,7 @@
   <concept id="5879">
     <code value="HEAD"/>
     <display value="Head"/>
+    <definition value="Head"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1461,6 +1638,7 @@
   <concept id="5880">
     <code value="HART"/>
     <display value="Heart"/>
+    <definition value="Heart"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1469,6 +1647,7 @@
   <concept id="5881">
     <code value="HV"/>
     <display value="Heart Valve"/>
+    <definition value="Heart Valve"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1477,6 +1656,7 @@
   <concept id="5882">
     <code value="HVB"/>
     <display value="Heart Valve, Bicuspid"/>
+    <definition value="Heart Valve, Bicuspid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1485,6 +1665,7 @@
   <concept id="5883">
     <code value="HVT"/>
     <display value="Heart Valve, Tricuspid"/>
+    <definition value="Heart Valve, Tricuspid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1493,6 +1674,7 @@
   <concept id="5884">
     <code value="HEEL"/>
     <display value="Heel"/>
+    <definition value="Heel"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1501,6 +1683,7 @@
   <concept id="5885">
     <code value="HEM"/>
     <display value="Hemorrhoid"/>
+    <definition value="Hemorrhoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1509,6 +1692,7 @@
   <concept id="5886">
     <code value="HIP"/>
     <display value="Hip"/>
+    <definition value="Hip"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1517,6 +1701,7 @@
   <concept id="5887">
     <code value="HIPJ"/>
     <display value="Hip Joint"/>
+    <definition value="Hip Joint"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1525,6 +1710,7 @@
   <concept id="5888">
     <code value="HUMER"/>
     <display value="Humerus"/>
+    <definition value="Humerus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1533,6 +1719,7 @@
   <concept id="5889">
     <code value="HYMEN"/>
     <display value="Hymen"/>
+    <definition value="Hymen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1541,6 +1728,7 @@
   <concept id="5890">
     <code value="ILC"/>
     <display value="Ileal Conduit"/>
+    <definition value="Ileal Conduit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1549,6 +1737,7 @@
   <concept id="5891">
     <code value="ILE"/>
     <display value="Ileal Loop"/>
+    <definition value="Ileal Loop"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1557,6 +1746,7 @@
   <concept id="5892">
     <code value="ILEOS"/>
     <display value="Ileostomy"/>
+    <definition value="Ileostomy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1565,6 +1755,7 @@
   <concept id="5893">
     <code value="ILEUM"/>
     <display value="Ileum"/>
+    <definition value="Ileum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1573,6 +1764,7 @@
   <concept id="5894">
     <code value="ILIAC"/>
     <display value="Iliac"/>
+    <definition value="Iliac"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1581,6 +1773,7 @@
   <concept id="5895">
     <code value="ILCR"/>
     <display value="Iliac Crest"/>
+    <definition value="Iliac Crest"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1589,6 +1782,7 @@
   <concept id="5896">
     <code value="ILCON"/>
     <display value="Ilical Conduit"/>
+    <definition value="Ilical Conduit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1597,6 +1791,7 @@
   <concept id="5897">
     <code value="INGUI"/>
     <display value="Inguinal"/>
+    <definition value="Inguinal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1605,6 +1800,7 @@
   <concept id="5898">
     <code value="JUGI"/>
     <display value="Jugular, Internal"/>
+    <definition value="Jugular, Internal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1613,6 +1809,7 @@
   <concept id="5899">
     <code value="INT"/>
     <display value="Intestine"/>
+    <definition value="Intestine"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1621,6 +1818,7 @@
   <concept id="5900">
     <code value="ICX"/>
     <display value="Intracervical"/>
+    <definition value="Intracervical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1629,6 +1827,7 @@
   <concept id="5901">
     <code value="INASA"/>
     <display value="Intranasal"/>
+    <definition value="Intranasal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1637,6 +1836,7 @@
   <concept id="5902">
     <code value="INTRU"/>
     <display value="Intrauterine"/>
+    <definition value="Intrauterine"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1645,6 +1845,7 @@
   <concept id="5903">
     <code value="INTRO"/>
     <display value="Introitus"/>
+    <definition value="Introitus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1653,6 +1854,7 @@
   <concept id="5904">
     <code value="ISCHI"/>
     <display value="Ischium"/>
+    <definition value="Ischium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1661,6 +1863,7 @@
   <concept id="5905">
     <code value="JAW"/>
     <display value="Jaw"/>
+    <definition value="Jaw"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1669,6 +1872,7 @@
   <concept id="5906">
     <code value="KIDN"/>
     <display value="Kidney"/>
+    <definition value="Kidney"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1677,6 +1881,7 @@
   <concept id="5908">
     <code value="KNEE"/>
     <display value="Knee"/>
+    <definition value="Knee"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1685,6 +1890,7 @@
   <concept id="5909">
     <code value="KNEEF"/>
     <display value="Knee Fluid"/>
+    <definition value="Knee Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1693,6 +1899,7 @@
   <concept id="5910">
     <code value="KNEEJ"/>
     <display value="Knee Joint"/>
+    <definition value="Knee Joint"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1701,6 +1908,7 @@
   <concept id="5911">
     <code value="LABIA"/>
     <display value="Labia"/>
+    <definition value="Labia"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1709,6 +1917,7 @@
   <concept id="5912">
     <code value="LABMA"/>
     <display value="Labia Majora"/>
+    <definition value="Labia Majora"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1717,6 +1926,7 @@
   <concept id="5913">
     <code value="LABMI"/>
     <display value="Labia Minora"/>
+    <definition value="Labia Minora"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1725,6 +1935,7 @@
   <concept id="5914">
     <code value="LACRI"/>
     <display value="Lacrimal"/>
+    <definition value="Lacrimal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1733,6 +1944,7 @@
   <concept id="5915">
     <code value="LAM"/>
     <display value="Lamella"/>
+    <definition value="Lamella"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1741,6 +1953,7 @@
   <concept id="5916">
     <code value="INSTL"/>
     <display value="Intestine, Large"/>
+    <definition value="Intestine, Large"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1749,6 +1962,7 @@
   <concept id="5917">
     <code value="LARYN"/>
     <display value="Larynx"/>
+    <definition value="Larynx"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1757,6 +1971,7 @@
   <concept id="5918">
     <code value="LEG"/>
     <display value="Leg"/>
+    <definition value="Leg"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1765,6 +1980,7 @@
   <concept id="5919">
     <code value="LENS"/>
     <display value="Lens"/>
+    <definition value="Lens"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1773,6 +1989,7 @@
   <concept id="5920">
     <code value="WBC"/>
     <display value="Leukocytes"/>
+    <definition value="Leukocytes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1781,6 +1998,7 @@
   <concept id="5921">
     <code value="LING"/>
     <display value="Lingual"/>
+    <definition value="Lingual"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1789,6 +2007,7 @@
   <concept id="5922">
     <code value="LINGU"/>
     <display value="Lingula"/>
+    <definition value="Lingula"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1797,6 +2016,7 @@
   <concept id="5923">
     <code value="LIP"/>
     <display value="Lip"/>
+    <definition value="Lip"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1805,6 +2025,7 @@
   <concept id="5924">
     <code value="STOOLL"/>
     <display value="Liquid Stool"/>
+    <definition value="Liquid Stool"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1813,6 +2034,7 @@
   <concept id="5925">
     <code value="LIVER"/>
     <display value="Liver"/>
+    <definition value="Liver"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1821,6 +2043,7 @@
   <concept id="5926">
     <code value="LOBE"/>
     <display value="Lobe"/>
+    <definition value="Lobe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1829,6 +2052,7 @@
   <concept id="5927">
     <code value="LOCH"/>
     <display value="Lochia"/>
+    <definition value="Lochia"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1837,6 +2061,7 @@
   <concept id="5928">
     <code value="ISH"/>
     <display value="Loop, Ishial"/>
+    <definition value="Loop, Ishial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1845,6 +2070,7 @@
   <concept id="5929">
     <code value="LUMBA"/>
     <display value="Lumbar"/>
+    <definition value="Lumbar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1853,6 +2079,7 @@
   <concept id="5930">
     <code value="LMN"/>
     <display value="Lumen"/>
+    <definition value="Lumen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1861,6 +2088,7 @@
   <concept id="5931">
     <code value="LUNG"/>
     <display value="Lung"/>
+    <definition value="Lung"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1869,6 +2097,7 @@
   <concept id="5932">
     <code value="LN"/>
     <display value="Lymph Node"/>
+    <definition value="Lymph Node"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1877,6 +2106,7 @@
   <concept id="5933">
     <code value="LNG"/>
     <display value="Lymph Node, Groin"/>
+    <definition value="Lymph Node, Groin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1885,6 +2115,7 @@
   <concept id="5934">
     <code value="LYM"/>
     <display value="Lymphocytes"/>
+    <definition value="Lymphocytes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1893,6 +2124,7 @@
   <concept id="5935">
     <code value="MAC"/>
     <display value="Macrophages"/>
+    <definition value="Macrophages"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1901,6 +2133,7 @@
   <concept id="5936">
     <code value="MALLE"/>
     <display value="Malleolus"/>
+    <definition value="Malleolus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1909,6 +2142,7 @@
   <concept id="5937">
     <code value="MANDI"/>
     <display value="Mandible/Mandibular"/>
+    <definition value="Mandible/Mandibular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1917,6 +2151,7 @@
   <concept id="5938">
     <code value="MAR"/>
     <display value="Marrow"/>
+    <definition value="Marrow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1925,6 +2160,7 @@
   <concept id="5939">
     <code value="MAST"/>
     <display value="Mastoid"/>
+    <definition value="Mastoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1933,6 +2169,7 @@
   <concept id="5940">
     <code value="MAXIL"/>
     <display value="Maxilla/Maxillary"/>
+    <definition value="Maxilla/Maxillary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1941,6 +2178,7 @@
   <concept id="5941">
     <code value="MAXS"/>
     <display value="Maxillary Sinus"/>
+    <definition value="Maxillary Sinus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1949,6 +2187,7 @@
   <concept id="5942">
     <code value="MEATU"/>
     <display value="Meatus"/>
+    <definition value="Meatus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1957,6 +2196,7 @@
   <concept id="5943">
     <code value="MEC"/>
     <display value="Meconium"/>
+    <definition value="Meconium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1965,6 +2205,7 @@
   <concept id="5944">
     <code value="MEDST"/>
     <display value="Mediastinum"/>
+    <definition value="Mediastinum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1973,6 +2214,7 @@
   <concept id="5945">
     <code value="MEDU"/>
     <display value="Medullary"/>
+    <definition value="Medullary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1981,6 +2223,7 @@
   <concept id="5946">
     <code value="MOU"/>
     <display value="Membrane"/>
+    <definition value="Membrane"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1989,6 +2232,7 @@
   <concept id="5947">
     <code value="MPB"/>
     <display value="Meninges"/>
+    <definition value="Meninges"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1997,6 +2241,7 @@
   <concept id="5948">
     <code value="METAC"/>
     <display value="Metacarpal"/>
+    <definition value="Metacarpal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2005,6 +2250,7 @@
   <concept id="5949">
     <code value="METAT"/>
     <display value="Metatarsal"/>
+    <definition value="Metatarsal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2013,6 +2259,7 @@
   <concept id="5950">
     <code value="MILK"/>
     <display value="Milk, Breast"/>
+    <definition value="Milk, Breast"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2021,6 +2268,7 @@
   <concept id="5951">
     <code value="MITRL"/>
     <display value="Mitral Valve"/>
+    <definition value="Mitral Valve"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2029,6 +2277,7 @@
   <concept id="5952">
     <code value="MOLAR"/>
     <display value="Molar"/>
+    <definition value="Molar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2037,6 +2286,7 @@
   <concept id="5953">
     <code value="MP"/>
     <display value="Mons Pubis"/>
+    <definition value="Mons Pubis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2045,6 +2295,7 @@
   <concept id="5954">
     <code value="MONSU"/>
     <display value="Mons Ureteris"/>
+    <definition value="Mons Ureteris"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2053,6 +2304,7 @@
   <concept id="5955">
     <code value="MONSV"/>
     <display value="Mons Veneris(Mons Pubis)"/>
+    <definition value="Mons Veneris(Mons Pubis)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2061,6 +2313,7 @@
   <concept id="5956">
     <code value="MOUTH"/>
     <display value="Mouth"/>
+    <definition value="Mouth"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2069,6 +2322,7 @@
   <concept id="5957">
     <code value="MRSA2"/>
     <display value="Mrsa:"/>
+    <definition value="Mrsa:"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2077,6 +2331,7 @@
   <concept id="5958">
     <code value="MYO"/>
     <display value="Myocardium"/>
+    <definition value="Myocardium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2085,6 +2340,7 @@
   <concept id="5959">
     <code value="NAIL"/>
     <display value="Nail"/>
+    <definition value="Nail"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2093,6 +2349,7 @@
   <concept id="5960">
     <code value="NAILB"/>
     <display value="Nail Bed"/>
+    <definition value="Nail Bed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2101,6 +2358,7 @@
   <concept id="5961">
     <code value="NAILF"/>
     <display value="Nail, Finger"/>
+    <definition value="Nail, Finger"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2109,6 +2367,7 @@
   <concept id="5962">
     <code value="NAILT"/>
     <display value="Nail, Toe"/>
+    <definition value="Nail, Toe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2117,6 +2376,7 @@
   <concept id="5963">
     <code value="NARES"/>
     <display value="Nares"/>
+    <definition value="Nares"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2125,6 +2385,7 @@
   <concept id="5964">
     <code value="NASL"/>
     <display value="Nasal"/>
+    <definition value="Nasal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2133,6 +2394,7 @@
   <concept id="5965">
     <code value="NSS"/>
     <display value="Nasal Septum"/>
+    <definition value="Nasal Septum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2141,6 +2403,7 @@
   <concept id="5966">
     <code value="NLACR"/>
     <display value="Nasolacrimal"/>
+    <definition value="Nasolacrimal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2149,6 +2412,7 @@
   <concept id="5967">
     <code value="NP"/>
     <display value="Nasopharyngeal/Nasopharynx"/>
+    <definition value="Nasopharyngeal/Nasopharynx"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2157,6 +2421,7 @@
   <concept id="5968">
     <code value="NTRAC"/>
     <display value="Nasotracheal"/>
+    <definition value="Nasotracheal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2165,6 +2430,7 @@
   <concept id="5969">
     <code value="NAVEL"/>
     <display value="Navel"/>
+    <definition value="Navel"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2173,6 +2439,7 @@
   <concept id="5970">
     <code value="NECK"/>
     <display value="Neck"/>
+    <definition value="Neck"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2181,6 +2448,7 @@
   <concept id="5971">
     <code value="NERVE"/>
     <display value="Nerve"/>
+    <definition value="Nerve"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2189,6 +2457,7 @@
   <concept id="5972">
     <code value="NIPPL"/>
     <display value="Nipple"/>
+    <definition value="Nipple"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2197,6 +2466,7 @@
   <concept id="5973">
     <code value="NOS"/>
     <display value="Nose (Nasal Passage)"/>
+    <definition value="Nose (Nasal Passage)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2205,6 +2475,7 @@
   <concept id="5974">
     <code value="NOSE"/>
     <display value="Nose/Nose(outside)"/>
+    <definition value="Nose/Nose(outside)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2213,6 +2484,7 @@
   <concept id="5975">
     <code value="NOSTR"/>
     <display value="Nostril"/>
+    <definition value="Nostril"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2221,6 +2493,7 @@
   <concept id="5976">
     <code value="OCCIP"/>
     <display value="Occipital"/>
+    <definition value="Occipital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2229,6 +2502,7 @@
   <concept id="5977">
     <code value="OLECR"/>
     <display value="Olecranon"/>
+    <definition value="Olecranon"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2237,6 +2511,7 @@
   <concept id="5978">
     <code value="OMEN"/>
     <display value="Omentum"/>
+    <definition value="Omentum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2245,6 +2520,7 @@
   <concept id="5979">
     <code value="ORBIT"/>
     <display value="Orbit/Orbital"/>
+    <definition value="Orbit/Orbital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2253,6 +2529,7 @@
   <concept id="5980">
     <code value="ORO"/>
     <display value="Oropharynx"/>
+    <definition value="Oropharynx"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2261,6 +2538,7 @@
   <concept id="5981">
     <code value="OSCOX"/>
     <display value="Os coxa (pelvic girdle)"/>
+    <definition value="Os coxa (pelvic girdle)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2269,6 +2547,7 @@
   <concept id="5982">
     <code value="OVARY"/>
     <display value="Ovary"/>
+    <definition value="Ovary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2277,6 +2556,7 @@
   <concept id="5983">
     <code value="PALAT"/>
     <display value="Palate"/>
+    <definition value="Palate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2285,6 +2565,7 @@
   <concept id="5984">
     <code value="PLATH"/>
     <display value="Palate, Hard"/>
+    <definition value="Palate, Hard"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2293,6 +2574,7 @@
   <concept id="5985">
     <code value="PLATS"/>
     <display value="Palate, Soft"/>
+    <definition value="Palate, Soft"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2301,6 +2583,7 @@
   <concept id="5986">
     <code value="PALM"/>
     <display value="Palm"/>
+    <definition value="Palm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2309,6 +2592,7 @@
   <concept id="5987">
     <code value="PANCR"/>
     <display value="Pancreas"/>
+    <definition value="Pancreas"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2317,6 +2601,7 @@
   <concept id="5988">
     <code value="PAFL"/>
     <display value="Pancreatic Fluid"/>
+    <definition value="Pancreatic Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2325,6 +2610,7 @@
   <concept id="5989">
     <code value="PAS"/>
     <display value="Parasternal"/>
+    <definition value="Parasternal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2333,6 +2619,7 @@
   <concept id="5990">
     <code value="PARAT"/>
     <display value="Paratracheal"/>
+    <definition value="Paratracheal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2341,6 +2628,7 @@
   <concept id="5991">
     <code value="PARIE"/>
     <display value="Parietal"/>
+    <definition value="Parietal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2349,6 +2637,7 @@
   <concept id="5992">
     <code value="PARON"/>
     <display value="Paronychia"/>
+    <definition value="Paronychia"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2357,6 +2646,7 @@
   <concept id="5993">
     <code value="PAROT"/>
     <display value="Parotid/Parotid Gland"/>
+    <definition value="Parotid/Parotid Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2365,6 +2655,7 @@
   <concept id="5994">
     <code value="PATEL"/>
     <display value="Patella"/>
+    <definition value="Patella"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2373,6 +2664,7 @@
   <concept id="5995">
     <code value="PELV"/>
     <display value="Pelvis"/>
+    <definition value="Pelvis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2381,6 +2673,7 @@
   <concept id="5996">
     <code value="PENSH"/>
     <display value="Penile Shaft"/>
+    <definition value="Penile Shaft"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2389,6 +2682,7 @@
   <concept id="5997">
     <code value="PENIS"/>
     <display value="Penis"/>
+    <definition value="Penis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2397,6 +2691,7 @@
   <concept id="5998">
     <code value="PANAL"/>
     <display value="Perianal/Perirectal"/>
+    <definition value="Perianal/Perirectal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2405,6 +2700,7 @@
   <concept id="5999">
     <code value="PERI"/>
     <display value="Pericardial Fluid"/>
+    <definition value="Pericardial Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2413,6 +2709,7 @@
   <concept id="6000">
     <code value="PCARD"/>
     <display value="Pericardium"/>
+    <definition value="Pericardium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2421,6 +2718,7 @@
   <concept id="6001">
     <code value="PCLIT"/>
     <display value="Periclitoral"/>
+    <definition value="Periclitoral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2429,6 +2727,7 @@
   <concept id="6002">
     <code value="PERIH"/>
     <display value="Perihepatic"/>
+    <definition value="Perihepatic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2437,6 +2736,7 @@
   <concept id="6003">
     <code value="PNEAL"/>
     <display value="Perineal"/>
+    <definition value="Perineal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2445,6 +2745,7 @@
   <concept id="6004">
     <code value="PERIN"/>
     <display value="Perineal Abscess"/>
+    <definition value="Perineal Abscess"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2453,6 +2754,7 @@
   <concept id="6005">
     <code value="PNEPH"/>
     <display value="Perinephric"/>
+    <definition value="Perinephric"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2461,6 +2763,7 @@
   <concept id="6006">
     <code value="PNM"/>
     <display value="Perineum"/>
+    <definition value="Perineum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2469,6 +2772,7 @@
   <concept id="6007">
     <code value="PORBI"/>
     <display value="Periorbital"/>
+    <definition value="Periorbital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2477,6 +2781,7 @@
   <concept id="6008">
     <code value="PERRA"/>
     <display value="Perirectal"/>
+    <definition value="Perirectal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2485,6 +2790,7 @@
   <concept id="6009">
     <code value="PERIS"/>
     <display value="Perisplenic"/>
+    <definition value="Perisplenic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2493,6 +2799,7 @@
   <concept id="6010">
     <code value="PER"/>
     <display value="Peritoneal"/>
+    <definition value="Peritoneal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2501,6 +2808,7 @@
   <concept id="6011">
     <code value="PERT"/>
     <display value="Peritoneal Fluid"/>
+    <definition value="Peritoneal Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2509,6 +2817,7 @@
   <concept id="6012">
     <code value="PERIT"/>
     <display value="Peritoneum"/>
+    <definition value="Peritoneum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2517,6 +2826,7 @@
   <concept id="6013">
     <code value="PTONS"/>
     <display value="Peritonsillar"/>
+    <definition value="Peritonsillar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2525,6 +2835,7 @@
   <concept id="6014">
     <code value="PERIU"/>
     <display value="Periurethal"/>
+    <definition value="Periurethal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2533,6 +2844,7 @@
   <concept id="6015">
     <code value="PERIV"/>
     <display value="Perivesicular"/>
+    <definition value="Perivesicular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2541,6 +2853,7 @@
   <concept id="6016">
     <code value="PHALA"/>
     <display value="Phalanyx"/>
+    <definition value="Phalanyx"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2549,6 +2862,7 @@
   <concept id="6017">
     <code value="PILO"/>
     <display value="Pilonidal"/>
+    <definition value="Pilonidal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2557,6 +2871,7 @@
   <concept id="6018">
     <code value="PINNA"/>
     <display value="Pinna"/>
+    <definition value="Pinna"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2565,6 +2880,7 @@
   <concept id="6019">
     <code value="PLC"/>
     <display value="Placenta"/>
+    <definition value="Placenta"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2573,6 +2889,7 @@
   <concept id="6020">
     <code value="PLACF"/>
     <display value="Placenta (Fetal Side)"/>
+    <definition value="Placenta (Fetal Side)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2581,6 +2898,7 @@
   <concept id="6021">
     <code value="PLACM"/>
     <display value="Placenta (Maternal Side)"/>
+    <definition value="Placenta (Maternal Side)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2589,6 +2907,7 @@
   <concept id="6022">
     <code value="PLANT"/>
     <display value="Plantar"/>
+    <definition value="Plantar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2597,6 +2916,7 @@
   <concept id="6023">
     <code value="PLEUR"/>
     <display value="Pleura"/>
+    <definition value="Pleura"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2605,6 +2925,7 @@
   <concept id="6024">
     <code value="PLEU"/>
     <display value="Pleural Fluid"/>
+    <definition value="Pleural Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2613,6 +2934,7 @@
   <concept id="6025">
     <code value="PLR"/>
     <display value="Pleural Fluid (Thoracentesis Fld)"/>
+    <definition value="Pleural Fluid (Thoracentesis Fld)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2621,6 +2943,7 @@
   <concept id="6026">
     <code value="POPLI"/>
     <display value="Popliteal"/>
+    <definition value="Popliteal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2629,6 +2952,7 @@
   <concept id="6027">
     <code value="PREAU"/>
     <display value="Preauricular"/>
+    <definition value="Preauricular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2637,6 +2961,7 @@
   <concept id="6028">
     <code value="PRERE"/>
     <display value="Prerenal"/>
+    <definition value="Prerenal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2645,6 +2970,7 @@
   <concept id="6029">
     <code value="PRST"/>
     <display value="Prostate Gland"/>
+    <definition value="Prostate Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2653,6 +2979,7 @@
   <concept id="6030">
     <code value="PROS"/>
     <display value="Prostatic Fluid"/>
+    <definition value="Prostatic Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2661,6 +2988,7 @@
   <concept id="6031">
     <code value="PUBIC"/>
     <display value="Pubic"/>
+    <definition value="Pubic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2669,6 +2997,7 @@
   <concept id="6032">
     <code value="PUL"/>
     <display value="Pulmonary Artery"/>
+    <definition value="Pulmonary Artery"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2677,6 +3006,7 @@
   <concept id="6033">
     <code value="RADI"/>
     <display value="Radial"/>
+    <definition value="Radial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2685,6 +3015,7 @@
   <concept id="6034">
     <code value="RADIUS"/>
     <display value="Radius"/>
+    <definition value="Radius"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2693,6 +3024,7 @@
   <concept id="6035">
     <code value="RECTL"/>
     <display value="Rectal"/>
+    <definition value="Rectal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2701,6 +3033,7 @@
   <concept id="6036">
     <code value="RECTU"/>
     <display value="Rectum"/>
+    <definition value="Rectum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2709,6 +3042,7 @@
   <concept id="6037">
     <code value="RBC"/>
     <display value="Red Blood Cells"/>
+    <definition value="Red Blood Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2717,6 +3051,7 @@
   <concept id="6038">
     <code value="RENL"/>
     <display value="Renal"/>
+    <definition value="Renal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2725,6 +3060,7 @@
   <concept id="6039">
     <code value="RNP"/>
     <display value="Renal Pelvis"/>
+    <definition value="Renal Pelvis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2733,6 +3069,7 @@
   <concept id="6040">
     <code value="RPERI"/>
     <display value="Retroperitoneal"/>
+    <definition value="Retroperitoneal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2741,6 +3078,7 @@
   <concept id="6041">
     <code value="RIB"/>
     <display value="Rib"/>
+    <definition value="Rib"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2749,6 +3087,7 @@
   <concept id="6042">
     <code value="SACRA"/>
     <display value="Sacral"/>
+    <definition value="Sacral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2757,6 +3096,7 @@
   <concept id="6043">
     <code value="SACRO"/>
     <display value="Sacrococcygeal"/>
+    <definition value="Sacrococcygeal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2765,6 +3105,7 @@
   <concept id="6044">
     <code value="SACIL"/>
     <display value="Sacroiliac"/>
+    <definition value="Sacroiliac"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2773,6 +3114,7 @@
   <concept id="6045">
     <code value="SACRU"/>
     <display value="Sacrum"/>
+    <definition value="Sacrum"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2781,6 +3123,7 @@
   <concept id="6046">
     <code value="SALGL"/>
     <display value="Salivary Gland"/>
+    <definition value="Salivary Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2789,6 +3132,7 @@
   <concept id="6047">
     <code value="SCALP"/>
     <display value="Scalp"/>
+    <definition value="Scalp"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2797,6 +3141,7 @@
   <concept id="6048">
     <code value="SCAPU"/>
     <display value="Scapula/Scapular"/>
+    <definition value="Scapula/Scapular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2805,6 +3150,7 @@
   <concept id="6049">
     <code value="SCLER"/>
     <display value="Sclera"/>
+    <definition value="Sclera"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2813,6 +3159,7 @@
   <concept id="6050">
     <code value="SCROT"/>
     <display value="Scrotum/Scrotal"/>
+    <definition value="Scrotum/Scrotal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2821,6 +3168,7 @@
   <concept id="6051">
     <code value="SEMN"/>
     <display value="Semen"/>
+    <definition value="Semen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2829,6 +3177,7 @@
   <concept id="6052">
     <code value="SEM"/>
     <display value="Seminal Fluid"/>
+    <definition value="Seminal Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2837,6 +3186,7 @@
   <concept id="6053">
     <code value="SEPTU"/>
     <display value="Septum/Septal"/>
+    <definition value="Septum/Septal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2845,6 +3195,7 @@
   <concept id="6054">
     <code value="SEROM"/>
     <display value="Seroma"/>
+    <definition value="Seroma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2853,6 +3204,7 @@
   <concept id="6055">
     <code value="SHIN"/>
     <display value="Shin"/>
+    <definition value="Shin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2861,6 +3213,7 @@
   <concept id="6056">
     <code value="SHOLJ"/>
     <display value="Sholder Joint"/>
+    <definition value="Sholder Joint"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2869,6 +3222,7 @@
   <concept id="6057">
     <code value="SHOL"/>
     <display value="Shoulder"/>
+    <definition value="Shoulder"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2877,6 +3231,7 @@
   <concept id="6058">
     <code value="SIGMO"/>
     <display value="Sigmoid"/>
+    <definition value="Sigmoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2885,6 +3240,7 @@
   <concept id="6059">
     <code value="SINUS"/>
     <display value="Sinus"/>
+    <definition value="Sinus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2893,6 +3249,7 @@
   <concept id="6060">
     <code value="SKM"/>
     <display value="Skeletal Muscle"/>
+    <definition value="Skeletal Muscle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2901,6 +3258,7 @@
   <concept id="6061">
     <code value="SKENE"/>
     <display value="Skene&#39;s Gland"/>
+    <definition value="Skene&#39;s Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2909,6 +3267,7 @@
   <concept id="6062">
     <code value="SKULL"/>
     <display value="Skull"/>
+    <definition value="Skull"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2917,6 +3276,7 @@
   <concept id="6063">
     <code value="INSTS"/>
     <display value="Intestine, Small"/>
+    <definition value="Intestine, Small"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2925,6 +3285,7 @@
   <concept id="6064">
     <code value="SOLE"/>
     <display value="Sole"/>
+    <definition value="Sole"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2933,6 +3294,7 @@
   <concept id="6065">
     <code value="SPRM"/>
     <display value="Spermatozoa"/>
+    <definition value="Spermatozoa"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2941,6 +3303,7 @@
   <concept id="6066">
     <code value="SPHEN"/>
     <display value="Sphenoid"/>
+    <definition value="Sphenoid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2949,6 +3312,7 @@
   <concept id="6067">
     <code value="SPCOR"/>
     <display value="Spinal Cord"/>
+    <definition value="Spinal Cord"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2957,6 +3321,7 @@
   <concept id="6068">
     <code value="SPLN"/>
     <display value="Spleen"/>
+    <definition value="Spleen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2965,6 +3330,7 @@
   <concept id="6069">
     <code value="STER"/>
     <display value="Sternum/Sternal"/>
+    <definition value="Sternum/Sternal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2973,6 +3339,7 @@
   <concept id="6070">
     <code value="STOM"/>
     <display value="Stoma"/>
+    <definition value="Stoma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2981,6 +3348,7 @@
   <concept id="6071">
     <code value="USTOM"/>
     <display value="Stoma, Urinary"/>
+    <definition value="Stoma, Urinary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2989,6 +3357,7 @@
   <concept id="6072">
     <code value="STOMA"/>
     <display value="Stomach"/>
+    <definition value="Stomach"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2997,6 +3366,7 @@
   <concept id="6073">
     <code value="STUMP"/>
     <display value="Stump"/>
+    <definition value="Stump"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3005,6 +3375,7 @@
   <concept id="6074">
     <code value="SCLV"/>
     <display value="Sub Clavian"/>
+    <definition value="Sub Clavian"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3013,6 +3384,7 @@
   <concept id="6075">
     <code value="SDP"/>
     <display value="Subdiaphramatic"/>
+    <definition value="Subdiaphramatic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3021,6 +3393,7 @@
   <concept id="6076">
     <code value="SUB"/>
     <display value="Subdural"/>
+    <definition value="Subdural"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3029,6 +3402,7 @@
   <concept id="6077">
     <code value="SUBD"/>
     <display value="Subdural Fluid"/>
+    <definition value="Subdural Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3037,6 +3411,7 @@
   <concept id="6078">
     <code value="SGF"/>
     <display value="Subgaleal Fluid"/>
+    <definition value="Subgaleal Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3045,6 +3420,7 @@
   <concept id="6079">
     <code value="SUBM"/>
     <display value="Submandibular"/>
+    <definition value="Submandibular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3053,6 +3429,7 @@
   <concept id="6080">
     <code value="SUBX"/>
     <display value="Submaxillary"/>
+    <definition value="Submaxillary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3061,6 +3438,7 @@
   <concept id="6081">
     <code value="SUBME"/>
     <display value="Submental"/>
+    <definition value="Submental"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3069,6 +3447,7 @@
   <concept id="6082">
     <code value="SUBPH"/>
     <display value="Subphrenic"/>
+    <definition value="Subphrenic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3077,6 +3456,7 @@
   <concept id="6083">
     <code value="SPX"/>
     <display value="Supra Cervical"/>
+    <definition value="Supra Cervical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3085,6 +3465,7 @@
   <concept id="6084">
     <code value="SCLAV"/>
     <display value="Supraclavicle/Supraclavicular"/>
+    <definition value="Supraclavicle/Supraclavicular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3093,6 +3474,7 @@
   <concept id="6085">
     <code value="SUPRA"/>
     <display value="Suprapubic"/>
+    <definition value="Suprapubic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3101,6 +3483,7 @@
   <concept id="6086">
     <code value="SUPB"/>
     <display value="Suprapubic Specimen"/>
+    <definition value="Suprapubic Specimen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3109,6 +3492,7 @@
   <concept id="6087">
     <code value="SWT"/>
     <display value="Sweat"/>
+    <definition value="Sweat"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3117,6 +3501,7 @@
   <concept id="6088">
     <code value="SWTG"/>
     <display value="Sweat Gland"/>
+    <definition value="Sweat Gland"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3125,6 +3510,7 @@
   <concept id="6089">
     <code value="SYNOL"/>
     <display value="Synovial"/>
+    <definition value="Synovial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3133,6 +3519,7 @@
   <concept id="6090">
     <code value="SYN"/>
     <display value="Synovial Fluid"/>
+    <definition value="Synovial Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3141,6 +3528,7 @@
   <concept id="6091">
     <code value="SYNOV"/>
     <display value="Synovium"/>
+    <definition value="Synovium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3149,6 +3537,7 @@
   <concept id="6092">
     <code value="TARS"/>
     <display value="Tarsal"/>
+    <definition value="Tarsal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3157,6 +3546,7 @@
   <concept id="6093">
     <code value="TDUCT"/>
     <display value="Tear Duct"/>
+    <definition value="Tear Duct"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3165,6 +3555,7 @@
   <concept id="6094">
     <code value="TEAR"/>
     <display value="Tears"/>
+    <definition value="Tears"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3173,6 +3564,7 @@
   <concept id="6095">
     <code value="TEMPL"/>
     <display value="Temple"/>
+    <definition value="Temple"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3181,6 +3573,7 @@
   <concept id="6096">
     <code value="TEMPO"/>
     <display value="Temporal"/>
+    <definition value="Temporal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3189,6 +3582,7 @@
   <concept id="6097">
     <code value="TML"/>
     <display value="Temporal Lobe"/>
+    <definition value="Temporal Lobe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3197,6 +3591,7 @@
   <concept id="6098">
     <code value="TESTI"/>
     <display value="Testicle(Testis)"/>
+    <definition value="Testicle(Testis)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3205,6 +3600,7 @@
   <concept id="6099">
     <code value="THIGH"/>
     <display value="Thigh"/>
+    <definition value="Thigh"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3213,6 +3609,7 @@
   <concept id="6100">
     <code value="THORA"/>
     <display value="Thorax/Thoracic/Thoracentesis"/>
+    <definition value="Thorax/Thoracic/Thoracentesis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3221,6 +3618,7 @@
   <concept id="6101">
     <code value="THRB"/>
     <display value="Throat"/>
+    <definition value="Throat"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3229,6 +3627,7 @@
   <concept id="6102">
     <code value="THUMB"/>
     <display value="Thumb"/>
+    <definition value="Thumb"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3237,6 +3636,7 @@
   <concept id="6103">
     <code value="TNL"/>
     <display value="Thumbnail"/>
+    <definition value="Thumbnail"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3245,6 +3645,7 @@
   <concept id="6104">
     <code value="THM"/>
     <display value="Thymus"/>
+    <definition value="Thymus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3253,6 +3654,7 @@
   <concept id="6105">
     <code value="THYRD"/>
     <display value="Thyroid"/>
+    <definition value="Thyroid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3261,6 +3663,7 @@
   <concept id="6106">
     <code value="TIBIA"/>
     <display value="Tibia"/>
+    <definition value="Tibia"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3269,6 +3672,7 @@
   <concept id="6107">
     <code value="TOE"/>
     <display value="Toe"/>
+    <definition value="Toe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3277,6 +3681,7 @@
   <concept id="6108">
     <code value="TOEN"/>
     <display value="Toe Nail"/>
+    <definition value="Toe Nail"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3285,6 +3690,7 @@
   <concept id="6109">
     <code value="TONG"/>
     <display value="Tongue"/>
+    <definition value="Tongue"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3293,6 +3699,7 @@
   <concept id="6110">
     <code value="TONS"/>
     <display value="Tonsil"/>
+    <definition value="Tonsil"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3301,6 +3708,7 @@
   <concept id="6111">
     <code value="TOOTH"/>
     <display value="Tooth"/>
+    <definition value="Tooth"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3309,6 +3717,7 @@
   <concept id="6112">
     <code value="TSK"/>
     <display value="Tooth Socket"/>
+    <definition value="Tooth Socket"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3317,6 +3726,7 @@
   <concept id="6113">
     <code value="TRCHE"/>
     <display value="Trachea/Tracheal"/>
+    <definition value="Trachea/Tracheal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3325,6 +3735,7 @@
   <concept id="6114">
     <code value="TBRON"/>
     <display value="Transbronchial"/>
+    <definition value="Transbronchial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3333,6 +3744,7 @@
   <concept id="6115">
     <code value="TCN"/>
     <display value="Transcarina Asp"/>
+    <definition value="Transcarina Asp"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3341,6 +3753,7 @@
   <concept id="6116">
     <code value="ULNA"/>
     <display value="Ulna/Ulnar"/>
+    <definition value="Ulna/Ulnar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3349,6 +3762,7 @@
   <concept id="6117">
     <code value="UMB"/>
     <display value="Umbilical Blood"/>
+    <definition value="Umbilical Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3357,6 +3771,7 @@
   <concept id="6118">
     <code value="UMBL"/>
     <display value="Umbilicus/Umbilical"/>
+    <definition value="Umbilicus/Umbilical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3365,6 +3780,7 @@
   <concept id="6119">
     <code value="URET"/>
     <display value="Ureter"/>
+    <definition value="Ureter"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3373,6 +3789,7 @@
   <concept id="6120">
     <code value="URTH"/>
     <display value="Urethra"/>
+    <definition value="Urethra"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3381,6 +3798,7 @@
   <concept id="6121">
     <code value="UTERI"/>
     <display value="Uterine"/>
+    <definition value="Uterine"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3389,6 +3807,7 @@
   <concept id="6122">
     <code value="SAC"/>
     <display value="Uterine Cul/De/Sac"/>
+    <definition value="Uterine Cul/De/Sac"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3397,6 +3816,7 @@
   <concept id="6123">
     <code value="UTER"/>
     <display value="Uterus"/>
+    <definition value="Uterus"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3405,6 +3825,7 @@
   <concept id="6124">
     <code value="VAGIN"/>
     <display value="Vagina/Vaginal"/>
+    <definition value="Vagina/Vaginal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3413,6 +3834,7 @@
   <concept id="6125">
     <code value="VCUFF"/>
     <display value="Vaginal Cuff"/>
+    <definition value="Vaginal Cuff"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3421,6 +3843,7 @@
   <concept id="6126">
     <code value="VGV"/>
     <display value="Vaginal Vault"/>
+    <definition value="Vaginal Vault"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3429,6 +3852,7 @@
   <concept id="6127">
     <code value="VAL"/>
     <display value="Valve"/>
+    <definition value="Valve"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3437,6 +3861,7 @@
   <concept id="6128">
     <code value="VAS"/>
     <display value="Vas Deferens"/>
+    <definition value="Vas Deferens"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3445,6 +3870,7 @@
   <concept id="6129">
     <code value="VASTL"/>
     <display value="Vastus Lateralis"/>
+    <definition value="Vastus Lateralis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3453,6 +3879,7 @@
   <concept id="6130">
     <code value="VAULT"/>
     <display value="Vault"/>
+    <definition value="Vault"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3461,6 +3888,7 @@
   <concept id="6131">
     <code value="VEIN"/>
     <display value="Vein"/>
+    <definition value="Vein"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3469,6 +3897,7 @@
   <concept id="6132">
     <code value="VENTG"/>
     <display value="Ventragluteal"/>
+    <definition value="Ventragluteal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3477,6 +3906,7 @@
   <concept id="6133">
     <code value="VCSF"/>
     <display value="Ventricular CSF"/>
+    <definition value="Ventricular CSF"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3485,6 +3915,7 @@
   <concept id="6134">
     <code value="VERMI"/>
     <display value="Vermis Cerebelli"/>
+    <definition value="Vermis Cerebelli"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3493,6 +3924,7 @@
   <concept id="6135">
     <code value="VERTC"/>
     <display value="Vertebra, cervical"/>
+    <definition value="Vertebra, cervical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3501,6 +3933,7 @@
   <concept id="6136">
     <code value="VERTL"/>
     <display value="Vertebra, lumbar"/>
+    <definition value="Vertebra, lumbar"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3509,6 +3942,7 @@
   <concept id="6137">
     <code value="VERTT"/>
     <display value="Vertebra, thoracic"/>
+    <definition value="Vertebra, thoracic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3517,6 +3951,7 @@
   <concept id="6138">
     <code value="VESI"/>
     <display value="Vesicle"/>
+    <definition value="Vesicle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3525,6 +3960,7 @@
   <concept id="6139">
     <code value="VESCL"/>
     <display value="Vesicular"/>
+    <definition value="Vesicular"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3533,6 +3969,7 @@
   <concept id="6140">
     <code value="VESFLD"/>
     <display value="Vesicular Fluid"/>
+    <definition value="Vesicular Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3541,6 +3978,7 @@
   <concept id="6141">
     <code value="VESTI"/>
     <display value="Vestibule(Genital)"/>
+    <definition value="Vestibule(Genital)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3549,6 +3987,7 @@
   <concept id="6142">
     <code value="VITR"/>
     <display value="Vitreous Fluid"/>
+    <definition value="Vitreous Fluid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3557,6 +3996,7 @@
   <concept id="6143">
     <code value="VOC"/>
     <display value="Vocal Cord"/>
+    <definition value="Vocal Cord"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3565,6 +4005,7 @@
   <concept id="6144">
     <code value="VULVA"/>
     <display value="Vulva"/>
+    <definition value="Vulva"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3573,6 +4014,7 @@
   <concept id="6145">
     <code value="WRIST"/>
     <display value="Wrist"/>
+    <definition value="Wrist"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

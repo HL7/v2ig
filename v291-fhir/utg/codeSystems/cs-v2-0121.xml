@@ -42,6 +42,15 @@
   <concept id="1417">
     <code value="E"/>
     <display value="Report exceptions only"/>
+    <definition value="Report exceptions only"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nur OK oder Fehlercode nach Auftragsprüfung / -bearbeitung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -51,6 +60,14 @@
     <code value="R"/>
     <display value="Same as E, also Replacement and Parent-Child"/>
     <definition value="Report exceptions, replacement and parent-child"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Wie E, zusätzlich ORC-Segmente von nachgeordneten und Ersatzaufträgen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -60,6 +77,14 @@
     <code value="D"/>
     <display value="Same as R, also other associated segments"/>
     <definition value="Report exceptions, replacement, parent-child and other associated segments"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Wie R, zusätzlich Detail-Segmente (OBR usw.) von nachgeordneten und Ersatzaufträ"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +94,14 @@
     <code value="F"/>
     <display value="Same as D, plus confirmations explicitly"/>
     <definition value="Report exceptions, replacement, parent-child, other associated segments and explicit confirmations"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Wie D, zusätzlich ausdrückliche Bestätigungen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +110,15 @@
   <concept id="1421">
     <code value="N"/>
     <display value="Only the MSA segment is returned"/>
+    <definition value="Only the MSA segment is returned"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nur Eingangsbestätigung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -47,9 +47,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6490">
     <code value="application"/>
     <display value="Application data"/>
+    <definition value="Application data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -58,6 +65,7 @@
   <concept id="6491">
     <code value="audio"/>
     <display value="Audio data"/>
+    <definition value="Audio data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -66,6 +74,7 @@
   <concept id="6492">
     <code value="image"/>
     <display value="Image data"/>
+    <definition value="Image data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -74,6 +83,7 @@
   <concept id="6493">
     <code value="model"/>
     <display value="Model data"/>
+    <definition value="Model data"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="RFC 2077"/>
@@ -82,10 +92,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RFC 2077"/>
+    </property>
   </concept>
   <concept id="6494">
     <code value="text"/>
     <display value="Text data"/>
+    <definition value="Text data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -94,6 +109,7 @@
   <concept id="6495">
     <code value="video"/>
     <display value="Video data"/>
+    <definition value="Video data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -102,6 +118,7 @@
   <concept id="6496">
     <code value="multipart"/>
     <display value="MIME multipart package"/>
+    <definition value="MIME multipart package"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

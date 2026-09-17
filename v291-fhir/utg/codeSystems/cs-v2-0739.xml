@@ -45,6 +45,7 @@
   <concept id="6440">
     <code value="1"/>
     <display value="Normal length of stay"/>
+    <definition value="Normal length of stay"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6441">
     <code value="2"/>
     <display value="Short length of stay"/>
+    <definition value="Short length of stay"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6442">
     <code value="3"/>
     <display value="Long length of stay"/>
+    <definition value="Long length of stay"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

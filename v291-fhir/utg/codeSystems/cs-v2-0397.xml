@@ -45,6 +45,7 @@
   <concept id="4273">
     <code value="A"/>
     <display value="Ascending"/>
+    <definition value="Ascending"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4274">
     <code value="AN"/>
     <display value="Ascending, case insensitive"/>
+    <definition value="Ascending, case insensitive"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4275">
     <code value="D"/>
     <display value="Descending"/>
+    <definition value="Descending"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4276">
     <code value="DN"/>
     <display value="Descending, case insensitive"/>
+    <definition value="Descending, case insensitive"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4277">
     <code value="N"/>
     <display value="None"/>
+    <definition value="None"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

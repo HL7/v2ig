@@ -45,6 +45,7 @@
   <concept id="6630">
     <code value="C"/>
     <display value="Continuous"/>
+    <definition value="Continuous"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6631">
     <code value="P"/>
     <display value="PCA Only"/>
+    <definition value="PCA Only"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6632">
     <code value="PC"/>
     <display value="PCA + Continuous"/>
+    <definition value="PCA + Continuous"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,15 @@
   <concept id="3125">
     <code value="1"/>
     <display value="Service is subject to medical necessity procedures"/>
+    <definition value="Service is subject to medical necessity procedures"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zuzahlung muss abgeklärt werden"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,7 @@
   <concept id="3126">
     <code value="2"/>
     <display value="Patient has been informed of responsibility, and agrees to pay for service"/>
+    <definition value="Patient has been informed of responsibility, and agrees to pay for service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,15 @@
   <concept id="3127">
     <code value="3"/>
     <display value="Patient has been informed of responsibility, and asks that the payer be billed"/>
+    <definition value="Patient has been informed of responsibility, and asks that the payer be billed"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patient fragt nach Rechnung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +88,15 @@
   <concept id="3128">
     <code value="4"/>
     <display value="Advanced Beneficiary Notice has not been signed"/>
+    <definition value="Advanced Beneficiary Notice has not been signed"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zustimmung zur Zuzahlung liegt nicht vor"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="6211">
     <code value="PST"/>
     <display value="Provincial Sales Tax"/>
+    <definition value="Provincial Sales Tax"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6212">
     <code value="GST"/>
     <display value="Goods and Services Tax"/>
+    <definition value="Goods and Services Tax"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6213">
     <code value="HST"/>
     <display value="Harmonized Sales Tax"/>
+    <definition value="Harmonized Sales Tax"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6214">
     <code value="DISP"/>
     <display value="Dispensing Fee"/>
+    <definition value="Dispensing Fee"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6215">
     <code value="MKUP"/>
     <display value="Mark up Fee"/>
+    <definition value="Mark up Fee"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

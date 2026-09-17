@@ -45,6 +45,7 @@
   <concept id="4670">
     <code value="DNR"/>
     <display value="Do not resuscitate"/>
+    <definition value="Do not resuscitate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4671">
     <code value="N"/>
     <display value="No directive"/>
+    <definition value="No directive"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

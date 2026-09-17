@@ -45,6 +45,7 @@
   <concept id="3830">
     <code value="EW"/>
     <display value="Expired Warning"/>
+    <definition value="Expired Warning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3831">
     <code value="EE"/>
     <display value="Expired Error"/>
+    <definition value="Expired Error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3832">
     <code value="CW"/>
     <display value="Calibration Warning"/>
+    <definition value="Calibration Warning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3833">
     <code value="CE"/>
     <display value="Calibration Error"/>
+    <definition value="Calibration Error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3834">
     <code value="QW"/>
     <display value="QC Warning"/>
+    <definition value="QC Warning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="3835">
     <code value="QE"/>
     <display value="QC Error"/>
+    <definition value="QC Error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="3836">
     <code value="NW"/>
     <display value="Not Available Warning"/>
+    <definition value="Not Available Warning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="3837">
     <code value="NE"/>
     <display value="Not Available Error"/>
+    <definition value="Not Available Error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="3838">
     <code value="OW"/>
     <display value="Other Warning"/>
+    <definition value="Other Warning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="3839">
     <code value="OE"/>
     <display value="Other Error"/>
+    <definition value="Other Error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="3840">
     <code value="OK"/>
     <display value="OK Status"/>
+    <definition value="OK Status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

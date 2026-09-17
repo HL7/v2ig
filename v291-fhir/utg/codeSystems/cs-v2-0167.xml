@@ -45,6 +45,15 @@
   <concept id="1797">
     <code value="N"/>
     <display value="No substitute was dispensed. This is equivalent to the default (null) value."/>
+    <definition value="No substitute was dispensed.  This is equivalent to the default (null) value."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="keine Substitution"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1798">
     <code value="G"/>
     <display value="A generic substitution was dispensed."/>
+    <definition value="A generic substitution was dispensed."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Substitution durch Generika"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1799">
     <code value="T"/>
     <display value="A therapeutic substitution was dispensed."/>
+    <definition value="A therapeutic substitution was dispensed."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="therapieorientierte Substitution"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,7 @@
   <concept id="1800">
     <code value="0"/>
     <display value="No product selection indicated"/>
+    <definition value="No product selection indicated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +105,7 @@
   <concept id="1801">
     <code value="1"/>
     <display value="Substitution not allowed by prescriber"/>
+    <definition value="Substitution not allowed by prescriber"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +114,7 @@
   <concept id="1802">
     <code value="2"/>
     <display value="Substitution allowed - patient requested product dispensed"/>
+    <definition value="Substitution allowed - patient requested product dispensed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +123,7 @@
   <concept id="1803">
     <code value="3"/>
     <display value="Substitution allowed - pharmacist selected product dispensed"/>
+    <definition value="Substitution allowed - pharmacist selected product dispensed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +132,7 @@
   <concept id="1804">
     <code value="4"/>
     <display value="Substitution allowed - generic drug not in stock"/>
+    <definition value="Substitution allowed - generic drug not in stock"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +141,7 @@
   <concept id="1805">
     <code value="5"/>
     <display value="Substitution allowed - brand drug dispensed as a generic"/>
+    <definition value="Substitution allowed - brand drug dispensed as a generic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +150,7 @@
   <concept id="1806">
     <code value="7"/>
     <display value="Substitution not allowed - brand drug mandated by law"/>
+    <definition value="Substitution not allowed - brand drug mandated by law"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +159,7 @@
   <concept id="1807">
     <code value="8"/>
     <display value="Substitution allowed - generic drug not available in marketplace"/>
+    <definition value="Substitution allowed - generic drug not available in marketplace"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

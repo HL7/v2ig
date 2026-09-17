@@ -45,6 +45,7 @@
   <concept id="4832">
     <code value="0"/>
     <display value="No edits present on claim"/>
+    <definition value="No edits present on claim"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4833">
     <code value="1"/>
     <display value="Only edits present are for line item denial or rejection"/>
+    <definition value="Only edits present are for line item denial or rejection"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4834">
     <code value="2"/>
     <display value="Multiple-day claim with one or more days denied or rejected"/>
+    <definition value="Multiple-day claim with one or more days denied or rejected"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4835">
     <code value="3"/>
     <display value="Claim denied, rejected, suspended or returned to provider with only post payment edits"/>
+    <definition value="Claim denied, rejected, suspended or returned to provider with only post payment edits"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4836">
     <code value="4"/>
     <display value="Claim denied, rejected, suspended or returned to provider with only pre payment edits"/>
+    <definition value="Claim denied, rejected, suspended or returned to provider with only pre payment edits"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

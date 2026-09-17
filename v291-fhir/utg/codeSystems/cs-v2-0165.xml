@@ -45,6 +45,15 @@
   <concept id="1780">
     <code value="CH"/>
     <display value="Chew"/>
+    <definition value="Chew"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Kauen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1781">
     <code value="DI"/>
     <display value="Dissolve"/>
+    <definition value="Dissolve"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auflösen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1782">
     <code value="DU"/>
     <display value="Dust"/>
+    <definition value="Dust"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zerstäuben"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="1783">
     <code value="IF"/>
     <display value="Infiltrate"/>
+    <definition value="Infiltrate"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Infiltrieren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="1784">
     <code value="IS"/>
     <display value="Insert"/>
+    <definition value="Insert"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Einfügen / einsetzen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +130,15 @@
   <concept id="1785">
     <code value="IR"/>
     <display value="Irrigate"/>
+    <definition value="Irrigate"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Spülen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +147,15 @@
   <concept id="1786">
     <code value="IVPB"/>
     <display value="IV Piggyback"/>
+    <definition value="IV Piggyback"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="IV-Kurzinfusion"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +164,15 @@
   <concept id="1787">
     <code value="IVP"/>
     <display value="IV Push"/>
+    <definition value="IV Push"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Intravenöse Spritze"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +181,15 @@
   <concept id="1788">
     <code value="NB"/>
     <display value="Nebulized"/>
+    <definition value="Nebulized"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Vernebeln"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +198,15 @@
   <concept id="1789">
     <code value="PT"/>
     <display value="Paint"/>
+    <definition value="Paint"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Schmerz"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +215,15 @@
   <concept id="1790">
     <code value="PF"/>
     <display value="Perfuse"/>
+    <definition value="Perfuse"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Perfundieren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +232,15 @@
   <concept id="1791">
     <code value="SH"/>
     <display value="Shampoo"/>
+    <definition value="Shampoo"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Shampoo"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +249,15 @@
   <concept id="1792">
     <code value="SO"/>
     <display value="Soak"/>
+    <definition value="Soak"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aufweichen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +266,15 @@
   <concept id="1793">
     <code value="WA"/>
     <display value="Wash"/>
+    <definition value="Wash"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Waschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +283,15 @@
   <concept id="1794">
     <code value="WI"/>
     <display value="Wipe"/>
+    <definition value="Wipe"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Wischen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

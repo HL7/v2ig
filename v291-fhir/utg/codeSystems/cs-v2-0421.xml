@@ -45,6 +45,7 @@
   <concept id="4573">
     <code value="MI"/>
     <display value="Mild"/>
+    <definition value="Mild"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4574">
     <code value="MO"/>
     <display value="Moderate"/>
+    <definition value="Moderate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4575">
     <code value="SE"/>
     <display value="Severe"/>
+    <definition value="Severe"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

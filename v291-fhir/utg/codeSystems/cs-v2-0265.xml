@@ -45,6 +45,7 @@
   <concept id="2593">
     <code value="AMB"/>
     <display value="Ambulatory"/>
+    <definition value="Ambulatory"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2594">
     <code value="PSY"/>
     <display value="Psychiatric"/>
+    <definition value="Psychiatric"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2595">
     <code value="PPS"/>
     <display value="Pediatric psychiatric"/>
+    <definition value="Pediatric psychiatric"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2596">
     <code value="REH"/>
     <display value="Rehabilitation"/>
+    <definition value="Rehabilitation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2597">
     <code value="PRE"/>
     <display value="Pediatric rehabilitation"/>
+    <definition value="Pediatric rehabilitation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2598">
     <code value="ISO"/>
     <display value="Isolation"/>
+    <definition value="Isolation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2599">
     <code value="OBG"/>
     <display value="Obstetrics, gynecology"/>
+    <definition value="Obstetrics, gynecology"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2600">
     <code value="PIN"/>
     <display value="Pediatric/neonatal intensive care"/>
+    <definition value="Pediatric/neonatal intensive care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="2601">
     <code value="INT"/>
     <display value="Intensive care"/>
+    <definition value="Intensive care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="2602">
     <code value="SUR"/>
     <display value="Surgery"/>
+    <definition value="Surgery"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="2603">
     <code value="PSI"/>
     <display value="Psychiatric intensive care"/>
+    <definition value="Psychiatric intensive care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="2604">
     <code value="EDI"/>
     <display value="Education"/>
+    <definition value="Education"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="2605">
     <code value="CAR"/>
     <display value="Coronary/cardiac care"/>
+    <definition value="Coronary/cardiac care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="2606">
     <code value="NBI"/>
     <display value="Newborn, nursery, infants"/>
+    <definition value="Newborn, nursery, infants"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +171,7 @@
   <concept id="2607">
     <code value="CCR"/>
     <display value="Critical care"/>
+    <definition value="Critical care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -165,6 +180,7 @@
   <concept id="2608">
     <code value="PED"/>
     <display value="Pediatrics"/>
+    <definition value="Pediatrics"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -173,6 +189,7 @@
   <concept id="2609">
     <code value="EMR"/>
     <display value="Emergency"/>
+    <definition value="Emergency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -181,6 +198,7 @@
   <concept id="2610">
     <code value="OBS"/>
     <display value="Observation"/>
+    <definition value="Observation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -189,6 +207,7 @@
   <concept id="2611">
     <code value="WIC"/>
     <display value="Walk-in clinic"/>
+    <definition value="Walk-in clinic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -197,6 +216,7 @@
   <concept id="2612">
     <code value="PHY"/>
     <display value="General/family practice"/>
+    <definition value="General/family practice"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -205,6 +225,7 @@
   <concept id="2613">
     <code value="ALC"/>
     <display value="Allergy"/>
+    <definition value="Allergy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -213,6 +234,7 @@
   <concept id="2614">
     <code value="FPC"/>
     <display value="Family planning"/>
+    <definition value="Family planning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -221,6 +243,7 @@
   <concept id="2615">
     <code value="CHI"/>
     <display value="Chiropractic"/>
+    <definition value="Chiropractic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -229,6 +252,7 @@
   <concept id="2616">
     <code value="CAN"/>
     <display value="Cancer"/>
+    <definition value="Cancer"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -237,6 +261,7 @@
   <concept id="2617">
     <code value="NAT"/>
     <display value="Naturopathic"/>
+    <definition value="Naturopathic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -245,6 +270,7 @@
   <concept id="2618">
     <code value="OTH"/>
     <display value="Other specialty"/>
+    <definition value="Other specialty"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

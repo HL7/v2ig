@@ -45,6 +45,7 @@
   <concept id="6641">
     <code value="IR"/>
     <display value="Initial Request"/>
+    <definition value="Initial Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6642">
     <code value="RA"/>
     <display value="Request for Appeal"/>
+    <definition value="Request for Appeal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6643">
     <code value="RE"/>
     <display value="Request for Extension"/>
+    <definition value="Request for Extension"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

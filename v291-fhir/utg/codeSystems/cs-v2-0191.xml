@@ -42,9 +42,24 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
   <concept id="1908">
     <code value="AP"/>
     <display value="Other application data, typically uninterpreted binary data (HL7 V2.3 and later)"/>
+    <definition value="Other application data, typically uninterpreted binary data (HL7 V2.3 and later)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="sonstige (binären) Daten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +68,15 @@
   <concept id="1909">
     <code value="AU"/>
     <display value="Audio data (HL7 V2.3 and later)"/>
+    <definition value="Audio data (HL7 V2.3 and later)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Audio-Daten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +85,15 @@
   <concept id="1910">
     <code value="FT"/>
     <display value="Formatted text (HL7 V2.2 only)"/>
+    <definition value="Formatted text (HL7 V2.2 only)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Formatierter Text"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +102,15 @@
   <concept id="1911">
     <code value="IM"/>
     <display value="Image data (HL7 V2.3 and later)"/>
+    <definition value="Image data (HL7 V2.3 and later)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Bilddaten"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +119,7 @@
   <concept id="1912">
     <code value="multipart"/>
     <display value="MIME multipart package"/>
+    <definition value="MIME multipart package"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +128,15 @@
   <concept id="1913">
     <code value="NS"/>
     <display value="Non-scanned image (HL7 V2.2 only)"/>
+    <definition value="Non-scanned image (HL7 V2.2 only)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nicht über Scanner erzeugtes Bild"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +145,15 @@
   <concept id="1914">
     <code value="SD"/>
     <display value="Scanned document (HL7 V2.2 only)"/>
+    <definition value="Scanned document (HL7 V2.2 only)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Über Scanner eingelesenes Dokument"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +162,15 @@
   <concept id="1915">
     <code value="SI"/>
     <display value="Scanned image (HL7 V2.2 only)"/>
+    <definition value="Scanned image (HL7 V2.2 only)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Über Scanner eingelesenes Bild"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +179,15 @@
   <concept id="1917">
     <code value="TEXT"/>
     <display value="Machine readable text document (HL7 V2.3.1 and later)"/>
+    <definition value="Machine readable text document (HL7 V2.3.1 and later)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="maschinenlesbares Dokument"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,9 +196,73 @@
   <concept id="1919">
     <code value="TX"/>
     <display value="Machine readable text document (HL7 V2.2 only)"/>
+    <definition value="Machine readable text document (HL7 V2.2 only)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Maschinenlesbarer Text"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="1916">
+    <code value="Image"/>
+    <display value="Image data  (HL7 V2.3 and later)"/>
+    <definition value="Image data  (HL7 V2.3 and later)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Bilddaten"/>
+    </designation>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="1918">
+    <code value="Audio"/>
+    <display value="Audio data  (HL7 V2.3 and later)"/>
+    <definition value="Audio data  (HL7 V2.3 and later)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Audio-Daten"/>
+    </designation>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="1920">
+    <code value="Application"/>
+    <display value="Other application data, typically uninterpreted binary data  (HL7 V2.3 and later)"/>
+    <definition value="Other application data, typically uninterpreted binary data  (HL7 V2.3 and later)"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
     </property>
   </concept>
 </CodeSystem>

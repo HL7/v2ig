@@ -45,6 +45,7 @@
   <concept id="2368">
     <code value="AW"/>
     <display value="Abatement of event after product withdrawn"/>
+    <definition value="Abatement of event after product withdrawn"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2369">
     <code value="BE"/>
     <display value="Event recurred after product reintroduced"/>
+    <definition value="Event recurred after product reintroduced"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2370">
     <code value="LI"/>
     <display value="Literature reports association of product with event"/>
+    <definition value="Literature reports association of product with event"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2371">
     <code value="IN"/>
     <display value="Event occurred after product introduced"/>
+    <definition value="Event occurred after product introduced"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2372">
     <code value="EX"/>
     <display value="Alternative explanations for the event available"/>
+    <definition value="Alternative explanations for the event available"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2373">
     <code value="PL"/>
     <display value="Effect observed when patient receives placebo"/>
+    <definition value="Effect observed when patient receives placebo"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2374">
     <code value="TC"/>
     <display value="Toxic levels of product documented in blood or body fluids"/>
+    <definition value="Toxic levels of product documented in blood or body fluids"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2375">
     <code value="DR"/>
     <display value="Dose response observed"/>
+    <definition value="Dose response observed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="2376">
     <code value="SE"/>
     <display value="Similar events in past for this patient"/>
+    <definition value="Similar events in past for this patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="2377">
     <code value="OE"/>
     <display value="Occurrence of event was confirmed by objective evidence"/>
+    <definition value="Occurrence of event was confirmed by objective evidence"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="2378">
     <code value="OT"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

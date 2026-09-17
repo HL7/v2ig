@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6521">
     <code value="BCV"/>
     <display value="Bank Card Validation Number"/>
+    <definition value="Bank Card Validation Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A non-embossed number included on bank cards and used to validate authenticity of the card and the person presenting the card"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A non-embossed number included on bank cards and used to validate authenticity of the card and the person presenting the card"/>
+    </property>
   </concept>
   <concept id="6522">
     <code value="CCS"/>
     <display value="Credit Card Security code"/>
+    <definition value="Credit Card Security code"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -71,6 +83,7 @@
   <concept id="6523">
     <code value="VID"/>
     <display value="Version ID"/>
+    <definition value="Version ID"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

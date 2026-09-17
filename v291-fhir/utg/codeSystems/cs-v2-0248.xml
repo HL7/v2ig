@@ -45,6 +45,7 @@
   <concept id="2353">
     <code value="A"/>
     <display value="Actual product involved in incident was evaluated"/>
+    <definition value="Actual product involved in incident was evaluated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2354">
     <code value="L"/>
     <display value="A product from the same lot as the actual product involved was evaluated"/>
+    <definition value="A product from the same lot as the actual product involved was evaluated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2355">
     <code value="R"/>
     <display value="A product from a reserve sample was evaluated"/>
+    <definition value="A product from a reserve sample was evaluated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2356">
     <code value="N"/>
     <display value="A product from a controlled/non-related inventory was evaluated"/>
+    <definition value="A product from a controlled/non-related inventory was evaluated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

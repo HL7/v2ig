@@ -45,6 +45,7 @@
   <concept id="2631">
     <code value="AR"/>
     <display value="Autopsy report"/>
+    <definition value="Autopsy report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2632">
     <code value="CD"/>
     <display value="Cardiodiagnostics"/>
+    <definition value="Cardiodiagnostics"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2633">
     <code value="CN"/>
     <display value="Consultation"/>
+    <definition value="Consultation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2634">
     <code value="DI"/>
     <display value="Diagnostic imaging"/>
+    <definition value="Diagnostic imaging"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2635">
     <code value="DS"/>
     <display value="Discharge summary"/>
+    <definition value="Discharge summary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2636">
     <code value="ED"/>
     <display value="Emergency department report"/>
+    <definition value="Emergency department report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2637">
     <code value="HP"/>
     <display value="History and physical examination"/>
+    <definition value="History and physical examination"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2638">
     <code value="OP"/>
     <display value="Operative report"/>
+    <definition value="Operative report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="2639">
     <code value="PC"/>
     <display value="Psychiatric consultation"/>
+    <definition value="Psychiatric consultation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="2640">
     <code value="PH"/>
     <display value="Psychiatric history and physical examination"/>
+    <definition value="Psychiatric history and physical examination"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="2641">
     <code value="PN"/>
     <display value="Procedure note"/>
+    <definition value="Procedure note"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="2642">
     <code value="PR"/>
     <display value="Progress note"/>
+    <definition value="Progress note"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="2643">
     <code value="SP"/>
     <display value="Surgical pathology"/>
+    <definition value="Surgical pathology"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="2644">
     <code value="TS"/>
     <display value="Transfer summary"/>
+    <definition value="Transfer summary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

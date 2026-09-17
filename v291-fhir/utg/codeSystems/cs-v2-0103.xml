@@ -46,6 +46,14 @@
     <code value="D"/>
     <display value="Debugging"/>
     <definition value="Messages used for identification and correction of software errors."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Test"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -55,6 +63,14 @@
     <code value="P"/>
     <display value="Production"/>
     <definition value="Messages used for communication of live production data."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Routine / Produktion"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -64,6 +80,14 @@
     <code value="T"/>
     <display value="Training"/>
     <definition value="Messages used for training, where new/updated configurations are utilized to prepare users outside of a production setting."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Schulung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -82,6 +106,14 @@
     <code value="V"/>
     <display value="Validation"/>
     <definition value="Messages used for conformance testing by a third party; for example, as part of certification."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Validierung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

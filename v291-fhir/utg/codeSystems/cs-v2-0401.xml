@@ -45,6 +45,7 @@
   <concept id="4521">
     <code value="MM"/>
     <display value="Medicare"/>
+    <definition value="Medicare"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4522">
     <code value="C"/>
     <display value="Medi-Cal"/>
+    <definition value="Medi-Cal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.149"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="KindOfQuantity"/>
   <title value="kindOfQuantity"/>
   <status value="active"/>
@@ -43,6 +43,12 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
@@ -51,6 +57,7 @@
   <concept id="2384">
     <code value="CACT"/>
     <display value="Catalytic Activity"/>
+    <definition value="Catalytic Activity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -58,11 +65,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2385">
     <code value="CNC"/>
     <display value="Catalytic Concentration"/>
+    <definition value="Catalytic Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2386">
     <code value="CCRTO"/>
     <display value="Catalytic Concentration Ratio"/>
+    <definition value="Catalytic Concentration Ratio"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +100,7 @@
   <concept id="2387">
     <code value="CCNT"/>
     <display value="Catalytic Content"/>
+    <definition value="Catalytic Content"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -90,11 +108,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2388">
     <code value="CFR"/>
     <display value="Catalytic Fraction"/>
+    <definition value="Catalytic Fraction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -102,11 +125,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2389">
     <code value="CRAT"/>
     <display value="Catalytic Rate"/>
+    <definition value="Catalytic Rate"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -115,10 +143,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2390">
     <code value="CRTO"/>
     <display value="Catalytic Ratio"/>
+    <definition value="Catalytic Ratio"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -127,6 +160,7 @@
   <concept id="2391">
     <code value="ENT"/>
     <display value="Entitic"/>
+    <definition value="Entitic"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -134,11 +168,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2392">
     <code value="ENTSUB"/>
     <display value="Entitic Substance of Amount"/>
+    <definition value="Entitic Substance of Amount"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -146,11 +185,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2393">
     <code value="ENTCAT"/>
     <display value="Entitic Catalytic Activity"/>
+    <definition value="Entitic Catalytic Activity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -158,11 +202,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2394">
     <code value="ENTNUM"/>
     <display value="Entitic Number"/>
+    <definition value="Entitic Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -170,11 +219,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2395">
     <code value="ENTVOL"/>
     <display value="Entitic Volume"/>
+    <definition value="Entitic Volume"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -182,11 +236,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2396">
     <code value="MASS"/>
     <display value="Mass"/>
+    <definition value="Mass"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -194,11 +253,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2397">
     <code value="MCNC"/>
     <display value="Mass Concentration"/>
+    <definition value="Mass Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -206,11 +270,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2398">
     <code value="MCRTO"/>
     <display value="Mass Concentration Ratio"/>
+    <definition value="Mass Concentration Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -219,10 +288,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2399">
     <code value="MCNT"/>
     <display value="Mass Content"/>
+    <definition value="Mass Content"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -231,6 +305,7 @@
   <concept id="2400">
     <code value="MFR"/>
     <display value="Mass Fraction"/>
+    <definition value="Mass Fraction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -238,11 +313,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2401">
     <code value="MINC"/>
     <display value="Mass Increment"/>
+    <definition value="Mass Increment"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -250,11 +330,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2402">
     <code value="MRAT"/>
     <display value="Mass Rate"/>
+    <definition value="Mass Rate"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -262,11 +347,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2403">
     <code value="MRTO"/>
     <display value="Mass Ratio"/>
+    <definition value="Mass Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -274,11 +364,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2404">
     <code value="NUM"/>
     <display value="Number"/>
+    <definition value="Number"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -286,11 +381,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2405">
     <code value="NCNC"/>
     <display value="Number Concentration"/>
+    <definition value="Number Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -298,11 +398,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2406">
     <code value="NCNT"/>
     <display value="Number Content"/>
+    <definition value="Number Content"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -310,11 +415,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2407">
     <code value="NFR"/>
     <display value="Number Fraction"/>
+    <definition value="Number Fraction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -322,11 +432,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2408">
     <code value="NRTO"/>
     <display value="Number Ratio"/>
+    <definition value="Number Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -334,11 +449,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2409">
     <code value="SUB"/>
     <display value="Substance Amount"/>
+    <definition value="Substance Amount"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -346,11 +466,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2410">
     <code value="SCNC"/>
     <display value="Substance Concentration"/>
+    <definition value="Substance Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -358,11 +483,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2411">
     <code value="SCRTO"/>
     <display value="Substance Concentration Ratio"/>
+    <definition value="Substance Concentration Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -370,11 +500,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2412">
     <code value="SCNT"/>
     <display value="Substance Content"/>
+    <definition value="Substance Content"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -382,11 +517,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2413">
     <code value="SCNTR"/>
     <display value="Substance Content Rate"/>
+    <definition value="Substance Content Rate"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -394,11 +534,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2414">
     <code value="SFR"/>
     <display value="Substance Fraction"/>
+    <definition value="Substance Fraction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -406,11 +551,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2415">
     <code value="SCNCIN"/>
     <display value="Substance Concentration Increment"/>
+    <definition value="Substance Concentration Increment"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -418,11 +568,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2416">
     <code value="SRAT"/>
     <display value="Substance Rate"/>
+    <definition value="Substance Rate"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -430,11 +585,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2417">
     <code value="SRTO"/>
     <display value="Substance Ratio"/>
+    <definition value="Substance Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -442,11 +602,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2418">
     <code value="VOL"/>
     <display value="Volume"/>
+    <definition value="Volume"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -454,11 +619,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2419">
     <code value="VCNT"/>
     <display value="Volume Content"/>
+    <definition value="Volume Content"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -466,11 +636,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2420">
     <code value="VFR"/>
     <display value="Volume Fraction"/>
+    <definition value="Volume Fraction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -478,11 +653,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2421">
     <code value="VRAT"/>
     <display value="Volume Rate"/>
+    <definition value="Volume Rate"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -490,11 +670,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2422">
     <code value="VRTO"/>
     <display value="Volume Ratio"/>
+    <definition value="Volume Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -503,10 +688,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2423">
     <code value="ACNC"/>
     <display value="Concentration, Arbitrary Substance"/>
+    <definition value="Concentration, Arbitrary Substance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -515,6 +705,7 @@
   <concept id="2424">
     <code value="RLMCNC"/>
     <display value="Relative Mass Concentration"/>
+    <definition value="Relative Mass Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -522,11 +713,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2425">
     <code value="RLSCNC"/>
     <display value="Relative Substance Concentration"/>
+    <definition value="Relative Substance Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -534,11 +730,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2426">
     <code value="THRMCNC"/>
     <display value="Threshold Mass Concentration"/>
+    <definition value="Threshold Mass Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -546,11 +747,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2427">
     <code value="THRSCNC"/>
     <display value="Threshold Substance Concentration"/>
+    <definition value="Threshold Substance Concentration"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -558,11 +764,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2428">
     <code value="TIME"/>
     <display value="Time (e.g., seconds)"/>
+    <definition value="Time (e.g. seconds)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -570,11 +781,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2429">
     <code value="TMDF"/>
     <display value="Time Difference"/>
+    <definition value="Time Difference"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -582,11 +798,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2430">
     <code value="TMSTP"/>
     <display value="Time Stamp-Date and Time"/>
+    <definition value="Time Stamp-Date and Time"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -594,11 +815,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2431">
     <code value="TRTO"/>
     <display value="Time Ratio"/>
+    <definition value="Time Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -606,11 +832,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2432">
     <code value="RCRLTM"/>
     <display value="Reciprocal Relative Time"/>
+    <definition value="Reciprocal Relative Time"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -618,11 +849,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2433">
     <code value="RLTM"/>
     <display value="Relative Time"/>
+    <definition value="Relative Time"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -631,10 +867,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2434">
     <code value="ABS"/>
     <display value="Absorbance"/>
+    <definition value="Absorbance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -643,6 +884,7 @@
   <concept id="2435">
     <code value="ACT"/>
     <display value="Activity"/>
+    <definition value="Activity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -651,10 +893,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2436">
     <code value="APER"/>
     <display value="Appearance"/>
+    <definition value="Appearance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -663,6 +910,7 @@
   <concept id="2437">
     <code value="ARB"/>
     <display value="Arbitrary"/>
+    <definition value="Arbitrary"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -671,10 +919,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2438">
     <code value="AREA"/>
     <display value="Area"/>
+    <definition value="Area"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -683,6 +936,7 @@
   <concept id="2439">
     <code value="ASPECT"/>
     <display value="Aspect"/>
+    <definition value="Aspect"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -691,6 +945,7 @@
   <concept id="2440">
     <code value="CLAS"/>
     <display value="Class"/>
+    <definition value="Class"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -699,6 +954,7 @@
   <concept id="2441">
     <code value="CNST"/>
     <display value="Constant"/>
+    <definition value="Constant"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -706,11 +962,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2442">
     <code value="COEF"/>
     <display value="Coefficient"/>
+    <definition value="Coefficient"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -719,10 +980,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2443">
     <code value="COLOR"/>
     <display value="Color"/>
+    <definition value="Color"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -731,6 +997,7 @@
   <concept id="2444">
     <code value="CONS"/>
     <display value="Consistency"/>
+    <definition value="Consistency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -739,6 +1006,7 @@
   <concept id="2445">
     <code value="DEN"/>
     <display value="Density"/>
+    <definition value="Density"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -747,6 +1015,7 @@
   <concept id="2446">
     <code value="DEV"/>
     <display value="Device"/>
+    <definition value="Device"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -755,6 +1024,7 @@
   <concept id="2447">
     <code value="DIFF"/>
     <display value="Difference"/>
+    <definition value="Difference"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -763,10 +1033,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2448">
     <code value="ELAS"/>
     <display value="Elasticity"/>
+    <definition value="Elasticity"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -775,6 +1050,7 @@
   <concept id="2449">
     <code value="ELPOT"/>
     <display value="Electrical Potential (Voltage)"/>
+    <definition value="Electrical Potential (Voltage)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -783,6 +1059,7 @@
   <concept id="2450">
     <code value="ELRAT"/>
     <display value="Electrical current (amperage)"/>
+    <definition value="Electrical current (amperage)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -791,6 +1068,7 @@
   <concept id="2451">
     <code value="ELRES"/>
     <display value="Electrical Resistance"/>
+    <definition value="Electrical Resistance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -799,6 +1077,7 @@
   <concept id="2452">
     <code value="ENGR"/>
     <display value="Energy"/>
+    <definition value="Energy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -807,6 +1086,7 @@
   <concept id="2453">
     <code value="EQL"/>
     <display value="Equilibrium"/>
+    <definition value="Equilibrium"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -815,6 +1095,7 @@
   <concept id="2454">
     <code value="FORCE"/>
     <display value="Mechanical force"/>
+    <definition value="Mechanical force"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -823,6 +1104,7 @@
   <concept id="2455">
     <code value="FREQ"/>
     <display value="Frequency"/>
+    <definition value="Frequency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -831,6 +1113,7 @@
   <concept id="2456">
     <code value="IMP"/>
     <display value="Impression/ interpretation of study"/>
+    <definition value="Impression/ interpretation of study"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -839,6 +1122,7 @@
   <concept id="2457">
     <code value="KINV"/>
     <display value="Kinematic Viscosity"/>
+    <definition value="Kinematic Viscosity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -847,10 +1131,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2458">
     <code value="LEN"/>
     <display value="Length"/>
+    <definition value="Length"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -859,6 +1148,7 @@
   <concept id="2459">
     <code value="LINC"/>
     <display value="Length Increment"/>
+    <definition value="Length Increment"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -866,11 +1156,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2460">
     <code value="LIQ"/>
     <display value="Liquefaction"/>
+    <definition value="Liquefaction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -879,10 +1174,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2461">
     <code value="MGFLUX"/>
     <display value="Magnetic flux"/>
+    <definition value="Magnetic flux"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -891,6 +1191,7 @@
   <concept id="2462">
     <code value="MORPH"/>
     <display value="Morphology"/>
+    <definition value="Morphology"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -899,6 +1200,7 @@
   <concept id="2463">
     <code value="MOTIL"/>
     <display value="Motility"/>
+    <definition value="Motility"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -907,6 +1209,7 @@
   <concept id="2464">
     <code value="OD"/>
     <display value="Optical density"/>
+    <definition value="Optical density"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -915,6 +1218,7 @@
   <concept id="2465">
     <code value="OSMOL"/>
     <display value="Osmolality"/>
+    <definition value="Osmolality"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -923,10 +1227,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2466">
     <code value="PRID"/>
     <display value="Presence/Identity/Existence"/>
+    <definition value="Presence/Identity/Existence"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -935,6 +1244,7 @@
   <concept id="2467">
     <code value="PRES"/>
     <display value="Pressure (Partial)"/>
+    <definition value="Pressure (Partial)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -943,10 +1253,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2468">
     <code value="PWR"/>
     <display value="Power (wattage)"/>
+    <definition value="Power (wattage)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -955,6 +1270,7 @@
   <concept id="2469">
     <code value="RANGE"/>
     <display value="Ranges"/>
+    <definition value="Ranges"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -962,11 +1278,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2470">
     <code value="RATIO"/>
     <display value="Ratios"/>
+    <definition value="Ratios"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -974,11 +1295,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2471">
     <code value="RDEN"/>
     <display value="Relative Density"/>
+    <definition value="Relative Density"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -986,11 +1312,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2472">
     <code value="REL"/>
     <display value="Relative"/>
+    <definition value="Relative"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -998,11 +1329,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2473">
     <code value="SATFR"/>
     <display value="Saturation Fraction"/>
+    <definition value="Saturation Fraction"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1011,10 +1347,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2474">
     <code value="SHAPE"/>
     <display value="Shape"/>
+    <definition value="Shape"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1023,6 +1364,7 @@
   <concept id="2475">
     <code value="SMELL"/>
     <display value="Smell"/>
+    <definition value="Smell"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1031,6 +1373,7 @@
   <concept id="2476">
     <code value="SUSC"/>
     <display value="Susceptibility"/>
+    <definition value="Susceptibility"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1039,10 +1382,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
+    </property>
   </concept>
   <concept id="2477">
     <code value="TASTE"/>
     <display value="Taste"/>
+    <definition value="Taste"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1051,6 +1399,7 @@
   <concept id="2478">
     <code value="TEMP"/>
     <display value="Temperature"/>
+    <definition value="Temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1058,11 +1407,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2479">
     <code value="TEMPDF"/>
     <display value="Temperature Difference"/>
+    <definition value="Temperature Difference"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1070,11 +1424,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2480">
     <code value="TEMPIN"/>
     <display value="Temperature Increment"/>
+    <definition value="Temperature Increment"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1082,11 +1441,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2481">
     <code value="TITR"/>
     <display value="Dilution Factor (Titer)"/>
+    <definition value="Dilution Factor (Titer)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1094,11 +1458,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2482">
     <code value="TYPE"/>
     <display value="Type"/>
+    <definition value="Type"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1106,11 +1475,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2483">
     <code value="VEL"/>
     <display value="Velocity"/>
+    <definition value="Velocity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1118,11 +1492,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2484">
     <code value="VELRT"/>
     <display value="Velocity Ratio"/>
+    <definition value="Velocity Ratio"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1130,11 +1509,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
   <concept id="2485">
     <code value="VISC"/>
     <display value="Viscosity"/>
+    <definition value="Viscosity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Adopted from the IUPAC Silver Book 1995” to the code"/>
@@ -1142,6 +1526,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Adopted from the IUPAC Silver Book 1995” to the code"/>
     </property>
   </concept>
 </CodeSystem>

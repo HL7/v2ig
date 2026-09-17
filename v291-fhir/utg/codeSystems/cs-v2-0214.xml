@@ -45,6 +45,7 @@
   <concept id="2170">
     <code value="CH"/>
     <display value="Child Health Assistance"/>
+    <definition value="Child Health Assistance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2171">
     <code value="ES"/>
     <display value="Elective Surgery Program"/>
+    <definition value="Elective Surgery Program"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2172">
     <code value="FP"/>
     <display value="Family Planning"/>
+    <definition value="Family Planning"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2173">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2174">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

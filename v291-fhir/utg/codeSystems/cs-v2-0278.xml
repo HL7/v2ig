@@ -7,7 +7,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.171"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="FillerStatus"/>
   <title value="fillerStatus"/>
   <status value="active"/>
@@ -40,14 +40,33 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="2689">
     <code value="Pending"/>
     <display value="Appointment has not yet been confirmed"/>
+    <definition value="Appointment has not yet been confirmed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -56,6 +75,7 @@
   <concept id="2690">
     <code value="Waitlist"/>
     <display value="Appointment has been placed on a waiting list for a particular slot, or set of slots"/>
+    <definition value="Appointment has been placed on a waiting list for a particular slot, or set of slots"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -64,6 +84,7 @@
   <concept id="2691">
     <code value="Booked"/>
     <display value="The indicated appointment is booked"/>
+    <definition value="The indicated appointment is booked"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -72,6 +93,7 @@
   <concept id="2692">
     <code value="Started"/>
     <display value="The indicated appointment has begun and is currently in progress"/>
+    <definition value="The indicated appointment has begun and is currently in progress"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -80,6 +102,7 @@
   <concept id="2693">
     <code value="Complete"/>
     <display value="The indicated appointment has completed normally (was not discontinued, canceled, or deleted)"/>
+    <definition value="The indicated appointment has completed normally (was not discontinued, canceled, or deleted)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -88,6 +111,7 @@
   <concept id="2694">
     <code value="Cancelled"/>
     <display value="The indicated appointment was stopped from occurring (canceled prior to starting)"/>
+    <definition value="The indicated appointment was stopped from occurring (canceled prior to starting)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -96,6 +120,7 @@
   <concept id="2695">
     <code value="DC"/>
     <display value="The indicated appointment was discontinued (DC’ed while in progress, discontinued parent appointment, or discontinued child appointment)"/>
+    <definition value="The indicated appointment was discontinued (DC’ed while in progress, discontinued parent appointment, or discontinued child appointment)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Replaced by code &#39;Discontinued&#39;"/>
@@ -108,6 +133,7 @@
   <concept id="2696">
     <code value="Discontinued"/>
     <display value="The indicated appointment was discontinued (DC’ed while in progress, discontinued parent appointment, or discontinued child appointment)"/>
+    <definition value="The indicated appointment was discontinued (DC’ed while in progress, discontinued parent appointment, or discontinued child appointment)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -116,6 +142,7 @@
   <concept id="2697">
     <code value="Deleted"/>
     <display value="The indicated appointment was deleted from the filler application"/>
+    <definition value="The indicated appointment was deleted from the filler application"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -124,6 +151,7 @@
   <concept id="2698">
     <code value="Blocked"/>
     <display value="The indicated time slot(s) is(are) blocked"/>
+    <definition value="The indicated time slot(s) is(are) blocked"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -132,6 +160,7 @@
   <concept id="2699">
     <code value="Overbook"/>
     <display value="The appointment has been confirmed; however it is confirmed in an overbooked state"/>
+    <definition value="The appointment has been confirmed; however it is confirmed in an overbooked state"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -140,6 +169,132 @@
   <concept id="2700">
     <code value="Noshow"/>
     <display value="The patient did not show up for the appointment"/>
+    <definition value="The patient did not show up for the appointment"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2680">
+    <code value="BLOCKED"/>
+    <display value="Blocked"/>
+    <definition value="The indicated time slot(s) is(are) blocked."/>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Not used in the AIS, AIG, AIL, AIP segments."/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Not used in the AIS, AIG, AIL, AIP segments."/>
+    </property>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="2681">
+    <code value="BOOKED"/>
+    <display value="Booked"/>
+    <definition value="The indicated appointment is booked"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2682">
+    <code value="CANCELLED"/>
+    <display value="Cancelled"/>
+    <definition value="The indicated appointment was stopped from occurring (cancelled prior to starting)"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2683">
+    <code value="COMPLETE"/>
+    <display value="Complete"/>
+    <definition value="The indicated appointment has completed normally (was not discontinued, canceled, or deleted)"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2684">
+    <code value="DELETED"/>
+    <display value="Deleted"/>
+    <definition value="The indicated appointment was deleted from the filler application"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2685">
+    <code value="OVERBOOK"/>
+    <display value="Overbook"/>
+    <definition value="The appointment has been confirmed; however it is confirmed in an overbooked state"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2686">
+    <code value="PENDING"/>
+    <display value="Pending"/>
+    <definition value="Appointment has not yet been confirmed"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2687">
+    <code value="STARTED"/>
+    <display value="Started"/>
+    <definition value="The indicated appointment has begun and is currently in progress"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2688">
+    <code value="WAITLIST"/>
+    <display value="Waitlist"/>
+    <definition value="Appointment has been placed on a waiting list for a paricular slot, or set of slots"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

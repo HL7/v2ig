@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5325">
     <code value="AUT"/>
     <display value="Autolyzed"/>
+    <definition value="Autolyzed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="5326">
     <code value="CLOT"/>
     <display value="Clotted"/>
+    <definition value="Clotted"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="5327">
     <code value="CON"/>
     <display value="Contaminated"/>
+    <definition value="Contaminated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +84,7 @@
   <concept id="5328">
     <code value="COOL"/>
     <display value="Cool"/>
+    <definition value="Cool"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +93,7 @@
   <concept id="5329">
     <code value="FROZ"/>
     <display value="Frozen"/>
+    <definition value="Frozen"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +102,7 @@
   <concept id="5330">
     <code value="HEM"/>
     <display value="Hemolyzed"/>
+    <definition value="Hemolyzed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -99,6 +111,7 @@
   <concept id="5331">
     <code value="LIVE"/>
     <display value="Live"/>
+    <definition value="Live"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -107,6 +120,7 @@
   <concept id="5332">
     <code value="ROOM"/>
     <display value="Room temperature"/>
+    <definition value="Room temperature"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -115,6 +129,7 @@
   <concept id="5333">
     <code value="SNR"/>
     <display value="Sample not received"/>
+    <definition value="Sample not received"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deprecated in v 2.8"/>
@@ -123,10 +138,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deprecated in v 2.8"/>
+    </property>
   </concept>
   <concept id="5334">
     <code value="CFU"/>
     <display value="Centrifuged"/>
+    <definition value="Centrifuged"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

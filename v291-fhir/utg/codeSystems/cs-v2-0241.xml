@@ -45,6 +45,7 @@
   <concept id="2324">
     <code value="D"/>
     <display value="Died"/>
+    <definition value="Died"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2325">
     <code value="R"/>
     <display value="Recovering"/>
+    <definition value="Recovering"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2326">
     <code value="N"/>
     <display value="Not recovering/unchanged"/>
+    <definition value="Not recovering/unchanged"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2327">
     <code value="W"/>
     <display value="Worsening"/>
+    <definition value="Worsening"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2328">
     <code value="S"/>
     <display value="Sequelae"/>
+    <definition value="Sequelae"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2329">
     <code value="F"/>
     <display value="Fully recovered"/>
+    <definition value="Fully recovered"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2330">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

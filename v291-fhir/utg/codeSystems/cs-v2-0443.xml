@@ -48,9 +48,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="4794">
     <code value="AD"/>
     <display value="Admitting"/>
+    <definition value="Admitting"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aufnehmender Arzt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="PV1-17 Admitting doctor"/>
@@ -59,10 +74,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="PV1-17 Admitting doctor"/>
+    </property>
   </concept>
   <concept id="4795">
     <code value="AP"/>
     <display value="Administering Provider"/>
+    <definition value="Administering Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="RXA-10 Administering Provider"/>
@@ -71,10 +91,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXA-10 Administering Provider"/>
+    </property>
   </concept>
   <concept id="4796">
     <code value="AT"/>
     <display value="Attending"/>
+    <definition value="Attending"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Behandelnder Arzt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="PV1-7 Attending doctor"/>
@@ -83,10 +116,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="PV1-7 Attending doctor"/>
+    </property>
   </concept>
   <concept id="4797">
     <code value="CLP"/>
     <display value="Collecting Provider"/>
+    <definition value="Collecting Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="OBR-10 Collector Identifier"/>
@@ -95,10 +133,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OBR-10 Collector Identifier"/>
+    </property>
   </concept>
   <concept id="4798">
     <code value="CP"/>
     <display value="Consulting Provider"/>
+    <definition value="Consulting Provider"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Beratender Arzt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -107,6 +158,7 @@
   <concept id="4799">
     <code value="DP"/>
     <display value="Dispensing Provider"/>
+    <definition value="Dispensing Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="RXD-10 Dispensing Provider"/>
@@ -115,10 +167,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXD-10 Dispensing Provider"/>
+    </property>
   </concept>
   <concept id="4800">
     <code value="EP"/>
     <display value="Entering Provider (probably not the same as transcriptionist?)"/>
+    <definition value="Entering Provider (probably not the same as transcriptionist?)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ORC-10 Entered By"/>
@@ -127,10 +184,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ORC-10 Entered By"/>
+    </property>
   </concept>
   <concept id="4801">
     <code value="FHCP"/>
     <display value="Family Health Care Professional"/>
+    <definition value="Family Health Care Professional"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Hausarzt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -139,6 +209,7 @@
   <concept id="4802">
     <code value="IP"/>
     <display value="Initiating Provider (as in action by)"/>
+    <definition value="Initiating Provider (as in action by)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ORC-19 Action By"/>
@@ -147,10 +218,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ORC-19 Action By"/>
+    </property>
   </concept>
   <concept id="4803">
     <code value="MDIR"/>
     <display value="Medical Director"/>
+    <definition value="Medical Director"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="OBX-25 Performing Organization Medical Director"/>
@@ -159,10 +235,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OBX-25 Performing Organization Medical Director"/>
+    </property>
   </concept>
   <concept id="4804">
     <code value="OP"/>
     <display value="Ordering Provider"/>
+    <definition value="Ordering Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ORC-12 Ordering Provider, OBR-16 Ordering Provider, RXO-14 Ordering Provider&#39;s DEA Number, RXE-13 Ordering Provider&#39;s DEA Number, ORC-24 Ordering Provider Address"/>
@@ -171,10 +252,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ORC-12 Ordering Provider, OBR-16 Ordering Provider, RXO-14 Ordering Provider&#39;s DEA Number, RXE-13 Ordering Provider&#39;s DEA Number, ORC-24 Ordering Provider Address"/>
+    </property>
   </concept>
   <concept id="4805">
     <code value="PH"/>
     <display value="Pharmacist (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
+    <definition value="Pharmacist   (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
@@ -183,10 +269,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </property>
   </concept>
   <concept id="4806">
     <code value="PP"/>
     <display value="Primary Care Provider"/>
+    <definition value="Primary Care Provider"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Durchgangsarzt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -195,6 +294,7 @@
   <concept id="4807">
     <code value="RO"/>
     <display value="Responsible Observer"/>
+    <definition value="Responsible Observer"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="OBX-16 Responsible Observer"/>
@@ -203,10 +303,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OBX-16 Responsible Observer"/>
+    </property>
   </concept>
   <concept id="4808">
     <code value="RP"/>
     <display value="Referring Provider"/>
+    <definition value="Referring Provider"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="überweisender/einweisender Arzt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="PV1-8 Referring doctor"/>
@@ -215,10 +328,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="PV1-8 Referring doctor"/>
+    </property>
   </concept>
   <concept id="4809">
     <code value="RT"/>
     <display value="Referred to Provider"/>
+    <definition value="Referred to Provider"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Überweisungsempfänger"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -227,6 +353,15 @@
   <concept id="4810">
     <code value="TR"/>
     <display value="Transcriptionist"/>
+    <definition value="Transcriptionist"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Schreibkraft"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -235,6 +370,15 @@
   <concept id="4811">
     <code value="PI"/>
     <display value="Primary Interpreter"/>
+    <definition value="Primary Interpreter"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Verantwortlicher Übersetzer"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -243,6 +387,15 @@
   <concept id="4812">
     <code value="AI"/>
     <display value="Assistant/Alternate Interpreter"/>
+    <definition value="Assistant/Alternate Interpreter"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="alternativer (oder Assistent des) Befundsarzt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -251,6 +404,15 @@
   <concept id="4813">
     <code value="TN"/>
     <display value="Technician"/>
+    <definition value="Technician"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="MTA"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -259,6 +421,7 @@
   <concept id="4814">
     <code value="VP"/>
     <display value="Verifying Provider"/>
+    <definition value="Verifying Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ORC-11 Verified By"/>
@@ -267,10 +430,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ORC-11 Verified By"/>
+    </property>
   </concept>
   <concept id="4815">
     <code value="VPS"/>
     <display value="Verifying Pharmaceutical Supplier (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
+    <definition value="Verifying Pharmaceutical Supplier   (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
@@ -278,11 +446,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
     </property>
   </concept>
   <concept id="4816">
     <code value="VTS"/>
     <display value="Verifying Treatment Supplier (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
+    <definition value="Verifying Treatment Supplier   (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
@@ -290,6 +463,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
     </property>
   </concept>
 </CodeSystem>

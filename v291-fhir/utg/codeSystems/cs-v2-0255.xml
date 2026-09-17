@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.150"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="DurationCategories"/>
   <title value="durationCategories"/>
   <status value="active"/>
@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="2486">
     <code value="*"/>
     <display value="(asterisk) Life of the &quot;unit&quot;"/>
+    <definition value="(asterisk) Life of the &quot;unit&quot;"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Used for blood products.&#10;&#10;Usage Note: Deprecated March 2016; use code LU instead."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Deprecated March 2016; use code LU instead."/>
+    </property>
   </concept>
   <concept id="2487">
     <code value="30M"/>
     <display value="30 minutes"/>
+    <definition value="30 minutes"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -71,6 +83,7 @@
   <concept id="2488">
     <code value="1H"/>
     <display value="1 hour"/>
+    <definition value="1 hour"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -79,6 +92,7 @@
   <concept id="2489">
     <code value="2H"/>
     <display value="2 hours"/>
+    <definition value="2 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -87,6 +101,7 @@
   <concept id="2490">
     <code value="2.5H"/>
     <display value="2 1/2 hours"/>
+    <definition value="2 1/2 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -95,6 +110,7 @@
   <concept id="2491">
     <code value="3H"/>
     <display value="3 hours"/>
+    <definition value="3 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -103,6 +119,7 @@
   <concept id="2492">
     <code value="4H"/>
     <display value="4 hours"/>
+    <definition value="4 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -111,6 +128,7 @@
   <concept id="2493">
     <code value="5H"/>
     <display value="5 hours"/>
+    <definition value="5 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -119,6 +137,7 @@
   <concept id="2494">
     <code value="6H"/>
     <display value="6 hours"/>
+    <definition value="6 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -127,6 +146,7 @@
   <concept id="2495">
     <code value="7H"/>
     <display value="7 hours"/>
+    <definition value="7 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -135,6 +155,7 @@
   <concept id="2496">
     <code value="8H"/>
     <display value="8 hours"/>
+    <definition value="8 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -143,6 +164,7 @@
   <concept id="2497">
     <code value="12H"/>
     <display value="12 hours"/>
+    <definition value="12 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -151,6 +173,7 @@
   <concept id="2498">
     <code value="24H"/>
     <display value="24 hours"/>
+    <definition value="24 hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -159,6 +182,7 @@
   <concept id="2499">
     <code value="2D"/>
     <display value="2 days"/>
+    <definition value="2 days"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -167,6 +191,7 @@
   <concept id="2500">
     <code value="3D"/>
     <display value="3 days"/>
+    <definition value="3 days"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -175,6 +200,7 @@
   <concept id="2501">
     <code value="4D"/>
     <display value="4 days"/>
+    <definition value="4 days"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -183,6 +209,7 @@
   <concept id="2502">
     <code value="5D"/>
     <display value="5 days"/>
+    <definition value="5 days"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -191,6 +218,7 @@
   <concept id="2503">
     <code value="6D"/>
     <display value="6 days"/>
+    <definition value="6 days"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -199,6 +227,7 @@
   <concept id="2504">
     <code value="1W"/>
     <display value="1 week"/>
+    <definition value="1 week"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -207,6 +236,7 @@
   <concept id="2505">
     <code value="2W"/>
     <display value="2 weeks"/>
+    <definition value="2 weeks"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -215,6 +245,7 @@
   <concept id="2506">
     <code value="3W"/>
     <display value="3 weeks"/>
+    <definition value="3 weeks"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -223,6 +254,7 @@
   <concept id="2507">
     <code value="4W"/>
     <display value="4 weeks"/>
+    <definition value="4 weeks"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -231,6 +263,7 @@
   <concept id="2508">
     <code value="1L"/>
     <display value="1 months (30 days)"/>
+    <definition value="1 months (30 days)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -239,6 +272,7 @@
   <concept id="2509">
     <code value="2L"/>
     <display value="2 months"/>
+    <definition value="2 months"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -247,6 +281,7 @@
   <concept id="2510">
     <code value="3L"/>
     <display value="3 months"/>
+    <definition value="3 months"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -263,6 +298,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="In a master file update for blood products, no specific duration value can be specified (see OM1-43 “Point Versus Interval” field definition)."/>
     </property>
   </concept>
   <concept id="2512">

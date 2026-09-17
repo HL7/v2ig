@@ -45,6 +45,15 @@
   <concept id="1629">
     <code value="AP"/>
     <display value="Approved"/>
+    <definition value="Approved"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="(Tabelle 149 wird nicht verwendet)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,7 @@
   <concept id="1630">
     <code value="DE"/>
     <display value="Denied"/>
+    <definition value="Denied"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,7 @@
   <concept id="1631">
     <code value="PE"/>
     <display value="Pending"/>
+    <definition value="Pending"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

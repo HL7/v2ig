@@ -45,6 +45,7 @@
   <concept id="3011">
     <code value="Y"/>
     <display value="Yes, patient has a living will"/>
+    <definition value="Yes, patient has a living will"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3012">
     <code value="F"/>
     <display value="Yes, patient has a living will but it is not on file"/>
+    <definition value="Yes, patient has a living will but it is not on file"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3013">
     <code value="N"/>
     <display value="No, patient does not have a living will and no information was provided"/>
+    <definition value="No, patient does not have a living will and no information was provided"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3014">
     <code value="I"/>
     <display value="No, patient does not have a living will but information was provided"/>
+    <definition value="No, patient does not have a living will but information was provided"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3015">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

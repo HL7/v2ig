@@ -45,6 +45,7 @@
   <concept id="4606">
     <code value="B"/>
     <display value="Body fluid exposure"/>
+    <definition value="Body fluid exposure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4607">
     <code value="C"/>
     <display value="Contaminated Substance"/>
+    <definition value="Contaminated Substance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4608">
     <code value="D"/>
     <display value="Diet Errors"/>
+    <definition value="Diet Errors"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4609">
     <code value="E"/>
     <display value="Equipment problem"/>
+    <definition value="Equipment problem"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4610">
     <code value="F"/>
     <display value="Patient fell (not from bed)"/>
+    <definition value="Patient fell (not from bed)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4611">
     <code value="H"/>
     <display value="Patient fell from bed"/>
+    <definition value="Patient fell from bed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4612">
     <code value="I"/>
     <display value="Infusion error"/>
+    <definition value="Infusion error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="4613">
     <code value="J"/>
     <display value="Foreign object left during surgery"/>
+    <definition value="Foreign object left during surgery"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="4614">
     <code value="K"/>
     <display value="Sterile precaution violated"/>
+    <definition value="Sterile precaution violated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="4615">
     <code value="P"/>
     <display value="Procedure error"/>
+    <definition value="Procedure error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="4616">
     <code value="R"/>
     <display value="Pharmaceutical error"/>
+    <definition value="Pharmaceutical error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="4617">
     <code value="S"/>
     <display value="Suicide Attempt"/>
+    <definition value="Suicide Attempt"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="4618">
     <code value="T"/>
     <display value="Transfusion error"/>
+    <definition value="Transfusion error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="4619">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

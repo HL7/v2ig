@@ -45,6 +45,15 @@
   <concept id="1795">
     <code value="B"/>
     <display value="Base"/>
+    <definition value="Base"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Basissubstanz"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1796">
     <code value="A"/>
     <display value="Additive"/>
+    <definition value="Additive"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Additiv"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

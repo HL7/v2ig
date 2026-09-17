@@ -45,6 +45,7 @@
   <concept id="2287">
     <code value="C"/>
     <display value="Clinical trial"/>
+    <definition value="Clinical trial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2288">
     <code value="L"/>
     <display value="Literature"/>
+    <definition value="Literature"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2289">
     <code value="H"/>
     <display value="Health professional"/>
+    <definition value="Health professional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2290">
     <code value="R"/>
     <display value="Regulatory agency"/>
+    <definition value="Regulatory agency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2291">
     <code value="D"/>
     <display value="Database/registry/poison control center"/>
+    <definition value="Database/registry/poison control center"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2292">
     <code value="N"/>
     <display value="Non-healthcare professional"/>
+    <definition value="Non-healthcare professional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2293">
     <code value="P"/>
     <display value="Patient"/>
+    <definition value="Patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2294">
     <code value="M"/>
     <display value="Manufacturer/marketing authority holder"/>
+    <definition value="Manufacturer/marketing authority holder"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="2295">
     <code value="E"/>
     <display value="Distributor"/>
+    <definition value="Distributor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="2296">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

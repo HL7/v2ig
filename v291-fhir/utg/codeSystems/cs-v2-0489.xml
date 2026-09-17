@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.313"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Risks"/>
   <title value="risks"/>
   <status value="active"/>
@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5292">
     <code value="BIO"/>
     <display value="Biological"/>
+    <definition value="Biological"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The dangers associated with normal biological materials. I.e., potential risk of unknown infections. Routine biological materials from living subjects."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The dangers associated with normal biological materials. I.e. potential risk of unknown infections.  Routine biological materials from living subjects."/>
+    </property>
   </concept>
   <concept id="5293">
     <code value="COR"/>
     <display value="Corrosive"/>
+    <definition value="Corrosive"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material is corrosive and may cause severe injury to skin, mucous membranes and eyes. Avoid any unprotected contact."/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material is corrosive and may cause severe injury to skin, mucous membranes and eyes. Avoid any unprotected contact."/>
+    </property>
   </concept>
   <concept id="5294">
     <code value="ESC"/>
     <display value="Escape Risk"/>
+    <definition value="Escape Risk"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The entity is at risk for escaping from containment or control."/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The entity is at risk for escaping from containment or control."/>
+    </property>
   </concept>
   <concept id="5295">
     <code value="AGG"/>
     <display value="Aggressive"/>
+    <definition value="Aggressive"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A danger that can be associated with certain living subjects, including humans."/>
@@ -95,10 +117,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A danger that can be associated with certain living subjects, including humans."/>
+    </property>
   </concept>
   <concept id="5296">
     <code value="IFL"/>
     <display value="MaterialDangerInflammable"/>
+    <definition value="MaterialDangerInflammable"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material is highly inflammable and in certain mixtures (with air) may lead to explosions. Keep away from fire, sparks and excessive heat."/>
@@ -107,10 +134,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material is highly inflammable and in certain mixtures (with air) may lead to explosions.  Keep away from fire, sparks and excessive heat."/>
+    </property>
   </concept>
   <concept id="5297">
     <code value="EXP"/>
     <display value="Explosive"/>
+    <definition value="Explosive"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material is an explosive mixture. Keep away from fire, sparks, and heat."/>
@@ -119,10 +151,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material is an explosive mixture.  Keep away from fire, sparks, and heat."/>
+    </property>
   </concept>
   <concept id="5298">
     <code value="INF"/>
     <display value="MaterialDangerInfectious"/>
+    <definition value="MaterialDangerInfectious"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material known to be infectious with human pathogenic microorganisms. Those who handle this material must take precautions for their protection."/>
@@ -131,10 +168,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material known to be infectious with human pathogenic microorganisms.  Those who handle this material must take precautions for their protection."/>
+    </property>
   </concept>
   <concept id="5299">
     <code value="BHZ"/>
     <display value="Biohazard"/>
+    <definition value="Biohazard"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material contains microorganisms that are an environmental hazard. Must be handled with special care."/>
@@ -143,10 +185,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material contains microorganisms that are an environmental hazard.  Must be handled with special care."/>
+    </property>
   </concept>
   <concept id="5300">
     <code value="INJ"/>
     <display value="Injury Hazard"/>
+    <definition value="Injury Hazard"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material is solid and sharp (e.g., cannulas.) Dispose in hard container."/>
@@ -155,10 +202,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material is solid and sharp (e.g., cannulas.)  Dispose in hard container."/>
+    </property>
   </concept>
   <concept id="5301">
     <code value="POI"/>
     <display value="Poison"/>
+    <definition value="Poison"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material is poisonous to humans and/or animals. Special care must be taken to avoid incorporation, even of small amounts."/>
@@ -167,10 +219,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material is poisonous to humans and/or animals.  Special care must be taken to avoid incorporation, even of small amounts."/>
+    </property>
   </concept>
   <concept id="5302">
     <code value="RAD"/>
     <display value="Radioactive"/>
+    <definition value="Radioactive"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Material is a source for ionizing radiation and must be handled with special care to avoid injury of those who handle it and to avoid environmental hazards."/>
@@ -178,6 +235,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Material is a source for ionizing radiation and must be handled with special care to avoid injury of those who handle it and to avoid environmental hazards."/>
     </property>
   </concept>
 </CodeSystem>

@@ -45,6 +45,7 @@
   <concept id="6486">
     <code value="CS"/>
     <display value="Case"/>
+    <definition value="Case"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6487">
     <code value="BX"/>
     <display value="Box"/>
+    <definition value="Box"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6488">
     <code value="EA"/>
     <display value="Each"/>
+    <definition value="Each"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6489">
     <code value="SET"/>
     <display value="Set"/>
+    <definition value="Set"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

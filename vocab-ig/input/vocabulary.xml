@@ -52,6 +52,18 @@
         <generation value="markdown"/>
       </page>
       <page>
+        <sourceUrl value="tho-merge.html"/>
+        <name value="tho-merge.html"/>
+        <title value="What this guide keeps from THO"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <sourceUrl value="general-questions.html"/>
+        <name value="general-questions.html"/>
+        <title value="General questions"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
         <sourceUrl value="known-issues.html"/>
         <name value="known-issues.html"/>
         <title value="Known issues in this build"/>

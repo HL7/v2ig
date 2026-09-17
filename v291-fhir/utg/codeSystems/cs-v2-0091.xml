@@ -45,6 +45,15 @@
   <concept id="1303">
     <code value="D"/>
     <display value="Deferred"/>
+    <definition value="Deferred"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zeitverzögert"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1304">
     <code value="I"/>
     <display value="Immediate"/>
+    <definition value="Immediate"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Sofort"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="6483">
     <code value="EOG"/>
     <display value="Ethylene Oxide Gas"/>
+    <definition value="Ethylene Oxide Gas"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6484">
     <code value="PCA"/>
     <display value="Peracetic acid"/>
+    <definition value="Peracetic acid"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6485">
     <code value="STM"/>
     <display value="Steam"/>
+    <definition value="Steam"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

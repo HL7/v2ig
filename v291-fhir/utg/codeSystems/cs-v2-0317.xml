@@ -45,6 +45,7 @@
   <concept id="3023">
     <code value="9900"/>
     <display value="Pace spike"/>
+    <definition value="Pace spike"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3024">
     <code value="9901"/>
     <display value="SAS marker"/>
+    <definition value="SAS marker"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3025">
     <code value="9902"/>
     <display value="Sense marker"/>
+    <definition value="Sense marker"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3026">
     <code value="9903"/>
     <display value="Beat marker"/>
+    <definition value="Beat marker"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3027">
     <code value="9904"/>
     <display value="etc."/>
+    <definition value="etc."/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>

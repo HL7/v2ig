@@ -45,6 +45,7 @@
   <concept id="4548">
     <code value="N"/>
     <display value="DRG Non Exempt"/>
+    <definition value="DRG Non Exempt"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4549">
     <code value="E"/>
     <display value="DRG Exempt"/>
+    <definition value="DRG Exempt"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

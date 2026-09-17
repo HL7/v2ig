@@ -45,6 +45,7 @@
   <concept id="4591">
     <code value="CRYO"/>
     <display value="Cryoprecipitated AHF"/>
+    <definition value="Cryoprecipitated AHF"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4592">
     <code value="CRYOP"/>
     <display value="Pooled Cryoprecipitate"/>
+    <definition value="Pooled Cryoprecipitate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4593">
     <code value="FFP"/>
     <display value="Fresh Frozen Plasma"/>
+    <definition value="Fresh Frozen Plasma"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4594">
     <code value="FFPTH"/>
     <display value="Fresh Frozen Plasma - Thawed"/>
+    <definition value="Fresh Frozen Plasma - Thawed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4595">
     <code value="PC"/>
     <display value="Packed Cells"/>
+    <definition value="Packed Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4596">
     <code value="PCA"/>
     <display value="Autologous Packed Cells"/>
+    <definition value="Autologous Packed Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4597">
     <code value="PCNEO"/>
     <display value="Packed Cells - Neonatal"/>
+    <definition value="Packed Cells - Neonatal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="4598">
     <code value="PCW"/>
     <display value="Washed Packed Cells"/>
+    <definition value="Washed Packed Cells"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="4599">
     <code value="PLT"/>
     <display value="Platelet Concentrate"/>
+    <definition value="Platelet Concentrate"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="4600">
     <code value="PLTNEO"/>
     <display value="Reduced Volume Platelets"/>
+    <definition value="Reduced Volume Platelets"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="4601">
     <code value="PLTP"/>
     <display value="Pooled Platelets"/>
+    <definition value="Pooled Platelets"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="4602">
     <code value="PLTPH"/>
     <display value="Platelet Pheresis"/>
+    <definition value="Platelet Pheresis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="4603">
     <code value="PLTPHLR"/>
     <display value="Leukoreduced Platelet Pheresis"/>
+    <definition value="Leukoreduced Platelet Pheresis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="4604">
     <code value="RWB"/>
     <display value="Reconstituted Whole Blood"/>
+    <definition value="Reconstituted Whole Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +171,7 @@
   <concept id="4605">
     <code value="WBA"/>
     <display value="Autologous Whole Blood"/>
+    <definition value="Autologous Whole Blood"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

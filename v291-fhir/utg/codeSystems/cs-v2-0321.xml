@@ -45,6 +45,7 @@
   <concept id="3028">
     <code value="TR"/>
     <display value="Traditional"/>
+    <definition value="Traditional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3029">
     <code value="UD"/>
     <display value="Unit Dose"/>
+    <definition value="Unit Dose"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3030">
     <code value="F"/>
     <display value="Floor Stock"/>
+    <definition value="Floor Stock"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3031">
     <code value="AD"/>
     <display value="Automatic Dispensing"/>
+    <definition value="Automatic Dispensing"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

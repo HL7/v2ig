@@ -45,6 +45,7 @@
   <concept id="5567">
     <code value="ABOINC"/>
     <display value="ABO Incompatible Transfusion Reaction"/>
+    <definition value="ABO Incompatible Transfusion Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5568">
     <code value="ACUTHEHTR"/>
     <display value="Acute Hemolytic Transfusion Reaction"/>
+    <definition value="Acute Hemolytic Transfusion Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5569">
     <code value="ALLERGIC1"/>
     <display value="Allergic Reaction - First"/>
+    <definition value="Allergic Reaction - First"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5570">
     <code value="ALLERGIC2"/>
     <display value="Allergic Reaction - Recurrent"/>
+    <definition value="Allergic Reaction - Recurrent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5571">
     <code value="ALLERGICR"/>
     <display value="Allergic Reaction - Repeating"/>
+    <definition value="Allergic Reaction - Repeating"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="5572">
     <code value="ANAPHYLAC"/>
     <display value="Anaphylactic Reaction"/>
+    <definition value="Anaphylactic Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="5573">
     <code value="BACTCONTAM"/>
     <display value="Reaction to Bacterial Contamination"/>
+    <definition value="Reaction to Bacterial Contamination"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="5574">
     <code value="DELAYEDHTR"/>
     <display value="Delayed Hemolytic Transfusion Reaction"/>
+    <definition value="Delayed Hemolytic Transfusion Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="5575">
     <code value="DELAYEDSTR"/>
     <display value="Delayed Serological Transfusion Reaction"/>
+    <definition value="Delayed Serological Transfusion Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="5576">
     <code value="GVHD"/>
     <display value="Graft vs Host Disease - Transfusion - Associated"/>
+    <definition value="Graft vs Host Disease - Transfusion - Associated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="5577">
     <code value="HYPOTENS"/>
     <display value="Non-hemolytic Hypotensive Reaction"/>
+    <definition value="Non-hemolytic Hypotensive Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="5578">
     <code value="NONHTR1"/>
     <display value="Non-Hemolytic Fever Chill Transfusion Reaction - First"/>
+    <definition value="Non-Hemolytic Fever Chill Transfusion Reaction - First"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,7 @@
   <concept id="5579">
     <code value="NONHTR2"/>
     <display value="Non-Hemolytic Fever Chill Transfusion Reaction - Recurrent"/>
+    <definition value="Non-Hemolytic Fever Chill Transfusion Reaction - Recurrent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +162,7 @@
   <concept id="5580">
     <code value="NONHTRREC"/>
     <display value="Non-Hemolytic Fever Chill Transfusion Reaction - Repeating"/>
+    <definition value="Non-Hemolytic Fever Chill Transfusion Reaction - Repeating"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +171,7 @@
   <concept id="5581">
     <code value="NONIMMUNE"/>
     <display value="Non-Immune Hemolysis"/>
+    <definition value="Non-Immune Hemolysis"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -165,6 +180,7 @@
   <concept id="5582">
     <code value="NONSPEC"/>
     <display value="Non-Specific, Non-Hemolytic Transfusion Reaction"/>
+    <definition value="Non-Specific, Non-Hemolytic Transfusion Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -173,6 +189,7 @@
   <concept id="5583">
     <code value="NORXN"/>
     <display value="No Evidence of Transfusion Reaction"/>
+    <definition value="No Evidence of Transfusion Reaction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -181,6 +198,7 @@
   <concept id="5584">
     <code value="PTP"/>
     <display value="Posttransfusion Purpura"/>
+    <definition value="Posttransfusion Purpura"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -189,6 +207,7 @@
   <concept id="5585">
     <code value="VOLOVER"/>
     <display value="Symptoms most likely due to volume overload"/>
+    <definition value="Symptoms most likely due to volume overload"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

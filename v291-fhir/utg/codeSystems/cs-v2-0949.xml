@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.449"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="OrderControlCodeReason"/>
   <title value="orderControlCodeReason"/>
   <status value="active"/>
@@ -48,6 +48,12 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="6769">
     <code value="CO"/>
     <display value="Cost"/>
@@ -73,6 +79,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Recommend testing that can use the submitted specimen type"/>
+    </property>
   </concept>
   <concept id="6771">
     <code value="SV"/>
@@ -85,6 +95,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Recommend a subset of ordered tests appropriate for volume"/>
     </property>
   </concept>
   <concept id="6772">

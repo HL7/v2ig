@@ -6,6 +6,88 @@ The split moved to **2026-08-18 (evening)** on 2026-08-24: every entry before th
 
 ---
 
+## 2026-08-27 → 2026-09-10 — The canonical section was wrong; six findings registered
+
+### Completed
+
+**The reviewer walked the "tables needing a new canonical URL" list and
+rejected almost all of it — correctly.** The section was computed by one crude
+subtraction in `render_vocabulary_review_html.py`: a table that listed codes
+and had no `CodeSystem-v2-<its own number>` in THO was declared to need a
+canonical minted. That test only ever looks for a code system filed under the
+table's *own* number, so **every table whose codes live in another authority's
+code system tripped it**. It reported 18; the true figure is **2** (0411 and
+0460), which matches the independent count reached on 2026-08-20.
+
+**The writer already had this right for 16 of the 18.** The section no longer
+recomputes anything — it reads `v291-fhir/utg-write-report.json`, so the report
+and the generated resources cannot disagree. It now shows six routes with
+counts (396 reuse their own THO canonical, 24 defer to another authority, 2
+mint, 14 unsettled, 360 concept-domain-only, 19 THO code systems with no
+chapter table) plus two detail tables giving, for each table, which code system
+it resolved to and how.
+
+**Six items added to the V2 Management register**, five previously unrecorded.
+Register is now 24 items. Commit `6b01350c`. 243 tests pass.
+
+### The findings worth carrying
+
+**0567/0568 is a deprecation question, not a canonical question.** The
+reviewer's framing, and it replaced mine: Chapter 2C deprecates both tables in
+prose, but THO publishes `ValueSet/v2-0567` and `v2-0568` as live resources
+with no deprecation marker, so **a consumer cannot tell that two of the four
+are superseded**. The ask is whether a concomitant deprecation belongs in THO.
+Secondary: both tables print the *replacement's* canonical as their own URI
+(0567→`v2-0929`, 0568→`v2-0930`), and only the "THO's existing canonical wins"
+rule stopped two pairs of resources claiming the same URL.
+
+**0725 was already correct, by OID resolution.** The chapter omits the URI
+entirely and gives only OID `2.16.840.1.113883.5.1001`, which THO resolves to
+`CodeSystem/v3-ActMood` — the same URL the reviewer found independently in
+THO's CLD. Registered as a technical correction that changes no output.
+
+**0460/0411/0093 is the sharpest management item.** All three are `Type: User`
+and the chapter treats them three different ways: 0411 and 0460 get minted
+resources, 0093 is declared concept-domain-only and gets nothing. Nothing in
+the chapter explains the difference. That contrast is the frame for the
+user-defined-table question the reviewer did not know how to answer.
+
+**0340's code grid holds code system identifiers, not concepts** — `CPTM` and
+`HPC`, with citations to AMA and CMS. The table is concept-domain-only so
+nothing is written, but the chapter is using the code grid for two
+incompatible purposes.
+
+**0459 is a hard stop**: code system given only as OID
+`2.16.840.1.113883.6.301.9`, which nothing in THO or FHIR core resolves.
+
+### Corrections taken during the session
+
+- Claimed the 24 deferring tables were "each previously reported as needing a
+  new canonical". Only 11 were — the old test also required enumerated codes,
+  so it never saw the 13 that reference their codes intensionally. Caught and
+  fixed before the final render.
+- Asserted the reason for that as "THO publishes no same-numbered code system
+  for them". Wrong reason for a right number.
+
+### Out-of-scope discussion worth not losing
+
+A long thread on V2 delimiter/escape corner cases (whether `MSH-2` may declare
+`F`, `S`, `T`… as separators). Two **CH02 document defects** surfaced that are
+recorded nowhere and belong to the structural workstream, not this one:
+
+1. **The chapter calls the segment `FSH` in places** — not a typo but
+   systematic: the field heading at §2.13.3 is literally "FSH-15 Security
+   Classification Tag", and `BHS-15`'s conditionality predicate reads "any
+   contained FSH-16 or FSH-17".
+2. **Those same predicates invert the containment hierarchy.** A batch contains
+   messages; a *file* contains batches. `BHS-15` referring to "any contained
+   FSH/FHS" is backwards; `FHS-15` reaches for "any contained MSH-26" and skips
+   the BHS level.
+
+Also established, if it recurs: **no rule anywhere in CH02 requires the six
+delimiters to be distinct from one another**, so `MSHFzzzzzF` is not
+prohibited by any text — searched and confirmed.
+
 ## 2026-08-20 → 2026-08-24 — D17–D19; both committees briefed; the 18-canonical count corrected
 
 ### Completed

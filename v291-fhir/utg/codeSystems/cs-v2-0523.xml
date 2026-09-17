@@ -45,6 +45,7 @@
   <concept id="5600">
     <code value="%"/>
     <display value="Indicates a percent change"/>
+    <definition value="Indicates a percent change"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5601">
     <code value="a"/>
     <display value="Absolute Change"/>
+    <definition value="Absolute Change"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

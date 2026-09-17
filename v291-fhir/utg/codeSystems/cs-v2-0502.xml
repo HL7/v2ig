@@ -45,6 +45,7 @@
   <concept id="5508">
     <code value="MIN"/>
     <display value="Subject is a minor"/>
+    <definition value="Subject is a minor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5509">
     <code value="NC"/>
     <display value="Subject is not competent to consent"/>
+    <definition value="Subject is not competent to consent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5510">
     <code value="LM"/>
     <display value="Legally mandated"/>
+    <definition value="Legally mandated"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

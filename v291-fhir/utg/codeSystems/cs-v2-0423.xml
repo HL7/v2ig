@@ -45,6 +45,7 @@
   <concept id="4582">
     <code value="D"/>
     <display value="Doctor&#39;s Office Closed"/>
+    <definition value="Doctor&#39;s Office Closed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

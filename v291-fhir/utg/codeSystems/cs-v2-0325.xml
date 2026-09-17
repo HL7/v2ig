@@ -45,6 +45,7 @@
   <concept id="3052">
     <code value="RX"/>
     <display value="Nearest pharmacy"/>
+    <definition value="Nearest  pharmacy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3053">
     <code value="RX2"/>
     <display value="Second nearest pharmacy"/>
+    <definition value="Second nearest pharmacy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3054">
     <code value="LAB"/>
     <display value="Nearest lab"/>
+    <definition value="Nearest  lab"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3055">
     <code value="LB2"/>
     <display value="Second nearest lab"/>
+    <definition value="Second nearest lab"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3056">
     <code value="DTY"/>
     <display value="Nearest dietary location"/>
+    <definition value="Nearest  dietary location"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="3057">
     <code value="ALI"/>
     <display value="Location Alias(es)"/>
+    <definition value="Location Alias(es)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="3058">
     <code value="PAR"/>
     <display value="Parent location"/>
+    <definition value="Parent location"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

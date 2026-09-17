@@ -45,6 +45,7 @@
   <concept id="2140">
     <code value="AND"/>
     <display value="Default"/>
+    <definition value="Default"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

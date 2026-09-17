@@ -45,6 +45,15 @@
   <concept id="4677">
     <code value="B"/>
     <display value="Bracelet"/>
+    <definition value="Bracelet"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Armband"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="4678">
     <code value="N"/>
     <display value="Necklace"/>
+    <definition value="Necklace"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Kette"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,7 @@
   <concept id="4679">
     <code value="W"/>
     <display value="Wallet Card"/>
+    <definition value="Wallet Card"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

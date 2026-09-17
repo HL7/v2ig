@@ -45,6 +45,7 @@
   <concept id="3808">
     <code value="CNTM"/>
     <display value="Present, type of contamination unspecified"/>
+    <definition value="Present, type of contamination unspecified"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

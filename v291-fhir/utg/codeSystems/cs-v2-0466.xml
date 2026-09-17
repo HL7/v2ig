@@ -45,6 +45,7 @@
   <concept id="4847">
     <code value="031"/>
     <display value="Dental procedures"/>
+    <definition value="Dental procedures"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4848">
     <code value="163"/>
     <display value="Excision/biopsy"/>
+    <definition value="Excision/biopsy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4849">
     <code value="181"/>
     <display value="Level 1 skin repair."/>
+    <definition value="Level 1 skin repair."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,15 @@
   <concept id="4850">
     <code value="..."/>
     <display value="No suggested values defined"/>
+    <definition value="No suggested values defined"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="keine Werte vorgeschlagen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>

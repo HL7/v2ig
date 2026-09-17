@@ -45,6 +45,7 @@
   <concept id="2560">
     <code value="CONTROL"/>
     <display value="Control"/>
+    <definition value="Control"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2561">
     <code value="PATIENT"/>
     <display value="Patient"/>
+    <definition value="Patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2562">
     <code value="DONOR"/>
     <display value="Donor"/>
+    <definition value="Donor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2563">
     <code value="BPU"/>
     <display value="Blood product unit"/>
+    <definition value="Blood product unit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

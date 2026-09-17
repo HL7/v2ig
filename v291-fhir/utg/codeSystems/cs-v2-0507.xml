@@ -45,6 +45,7 @@
   <concept id="5527">
     <code value="F"/>
     <display value="Film-with-patient"/>
+    <definition value="Film-with-patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5528">
     <code value="N"/>
     <display value="Notify provider when ready"/>
+    <definition value="Notify provider when ready"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5529">
     <code value="A"/>
     <display value="Alert provider when abnormal"/>
+    <definition value="Alert provider when abnormal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5530">
     <code value="CC"/>
     <display value="Copies requested"/>
+    <definition value="Copies requested"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5531">
     <code value="BCC"/>
     <display value="Blind copy"/>
+    <definition value="Blind copy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

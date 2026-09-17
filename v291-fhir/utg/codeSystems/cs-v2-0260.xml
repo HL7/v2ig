@@ -45,6 +45,7 @@
   <concept id="2564">
     <code value="N"/>
     <display value="Nursing Unit"/>
+    <definition value="Nursing Unit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2565">
     <code value="R"/>
     <display value="Room"/>
+    <definition value="Room"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2566">
     <code value="B"/>
     <display value="Bed"/>
+    <definition value="Bed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2567">
     <code value="E"/>
     <display value="Exam Room"/>
+    <definition value="Exam Room"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2568">
     <code value="O"/>
     <display value="Operating Room"/>
+    <definition value="Operating Room"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2569">
     <code value="C"/>
     <display value="Clinic"/>
+    <definition value="Clinic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2570">
     <code value="D"/>
     <display value="Department"/>
+    <definition value="Department"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2571">
     <code value="L"/>
     <display value="Other Location"/>
+    <definition value="Other Location"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

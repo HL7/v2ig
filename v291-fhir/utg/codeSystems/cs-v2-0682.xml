@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6294">
     <code value="0"/>
     <display value="Ready"/>
+    <definition value="Ready"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Door Locked"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Door Locked"/>
+    </property>
   </concept>
   <concept id="6295">
     <code value="1"/>
     <display value="Not Ready"/>
+    <definition value="Not Ready"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Door Unlocked"/>
@@ -70,6 +82,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Door Unlocked"/>
     </property>
   </concept>
 </CodeSystem>

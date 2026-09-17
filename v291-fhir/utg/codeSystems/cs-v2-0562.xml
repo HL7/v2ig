@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6201">
     <code value="PAPER"/>
     <display value="Paper documentation to follow"/>
+    <definition value="Paper documentation to follow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6202">
     <code value="EFORM"/>
     <display value="Electronic form to follow"/>
+    <definition value="Electronic form to follow"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="E30 transaction to follow"/>
@@ -67,10 +75,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="E30 transaction to follow"/>
+    </property>
   </concept>
   <concept id="6203">
     <code value="FAX"/>
     <display value="Fax to follow"/>
+    <definition value="Fax to follow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -79,6 +92,7 @@
   <concept id="6204">
     <code value="RTADJ"/>
     <display value="Real Time Adjudication Processing"/>
+    <definition value="Real Time Adjudication Processing"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="If permitted by Payer"/>
@@ -86,11 +100,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="If permitted by Payer"/>
     </property>
   </concept>
   <concept id="6205">
     <code value="DFADJ"/>
     <display value="Deferred Adjudication Processing"/>
+    <definition value="Deferred Adjudication Processing"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="If permitted by Payer"/>
@@ -99,10 +118,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="If permitted by Payer"/>
+    </property>
   </concept>
   <concept id="6206">
     <code value="PYRDELAY"/>
     <display value="Delayed by a Previous Payer"/>
+    <definition value="Delayed by a Previous Payer"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Allows Provider to explain lateness of Invoice to a subsequent Payer"/>
@@ -110,6 +134,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Allows Provider to explain lateness of Invoice to a subsequent Payer"/>
     </property>
   </concept>
 </CodeSystem>

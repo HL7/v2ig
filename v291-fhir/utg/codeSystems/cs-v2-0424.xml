@@ -45,6 +45,15 @@
   <concept id="4583">
     <code value="1"/>
     <display value="Premature / Pre-term"/>
+    <definition value="Premature / Pre-term"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="vorzeitig"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="4584">
     <code value="2"/>
     <display value="Full Term"/>
+    <definition value="Full Term"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="normal"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="4585">
     <code value="3"/>
     <display value="Overdue / Post-term"/>
+    <definition value="Overdue / Post-term"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="übertragen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

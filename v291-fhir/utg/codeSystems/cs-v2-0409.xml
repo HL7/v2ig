@@ -45,6 +45,7 @@
   <concept id="4545">
     <code value="SU"/>
     <display value="Start up"/>
+    <definition value="Start up"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4546">
     <code value="SD"/>
     <display value="Shut down"/>
+    <definition value="Shut down"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4547">
     <code value="M"/>
     <display value="Migrates to different CPU"/>
+    <definition value="Migrates to different CPU"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

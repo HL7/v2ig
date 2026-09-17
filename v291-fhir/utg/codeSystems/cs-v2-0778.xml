@@ -45,6 +45,7 @@
   <concept id="6475">
     <code value="EQP"/>
     <display value="Equipment"/>
+    <definition value="Equipment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6476">
     <code value="SUP"/>
     <display value="Supply"/>
+    <definition value="Supply"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6477">
     <code value="IMP"/>
     <display value="Implant"/>
+    <definition value="Implant"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6478">
     <code value="MED"/>
     <display value="Medication"/>
+    <definition value="Medication"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6479">
     <code value="TDC"/>
     <display value="Tubes, Drains, and Catheters"/>
+    <definition value="Tubes, Drains, and Catheters"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

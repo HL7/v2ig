@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.274"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Precaution"/>
   <title value="precaution"/>
   <status value="active"/>
@@ -45,6 +45,15 @@
   <concept id="4655">
     <code value="A"/>
     <display value="Aggressive"/>
+    <definition value="Aggressive"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="agressiv"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="4656">
     <code value="B"/>
     <display value="Blind"/>
+    <definition value="Blind"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="blind"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="4657">
     <code value="C"/>
     <display value="Confused"/>
+    <definition value="Confused"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="konfus"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="4658">
     <code value="D"/>
     <display value="Deaf"/>
+    <definition value="Deaf"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="taub"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,7 @@
   <concept id="4659">
     <code value="I"/>
     <display value="On IV"/>
+    <definition value="On IV"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -94,6 +131,7 @@
   <concept id="4661">
     <code value="P"/>
     <display value="Paraplegic"/>
+    <definition value="Paraplegic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -102,6 +140,15 @@
   <concept id="4662">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="sonstiges"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -110,6 +157,15 @@
   <concept id="4663">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unbekannt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,15 @@
   <concept id="2661">
     <code value="AV"/>
     <display value="Available for patient care"/>
+    <definition value="Available for patient care"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Verfügbar (Kann zur Behandlung herangezogen werden.)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="2662">
     <code value="CA"/>
     <display value="Deleted"/>
+    <definition value="Deleted"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Gelöscht"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="2663">
     <code value="OB"/>
     <display value="Obsolete"/>
+    <definition value="Obsolete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nicht mehr relevant"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="2664">
     <code value="UN"/>
     <display value="Unavailable for patient care"/>
+    <definition value="Unavailable for patient care"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nicht verfügbar (Kann nicht zur Behandlung verwendet werden.)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

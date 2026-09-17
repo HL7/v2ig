@@ -45,6 +45,7 @@
   <concept id="2277">
     <code value="CO"/>
     <display value="Correction"/>
+    <definition value="Correction"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2278">
     <code value="AD"/>
     <display value="Additional information"/>
+    <definition value="Additional information"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2279">
     <code value="RQ"/>
     <display value="Requested information"/>
+    <definition value="Requested information"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2280">
     <code value="DE"/>
     <display value="Device evaluation"/>
+    <definition value="Device evaluation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2281">
     <code value="PD"/>
     <display value="Periodic"/>
+    <definition value="Periodic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2282">
     <code value="3D"/>
     <display value="3 day report"/>
+    <definition value="3 day report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2283">
     <code value="7D"/>
     <display value="7 day report"/>
+    <definition value="7 day report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2284">
     <code value="10D"/>
     <display value="10 day report"/>
+    <definition value="10 day report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="2285">
     <code value="15D"/>
     <display value="15 day report"/>
+    <definition value="15 day report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="2286">
     <code value="30D"/>
     <display value="30 day report"/>
+    <definition value="30 day report"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

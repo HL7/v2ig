@@ -45,6 +45,7 @@
   <concept id="6509">
     <code value="T"/>
     <display value="Technical Part"/>
+    <definition value="Technical Part"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6510">
     <code value="P"/>
     <display value="Professional Part"/>
+    <definition value="Professional Part"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6511">
     <code value="B"/>
     <display value="Both"/>
+    <definition value="Both"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

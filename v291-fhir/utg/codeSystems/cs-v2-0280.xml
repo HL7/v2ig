@@ -45,6 +45,7 @@
   <concept id="2709">
     <code value="S"/>
     <display value="STAT"/>
+    <definition value="STAT"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2710">
     <code value="A"/>
     <display value="ASAP"/>
+    <definition value="ASAP"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2711">
     <code value="R"/>
     <display value="Routine"/>
+    <definition value="Routine"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

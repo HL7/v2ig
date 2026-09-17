@@ -45,6 +45,15 @@
   <concept id="2267">
     <code value="A"/>
     <display value="Anesthesia"/>
+    <definition value="Anesthesia"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Narkose"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="2268">
     <code value="P"/>
     <display value="Procedure for treatment (therapeutic, including operations)"/>
+    <definition value="Procedure for treatment (therapeutic, including operations)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Behandlung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="2269">
     <code value="I"/>
     <display value="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+    <definition value="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="operativer Eingriff"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="2270">
     <code value="D"/>
     <display value="Diagnostic procedure"/>
+    <definition value="Diagnostic procedure"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Diagnosestellung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -7,7 +7,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.441"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="CollectionEvent"/>
   <title value="collectionEvent"/>
   <status value="active"/>
@@ -45,9 +45,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6722">
     <code value="ORD"/>
     <display value="Placing the order"/>
+    <definition value="Placing the order"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="At time of placing the order"/>
@@ -56,10 +63,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="At time of placing the order"/>
+    </property>
   </concept>
   <concept id="6723">
     <code value="DRW"/>
     <display value="Collecting the specimen"/>
+    <definition value="Collecting the specimen"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="When the specimen is collected (e.g., fasting status)"/>
@@ -67,6 +79,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="When the specimen is collected (e.g. fasting status)"/>
     </property>
   </concept>
 </CodeSystem>

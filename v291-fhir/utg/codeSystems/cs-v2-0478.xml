@@ -45,6 +45,7 @@
   <concept id="4894">
     <code value="Y"/>
     <display value="Pharmaceutical substance is in the formulary"/>
+    <definition value="Pharmaceutical substance is in the formulary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4895">
     <code value="N"/>
     <display value="Pharmaceutical substance is NOT in the formulary"/>
+    <definition value="Pharmaceutical substance is NOT in the formulary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4896">
     <code value="R"/>
     <display value="Pharmaceutical substance is in the formulary, but restrictions apply"/>
+    <definition value="Pharmaceutical substance is in the formulary, but restrictions apply"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4897">
     <code value="G"/>
     <display value="Pharmaceutical substance is in the formulary, but guidelines apply"/>
+    <definition value="Pharmaceutical substance is in the formulary, but guidelines apply"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

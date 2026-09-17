@@ -45,6 +45,7 @@
   <concept id="4538">
     <code value="H"/>
     <display value="Home"/>
+    <definition value="Home"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4539">
     <code value="O"/>
     <display value="Office"/>
+    <definition value="Office"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4540">
     <code value="1"/>
     <display value="Hospital"/>
+    <definition value="Hospital"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4541">
     <code value="2"/>
     <display value="Physician Clinic"/>
+    <definition value="Physician Clinic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4542">
     <code value="3"/>
     <display value="Long Term Care"/>
+    <definition value="Long Term Care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4543">
     <code value="4"/>
     <display value="Acute Care"/>
+    <definition value="Acute Care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4544">
     <code value="5"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

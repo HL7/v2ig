@@ -42,6 +42,7 @@
   <concept id="2669">
     <code value="ROUTINE"/>
     <display value="Routine appointment - default if not valued"/>
+    <definition value="Routine appointment - default if not valued"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -50,6 +51,7 @@
   <concept id="2670">
     <code value="WALKIN"/>
     <display value="A previously unscheduled walk-in visit"/>
+    <definition value="A previously unscheduled walk-in visit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -58,6 +60,7 @@
   <concept id="2671">
     <code value="CHECKUP"/>
     <display value="A routine check-up, such as an annual physical"/>
+    <definition value="A routine check-up, such as an annual physical"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -66,6 +69,7 @@
   <concept id="2672">
     <code value="FOLLOWUP"/>
     <display value="A follow up visit from a previous appointment"/>
+    <definition value="A follow up visit from a previous appointment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -74,6 +78,7 @@
   <concept id="2673">
     <code value="EMERGENCY"/>
     <display value="Emergency appointment"/>
+    <definition value="Emergency appointment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="4883">
     <code value="01"/>
     <display value="Allergy"/>
+    <definition value="Allergy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4884">
     <code value="02"/>
     <display value="Intolerance"/>
+    <definition value="Intolerance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4885">
     <code value="03"/>
     <display value="Treatment Failure"/>
+    <definition value="Treatment Failure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4886">
     <code value="04"/>
     <display value="Patient Request"/>
+    <definition value="Patient Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4887">
     <code value="05"/>
     <display value="No Exception"/>
+    <definition value="No Exception"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

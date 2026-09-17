@@ -45,6 +45,7 @@
   <concept id="3003">
     <code value="H"/>
     <display value="Hospital/institutional"/>
+    <definition value="Hospital/institutional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3004">
     <code value="P"/>
     <display value="Physician/professional"/>
+    <definition value="Physician/professional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3005">
     <code value="B"/>
     <display value="Both hospital and physician"/>
+    <definition value="Both hospital and physician"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3006">
     <code value="RX"/>
     <display value="Pharmacy"/>
+    <definition value="Pharmacy"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

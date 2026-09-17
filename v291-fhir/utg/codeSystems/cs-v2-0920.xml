@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6636">
     <code value="P"/>
     <display value="Preferred"/>
+    <definition value="Preferred"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This specimen is Preferred for all attributes (Container and Additive) identified in the OM4 segment."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This specimen is Preferred for all attributes (Container and Additive) identified in the OM4 segment."/>
+    </property>
   </concept>
   <concept id="6637">
     <code value="A"/>
     <display value="Alternate"/>
+    <definition value="Alternate"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is a specimen that is acceptable as a replacement for a preferred specimen. In the following field (OM4-17), the sequence number of the preferred specimen must be messaged."/>
@@ -70,6 +82,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This is a specimen that is acceptable as a replacement for a preferred specimen.  In the following field (OM4-17), the sequence number of the preferred specimen must be messaged."/>
     </property>
   </concept>
 </CodeSystem>

@@ -42,9 +42,16 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
   <concept id="2191">
     <code value="S"/>
     <display value="Spouse Dependent"/>
+    <definition value="Spouse Dependent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +60,7 @@
   <concept id="2192">
     <code value="M"/>
     <display value="Medical Supervision Required"/>
+    <definition value="Medical Supervision Required"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +69,7 @@
   <concept id="2193">
     <code value="C"/>
     <display value="Small Children Dependent"/>
+    <definition value="Small Children Dependent"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +78,7 @@
   <concept id="2195">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +87,46 @@
   <concept id="2197">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2190">
+    <code value="D"/>
+    <display value="Spouse dependent"/>
+    <definition value="Spouse dependent"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2194">
+    <code value="WU"/>
+    <display value="Walk up"/>
+    <definition value="Walk up"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2196">
+    <code value="CB"/>
+    <display value="Common Bath"/>
+    <definition value="Common Bath"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

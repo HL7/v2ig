@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.217"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="MessageErrorCondition"/>
   <title value="messageErrorCondition"/>
   <status value="active"/>
@@ -48,9 +48,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3570">
     <code value="0"/>
     <display value="Message accepted"/>
+    <definition value="Message accepted"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nachricht akzeptiert"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Success. Optional, as the AA conveys success. Used for systems that must always return a status code."/>
@@ -59,10 +74,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Success. Optional, as the AA conveys success. Used for systems that must always return a status code."/>
+    </property>
   </concept>
   <concept id="3571">
     <code value="100"/>
     <display value="Segment sequence error"/>
+    <definition value="Segment sequence error"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fehler in der Segmentreihenfolge"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Error: The message segments were not in the proper order, or required segments are missing."/>
@@ -71,10 +99,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Error: The message segments were not in the proper order, or required segments are missing."/>
+    </property>
   </concept>
   <concept id="3572">
     <code value="101"/>
     <display value="Required field missing"/>
+    <definition value="Required field missing"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="erforderliches Feld leer"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Error: A required field is missing from a segment"/>
@@ -83,10 +124,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Error: A required field is missing from a segment"/>
+    </property>
   </concept>
   <concept id="3573">
     <code value="102"/>
     <display value="Data type error"/>
+    <definition value="Data type error"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datentypfehler"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Error: The field contained data of the wrong data type, e.g., an NM field contained &quot;FOO&quot;."/>
@@ -95,10 +149,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Error: The field contained data of the wrong data type, e.g., an NM field contained &quot;FOO&quot;."/>
+    </property>
   </concept>
   <concept id="3574">
     <code value="103"/>
     <display value="Table value not found"/>
+    <definition value="Table value not found"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="fehlender Eintrag in der Tabelle"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Error: A field of data type ID or IS was compared against the corresponding table, and no match was found."/>
@@ -107,10 +174,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Error: A field of data type ID or IS was compared against the corresponding table, and no match was found."/>
+    </property>
   </concept>
   <concept id="3575">
     <code value="104"/>
     <display value="Value too long"/>
+    <definition value="Value too long"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Error: a value exceeded the normative length, or the length that the application is able to safely handle."/>
@@ -118,6 +190,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Error: a value exceeded the normative length, or the length that the application is able to safely handle."/>
     </property>
   </concept>
   <concept id="3576">
@@ -149,6 +225,15 @@
   <concept id="3578">
     <code value="200"/>
     <display value="Unsupported message type"/>
+    <definition value="Unsupported message type"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Nachrichtentyp wird nicht unterstützt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Rejection: The Message Type is not supported."/>
@@ -157,10 +242,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: The Message Type is not supported."/>
+    </property>
   </concept>
   <concept id="3579">
     <code value="201"/>
     <display value="Unsupported event code"/>
+    <definition value="Unsupported event code"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ereignis wird nicht unterstützt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Rejection: The Event Code is not supported."/>
@@ -169,10 +267,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: The Event Code is not supported."/>
+    </property>
   </concept>
   <concept id="3580">
     <code value="202"/>
     <display value="Unsupported processing id"/>
+    <definition value="Unsupported processing id"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Processing-ID wird nicht unterstützt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Rejection: The Processing ID is not supported."/>
@@ -181,10 +292,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: The Processing ID is not supported."/>
+    </property>
   </concept>
   <concept id="3581">
     <code value="203"/>
     <display value="Unsupported version id"/>
+    <definition value="Unsupported version id"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Version wird nicht unterstützt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Rejection: The Version ID is not supported."/>
@@ -193,11 +317,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection:  The Version ID is not supported."/>
+    </property>
   </concept>
   <concept id="3582">
     <code value="204"/>
     <display value="Unknown key identifier"/>
     <definition value="Retained for backwards compatibility only: This situation should be reported in ERR-5 (Application Error Code) using code 101 (Unknown Key Identifier) from code system HL70533."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Schlüsselwert nicht gefunden"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ERR-3 (HL7 Error Code) should be used to convey errors at the structural level and this is an application level error, which should be reported in ERR-5 (Application Error Code)."/>
@@ -205,12 +341,24 @@
     <property>
       <code value="status"/>
       <valueCode value="B"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: The ID of the patient, order, etc., was not found. Used for transactions other than additions, e.g., transfer of a non-existent patient."/>
     </property>
   </concept>
   <concept id="3583">
     <code value="205"/>
     <display value="Duplicate key identifier"/>
     <definition value="Retained for backwards compatibility only: This situation should be reported in ERR-5 (Application Error Code) using code 102 (Duplicate Key Identifier) from code system HL70533."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="doppelter Schlüsselwert"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ERR-3 (HL7 Error Code) should be used to convey errors at the structural level and this is an application level error, which should be reported in ERR-5 (Application Error Code)."/>
@@ -218,12 +366,24 @@
     <property>
       <code value="status"/>
       <valueCode value="B"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: The ID of the patient, order, etc., already exists. Used in response to addition transactions (Admit, New Order, etc.)."/>
     </property>
   </concept>
   <concept id="3584">
     <code value="206"/>
     <display value="Application record locked"/>
     <definition value="Retained for backwards compatibility only: This situation should be reported in ERR-5 (Application Error Code) using code 103 (Application record locked) from code system HL70533."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datensatz durch Applikation gesperrt"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="ERR-3 (HL7 Error Code) should be used to convey errors at the structural level and this is an application level error, which should be reported in ERR-5 (Application Error Code)."/>
@@ -232,11 +392,23 @@
       <code value="status"/>
       <valueCode value="B"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: The transaction could not be performed at the application storage level, e.g., database locked."/>
+    </property>
   </concept>
   <concept id="3585">
     <code value="207"/>
     <display value="Application error"/>
     <definition value="An application level error has occurred and the detail for that error is identified in ERR-5."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="applikationsinterner Fehler"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This value is used when no other value in this list is applicable and there is an application error reported in ERR-5. It is applicable when ERR-3 is required in an implementation guide."/>
@@ -244,6 +416,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Rejection: A catchall for internal errors not explicitly covered by other codes."/>
     </property>
   </concept>
 </CodeSystem>

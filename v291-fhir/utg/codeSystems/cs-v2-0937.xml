@@ -7,7 +7,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.440"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="ObservationSubtype"/>
   <title value="observationSubtype"/>
   <status value="active"/>
@@ -45,9 +45,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6708">
     <code value="AOE"/>
     <display value="Ask at Order Entry"/>
+    <definition value="Ask at Order Entry"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of QST (Question) - OBX-5 value is answer to an Ask at Order Entry question"/>
@@ -56,10 +63,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of QST (Question) - OBX-5 value is answer to an Ask at Order Entry question"/>
+    </property>
   </concept>
   <concept id="6709">
     <code value="ASC"/>
     <display value="Ask at Specimen Collection"/>
+    <definition value="Ask at Specimen Collection"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of QST (Question) - OBX-5 value is answer to an Ask at Specimen Collection question"/>
@@ -67,6 +79,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of QST (Question)  - OBX-5 value is answer to an Ask at Specimen Collection question"/>
     </property>
   </concept>
   <concept id="6710">
@@ -124,6 +140,7 @@
   <concept id="6714">
     <code value="MIR"/>
     <display value="Micro Isolate Related"/>
+    <definition value="Micro Isolate Related"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of RSLT (Result) - qualifies the result as an isolate."/>
@@ -132,10 +149,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of RSLT (Result) - qualifies the result as an isolate."/>
+    </property>
   </concept>
   <concept id="6715">
     <code value="MIRM"/>
     <display value="Micro Isolate Related Modifier"/>
+    <definition value="Micro Isolate Related Modifier"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of RSLT (Result) - result is a modifier of the isolate (e.g., Few, Some, etc.)"/>
@@ -144,10 +166,15 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of RSLT (Result) - result is a modifier of the isolate (e.g., Few, Some, etc.)"/>
+    </property>
   </concept>
   <concept id="6716">
     <code value="MNIR"/>
     <display value="Micro Non-Isolate Related"/>
+    <definition value="Micro Non-Isolate Related"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of RSLT (Result) - qualifies result as microbiology not related to any isolate (e.g., gram stain observations)"/>
@@ -155,6 +182,10 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of RSLT (Result) - qualifies result as microbiology not related to any isolate (e.g., gram stain observations)"/>
     </property>
   </concept>
   <concept id="6717">
@@ -182,6 +213,7 @@
   <concept id="6719">
     <code value="SUP"/>
     <display value="Supplemental Result"/>
+    <definition value="Supplemental Result"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of RSLT (Result) - result coming over is additional material, for example points on a graph, an image, raw instrument data, links to related observations, etc."/>
@@ -190,10 +222,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of RSLT (Result) - result coming over is additional material, for example points on a graph, an image, raw instrument data, links to related observations, etc."/>
+    </property>
   </concept>
   <concept id="6720">
     <code value="SUR"/>
     <display value="Susceptibility Related"/>
+    <definition value="Susceptibility Related"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of RSLT (Result) - result value is for micro susceptibility/sensitivity"/>
@@ -202,10 +239,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of RSLT (Result) - result value is for micro susceptibility/sensitivity"/>
+    </property>
   </concept>
   <concept id="6721">
     <code value="UNSP"/>
     <display value="Unspecified"/>
+    <definition value="Unspecified"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Sub-type of RSLT (Result) - result falls outside of the other sub-types."/>
@@ -213,6 +255,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Sub-type of RSLT (Result) - result falls outside of the other sub-types."/>
     </property>
   </concept>
 </CodeSystem>

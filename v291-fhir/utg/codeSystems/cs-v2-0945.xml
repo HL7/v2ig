@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.445"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="AutoDilutionType"/>
   <title value="auto-DilutionType"/>
   <status value="active"/>
@@ -43,6 +43,12 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
@@ -60,6 +66,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="corresponds to ^1^:^2 in TCD-2"/>
+    </property>
   </concept>
   <concept id="6755">
     <code value="X5"/>
@@ -72,6 +82,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="corresponds to ^1^:^5 in TCD-2"/>
     </property>
   </concept>
   <concept id="6756">
@@ -86,6 +100,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="corresponds to ^1^:^1.23 in TCD-2"/>
+    </property>
   </concept>
   <concept id="6757">
     <code value="D2"/>
@@ -98,6 +116,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="corresponds to ^1^:^1.45 in TCD-2"/>
     </property>
   </concept>
 </CodeSystem>

@@ -45,6 +45,7 @@
   <concept id="4790">
     <code value="D"/>
     <display value="Diagnostic"/>
+    <definition value="Diagnostic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4791">
     <code value="T"/>
     <display value="Therapeutic"/>
+    <definition value="Therapeutic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4792">
     <code value="P"/>
     <display value="Primary Care"/>
+    <definition value="Primary Care"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4793">
     <code value="E"/>
     <display value="Emergency Room Casualty"/>
+    <definition value="Emergency Room Casualty"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

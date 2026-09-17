@@ -18,186 +18,157 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-17 (the table index is built and published; the additive-stance question goes to Rockville next week)
+## ACTIVE — 2026-09-17 (the merge with THO is in; next session builds the per-table ledger)
 
-**Branch: `dev/v291-vocabulary-ig`, at `7861ce8f`. 30 commits ahead of origin,
-unpushed.** All vocabulary work is on this branch and nowhere else;
-`dev/framework` carries only the structural-review workstream. **Do not commit
-vocabulary work to `dev/framework`.**
+**Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
+nowhere else;** `dev/framework` carries only the structural-review workstream.
+**Do not commit vocabulary work to `dev/framework`.**
 
-**Phase:** the IG builds and now carries a table index. 290 tests pass. Last
-build 14m54s, 5 GB peak, **errors 216, warnings 416, broken links 1** — all
-unchanged from before this session's work except broken links, which went
-1 → 39 → 1 (see below).
+**Phase:** items 1, 2 and 3 of the 2026-09-17 plan are done — the additive
+merge with THO, version numbers computed from the TSMG policy, and table 0560.
+ADR-0009 and ADR-0010 are written and Accepted. 386 tests pass (up from 290).
+The IG builds clean (exit 0, 19m51s, **0 broken links**), but the QA report
+carries 3,479 errors, all but ~212 of them the terminology server failing on
+designation languages — see "the one thing left unverified" below.
 
 ### First thing next session
 
-**Nothing is blocked. Start on the agreed plan** (below). The one thing waiting
-on someone else is the additive-stance ruling, and the user expects an answer
-at the **HL7 work group meetings in Rockville, week of 2026-09-21**.
+**Build the per-table ledger — item 4, and the biggest remaining item.** One
+section per table carrying every change relative to THO beyond trivial
+whitespace, every outstanding issue, and an indicator when an issue is a
+*class* affecting other artifacts the same way.
 
-The V2 Management meeting of 2026-08-28 is *still* unrecorded — asked across
-four sessions now, never answered. Lower priority than it was; ask once, do not
-spend the session on it.
+Most of the input already exists and is computable:
+`v291-fhir/tho-fill-report.json` has every observation individually, keyed by
+table, with `kind` (fill / discrepancy / addition / omission), element, code
+and both values. `tho_merge.Observations.for_table()` is there for exactly this.
+The class-level view is already rendered at `tho-merge.html`; the ledger is the
+per-table view of the same data, and it should absorb the two per-item lists
+currently on that page.
 
-### The plan, agreed 2026-09-17
+### What is left of the plan agreed 2026-09-17
 
-1. **Additive merge in the writer.** Where THO has a definition, display or
-   concept and Chapter 2C does not, keep THO's. Emit a computable record
-   (`v291-fhir/tho-fill-report.json`) of every fill, plus a human-readable page
-   describing each *class* of fill with counts — **not** the individual
-   instances; there are 4,855 and the user explicitly said a class-level
-   description is enough.
-2. **Version bumps computed from the policy element table**, re-derived on every
-   run rather than hand-applied.
-3. **0560 written as Chapter 2C publishes it** — see below.
-4. **A per-table ledger in the IG** — one section per table (a single large page
-   is fine) carrying: every change relative to THO beyond trivial whitespace,
-   every outstanding issue, and an indicator when an issue is a *class* that
-   affects other artifacts the same way. This rolls the change log and the issue
-   ledger into the IG so everything is visible and workable in one place. It
-   subsumes much of what currently lives in separate documents. **This is the
-   biggest item.**
-5. **Two separate ADRs** — one for the additive stance and versioning, one
-   for 0560. The user chose separate over combined.
-
-### The comparison against THO — the numbers that matter
-
-Against the local snapshot `tho-r5/` (package `hl7.terminology.r5` **7.3.0**,
-published 2026-07-27; `conceptdomains` **3.0.0**; `v2-tables` **7.0.0**):
-
-| | Shared with THO | Byte-equivalent | Differ |
-|---|---|---|---|
-| CodeSystems | 396 | **13** | 383 |
-| ValueSets | 413 | **388** | 25 |
-
-**Why the asymmetry:** 408 of 422 value sets have a bare "all codes" include —
-no enumerated concepts, no filters — so there is nothing to diverge on.
-
-**The 13 byte-equivalent CodeSystems**, all at THO 3.0.0, all of which *keep*
-that version: `v2-0103` `v2-0369` `v2-0370` `v2-0513` `v2-0516` `v2-0945`
-`v2-0946` `v2-0948` `v2-0949` `v2-0950` `v2-0951` `v2-0970` `v2-0971`.
-
-How the 383 differ (a code system can differ in more than one way):
-
-| Differs by | Count |
+| Item | State |
 |---|---|
-| **Concept definitions dropped** — THO has one, we publish none | **382** |
-| Concept set differs (mostly ours smaller) | 38 |
-| Concept display differs | 15 |
-| Resource description differs | 6 |
-| Definition present in both but conflicting | 5 |
+| 1. Additive merge with THO | **Done** |
+| 2. Version bumps computed from the policy | **Done** |
+| 3. Table 0560 as the chapter publishes it | **Done** |
+| 4. Per-table ledger in the IG | **Next** |
+| 5. Two ADRs | **Done** — ADR-0009, ADR-0010 |
 
-The 25 value sets: 14 `compose`, 10 `description`, 3 `name`, 3 `title`,
-1 `status`.
+### What the merge did
 
-**The dominant problem is not missing codes — it is 4,855 concept definitions
-that exist in THO and are absent from our output.** That follows from the rule
-that `definition` is never back-filled from `display`, which is right about
-*inventing* definitions but strips text THO already wrote. Publishing that at
-THO's canonical is the same destructive-redefinition hazard `conceptdomains` was
-made a superset to avoid, at roughly forty times the scale. **This is what the
-additive stance fixes, and it is why items 1 and 2 of the plan are coupled:**
-most of the 383 version bumps disappear if we stop dropping.
+Measured against `tho-r5/` (`hl7.terminology.r5` **7.3.0**). 8,272
+observations: **7,575 fills**, 492 discrepancies, 159 additions, 46 omissions.
 
-### THO artifact versioning policy — settled
+The fills are content THO publishes that we were deleting at THO's own
+canonical: 4,855 concept definitions, 1,276 comments-as-published, 1,061
+translations, 211 codes, 122 usage notes, 40 deprecation markers.
 
-Source: `CS_versioning_policy.pdf` and `VS_versioning_policy.pdf` in the
-workspace root (**untracked — ask before committing, they are HL7 Confluence
-exports**). Read them with `pypdf`, now in `provision.sh`.
+| | Keeps THO's version | Increments | New at 1.0.0 |
+|---|---:|---:|---:|
+| CodeSystems | 344 | 53 | 2 |
+| ValueSets | 398 | 16 | 9 |
 
-- **Version format is `n.0.0`. Minor and patch are always zero. There is no
-  lesser increment — every qualifying change is a major bump.**
-- **New artifacts start at `1.0.0`.** Our 12 new ones are correct.
-- **Byte-equivalent artifacts keep THO's version.** No change, no increment.
-- `CodeSystem.concept` *and all subelements* are in the increment column, so a
-  dropped definition requires a bump.
-- **Carve-out:** `CodeSystem.description` is *"Major unless only change is
-  improved clarity or perform editorial corrections."* That is a human
-  judgement on our 6 description diffs, not computable.
-- **The ValueSet policy has no equivalent carve-out**, so our 10 VS description
-  diffs would bump unconditionally. The user believes this is an accident,
-  has messaged the policy's main editor, and expects it to be removed. **Do not
-  build logic that depends on the asymmetry.**
-- Identifiers are the exception to all of it: changing or removing one requires
-  a **new artifact**, not a new version.
+**742 of 822 artifacts now keep the version THO already published**, against
+383 of 396 code systems that would have had to increment before. That is the
+point of the coupling: most of the bumps were the cost of the deletions.
 
-### 0560 — decided, not yet implemented
+### Rules settled this session that must not be re-derived
 
-Publish it **as Chapter 2C publishes it**: five codes (`FL` Units, `HS` Hours,
-`DY` Days, `MN` Month, `YY` Years) and the value set OID
-`2.16.840.1.113883.21.380` / `hl7VS-quantityUnits`. The pipeline currently
-writes **nothing** for it.
+- **Where THO has content and Chapter 2C has no opinion, THO's survives. Where
+  both have something and they differ, the chapter wins and it is recorded.**
+  This applies to *everything* THO carries, not a named list of elements.
+- **A placeholder on either side is not content.** `tbd`, `noObject`,
+  `noDescription`, `-` on the chapter's side; `"no definition"` on THO's (all
+  five of table 0560's concepts). **`None` is not a placeholder** — seven THO
+  concepts have the display `None` and the definition `None`, and that is the
+  answer rather than the absence of one.
+- **Whitespace is never a difference.** 358 of 396 descriptions differed from
+  THO only in line wrapping.
+- **Concept order is never a difference.** Compared as a set keyed by code; 32
+  tables carry exactly THO's codes in a different order.
+- **A punctuation-only difference in a `description` does not increment** — 12
+  across 7 tables, all of them our `e.g.,` against THO's `e.g.`. Applied to
+  `ValueSet.description` too, deliberately not encoding the policy asymmetry.
+  **Not** extended to concept definitions or displays, where the policy grants
+  no carve-out: 4 definitions and 21 displays increment for punctuation alone.
+- **The merge never creates an artifact, never splices two pieces of prose, and
+  never merges codes across a compose-shape difference.**
+- **Version and identifier are different problems.** A changed identifier
+  cannot be expressed as a version at all.
 
-The existing decision to treat it as concept-domain-only is in
-`docs/adr/0008-v291-vocabulary-representation.md`, in the section headed *"The
-seven tables with an empty grid, disposed of individually"*, whose table has a
-row reading `0560 Quantity Units | Concept domain only`. It keyed off the code
-system block being the `noObject` placeholder and dropped the codes and the
-value set with it.
+### Where `N` comes from — asked and answered this session
 
-**The remarks about 0560 must stay visible in the IG itself**, not only in the
-register — the user was explicit that the problem needs traceability available
-to everyone, not just to us.
+Chapter 2C's own "Status Codes" legend, in `CH02C_Tables.docx`: *empty* = active
+code, `B` = backwards-compatible use only, `D` = deprecated or inactive,
+`R` = retired, **`N` = new in this release**.
 
-### Register — 29 items
+The property is `status`, defined by FHIR at
+`http://hl7.org/fhir/concept-properties#status`, whose definition says *"Typical
+values are active, experimental, deprecated, and retired"*. **`N` and `B` are
+defined nowhere else** — not in `utg-concept-properties`, not in any value set,
+and across the whole of THO they appear only in v2 code systems (210 `N`, 6 `B`).
+`N` also decays: "new in this release" is never updated, which is why THO still
+marks 210 concepts `N` while the 2.9.1 chapter marks 70, and why **205 of the
+261 status disagreements** are THO's `N` against our `active`.
 
-Five added this session, all from the THO comparison:
+This is question 5 on the new **General questions** page.
 
-- `esc-tho-dangling-value-sets` — 0350, 0351, 0456, 0895 compose from a v2 code
-  system THO does not publish, so they cannot expand. 0005 and 0292 look
-  identical but compose from CDC race codes and CVX and are **correct** —
-  excluded explicitly so nobody sweeps them in.
-- `esc-v2tables-domain-gaps` — `v2-tables` names 35 concept domains
-  `conceptdomains` does not define. All 35 are among the 39 entries Chapter 2C
-  no longer carries.
-- `esc-v2tables-siteadministered` — table 0034's domain is `SiteAdminstered`
-  while its display is `SITE ADMINISTERED`. **Framed as a technical
-  correction**, because `v2-tables` is a metadata convenience nobody sends in a
-  message. Contrasted with a typo in a real code, where the remedy is
-  deprecate-and-replace.
-- `esc-0133-contradictory` — 0133 says concept-domain-only, *and* "a set of
-  codes known to be incomplete", *and* replaced by table 0443 in v2.6, while
-  THO publishes nine active codes.
-- `esc-oid-conflicts` — Chapter 2C and THO disagree on the OID for
-  `CodeSystem/v2-0001` (`…18.458` vs `…18.2`) and `ValueSet/v2-0719`
-  (`…20429` vs `…20428`).
+### New in the IG
 
-### Rules settled that must not be re-derived
+- **`general-questions.html`** — the judgement calls, what this build does about
+  each, what rides on it, and who should confirm. Four questions for TSMG
+  (concept ordering, the description carve-out, why it does not reach concept
+  definitions, the ValueSet policy's missing carve-out) and four for V2
+  Management (`N`/`B`, table 0560, the two OID conflicts, the two descriptions
+  where THO says more than the chapter). **Hand-written** — edit it as answers
+  arrive.
+- **`tho-merge.html`** — what the merge kept, class by class, with counts.
+  Generated by `render_tho_merge_page.py` from the fill report.
 
-- **Artifact version and package version are different things.** `conceptdomains`
-  correctly increments 3.0.0 → 4.0.0 because *that artifact* changes. That says
-  nothing about which THO release carries it. Do not put artifact version
-  numbers in reader-facing rows — convey that something is new and will carry an
-  increment, not the number.
-- **`AdministratableDrugForm` is not a finding.** It is a documented,
-  deliberate CDA R2 backwards-compatibility synonym with `synonymCode` and
-  `openIssue` properties, and it is `source: cda` — out of scope for v2 work.
-- **A canonical URL is an identifier and nothing more.** Where THO already
-  publishes one, that is the URL.
-- **A brand-new CodeSystem or ValueSet starts at `1.0.0`.**
-- **We do not tamper with existing external code system records in THO.**
-- **The seven `apply-*` parameters stay false** in `vocab-ig/input/vocabulary.xml`.
-- **Never add `-tx n/a` to the vocabulary build.**
-- **Do not say "D11" or "a D11 reversal" to the user.** Describe the situation
-  in words, and give the file and the section heading if a pointer helps.
+### Two things needing a person, both surfaced computably
+
+- **`CodeSystem/v2-0001` and `ValueSet/v2-0719` carry OID conflicts** between
+  Chapter 2C and THO. The policy puts identifiers outside the version system:
+  the remedy is a new artifact, not an increment. These are the only two in the
+  corpus, and they are what the register's `esc-oid-conflicts` describes.
+- **`ValueSet/v2-0227` and `ValueSet/v2-0719` descriptions differ in words, not
+  punctuation.** THO's 0227 carries a PHIN VADS source URL ours drops; THO's
+  0719 ends *"this resource was created in THO in error due to an oversight in
+  the import processing."*
+
+### Open blockers
+
+- **None on our side.**
+- The additive-stance ruling was expected at Rockville, week of **2026-09-21**.
+  The stance is implemented and documented in ADR-0009; a ruling the other way
+  is a located change, not a rewrite.
+- The V2 Management meeting of 2026-08-28 is still unrecorded — asked across
+  five sessions. Ask once, do not spend the session on it.
+
+### Register — 29 items, unchanged
+
+The `N`/`B` status finding went to the General questions page rather than the
+register, because it needs to be visible to every reader of the guide. Move it
+to the register as well if V2 Management would rather see it there.
 
 ### How to look at the IG
 
-Build output at **`vocab-ig/output/index.html`**; the new page is
-`table-index.html`. Two ways in, both fine:
+Build output at **`vocab-ig/output/index.html`**; the new pages are
+`tho-merge.html` and `general-questions.html`. Two ways in:
 
-- **As a file.** `/workspace` is a virtiofs bind mount, and the output is
+- **As a file.** `/workspace` is a virtiofs bind mount and the output is
   pre-rendered static HTML with relative links.
-- **Over HTTP.** The container publishes ports. `$MOSH_PORTS` is
-  `3000,4000,5173,8000,8080,8888,9000`, `$MOSH_PORT` is `3000`. **Bind
-  `0.0.0.0`, never `127.0.0.1`.** Host port = `$MOSH_PORT_BASE` + the index of
-  the container port within `$MOSH_PORTS`, so container 3000 → **host 20010**.
+- **Over HTTP.** `$MOSH_PORTS` is `3000,4000,5173,8000,8080,8888,9000`,
+  `$MOSH_PORT` is `3000`. **Bind `0.0.0.0`, never `127.0.0.1`.** Host port =
+  `$MOSH_PORT_BASE` + the index of the container port within `$MOSH_PORTS`, so
+  container 3000 → **host 20010**.
 
   ```
   cd /workspace && nohup python3 -m http.server "$MOSH_PORT" --bind 0.0.0.0 \
     >/tmp/s.log 2>&1 &
-  # then: http://localhost:20010/vocab-ig/output/table-index.html
+  # then: http://localhost:20010/vocab-ig/output/tho-merge.html
   ```
 
 ### Build
@@ -218,6 +189,40 @@ a URL will 404. **`kill <pid>` on the shell wrapper does not stop the JVM**;
 check with `ps -eo pid,cmd | grep '[j]dk/bin/java'` and kill the java process,
 or two publishers will write the same directory at once.
 
+### The one thing left unverified — do this first, it costs nothing extra
+
+**`vocab-ig/input/ignoreWarnings.txt` is new and NOT yet proven to work.**
+
+The build of 2026-09-17 came back **errors 3479, warnings 136, broken links 0**,
+against 216 / 416 / 1 before this session. Every one of the 3,263 new errors is
+`designation.language`: the 1,061 designations inherited from THO each need
+their language validated against
+`http://hl7.org/fhir/ValueSet/all-languages`, which includes `urn:ietf:bcp:47`,
+which no package defines — so the validator asks `tx.fhir.org/r5`, and that
+answers with a cache error every time. Three errors per designation. **The
+content is correct**: `de` is a valid BCP 47 tag and THO publishes exactly these
+values. Dropping the designations is not an option; they are what the merge
+exists to keep.
+
+The first version of the suppression file did nothing. The publisher read
+**every line, including the `#` comments**, as a pattern — qa.html showed 35
+entries at "(0 uses)", so nothing unintended was suppressed, but nothing
+intended was either. Reverse-engineering `PublisherIGLoader` and
+`SuppressedMessageInformation` in `input-cache/publisher.jar` gives the real
+format, and the file has been rewritten to match it:
+
+- the file must open with `== Suppressed Messages ==`, or the publisher calls
+  it "not using the new format";
+- `#` lines are reasons, and a pattern with no reason is an error;
+- `%` is the wildcard — `%text%` is a contains match, `text%` startsWith,
+  `%text` endsWith. There is **no** `%regex%`; that was the wrong guess.
+
+**Next session: run the build and check `Errors:` on the last line of the log.
+Expect roughly 212.** If it is still 3479, read the "Supressed Messages" row in
+`vocab-ig/output/qa.html` — it prints each pattern with a use count, which is
+the fastest way to see what is not matching. **Revisit the whole file when the
+terminology server is reachable again**; none of it should be needed then.
+
 ### Regeneration sequence
 
 ```
@@ -226,27 +231,23 @@ python3 tooling/scripts/extract_v291_vocabulary.py
 python3 tooling/scripts/compare_vocabulary_pipelines.py
 python3 tooling/scripts/generate_concept_domains.py
 python3 tooling/scripts/write_utg_xml.py
+python3 tooling/scripts/render_tho_merge_page.py
+python3 tooling/scripts/generate_table_index.py
 python3 tooling/scripts/stage_vocab_ig.py
 python3 tooling/scripts/vocabulary_escalations.py
 python3 tooling/scripts/render_vocabulary_review_html.py
 python3 tooling/scripts/render_field_mapping.py
-python3 tooling/scripts/generate_table_index.py
 python3 tooling/scripts/render_utg_briefing.py
 python3 tooling/scripts/render_v2mgmt_briefing.py
 ```
 
 The first two are expensive and only needed if the text policy changed.
-`generate_table_index.py` must run after `write_utg_xml.py` — it reads the
-authored resources — and before `stage_vocab_ig.py` if the page changed.
-**A silent run is the expected outcome; read the output if it is not.**
-
-### Open blockers
-
-- **None on our side.**
-- The additive-stance ruling is the one external dependency, expected at
-  Rockville the week of 2026-09-21. Until then, **take the additive stance.**
-- `./apptainer/remote-build.sh vocab` has still never been executed and cannot
-  be run from this container. At ~15 minutes locally it is not needed.
+`render_tho_merge_page.py` reads `tho-fill-report.json`, so it must run after
+`write_utg_xml.py`. `generate_table_index.py` reads the authored resources, so
+it must also run after the writer and before `stage_vocab_ig.py`.
+**`stage_vocab_ig.py` self-checks the counts quoted on `index.md` and warns when
+they drift — believe it and fix the page.** A silent run is otherwise the
+expected outcome; read the output if it is not.
 
 ### Not ours — leave alone
 
@@ -255,11 +256,153 @@ Five untracked files belong to the **structural** workstream (`dev/framework`):
 `tooling/scripts/render_three_way_html.py`,
 `v291-extracted/message-structures-decision-report.html`,
 `v291-review/three-way-comparison-report.html`,
-`vocabulary-comparison-report.html`. The reviewer has been asked four times
+`vocabulary-comparison-report.html`. The reviewer has been asked five times
 which document should carry the two CH02 findings (the `FSH`/`FHS` naming, and
 the inverted `BHS-15`/`FHS-15` containment predicates) and has not answered.
 
+`CS_versioning_policy.pdf` and `VS_versioning_policy.pdf` are also still
+untracked — HL7 Confluence exports, and nobody has said whether to commit them.
+They no longer need to be read to run the pipeline: both element tables are
+transcribed into `tooling/scripts/tho_versioning_policy.py`.
+
 ## Session History
+
+## 2026-09-17 — The merge with THO, versions computed from the policy, and table 0560
+
+### Completed
+
+**This guide no longer deletes THO's content.** Publishing at THO's canonicals
+means publishing *that artifact*, so everything our output left out was being
+removed from the thing the URL names. The merge is now additive: where THO has
+content and Chapter 2C has no opinion, THO's survives; where both have
+something and they differ, the chapter wins and the disagreement is recorded.
+7,575 fills — 4,855 concept definitions, 1,276 comments-as-published, 1,061
+translations, 211 codes, 122 usage notes, 40 deprecation markers.
+
+The user's ruling widened the original plan: *"We should retain everything that
+THO carries. If both carry something and there is a discrepancy, we need to
+call that out. We also need to call out situations where there are either codes
+that THO has but Ch2C doesn't or vice versa."* So the stance is not a list of
+three elements — it is every kind of content THO holds, with four kinds of
+observation recorded per instance (fill, discrepancy, addition, omission).
+
+**Version numbers are computed, not inherited.** The TSMG element tables are
+transcribed into `tho_versioning_policy.py` and the version is re-derived every
+run by comparing the merged artifact against THO's. **742 of 822 artifacts now
+keep the version THO already published**, against 383 of 396 code systems that
+would have had to increment before. The two problems were one problem: most of
+the bumps were the cost of the deletions.
+
+Transcribed rather than parsed because the PDFs are Confluence exports that are
+not checked in — a parser would only work on one machine. Reading them needs
+`pypdf`'s `extraction_mode="layout"`, or the four columns collapse and there is
+no telling which one each `x` sits in.
+
+**Table 0560 is published as the chapter publishes it** (ADR-0010). The chapter
+gives it a `noObject` code system block — and underneath it, five codes, the
+value set's OID, and a `all codes` definition; and THO already publishes both
+artifacts with those same five codes at an OID in the v2 arc. Four signals
+agree and only the marker disagrees. The rule is written on that evidence
+rather than on the table number: the placeholder is overridden only when the
+chapter lists codes, THO publishes a code system at the table's own canonical,
+and the chapter declares a value set. 0560 is the only table that qualifies;
+0910 has the same marker, no codes and no THO code system, and is untouched.
+
+**Two ADRs**, kept separate at the user's earlier choice: **ADR-0009** for the
+additive stance and the computed versions, **ADR-0010** for 0560.
+
+**A General questions page** (`general-questions.html`), hand-written, carrying
+the judgement calls with what rides on each. Four for TSMG, four for V2
+Management. This is where the user asked concept ordering and the punctuation
+question to live.
+
+### Three judgement calls, and what the user decided
+
+- **Whitespace is not a difference** — confirmed. 358 of 396 descriptions
+  differed from THO only in line wrapping.
+- **Concept order is not a change** — the user agreed, and asked that it be
+  noted and asked about rather than assumed. It is question 1 on the new page;
+  32 tables ride on it.
+- **A punctuation-only description difference does not increment, but stays
+  traceable, and the grammar gets fixed.** Implemented as `is_editorial()`:
+  same words in the same order means only punctuation moved. Chapter 2C's text
+  is the better one in all 12 cases (ours has the comma in `e.g.,`; ours has
+  `code system.` against THO's `code system .`), so publishing the chapter's is
+  the grammar fix.
+
+That last one needed splitting, which the original 14 "waivable" items hid: 12
+are punctuation and 2 are not. `ValueSet/v2-0227`'s THO description carries a
+PHIN VADS source URL ours drops, and `ValueSet/v2-0719`'s ends *"this resource
+was created in THO in error due to an oversight in the import processing."*
+Those two still increment and are listed for a decision.
+
+### Where `N` comes from
+
+Asked directly, and worth recording because the answer is "nowhere useful".
+Chapter 2C's own Status Codes legend defines `N` as **"new in this release"**
+and `B` as "backwards-compatible use only". The property is FHIR's `status`
+(`http://hl7.org/fhir/concept-properties#status`), whose definition names
+active, experimental, deprecated and retired as the typical values. `N` and `B`
+are in no code system, no value set and no property definition; across all of
+THO they appear only in v2 tables (210 `N`, 6 `B`).
+
+`N` is worse than undefined because it decays — nothing updates "this release"
+afterwards — which is exactly why **205 of the 261 status disagreements** are
+THO still saying `N` where the 2.9.1 chapter says nothing and we write `active`.
+
+### Two bugs found by looking at the output rather than the tests
+
+- **266 phantom additions.** The merge guarded on `ours is not None` where a
+  chapter row carries `""` for an unfilled column, so 266 empty strings were
+  reported as content this guide contributes. Both sides now test with
+  `is_absent`. No version numbers were affected — those are computed from
+  values, which never changed — but the report and the page were wrong.
+- **THO placeholders were being copied in.** All five of table 0560's concepts
+  are defined in THO as the literal string `"no definition"`, and the merge was
+  publishing it as a definition. A fill now requires THO's value to be real
+  content. `None` was briefly caught by the same net and had to be taken back
+  out: seven THO concepts have the display `None` and the definition `None`,
+  where None is the answer.
+
+### The build
+
+The first verification build came back with **3,479 errors against the previous
+216**, which needed running down rather than shipping. Every one of the new
+ones is `designation.language`: FHIR binds it to `all-languages`, which includes
+`urn:ietf:bcp:47`, which no package defines, so the validator asks
+`tx.fhir.org/r5` — and that answers with a cache error on every request. Three
+errors per designation, 1,061 designations.
+
+The suppression file did not work on the first try, and that is worth
+recording: the publisher read **every line of it, comments included**, as a
+pattern, and `%regex%` — which I had assumed was the syntax — is not supported
+at all. qa.html prints each pattern with a use count, which is how the failure
+became visible: 35 entries, every one at "(0 uses)". Nothing unintended was
+suppressed, but nothing intended was either. The real format is in
+`PublisherIGLoader` and `SuppressedMessageInformation` inside the publisher
+jar: a `== Suppressed Messages ==` header, `#` lines as reasons, and `%` as the
+wildcard. The file now matches that and **is still unverified** — the next
+build settles it.
+
+Dropping the designations instead would have meant deleting the content the
+merge exists to keep, so suppression is the only route while the terminology
+server is down.
+
+### Non-obvious context for next time
+
+- **`stage_vocab_ig.py` self-checks the resource counts quoted on `index.md`.**
+  It caught 398/422 going stale at 399/423 when 0560 arrived. Believe it.
+- **`build_code_system` and `build_value_set` are now thin wrappers.** The work
+  is in `plan_*` (settle every value, merge, compute the version) and
+  `render_*` (build the XML once). Merging on a node tree would have been
+  unreadable, and the split is what let the existing 290 tests keep passing
+  untouched — the builders still work with no THO snapshot on disk, which is
+  the path every one of those tests takes.
+- **`--no-tho-merge`** writes what Chapter 2C says and nothing else, if the
+  chapter-only output is ever needed for comparison.
+- The fill report is 1.8 MB and rewritten every run. That is in line with what
+  `v291-extracted/` already carries, and it is the thing the per-table ledger
+  will read.
 
 ## 2026-09-16 → 2026-09-17 — A table index, and what comparing against THO actually found
 
@@ -443,85 +586,3 @@ and now has one more piece of evidence behind it. The five structural-workstream
 files remain uncommitted, untouched, and not ours.
 
 ---
-
-## 2026-08-27 → 2026-09-10 — The canonical section was wrong; six findings registered
-
-### Completed
-
-**The reviewer walked the "tables needing a new canonical URL" list and
-rejected almost all of it — correctly.** The section was computed by one crude
-subtraction in `render_vocabulary_review_html.py`: a table that listed codes
-and had no `CodeSystem-v2-<its own number>` in THO was declared to need a
-canonical minted. That test only ever looks for a code system filed under the
-table's *own* number, so **every table whose codes live in another authority's
-code system tripped it**. It reported 18; the true figure is **2** (0411 and
-0460), which matches the independent count reached on 2026-08-20.
-
-**The writer already had this right for 16 of the 18.** The section no longer
-recomputes anything — it reads `v291-fhir/utg-write-report.json`, so the report
-and the generated resources cannot disagree. It now shows six routes with
-counts (396 reuse their own THO canonical, 24 defer to another authority, 2
-mint, 14 unsettled, 360 concept-domain-only, 19 THO code systems with no
-chapter table) plus two detail tables giving, for each table, which code system
-it resolved to and how.
-
-**Six items added to the V2 Management register**, five previously unrecorded.
-Register is now 24 items. Commit `6b01350c`. 243 tests pass.
-
-### The findings worth carrying
-
-**0567/0568 is a deprecation question, not a canonical question.** The
-reviewer's framing, and it replaced mine: Chapter 2C deprecates both tables in
-prose, but THO publishes `ValueSet/v2-0567` and `v2-0568` as live resources
-with no deprecation marker, so **a consumer cannot tell that two of the four
-are superseded**. The ask is whether a concomitant deprecation belongs in THO.
-Secondary: both tables print the *replacement's* canonical as their own URI
-(0567→`v2-0929`, 0568→`v2-0930`), and only the "THO's existing canonical wins"
-rule stopped two pairs of resources claiming the same URL.
-
-**0725 was already correct, by OID resolution.** The chapter omits the URI
-entirely and gives only OID `2.16.840.1.113883.5.1001`, which THO resolves to
-`CodeSystem/v3-ActMood` — the same URL the reviewer found independently in
-THO's CLD. Registered as a technical correction that changes no output.
-
-**0460/0411/0093 is the sharpest management item.** All three are `Type: User`
-and the chapter treats them three different ways: 0411 and 0460 get minted
-resources, 0093 is declared concept-domain-only and gets nothing. Nothing in
-the chapter explains the difference. That contrast is the frame for the
-user-defined-table question the reviewer did not know how to answer.
-
-**0340's code grid holds code system identifiers, not concepts** — `CPTM` and
-`HPC`, with citations to AMA and CMS. The table is concept-domain-only so
-nothing is written, but the chapter is using the code grid for two
-incompatible purposes.
-
-**0459 is a hard stop**: code system given only as OID
-`2.16.840.1.113883.6.301.9`, which nothing in THO or FHIR core resolves.
-
-### Corrections taken during the session
-
-- Claimed the 24 deferring tables were "each previously reported as needing a
-  new canonical". Only 11 were — the old test also required enumerated codes,
-  so it never saw the 13 that reference their codes intensionally. Caught and
-  fixed before the final render.
-- Asserted the reason for that as "THO publishes no same-numbered code system
-  for them". Wrong reason for a right number.
-
-### Out-of-scope discussion worth not losing
-
-A long thread on V2 delimiter/escape corner cases (whether `MSH-2` may declare
-`F`, `S`, `T`… as separators). Two **CH02 document defects** surfaced that are
-recorded nowhere and belong to the structural workstream, not this one:
-
-1. **The chapter calls the segment `FSH` in places** — not a typo but
-   systematic: the field heading at §2.13.3 is literally "FSH-15 Security
-   Classification Tag", and `BHS-15`'s conditionality predicate reads "any
-   contained FSH-16 or FSH-17".
-2. **Those same predicates invert the containment hierarchy.** A batch contains
-   messages; a *file* contains batches. `BHS-15` referring to "any contained
-   FSH/FHS" is backwards; `FHS-15` reaches for "any contained MSH-26" and skips
-   the BHS level.
-
-Also established, if it recurs: **no rule anywhere in CH02 requires the six
-delimiters to be distinct from one another**, so `MSHFzzzzzF` is not
-prohibited by any text — searched and confirmed.

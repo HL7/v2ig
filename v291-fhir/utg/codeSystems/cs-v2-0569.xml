@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6230">
     <code value="EOB"/>
     <display value="Print on EOB"/>
+    <definition value="Print on EOB"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Instructs party to print this adjustment on the EOB (Explanation of Benefits) handed to the patient"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Instructs party to print this adjustment on the EOB (Explanation of Benefits) handed to the patient"/>
+    </property>
   </concept>
   <concept id="6231">
     <code value="PAT"/>
     <display value="Inform Patient"/>
+    <definition value="Inform Patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -71,6 +83,7 @@
   <concept id="6232">
     <code value="PRO"/>
     <display value="Inform Provider"/>
+    <definition value="Inform Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

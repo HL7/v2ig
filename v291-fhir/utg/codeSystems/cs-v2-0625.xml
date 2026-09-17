@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6265">
     <code value="1"/>
     <display value="Active"/>
+    <definition value="Active"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Item is available to be purchased or issued."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Item is available to be purchased or issued."/>
+    </property>
   </concept>
   <concept id="6266">
     <code value="2"/>
     <display value="Pending Inactive"/>
+    <definition value="Pending Inactive"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Item is not available to be purchased, but is available to be issued."/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Item is not available to be purchased, but is available to be issued."/>
+    </property>
   </concept>
   <concept id="6267">
     <code value="3"/>
     <display value="Inactive"/>
+    <definition value="Inactive"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Item is not available to be purchased or issued."/>
@@ -82,6 +99,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Item is not available to be purchased or issued."/>
     </property>
   </concept>
 </CodeSystem>

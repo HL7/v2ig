@@ -45,6 +45,7 @@
   <concept id="5590">
     <code value="PAT"/>
     <display value="Inform patient"/>
+    <definition value="Inform patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5591">
     <code value="NPAT"/>
     <display value="Do NOT inform patient"/>
+    <definition value="Do NOT inform patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5592">
     <code value="USR"/>
     <display value="Inform User"/>
+    <definition value="Inform User"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5593">
     <code value="HD"/>
     <display value="Inform help desk"/>
+    <definition value="Inform help desk"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

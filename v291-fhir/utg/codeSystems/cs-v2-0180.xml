@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.95"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="MasterfileActionCode"/>
   <title value="masterfileActionCode"/>
   <status value="active"/>
@@ -45,6 +45,15 @@
   <concept id="1869">
     <code value="MAD"/>
     <display value="Add record to master file"/>
+    <definition value="Add record to master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datensatz hinzufügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1870">
     <code value="MDL"/>
     <display value="Delete record from master file"/>
+    <definition value="Delete record from master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datensatz löschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1871">
     <code value="MUP"/>
     <display value="Update record for master file"/>
+    <definition value="Update record for master file"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datensatz ändern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="1872">
     <code value="MDC"/>
     <display value="Deactivate: discontinue using record in master file, but do not delete from database"/>
+    <definition value="Deactivate: discontinue using record in master file, but do not delete from database"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datensatz inaktivieren, aber nicht löschen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="1873">
     <code value="MAC"/>
     <display value="Reactivate deactivated record"/>
+    <definition value="Reactivate deactivated record"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Datensatz wieder aktivieren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

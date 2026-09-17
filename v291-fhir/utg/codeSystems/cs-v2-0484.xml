@@ -45,6 +45,7 @@
   <concept id="4913">
     <code value="B"/>
     <display value="Trial Quantity Balance"/>
+    <definition value="Trial Quantity Balance"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4914">
     <code value="C"/>
     <display value="Compassionate Fill"/>
+    <definition value="Compassionate Fill"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4915">
     <code value="N"/>
     <display value="New/Renew - Full Fill"/>
+    <definition value="New/Renew - Full Fill"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4916">
     <code value="P"/>
     <display value="New/Renew - Part Fill"/>
+    <definition value="New/Renew - Part Fill"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4917">
     <code value="Q"/>
     <display value="Refill - Part Fill"/>
+    <definition value="Refill - Part Fill"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4918">
     <code value="R"/>
     <display value="Refill - Full Fill"/>
+    <definition value="Refill - Full Fill"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4919">
     <code value="S"/>
     <display value="Manufacturer Sample"/>
+    <definition value="Manufacturer Sample"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="4920">
     <code value="T"/>
     <display value="Trial Quantity"/>
+    <definition value="Trial Quantity"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="4921">
     <code value="Z"/>
     <display value="Non-Prescription Fill"/>
+    <definition value="Non-Prescription Fill"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

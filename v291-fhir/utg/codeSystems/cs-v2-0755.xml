@@ -45,6 +45,7 @@
   <concept id="6454">
     <code value="0"/>
     <display value="No weight reported at admission used for grouping"/>
+    <definition value="No weight reported at admission used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6455">
     <code value="1"/>
     <display value="Weight reported at admission used for grouping"/>
+    <definition value="Weight reported at admission used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6456">
     <code value="2"/>
     <display value="Default weight (&gt;2499g) used for grouping"/>
+    <definition value="Default weight (&gt;2499g) used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

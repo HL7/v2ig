@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6288">
     <code value="0"/>
     <display value="Real Time Values"/>
+    <definition value="Real Time Values"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Display data"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Display data"/>
+    </property>
   </concept>
   <concept id="6289">
     <code value="1"/>
     <display value="Historic Values"/>
+    <definition value="Historic Values"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Print data"/>
@@ -70,6 +82,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Print data"/>
     </property>
   </concept>
 </CodeSystem>

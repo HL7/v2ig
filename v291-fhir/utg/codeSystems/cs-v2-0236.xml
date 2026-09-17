@@ -45,6 +45,7 @@
   <concept id="2297">
     <code value="M"/>
     <display value="Manufacturer"/>
+    <definition value="Manufacturer"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2298">
     <code value="L"/>
     <display value="Local facility/user facility"/>
+    <definition value="Local facility/user facility"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2299">
     <code value="R"/>
     <display value="Regulatory agency"/>
+    <definition value="Regulatory agency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2300">
     <code value="D"/>
     <display value="Distributor"/>
+    <definition value="Distributor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

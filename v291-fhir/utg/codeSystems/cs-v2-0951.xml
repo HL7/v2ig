@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.451"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="ReasonForStudy"/>
   <title value="reasonForStudy"/>
   <status value="active"/>
@@ -48,6 +48,12 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="6775">
     <code value="BS"/>
     <display value="Bank residual specimen"/>
@@ -68,6 +74,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
     </property>
   </concept>
   <concept id="6777">
@@ -95,6 +105,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
   </concept>
   <concept id="6779">
     <code value="IR"/>
@@ -107,6 +121,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
     </property>
   </concept>
   <concept id="6780">
@@ -121,6 +139,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
   </concept>
   <concept id="6781">
     <code value="OP"/>
@@ -133,6 +155,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
     </property>
   </concept>
   <concept id="6782">
@@ -147,6 +173,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
   </concept>
   <concept id="6783">
     <code value="SI"/>
@@ -159,6 +189,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
     </property>
   </concept>
   <concept id="6784">
@@ -173,6 +207,10 @@
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
   </concept>
   <concept id="6785">
     <code value="TP"/>
@@ -185,6 +223,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
     </property>
   </concept>
   <concept id="6786">
@@ -199,6 +241,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
   </concept>
   <concept id="6787">
     <code value="XR"/>
@@ -211,6 +257,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
     </property>
   </concept>
 </CodeSystem>

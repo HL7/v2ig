@@ -45,6 +45,15 @@
   <concept id="5661">
     <code value="EMP"/>
     <display value="Employee"/>
+    <definition value="Employee"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Angestellter"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,7 @@
   <concept id="5662">
     <code value="VOL"/>
     <display value="Volunteer"/>
+    <definition value="Volunteer"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,7 @@
   <concept id="5663">
     <code value="CON"/>
     <display value="Contractor"/>
+    <definition value="Contractor"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +80,7 @@
   <concept id="5664">
     <code value="CST"/>
     <display value="Consultant"/>
+    <definition value="Consultant"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

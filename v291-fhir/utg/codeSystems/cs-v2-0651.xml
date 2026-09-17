@@ -45,6 +45,7 @@
   <concept id="6272">
     <code value="TME"/>
     <display value="Time"/>
+    <definition value="Time"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6273">
     <code value="CST"/>
     <display value="Cost"/>
+    <definition value="Cost"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

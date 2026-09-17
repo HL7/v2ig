@@ -45,6 +45,7 @@
   <concept id="1887">
     <code value="H"/>
     <display value="Hispanic or Latino"/>
+    <definition value="Hispanic or Latino"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="1888">
     <code value="N"/>
     <display value="Not Hispanic or Latino"/>
+    <definition value="Not Hispanic or Latino"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="1889">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

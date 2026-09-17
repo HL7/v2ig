@@ -45,6 +45,7 @@
   <concept id="894">
     <code value="MED"/>
     <display value="Medical Service"/>
+    <definition value="Medical Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="895">
     <code value="SUR"/>
     <display value="Surgical Service"/>
+    <definition value="Surgical Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="896">
     <code value="URO"/>
     <display value="Urology Service"/>
+    <definition value="Urology Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="897">
     <code value="PUL"/>
     <display value="Pulmonary Service"/>
+    <definition value="Pulmonary Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="898">
     <code value="CAR"/>
     <display value="Cardiac Service"/>
+    <definition value="Cardiac Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

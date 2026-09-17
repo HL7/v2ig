@@ -45,6 +45,7 @@
   <concept id="4021">
     <code value="N"/>
     <display value="New Subscription"/>
+    <definition value="New Subscription"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4022">
     <code value="M"/>
     <display value="Modified Subscription"/>
+    <definition value="Modified Subscription"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

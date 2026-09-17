@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6296">
     <code value="FLS"/>
     <display value="Flash"/>
+    <definition value="Flash"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Used to quickly sterilize instruments that were dropped during surgery."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Used to quickly sterilize instruments that were dropped during surgery."/>
+    </property>
   </concept>
   <concept id="6297">
     <code value="PRV"/>
     <display value="Prevac"/>
+    <definition value="Prevac"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A prevac cycle is vacuum assisted."/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A prevac cycle is vacuum assisted."/>
+    </property>
   </concept>
   <concept id="6298">
     <code value="GRV"/>
     <display value="Gravity"/>
+    <definition value="Gravity"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A gravity cycle is executed at atmospheric pressure."/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A gravity cycle is executed at atmospheric pressure."/>
+    </property>
   </concept>
   <concept id="6299">
     <code value="LQD"/>
     <display value="Liquid"/>
+    <definition value="Liquid"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A cycle specific to sterilizing liquids."/>
@@ -95,10 +117,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A cycle specific to sterilizing liquids."/>
+    </property>
   </concept>
   <concept id="6300">
     <code value="EXP"/>
     <display value="Express"/>
+    <definition value="Express"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="An express cycle is similar to a flash cycle but the supply item is wrapped."/>
@@ -107,10 +134,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An express cycle is similar to a flash cycle but the supply item is wrapped."/>
+    </property>
   </concept>
   <concept id="6301">
     <code value="DRT"/>
     <display value="Dart"/>
+    <definition value="Dart"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A dart cycle is a special cycle used to test the integrity of the sterilizer chamber to hold a vacuum."/>
@@ -119,10 +151,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A dart cycle is a special cycle used to test the integrity of the sterilizer chamber to hold a vacuum."/>
+    </property>
   </concept>
   <concept id="6302">
     <code value="DRW"/>
     <display value="Dart Warm-up Cycle"/>
+    <definition value="Dart Warm-up Cycle"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A dart warm-up cycle is used to bring the sterilizer chamber up to operating temperature in order to run a dart test cycle."/>
@@ -131,10 +168,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A dart warm-up cycle is used to bring the sterilizer chamber up to operating temperature in order to run a dart test cycle."/>
+    </property>
   </concept>
   <concept id="6303">
     <code value="THR"/>
     <display value="Thermal"/>
+    <definition value="Thermal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -143,6 +185,7 @@
   <concept id="6304">
     <code value="ISO"/>
     <display value="Isothermal"/>
+    <definition value="Isothermal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -151,6 +194,7 @@
   <concept id="6305">
     <code value="BWD"/>
     <display value="Bowie-Dick Test"/>
+    <definition value="Bowie-Dick Test"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A Bowie-Dick test cycle is a special cycle used to test the integrity of the sterilizer chamber to hold a vacuum."/>
@@ -159,10 +203,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A Bowie-Dick test cycle is a special cycle used to test the integrity of the sterilizer chamber to hold a vacuum."/>
+    </property>
   </concept>
   <concept id="6306">
     <code value="LKT"/>
     <display value="Leak Test"/>
+    <definition value="Leak Test"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A leak test cycle tests the integrity of the sterilizer chamber to hold a vacuum over a specific period of time."/>
@@ -171,10 +220,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A leak test cycle tests the integrity of the sterilizer chamber to hold a vacuum over a specific period of time."/>
+    </property>
   </concept>
   <concept id="6307">
     <code value="WFP"/>
     <display value="Wrap/Steam Flush Pressure Pulse (Wrap/SFPP)"/>
+    <definition value="Wrap/Steam Flush Pressure Pulse (Wrap/SFPP)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A Wrap/SFPP cycle uses steam pulses instead of a vacuum during the conditioning phase of the cycle when the supply item is unwrapped."/>
@@ -183,10 +237,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A Wrap/SFPP cycle uses steam pulses instead of a vacuum during the conditioning phase of the cycle when the supply item is unwrapped."/>
+    </property>
   </concept>
   <concept id="6308">
     <code value="SFP"/>
     <display value="Steam Flush Pressure Pulse"/>
+    <definition value="Steam Flush Pressure Pulse"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="An SFPP cycle uses steam pulses instead of a vacuum during the conditioning phase of the cycle when the supply item is wrapped."/>
@@ -195,10 +254,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="An SFPP cycle uses steam pulses instead of a vacuum during the conditioning phase of the cycle when the supply item is wrapped."/>
+    </property>
   </concept>
   <concept id="6309">
     <code value="CMW"/>
     <display value="Chemical Wash"/>
+    <definition value="Chemical Wash"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A chemical wash cycle."/>
@@ -207,10 +271,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A chemical wash cycle."/>
+    </property>
   </concept>
   <concept id="6310">
     <code value="PEA"/>
     <display value="Peracetic Acid"/>
+    <definition value="Peracetic Acid"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="A peracetic acid cycle."/>
@@ -219,10 +288,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A peracetic acid cycle."/>
+    </property>
   </concept>
   <concept id="6311">
     <code value="EOH"/>
     <display value="EO High Temperature"/>
+    <definition value="EO High Temperature"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -231,6 +305,7 @@
   <concept id="6312">
     <code value="EOL"/>
     <display value="EO Low Temperature"/>
+    <definition value="EO Low Temperature"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -239,6 +314,7 @@
   <concept id="6313">
     <code value="CRT"/>
     <display value="Cart Wash"/>
+    <definition value="Cart Wash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -247,6 +323,7 @@
   <concept id="6314">
     <code value="UTL"/>
     <display value="Utensil Wash"/>
+    <definition value="Utensil Wash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -255,6 +332,7 @@
   <concept id="6315">
     <code value="IST"/>
     <display value="Instrument Wash"/>
+    <definition value="Instrument Wash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -263,6 +341,7 @@
   <concept id="6316">
     <code value="GLS"/>
     <display value="Glassware"/>
+    <definition value="Glassware"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -271,6 +350,7 @@
   <concept id="6317">
     <code value="PLA"/>
     <display value="Plastic Goods Wash"/>
+    <definition value="Plastic Goods Wash"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -279,6 +359,7 @@
   <concept id="6318">
     <code value="ANR"/>
     <display value="Anesthesia/Respiratory"/>
+    <definition value="Anesthesia/Respiratory"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Special Wash cycle"/>
@@ -287,10 +368,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Special Wash cycle"/>
+    </property>
   </concept>
   <concept id="6319">
     <code value="GTL"/>
     <display value="Gentle"/>
+    <definition value="Gentle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -299,6 +385,7 @@
   <concept id="6320">
     <code value="OPW"/>
     <display value="Optional Wash"/>
+    <definition value="Optional Wash"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Any Optional Wash cycle"/>
@@ -307,10 +394,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Any Optional Wash cycle"/>
+    </property>
   </concept>
   <concept id="6321">
     <code value="BDP"/>
     <display value="Bedpans"/>
+    <definition value="Bedpans"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -319,6 +411,7 @@
   <concept id="6322">
     <code value="TRB"/>
     <display value="Tray/Basin"/>
+    <definition value="Tray/Basin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -327,6 +420,7 @@
   <concept id="6323">
     <code value="GNP"/>
     <display value="Gen. Purpose"/>
+    <definition value="Gen. Purpose"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -335,6 +429,7 @@
   <concept id="6324">
     <code value="COD"/>
     <display value="Code"/>
+    <definition value="Code"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -343,6 +438,7 @@
   <concept id="6325">
     <code value="RNS"/>
     <display value="Rinse"/>
+    <definition value="Rinse"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -351,6 +447,7 @@
   <concept id="6326">
     <code value="2RS"/>
     <display value="Second Rinse"/>
+    <definition value="Second Rinse"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -359,6 +456,7 @@
   <concept id="6327">
     <code value="DEC"/>
     <display value="Decontamination"/>
+    <definition value="Decontamination"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

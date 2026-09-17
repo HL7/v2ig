@@ -45,6 +45,7 @@
   <concept id="3828">
     <code value="ATM"/>
     <display value="Opened container, atmosphere and duration unspecified"/>
+    <definition value="Opened container, atmosphere and duration unspecified"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3829">
     <code value="A60"/>
     <display value="Opened container, indoor atmosphere, 60 minutes duration"/>
+    <definition value="Opened container, indoor atmosphere, 60 minutes duration"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

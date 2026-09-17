@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.51"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="ResultStatus"/>
   <title value="resultStatus"/>
   <status value="active"/>
@@ -48,9 +48,24 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="1430">
     <code value="O"/>
     <display value="Order received; specimen not yet received"/>
+    <definition value="Order received; specimen not yet received"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag erhalten - Probe steht noch aus"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +74,15 @@
   <concept id="1431">
     <code value="I"/>
     <display value="No results available; specimen received, procedure incomplete"/>
+    <definition value="No results available; specimen received, procedure incomplete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Keine Ergebnisse - Probe liegt vor, Untersuchung unvollständig"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +91,15 @@
   <concept id="1432">
     <code value="S"/>
     <display value="No results available; procedure scheduled, but not done"/>
+    <definition value="No results available; procedure scheduled, but not done"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Keine Ergebnisse - Untersuchung eingeplant, aber noch nicht durchgeführt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +108,15 @@
   <concept id="1433">
     <code value="A"/>
     <display value="Some, but not all, results available"/>
+    <definition value="Some, but not all, results available"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="einige, aber nicht alle Ergebnisse verfügbar"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -84,6 +126,14 @@
     <code value="P"/>
     <display value="Preliminary"/>
     <definition value="A verified early result is available, final results not yet obtained"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Vorläufig - Validiertes Zwischenergebnis liegt vor, aber noch keine endgültigen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +143,14 @@
     <code value="C"/>
     <display value="Corrected, final"/>
     <definition value="A result under an order, that has been finalized has been corrected"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="korrigiertes Ergebnis, final"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +159,15 @@
   <concept id="1436">
     <code value="R"/>
     <display value="Results stored; not yet verified"/>
+    <definition value="Results stored; not yet verified"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ergebnisse gespeichert, aber noch nicht validiert"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -110,6 +177,14 @@
     <code value="F"/>
     <display value="Final results"/>
     <definition value="Final results; results stored and verified."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Endergebnis - Auftrag erledigt, Ergebnisse validiert"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Can only be changed with a corrected result."/>
@@ -123,6 +198,14 @@
     <code value="X"/>
     <display value="No results available; Order canceled"/>
     <definition value="No results available; Order canceled."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Keine Ergebnisse - Auftrag storniert"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -132,6 +215,14 @@
     <code value="Y"/>
     <display value="No order on record for this test"/>
     <definition value="No order on record for this test."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Kein Auftrag zu dieser Untersuchung"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Used only on queries"/>
@@ -139,12 +230,24 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used only on queries"/>
     </property>
   </concept>
   <concept id="1440">
     <code value="Z"/>
     <display value="No record of this patient"/>
     <definition value="No record of this patient."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Keine Daten über diesen Patienten"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Used only on queries"/>
@@ -152,6 +255,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used only on queries"/>
     </property>
   </concept>
   <concept id="1441">
@@ -174,6 +281,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Transitions/Relationships: &#10;OBR-25  Valid preceding state (... to N): O, I, S.  Succeeding state (N to ...): P, A, R, F, X&#10;OBX-11  No OBX segments can be present where OBX-29 = RSLT"/>
     </property>
   </concept>
 </CodeSystem>

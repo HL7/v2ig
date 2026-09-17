@@ -45,6 +45,15 @@
   <concept id="2104">
     <code value="A"/>
     <display value="Alias name"/>
+    <definition value="Alias name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aliasname"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="2105">
     <code value="L"/>
     <display value="Legal name"/>
+    <definition value="Legal name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="gesetzlicher Name"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="2106">
     <code value="D"/>
     <display value="Display name"/>
+    <definition value="Display name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="angezeigter Name"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="2107">
     <code value="SL"/>
     <display value="Stock exchange listing name"/>
+    <definition value="Stock exchange listing name"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Börsenlistenname"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

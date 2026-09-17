@@ -42,6 +42,7 @@
   <concept id="6753">
     <code value="TA"/>
     <display value="Current test availability"/>
+    <definition value="Current test availability"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

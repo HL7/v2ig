@@ -45,6 +45,7 @@
   <concept id="4680">
     <code value="U"/>
     <display value="Unconfirmed"/>
+    <definition value="Unconfirmed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4681">
     <code value="P"/>
     <display value="Pending"/>
+    <definition value="Pending"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4682">
     <code value="S"/>
     <display value="Suspect"/>
+    <definition value="Suspect"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4683">
     <code value="C"/>
     <display value="Confirmed or verified"/>
+    <definition value="Confirmed or verified"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="4684">
     <code value="I"/>
     <display value="Confirmed but inactive"/>
+    <definition value="Confirmed but inactive"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="4685">
     <code value="E"/>
     <display value="Erroneous"/>
+    <definition value="Erroneous"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="4686">
     <code value="D"/>
     <display value="Doubt raised"/>
+    <definition value="Doubt raised"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

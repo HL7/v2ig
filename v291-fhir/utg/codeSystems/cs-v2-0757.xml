@@ -45,6 +45,7 @@
   <concept id="6457">
     <code value="0"/>
     <display value="Respiration minutes not used for grouping"/>
+    <definition value="Respiration minutes not used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6458">
     <code value="1"/>
     <display value="Listed respiration minutes used for grouping"/>
+    <definition value="Listed respiration minutes used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6459">
     <code value="2"/>
     <display value="OPS code value used for grouping"/>
+    <definition value="OPS code value used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

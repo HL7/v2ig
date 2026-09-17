@@ -39,14 +39,27 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="2813">
     <code value="BASIC"/>
     <display value="ISDN PCM audio data"/>
+    <definition value="ISDN PCM audio data"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -55,6 +68,7 @@
   <concept id="2816">
     <code value="DICOM"/>
     <display value="Digital Imaging and Communications in Medicine"/>
+    <definition value="Digital Imaging and Communications in Medicine"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -63,6 +77,7 @@
   <concept id="2817">
     <code value="FAX"/>
     <display value="Facsimile data"/>
+    <definition value="Facsimile data"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -71,6 +86,7 @@
   <concept id="2818">
     <code value="GIF"/>
     <display value="Graphics Interchange Format"/>
+    <definition value="Graphics Interchange Format"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -79,6 +95,7 @@
   <concept id="2819">
     <code value="HTML"/>
     <display value="Hypertext Markup Language"/>
+    <definition value="Hypertext Markup Language"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -87,6 +104,7 @@
   <concept id="2820">
     <code value="JOT"/>
     <display value="Electronic ink data (Jot 1.0 standard)"/>
+    <definition value="Electronic ink data (Jot 1.0 standard)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -95,6 +113,7 @@
   <concept id="2821">
     <code value="JPEG"/>
     <display value="Joint Photographic Experts Group"/>
+    <definition value="Joint Photographic Experts Group"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -103,6 +122,7 @@
   <concept id="2822">
     <code value="Octet-stream"/>
     <display value="Uninterpreted binary data"/>
+    <definition value="Uninterpreted binary data"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -111,6 +131,7 @@
   <concept id="2823">
     <code value="PICT"/>
     <display value="PICT format image data"/>
+    <definition value="PICT format image data"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -119,6 +140,7 @@
   <concept id="2824">
     <code value="PostScript"/>
     <display value="PostScript program"/>
+    <definition value="PostScript program"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -127,6 +149,7 @@
   <concept id="2825">
     <code value="RTF"/>
     <display value="Rich Text Format"/>
+    <definition value="Rich Text Format"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -135,6 +158,7 @@
   <concept id="2826">
     <code value="SGML"/>
     <display value="Standard Generalized Markup Language (HL7 V2.3.1 and later)"/>
+    <definition value="Standard Generalized Markup Language (HL7 V2.3.1 and later)"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -143,6 +167,7 @@
   <concept id="2827">
     <code value="TIFF"/>
     <display value="TIFF image data"/>
+    <definition value="TIFF image data"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -151,6 +176,7 @@
   <concept id="2828">
     <code value="XML"/>
     <display value="Extensible Markup Language (HL7 V2.3.1 and later)"/>
+    <definition value="Extensible Markup Language (HL7 V2.3.1 and later)"/>
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
@@ -159,6 +185,7 @@
   <concept id="2829">
     <code value="x-hl7-cda-level-one"/>
     <display value="HL7 Clinical Document Architecture Level One document"/>
+    <definition value="HL7 Clinical Document Architecture Level One document"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Retained for backwards compatibility only as of v2.6 and CDA R 2. Preferred value is text/xml."/>
@@ -166,6 +193,36 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backwards compatibility only as of v2.6 and CDA R 2. Preferred value is text/xml."/>
+    </property>
+  </concept>
+  <concept id="2814">
+    <code value="..."/>
+    <display value="Source RFC 2046"/>
+    <definition value="Source RFC 2046"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept id="2815">
+    <code value="…"/>
+    <display value="Source RFC 2046"/>
+    <definition value="Source RFC 2046"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
     </property>
   </concept>
 </CodeSystem>

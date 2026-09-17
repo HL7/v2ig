@@ -45,6 +45,7 @@
   <concept id="3243">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3244">
     <code value="UASK"/>
     <display value="Asked but Unknown"/>
+    <definition value="Asked but Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3245">
     <code value="NAV"/>
     <display value="Not available"/>
+    <definition value="Not available"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3246">
     <code value="NA"/>
     <display value="Not applicable"/>
+    <definition value="Not applicable"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3247">
     <code value="NASK"/>
     <display value="Not asked"/>
+    <definition value="Not asked"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

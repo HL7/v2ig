@@ -45,6 +45,15 @@
   <concept id="1627">
     <code value="AT"/>
     <display value="Currency amount"/>
+    <definition value="Currency amount"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Betrag (Tabelle 148 wird nicht verwendet)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1628">
     <code value="PC"/>
     <display value="Percentage"/>
+    <definition value="Percentage"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Prozentsatz"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

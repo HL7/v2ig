@@ -45,6 +45,7 @@
   <concept id="6524">
     <code value="ONH"/>
     <display value="On Hold"/>
+    <definition value="On Hold"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6525">
     <code value="INV"/>
     <display value="Inventoried"/>
+    <definition value="Inventoried"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6526">
     <code value="PRC"/>
     <display value="Processing"/>
+    <definition value="Processing"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6527">
     <code value="REJ"/>
     <display value="Rejected"/>
+    <definition value="Rejected"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6528">
     <code value="TTL"/>
     <display value="Triaged to Lab"/>
+    <definition value="Triaged to Lab"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="6529">
     <code value="TRN"/>
     <display value="In Transit"/>
+    <definition value="In Transit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

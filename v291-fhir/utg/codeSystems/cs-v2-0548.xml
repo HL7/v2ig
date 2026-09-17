@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.355"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="SignatorysRelationshipToSubject"/>
   <title value="signatorysRelationshipToSubject"/>
   <status value="active"/>
@@ -45,6 +45,7 @@
   <concept id="5693">
     <code value="1"/>
     <display value="Self"/>
+    <definition value="Self"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,15 @@
   <concept id="5694">
     <code value="2"/>
     <display value="Parent"/>
+    <definition value="Parent"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Eltern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,7 @@
   <concept id="5695">
     <code value="3"/>
     <display value="Next of Kin"/>
+    <definition value="Next of Kin"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +80,7 @@
   <concept id="5696">
     <code value="4"/>
     <display value="Durable Power of Attorney in Healthcare Affairs"/>
+    <definition value="Durable Power of Attorney in Healthcare Affairs"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +89,7 @@
   <concept id="5697">
     <code value="5"/>
     <display value="Conservator"/>
+    <definition value="Conservator"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +98,7 @@
   <concept id="5698">
     <code value="6"/>
     <display value="Emergent Practitioner (practitioner judging case as emergency requiring care without a consent)"/>
+    <definition value="Emergent Practitioner (practitioner judging case as emergency requiring care without a consent)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +107,7 @@
   <concept id="5699">
     <code value="7"/>
     <display value="Non-Emergent Practitioner (i.e., medical ethics committee)"/>
+    <definition value="Non-Emergent Practitioner (i.e. medical ethics committee)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

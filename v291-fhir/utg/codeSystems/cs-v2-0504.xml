@@ -45,6 +45,7 @@
   <concept id="5514">
     <code value="EE"/>
     <display value="End related service request(s), end current service request."/>
+    <definition value="End related service request(s), end current service request."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5515">
     <code value="ES"/>
     <display value="End related service request(s), start current service request."/>
+    <definition value="End related service request(s), start current service request."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5516">
     <code value="SS"/>
     <display value="Start related service request(s), start current service request."/>
+    <definition value="Start related service request(s), start current service request."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5517">
     <code value="SE"/>
     <display value="Start related service request(s), end current service request."/>
+    <definition value="Start related service request(s), end current service request."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

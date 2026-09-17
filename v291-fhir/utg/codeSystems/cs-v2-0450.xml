@@ -45,6 +45,7 @@
   <concept id="4823">
     <code value="LOG"/>
     <display value="Log Event"/>
+    <definition value="Log Event"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4824">
     <code value="SER"/>
     <display value="Service Event"/>
+    <definition value="Service Event"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

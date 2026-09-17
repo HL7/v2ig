@@ -45,6 +45,7 @@
   <concept id="4012">
     <code value="DB"/>
     <display value="Match on Date of Birth"/>
+    <definition value="Match on Date of Birth"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4013">
     <code value="NA"/>
     <display value="Match on Name (Alpha Match)"/>
+    <definition value="Match on Name (Alpha Match)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="4014">
     <code value="NP"/>
     <display value="Match on Name (Phonetic Match)"/>
+    <definition value="Match on Name (Phonetic Match)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="4015">
     <code value="SS"/>
     <display value="Match on Social Security Number"/>
+    <definition value="Match on Social Security Number"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,7 @@
   <concept id="2732">
     <code value="I"/>
     <display value="Inpatient"/>
+    <definition value="Inpatient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2733">
     <code value="O"/>
     <display value="Outpatient"/>
+    <definition value="Outpatient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2734">
     <code value="A"/>
     <display value="Ambulatory"/>
+    <definition value="Ambulatory"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2735">
     <code value="E"/>
     <display value="Emergency"/>
+    <definition value="Emergency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

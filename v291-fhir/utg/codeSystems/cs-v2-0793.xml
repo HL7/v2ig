@@ -45,6 +45,7 @@
   <concept id="6482">
     <code value="SMDA"/>
     <display value="Safe Medical Devices Act"/>
+    <definition value="Safe Medical Devices Act"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

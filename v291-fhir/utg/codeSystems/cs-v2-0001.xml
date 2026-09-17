@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.458"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="AdministrativeSex"/>
   <title value="administrativeSex"/>
   <status value="active"/>
@@ -27,7 +27,7 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="tbd"/>
+  <description value="Code system of concepts specifying a patient&#39;s sex for administrative purposes.  Used in HL7 Version 2.x messages in the PID segment."/>
   <purpose value="Underlying Master Code System for V2 table 0001 (Administrative Sex)"/>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <caseSensitive value="true"/>
@@ -51,6 +51,15 @@
   <concept id="100">
     <code value="F"/>
     <display value="Female"/>
+    <definition value="Female"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="weiblich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +68,15 @@
   <concept id="101">
     <code value="M"/>
     <display value="Male"/>
+    <definition value="Male"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="männlich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +85,15 @@
   <concept id="102">
     <code value="O"/>
     <display value="Other"/>
+    <definition value="Other"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="andere"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +102,15 @@
   <concept id="103">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="unbekannt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +119,15 @@
   <concept id="104">
     <code value="A"/>
     <display value="Ambiguous"/>
+    <definition value="Ambiguous"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="mehrdeutig"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +136,15 @@
   <concept id="105">
     <code value="N"/>
     <display value="Not applicable"/>
+    <definition value="Not applicable"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="nicht zutreffend"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

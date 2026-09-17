@@ -45,6 +45,7 @@
   <concept id="5554">
     <code value="C"/>
     <display value="Record coming over is a correction and thus replaces a final status"/>
+    <definition value="Record coming over is a correction and thus replaces a final status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5555">
     <code value="D"/>
     <display value="Deletes the BPX record"/>
+    <definition value="Deletes the BPX record"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5556">
     <code value="F"/>
     <display value="Final status; Can only be changed with a corrected status"/>
+    <definition value="Final status; Can only be changed with a corrected status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5557">
     <code value="O"/>
     <display value="Order detail description only (no status)"/>
+    <definition value="Order detail description only (no status)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5558">
     <code value="P"/>
     <display value="Preliminary status"/>
+    <definition value="Preliminary status"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="5559">
     <code value="W"/>
     <display value="Post original as wrong, e.g., transmitted for wrong patient"/>
+    <definition value="Post original as wrong, e.g., transmitted for wrong patient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

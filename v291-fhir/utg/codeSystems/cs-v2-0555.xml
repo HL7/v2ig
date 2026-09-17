@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.359"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="InvoiceType"/>
   <title value="invoiceType"/>
   <status value="active"/>
@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6166">
     <code value="FS"/>
     <display value="Fee for Service"/>
+    <definition value="Fee for Service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="6167">
     <code value="SS"/>
     <display value="By Session"/>
+    <definition value="By Session"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="6168">
     <code value="GP"/>
     <display value="Group"/>
+    <definition value="Group"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +84,7 @@
   <concept id="6169">
     <code value="BK"/>
     <display value="Block"/>
+    <definition value="Block"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -83,6 +93,7 @@
   <concept id="6170">
     <code value="SL"/>
     <display value="Salary"/>
+    <definition value="Salary"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -91,6 +102,7 @@
   <concept id="6171">
     <code value="IN"/>
     <display value="Information Only"/>
+    <definition value="Information Only"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Payee information not required for this Invoice Type"/>
@@ -99,10 +111,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Payee information not required for this Invoice Type"/>
+    </property>
   </concept>
   <concept id="6172">
     <code value="NP"/>
     <display value="Non Patient"/>
+    <definition value="Non Patient"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Invoice without a patient. E.g., bulk invoicing for Pharmacy for a care facility."/>
@@ -111,10 +128,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Invoice without a patient.  E.g. bulk invoicing for Pharmacy for a care facility."/>
+    </property>
   </concept>
   <concept id="6173">
     <code value="FN"/>
     <display value="Final"/>
+    <definition value="Final"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Final Invoice"/>
@@ -123,10 +145,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Final Invoice"/>
+    </property>
   </concept>
   <concept id="6174">
     <code value="PA"/>
     <display value="Partial"/>
+    <definition value="Partial"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Partial Invoice"/>
@@ -135,10 +162,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Partial Invoice"/>
+    </property>
   </concept>
   <concept id="6175">
     <code value="SU"/>
     <display value="Supplemental"/>
+    <definition value="Supplemental"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Supplemental Invoice"/>
@@ -146,6 +178,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Supplemental Invoice"/>
     </property>
   </concept>
 </CodeSystem>

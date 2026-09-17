@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3853">
     <code value="OK"/>
     <display value="Command completed successfully"/>
+    <definition value="Command completed successfully"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +66,7 @@
   <concept id="3854">
     <code value="TI"/>
     <display value="Command cannot be completed within requested completion time"/>
+    <definition value="Command cannot be completed within requested completion time"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +75,7 @@
   <concept id="3855">
     <code value="ER"/>
     <display value="Command cannot be completed because of error condition"/>
+    <definition value="Command cannot be completed because of error condition"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="See response parameters."/>
@@ -75,10 +84,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="See response parameters."/>
+    </property>
   </concept>
   <concept id="3856">
     <code value="ST"/>
     <display value="Command cannot be completed because of the status of the requested equipment"/>
+    <definition value="Command cannot be completed because of the status of the requested equipment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -87,6 +101,7 @@
   <concept id="3857">
     <code value="UN"/>
     <display value="Command cannot be completed for unknown reasons"/>
+    <definition value="Command cannot be completed for unknown reasons"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

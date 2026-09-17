@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6163">
     <code value="LATE"/>
     <display value="Late Invoice"/>
+    <definition value="Late Invoice"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Over the Payer&#39;s published time limit for this invoice"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Over the Payer&#39;s published time limit for this invoice"/>
+    </property>
   </concept>
   <concept id="6164">
     <code value="NORM"/>
     <display value="Normal submission"/>
+    <definition value="Normal submission"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -71,6 +83,7 @@
   <concept id="6165">
     <code value="SUB"/>
     <display value="Subscriber coverage problem"/>
+    <definition value="Subscriber coverage problem"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

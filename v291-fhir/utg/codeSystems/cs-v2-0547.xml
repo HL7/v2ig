@@ -45,6 +45,7 @@
   <concept id="5690">
     <code value="C"/>
     <display value="County/Parish"/>
+    <definition value="County/Parish"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,15 @@
   <concept id="5691">
     <code value="S"/>
     <display value="State/Province"/>
+    <definition value="State/Province"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Bundesland"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,15 @@
   <concept id="5692">
     <code value="N"/>
     <display value="Country"/>
+    <definition value="Country"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Land"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

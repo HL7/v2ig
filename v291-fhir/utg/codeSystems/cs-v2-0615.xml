@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6253">
     <code value="KERB"/>
     <display value="Kerberos Service Ticket"/>
+    <definition value="Kerberos Service Ticket"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Structure defined by RFC 1510"/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Structure defined by RFC 1510"/>
+    </property>
   </concept>
   <concept id="6254">
     <code value="SAML"/>
     <display value="Authenticated User Identity Assertion"/>
+    <definition value="Authenticated User Identity Assertion"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="XML structure defined by the OASIS Security Assertion Markup Language (SAML) specification"/>
@@ -70,6 +82,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="XML structure defined by the OASIS Security Assertion Markup Language (SAML) specification"/>
     </property>
   </concept>
 </CodeSystem>

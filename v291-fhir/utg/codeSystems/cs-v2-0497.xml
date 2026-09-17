@@ -45,6 +45,7 @@
   <concept id="5491">
     <code value="V"/>
     <display value="Verbal"/>
+    <definition value="Verbal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5492">
     <code value="W"/>
     <display value="Written"/>
+    <definition value="Written"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5493">
     <code value="T"/>
     <display value="Telephone"/>
+    <definition value="Telephone"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

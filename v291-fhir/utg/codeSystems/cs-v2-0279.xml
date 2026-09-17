@@ -39,9 +39,16 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-table-deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
   <concept id="2705">
     <code value="No"/>
     <display value="Substitution of this resource is not allowed"/>
+    <definition value="Substitution of this resource is not allowed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -50,6 +57,7 @@
   <concept id="2706">
     <code value="Confirm"/>
     <display value="Contact the Placer Contact Person prior to making any substitutions of this resource"/>
+    <definition value="Contact the Placer Contact Person prior to making any substitutions of this resource"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -58,6 +66,7 @@
   <concept id="2707">
     <code value="Notify"/>
     <display value="Notify the Placer Contact Person, through normal institutional procedures, that a substitution of this resource has been made"/>
+    <definition value="Notify the Placer Contact Person, through normal institutional procedures, that a substitution of this resource has been made"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -66,6 +75,59 @@
   <concept id="2708">
     <code value="Yes"/>
     <display value="Substitution of this resource is allowed"/>
+    <definition value="Substitution of this resource is allowed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2701">
+    <code value="CONFIRM"/>
+    <display value="Contact the Placer Contact Person prior to making any substitutions of this resource"/>
+    <definition value="Contact the Placer Contact Person prior to making any substitutions of this resource"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2702">
+    <code value="NO"/>
+    <display value="Substitution of this resource is not allowed"/>
+    <definition value="Substitution of this resource is not allowed"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2703">
+    <code value="NOTIFY"/>
+    <display value="Notify the Placer Contact Person, through normal institutional procedures, that a substitution of this resource has been made"/>
+    <definition value="Notify the Placer Contact Person, through normal institutional procedures, that a substitution of this resource has been made"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept id="2704">
+    <code value="YES"/>
+    <display value="Substitution of this resource is allowed"/>
+    <definition value="Substitution of this resource is allowed"/>
+    <property>
+      <code value="v2-table-deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

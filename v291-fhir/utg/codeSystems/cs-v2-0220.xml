@@ -45,6 +45,7 @@
   <concept id="2184">
     <code value="A"/>
     <display value="Alone"/>
+    <definition value="Alone"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2185">
     <code value="F"/>
     <display value="Family"/>
+    <definition value="Family"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2186">
     <code value="I"/>
     <display value="Institution"/>
+    <definition value="Institution"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2187">
     <code value="R"/>
     <display value="Relative"/>
+    <definition value="Relative"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2188">
     <code value="U"/>
     <display value="Unknown"/>
+    <definition value="Unknown"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2189">
     <code value="S"/>
     <display value="Spouse Only"/>
+    <definition value="Spouse Only"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

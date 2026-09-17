@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.417"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Actpriority"/>
   <title value="actpriority"/>
   <status value="active"/>
@@ -45,6 +45,7 @@
   <concept id="6530">
     <code value="A"/>
     <display value="ASAP - As soon as possible, next highest priority after stat"/>
+    <definition value="ASAP - As soon as possible, next highest priority after stat"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6531">
     <code value="CR"/>
     <display value="Callback results - filler should contact the placer as soon as results are available, even for preliminary results"/>
+    <definition value="Callback results - filler should contact the placer as soon as results are available, even for preliminary results"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6532">
     <code value="CS"/>
     <display value="Callback for scheduling - Filler should contact the placer (or target) to schedule the service."/>
+    <definition value="Callback for scheduling - Filler should contact the placer (or target) to schedule the service."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6533">
     <code value="CSP"/>
     <display value="Callback placer for scheduling - filler should contact the placer to schedule the service"/>
+    <definition value="Callback placer for scheduling - filler should contact the placer to schedule the service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6534">
     <code value="CSR"/>
     <display value="Contact recipient for scheduling - Filler should contact the service recipient (target) to schedule the service"/>
+    <definition value="Contact recipient for scheduling - Filler should contact the service recipient (target) to schedule the service"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="6535">
     <code value="EL"/>
     <display value="Elective - Beneficial to the patient but not essential for survival."/>
+    <definition value="Elective - Beneficial to the patient but not essential for survival."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="6536">
     <code value="EM"/>
     <display value="Emergency - An unforeseen combination of circumstances or the resulting state that calls for immediate action"/>
+    <definition value="Emergency - An unforeseen combination of circumstances or the resulting state that calls for immediate action"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -110,6 +117,7 @@
   <concept id="6538">
     <code value="PRN"/>
     <display value="As needed - An &quot;as needed&quot; order should be accompanied by a description of what constitutes a need. This description is represented by an observation service predicate as a precondition."/>
+    <definition value="As needed - An &quot;as needed&quot; order should be accompanied by a description of what constitutes a need.  This description is represented by an observation service predicate as a precondition."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -118,6 +126,7 @@
   <concept id="6539">
     <code value="R"/>
     <display value="Routine - Routine service, do at usual work hours"/>
+    <definition value="Routine - Routine service, do at usual work hours"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -126,6 +135,7 @@
   <concept id="6540">
     <code value="RR"/>
     <display value="Rush reporting - A report should be prepared and sent as quickly as possible"/>
+    <definition value="Rush reporting - A report should be prepared and sent as quickly as possible"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -134,6 +144,7 @@
   <concept id="6541">
     <code value="S"/>
     <display value="Stat - With highest priority (e.g., emergency)."/>
+    <definition value="Stat - With highest priority (e.g. emergency)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -142,6 +153,7 @@
   <concept id="6542">
     <code value="T"/>
     <display value="Timing critical - It is critical to come as close as possible to the requested time (e.g., for a through antimicrobial level)."/>
+    <definition value="Timing critical - It is critical to come as close as possible to the requested time (e.g. for a through antimicrobial level)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -150,6 +162,7 @@
   <concept id="6543">
     <code value="UD"/>
     <display value="Use as directed - Drug is to be used as directed by the prescriber."/>
+    <definition value="Use as directed - Drug is to be used as directed by the prescriber."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -158,6 +171,7 @@
   <concept id="6544">
     <code value="UR"/>
     <display value="Urgent - Calls for prompt action"/>
+    <definition value="Urgent - Calls for prompt action"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

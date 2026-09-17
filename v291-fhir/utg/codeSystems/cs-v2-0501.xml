@@ -45,6 +45,7 @@
   <concept id="5505">
     <code value="E"/>
     <display value="Emergency"/>
+    <definition value="Emergency"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5506">
     <code value="RX"/>
     <display value="Rx Private"/>
+    <definition value="Rx Private"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5507">
     <code value="PR"/>
     <display value="Patient Request"/>
+    <definition value="Patient Request"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

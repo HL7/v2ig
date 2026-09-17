@@ -45,6 +45,7 @@
   <concept id="6464">
     <code value="0"/>
     <display value="Valid code"/>
+    <definition value="Valid code"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6465">
     <code value="1"/>
     <display value="Invalid code"/>
+    <definition value="Invalid code"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6466">
     <code value="2"/>
     <display value="Not used"/>
+    <definition value="Not used"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6467">
     <code value="3"/>
     <display value="Invalid for this gender"/>
+    <definition value="Invalid for this gender"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6468">
     <code value="4"/>
     <display value="Invalid for this age"/>
+    <definition value="Invalid for this age"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

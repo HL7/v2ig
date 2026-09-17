@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.199"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="VisitIndicator"/>
   <title value="visitIndicator"/>
   <status value="active"/>
@@ -43,6 +43,12 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="v2-concComment"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
     <description value="V2 Concept Comment"/>
@@ -52,6 +58,14 @@
     <code value="A"/>
     <display value="Account level"/>
     <definition value="Account level (default)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Fallanlage bei ambulanten Fällen ohne Erfassung eines Besuchstages"/>
+    </designation>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: default"/>
@@ -60,10 +74,23 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="default"/>
+    </property>
   </concept>
   <concept id="3060">
     <code value="V"/>
     <display value="Visit level"/>
+    <definition value="Visit level"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Aufnahme (ambulanter Besuch, stationäre Episode)"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

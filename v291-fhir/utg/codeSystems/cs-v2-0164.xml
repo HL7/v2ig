@@ -45,6 +45,15 @@
   <concept id="1771">
     <code value="AP"/>
     <display value="Applicator"/>
+    <definition value="Applicator"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Applikator"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,7 @@
   <concept id="1772">
     <code value="BT"/>
     <display value="Buretrol"/>
+    <definition value="Buretrol"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +71,15 @@
   <concept id="1773">
     <code value="HL"/>
     <display value="Heparin Lock"/>
+    <definition value="Heparin Lock"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Infusionskanüle"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +88,15 @@
   <concept id="1774">
     <code value="IPPB"/>
     <display value="IPPB"/>
+    <definition value="IPPB"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Intermittierende Überdruckbeatmung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +105,15 @@
   <concept id="1775">
     <code value="IVP"/>
     <display value="IV Pump"/>
+    <definition value="IV Pump"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Perfusor"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +122,15 @@
   <concept id="1776">
     <code value="IVS"/>
     <display value="IV Soluset"/>
+    <definition value="IV Soluset"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Infusionsbesteck"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +139,15 @@
   <concept id="1777">
     <code value="MI"/>
     <display value="Metered Inhaler"/>
+    <definition value="Metered Inhaler"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Inhalator"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +156,15 @@
   <concept id="1778">
     <code value="NEB"/>
     <display value="Nebulizer"/>
+    <definition value="Nebulizer"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Vernebler"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +173,15 @@
   <concept id="1779">
     <code value="PCA"/>
     <display value="PCA Pump"/>
+    <definition value="PCA Pump"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Patientengesteuerte Analgesiepumpe"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

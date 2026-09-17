@@ -45,6 +45,7 @@
   <concept id="6450">
     <code value="0"/>
     <display value="Valid code; not used for grouping"/>
+    <definition value="Valid code; not used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6451">
     <code value="1"/>
     <display value="Valid code; used for grouping"/>
+    <definition value="Valid code; used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6452">
     <code value="2"/>
     <display value="Invalid code; not used for grouping"/>
+    <definition value="Invalid code; not used for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6453">
     <code value="3"/>
     <display value="Invalid code; code is relevant for grouping"/>
+    <definition value="Invalid code; code is relevant for grouping"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

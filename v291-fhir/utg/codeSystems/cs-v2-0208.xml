@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.113"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="QueryResponseStatus"/>
   <title value="queryResponseStatus"/>
   <status value="active"/>
@@ -45,6 +45,7 @@
   <concept id="2126">
     <code value="OK"/>
     <display value="Data found, no errors (this is the default)"/>
+    <definition value="Data found, no errors (this is the default)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2127">
     <code value="NF"/>
     <display value="No data found, no errors"/>
+    <definition value="No data found, no errors"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2128">
     <code value="AE"/>
     <display value="Application error"/>
+    <definition value="Application error"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2129">
     <code value="AR"/>
     <display value="Application reject"/>
+    <definition value="Application reject"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

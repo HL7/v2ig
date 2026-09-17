@@ -45,6 +45,7 @@
   <concept id="5338">
     <code value="ANT"/>
     <display value="Anterior"/>
+    <definition value="Anterior"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="5339">
     <code value="BIL"/>
     <display value="Bilateral"/>
+    <definition value="Bilateral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="5340">
     <code value="DIS"/>
     <display value="Distal"/>
+    <definition value="Distal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="5341">
     <code value="EXT"/>
     <display value="External"/>
+    <definition value="External"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="5342">
     <code value="LAT"/>
     <display value="Lateral"/>
+    <definition value="Lateral"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,15 @@
   <concept id="5343">
     <code value="L"/>
     <display value="Left"/>
+    <definition value="Left"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="links"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +107,7 @@
   <concept id="5344">
     <code value="LOW"/>
     <display value="Lower"/>
+    <definition value="Lower"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +116,7 @@
   <concept id="5345">
     <code value="MED"/>
     <display value="Medial"/>
+    <definition value="Medial"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +125,7 @@
   <concept id="5346">
     <code value="POS"/>
     <display value="Posterior"/>
+    <definition value="Posterior"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +134,7 @@
   <concept id="5347">
     <code value="PRO"/>
     <display value="Proximal"/>
+    <definition value="Proximal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +143,7 @@
   <concept id="5348">
     <code value="LLQ"/>
     <display value="Quadrant, Left Lower"/>
+    <definition value="Quadrant, Left Lower"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +152,7 @@
   <concept id="5349">
     <code value="LUQ"/>
     <display value="Quadrant, Left Upper"/>
+    <definition value="Quadrant, Left Upper"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +161,7 @@
   <concept id="5350">
     <code value="RLQ"/>
     <display value="Quadrant, Right Lower"/>
+    <definition value="Quadrant, Right Lower"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -149,6 +170,7 @@
   <concept id="5351">
     <code value="RUQ"/>
     <display value="Quadrant, Right Upper"/>
+    <definition value="Quadrant, Right Upper"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -157,6 +179,7 @@
   <concept id="5352">
     <code value="R"/>
     <display value="Right"/>
+    <definition value="Right"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -165,6 +188,7 @@
   <concept id="5353">
     <code value="UPP"/>
     <display value="Upper"/>
+    <definition value="Upper"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

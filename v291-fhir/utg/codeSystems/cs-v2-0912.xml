@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.420"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Participation"/>
   <title value="participation"/>
   <status value="active"/>
@@ -48,9 +48,22 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="6567">
     <code value="AAP"/>
     <display value="Alert Acknowledging Provider"/>
+    <definition value="Alert Acknowledging Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -68,6 +81,7 @@
   <concept id="6569">
     <code value="AD"/>
     <display value="Admitting Provider"/>
+    <definition value="Admitting Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the PV1 segment, when more information about PV1-17 Admitting doctor is desired."/>
@@ -75,6 +89,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="PV1-17 Admitting doctor"/>
     </property>
   </concept>
   <concept id="6570">
@@ -93,6 +111,7 @@
   <concept id="6571">
     <code value="AI"/>
     <display value="Assistant/Alternate Interpreter"/>
+    <definition value="Assistant/Alternate Interpreter"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +120,7 @@
   <concept id="6572">
     <code value="AP"/>
     <display value="Administering Provider"/>
+    <definition value="Administering Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the RXA segment, when more information about RXA-10 Administering Provider is desired."/>
@@ -108,6 +128,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXA-10 Administering Provider"/>
     </property>
   </concept>
   <concept id="6573">
@@ -126,6 +150,7 @@
   <concept id="6574">
     <code value="ARI"/>
     <display value="Assistant Result Interpreter"/>
+    <definition value="Assistant Result Interpreter"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-33 Assistant Result Interpreter has been marked for backwards compatibility only."/>
@@ -138,6 +163,7 @@
   <concept id="6575">
     <code value="AT"/>
     <display value="Attending Provider"/>
+    <definition value="Attending Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the PV1 segment, when more information about &#10; PV1-7 Attending doctor is desired."/>
@@ -145,6 +171,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="PV1-7 Attending doctor"/>
     </property>
   </concept>
   <concept id="6576">
@@ -158,6 +188,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Replaces ORC-19 Action By"/>
     </property>
   </concept>
   <concept id="6577">
@@ -176,6 +210,7 @@
   <concept id="6578">
     <code value="CP"/>
     <display value="Consulting Provider"/>
+    <definition value="Consulting Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -193,6 +228,7 @@
   <concept id="6580">
     <code value="DP"/>
     <display value="Dispensing Provider"/>
+    <definition value="Dispensing Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the RXD segment, where RXD-10 Dispensing Provider has been marked for backwards compatibility only."/>
@@ -200,6 +236,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXD-10 Dispensing Provider"/>
     </property>
   </concept>
   <concept id="6581">
@@ -253,6 +293,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Replaces ORC-10 Entered By"/>
+    </property>
   </concept>
   <concept id="6585">
     <code value="EPRI"/>
@@ -270,6 +314,7 @@
   <concept id="6586">
     <code value="EQUIP"/>
     <display value="Equipment"/>
+    <definition value="Equipment"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OBX segment, where OBX-18 Equipment Instance Identifier has been marked for backwards compatibility only."/>
@@ -282,6 +327,7 @@
   <concept id="6587">
     <code value="FHCP"/>
     <display value="Family Health Care Professional"/>
+    <definition value="Family Health Care Professional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -299,9 +345,14 @@
   <concept id="6589">
     <code value="MDIR"/>
     <display value="Medical Director"/>
+    <definition value="Medical Director"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OBX-25 Performing Organization Medical Director"/>
     </property>
   </concept>
   <concept id="6590">
@@ -320,6 +371,7 @@
   <concept id="6591">
     <code value="OP"/>
     <display value="Ordering Provider"/>
+    <definition value="Ordering Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with either the ORC segment, where ORC-12 Ordering Provider, OBR-16 Ordering Provider, ORC-24 Ordering Provider Address have been marked for backwards compatibility only, or the OBR segment, where OBR-16 Ordering Provider has been marked for backwards compatibility only; the RXO segment, when more information about RXO-14 Ordering Provider&#39;s DEA Number is desired; the RXE segment, where RXE-13 Ordering Provider&#39;s DEA Number has been marked for backwards compatibility only."/>
@@ -327,6 +379,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="ORC-12 Ordering Provider, OBR-16 Ordering Provider, RXO-14 Ordering Provider&#39;s DEA Number, RXE-13 Ordering Provider&#39;s DEA Number, ORC-24 Ordering Provider Address"/>
     </property>
   </concept>
   <concept id="6592">
@@ -345,6 +401,7 @@
   <concept id="6593">
     <code value="OS"/>
     <display value="Outside Site(s) Where Observation May Be Performed"/>
+    <definition value="Outside Site(s) Where Observation May Be Performed"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OM1 segment, where OM1-27 Outside Site(s) Where Observation May Be Performed has been deprecated."/>
@@ -353,10 +410,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Replacing  OM1-27 Outside Site(s) Where Observation May Be Performed"/>
+    </property>
   </concept>
   <concept id="6594">
     <code value="PB"/>
     <display value="Packed by"/>
+    <definition value="Packed by"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -374,10 +436,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Replaces RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </property>
   </concept>
   <concept id="6596">
     <code value="PI"/>
     <display value="Primary Interpreter"/>
+    <definition value="Primary Interpreter"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -386,6 +453,7 @@
   <concept id="6597">
     <code value="PO"/>
     <display value="Performing Organization"/>
+    <definition value="Performing Organization"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -394,6 +462,7 @@
   <concept id="6598">
     <code value="POMD"/>
     <display value="Performing Organization Medical Director"/>
+    <definition value="Performing Organization Medical Director"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OBX segment, where OBX-25 Performing Organization Medical Director has been marked for backwards compatibility only"/>
@@ -406,6 +475,7 @@
   <concept id="6599">
     <code value="PP"/>
     <display value="Primary Care Provider"/>
+    <definition value="Primary Care Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -422,6 +492,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Most likely to be used in ADT messages for outpatient care."/>
     </property>
   </concept>
   <concept id="6601">
@@ -440,6 +514,7 @@
   <concept id="6602">
     <code value="RCT"/>
     <display value="Results Copies To"/>
+    <definition value="Results Copies To"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -466,6 +541,7 @@
   <concept id="6605">
     <code value="RO"/>
     <display value="Responsible Observer"/>
+    <definition value="Responsible Observer"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OBX segment, where OBX-16 Responsible Observer has been marked for backwards compatibility only"/>
@@ -474,10 +550,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OBX-16 Responsible Observer"/>
+    </property>
   </concept>
   <concept id="6606">
     <code value="RP"/>
     <display value="Referring Provider"/>
+    <definition value="Referring Provider"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the PV1 segment, when more information about PV1-8 Referring doctor is desired."/>
@@ -485,6 +566,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="PV1-8 Referring doctor"/>
     </property>
   </concept>
   <concept id="6607">
@@ -499,6 +584,7 @@
   <concept id="6608">
     <code value="RT"/>
     <display value="Referred to Provider"/>
+    <definition value="Referred to Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -507,6 +593,7 @@
   <concept id="6609">
     <code value="SB"/>
     <display value="Send by"/>
+    <definition value="Send by"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -524,6 +611,10 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="OBR-10 Collector Identifier"/>
+    </property>
   </concept>
   <concept id="6611">
     <code value="TL"/>
@@ -537,6 +628,7 @@
   <concept id="6612">
     <code value="TN"/>
     <display value="Technician"/>
+    <definition value="Technician"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-34 Technician has been marked for backwards compatibility only"/>
@@ -549,6 +641,7 @@
   <concept id="6613">
     <code value="TR"/>
     <display value="Transcriptionist"/>
+    <definition value="Transcriptionist"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-35 Transcriptionist has been marked for backwards compatibility only"/>
@@ -570,10 +663,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Replaces ORC-11 Verified By"/>
+    </property>
   </concept>
   <concept id="6615">
     <code value="VPS"/>
     <display value="Verifying Pharmaceutical Supplier (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
+    <definition value="Verifying Pharmaceutical Supplier   (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Use of this code is deprecated; depending on the role of the person use either PH or VP."/>
@@ -581,11 +679,20 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Use of this code is deprecated; depending on the role of the person use either PH or VP."/>
     </property>
   </concept>
   <concept id="6616">
     <code value="VTS"/>
     <display value="Verifying Treatment Supplier (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
+    <definition value="Verifying Treatment Supplier   (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Usage Note: Use of this code is deprecated; depending on the role of the person use either PH or VP."/>
@@ -594,10 +701,19 @@
       <code value="status"/>
       <valueCode value="deprecated"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Use of this code is deprecated; depending on the role of the person use either PH or VP."/>
+    </property>
   </concept>
   <concept id="6617">
     <code value="WAY"/>
     <display value="Waypoint"/>
+    <definition value="Waypoint"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -606,6 +722,7 @@
   <concept id="6618">
     <code value="WAYR"/>
     <display value="Waypoint Recipient"/>
+    <definition value="Waypoint Recipient"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

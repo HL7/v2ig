@@ -45,6 +45,7 @@
   <concept id="2557">
     <code value="CFST"/>
     <display value="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+    <definition value="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2558">
     <code value="EXCZ"/>
     <display value="Exercise undertaken as challenge (can be quantified)"/>
+    <definition value="Exercise undertaken as challenge (can be quantified)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2559">
     <code value="FFST"/>
     <display value="No fluid intake for the period specified in the time component of the term"/>
+    <definition value="No fluid intake for the period specified in the time component of the term"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

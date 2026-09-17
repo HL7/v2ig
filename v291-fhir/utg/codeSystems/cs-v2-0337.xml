@@ -45,6 +45,7 @@
   <concept id="3111">
     <code value="C"/>
     <display value="Certified"/>
+    <definition value="Certified"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3112">
     <code value="E"/>
     <display value="Eligible"/>
+    <definition value="Eligible"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

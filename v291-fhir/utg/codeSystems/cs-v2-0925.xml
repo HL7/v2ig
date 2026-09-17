@@ -45,6 +45,7 @@
   <concept id="6653">
     <code value="INF"/>
     <display value="Infiltration"/>
+    <definition value="Infiltration"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="6654">
     <code value="VSM"/>
     <display value="Vein Spasm"/>
+    <definition value="Vein Spasm"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="6655">
     <code value="COL"/>
     <display value="Collapse"/>
+    <definition value="Collapse"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="6656">
     <code value="MIS"/>
     <display value="Missed / in tissue"/>
+    <definition value="Missed / in tissue"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="6657">
     <code value="NAD"/>
     <display value="Needle adjustment (this may not end a procedure, if successful will impact component production)"/>
+    <definition value="Needle adjustment (this may not end a procedure, if successful will impact component production)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="6658">
     <code value="PFL"/>
     <display value="Poor flow"/>
+    <definition value="Poor flow"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="6659">
     <code value="CLT"/>
     <display value="Clotted"/>
+    <definition value="Clotted"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="6660">
     <code value="DND"/>
     <display value="Defective Needle"/>
+    <definition value="Defective Needle"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -109,6 +117,7 @@
   <concept id="6661">
     <code value="DBG"/>
     <display value="Defective Bag"/>
+    <definition value="Defective Bag"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -117,6 +126,7 @@
   <concept id="6662">
     <code value="DAK"/>
     <display value="Defective Apheresis Kit"/>
+    <definition value="Defective Apheresis Kit"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,6 +135,7 @@
   <concept id="6663">
     <code value="DMT"/>
     <display value="Defective Instrument"/>
+    <definition value="Defective Instrument"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -133,6 +144,7 @@
   <concept id="6664">
     <code value="IPF"/>
     <display value="Instrument Power Failure"/>
+    <definition value="Instrument Power Failure"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -141,6 +153,15 @@
   <concept id="6665">
     <code value="ACN"/>
     <display value="Air Contamination"/>
+    <definition value="Air Contamination"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Luftverschmutzung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

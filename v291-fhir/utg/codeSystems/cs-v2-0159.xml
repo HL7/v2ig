@@ -45,6 +45,15 @@
   <concept id="1657">
     <code value="D"/>
     <display value="Diet"/>
+    <definition value="Diet"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Diät"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1658">
     <code value="S"/>
     <display value="Supplement"/>
+    <definition value="Supplement"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Zusatzverpflegung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1659">
     <code value="P"/>
     <display value="Preference"/>
+    <definition value="Preference"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="bevorzugte Verpflegung"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

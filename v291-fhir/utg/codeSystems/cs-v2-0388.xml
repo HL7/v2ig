@@ -45,6 +45,7 @@
   <concept id="3858">
     <code value="P"/>
     <display value="Regular Production"/>
+    <definition value="Regular Production"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3859">
     <code value="E"/>
     <display value="Evaluation"/>
+    <definition value="Evaluation"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

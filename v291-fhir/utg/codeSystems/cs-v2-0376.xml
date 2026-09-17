@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3811">
     <code value="C37"/>
     <display value="Body temperature"/>
+    <definition value="Body temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Critical to keep at body temperature: 36 - 38( C."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Critical to keep at body temperature: 36 - 38( C."/>
+    </property>
   </concept>
   <concept id="3812">
     <code value="AMB"/>
     <display value="Ambient temperature"/>
+    <definition value="Ambient temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Keep at ambient (room) temperature, approximately 22 ( 2 degrees C. Accidental refrigeration or freezing is of little consequence"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Keep at ambient (room) temperature, approximately 22 ( 2 degrees C. Accidental refrigeration or freezing is of little consequence"/>
+    </property>
   </concept>
   <concept id="3813">
     <code value="CAMB"/>
     <display value="Critical ambient temperature"/>
+    <definition value="Critical ambient temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Critical ambient - must not be refrigerated or frozen."/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Critical ambient - must not be refrigerated or frozen."/>
+    </property>
   </concept>
   <concept id="3814">
     <code value="REF"/>
     <display value="Refrigerated temperature"/>
+    <definition value="Refrigerated temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Keep at refrigerated temperature: 4-8( C. Accidental warming or freezing is of little consequence"/>
@@ -95,10 +117,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Keep at refrigerated temperature: 4-8( C. Accidental warming or freezing is of little consequence"/>
+    </property>
   </concept>
   <concept id="3815">
     <code value="CREF"/>
     <display value="Critical refrigerated temperature"/>
+    <definition value="Critical refrigerated temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Critical refrigerated - must not be allowed to freeze or warm until immediately prior to testing"/>
@@ -107,10 +134,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Critical refrigerated -  must not be allowed to freeze or warm until immediately prior to testing"/>
+    </property>
   </concept>
   <concept id="3816">
     <code value="FRZ"/>
     <display value="Frozen temperature"/>
+    <definition value="Frozen temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Keep at frozen temperature: -4( C. Accidental thawing is of little consequence"/>
@@ -119,10 +151,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Keep at frozen temperature: -4( C. Accidental thawing is of little consequence"/>
+    </property>
   </concept>
   <concept id="3817">
     <code value="CFRZ"/>
     <display value="Critical frozen temperature"/>
+    <definition value="Critical frozen temperature"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Critical frozen - must not be allowed to thaw until immediately prior to testing"/>
@@ -131,10 +168,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Critical frozen - must not be allowed to thaw until immediately prior to testing"/>
+    </property>
   </concept>
   <concept id="3818">
     <code value="DFRZ"/>
     <display value="Deep frozen"/>
+    <definition value="Deep frozen"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Deep frozen: -16 to -20( C."/>
@@ -143,10 +185,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Deep frozen: -16 to -20( C."/>
+    </property>
   </concept>
   <concept id="3819">
     <code value="UFRZ"/>
     <display value="Ultra frozen"/>
+    <definition value="Ultra frozen"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Ultra cold frozen: ~ -75 to -85( C. (ultra cold freezer is typically at temperature of dry ice)."/>
@@ -155,10 +202,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Ultra cold frozen: ~ -75 to -85( C. (ultra cold freezer is typically at temperature of dry ice)."/>
+    </property>
   </concept>
   <concept id="3820">
     <code value="NTR"/>
     <display value="Liquid nitrogen"/>
+    <definition value="Liquid nitrogen"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Keep in liquid nitrogen."/>
@@ -167,10 +219,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Keep in liquid nitrogen."/>
+    </property>
   </concept>
   <concept id="3821">
     <code value="PRTL"/>
     <display value="Protect from light"/>
+    <definition value="Protect from light"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Protect from light (e.g., wrap in aluminum foil)."/>
@@ -179,10 +236,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Protect from light (e.g., wrap in aluminum foil)."/>
+    </property>
   </concept>
   <concept id="3822">
     <code value="CATM"/>
     <display value="Protect from air"/>
+    <definition value="Protect from air"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Critical. Do not expose to atmosphere. Do not uncap."/>
@@ -191,10 +253,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Critical. Do not expose to atmosphere. Do not uncap."/>
+    </property>
   </concept>
   <concept id="3823">
     <code value="DRY"/>
     <display value="Dry"/>
+    <definition value="Dry"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Keep in a dry environment."/>
@@ -203,10 +270,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Keep in a dry environment."/>
+    </property>
   </concept>
   <concept id="3824">
     <code value="PSO"/>
     <display value="No shock"/>
+    <definition value="No shock"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Protect from shock."/>
@@ -215,10 +287,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Protect from shock."/>
+    </property>
   </concept>
   <concept id="3825">
     <code value="PSA"/>
     <display value="Do not shake"/>
+    <definition value="Do not shake"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Do not shake."/>
@@ -227,10 +304,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Do not shake."/>
+    </property>
   </concept>
   <concept id="3826">
     <code value="UPR"/>
     <display value="Upright"/>
+    <definition value="Upright"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Keep upright. Do not turn upside down."/>
@@ -239,10 +321,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Keep upright. Do not turn upside down."/>
+    </property>
   </concept>
   <concept id="3827">
     <code value="MTLF"/>
     <display value="Metal Free"/>
+    <definition value="Metal Free"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Container is free of heavy metals including lead."/>
@@ -250,6 +337,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Container is free of heavy metals including lead."/>
     </property>
   </concept>
 </CodeSystem>

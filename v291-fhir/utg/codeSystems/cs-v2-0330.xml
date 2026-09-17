@@ -45,6 +45,7 @@
   <concept id="3063">
     <code value="510K"/>
     <display value="510 (K)"/>
+    <definition value="510 (K)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="3064">
     <code value="510E"/>
     <display value="510 (K) exempt"/>
+    <definition value="510 (K) exempt"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="3065">
     <code value="PMA"/>
     <display value="Premarketing authorization"/>
+    <definition value="Premarketing authorization"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="3066">
     <code value="PRE"/>
     <display value="Preamendment"/>
+    <definition value="Preamendment"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="3067">
     <code value="TXN"/>
     <display value="Transitional"/>
+    <definition value="Transitional"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="3068">
     <code value="522S"/>
     <display value="Post marketing study (522)"/>
+    <definition value="Post marketing study (522)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

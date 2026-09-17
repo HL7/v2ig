@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.111"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="SegmentAction"/>
   <title value="segmentAction"/>
   <status value="active"/>
@@ -51,6 +51,15 @@
   <concept id="2115">
     <code value="A"/>
     <display value="Add/Insert"/>
+    <definition value="Add/Insert"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Einfügen"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,6 +68,15 @@
   <concept id="2116">
     <code value="D"/>
     <display value="Delete"/>
+    <definition value="Delete"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Löschen/Stornieren"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -80,6 +98,15 @@
   <concept id="2118">
     <code value="U"/>
     <display value="Update"/>
+    <definition value="Update"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ändern"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -88,6 +115,7 @@
   <concept id="2119">
     <code value="X"/>
     <display value="No Change"/>
+    <definition value="No Change"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6497">
     <code value="M"/>
     <display value="Moved"/>
+    <definition value="Moved"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The individual associated with the telecommunication address has moved and is no longer reachable at the address."/>
@@ -59,10 +66,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The individual associated with the telecommunication address has moved and is no longer reachable at the address."/>
+    </property>
   </concept>
   <concept id="6498">
     <code value="E"/>
     <display value="Added in error"/>
+    <definition value="Added in error"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The telecommunication address was incorrect and should never have been associated with the individual."/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The telecommunication address was incorrect and should never have been associated with the individual."/>
+    </property>
   </concept>
   <concept id="6499">
     <code value="R"/>
     <display value="On request"/>
+    <definition value="On request"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The associated individual requested that the telecommunication address be removed from their record (though it may still be correct)."/>
@@ -83,10 +100,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The associated individual requested that the telecommunication address be removed from their record (though it may still be correct)."/>
+    </property>
   </concept>
   <concept id="6500">
     <code value="C"/>
     <display value="Corrected"/>
+    <definition value="Corrected"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The telecommunication address has been replaced with a corrected version."/>
@@ -95,10 +117,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The telecommunication address has been replaced with a corrected version."/>
+    </property>
   </concept>
   <concept id="6501">
     <code value="N"/>
     <display value="No longer in service"/>
+    <definition value="No longer in service"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="The telecommunication address is no longer connected or available"/>
@@ -106,6 +133,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The telecommunication address is no longer connected or available"/>
     </property>
   </concept>
 </CodeSystem>

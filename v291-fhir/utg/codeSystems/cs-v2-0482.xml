@@ -45,6 +45,7 @@
   <concept id="4901">
     <code value="I"/>
     <display value="Inpatient Order"/>
+    <definition value="Inpatient Order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="4902">
     <code value="O"/>
     <display value="Outpatient Order"/>
+    <definition value="Outpatient Order"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

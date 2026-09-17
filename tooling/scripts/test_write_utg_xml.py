@@ -21,6 +21,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from utg_xml import Node, escape_attribute, render_document  # noqa: E402
+import tho_merge as tho_merge_module  # noqa: E402
 import write_utg_xml as writer  # noqa: E402
 
 FHIR = "{http://hl7.org/fhir}"
@@ -622,3 +623,188 @@ def test_a_table_number_is_read_from_a_prefixed_file_name():
     assert writer.UtgRepo._table_number(Path("vs-v2-notAllCodes-0291.xml")) == "0291"
     assert writer.UtgRepo._table_number(Path("cs-v2-0001.xml")) == "0001"
     assert writer.UtgRepo._table_number(Path("readme.md")) is None
+
+
+# --------------------------------------------------------------------------
+# The THO merge, through the writer
+# --------------------------------------------------------------------------
+
+class FakeSnapshot:
+    """A THO snapshot of one or two resources, for tests.
+
+    The real one reads a 2,000-file package off disk. Everything the writer
+    asks of it is these four methods.
+    """
+
+    def __init__(self, code_systems=None, value_sets=None):
+        self._code_systems = code_systems or {}
+        self._value_sets = value_sets or {}
+
+    def code_system(self, table):
+        return self._code_systems.get(table)
+
+    def value_set(self, url):
+        return self._value_sets.get(url)
+
+    def code_system_tables(self):
+        return set(self._code_systems)
+
+    def value_set_urls(self):
+        return set(self._value_sets)
+
+    def provenance(self):
+        return {"package": "test", "version": "0.0.0"}
+
+
+def tho_code_system(**overrides):
+    resource = {
+        "resourceType": "CodeSystem",
+        "url": writer.CS_CANONICAL.format(table="0001"),
+        # Same OID `make_record` gives, so that an identifier difference is
+        # not silently what these tests are measuring.
+        "identifier": [{"system": "urn:ietf:rfc:3986",
+                        "value": "urn:oid:2.16.840.1.113883.18.2"}],
+        "version": "3.0.0",
+        "name": "TestSystem",
+        "title": "testSystem",
+        "status": "active",
+        "experimental": False,
+        "description": "A test code system.",
+        "purpose": "Underlying Master Code System for V2 table 0001 "
+                   "(Test Table)",
+        "caseSensitive": True,
+        "hierarchyMeaning": "is-a",
+        "compositional": False,
+        "content": "complete",
+        "property": [{"code": "status",
+                      "uri": "http://hl7.org/fhir/concept-properties#status",
+                      "description": "A code that indicates the status of the "
+                                     "concept",
+                      "type": "code"}],
+        "concept": [{"id": "100", "code": "F", "display": "Female",
+                     "definition": "Female",
+                     "property": [{"code": "status", "valueCode": "active"}]}],
+    }
+    resource.update(overrides)
+    return resource
+
+
+def build_with_tho(record=None, snapshot=None, utg=None):
+    """Render a CodeSystem against a THO snapshot, returning root and plan."""
+    record = record if record is not None else make_record()
+    utg = utg or empty_repo()
+    plan = writer.classify(record, {})
+    resolved = writer.plan_code_system(record, plan, utg, None, snapshot)
+    document = render_document(writer.render_code_system(resolved))
+    return ElementTree.fromstring(document), resolved
+
+
+def test_a_definition_the_chapter_lacks_comes_from_tho():
+    """The 4,855-instance case: the chapter has no definition column, and
+    dropping THO's deletes text from the artifact at THO's canonical."""
+    root, _ = build_with_tho(snapshot=FakeSnapshot({"0001": tho_code_system()}))
+    concept = root.find(f"{FHIR}concept")
+    assert concept.find(f"{FHIR}definition").get("value") == "Female"
+
+
+def test_the_definition_is_still_not_invented_from_the_display():
+    """Filling from THO is not the same as filling from the display. With no
+    THO resource to draw on, the old rule stands."""
+    root, _ = build_with_tho(snapshot=FakeSnapshot())
+    assert root.find(f"{FHIR}concept").find(f"{FHIR}definition") is None
+
+
+def test_a_translation_survives_the_merge():
+    tho = tho_code_system(concept=[{
+        "id": "100", "code": "F", "display": "Female",
+        "designation": [{"language": "de",
+                         "use": {"system": "http://x", "code": "preferred"},
+                         "value": "weiblich"}]}])
+    root, _ = build_with_tho(snapshot=FakeSnapshot({"0001": tho}))
+    designation = root.find(f"{FHIR}concept").find(f"{FHIR}designation")
+    assert designation.find(f"{FHIR}value").get("value") == "weiblich"
+    assert designation.find(f"{FHIR}language").get("value") == "de"
+
+
+def test_an_inherited_property_is_declared_as_tho_declares_it():
+    """An undeclared property is invalid FHIR, so inheriting one means
+    inheriting its declaration too."""
+    tho = tho_code_system(
+        property=[{"code": "HL7usageNotes", "uri": "http://x#notes",
+                   "description": "HL7 Concept Usage Notes", "type": "string"}],
+        concept=[{"id": "100", "code": "F", "display": "Female",
+                  "property": [{"code": "HL7usageNotes",
+                                "valueString": "Use with care."}]}])
+    root, resolved = build_with_tho(snapshot=FakeSnapshot({"0001": tho}))
+    declared = [p.find(f"{FHIR}code").get("value")
+                for p in root.findall(f"{FHIR}property")]
+    assert "HL7usageNotes" in declared
+    assert resolved["unknownProperties"] == []
+
+
+def test_a_code_only_tho_has_is_published_and_keeps_its_id():
+    tho = tho_code_system(concept=[
+        {"id": "100", "code": "F", "display": "Female"},
+        {"id": "101", "code": "M", "display": "Male"}])
+    root, _ = build_with_tho(snapshot=FakeSnapshot({"0001": tho}))
+    concepts = root.findall(f"{FHIR}concept")
+    assert [c.find(f"{FHIR}code").get("value") for c in concepts] == ["F", "M"]
+    assert concepts[1].get("id") == "101"
+
+
+def test_a_resource_that_matches_tho_keeps_thos_version():
+    """The point of the merge: matching costs nothing. Without it, 383 of 396
+    code systems would have had to increment."""
+    tho = tho_code_system()
+    root, resolved = build_with_tho(snapshot=FakeSnapshot({"0001": tho}))
+    assert root.find(f"{FHIR}version").get("value") == "3.0.0"
+    assert resolved["version"]["incremented"] is False
+
+
+def test_a_resource_that_differs_from_tho_increments():
+    tho = tho_code_system(concept=[{"id": "100", "code": "F",
+                                    "display": "Woman"}])
+    root, resolved = build_with_tho(snapshot=FakeSnapshot({"0001": tho}))
+    assert root.find(f"{FHIR}version").get("value") == "4.0.0"
+    assert resolved["version"]["triggers"] == ["concept"]
+
+
+def test_a_resource_tho_does_not_publish_starts_at_one():
+    root, _ = build_with_tho(snapshot=FakeSnapshot())
+    assert root.find(f"{FHIR}version").get("value") == "1.0.0"
+
+
+def test_a_placeholder_description_is_replaced_by_thos():
+    record = make_record()
+    record["codeSystems"][0]["Description"] = "tbd"
+    root, resolved = build_with_tho(record,
+                                    FakeSnapshot({"0001": tho_code_system()}))
+    assert root.find(f"{FHIR}description").get("value") == "A test code system."
+    assert resolved["version"]["version"] == "3.0.0"
+
+
+def test_an_artifact_tho_publishes_and_we_do_not_is_reported():
+    """Publishing nothing destroys nothing, so the merge must not invent a
+    resource -- but the silence has to be visible."""
+    record = make_record(table="0001", codeSystems=[], valueSets=[],
+                         conceptDomain={"SymbolicName": "TestDomain",
+                                        "Concept Domain Only": "yes"})
+    observe = tho_merge_module.Observations()
+    _files, report = writer.process([record], empty_repo(), {}, None,
+                                    FakeSnapshot({"0001": tho_code_system()}),
+                                    observe)
+    writer.record_omissions(report, FakeSnapshot({"0001": tho_code_system()}),
+                            observe)
+    omissions = [r for r in observe.records if r["kind"] == "omission"]
+    assert [r["table"] for r in omissions] == ["0001"]
+    assert omissions[0]["resource"] == "CodeSystem"
+
+
+def test_without_a_snapshot_the_writer_behaves_as_it_always_did():
+    """The builders stay usable without the THO package on disk, which is what
+    every test above this section relies on."""
+    utg = empty_repo()
+    utg.code_systems["0001"] = {"version": "5.0.0", "date": "2025-07-15",
+                                "workGroup": "pa", "conceptIds": {}}
+    root, _ = build(make_record(), utg)
+    assert root.find(f"{FHIR}version").get("value") == "5.0.0"

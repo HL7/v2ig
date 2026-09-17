@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.388"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="AccessRestrictionValue"/>
   <title value="accessRestrictionValue"/>
   <status value="active"/>
@@ -60,6 +60,7 @@
   <concept id="6329">
     <code value="ALL"/>
     <display value="All"/>
+    <definition value="All"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code is for backwards compatibility only as of v2.9. &#10;If any of 1..* ARV-4 sensitivity codes (Table 0179) apply to the entire message, then ERL is not populated. This emulates the current Table 0717 code “ALL”."/>
@@ -72,6 +73,7 @@
   <concept id="6330">
     <code value="DEM"/>
     <display value="All demographic data"/>
+    <definition value="All demographic data"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “DEMO” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -84,6 +86,7 @@
   <concept id="6331">
     <code value="LOC"/>
     <display value="Patient Location"/>
+    <definition value="Patient Location"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “PATLOC” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -96,6 +99,7 @@
   <concept id="6332">
     <code value="PID-7"/>
     <display value="Date of Birth"/>
+    <definition value="Date of Birth"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “DOB” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -108,6 +112,7 @@
   <concept id="6333">
     <code value="PID-17"/>
     <display value="Religion"/>
+    <definition value="Religion"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “REL” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -120,6 +125,7 @@
   <concept id="6334">
     <code value="HIV"/>
     <display value="HIV status and results"/>
+    <definition value="HIV status and results"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “HIV” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -132,6 +138,7 @@
   <concept id="6335">
     <code value="STD"/>
     <display value="Sexually transmitted diseases"/>
+    <definition value="Sexually transmitted diseases"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “STD” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -144,6 +151,7 @@
   <concept id="6336">
     <code value="PSY"/>
     <display value="Psychiatric Mental health"/>
+    <definition value="Psychiatric Mental health"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “SPI” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -156,6 +164,7 @@
   <concept id="6337">
     <code value="DRG"/>
     <display value="Drug"/>
+    <definition value="Drug"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the v3 concept “DRGIS” as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -168,6 +177,7 @@
   <concept id="6338">
     <code value="SMD"/>
     <display value="Sensitive medical data"/>
+    <definition value="Sensitive medical data"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code has been replaced by the several concepts that are more granular v3 ActCode_ActPrivacyPolicy_InformationSensitivityPolicy code, e.g., DIA (diagnosis information sensitivity) and PRS (patient requested information sensitivity) as of v2.9. &#10;Since this is describing a sensitivity, it will be sent in ARV-4."/>
@@ -180,6 +190,7 @@
   <concept id="6339">
     <code value="NO"/>
     <display value="None"/>
+    <definition value="None"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This code is for backwards compatibility only as of v2.9. &#10;If no restrictions, don’t send an ARV segment altogether. If sent, ARV-3 is a required element however. To emulate 0717 “NONE”, populate ARV-3 with code from new ActCode_ActPolicyType__ActInformationPolicy such as OrgNSI (organizational non-sensitive information policy) or PersNSI (personal non-sensitive information policy). &#10;Don’t populate ARV-7. E.g., Device record that is not sensitive. If you have a situation where an ARV-4 is valued, as required by, e.g., an organizational policy related to disclosure of a VIP’s health status or location at a facility, and the VIP has authorized disclosure as public information, one may use OrgPI (organizational public information policy - Organizational policy on collection, access, use, or disclosure of public information as defined by the organization or governing jurisdiction) to value ARV-3 indicating that the policy permits the disclosure of VIP sensitive information as coded in ARV-4."/>
@@ -192,6 +203,7 @@
   <concept id="6340">
     <code value="OO"/>
     <display value="Opt out all registries (HIPAA)"/>
+    <definition value="Opt out all registries (HIPAA)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Map to similar code in new ActCode_ActPolicyType_ActConsent_ActPrivacyConsentDirective_RegistryConsentDirective, which are any of these: OPTOUT, OPTOUTE, OOC, OOS"/>
@@ -204,6 +216,7 @@
   <concept id="6341">
     <code value="OI"/>
     <display value="Opt in all registries (HIPAA)"/>
+    <definition value="Opt in all registries (HIPAA)"/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Map to similar code in new ActCode_ActPolicyType_ActConsent_ActPrivacyConsentDirective_RegistryConsentDirective, which are any of these: OPTIN, OPTINR, OIC, OIS"/>

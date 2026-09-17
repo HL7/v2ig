@@ -10,7 +10,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.216"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="AlternateCharacterSetHandlingScheme"/>
   <title value="alternateCharacterSetHandlingScheme"/>
   <status value="active"/>
@@ -48,9 +48,16 @@
     <description value="V2 Concept Comment"/>
     <type value="string"/>
   </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3567">
     <code value="ISO 2022-1994"/>
     <display value="This standard is titled &quot;Information Technology - Character Code Structure and Extension Technique&quot;."/>
+    <definition value="This standard is titled &quot;Information Technology - Character Code Structure and Extension Technique&quot;. ."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Note that the escape sequences used in this mode do not use the ASCII “esc” character, as defined in ISO 2022-1994. They are “HL7 escape sequences” as first defined in HL7 2.3, sec. 2.9.2. (Also, note that sections 2.8.28.6.1and 2.9.2 in HL7 2.3 correspond to sections 2.16.93 and 2.7.2 in HL7 2. 5.)"/>
@@ -58,11 +65,16 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Note that the escape sequences used in this mode do not use the ASCII “esc” character, as defined in ISO 2022-1994. They are “HL7 escape sequences” as first defined in HL7 2.3, sec. 2.9.2. (Also, note that sections 2.8.28.6.1and 2.9.2 in HL7 2.3 correspond to sections 2.16.93 and 2.7.2 in HL7 2. 5.)"/>
     </property>
   </concept>
   <concept id="3568">
     <code value="2.3"/>
     <display value="The character set switching mode specified in HL7 2.5, section 2.7.2 and section 2.A.46, &quot;XPN - extended person name&quot;."/>
+    <definition value="The character set switching mode specified in HL7 2.5, section 2.7.2 and section 2.A.46, &quot;XPN - extended person name&quot;."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="Note that the escape sequences used in this mode do not use the ASCII “esc” character, as defined in ISO 2022-1994. They are “HL7 escape sequences” as first defined in HL7 2.3, sec. 2.9.2. (Also, note that sections 2.8.28.6.1and 2.9.2 in HL7 2.3 correspond to sections 2.16.93 and 2.7.2 in HL7 2. 5.)"/>
@@ -71,10 +83,15 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Note that the escape sequences used in this mode do not use the ASCII “esc” character, as defined in ISO 2022-1994. They are “HL7 escape sequences” as first defined in HL7 2.3, sec. 2.9.2. (Also, note that sections 2.8.28.6.1and 2.9.2 in HL7 2.3 correspond to sections 2.16.93 and 2.7.2 in HL7 2. 5.)"/>
+    </property>
   </concept>
   <concept id="3569">
     <code value="&lt;null&gt;"/>
     <display value="This is the default, indicating that there is no character set switching occurring in this message."/>
+    <definition value="This is the default, indicating that there is no character set switching occurring in this message."/>
     <property>
       <code value="v2-concComment"/>
       <valueString value="This is the default."/>
@@ -82,6 +99,10 @@
     <property>
       <code value="status"/>
       <valueCode value="deprecated"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This is the default."/>
     </property>
   </concept>
 </CodeSystem>

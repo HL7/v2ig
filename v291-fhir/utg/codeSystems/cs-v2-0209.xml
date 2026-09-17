@@ -45,6 +45,7 @@
   <concept id="2132">
     <code value="EQ"/>
     <display value="Equal"/>
+    <definition value="Equal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +54,7 @@
   <concept id="2133">
     <code value="NE"/>
     <display value="Not Equal"/>
+    <definition value="Not Equal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +63,7 @@
   <concept id="2134">
     <code value="LT"/>
     <display value="Less than"/>
+    <definition value="Less than"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +72,7 @@
   <concept id="2135">
     <code value="GT"/>
     <display value="Greater than"/>
+    <definition value="Greater than"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +81,7 @@
   <concept id="2136">
     <code value="LE"/>
     <display value="Less than or equal"/>
+    <definition value="Less than or equal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +90,7 @@
   <concept id="2137">
     <code value="GE"/>
     <display value="Greater than or equal"/>
+    <definition value="Greater than or equal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +99,7 @@
   <concept id="2138">
     <code value="CT"/>
     <display value="Contains"/>
+    <definition value="Contains"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -101,6 +108,7 @@
   <concept id="2139">
     <code value="GN"/>
     <display value="Generic"/>
+    <definition value="Generic"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -45,6 +45,15 @@
   <concept id="1808">
     <code value="S"/>
     <display value="Stat (do immediately)"/>
+    <definition value="Stat (do immediately)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="sofort"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -53,6 +62,15 @@
   <concept id="1809">
     <code value="A"/>
     <display value="As soon as possible (a priority lower than stat)"/>
+    <definition value="As soon as possible (a priority lower than stat)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="schnellsmöglich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +79,15 @@
   <concept id="1810">
     <code value="R"/>
     <display value="Routine"/>
+    <definition value="Routine"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Routine"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +96,15 @@
   <concept id="1811">
     <code value="P"/>
     <display value="Preoperative (to be done prior to surgery)"/>
+    <definition value="Preoperative (to be done prior to surgery)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="präoperativ"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,6 +113,15 @@
   <concept id="1812">
     <code value="T"/>
     <display value="Timing critical (do as near as possible to requested time)"/>
+    <definition value="Timing critical (do as near as possible to requested time)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="zum vereinbarten Zeitpunkt"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +130,15 @@
   <concept id="1813">
     <code value="C"/>
     <display value="Measure continuously (e.g., arterial line blood pressure)"/>
+    <definition value="Measure continuously (e.g., arterial line blood pressure)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="kontinuierlich"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -93,6 +147,15 @@
   <concept id="1814">
     <code value="B"/>
     <display value="Do at bedside or portable (may be used with other codes)"/>
+    <definition value="Do at bedside or portable (may be used with other codes)"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="am Patientenbett"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
