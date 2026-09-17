@@ -18,28 +18,189 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-16 (the vocabulary IG builds and is viewable; no canonical collisions; the 28 Aug meeting outcome is still unrecorded)
+## ACTIVE — 2026-09-17 (the table index is built and published; the additive-stance question goes to Rockville next week)
 
-**Branch: `dev/v291-vocabulary-ig`, at `330d7c34`. 25 commits ahead of origin,
+**Branch: `dev/v291-vocabulary-ig`, at `7861ce8f`. 30 commits ahead of origin,
 unpushed.** All vocabulary work is on this branch and nowhere else;
 `dev/framework` carries only the structural-review workstream. **Do not commit
 vocabulary work to `dev/framework`.**
 
-**Phase:** the IG builds. 821 resources (398 CodeSystems, 422 ValueSets,
-conceptdomains 4.0.0) publish in **31m19s** with **zero canonical collisions**
-against `hl7.terminology.r5#7.3.0`. 243 tests pass; every document regenerates
-clean.
+**Phase:** the IG builds and now carries a table index. 290 tests pass. Last
+build 14m54s, 5 GB peak, **errors 216, warnings 416, broken links 1** — all
+unchanged from before this session's work except broken links, which went
+1 → 39 → 1 (see below).
+
+### First thing next session
+
+**Nothing is blocked. Start on the agreed plan** (below). The one thing waiting
+on someone else is the additive-stance ruling, and the user expects an answer
+at the **HL7 work group meetings in Rockville, week of 2026-09-21**.
+
+The V2 Management meeting of 2026-08-28 is *still* unrecorded — asked across
+four sessions now, never answered. Lower priority than it was; ask once, do not
+spend the session on it.
+
+### The plan, agreed 2026-09-17
+
+1. **Additive merge in the writer.** Where THO has a definition, display or
+   concept and Chapter 2C does not, keep THO's. Emit a computable record
+   (`v291-fhir/tho-fill-report.json`) of every fill, plus a human-readable page
+   describing each *class* of fill with counts — **not** the individual
+   instances; there are 4,855 and the user explicitly said a class-level
+   description is enough.
+2. **Version bumps computed from the policy element table**, re-derived on every
+   run rather than hand-applied.
+3. **0560 written as Chapter 2C publishes it** — see below.
+4. **A per-table ledger in the IG** — one section per table (a single large page
+   is fine) carrying: every change relative to THO beyond trivial whitespace,
+   every outstanding issue, and an indicator when an issue is a *class* that
+   affects other artifacts the same way. This rolls the change log and the issue
+   ledger into the IG so everything is visible and workable in one place. It
+   subsumes much of what currently lives in separate documents. **This is the
+   biggest item.**
+5. **Two separate ADRs** — one for the additive stance and versioning, one
+   for 0560. The user chose separate over combined.
+
+### The comparison against THO — the numbers that matter
+
+Against the local snapshot `tho-r5/` (package `hl7.terminology.r5` **7.3.0**,
+published 2026-07-27; `conceptdomains` **3.0.0**; `v2-tables` **7.0.0**):
+
+| | Shared with THO | Byte-equivalent | Differ |
+|---|---|---|---|
+| CodeSystems | 396 | **13** | 383 |
+| ValueSets | 413 | **388** | 25 |
+
+**Why the asymmetry:** 408 of 422 value sets have a bare "all codes" include —
+no enumerated concepts, no filters — so there is nothing to diverge on.
+
+**The 13 byte-equivalent CodeSystems**, all at THO 3.0.0, all of which *keep*
+that version: `v2-0103` `v2-0369` `v2-0370` `v2-0513` `v2-0516` `v2-0945`
+`v2-0946` `v2-0948` `v2-0949` `v2-0950` `v2-0951` `v2-0970` `v2-0971`.
+
+How the 383 differ (a code system can differ in more than one way):
+
+| Differs by | Count |
+|---|---|
+| **Concept definitions dropped** — THO has one, we publish none | **382** |
+| Concept set differs (mostly ours smaller) | 38 |
+| Concept display differs | 15 |
+| Resource description differs | 6 |
+| Definition present in both but conflicting | 5 |
+
+The 25 value sets: 14 `compose`, 10 `description`, 3 `name`, 3 `title`,
+1 `status`.
+
+**The dominant problem is not missing codes — it is 4,855 concept definitions
+that exist in THO and are absent from our output.** That follows from the rule
+that `definition` is never back-filled from `display`, which is right about
+*inventing* definitions but strips text THO already wrote. Publishing that at
+THO's canonical is the same destructive-redefinition hazard `conceptdomains` was
+made a superset to avoid, at roughly forty times the scale. **This is what the
+additive stance fixes, and it is why items 1 and 2 of the plan are coupled:**
+most of the 383 version bumps disappear if we stop dropping.
+
+### THO artifact versioning policy — settled
+
+Source: `CS_versioning_policy.pdf` and `VS_versioning_policy.pdf` in the
+workspace root (**untracked — ask before committing, they are HL7 Confluence
+exports**). Read them with `pypdf`, now in `provision.sh`.
+
+- **Version format is `n.0.0`. Minor and patch are always zero. There is no
+  lesser increment — every qualifying change is a major bump.**
+- **New artifacts start at `1.0.0`.** Our 12 new ones are correct.
+- **Byte-equivalent artifacts keep THO's version.** No change, no increment.
+- `CodeSystem.concept` *and all subelements* are in the increment column, so a
+  dropped definition requires a bump.
+- **Carve-out:** `CodeSystem.description` is *"Major unless only change is
+  improved clarity or perform editorial corrections."* That is a human
+  judgement on our 6 description diffs, not computable.
+- **The ValueSet policy has no equivalent carve-out**, so our 10 VS description
+  diffs would bump unconditionally. The user believes this is an accident,
+  has messaged the policy's main editor, and expects it to be removed. **Do not
+  build logic that depends on the asymmetry.**
+- Identifiers are the exception to all of it: changing or removing one requires
+  a **new artifact**, not a new version.
+
+### 0560 — decided, not yet implemented
+
+Publish it **as Chapter 2C publishes it**: five codes (`FL` Units, `HS` Hours,
+`DY` Days, `MN` Month, `YY` Years) and the value set OID
+`2.16.840.1.113883.21.380` / `hl7VS-quantityUnits`. The pipeline currently
+writes **nothing** for it.
+
+The existing decision to treat it as concept-domain-only is in
+`docs/adr/0008-v291-vocabulary-representation.md`, in the section headed *"The
+seven tables with an empty grid, disposed of individually"*, whose table has a
+row reading `0560 Quantity Units | Concept domain only`. It keyed off the code
+system block being the `noObject` placeholder and dropped the codes and the
+value set with it.
+
+**The remarks about 0560 must stay visible in the IG itself**, not only in the
+register — the user was explicit that the problem needs traceability available
+to everyone, not just to us.
+
+### Register — 29 items
+
+Five added this session, all from the THO comparison:
+
+- `esc-tho-dangling-value-sets` — 0350, 0351, 0456, 0895 compose from a v2 code
+  system THO does not publish, so they cannot expand. 0005 and 0292 look
+  identical but compose from CDC race codes and CVX and are **correct** —
+  excluded explicitly so nobody sweeps them in.
+- `esc-v2tables-domain-gaps` — `v2-tables` names 35 concept domains
+  `conceptdomains` does not define. All 35 are among the 39 entries Chapter 2C
+  no longer carries.
+- `esc-v2tables-siteadministered` — table 0034's domain is `SiteAdminstered`
+  while its display is `SITE ADMINISTERED`. **Framed as a technical
+  correction**, because `v2-tables` is a metadata convenience nobody sends in a
+  message. Contrasted with a typo in a real code, where the remedy is
+  deprecate-and-replace.
+- `esc-0133-contradictory` — 0133 says concept-domain-only, *and* "a set of
+  codes known to be incomplete", *and* replaced by table 0443 in v2.6, while
+  THO publishes nine active codes.
+- `esc-oid-conflicts` — Chapter 2C and THO disagree on the OID for
+  `CodeSystem/v2-0001` (`…18.458` vs `…18.2`) and `ValueSet/v2-0719`
+  (`…20429` vs `…20428`).
+
+### Rules settled that must not be re-derived
+
+- **Artifact version and package version are different things.** `conceptdomains`
+  correctly increments 3.0.0 → 4.0.0 because *that artifact* changes. That says
+  nothing about which THO release carries it. Do not put artifact version
+  numbers in reader-facing rows — convey that something is new and will carry an
+  increment, not the number.
+- **`AdministratableDrugForm` is not a finding.** It is a documented,
+  deliberate CDA R2 backwards-compatibility synonym with `synonymCode` and
+  `openIssue` properties, and it is `source: cda` — out of scope for v2 work.
+- **A canonical URL is an identifier and nothing more.** Where THO already
+  publishes one, that is the URL.
+- **A brand-new CodeSystem or ValueSet starts at `1.0.0`.**
+- **We do not tamper with existing external code system records in THO.**
+- **The seven `apply-*` parameters stay false** in `vocab-ig/input/vocabulary.xml`.
+- **Never add `-tx n/a` to the vocabulary build.**
+- **Do not say "D11" or "a D11 reversal" to the user.** Describe the situation
+  in words, and give the file and the section heading if a pointer helps.
 
 ### How to look at the IG
 
-The build output is at **`vocab-ig/output/index.html`** — open the file
-directly. `/workspace` is a virtiofs bind mount of the project directory, so
-the files are already on the user's side, and the output is pre-rendered
-static HTML with relative links: no XHR, no root-relative paths, no ES
-modules. **A web server buys nothing here** and the container's ports are not
-mapped. Keep the `output/` tree together — `qa.html`'s links are relative.
+Build output at **`vocab-ig/output/index.html`**; the new page is
+`table-index.html`. Two ways in, both fine:
 
-To rebuild:
+- **As a file.** `/workspace` is a virtiofs bind mount, and the output is
+  pre-rendered static HTML with relative links.
+- **Over HTTP.** The container publishes ports. `$MOSH_PORTS` is
+  `3000,4000,5173,8000,8080,8888,9000`, `$MOSH_PORT` is `3000`. **Bind
+  `0.0.0.0`, never `127.0.0.1`.** Host port = `$MOSH_PORT_BASE` + the index of
+  the container port within `$MOSH_PORTS`, so container 3000 → **host 20010**.
+
+  ```
+  cd /workspace && nohup python3 -m http.server "$MOSH_PORT" --bind 0.0.0.0 \
+    >/tmp/s.log 2>&1 &
+  # then: http://localhost:20010/vocab-ig/output/table-index.html
+  ```
+
+### Build
 
 ```
 python3 tooling/scripts/stage_vocab_ig.py
@@ -49,82 +210,13 @@ PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
   -ig vocab-ig/ig.ini -no-sushi
 ```
 
-Peak memory was 4 GB, so `-Xmx8g` is ample. **Local is fine for this IG** —
-postproc-g is not needed at 31 minutes. `./apptainer/remote-build.sh vocab`
-exists and is wired, but has never been run (see blockers).
-
-### First thing to check next session
-
-**The V2 Management meeting of 2026-08-28 happened and its outcome was never
-recorded.** Asked at the start of the last two sessions; both went elsewhere.
-**Ask again.** Three things were put to them:
-
-1. **The reproduce-vs-correct ruling** (blocker 1), narrowly: *may we treat
-   editing-process defects as technical corrections?* A yes releases the
-   truncated descriptions, 0821's emptied grid, the page-URL defects and the
-   missing spaces together.
-2. **The five conflicting concept domain definitions** (blocker 2). Detail in
-   `v291-fhir/conceptdomains-divergences.json`, kind
-   `conflicting_descriptions_within_chapter`: DeviceStatus (0682/0962),
-   DeviceType (0657/0961), Modality (0259/0604), QuantityUnits (0560/0602),
-   VolumeUnits (0568/0777/0930). Four of five have a template stub as the
-   second description; **the Device pair is the genuinely contested one** and
-   needs OO.
-3. **The information-preservation steer** — can a FHIR consumer recover what
-   Chapter 2C says about a table, or only its codes? Decides whether to design
-   extensions for the 24 unmapped fields or record the loss. Cheap now,
-   unrecoverable after the load into THO.
-
-Register items 18–23 postdate the meeting and have not been put to anyone.
-
-### What the build found
-
-216 errors, 416 warnings, 1 broken link — but they collapse to very little:
-
-| Count | What | Verdict |
-|---|---|---|
-| 192 | `conceptdomains` narrative links to v3 pages not in this guide — ActClass 97, RoleClass 60, EntityClass 26, ActMood 4, ParticipationType 3, ActCode 1 | One root cause. Packaging, not content. Fix is a decision about declaring a v3 dependency |
-| 5 | `[lb_av]`, `l` (UCUM), `76691-5` (LOINC) | **Not content defects** — `tx.fhir.org` `validate-code: timeout`. The text reads "not valid in the system"; the parenthetical is what matters |
-| 1 | `L&I` unknown in THO's `v2-0203` v5.0.0, from ValueSet `v2-0338` | **Real.** Build evidence for the punctuation-code item already open for UTG. Also the single broken link (anchor `#v2-0203-L.38I`) |
-| 1 | `EXP` unknown in THO's `v3-ActMood`, from ValueSet `v2-0725` | **Real, and may reopen a closed item** — see below |
-
-**0725 needs a second look.** It was registered last session as *already
-correct by OID resolution* (`2.16.840.1.113883.5.1001` → `v3-ActMood`),
-changing no output. The build says one of its codes does not exist in the code
-system it resolved to. The OID resolution may still be right and the chapter's
-code list wrong — but "already correct" is no longer safe to assert.
-
-### Next moves, in order of value
-
-1. **Rewrite the UTG briefing.** Content unchanged since `a817a61c` on
-   2026-08-21 — now nearly four weeks stale, and the **cheapest high-value task
-   available**. Six things concern UTG/TSMG directly: the `notAllCodes`
-   canonicals, the `CodeSystem.valueSet` omission, the punctuation codes in
-   THO's own v2 code systems (**now with build evidence — `L&I`**), THO
-   carrying the same truncated descriptions as the chapter, the 0567/0568
-   deprecation question, and now `EXP`/`v3-ActMood`. Does not depend on the
-   28 Aug outcome.
-2. **Decide the conceptdomains v3 links.** 192 of 216 errors. Either declare a
-   dependency on the v3 code systems or accept and document. Currently
-   documented on the Known Issues page.
-3. **Bring the V2 Management briefing current** — register items 18–23
-   postdate it.
-
-### Rules settled that must not be re-derived
-
-- **A canonical URL is an identifier and nothing more.** Where THO already
-  publishes one for a table, that is the URL, whatever it appears to mean. Do
-  not construct an alternative; do not read meaning out of `notAllCodes`.
-- **A brand-new CodeSystem or ValueSet starts at `1.0.0`.**
-- **`definition` is never back-filled from `display`**, and the resulting
-  `CODESYSTEM_CONCEPT_NO_DEFINITION` warning is accepted.
-- **We do not tamper with existing external code system records in THO.**
-- **An item is a briefing blocker only if generation cannot proceed without the
-  answer AND the answer is not already determined** (D19).
-- **The seven `apply-*` parameters stay false** in `vocab-ig/input/vocabulary.xml`.
-  The base template defaults them to true and silently overwrites resource
-  metadata. **No `special-url` parameters** — that was a wrong turn, corrected.
-- **Never add `-tx n/a` to the vocabulary build.** See blockers.
+**Run it as one command, not chained with `&&` behind a trailing `&`** — that
+backgrounds the whole chain, swallows the earlier steps' output, and starts the
+log late enough that a watcher fails to open it. **The publisher wipes
+`output/` on startup, so the IG is dark for the duration** and anything watching
+a URL will 404. **`kill <pid>` on the shell wrapper does not stop the JVM**;
+check with `ps -eo pid,cmd | grep '[j]dk/bin/java'` and kill the java process,
+or two publishers will write the same directory at once.
 
 ### Regeneration sequence
 
@@ -138,53 +230,115 @@ python3 tooling/scripts/stage_vocab_ig.py
 python3 tooling/scripts/vocabulary_escalations.py
 python3 tooling/scripts/render_vocabulary_review_html.py
 python3 tooling/scripts/render_field_mapping.py
+python3 tooling/scripts/generate_table_index.py
 python3 tooling/scripts/render_utg_briefing.py
 python3 tooling/scripts/render_v2mgmt_briefing.py
 ```
 
 The first two are expensive and only needed if the text policy changed.
-`render_field_mapping.py` and `render_vocabulary_review_html.py` must both run
-after `write_utg_xml.py` — they read `utg-write-report.json` rather than
-recomputing. **`stage_vocab_ig.py` must run after `write_utg_xml.py` and before
-any build.** Four scripts self-check and warn rather than fail: the register's
-stated-vs-computed table lists, the mapping's corpus-vs-spec completeness, the
-writer's UTG file-name collisions, and the stager's index-page resource counts.
+`generate_table_index.py` must run after `write_utg_xml.py` — it reads the
+authored resources — and before `stage_vocab_ig.py` if the page changed.
 **A silent run is the expected outcome; read the output if it is not.**
 
 ### Open blockers
 
-- **None on our side.** 243 tests pass, the IG builds, every document
-  regenerates clean.
-- **`./apptainer/remote-build.sh vocab` has never been executed.** It is
-  written and shellcheck-clean, but **cannot be run from this container** —
-  postproc-g uses Kerberos and is reachable only from the Mac. Two things about
-  it are therefore unverified: whether postproc-g can fetch
-  `fhir.base.template#current` (the v2+ builds use `#local-template` and have
-  never pulled a template package — if the registry is blocked it fails at
-  initialization, ~45s, and the fix is vendoring the template), and whether
-  terminology is reachable there at all.
-- Everything else outstanding is gated on committee or user decisions.
-- The 14 writer blockers are recorded with evidence in the review report. The
-  10 external value-set references remain open.
+- **None on our side.**
+- The additive-stance ruling is the one external dependency, expected at
+  Rockville the week of 2026-09-21. Until then, **take the additive stance.**
+- `./apptainer/remote-build.sh vocab` has still never been executed and cannot
+  be run from this container. At ~15 minutes locally it is not needed.
 
-### Two items that are not ours and have no home yet
+### Not ours — leave alone
 
-Found during an out-of-scope discussion; they belong to the **structural**
-workstream (`dev/framework`, `v291-extracted/v2mgmt-review-report.md`) and were
-deliberately not written to this branch. The reviewer was asked which document
-should carry them and has not answered across three sessions:
-
-1. CH02 systematically calls the segment **`FSH`** rather than `FHS` in the
-   file-header section (the §2.13.3 field heading is literally "FSH-15").
-2. The `BHS-15` and `FHS-15` conditionality predicates **invert the containment
-   hierarchy** — a batch contains messages and a file contains batches, but
-   `BHS-15` reaches for "any contained FSH-16/FSH-17" and `FHS-15` skips the
-   BHS level entirely.
-
-Both look like editing-process defects, so they fit the same technical-
-correction test as blocker 1.
+Five untracked files belong to the **structural** workstream (`dev/framework`):
+`tooling/scripts/render_message_structures_html.py`,
+`tooling/scripts/render_three_way_html.py`,
+`v291-extracted/message-structures-decision-report.html`,
+`v291-review/three-way-comparison-report.html`,
+`vocabulary-comparison-report.html`. The reviewer has been asked four times
+which document should carry the two CH02 findings (the `FSH`/`FHS` naming, and
+the inverted `BHS-15`/`FHS-15` containment predicates) and has not answered.
 
 ## Session History
+
+## 2026-09-16 → 2026-09-17 — A table index, and what comparing against THO actually found
+
+### Completed
+
+**The guide has a table index.** One row per Chapter 2C table, keyed by table
+number, resolving each to the artifacts that represent it — in this guide, in
+THO, or nowhere. Published as `table-index.html`, linked from the home page,
+generated by `tooling/scripts/generate_table_index.py` with 40 tests.
+
+The link rule the user specified: visible text is always the THO canonical
+because that is the identifier, but the link resolves **into this guide** where
+we author the artifact, falling through to THO only where we do not. A marker
+says which. That is right for a review draft — a reviewer clicking a canonical
+should land on the thing under review.
+
+**The comparison against `tho-r5/` is the real output of the session.** 383 of
+396 code systems differ from THO; only 13 are byte-equivalent. 388 of 413 value
+sets *are* byte-equivalent, because 408 of 422 have a bare "all codes" include
+and have nothing to diverge on. The user predicted that asymmetry before it was
+measured.
+
+**Five register items**, all found by putting the two corpora side by side
+rather than by inspection: four THO value sets that cannot expand, 35
+`vocab-domain` values that resolve to nothing, the `SiteAdminstered`
+misspelling, 0133's three mutually contradictory self-descriptions, and two OID
+conflicts. Register is at 29.
+
+**Concept domain codes lost their spaces.** Four had them; squishing fixed 0180
+for free, since `Masterfile Action Code` squishes to a code THO already
+publishes.
+
+### The finding that changes the plan
+
+**4,855 concept definitions exist in THO and are absent from our output.** Not
+missing codes — missing *definitions*, across 382 code systems. It follows from
+the settled rule that `definition` is never back-filled from `display`, which is
+correct about inventing definitions and has the unintended consequence of
+stripping text THO already wrote, at THO's own canonical.
+
+The user's response was to take an **additive stance** pending a definitive
+answer at Rockville: the point of this work is to *add* Chapter 2C's information
+to THO, and that does not require removing anything. A computable record of
+every fill is wanted; a human-readable description of each *class* of fill is
+enough, because enumerating 4,855 is not useful to anyone.
+
+### Corrections taken during the session
+
+Five, three of which would have shipped something wrong:
+
+- **Reported that the corpus policy was "inherit THO's version unchanged" and
+  argued `conceptdomains` should drop to 3.0.0 to match.** The facts were right
+  and the conclusion inverted: under UTG policy those 383 artifacts are all
+  *wrong* and `conceptdomains` is the only one right. Compounded by a script bug
+  — an ElementTree element with no children is falsy, so `(elem or {}).get()`
+  returned `None` for every version and reported "0 match THO".
+- **Claimed `AdministratableDrugForm` was an undocumented duplicate.** It is a
+  deliberate CDA R2 backwards-compatibility synonym, carries `synonymCode` and
+  `openIssue` properties, and is `source: cda` — out of scope entirely. The
+  error was truncating both definitions to 90 characters, seeing them match, and
+  calling them identical; the misspelled one has an extra paragraph explaining
+  itself.
+- **Rendered invented canonicals as fact.** Constructed `CodeSystem/v2-0010` as
+  a lookup key so the THO check had something to test, then printed it in the
+  cell as though it described an artifact. The user caught it.
+- **Killed a shell wrapper instead of a JVM**, so two publishers wrote the same
+  output directory concurrently. Neither would have announced the collision.
+- **Stamped `new in 4.0.0` on 204 rows**, asserting a version THO has never
+  issued. Removed; rows now say only whether a concept is in THO.
+
+Also reported "37 of 624 `vocab-domain` values are missing" as though those rows
+were in the index. They are not — all 35 remaining are among 39 tables Chapter
+2C no longer carries, so no row of the guide is affected.
+
+### Not done
+
+None of the agreed plan. The additive merge, the computed version bumps, 0560,
+the per-table ledger and the two ADRs are all next session's work.
+
 
 ## 2026-09-10 → 2026-09-16 — The vocabulary IG builds: 821 resources, no canonical collisions
 
@@ -271,10 +425,13 @@ asserted without checking.
   was 31 minutes at 4 GB peak, so **postproc-g is not needed for this IG** —
   which is the opposite of the conclusion the estimate was steering toward.
 - Started an HTTP server to present the output without first checking that the
-  container's ports are mapped (they are not) or that `/workspace` is a bind
-  mount of the project directory (it is, via virtiofs). The file path was the
-  right answer from the start. Verified afterwards that the output has no XHR,
-  no root-relative links and no ES modules, so `file://` loses nothing.
+  container's ports are mapped or that `/workspace` is a bind mount of the
+  project directory (it is, via virtiofs). Verified afterwards that the output
+  has no XHR, no root-relative links and no ES modules, so `file://` loses
+  nothing. *[Superseded 2026-09-16: the ports were unmapped then, but the
+  meta-harness has since been changed to publish `$MOSH_PORTS`. Serving over
+  HTTP now works — see the ACTIVE section. Do not re-derive "ports are not
+  mapped" from this entry.]*
 - Wrote a `pgrep`-based wait loop whose own command line contained the pattern
   it searched for. It matched itself, could never exit, and reported a finished
   build as "still running".
@@ -368,206 +525,3 @@ recorded nowhere and belong to the structural workstream, not this one:
 Also established, if it recurs: **no rule anywhere in CH02 requires the six
 delimiters to be distinct from one another**, so `MSHFzzzzzF` is not
 prohibited by any text — searched and confirmed.
-
-## 2026-08-25 → 2026-08-27 — The field mapping, THO's canonicals, and the briefing brought current
-
-### Completed
-
-**Built the field-mapping document**, which the reviewer commissioned after
-noticing that the Code System *Full Name* appears nowhere in the output. It
-does not, and it is one of **24 fields out of 43 that reach no resource at
-all**. Two of them carry a value on all 799 tables: the table-level
-`Description` and `Type`. The largest single hole is the whole **Code System
-Version block** — version, effective date, HL7 version introduced — none of
-which is read. For `Effective Date` the chapter has *better* information than
-what we publish, since `CodeSystem.date` comes from UTG where 414 of 416
-resources carry the same bulk-load date.
-
-The document is `v291-extracted/vocabulary-field-mapping.html` plus a Markdown
-twin, authored in `field_mapping_spec.py` and joined to the corpus by
-`render_field_mapping.py`. **The split is the point**: the mapping is authored
-so a field can be recorded as *unmapped* — a question — rather than merely
-described as unmapped, which is all a derived mapping could ever say. A
-completeness check fails if extraction produces a field the spec does not
-cover, so the document cannot quietly go stale.
-
-**Writing it out found a real defect.** The writer never read `valueSets.URI`
-and constructed `ValueSet.url` from the table number. That agreed with THO for
-412 of 429 tables and put **0291, 0347, 0399 and 0834** at canonicals neither
-THO nor UTG publishes. The user's ruling settled it: *a canonical URL is an
-identifier; where one already exists it is the one to use, and any meaning it
-appears to carry is coincidental.* The writer now takes THO's canonical where
-there is one.
-
-**Flagged every punctuation-only code**, 23 across 17 tables, scanning both the
-chapter and THO's v2 code systems. Three groups: four genuine symbol codes
-(`*`, `#`, `%`) with real definitions; eighteen ellipsis placeholders minted as
-concepts; and one `??`. **Five tables carry the placeholder twice**, as `...`
-and as `…`, with identical display text.
-
-**Brought the V2 Management briefing current** for the 28 August meeting. It
-still described the 21 August state.
-
-### The findings worth carrying
-
-**THO is not a recovery source for the truncated descriptions.** All 16 tables
-have a ValueSet in THO, all 16 carry a description, and **15 are truncated at
-exactly the same character** once whitespace and our own text policy are
-normalised on both sides. The same clipped field fed both documents. **0227 is
-the exception and the proof**: THO's continues 171 characters past the cut,
-completing the very word the chapter breaks in the middle of — `may be acce`
-becomes `may be accessed via` plus the PHIN VADS link.
-
-**The punctuation codes are overwhelmingly THO's, not the chapter's.** Sixteen
-of the 23 exist only in THO, and *every* duplicate `...`/`…` pair is THO-only.
-The chapter has largely stopped publishing them and THO has gone on carrying
-them — the exact drift this baseline exercise exists to correct.
-
-**`CodeSystem.valueSet` means the value set containing the *entire* code
-system**, so it must be absent where the value set leaves a code out. UTG omits
-it on exactly two of its 416 code systems — 0291 and 0834 — and we were
-emitting it on both. Now mirrored.
-
-**Getting a canonical right has three consequences, not one.** The resource
-`id` is the canonical's last segment; the output file must keep UTG's own name,
-which is *not* derivable (three of the four are filed under the canonical and
-0834 under its table number); and version inheritance keys off the file name,
-so the parser reading `notAllCodes-0291` as a table number had been silently
-defaulting those tables. 0347 was emitting 1.0.0 where UTG publishes 2.0.0.
-
-### Why the specific shapes
-
-**The mapping spec is authored and the counts are computed.** Either half alone
-is useless: a hand-written document drifts, and a generated one cannot say that
-something *should* be carried and is not.
-
-**`usedDefaultVersion` is now reported per resource, not per table.** A table
-can inherit a version for its CodeSystem and not for its ValueSet, and three
-do — which is precisely how the `notAllCodes` cluster stayed hidden. The
-per-table flag was reporting 16 tables including five where nothing was
-written, and missing 0291 entirely. It is now 12 tables / 14 resources, and
-after the canonical fix, 10 tables / 12 resources.
-
-**Blockers stayed at two in the briefing**, per the D19 rule. Nothing found
-this week meets the bar — generation proceeds without any of it. Padding the
-blocker list is how a short meeting produces nothing.
-
-**Blocker 1 now carries the errata-guidance test**, so V2 Management can give
-the narrow answer (*may we treat editing-process defects as technical
-corrections?*) instead of ruling on the whole reproduce-vs-correct principle in
-the time available.
-
-### Corrections taken during the session
-
-- Framed the canonical question as "should we honour the URI the chapter
-  prints". Wrong question — the chapter's copy of the identifier is wrong for
-  14 tables. The user's rule needs nothing from the chapter at all.
-- Stated the punctuation groups as "six genuine codes" and "eleven
-  placeholders" from a source count rather than a code count. Four and
-  eighteen.
-- Claimed 25 unmapped fields in the document lede when the computed figure was
-  24, and carried three other counts from a presence scan instead of a
-  non-empty scan.
-- `git add -A tooling/scripts` staged the two `dev/framework` scripts. Caught
-  before committing, twice.
-
-### Commits this session
-
-`ea7da354` the field mapping, the truncation cross-check, 0954's
-`notSelectable` note and version 1.0.0 · `e1bf2046` THO's canonicals and the
-punctuation codes · `9b77181d` the briefing.
-
-### Still uncommitted, untouched, and not mine
-
-The same five files from the structural workstream. They belong to
-`dev/framework`. Untouched across seven sessions now.
-
----
-
-## 2026-08-25 — The XML writer, and the build questions answered
-
-### Completed
-
-**Built the XML writer**, which is what the whole workstream was for. A
-serializer that reproduces UTG's house style and a generator that classifies
-every table and emits only what the chapter clearly supports. 398 CodeSystems,
-422 ValueSets, 63 new tests.
-
-The classification came out right by two independent checks: the only new
-CodeSystems are 0411 and 0460, matching a count reached a different way five
-days earlier, and 328 of 406 ValueSets are byte-identical to UTG's own with no
-tuning.
-
-**Smoke-tested against a real IG Publisher build** and answered the question
-open since D18. The canonical collision is a non-issue — with
-`hl7.terminology.r5#7.3.0` loaded our resources win and render with our
-content. What fired was `RESOURCE_CANONICAL_MISMATCH`, and my first fix was
-`special-url`, which the user correctly rejected. **The right answer is to give
-the IG THO's own canonical base**, exactly as `hl7.terminology` does; then the
-resources are native to it and no special URLs are involved. Version
-propagation is `apply-version`, and finding it surfaced that the base template
-defaults **seven** `apply-*` parameters to true, silently overwriting
-publisher, contact, copyright and work group as well.
-
-**Took needs-decision from 21 to 14** across two rounds. The largest single
-cause was tables printing a rendered page URL where a canonical belongs — and
-every one of them also prints a correct OID, so one fallback resolved seven
-tables. Filter-shaped logical definitions are now built rather than reported,
-copying THO's pattern rather than inventing one: 1,423 of its 1,432 filtered
-ValueSets use `concept is-a`, and all three subtrees Chapter 2C asks for
-already exist there. 0227 resolved through `NamingSystem/MVX` once the user
-confirmed THO has no CodeSystem for MVX and should not have one.
-
-**Five new register items**, four of them found while answering the user's
-questions rather than by looking for them.
-
-### Corrections taken during the session
-
-- Reported that a `special-url` parameter was the fix for the canonical
-  mismatch. The user pushed back on using special URLs at all and was right;
-  the IG's own canonical base was the real answer and is strictly better.
-- My page-URL detector only matched `terminology.hl7.org`, so table 0962 was
-  quietly composing over `http://hl7.org/fhir/codesystem-device-status.html`.
-  Found only because the user asked whether the foreign systems had metadata
-  records.
-- Staged two files belonging to `dev/framework` while committing. Caught before
-  the commit; they have now been left alone for six sessions.
-
-### The findings worth remembering
-
-**Sixteen ValueSet descriptions are truncated mid-word** between 242 and 252
-characters. Found by reading one generated resource, not by a scan. It is a
-length cap in the publication toolchain: Code System descriptions in the same
-tables run past 500 characters and end in complete sentences, and the tables'
-own metadata descriptions are complete. This is the only defect of the session
-that reaches the emitted output.
-
-**0560 and 0910 are the same case handled two opposite ways.** Identical in the
-chapter — the `noObject` placeholder, no code system — and THO publishes a
-complete five-concept CodeSystem plus ValueSet for one and nothing for the
-other. So a code system was minted at an HL7 canonical for a table whose source
-declares none, filled with content flagged as wrong elsewhere in the register.
-
-**The errata guidance is a usable test**, and the user supplying it changed the
-shape of the reproduce-vs-correct question. Its definition of a technical
-correction — a change that makes the document say what the WG intended,
-repairing content not made or inconsistently made during editing — separates
-the editing-process defects from the substantive ones. The register now asks
-the narrow question rather than the abstract one.
-
-**A user instruction worth not losing:** do not back-fill `definition` from
-`display`. The publisher warns about it corpus-wide; `definition` is optional
-and the warning is accepted.
-
-### Commits this session
-
-`57e4ac47` the writer · `bf9f49a9` the smoke test · `50164f82` six tables
-resolved, special-url and version propagation dropped · `55a4b8fa` 0227, five
-register items, Batch A.
-
-### Still uncommitted, untouched, and not mine
-
-The same five files from the structural workstream, now dated across six
-sessions. They belong to `dev/framework`.
-
----
