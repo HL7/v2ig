@@ -46,6 +46,12 @@
         <generation value="markdown"/>
       </page>
       <page>
+        <sourceUrl value="table-index.html"/>
+        <name value="table-index.html"/>
+        <title value="Table index"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
         <sourceUrl value="known-issues.html"/>
         <name value="known-issues.html"/>
         <title value="Known issues in this build"/>

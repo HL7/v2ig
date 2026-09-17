@@ -42,6 +42,8 @@ difference is recorded** rather than quietly resolved.
 
 ## Where to go next
 
+- **[Table index](table-index.html)** — every Chapter 2C table, and the artifacts
+  that represent it, here or in THO. Start here if you have a table number
 - **[Artifacts](artifacts.html)** — every code system and value set in the build
 - **[How these resources were produced](provenance.html)** — the pipeline, and what is authoritative
 - **[Known issues in this build](known-issues.html)** — read before filing anything
