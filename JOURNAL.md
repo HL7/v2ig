@@ -28,7 +28,10 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 (item 4, the last one) is built, registered in the IG and verified in a clean
 build: exit 0, 17m53s, **0 broken links**, 449 sections rendered, 403 tests
 pass. Errors are 3,478 — the settled terminology-server baseline, unchanged.
-Warnings went **136 → 135** because the `<small>` fix removed two.
+Warnings are **135**, against a 136 baseline: the ledger first added one
+`<small>` warning, taking it to 137, and fixing `<small>` on both generated
+pages then removed two — the ledger's new one and the pre-existing one on
+`tho-merge.html`.
 
 ### First thing next session
 
