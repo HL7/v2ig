@@ -67,6 +67,11 @@ def render_page(report):
     lines = [
         "# What this guide keeps from THO",
         "",
+        # `<small>` would be the obvious tag for the notes in the tables
+        # below, but the IG Publisher's HTML checker rejects it and warns on
+        # every use. A classed span reads the same and passes.
+        "<style>.tl-note { font-size: 0.85em; color: #555; }</style>",
+        "",
         "This guide publishes its code systems and value sets at **THO's own "
         "canonical URLs**. A canonical URL is an identifier: publishing at one "
         "says *this is that artifact*, not *this is our version of that "
@@ -101,7 +106,7 @@ def render_page(report):
             "|---|---:|---|",
         ]
         for bucket in buckets:
-            why = f"<br/><small>{bucket['why']}</small>" if bucket["why"] else ""
+            why = f"<br/><span class=\"tl-note\">{bucket['why']}</span>" if bucket["why"] else ""
             lines.append(
                 f"| {bucket['title']}{why} | {bucket['count']:,} "
                 f"| {bucket['tableCount']} |")
@@ -151,7 +156,9 @@ def render_page(report):
             "|---|---|---|---|",
         ]
         for item in judgement:
-            lines.append(f"| {item['table']} | {item['resource']} "
+            lines.append(f"| [{item['table']}]"
+                         f"(table-ledger.html#tbl-{item['table']}) "
+                         f"| {item['resource']} "
                          f"| {', '.join(item['elements'])} "
                          f"| {item['version']} |")
         lines.append("")
@@ -170,7 +177,9 @@ def render_page(report):
             "|---|---|---|",
         ]
         for item in blocked:
-            lines.append(f"| {item['table']} | {item['resource']} "
+            lines.append(f"| [{item['table']}]"
+                         f"(table-ledger.html#tbl-{item['table']}) "
+                         f"| {item['resource']} "
                          f"| {', '.join(item['elements'])} |")
         lines.append("")
 
@@ -188,20 +197,29 @@ def render_page(report):
         ]
         for record in sorted(omissions,
                              key=lambda r: (r.get("table") or "", r["resource"])):
-            lines.append(f"| {record.get('table') or '—'} "
-                         f"| {record['resource']} "
+            table = record.get("table")
+            link = (f"[{table}](table-ledger.html#tbl-{table})" if table
+                    else "—")
+            lines.append(f"| {link} | {record['resource']} "
                          f"| {record.get('reason', '')} |")
         lines.append("")
 
     lines += [
         "## Where the detail lives",
         "",
-        "Every observation summarised above exists individually in "
+        "This page is deliberately a summary: there are thousands of "
+        "instances and the useful question here is what kinds of thing "
+        "happened, not which of eight thousand rows to read first.",
+        "",
+        "For one table, read the **[per-table ledger]"
+        "(table-ledger.html)** — it has a section per table carrying every "
+        "difference from THO individually, and it says, for each one, how "
+        "many other tables the same class of difference reaches. Every table "
+        "number on this page links into it.",
+        "",
+        "For everything at once, every observation exists individually in "
         "`v291-fhir/tho-fill-report.json`, with the table, the code, the "
-        "element and the values on both sides. This page is deliberately a "
-        "summary: there are thousands of instances and the useful question is "
-        "what kinds of thing happened, not which of eight thousand rows to "
-        "read first.",
+        "element and the values on both sides.",
         "",
     ]
     return "\n".join(lines)

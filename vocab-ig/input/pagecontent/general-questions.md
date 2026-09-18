@@ -170,7 +170,25 @@ removed, and the copied-in code system name fixed.
 | Artifact | Chapter 2C | THO |
 |---|---|---|
 | `CodeSystem/v2-0001` | `2.16.840.1.113883.18.458` | `2.16.840.1.113883.18.2` |
-| `ValueSet/v2-0719` | `2.16.840.1.113883.21.20429` | `2.16.840.1.113883.21.20428` |
+| `ValueSet/v2-0719` | `2.16.840.1.113883.1.11.20429` | `2.16.840.1.113883.1.11.20428` |
+
+These are the **only two** disagreements in the corpus: 395 of 396 code system
+OIDs and 411 of 412 value set OIDs are identical on both sides.
+
+Neither is a mistyped digit, and it is worth being precise about what each one
+actually is:
+
+- **`v2-0001`** — the chapter's block is titled *Jurisdiction Gender Code
+  System*, not *Administrative Sex*, and `...18.458` resolves to nothing
+  anywhere in THO. So this may be a disagreement about *which code system*
+  table 0001 points at, rather than about a number.
+- **`v2-0719`** — both OIDs are **v3** value set OIDs and both are in use.
+  `...20428` belongs to `InformationSensitivityPolicy`, `...20429` to
+  `ActInformationSensitivityPolicy`. THO's `ValueSet/v2-0719` **shares**
+  `...20428` with THO's own `v3-InformationSensitivityPolicy` — one OID on two
+  artifacts — which fits THO's own note that 0719 "was created in THO in error
+  due to an oversight in the import processing." The question is which v3
+  value set table 0719 corresponds to.
 
 This is not an ordinary disagreement. An OID is an `identifier`, and the
 versioning policy puts identifiers outside the version system altogether:
@@ -187,6 +205,14 @@ URL is THO's, and writing the chapter's OID there would assert that this is a
 different artifact rather than publish the chapter faithfully. Neither is
 therefore a version question. Both are in the escalation register as
 `esc-oid-conflicts`, which is where the adjudication belongs.
+
+**A third option has been raised:** publish *both* OIDs as identifiers.
+`identifier` is `0..*` on both resource types, so it is available, and it
+avoids choosing before you have. It is not obviously right — two identifiers
+assert that both OIDs name this artifact, which for 0719 is demonstrably false,
+since `...20429` names a different v3 value set that THO also publishes. It may
+well be right for 0001, where the two could be one code system under two
+registrations. **Please rule per artifact rather than as a blanket policy.**
 
 ### 8. Two descriptions where THO says more than the chapter
 
@@ -207,6 +233,41 @@ because the merge fills an absent value but never splices two pieces of prose
 together — that would be writing text neither source wrote. Both are listed
 for a decision.
 
+### 9. Chapter 2C gives every table its own OID, and we publish it nowhere
+
+Chapter 2C carries **three** OIDs per table, in three separate metadata blocks,
+identifying three different things:
+
+| Chapter 2C block | Arc | Tables | Published to |
+|---|---|---:|---|
+| Table OID | `2.16.840.1.113883.12.*` | 798 | **nothing** |
+| Code System OID | `2.16.840.1.113883.18.*` | 435 | `CodeSystem.identifier` |
+| Value Set OID | `2.16.840.1.113883.21.*` | 438 | `ValueSet.identifier` |
+
+The last two have an obvious home, and THO uses the same two arcs for the same
+two resource types, so the comparison behind question 7 is like for like.
+
+**The table OID has no home.** In V2 the table is the thing with an identity.
+In FHIR that table becomes a code system *and* a value set, and neither of them
+*is* the table — so there is no resource for the `.12` OID to sit on. It is
+therefore carried by nothing this guide publishes.
+
+**What we do:** nothing, which is the default rather than a decision. That may
+be the right answer, but it should be ruled on: these are published identifiers
+in the chapter, and their absence from the FHIR artifacts is silent.
+
+Two things worth knowing before ruling. 50 of the 798 are not identifiers at
+all — they are the bare arc root `2.16.840.1.113883.1` with no leaf, on the 50
+tables the chapter types *undefined*. And the table OID is not dead: THO's own
+description of table 0227 cites PHIN VADS by the `.12.227` table OID, so
+implementers do resolve these.
+
+None of the available homes is free. `CodeSystem` says the code system is the
+table, which is wrong for the 24 value-set-only tables whose codes belong to
+another authority. *Both* resources asserts one identifier for two artifacts —
+the same shape as the defect in question 7. The concept domain concept has no
+`identifier` element to hold it. Registered as `esc-table-oid-unpublished`.
+
 ---
 
 ## Where the rest of the detail is
@@ -215,4 +276,6 @@ for a decision.
   account of the merge, and what it does to version numbers.
 - **[Known issues in this build](known-issues.html)** — defects in the build
   itself, as opposed to open questions about the content.
+- **[Per-table ledger](table-ledger.html)** — one section per table: every
+  difference from what THO publishes, and which open question touches it.
 - **[Table index](table-index.html)** — per-table, which artifacts exist where.

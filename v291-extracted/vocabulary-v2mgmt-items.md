@@ -48,10 +48,11 @@ this file.
 27. [`v2-tables` misspells the concept domain for table 0034 as `SiteAdminstered`](#27) — 0034
 28. [Table 0133 says three incompatible things about itself, and THO publishes nine codes for it](#28) — 0133
 29. [Chapter 2C and THO give different OIDs for the same two artifacts, which versioning cannot reconcile](#29) — 0001, 0719
-30. [The concept statuses `N` and `B` are defined nowhere, and `N` decays](#30) — 25 tables, 261 concepts
-31. [Does reordering a code system's concepts count as a change for versioning?](#31) — 32 tables
-32. [How far does the description “editorial corrections” carve-out reach?](#32) — policy; 12 descriptions, 25 concepts
-33. [Two THO descriptions carry text the chapter's do not, including THO documenting its own error](#33) — 0227, 0719
+30. [Chapter 2C gives every table its own OID, and this guide publishes it nowhere](#30) — 798 tables
+31. [The concept statuses `N` and `B` are defined nowhere, and `N` decays](#31) — 25 tables, 261 concepts
+32. [Does reordering a code system's concepts count as a change for versioning?](#32) — 32 tables
+33. [How far does the description “editorial corrections” carve-out reach?](#33) — policy; 12 descriptions, 25 concepts
+34. [Two THO descriptions carry text the chapter's do not, including THO documenting its own error](#34) — 0227, 0719
 
 ---
 
@@ -415,13 +416,24 @@ Table 0133 _Procedure practitioner identifier code type_ carries three statement
 **Tables:** 0001, 0719  
 **Goes to:** V2 Management + TSMG
 
-Two artifacts carry a different `identifier` OID in Chapter 2C than the one THO publishes at the same canonical URL. **`CodeSystem/v2-0001` _Administrative Sex_:** the chapter gives `2.16.840.1.113883.18.458`, THO publishes `2.16.840.1.113883.18.2`. Both sit in the HL7 v2 code system arc, so neither is obviously a stray. This is the most widely implemented table in V2. **`ValueSet/v2-0719`:** the chapter gives `2.16.840.1.113883.1.11.20429`, THO publishes `...20428` — adjacent values, which has the shape of a transcription error in one of the two, though which one cannot be settled from either document alone. **Why this is not a versioning question.** The THO artifact versioning policy treats every other divergence found in this comparison as something a version increment covers. Identifiers are the exception: the policy states that an identifier cannot be changed or removed, that adding one makes it immutable, and that an identifier change requires a _new_ artifact rather than a new version — “extreme care must be taken with identifiers”. Publishing our OID at THO's canonical would therefore be a policy violation, not a bump. Every other artifact agrees: 395 of 396 code systems and 412 of 413 value sets carry identical identifiers.
+Two artifacts carry a different `identifier` OID in Chapter 2C than the one THO publishes at the same canonical URL. **`CodeSystem/v2-0001` _Administrative Sex_:** the chapter gives `2.16.840.1.113883.18.458`, THO publishes `2.16.840.1.113883.18.2`. Both sit in the HL7 v2 code system arc, so neither is obviously a stray. This is the most widely implemented table in V2. The chapter's block is titled _Jurisdiction Gender Code System_, not _Administrative Sex_, and `...18.458` resolves to nothing anywhere in THO — so this may be a disagreement about _which code system_ the table points at rather than a mistyped digit. **`ValueSet/v2-0719`:** the chapter gives `2.16.840.1.113883.1.11.20429`, THO publishes `...20428`. These are adjacent but they are not near-misses: both are **v3** value set OIDs and both are in use, `...20428` for `ActInformationSensitivityPolicy`'s parent `InformationSensitivityPolicy` and `...20429` for `ActInformationSensitivityPolicy` itself. THO's `ValueSet/v2-0719` **shares** `...20428` with THO's own `v3-InformationSensitivityPolicy` — one OID on two artifacts — which fits THO's own description of 0719, that it “was created in THO in error due to an oversight in the import processing”. So the question is which v3 value set table 0719 corresponds to, not which digit is a typo. **Why this is not a versioning question.** The THO artifact versioning policy treats every other divergence found in this comparison as something a version increment covers. Identifiers are the exception: the policy states that an identifier cannot be changed or removed, that adding one makes it immutable, and that an identifier change requires a _new_ artifact rather than a new version — “extreme care must be taken with identifiers”. Publishing our OID at THO's canonical would therefore be a policy violation, not a bump. Every other artifact agrees. Counting the tables where Chapter 2C and THO _both_ give an OID for the same resource type: **395 of 396** code systems and **411 of 412** value sets carry identical identifiers.
 
-**The ask:** Adjudicate each OID. For 0001, establish which of `...18.458` and `...18.2` is the registered identifier for the Administrative Sex code system, and correct the other source. For 0719, establish whether `...20429` or `...20428` is right. Until both are settled this project publishes THO's identifier rather than the chapter's, because the policy forbids changing a published identifier and the canonical URL is THO's. **That is now enforced in the pipeline** rather than left as a recommendation: the identifier is the one element where the chapter does not win a disagreement, because an identifier is identity rather than content. Both conflicts are recomputed on every run, so neither can drift out of view.
+**The ask:** Adjudicate each OID. For 0001, establish which of `...18.458` and `...18.2` is the registered identifier for the Administrative Sex code system, and correct the other source. For 0719, establish whether `...20429` or `...20428` is right. Until both are settled this project publishes THO's identifier rather than the chapter's, because the policy forbids changing a published identifier and the canonical URL is THO's. **That is now enforced in the pipeline** rather than left as a recommendation: the identifier is the one element where the chapter does not win a disagreement, because an identifier is identity rather than content. Both conflicts are recomputed on every run, so neither can drift out of view. **A third option has been raised and needs ruling on: publish _both_ OIDs as identifiers.** `identifier` is 0..* on both CodeSystem and ValueSet, so it is mechanically available, and it would avoid choosing before the committees have. It is not obviously right: two identifiers on one artifact asserts that both OIDs name it, which for 0719 is demonstrably false — `...20429` names a different v3 value set, which THO also publishes. Carrying both would be defensible for 0001, where the two may be the same code system under two registrations, and misleading for 0719. **Please rule per artifact rather than as a blanket policy.**
 
 <a id="30"></a>
 
-## 30. The concept statuses `N` and `B` are defined nowhere, and `N` decays
+## 30. Chapter 2C gives every table its own OID, and this guide publishes it nowhere
+
+**Tables:** 798 tables  
+**Goes to:** V2 Management + TSMG
+
+Chapter 2C carries **three** OIDs per table, in three separate metadata blocks, and they identify three different things: a **Table OID** in the `2.16.840.1.113883.12.*` arc (798 of 799 tables), a **Code System OID** in `...113883.18.*` (435 tables), and a **Value Set OID** in `...113883.21.*` (438 tables). THO uses the same two latter arcs for the same two resource types, so the code system and value set OIDs have an obvious home and are written to `CodeSystem.identifier` and `ValueSet.identifier`. **The table OID has no home.** In V2 the table is the thing with an identity; in FHIR that table becomes a code system _and_ a value set, and neither of them _is_ the table. So the `.12` OID is carried by no resource this guide publishes. That is not a decision anyone took — it is what happens by default when a one-to-one identifier meets a one-to-two split, and it means 798 published identifiers from the chapter appear in no output. Worth knowing before ruling: 50 of the 798 are not identifiers at all but the bare arc root `2.16.840.1.113883.1` with no leaf, on the 50 tables the chapter types _undefined_; and the table OID is not dead elsewhere — THO's own description of table 0227 cites PHIN VADS by the `.12.227` table OID, so implementers do resolve these.
+
+**The ask:** Decide where a V2 table OID belongs in a FHIR representation of that table, and whether this guide should start writing it. The options each say something different and none is free. Putting it on the **CodeSystem** says the code system is the table, which is wrong for the 24 value-set-only tables whose codes belong to another authority. Putting it on **both** resources asserts one identifier for two artifacts, which is the same shape as the defect registered at `esc-oid-conflicts`. Putting it on the **concept domain** concept has no `identifier` element to hold it. Putting it **nowhere** is the current behaviour and may well be right — but it should be a ruling rather than an accident, because the identifier is in the published chapter and its absence from the FHIR artifacts is silent.
+
+<a id="31"></a>
+
+## 31. The concept statuses `N` and `B` are defined nowhere, and `N` decays
 
 **Tables:** 25 tables, 261 concepts  
 **Goes to:** V2 Management + TSMG
@@ -430,9 +442,9 @@ Chapter 2C carries its own legend for the status column: blank means an active c
 
 **The ask:** Three remedies would each resolve this, and they are not the same decision. **One:** define `N` and `B` as concept properties in `utg-concept-properties`, so that what is already published is at least legal. **Two:** replace `N` with something that does not decay — the version a concept was introduced in is a fact that stays true, where a “new” flag silently expires. **Three:** rule that `N` is not a status at all and should not survive into FHIR. Meanwhile this project publishes the chapter's value, passes `N` and `B` through unchanged, and records all 261 disagreements.
 
-<a id="31"></a>
+<a id="32"></a>
 
-## 31. Does reordering a code system's concepts count as a change for versioning?
+## 32. Does reordering a code system's concepts count as a change for versioning?
 
 **Tables:** 32 tables  
 **Goes to:** TSMG
@@ -441,9 +453,9 @@ This project compares its concepts against THO's as a set keyed by code, so a co
 
 **The ask:** Confirm that concept order is not a versionable change, or say that it is. Either answer is one line in this project's comparison. The question is asked because the policy's element table lists `CodeSystem.concept (and all subelements)` without qualification, and a literal reading could be taken to cover sequence.
 
-<a id="32"></a>
+<a id="33"></a>
 
-## 32. How far does the description “editorial corrections” carve-out reach?
+## 33. How far does the description “editorial corrections” carve-out reach?
 
 **Tables:** policy; 12 descriptions, 25 concepts  
 **Goes to:** TSMG
@@ -452,9 +464,9 @@ The Code Systems versioning policy qualifies exactly one element: `CodeSystem.de
 
 **The ask:** Confirm the punctuation waiver, say whether it should extend to concept definitions and displays, and confirm whether the missing ValueSet carve-out is deliberate. Each answer is a located change in this project; none of them is a rewrite.
 
-<a id="33"></a>
+<a id="34"></a>
 
-## 33. Two THO descriptions carry text the chapter's do not, including THO documenting its own error
+## 34. Two THO descriptions carry text the chapter's do not, including THO documenting its own error
 
 **Tables:** 0227, 0719  
 **Goes to:** V2 Management + TSMG

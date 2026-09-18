@@ -45,6 +45,9 @@ difference is recorded** rather than quietly resolved.
 - **[Table index](table-index.html)** — every Chapter 2C table, and the artifacts
   that represent it, here or in THO. Start here if you have a table number
 - **[Artifacts](artifacts.html)** — every code system and value set in the build
+- **[Per-table ledger](table-ledger.html)** — one section per table: every
+  difference from what THO publishes, everything kept from THO, and the open
+  questions that touch that table
 - **[What this guide keeps from THO](tho-merge.html)** — what the merge with
   THO's published content preserved, where the two disagree, and what that
   does to version numbers

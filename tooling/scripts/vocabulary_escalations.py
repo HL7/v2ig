@@ -1295,11 +1295,25 @@ ESCALATIONS = [
             "publishes <code>2.16.840.1.113883.18.2</code>. Both sit in the "
             "HL7 v2 code system arc, so neither is obviously a stray. This is "
             "the most widely implemented table in V2. "
+            "The chapter's block is titled <i>Jurisdiction Gender Code "
+            "System</i>, not <i>Administrative Sex</i>, and "
+            "<code>...18.458</code> resolves to nothing anywhere in THO "
+            "&mdash; so this may be a disagreement about <i>which code "
+            "system</i> the table points at rather than a mistyped digit. "
             "<b><code>ValueSet/v2-0719</code>:</b> the chapter gives "
             "<code>2.16.840.1.113883.1.11.20429</code>, THO publishes "
-            "<code>...20428</code> &mdash; adjacent values, which has the "
-            "shape of a transcription error in one of the two, though which "
-            "one cannot be settled from either document alone. "
+            "<code>...20428</code>. These are adjacent but they are not "
+            "near-misses: both are <b>v3</b> value set OIDs and both are in "
+            "use, <code>...20428</code> for <code>ActInformationSensitivity"
+            "Policy</code>'s parent <code>InformationSensitivityPolicy</code> "
+            "and <code>...20429</code> for <code>ActInformationSensitivity"
+            "Policy</code> itself. THO's <code>ValueSet/v2-0719</code> "
+            "<b>shares</b> <code>...20428</code> with THO's own "
+            "<code>v3-InformationSensitivityPolicy</code> &mdash; one OID on "
+            "two artifacts &mdash; which fits THO's own description of 0719, "
+            "that it &ldquo;was created in THO in error due to an oversight "
+            "in the import processing&rdquo;. So the question is which v3 "
+            "value set table 0719 corresponds to, not which digit is a typo. "
             "<b>Why this is not a versioning question.</b> The THO artifact "
             "versioning policy treats every other divergence found in this "
             "comparison as something a version increment covers. Identifiers "
@@ -1309,8 +1323,10 @@ ESCALATIONS = [
             "new version &mdash; &ldquo;extreme care must be taken with "
             "identifiers&rdquo;. Publishing our OID at THO's canonical would "
             "therefore be a policy violation, not a bump. "
-            "Every other artifact agrees: 395 of 396 code systems and 412 of "
-            "413 value sets carry identical identifiers.",
+            "Every other artifact agrees. Counting the tables where Chapter "
+            "2C and THO <i>both</i> give an OID for the same resource type: "
+            "<b>395 of 396</b> code systems and <b>411 of 412</b> value sets "
+            "carry identical identifiers.",
         "ask":
             "Adjudicate each OID. For 0001, establish which of "
             "<code>...18.458</code> and <code>...18.2</code> is the registered "
@@ -1324,7 +1340,65 @@ ESCALATIONS = [
             "recommendation: the identifier is the one element where the "
             "chapter does not win a disagreement, because an identifier is "
             "identity rather than content. Both conflicts are recomputed on "
-            "every run, so neither can drift out of view.",
+            "every run, so neither can drift out of view. "
+            "<b>A third option has been raised and needs ruling on: publish "
+            "<i>both</i> OIDs as identifiers.</b> <code>identifier</code> is "
+            "0..* on both CodeSystem and ValueSet, so it is mechanically "
+            "available, and it would avoid choosing before the committees "
+            "have. It is not obviously right: two identifiers on one artifact "
+            "asserts that both OIDs name it, which for 0719 is demonstrably "
+            "false &mdash; <code>...20429</code> names a different v3 value "
+            "set, which THO also publishes. Carrying both would be defensible "
+            "for 0001, where the two may be the same code system under two "
+            "registrations, and misleading for 0719. <b>Please rule per "
+            "artifact rather than as a blanket policy.</b>",
+    },
+    {
+        "id": "esc-table-oid-unpublished",
+        "who": "V2 Management + TSMG",
+        "tables": "798 tables",
+        "title": "Chapter 2C gives every table its own OID, and this guide "
+                 "publishes it nowhere",
+        "body":
+            "Chapter 2C carries <b>three</b> OIDs per table, in three separate "
+            "metadata blocks, and they identify three different things: a "
+            "<b>Table OID</b> in the <code>2.16.840.1.113883.12.*</code> arc "
+            "(798 of 799 tables), a <b>Code System OID</b> in "
+            "<code>...113883.18.*</code> (435 tables), and a <b>Value Set "
+            "OID</b> in <code>...113883.21.*</code> (438 tables). THO uses "
+            "the same two latter arcs for the same two resource types, so the "
+            "code system and value set OIDs have an obvious home and are "
+            "written to <code>CodeSystem.identifier</code> and "
+            "<code>ValueSet.identifier</code>. "
+            "<b>The table OID has no home.</b> In V2 the table is the thing "
+            "with an identity; in FHIR that table becomes a code system "
+            "<i>and</i> a value set, and neither of them <i>is</i> the table. "
+            "So the <code>.12</code> OID is carried by no resource this guide "
+            "publishes. That is not a decision anyone took &mdash; it is what "
+            "happens by default when a one-to-one identifier meets a "
+            "one-to-two split, and it means 798 published identifiers from "
+            "the chapter appear in no output. "
+            "Worth knowing before ruling: 50 of the 798 are not identifiers "
+            "at all but the bare arc root <code>2.16.840.1.113883.1</code> "
+            "with no leaf, on the 50 tables the chapter types "
+            "<i>undefined</i>; and the table OID is not dead elsewhere &mdash; "
+            "THO's own description of table 0227 cites PHIN VADS by the "
+            "<code>.12.227</code> table OID, so implementers do resolve these.",
+        "ask":
+            "Decide where a V2 table OID belongs in a FHIR representation of "
+            "that table, and whether this guide should start writing it. The "
+            "options each say something different and none is free. Putting "
+            "it on the <b>CodeSystem</b> says the code system is the table, "
+            "which is wrong for the 24 value-set-only tables whose codes "
+            "belong to another authority. Putting it on <b>both</b> resources "
+            "asserts one identifier for two artifacts, which is the same "
+            "shape as the defect registered at "
+            "<code>esc-oid-conflicts</code>. Putting it on the <b>concept "
+            "domain</b> concept has no <code>identifier</code> element to "
+            "hold it. Putting it <b>nowhere</b> is the current behaviour and "
+            "may well be right &mdash; but it should be a ruling rather than "
+            "an accident, because the identifier is in the published chapter "
+            "and its absence from the FHIR artifacts is silent.",
     },
     {
         "id": "esc-status-n-b-undefined",

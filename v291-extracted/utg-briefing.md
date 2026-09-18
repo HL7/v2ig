@@ -274,4 +274,4 @@ is recorded with the decision that authorized it.
 | 10 | Five concept domains given two different descriptions within the chapter | 5 domains |
 | 12 | Two table headings styled Normal instead of Heading 3, so absent from the chapter's own TOC | 0685, 0767 |
 
-_Generated 2026-09-16 by `tooling/scripts/render_utg_briefing.py`. Edit the module, not this file._
+_Generated 2026-09-18 by `tooling/scripts/render_utg_briefing.py`. Edit the module, not this file._

@@ -1,5 +1,7 @@
 # What this guide keeps from THO
 
+<style>.tl-note { font-size: 0.85em; color: #555; }</style>
+
 This guide publishes its code systems and value sets at **THO's own canonical URLs**. A canonical URL is an identifier: publishing at one says *this is that artifact*, not *this is our version of that artifact*. So anything THO carries that our output leaves out is not a gap in a draft — it is content deleted from the artifact that URL names.
 
 The rule this guide follows, and what this page reports on:
@@ -16,17 +18,17 @@ Content THO publishes that Chapter 2C says nothing about. Without the merge each
 
 | What | Count | Tables |
 |---|---:|---|
-| Concept definitions kept from THO<br/><small>Chapter 2C has no definition column at all, so without this every definition THO has written would be deleted from the artifact.</small> | 4,855 | 382 |
-| Comments-as-published kept from THO<br/><small>THO records the comment text as the chapter of the day printed it, alongside the current one. Nothing in Chapter 2C corresponds to it, so it can only be kept or lost.</small> | 1,276 | 89 |
-| Translations kept from THO<br/><small>The chapter has no way to express a translation, so there is no disagreement to have -- only a loss to avoid.</small> | 1,061 | 125 |
-| Codes kept from THO that the chapter does not list<br/><small>THO publishes these codes at this canonical. Dropping them would remove codes implementers may already be sending.</small> | 211 | 37 |
-| Usage notes kept from THO<br/><small>Guidance THO carries on individual concepts, with no counterpart in the chapter's grid.</small> | 122 | 15 |
-| Deprecation markers kept from THO<br/><small>The HL7 version in which a code was deprecated. The chapter's status column says that a code is deprecated but not when.</small> | 40 | 3 |
-| Resource descriptions kept from THO<br/><small>Where the chapter's description is missing or a placeholder such as 'tbd', THO's text stands.</small> | 3 | 3 |
-| Value set members kept from THO<br/><small>Codes THO enumerates in the value set that the chapter's table does not.</small> | 2 | 2 |
-| Resource names kept from THO<br/><small>The chapter supplies no name.</small> | 2 | 2 |
-| Resource titles kept from THO<br/><small>The chapter supplies no title.</small> | 2 | 2 |
-| Identifiers kept from THO<br/><small>The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</small> | 1 | 1 |
+| Concept definitions kept from THO<br/><span class="tl-note">Chapter 2C has no definition column at all, so without this every definition THO has written would be deleted from the artifact.</span> | 4,855 | 382 |
+| Comments-as-published kept from THO<br/><span class="tl-note">THO records the comment text as the chapter of the day printed it, alongside the current one. Nothing in Chapter 2C corresponds to it, so it can only be kept or lost.</span> | 1,276 | 89 |
+| Translations kept from THO<br/><span class="tl-note">The chapter has no way to express a translation, so there is no disagreement to have -- only a loss to avoid.</span> | 1,061 | 125 |
+| Codes kept from THO that the chapter does not list<br/><span class="tl-note">THO publishes these codes at this canonical. Dropping them would remove codes implementers may already be sending.</span> | 211 | 37 |
+| Usage notes kept from THO<br/><span class="tl-note">Guidance THO carries on individual concepts, with no counterpart in the chapter's grid.</span> | 122 | 15 |
+| Deprecation markers kept from THO<br/><span class="tl-note">The HL7 version in which a code was deprecated. The chapter's status column says that a code is deprecated but not when.</span> | 40 | 3 |
+| Resource descriptions kept from THO<br/><span class="tl-note">Where the chapter's description is missing or a placeholder such as 'tbd', THO's text stands.</span> | 3 | 3 |
+| Value set members kept from THO<br/><span class="tl-note">Codes THO enumerates in the value set that the chapter's table does not.</span> | 2 | 2 |
+| Resource names kept from THO<br/><span class="tl-note">The chapter supplies no name.</span> | 2 | 2 |
+| Resource titles kept from THO<br/><span class="tl-note">The chapter supplies no title.</span> | 2 | 2 |
+| Identifiers kept from THO<br/><span class="tl-note">The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</span> | 1 | 1 |
 
 ## Where the chapter and THO disagree
 
@@ -36,17 +38,17 @@ Both carry a value and the two differ by more than whitespace. The chapter's val
 
 | What | Count | Tables |
 |---|---:|---|
-| Concept status where the chapter and THO disagree<br/><small>Most of these are codes THO still marks 'N' -- new, in some past release -- that the 2.9.1 chapter no longer flags, so ours reads 'active'.</small> | 261 | 25 |
+| Concept status where the chapter and THO disagree<br/><span class="tl-note">Most of these are codes THO still marks 'N' -- new, in some past release -- that the 2.9.1 chapter no longer flags, so ours reads 'active'.</span> | 261 | 25 |
 | Concept comments where the chapter and THO disagree | 98 | 23 |
 | Value set member displays where the chapter and THO disagree | 58 | 9 |
-| Displays where the chapter and THO disagree<br/><small>Both carry a display and they differ beyond whitespace.</small> | 44 | 15 |
-| Descriptions differing only in punctuation<br/><small>Same words in the same order; only punctuation or spacing moved. The chapter's text is published and no version is incremented, which is the versioning policy's editorial-correction carve-out applied as far as a program honestly can. Recorded so the waiver can be reversed in one place if TSMG rules otherwise.</small> | 12 | 7 |
-| Definitions where the chapter and THO disagree<br/><small>Both carry a definition and they differ. The chapter's wins, because this guide publishes the chapter.</small> | 6 | 5 |
-| Purposes where the chapter and THO disagree<br/><small>The purpose is generated from the table number and name, so a difference here is a disagreement about the table's name.</small> | 4 | 4 |
-| Identifiers where the chapter and THO disagree<br/><small>The chapter's OID is published. Under the versioning policy a changed identifier cannot be expressed as a version at all — it calls for a new artifact at a new canonical — so each of these needs resolving before publication.</small> | 2 | 2 |
+| Displays where the chapter and THO disagree<br/><span class="tl-note">Both carry a display and they differ beyond whitespace.</span> | 44 | 15 |
+| Descriptions differing only in punctuation<br/><span class="tl-note">Same words in the same order; only punctuation or spacing moved. The chapter's text is published and no version is incremented, which is the versioning policy's editorial-correction carve-out applied as far as a program honestly can. Recorded so the waiver can be reversed in one place if TSMG rules otherwise.</span> | 12 | 7 |
+| Definitions where the chapter and THO disagree<br/><span class="tl-note">Both carry a definition and they differ. The chapter's wins, because this guide publishes the chapter.</span> | 6 | 5 |
+| Purposes where the chapter and THO disagree<br/><span class="tl-note">The purpose is generated from the table number and name, so a difference here is a disagreement about the table's name.</span> | 4 | 4 |
+| Identifiers where the chapter and THO disagree<br/><span class="tl-note">The chapter's OID is published. Under the versioning policy a changed identifier cannot be expressed as a version at all — it calls for a new artifact at a new canonical — so each of these needs resolving before publication.</span> | 2 | 2 |
 | Resource names where the chapter and THO disagree | 2 | 2 |
 | Resource titles where the chapter and THO disagree | 2 | 2 |
-| Descriptions that differ in what they say<br/><small>The words themselves differ, so this is not an editorial correction and it does increment the version.</small> | 2 | 2 |
+| Descriptions that differ in what they say<br/><span class="tl-note">The words themselves differ, so this is not an editorial correction and it does increment the version.</span> | 2 | 2 |
 | Resource status where the chapter and THO disagree | 1 | 1 |
 
 ## What this guide contributes
@@ -58,7 +60,7 @@ Content in Chapter 2C that THO does not carry. These are real changes to the art
 | What | Count | Tables |
 |---|---:|---|
 | Concept comments the chapter adds | 119 | 9 |
-| Codes the chapter lists that THO does not publish<br/><small>New content this guide contributes.</small> | 38 | 3 |
+| Codes the chapter lists that THO does not publish<br/><span class="tl-note">New content this guide contributes.</span> | 38 | 3 |
 | A hierarchy meaning the chapter states and THO omits | 1 | 1 |
 | Value set members the chapter lists that THO does not | 1 | 1 |
 
@@ -70,7 +72,7 @@ THO publishes an artifact and this guide publishes nothing at that canonical. No
 
 | What | Count | Tables |
 |---|---:|---|
-| Artifacts THO publishes that this guide does not<br/><small>Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</small> | 46 | 26 |
+| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 46 | 26 |
 
 ## What it does to version numbers
 
@@ -95,8 +97,8 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 
 | Table | Resource | Element | Version written |
 |---|---|---|---|
-| 0227 | valueSet | description | 5.0.0 |
-| 0719 | valueSet | description | 4.0.0 |
+| [0227](table-ledger.html#tbl-0227) | valueSet | description | 5.0.0 |
+| [0719](table-ledger.html#tbl-0719) | valueSet | description | 4.0.0 |
 
 ## The artifacts THO has and this guide does not
 
@@ -104,53 +106,57 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 
 | Table | Resource | Why this guide writes nothing |
 |---|---|---|
-| 0005 | CodeSystem | Declared concept domain only. A binding to a domain needs no value set. |
-| 0005 | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| 0012 | CodeSystem | The chapter has no section for it. |
-| 0012 | ValueSet | The chapter has no section for it. |
-| 0033 | CodeSystem | The chapter has no section for it. |
-| 0033 | ValueSet | The chapter has no section for it. |
-| 0034 | CodeSystem | The chapter has no section for it. |
-| 0034 | ValueSet | The chapter has no section for it. |
-| 0048 | CodeSystem | The chapter has no section for it. |
-| 0048 | ValueSet | The chapter has no section for it. |
-| 0070 | CodeSystem | The chapter has no section for it. |
-| 0070 | ValueSet | The chapter has no section for it. |
-| 0102 | CodeSystem | The chapter has no section for it. |
-| 0102 | ValueSet | The chapter has no section for it. |
-| 0106 | CodeSystem | The chapter has no section for it. |
-| 0106 | ValueSet | The chapter has no section for it. |
-| 0107 | CodeSystem | The chapter has no section for it. |
-| 0107 | ValueSet | The chapter has no section for it. |
-| 0108 | CodeSystem | The chapter has no section for it. |
-| 0108 | ValueSet | The chapter has no section for it. |
-| 0109 | CodeSystem | The chapter has no section for it. |
-| 0109 | ValueSet | The chapter has no section for it. |
-| 0133 | CodeSystem | Declared concept domain only. A binding to a domain needs no value set. |
-| 0133 | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| 0156 | CodeSystem | The chapter has no section for it. |
-| 0156 | ValueSet | The chapter has no section for it. |
-| 0157 | CodeSystem | The chapter has no section for it. |
-| 0157 | ValueSet | The chapter has no section for it. |
-| 0158 | CodeSystem | The chapter has no section for it. |
-| 0158 | ValueSet | The chapter has no section for it. |
-| 0290 | CodeSystem | The chapter has no section for it. |
-| 0290 | ValueSet | The chapter has no section for it. |
-| 0292 | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| 0323 | CodeSystem | The chapter has no section for it. |
-| 0323 | ValueSet | The chapter has no section for it. |
-| 0350 | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| 0351 | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| 0399 | ValueSet | The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'. |
-| 0456 | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| 0524 | CodeSystem | The chapter has no section for it. |
-| 0524 | ValueSet | The chapter has no section for it. |
-| 0529 | CodeSystem | The chapter has no section for it. |
-| 0529 | ValueSet | The chapter has no section for it. |
-| 0895 | ValueSet | The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built. |
-| 4000 | CodeSystem | The chapter has no section for it. |
-| 4000 | ValueSet | The chapter has no section for it. |
+| [0005](table-ledger.html#tbl-0005) | CodeSystem | Declared concept domain only. A binding to a domain needs no value set. |
+| [0005](table-ledger.html#tbl-0005) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
+| [0012](table-ledger.html#tbl-0012) | CodeSystem | The chapter has no section for it. |
+| [0012](table-ledger.html#tbl-0012) | ValueSet | The chapter has no section for it. |
+| [0033](table-ledger.html#tbl-0033) | CodeSystem | The chapter has no section for it. |
+| [0033](table-ledger.html#tbl-0033) | ValueSet | The chapter has no section for it. |
+| [0034](table-ledger.html#tbl-0034) | CodeSystem | The chapter has no section for it. |
+| [0034](table-ledger.html#tbl-0034) | ValueSet | The chapter has no section for it. |
+| [0048](table-ledger.html#tbl-0048) | CodeSystem | The chapter has no section for it. |
+| [0048](table-ledger.html#tbl-0048) | ValueSet | The chapter has no section for it. |
+| [0070](table-ledger.html#tbl-0070) | CodeSystem | The chapter has no section for it. |
+| [0070](table-ledger.html#tbl-0070) | ValueSet | The chapter has no section for it. |
+| [0102](table-ledger.html#tbl-0102) | CodeSystem | The chapter has no section for it. |
+| [0102](table-ledger.html#tbl-0102) | ValueSet | The chapter has no section for it. |
+| [0106](table-ledger.html#tbl-0106) | CodeSystem | The chapter has no section for it. |
+| [0106](table-ledger.html#tbl-0106) | ValueSet | The chapter has no section for it. |
+| [0107](table-ledger.html#tbl-0107) | CodeSystem | The chapter has no section for it. |
+| [0107](table-ledger.html#tbl-0107) | ValueSet | The chapter has no section for it. |
+| [0108](table-ledger.html#tbl-0108) | CodeSystem | The chapter has no section for it. |
+| [0108](table-ledger.html#tbl-0108) | ValueSet | The chapter has no section for it. |
+| [0109](table-ledger.html#tbl-0109) | CodeSystem | The chapter has no section for it. |
+| [0109](table-ledger.html#tbl-0109) | ValueSet | The chapter has no section for it. |
+| [0133](table-ledger.html#tbl-0133) | CodeSystem | Declared concept domain only. A binding to a domain needs no value set. |
+| [0133](table-ledger.html#tbl-0133) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
+| [0156](table-ledger.html#tbl-0156) | CodeSystem | The chapter has no section for it. |
+| [0156](table-ledger.html#tbl-0156) | ValueSet | The chapter has no section for it. |
+| [0157](table-ledger.html#tbl-0157) | CodeSystem | The chapter has no section for it. |
+| [0157](table-ledger.html#tbl-0157) | ValueSet | The chapter has no section for it. |
+| [0158](table-ledger.html#tbl-0158) | CodeSystem | The chapter has no section for it. |
+| [0158](table-ledger.html#tbl-0158) | ValueSet | The chapter has no section for it. |
+| [0290](table-ledger.html#tbl-0290) | CodeSystem | The chapter has no section for it. |
+| [0290](table-ledger.html#tbl-0290) | ValueSet | The chapter has no section for it. |
+| [0292](table-ledger.html#tbl-0292) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
+| [0323](table-ledger.html#tbl-0323) | CodeSystem | The chapter has no section for it. |
+| [0323](table-ledger.html#tbl-0323) | ValueSet | The chapter has no section for it. |
+| [0350](table-ledger.html#tbl-0350) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
+| [0351](table-ledger.html#tbl-0351) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
+| [0399](table-ledger.html#tbl-0399) | ValueSet | The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'. |
+| [0456](table-ledger.html#tbl-0456) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
+| [0524](table-ledger.html#tbl-0524) | CodeSystem | The chapter has no section for it. |
+| [0524](table-ledger.html#tbl-0524) | ValueSet | The chapter has no section for it. |
+| [0529](table-ledger.html#tbl-0529) | CodeSystem | The chapter has no section for it. |
+| [0529](table-ledger.html#tbl-0529) | ValueSet | The chapter has no section for it. |
+| [0895](table-ledger.html#tbl-0895) | ValueSet | The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built. |
+| [4000](table-ledger.html#tbl-4000) | CodeSystem | The chapter has no section for it. |
+| [4000](table-ledger.html#tbl-4000) | ValueSet | The chapter has no section for it. |
 
 ## Where the detail lives
 
-Every observation summarised above exists individually in `v291-fhir/tho-fill-report.json`, with the table, the code, the element and the values on both sides. This page is deliberately a summary: there are thousands of instances and the useful question is what kinds of thing happened, not which of eight thousand rows to read first.
+This page is deliberately a summary: there are thousands of instances and the useful question here is what kinds of thing happened, not which of eight thousand rows to read first.
+
+For one table, read the **[per-table ledger](table-ledger.html)** — it has a section per table carrying every difference from THO individually, and it says, for each one, how many other tables the same class of difference reaches. Every table number on this page links into it.
+
+For everything at once, every observation exists individually in `v291-fhir/tho-fill-report.json`, with the table, the code, the element and the values on both sides.

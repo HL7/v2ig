@@ -52,6 +52,12 @@
         <generation value="markdown"/>
       </page>
       <page>
+        <sourceUrl value="table-ledger.html"/>
+        <name value="table-ledger.html"/>
+        <title value="Per-table ledger"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
         <sourceUrl value="tho-merge.html"/>
         <name value="tho-merge.html"/>
         <title value="What this guide keeps from THO"/>
