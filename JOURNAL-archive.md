@@ -2,7 +2,111 @@
 
 Older session entries, moved out of `JOURNAL.md` to keep session-start context lean. Append-only; read on demand only — not loaded at session start.
 
-The split moved to **2026-08-18 (evening)** on 2026-08-24: every entry before that date is below. Entries from 2026-08-18 onward remain in the active `JOURNAL.md`.
+The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-09-18**, to **2026-09-16**: every entry before that date is below, and entries from 2026-09-16 onward remain in the active `JOURNAL.md`.
+
+---
+
+## 2026-09-10 → 2026-09-16 — The vocabulary IG builds: 821 resources, no canonical collisions
+
+### Completed
+
+**The IG exists and can be looked at.** `vocab-ig/` is a build root for this
+workstream, separate from the v2+ structural IG at the repository root. The two
+share the repository, the Apptainer image and `input-cache/publisher.jar`, and
+nothing else. First full build: **821 resources in 31m19s, exit 0**, 4,932 HTML
+pages, peak 4 GB.
+
+**Zero canonical collisions.** The build loaded `hl7.terminology.r5#7.3.0` —
+THO itself — alongside 821 resources authored at THO canonicals and produced no
+duplicate-canonical errors at all. That was the premise the whole smoke test was
+built to probe, and it now holds at full scale rather than across seven
+resources. Commit `330d7c34`. 243 tests pass.
+
+**The handoff understated what "run a full build" required.** It read as though
+the config just needed copying from `smoke-test/`. There was no IG definition
+covering the corpus at all: `smoke.xml` is named `hl7.v2plus.smoke`, marked
+experimental, and points `path-resource` at a directory of seven hand-copied
+files. Authoring the real definition was the task.
+
+**Resources are staged, not authored.** `tooling/scripts/stage_vocab_ig.py`
+copies the writer's output out of `v291-fhir/` into leaf directories under
+`vocab-ig/input/resources/`. The copy is not incidental: `path-resource` is not
+recursive *and* treats every file in a named directory as a resource, so
+pointing it at `v291-fhir/` would feed the publisher `utg-write-report.json` and
+`conceptdomains-divergences.json`. Staging does a full replace of each
+directory, so a resource deleted upstream cannot survive and quietly reappear.
+
+**Three pages were written, not just a stub**: Home (what the guide is, the
+six-route table, the conceptdomains explanation), Provenance (what is
+authoritative and what is deliberately not done), and Known Issues — which
+exists so a reviewer can tell a pipeline defect from a defect we already know
+about, including the ones reproduced from the chapter on purpose.
+
+### Two defects fixed that would both have failed on postproc-g
+
+**The rsync exclude `'utg'` was unanchored.** rsync matches a slashless pattern
+against the basename at *any* depth, so it caught `v291-fhir/utg` — the entire
+820-resource corpus. Verified with a dry run. The build would have **succeeded**
+and published an IG containing only conceptdomains, with nothing anywhere
+reporting a problem. That is the worst failure shape available. Now anchored to
+`/utg`, with a comment at the array saying why.
+
+**`-tx n/a` kills this build.** It is what the v2+ builds use, because
+`tx.fhir.org` is unreachable from NIST, so it was the natural thing to carry
+over — and it was carried over, and it broke the first attempt. This corpus is
+value sets: `ValueSetRenderer.genInclude` dereferences the terminology client
+while generating narratives, and with `-tx n/a` that client is null. NPE at
+"Generating Narratives", ~57 seconds in. Removed from `vocab` mode. If NIST
+blocks terminology, the fallback is to populate `input-cache/txcache` on a
+networked machine and let rsync carry it up.
+
+### The findings worth carrying
+
+**Of 216 errors, 197 are not content.** 192 are one root cause — the
+`conceptdomains` narrative linking to v3 code system pages this guide does not
+contain (ActClass 97, RoleClass 60, EntityClass 26, ActMood 4, ParticipationType
+3, ActCode 1) — and 5 are `tx.fhir.org` `validate-code: timeout` on UCUM and
+LOINC codes. **The timeout messages read "The code 'x' is not valid in the
+system"** and only the parenthetical distinguishes them from real defects; do
+not report them as content without reading to the end of the line.
+
+**`L&I` is unknown in THO's `v2-0203` v5.0.0**, referenced from ValueSet
+`v2-0338`. This is the punctuation-code problem already open for UTG, now with
+build evidence rather than inspection. It is also the single broken link in the
+guide — the anchor `#v2-0203-L.38I` has nothing to point at.
+
+**`EXP` is unknown in THO's `v3-ActMood`**, from ValueSet `v2-0725` — and this
+may reopen a closed item. 0725 was registered last session as *already correct
+by OID resolution*, changing no output. The build says one of its codes does not
+exist in the code system that OID resolved to. The resolution may still be right
+and the chapter's code list wrong, but "already correct" can no longer be
+asserted without checking.
+
+### Corrections taken during the session
+
+- Added `-tx n/a` to the first build attempt on the assumption it matched
+  postproc-g. The proven smoke-test command has no such flag; adding it
+  introduced a variable the working configuration never had, and cost a build.
+- Budgeted "an hour, and treat the real figure as unknown" for the build. It
+  was 31 minutes at 4 GB peak, so **postproc-g is not needed for this IG** —
+  which is the opposite of the conclusion the estimate was steering toward.
+- Started an HTTP server to present the output without first checking that the
+  container's ports are mapped or that `/workspace` is a bind mount of the
+  project directory (it is, via virtiofs). Verified afterwards that the output
+  has no XHR, no root-relative links and no ES modules, so `file://` loses
+  nothing. *[Superseded 2026-09-16: the ports were unmapped then, but the
+  meta-harness has since been changed to publish `$MOSH_PORTS`. Serving over
+  HTTP now works — see the ACTIVE section. Do not re-derive "ports are not
+  mapped" from this entry.]*
+- Wrote a `pgrep`-based wait loop whose own command line contained the pattern
+  it searched for. It matched itself, could never exit, and reported a finished
+  build as "still running".
+
+### Not done
+
+The UTG briefing was not rewritten — it is the top of the next session's list
+and now has one more piece of evidence behind it. The five structural-workstream
+files remain uncommitted, untouched, and not ours.
 
 ---
 
