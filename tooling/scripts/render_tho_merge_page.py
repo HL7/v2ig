@@ -65,7 +65,6 @@ def render_page(report):
         by_kind[bucket["kind"]].append(bucket)
 
     lines = [
-        "# What this guide keeps from THO",
         "",
         # `<small>` would be the obvious tag for the notes in the tables
         # below, but the IG Publisher's HTML checker rejects it and warns on
@@ -96,7 +95,7 @@ def render_page(report):
         buckets = by_kind.get(kind, [])
         total = sum(b["count"] for b in buckets)
         lines += [
-            f"## {heading}",
+            f"### {heading}",
             "",
             blurb,
             "",
@@ -113,7 +112,7 @@ def render_page(report):
         lines.append("")
 
     lines += [
-        "## What it does to version numbers",
+        "### What it does to version numbers",
         "",
         "Version numbers are not hand-applied. Each artifact is compared "
         "against THO's after the merge, and the "
@@ -142,7 +141,7 @@ def render_page(report):
     judgement = report.get("needsJudgement") or []
     if judgement:
         lines += [
-            "### Increments that rest on a human judgement",
+            "#### Increments that rest on a human judgement",
             "",
             "The policy says a changed `CodeSystem.description` is *\"major "
             "unless only change is improved clarity or perform editorial "
@@ -166,7 +165,7 @@ def render_page(report):
     blocked = report.get("cannotBeVersioned") or []
     if blocked:
         lines += [
-            "### Changes a version number cannot express",
+            "#### Changes a version number cannot express",
             "",
             "The policy puts a few elements outside the version system "
             "entirely: changing one of them means a **new artifact at a new "
@@ -186,7 +185,7 @@ def render_page(report):
     omissions = [r for r in report["records"] if r["kind"] == "omission"]
     if omissions:
         lines += [
-            "## The artifacts THO has and this guide does not",
+            "### The artifacts THO has and this guide does not",
             "",
             f"{len(omissions)} of them, across "
             f"{len({r['table'] for r in omissions})} tables. Each is listed "
@@ -205,7 +204,7 @@ def render_page(report):
         lines.append("")
 
     lines += [
-        "## Where the detail lives",
+        "### Where the detail lives",
         "",
         "This page is deliberately a summary: there are thousands of "
         "instances and the useful question here is what kinds of thing "

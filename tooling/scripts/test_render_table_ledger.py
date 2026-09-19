@@ -76,7 +76,7 @@ def test_a_disagreement_reaches_the_table_it_belongs_to():
     page = render([{"kind": "discrepancy", "element": "concept.property",
                     "property": "status", "ours": "active", "tho": "N",
                     "table": "0001", "resource": "CodeSystem", "code": "X"}])
-    assert "### 0001 — Administrative Sex" in page
+    assert "#### 0001 — Administrative Sex" in page
     assert "Disagreement" in page and "`X`" in page
     assert "active" in page and "| N " in page
 
@@ -113,7 +113,7 @@ def test_an_oid_disagreement_appears_in_the_tables_own_section():
                     "ours": "2.16.840.1.113883.18.458",
                     "tho": "2.16.840.1.113883.18.2",
                     "table": "0001", "resource": "CodeSystem"}])
-    section = page.split("### 0001")[1]
+    section = page.split("#### 0001")[1]
     assert "**Identifiers.**" in section
     assert "2.16.840.1.113883.18.458" in section
     assert "2.16.840.1.113883.18.2" in section
@@ -137,7 +137,7 @@ def test_an_identifier_fill_is_named_rather_than_only_counted():
     page = render([{"kind": "fill", "element": "identifier",
                     "value": "2.16.840.1.113883.18.455",
                     "table": "0001", "resource": "CodeSystem"}])
-    assert "2.16.840.1.113883.18.455" in page.split("### 0001")[1]
+    assert "2.16.840.1.113883.18.455" in page.split("#### 0001")[1]
 
 
 def test_two_long_values_differing_at_the_end_are_shown_differing():
@@ -203,7 +203,7 @@ def test_a_canonical_with_no_chapter_table_is_not_counted_as_one():
                       "reason": "The chapter has no section for it."}]),
         make_write_report(), make_index(), {})
     assert "Canonicals with no Chapter 2C table" in page
-    assert "### 0012\n" in page          # no name, and not "0012 — 0012"
+    assert "#### 0012\n" in page          # no name, and not "0012 — 0012"
     assert "Not a Chapter 2C table" in page
 
 
@@ -227,3 +227,239 @@ def test_the_pages_own_arithmetic_adds_up():
     remaining = int(re.search(r"The remaining (\d+) of the chapter's", page).group(1))
     assert total == len(index)
     assert covered + remaining == total
+
+
+# --------------------------------------------------------------------------
+# Shading: the page has 449 sections and a reader scrolls past most of them,
+# so the ones that want attention have to be visible without being read. These
+# tests pin which table gets which treatment, and that the shading and the
+# jump links at the top of the page never disagree about the set.
+# --------------------------------------------------------------------------
+
+def shading_of(page, table):
+    """The `tl-hd-*` class on one table's heading, or None if unshaded."""
+    import re
+
+    match = re.search(r"^#### " + table + r"(?: —[^\n]*)?\n\{: \.tl-hd \.tl-hd-"
+                      r"(\w+)\}$", page, re.M)
+    return match.group(1) if match else None
+
+
+def tables_in_jump_list(page, label):
+    """The table numbers linked from one of the jump-link paragraphs."""
+    import re
+
+    match = re.search(r'<p class="tl-jump">' + label + r": (.*?)</p>",
+                      page, re.S)
+    return set(re.findall(r"#tbl-(\d{4})", match.group(1))) if match else set()
+
+
+def multi_table_fixtures():
+    """Five tables, one for each way a section can be flagged.
+
+    0001 differs from THO and carries a register item; 0002 only differs;
+    0003 only carries an item; 0004 is blocked on a decision; 0005 is quiet.
+    """
+    index = {}
+    for number, name in (("0001", "Administrative Sex"), ("0002", "Marital"),
+                         ("0003", "Event"), ("0004", "Country"),
+                         ("0005", "Race")):
+        index[number] = {"tableNumber": number, "tableName": name,
+                         "tableOID": f"2.16.840.1.113883.12.{int(number)}"}
+    write_report = {"counts": {}, "tables": [
+        {"table": "0001", "name": "Administrative Sex",
+         "action": "code-system-and-value-set", "written": ["a.xml"]},
+        {"table": "0002", "name": "Marital",
+         "action": "code-system-and-value-set", "written": ["b.xml"]},
+        {"table": "0003", "name": "Event",
+         "action": "code-system-and-value-set", "written": ["c.xml"]},
+        {"table": "0004", "name": "Country", "action": "needs-decision",
+         "reason": "The table declares 2 code systems; which one the value "
+                   "set draws from is not stated.",
+         "candidates": ["1.0.3166.1", "1.0.3166.2"], "written": []},
+        {"table": "0005", "name": "Race",
+         "action": "code-system-and-value-set", "written": ["e.xml"]},
+    ]}
+    records = [
+        {"kind": "discrepancy", "element": "concept.property",
+         "property": "status", "ours": "active", "tho": "N",
+         "table": "0001", "resource": "CodeSystem", "code": "X"},
+        {"kind": "discrepancy", "element": "concept.property",
+         "property": "status", "ours": "active", "tho": "N",
+         "table": "0002", "resource": "CodeSystem", "code": "Y"},
+    ]
+    register = {
+        "0001": [{"id": "esc-oid-conflicts", "title": "OIDs conflict",
+                  "who": "V2 Management", "partial": False}],
+        "0003": [{"id": "esc-example", "title": "Something open",
+                  "who": "V2 Management", "partial": False}],
+    }
+    return make_report(records), write_report, index, register
+
+
+def test_each_reason_for_a_second_look_gets_its_own_shading():
+    """One undifferentiated highlight would not say what to expect."""
+    page = ledger.render_page(*multi_table_fixtures())
+    assert shading_of(page, "0001") == "both"
+    assert shading_of(page, "0002") == "diff"
+    assert shading_of(page, "0003") == "issue"
+    assert shading_of(page, "0004") == "decision"
+    assert shading_of(page, "0005") is None
+
+
+def test_a_shaded_heading_says_in_words_why_it_is_shaded():
+    """Colour alone is not available to every reader."""
+    page = ledger.render_page(*multi_table_fixtures())
+    section = page.split("#### 0001")[1].split("#### 0002")[0]
+    assert 'class="tl-why tl-why-both"' in section
+    assert "Differs from THO" in section and "Open register item" in section
+
+
+def test_the_worst_reason_sets_the_tint_and_the_rest_are_still_named():
+    """A table can qualify twice; the heading can only be one colour."""
+    report, write_report, index, register = multi_table_fixtures()
+    register["0004"] = [{"id": "esc-example", "title": "Open",
+                         "who": "V2 Management", "partial": False}]
+    page = ledger.render_page(report, write_report, index, register)
+    assert shading_of(page, "0004") == "decision"
+    section = page.split("#### 0004")[1].split("#### 0005")[0]
+    assert "Blocked on a decision · Open register item" in section
+
+
+def test_an_oid_conflict_is_named_on_the_heading_marker():
+    report, write_report, index, register = multi_table_fixtures()
+    report["records"].append(
+        {"kind": "discrepancy", "element": "identifier",
+         "ours": "2.16.840.1.113883.18.458", "tho": "2.16.840.1.113883.18.2",
+         "table": "0001", "resource": "CodeSystem"})
+    page = ledger.render_page(report, write_report, index, register)
+    section = page.split("#### 0001")[1].split("#### 0002")[0]
+    assert "OID conflict with THO" in section
+
+
+def test_every_shaded_section_is_in_a_jump_list_and_the_reverse():
+    """The two ways of finding a table must agree about which tables there are."""
+    import re
+
+    page = ledger.render_page(*multi_table_fixtures())
+    shaded = set(re.findall(r"^#### (\d{4})(?: —[^\n]*)?\n\{: \.tl-hd ",
+                            page, re.M))
+    listed = (tables_in_jump_list(page, "Differs from THO")
+              | tables_in_jump_list(page, "Open register item")
+              | tables_in_jump_list(page, "Blocked on a decision")
+              | tables_in_jump_list(page, "Needs special consideration"))
+    assert shaded == listed
+    assert shaded == {"0001", "0002", "0003", "0004"}
+
+
+def test_the_legend_counts_match_the_sections_actually_shaded():
+    """A legend that miscounts discredits the shading it explains."""
+    import re
+
+    page = ledger.render_page(*multi_table_fixtures())
+    legend = {key: int(count) for key, count in re.findall(
+        r'tl-hd-(\w+)">[^<]*?\((\d+)\)</span>', page)}
+    actual = {}
+    for key in re.findall(r"^\{: \.tl-hd \.tl-hd-(\w+)\}$", page, re.M):
+        actual[key] = actual.get(key, 0) + 1
+    assert legend == {**{key: 0 for key, _ in ledger.FLAG_TIERS}, **actual}
+
+
+def test_the_legend_lists_every_tier_even_the_empty_ones():
+    page = ledger.render_page(*multi_table_fixtures())
+    for key, label in ledger.FLAG_TIERS:
+        assert f"tl-hd-{key}" in page and label in page
+
+
+def test_the_shading_classes_are_all_defined_in_the_pages_own_style_block():
+    """There is no shared stylesheet to fall back on."""
+    page = ledger.render_page(*multi_table_fixtures())
+    style = page.split("<style>")[1].split("</style>")[0]
+    for key, _label in ledger.FLAG_TIERS:
+        assert f".tl-hd-{key}" in style
+    assert ".tl-why" in style and "blockquote.tl-callout" in style
+
+
+def test_a_table_blocked_on_a_decision_says_so_before_anything_else():
+    page = ledger.render_page(*multi_table_fixtures())
+    section = page.split("#### 0004")[1].split("#### 0005")[0]
+    assert "blocked on a decision" in section
+    assert "publishes no code system and no value set" in section
+    assert "1.0.3166.1" in section and "1.0.3166.2" in section
+    # The comforting line belongs only to tables that do publish something.
+    assert "matches THO on every element compared" not in section
+
+
+def test_a_blocked_table_is_never_left_out_of_the_page():
+    """It has no observations, so nothing else would pull it into a section."""
+    report, write_report, index, register = multi_table_fixtures()
+    page = ledger.render_page(report, write_report, index, register)
+    assert "#### 0004 — Country" in page
+    assert "`0004`" not in page.split("## The remaining tables")[1]
+
+
+def test_a_table_named_only_by_the_register_is_never_left_out_of_the_page():
+    page = ledger.render_page(*multi_table_fixtures())
+    assert "#### 0003 — Event" in page
+    assert "`0003`" not in page.split("## The remaining tables")[1]
+
+
+# --------------------------------------------------------------------------
+# Table 0821 and the voice of the page
+# --------------------------------------------------------------------------
+
+def test_table_0821_is_given_the_strongest_flagging_the_page_has():
+    """The chapter publishes it blank; a reader has to be told before reading."""
+    report, write_report, index, register = multi_table_fixtures()
+    index["0821"] = {"tableNumber": "0821", "tableName": "Gender Identity",
+                     "tableOID": "2.16.840.1.113883.12.821"}
+    write_report["tables"].append(
+        {"table": "0821", "name": "Gender Identity",
+         "action": "needs-decision",
+         "reason": "The table declares 3 code systems; which one the value "
+                   "set draws from is not stated.",
+         "candidates": ["2.16.840.1.113883.6.96"], "written": []})
+    register["0821"] = [{"id": "esc-0821-blank-grid",
+                         "title": "Table 0821 publishes its grid blank",
+                         "who": "V2 Management", "partial": False}]
+    page = ledger.render_page(report, write_report, index, register)
+
+    assert shading_of(page, "0821") == "attention"
+    assert ledger.FLAG_TIERS[0][0] == "attention"      # the top tier
+    assert "0821" in tables_in_jump_list(page, "Needs special consideration")
+
+    section = page.split("#### 0821")[1].split("#### 0822")[0] \
+        if "#### 0822" in page else page.split("#### 0821")[1]
+    assert "completely blank" in section
+    assert "needs a decision" in section.lower()
+    assert "V2 Management" in section
+
+
+def test_the_0821_statement_rests_only_on_what_the_chapter_and_tho_publish():
+    """Facts a committee member can check, not an assertion to be trusted."""
+    text = " ".join(ledger.SPECIAL_CONSIDERATION["0821"])
+    assert "2.16.840.1.113883.4.642.3.3291" in text   # the printed VS OID
+    assert "five" in text                             # the five missing rows
+    assert "ValueSet/gender-identity" in text
+    assert "0823" in text                             # the table built the same way
+
+
+def test_the_page_never_uses_the_small_element():
+    """The IG Publisher's HTML checker rejects it and warns on every use."""
+    page = ledger.render_page(*multi_table_fixtures())
+    assert "<small" not in page and "</small>" not in page
+
+
+def test_the_page_points_at_no_internal_working_document():
+    """The IG is where these issues are reported; there is nowhere else to go."""
+    page = ledger.render_page(*multi_table_fixtures())
+    for fragment in ("v291-extracted", "v291-fhir", "tho-fill-report",
+                     "utg-write-report", "vocabulary-index.json",
+                     "vocabulary-v2mgmt-items", "tooling/scripts", ".py`"):
+        assert fragment not in page, fragment
+
+
+def test_the_also_affects_bullet_says_what_a_class_is():
+    page = ledger.render_page(*multi_table_fixtures())
+    assert ("a one-off or an instance of a class of problem that is repeated "
+            "elsewhere") in page

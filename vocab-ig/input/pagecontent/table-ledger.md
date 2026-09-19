@@ -1,4 +1,3 @@
-# Per-table ledger
 
 One section per table: **everything this guide publishes that differs from what THO publishes**, everything it keeps from THO, and every open issue the register raises against that table.
 
@@ -6,17 +5,17 @@ One section per table: **everything this guide publishes that differs from what 
 
 Measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,272 observations across 433 tables.
 
-## How to read a section
+### How to read a section
 
 - **Differences from THO** — listed one by one. A *disagreement* is where both sides carry a value and they differ by more than whitespace; the chapter's value is published, because publishing the chapter is what this guide is for. *Added here* is content Chapter 2C has and THO does not. *Not published* is a canonical where THO has an artifact and this guide writes nothing — THO's artifact stands untouched.
-- **Also affects** says whether a difference is a one-off or an instance of a class. A row reading *24 other tables* is a policy question, not a data-entry question, and answering it once answers it twenty-five times.
+- **Also affects** says whether a difference is a one-off or an instance of a class of problem that is repeated elsewhere. A row reading *24 other tables* is a policy question, not a data-entry question, and answering it once answers it twenty-five times.
 - **Kept from THO** — content THO publishes that the chapter is silent about, which the merge preserves rather than deleting. Given as counts: there are thousands and every one of them is the absence of a change.
-- **Open issues** — items from the V2 Management / TSMG register (`v291-extracted/vocabulary-v2mgmt-items.md`) that name this table.
+- **Open issues** — items from the V2 Management / TSMG register that name this table.
 - **Identifiers** — the OID situation, where there is one.
 
-Values longer than a cell are truncated. Every observation exists in full, with both sides' values, in `v291-fhir/tho-fill-report.json`.
+Values longer than a cell are truncated. Where two long values differ only near their end, both are shown from just before the point where they diverge, so the difference is always the part on display.
 
-## About the OIDs
+### About the OIDs
 
 Chapter 2C gives each table **three** OIDs, in three separate metadata blocks, and they identify three different things:
 
@@ -34,27 +33,60 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 **2 tables give an OID that disagrees with THO's** — [0001](#tbl-0001), [0719](#tbl-0719). THO's is published in both cases, because the canonical URL is THO's and an identifier is identity rather than content. Each is set out in that table's own section.
 
-## Tables that need a second look
+### Tables that need a second look
 
-**97 tables differ from THO** in at least one element that survived into the published artifact, and **57 carry an open register item**. Everything else either matches THO on every element compared, or is content THO has never seen.
+**97 tables differ from THO** in at least one element that survived into the published artifact, **73 carry an open register item**, and **14 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
+
+Each of these tables has its section heading shaded below, so the same information is available to somebody scrolling the page rather than following a link from here. Where a table qualifies on more than one count, the heading is shaded for the most serious of them and the line beneath it names them all.
+
+<p class="tl-jump">Needs special consideration: <a href="#tbl-0821">0821</a></p>
+
+<p class="tl-jump">Blocked on a decision: <a href="#tbl-0399">0399</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0467">0467</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0822">0822</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0824">0824</a> <a href="#tbl-0827">0827</a> <a href="#tbl-0828">0828</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0953">0953</a> <a href="#tbl-0956">0956</a> <a href="#tbl-0963">0963</a></p>
 
 <p class="tl-jump">Differs from THO: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0012">0012</a> <a href="#tbl-0033">0033</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0048">0048</a> <a href="#tbl-0070">0070</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0083">0083</a> <a href="#tbl-0102">0102</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0106">0106</a> <a href="#tbl-0107">0107</a> <a href="#tbl-0108">0108</a> <a href="#tbl-0109">0109</a> <a href="#tbl-0119">0119</a> <a href="#tbl-0123">0123</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0136">0136</a> <a href="#tbl-0156">0156</a> <a href="#tbl-0157">0157</a> <a href="#tbl-0158">0158</a> <a href="#tbl-0174">0174</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0202">0202</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0206">0206</a> <a href="#tbl-0208">0208</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0232">0232</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0287">0287</a> <a href="#tbl-0290">0290</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0292">0292</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0301">0301</a> <a href="#tbl-0323">0323</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0338">0338</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0356">0356</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0369">0369</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0433">0433</a> <a href="#tbl-0434">0434</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0489">0489</a> <a href="#tbl-0496">0496</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0524">0524</a> <a href="#tbl-0529">0529</a> <a href="#tbl-0548">0548</a> <a href="#tbl-0555">0555</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0717">0717</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0834">0834</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0906">0906</a> <a href="#tbl-0907">0907</a> <a href="#tbl-0909">0909</a> <a href="#tbl-0912">0912</a> <a href="#tbl-0914">0914</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0937">0937</a> <a href="#tbl-0938">0938</a> <a href="#tbl-0945">0945</a> <a href="#tbl-0948">0948</a> <a href="#tbl-0949">0949</a> <a href="#tbl-0950">0950</a> <a href="#tbl-0951">0951</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0970">0970</a> <a href="#tbl-0971">0971</a> <a href="#tbl-4000">4000</a></p>
 
-<p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0957">0957</a></p>
+<p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0010">0010</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0093">0093</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0188">0188</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0340">0340</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0451">0451</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0626">0626</a> <a href="#tbl-0675">0675</a> <a href="#tbl-0685">0685</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0767">0767</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0910">0910</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0957">0957</a> <a href="#tbl-0967">0967</a> <a href="#tbl-9999">9999</a></p>
+
+<p class="tl-legend">
+<span class="tl-hd tl-hd-attention">Needs special consideration (1)</span>
+<span class="tl-hd tl-hd-decision">Blocked on a decision (13)</span>
+<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (29)</span>
+<span class="tl-hd tl-hd-issue">Carries an open register item (39)</span>
+<span class="tl-hd tl-hd-diff">Differs from THO (66)</span>
+</p>
 
 <style>
 .tl-jump { line-height: 2; }
 .tl-jump a { display: inline-block; padding: 0 0.35em; }
 .tl-note { font-size: 0.85em; color: #555; }
+.tl-hd { color: #14171a; padding: 0.18em 0.5em;
+         border-left: 7px solid #8a8f94; border-radius: 3px; }
+.tl-hd-diff      { background: #fdf2d5; border-left-color: #8a6100; }
+.tl-hd-issue     { background: #ddeafa; border-left-color: #14507f; }
+.tl-hd-both      { background: #e9dff7; border-left-color: #56308c; }
+.tl-hd-decision  { background: #fbdcd7; border-left-color: #94241a; }
+.tl-hd-attention { background: #f6bfb6; border-left-width: 14px;
+                   border-left-color: #6e0d02; }
+.tl-why { margin: 0.25em 0 0.9em; font-size: 0.85em;
+          letter-spacing: 0.04em; text-transform: uppercase;
+          color: #41474d; }
+.tl-legend span { display: inline-block; font-size: 0.85em;
+                  margin: 0 0.5em 0.4em 0; }
+blockquote.tl-callout { border-left: 7px solid #94241a;
+                        background: #fef6f4; color: #14171a;
+                        padding: 0.8em 1.1em; margin: 0 0 1.1em; }
 </style>
 
-## Every table with something to report
+### Every table with something to report
 
-**431 of the chapter's 799 tables.** The other 368 are listed at the foot of the page, and 18 canonicals that are not Chapter 2C tables at all have their own section after these.
+**455 of the chapter's 799 tables.** The other 344 are listed at the foot of the page, and 18 canonicals that are not Chapter 2C tables at all have their own section after these.
 
 <a id="tbl-0001"></a>
 
-### 0001 — Administrative Sex
+#### 0001 — Administrative Sex
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item · OID conflict with THO</p>
 
 *Route: code system + value set.*
 
@@ -88,7 +120,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0002"></a>
 
-### 0002 — Marital Status
+#### 0002 — Marital Status
 
 *Route: code system + value set.*
 
@@ -104,7 +136,10 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0003"></a>
 
-### 0003 — Event
+#### 0003 — Event
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -176,7 +211,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0004"></a>
 
-### 0004 — Patient Class
+#### 0004 — Patient Class
 
 *Route: code system + value set.*
 
@@ -192,7 +227,10 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0005"></a>
 
-### 0005 — Race
+#### 0005 — Race
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: concept domain only.*
 
@@ -209,7 +247,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0006"></a>
 
-### 0006 — Religion
+#### 0006 — Religion
 
 *Route: code system + value set.*
 
@@ -226,7 +264,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0007"></a>
 
-### 0007 — Admission Type
+#### 0007 — Admission Type
 
 *Route: code system + value set.*
 
@@ -242,7 +280,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0008"></a>
 
-### 0008 — Acknowledgment code
+#### 0008 — Acknowledgment code
 
 *Route: code system + value set.*
 
@@ -258,7 +296,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0009"></a>
 
-### 0009 — Ambulatory Status
+#### 0009 — Ambulatory Status
 
 *Route: code system + value set.*
 
@@ -272,9 +310,22 @@ THO uses those same two arcs for those same two resource types, so the compariso
 | Concept definitions kept from THO | 16 |
 | Translations kept from THO | 16 |
 
+<a id="tbl-0010"></a>
+
+#### 0010 — Physician ID
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: nothing written.*
+
+**Open issues.**
+
+- `esc-tables-that-should-be-domains` — Three “tables” that carry no terminology at all — *V2 Management*
+
 <a id="tbl-0017"></a>
 
-### 0017 — Transaction Type
+#### 0017 — Transaction Type
 
 *Route: code system + value set.*
 
@@ -290,7 +341,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0027"></a>
 
-### 0027 — Priority
+#### 0027 — Priority
 
 *Route: code system + value set.*
 
@@ -306,7 +357,10 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0038"></a>
 
-### 0038 — Order status
+#### 0038 — Order status
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -326,7 +380,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0052"></a>
 
-### 0052 — Diagnosis Type
+#### 0052 — Diagnosis Type
 
 *Route: code system + value set.*
 
@@ -342,7 +396,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0061"></a>
 
-### 0061 — Check Digit Scheme
+#### 0061 — Check Digit Scheme
 
 *Route: code system + value set.*
 
@@ -359,7 +413,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0062"></a>
 
-### 0062 — Event Reason
+#### 0062 — Event Reason
 
 *Route: code system + value set.*
 
@@ -375,7 +429,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0063"></a>
 
-### 0063 — Relationship
+#### 0063 — Relationship
 
 *Route: code system + value set.*
 
@@ -391,7 +445,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0065"></a>
 
-### 0065 — Specimen Action Code
+#### 0065 — Specimen Action Code
 
 *Route: code system + value set.*
 
@@ -408,7 +462,10 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0066"></a>
 
-### 0066 — Employment Status
+#### 0066 — Employment Status
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -430,7 +487,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0069"></a>
 
-### 0069 — Hospital Service
+#### 0069 — Hospital Service
 
 *Route: code system + value set.*
 
@@ -445,7 +502,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0074"></a>
 
-### 0074 — Diagnostic Service Section ID
+#### 0074 — Diagnostic Service Section ID
 
 *Route: code system + value set.*
 
@@ -462,7 +519,10 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0076"></a>
 
-### 0076 — Message Type
+#### 0076 — Message Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -487,7 +547,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 <a id="tbl-0078"></a>
 
-### 0078 — Interpretation Codes
+#### 0078 — Interpretation Codes
 
 *Route: value set only.*
 
@@ -497,7 +557,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0080"></a>
 
-### 0080 — Nature of Abnormal Testing
+#### 0080 — Nature of Abnormal Testing
 
 *Route: code system + value set.*
 
@@ -513,7 +573,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0083"></a>
 
-### 0083 — Outlier Type
+#### 0083 — Outlier Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -535,7 +598,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0085"></a>
 
-### 0085 — Observation Result Status Codes Interpretation
+#### 0085 — Observation Result Status Codes Interpretation
 
 *Route: code system + value set.*
 
@@ -552,7 +615,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0091"></a>
 
-### 0091 — Query Priority
+#### 0091 — Query Priority
 
 *Route: code system + value set.*
 
@@ -568,7 +631,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0092"></a>
 
-### 0092 — Re-Admission Indicator
+#### 0092 — Re-Admission Indicator
 
 *Route: code system + value set.*
 
@@ -582,9 +645,24 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 1 |
 | Translations kept from THO | 1 |
 
+<a id="tbl-0093"></a>
+
+#### 0093 — Release Information
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-0460-user-defined-mint` — User-defined tables are treated three different ways, and two of them get a freshly minted canonical — *V2 Management*
+- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management*
+- `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
+
 <a id="tbl-0098"></a>
 
-### 0098 — Type of Agreement
+#### 0098 — Type of Agreement
 
 *Route: code system + value set.*
 
@@ -599,7 +677,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0100"></a>
 
-### 0100 — Invocation event
+#### 0100 — Invocation event
 
 *Route: code system + value set.*
 
@@ -615,7 +693,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0103"></a>
 
-### 0103 — Processing ID
+#### 0103 — Processing ID
 
 *Route: code system + value set.*
 
@@ -630,7 +708,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0104"></a>
 
-### 0104 — Version ID
+#### 0104 — Version ID
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -657,7 +738,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0105"></a>
 
-### 0105 — Source of Comment
+#### 0105 — Source of Comment
 
 *Route: code system + value set.*
 
@@ -673,7 +754,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0116"></a>
 
-### 0116 — Bed Status
+#### 0116 — Bed Status
 
 *Route: code system + value set.*
 
@@ -689,7 +770,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0119"></a>
 
-### 0119 — Order Control Codes
+#### 0119 — Order Control Codes
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -732,7 +816,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0121"></a>
 
-### 0121 — Response Flag
+#### 0121 — Response Flag
 
 *Route: code system + value set.*
 
@@ -748,7 +832,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0122"></a>
 
-### 0122 — Charge Type
+#### 0122 — Charge Type
 
 *Route: code system + value set.*
 
@@ -764,7 +848,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0123"></a>
 
-### 0123 — Result Status
+#### 0123 — Result Status
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -789,7 +876,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0124"></a>
 
-### 0124 — Transportation Mode
+#### 0124 — Transportation Mode
 
 *Route: code system + value set.*
 
@@ -805,7 +892,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0125"></a>
 
-### 0125 — Value Type
+#### 0125 — Value Type
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
@@ -817,7 +907,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0126"></a>
 
-### 0126 — Quantity Limited Request
+#### 0126 — Quantity Limited Request
 
 *Route: code system + value set.*
 
@@ -834,7 +924,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0127"></a>
 
-### 0127 — Allergen Type
+#### 0127 — Allergen Type
 
 *Route: code system + value set.*
 
@@ -850,7 +940,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0128"></a>
 
-### 0128 — Allergy Severity
+#### 0128 — Allergy Severity
 
 *Route: code system + value set.*
 
@@ -866,7 +956,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0130"></a>
 
-### 0130 — Visit User Code
+#### 0130 — Visit User Code
 
 *Route: code system + value set.*
 
@@ -881,7 +971,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0131"></a>
 
-### 0131 — Contact Role
+#### 0131 — Contact Role
 
 *Route: code system + value set.*
 
@@ -898,7 +988,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0133"></a>
 
-### 0133 — Procedure practitioner identifier code type
+#### 0133 — Procedure practitioner identifier code type
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: concept domain only.*
 
@@ -915,7 +1008,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0135"></a>
 
-### 0135 — Assignment of Benefits
+#### 0135 — Assignment of Benefits
 
 *Route: code system + value set.*
 
@@ -931,7 +1024,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0136"></a>
 
-### 0136 — Yes/no Indicator
+#### 0136 — Yes/no Indicator
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: value set only.*
 
@@ -946,7 +1042,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0137"></a>
 
-### 0137 — Mail Claim Party
+#### 0137 — Mail Claim Party
 
 *Route: code system + value set.*
 
@@ -962,7 +1058,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0140"></a>
 
-### 0140 — Military Service
+#### 0140 — Military Service
 
 *Route: code system + value set.*
 
@@ -977,7 +1073,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0142"></a>
 
-### 0142 — Military Status
+#### 0142 — Military Status
 
 *Route: code system + value set.*
 
@@ -992,7 +1088,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0144"></a>
 
-### 0144 — Eligibility Source
+#### 0144 — Eligibility Source
 
 *Route: code system + value set.*
 
@@ -1008,7 +1104,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0145"></a>
 
-### 0145 — Room Type
+#### 0145 — Room Type
 
 *Route: code system + value set.*
 
@@ -1024,7 +1120,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0146"></a>
 
-### 0146 — Amount Type
+#### 0146 — Amount Type
 
 *Route: code system + value set.*
 
@@ -1041,7 +1137,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0147"></a>
 
-### 0147 — Policy Type
+#### 0147 — Policy Type
 
 *Route: code system + value set.*
 
@@ -1057,7 +1153,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0148"></a>
 
-### 0148 — Money or Percentage Indicator
+#### 0148 — Money or Percentage Indicator
 
 *Route: code system + value set.*
 
@@ -1073,7 +1169,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0149"></a>
 
-### 0149 — Day Type
+#### 0149 — Day Type
 
 *Route: code system + value set.*
 
@@ -1089,7 +1185,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0150"></a>
 
-### 0150 — Certification Patient Type
+#### 0150 — Certification Patient Type
 
 *Route: code system + value set.*
 
@@ -1105,7 +1201,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0155"></a>
 
-### 0155 — Accept/Application Acknowledgment Conditions
+#### 0155 — Accept/Application Acknowledgment Conditions
 
 *Route: code system + value set.*
 
@@ -1121,7 +1217,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0159"></a>
 
-### 0159 — Diet Code Specification Type
+#### 0159 — Diet Code Specification Type
 
 *Route: code system + value set.*
 
@@ -1137,7 +1233,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0160"></a>
 
-### 0160 — Tray Type
+#### 0160 — Tray Type
 
 *Route: code system + value set.*
 
@@ -1153,7 +1249,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0161"></a>
 
-### 0161 — Allow Substitution
+#### 0161 — Allow Substitution
 
 *Route: code system + value set.*
 
@@ -1169,7 +1265,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0162"></a>
 
-### 0162 — Route of Administration
+#### 0162 — Route of Administration
 
 *Route: code system + value set.*
 
@@ -1186,7 +1282,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0163"></a>
 
-### 0163 — Body Site
+#### 0163 — Body Site
 
 *Route: code system + value set.*
 
@@ -1203,7 +1299,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0164"></a>
 
-### 0164 — Administration Device
+#### 0164 — Administration Device
 
 *Route: code system + value set.*
 
@@ -1219,7 +1315,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0165"></a>
 
-### 0165 — Administration Method
+#### 0165 — Administration Method
 
 *Route: code system + value set.*
 
@@ -1235,7 +1331,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0166"></a>
 
-### 0166 — RX Component Type
+#### 0166 — RX Component Type
 
 *Route: code system + value set.*
 
@@ -1251,7 +1347,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0167"></a>
 
-### 0167 — Substitution Status
+#### 0167 — Substitution Status
 
 *Route: code system + value set.*
 
@@ -1267,7 +1363,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0168"></a>
 
-### 0168 — Processing Priority
+#### 0168 — Processing Priority
 
 *Route: code system + value set.*
 
@@ -1283,7 +1379,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0169"></a>
 
-### 0169 — Reporting Priority
+#### 0169 — Reporting Priority
 
 *Route: code system + value set.*
 
@@ -1299,7 +1395,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0170"></a>
 
-### 0170 — Derived Specimen
+#### 0170 — Derived Specimen
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1319,7 +1418,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0173"></a>
 
-### 0173 — Coordination of Benefits
+#### 0173 — Coordination of Benefits
 
 *Route: code system + value set.*
 
@@ -1335,7 +1434,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0174"></a>
 
-### 0174 — Nature of Service/Test/Observation
+#### 0174 — Nature of Service/Test/Observation
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -1362,7 +1464,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0175"></a>
 
-### 0175 — Master File Identifier Code
+#### 0175 — Master File Identifier Code
 
 *Route: code system + value set.*
 
@@ -1380,7 +1482,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0177"></a>
 
-### 0177 — Confidentiality Code
+#### 0177 — Confidentiality Code
 
 *Route: code system + value set.*
 
@@ -1396,7 +1498,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0178"></a>
 
-### 0178 — File Level Event Code
+#### 0178 — File Level Event Code
 
 *Route: code system + value set.*
 
@@ -1412,7 +1514,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0179"></a>
 
-### 0179 — Response Level
+#### 0179 — Response Level
 
 *Route: code system + value set.*
 
@@ -1428,7 +1530,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0180"></a>
 
-### 0180 — Masterfile Action Code
+#### 0180 — Masterfile Action Code
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1454,7 +1559,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0181"></a>
 
-### 0181 — MFN Record-level Error Return
+#### 0181 — MFN Record-level Error Return
 
 *Route: code system + value set.*
 
@@ -1470,7 +1575,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0183"></a>
 
-### 0183 — Active/Inactive
+#### 0183 — Active/Inactive
 
 *Route: code system + value set.*
 
@@ -1486,7 +1591,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0185"></a>
 
-### 0185 — Preferred Method of Contact
+#### 0185 — Preferred Method of Contact
 
 *Route: code system + value set.*
 
@@ -1502,7 +1607,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0187"></a>
 
-### 0187 — Provider Billing
+#### 0187 — Provider Billing
 
 *Route: code system + value set.*
 
@@ -1516,9 +1621,22 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 2 |
 | Translations kept from THO | 2 |
 
+<a id="tbl-0188"></a>
+
+#### 0188 — Operator ID
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: nothing written.*
+
+**Open issues.**
+
+- `esc-tables-that-should-be-domains` — Three “tables” that carry no terminology at all — *V2 Management*
+
 <a id="tbl-0189"></a>
 
-### 0189 — Ethnic Group
+#### 0189 — Ethnic Group
 
 *Route: code system + value set.*
 
@@ -1533,7 +1651,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0190"></a>
 
-### 0190 — Address Type
+#### 0190 — Address Type
 
 *Route: code system + value set.*
 
@@ -1550,7 +1668,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0191"></a>
 
-### 0191 — Type of Referenced Data
+#### 0191 — Type of Referenced Data
 
 *Route: code system + value set.*
 
@@ -1567,7 +1685,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0193"></a>
 
-### 0193 — Amount Class
+#### 0193 — Amount Class
 
 *Route: code system + value set.*
 
@@ -1584,7 +1702,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0200"></a>
 
-### 0200 — Name Type
+#### 0200 — Name Type
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1619,7 +1740,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0201"></a>
 
-### 0201 — Telecommunication Use Code
+#### 0201 — Telecommunication Use Code
 
 *Route: code system + value set.*
 
@@ -1637,7 +1758,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0202"></a>
 
-### 0202 — Telecommunication Equipment Type
+#### 0202 — Telecommunication Equipment Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -1659,7 +1783,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0203"></a>
 
-### 0203 — Identifier Type
+#### 0203 — Identifier Type
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1727,7 +1854,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0204"></a>
 
-### 0204 — Organizational Name Type
+#### 0204 — Organizational Name Type
 
 *Route: code system + value set.*
 
@@ -1743,7 +1870,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0205"></a>
 
-### 0205 — Price Type
+#### 0205 — Price Type
 
 *Route: code system + value set.*
 
@@ -1758,7 +1885,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0206"></a>
 
-### 0206 — Segment Action Code
+#### 0206 — Segment Action Code
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -1781,7 +1911,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0207"></a>
 
-### 0207 — Processing Mode
+#### 0207 — Processing Mode
 
 *Route: code system + value set.*
 
@@ -1797,7 +1927,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0208"></a>
 
-### 0208 — Query Response Status
+#### 0208 — Query Response Status
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -1819,7 +1952,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0209"></a>
 
-### 0209 — Relational Operator
+#### 0209 — Relational Operator
 
 *Route: code system + value set.*
 
@@ -1834,7 +1967,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0210"></a>
 
-### 0210 — Relational Conjunction
+#### 0210 — Relational Conjunction
 
 *Route: code system + value set.*
 
@@ -1849,7 +1982,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0211"></a>
 
-### 0211 — Alternate Character Sets
+#### 0211 — Alternate Character Sets
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -1873,7 +2009,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0213"></a>
 
-### 0213 — Purge Status Code
+#### 0213 — Purge Status Code
 
 *Route: code system + value set.*
 
@@ -1888,7 +2024,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0214"></a>
 
-### 0214 — Special Program Code
+#### 0214 — Special Program Code
 
 *Route: code system + value set.*
 
@@ -1903,7 +2039,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0215"></a>
 
-### 0215 — Publicity Code
+#### 0215 — Publicity Code
 
 *Route: code system + value set.*
 
@@ -1918,7 +2054,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0216"></a>
 
-### 0216 — Patient Status Code
+#### 0216 — Patient Status Code
 
 *Route: code system + value set.*
 
@@ -1933,7 +2069,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0217"></a>
 
-### 0217 — Visit Priority Code
+#### 0217 — Visit Priority Code
 
 *Route: code system + value set.*
 
@@ -1948,7 +2084,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0220"></a>
 
-### 0220 — Living Arrangement
+#### 0220 — Living Arrangement
 
 *Route: code system + value set.*
 
@@ -1963,7 +2099,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0223"></a>
 
-### 0223 — Living Dependency
+#### 0223 — Living Dependency
 
 *Route: code system + value set.*
 
@@ -1979,7 +2115,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0224"></a>
 
-### 0224 — Transport Arranged
+#### 0224 — Transport Arranged
 
 *Route: code system + value set.*
 
@@ -1994,7 +2130,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0225"></a>
 
-### 0225 — Escort Required
+#### 0225 — Escort Required
 
 *Route: code system + value set.*
 
@@ -2009,7 +2145,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0227"></a>
 
-### 0227 — Manufacturers of Vaccines (code=MVX)
+#### 0227 — Manufacturers of Vaccines (code=MVX)
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -2028,7 +2167,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0228"></a>
 
-### 0228 — Diagnosis Classification
+#### 0228 — Diagnosis Classification
 
 *Route: code system + value set.*
 
@@ -2044,7 +2183,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0230"></a>
 
-### 0230 — Procedure Functional Type
+#### 0230 — Procedure Functional Type
 
 *Route: code system + value set.*
 
@@ -2060,7 +2199,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0231"></a>
 
-### 0231 — Student Status
+#### 0231 — Student Status
 
 *Route: code system + value set.*
 
@@ -2075,7 +2214,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0232"></a>
 
-### 0232 — Insurance Company Contact Reason
+#### 0232 — Insurance Company Contact Reason
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -2096,7 +2238,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0234"></a>
 
-### 0234 — Report Timing
+#### 0234 — Report Timing
 
 *Route: code system + value set.*
 
@@ -2111,7 +2253,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0235"></a>
 
-### 0235 — Report Source
+#### 0235 — Report Source
 
 *Route: code system + value set.*
 
@@ -2126,7 +2268,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0236"></a>
 
-### 0236 — Event Reported To
+#### 0236 — Event Reported To
 
 *Route: code system + value set.*
 
@@ -2141,7 +2283,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0237"></a>
 
-### 0237 — Event Qualification
+#### 0237 — Event Qualification
 
 *Route: code system + value set.*
 
@@ -2156,7 +2298,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0238"></a>
 
-### 0238 — Event Seriousness
+#### 0238 — Event Seriousness
 
 *Route: code system + value set.*
 
@@ -2172,7 +2314,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0239"></a>
 
-### 0239 — Event Expected
+#### 0239 — Event Expected
 
 *Route: code system + value set.*
 
@@ -2188,7 +2330,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0240"></a>
 
-### 0240 — Event Consequence
+#### 0240 — Event Consequence
 
 *Route: code system + value set.*
 
@@ -2203,7 +2345,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0241"></a>
 
-### 0241 — Patient Outcome
+#### 0241 — Patient Outcome
 
 *Route: code system + value set.*
 
@@ -2218,7 +2360,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0242"></a>
 
-### 0242 — Primary Observer's Qualification
+#### 0242 — Primary Observer's Qualification
 
 *Route: code system + value set.*
 
@@ -2233,7 +2375,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0243"></a>
 
-### 0243 — Identity May Be Divulged
+#### 0243 — Identity May Be Divulged
 
 *Route: code system + value set.*
 
@@ -2249,7 +2391,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0247"></a>
 
-### 0247 — Status of Evaluation
+#### 0247 — Status of Evaluation
 
 *Route: code system + value set.*
 
@@ -2264,7 +2406,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0248"></a>
 
-### 0248 — Product Source
+#### 0248 — Product Source
 
 *Route: code system + value set.*
 
@@ -2279,7 +2421,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0250"></a>
 
-### 0250 — Relatedness Assessment
+#### 0250 — Relatedness Assessment
 
 *Route: code system + value set.*
 
@@ -2294,7 +2436,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0251"></a>
 
-### 0251 — Action Taken in Response to the Event
+#### 0251 — Action Taken in Response to the Event
 
 *Route: code system + value set.*
 
@@ -2309,7 +2451,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0252"></a>
 
-### 0252 — Causality Observations
+#### 0252 — Causality Observations
 
 *Route: code system + value set.*
 
@@ -2324,7 +2466,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0253"></a>
 
-### 0253 — Indirect Exposure Mechanism
+#### 0253 — Indirect Exposure Mechanism
 
 *Route: code system + value set.*
 
@@ -2339,7 +2481,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0254"></a>
 
-### 0254 — Kind of Quantity
+#### 0254 — Kind of Quantity
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2435,7 +2580,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0255"></a>
 
-### 0255 — Duration Categories
+#### 0255 — Duration Categories
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2462,7 +2610,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0256"></a>
 
-### 0256 — Time Delay Post Challenge
+#### 0256 — Time Delay Post Challenge
 
 *Route: code system + value set.*
 
@@ -2477,7 +2625,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0257"></a>
 
-### 0257 — Nature of Challenge
+#### 0257 — Nature of Challenge
 
 *Route: code system + value set.*
 
@@ -2492,7 +2640,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0258"></a>
 
-### 0258 — Relationship Modifier
+#### 0258 — Relationship Modifier
 
 *Route: code system + value set.*
 
@@ -2507,7 +2655,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0260"></a>
 
-### 0260 — Patient Location Type
+#### 0260 — Patient Location Type
 
 *Route: code system + value set.*
 
@@ -2522,7 +2670,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0261"></a>
 
-### 0261 — Location Equipment
+#### 0261 — Location Equipment
 
 *Route: code system + value set.*
 
@@ -2537,7 +2685,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0262"></a>
 
-### 0262 — Privacy Level
+#### 0262 — Privacy Level
 
 *Route: code system + value set.*
 
@@ -2552,7 +2700,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0263"></a>
 
-### 0263 — Level of Care
+#### 0263 — Level of Care
 
 *Route: code system + value set.*
 
@@ -2567,7 +2715,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0265"></a>
 
-### 0265 — Specialty Type
+#### 0265 — Specialty Type
 
 *Route: code system + value set.*
 
@@ -2582,7 +2730,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0267"></a>
 
-### 0267 — Days of the Week
+#### 0267 — Days of the Week
 
 *Route: code system + value set.*
 
@@ -2597,7 +2745,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0268"></a>
 
-### 0268 — Override
+#### 0268 — Override
 
 *Route: code system + value set.*
 
@@ -2612,7 +2760,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0269"></a>
 
-### 0269 — Charge On Indicator
+#### 0269 — Charge On Indicator
 
 *Route: code system + value set.*
 
@@ -2627,7 +2775,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0270"></a>
 
-### 0270 — Document Type
+#### 0270 — Document Type
 
 *Route: code system + value set.*
 
@@ -2642,7 +2790,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0271"></a>
 
-### 0271 — Document Completion Status
+#### 0271 — Document Completion Status
 
 *Route: code system + value set.*
 
@@ -2658,7 +2806,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0272"></a>
 
-### 0272 — Document Confidentiality Status
+#### 0272 — Document Confidentiality Status
 
 *Route: code system + value set.*
 
@@ -2674,7 +2822,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0273"></a>
 
-### 0273 — Document Availability Status
+#### 0273 — Document Availability Status
 
 *Route: code system + value set.*
 
@@ -2690,7 +2838,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0275"></a>
 
-### 0275 — Document Storage Status
+#### 0275 — Document Storage Status
 
 *Route: code system + value set.*
 
@@ -2706,7 +2854,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0276"></a>
 
-### 0276 — Appointment reason codes
+#### 0276 — Appointment reason codes
 
 *Route: code system + value set.*
 
@@ -2721,7 +2869,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0277"></a>
 
-### 0277 — Appointment Type Codes
+#### 0277 — Appointment Type Codes
 
 *Route: code system + value set.*
 
@@ -2737,7 +2885,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0278"></a>
 
-### 0278 — Filler status codes
+#### 0278 — Filler status codes
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -2770,7 +2921,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0279"></a>
 
-### 0279 — Allow Substitution Codes
+#### 0279 — Allow Substitution Codes
 
 *Route: code system + value set.*
 
@@ -2786,7 +2937,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0280"></a>
 
-### 0280 — Referral Priority
+#### 0280 — Referral Priority
 
 *Route: code system + value set.*
 
@@ -2801,7 +2952,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0281"></a>
 
-### 0281 — Referral Type
+#### 0281 — Referral Type
 
 *Route: code system + value set.*
 
@@ -2817,7 +2968,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0282"></a>
 
-### 0282 — Referral Disposition
+#### 0282 — Referral Disposition
 
 *Route: code system + value set.*
 
@@ -2832,7 +2983,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0283"></a>
 
-### 0283 — Referral Status
+#### 0283 — Referral Status
 
 *Route: code system + value set.*
 
@@ -2847,7 +2998,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0284"></a>
 
-### 0284 — Referral Category
+#### 0284 — Referral Category
 
 *Route: code system + value set.*
 
@@ -2862,7 +3013,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0286"></a>
 
-### 0286 — Provider Role
+#### 0286 — Provider Role
 
 *Route: code system + value set.*
 
@@ -2877,7 +3028,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0287"></a>
 
-### 0287 — Problem/Goal Action Code
+#### 0287 — Problem/Goal Action Code
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -2900,7 +3054,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0291"></a>
 
-### 0291 — Subtype of Referenced Data
+#### 0291 — Subtype of Referenced Data
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2942,7 +3099,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0292"></a>
 
-### 0292 — Vaccines Administered
+#### 0292 — Vaccines Administered
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: concept domain only.*
 
@@ -2954,7 +3114,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0294"></a>
 
-### 0294 — Time Selection Criteria Parameter Class Codes
+#### 0294 — Time Selection Criteria Parameter Class Codes
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -2983,7 +3146,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0298"></a>
 
-### 0298 — CP Range Type
+#### 0298 — CP Range Type
 
 *Route: code system + value set.*
 
@@ -2998,7 +3161,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0299"></a>
 
-### 0299 — Encoding
+#### 0299 — Encoding
 
 *Route: code system + value set.*
 
@@ -3015,7 +3178,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0301"></a>
 
-### 0301 — Universal ID Type
+#### 0301 — Universal ID Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -3047,7 +3213,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0305"></a>
 
-### 0305 — Person Location Type
+#### 0305 — Person Location Type
 
 *Route: code system + value set.*
 
@@ -3063,7 +3229,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0309"></a>
 
-### 0309 — Coverage Type
+#### 0309 — Coverage Type
 
 *Route: code system + value set.*
 
@@ -3078,7 +3244,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0311"></a>
 
-### 0311 — Job Status
+#### 0311 — Job Status
 
 *Route: code system + value set.*
 
@@ -3094,7 +3260,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0315"></a>
 
-### 0315 — Living Will Code
+#### 0315 — Living Will Code
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3113,7 +3282,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0316"></a>
 
-### 0316 — Organ Donor Code
+#### 0316 — Organ Donor Code
 
 *Route: code system + value set.*
 
@@ -3128,7 +3297,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0317"></a>
 
-### 0317 — Annotations
+#### 0317 — Annotations
 
 *Route: code system + value set.*
 
@@ -3143,7 +3312,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0321"></a>
 
-### 0321 — Dispense Method
+#### 0321 — Dispense Method
 
 *Route: code system + value set.*
 
@@ -3158,7 +3327,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0322"></a>
 
-### 0322 — Completion Status
+#### 0322 — Completion Status
 
 *Route: code system + value set.*
 
@@ -3173,7 +3342,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0324"></a>
 
-### 0324 — Location Characteristic ID
+#### 0324 — Location Characteristic ID
 
 *Route: code system + value set.*
 
@@ -3188,7 +3357,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0325"></a>
 
-### 0325 — Location Relationship ID
+#### 0325 — Location Relationship ID
 
 *Route: code system + value set.*
 
@@ -3203,7 +3372,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0326"></a>
 
-### 0326 — Visit Indicator
+#### 0326 — Visit Indicator
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3230,7 +3402,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0329"></a>
 
-### 0329 — Quantity Method
+#### 0329 — Quantity Method
 
 *Route: code system + value set.*
 
@@ -3245,7 +3417,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0330"></a>
 
-### 0330 — Marketing Basis
+#### 0330 — Marketing Basis
 
 *Route: code system + value set.*
 
@@ -3260,7 +3432,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0331"></a>
 
-### 0331 — Facility Type
+#### 0331 — Facility Type
 
 *Route: code system + value set.*
 
@@ -3275,7 +3447,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0332"></a>
 
-### 0332 — Source Type
+#### 0332 — Source Type
 
 *Route: code system + value set.*
 
@@ -3290,7 +3462,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0334"></a>
 
-### 0334 — Disabled Person Code
+#### 0334 — Disabled Person Code
 
 *Route: code system + value set.*
 
@@ -3306,7 +3478,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0335"></a>
 
-### 0335 — Repeat Pattern
+#### 0335 — Repeat Pattern
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3326,7 +3501,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0336"></a>
 
-### 0336 — Referral Reason
+#### 0336 — Referral Reason
 
 *Route: code system + value set.*
 
@@ -3341,7 +3516,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0337"></a>
 
-### 0337 — Certification Status
+#### 0337 — Certification Status
 
 *Route: code system + value set.*
 
@@ -3356,7 +3531,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0338"></a>
 
-### 0338 — Practitioner ID Number Type
+#### 0338 — Practitioner ID Number Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: value set only.*
 
@@ -3381,7 +3559,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0339"></a>
 
-### 0339 — Advanced Beneficiary Notice Code
+#### 0339 — Advanced Beneficiary Notice Code
 
 *Route: code system + value set.*
 
@@ -3395,9 +3573,23 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 4 |
 | Translations kept from THO | 3 |
 
+<a id="tbl-0340"></a>
+
+#### 0340 — Procedure Code Modifier
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-0340-code-grid-misuse` — Table 0340's code grid lists code systems, not codes — *V2 Management*
+- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management*
+
 <a id="tbl-0344"></a>
 
-### 0344 — Patient's Relationship to Insured
+#### 0344 — Patient's Relationship to Insured
 
 *Route: code system + value set.*
 
@@ -3413,7 +3605,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0347"></a>
 
-### 0347 — State/Province
+#### 0347 — State/Province
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -3432,7 +3627,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0350"></a>
 
-### 0350 — Occurrence Code
+#### 0350 — Occurrence Code
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: concept domain only.*
 
@@ -3448,7 +3646,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0351"></a>
 
-### 0351 — Occurrence Span
+#### 0351 — Occurrence Span
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: concept domain only.*
 
@@ -3464,7 +3665,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0353"></a>
 
-### 0353 — CWE statuses
+#### 0353 — CWE statuses
 
 *Route: code system + value set.*
 
@@ -3479,7 +3680,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0354"></a>
 
-### 0354 — Message Structure
+#### 0354 — Message Structure
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -3519,7 +3723,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0355"></a>
 
-### 0355 — Primary Key Value Type
+#### 0355 — Primary Key Value Type
 
 *Route: code system + value set.*
 
@@ -3535,7 +3739,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0356"></a>
 
-### 0356 — Alternate Character Set Handling Scheme
+#### 0356 — Alternate Character Set Handling Scheme
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -3557,7 +3764,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0357"></a>
 
-### 0357 — Message Error Condition Codes
+#### 0357 — Message Error Condition Codes
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -3581,7 +3791,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0359"></a>
 
-### 0359 — Diagnosis Priority
+#### 0359 — Diagnosis Priority
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3601,7 +3814,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0360"></a>
 
-### 0360 — Degree/License/Certificate
+#### 0360 — Degree/License/Certificate
 
 *Route: code system + value set.*
 
@@ -3616,7 +3829,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0364"></a>
 
-### 0364 — Comment Type
+#### 0364 — Comment Type
 
 *Route: code system + value set.*
 
@@ -3631,7 +3844,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0365"></a>
 
-### 0365 — Equipment State
+#### 0365 — Equipment State
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3651,7 +3867,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0366"></a>
 
-### 0366 — Local/Remote Control State
+#### 0366 — Local/Remote Control State
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3671,7 +3890,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0367"></a>
 
-### 0367 — Alert Level
+#### 0367 — Alert Level
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3699,7 +3921,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0368"></a>
 
-### 0368 — Remote Control Command
+#### 0368 — Remote Control Command
 
 *Route: code system + value set.*
 
@@ -3715,7 +3937,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0369"></a>
 
-### 0369 — Specimen Role
+#### 0369 — Specimen Role
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -3730,7 +3955,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0370"></a>
 
-### 0370 — Container Status
+#### 0370 — Container Status
 
 *Route: code system + value set.*
 
@@ -3741,7 +3966,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0371"></a>
 
-### 0371 — Additive/Preservative
+#### 0371 — Additive/Preservative
 
 *Route: code system + value set.*
 
@@ -3757,7 +3982,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0372"></a>
 
-### 0372 — Specimen Component
+#### 0372 — Specimen Component
 
 *Route: code system + value set.*
 
@@ -3772,7 +3997,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0373"></a>
 
-### 0373 — Treatment
+#### 0373 — Treatment
 
 *Route: code system + value set.*
 
@@ -3787,7 +4012,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0374"></a>
 
-### 0374 — System Induced Contaminants
+#### 0374 — System Induced Contaminants
 
 *Route: code system + value set.*
 
@@ -3802,7 +4027,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0375"></a>
 
-### 0375 — Artificial Blood
+#### 0375 — Artificial Blood
 
 *Route: code system + value set.*
 
@@ -3817,7 +4042,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0376"></a>
 
-### 0376 — Special Handling Code
+#### 0376 — Special Handling Code
 
 *Route: code system + value set.*
 
@@ -3833,7 +4058,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0377"></a>
 
-### 0377 — Other Environmental Factors
+#### 0377 — Other Environmental Factors
 
 *Route: code system + value set.*
 
@@ -3848,7 +4073,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0383"></a>
 
-### 0383 — Substance Status
+#### 0383 — Substance Status
 
 *Route: code system + value set.*
 
@@ -3863,7 +4088,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0384"></a>
 
-### 0384 — Substance Type
+#### 0384 — Substance Type
 
 *Route: code system + value set.*
 
@@ -3879,7 +4104,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0387"></a>
 
-### 0387 — Command Response
+#### 0387 — Command Response
 
 *Route: code system + value set.*
 
@@ -3895,7 +4120,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0388"></a>
 
-### 0388 — Processing Type
+#### 0388 — Processing Type
 
 *Route: code system + value set.*
 
@@ -3910,7 +4135,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0389"></a>
 
-### 0389 — Analyte Repeat Status
+#### 0389 — Analyte Repeat Status
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3936,7 +4164,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0391"></a>
 
-### 0391 — Segment Group
+#### 0391 — Segment Group
 
 *Route: code system + value set.*
 
@@ -3951,7 +4179,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0392"></a>
 
-### 0392 — Match Reason
+#### 0392 — Match Reason
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3970,7 +4201,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0393"></a>
 
-### 0393 — Match Algorithms
+#### 0393 — Match Algorithms
 
 *Route: code system + value set.*
 
@@ -3985,7 +4216,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0394"></a>
 
-### 0394 — Response Modality
+#### 0394 — Response Modality
 
 *Route: code system + value set.*
 
@@ -4000,7 +4231,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0395"></a>
 
-### 0395 — Modify Indicator
+#### 0395 — Modify Indicator
 
 *Route: code system + value set.*
 
@@ -4015,7 +4246,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0396"></a>
 
-### 0396 — Coding System
+#### 0396 — Coding System
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -4157,7 +4391,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0397"></a>
 
-### 0397 — Sequencing
+#### 0397 — Sequencing
 
 *Route: code system + value set.*
 
@@ -4172,7 +4406,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0398"></a>
 
-### 0398 — Continuation Style Code
+#### 0398 — Continuation Style Code
 
 *Route: code system + value set.*
 
@@ -4187,9 +4421,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0399"></a>
 
-### 0399 — Country Code
+#### 0399 — Country Code
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision · Differs from THO</p>
 
 *Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
 
 **Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
@@ -4199,7 +4441,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0401"></a>
 
-### 0401 — Government Reimbursement Program
+#### 0401 — Government Reimbursement Program
 
 *Route: code system + value set.*
 
@@ -4214,7 +4456,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0402"></a>
 
-### 0402 — School Type
+#### 0402 — School Type
 
 *Route: code system + value set.*
 
@@ -4229,7 +4471,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0403"></a>
 
-### 0403 — Language Ability
+#### 0403 — Language Ability
 
 *Route: code system + value set.*
 
@@ -4244,7 +4486,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0404"></a>
 
-### 0404 — Language Proficiency
+#### 0404 — Language Proficiency
 
 *Route: code system + value set.*
 
@@ -4259,7 +4501,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0406"></a>
 
-### 0406 — Participant Organization Unit Type
+#### 0406 — Participant Organization Unit Type
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4278,7 +4523,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0409"></a>
 
-### 0409 — Application Change Type
+#### 0409 — Application Change Type
 
 *Route: code system + value set.*
 
@@ -4293,7 +4538,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0411"></a>
 
-### 0411 — Supplemental Service Information Values
+#### 0411 — Supplemental Service Information Values
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4306,7 +4554,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0415"></a>
 
-### 0415 — Transfer Type
+#### 0415 — Transfer Type
 
 *Route: code system + value set.*
 
@@ -4321,7 +4569,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0416"></a>
 
-### 0416 — Procedure DRG Type
+#### 0416 — Procedure DRG Type
 
 *Route: code system + value set.*
 
@@ -4336,7 +4584,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0417"></a>
 
-### 0417 — Tissue Type Code
+#### 0417 — Tissue Type Code
 
 *Route: code system + value set.*
 
@@ -4351,7 +4599,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0418"></a>
 
-### 0418 — Procedure Priority
+#### 0418 — Procedure Priority
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4372,7 +4623,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0421"></a>
 
-### 0421 — Severity of Illness Code
+#### 0421 — Severity of Illness Code
 
 *Route: code system + value set.*
 
@@ -4387,7 +4638,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0422"></a>
 
-### 0422 — Triage Code
+#### 0422 — Triage Code
 
 *Route: code system + value set.*
 
@@ -4402,7 +4653,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0423"></a>
 
-### 0423 — Case Category Code
+#### 0423 — Case Category Code
 
 *Route: code system + value set.*
 
@@ -4417,7 +4668,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0424"></a>
 
-### 0424 — Gestation Category Code
+#### 0424 — Gestation Category Code
 
 *Route: code system + value set.*
 
@@ -4433,7 +4684,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0425"></a>
 
-### 0425 — Newborn Code
+#### 0425 — Newborn Code
 
 *Route: code system + value set.*
 
@@ -4449,7 +4700,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0426"></a>
 
-### 0426 — Blood Product Code
+#### 0426 — Blood Product Code
 
 *Route: code system + value set.*
 
@@ -4464,7 +4715,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0427"></a>
 
-### 0427 — Risk Management Incident Code
+#### 0427 — Risk Management Incident Code
 
 *Route: code system + value set.*
 
@@ -4479,7 +4730,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0428"></a>
 
-### 0428 — Incident Type Code
+#### 0428 — Incident Type Code
 
 *Route: code system + value set.*
 
@@ -4494,7 +4745,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0429"></a>
 
-### 0429 — Production Class Code
+#### 0429 — Production Class Code
 
 *Route: code system + value set.*
 
@@ -4509,7 +4760,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0430"></a>
 
-### 0430 — Mode of Arrival Code
+#### 0430 — Mode of Arrival Code
 
 *Route: code system + value set.*
 
@@ -4525,7 +4776,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0431"></a>
 
-### 0431 — Recreational Drug Use Code
+#### 0431 — Recreational Drug Use Code
 
 *Route: code system + value set.*
 
@@ -4541,7 +4792,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0432"></a>
 
-### 0432 — Admission Level of Care Code
+#### 0432 — Admission Level of Care Code
 
 *Route: code system + value set.*
 
@@ -4557,7 +4808,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0433"></a>
 
-### 0433 — Precaution Code
+#### 0433 — Precaution Code
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -4579,7 +4833,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0434"></a>
 
-### 0434 — Patient Condition Code
+#### 0434 — Patient Condition Code
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -4602,7 +4859,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0435"></a>
 
-### 0435 — Advance Directive Code
+#### 0435 — Advance Directive Code
 
 *Route: code system + value set.*
 
@@ -4617,7 +4874,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0436"></a>
 
-### 0436 — Sensitivity to Causative Agent Code
+#### 0436 — Sensitivity to Causative Agent Code
 
 *Route: code system + value set.*
 
@@ -4633,7 +4890,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0437"></a>
 
-### 0437 — Alert Device Code
+#### 0437 — Alert Device Code
 
 *Route: code system + value set.*
 
@@ -4649,7 +4906,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0438"></a>
 
-### 0438 — Allergy Clinical Status
+#### 0438 — Allergy Clinical Status
 
 *Route: code system + value set.*
 
@@ -4664,7 +4921,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0440"></a>
 
-### 0440 — Data Types
+#### 0440 — Data Types
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -4705,7 +4965,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0441"></a>
 
-### 0441 — Immunization Registry Status
+#### 0441 — Immunization Registry Status
 
 *Route: code system + value set.*
 
@@ -4720,7 +4980,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0442"></a>
 
-### 0442 — Location Service Code
+#### 0442 — Location Service Code
 
 *Route: code system + value set.*
 
@@ -4735,7 +4995,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0443"></a>
 
-### 0443 — Provider Role
+#### 0443 — Provider Role
 
 *Route: code system + value set.*
 
@@ -4752,7 +5012,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0444"></a>
 
-### 0444 — Name Assembly Order
+#### 0444 — Name Assembly Order
 
 *Route: code system + value set.*
 
@@ -4768,7 +5028,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0445"></a>
 
-### 0445 — Identity Reliability Code
+#### 0445 — Identity Reliability Code
 
 *Route: code system + value set.*
 
@@ -4783,7 +5043,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0450"></a>
 
-### 0450 — Event Type
+#### 0450 — Event Type
 
 *Route: code system + value set.*
 
@@ -4796,9 +5056,25 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 2 |
 
+<a id="tbl-0451"></a>
+
+#### 0451 — Substance Identifier
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management*
+
 <a id="tbl-0456"></a>
 
-### 0456 — Revenue code
+#### 0456 — Revenue code
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: concept domain only.*
 
@@ -4814,7 +5090,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0457"></a>
 
-### 0457 — Overall Claim Disposition Code
+#### 0457 — Overall Claim Disposition Code
 
 *Route: code system + value set.*
 
@@ -4827,9 +5103,48 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 5 |
 
+<a id="tbl-0458"></a>
+
+#### 0458 — OCE Edit Code
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision · Open register item</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+**Open issues.**
+
+- `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
+
+<a id="tbl-0459"></a>
+
+#### 0459 — Reimbursement Action Code
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision · Open register item</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+**Open issues.**
+
+- `esc-0459-unresolvable-oid` — Table 0459 names its code system only by an OID that nothing resolves — *V2 Management + TSMG*
+
 <a id="tbl-0460"></a>
 
-### 0460 — Denial or Rejection Code
+#### 0460 — Denial or Rejection Code
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4842,7 +5157,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0465"></a>
 
-### 0465 — Name/Address Representation
+#### 0465 — Name/Address Representation
 
 *Route: code system + value set.*
 
@@ -4858,7 +5173,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0466"></a>
 
-### 0466 — Ambulatory Payment Classification Code
+#### 0466 — Ambulatory Payment Classification Code
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4876,9 +5194,23 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
+<a id="tbl-0467"></a>
+
+#### 0467 — Modifier Edit Code
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
 <a id="tbl-0468"></a>
 
-### 0468 — Payment Adjustment Code
+#### 0468 — Payment Adjustment Code
 
 *Route: code system + value set.*
 
@@ -4893,7 +5225,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0469"></a>
 
-### 0469 — Packaging Status Code
+#### 0469 — Packaging Status Code
 
 *Route: code system + value set.*
 
@@ -4908,7 +5240,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0470"></a>
 
-### 0470 — Reimbursement Type Code
+#### 0470 — Reimbursement Type Code
 
 *Route: code system + value set.*
 
@@ -4923,7 +5255,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0472"></a>
 
-### 0472 — TQ Conjunction ID
+#### 0472 — TQ Conjunction ID
 
 *Route: code system + value set.*
 
@@ -4939,7 +5271,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0473"></a>
 
-### 0473 — Formulary Status
+#### 0473 — Formulary Status
 
 *Route: code system + value set.*
 
@@ -4954,7 +5286,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0474"></a>
 
-### 0474 — Practitioner Organization Unit Type
+#### 0474 — Practitioner Organization Unit Type
 
 *Route: code system + value set.*
 
@@ -4970,7 +5302,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0475"></a>
 
-### 0475 — Charge Type Reason
+#### 0475 — Charge Type Reason
 
 *Route: code system + value set.*
 
@@ -4985,7 +5317,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0477"></a>
 
-### 0477 — Controlled Substance Schedule
+#### 0477 — Controlled Substance Schedule
 
 *Route: code system + value set.*
 
@@ -5001,7 +5333,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0478"></a>
 
-### 0478 — Formulary Status
+#### 0478 — Formulary Status
 
 *Route: code system + value set.*
 
@@ -5016,7 +5348,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0480"></a>
 
-### 0480 — Pharmacy Order Types
+#### 0480 — Pharmacy Order Types
 
 *Route: code system + value set.*
 
@@ -5032,7 +5364,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0482"></a>
 
-### 0482 — Order Type
+#### 0482 — Order Type
 
 *Route: code system + value set.*
 
@@ -5047,7 +5379,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0483"></a>
 
-### 0483 — Authorization Mode
+#### 0483 — Authorization Mode
 
 *Route: code system + value set.*
 
@@ -5062,7 +5394,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0484"></a>
 
-### 0484 — Dispense Type
+#### 0484 — Dispense Type
 
 *Route: code system + value set.*
 
@@ -5077,7 +5409,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0485"></a>
 
-### 0485 — Extended Priority Codes
+#### 0485 — Extended Priority Codes
 
 *Route: code system + value set.*
 
@@ -5093,7 +5425,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0487"></a>
 
-### 0487 — Specimen Type
+#### 0487 — Specimen Type
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5121,7 +5456,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0488"></a>
 
-### 0488 — Specimen Collection Method
+#### 0488 — Specimen Collection Method
 
 *Route: code system + value set.*
 
@@ -5136,7 +5471,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0489"></a>
 
-### 0489 — Risk Codes
+#### 0489 — Risk Codes
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -5158,7 +5496,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0490"></a>
 
-### 0490 — Specimen Reject Reason
+#### 0490 — Specimen Reject Reason
 
 *Route: code system + value set.*
 
@@ -5173,7 +5511,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0491"></a>
 
-### 0491 — Specimen Quality
+#### 0491 — Specimen Quality
 
 *Route: code system + value set.*
 
@@ -5188,7 +5526,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0492"></a>
 
-### 0492 — Specimen Appropriateness
+#### 0492 — Specimen Appropriateness
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5208,7 +5549,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0493"></a>
 
-### 0493 — Specimen Condition
+#### 0493 — Specimen Condition
 
 *Route: code system + value set.*
 
@@ -5224,7 +5565,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0494"></a>
 
-### 0494 — Specimen Child Role
+#### 0494 — Specimen Child Role
 
 *Route: code system + value set.*
 
@@ -5239,7 +5580,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0495"></a>
 
-### 0495 — Body Site Modifier
+#### 0495 — Body Site Modifier
 
 *Route: code system + value set.*
 
@@ -5255,7 +5596,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0496"></a>
 
-### 0496 — Consent Type
+#### 0496 — Consent Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -5279,7 +5623,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0497"></a>
 
-### 0497 — Consent Mode
+#### 0497 — Consent Mode
 
 *Route: code system + value set.*
 
@@ -5294,7 +5638,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0498"></a>
 
-### 0498 — Consent Status
+#### 0498 — Consent Status
 
 *Route: code system + value set.*
 
@@ -5309,7 +5653,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0499"></a>
 
-### 0499 — Consent Bypass Reason
+#### 0499 — Consent Bypass Reason
 
 *Route: code system + value set.*
 
@@ -5324,7 +5668,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0500"></a>
 
-### 0500 — Consent Disclosure Level
+#### 0500 — Consent Disclosure Level
 
 *Route: code system + value set.*
 
@@ -5339,7 +5683,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0501"></a>
 
-### 0501 — Consent Non-Disclosure Reason
+#### 0501 — Consent Non-Disclosure Reason
 
 *Route: code system + value set.*
 
@@ -5354,7 +5698,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0502"></a>
 
-### 0502 — Non-Subject Consenter Reason
+#### 0502 — Non-Subject Consenter Reason
 
 *Route: code system + value set.*
 
@@ -5369,7 +5713,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0503"></a>
 
-### 0503 — Sequence/Results Flag
+#### 0503 — Sequence/Results Flag
 
 *Route: code system + value set.*
 
@@ -5385,7 +5729,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0504"></a>
 
-### 0504 — Sequence Condition Code
+#### 0504 — Sequence Condition Code
 
 *Route: code system + value set.*
 
@@ -5400,7 +5744,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0505"></a>
 
-### 0505 — Cyclic Entry/Exit Indicator
+#### 0505 — Cyclic Entry/Exit Indicator
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5427,7 +5774,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0506"></a>
 
-### 0506 — Service Request Relationship
+#### 0506 — Service Request Relationship
 
 *Route: code system + value set.*
 
@@ -5443,7 +5790,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0507"></a>
 
-### 0507 — Observation Result Handling
+#### 0507 — Observation Result Handling
 
 *Route: code system + value set.*
 
@@ -5458,7 +5805,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0508"></a>
 
-### 0508 — Blood Product Processing Requirements
+#### 0508 — Blood Product Processing Requirements
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5477,7 +5827,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0510"></a>
 
-### 0510 — Blood Product Dispense Status
+#### 0510 — Blood Product Dispense Status
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5497,7 +5850,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0511"></a>
 
-### 0511 — BP Observation Status Codes Interpretation
+#### 0511 — BP Observation Status Codes Interpretation
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5516,7 +5872,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0513"></a>
 
-### 0513 — Blood Product Transfusion/Disposition Status
+#### 0513 — Blood Product Transfusion/Disposition Status
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5536,7 +5895,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0514"></a>
 
-### 0514 — Transfusion Adverse Reaction
+#### 0514 — Transfusion Adverse Reaction
 
 *Route: code system + value set.*
 
@@ -5551,7 +5910,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0516"></a>
 
-### 0516 — Error Severity
+#### 0516 — Error Severity
 
 *Route: code system + value set.*
 
@@ -5567,7 +5926,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0517"></a>
 
-### 0517 — Inform Person Code
+#### 0517 — Inform Person Code
 
 *Route: code system + value set.*
 
@@ -5582,7 +5941,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0518"></a>
 
-### 0518 — Override Type
+#### 0518 — Override Type
 
 *Route: code system + value set.*
 
@@ -5598,7 +5957,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0520"></a>
 
-### 0520 — Message Waiting Priority
+#### 0520 — Message Waiting Priority
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5617,7 +5979,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0523"></a>
 
-### 0523 — Computation Type
+#### 0523 — Computation Type
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5636,7 +6001,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0527"></a>
 
-### 0527 — Calendar Alignment
+#### 0527 — Calendar Alignment
 
 *Route: code system + value set.*
 
@@ -5652,7 +6017,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0528"></a>
 
-### 0528 — Event Related Period
+#### 0528 — Event Related Period
 
 *Route: code system + value set.*
 
@@ -5668,7 +6033,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0530"></a>
 
-### 0530 — Organization, Agency, Department
+#### 0530 — Organization, Agency, Department
 
 *Route: code system + value set.*
 
@@ -5684,7 +6049,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0532"></a>
 
-### 0532 — Expanded Yes/no Indicator
+#### 0532 — Expanded Yes/no Indicator
 
 *Route: code system + value set.*
 
@@ -5701,7 +6066,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0534"></a>
 
-### 0534 — Notify Clergy Code
+#### 0534 — Notify Clergy Code
 
 *Route: code system + value set.*
 
@@ -5717,7 +6082,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0535"></a>
 
-### 0535 — Signature Code
+#### 0535 — Signature Code
 
 *Route: code system + value set.*
 
@@ -5732,7 +6097,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0536"></a>
 
-### 0536 — Certificate Status
+#### 0536 — Certificate Status
 
 *Route: code system + value set.*
 
@@ -5748,7 +6113,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0538"></a>
 
-### 0538 — Institution Relationship Type
+#### 0538 — Institution Relationship Type
 
 *Route: code system + value set.*
 
@@ -5764,7 +6129,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0540"></a>
 
-### 0540 — Inactive Reason Code
+#### 0540 — Inactive Reason Code
 
 *Route: code system + value set.*
 
@@ -5779,7 +6144,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0544"></a>
 
-### 0544 — Container Condition
+#### 0544 — Container Condition
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5801,7 +6169,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0547"></a>
 
-### 0547 — Jurisdictional Breadth
+#### 0547 — Jurisdictional Breadth
 
 *Route: code system + value set.*
 
@@ -5817,7 +6185,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0548"></a>
 
-### 0548 — Signatory's Relationship to Subject
+#### 0548 — Signatory's Relationship to Subject
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -5839,7 +6210,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0550"></a>
 
-### 0550 — Body Parts
+#### 0550 — Body Parts
 
 *Route: code system + value set.*
 
@@ -5854,7 +6225,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0553"></a>
 
-### 0553 — Invoice Control Code
+#### 0553 — Invoice Control Code
 
 *Route: code system + value set.*
 
@@ -5870,7 +6241,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0554"></a>
 
-### 0554 — Invoice Reason Codes
+#### 0554 — Invoice Reason Codes
 
 *Route: code system + value set.*
 
@@ -5886,7 +6257,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0555"></a>
 
-### 0555 — Invoice Type
+#### 0555 — Invoice Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -5908,7 +6282,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0556"></a>
 
-### 0556 — Benefit Group
+#### 0556 — Benefit Group
 
 *Route: code system + value set.*
 
@@ -5923,7 +6297,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0557"></a>
 
-### 0557 — Payee Type
+#### 0557 — Payee Type
 
 *Route: code system + value set.*
 
@@ -5939,7 +6313,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0558"></a>
 
-### 0558 — Payee Relationship to Invoice
+#### 0558 — Payee Relationship to Invoice
 
 *Route: code system + value set.*
 
@@ -5954,7 +6328,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0559"></a>
 
-### 0559 — Product/Service Status
+#### 0559 — Product/Service Status
 
 *Route: code system + value set.*
 
@@ -5969,7 +6343,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0560"></a>
 
-### 0560 — Quantity Units
+#### 0560 — Quantity Units
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -6003,7 +6380,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0561"></a>
 
-### 0561 — Product/Services Clarification Codes
+#### 0561 — Product/Services Clarification Codes
 
 *Route: code system + value set.*
 
@@ -6019,7 +6396,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0562"></a>
 
-### 0562 — Processing Consideration Codes
+#### 0562 — Processing Consideration Codes
 
 *Route: code system + value set.*
 
@@ -6035,7 +6412,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0564"></a>
 
-### 0564 — Adjustment Category Code
+#### 0564 — Adjustment Category Code
 
 *Route: code system + value set.*
 
@@ -6051,7 +6428,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0565"></a>
 
-### 0565 — Provider Adjustment Reason Code
+#### 0565 — Provider Adjustment Reason Code
 
 *Route: code system + value set.*
 
@@ -6066,7 +6443,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0566"></a>
 
-### 0566 — Blood Unit Type
+#### 0566 — Blood Unit Type
 
 *Route: code system + value set.*
 
@@ -6081,7 +6458,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0567"></a>
 
-### 0567 — Weight Units
+#### 0567 — Weight Units
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -6104,7 +6484,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0568"></a>
 
-### 0568 — Volume Units
+#### 0568 — Volume Units
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -6126,7 +6509,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0569"></a>
 
-### 0569 — Adjustment Action
+#### 0569 — Adjustment Action
 
 *Route: code system + value set.*
 
@@ -6142,7 +6525,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0570"></a>
 
-### 0570 — Payment Method Code
+#### 0570 — Payment Method Code
 
 *Route: code system + value set.*
 
@@ -6158,7 +6541,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0571"></a>
 
-### 0571 — Invoice Processing Results Status
+#### 0571 — Invoice Processing Results Status
 
 *Route: code system + value set.*
 
@@ -6175,7 +6558,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0572"></a>
 
-### 0572 — Tax status
+#### 0572 — Tax status
 
 *Route: code system + value set.*
 
@@ -6190,7 +6573,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0615"></a>
 
-### 0615 — User Authentication Credential Type Code
+#### 0615 — User Authentication Credential Type Code
 
 *Route: code system + value set.*
 
@@ -6206,7 +6589,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0616"></a>
 
-### 0616 — Address Expiration Reason
+#### 0616 — Address Expiration Reason
 
 *Route: code system + value set.*
 
@@ -6222,7 +6605,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0617"></a>
 
-### 0617 — Address Usage
+#### 0617 — Address Usage
 
 *Route: code system + value set.*
 
@@ -6238,7 +6621,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0618"></a>
 
-### 0618 — Protection Code
+#### 0618 — Protection Code
 
 *Route: code system + value set.*
 
@@ -6253,7 +6636,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0625"></a>
 
-### 0625 — Item Status Codes
+#### 0625 — Item Status Codes
 
 *Route: code system + value set.*
 
@@ -6267,9 +6650,22 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 3 |
 | Comments-as-published kept from THO | 3 |
 
+<a id="tbl-0626"></a>
+
+#### 0626 — Observation Method (OBX-17)
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-tho-definition-differences` — Five concept domain definitions differ between Chapter 2C and THO — *V2 Management + TSMG*
+
 <a id="tbl-0634"></a>
 
-### 0634 — Item Importance Codes
+#### 0634 — Item Importance Codes
 
 *Route: code system + value set.*
 
@@ -6284,7 +6680,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0642"></a>
 
-### 0642 — Reorder Theory Codes
+#### 0642 — Reorder Theory Codes
 
 *Route: code system + value set.*
 
@@ -6300,7 +6696,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0651"></a>
 
-### 0651 — Labor Calculation Type
+#### 0651 — Labor Calculation Type
 
 *Route: code system + value set.*
 
@@ -6315,7 +6711,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0653"></a>
 
-### 0653 — Date Format
+#### 0653 — Date Format
 
 *Route: code system + value set.*
 
@@ -6331,7 +6727,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0657"></a>
 
-### 0657 — Device Type
+#### 0657 — Device Type
 
 *Route: code system + value set.*
 
@@ -6346,7 +6742,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0659"></a>
 
-### 0659 — Lot Control
+#### 0659 — Lot Control
 
 *Route: code system + value set.*
 
@@ -6361,7 +6757,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0667"></a>
 
-### 0667 — Device Data State
+#### 0667 — Device Data State
 
 *Route: code system + value set.*
 
@@ -6377,7 +6773,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0669"></a>
 
-### 0669 — Load Status
+#### 0669 — Load Status
 
 *Route: code system + value set.*
 
@@ -6391,9 +6787,22 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 4 |
 | Comments-as-published kept from THO | 4 |
 
+<a id="tbl-0675"></a>
+
+#### 0675 — Country (PDC-2)
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-tho-definition-differences` — Five concept domain definitions differ between Chapter 2C and THO — *V2 Management + TSMG*
+
 <a id="tbl-0682"></a>
 
-### 0682 — Device Status
+#### 0682 — Device Status
 
 *Route: code system + value set.*
 
@@ -6407,9 +6816,22 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 2 |
 | Comments-as-published kept from THO | 2 |
 
+<a id="tbl-0685"></a>
+
+#### 0685 — Item Code - External (RQD-3)
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-heading-styles` — Two table headings are styled `Normal` instead of `Heading 3` — *V2 Management*
+
 <a id="tbl-0702"></a>
 
-### 0702 — Cycle Type
+#### 0702 — Cycle Type
 
 *Route: code system + value set.*
 
@@ -6425,7 +6847,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0717"></a>
 
-### 0717 — Access Restriction Value
+#### 0717 — Access Restriction Value
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -6511,7 +6936,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0719"></a>
 
-### 0719 — Access Restriction Reason Code
+#### 0719 — Access Restriction Reason Code
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item · OID conflict with THO</p>
 
 *Route: value set only.*
 
@@ -6537,7 +6965,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0725"></a>
 
-### 0725 — Mood Codes
+#### 0725 — Mood Codes
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -6569,7 +7000,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0728"></a>
 
-### 0728 — CCL Value
+#### 0728 — CCL Value
 
 *Route: code system + value set.*
 
@@ -6584,7 +7015,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0731"></a>
 
-### 0731 — DRG Diagnosis Determination Status
+#### 0731 — DRG Diagnosis Determination Status
 
 *Route: code system + value set.*
 
@@ -6599,7 +7030,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0734"></a>
 
-### 0734 — Grouper Status
+#### 0734 — Grouper Status
 
 *Route: code system + value set.*
 
@@ -6614,7 +7045,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0739"></a>
 
-### 0739 — DRG Status Patient
+#### 0739 — DRG Status Patient
 
 *Route: code system + value set.*
 
@@ -6629,7 +7060,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0742"></a>
 
-### 0742 — DRG Status Financial Calculation
+#### 0742 — DRG Status Financial Calculation
 
 *Route: code system + value set.*
 
@@ -6644,7 +7075,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0749"></a>
 
-### 0749 — DRG Grouping Status
+#### 0749 — DRG Grouping Status
 
 *Route: code system + value set.*
 
@@ -6659,7 +7090,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0755"></a>
 
-### 0755 — Status Weight At Birth
+#### 0755 — Status Weight At Birth
 
 *Route: code system + value set.*
 
@@ -6674,7 +7105,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0757"></a>
 
-### 0757 — DRG Status Respiration Minutes
+#### 0757 — DRG Status Respiration Minutes
 
 *Route: code system + value set.*
 
@@ -6689,7 +7120,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0759"></a>
 
-### 0759 — Status Admission
+#### 0759 — Status Admission
 
 *Route: code system + value set.*
 
@@ -6704,7 +7135,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0761"></a>
 
-### 0761 — DRG Procedure Determination Status
+#### 0761 — DRG Procedure Determination Status
 
 *Route: code system + value set.*
 
@@ -6719,7 +7150,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0763"></a>
 
-### 0763 — DRG Procedure Relevance
+#### 0763 — DRG Procedure Relevance
 
 *Route: code system + value set.*
 
@@ -6732,9 +7163,22 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 3 |
 
+<a id="tbl-0767"></a>
+
+#### 0767 — Bolus Dose Amount Units (RXV-4)
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-heading-styles` — Two table headings are styled `Normal` instead of `Heading 3` — *V2 Management*
+
 <a id="tbl-0776"></a>
 
-### 0776 — Item Status
+#### 0776 — Item Status
 
 *Route: code system + value set.*
 
@@ -6750,7 +7194,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0778"></a>
 
-### 0778 — Item Type
+#### 0778 — Item Type
 
 *Route: code system + value set.*
 
@@ -6765,7 +7209,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0790"></a>
 
-### 0790 — Approving Regulatory Agency
+#### 0790 — Approving Regulatory Agency
 
 *Route: code system + value set.*
 
@@ -6780,7 +7224,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0793"></a>
 
-### 0793 — Ruling Act
+#### 0793 — Ruling Act
 
 *Route: code system + value set.*
 
@@ -6795,7 +7239,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0806"></a>
 
-### 0806 — Sterilization Type
+#### 0806 — Sterilization Type
 
 *Route: code system + value set.*
 
@@ -6810,7 +7254,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0818"></a>
 
-### 0818 — Package
+#### 0818 — Package
 
 *Route: code system + value set.*
 
@@ -6825,7 +7269,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0820"></a>
 
-### 0820 — Gender Harmony Concepts
+#### 0820 — Gender Harmony Concepts
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
@@ -6835,9 +7282,116 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
 
+<a id="tbl-0821"></a>
+
+#### 0821 — Gender Identity
+{: .tl-hd .tl-hd-attention}
+
+<p class="tl-why tl-why-attention">Needs special consideration · Blocked on a decision · Open register item</p>
+
+*Route: blocked on a decision.*
+
+> **Table 0821 needs a decision before this guide can publish anything for it, and the published chapter needs correcting.**
+>
+> Chapter 2C prints this table's coded content grid **completely blank**. The grid is six rows by five columns and every cell is empty, while the rest of the section is fully populated: three code systems (SNOMED CT, FHIR DataAbsentReason, V3 NullFlavor), three code system versions, and a value set. As published, the chapter names no codes for gender identity at all, and a reader of the chapter cannot tell what the table is supposed to contain.
+>
+> The row count says what was lost. Six rows is a header plus **five** code rows, and THO's `ValueSet/gender-identity` — whose OID `2.16.840.1.113883.4.642.3.3291` is exactly the one Chapter 2C prints for this value set — holds exactly **five** concepts: three SNOMED CT gender identities, `asked-declined`, and `UNK`. Table 0823 *Sexual Orientation* is built the same way and does print its codes.
+>
+> **Two things are open, and both are for V2 Management.** The five intended codes have to be confirmed and the grid republished. And the table declares three code systems without saying which one the value set draws from, so there is no way to tell whether the value set should bind to `2.16.840.1.113883.6.96`, `2.16.840.1.113883.4.642.4.1048` or `2.16.840.1.113883.5.1008`. Until both are answered this guide publishes no code system and no value set at this table's canonicals, and THO's `ValueSet/gender-identity` stands untouched.
+>
+> One smaller thing in the same section: the value set description runs two sentences together with no space — “…within their community.Used in HL7 Version 2.x messages”.
+{: .tl-callout}
+
+**Open issues.**
+
+- `esc-0821-blank-grid` — Table 0821 _Gender Identity_ publishes its coded content grid completely blank — *V2 Management*
+
+<a id="tbl-0822"></a>
+
+#### 0822 — Personal Pronouns
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+<a id="tbl-0823"></a>
+
+#### 0823 — Sexual Orientation
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision · Open register item</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 3 code systems; which one the value set draws from is not stated.
+>
+> The code systems the chapter declares are `2.16.840.1.113883.6.96`, `2.16.840.1.113883.4.642.4.1048`, `2.16.840.1.113883.5.1008`. Which of them the value set draws from has to be settled before either artifact can be written.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+**Open issues.**
+
+- `esc-0823-not-in-tho` — Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO — *V2 Management + TSMG*
+
+<a id="tbl-0824"></a>
+
+#### 0824 — Recorded Sex or Gender Type
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+<a id="tbl-0827"></a>
+
+#### 0827 — Source Document Jurisdiction for Recorded Sex or  Gender
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 2 code systems; which one the value set draws from is not stated.
+>
+> The code systems the chapter declares are `1.0.3166.1`, `1.0.3166.2`. Which of them the value set draws from has to be settled before either artifact can be written.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+<a id="tbl-0828"></a>
+
+#### 0828 — Sex Parameter for Clinical Use
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 2 code systems; which one the value set draws from is not stated.
+>
+> The code systems the chapter declares are `https://terminology.hl7.org/CodeSystem-sex-parameter-for-clinical-use.html`, `http://terminology.hl7.org/CodeSystem/data-absent-reason`. Which of them the value set draws from has to be settled before either artifact can be written.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
 <a id="tbl-0834"></a>
 
-### 0834 — MIME Types
+#### 0834 — MIME Types
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -6865,7 +7419,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0868"></a>
 
-### 0868 — Telecommunication Expiration Reason
+#### 0868 — Telecommunication Expiration Reason
 
 *Route: code system + value set.*
 
@@ -6881,7 +7435,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0871"></a>
 
-### 0871 — Supply Risk Codes
+#### 0871 — Supply Risk Codes
 
 *Route: code system + value set.*
 
@@ -6897,7 +7451,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0881"></a>
 
-### 0881 — Role Executing Physician
+#### 0881 — Role Executing Physician
 
 *Route: code system + value set.*
 
@@ -6912,7 +7466,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0882"></a>
 
-### 0882 — Medical Role Executing Physician
+#### 0882 — Medical Role Executing Physician
 
 *Route: code system + value set.*
 
@@ -6927,7 +7481,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0894"></a>
 
-### 0894 — Side of body
+#### 0894 — Side of body
 
 *Route: code system + value set.*
 
@@ -6942,9 +7496,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0895"></a>
 
-### 0895 — Present On Admission (POA) Indicator
+#### 0895 — Present On Admission (POA) Indicator
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision · Differs from THO · Open register item</p>
 
 *Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
 
 **Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
@@ -6958,7 +7520,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0904"></a>
 
-### 0904 — Security Check Scheme
+#### 0904 — Security Check Scheme
 
 *Route: code system + value set.*
 
@@ -6974,7 +7536,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0905"></a>
 
-### 0905 — Shipment Status
+#### 0905 — Shipment Status
 
 *Route: code system + value set.*
 
@@ -6989,7 +7551,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0906"></a>
 
-### 0906 — ActPriority
+#### 0906 — ActPriority
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7011,7 +7576,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0907"></a>
 
-### 0907 — Confidentiality
+#### 0907 — Confidentiality
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7032,7 +7600,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0909"></a>
 
-### 0909 — Patient Results Release Categorization Scheme
+#### 0909 — Patient Results Release Categorization Scheme
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7059,9 +7630,25 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 6 |
 | Comments-as-published kept from THO | 6 |
 
+<a id="tbl-0910"></a>
+
+#### 0910 — Acquisition Modality
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-placeholder-metadata` — Two tables publish literal placeholder text — `noObject` and `noDescription` — *V2 Management*
+
 <a id="tbl-0912"></a>
 
-### 0912 — Participation
+#### 0912 — Participation
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7102,7 +7689,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0914"></a>
 
-### 0914 — Root Cause
+#### 0914 — Root Cause
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7129,7 +7719,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0916"></a>
 
-### 0916 — Relevant Clinicial Information
+#### 0916 — Relevant Clinicial Information
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7151,7 +7744,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0917"></a>
 
-### 0917 — Bolus Type
+#### 0917 — Bolus Type
 
 *Route: code system + value set.*
 
@@ -7166,7 +7759,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0918"></a>
 
-### 0918 — PCA Type
+#### 0918 — PCA Type
 
 *Route: code system + value set.*
 
@@ -7181,7 +7774,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0919"></a>
 
-### 0919 — Exclusive Test
+#### 0919 — Exclusive Test
 
 *Route: code system + value set.*
 
@@ -7197,7 +7790,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0920"></a>
 
-### 0920 — Preferred Specimen/Attribute Status
+#### 0920 — Preferred Specimen/Attribute Status
 
 *Route: code system + value set.*
 
@@ -7213,7 +7806,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0921"></a>
 
-### 0921 — Certification Type Code
+#### 0921 — Certification Type Code
 
 *Route: code system + value set.*
 
@@ -7228,7 +7821,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0922"></a>
 
-### 0922 — Certification Category Code
+#### 0922 — Certification Category Code
 
 *Route: code system + value set.*
 
@@ -7243,7 +7836,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0923"></a>
 
-### 0923 — Process Interruption
+#### 0923 — Process Interruption
 
 *Route: code system + value set.*
 
@@ -7258,7 +7851,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0924"></a>
 
-### 0924 — Cumulative Dosage Limit UoM
+#### 0924 — Cumulative Dosage Limit UoM
 
 *Route: code system + value set.*
 
@@ -7274,7 +7867,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0925"></a>
 
-### 0925 — Phlebotomy Issue
+#### 0925 — Phlebotomy Issue
 
 *Route: code system + value set.*
 
@@ -7290,7 +7883,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0926"></a>
 
-### 0926 — Phlebotomy Status
+#### 0926 — Phlebotomy Status
 
 *Route: code system + value set.*
 
@@ -7306,7 +7899,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0927"></a>
 
-### 0927 — Arm Stick
+#### 0927 — Arm Stick
 
 *Route: code system + value set.*
 
@@ -7321,7 +7914,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0929"></a>
 
-### 0929 — Weight Units
+#### 0929 — Weight Units
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -7344,7 +7940,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0930"></a>
 
-### 0930 — Volume Units
+#### 0930 — Volume Units
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -7366,7 +7965,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0931"></a>
 
-### 0931 — Temperature Units
+#### 0931 — Temperature Units
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
@@ -7380,7 +7982,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0932"></a>
 
-### 0932 — Donation Duration Units
+#### 0932 — Donation Duration Units
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
@@ -7393,7 +7998,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0933"></a>
 
-### 0933 — Intended Procedure Type
+#### 0933 — Intended Procedure Type
 
 *Route: code system + value set.*
 
@@ -7409,7 +8014,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0935"></a>
 
-### 0935 — Process Interruption Reason
+#### 0935 — Process Interruption Reason
 
 *Route: code system + value set.*
 
@@ -7425,7 +8030,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0936"></a>
 
-### 0936 — Observation Type
+#### 0936 — Observation Type
 
 *Route: code system + value set.*
 
@@ -7441,7 +8046,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0937"></a>
 
-### 0937 — Observation Sub-Type
+#### 0937 — Observation Sub-Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7467,7 +8075,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0938"></a>
 
-### 0938 — Collection Event/Process Step Limit
+#### 0938 — Collection Event/Process Step Limit
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7489,7 +8100,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0939"></a>
 
-### 0939 — Communication Location
+#### 0939 — Communication Location
 
 *Route: code system + value set.*
 
@@ -7505,7 +8116,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0940"></a>
 
-### 0940 — Limitation Type Codes
+#### 0940 — Limitation Type Codes
 
 *Route: code system + value set.*
 
@@ -7520,7 +8131,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0942"></a>
 
-### 0942 — Equipment State Indicator Type Code
+#### 0942 — Equipment State Indicator Type Code
 
 *Route: code system + value set.*
 
@@ -7537,7 +8148,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0945"></a>
 
-### 0945 — Auto-Dilution Type
+#### 0945 — Auto-Dilution Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7561,7 +8175,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0946"></a>
 
-### 0946 — Supplier Type
+#### 0946 — Supplier Type
 
 *Route: code system + value set.*
 
@@ -7572,7 +8186,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0948"></a>
 
-### 0948 — Relationship Type
+#### 0948 — Relationship Type
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7595,7 +8212,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0949"></a>
 
-### 0949 — Order Control Code Reason
+#### 0949 — Order Control Code Reason
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7621,7 +8241,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0950"></a>
 
-### 0950 — Order Status Modifier
+#### 0950 — Order Status Modifier
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7644,7 +8267,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0951"></a>
 
-### 0951 — Reason for Study
+#### 0951 — Reason for Study
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7687,7 +8313,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0952"></a>
 
-### 0952 — Confidentiality Classification
+#### 0952 — Confidentiality Classification
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: value set only.*
 
@@ -7703,9 +8332,28 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - `esc-tho-definition-differences` — Five concept domain definitions differ between Chapter 2C and THO — *V2 Management + TSMG*
 
+<a id="tbl-0953"></a>
+
+#### 0953 — Security Label Handling Instructions
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 2 code systems; which one the value set draws from is not stated.
+>
+> The code systems the chapter declares are `http://terminology.hl7.org/CodeSystem-v3-ActReason.html`, `http://terminology.hl7.org/CodeSystem-v3-ObservationValue.html`. Which of them the value set draws from has to be settled before either artifact can be written.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
 <a id="tbl-0954"></a>
 
-### 0954 — Work Schedule ODH
+#### 0954 — Work Schedule ODH
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
@@ -7717,7 +8365,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0955"></a>
 
-### 0955 — Industry
+#### 0955 — Industry
 
 *Route: value set only.*
 
@@ -7725,9 +8373,26 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 Nothing to report: what this guide publishes matches THO on every element compared.
 
+<a id="tbl-0956"></a>
+
+#### 0956 — Job Supervisory Level or Pay Grade
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'unspecified'.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
 <a id="tbl-0957"></a>
 
-### 0957 — Employment Status (ODH)
+#### 0957 — Employment Status (ODH)
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
@@ -7739,7 +8404,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0958"></a>
 
-### 0958 — Occupation
+#### 0958 — Occupation
 
 *Route: value set only.*
 
@@ -7749,7 +8414,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0959"></a>
 
-### 0959 — Work Classification ODH
+#### 0959 — Work Classification ODH
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: value set only.*
 
@@ -7763,7 +8431,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0960"></a>
 
-### 0960 — Data Absent Reason
+#### 0960 — Data Absent Reason
 
 *Route: value set only.*
 
@@ -7773,7 +8441,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0961"></a>
 
-### 0961 — Device Type
+#### 0961 — Device Type
 
 *Route: value set only.*
 
@@ -7783,7 +8451,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0962"></a>
 
-### 0962 — Device Status
+#### 0962 — Device Status
 
 *Route: value set only.*
 
@@ -7791,9 +8459,39 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 Nothing to report: what this guide publishes matches THO on every element compared.
 
+<a id="tbl-0963"></a>
+
+#### 0963 — Device Safety
+{: .tl-hd .tl-hd-decision}
+
+<p class="tl-why tl-why-decision">Blocked on a decision</p>
+
+*Route: blocked on a decision.*
+
+> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'See content logical definition of the referenced value set'.
+>
+> Whatever THO already publishes at these canonicals stands untouched in the meantime.
+{: .tl-callout}
+
+<a id="tbl-0967"></a>
+
+#### 0967 — Container Form
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: concept domain only.*
+
+**Open issues.**
+
+- `esc-tho-definition-differences` — Five concept domain definitions differ between Chapter 2C and THO — *V2 Management + TSMG*
+
 <a id="tbl-0970"></a>
 
-### 0970 — Online Verification Result
+#### 0970 — Online Verification Result
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7810,7 +8508,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0971"></a>
 
-### 0971 — Online Verification Result Error Code
+#### 0971 — Online Verification Result Error Code
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
@@ -7832,13 +8533,29 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Resource descriptions kept from THO | 1 |
 
-## Canonicals with no Chapter 2C table
+<a id="tbl-9999"></a>
+
+#### 9999 — Placeholder Table Representation
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
+
+*Route: nothing written.*
+
+**Open issues.**
+
+- `esc-tables-that-should-be-domains` — Three “tables” that carry no terminology at all — *V2 Management*
+
+### Canonicals with no Chapter 2C table
 
 18 numbers where THO publishes a `v2-NNNN` code system or value set and **Chapter 2C has no section at all**. They are not among the chapter's 799 tables, so they are not counted with them, but they are here because a reviewer asking "what about `v2-0012`?" deserves an answer. This guide publishes nothing at these canonicals and THO's artifacts stand untouched.
 
 <a id="tbl-0012"></a>
 
-### 0012
+#### 0012
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7851,7 +8568,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0033"></a>
 
-### 0033
+#### 0033
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7864,7 +8584,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0034"></a>
 
-### 0034
+#### 0034
+{: .tl-hd .tl-hd-both}
+
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7881,7 +8604,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0048"></a>
 
-### 0048
+#### 0048
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7894,7 +8620,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0070"></a>
 
-### 0070
+#### 0070
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7907,7 +8636,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0102"></a>
 
-### 0102
+#### 0102
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7920,7 +8652,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0106"></a>
 
-### 0106
+#### 0106
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7933,7 +8668,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0107"></a>
 
-### 0107
+#### 0107
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7946,7 +8684,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0108"></a>
 
-### 0108
+#### 0108
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7959,7 +8700,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0109"></a>
 
-### 0109
+#### 0109
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7972,7 +8716,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0156"></a>
 
-### 0156
+#### 0156
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7985,7 +8732,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0157"></a>
 
-### 0157
+#### 0157
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -7998,7 +8748,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0158"></a>
 
-### 0158
+#### 0158
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -8011,7 +8764,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0290"></a>
 
-### 0290
+#### 0290
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -8024,7 +8780,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0323"></a>
 
-### 0323
+#### 0323
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -8037,7 +8796,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0524"></a>
 
-### 0524
+#### 0524
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -8050,7 +8812,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-0529"></a>
 
-### 0529
+#### 0529
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -8063,7 +8828,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <a id="tbl-4000"></a>
 
-### 4000
+#### 4000
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Not a Chapter 2C table — the chapter has no section for this number.*
 
@@ -8074,8 +8842,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-4000 | 25 other tables |
 | Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-4000 | 25 other tables |
 
-## The remaining tables
+### The remaining tables
 
-The remaining 368 of the chapter's 799 tables — 431 above and 368 here. This guide authors no code system and no value set for any of them, so the merge had nothing to compare. Most are concept domains, which carry no codes. Their route and their concept domain are on the [table index](table-index.html).
+The remaining 344 of the chapter's 799 tables — 455 above and 344 here. This guide authors no code system and no value set for any of them, so the merge had nothing to compare. Most are concept domains, which carry no codes. Their route and their concept domain are on the [table index](table-index.html).
 
-`0010` `0018` `0019` `0021` `0022` `0023` `0024` `0032` `0042` `0043` `0044` `0045` `0046` `0049` `0050` `0051` `0055` `0056` `0059` `0064` `0068` `0072` `0073` `0084` `0086` `0087` `0088` `0093` `0099` `0110` `0111` `0112` `0113` `0114` `0115` `0117` `0118` `0129` `0132` `0139` `0141` `0143` `0151` `0152` `0153` `0171` `0172` `0182` `0184` `0186` `0188` `0212` `0218` `0219` `0222` `0229` `0233` `0244` `0245` `0246` `0249` `0259` `0264` `0285` `0288` `0289` `0293` `0295` `0296` `0297` `0300` `0302` `0303` `0304` `0306` `0307` `0308` `0312` `0313` `0319` `0320` `0327` `0328` `0333` `0340` `0341` `0342` `0343` `0345` `0346` `0358` `0361` `0362` `0363` `0378` `0379` `0380` `0381` `0382` `0385` `0386` `0405` `0412` `0413` `0414` `0446` `0447` `0448` `0451` `0452` `0453` `0454` `0455` `0458` `0459` `0461` `0462` `0463` `0464` `0467` `0471` `0476` `0479` `0509` `0512` `0515` `0519` `0521` `0522` `0525` `0526` `0531` `0533` `0537` `0539` `0541` `0542` `0543` `0546` `0549` `0551` `0552` `0563` `0573` `0574` `0575` `0576` `0577` `0578` `0579` `0580` `0581` `0582` `0583` `0584` `0585` `0586` `0587` `0588` `0589` `0590` `0591` `0592` `0593` `0594` `0595` `0596` `0597` `0598` `0599` `0600` `0601` `0602` `0603` `0604` `0605` `0606` `0607` `0608` `0609` `0610` `0611` `0612` `0613` `0614` `0619` `0620` `0621` `0622` `0623` `0624` `0626` `0627` `0628` `0629` `0630` `0631` `0632` `0633` `0635` `0636` `0637` `0638` `0639` `0640` `0641` `0643` `0644` `0645` `0646` `0647` `0648` `0649` `0650` `0652` `0654` `0655` `0656` `0658` `0660` `0661` `0662` `0663` `0664` `0665` `0666` `0668` `0670` `0671` `0672` `0673` `0674` `0675` `0676` `0677` `0678` `0679` `0680` `0681` `0683` `0684` `0685` `0686` `0687` `0688` `0689` `0690` `0691` `0692` `0693` `0694` `0695` `0696` `0697` `0698` `0699` `0700` `0701` `0703` `0704` `0705` `0706` `0707` `0708` `0709` `0710` `0711` `0712` `0713` `0714` `0715` `0716` `0718` `0720` `0721` `0722` `0723` `0724` `0726` `0727` `0729` `0730` `0732` `0733` `0735` `0736` `0737` `0738` `0740` `0741` `0743` `0744` `0745` `0746` `0747` `0748` `0750` `0751` `0752` `0753` `0754` `0756` `0758` `0760` `0762` `0764` `0765` `0766` `0767` `0768` `0769` `0770` `0771` `0772` `0773` `0774` `0775` `0777` `0779` `0780` `0781` `0782` `0783` `0784` `0785` `0786` `0787` `0788` `0789` `0791` `0792` `0794` `0795` `0809` `0811` `0821` `0822` `0823` `0824` `0826` `0827` `0828` `0832` `0833` `0836` `0838` `0865` `0879` `0880` `0908` `0910` `0913` `0915` `0934` `0941` `0943` `0944` `0947` `0953` `0956` `0963` `0964` `0965` `0966` `0967` `0968` `0969` `9999`
+`0018` `0019` `0021` `0022` `0023` `0024` `0032` `0042` `0043` `0044` `0045` `0046` `0049` `0050` `0051` `0055` `0056` `0059` `0064` `0068` `0072` `0073` `0084` `0086` `0087` `0088` `0099` `0110` `0111` `0112` `0113` `0114` `0115` `0117` `0118` `0129` `0132` `0139` `0141` `0143` `0151` `0152` `0153` `0171` `0172` `0182` `0184` `0186` `0212` `0218` `0219` `0222` `0229` `0233` `0244` `0245` `0246` `0249` `0259` `0264` `0285` `0288` `0289` `0293` `0295` `0296` `0297` `0300` `0302` `0303` `0304` `0306` `0307` `0308` `0312` `0313` `0319` `0320` `0327` `0328` `0333` `0341` `0342` `0343` `0345` `0346` `0358` `0361` `0362` `0363` `0378` `0379` `0380` `0381` `0382` `0385` `0386` `0405` `0412` `0413` `0414` `0446` `0447` `0448` `0452` `0453` `0454` `0455` `0461` `0462` `0463` `0464` `0471` `0476` `0479` `0509` `0512` `0515` `0519` `0521` `0522` `0525` `0526` `0531` `0533` `0537` `0539` `0541` `0542` `0543` `0546` `0549` `0551` `0552` `0563` `0573` `0574` `0575` `0576` `0577` `0578` `0579` `0580` `0581` `0582` `0583` `0584` `0585` `0586` `0587` `0588` `0589` `0590` `0591` `0592` `0593` `0594` `0595` `0596` `0597` `0598` `0599` `0600` `0601` `0602` `0603` `0604` `0605` `0606` `0607` `0608` `0609` `0610` `0611` `0612` `0613` `0614` `0619` `0620` `0621` `0622` `0623` `0624` `0627` `0628` `0629` `0630` `0631` `0632` `0633` `0635` `0636` `0637` `0638` `0639` `0640` `0641` `0643` `0644` `0645` `0646` `0647` `0648` `0649` `0650` `0652` `0654` `0655` `0656` `0658` `0660` `0661` `0662` `0663` `0664` `0665` `0666` `0668` `0670` `0671` `0672` `0673` `0674` `0676` `0677` `0678` `0679` `0680` `0681` `0683` `0684` `0686` `0687` `0688` `0689` `0690` `0691` `0692` `0693` `0694` `0695` `0696` `0697` `0698` `0699` `0700` `0701` `0703` `0704` `0705` `0706` `0707` `0708` `0709` `0710` `0711` `0712` `0713` `0714` `0715` `0716` `0718` `0720` `0721` `0722` `0723` `0724` `0726` `0727` `0729` `0730` `0732` `0733` `0735` `0736` `0737` `0738` `0740` `0741` `0743` `0744` `0745` `0746` `0747` `0748` `0750` `0751` `0752` `0753` `0754` `0756` `0758` `0760` `0762` `0764` `0765` `0766` `0768` `0769` `0770` `0771` `0772` `0773` `0774` `0775` `0777` `0779` `0780` `0781` `0782` `0783` `0784` `0785` `0786` `0787` `0788` `0789` `0791` `0792` `0794` `0795` `0809` `0811` `0826` `0832` `0833` `0836` `0838` `0865` `0879` `0880` `0908` `0913` `0915` `0934` `0941` `0943` `0944` `0947` `0964` `0965` `0966` `0968` `0969`

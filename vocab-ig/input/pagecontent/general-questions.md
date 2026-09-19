@@ -1,5 +1,3 @@
-# General questions
-
 Questions this guide has had to answer in order to produce anything at all,
 where the answer is a judgement rather than a fact, and where somebody other
 than us should confirm it.
@@ -15,9 +13,9 @@ says.
 
 ---
 
-## For TSMG — the versioning policy
+### For TSMG — the versioning policy
 
-### 1. Does reordering a code system's concepts count as a change?
+#### 1. Does reordering a code system's concepts count as a change?
 
 **What we do:** no. Concepts are compared as a set keyed by code. A code
 system whose codes are identical to THO's but listed in a different order is
@@ -34,7 +32,7 @@ increment again every time the chapter is re-laid-out.
 **If the answer is no:** nothing changes. **If the answer is yes:** it is one
 line in the comparison, and 32 more artifacts increment.
 
-### 2. Is a punctuation-only difference in a description an editorial correction?
+#### 2. Is a punctuation-only difference in a description an editorial correction?
 
 **What we do:** yes. Where our description and THO's contain exactly the same
 words in the same order and differ only in punctuation or spacing, the
@@ -56,7 +54,7 @@ see question 8 — and both increment.
 **If the answer is no:** the waiver is a single named function and a single
 list of fields; turning it off increments those 12.
 
-### 3. Should the same carve-out reach concept definitions and displays?
+#### 3. Should the same carve-out reach concept definitions and displays?
 
 **What we do:** no, because the policy does not offer it. The
 editorial-correction carve-out is written against `CodeSystem.description`
@@ -73,7 +71,7 @@ We have not smoothed this over, because the policy is explicit and because
 guessing at an unwritten carve-out is how a pipeline quietly stops matching the
 rules it claims to follow. But it looks more like an oversight than a decision.
 
-### 4. Is the ValueSet policy's missing carve-out deliberate?
+#### 4. Is the ValueSet policy's missing carve-out deliberate?
 
 **What we do:** we treat `ValueSet.description` exactly as we treat
 `CodeSystem.description`, applying the same punctuation waiver.
@@ -88,9 +86,9 @@ value set descriptions increment unconditionally.
 
 ---
 
-## For V2 Management — what the chapter says
+### For V2 Management — what the chapter says
 
-### 5. What are the concept statuses `N` and `B`, and where should they be defined?
+#### 5. What are the concept statuses `N` and `B`, and where should they be defined?
 
 Chapter 2C carries its own legend for the status column:
 
@@ -134,7 +132,7 @@ Three things would each resolve it, and they are not the same decision:
 **What we do meanwhile:** publish the chapter's value, pass `N` and `B`
 through unchanged, and record all 261 status disagreements.
 
-### 6. Table 0560 — a code system the chapter says does not exist
+#### 6. Table 0560 — a code system the chapter says does not exist
 
 Chapter 2C gives table 0560 a code system block whose symbolic name is
 `noObject`, whose OID is `-` and whose description is `noDescription`. Read
@@ -165,7 +163,7 @@ ADR-0009.
 block replaced with the real code system, the "No suggested values" note
 removed, and the copied-in code system name fixed.
 
-### 7. Two OIDs where Chapter 2C and THO disagree
+#### 7. Two OIDs where Chapter 2C and THO disagree
 
 | Artifact | Chapter 2C | THO |
 |---|---|---|
@@ -214,7 +212,7 @@ since `...20429` names a different v3 value set that THO also publishes. It may
 well be right for 0001, where the two could be one code system under two
 registrations. **Please rule per artifact rather than as a blanket policy.**
 
-### 8. Two descriptions where THO says more than the chapter
+#### 8. Two descriptions where THO says more than the chapter
 
 These are the two description differences that are **not** editorial, and both
 are cases where THO's text carries something ours does not:
@@ -233,7 +231,7 @@ because the merge fills an absent value but never splices two pieces of prose
 together — that would be writing text neither source wrote. Both are listed
 for a decision.
 
-### 9. Chapter 2C gives every table its own OID, and we publish it nowhere
+#### 9. Chapter 2C gives every table its own OID, and we publish it nowhere
 
 Chapter 2C carries **three** OIDs per table, in three separate metadata blocks,
 identifying three different things:
@@ -270,7 +268,7 @@ the same shape as the defect in question 7. The concept domain concept has no
 
 ---
 
-## Where the rest of the detail is
+### Where the rest of the detail is
 
 - **[What this guide keeps from THO](tho-merge.html)** — the full class-by-class
   account of the merge, and what it does to version numbers.

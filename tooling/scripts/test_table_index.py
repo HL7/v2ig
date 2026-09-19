@@ -152,13 +152,14 @@ class TestNewTab:
 
 
 class TestDomainProvenance:
-    """'this guide' says where the link goes; the origin says whether it is new."""
+    """The domain column's one marker says whether THO already has the concept."""
 
     def test_concept_already_in_tho_is_marked_so(self):
         cell = gti.render_domain(
             {"conceptDomain": "AdministrativeSex", "conceptDomainDeclared": "AdministrativeSex",
              "conceptDomainInTho": True, "thoVersion": "3.0.0"})
-        assert "in THO" in cell and "not in THO" not in cell
+        assert "already in THO" in cell
+        assert "added by this guide" not in cell
         # no version is claimed on the row: which release an addition
         # would land in is unknown
         assert "4.0.0" not in cell and "3.0.0" not in cell
@@ -167,8 +168,29 @@ class TestDomainProvenance:
         cell = gti.render_domain(
             {"conceptDomain": "EmploymentStatusODH", "conceptDomainDeclared": "EmploymentStatusODH",
              "conceptDomainInTho": False, "thoVersion": "3.0.0"})
-        assert "not in THO" in cell
+        assert "added by this guide" in cell
         assert "4.0.0" not in cell
+
+    def test_the_domain_column_carries_no_destination_marker(self):
+        """It is always "this guide", so saying so on every row is noise."""
+        for in_tho in (True, False):
+            cell = gti.render_domain(
+                {"conceptDomain": "AdministrativeSex",
+                 "conceptDomainDeclared": "AdministrativeSex",
+                 "conceptDomainInTho": in_tho})
+            assert "ti-dest" not in cell
+            # the destination marker's exact text, not the substring that
+            # survives inside "added by this guide"
+            assert ">this guide</span>" not in cell
+
+    def test_the_destination_marker_survives_on_the_artifact_columns(self):
+        """It varies there, so it still earns its place."""
+        cell = gti.render_link(
+            artifact("http://terminology.hl7.org/CodeSystem/v2-0001", "v2-0001"), "CodeSystem")
+        assert 'class="ti-dest"' in cell
+
+    def test_both_markers_are_readable_without_a_key(self):
+        assert set(gti.DOMAIN_ORIGIN.values()) == {"already in THO", "added by this guide"}
 
     def test_real_corpus_splits_between_the_two(self):
         rows = gti.build_rows()
@@ -320,3 +342,120 @@ class TestAgainstTheRealCorpus:
         page = gti.render_page(rows)
         for row in rows:
             assert f'id="tbl-{row["table"]}"' in page
+
+
+class TestNoNulBytes:
+    """`PAGE_STYLE` is a non-raw string: a single-backslash `\\00b7` would be
+    parsed by Python as an octal escape and emit a literal NUL byte, not a CSS
+    escape. A NUL in a published page is invisible in most viewers and breaks
+    tooling that assumes text, so the whole page is checked, not just the rule.
+    """
+
+    def test_the_style_block_has_no_nuls(self):
+        assert "\x00" not in gti.PAGE_STYLE
+
+    def test_the_css_escapes_are_literal_backslash_sequences(self):
+        assert r'content: "\00b7\00a0";' in gti.PAGE_STYLE
+        assert r'content: "\2192\00a0";' in gti.PAGE_STYLE
+
+    def test_the_rendered_page_has_no_nuls_anywhere(self):
+        assert "\x00" not in gti.render_page(gti.build_rows())
+
+    def test_the_written_page_has_no_nuls(self):
+        page = Path(gti.OUTPUT_PAGE)
+        if not page.is_file():
+            import pytest
+            pytest.skip("page not generated yet")
+        assert b"\x00" not in page.read_bytes()
+
+
+class TestTypeColumn:
+    """How Chapter 2C types each table, carried through to the page."""
+
+    EXPECTED = {"User": 399, "undefined": 193, "HL7": 176,
+                "HL7-EXT": 15, "External": 14, "Imported": 2}
+
+    def test_the_header_names_the_column(self):
+        page = gti.render_page(gti.build_rows())
+        assert "<th>Type</th>" in page
+
+    def test_the_six_chapter_types_are_the_whole_vocabulary(self):
+        from collections import Counter
+        counts = Counter(row["tableType"] for row in gti.build_rows())
+        assert dict(counts) == self.EXPECTED, dict(counts)
+
+    def test_undefined_is_muted_rather_than_blanked(self):
+        cell = gti.render_type({"tableType": "undefined"})
+        assert 'class="ti-untyped"' in cell
+        assert "undefined" in cell
+
+    def test_a_real_type_is_plain_text(self):
+        assert gti.render_type({"tableType": "HL7"}) == "HL7"
+
+    def test_a_missing_type_is_a_dash_not_the_word_undefined(self):
+        assert gti.render_type({"tableType": ""}) == "—"
+
+    def test_the_muted_class_has_a_style_rule(self):
+        assert ".ti-untyped" in gti.PAGE_STYLE
+
+    def test_every_class_the_page_emits_has_a_rule(self):
+        """A class with no rule renders as nothing and is dead weight."""
+        import re
+        page = gti.render_page(gti.build_rows())
+        emitted = set()
+        for value in re.findall(r'class="([^"]+)"', page):
+            emitted.update(c for c in value.split() if c.startswith("ti-"))
+        assert emitted and all(f".{name}" in gti.PAGE_STYLE for name in emitted), sorted(
+            name for name in emitted if f".{name}" not in gti.PAGE_STYLE)
+
+
+class TestLedgerLinks:
+    """Only the tables the per-table ledger actually has a section for."""
+
+    def test_the_ledger_page_is_the_source_of_the_anchor_set(self):
+        """Derived from the ledger, never a literal: the ledger's section count
+        moves whenever its selection rule does, and a hardcoded number here
+        fails the index for a change that is correct."""
+        import re
+        anchors = gti.load_ledger_anchors()
+        if not anchors:
+            import pytest
+            pytest.skip("no generated ledger page to read")
+        page = gti.LEDGER_PAGE.read_text(encoding="utf-8")
+        assert anchors == set(re.findall(r'<a id="tbl-([^"]+)"></a>', page))
+        assert anchors, "the ledger page carries no per-table anchors"
+
+    def test_a_missing_ledger_page_yields_no_links_rather_than_an_error(self):
+        assert gti.load_ledger_anchors(Path("/nonexistent/table-ledger.md")) == set()
+
+    def test_no_row_links_to_an_anchor_the_ledger_does_not_have(self):
+        import re
+        anchors = gti.load_ledger_anchors()
+        if not anchors:
+            import pytest
+            pytest.skip("no generated ledger page to read")
+        page = gti.render_page(gti.build_rows())
+        targets = set(re.findall(r'href="table-ledger\.html#tbl-([^"]+)"', page))
+        assert targets and not (targets - anchors), sorted(targets - anchors)
+
+    def test_rows_without_a_section_carry_no_ledger_link(self):
+        row = {"table": "0001", "ledgerAnchor": False}
+        assert gti.render_ledger_link(row) == ""
+
+    def test_rows_with_a_section_link_to_it(self):
+        cell = gti.render_ledger_link({"table": "0003", "ledgerAnchor": True})
+        assert 'href="table-ledger.html#tbl-0003"' in cell
+
+    def test_about_half_the_chapter_has_a_section(self):
+        rows = gti.build_rows()
+        if not gti.load_ledger_anchors():
+            import pytest
+            pytest.skip("no generated ledger page to read")
+        anchors = gti.load_ledger_anchors()
+        linked = [r for r in rows if r["ledgerAnchor"]]
+        # Every linked row is an anchor the ledger really has, and every
+        # chapter table the ledger covers is linked. The difference between
+        # the two counts is the ledger's non-chapter sections, which have no
+        # index row -- so it is derived, not asserted as a constant.
+        assert {r["table"] for r in linked} == {r["table"] for r in rows} & anchors
+        assert 0 < len(linked) < len(rows)

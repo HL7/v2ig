@@ -63,14 +63,9 @@ VOCAB_INDEX = PROJECT_ROOT / "v291-extracted" / "vocabulary-index.json"
 OUTPUT_PAGE = (PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent"
                / "table-ledger.md")
 
-# Where the full register lives. It is not part of the IG -- it is the
-# document that goes to the committees -- so the page says where to find it
-# rather than pretending to link to it.
-REGISTER_PATH = "v291-extracted/vocabulary-v2mgmt-items.md"
-
-# Long values are truncated in the table cells. The full value is always in
-# the JSON report; what a cell needs to do is let a reader see *that* the two
-# sides differ and roughly how.
+# Long values are truncated in the table cells. What a cell needs to do is let
+# a reader see *that* the two sides differ and roughly how, not reproduce both
+# values in full.
 CELL_LIMIT = 150
 
 ROUTE_LABEL = {
@@ -94,6 +89,64 @@ DIFFERENCE_ORDER = [kind for kind, _label in DIFFERENCE_KINDS]
 
 # A four-digit table number as it appears in a register item's `tables` field.
 TABLE_NUMBER_RE = re.compile(r"\b(\d{4})\b")
+
+# How a section heading is shaded, worst first. A table gets the first tier it
+# qualifies for, so the shading answers "how much attention does this one
+# need?" rather than stacking every reason on top of each other; the marker
+# line under the heading then spells the reasons out in words, because colour
+# alone is not something every reader can use.
+#
+# `key` is the CSS class suffix, `label` is what the legend and the marker
+# line call it.
+FLAG_TIERS = [
+    ("attention", "Needs special consideration"),
+    ("decision", "Blocked on a decision"),
+    ("both", "Differs from THO and carries an open register item"),
+    ("issue", "Carries an open register item"),
+    ("diff", "Differs from THO"),
+]
+FLAG_LABEL = dict(FLAG_TIERS)
+
+# Tables where the published chapter's own content is missing or unusable to a
+# degree that the section has to say so in full, above everything else. The
+# wording is the guide's; the substance is what the chapter prints and what the
+# register item asks.
+SPECIAL_CONSIDERATION = {
+    "0821": [
+        "**Table 0821 needs a decision before this guide can publish "
+        "anything for it, and the published chapter needs correcting.**",
+        "",
+        "Chapter 2C prints this table's coded content grid **completely "
+        "blank**. The grid is six rows by five columns and every cell is "
+        "empty, while the rest of the section is fully populated: three code "
+        "systems (SNOMED CT, FHIR DataAbsentReason, V3 NullFlavor), three "
+        "code system versions, and a value set. As published, the chapter "
+        "names no codes for gender identity at all, and a reader of the "
+        "chapter cannot tell what the table is supposed to contain.",
+        "",
+        "The row count says what was lost. Six rows is a header plus "
+        "**five** code rows, and THO's `ValueSet/gender-identity` — whose "
+        "OID `2.16.840.1.113883.4.642.3.3291` is exactly the one Chapter 2C "
+        "prints for this value set — holds exactly **five** concepts: three "
+        "SNOMED CT gender identities, `asked-declined`, and `UNK`. Table "
+        "0823 *Sexual Orientation* is built the same way and does print its "
+        "codes.",
+        "",
+        "**Two things are open, and both are for V2 Management.** The five "
+        "intended codes have to be confirmed and the grid republished. And "
+        "the table declares three code systems without saying which one the "
+        "value set draws from, so there is no way to tell whether the value "
+        "set should bind to `2.16.840.1.113883.6.96`, "
+        "`2.16.840.1.113883.4.642.4.1048` or `2.16.840.1.113883.5.1008`. "
+        "Until both are answered this guide publishes no code system and no "
+        "value set at this table's canonicals, and THO's "
+        "`ValueSet/gender-identity` stands untouched.",
+        "",
+        "One smaller thing in the same section: the value set description "
+        "runs two sentences together with no space — \u201c…within their "
+        "community.Used in HL7 Version 2.x messages\u201d.",
+    ],
+}
 
 # Register items whose `tables` field ends with a hedge are flagged as
 # illustrative, so a reader does not read the absence of their table from the
@@ -259,21 +312,119 @@ def version_line(entry):
     return parts
 
 
+def flag_for(table, changed, with_issues, needs_decision):
+    """Which shading tier a table's heading gets, or None for no shading.
+
+    Worst wins. A table that is blocked on a decision is shaded as blocked
+    even when it also differs from THO, because the decision is the thing
+    standing between it and publication.
+    """
+    if table in SPECIAL_CONSIDERATION:
+        return "attention"
+    if table in needs_decision:
+        return "decision"
+    if table in changed and table in with_issues:
+        return "both"
+    if table in with_issues:
+        return "issue"
+    if table in changed:
+        return "diff"
+    return None
+
+
+def marker_reasons(table, changed, with_issues, needs_decision, oid_conflict):
+    """Every reason a table's heading is shaded, shortest form, worst first.
+
+    The shading tint says how much attention the table wants; this says why,
+    and it lists all the reasons rather than only the one that set the tint.
+    """
+    reasons = []
+    if table in SPECIAL_CONSIDERATION:
+        reasons.append("Needs special consideration")
+    if table in needs_decision:
+        reasons.append("Blocked on a decision")
+    if table in changed:
+        reasons.append("Differs from THO")
+    if table in with_issues:
+        reasons.append("Open register item")
+    if oid_conflict:
+        reasons.append("OID conflict with THO")
+    return reasons
+
+
+def marker_line(flag, reasons):
+    """The words under a shaded heading saying why it is shaded.
+
+    The colour carries the same information, but not every reader can use
+    colour, and a reader who has scrolled past the legend will have forgotten
+    which tint meant what.
+    """
+    text = " · ".join(reasons) if reasons else FLAG_LABEL[flag]
+    return f"<p class=\"tl-why tl-why-{flag}\">{text}</p>"
+
+
+def decision_callout(table, entry):
+    """Why a table blocked on a decision is blocked, said up front.
+
+    A table on this route has no code system and no value set published for
+    it, which is the most consequential thing its section can say, so it is
+    said before the detail rather than after it.
+    """
+    if table in SPECIAL_CONSIDERATION:
+        body = list(SPECIAL_CONSIDERATION[table])
+    else:
+        reason = " ".join(str((entry or {}).get("reason") or "").split())
+        reason = reason.replace("--", "—")
+        # The recorded reason is written from the builder's point of view.
+        # The page speaks as the guide, to a committee member, so the first
+        # person is turned round before it is shown.
+        reason = reason.replace("shapes we build", "shapes this guide builds")
+        body = ["**This table is blocked on a decision, so this guide "
+                "publishes no code system and no value set for it.** "
+                + (reason or "The chapter does not say enough to build one.")]
+        candidates = (entry or {}).get("candidates") or []
+        if candidates:
+            body += ["", "The code systems the chapter declares are "
+                     + ", ".join(f"`{c}`" for c in candidates)
+                     + ". Which of them the value set draws from has to be "
+                     "settled before either artifact can be written."]
+        body += ["", "Whatever THO already publishes at these canonicals "
+                 "stands untouched in the meantime."]
+    quoted = [f"> {line}".rstrip() for line in body]
+    return quoted + ["{: .tl-callout}", ""]
+
+
 def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
-                         classes, issues, oids, in_chapter=True):
+                         classes, issues, oids, in_chapter=True, flag=None,
+                         reasons=()):
     """One table's section: what changed, what was kept, what is open.
 
     `in_chapter` is false for a `v2-NNNN` canonical THO publishes that Chapter
     2C has no section for. Such a section has no table name and no route to
     report, so it says that instead of showing the number twice.
+
+    `flag` is the shading tier from `flag_for`, applied to the heading with a
+    kramdown attribute list so the heading itself carries the tint. A reader
+    scrolling several hundred sections can then see which ones want attention
+    without reading any of them.
     """
-    heading = f"### {table} — {name}" if in_chapter else f"### {table}"
-    lines = [heading, ""]
+    heading = f"#### {table} — {name}" if in_chapter else f"#### {table}"
+    lines = [heading]
+    if flag:
+        lines.append("{: .tl-hd .tl-hd-" + flag + "}")
+    lines.append("")
+    if flag:
+        lines += [marker_line(flag, list(reasons)), ""]
 
     if in_chapter:
-        route = ROUTE_LABEL.get((entry or {}).get("action"), "not authored here")
+        action = (entry or {}).get("action")
+        route = ROUTE_LABEL.get(action, "not authored here")
         lines += [f"*Route: {route}.*", ""]
+        blocked = action == "needs-decision"
+        if blocked:
+            lines += decision_callout(table, entry)
     else:
+        blocked = False
         lines += ["*Not a Chapter 2C table — the chapter has no section for "
                   "this number.*", ""]
 
@@ -342,7 +493,10 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
     if oids:
         lines += ["**Identifiers.**", ""] + [f"- {line}" for line in oids] + [""]
 
-    if not (diffs or fill_counts or issues or oids):
+    # The reassuring line is only true when there is something published to
+    # compare. A table blocked on a decision has no artifact at all, and its
+    # callout has just said so.
+    if not (diffs or fill_counts or issues or oids or blocked):
         lines += ["Nothing to report: what this guide publishes matches THO "
                   "on every element compared.", ""]
     return lines
@@ -456,7 +610,7 @@ def oid_overview(index, identifiers):
         ]
 
     return [
-        "## About the OIDs",
+        "### About the OIDs",
         "",
         "Chapter 2C gives each table **three** OIDs, in three separate "
         "metadata blocks, and they identify three different things:",
@@ -503,7 +657,17 @@ def render_page(report, write_report, index, register):
 
     authored = {number for number, row in entries.items() if row.get("written")}
     observed = set(differences) | set(fills)
-    covered = sorted(authored | observed)
+
+    # A table blocked on a decision, or one the register raises an item
+    # against, has something to report even when the merge saw nothing about
+    # it -- there is nothing published to compare, and that is exactly the
+    # point. Without these a reader looking up such a table would find it only
+    # in the compact list at the foot of the page, which says the opposite of
+    # what is true of it.
+    needs_decision = {number for number, row in entries.items()
+                      if row.get("action") == "needs-decision"}
+    chapter_flagged = (needs_decision | set(register)) & set(index)
+    covered = sorted(authored | observed | chapter_flagged)
 
     # Not everything the merge observed is a Chapter 2C table. THO publishes
     # code systems and value sets at `v2-NNNN` canonicals for numbers the
@@ -517,9 +681,18 @@ def render_page(report, write_report, index, register):
 
     changed = sorted(t for t in covered if differences.get(t))
     with_issues = sorted(t for t in covered if register.get(t))
+    blocked = sorted(t for t in covered if t in needs_decision)
+    oid_conflicts = {t for t, records in identifiers.items()
+                     for record in records if record["kind"] == "discrepancy"}
+
+    flags = {t: flag_for(t, set(changed), set(with_issues), needs_decision)
+             for t in covered}
+    reasons = {t: marker_reasons(t, set(changed), set(with_issues),
+                                 needs_decision, t in oid_conflicts)
+               for t in covered if flags.get(t)}
+    tier_counts = Counter(flag for flag in flags.values() if flag)
 
     lines = [
-        "# Per-table ledger",
         "",
         "One section per table: **everything this guide publishes that "
         "differs from what THO publishes**, everything it keeps from THO, and "
@@ -535,7 +708,7 @@ def render_page(report, write_report, index, register):
         f"server. {report['counts']['observations']:,} observations across "
         f"{len(observed)} tables.",
         "",
-        "## How to read a section",
+        "### How to read a section",
         "",
         "- **Differences from THO** — listed one by one. A *disagreement* is "
         "where both sides carry a value and they differ by more than "
@@ -545,40 +718,62 @@ def render_page(report, write_report, index, register):
         "an artifact and this guide writes nothing — THO's artifact stands "
         "untouched.",
         "- **Also affects** says whether a difference is a one-off or an "
-        "instance of a class. A row reading *24 other tables* is a policy "
-        "question, not a data-entry question, and answering it once answers "
-        "it twenty-five times.",
+        "instance of a class of problem that is repeated elsewhere. A row "
+        "reading *24 other tables* is a policy question, not a data-entry "
+        "question, and answering it once answers it twenty-five times.",
         "- **Kept from THO** — content THO publishes that the chapter is "
         "silent about, which the merge preserves rather than deleting. Given "
         "as counts: there are thousands and every one of them is the absence "
         "of a change.",
         "- **Open issues** — items from the V2 Management / TSMG register "
-        f"(`{REGISTER_PATH}`) that name this table.",
+        "that name this table.",
         "- **Identifiers** — the OID situation, where there is one.",
         "",
-        "Values longer than a cell are truncated. Every observation exists in "
-        "full, with both sides' values, in `v291-fhir/tho-fill-report.json`.",
+        "Values longer than a cell are truncated. Where two long values differ "
+        "only near their end, both are shown from just before the point where "
+        "they diverge, so the difference is always the part on display.",
         "",
     ]
 
     lines += oid_overview(index, identifiers)
 
     lines += [
-        "## Tables that need a second look",
+        "### Tables that need a second look",
         "",
         f"**{len(changed)} tables differ from THO** in at least one element "
-        f"that survived into the published artifact, and **{len(with_issues)} "
-        "carry an open register item**. Everything else either matches THO on "
-        "every element compared, or is content THO has never seen.",
+        f"that survived into the published artifact, **{len(with_issues)} "
+        f"carry an open register item**, and **{len(blocked)} are blocked on "
+        "a decision** and have nothing published for them yet. Everything "
+        "else either matches THO on every element compared, or is content THO "
+        "has never seen.",
+        "",
+        "Each of these tables has its section heading shaded below, so the "
+        "same information is available to somebody scrolling the page rather "
+        "than following a link from here. Where a table qualifies on more "
+        "than one count, the heading is shaded for the most serious of them "
+        "and the line beneath it names them all.",
         "",
     ]
 
+    lines += ["<p class=\"tl-jump\">Needs special consideration: "
+              + " ".join(f"<a href=\"#tbl-{t}\">{t}</a>"
+                         for t in sorted(SPECIAL_CONSIDERATION) if t in flags)
+              + "</p>", ""]
+    lines += ["<p class=\"tl-jump\">Blocked on a decision: "
+              + " ".join(f"<a href=\"#tbl-{t}\">{t}</a>" for t in blocked)
+              + "</p>", ""]
     lines += ["<p class=\"tl-jump\">Differs from THO: "
               + " ".join(f"<a href=\"#tbl-{t}\">{t}</a>" for t in changed)
               + "</p>", ""]
     lines += ["<p class=\"tl-jump\">Open register item: "
               + " ".join(f"<a href=\"#tbl-{t}\">{t}</a>" for t in with_issues)
               + "</p>", ""]
+
+    lines += ["<p class=\"tl-legend\">"] + [
+        f"<span class=\"tl-hd tl-hd-{key}\">{label} "
+        f"({tier_counts.get(key, 0)})</span>"
+        for key, label in FLAG_TIERS
+    ] + ["</p>", ""]
 
     lines += [
         "<style>",
@@ -588,9 +783,34 @@ def render_page(report, write_report, index, register):
         # checker rejects it and warns on every use. A classed span reads the
         # same and passes.
         ".tl-note { font-size: 0.85em; color: #555; }",
+        # Heading shading. The tints are deliberately pale and the text colour
+        # is pinned dark rather than inherited, so the heading keeps strong
+        # contrast whatever the surrounding template does with heading colour.
+        # There is no dark-mode rule: the template this guide is built on
+        # renders light only, and a `prefers-color-scheme` block would repaint
+        # these bands dark on an otherwise light page.
+        ".tl-hd { color: #14171a; padding: 0.18em 0.5em;",
+        "         border-left: 7px solid #8a8f94; border-radius: 3px; }",
+        ".tl-hd-diff      { background: #fdf2d5; border-left-color: #8a6100; }",
+        ".tl-hd-issue     { background: #ddeafa; border-left-color: #14507f; }",
+        ".tl-hd-both      { background: #e9dff7; border-left-color: #56308c; }",
+        ".tl-hd-decision  { background: #fbdcd7; border-left-color: #94241a; }",
+        ".tl-hd-attention { background: #f6bfb6; border-left-width: 14px;",
+        "                   border-left-color: #6e0d02; }",
+        ".tl-why { margin: 0.25em 0 0.9em; font-size: 0.85em;",
+        "          letter-spacing: 0.04em; text-transform: uppercase;",
+        "          color: #41474d; }",
+        ".tl-legend span { display: inline-block; font-size: 0.85em;",
+        "                  margin: 0 0.5em 0.4em 0; }",
+        # The blocked-on-a-decision block. It is the first thing in the
+        # sections that carry it, so it is sized to be read rather than
+        # skimmed past.
+        "blockquote.tl-callout { border-left: 7px solid #94241a;",
+        "                        background: #fef6f4; color: #14171a;",
+        "                        padding: 0.8em 1.1em; margin: 0 0 1.1em; }",
         "</style>",
         "",
-        "## Every table with something to report",
+        "### Every table with something to report",
         "",
         f"**{len(covered_chapter)} of the chapter's {len(chapter)} tables.** "
         f"The other {len(uncovered)} are listed at the foot of the page, and "
@@ -607,14 +827,15 @@ def render_page(report, write_report, index, register):
             table, names.get(table, table), entries.get(table),
             differences.get(table, []), fills.get(table, Counter()),
             fill_titles, classes, register.get(table, []), oids,
-            in_chapter=table in chapter))
+            in_chapter=table in chapter, flag=flags.get(table),
+            reasons=reasons.get(table, ())))
 
     for table in covered_chapter:
         emit(table)
 
     if covered_elsewhere:
         lines += [
-            "## Canonicals with no Chapter 2C table",
+            "### Canonicals with no Chapter 2C table",
             "",
             f"{len(covered_elsewhere)} numbers where THO publishes a "
             "`v2-NNNN` code system or value set and **Chapter 2C has no "
@@ -629,7 +850,7 @@ def render_page(report, write_report, index, register):
             emit(table)
 
     lines += [
-        "## The remaining tables",
+        "### The remaining tables",
         "",
         f"The remaining {len(uncovered)} of the chapter's {len(chapter)} "
         f"tables — {len(covered_chapter)} above and {len(uncovered)} here. "

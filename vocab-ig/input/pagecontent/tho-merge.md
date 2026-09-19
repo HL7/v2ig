@@ -1,4 +1,3 @@
-# What this guide keeps from THO
 
 <style>.tl-note { font-size: 0.85em; color: #555; }</style>
 
@@ -10,7 +9,7 @@ The rule this guide follows, and what this page reports on:
 
 Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,272 observations in total.
 
-## Kept from THO
+### Kept from THO
 
 Content THO publishes that Chapter 2C says nothing about. Without the merge each of these would have been deleted from an artifact published at THO's own canonical URL. None of them changes the artifact relative to THO, so none of them costs a version increment.
 
@@ -30,7 +29,7 @@ Content THO publishes that Chapter 2C says nothing about. Without the merge each
 | Resource titles kept from THO<br/><span class="tl-note">The chapter supplies no title.</span> | 2 | 2 |
 | Identifiers kept from THO<br/><span class="tl-note">The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</span> | 1 | 1 |
 
-## Where the chapter and THO disagree
+### Where the chapter and THO disagree
 
 Both carry a value and the two differ by more than whitespace. The chapter's value is published, because publishing the chapter is what this guide is for, and the disagreement is listed here so that it is a decision rather than an accident.
 
@@ -51,7 +50,7 @@ Both carry a value and the two differ by more than whitespace. The chapter's val
 | Descriptions that differ in what they say<br/><span class="tl-note">The words themselves differ, so this is not an editorial correction and it does increment the version.</span> | 2 | 2 |
 | Resource status where the chapter and THO disagree | 1 | 1 |
 
-## What this guide contributes
+### What this guide contributes
 
 Content in Chapter 2C that THO does not carry. These are real changes to the artifact and they do drive version increments.
 
@@ -64,7 +63,7 @@ Content in Chapter 2C that THO does not carry. These are real changes to the art
 | A hierarchy meaning the chapter states and THO omits | 1 | 1 |
 | Value set members the chapter lists that THO does not | 1 | 1 |
 
-## Where this guide is silent and THO is not
+### Where this guide is silent and THO is not
 
 THO publishes an artifact and this guide publishes nothing at that canonical. Nothing is destroyed — THO's artifact stands untouched — so the merge does not invent a replacement. They are listed because a reviewer should see the gaps deliberately rather than discover them.
 
@@ -74,7 +73,7 @@ THO publishes an artifact and this guide publishes nothing at that canonical. No
 |---|---:|---|
 | Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 46 | 26 |
 
-## What it does to version numbers
+### What it does to version numbers
 
 Version numbers are not hand-applied. Each artifact is compared against THO's after the merge, and the [TSMG artifact versioning policy](https://confluence.hl7.org/spaces/TSMG/pages/134947510) decides what that comparison means. The format is `n.0.0` — there is no minor or patch, so every qualifying change is a major increment.
 
@@ -91,7 +90,7 @@ Two of the rules behind these numbers are judgement calls rather than facts — 
 | valueSet: incremented | 16 |
 | valueSet: unchanged, THO's version kept | 398 |
 
-### Increments that rest on a human judgement
+#### Increments that rest on a human judgement
 
 The policy says a changed `CodeSystem.description` is *"major unless only change is improved clarity or perform editorial corrections"*. A difference of punctuation alone is taken as editorial and does not increment — see [General questions](general-questions.html). What is left here is where the **words** differ, which is not something a program should rule on. These increment by default and can be waived.
 
@@ -100,7 +99,7 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 | [0227](table-ledger.html#tbl-0227) | valueSet | description | 5.0.0 |
 | [0719](table-ledger.html#tbl-0719) | valueSet | description | 4.0.0 |
 
-## The artifacts THO has and this guide does not
+### The artifacts THO has and this guide does not
 
 46 of them, across 26 tables. Each is listed with the reason the writer gave for publishing nothing.
 
@@ -153,7 +152,7 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 | [4000](table-ledger.html#tbl-4000) | CodeSystem | The chapter has no section for it. |
 | [4000](table-ledger.html#tbl-4000) | ValueSet | The chapter has no section for it. |
 
-## Where the detail lives
+### Where the detail lives
 
 This page is deliberately a summary: there are thousands of instances and the useful question here is what kinds of thing happened, not which of eight thousand rows to read first.
 

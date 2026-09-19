@@ -1,5 +1,3 @@
-# HL7 V2+ Vocabulary — Chapter 2C
-
 This guide carries the code tables of **HL7 V2.9.1 Chapter 2C** as FHIR R5
 terminology resources: **399 CodeSystems**, **423 ValueSets**, and an extended
 `conceptdomains` CodeSystem.
@@ -8,7 +6,7 @@ terminology resources: **399 CodeSystems**, **423 ValueSets**, and an extended
 > that V2 Management, UTG and TSMG can see the resources before they are loaded
 > into THO. Nothing here is a proposal to publish at these URLs today.
 
-## What you are looking at
+### What you are looking at
 
 Every resource is authored at **its canonical URL on `terminology.hl7.org`** —
 the URL THO already uses where THO already publishes the table, rather than a
@@ -26,7 +24,7 @@ Of the 799 tables in the chapter:
 | Needs a decision | 14 | Nothing written — see [Known issues](known-issues.html) |
 | Nothing to write | 3 | Tables 0010, 0188 and 9999 |
 
-## Concept domains
+### Concept domains
 
 `CodeSystem/conceptdomains` here is **version 4.0.0: THO's published 3.0.0 with
 177 concepts added and none removed.** Chapter 2C declares concept domains that
@@ -40,7 +38,7 @@ redefine a code system this project does not own. Where Chapter 2C and THO
 describe the same domain differently, **THO's definition wins and the
 difference is recorded** rather than quietly resolved.
 
-## Where to go next
+### Where to go next
 
 - **[Table index](table-index.html)** — every Chapter 2C table, and the artifacts
   that represent it, here or in THO. Start here if you have a table number

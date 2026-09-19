@@ -36,6 +36,17 @@ Sources joined, all on table number:
     v291-fhir/CodeSystem-conceptdomains.json   which domain concepts exist
     tho-r5/                                a local THO R5 snapshot: whether THO
                                            already carries each canonical
+    vocab-ig/input/pagecontent/table-ledger.md
+                                           which tables the per-table ledger
+                                           has a section for, read as the
+                                           `id="tbl-NNNN"` anchors it emits
+
+BUILD ORDER: the last of those is a *generated* page, so this script must run
+**after** `render_table_ledger.py`. Run it first and the ledger links here go
+stale; run it with no ledger page at all and the links are simply omitted --
+the index still generates, it just loses one column's worth of navigation.
+The ledger's own choice of which tables earn a section is read rather than
+recomputed, so the two pages cannot disagree.
 
 Usage:
     python3 tooling/scripts/generate_table_index.py
@@ -56,6 +67,7 @@ AUTHORED_ROOT = PROJECT_ROOT / "v291-fhir" / "utg"
 CONCEPT_DOMAINS = PROJECT_ROOT / "v291-fhir" / "CodeSystem-conceptdomains.json"
 THO_SNAPSHOT = PROJECT_ROOT / "tho-r5"
 OUTPUT_PAGE = PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent" / "table-index.md"
+LEDGER_PAGE = PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent" / "table-ledger.md"
 
 THO_SITE = "http://terminology.hl7.org"
 
@@ -189,6 +201,23 @@ def squish_spaces(name):
     return re.sub(r"\s+", "", name or "")
 
 
+def load_ledger_anchors(path=LEDGER_PAGE):
+    """Return the table numbers the per-table ledger has a section for.
+
+    Read out of the generated ledger page rather than recomputed here. The
+    ledger decides which tables earn a section; duplicating that decision in
+    a second script guarantees the two drift apart, and a link into a section
+    that does not exist drops the reader at the top of a very long page.
+
+    An absent ledger page yields an empty set, so this index still generates
+    -- it simply carries no ledger links. See the build order note at the top
+    of this module.
+    """
+    if not path.is_file():
+        return set()
+    return set(re.findall(r'id="tbl-([^"]+)"', path.read_text(encoding="utf-8")))
+
+
 def load_v2_tables(path=THO_V2_TABLES):
     """Return THO's v2-tables index as {table number: {property: value}}."""
     if not path.is_file():
@@ -270,6 +299,7 @@ def build_rows():
     tho_code_systems, tho_value_sets = load_tho_snapshot()
     v2_tables = load_v2_tables()
     tho_domain_codes = load_tho_concept_domain_codes()
+    ledger_anchors = load_ledger_anchors()
 
     rows = []
     for record in report:
@@ -322,6 +352,7 @@ def build_rows():
             "conceptDomainInTho": domain in tho_domain_codes,
             "thoVocabDomain": thos_row.get("vocab-domain"),
             "inV2Tables": number in v2_tables,
+            "ledgerAnchor": number in ledger_anchors,
             "reason": record.get("reason", ""),
             "_thoValueSet": tho_value_sets.get(vs_canonical),
             "_thoCodeSystem": tho_code_systems.get(cs_canonical),
@@ -364,7 +395,7 @@ def render_orphans(orphans):
     """Render the orphan table as its own section, shading the unresolved rows."""
     unresolved = [o for o in orphans if o["domain"] and not o["resolves"]]
     parts = [
-        "## Tables THO still indexes that Chapter 2C no longer carries",
+        "### Tables THO still indexes that Chapter 2C no longer carries",
         "",
         f"THO's `v2-tables` holds **{len(orphans)} entries that are not tables of "
         "V2.9.1 Chapter 2C** and so have no row above. They are listed because of "
@@ -512,7 +543,7 @@ def render_link(artifact, resource_type):
         href = f"{resource_type}-{escape(artifact['igId'])}.html"
         return f'<a {NEW_TAB} href="{href}">{shown}</a> <span class="ti-dest">this guide</span>'
     if artifact["inTho"]:
-        return f'<a {NEW_TAB} href="{shown}">{shown}</a> <span class="ti-dest ti-tho">THO</span>'
+        return f'<a {NEW_TAB} href="{shown}">{shown}</a> <span class="ti-dest">THO</span>'
     if artifact.get("constructed"):
         # Nothing authored, nothing in THO, and this URL is one we invented
         # so the THO lookup had a key. It describes no artifact; showing it
@@ -545,26 +576,61 @@ def concept_anchor(code):
     return "".join(out)
 
 
+DOMAIN_ORIGIN = {True: "already in THO", False: "added by this guide"}
+
+
 def render_domain(row):
     """Render the concept domain cell.
 
-    Every domain link resolves into this guide, and that is correct rather
-    than redundant: this guide republishes the whole `conceptdomains` code
-    system at THO's canonical, so it holds THO's 1,345 concepts as well as
-    the 177 the chapter adds. "This guide" says where the link goes, which
-    on its own tells a reader nothing about whether the concept is new.
-    The second marker says that: `in THO` for a concept THO already
-    publishes, `new in 4.0.0` for one this work adds.
+    Every domain link in this column resolves into this guide, without
+    exception: this guide republishes the whole `conceptdomains` code system
+    at THO's canonical, so it holds THO's concepts as well as the ones the
+    chapter adds. A destination marker that never varies says nothing, so
+    this column carries none.
+
+    The one marker it does carry answers the question the destination cannot:
+    `already in THO` for a concept domain THO publishes today, `added by this
+    guide` for one this guide introduces. Both readings stand on their own
+    without a key.
     """
     code = row["conceptDomain"]
     if not code:
         declared = row["conceptDomainDeclared"]
         return f'<span class="ti-none">{escape(declared)}</span>' if declared else "—"
     href = f"CodeSystem-conceptdomains.html#conceptdomains-{escape(concept_anchor(code))}"
-    origin = "in THO" if row.get("conceptDomainInTho") else "not in THO"
+    origin = DOMAIN_ORIGIN[bool(row.get("conceptDomainInTho"))]
     return (f'<a {NEW_TAB} href="{href}">{escape(code)}</a> '
-            f'<span class="ti-dest">this guide</span> '
             f'<span class="ti-origin">{origin}</span>')
+
+
+def render_type(row):
+    """Render the Type cell: how Chapter 2C types the table.
+
+    `undefined` is the chapter's own word for a table it leaves untyped, not
+    a gap in this index, so it is shown rather than blanked -- muted, because
+    it names an absence rather than a type.
+    """
+    table_type = row.get("tableType") or ""
+    if not table_type:
+        return "—"
+    if table_type == "undefined":
+        return f'<span class="ti-untyped">{escape(table_type)}</span>'
+    return escape(table_type)
+
+
+def render_ledger_link(row):
+    """Render the link from a table number to its section in the per-table ledger.
+
+    Only the tables that have a section there are linked. The ledger has a
+    section for a table when the merge had something to report about it;
+    linking a table without one would land the reader at the top of a long
+    page with nothing to find.
+    """
+    if not row.get("ledgerAnchor"):
+        return ""
+    number = escape(row["table"])
+    return (f' <a class="ti-ledger" {NEW_TAB} '
+            f'href="table-ledger.html#tbl-{number}">ledger</a>')
 
 
 def render_row(row):
@@ -577,8 +643,10 @@ def render_row(row):
     notes = flag + " ".join(escape(n) for n in row["notes"])
     return (
         f'<tr id="tbl-{number}"{style}>'
-        f'<td><a href="#tbl-{number}"><strong>{number}</strong></a></td>'
+        f'<td><a href="#tbl-{number}"><strong>{number}</strong></a>'
+        f'{render_ledger_link(row)}</td>'
         f'<td>{escape(row["name"])}</td>'
+        f'<td>{render_type(row)}</td>'
         f'<td>{escape(ROUTE_LABEL[row["route"]])}</td>'
         f'<td>{render_link(row["codeSystem"], "CodeSystem")}</td>'
         f'<td>{render_link(row["valueSet"], "ValueSet")}</td>'
@@ -592,12 +660,14 @@ PAGE_STYLE = """<style>
 .ti-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
 .ti-table th, .ti-table td { border: 1px solid #ddd; padding: 4px 6px; vertical-align: top; }
 .ti-table th { background: #f5f5f5; text-align: left; position: sticky; top: 0; }
-.ti-table td:nth-child(4), .ti-table td:nth-child(5) { word-break: break-all; }
+.ti-table td:nth-child(5), .ti-table td:nth-child(6) { word-break: break-all; }
 .ti-dest { color: #555; font-size: 0.85em; white-space: nowrap; }
 .ti-dest::before { content: "\\2192\\00a0"; }
 .ti-none { color: #777; }
+.ti-untyped { color: #777; font-style: italic; }
+.ti-ledger { font-size: 0.85em; white-space: nowrap; }
 .ti-origin { color: #555; font-size: 0.85em; white-space: nowrap; }
-.ti-origin::before { content: "\00b7\00a0"; }
+.ti-origin::before { content: "\\00b7\\00a0"; }
 .ti-key { display: inline-block; width: 1.1em; height: 1.1em; border: 1px solid #bbb;
           vertical-align: -0.15em; margin-right: 0.3em; }
 .ti-jump { line-height: 2; }
@@ -629,14 +699,14 @@ def render_page(rows):
     prov["date"] = "2026-07-27"
     counts = Counter(row["exception"] for row in rows if row["exception"])
     exceptions = [row for row in rows if row["exception"]]
+    ledger_linked = sum(1 for row in rows if row.get("ledgerAnchor"))
 
     parts = [
-        "# Table index",
         "",
         "Every code table in Chapter 2C, and the artifacts that represent it.",
         f"**{len(rows)} tables.**",
         "",
-        "## How the links work",
+        "### How the links work",
         "",
         "The text of every link is the artifact's **canonical URL on THO** — that "
         "is its identifier, and it does not change. Where the link *goes* depends "
@@ -650,7 +720,24 @@ def render_page(rows):
         "The marker after each link says which of the three applies, so clicking "
         "never surprises you.",
         "",
-        "## What \"in THO\" means here",
+        "The **Concept domain** column is the exception, and carries no such "
+        "marker. Its links always open this guide, because this guide "
+        "republishes the whole `conceptdomains` code system at THO's canonical "
+        "— a marker saying so on every row would say nothing. The marker there "
+        "answers a different question: **already in THO** for a concept domain "
+        "THO publishes today, **added by this guide** for one this guide "
+        "introduces.",
+        "",
+        "Where the [per-table ledger](table-ledger.html) has a section for a "
+        f"table, a **ledger** link next to the table number opens it. {ledger_linked} "
+        f"of the {len(rows)} tables have one; the remaining {len(rows) - ledger_linked} "
+        "have nothing recorded against them there.",
+        "",
+        "The **Type** column is how Chapter 2C itself types the table. "
+        "`undefined` is the chapter's own word for a table it leaves untyped, "
+        "so it is shown rather than left blank.",
+        "",
+        "### What \"in THO\" means here",
         "",
         (
             "Every claim on this page about what THO holds is checked against a "
@@ -668,7 +755,7 @@ def render_page(rows):
         "would publish it, and no row on this page names a version for an "
         "individual concept.",
         "",
-        "## What the shading means",
+        "### What the shading means",
         "",
         "For most tables the artifact exists **both here and in THO** — this guide "
         "is a redraft of something THO already carries. That is the norm and it is "
@@ -680,7 +767,7 @@ def render_page(rows):
         "Every shaded row repeats its reason in the Notes column, so the page reads "
         "correctly without the colours.",
         "",
-        f"### The {len(exceptions)} rows that need a second look",
+        f"#### The {len(exceptions)} rows that need a second look",
         "",
         "| Table | Name | Why |",
         "|---|---|---|",
@@ -691,14 +778,15 @@ def render_page(rows):
 
     parts += [
         "",
-        "## All tables",
+        "### All tables",
         "",
         PAGE_STYLE,
         render_legend(counts),
         render_jump_links(rows),
         '<table class="ti-table">',
-        "<thead><tr><th>Table</th><th>Name</th><th>Route</th><th>Code system</th>"
-        "<th>Value set</th><th>Concept domain</th><th>Notes</th></tr></thead>",
+        "<thead><tr><th>Table</th><th>Name</th><th>Type</th><th>Route</th>"
+        "<th>Code system</th><th>Value set</th><th>Concept domain</th>"
+        "<th>Notes</th></tr></thead>",
         "<tbody>",
     ]
     parts.extend(render_row(row) for row in rows)

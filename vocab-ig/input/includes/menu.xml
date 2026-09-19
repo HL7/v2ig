@@ -1,6 +1,25 @@
 <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
   <li><a href="index.html">Home</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tables<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="table-index.html">Table index</a></li>
+      <li><a href="table-ledger.html">Per-table ledger</a></li>
+    </ul>
+  </li>
   <li><a href="artifacts.html">Artifacts</a></li>
-  <li><a href="provenance.html">Provenance</a></li>
-  <li><a href="known-issues.html">Known issues</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About this guide<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="provenance.html">How these resources were produced</a></li>
+      <li><a href="tho-merge.html">What this guide keeps from THO</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">For review<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="general-questions.html">General questions</a></li>
+      <li><a href="known-issues.html">Known issues</a></li>
+    </ul>
+  </li>
 </ul>
