@@ -71,9 +71,20 @@ def test_version_outcomes_are_shown():
     assert "340" in rendered and "56" in rendered
 
 
-def test_a_waivable_increment_is_named_with_its_table():
+def test_no_increment_is_presented_as_waivable():
+    """The description carve-out is gone: every difference increments, so the
+    page must not offer a waiver or a table of increments awaiting a ruling."""
     rendered = page.render_page(make_report())
-    assert "0083" in rendered
+    assert "waived" not in rendered and "can be waived" not in rendered
+    assert "rest on a human judgement" not in rendered
+
+
+def test_the_page_names_no_internal_artifact():
+    """Readers are committee members; internal paths are not theirs to chase."""
+    rendered = page.render_page(make_report())
+    for path in ("v291-fhir", "v291-extracted", "tooling/scripts",
+                 "tho-fill-report", "utg-write-report"):
+        assert path not in rendered, path
 
 
 def test_an_omission_is_listed_with_its_reason():

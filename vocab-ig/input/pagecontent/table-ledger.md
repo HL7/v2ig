@@ -3,7 +3,7 @@ One section per table: **everything this guide publishes that differs from what 
 
 [What this guide keeps from THO](tho-merge.html) reports the same merge by *class* — what kinds of thing happened and how often. This page is the other axis. Use that page to understand the merge; use this one to check a table.
 
-Measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,272 observations across 433 tables.
+Measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,273 observations across 433 tables.
 
 ### How to read a section
 
@@ -35,7 +35,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 ### Tables that need a second look
 
-**97 tables differ from THO** in at least one element that survived into the published artifact, **73 carry an open register item**, and **14 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
+**96 tables differ from THO** in at least one element that survived into the published artifact, **101 carry an open register item**, and **14 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
 
 Each of these tables has its section heading shaded below, so the same information is available to somebody scrolling the page rather than following a link from here. Where a table qualifies on more than one count, the heading is shaded for the most serious of them and the line beneath it names them all.
 
@@ -43,16 +43,16 @@ Each of these tables has its section heading shaded below, so the same informati
 
 <p class="tl-jump">Blocked on a decision: <a href="#tbl-0399">0399</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0467">0467</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0822">0822</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0824">0824</a> <a href="#tbl-0827">0827</a> <a href="#tbl-0828">0828</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0953">0953</a> <a href="#tbl-0956">0956</a> <a href="#tbl-0963">0963</a></p>
 
-<p class="tl-jump">Differs from THO: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0012">0012</a> <a href="#tbl-0033">0033</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0048">0048</a> <a href="#tbl-0070">0070</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0083">0083</a> <a href="#tbl-0102">0102</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0106">0106</a> <a href="#tbl-0107">0107</a> <a href="#tbl-0108">0108</a> <a href="#tbl-0109">0109</a> <a href="#tbl-0119">0119</a> <a href="#tbl-0123">0123</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0136">0136</a> <a href="#tbl-0156">0156</a> <a href="#tbl-0157">0157</a> <a href="#tbl-0158">0158</a> <a href="#tbl-0174">0174</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0202">0202</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0206">0206</a> <a href="#tbl-0208">0208</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0232">0232</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0287">0287</a> <a href="#tbl-0290">0290</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0292">0292</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0301">0301</a> <a href="#tbl-0323">0323</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0338">0338</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0356">0356</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0369">0369</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0433">0433</a> <a href="#tbl-0434">0434</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0489">0489</a> <a href="#tbl-0496">0496</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0524">0524</a> <a href="#tbl-0529">0529</a> <a href="#tbl-0548">0548</a> <a href="#tbl-0555">0555</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0717">0717</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0834">0834</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0906">0906</a> <a href="#tbl-0907">0907</a> <a href="#tbl-0909">0909</a> <a href="#tbl-0912">0912</a> <a href="#tbl-0914">0914</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0937">0937</a> <a href="#tbl-0938">0938</a> <a href="#tbl-0945">0945</a> <a href="#tbl-0948">0948</a> <a href="#tbl-0949">0949</a> <a href="#tbl-0950">0950</a> <a href="#tbl-0951">0951</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0970">0970</a> <a href="#tbl-0971">0971</a> <a href="#tbl-4000">4000</a></p>
+<p class="tl-jump">Differs from THO: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0012">0012</a> <a href="#tbl-0033">0033</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0048">0048</a> <a href="#tbl-0070">0070</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0083">0083</a> <a href="#tbl-0102">0102</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0106">0106</a> <a href="#tbl-0107">0107</a> <a href="#tbl-0108">0108</a> <a href="#tbl-0109">0109</a> <a href="#tbl-0119">0119</a> <a href="#tbl-0123">0123</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0136">0136</a> <a href="#tbl-0156">0156</a> <a href="#tbl-0157">0157</a> <a href="#tbl-0158">0158</a> <a href="#tbl-0174">0174</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0201">0201</a> <a href="#tbl-0202">0202</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0206">0206</a> <a href="#tbl-0208">0208</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0232">0232</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0287">0287</a> <a href="#tbl-0290">0290</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0301">0301</a> <a href="#tbl-0323">0323</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0338">0338</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0356">0356</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0369">0369</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0433">0433</a> <a href="#tbl-0434">0434</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0489">0489</a> <a href="#tbl-0496">0496</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0524">0524</a> <a href="#tbl-0529">0529</a> <a href="#tbl-0548">0548</a> <a href="#tbl-0555">0555</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0717">0717</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0834">0834</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0906">0906</a> <a href="#tbl-0907">0907</a> <a href="#tbl-0909">0909</a> <a href="#tbl-0912">0912</a> <a href="#tbl-0914">0914</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0937">0937</a> <a href="#tbl-0938">0938</a> <a href="#tbl-0945">0945</a> <a href="#tbl-0948">0948</a> <a href="#tbl-0949">0949</a> <a href="#tbl-0950">0950</a> <a href="#tbl-0951">0951</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0970">0970</a> <a href="#tbl-0971">0971</a> <a href="#tbl-4000">4000</a></p>
 
-<p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0010">0010</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0093">0093</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0188">0188</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0340">0340</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0451">0451</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0626">0626</a> <a href="#tbl-0675">0675</a> <a href="#tbl-0685">0685</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0767">0767</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0910">0910</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0957">0957</a> <a href="#tbl-0967">0967</a> <a href="#tbl-9999">9999</a></p>
+<p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0006">0006</a> <a href="#tbl-0010">0010</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0065">0065</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0074">0074</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0078">0078</a> <a href="#tbl-0093">0093</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0131">0131</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0163">0163</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0175">0175</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0188">0188</a> <a href="#tbl-0191">0191</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0207">0207</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0223">0223</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0272">0272</a> <a href="#tbl-0277">0277</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0279">0279</a> <a href="#tbl-0281">0281</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0292">0292</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0340">0340</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0391">0391</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0451">0451</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0474">0474</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0626">0626</a> <a href="#tbl-0675">0675</a> <a href="#tbl-0685">0685</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0767">0767</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0910">0910</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0957">0957</a> <a href="#tbl-0967">0967</a> <a href="#tbl-9999">9999</a></p>
 
 <p class="tl-legend">
 <span class="tl-hd tl-hd-attention">Needs special consideration (1)</span>
 <span class="tl-hd tl-hd-decision">Blocked on a decision (13)</span>
-<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (29)</span>
-<span class="tl-hd tl-hd-issue">Carries an open register item (39)</span>
-<span class="tl-hd tl-hd-diff">Differs from THO (66)</span>
+<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (39)</span>
+<span class="tl-hd tl-hd-issue">Carries an open register item (57)</span>
+<span class="tl-hd tl-hd-diff">Differs from THO (55)</span>
 </p>
 
 <style>
@@ -97,7 +97,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `X` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `X` | active | N | 25 other tables |
 | Disagreement | `identifier` | — | 2.16.840.1.113883.18.458 | 2.16.840.1.113883.18.2 | 1 other table |
 
 **Kept from THO (13).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
@@ -111,7 +111,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 **Open issues.**
 
 - `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
-- `esc-oid-conflicts` — Chapter 2C and THO give different OIDs for the same two artifacts, which versioning cannot reconcile — *V2 Management + TSMG*
+- `esc-oid-conflicts` — Three artifacts where one OID would end up naming two things, which versioning cannot reconcile — *V2 Management + TSMG*
 
 **Identifiers.**
 
@@ -137,9 +137,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 <a id="tbl-0003"></a>
 
 #### 0003 — Event
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -154,49 +154,49 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Disagreement | `concept.display` | `O57` | OMQ - General Order Message with Document Payload | OMQ- General Order Message with Document Payload | 14 other tables |
 | Disagreement | `concept.display` | `P10` | BAR/ACK - Transmit Ambulatory Payment Classification(APC) | BAR/ACK -Transmit Ambulatory Payment Classification(APC) | 14 other tables |
 | Disagreement | `concept.display` | `S50` | Specimen Procedure Step Successful, with Derived Specimen(s) | Specimen Procedure Step Successful , with Derived Specimen(s) | 14 other tables |
-| Disagreement | `concept.property` (status) | `O51` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `O52` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `O53` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `O54` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `O55` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `O56` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `O58` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `O51` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `O52` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `O53` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `O54` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `O55` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `O56` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `O58` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `O59` | An example is the IHE LCC profile which describes this message in the LAB-7 transaction | An example is the IHE LCC profile describes this message in the LAB-7 transaction | 22 other tables |
-| Disagreement | `concept.property` (status) | `O59` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `Q04` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `Q07` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `Q08` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `Q09` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R03` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R05` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R06` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R07` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R08` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R09` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `R42` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `R43` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `RAR` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `RDR` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `RER` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `RGR` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `S38` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S39` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S40` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S41` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S42` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S43` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S44` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S45` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S46` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S47` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S48` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S49` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S50` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S51` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `S52` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `X01` | deprecated | active | 24 other tables |
-| Disagreement | `name` | — | Hl7VSEvent | Hl7VSEventCode | 1 other table |
-| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0003 (Event) | Underlying Master Code System for V2 table 0003 (Event Type) | 3 other tables |
+| Disagreement | `concept.property` (status) | `O59` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `Q04` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `Q07` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `Q08` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `Q09` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R03` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R05` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R06` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R07` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R08` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R09` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `R42` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `R43` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `RAR` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `RDR` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `RER` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `RGR` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `S38` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S39` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S40` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S41` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S42` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S43` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S44` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S45` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S46` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S47` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S48` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S49` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S50` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S51` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `S52` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `X01` | deprecated | active | 25 other tables |
+| Disagreement | `name` | — | Hl7VSEvent | Hl7VSEventCode | only here |
+| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0003 (Event) | Underlying Master Code System for V2 table 0003 (Event Type) | 2 other tables |
 | Disagreement | `title` | — | hl7VS-event | hl7VS-eventCode | 1 other table |
 
 **Kept from THO (620).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
@@ -208,6 +208,11 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Comments-as-published kept from THO | 50 |
 | Deprecation markers kept from THO | 16 |
 | Codes kept from THO that the chapter does not list | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management + TSMG*
 
 <a id="tbl-0004"></a>
 
@@ -238,16 +243,20 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0005 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0005 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0005 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0005 | 24 other tables |
 
 **Open issues.**
 
+- `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *TSMG*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0006"></a>
 
 #### 0006 — Religion
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -261,6 +270,10 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Concept definitions kept from THO | 85 |
 | Translations kept from THO | 12 |
 | Codes kept from THO that the chapter does not list | 10 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0007"></a>
 
@@ -446,6 +459,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 <a id="tbl-0065"></a>
 
 #### 0065 — Specimen Action Code
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -459,6 +475,10 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Concept definitions kept from THO | 7 |
 | Translations kept from THO | 7 |
 | Codes kept from THO that the chapter does not list | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0066"></a>
 
@@ -482,6 +502,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 - `esc-tho-definition-differences` — Five concept domain definitions differ between Chapter 2C and THO — *V2 Management + TSMG*
 
@@ -503,6 +524,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 <a id="tbl-0074"></a>
 
 #### 0074 — Diagnostic Service Section ID
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -517,12 +541,16 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Translations kept from THO | 39 |
 | Codes kept from THO that the chapter does not list | 4 |
 
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+
 <a id="tbl-0076"></a>
 
 #### 0076 — Message Type
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -533,7 +561,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `SET` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `SET` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `VXX` | 4 - Deprecated | 4 -Deprecated | 22 other tables |
 
 **Kept from THO (340).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
@@ -545,15 +573,24 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Translations kept from THO | 37 |
 | Codes kept from THO that the chapter does not list | 12 |
 
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+
 <a id="tbl-0078"></a>
 
 #### 0078 — Interpretation Codes
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
 - Value set **1.0.0** — THO publishes no such artifact, so this is a first publication.
 
-Nothing to report: what this guide publishes matches THO on every element compared.
+**Open issues.**
+
+- `esc-oid-conflicts` — Three artifacts where one OID would end up naming two things, which versioning cannot reconcile — *V2 Management + TSMG*
 
 <a id="tbl-0080"></a>
 
@@ -580,15 +617,15 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: code system + value set.*
 
-- Code system **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Code system **4.0.0** — Changed: description.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (2).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | HL7-defined code system of concepts specifying the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Us… | HL7-defined code system of concepts specifying the type of outlier (i.e. period of care beyond DRG-standard stay in facility) that has been paid. Use… | 6 other tables |
-| Disagreement | `description` | — | Value Set of codes that specify the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. | Value Set of codes that specify the type of outlier (i.e. period of care beyond DRG-standard stay in facility) that has been paid. | 6 other tables |
+| Disagreement | `description` | — | HL7-defined code system of concepts specifying the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Us…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | HL7-defined code system of concepts specifying the type of outlier (i.e. period of care beyond DRG-standard stay in facility) that has been paid. Use… | 6 other tables |
+| Disagreement | `description` | — | Value Set of codes that specify the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid.<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | Value Set of codes that specify the type of outlier (i.e. period of care beyond DRG-standard stay in facility) that has been paid. | 6 other tables |
 
 **Kept from THO (2).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -709,9 +746,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0104"></a>
 
 #### 0104 — Version ID
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -724,7 +761,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---|---|---|---|---|
 | Disagreement | `concept.display` | `2.9` | Release 2.9 | Draft 2.9 | 14 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `2.9` | Sep. 2019 | Sep. 2017 | 22 other tables |
-| Disagreement | `concept.property` (status) | `2.9` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `2.9` | active | N | 25 other tables |
 | Added here | `concept` | `2.9.1` | Draft 2.9.1 | nothing | 2 other tables |
 
 **Kept from THO (37).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
@@ -735,6 +772,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Comments-as-published kept from THO | 16 |
 | Translations kept from THO | 4 |
 | Codes kept from THO that the chapter does not list | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0105"></a>
 
@@ -796,12 +837,12 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Disagreement | `concept.property` (v2-concComment) | `OF` | Filler Applications. Usage Note: OF directly responds to the placer system's request for a refill. | Filler Applications. | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `OK` | Filler Applications. Usage Note: See comments for NA - Number Assigned. | Filler Applications. | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `PY` | Placer Applications. Usage Note: See comments for OP - Notification of order for outside dispense. | Placer Applications. | 22 other tables |
-| Disagreement | `concept.property` (status) | `RA` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `RC` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `RD` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `RA` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `RC` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `RD` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `SN` | Placer Applications. Usage Note: See comments for NA - Number Assigned. | Placer Applications. | 22 other tables |
-| Disagreement | `concept.property` (status) | `SQ` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SU` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `SQ` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SU` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `UF` | Filler Applications. Usage Note: Negative response to RF Refill order/service request, indicating that the receiving application was not able to comp… | Filler Applications. | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `UN` | Placer or Filler Applications. Usage Note: Refer to Chapter 12 Patient Care for complete discussion. | Placer or Filler Applications. | 22 other tables |
 
@@ -904,6 +945,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 **Open issues.**
 
 - `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
+- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management + TSMG*
 
 <a id="tbl-0126"></a>
 
@@ -972,6 +1014,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0131"></a>
 
 #### 0131 — Contact Role
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -986,6 +1031,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Translations kept from THO | 8 |
 | Codes kept from THO that the chapter does not list | 4 |
 
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+
 <a id="tbl-0133"></a>
 
 #### 0133 — Procedure practitioner identifier code type
@@ -999,8 +1048,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0133 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0133 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0133 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0133 | 24 other tables |
 
 **Open issues.**
 
@@ -1283,6 +1332,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0163"></a>
 
 #### 0163 — Body Site
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1296,6 +1348,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 54 |
 | Translations kept from THO | 54 |
 | Codes kept from THO that the chapter does not list | 2 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0164"></a>
 
@@ -1465,6 +1521,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0175"></a>
 
 #### 0175 — Master File Identifier Code
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1479,6 +1538,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Codes kept from THO that the chapter does not list | 10 |
 | Translations kept from THO | 4 |
 | Comments-as-published kept from THO | 2 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0177"></a>
 
@@ -1544,7 +1607,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0180 (Masterfile Action Code) | Underlying Master Code System for V2 table 0180 (Record-level Event Code) | 3 other tables |
+| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0180 (Masterfile Action Code) | Underlying Master Code System for V2 table 0180 (Record-level Event Code) | 2 other tables |
 
 **Kept from THO (10).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -1669,6 +1732,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0191"></a>
 
 #### 0191 — Type of Referenced Data
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1682,6 +1748,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 10 |
 | Translations kept from THO | 9 |
 | Codes kept from THO that the chapter does not list | 3 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0193"></a>
 
@@ -1736,16 +1806,26 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0201"></a>
 
 #### 0201 — Telecommunication Use Code
+{: .tl-hd .tl-hd-diff}
+
+<p class="tl-why tl-why-diff">Differs from THO</p>
 
 *Route: code system + value set.*
 
-- Code system **5.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Code system **6.0.0** — Changed: concept.
 - Value set **4.0.0** — Nothing the policy counts as a change, so THO's version stands.
+
+**Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
+
+| Difference | Element | Code | This guide publishes | THO has | Also affects |
+|---|---|---|---|---|---|
+| Disagreement | `concept.property:status` | `DSM` | active<br/><span class="tl-note">The published letter is not a value of the FHIR concept status property.</span> | N | 25 other tables |
 
 **Kept from THO (21).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -1793,7 +1873,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 - Code system **6.0.0** — Changed: concept.
 - Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
 
-**Differences from THO (40).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
+**Differences from THO (44).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
@@ -1801,42 +1881,46 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Disagreement | `concept.display` | `KZVA` | dentist office number | Dentist Office Number | 14 other tables |
 | Disagreement | `concept.display` | `PKV` | insured's ID with private insurance | Insured's ID with Private Insurance | 14 other tables |
 | Disagreement | `concept.display` | `ZANR` | dentist identifier | Dentist Identifier | 14 other tables |
-| Disagreement | `concept.property` (status) | `AC` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `AIN` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `AC` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `AIN` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `ANC` | Class: Financial Sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor. Kredi… | Class: Financial<p>Sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.<p>K… | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `AND` | Class: Financial Sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor. Debit… | Class: Financial<p>Sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.<p>D… | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `BC` | Class: Financial Replaces AM, DI, DS, MS, and VS beginning in v 2.5. | Class: Financial<p>Replaces AM, DI, DS, MS, and VS beginning in v 2.5. | 22 other tables |
-| Disagreement | `concept.property` (status) | `BCFN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CAAI` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `BCFN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CAAI` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `CC` | Class: Financial Use Case: needed especially for transmitting information about invoices. | Class: Financial<p>Use Case: needed especially for transmitting information about invoices. | 22 other tables |
-| Disagreement | `concept.property` (status) | `DSG` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `FDR` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `FDRFN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `FGN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GIN` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `DSG` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `FDR` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `FDRFN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `FGN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GIN` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `GKV` | Class: Insurance | GKV is a patient ID with a public insurance company. | 22 other tables |
+| Disagreement | `concept.property` (status) | `GKV` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `JHN` | Class: Insurance 2 uses: a) UK jurisdictional CHI number; b) Canadian provincial health card number: | Class: Insurance<p>2 uses: a) UK jurisdictional CHI number; b) Canadian provincial health card number: | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `KZVA` | Class: Insurance | KZVA is an ID for the practice of a dentist. | 22 other tables |
+| Disagreement | `concept.property` (status) | `KZVA` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NII` | … card number itself. Krankenkassen-ID der KV-Karte | … card number itself.<p>Krankenkassen-ID der KV-Karte | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NIIP` | …ressed as the payor. Krankenkassen-ID des Rechnungsempfängers Use case: a subdivision issues the card with their identifier, but the main division is… | …ressed as the payor.<p>Krankenkassen-ID des Rechnungsempfängers<p>Use case: a subdivision issues the card with their identifier, but the main divisio… | 22 other tables |
-| Disagreement | `concept.property` (status) | `NNxxx` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `OBI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PGN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PHC` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PHE` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PHO` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PIN` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `NNxxx` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `OBI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PGN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PHC` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PHE` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PHO` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PIN` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `PKV` | Class: Insurance | PKV is a patient ID with an private insurance company. | 22 other tables |
+| Disagreement | `concept.property` (status) | `PKV` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `PPIN` | Class: Insurance Usage Note: Class: Insurance | Class: Insurance | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `RI` | … include human (e.g., a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., diab… | … include human (e.g. a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., diabe… | 22 other tables |
-| Disagreement | `concept.property` (status) | `SAMN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SNBSN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SRX` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `STN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TRL` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `SAMN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SNBSN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SRX` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `STN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TRL` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `XV` | Also referred to as HPID (Health Plan Identifier). Usage Note: The code value ‘XV’ is used in CMS mandated Health Insurance Portability and Accountab… | Also referred to as HPID (Health Plan Identifier). | 22 other tables |
-| Disagreement | `concept.property` (status) | `XV` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `XV` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `ZANR` | Class: Insurance | ZANR is a dentist ID. | 22 other tables |
+| Disagreement | `concept.property` (status) | `ZANR` | active | N | 25 other tables |
 
 **Kept from THO (176).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -1900,7 +1984,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
 | Disagreement | `concept.definition` | `S` | Declares when segment falls under snapshot mode handling, i.e., all elements that were previously sent will be sent, not just any changes | Declares when segment falls under snapshot mode handling, i.e. all elements that were previously sent will be sent, not just any changes | 4 other tables |
-| Disagreement | `concept.property` (status) | `S` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `S` | active | N | 25 other tables |
 
 **Kept from THO (7).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -1912,6 +1996,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0207"></a>
 
 #### 0207 — Processing Mode
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -1924,6 +2011,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 5 |
 | Codes kept from THO that the chapter does not list | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0208"></a>
 
@@ -1941,8 +2032,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `PD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TM` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `PD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TM` | active | N | 25 other tables |
 
 **Kept from THO (4).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -1983,9 +2074,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0211"></a>
 
 #### 0211 — Alternate Character Sets
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2006,6 +2097,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Comments-as-published kept from THO | 10 |
 | Codes kept from THO that the chapter does not list | 4 |
 | Usage notes kept from THO | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0213"></a>
 
@@ -2100,6 +2195,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0223"></a>
 
 #### 0223 — Living Dependency
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2112,6 +2210,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 5 |
 | Codes kept from THO that the chapter does not list | 3 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0224"></a>
 
@@ -2146,19 +2248,19 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0227"></a>
 
 #### 0227 — Manufacturers of Vaccines (code=MVX)
-{: .tl-hd .tl-hd-both}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
-- Value set **5.0.0** — Changed: description. <span class="tl-note">This increment rests on a judgement: the description differs in wording, and whether that is an editorial correction is for TSMG to say. It can be waived.</span>
+- Value set **4.0.0** — Nothing the policy counts as a change, so THO's version stands.
 
-**Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
+**Kept from THO (1).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
-| Difference | Element | Code | This guide publishes | THO has | Also affects |
-|---|---|---|---|---|---|
-| Disagreement | `description` | — | …e system may be acce | …e system may be accessed via [https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.113883.12.227](https://phinvads.cdc.gov/vads/ViewCode… | 1 other table |
+| What | Count |
+|---|---:|
+| Resource descriptions kept from THO | 1 |
 
 **Open issues.**
 
@@ -2228,7 +2330,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0232 (Insurance Company Contact Reason) | Underlying Master Code System for V2 table 0232 (- Insurance Company Contact Reason) | 3 other tables |
+| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0232 (Insurance Company Contact Reason)<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | Underlying Master Code System for V2 table 0232 (- Insurance Company Contact Reason) | only here |
 
 **Kept from THO (3).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -2807,6 +2909,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0272"></a>
 
 #### 0272 — Document Confidentiality Status
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2819,6 +2924,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Codes kept from THO that the chapter does not list | 6 |
 | Concept definitions kept from THO | 3 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0273"></a>
 
@@ -2870,6 +2979,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0277"></a>
 
 #### 0277 — Appointment Type Codes
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2883,12 +2995,16 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 3 |
 | Codes kept from THO that the chapter does not list | 3 |
 
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+
 <a id="tbl-0278"></a>
 
 #### 0278 — Filler status codes
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2919,9 +3035,16 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 12 |
 | Codes kept from THO that the chapter does not list | 9 |
 
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+
 <a id="tbl-0279"></a>
 
 #### 0279 — Allow Substitution Codes
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2934,6 +3057,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 4 |
 | Codes kept from THO that the chapter does not list | 4 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0280"></a>
 
@@ -2953,6 +3080,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0281"></a>
 
 #### 0281 — Referral Type
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -2965,6 +3095,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 6 |
 | Codes kept from THO that the chapter does not list | 6 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0282"></a>
 
@@ -3043,7 +3177,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
 | Disagreement | `concept.definition` | `SP` | Declares when segment falls under snapshot mode handling, i.e., all elements that were previously sent will be sent, not just any changes | Declares when segment falls under snapshot mode handling, i.e. all elements that were previously sent will be sent, not just any changes | 4 other tables |
-| Disagreement | `concept.property` (status) | `SP` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `SP` | active | N | 25 other tables |
 
 **Kept from THO (12).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -3095,29 +3229,44 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0292"></a>
 
 #### 0292 — Vaccines Administered
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: concept domain only.*
+*Route: value set only.*
 
-**Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
+- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
 
-| Difference | Element | Code | This guide publishes | THO has | Also affects |
-|---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0292 | 25 other tables |
+**Kept from THO (4).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
+
+| What | Count |
+|---|---:|
+| Resource descriptions kept from THO | 1 |
+| Resource names kept from THO | 1 |
+| Resource titles kept from THO | 1 |
+| Identifiers kept from THO | 1 |
+
+**Open issues.**
+
+- `esc-0292-cdo-contradiction` — Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section — *V2 Management*
+
+**Identifiers.**
+
+- Chapter 2C gives no OID for this ValueSet, so THO's `2.16.840.1.114222.4.11.934` is kept. Dropping it would be removing a published identifier.
+- Chapter 2C also gives the table itself the OID `2.16.840.1.113883.12.292`, which this guide publishes nowhere.
 
 <a id="tbl-0294"></a>
 
 #### 0294 — Time Selection Criteria Parameter Class Codes
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3143,6 +3292,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 9 |
 | Comments-as-published kept from THO | 9 |
 | Codes kept from THO that the chapter does not list | 9 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0298"></a>
 
@@ -3194,12 +3347,12 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---|---|---|---|---|
 | Disagreement | `concept.definition` | `CLIP` | …d number (for labs). Used by US Department of Defense. | …d number (for labs).Â Used by US Department of Defense. | 4 other tables |
 | Disagreement | `concept.definition` | `Random` | Usually a base64 encoded string of random bits. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigni… | Usually a base64 encoded string of random bits.<p>Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assig… | 4 other tables |
-| Disagreement | `concept.property` (status) | `CAP` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `CAP` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `L` | Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8 | Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8 | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `L,M,N` | Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8 | Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8 | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `M` | Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8 | Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8 | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `N` | Locally defined coding entity identifier. Retained for backward compatibility only as of v 2.8 | Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8 | 22 other tables |
-| Disagreement | `concept.property` (status) | `NPI` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `NPI` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `Random` | Usually a base64 encoded string of random bits. Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifie… | Usually a base64 encoded string of random bits.Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier… | 22 other tables |
 
 **Kept from THO (22).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
@@ -3618,7 +3771,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `name` | — | Hl7VSStateProvince | Hl7VsStateProvince | 1 other table |
+| Disagreement | `name` | — | Hl7VSStateProvince<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | Hl7VsStateProvince | only here |
 | Disagreement | `title` | — | hl7VS-stateProvince | HL7 Value Set for State/Province | 1 other table |
 
 **Open issues.**
@@ -3638,7 +3791,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0350 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0350 | 24 other tables |
 
 **Open issues.**
 
@@ -3657,7 +3810,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0351 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0351 | 24 other tables |
 
 **Open issues.**
 
@@ -3681,9 +3834,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0354"></a>
 
 #### 0354 — Message Structure
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3695,22 +3848,22 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
 | Disagreement | `concept.display` | `ADT_A30` | A30 | A30, A34, A35, A36, A46, A47, A48, A49 | 14 other tables |
-| Disagreement | `concept.property` (status) | `OML_O59` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OMQ_O57` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ORL_O53` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ORL_O54` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ORL_O55` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ORL_O56` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ORX_O58` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OSU_O51` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OSU_O52` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SET_S38` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SET_S40` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `OML_O59` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OMQ_O57` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ORL_O53` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ORL_O54` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ORL_O55` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ORL_O56` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ORX_O58` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OSU_O51` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OSU_O52` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SET_S38` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SET_S40` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `SET_S41` | …t from storage (e.g., in biobanking). | …t from storage (e.g. in biobanking). | 22 other tables |
-| Disagreement | `concept.property` (status) | `SET_S41` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SET_S45` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SET_S50` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SET_S52` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `SET_S41` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SET_S45` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SET_S50` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SET_S52` | active | N | 25 other tables |
 
 **Kept from THO (346).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -3720,6 +3873,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Codes kept from THO that the chapter does not list | 55 |
 | Comments-as-published kept from THO | 47 |
 | Translations kept from THO | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0355"></a>
 
@@ -3765,9 +3922,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0357"></a>
 
 #### 0357 — Message Error Condition Codes
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -3778,8 +3935,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `198` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `199` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `198` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `199` | active | N | 25 other tables |
 
 **Kept from THO (37).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -3788,6 +3945,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Comments-as-published kept from THO | 14 |
 | Translations kept from THO | 13 |
 | Concept definitions kept from THO | 10 |
+
+**Open issues.**
+
+- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management + TSMG*
 
 <a id="tbl-0359"></a>
 
@@ -3810,6 +3971,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0360"></a>
@@ -3863,6 +4025,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0366"></a>
@@ -3886,6 +4049,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0367"></a>
@@ -3897,15 +4061,15 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: code system + value set.*
 
-- Code system **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Code system **4.0.0** — Changed: description.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (2).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | …ated equipment (e.g., processing event, inventory event, QC event). Used in the Equipment Detail (EQU) and Notification Detail (NDS) segments in HL7… | …ated equipment (e.g. processing event, inventory event, QC event). Used in the Equipment Detail (EQU) and Notification Detail (NDS) segments in HL7 V… | 6 other tables |
-| Disagreement | `description` | — | …ated equipment (e.g., processing event, inventory event, QC event). | …ated equipment (e.g. processing event, inventory event, QC event). | 6 other tables |
+| Disagreement | `description` | — | …ated equipment (e.g., processing event, inventory event, QC event). Used in the Equipment Detail (EQU) and Notification Detail (NDS) segments in HL7…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | …ated equipment (e.g. processing event, inventory event, QC event). Used in the Equipment Detail (EQU) and Notification Detail (NDS) segments in HL7 V… | 6 other tables |
+| Disagreement | `description` | — | …ated equipment (e.g., processing event, inventory event, QC event).<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | …ated equipment (e.g. processing event, inventory event, QC event). | 6 other tables |
 
 **Kept from THO (10).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -3917,6 +4081,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0368"></a>
@@ -3951,7 +4116,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `H` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `H` | active | N | 25 other tables |
 
 <a id="tbl-0370"></a>
 
@@ -4142,15 +4307,15 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: code system + value set.*
 
-- Code system **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Code system **4.0.0** — Changed: description.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (2).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | …analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — perform… | …analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performe… | 6 other tables |
-| Disagreement | `description` | — | …analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — perform… | …analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performe… | 6 other tables |
+| Disagreement | `description` | — | …analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — perform…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | …analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performe… | 6 other tables |
+| Disagreement | `description` | — | …analyte/result (e.g., original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — perform…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | …analyte/result (e.g. original, rerun, repeat, reflex). The following are assumptions regarding the table values: Repeated without dilution — performe… | 6 other tables |
 
 **Kept from THO (4).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -4165,6 +4330,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0391"></a>
 
 #### 0391 — Segment Group
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4176,6 +4344,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | What | Count |
 |---|---:|
 | Codes kept from THO that the chapter does not list | 16 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0392"></a>
 
@@ -4247,16 +4419,16 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0396"></a>
 
 #### 0396 — Coding System
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
 - Code system **6.0.0** — Changed: concept.
 - Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
 
-**Differences from THO (119).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
+**Differences from THO (112).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
@@ -4267,36 +4439,31 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Disagreement | `concept.display` | `OPS2009` | OPS Germany v2009 | OPS Germany v2008 | 14 other tables |
 | Disagreement | `concept.display` | `SDM` | SNOMED - DICOM Microglossary | SNOMED- DICOM Microglossary | 14 other tables |
 | Disagreement | `concept.display` | `SPCU` | Sex Parameter For Clinical Use | Sex Parameter for Clinical Use | 14 other tables |
-| Disagreement | `concept.property` (status) | `99zzz` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2010` | N | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2011` | N | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2012` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2013` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2014` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2015` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ALPHAID2016` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `CDCINDUSTRY2010` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CDCOCCUPATION2010` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CDCODH` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CMSOEC` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CMSOMC` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `99zzz` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `ALPHAID2012` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ALPHAID2013` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ALPHAID2014` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ALPHAID2015` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ALPHAID2016` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `CDCINDUSTRY2010` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CDCOCCUPATION2010` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CDCODH` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CMSOEC` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CMSOMC` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `COSMIC-Smpl` | … per unique mutation - more than 3 million of them. These contents are copyright COSMIC (http://cancer.sanger.ac.uk/cosmic/license) LHC has produced… | … per unique mutation- more than 3 million of them. These contents are copyright COSMIC (http://cancer.sanger.ac.uk/cosmic/license) LHC has produced a… | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `Chrom-Loc` | … of the locus - e.g., 2p16.3. There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromo… | … of the locus - e.g. 2p16.3 . There are other conventions for reporting ranges and locations at the end of the chromosomes. The table of these chromo… | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `GDRG2004` | German Handbook for DRGs. The THREE versions, "2004", "2005" and "2006" are active | German Handbook for DRGs. The THREE versions, "2004" , "2005" and "2006" are active | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `GDRG2005` | German Handbook for DRGs. The THREE versions, "2004", "2005" and "2006" are active | German Handbook for DRGs. The THREE versions, "2004" , "2005" and "2006" are active | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `GDRG2006` | German Handbook for DRGs. The THREE versions, "2004", "2005" and "2006" are active | German Handbook for DRGs. The THREE versions, "2004" , "2005" and "2006" are active | 22 other tables |
-| Disagreement | `concept.property` (status) | `GMDC2009` | N | active | 24 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `HL7nnnn` | … numeric digits e.g., HL70001 is valid, examples of invalid values include HL71, HL701, HL7001. | … numeric digits e.g. HL70001 is valid, examples of invalid values include HL71, HL701, HL7001. | 22 other tables |
-| Disagreement | `concept.property` (status) | `I10P0` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2010` | N | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2011` | N | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2012` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2013` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2014` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2015` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `ICD10GM2016` | N | deprecated | 24 other tables |
+| Disagreement | `concept.property` (status) | `I10P0` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ICD10GM2012` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ICD10GM2013` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ICD10GM2014` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ICD10GM2015` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `ICD10GM2016` | active | deprecated | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `LN` | …nt instruments (e.g., Glascow Coma Score, PHQ-9 depression scale, CMS-required patient assessment instruments), and other clinical observations. | …nt instruments (e.g. Glascow Coma Score, PHQ-9 depression scale, CMS-required patient assessment instruments), and other clinical observations. | 22 other tables |
-| Disagreement | `concept.property` (status) | `NCPDPnnnnsss` | deprecated | active | 24 other tables |
+| Disagreement | `concept.property` (status) | `NCPDPnnnnsss` | deprecated | active | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NIP001` | …g immunization. E.g., From school, provider,public health agency. | …g immunization. E.g. From school, provider,public health agency. | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NIP002` | …g vaccination). E.g., Religious exemption, parental decision | …g vaccination). E.g. Religious exemption, parental decision | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NIP004` | CDC National Immunization Program's (NIP) defined table for vaccine contraindications and precautions. E.g., Allergy to egg ingestion, thimerosol | CDC National Immunization Program's (NIP) defined table for vaccine contraindications and precautions. E.g. Allergy to egg ingestion, thimerosol | 22 other tables |
@@ -4304,19 +4471,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Disagreement | `concept.property` (v2-concComment) | `NIP008` | CDC National Immunization Program's (NIP) defined table enumerates the type of funds used for purchasing vaccine. E.g., Public funds, Military funds | CDC National Immunization Program's (NIP) defined table enumerates the type of funds used for purchasing vaccine. E.g. Public funds, Military funds | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NIP009` | …ously reported. E.g., To health department, To manufacturer | …ously reported. E.g. To health department, To manufacturer | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NIP010` | …orting System). E.g., Initial, Follow-up | …orting System). E.g. Initial, Follow-up | 22 other tables |
-| Disagreement | `concept.property` (status) | `OPS2010` | N | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPS2011` | N | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPS2012` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPS2013` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPS2014` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPS2015` | N | deprecated | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPS2016` | N | deprecated | 24 other tables |
+| Disagreement | `concept.property` (status) | `OPS2012` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPS2013` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPS2014` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPS2015` | active | deprecated | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPS2016` | active | deprecated | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `PHDSCSOPT` | The Source of Payment Typology was developed and is maintained by the Public Health Data Standards Consortium's Payer Type Subcommittee. The purpose… | The Source of Payment Typology (SOPT) is maintained by the Centers for Disease Control and Prevention (CDC), National Center for Health Statistics (N… | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `ROLECLASS` | For use in v2.x systems interoperating with V3 systems. Identical to the code system 2.16.840.1.113883.5.110 RoleCode in the Version 3 vocabulary. | For use in v2.x systems interoperating with V3 systems. Identical to the code system 2.16.840.1.113883.5.111 RoleCode in the Version 3 vocabulary. | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `RXNORM` | …ware and vocabulary. RxNorm is one of a suite of designated standards for use in U.S. Federal Government systems for the electronic exchange of clini… | …ware and vocabulary.RxNorm is one of a suite of designated standards for use in U.S. Federal Government systems for the electronic exchange of clinic… | 22 other tables |
-| Disagreement | `concept.property` (status) | `UB04FL42` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `UB04FL67` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `X12DEnnnn` | deprecated | active | 24 other tables |
+| Disagreement | `concept.property` (status) | `UB04FL42` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `UB04FL67` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `X12DEnnnn` | deprecated | active | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `cdcgs1vis` | … document type (e.g., influenza, MMR) and the edition date of the VIS, as required by the National Childhood Vaccine Injury Act (NCVIA). For more inf… | … document type (e.g. influenza, MMR) and the edition date of the VIS, as required by the National Childhood Vaccine Injury Act (NCVIA). For more info… | 22 other tables |
 | Added here | `concept` | `ALPHAID2017` | German Alpha-ID v2017 | nothing | 2 other tables |
 | Added here | `concept` | `ALPHAID2018` | German Alpha-ID v2018 | nothing | 2 other tables |
@@ -4389,6 +4554,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Codes kept from THO that the chapter does not list | 14 |
 | Comments-as-published kept from THO | 8 |
 
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
+
 <a id="tbl-0397"></a>
 
 #### 0397 — Sequencing
@@ -4437,7 +4606,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 a…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 a…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399 | 24 other tables |
 
 <a id="tbl-0401"></a>
 
@@ -4619,6 +4788,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0421"></a>
@@ -4840,15 +5010,15 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: code system + value set.*
 
-- Code system **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Code system **4.0.0** — Changed: description.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (2).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | …utside parties, e.g., family, employer, religious minister, media, etc. Used in HL7 Version 2.x messaging in the PV2 segment. | …utside parties, e.g. family, employer, religious minister, media, etc. Used in HL7 Version 2.x messaging in the PV2 segment. | 6 other tables |
-| Disagreement | `description` | — | …utside parties, e.g., family, employer, religious minister, media, etc. | …utside parties, e.g. family, employer, religious minister, media, etc. | 6 other tables |
+| Disagreement | `description` | — | …utside parties, e.g., family, employer, religious minister, media, etc. Used in HL7 Version 2.x messaging in the PV2 segment.<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | …utside parties, e.g. family, employer, religious minister, media, etc. Used in HL7 Version 2.x messaging in the PV2 segment. | 6 other tables |
+| Disagreement | `description` | — | …utside parties, e.g., family, employer, religious minister, media, etc.<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | …utside parties, e.g. family, employer, religious minister, media, etc. | 6 other tables |
 
 **Kept from THO (12).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -4922,9 +5092,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0440"></a>
 
 #### 0440 — Data Types
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -4936,24 +5106,24 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
 | Disagreement | `concept.property` (v2-concComment) | `AD` | WITHDRAWN | Replaced by XAD as of v 2.3 | 22 other tables |
-| Disagreement | `concept.property` (status) | `AD` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `CE` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `CK` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `CM` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `CN` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `CSU` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `ELD` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `LA1` | deprecated | B | 24 other tables |
-| Disagreement | `concept.property` (status) | `LA2` | deprecated | B | 24 other tables |
+| Disagreement | `concept.property` (status) | `AD` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `CE` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `CK` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `CM` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `CN` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `CSU` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `ELD` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `LA1` | deprecated | B | 25 other tables |
+| Disagreement | `concept.property` (status) | `LA2` | deprecated | B | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `MOC` | Replaces the CM data type used in sections 4.5.3.23 OBR-23 and 7.4.1.23 - OBR-23 as of v 2.5. | Replaces the CM data type used in sections 4.5.3.23 OBR-23 and 7.4.1.23- OBR-23 as of v 2.5. | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NDL` | Replaces the CM data type used in sections 4.5.3.32 and 7.4.1.32 - (OBR-32), 4.5.3.33 and 7.4.1.33 - (OBR-33) 4.5.3.34 and 7.4.1.34 - (OBR-34) 4.5.3.… | Replaces the CM data type used in sections 4.5.3.32 and 7.4.1.32-( OBR-32) , 4.5.3.33 and 7.4.1.33 - ( OBR-33) 4.5.3.34 and 7.4.1.34 - ( OBR-34) 4.5.… | 22 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NR` | Replaces the CM data type used in sections 8.8.4.6.1 - OM2-6.1, 8.8.4.6.3 - OM2-6.3and 8.8.4.6.4 - OM2-6.4, as of v 2.5. | Replaces the CM data type used in sections 8.8.4.6.1- OM2-6.1, 8.8.4.6.3- OM2-6.3and 8.8.4.6.4- OM2-6.4, as of v 2.5. | 22 other tables |
-| Disagreement | `concept.property` (status) | `OSD` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `PN` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `SPS` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `TN` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `TQ` | deprecated | active | 24 other tables |
-| Disagreement | `concept.property` (status) | `TS` | deprecated | active | 24 other tables |
+| Disagreement | `concept.property` (status) | `OSD` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `PN` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `SPS` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `TN` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `TQ` | deprecated | active | 25 other tables |
+| Disagreement | `concept.property` (status) | `TS` | deprecated | active | 25 other tables |
 
 **Kept from THO (154).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -4962,6 +5132,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 95 |
 | Comments-as-published kept from THO | 58 |
 | Codes kept from THO that the chapter does not list | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0441"></a>
 
@@ -5082,7 +5256,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0456 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0456 | 24 other tables |
 
 **Open issues.**
 
@@ -5287,6 +5461,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0474"></a>
 
 #### 0474 — Practitioner Organization Unit Type
+{: .tl-hd .tl-hd-issue}
+
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: code system + value set.*
 
@@ -5299,6 +5476,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 5 |
 | Codes kept from THO that the chapter does not list | 2 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0475"></a>
 
@@ -5452,6 +5633,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0488"></a>
@@ -5545,6 +5727,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 
 <a id="tbl-0493"></a>
@@ -5603,16 +5786,16 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: code system + value set.*
 
-- Code system **4.0.0** — Changed: concept.
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Code system **4.0.0** — Changed: concept, description.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (3).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
 | Disagreement | `concept.display` | `116` | Sterilization - Federally Funded | Sterilization -Federally Funded | 14 other tables |
-| Disagreement | `description` | — | Code system of concepts specifying to what the subject is consenting, i.e., what type of service, surgical procedure, information access/release or o… | Code system of concepts specifying to what the subject is consenting, i.e. what type of service, surgical procedure, information access/release or ot… | 6 other tables |
-| Disagreement | `description` | — | Value Set of codes that specify to what the subject is consenting, i.e., what type of service, surgical procedure, information access/release or othe… | Value Set of codes that specify to what the subject is consenting, i.e. what type of service, surgical procedure, information access/release or other… | 6 other tables |
+| Disagreement | `description` | — | Code system of concepts specifying to what the subject is consenting, i.e., what type of service, surgical procedure, information access/release or o…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | Code system of concepts specifying to what the subject is consenting, i.e. what type of service, surgical procedure, information access/release or ot… | 6 other tables |
+| Disagreement | `description` | — | Value Set of codes that specify to what the subject is consenting, i.e., what type of service, surgical procedure, information access/release or othe…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | Value Set of codes that specify to what the subject is consenting, i.e. what type of service, surgical procedure, information access/release or other… | 6 other tables |
 
 **Kept from THO (273).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -5886,8 +6069,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `TI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TS` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `TI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TS` | active | N | 25 other tables |
 
 **Open issues.**
 
@@ -6164,6 +6347,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
 - `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
 
@@ -6479,6 +6663,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 **Open issues.**
 
 - `esc-0567-0568-deprecation` — Chapter 2C deprecates tables 0567 and 0568 — does anything in THO get deprecated with them? — *V2 Management + TSMG*
+- `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *TSMG*
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
 - `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
 
@@ -6504,6 +6689,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 **Open issues.**
 
 - `esc-0567-0568-deprecation` — Chapter 2C deprecates tables 0567 and 0568 — does anything in THO get deprecated with them? — *V2 Management + TSMG*
+- `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *TSMG*
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
 - `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
 
@@ -6862,71 +7048,71 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
 | Disagreement | `concept.definition` | `PersLDS` | Personal policy on collection, access, use, or disclosure of information in a limited data set by the information subject. | Personal policy personal policy on collection, access, use, or disclosure of information in a limited data set by the information subject. | 4 other tables |
-| Disagreement | `concept.property` (status) | `42CFRPart2` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `42CFRPart2CD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `COMMONRULE` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CompoundResearchCD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `EMRGONLY` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRCD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRCONSENT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRCONTRACT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRHLTHSOCSY` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRLEGALCLAIM` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRLEGALOBL` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRLEGITINTEREST` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRPUBLICHEALTH` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRPUBLICINTEREST` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRRESEARCH` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRResearchCD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GDPRVITALINTEREST` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `GRANTORCHOICE` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAAuth` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAAuthCD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAConsent` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAConsentCD` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `42CFRPart2` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `42CFRPart2CD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `COMMONRULE` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CompoundResearchCD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `EMRGONLY` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRCD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRCONSENT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRCONTRACT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRHLTHSOCSY` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRLEGALCLAIM` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRLEGALOBL` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRLEGITINTEREST` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRPUBLICHEALTH` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRPUBLICINTEREST` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRRESEARCH` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRResearchCD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GDPRVITALINTEREST` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `GRANTORCHOICE` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAAuth` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAAuthCD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAConsent` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAConsentCD` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `HIPAANOPP` | …-vol1-sec164-506.pdf, which is considered the “norm”, assign the HL7 Confidentiality code “N” (normal). | …-vol1-sec164-506.pdf , which is considered the “norm”, assign the HL7 Confidentiality code “N” (normal). | 22 other tables |
-| Disagreement | `concept.property` (status) | `HIPAANOPP` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `HIPAANOPP` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `HIPAAPsyNotes` | …-vol1-sec164-506.pdf, use “HIPAAPsyNotes” as the security label policy code. Since information governed by a HIPAA 45 CFR 164.508 (2) has a level of… | …-vol1-sec164-506.pdf , use “HIPAAPsyNotes” as the security label policy code. Since information governed by a HIPAA 45 CFR 164.508 (2) has a level of… | 22 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAPsyNotes` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAROA` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAROACD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAAResearchAuthCD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `HIPAASelfPay` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `IMPLIED` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `IMPLIEDD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisCUI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisDEID` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisIP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisLDS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisNSI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisPI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisSP-CUI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `JurisUUI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `MDHHS-5515` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `NOCONSENT` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAPsyNotes` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAROA` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAROACD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAAResearchAuthCD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `HIPAASelfPay` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `IMPLIED` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `IMPLIEDD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisCUI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisDEID` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisIP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisLDS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisNSI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisPI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisSP-CUI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `JurisUUI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `MDHHS-5515` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `NOCONSENT` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `NOPP` | Map: An “implied” consent directive maps to ISO/TS 17975:2015(E) definition for “Implied: Consent to Collect, Use and Disclose personal health inform… | Map - An “implied” consent directive maps to ISO/TS 17975:2015(E) definition for “Implied: Consent to Collect, Use and Disclose personal health infor… | 22 other tables |
-| Disagreement | `concept.property` (status) | `NOPP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OIC` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OIS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OOC` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OOS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPTIN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPTINR` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPTOUT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPTOUTE` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgCUI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgDEID` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgIP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgLDS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgNSI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgPI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgSP-CUI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OrgUUI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PersIP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PersLDS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PersNSI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PersPI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `Title38Section7332` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `NOPP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OIC` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OIS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OOC` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OOS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPTIN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPTINR` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPTOUT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPTOUTE` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgCUI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgDEID` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgIP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgLDS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgNSI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgPI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgSP-CUI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OrgUUI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PersIP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PersLDS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PersNSI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PersPI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `Title38Section7332` | active | N | 25 other tables |
 
 **Kept from THO (13).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -6943,19 +7129,19 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: value set only.*
 
-- Value set **4.0.0** — Changed: compose.include, description, status. <span class="tl-note">This increment rests on a judgement: the description differs in wording, and whether that is an editorial correction is for TSMG to say. It can be waived.</span>
+- Value set **4.0.0** — Changed: compose.include, description, status.
 
 **Differences from THO (3).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | …e restricted access. | …e restricted access. Note that this resource was created in THO in error due to an oversight in the import processing. | 1 other table |
+| Disagreement | `description` | — | …e restricted access. | …e restricted access. Note that this resource was created in THO in error due to an oversight in the import processing. | only here |
 | Disagreement | `identifier` | — | 2.16.840.1.113883.1.11.20429 | 2.16.840.1.113883.1.11.20428 | 1 other table |
 | Disagreement | `status` | — | active | retired | only here |
 
 **Open issues.**
 
-- `esc-oid-conflicts` — Chapter 2C and THO give different OIDs for the same two artifacts, which versioning cannot reconcile — *V2 Management + TSMG*
+- `esc-oid-conflicts` — Three artifacts where one OID would end up naming two things, which versioning cannot reconcile — *V2 Management + TSMG*
 - `esc-tho-descriptions-say-more` — Two THO descriptions carry text the chapter's do not, including THO documenting its own error — *V2 Management + TSMG*
 
 **Identifiers.**
@@ -7512,7 +7698,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.</span> | http://terminology.hl7.org/ValueSet/v2-0895 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.</span> | http://terminology.hl7.org/ValueSet/v2-0895 | 24 other tables |
 
 **Open issues.**
 
@@ -7659,23 +7845,23 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `AHP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `APO` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CLPO` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `DIE` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `EARI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `ED` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `EO` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `EPRI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `FL` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OF` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OPO` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `AHP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `APO` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CLPO` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `DIE` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `EARI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `ED` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `EO` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `EPRI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `FL` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OF` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OPO` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `PPH` | …d medication orders. Usage Note: Most likely to be used in ADT messages for outpatient care. | …d medication orders. | 22 other tables |
-| Disagreement | `concept.property` (status) | `PPH` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `RHP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `RIE` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `RPO` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TL` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `PPH` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `RHP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `RIE` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `RPO` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TL` | active | N | 25 other tables |
 | Added here | `concept.property` (v2-concComment) | `VPS` | Usage Note: Use of this code is deprecated; depending on the role of the person use either PH or VP. | nothing | 8 other tables |
 | Added here | `concept.property` (v2-concComment) | `VTS` | Usage Note: Use of this code is deprecated; depending on the role of the person use either PH or VP. | nothing | 8 other tables |
 
@@ -7720,9 +7906,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0916"></a>
 
 #### 0916 — Relevant Clinicial Information
-{: .tl-hd .tl-hd-diff}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-diff">Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
 *Route: code system + value set.*
 
@@ -7733,7 +7919,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0916 (Relevant Clinicial Information) | Underlying Master Code System for V2 table 0916 (Relevant Clincial Information) | 3 other tables |
+| Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0916 (Relevant Clinicial Information) | Underlying Master Code System for V2 table 0916 (Relevant Clincial Information) | 2 other tables |
 
 **Kept from THO (5).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -7741,6 +7927,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 4 |
 | Deprecation markers kept from THO | 1 |
+
+**Open issues.**
+
+- `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 
 <a id="tbl-0917"></a>
 
@@ -7934,6 +8124,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *TSMG*
 - `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management*
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
 - `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
@@ -7959,6 +8150,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *TSMG*
 - `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management*
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
 - `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
@@ -8060,11 +8252,11 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `MCS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `MID` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `MIG` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `MIN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `MOD` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `MCS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `MID` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `MIG` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `MIN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `MOD` | active | N | 25 other tables |
 
 **Kept from THO (16).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -8200,15 +8392,15 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `CAUS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `COMP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CONCR` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `EVID` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `INTF` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `LIMIT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SUCCD` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SVTGT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TRIG` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `CAUS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `COMP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CONCR` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `EVID` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `INTF` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `LIMIT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SUCCD` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SVTGT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TRIG` | active | N | 25 other tables |
 
 <a id="tbl-0949"></a>
 
@@ -8226,12 +8418,12 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `CO` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `CO` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `ST` | Order placer may accept, cancel and replace, or choose other testing. Usage Note: Recommend testing that can use the submitted specimen type | Order placer may accept, cancel and replace, or choose other testing. | 22 other tables |
-| Disagreement | `concept.property` (status) | `ST` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `ST` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `SV` | …ent subset of tests. Usage Note: Recommend a subset of ordered tests appropriate for volume | …ent subset of tests. | 22 other tables |
-| Disagreement | `concept.property` (status) | `SV` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `UN` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `SV` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `UN` | active | N | 25 other tables |
 
 **Kept from THO (2).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -8255,9 +8447,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `EOE` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `EOE` | active | N | 25 other tables |
 | Disagreement | `concept.property` (v2-concComment) | `EOT` | …cessing will resume. Usage Note: Filler Applications: In an order replacement setting, sent in recommendation for order replacement message (OML), wh… | …cessing will resume. | 22 other tables |
-| Disagreement | `concept.property` (status) | `EOT` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `EOT` | active | N | 25 other tables |
 
 **Kept from THO (1).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -8281,18 +8473,18 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `BS` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `CR` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `FP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `IN` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `IR` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `IT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `OP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `PI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `SI` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TP` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `TT` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `XR` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `BS` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `CR` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `FP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `IN` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `IR` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `IT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `OP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `PI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `SI` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TP` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `TT` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `XR` | active | N | 25 other tables |
 | Added here | `concept.property` (v2-concComment) | `CR` | Usage Note: Used to indicate why review is requested | nothing | 8 other tables |
 | Added here | `concept.property` (v2-concComment) | `IN` | Usage Note: Used to indicate why review is requested | nothing | 8 other tables |
 | Added here | `concept.property` (v2-concComment) | `IR` | Usage Note: Used to indicate why review is requested | nothing | 8 other tables |
@@ -8320,13 +8512,13 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: value set only.*
 
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | Concepts drawn from the HL7 V3 Confidentiality code system. Used in Version 2 messaging in the Security Classification elements in the Message Header… | Concepts drawn from the HL7 V3 Confidentiality code system . Used in Version 2 messaging in the Security Classification elements in the Message Heade… | 6 other tables |
+| Disagreement | `description` | — | Concepts drawn from the HL7 V3 Confidentiality code system. Used in Version 2 messaging in the Security Classification elements in the Message Header…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | Concepts drawn from the HL7 V3 Confidentiality code system . Used in Version 2 messaging in the Security Classification elements in the Message Heade… | 6 other tables |
 
 **Open issues.**
 
@@ -8421,13 +8613,13 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: value set only.*
 
-- Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
+- Value set **4.0.0** — Changed: description.
 
 **Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `description` | — | A person’s employment type as defined by compensation and sector (e.g., paid vs. unpaid, self-employed vs. not self-employed, government vs. private,… | A person’s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private,… | 6 other tables |
+| Disagreement | `description` | — | A person’s employment type as defined by compensation and sector (e.g., paid vs. unpaid, self-employed vs. not self-employed, government vs. private,…<br/><span class="tl-note">The two say the same words in the same order; only punctuation differs. It still counts as a change, so it still increments the version.</span> | A person’s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private,… | 6 other tables |
 
 <a id="tbl-0960"></a>
 
@@ -8502,9 +8694,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `1` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `2` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `3` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `1` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `2` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `3` | active | N | 25 other tables |
 
 <a id="tbl-0971"></a>
 
@@ -8522,10 +8714,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `concept.property` (status) | `1` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `2` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `3` | active | N | 24 other tables |
-| Disagreement | `concept.property` (status) | `4` | active | N | 24 other tables |
+| Disagreement | `concept.property` (status) | `1` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `2` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `3` | active | N | 25 other tables |
+| Disagreement | `concept.property` (status) | `4` | active | N | 25 other tables |
 
 **Kept from THO (1).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -8563,8 +8755,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0012 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0012 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0012 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0012 | 24 other tables |
 
 <a id="tbl-0033"></a>
 
@@ -8579,8 +8771,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0033 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0033 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0033 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0033 | 24 other tables |
 
 <a id="tbl-0034"></a>
 
@@ -8595,8 +8787,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0034 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0034 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0034 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0034 | 24 other tables |
 
 **Open issues.**
 
@@ -8615,8 +8807,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0048 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0048 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0048 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0048 | 24 other tables |
 
 <a id="tbl-0070"></a>
 
@@ -8631,8 +8823,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0070 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0070 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0070 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0070 | 24 other tables |
 
 <a id="tbl-0102"></a>
 
@@ -8647,8 +8839,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0102 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0102 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0102 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0102 | 24 other tables |
 
 <a id="tbl-0106"></a>
 
@@ -8663,8 +8855,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0106 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0106 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0106 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0106 | 24 other tables |
 
 <a id="tbl-0107"></a>
 
@@ -8679,8 +8871,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0107 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0107 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0107 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0107 | 24 other tables |
 
 <a id="tbl-0108"></a>
 
@@ -8695,8 +8887,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0108 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0108 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0108 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0108 | 24 other tables |
 
 <a id="tbl-0109"></a>
 
@@ -8711,8 +8903,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0109 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0109 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0109 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0109 | 24 other tables |
 
 <a id="tbl-0156"></a>
 
@@ -8727,8 +8919,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0156 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0156 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0156 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0156 | 24 other tables |
 
 <a id="tbl-0157"></a>
 
@@ -8743,8 +8935,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0157 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0157 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0157 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0157 | 24 other tables |
 
 <a id="tbl-0158"></a>
 
@@ -8759,8 +8951,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0158 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0158 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0158 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0158 | 24 other tables |
 
 <a id="tbl-0290"></a>
 
@@ -8775,8 +8967,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0290 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0290 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0290 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0290 | 24 other tables |
 
 <a id="tbl-0323"></a>
 
@@ -8791,8 +8983,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0323 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0323 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0323 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0323 | 24 other tables |
 
 <a id="tbl-0524"></a>
 
@@ -8807,8 +8999,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0524 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0524 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0524 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0524 | 24 other tables |
 
 <a id="tbl-0529"></a>
 
@@ -8823,8 +9015,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0529 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0529 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0529 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0529 | 24 other tables |
 
 <a id="tbl-4000"></a>
 
@@ -8839,8 +9031,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-4000 | 25 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-4000 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-4000 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-4000 | 24 other tables |
 
 ### The remaining tables
 

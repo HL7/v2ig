@@ -100,16 +100,12 @@ def words(value):
 def is_editorial(ours, theirs):
     """Whether two texts say the same thing and differ only in punctuation.
 
-    The versioning policy exempts a `CodeSystem.description` change that is
-    only "improved clarity or ... editorial corrections", and leaves the
-    judgement to a person. This is the part of that judgement a program can
-    make honestly: if the two texts contain exactly the same words in the same
-    order, whatever moved was punctuation or spacing, and no reader learns
-    anything different from one than from the other.
+    If the two contain exactly the same words in the same order, whatever
+    moved was punctuation or spacing, and no reader learns anything different
+    from one than from the other.
 
-    It deliberately does not try to judge a rewording. Where the words differ
-    at all -- THO's description of table 0227 carries a source URL that the
-    chapter's does not -- this returns False and a person decides.
+    This is reported, not acted on. Every description difference is a change
+    for versioning purposes; this only says what kind of difference it was.
     """
     return bool(words(ours)) and words(ours) == words(theirs)
 
@@ -267,14 +263,55 @@ def property_triples(concept):
     return triples
 
 
-def row_from_tho(concept):
+# Status letters that are not values of the FHIR concept-status property, and
+# what this guide publishes instead. `N` ("new in some past release") is not a
+# status and decays; V2 Management has ruled it a technical correction, and the
+# ruling is about the letter, not about which side of the merge it arrived on.
+# `B` is deliberately absent: it is deferred for case-by-case review, so the
+# four concepts carrying it keep it. See `esc-status-n-b-undefined`.
+INHERITED_STATUS_CORRECTIONS = {"N": "active"}
+
+
+def correct_inherited_status(triples, observe, table, code):
+    """Apply the status ruling to a property taken wholesale from THO.
+
+    A concept the chapter does not carry arrives from THO with THO's own
+    properties. Where that includes a status letter this guide has ruled on,
+    the ruling applies here too -- publishing `active` for the chapter's `N`
+    and `N` for THO's would put two readings of the same letter in one file.
+
+    The change is recorded, not absorbed: it is a place where this guide
+    departs from THO, which is exactly what the merge report is for.
+    """
+    corrected = []
+    for prop in triples:
+        name, key, value = prop
+        replacement = (INHERITED_STATUS_CORRECTIONS.get(value)
+                       if name == "status" else None)
+        if replacement is None:
+            corrected.append(prop)
+            continue
+        observe.discrepancy(element="concept.property:status", table=table,
+                            resource="CodeSystem", code=code,
+                            ours=replacement, tho=value, editorial=False,
+                            reason="The published letter is not a value of the "
+                                   "FHIR concept status property.")
+        corrected.append((name, key, replacement))
+    return corrected
+
+
+def row_from_tho(concept, observe=None, table=None):
     """Turn a THO concept into a merge row, keeping everything it carries."""
+    triples = property_triples(concept)
+    if observe is not None:
+        triples = correct_inherited_status(triples, observe, table,
+                                           concept.get("code"))
     return {
         "code": concept.get("code"),
         "display": concept.get("display"),
         "definition": concept.get("definition"),
         "designations": list(concept.get("designation") or []),
-        "properties": property_triples(concept),
+        "properties": triples,
         "elementId": concept.get("id"),
         "origin": "tho",
     }
@@ -388,7 +425,7 @@ def merge_concepts(chapter_rows, tho_resource, observe, table):
             continue
         observe.fill(element="concept", table=table, resource="CodeSystem",
                      code=code, value=concept.get("display"))
-        merged.append(row_from_tho(concept))
+        merged.append(row_from_tho(concept, observe, table))
     return merged
 
 
@@ -414,6 +451,39 @@ COMPARED_VALUE_SET_FIELDS = (
 )
 
 
+# The publication toolchain that produced Chapter 2C cut value set
+# descriptions at roughly 250 characters, mid-word. Where THO carries the same
+# description and it continues past the point ours stops, THO holds the words
+# the chapter lost -- so this is not the chapter and THO disagreeing, it is the
+# chapter being incomplete, and the additive rule already says THO's content
+# survives where the chapter has no opinion. A cut sentence has no opinion
+# about the words after the cut.
+#
+# Scoped to `description` deliberately. The defect is a length cap on that
+# field. A name or title that happens to be a prefix of THO's is a genuine
+# disagreement -- "Vaccines Administered" against "Vaccines Administered Code
+# Set" is the chapter saying something different, not something truncated --
+# and the chapter wins those.
+RECOVERABLE_FIELDS = ("description",)
+
+
+def is_truncated_prefix(ours, theirs):
+    """Whether our text is THO's text cut off mid-sentence.
+
+    Two conditions, both needed. Ours must be a proper prefix of theirs once
+    whitespace is folded, so there is no question of the two saying different
+    things. And ours must not end in terminal punctuation, because a prefix
+    that stops at a completed sentence is THO having *added* a sentence, which
+    is a different situation entirely -- `ValueSet/v2-0719` is that case, where
+    THO appended a note recording its own error, and the chapter's text is
+    complete without it.
+    """
+    ours, theirs = normalize(ours), normalize(theirs)
+    if not ours or not theirs or ours == theirs:
+        return False
+    return theirs.startswith(ours) and ours[-1] not in '.!?)"\u201d'
+
+
 def merge_fields(fields, tho_resource, fillable, observe, context):
     """Fill absent resource-level fields from THO and report the rest.
 
@@ -437,15 +507,15 @@ def merge_fields(fields, tho_resource, fillable, observe, context):
         if is_absent(merged.get(name)) and not is_absent(theirs):
             merged[name] = theirs
             observe.fill(element=name, value=theirs, **context)
+        elif (name in RECOVERABLE_FIELDS
+              and is_truncated_prefix(merged.get(name), theirs)):
+            observe.fill(element=name, value=theirs,
+                         reason="The chapter's text stops mid-sentence and "
+                                "THO's continues it, so THO holds the words "
+                                "the chapter lost.",
+                         **context)
+            merged[name] = theirs
     return merged
-
-
-# Fields where a difference that is only punctuation does not count as a
-# change to the artifact. The versioning policy grants this to
-# `CodeSystem.description` and nothing else, so neither do we: the same
-# punctuation difference inside a concept definition is still a change, which
-# is an asymmetry worth asking TSMG about rather than quietly smoothing over.
-EDITORIAL_FIELDS = ("description",)
 
 
 def merge_identifier(our_oid, tho_resource, observe, context):
@@ -503,14 +573,17 @@ def merge_identifier(our_oid, tho_resource, observe, context):
 def changed_fields(fields, tho_resource, compared, observe, context):
     """Which compared fields differ from THO, reporting each difference.
 
-    A punctuation-only difference in a field listed in EDITORIAL_FIELDS is
-    reported but not counted as a change, so it costs no version increment.
-    It stays in the record, marked `editorial`, so that the waiver can be
-    reversed in one place if TSMG rules the other way.
+    Every difference counts as a change, whatever its size. A description
+    that gained a comma increments the major version exactly as a reworded
+    one does.
+
+    Whether a difference is punctuation-only is still recorded, marked
+    `editorial` on the discrepancy. It no longer decides anything -- it is
+    there so a reader can see that an increment rests on a comma, which is
+    worth knowing even though it does not change the outcome.
 
     Returns:
-        The names of the fields that differ, ignoring whitespace throughout
-        and ignoring punctuation in the editorial fields.
+        The names of the fields that differ, ignoring whitespace throughout.
     """
     changed = []
     if not tho_resource:
@@ -526,11 +599,9 @@ def changed_fields(fields, tho_resource, compared, observe, context):
             changed.append(name)
             observe.addition(element=name, value=ours, **context)
             continue
-        editorial = name in EDITORIAL_FIELDS and is_editorial(ours, theirs)
-        if not editorial:
-            changed.append(name)
+        changed.append(name)
         observe.discrepancy(element=name, ours=ours, tho=theirs,
-                            editorial=editorial, **context)
+                            editorial=is_editorial(ours, theirs), **context)
     return changed
 
 

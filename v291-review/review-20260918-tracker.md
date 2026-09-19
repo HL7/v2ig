@@ -9,24 +9,28 @@ numbered in source order. Status: `todo` / `wip` / `done` / `decided` /
 
 | ID | Item | Status | Where |
 |---|---|---|---|
-| S1-01 | Links from table index rows to ledger pages (only the 449 with anchors) | wip | `generate_table_index.py` |
-| S1-02 | NUL bytes in `ti-origin` CSS — Python octal-escape bug | wip | `generate_table_index.py:600` |
-| S1-03 | "this guide" / "in THO" markers confusing on domain column | wip | `generate_table_index.py` |
-| S1-04 | New column: Ch2c table type (User 399, undefined 193, HL7 176, HL7-EXT 15, External 14, Imported 2) | wip | `generate_table_index.py` |
-| S1-05 | "Also affects" sentence extended | wip | `render_table_ledger.py` |
-| S1-06 | Remove `vocabulary-v2mgmt-items.md` parenthetical + all internal paths | wip | `render_table_ledger.py` |
-| S1-07 | Shade ledger section titles needing a second look | wip | `render_table_ledger.py` |
-| S1-08 | Table 0821 stated clearly as needing special consideration | wip | `render_table_ledger.py` |
-| S1-09 | Drop "Inventing definitions…" sentence | wip | `provenance.md` |
-| S1-10 | Drop `v2plus_docx/` path from authority statement | wip | `provenance.md` |
-| S1-11 | Authority statement inaccurate — THO supplies content where chapter silent | wip | `provenance.md` |
-| S1-12 | "an earlier report claimed 18" — state current only | wip | `provenance.md` |
-| S1-13 | Voice rule swept across IG: no history, no internal paths, no tooling | wip | all pages |
-| S1-14 | Remove smoke-test reference | wip | `known-issues.md` |
-| S1-15 | Truncation bullet wrong noun: 16 **ValueSet** descriptions, not concept | wip | `known-issues.md` |
-| S1-16 | Navbar links only 4 of 7 pages | wip | `menu.xml` |
-| S1-17 | Section numbering: demote all headings one level, all 7 pages | todo | orchestrator, post-agents |
-| S1-18 | `table-index.html` missing `--heading-prefix` — recheck after S1-02 | todo | orchestrator |
+| S1-01 | Links from table index rows to ledger pages (only the 449 with anchors) | done | `generate_table_index.py` |
+| S1-02 | NUL bytes in `ti-origin` CSS — Python octal-escape bug | done | `generate_table_index.py:600` |
+| S1-03 | "this guide" / "in THO" markers confusing on domain column | done | `generate_table_index.py` |
+| S1-04 | New column: Ch2c table type (User 399, undefined 193, HL7 176, HL7-EXT 15, External 14, Imported 2) | done | `generate_table_index.py` |
+| S1-05 | "Also affects" sentence extended | done | `render_table_ledger.py` |
+| S1-06 | Remove `vocabulary-v2mgmt-items.md` parenthetical + all internal paths | done | `render_table_ledger.py` |
+| S1-07 | Shade ledger section titles needing a second look | done | `render_table_ledger.py` |
+| S1-08 | Table 0821 stated clearly as needing special consideration | done | `render_table_ledger.py` |
+| S1-09 | Drop "Inventing definitions…" sentence | done | `provenance.md` |
+| S1-10 | Drop `v2plus_docx/` path from authority statement | done | `provenance.md` |
+| S1-11 | Authority statement inaccurate — THO supplies content where chapter silent | done | `provenance.md` |
+| S1-12 | "an earlier report claimed 18" — state current only | done | `provenance.md` |
+| S1-13 | Voice rule swept across IG: no history, no internal paths, no tooling | done | all pages |
+| S1-14 | Remove smoke-test reference | done | `known-issues.md` |
+| S1-15 | Truncation bullet wrong noun: 16 **ValueSet** descriptions, not concept | done | `known-issues.md` |
+| S1-16 | Navbar links only 4 of 7 pages | done | `menu.xml` |
+| S1-17 | Section numbering: demote all headings one level, all 7 pages | done | orchestrator, post-agents |
+| S1-18 | `table-index.html` missing `--heading-prefix` — was caused by the NUL bytes; now `"3"` | done | orchestrator |
+
+**Session 1 closed at commit `49ecefc3`.** Build exit 0, 15m51s, errors 3478 /
+warnings 135 / broken links 0 — baseline on all three. 439 tests pass. Ledger
+sections 449 -> 473 after the missing-section fix; 455 index rows link to one.
 
 ## Session 2 — decided by reviewer, needs implementation
 
@@ -50,7 +54,7 @@ numbered in source order. Status: `todo` / `wip` / `done` / `decided` /
 | S2-16 | Property-instance suppression mechanism | Needed; means suppressing a value on a concept, not removing a declaration | todo |
 | S2-17 | Migrate 7 absent register items into the IG | todo | |
 | S2-18 | Migrate 9 `vocabulary-future-corrections.md` items into the IG | todo | |
-| S2-19 | Six flagged tables 0005 0010 0078 0133 0188 0292 | Research out; decisions follow | wip |
+| S2-19 | Six flagged tables 0005 0010 0078 0133 0188 0292 | Research out; decisions follow | done |
 | S2-20 | Page-URL defects / missing spaces: classify against errata rubric | `technical_correction_guidance.txt` is the rubric | todo |
 
 ## Session 3 — one product
@@ -165,3 +169,56 @@ learn which tables have a ledger section, so it must run **after** `render_table
 | C-04 | Same property code under two URIs in one CodeSystem | Does not occur: 0 instances across all generated resources |
 | C-05 | `conceptdomains` binding `v2-table-deprecated` to `#deprecationDate` | THO's, not ours — present verbatim in the `tho-r5` snapshot |
 | C-06 | Policy PDFs | Reviewer: fine untracked forever; orphan branch offered as alternative, awaiting confirmation |
+
+## Corrections to earlier briefs — 2026-09-19 (verified, do not re-derive)
+
+- **The 241/36/191 deprecation-flag figures are THIS GUIDE'S OUTPUT, not THO's.** Measured
+  against `tho-r5/` alone it is 37 code systems / 246 concepts / 191 `active` + 55 `deprecated`.
+  The extra system is `v2-0005`, all 5 of whose concepts are flagged and all `deprecated`, and
+  for which this guide writes no CodeSystem. **That exclusion is exactly what makes "none of the
+  36 has all its concepts flagged" true** — state the basis whenever the claim is repeated. THO
+  also carries the flag with values `2.2` (30 concepts) and `2.6` (14) that never reach our
+  output; all 241 of ours are `2.9`.
+- **Table 0227 is typed `Imported`, not `External`.** It is still the right sibling for 0292 on
+  every other axis (CDO `no`, steward OO, PHIN VADS prose, `Full Name`+`URI` in a table grid,
+  published value-set-only over `sid/mvx` via `NamingSystem/MVX`), but the Type differs and the
+  register now carries that as a further inconsistency rather than eliding it.
+- **The 0005 question was posed wrongly.** `ValueSet/v2-0005` does NOT draw on the retired
+  `CodeSystem/v2-0005`; its single include is six CDC race codes from
+  `urn:oid:2.16.840.1.113883.6.238`. So "does retiring a CS oblige retiring its VS" does not
+  apply. The better question, now asked: is a value set named `v2-0005` that contains none of
+  table 0005's codes correctly named?
+- **Two more one-OID-two-artifacts cases**, beyond 0001/0078/0719: `2.16.840.1.113883.21.452` is
+  the identifier on both `ValueSet/v2-0567` and `ValueSet/v2-0929`; `...21.453` on both
+  `v2-0568` and `v2-0930`.
+- **No ValueSet anywhere in the THO snapshot uses `relatedArtifact`.** The successor-pointer
+  shape proposed for 0567/0568 is unprecedented for THO value sets generally, not only v2 ones.
+- Five UTG change-history Bundles mention `CodeSystem/v2-tables` as provenance of past edits,
+  on top of the three packaging entries. Still zero definitional dependents.
+
+## Ruling: question 8 / `esc-tho-descriptions-say-more` — 2026-09-19
+
+**Decision (a): carry THO's text for 0227 only; 0719 stays open.**
+
+Implemented as a general condition, not a table number, so it satisfies ADR-0010's
+objection. `tho_merge.is_truncated_prefix(ours, theirs)`: our text is a proper prefix of
+THO's once whitespace is folded, AND ours does not end in terminal punctuation. Scoped to
+`description` via `RECOVERABLE_FIELDS`, because the defect is a ~250-char length cap on
+that field; a `name` or `title` that is a prefix of THO's is a genuine disagreement
+("Vaccines Administered" vs "Vaccines Administered Code Set") and the chapter wins those.
+
+Measured across every artifact where the chapter's description is a proper prefix of THO's
+— **exactly two**, and the terminal-punctuation test separates them precisely as ruled:
+
+| table | chapter | THO | ends mid-sentence | outcome |
+|---|---:|---:|---|---|
+| 0227 ValueSet | 252 | 423 | yes, at "may be acce" | THO's text recovered |
+| 0719 ValueSet | 1,171 | 1,269 | no | chapter's text stands; THO appended its own error note |
+
+Version consequence to check after regeneration: 0227's ValueSet description will now match
+THO, so the description no longer counts as a change and it should fall back from **5.0.0 to
+THO's 4.0.0** unless something else forces an increment. Confirm this in the run output.
+
+0719 remains open on the real question, which is not its description: whether the artifact
+should be **retired in THO**, settled together with its OID conflict (it shares
+`2.16.840.1.113883.1.11.20428` with `v3-InformationSensitivityPolicy`).

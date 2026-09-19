@@ -125,10 +125,14 @@ def render_page(report):
         "is the merge's largest practical effect: filling content back in "
         "removes the change that would otherwise have forced an increment.",
         "",
-        "Two of the rules behind these numbers are judgement calls rather "
-        "than facts — whether reordering concepts is a change, and whether a "
-        "punctuation-only difference is an editorial correction. Both are "
-        "stated, with what rides on them, under "
+        "Every difference counts, whatever its size: a description that "
+        "gained a comma increments exactly as a reworded one does. Some of "
+        "the increments below rest on nothing more than that, and the "
+        "per-table ledger says which.",
+        "",
+        "One rule behind these numbers is still a judgement call rather than "
+        "a fact — whether reordering a code system's concepts is a change. "
+        "It is stated, with what rides on it, under "
         "[General questions](general-questions.html).",
         "",
         "| Outcome | Count |",
@@ -137,30 +141,6 @@ def render_page(report):
     for label, count in sorted(counts["versions"].items()):
         lines.append(f"| {label} | {count} |")
     lines.append("")
-
-    judgement = report.get("needsJudgement") or []
-    if judgement:
-        lines += [
-            "#### Increments that rest on a human judgement",
-            "",
-            "The policy says a changed `CodeSystem.description` is *\"major "
-            "unless only change is improved clarity or perform editorial "
-            "corrections\"*. A difference of punctuation alone is taken as "
-            "editorial and does not increment — see "
-            "[General questions](general-questions.html). What is left here "
-            "is where the **words** differ, which is not something a program "
-            "should rule on. These increment by default and can be waived.",
-            "",
-            "| Table | Resource | Element | Version written |",
-            "|---|---|---|---|",
-        ]
-        for item in judgement:
-            lines.append(f"| [{item['table']}]"
-                         f"(table-ledger.html#tbl-{item['table']}) "
-                         f"| {item['resource']} "
-                         f"| {', '.join(item['elements'])} "
-                         f"| {item['version']} |")
-        lines.append("")
 
     blocked = report.get("cannotBeVersioned") or []
     if blocked:
@@ -215,10 +195,6 @@ def render_page(report):
         "difference from THO individually, and it says, for each one, how "
         "many other tables the same class of difference reaches. Every table "
         "number on this page links into it.",
-        "",
-        "For everything at once, every observation exists individually in "
-        "`v291-fhir/tho-fill-report.json`, with the table, the code, the "
-        "element and the values on both sides.",
         "",
     ]
     return "\n".join(lines)

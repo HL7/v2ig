@@ -7,13 +7,13 @@ The rule this guide follows, and what this page reports on:
 
 > Where THO has content and Chapter 2C has no opinion, **THO's content survives**. Where both have something and they differ, the **chapter wins** and the disagreement is recorded.
 
-Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,272 observations in total.
+Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,273 observations in total.
 
 ### Kept from THO
 
 Content THO publishes that Chapter 2C says nothing about. Without the merge each of these would have been deleted from an artifact published at THO's own canonical URL. None of them changes the artifact relative to THO, so none of them costs a version increment.
 
-**7,575 in total.**
+**7,580 in total.**
 
 | What | Count | Tables |
 |---|---:|---|
@@ -23,32 +23,34 @@ Content THO publishes that Chapter 2C says nothing about. Without the merge each
 | Codes kept from THO that the chapter does not list<br/><span class="tl-note">THO publishes these codes at this canonical. Dropping them would remove codes implementers may already be sending.</span> | 211 | 37 |
 | Usage notes kept from THO<br/><span class="tl-note">Guidance THO carries on individual concepts, with no counterpart in the chapter's grid.</span> | 122 | 15 |
 | Deprecation markers kept from THO<br/><span class="tl-note">The HL7 version in which a code was deprecated. The chapter's status column says that a code is deprecated but not when.</span> | 40 | 3 |
-| Resource descriptions kept from THO<br/><span class="tl-note">Where the chapter's description is missing or a placeholder such as 'tbd', THO's text stands.</span> | 3 | 3 |
+| Resource descriptions kept from THO<br/><span class="tl-note">Where the chapter's description is missing or a placeholder such as 'tbd', THO's text stands.</span> | 5 | 5 |
+| Resource names kept from THO<br/><span class="tl-note">The chapter supplies no name.</span> | 3 | 3 |
+| Resource titles kept from THO<br/><span class="tl-note">The chapter supplies no title.</span> | 3 | 3 |
 | Value set members kept from THO<br/><span class="tl-note">Codes THO enumerates in the value set that the chapter's table does not.</span> | 2 | 2 |
-| Resource names kept from THO<br/><span class="tl-note">The chapter supplies no name.</span> | 2 | 2 |
-| Resource titles kept from THO<br/><span class="tl-note">The chapter supplies no title.</span> | 2 | 2 |
-| Identifiers kept from THO<br/><span class="tl-note">The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</span> | 1 | 1 |
+| Identifiers kept from THO<br/><span class="tl-note">The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</span> | 2 | 2 |
 
 ### Where the chapter and THO disagree
 
 Both carry a value and the two differ by more than whitespace. The chapter's value is published, because publishing the chapter is what this guide is for, and the disagreement is listed here so that it is a decision rather than an accident.
 
-**492 in total.**
+**489 in total.**
 
 | What | Count | Tables |
 |---|---:|---|
-| Concept status where the chapter and THO disagree<br/><span class="tl-note">Most of these are codes THO still marks 'N' -- new, in some past release -- that the 2.9.1 chapter no longer flags, so ours reads 'active'.</span> | 261 | 25 |
+| Concept status where the chapter and THO disagree<br/><span class="tl-note">Most of these are codes THO still marks 'N' -- new, in some past release -- that the 2.9.1 chapter no longer flags, so ours reads 'active'.</span> | 259 | 26 |
 | Concept comments where the chapter and THO disagree | 98 | 23 |
 | Value set member displays where the chapter and THO disagree | 58 | 9 |
 | Displays where the chapter and THO disagree<br/><span class="tl-note">Both carry a display and they differ beyond whitespace.</span> | 44 | 15 |
 | Descriptions differing only in punctuation<br/><span class="tl-note">Same words in the same order; only punctuation or spacing moved. The chapter's text is published and no version is incremented, which is the versioning policy's editorial-correction carve-out applied as far as a program honestly can. Recorded so the waiver can be reversed in one place if TSMG rules otherwise.</span> | 12 | 7 |
 | Definitions where the chapter and THO disagree<br/><span class="tl-note">Both carry a definition and they differ. The chapter's wins, because this guide publishes the chapter.</span> | 6 | 5 |
-| Purposes where the chapter and THO disagree<br/><span class="tl-note">The purpose is generated from the table number and name, so a difference here is a disagreement about the table's name.</span> | 4 | 4 |
+| Purposes where the chapter and THO disagree<br/><span class="tl-note">The purpose is generated from the table number and name, so a difference here is a disagreement about the table's name.</span> | 3 | 3 |
 | Identifiers where the chapter and THO disagree<br/><span class="tl-note">The chapter's OID is published. Under the versioning policy a changed identifier cannot be expressed as a version at all — it calls for a new artifact at a new canonical — so each of these needs resolving before publication.</span> | 2 | 2 |
-| Resource names where the chapter and THO disagree | 2 | 2 |
 | Resource titles where the chapter and THO disagree | 2 | 2 |
-| Descriptions that differ in what they say<br/><span class="tl-note">The words themselves differ, so this is not an editorial correction and it does increment the version.</span> | 2 | 2 |
+| Resource names where the chapter and THO disagree | 1 | 1 |
+| Purposes where the chapter and THO disagree<br/><span class="tl-note">The purpose is generated from the table number and name, so a difference here is a disagreement about the table's name.</span> | 1 | 1 |
+| Resource names where the chapter and THO disagree | 1 | 1 |
 | Resource status where the chapter and THO disagree | 1 | 1 |
+| Descriptions that differ in what they say<br/><span class="tl-note">The words themselves differ, so this is not an editorial correction and it does increment the version.</span> | 1 | 1 |
 
 ### What this guide contributes
 
@@ -67,11 +69,11 @@ Content in Chapter 2C that THO does not carry. These are real changes to the art
 
 THO publishes an artifact and this guide publishes nothing at that canonical. Nothing is destroyed — THO's artifact stands untouched — so the merge does not invent a replacement. They are listed because a reviewer should see the gaps deliberately rather than discover them.
 
-**46 in total.**
+**45 in total.**
 
 | What | Count | Tables |
 |---|---:|---|
-| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 46 | 26 |
+| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 45 | 25 |
 
 ### What it does to version numbers
 
@@ -79,29 +81,22 @@ Version numbers are not hand-applied. Each artifact is compared against THO's af
 
 An artifact that ends up matching THO **keeps THO's version**. That is the merge's largest practical effect: filling content back in removes the change that would otherwise have forced an increment.
 
-Two of the rules behind these numbers are judgement calls rather than facts — whether reordering concepts is a change, and whether a punctuation-only difference is an editorial correction. Both are stated, with what rides on them, under [General questions](general-questions.html).
+Every difference counts, whatever its size: a description that gained a comma increments exactly as a reworded one does. Some of the increments below rest on nothing more than that, and the per-table ledger says which.
+
+One rule behind these numbers is still a judgement call rather than a fact — whether reordering a code system's concepts is a change. It is stated, with what rides on it, under [General questions](general-questions.html).
 
 | Outcome | Count |
 |---|---:|
 | codeSystem: first publication at 1.0.0 | 2 |
-| codeSystem: incremented | 53 |
-| codeSystem: unchanged, THO's version kept | 344 |
+| codeSystem: incremented | 58 |
+| codeSystem: unchanged, THO's version kept | 339 |
 | valueSet: first publication at 1.0.0 | 9 |
-| valueSet: incremented | 16 |
-| valueSet: unchanged, THO's version kept | 398 |
-
-#### Increments that rest on a human judgement
-
-The policy says a changed `CodeSystem.description` is *"major unless only change is improved clarity or perform editorial corrections"*. A difference of punctuation alone is taken as editorial and does not increment — see [General questions](general-questions.html). What is left here is where the **words** differ, which is not something a program should rule on. These increment by default and can be waived.
-
-| Table | Resource | Element | Version written |
-|---|---|---|---|
-| [0227](table-ledger.html#tbl-0227) | valueSet | description | 5.0.0 |
-| [0719](table-ledger.html#tbl-0719) | valueSet | description | 4.0.0 |
+| valueSet: incremented | 22 |
+| valueSet: unchanged, THO's version kept | 393 |
 
 ### The artifacts THO has and this guide does not
 
-46 of them, across 26 tables. Each is listed with the reason the writer gave for publishing nothing.
+45 of them, across 25 tables. Each is listed with the reason the writer gave for publishing nothing.
 
 | Table | Resource | Why this guide writes nothing |
 |---|---|---|
@@ -137,7 +132,6 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 | [0158](table-ledger.html#tbl-0158) | ValueSet | The chapter has no section for it. |
 | [0290](table-ledger.html#tbl-0290) | CodeSystem | The chapter has no section for it. |
 | [0290](table-ledger.html#tbl-0290) | ValueSet | The chapter has no section for it. |
-| [0292](table-ledger.html#tbl-0292) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
 | [0323](table-ledger.html#tbl-0323) | CodeSystem | The chapter has no section for it. |
 | [0323](table-ledger.html#tbl-0323) | ValueSet | The chapter has no section for it. |
 | [0350](table-ledger.html#tbl-0350) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
@@ -157,5 +151,3 @@ The policy says a changed `CodeSystem.description` is *"major unless only change
 This page is deliberately a summary: there are thousands of instances and the useful question here is what kinds of thing happened, not which of eight thousand rows to read first.
 
 For one table, read the **[per-table ledger](table-ledger.html)** — it has a section per table carrying every difference from THO individually, and it says, for each one, how many other tables the same class of difference reaches. Every table number on this page links into it.
-
-For everything at once, every observation exists individually in `v291-fhir/tho-fill-report.json`, with the table, the code, the element and the values on both sides.

@@ -30,13 +30,13 @@ For most tables the artifact exists **both here and in THO** — this guide is a
 
 <p>
 <span class="ti-key" style="background:#fff4e0"></span><strong>New to THO</strong> (9) &nbsp;&nbsp;
-<span class="ti-key" style="background:#eaf1fb"></span><strong>In THO, not here</strong> (3) &nbsp;&nbsp;
+<span class="ti-key" style="background:#eaf1fb"></span><strong>In THO, not here</strong> (2) &nbsp;&nbsp;
 <span class="ti-key" style="background:#fdecec"></span><strong>Dangling in THO</strong> (4) &nbsp;&nbsp;
 </p>
 
 Every shaded row repeats its reason in the Notes column, so the page reads correctly without the colours.
 
-#### The 21 rows that need a second look
+#### The 20 rows that need a second look
 
 | Table | Name | Why |
 |---|---|---|
@@ -45,7 +45,6 @@ Every shaded row repeats its reason in the Notes column, so the page reads corre
 | [0078](#tbl-0078) | Interpretation Codes | New to THO — the load would create the value set. |
 | [0133](#tbl-0133) | Procedure practitioner identifier code type | THO publishes a code system and value set at this canonical that this guide does not author. |
 | [0188](#tbl-0188) | Operator ID | No concept domain, no code system and no value set — here or in THO. Whether this table should become a concept domain is an open question. |
-| [0292](#tbl-0292) | Vaccines Administered | THO publishes a value set at this canonical that this guide does not author. |
 | [0350](#tbl-0350) | Occurrence Code | THO publishes a value set at this canonical that this guide does not author. THO's value set composes from v2-0350, which THO does not publish — it cannot expand. |
 | [0351](#tbl-0351) | Occurrence Span | THO publishes a value set at this canonical that this guide does not author. THO's value set composes from v2-0351, which THO does not publish — it cannot expand. |
 | [0411](#tbl-0411) | Supplemental Service Information Values | New to THO — the load would create the code system and value set. |
@@ -83,7 +82,7 @@ Every shaded row repeats its reason in the Notes column, so the page reads corre
 </style>
 <p>
 <span class="ti-key" style="background:#fff4e0"></span><strong>New to THO</strong> (9) &nbsp;&nbsp;
-<span class="ti-key" style="background:#eaf1fb"></span><strong>In THO, not here</strong> (3) &nbsp;&nbsp;
+<span class="ti-key" style="background:#eaf1fb"></span><strong>In THO, not here</strong> (2) &nbsp;&nbsp;
 <span class="ti-key" style="background:#fdecec"></span><strong>Dangling in THO</strong> (4) &nbsp;&nbsp;
 </p>
 <p class="ti-jump">Jump to: <a href="#tbl-0001">00XX</a> <a href="#tbl-0100">01XX</a> <a href="#tbl-0200">02XX</a> <a href="#tbl-0300">03XX</a> <a href="#tbl-0401">04XX</a> <a href="#tbl-0500">05XX</a> <a href="#tbl-0600">06XX</a> <a href="#tbl-0700">07XX</a> <a href="#tbl-0806">08XX</a> <a href="#tbl-0904">09XX</a> <a href="#tbl-9999">99XX</a></p>
@@ -313,7 +312,7 @@ Every shaded row repeats its reason in the Notes column, so the page reads corre
 <tr id="tbl-0288"><td><a href="#tbl-0288"><strong>0288</strong></a></td><td>Census Tract</td><td>User</td><td>Domain only</td><td>—</td><td>—</td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-CensusTract">CensusTract</a> <span class="ti-origin">already in THO</span></td><td></td></tr>
 <tr id="tbl-0289"><td><a href="#tbl-0289"><strong>0289</strong></a></td><td>County/Parish</td><td>User</td><td>Domain only</td><td>—</td><td>—</td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-County.47Parish">County/Parish</a> <span class="ti-origin">already in THO</span></td><td></td></tr>
 <tr id="tbl-0291"><td><a href="#tbl-0291"><strong>0291</strong></a> <a class="ti-ledger" target="_blank" rel="noopener" href="table-ledger.html#tbl-0291">ledger</a></td><td>Subtype of Referenced Data</td><td>HL7</td><td>CS + VS</td><td><a target="_blank" rel="noopener" href="CodeSystem-v2-0291.html">http://terminology.hl7.org/CodeSystem/v2-0291</a> <span class="ti-dest">this guide</span></td><td><a target="_blank" rel="noopener" href="ValueSet-v2-notAllCodes-0291.html">http://terminology.hl7.org/ValueSet/v2-notAllCodes-0291</a> <span class="ti-dest">this guide</span></td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-SubtypeOfReferencedData">SubtypeOfReferencedData</a> <span class="ti-origin">already in THO</span></td><td></td></tr>
-<tr id="tbl-0292" style="background:#eaf1fb"><td><a href="#tbl-0292"><strong>0292</strong></a> <a class="ti-ledger" target="_blank" rel="noopener" href="table-ledger.html#tbl-0292">ledger</a></td><td>Vaccines Administered</td><td>External</td><td>Domain only</td><td>—</td><td><a target="_blank" rel="noopener" href="http://terminology.hl7.org/ValueSet/v2-0292">http://terminology.hl7.org/ValueSet/v2-0292</a> <span class="ti-dest">THO</span></td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-VaccinesAdministered">VaccinesAdministered</a> <span class="ti-origin">already in THO</span></td><td><strong>In THO, not here.</strong> THO publishes a value set at this canonical that this guide does not author.</td></tr>
+<tr id="tbl-0292"><td><a href="#tbl-0292"><strong>0292</strong></a> <a class="ti-ledger" target="_blank" rel="noopener" href="table-ledger.html#tbl-0292">ledger</a></td><td>Vaccines Administered</td><td>External</td><td>VS only</td><td><span class="ti-none">http://hl7.org/fhir/sid/cvx</span> <span class="ti-dest">not published</span></td><td><a target="_blank" rel="noopener" href="ValueSet-v2-0292.html">http://terminology.hl7.org/ValueSet/v2-0292</a> <span class="ti-dest">this guide</span></td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-VaccinesAdministered">VaccinesAdministered</a> <span class="ti-origin">already in THO</span></td><td></td></tr>
 <tr id="tbl-0293"><td><a href="#tbl-0293"><strong>0293</strong></a></td><td>Billing Category</td><td>User</td><td>Domain only</td><td>—</td><td>—</td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-BillingCategory">BillingCategory</a> <span class="ti-origin">already in THO</span></td><td></td></tr>
 <tr id="tbl-0294"><td><a href="#tbl-0294"><strong>0294</strong></a> <a class="ti-ledger" target="_blank" rel="noopener" href="table-ledger.html#tbl-0294">ledger</a></td><td>Time Selection Criteria Parameter Class Codes</td><td>User</td><td>CS + VS</td><td><a target="_blank" rel="noopener" href="CodeSystem-v2-0294.html">http://terminology.hl7.org/CodeSystem/v2-0294</a> <span class="ti-dest">this guide</span></td><td><a target="_blank" rel="noopener" href="ValueSet-v2-0294.html">http://terminology.hl7.org/ValueSet/v2-0294</a> <span class="ti-dest">this guide</span></td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-TimeSelectionCriteriaParameterClassCodes">TimeSelectionCriteriaParameterClassCodes</a> <span class="ti-origin">already in THO</span></td><td></td></tr>
 <tr id="tbl-0295"><td><a href="#tbl-0295"><strong>0295</strong></a></td><td>Handicap</td><td>User</td><td>Domain only</td><td>—</td><td>—</td><td><a target="_blank" rel="noopener" href="CodeSystem-conceptdomains.html#conceptdomains-Handicap">Handicap</a> <span class="ti-origin">already in THO</span></td><td></td></tr>

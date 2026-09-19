@@ -284,11 +284,9 @@ def group_records(report):
 def version_line(entry):
     """One sentence on what the versioning policy did to each artifact.
 
-    An increment that rests on a judgement the policy leaves open is marked as
-    such. The policy waives an increment for a `description` change that is
-    only "improved clarity or editorial corrections", and whether a given
-    rewording is that is not something a program should rule on -- so the
-    increment stands by default and says out loud that it can be waived.
+    Every difference increments, whatever its size, so there is nothing here
+    left to a human ruling. Where an increment rests on punctuation alone, the
+    difference row above says so.
     """
     parts = []
     for label, key in (("Code system", "codeSystemVersion"),
@@ -297,12 +295,6 @@ def version_line(entry):
         if not version:
             continue
         line = f"{label} **{version['version']}** — {version['reason']}"
-        judgement = version.get("judgement") or []
-        if judgement:
-            line += (f" <span class=\"tl-note\">This increment rests on a judgement: the "
-                     f"{', '.join(judgement)} differs in wording, and whether "
-                     f"that is an editorial correction is for TSMG to say. It "
-                     f"can be waived.</span>")
         for element in version.get("newArtifact") or []:
             line += (f" <span class=\"tl-note\">**A changed `{element}` cannot be expressed as "
                      f"a version at all** — the policy calls for a new "
@@ -461,6 +453,11 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
                       if elsewhere > 0 else "only here")
             reason = record.get("reason")
             note = f"<br/><span class=\"tl-note\">{cell(reason)}</span>" if reason else ""
+            if record.get("editorial"):
+                note += ("<br/><span class=\"tl-note\">The two say the same "
+                         "words in the same order; only punctuation differs. "
+                         "It still counts as a change, so it still increments "
+                         "the version.</span>")
             lines.append(
                 f"| {label} | {element_label(record)} | {code_cell(record)} "
                 f"| {cell(ours, skip)}{note} | {cell(theirs, skip)} | {spread} |")

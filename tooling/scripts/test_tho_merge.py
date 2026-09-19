@@ -334,14 +334,23 @@ def test_an_empty_text_is_never_editorial():
     assert not tho_merge.is_editorial("", "")
 
 
-def test_an_editorial_description_costs_no_version_increment():
+def test_a_punctuation_only_description_increments_and_says_it_was_punctuation():
+    """Every description difference is a change. That it was only a comma is
+    recorded, so a reader can see what the increment rests on, but it does not
+    exempt the artifact."""
     observe = tho_merge.Observations()
     changed = tho_merge.changed_fields(
         {"description": "A system (e.g., this)."},
         {"description": "A system (e.g. this)."},
         ("description",), observe, {"table": "0083", "resource": "CodeSystem"})
-    assert changed == []
+    assert changed == ["description"]
     assert observe.records[0]["editorial"] is True
+
+
+def test_no_field_is_exempt_from_counting_as_a_change():
+    """Guards the removed carve-out: nothing may reintroduce a field whose
+    differences are waived."""
+    assert not hasattr(tho_merge, "EDITORIAL_FIELDS")
 
 
 def test_a_substantive_description_still_increments():
@@ -454,3 +463,52 @@ def test_a_real_value_against_nothing_in_tho_is_still_an_addition():
     _merged, records = merge_one(chapter_row(definition="A real one."),
                                  tho_concept(definition=""))
     assert [r["kind"] for r in records] == ["addition"]
+
+
+# --------------------------------------------------------------------------
+# Truncation recovery
+# --------------------------------------------------------------------------
+
+def test_a_description_cut_mid_sentence_is_recovered_from_tho():
+    """The chapter's value set descriptions were cut at a length cap. Where
+    THO continues past the cut it holds the lost words, so it is the chapter
+    being incomplete rather than the two disagreeing."""
+    observe = tho_merge.Observations()
+    merged = tho_merge.merge_fields(
+        {"description": "Codes are maintained by the CDC and may be acce"},
+        {"description": "Codes are maintained by the CDC and may be accessed "
+                        "at the source registry."},
+        ("description",), observe, {"table": "0227", "resource": "ValueSet"})
+    assert merged["description"].endswith("source registry.")
+    assert observe.records[0]["kind"] == "fill"
+
+
+def test_a_complete_sentence_tho_extends_is_not_recovered():
+    """0719: the chapter's text is complete and THO appended a note recording
+    its own error. That is THO adding something, not the chapter losing it,
+    and the chapter wins."""
+    observe = tho_merge.Observations()
+    ours = "The value set is defined for sensitivity policy."
+    merged = tho_merge.merge_fields(
+        {"description": ours},
+        {"description": ours + " Note that this resource was created in error."},
+        ("description",), observe, {"table": "0719", "resource": "ValueSet"})
+    assert merged["description"] == ours
+
+
+def test_recovery_does_not_reach_names_or_titles():
+    """A name that is a prefix of THO's is a disagreement, not a truncation."""
+    observe = tho_merge.Observations()
+    merged = tho_merge.merge_fields(
+        {"name": "VaccinesAdministered"},
+        {"name": "VaccinesAdministeredCodeSet"},
+        ("name",), observe, {"table": "0292", "resource": "ValueSet"})
+    assert merged["name"] == "VaccinesAdministered"
+
+
+def test_recovery_needs_a_real_prefix_not_merely_a_difference():
+    observe = tho_merge.Observations()
+    merged = tho_merge.merge_fields(
+        {"description": "alpha beta"}, {"description": "alpha gamma"},
+        ("description",), observe, {"table": "0001", "resource": "ValueSet"})
+    assert merged["description"] == "alpha beta"

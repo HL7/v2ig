@@ -66,6 +66,15 @@ Four of the five look resolvable on inspection — 0602, 0604 and 0777 have no
 field-specific stubs rather than rival definitions. **The Device pair is the
 genuinely contested one** and needs Orders & Observations.
 
+### Version-divergence warnings
+
+Where this guide publishes an artifact at a version THO's package does not
+carry, the validator warns that a reference to that canonical has **"multiple
+different potential matches"**. There is one for each artifact whose version
+has moved, and the count grows with every increment. It is a consequence of
+republishing at THO's canonicals rather than a defect: the artifact and its
+version are both correct, and the reference resolves.
+
 ### Terminology server errors
 
 `tx.fhir.org` is unreachable from the build host and the build runs with

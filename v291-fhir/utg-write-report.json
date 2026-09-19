@@ -1,10 +1,22 @@
 {
   "counts": {
     "code-system-and-value-set": 399,
-    "concept-domain-only": 359,
+    "concept-domain-only": 358,
     "nothing-to-write": 3,
-    "value-set-only": 24,
+    "value-set-only": 25,
     "needs-decision": 14
+  },
+  "tentativeOverrides": {
+    "count": 1,
+    "tables": [
+      "0292"
+    ],
+    "registerItems": [
+      "esc-0292-cdo-contradiction"
+    ],
+    "appliedThisRun": [
+      "0292"
+    ]
   },
   "tables": [
     {
@@ -804,18 +816,22 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0083",
       "resolvedBy": "published URI",
       "codeSystemVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       },
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }
@@ -2742,10 +2758,12 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0201",
       "resolvedBy": "published URI",
       "codeSystemVersion": {
-        "version": "5.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "6.0.0",
+        "reason": "Changed: concept.",
+        "incremented": true,
+        "triggers": [
+          "concept"
+        ],
         "judgement": [],
         "newArtifact": []
       },
@@ -3339,13 +3357,11 @@
       "systemUrl": "http://hl7.org/fhir/sid/mvx",
       "resolvedBy": "THO NamingSystem for table OID 2.16.840.1.113883.12.227",
       "valueSetVersion": {
-        "version": "5.0.0",
-        "reason": "Changed: description.",
-        "incremented": true,
+        "version": "4.0.0",
+        "reason": "Nothing the policy counts as a change, so THO's version stands.",
+        "incremented": false,
         "triggers": [],
-        "judgement": [
-          "description"
-        ],
+        "judgement": [],
         "newArtifact": []
       }
     },
@@ -4848,9 +4864,35 @@
     {
       "table": "0292",
       "name": "Vaccines Administered",
-      "action": "concept-domain-only",
-      "reason": "Declared concept domain only. A binding to a domain needs no value set.",
-      "written": []
+      "action": "value-set-only",
+      "reason": "The chapter declares no code system, but the table's own OID is registered in THO as a NamingSystem for an external one.",
+      "written": [
+        "valueSets/vs-v2-0292.xml"
+      ],
+      "systemUrl": "http://hl7.org/fhir/sid/cvx",
+      "resolvedBy": "THO NamingSystem for table OID 2.16.840.1.113883.12.292",
+      "tentativeOverride": {
+        "table": "0292",
+        "gate": "concept-domain-only",
+        "registerItem": "esc-0292-cdo-contradiction",
+        "chapterSays": "The table is flagged `Concept Domain Only: yes`, which stops classification at that gate, so nothing is written for the table at all.",
+        "guidePublishes": "The table is treated as a real one whose code system belongs to the CDC. The concept-domain-only gate is skipped and classification carries on, which reaches the table's own OID and resolves it through THO.",
+        "evidence": [
+          "The chapter's own table-metadata grid for 0292 names the code system -- Full Name \"Vaccines Administered Code System\" -- and prints its canonical, http://hl7.org/fhir/sid/cvx, in the same section that declares the table domain-only.",
+          "THO publishes a live ValueSet/v2-0292 composing from that same URI.",
+          "THO's NamingSystem/CVX registers this table's own OID, 2.16.840.1.113883.12.292, against that URI.",
+          "Sibling table 0227 (MVX) is the same shape -- an external code system reached through a NamingSystem on the table's own OID -- is flagged `Concept Domain Only: no`, and is published.",
+          "None of the 14 tables typed `External` routes to code-system-and-value-set, so reading this one as external is the ordinary treatment rather than a new one."
+        ]
+      },
+      "valueSetVersion": {
+        "version": "3.0.0",
+        "reason": "Nothing the policy counts as a change, so THO's version stands.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0293",
@@ -6114,18 +6156,22 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0367",
       "resolvedBy": "published URI",
       "codeSystemVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       },
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }
@@ -6586,18 +6632,22 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0389",
       "resolvedBy": "published URI",
       "codeSystemVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       },
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }
@@ -7551,18 +7601,22 @@
       "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0434",
       "resolvedBy": "published URI",
       "codeSystemVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       },
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }
@@ -8786,19 +8840,22 @@
       "resolvedBy": "published URI",
       "codeSystemVersion": {
         "version": "4.0.0",
-        "reason": "Changed: concept.",
+        "reason": "Changed: concept, description.",
         "incremented": true,
         "triggers": [
-          "concept"
+          "concept",
+          "description"
         ],
         "judgement": [],
         "newArtifact": []
       },
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }
@@ -11801,11 +11858,10 @@
         "incremented": true,
         "triggers": [
           "compose.include",
+          "description",
           "status"
         ],
-        "judgement": [
-          "description"
-        ],
+        "judgement": [],
         "newArtifact": []
       }
     },
@@ -14174,10 +14230,12 @@
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.25",
       "published": "http://terminology.hl7.org/ValueSet-v2-0952.html",
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }
@@ -14292,10 +14350,12 @@
       "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1139",
       "published": "http://terminology.hl7.org/CodeSystem-v3-WorkClassificationODH.html",
       "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
+        "version": "4.0.0",
+        "reason": "Changed: description.",
+        "incremented": true,
+        "triggers": [
+          "description"
+        ],
         "judgement": [],
         "newArtifact": []
       }

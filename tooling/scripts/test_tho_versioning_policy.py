@@ -61,12 +61,25 @@ def test_changing_content_is_a_new_artifact():
     assert policy.disposition("CodeSystem", "content") == policy.NEW_ARTIFACT
 
 
-def test_both_descriptions_are_left_to_human_judgement():
-    """The CodeSystem page carves out editorial corrections; the ValueSet page
-    does not. We treat them alike rather than encode an asymmetry the policy's
-    editor has been asked to remove."""
-    assert policy.disposition("CodeSystem", "description") == policy.JUDGEMENT
-    assert policy.disposition("ValueSet", "description") == policy.JUDGEMENT
+def test_both_descriptions_increment_outright():
+    """A changed description is a major increment on either resource type.
+    The policy attaches no editorial or clarity exemption to either one."""
+    assert policy.disposition("CodeSystem", "description") == policy.INCREMENT
+    assert policy.disposition("ValueSet", "description") == policy.INCREMENT
+
+
+def test_nothing_in_the_policy_is_left_to_a_human_ruling():
+    """There is no `judgement` disposition to return, so the module exposes no
+    constant for one. A test names this so that re-adding an exemption is a
+    deliberate act rather than a quiet one."""
+    assert not hasattr(policy, "JUDGEMENT")
+    dispositions = set()
+    for table in policy.POLICIES.values():
+        dispositions.update(table.values())
+    assert dispositions == {
+        policy.NEW_ARTIFACT, policy.NO_CHANGE,
+        policy.INCREMENT, policy.NOT_APPLICABLE,
+    }
 
 
 def test_a_compose_leaf_falls_back_to_its_listed_ancestor():
@@ -120,12 +133,46 @@ def test_a_content_change_increments_the_major_version():
     assert result["triggers"] == ["concept"]
 
 
-def test_a_judgement_element_increments_by_default_and_is_flagged():
-    """"Major unless only change is improved clarity" points at major."""
-    result = policy.next_version("CodeSystem", "3.0.0", ["description"])
+@pytest.mark.parametrize("resource_type", ["CodeSystem", "ValueSet"])
+def test_a_changed_description_increments_the_major_version(resource_type):
+    """No exemption applies to it, so it is an ordinary trigger."""
+    result = policy.next_version(resource_type, "3.0.0", ["description"])
     assert result["version"] == "4.0.0"
-    assert result["judgement"] == ["description"]
-    assert result["triggers"] == []
+    assert result["incremented"] is True
+    assert result["triggers"] == ["description"]
+    assert result["judgement"] == []
+
+
+# The difference between these two texts is a single comma, which is the
+# smallest description change the merge can hand us: anything smaller than a
+# punctuation mark is whitespace, and whitespace is normalised away before the
+# comparison reaches this module. Passing "description" here is the merge
+# saying "these two differ"; the size of the difference is not the module's
+# business, and this test is what keeps it that way.
+PUNCTUATION_ONLY_OURS = "Codes for the type of outlier (i.e., period of care)."
+PUNCTUATION_ONLY_THEIRS = "Codes for the type of outlier (i.e. period of care)."
+
+
+@pytest.mark.parametrize("resource_type", ["CodeSystem", "ValueSet"])
+def test_a_punctuation_only_description_difference_still_increments(
+        resource_type):
+    """The rule has no size threshold. A comma costs a major version."""
+    assert PUNCTUATION_ONLY_OURS != PUNCTUATION_ONLY_THEIRS
+    assert PUNCTUATION_ONLY_OURS.split() != PUNCTUATION_ONLY_THEIRS.split()
+
+    result = policy.next_version(resource_type, "3.0.0", ["description"])
+    assert result["version"] == "4.0.0"
+    assert result["incremented"] is True
+    assert result["triggers"] == ["description"]
+
+
+@pytest.mark.parametrize("resource_type", ["CodeSystem", "ValueSet"])
+def test_a_description_increment_never_reports_a_judgement(resource_type):
+    """`judgement` is part of the report's shape, and always empty."""
+    result = policy.next_version(
+        resource_type, "3.0.0", ["description", "name"])
+    assert result["judgement"] == []
+    assert result["triggers"] == ["description", "name"]
 
 
 def test_a_change_that_cannot_be_versioned_is_reported_separately():

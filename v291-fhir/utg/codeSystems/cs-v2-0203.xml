@@ -782,7 +782,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="N"/>
+      <valueCode value="active"/>
     </property>
   </concept>
   <concept id="2016">
@@ -876,7 +876,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="N"/>
+      <valueCode value="active"/>
     </property>
   </concept>
   <concept id="2021">
@@ -1517,7 +1517,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="N"/>
+      <valueCode value="active"/>
     </property>
   </concept>
   <concept id="2061">
@@ -2145,7 +2145,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="N"/>
+      <valueCode value="active"/>
     </property>
   </concept>
   <concept id="12008">

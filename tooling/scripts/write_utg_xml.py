@@ -93,7 +93,7 @@ import argparse
 import json
 import re
 import sys
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, namedtuple
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -161,14 +161,33 @@ PROPERTY_DEFINITIONS = {
     },
 }
 
-# Chapter 2C's status column against the FHIR concept status codes. Blank, D
-# and R have unambiguous FHIR equivalents. N and B do not, and UTG passes both
-# through as themselves, so we do the same rather than inventing a meaning.
+# Chapter 2C's status column against the FHIR concept status codes.
+#
+# These values land in `concept.property` under the code `status`, which is the
+# standard FHIR concept property
+# `http://hl7.org/fhir/concept-properties#status`. Its value set is active /
+# experimental / deprecated / retired, and nothing else is a legal value.
+# Blank, D and R map onto it unambiguously.
+#
+# `N` maps to `active`, as a technical correction. The chapter's legend says
+# `N` means "new in this release", which is not a status: it decays, because
+# nothing updates it after the release that first printed it, and it is not a
+# value the property we write it into can take. This guide already publishes
+# `active` for 205 concepts where THO still says `N` and the 2.9.1 chapter no
+# longer flags anything, so mapping our own 65 the same way makes the treatment
+# consistent rather than introducing a second one.
+#
+# `B` is deliberately NOT mapped. "Backwards-compatible use only" has no FHIR
+# equivalent either, and V2 Management is to review the 5 concepts carrying it
+# (3 tables in the chapter, 4 concepts reaching the output) case by case. So we
+# knowingly continue to emit 4 values the property's value set does not
+# contain. Inventing a mapping would prejudge the review. The question is
+# registered as `esc-status-n-b-undefined` in `vocabulary_escalations.py`.
 STATUS_MAP = {
     "": "active",
     "D": "deprecated",
     "R": "retired",
-    "N": "N",
+    "N": "active",
     "B": "B",
 }
 
@@ -216,6 +235,130 @@ PLACEHOLDER_SYMBOLIC_NAME = "noObject"
 # code system by OID and no URI; an OID under this arc is a v2 code system by
 # construction, which is enough to place it without an index lookup.
 V2_OID_ARC = "2.16.840.1.113883.18."
+
+
+# --------------------------------------------------------------------------
+# Tentative overrides                                                 ADR-0011
+# --------------------------------------------------------------------------
+#
+# Deviations from what Chapter 2C says that are *provisional*: a named
+# committee has been asked the question and has not answered it yet.
+#
+# This is neither of the two mechanisms already here. It is not the ADR-0010
+# evidence gate, which is permanent and is written as a general condition
+# rather than a table number. It is not the escalation register either, which
+# records a defect in prose and changes no output. It is the narrow case where
+# the guide deviates deliberately while a ruling is pending, and has to say so.
+#
+# An override belongs here only when all three of these hold:
+#
+#   * the chapter's own content is contradicted by other evidence,
+#   * a register item in `vocabulary_escalations.py` puts the question to a
+#     committee, and
+#   * the entry is deleted the moment the committee answers -- if it agrees,
+#     the deviation becomes corrected source data or a general ADR-0010 rule
+#     and an ADR records it; if it disagrees, deleting the entry restores the
+#     chapter's reading and changes nothing else.
+#
+# The second of those is the invariant the mechanism refuses to run without.
+# An override that names no register item is not tentative; it is an
+# unrecorded decision. `test_write_utg_xml.py` imports the register and checks
+# that every `register_item` below is really one of its ids.
+#
+# The number of entries is this guide's un-ruled-deviation debt.
+# `tentative_override_summary` computes it on every run and `main` writes it
+# into the report, so a page can show it and it cannot quietly grow.
+#
+# The shape follows `MANUAL_CORRECTIONS` in `vocabulary_text_policy.py`: keyed,
+# rationale-bearing, enumerable.
+#
+#   gate             the classification gate this entry overrides, so that an
+#                    entry written for one gate can never skip another
+#   chapter_says     what the published chapter says, and what the writer
+#                    would do if left alone
+#   guide_publishes  what this guide does instead
+#   register_item    the id of the register item that asks the question
+#   evidence         why the reviewer believes the chapter is wrong here
+TentativeOverride = namedtuple(
+    "TentativeOverride",
+    "gate chapter_says guide_publishes register_item evidence")
+
+TENTATIVE_OVERRIDES = {
+    "0292": TentativeOverride(
+        gate="concept-domain-only",
+        chapter_says="The table is flagged `Concept Domain Only: yes`, which "
+                     "stops classification at that gate, so nothing is "
+                     "written for the table at all.",
+        guide_publishes="The table is treated as a real one whose code system "
+                        "belongs to the CDC. The concept-domain-only gate is "
+                        "skipped and classification carries on, which reaches "
+                        "the table's own OID and resolves it through THO.",
+        register_item="esc-0292-cdo-contradiction",
+        evidence=(
+            "The chapter's own table-metadata grid for 0292 names the code "
+            "system -- Full Name \"Vaccines Administered Code System\" -- and "
+            "prints its canonical, http://hl7.org/fhir/sid/cvx, in the same "
+            "section that declares the table domain-only.",
+            "THO publishes a live ValueSet/v2-0292 composing from that same "
+            "URI.",
+            "THO's NamingSystem/CVX registers this table's own OID, "
+            "2.16.840.1.113883.12.292, against that URI.",
+            "Sibling table 0227 (MVX) is the same shape -- an external code "
+            "system reached through a NamingSystem on the table's own OID -- "
+            "is flagged `Concept Domain Only: no`, and is published.",
+            "None of the 14 tables typed `External` routes to "
+            "code-system-and-value-set, so reading this one as external is "
+            "the ordinary treatment rather than a new one.",
+        ),
+    ),
+}
+
+
+def tentative_override(table, gate):
+    """The tentative override for this table at this gate, or None.
+
+    The gate is part of the match so that an entry written to override one
+    gate cannot silently skip a different one.
+    """
+    override = TENTATIVE_OVERRIDES.get(table)
+    if override is None or override.gate != gate:
+        return None
+    return override
+
+
+def override_report(table, override):
+    """The `tentativeOverride` block stamped into a table's report entry.
+
+    The register item is the point of it: a reader of the report can follow
+    the id straight to the question that is waiting for an answer.
+    """
+    return {
+        "table": table,
+        "gate": override.gate,
+        "registerItem": override.register_item,
+        "chapterSays": override.chapter_says,
+        "guidePublishes": override.guide_publishes,
+        "evidence": list(override.evidence),
+    }
+
+
+def tentative_override_summary(report):
+    """This guide's un-ruled-deviation debt, computed on every run.
+
+    `count` is the number of entries in the table, which is the debt itself --
+    every one of them is a deviation nobody has ruled on. `appliedThisRun` is
+    the subset that actually fired, which differs from `tables` only when the
+    run was filtered to particular tables with `--table`.
+    """
+    applied = [entry["tentativeOverride"] for entry in report
+               if entry.get("tentativeOverride")]
+    return {
+        "count": len(TENTATIVE_OVERRIDES),
+        "tables": sorted(TENTATIVE_OVERRIDES),
+        "registerItems": sorted(
+            {o.register_item for o in TENTATIVE_OVERRIDES.values()}),
+        "appliedThisRun": sorted(block["table"] for block in applied),
+    }
 
 
 def code_system_directories():
@@ -551,13 +694,48 @@ def parse_logical_definition(text):
     }
 
 
+def declares_concept_domain_only(record):
+    """Does the chapter flag this table `Concept Domain Only: yes`?"""
+    domain = record.get("conceptDomain") or {}
+    return (domain.get("Concept Domain Only") or "").strip().lower() == "yes"
+
+
 def classify(record, oid_index, snapshot=None):
     """Decide what, if anything, to write for one table.
+
+    This is `classify_chapter_reading` with ADR-0011's tentative overrides
+    applied on top. Where an override fires, the returned plan carries a
+    `tentativeOverride` block naming the register item that asks the question,
+    so the deviation travels with the classification rather than having to be
+    reconstructed later.
 
     Returns:
         A dict with `action` and `reason`, plus whatever the chosen action
         needs -- typically `systemUrl`, the canonical of the code system the
         table's codes actually belong to.
+    """
+    table = record["tableNumber"]
+    override = tentative_override(table, "concept-domain-only")
+    plan = classify_chapter_reading(
+        record, oid_index, snapshot,
+        skip_concept_domain_only=override is not None)
+    # Stamped only where the gate would really have fired. An entry for a
+    # table the chapter does not actually flag has overridden nothing, and
+    # claiming a deviation we did not make would be worse than making none.
+    if override is not None and declares_concept_domain_only(record):
+        plan["tentativeOverride"] = override_report(table, override)
+    return plan
+
+
+def classify_chapter_reading(record, oid_index, snapshot=None,
+                             skip_concept_domain_only=False):
+    """Classify one table on what Chapter 2C itself says.
+
+    `skip_concept_domain_only` is ADR-0011's hook: with it set, the
+    concept-domain-only gate is passed over and classification continues as
+    though the chapter had not flagged the table. Nothing else about the
+    reading changes, so what the table routes to is still worked out from the
+    chapter's content and THO's index rather than asserted.
     """
     table = record["tableNumber"]
     own_system = CS_CANONICAL.format(table=table)
@@ -571,7 +749,9 @@ def classify(record, oid_index, snapshot=None):
                 "reason": "The chapter declares the table but no concept "
                           "domain, code system or codes."}
 
-    if (domain.get("Concept Domain Only") or "").strip().lower() == "yes":
+    if (not skip_concept_domain_only
+            and (domain.get("Concept Domain Only") or "").strip().lower()
+            == "yes"):
         return {"action": "concept-domain-only",
                 "reason": "Declared concept domain only. A binding to a "
                           "domain needs no value set."}
@@ -723,12 +903,30 @@ def add_common_metadata(root, *, resource_id, url, oid, version, date,
     root.add_value("description", description)
 
 
-def chapter_concept_row(entry, element_id):
+def chapter_concept_row(entry, element_id, unknown_statuses=None):
     """Turn a row of the chapter's coded content into a merge row.
 
     The row shape is the one `tho_merge` joins on; see that module for the
     field list. Building rows first and XML afterwards is what lets THO's
     content be merged in on values rather than spliced into a node tree.
+
+    Args:
+        entry: one row of the chapter's coded content.
+        element_id: the concept element id to reuse, or None to allocate one
+            later.
+        unknown_statuses: a list to append anomalies to, or None to not
+            collect them. A status letter `STATUS_MAP` does not know is
+            written out as it stands -- the same treatment `B` gets, and the
+            same fidelity rule the rest of the writer follows -- but it is
+            recorded here so that it reaches the write report. Chapter 2C's
+            complete observed set is blank, D, N, B and R, so nothing in the
+            current corpus takes this path; a future chapter adding a letter
+            would otherwise put an unmapped value into the FHIR `status`
+            property with nothing saying so. The module reports unexpected
+            input rather than raising on it -- an unresolvable OID becomes
+            `needs-decision`, an unmapped steward becomes a note, an
+            undeclared property becomes `unknownProperties` -- and this
+            follows that convention.
     """
     properties = []
     comment = (entry.get("comment") or "").strip()
@@ -736,7 +934,13 @@ def chapter_concept_row(entry, element_id):
         properties.append(("v2-concComment", "valueString", comment))
 
     raw_status = (entry.get("status") or "").strip()
-    status = STATUS_MAP.get(raw_status, raw_status)
+    if raw_status in STATUS_MAP:
+        status = STATUS_MAP[raw_status]
+    else:
+        status = raw_status
+        if unknown_statuses is not None:
+            unknown_statuses.append({"code": entry.get("value"),
+                                     "status": raw_status})
     if status:
         properties.append(("status", "valueCode", status))
 
@@ -899,8 +1103,10 @@ def plan_code_system(record, plan, utg, published_urls=None, snapshot=None,
         fields, tho, tho_merge.FILLABLE_CODE_SYSTEM_FIELDS, observe, context)
 
     known_ids = inherited.get("conceptIds", {})
+    unknown_statuses = []
     chapter_rows = [
-        chapter_concept_row(entry, known_ids.get(entry.get("value")))
+        chapter_concept_row(entry, known_ids.get(entry.get("value")),
+                            unknown_statuses)
         for entry in record.get("codedContent") or []
     ]
     rows = (tho_merge.merge_concepts(chapter_rows, tho, observe, table)
@@ -947,6 +1153,7 @@ def plan_code_system(record, plan, utg, published_urls=None, snapshot=None,
         "concepts": rows,
         "propertyDeclarations": declarations,
         "unknownProperties": unknown,
+        "unknownStatuses": unknown_statuses,
         "version": resolve_version("CodeSystem", snapshot, tho, inherited,
                                    changed),
         "changed": changed,
@@ -1172,7 +1379,8 @@ def process(records, utg, oid_index, published_urls=None, snapshot=None,
             "reason": plan["reason"],
             "written": [],
         }
-        for key in ("systemUrl", "resolvedBy", "published", "candidates"):
+        for key in ("systemUrl", "resolvedBy", "published", "candidates",
+                    "tentativeOverride"):
             if key in plan:
                 entry[key] = plan[key]
 
@@ -1198,13 +1406,22 @@ def process(records, utg, oid_index, published_urls=None, snapshot=None,
             entry["codeSystemVersion"] = resolved["version"]
             if resolved["unknownProperties"]:
                 entry["unknownProperties"] = resolved["unknownProperties"]
+            if resolved["unknownStatuses"]:
+                entry["unknownStatuses"] = resolved["unknownStatuses"]
             document = render_document(render_code_system(resolved))
             path = f"codeSystems/cs-v2-{table}.xml"
             files[path] = document
             entry["written"].append(path)
 
         if plan["action"] in ("code-system-and-value-set", "value-set-only"):
-            if not plan.get("hasValueSet"):
+            # A tentative override says the chapter is wrong about what this
+            # table is. Honouring the classification but refusing to write --
+            # because the chapter, being wrong in exactly the way the override
+            # records, also prints no value set block -- would make the
+            # override do nothing. The override authorises the write; nothing
+            # else does, so no table without one changes behaviour here.
+            overridden = bool(entry.get("tentativeOverride"))
+            if not plan.get("hasValueSet") and not overridden:
                 entry["note"] = ("The chapter declares no value set block for "
                                  "this table, so none was written.")
             else:
@@ -1569,6 +1786,31 @@ def main():
               f"inherit from), {len(defaulted)}:")
         print("  " + ", ".join(e["table"] for e in defaulted))
 
+    overrides = tentative_override_summary(report)
+    if overrides["count"]:
+        print(f"\nDeviating from the chapter while a ruling is pending "
+              f"(ADR-0011), {overrides['count']}:")
+        for entry in report:
+            block = entry.get("tentativeOverride")
+            if block:
+                print(f"  {block['table']}  -> {entry['action']}  "
+                      f"({block['registerItem']})")
+        unapplied = sorted(set(overrides["tables"])
+                           - set(overrides["appliedThisRun"]))
+        if unapplied:
+            print(f"  not in this run: {', '.join(unapplied)}")
+
+    unknown_statuses = [e for e in report if e.get("unknownStatuses")]
+    if unknown_statuses:
+        print(f"\nStatus letters the chapter uses and STATUS_MAP does not "
+              f"know ({len(unknown_statuses)} tables). These were written out "
+              f"as they stand, into a property whose value set does not "
+              f"contain them:")
+        for entry in unknown_statuses:
+            for anomaly in entry["unknownStatuses"]:
+                print(f"  {entry['table']}  {anomaly['code']}  "
+                      f"{anomaly['status']!r}")
+
     undecided = [e for e in report if e["action"] == "needs-decision"]
     if undecided:
         print(f"\nStopped for a decision ({len(undecided)}):")
@@ -1622,7 +1864,9 @@ def main():
 
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(
-        json.dumps({"counts": dict(actions), "tables": report},
+        json.dumps({"counts": dict(actions),
+                    "tentativeOverrides": overrides,
+                    "tables": report},
                    indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )

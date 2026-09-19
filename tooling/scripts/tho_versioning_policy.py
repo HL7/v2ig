@@ -33,20 +33,26 @@ The rules, in short
   one requires a *new artifact* at a new canonical, not a new version. Adding
   one is an ordinary increment.
 
-The carve-out that is not computable
-------------------------------------
+Descriptions
+------------
 
-`CodeSystem.description` is qualified in the policy: *"Major unless only change
-is improved clarity or perform editorial corrections."* Whether a reworded
-sentence is an editorial correction or a substantive change is a human
-judgement, so this module does not pretend to make it. A description difference
-increments by default -- that is what "major unless" means -- and is reported
-under `judgement` so a person can waive it.
+A changed `description` is a major increment, on both CodeSystem and ValueSet,
+however small the difference is. A comma, a full stop, a reworded clause and a
+rewritten paragraph all cost the same single increment. There is no editorial
+or improved-clarity exemption and no size threshold, which is what makes the
+rule mechanical: this module never has to judge what a difference *means*, only
+whether there is one.
 
-The ValueSet page carries no equivalent carve-out on `ValueSet.description`.
-The user believes this is an oversight rather than a deliberate asymmetry and
-has raised it with the policy's editor, so this module treats both descriptions
-the same way instead of encoding a difference that may not survive.
+TSMG holds this reading for both resource types. Anyone checking the tables
+below against the Confluence pages should know that the Code Systems page
+prints a qualification beside its `CodeSystem.description` row; that
+qualification is not part of the policy, and the row is an unqualified major.
+The Value Sets page prints no qualification, and the two pages agree.
+
+Whitespace is a different question and is settled before this module is
+reached. The merge collapses runs of whitespace on both sides before comparing,
+so two texts that differ only in where a line was wrapped never arrive here as
+a difference at all.
 """
 
 # What the policy's four columns mean, as an enum of plain strings.
@@ -59,10 +65,6 @@ NEW_ARTIFACT = "new-artifact"
 NO_CHANGE = "no-change"
 INCREMENT = "increment"
 NOT_APPLICABLE = "not-applicable"
-
-# A change to one of these elements needs a human to say whether it is
-# substantive or editorial. See the module docstring.
-JUDGEMENT = "judgement"
 
 # CodeSystem, transcribed from the Code Systems page's "Data element changes"
 # table. Elements we never emit (meta, implicitRules, language) are kept so
@@ -92,7 +94,8 @@ CODE_SYSTEM_POLICY = {
     "date": NOT_APPLICABLE,
     "publisher": NOT_APPLICABLE,
     "contact": NOT_APPLICABLE,
-    "description": JUDGEMENT,
+    # Any difference at all, down to a comma. See the module docstring.
+    "description": INCREMENT,
     "useContext": INCREMENT,
     "jurisdiction": INCREMENT,
     "purpose": INCREMENT,
@@ -140,9 +143,8 @@ VALUE_SET_POLICY = {
     "date": NOT_APPLICABLE,
     "publisher": NOT_APPLICABLE,
     "contact": NOT_APPLICABLE,
-    # The page has no clarity carve-out here. See the module docstring for why
-    # this is treated the same as the CodeSystem's anyway.
-    "description": JUDGEMENT,
+    # Read exactly as the CodeSystem's is: any difference at all.
+    "description": INCREMENT,
     "useContext": INCREMENT,
     "jurisdiction": INCREMENT,
     "immutable": NOT_APPLICABLE,
@@ -172,7 +174,7 @@ def disposition(resource_type, element):
             resource type prefix -- ``"description"``, ``"compose.include"``.
 
     Returns:
-        One of NEW_ARTIFACT, NO_CHANGE, INCREMENT, JUDGEMENT or NOT_APPLICABLE.
+        One of NEW_ARTIFACT, NO_CHANGE, INCREMENT or NOT_APPLICABLE.
         An element the policy does not list returns INCREMENT, because an
         unlisted element is more likely to be one we have misspelled or the
         policy has not caught up with than one that genuinely does not matter,
@@ -221,8 +223,10 @@ def next_version(resource_type, baseline_version, changed_elements):
             reason       why, in a phrase fit to put in a report
             incremented  whether the version moved
             triggers     the changed elements that caused the increment
-            judgement    changed elements needing a human ruling, which were
-                         counted as increments by default
+            judgement    always empty. No element in the policy is left to a
+                         human ruling, so nothing is ever collected here; the
+                         key stays because the merge report and the pages built
+                         from it read it by name
             newArtifact  changed elements the policy says cannot be versioned
                          at all -- an escalation, not a number
     """
@@ -238,20 +242,15 @@ def next_version(resource_type, baseline_version, changed_elements):
         }
 
     triggers = []
-    judgement = []
     new_artifact = []
     for element in changed_elements:
         verdict = disposition(resource_type, element)
         if verdict == INCREMENT:
             triggers.append(element)
-        elif verdict == JUDGEMENT:
-            judgement.append(element)
         elif verdict == NEW_ARTIFACT:
             new_artifact.append(element)
 
-    # A judgement element counts as a trigger unless somebody waives it. That
-    # is the direction "major unless only change is improved clarity" points.
-    if not triggers and not judgement:
+    if not triggers:
         return {
             "version": baseline_version,
             "reason": "Nothing the policy counts as a change, so THO's "
@@ -262,12 +261,12 @@ def next_version(resource_type, baseline_version, changed_elements):
             "newArtifact": new_artifact,
         }
 
-    named = ", ".join(sorted(set(triggers + judgement)))
+    named = ", ".join(sorted(set(triggers)))
     return {
         "version": bump(baseline_version),
         "reason": f"Changed: {named}.",
         "incremented": True,
         "triggers": sorted(set(triggers)),
-        "judgement": sorted(set(judgement)),
+        "judgement": [],
         "newArtifact": new_artifact,
     }

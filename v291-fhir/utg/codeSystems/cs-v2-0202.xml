@@ -81,7 +81,7 @@
     <display value="Direct Secure Messaging"/>
     <property>
       <code value="status"/>
-      <valueCode value="N"/>
+      <valueCode value="active"/>
     </property>
   </concept>
   <concept id="1959">

@@ -383,8 +383,15 @@ def test_the_code_system_element_order_matches_utg():
     ("", "active"),
     ("D", "deprecated"),
     ("R", "retired"),
-    ("N", "N"),      # UTG passes these two through rather than mapping them,
-    ("B", "B"),      # and inventing a FHIR meaning for them would be a guess
+    # "New in this release" is not a status: it decays, and it is not a value
+    # the FHIR status property can take. It is written as `active`, which is
+    # what this guide already publishes wherever THO says N and the 2.9.1
+    # chapter no longer flags anything.
+    ("N", "active"),
+    # B is deliberately left alone, pending a case-by-case review by V2
+    # Management -- see `esc-status-n-b-undefined`. So four values the
+    # property's value set does not contain are still published knowingly.
+    ("B", "B"),
 ])
 def test_status_column_mapping(chapter_status, expected):
     record = make_record(codedContent=[
@@ -396,6 +403,40 @@ def test_status_column_mapping(chapter_status, expected):
               for p in concept.findall(f"{FHIR}property")
               if p.find(f"{FHIR}code").get("value") == "status"]
     assert values == [expected]
+
+
+def test_an_unrecognised_status_letter_is_reported():
+    """It used to pass through unmapped and unreported, which is the one way
+    it must not behave: a letter nobody has mapped lands in a property whose
+    value set does not contain it, and nothing says so."""
+    record = make_record(codedContent=[
+        {"value": "F", "displayName": "Female", "definition": "",
+         "comment": "", "status": "Q"}])
+    _files, report = writer.process([record], empty_repo(), {})
+    assert report[0]["unknownStatuses"] == [{"code": "F", "status": "Q"}]
+
+
+def test_an_unrecognised_status_letter_is_still_written_out():
+    """Reported, not dropped. Dropping it would lose what the chapter says,
+    and passing it through is what already happens to B."""
+    record = make_record(codedContent=[
+        {"value": "F", "displayName": "Female", "definition": "",
+         "comment": "", "status": "Q"}])
+    root, _ = build(record)
+    values = [p.find(f"{FHIR}valueCode").get("value")
+              for p in root.find(f"{FHIR}concept").findall(f"{FHIR}property")
+              if p.find(f"{FHIR}code").get("value") == "status"]
+    assert values == ["Q"]
+
+
+def test_a_mapped_status_is_not_reported_as_an_anomaly():
+    """Chapter 2C's whole observed set is blank, D, N, B and R, so a full run
+    must report nothing here."""
+    record = make_record(codedContent=[
+        {"value": "F", "displayName": "Female", "definition": "",
+         "comment": "", "status": "B"}])
+    _files, report = writer.process([record], empty_repo(), {})
+    assert "unknownStatuses" not in report[0]
 
 
 def test_a_comment_becomes_the_v2_concComment_property():
@@ -808,3 +849,112 @@ def test_without_a_snapshot_the_writer_behaves_as_it_always_did():
                                 "workGroup": "pa", "conceptIds": {}}
     root, _ = build(make_record(), utg)
     assert root.find(f"{FHIR}version").get("value") == "5.0.0"
+
+
+# --------------------------------------------------------------------------
+# Tentative overrides (ADR-0011)
+# --------------------------------------------------------------------------
+
+CVX = "http://hl7.org/fhir/sid/cvx"
+CVX_OID_INDEX = {"2.16.840.1.113883.12.292": CVX}
+
+
+def domain_only_record(table):
+    """A record shaped like table 0292: flagged concept-domain-only, with no
+    code system or value set block, but carrying the table's own OID."""
+    return make_record(
+        table=table,
+        conceptDomain={"SymbolicName": "VaccinesAdministered",
+                       "Concept Domain Only": "yes"},
+        codeSystems=[], valueSets=[], codedContent=[],
+        tableMetadata={"Table OID": "2.16.840.1.113883.12.292",
+                       "Steward": "OO"})
+
+
+def test_every_tentative_override_names_a_register_item_that_exists():
+    """The invariant the mechanism refuses to run without.
+
+    An override with no pending ask is not tentative, it is an unrecorded
+    decision. The register is imported here rather than at the top of the file
+    because nothing else in this suite depends on it.
+    """
+    import vocabulary_escalations
+
+    registered = {item["id"] for item in vocabulary_escalations.ESCALATIONS}
+    missing = {table: override.register_item
+               for table, override in writer.TENTATIVE_OVERRIDES.items()
+               if override.register_item not in registered}
+    assert not missing, (
+        f"these tentative overrides name a register item that does not "
+        f"exist in vocabulary_escalations.ESCALATIONS: {missing}")
+
+
+def test_the_only_override_is_table_0292():
+    """A guard on the mechanism's scope rather than on its behaviour. It is
+    for deviations awaiting a ruling, not a general licence to special-case a
+    table, so a new entry should be a deliberate edit to this test too."""
+    assert sorted(writer.TENTATIVE_OVERRIDES) == ["0292"]
+
+
+def test_the_override_skips_the_concept_domain_only_gate():
+    """Without it, 0292 stops at the gate and nothing is written."""
+    plan = writer.classify(domain_only_record("0292"), CVX_OID_INDEX)
+    assert plan["action"] != "concept-domain-only"
+
+
+def test_the_override_lets_the_table_oid_resolve_the_code_system():
+    """The override skips a gate and asserts nothing else. Where the table
+    routes to is still worked out from the chapter's content and THO's index
+    -- here, through the NamingSystem registered against the table's OID."""
+    plan = writer.classify(domain_only_record("0292"), CVX_OID_INDEX)
+    assert plan["action"] == "value-set-only"
+    assert plan["systemUrl"] == CVX
+    assert plan["resolvedBy"] == (
+        "THO NamingSystem for table OID 2.16.840.1.113883.12.292")
+
+
+def test_the_override_is_stamped_into_the_report():
+    record = domain_only_record("0292")
+    _files, report = writer.process([record], empty_repo(), CVX_OID_INDEX)
+    block = report[0]["tentativeOverride"]
+    assert block["registerItem"] == "esc-0292-cdo-contradiction"
+    assert block["gate"] == "concept-domain-only"
+    assert block["evidence"]
+
+
+def test_a_table_with_no_override_still_stops_at_the_gate():
+    plan = writer.classify(domain_only_record("0001"), CVX_OID_INDEX)
+    assert plan["action"] == "concept-domain-only"
+    assert "tentativeOverride" not in plan
+
+
+def test_an_override_only_matches_the_gate_it_was_written_for():
+    assert writer.tentative_override("0292", "concept-domain-only") is not None
+    assert writer.tentative_override("0292", "noObject-placeholder") is None
+
+
+def test_nothing_is_stamped_where_the_gate_would_not_have_fired():
+    """If the chapter stopped flagging 0292 domain-only, the entry would have
+    overridden nothing, and claiming a deviation we did not make is worse than
+    making none."""
+    record = domain_only_record("0292")
+    record["conceptDomain"]["Concept Domain Only"] = "no"
+    plan = writer.classify(record, CVX_OID_INDEX)
+    assert "tentativeOverride" not in plan
+
+
+def test_the_un_ruled_deviation_count_is_computed_every_run():
+    """The debt has to be visible, so it is computed rather than remembered."""
+    _files, report = writer.process([domain_only_record("0292")],
+                                    empty_repo(), CVX_OID_INDEX)
+    summary = writer.tentative_override_summary(report)
+    assert summary["count"] == len(writer.TENTATIVE_OVERRIDES)
+    assert summary["appliedThisRun"] == ["0292"]
+    assert summary["registerItems"] == ["esc-0292-cdo-contradiction"]
+
+
+def test_the_count_stands_even_when_a_run_applies_nothing():
+    """A run filtered to other tables must not make the debt look paid."""
+    summary = writer.tentative_override_summary([])
+    assert summary["count"] == 1
+    assert summary["appliedThisRun"] == []
