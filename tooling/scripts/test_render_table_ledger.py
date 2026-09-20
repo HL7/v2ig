@@ -463,3 +463,21 @@ def test_the_also_affects_bullet_says_what_a_class_is():
     page = ledger.render_page(*multi_table_fixtures())
     assert ("a one-off or an instance of a class of problem that is repeated "
             "elsewhere") in page
+
+
+def test_the_section_carries_the_anchor_the_table_index_links_to():
+    """The index links here by an authored id, not a heading slug."""
+    page = ledger.render_page(*multi_table_fixtures())
+    assert '<a id="content-and-open-items"></a>' in page
+
+
+def test_the_section_points_back_at_the_table_index():
+    page = ledger.render_page(*multi_table_fixtures())
+    assert "table-index.html#coverage-anomalies" in page
+
+
+def test_the_reader_is_told_the_two_lists_measure_different_things():
+    """20-odd tables on one page and 165 on another reads as a contradiction
+    unless each says what it counts."""
+    page = ledger.render_page(*multi_table_fixtures())
+    assert "A table can appear on both lists, on one, or on neither." in page

@@ -737,7 +737,11 @@ def render_page(report, write_report, index, register):
     lines += oid_overview(index, identifiers)
 
     lines += [
-        "### Tables that need a second look",
+        # Explicit anchor -- the table index links to this section by id. See
+        # the matching note in generate_table_index.py.
+        '<a id="content-and-open-items"></a>',
+        "",
+        "### Tables with a difference from THO or an open item",
         "",
         f"**{len(changed)} tables differ from THO** in at least one element "
         f"that survived into the published artifact, **{len(with_issues)} "
@@ -745,6 +749,17 @@ def render_page(report, write_report, index, register):
         "a decision** and have nothing published for them yet. Everything "
         "else either matches THO on every element compared, or is content THO "
         "has never seen.",
+        "",
+        # See the matching note in generate_table_index.py. The two pages count
+        # different things and their totals differ by an order of magnitude;
+        # each states its own count and points at the other's question rather
+        # than repeating the other's number.
+        "This is about **content and governance**. Whether the right kind of "
+        "artifact exists at all is a separate question, answered by "
+        "[the tables whose artifact is missing, unexpected, or cannot expand]"
+        "(table-index.html#coverage-anomalies) "
+        "on the table index — a much shorter list. A table can appear on both "
+        "lists, on one, or on neither.",
         "",
         "Each of these tables has its section heading shaded below, so the "
         "same information is available to somebody scrolling the page rather "

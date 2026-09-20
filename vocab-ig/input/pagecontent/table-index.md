@@ -36,7 +36,13 @@ For most tables the artifact exists **both here and in THO** — this guide is a
 
 Every shaded row repeats its reason in the Notes column, so the page reads correctly without the colours.
 
-#### The 20 rows that need a second look
+<a id="coverage-anomalies"></a>
+
+#### The tables whose artifact is missing, unexpected, or cannot expand
+
+**20 tables** qualify.
+
+These are **coverage** anomalies — the artifact is not where this table's route predicts it would be. That is a different question from whether a table's *content* differs from THO, or whether it carries an open register item; for those, see [Tables with a difference from THO or an open item](table-ledger.html#content-and-open-items), which lists a considerably larger set. A table can appear on both lists, on one, or on neither.
 
 | Table | Name | Why |
 |---|---|---|

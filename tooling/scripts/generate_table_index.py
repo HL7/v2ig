@@ -767,7 +767,36 @@ def render_page(rows):
         "Every shaded row repeats its reason in the Notes column, so the page reads "
         "correctly without the colours.",
         "",
-        f"#### The {len(exceptions)} rows that need a second look",
+        # An explicit anchor, because the ledger links to this section by id.
+        # Every cross-page link in this guide targets an authored id rather
+        # than a heading slug the publisher generates, so that retitling a
+        # section cannot silently break an inbound link.
+        '<a id="coverage-anomalies"></a>',
+        "",
+        "#### The tables whose artifact is missing, unexpected, or cannot "
+        "expand",
+        "",
+        f"**{len(exceptions)} tables** qualify.",
+        "",
+        # This page and the table ledger both single out a set of tables, and
+        # the two sets are answers to different questions: this one is about
+        # whether the right KIND of artifact exists at all, the ledger's is
+        # about whether its CONTENT disagrees with THO or somebody still owes a
+        # decision. Neither is a subset of the other. The counts differ by an
+        # order of magnitude, so say plainly what each one counts -- a reader
+        # who meets both without this paragraph concludes one page is broken.
+        # The ledger's own count is deliberately NOT repeated here: it is
+        # computed in render_table_ledger.py from data this script does not
+        # read, and a number maintained in two places is what made this
+        # confusing in the first place.
+        "These are **coverage** anomalies — the artifact is not where this "
+        "table's route predicts it would be. That is a different question "
+        "from whether a table's *content* differs from THO, or whether it "
+        "carries an open register item; for those, see "
+        "[Tables with a difference from THO or an open item]"
+        "(table-ledger.html#content-and-open-items), "
+        "which lists a considerably larger set. A table can appear on both "
+        "lists, on one, or on neither.",
         "",
         "| Table | Name | Why |",
         "|---|---|---|",

@@ -33,9 +33,13 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 **2 tables give an OID that disagrees with THO's** — [0001](#tbl-0001), [0719](#tbl-0719). THO's is published in both cases, because the canonical URL is THO's and an identifier is identity rather than content. Each is set out in that table's own section.
 
-### Tables that need a second look
+<a id="content-and-open-items"></a>
+
+### Tables with a difference from THO or an open item
 
 **96 tables differ from THO** in at least one element that survived into the published artifact, **101 carry an open register item**, and **14 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
+
+This is about **content and governance**. Whether the right kind of artifact exists at all is a separate question, answered by [the tables whose artifact is missing, unexpected, or cannot expand](table-index.html#coverage-anomalies) on the table index — a much shorter list. A table can appear on both lists, on one, or on neither.
 
 Each of these tables has its section heading shaded below, so the same information is available to somebody scrolling the page rather than following a link from here. Where a table qualifies on more than one count, the heading is shaded for the most serious of them and the line beneath it names them all.
 

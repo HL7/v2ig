@@ -459,3 +459,26 @@ class TestLedgerLinks:
         # index row -- so it is derived, not asserted as a constant.
         assert {r["table"] for r in linked} == {r["table"] for r in rows} & anchors
         assert 0 < len(linked) < len(rows)
+
+
+class TestTheCrossLinkToTheLedger:
+    """The two pages each single out a set of tables, and the sets answer
+    different questions. Each page must say so and reach the other, by an
+    anchor it authors rather than one the publisher derives from a heading."""
+
+    def test_the_section_carries_the_anchor_the_ledger_links_to(self):
+        page = gti.render_page(gti.build_rows())
+        assert '<a id="coverage-anomalies"></a>' in page
+
+    def test_the_section_points_at_the_ledger(self):
+        page = gti.render_page(gti.build_rows())
+        assert "table-ledger.html#content-and-open-items" in page
+
+    def test_the_count_is_out_of_the_heading_so_the_anchor_cannot_move(self):
+        page = gti.render_page(gti.build_rows())
+        assert "#### The tables whose artifact is missing, unexpected, or "\
+               "cannot expand" in page
+
+    def test_the_reader_is_told_the_two_lists_measure_different_things(self):
+        page = gti.render_page(gti.build_rows())
+        assert "A table can appear on both lists, on one, or on neither." in page
