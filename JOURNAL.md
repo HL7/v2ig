@@ -18,140 +18,137 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-19 (the plane review: two of four sessions done)
+## ACTIVE — 2026-09-20 (session 3: the fold is in, and nothing is built)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
 **Do not commit vocabulary work to `dev/framework`.**
 
-**Phase:** working through a 40-item review the reviewer wrote while travelling
-(`vocab-ig/michael_ig_review_202601918.md`). The plan splits it into four
-sessions; **sessions 1 and 2 are committed and built clean.** Disposition of
-every item, and every research finding behind it, is in
-**`v291-review/review-20260918-tracker.md`** — read that before anything else,
-it is the working state and none of it needs re-deriving.
+### Read this before anything else
 
-Commits: `49ecefc3` (presentation, numbering), `6a896e44` (versioning carve-out,
-status letters, 0292, 0227). Build: exit 0, **errors 3479, warnings 145, broken
-links 0**, 464 tests.
+**`vocab-ig/output/` is EMPTY and the IG is dark.** A build was started and
+killed about a minute in, and the publisher wipes `output/` on startup. Nothing
+is broken — but there is no IG to look at until someone rebuilds, and the last
+build numbers quoted anywhere in this file describe a tree three commits old.
+
+**Nothing from this session has been through the publisher.** Three commits
+landed and 490 tests pass, but every claim below about how the guide *renders*
+is unverified.
 
 ### First thing next session
 
-**Session 3 — fold the review report into the IG.** The reviewer's words: *"we
-need to nicely fold the vocabulary review report into the reporting that this
-IG contains. We want one product that has everything — issues, changes, and the
-publication itself."* This is the largest remaining item and wants a fresh
-context.
+**Build.** The command is at the foot of this section. Then check four things,
+in this order, because this session changed the page set rather than the
+content of a page:
 
-`v291-extracted/vocabulary-review-report.html` is 1.76 MB: 93 groups, ~2,125
-values, bucketed For-V2-Mgmt (34) / Decide (19) / Decided (1,528) /
-Informational (544). **Decided and Informational go on an auxiliary evidence
-page** — the reviewer agreed it exists as proof rather than as a review ask.
-Also in session 3:
+1. **Broken links — the metric was 0 and this session moved a lot of links.**
+   `general-questions.html` no longer exists. Its inbound links were retargeted
+   at `open-items.html#<question-id>`, generated through `question_anchor()`,
+   which raises on an unknown id — so a *dangling* link should be impossible,
+   but a *wrong anchor* is not. Confirm the two cross-links land on the right
+   question: the ledger's table-OID paragraph → question 6, the merge page's
+   reordering paragraph → question 1.
+2. **`evidence.md` is 1.79 MB**, against 484 KB for the previous largest page
+   (`table-index.md`). That is 3.7x anything the publisher has been asked to do
+   here. If it chokes, or the page is unusable in a browser, the split is
+   Decided (1,534) / Informational (544) on two pages — the generator already
+   groups by action class, so it is a small change to
+   `build_evidence_page()`.
+3. **Section numbering on the two new pages.** Both start at `###` and a test
+   holds that, but the CSS-counter scheme has surprised us twice.
+4. **Errors should fall by ~191** — 3479 → ~3288 — because the `conceptdomains`
+   narrative links are fixed. If they do not, the fix is not reaching the
+   published resource.
 
-- **Reconcile the two "needs a second look" computations, which disagree.** The
-  table index says 21 rows (THO presence/absence); the ledger says 97 changed +
-  73 register-named (merge observations + the register). Different inputs,
-  never reconciled, and a reader meets both.
-- The 7 register items and all 9 `vocabulary-future-corrections.md` items that
-  reach no IG page. They have nowhere to land because they name no table; the
-  register page is that home.
+### What landed this session
 
-**Session 4** is the field mapping: promote `render_field_mapping.py` into the
-IG as a page, then the Ch2c-steward ↔ THO `structuredefinition-wg` comparison
-(there is no steward extension in THO — that is the real comparison target),
-and the external-code-system → ValueSet-canonical gap analysis.
+- **`3a6b1acd` — the v3 narrative links now use the canonical.** The reviewer
+  overruled the page-URL choice recorded in `935153b0`: the HL7 proxy redirects
+  the canonical to the rendered page, so the redirect hop that argument turned
+  on costs nothing. All 191 hrefs across six targets. Implemented as
+  `absolutize_narrative_links()` in `generate_concept_domains.py`, which
+  rewrites a link only when the THO snapshot carries that code system at that
+  exact canonical and reports anything it declines to touch. Version unchanged
+  at 4.0.0.
+- **`70eac1e5` — the tracker's session-2 status column reconciled.** It still
+  read `todo` for fourteen rows that landed in `6a896e44`. Reconciled against
+  the commits and the register, evidence written under the table. This turned
+  up **three genuinely open items that were in neither session 3 nor 4**:
+  **S2-15** (no `deprecated` value for `CodeSystem.status` → backlog entry),
+  **S2-16** (property-instance suppression — the one with teeth), and **S2-20**
+  (classify the page-URL/missing-space defects against the errata rubric).
+- **`9954d3c2` — the review report is folded into the guide.**
+
+### The fold, and the one decision behind it
+
+`open-items.html` — the 38-item register, the 7 authored general questions, the
+19 decisions still to take. `evidence.html` — 1,534 settled findings and 544
+disclosures, and it says outright that it asks for nothing.
+
+The split is **by the ACTION class the report already assigns**, not by a
+second judgement, so a group moves pages by being re-classed and cannot appear
+on both. An unrouted class stops the run.
+
+**`general-questions.md` is absorbed and deleted.** The reviewer chose this over
+keeping it beside the generated pages: three review-facing pages was the
+duplication the fold is meant to kill. Its prose moved **verbatim** into
+`tooling/scripts/vocabulary_general_questions.py` — lifted programmatically,
+not retyped, and git records it as a rename, which is the check. Question
+numbers 1-7 and their ids are stable and are what cross-links use.
+
+**The standalone `v291-extracted/vocabulary-review-report.html` stays**, as a
+dev artifact. The reviewer's call. It shares `render_vocabulary_review_html`'s
+section builders with the IG pages, so the two cannot disagree about *what* the
+findings are — only about layout.
 
 ### Open questions for the reviewer
 
-None outstanding. The two that stood on 2026-09-19 were both closed on
-2026-09-20 — see *Settled* below.
+1. **Is `Evidence` the right name in the navbar?** It is currently
+   "For review → What needs an answer / Evidence / Known issues". Cheap to
+   change; nobody has seen it rendered.
+2. **The evidence page may want splitting** — see item 2 above. Not a decision
+   worth taking before seeing it.
 
+### Still open on the review
 
-### Settled 2026-09-20
+- **S3-03 — the two "needs a second look" computations still disagree.** Table
+  index says 21 rows; the ledger says 97 changed + 73 register-named. Different
+  inputs, never reconciled, and a reader meets both. **This is the largest
+  remaining session-3 item and it was not touched.**
+- S3-04 is **partial**: the fourteen tables are now grouped by cause on
+  `open-items`, and `known-issues.md` points at it, but the review-report
+  evidence per table is not folded into the ledger sections.
+- S2-15, S2-16, S2-20 as above.
+- **Session 4** untouched: promote `render_field_mapping.py` into the IG; decide
+  what maps to properties/extensions/nothing; Ch2c steward ↔ THO
+  `structuredefinition-wg`; external code systems → ValueSet canonical gaps.
 
-- **The v3 narrative links use the canonical, and the fix is done.** The
-  reviewer overruled the page-URL choice recorded in `935153b0`: the HL7 proxy
-  redirects the canonical to the rendered page, so the redirect hop that
-  argument turned on is not a cost worth paying. All 191 hrefs in
-  `CodeSystem.text.div` now read
-  `http://terminology.hl7.org/CodeSystem/v3-<Name>` across six distinct
-  targets (ActClass 97, RoleClass 60, EntityClass 26, ActMood 4,
-  ParticipationType 3, ActCode 1). Implemented in
-  `generate_concept_domains.py` as `absolutize_narrative_links()`, which
-  rewrites a link only when the THO snapshot carries that code system at that
-  canonical, and reports anything it declines to touch rather than guessing.
-  Version unchanged at 4.0.0 — narrative is not compared by the merge and is
-  not in the versioning element tables. The 19 canonical hrefs on the table
-  index still stay as they are; different job.
-- **The eleven comma bumps need no review.** The reviewer declined the offer to
-  see the list: the ruling stands and the increments stand. Not an open item.
+### Things that will bite
 
-- **ADR-0011 is Accepted.** The reviewer read both ADRs and is content
-  with the plan for 0560 and 0292, and independently made ADR-0011's own
-  argument: a general rule that catches one exception table is not worth
-  finding. 0292 is keyed by table number, which is what ADR-0011 already does.
-  The one general rule that stands is 0227's truncated-prefix condition, kept
-  because it has **15 latent members** — the other truncated descriptions become
-  recoverable the moment THO gains their text, which the register is asking for.
-- **The policy PDFs are on the orphan branch `reference/policy-snapshots`**
-  (`bd2f96b7`), which shares no history with anything and is never merged. They
-  are off the working tree entirely and gitignored so a re-export does not look
-  like new work. `tho_versioning_policy.py`'s docstring says how to get them
-  back. **Note the hazard if you ever do this again: from an orphan branch the
-  whole repo looks untracked, so switching away needs `git checkout -f` — take
-  checksums of untracked files first.**
-
-### What the build numbers mean now
-
-**Errors 3479, warnings 145, broken links 0**, and every number is accounted
-for. 3,267 errors are `designation.language` against an unreachable
-`tx.fhir.org`; ~191 are the `conceptdomains` hyperlinks above; one is a
-terminology-server cache error on the new 0292 resource. Of the warnings, a
-large block is **"multiple different potential matches for the url"** — one per
-artifact whose version differs from the loaded THO package. Verified: every
-warned table is an incremented one, and no un-incremented table is warned. It
-grows with every future increment and is now documented on the Known issues
-page. **It is not a defect.**
-
-### Things that will bite the next session
-
-- **Build order changed.** `generate_table_index.py` now reads the generated
-  `table-ledger.md` to learn which tables have a section, so it must run
-  **after** `render_table_ledger.py`. Sequence: `write_utg_xml.py` →
+- **Build order has a new step.** `render_review_pages.py` must run after
+  `generate_concept_domains.py` (it reads the divergences) and before
+  `stage_vocab_ig.py`. Full sequence:
+  `generate_concept_domains.py` → `write_utg_xml.py` →
   `render_tho_merge_page.py` → `render_table_ledger.py` →
-  `generate_table_index.py` → `stage_vocab_ig.py`.
+  `generate_table_index.py` → `render_review_pages.py` → `stage_vocab_ig.py`.
+  **There is still no orchestrator script** — this is the third ordering
+  constraint held only by this note, and it is worth thirty lines to fix.
+- **`ADR-0010` names `general-questions.html` and `general-questions.md`, and
+  those are gone.** Left alone deliberately: an accepted ADR is immutable and
+  records what was true when it was written. Do not "fix" it.
 - **Every page starts at `###`.** The template emits the page title as `<h2>`
-  and numbers with CSS counters where `h2:before` prints only the page number
-  with no counter of its own. A markdown `#` or `##` anywhere on a page breaks
-  the numbering for the whole page. Generators emit `###`/`####`; keep it that
-  way.
-- **The publisher-already-running check in `MEMORY.md` used to be wrong** and
-  is now fixed. Match on `comm`, not the command line: the Bash tool wraps
-  commands in `bash -c '<the command>'`, so grepping for the publisher path
-  matches the wrapper and always reports a false positive.
-- `stage_vocab_ig.py` self-checks the counts quoted on `index.md`. Believe it.
-  ValueSets are now **424**, not 423 — 0292 added one.
+  and numbers with CSS counters; a `#` or `##` anywhere breaks numbering for
+  the whole page. Tests hold this for the two new pages.
+- **`grep` cannot search for a NUL byte** — `grep -c $'\x00'` is an *empty*
+  pattern and matches every line, which reads as a catastrophic result. Check
+  for NULs in Python. Tests now hold that both new pages have none.
+- The publisher-already-running check: match on `comm`, not the command line.
+- `stage_vocab_ig.py` self-checks the counts on `index.md`. Believe it.
+  399 CodeSystems, 424 ValueSets, 824 total.
 
 ### Register — 38 items
 
-Added: `esc-0292-cdo-contradiction`, `esc-0567-0568-representation`,
-`esc-v2tables-retirement`, `esc-deprecation-flag-contradicts-status`.
-Amended: `esc-oid-conflicts` (0078 added as a third instance, one we create
-rather than inherit), `esc-tables-that-should-be-domains`,
-`esc-0133-contradictory`, `esc-status-n-b-undefined`.
-
-### How to look at the IG
-
-Build output at **`vocab-ig/output/index.html`**. `/workspace` is a virtiofs
-bind mount and the output is static HTML with relative links, so opening the
-file works. Over HTTP: bind `0.0.0.0`, never `127.0.0.1`; container 3000 →
-host 20010.
-
-```
-cd /workspace && nohup python3 -m http.server "$MOSH_PORT" --bind 0.0.0.0 \
-  >/tmp/s.log 2>&1 &
-```
+Unchanged this session.
 
 ### Build
 
@@ -165,12 +162,23 @@ PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
 
 ~16 min, **silent for ~13 of them** during "Run Template" — check the process
 is alive rather than assuming it hung, with
-`ps -eo pid,etime,comm,args | awk '$3=="java"'`. The publisher wipes `output/`
-on startup, so the IG is dark for the duration.
+`ps -eo pid,etime,comm,args | awk '$3=="java"'`. **`kill` on the shell wrapper
+does not stop the JVM**; kill the java pid, or two publishers write the same
+directory.
+
+### How to look at the IG
+
+Build output at **`vocab-ig/output/index.html`** — empty right now. Over HTTP:
+bind `0.0.0.0`, never `127.0.0.1`; container 3000 → host 20010.
+
+```
+cd /workspace && nohup python3 -m http.server "$MOSH_PORT" --bind 0.0.0.0 \
+  >/tmp/s.log 2>&1 &
+```
 
 ### Not ours — leave alone
 
-Five untracked files belong to the **structural** workstream (`dev/framework`):
+Three untracked files belong to the **structural** workstream (`dev/framework`):
 `tooling/scripts/render_message_structures_html.py`,
 `tooling/scripts/render_three_way_html.py`,
 `v291-extracted/message-structures-decision-report.html`,
@@ -180,6 +188,79 @@ them in — stage vocabulary files explicitly.**
 
 
 ## Session History
+
+## 2026-09-20 — One product: the report becomes two pages of the guide
+
+Short session, ended for a flight. Three commits, no build.
+
+### The reviewer overruled yesterday's URL decision, and was right
+
+`935153b0` had reasoned carefully to the wrong answer: THO's page URL returns
+200 directly while the canonical 302s to a version-pinned page, so the page URL
+avoided a redirect hop. The reviewer's answer — the HL7 proxy redirects the
+canonical to the rendered page, so the hop is free — makes the hop a
+non-argument, and what is left is that the canonical is the identifier we
+actually mean. Worth recording because the earlier reasoning was sound and
+still reached the wrong place: it optimised the mechanism and never asked what
+the link was *for*.
+
+The rewrite proves each target against the THO snapshot before writing it,
+rather than pattern-matching `CodeSystem-X.html` into a canonical. That is not
+defensive dressing: the pattern would happily mint a plausible URL for a code
+system THO does not publish, and nothing downstream would catch it.
+
+### Asking a question turned up work nobody had counted
+
+The reviewer asked what else was left. Answering it honestly meant checking the
+tracker rather than quoting it — and the session-2 status column had never been
+updated, so fourteen rows read `todo` for work that shipped in `6a896e44`.
+Reconciling it surfaced **three items that were in no session's plan**: S2-15,
+S2-16 and S2-20. S2-16, property-instance suppression, is real work.
+
+The general lesson is the boring one: a status column that is written once and
+never reconciled is worse than no status column, because it reads as current.
+
+### The fold, and the choice not to keep three pages
+
+Offered three shapes for `general-questions.md`; the reviewer took the most
+invasive one — absorb it. That is the right call for "one product" and it is
+also the one that risks mangling 371 lines of their own prose, so the lift was
+done **programmatically**, splitting the file on its own headings and writing
+the parts out as literals. Git reports the result as a rename of the page into
+the module, which is the evidence that nothing was retyped.
+
+One structural thing worth keeping: **the split between the two pages is by the
+ACTION class the report already assigns.** The alternative — deciding
+page-by-page what counts as an ask — would have been a second classification
+that could drift from the first. As built, re-classing a group moves it, and an
+action class with no page assignment stops the run rather than dropping the
+group quietly. That last case is the one that would never have been noticed.
+
+Rows became blocks rather than table rows, because the findings carry
+paragraphs and nested evidence tables that a Markdown table cannot hold. The
+standalone report gets away with a grid because it is a catalog; an agenda of
+sixty items is a list.
+
+### Two things that cost time and should not cost it again
+
+**`grep -c $'\x00'` reports every line as a hit.** Bash cannot put a NUL in a
+string, so the pattern is empty. It looked exactly like having reintroduced the
+NUL-byte bug from session 1 — 653 and 11,490 of them. There were zero. Check
+binary content in Python.
+
+**`git add` of a path list is not the same as staging a directory.** Kept to
+explicit paths throughout, per the standing note, and the three
+structural-workstream files stayed untracked.
+
+### Left dark
+
+A build was started and killed a minute in at the reviewer's request, and the
+publisher wipes `output/` on startup. The IG does not exist on disk right now.
+Everything this session did to the page set — a deleted page, two new ones, a
+changed navbar and a changed page registration — is therefore unverified, and
+the first job next session is to build and check the four things the ACTIVE
+section lists.
+
 
 ## 2026-09-19 — The plane review: presentation, then the rulings
 
@@ -494,81 +575,3 @@ server is down.
 - The fill report is 1.8 MB and rewritten every run. That is in line with what
   `v291-extracted/` already carries, and it is the thing the per-table ledger
   will read.
-
-## 2026-09-16 → 2026-09-17 — A table index, and what comparing against THO actually found
-
-### Completed
-
-**The guide has a table index.** One row per Chapter 2C table, keyed by table
-number, resolving each to the artifacts that represent it — in this guide, in
-THO, or nowhere. Published as `table-index.html`, linked from the home page,
-generated by `tooling/scripts/generate_table_index.py` with 40 tests.
-
-The link rule the user specified: visible text is always the THO canonical
-because that is the identifier, but the link resolves **into this guide** where
-we author the artifact, falling through to THO only where we do not. A marker
-says which. That is right for a review draft — a reviewer clicking a canonical
-should land on the thing under review.
-
-**The comparison against `tho-r5/` is the real output of the session.** 383 of
-396 code systems differ from THO; only 13 are byte-equivalent. 388 of 413 value
-sets *are* byte-equivalent, because 408 of 422 have a bare "all codes" include
-and have nothing to diverge on. The user predicted that asymmetry before it was
-measured.
-
-**Five register items**, all found by putting the two corpora side by side
-rather than by inspection: four THO value sets that cannot expand, 35
-`vocab-domain` values that resolve to nothing, the `SiteAdminstered`
-misspelling, 0133's three mutually contradictory self-descriptions, and two OID
-conflicts. Register is at 29.
-
-**Concept domain codes lost their spaces.** Four had them; squishing fixed 0180
-for free, since `Masterfile Action Code` squishes to a code THO already
-publishes.
-
-### The finding that changes the plan
-
-**4,855 concept definitions exist in THO and are absent from our output.** Not
-missing codes — missing *definitions*, across 382 code systems. It follows from
-the settled rule that `definition` is never back-filled from `display`, which is
-correct about inventing definitions and has the unintended consequence of
-stripping text THO already wrote, at THO's own canonical.
-
-The user's response was to take an **additive stance** pending a definitive
-answer at Rockville: the point of this work is to *add* Chapter 2C's information
-to THO, and that does not require removing anything. A computable record of
-every fill is wanted; a human-readable description of each *class* of fill is
-enough, because enumerating 4,855 is not useful to anyone.
-
-### Corrections taken during the session
-
-Five, three of which would have shipped something wrong:
-
-- **Reported that the corpus policy was "inherit THO's version unchanged" and
-  argued `conceptdomains` should drop to 3.0.0 to match.** The facts were right
-  and the conclusion inverted: under UTG policy those 383 artifacts are all
-  *wrong* and `conceptdomains` is the only one right. Compounded by a script bug
-  — an ElementTree element with no children is falsy, so `(elem or {}).get()`
-  returned `None` for every version and reported "0 match THO".
-- **Claimed `AdministratableDrugForm` was an undocumented duplicate.** It is a
-  deliberate CDA R2 backwards-compatibility synonym, carries `synonymCode` and
-  `openIssue` properties, and is `source: cda` — out of scope entirely. The
-  error was truncating both definitions to 90 characters, seeing them match, and
-  calling them identical; the misspelled one has an extra paragraph explaining
-  itself.
-- **Rendered invented canonicals as fact.** Constructed `CodeSystem/v2-0010` as
-  a lookup key so the THO check had something to test, then printed it in the
-  cell as though it described an artifact. The user caught it.
-- **Killed a shell wrapper instead of a JVM**, so two publishers wrote the same
-  output directory concurrently. Neither would have announced the collision.
-- **Stamped `new in 4.0.0` on 204 rows**, asserting a version THO has never
-  issued. Removed; rows now say only whether a concept is in THO.
-
-Also reported "37 of 624 `vocab-domain` values are missing" as though those rows
-were in the index. They are not — all 35 remaining are among 39 tables Chapter
-2C no longer carries, so no row of the guide is affected.
-
-### Not done
-
-None of the agreed plan. The additive merge, the computed version bumps, 0560,
-the per-table ledger and the two ADRs are all next session's work.

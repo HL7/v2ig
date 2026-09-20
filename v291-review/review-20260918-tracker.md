@@ -75,10 +75,11 @@ handoff folds into session 3.
 | ID | Item | Status |
 |---|---|---|
 | S3-00 | v3 narrative links: 191 hrefs rewritten to the THO canonical (reviewer overruled the page-URL choice — the HL7 proxy redirects) | done |
-| S3-01 | Fold `vocabulary-review-report.html` into the IG (93 groups, ~2,125 values) | todo |
-| S3-02 | Decided (1,528) + Informational (544) become an auxiliary evidence page, not a review ask | decided |
+| S3-01 | Fold `vocabulary-review-report.html` into the IG (94 groups, 2,135 values) | done, unbuilt |
+| S3-02 | Decided (1,534) + Informational (544) become an auxiliary evidence page, not a review ask | done, unbuilt |
+| S3-05 | Absorb `general-questions.md` into the generated ask page (reviewer chose this 2026-09-20) | done, unbuilt |
 | S3-03 | Reconcile the two disagreeing "needs a second look" computations (index 21 rows vs ledger 97+57) | todo |
-| S3-04 | Fourteen tables with nothing written — fold review-report evidence in | todo |
+| S3-04 | Fourteen tables with nothing written — fold review-report evidence in | partial: grouped by cause on `open-items`; known-issues points at it |
 
 ## Session 4 — field mapping and audits
 
