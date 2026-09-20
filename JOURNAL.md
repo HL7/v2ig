@@ -18,7 +18,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-20 (session 3: the fold is in, and nothing is built)
+## ACTIVE — 2026-09-20 (session 4: built, verified, and briefed for Rockville)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
@@ -26,129 +26,103 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 
 ### Read this before anything else
 
-**`vocab-ig/output/` is EMPTY and the IG is dark.** A build was started and
-killed about a minute in, and the publisher wipes `output/` on startup. Nothing
-is broken — but there is no IG to look at until someone rebuilds, and the last
-build numbers quoted anywhere in this file describe a tree three commits old.
+**The IG is built and everything in it is verified.** `vocab-ig/output/` is
+populated — 9,647 files. Errors **3288**, Warnings 145, **Broken Links 0**.
+This is the first session in three where the numbers quoted below are real.
 
-**Nothing from this session has been through the publisher.** Three commits
-landed and 490 tests pass, but every claim below about how the guide *renders*
-is unverified.
+**One thing is built-but-unverified: `cac6c77e` (the S3-03 fix).** Its pages are
+regenerated and tested but have not been through the publisher. Presentation
+only, and the anchor pattern it relies on was proven by this build, so the risk
+is low — but it is the one outstanding claim.
 
 ### First thing next session
 
-**Build.** The command is at the foot of this section. Then check four things,
-in this order, because this session changed the page set rather than the
-content of a page:
+**The user is at the HL7 Plenary in Rockville and meets the Terminology
+Infrastructure WG on the morning of Monday 2026-09-21.** The briefing for that
+meeting is written and committed. The first move next session is almost
+certainly **whatever the room said** — capture it while it is fresh, because
+several of the guide's open questions are addressed to exactly those people.
 
-1. **Broken links — the metric was 0 and this session moved a lot of links.**
-   `general-questions.html` no longer exists. Its inbound links were retargeted
-   at `open-items.html#<question-id>`, generated through `question_anchor()`,
-   which raises on an unknown id — so a *dangling* link should be impossible,
-   but a *wrong anchor* is not. Confirm the two cross-links land on the right
-   question: the ledger's table-OID paragraph → question 6, the merge page's
-   reordering paragraph → question 1.
-2. **`evidence.md` is 1.79 MB**, against 484 KB for the previous largest page
-   (`table-index.md`). That is 3.7x anything the publisher has been asked to do
-   here. If it chokes, or the page is unusable in a browser, the split is
-   Decided (1,534) / Informational (544) on two pages — the generator already
-   groups by action class, so it is a small change to
-   `build_evidence_page()`.
-3. **Section numbering on the two new pages.** Both start at `###` and a test
-   holds that, but the CSS-counter scheme has surprised us twice.
-4. **Errors should fall by ~191** — 3479 → ~3288 — because the `conceptdomains`
-   narrative links are fixed. If they do not, the fix is not reaching the
-   published resource.
+If the meeting has not happened yet, the useful work is **build `cac6c77e`** and
+confirm broken links stay at 0.
 
 ### What landed this session
 
-- **`3a6b1acd` — the v3 narrative links now use the canonical.** The reviewer
-  overruled the page-URL choice recorded in `935153b0`: the HL7 proxy redirects
-  the canonical to the rendered page, so the redirect hop that argument turned
-  on costs nothing. All 191 hrefs across six targets. Implemented as
-  `absolutize_narrative_links()` in `generate_concept_domains.py`, which
-  rewrites a link only when the THO snapshot carries that code system at that
-  exact canonical and reports anything it declines to touch. Version unchanged
-  at 4.0.0.
-- **`70eac1e5` — the tracker's session-2 status column reconciled.** It still
-  read `todo` for fourteen rows that landed in `6a896e44`. Reconciled against
-  the commits and the register, evidence written under the table. This turned
-  up **three genuinely open items that were in neither session 3 nor 4**:
-  **S2-15** (no `deprecated` value for `CodeSystem.status` → backlog entry),
-  **S2-16** (property-instance suppression — the one with teeth), and **S2-20**
-  (classify the page-URL/missing-space defects against the errata rubric).
-- **`9954d3c2` — the review report is folded into the guide.**
-
-### The fold, and the one decision behind it
-
-`open-items.html` — the 38-item register, the 7 authored general questions, the
-19 decisions still to take. `evidence.html` — 1,534 settled findings and 544
-disclosures, and it says outright that it asks for nothing.
-
-The split is **by the ACTION class the report already assigns**, not by a
-second judgement, so a group moves pages by being re-classed and cannot appear
-on both. An unrouted class stops the run.
-
-**`general-questions.md` is absorbed and deleted.** The reviewer chose this over
-keeping it beside the generated pages: three review-facing pages was the
-duplication the fold is meant to kill. Its prose moved **verbatim** into
-`tooling/scripts/vocabulary_general_questions.py` — lifted programmatically,
-not retyped, and git records it as a rename, which is the check. Question
-numbers 1-7 and their ids are stable and are what cross-links use.
-
-**The standalone `v291-extracted/vocabulary-review-report.html` stays**, as a
-dev artifact. The reviewer's call. It shares `render_vocabulary_review_html`'s
-section builders with the IG pages, so the two cannot disagree about *what* the
-findings are — only about layout.
+- **Built the vocabulary IG and verified all four checks** the previous handoff
+  set. Every prediction held:
+  1. **Broken links 0**, across 625,068 links. `general-questions.html` is gone
+     and both retargeted cross-links resolve — the ledger's table-OID paragraph
+     reaches question **6**, the merge page's reordering paragraph reaches
+     question **1**, which is what was specified.
+  2. **`evidence.md` did not choke.** 1.79 MB in, 1.81 MB HTML, 91 sections, no
+     publisher complaint. Whether it is *pleasant* to read is still open.
+  3. **Section numbering intact** — both new pages are h3/h4 under the
+     template's single h2.
+  4. **Errors fell 3479 → 3288**, a drop of exactly **191**, matching the
+     narrative-link count. The fix reaches the published resource.
+- **`cac6c77e` — S3-03 closed.** See the session entry for the reasoning; the
+  short version is that both counts were right and only the shared title was
+  wrong. **497 tests pass** (490 + 7 new).
+- **`ec2df186` — the Terminology Infrastructure WG briefing**, authored in
+  `tooling/scripts/render_ti_briefing.py`, rendered to
+  `v291-extracted/ti-briefing.{html,md}`.
 
 ### Open questions for the reviewer
 
-1. **Is `Evidence` the right name in the navbar?** It is currently
-   "For review → What needs an answer / Evidence / Known issues". Cheap to
-   change; nobody has seen it rendered.
-2. **The evidence page may want splitting** — see item 2 above. Not a decision
-   worth taking before seeing it.
+Both are now *answerable* — the IG is built and can be looked at.
+
+1. **Is `Evidence` the right name in the navbar?** Currently "For review → What
+   needs an answer / Evidence / Known issues".
+2. **Does the evidence page want splitting?** It renders at 1.81 MB and 91
+   sections. If it does, the split is Decided (74 groups, 1,534 values) /
+   Informational (17 groups, 544 values) — the generator already groups by
+   action class, so it is a small change to `build_evidence_page()`.
 
 ### Still open on the review
 
-- **S3-03 — the two "needs a second look" computations still disagree.** Table
-  index says 21 rows; the ledger says 97 changed + 73 register-named. Different
-  inputs, never reconciled, and a reader meets both. **This is the largest
-  remaining session-3 item and it was not touched.**
-- S3-04 is **partial**: the fourteen tables are now grouped by cause on
+- **S3-04 is partial**: the fourteen tables are grouped by cause on
   `open-items`, and `known-issues.md` points at it, but the review-report
   evidence per table is not folded into the ledger sections.
-- S2-15, S2-16, S2-20 as above.
-- **Session 4** untouched: promote `render_field_mapping.py` into the IG; decide
-  what maps to properties/extensions/nothing; Ch2c steward ↔ THO
+- **S2-15** (no `deprecated` value for `CodeSystem.status` → backlog entry),
+  **S2-16** (property-instance suppression — the one with teeth), **S2-20**
+  (classify the page-URL/missing-space defects against the errata rubric).
+- **Session 4 work untouched**: promote `render_field_mapping.py` into the IG;
+  decide what maps to properties/extensions/nothing; Ch2c steward ↔ THO
   `structuredefinition-wg`; external code systems → ValueSet canonical gaps.
+- **S3-03 is closed.**
 
 ### Things that will bite
 
-- **Build order has a new step.** `render_review_pages.py` must run after
-  `generate_concept_domains.py` (it reads the divergences) and before
-  `stage_vocab_ig.py`. Full sequence:
-  `generate_concept_domains.py` → `write_utg_xml.py` →
+- **There is still no orchestrator script.** The build order is held only by
+  this note, and it is now the *fourth* ordering constraint on the honour
+  system: `generate_concept_domains.py` → `write_utg_xml.py` →
   `render_tho_merge_page.py` → `render_table_ledger.py` →
   `generate_table_index.py` → `render_review_pages.py` → `stage_vocab_ig.py`.
-  **There is still no orchestrator script** — this is the third ordering
-  constraint held only by this note, and it is worth thirty lines to fix.
-- **`ADR-0010` names `general-questions.html` and `general-questions.md`, and
-  those are gone.** Left alone deliberately: an accepted ADR is immutable and
-  records what was true when it was written. Do not "fix" it.
-- **Every page starts at `###`.** The template emits the page title as `<h2>`
-  and numbers with CSS counters; a `#` or `##` anywhere breaks numbering for
-  the whole page. Tests hold this for the two new pages.
-- **`grep` cannot search for a NUL byte** — `grep -c $'\x00'` is an *empty*
-  pattern and matches every line, which reads as a catastrophic result. Check
-  for NULs in Python. Tests now hold that both new pages have none.
-- The publisher-already-running check: match on `comm`, not the command line.
+  Thirty lines. It has been deferred three sessions running.
+- **`pgrep -f` matches the Bash tool's own wrapper.** MEMORY documents this for
+  the java build check; it bit again this session on `pgrep -f "http.server"`,
+  which reported a server running when nothing was listening. **The trap is the
+  pattern, not the process** — match on `comm` for anything.
+- **Cross-page links must target an authored anchor**, never a heading slug the
+  publisher generates. `<a id="x"></a>` survives the publisher verbatim
+  (verified against `tbl-0001` in this build). Note that the *question* anchors
+  come out as `<a name="...">` — the older form — which is why they still pass
+  the link checker.
+- **Never interpolate a count into a heading.** It lands in the generated
+  anchor and breaks inbound links the first time the number moves. This was a
+  live bug in `generate_table_index.py`, caught before it shipped.
+- **`ADR-0010` names `general-questions.html`**, which is gone. Left alone
+  deliberately — an accepted ADR records what was true when written.
+- **Every page starts at `###`.** A `#` or `##` anywhere breaks CSS-counter
+  numbering for the whole page.
+- **`grep` cannot search for a NUL byte** — check in Python.
 - `stage_vocab_ig.py` self-checks the counts on `index.md`. Believe it.
   399 CodeSystems, 424 ValueSets, 824 total.
 
 ### Register — 38 items
 
-Unchanged this session.
+Unchanged this session. 57 open items total (39 escalations, 14 decisions) plus
+7 general questions.
 
 ### Build
 
@@ -160,25 +134,29 @@ PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
   -ig vocab-ig/ig.ini -no-sushi
 ```
 
-~16 min, **silent for ~13 of them** during "Run Template" — check the process
-is alive rather than assuming it hung, with
+~17 min, **silent for ~13 of them** during "Run Template" — check the process is
+alive rather than assuming it hung, with
 `ps -eo pid,etime,comm,args | awk '$3=="java"'`. **`kill` on the shell wrapper
 does not stop the JVM**; kill the java pid, or two publishers write the same
 directory.
 
 ### How to look at the IG
 
-Build output at **`vocab-ig/output/index.html`** — empty right now. Over HTTP:
-bind `0.0.0.0`, never `127.0.0.1`; container 3000 → host 20010.
+**No web server needed** — verified this session. The IG's own JS does no
+runtime data loading, so `file://` works: open `vocab-ig/output/index.html`
+directly. Only `searchform.html` pulls external CSS, and it needs a live search
+service anyway. External links out to hl7.org will not resolve offline, which is
+inherent to being offline.
 
-```
-cd /workspace && nohup python3 -m http.server "$MOSH_PORT" --bind 0.0.0.0 \
-  >/tmp/s.log 2>&1 &
-```
+The briefing is self-contained (inline CSS, no scripts):
+`v291-extracted/ti-briefing.html`.
+
+If a server is genuinely wanted: bind `0.0.0.0`, never `127.0.0.1`; container
+3000 → host 20010.
 
 ### Not ours — leave alone
 
-Three untracked files belong to the **structural** workstream (`dev/framework`):
+Five untracked files belong to the **structural** workstream (`dev/framework`):
 `tooling/scripts/render_message_structures_html.py`,
 `tooling/scripts/render_three_way_html.py`,
 `v291-extracted/message-structures-decision-report.html`,
@@ -188,6 +166,122 @@ them in — stage vocabulary files explicitly.**
 
 
 ## Session History
+
+## 2026-09-20 — Built, verified, and briefed for Rockville
+
+Three commits. The IG went from dark to built-and-checked, the last big
+session-3 item closed, and the Terminology Infrastructure WG briefing is
+written. Session ran against an airport clock throughout.
+
+### The build answered every question the last handoff asked
+
+Four checks were set, and the reason they were set is that the previous session
+changed the *page set* rather than the content of a page. All four passed, and
+two of them passed in a way worth recording.
+
+**The error count fell by exactly 191** — 3479 → 3288 — against a prediction of
+"~191" derived from the number of `conceptdomains` narrative links rewritten in
+`3a6b1acd`. An exact match on a number derived independently is the strongest
+evidence available that the fix reaches the published resource and is not
+merely present in the source.
+
+**The cross-links land on the right questions.** Broken links stayed at 0 across
+625,068, but 0 broken links only proves the anchors *exist* — `question_anchor()`
+raises on an unknown id, so a dangling link was already near-impossible. The
+open risk was a link that resolves to the *wrong* question. Checked
+positionally: the table-OID paragraph reaches question 6 and the reordering
+paragraph reaches question 1, as specified.
+
+Incidentally established: the question anchors render as `<a name="...">`, the
+older form, which is why the link checker accepts them.
+
+### S3-03: both numbers were right, which is why it survived three sessions
+
+The item read "the two 'needs a second look' computations still disagree — table
+index says 21 rows; the ledger says 97 changed + 73 register-named". The first
+finding was that **those numbers were stale**; the tree said 20 and
+96 / 101 / 14. The second finding was that the framing was wrong. They are not
+two computations of one quantity that disagree. They are two different
+quantities:
+
+- the **index** counts *coverage* — does the right KIND of artifact exist at
+  all (4 kinds: new to THO, in THO not here, dangling in THO, nothing anywhere);
+- the **ledger** counts *content and governance* — does it differ from THO, does
+  a register item name it, is someone still deciding.
+
+Neither is a subset of the other: 15 of the 20 are in the ledger's union, 5 are
+not, and 150 ledger tables are not in the 20. So there was nothing to
+reconcile and no recompute to do. The defect was that both sections were titled
+"tables that need a second look", so a reader met 20 and 165 and concluded a
+page was broken.
+
+Retitled both, each stating its own count, each pointing at the other's
+*question*. Two details are worth more than the fix:
+
+- **The index heading interpolated its count** (`The 20 rows...`). That number
+  would have landed in the generated anchor, so the ledger's new inbound link
+  would have broken the first time the count moved. Caught before shipping; the
+  heading is now static and the count sits below it. Generalised into the ACTIVE
+  section: never interpolate a count into a heading.
+- **The cross-links deliberately do not quote each other's number.**
+  `generate_table_index.py` cannot see the register or difference data, so
+  quoting the ledger's total would have meant a new cross-script dependency and
+  a figure maintained in two places — which is precisely the failure being
+  repaired. Each page owns its own count.
+
+Both links use authored anchors rather than publisher-generated heading slugs,
+matching every other cross-page link in the guide. That pattern was chosen
+before the build and confirmed by it: `<a id="tbl-0001">` survives verbatim.
+
+### The briefing, and what was left out of it
+
+`ec2df186` writes the Terminology Infrastructure WG briefing for the Monday
+morning meeting, following the established pattern — authored in
+`render_ti_briefing.py`, rendered to HTML with a Markdown twin, sharing
+`briefing_style`.
+
+The room already knows what a FHIR IG is and why this one exists, so there is no
+background section. It makes three claims and shows where each is backed:
+THO-additive, issues surfaced as classes, and an auditable record of both kinds
+of imperfection.
+
+**The walkthrough order is the one editorial argument worth defending.** The
+merge page comes second, immediately after Home, because the per-table pages
+only make sense once the reader accepts that we write into THO's *canonicals*.
+Until then "96 tables differ from THO" reads as a fork rather than a merge.
+
+**The asks are filtered rather than reprinted.** The guide carries 57 open items
+and 7 general questions; the briefing argues five, plus one item that is not in
+the register at all — **four THO value sets that compose from a code system THO
+does not publish and therefore cannot expand**. That is a live defect in THO,
+found by this work, not ours to fix, and this is the only room where raising it
+is useful. Tables 0560 and 0292 are named but not argued: they are about what
+Chapter 2C says and belong to V2 Management.
+
+**Every figure is transcribed, not computed**, and the briefing says so in its
+footer and states that the guide wins any disagreement. Authored prose goes
+stale, and a committee document that quietly contradicts the IG three weeks
+later is worse than no document.
+
+### Two traps, one old and one new
+
+`pgrep -f "http.server"` reported a server running when nothing was listening —
+it matched the Bash tool's own wrapper. MEMORY documents this trap for the java
+build check; the lesson generalises to any `-f`/command-line match, and the
+ACTIVE section now says so rather than naming one command.
+
+The second is the heading-interpolation bug above. It is recorded because it was
+caught by reasoning about the anchor rather than by a test, and there is still
+no test that would catch the next instance of it.
+
+### Not done
+
+The **orchestrator script** was deferred for the third session running. It is
+thirty lines and it now carries four ordering constraints. Each session it is
+deferred, the note it replaces gets longer.
+
+`cac6c77e` has not been through the publisher.
+
 
 ## 2026-09-20 — One product: the report becomes two pages of the guide
 
@@ -438,140 +532,3 @@ settled terminology-server baseline, unchanged), warnings 135.
 The 2026-09-17 plan is complete, so nothing is half-finished. Rockville is the
 week of 2026-09-21 — reading the 34-item register and the 9 General questions
 end to end, as a committee member would, is probably what is worth doing next.
-
-## 2026-09-17 — The merge with THO, versions computed from the policy, and table 0560
-
-### Completed
-
-**This guide no longer deletes THO's content.** Publishing at THO's canonicals
-means publishing *that artifact*, so everything our output left out was being
-removed from the thing the URL names. The merge is now additive: where THO has
-content and Chapter 2C has no opinion, THO's survives; where both have
-something and they differ, the chapter wins and the disagreement is recorded.
-7,575 fills — 4,855 concept definitions, 1,276 comments-as-published, 1,061
-translations, 211 codes, 122 usage notes, 40 deprecation markers.
-
-The user's ruling widened the original plan: *"We should retain everything that
-THO carries. If both carry something and there is a discrepancy, we need to
-call that out. We also need to call out situations where there are either codes
-that THO has but Ch2C doesn't or vice versa."* So the stance is not a list of
-three elements — it is every kind of content THO holds, with four kinds of
-observation recorded per instance (fill, discrepancy, addition, omission).
-
-**Version numbers are computed, not inherited.** The TSMG element tables are
-transcribed into `tho_versioning_policy.py` and the version is re-derived every
-run by comparing the merged artifact against THO's. **742 of 822 artifacts now
-keep the version THO already published**, against 383 of 396 code systems that
-would have had to increment before. The two problems were one problem: most of
-the bumps were the cost of the deletions.
-
-Transcribed rather than parsed because the PDFs are Confluence exports that are
-not checked in — a parser would only work on one machine. Reading them needs
-`pypdf`'s `extraction_mode="layout"`, or the four columns collapse and there is
-no telling which one each `x` sits in.
-
-**Table 0560 is published as the chapter publishes it** (ADR-0010). The chapter
-gives it a `noObject` code system block — and underneath it, five codes, the
-value set's OID, and a `all codes` definition; and THO already publishes both
-artifacts with those same five codes at an OID in the v2 arc. Four signals
-agree and only the marker disagrees. The rule is written on that evidence
-rather than on the table number: the placeholder is overridden only when the
-chapter lists codes, THO publishes a code system at the table's own canonical,
-and the chapter declares a value set. 0560 is the only table that qualifies;
-0910 has the same marker, no codes and no THO code system, and is untouched.
-
-**Two ADRs**, kept separate at the user's earlier choice: **ADR-0009** for the
-additive stance and the computed versions, **ADR-0010** for 0560.
-
-**A General questions page** (`general-questions.html`), hand-written, carrying
-the judgement calls with what rides on each. Four for TSMG, four for V2
-Management. This is where the user asked concept ordering and the punctuation
-question to live.
-
-### Three judgement calls, and what the user decided
-
-- **Whitespace is not a difference** — confirmed. 358 of 396 descriptions
-  differed from THO only in line wrapping.
-- **Concept order is not a change** — the user agreed, and asked that it be
-  noted and asked about rather than assumed. It is question 1 on the new page;
-  32 tables ride on it.
-- **A punctuation-only description difference does not increment, but stays
-  traceable, and the grammar gets fixed.** Implemented as `is_editorial()`:
-  same words in the same order means only punctuation moved. Chapter 2C's text
-  is the better one in all 12 cases (ours has the comma in `e.g.,`; ours has
-  `code system.` against THO's `code system .`), so publishing the chapter's is
-  the grammar fix.
-
-That last one needed splitting, which the original 14 "waivable" items hid: 12
-are punctuation and 2 are not. `ValueSet/v2-0227`'s THO description carries a
-PHIN VADS source URL ours drops, and `ValueSet/v2-0719`'s ends *"this resource
-was created in THO in error due to an oversight in the import processing."*
-Those two still increment and are listed for a decision.
-
-### Where `N` comes from
-
-Asked directly, and worth recording because the answer is "nowhere useful".
-Chapter 2C's own Status Codes legend defines `N` as **"new in this release"**
-and `B` as "backwards-compatible use only". The property is FHIR's `status`
-(`http://hl7.org/fhir/concept-properties#status`), whose definition names
-active, experimental, deprecated and retired as the typical values. `N` and `B`
-are in no code system, no value set and no property definition; across all of
-THO they appear only in v2 tables (210 `N`, 6 `B`).
-
-`N` is worse than undefined because it decays — nothing updates "this release"
-afterwards — which is exactly why **205 of the 261 status disagreements** are
-THO still saying `N` where the 2.9.1 chapter says nothing and we write `active`.
-
-### Two bugs found by looking at the output rather than the tests
-
-- **266 phantom additions.** The merge guarded on `ours is not None` where a
-  chapter row carries `""` for an unfilled column, so 266 empty strings were
-  reported as content this guide contributes. Both sides now test with
-  `is_absent`. No version numbers were affected — those are computed from
-  values, which never changed — but the report and the page were wrong.
-- **THO placeholders were being copied in.** All five of table 0560's concepts
-  are defined in THO as the literal string `"no definition"`, and the merge was
-  publishing it as a definition. A fill now requires THO's value to be real
-  content. `None` was briefly caught by the same net and had to be taken back
-  out: seven THO concepts have the display `None` and the definition `None`,
-  where None is the answer.
-
-### The build
-
-The first verification build came back with **3,479 errors against the previous
-216**, which needed running down rather than shipping. Every one of the new
-ones is `designation.language`: FHIR binds it to `all-languages`, which includes
-`urn:ietf:bcp:47`, which no package defines, so the validator asks
-`tx.fhir.org/r5` — and that answers with a cache error on every request. Three
-errors per designation, 1,061 designations.
-
-The suppression file did not work on the first try, and that is worth
-recording: the publisher read **every line of it, comments included**, as a
-pattern, and `%regex%` — which I had assumed was the syntax — is not supported
-at all. qa.html prints each pattern with a use count, which is how the failure
-became visible: 35 entries, every one at "(0 uses)". Nothing unintended was
-suppressed, but nothing intended was either. The real format is in
-`PublisherIGLoader` and `SuppressedMessageInformation` inside the publisher
-jar: a `== Suppressed Messages ==` header, `#` lines as reasons, and `%` as the
-wildcard. The file now matches that and **is still unverified** — the next
-build settles it.
-
-Dropping the designations instead would have meant deleting the content the
-merge exists to keep, so suppression is the only route while the terminology
-server is down.
-
-### Non-obvious context for next time
-
-- **`stage_vocab_ig.py` self-checks the resource counts quoted on `index.md`.**
-  It caught 398/422 going stale at 399/423 when 0560 arrived. Believe it.
-- **`build_code_system` and `build_value_set` are now thin wrappers.** The work
-  is in `plan_*` (settle every value, merge, compute the version) and
-  `render_*` (build the XML once). Merging on a node tree would have been
-  unreadable, and the split is what let the existing 290 tests keep passing
-  untouched — the builders still work with no THO snapshot on disk, which is
-  the path every one of those tests takes.
-- **`--no-tho-merge`** writes what Chapter 2C says and nothing else, if the
-  chapter-only output is ever needed for comparison.
-- The fill report is 1.8 MB and rewritten every run. That is in line with what
-  `v291-extracted/` already carries, and it is the thing the per-table ledger
-  will read.
