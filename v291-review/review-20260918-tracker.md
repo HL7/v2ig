@@ -61,6 +61,7 @@ sections 449 -> 473 after the missing-section fix; 455 index rows link to one.
 
 | ID | Item | Status |
 |---|---|---|
+| S3-00 | v3 narrative links: 191 hrefs rewritten to the THO canonical (reviewer overruled the page-URL choice — the HL7 proxy redirects) | done |
 | S3-01 | Fold `vocabulary-review-report.html` into the IG (93 groups, ~2,125 values) | todo |
 | S3-02 | Decided (1,528) + Informational (544) become an auxiliary evidence page, not a review ask | decided |
 | S3-03 | Reconcile the two disagreeing "needs a second look" computations (index 21 rows vs ledger 97+57) | todo |

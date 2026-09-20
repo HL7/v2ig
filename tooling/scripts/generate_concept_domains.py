@@ -49,7 +49,8 @@ from vocabulary_text_policy import apply_text_policy  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
-THO_CONCEPT_DOMAINS = PROJECT_ROOT / "tho-r5" / "CodeSystem-conceptdomains.json"
+THO_SNAPSHOT_DIR = PROJECT_ROOT / "tho-r5"
+THO_CONCEPT_DOMAINS = THO_SNAPSHOT_DIR / "CodeSystem-conceptdomains.json"
 OUTPUT_DIR = PROJECT_ROOT / "v291-fhir"
 RESOURCE_PATH = OUTPUT_DIR / "CodeSystem-conceptdomains.json"
 DIVERGENCES_PATH = OUTPUT_DIR / "conceptdomains-divergences.json"
@@ -158,6 +159,59 @@ def normalize_prose(text):
     return re.sub(r"\s+", " ", normalized).strip()
 
 
+# THO's narrative links to sibling code systems as bare page filenames, which
+# only resolve inside THO's own published site. Read anywhere else -- and this
+# IG is anywhere else -- they dangle. Rewrite them to the canonical URL, which
+# the HL7 proxy redirects to the rendered page.
+NARRATIVE_PAGE_HREF_RE = re.compile(r'href="(CodeSystem-([A-Za-z0-9\-\.]+)\.html)"')
+THO_CODE_SYSTEM_CANONICAL = "http://terminology.hl7.org/CodeSystem/"
+
+
+def absolutize_narrative_links(resource):
+    """Rewrite THO's site-relative narrative hrefs to canonical URLs.
+
+    Each ``CodeSystem-<id>.html`` href becomes
+    ``http://terminology.hl7.org/CodeSystem/<id>``. A target is only rewritten
+    when the THO snapshot actually carries a code system with that id and that
+    canonical, so the rewrite never invents a URL.
+
+    Narrative is not compared by the merge and takes no part in versioning, so
+    this changes no artifact version.
+
+    Returns:
+        A ``(rewritten, skipped)`` pair. ``rewritten`` maps each href that was
+        replaced to its count; ``skipped`` maps each href left alone to its
+        count, for reporting.
+    """
+    div = resource.get("text", {}).get("div", "")
+    if not div:
+        return {}, {}
+
+    rewritten = {}
+    skipped = {}
+
+    def canonical_for(code_system_id):
+        """The canonical of a THO code system, or None if the snapshot lacks it."""
+        snapshot = THO_SNAPSHOT_DIR / f"CodeSystem-{code_system_id}.json"
+        if not snapshot.is_file():
+            return None
+        url = json.loads(snapshot.read_text()).get("url", "")
+        expected = THO_CODE_SYSTEM_CANONICAL + code_system_id
+        return url if url == expected else None
+
+    def replace(match):
+        href, code_system_id = match.group(1), match.group(2)
+        canonical = canonical_for(code_system_id)
+        if canonical is None:
+            skipped[href] = skipped.get(href, 0) + 1
+            return match.group(0)
+        rewritten[href] = rewritten.get(href, 0) + 1
+        return f'href="{canonical}"'
+
+    resource["text"]["div"] = NARRATIVE_PAGE_HREF_RE.sub(replace, div)
+    return rewritten, skipped
+
+
 def build(tho_resource, tho_index, chapter_domains):
     """Build the extended CodeSystem and the list of divergences.
 
@@ -184,6 +238,18 @@ def build(tho_resource, tho_index, chapter_domains):
         tho_by_normalized[normalize_for_match(code)].append(code)
 
     resource = copy.deepcopy(tho_resource)
+
+    rewritten_links, skipped_links = absolutize_narrative_links(resource)
+    for href, count in sorted(rewritten_links.items()):
+        record("inherited_narrative_link_absolutized", href,
+               f"THO's narrative linked to the page {href}, which resolves only "
+               f"inside THO's own site. Rewritten to the canonical URL in "
+               f"{count} place(s). Narrative takes no part in versioning.")
+    for href, count in sorted(skipped_links.items()):
+        record("inherited_narrative_link_unresolved", href,
+               f"THO's narrative links to the page {href} in {count} place(s), "
+               f"and the THO snapshot carries no code system with that id. Left "
+               f"as published; it will not resolve outside THO's site.")
 
     # Adding concepts changes the code system, so the major version increments
     # and minor and patch reset -- standard terminology versioning practice.

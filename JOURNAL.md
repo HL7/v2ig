@@ -64,31 +64,28 @@ and the external-code-system → ValueSet-canonical gap analysis.
 
 ### Open questions for the reviewer
 
-1. **Eleven artifacts took a major version bump for a comma.** That follows
-   from the ruling and is implemented; flagged because a committee member will
-   notice and the reviewer may want to see the list first.
-2. **The v3 link fix is decided and costed, just not done** — it is the first
-   concrete task of session 3. The 191 dangling hrefs live in
-   `CodeSystem.text.div`, inherited verbatim from THO, and
-   `generate_concept_domains.py` never touches narrative. **No version cost**
-   (narrative is not compared by the merge and is not in the versioning element
-   tables) and **no human currently sees them** — the rendered HTML has none;
-   they exist only in the distributed `.json`/`.xml`/`.ttl` and in QA.
+None outstanding. The two that stood on 2026-09-19 were both closed on
+2026-09-20 — see *Settled* below.
 
-   **Use THO's page URL, not the canonical.** Both resolve, verified against
-   the live host: the canonical `http://terminology.hl7.org/CodeSystem/
-   v3-ActClass` returns a **302** to a *version-pinned* `…/7.3.0/CodeSystem-
-   v3-ActClass.html`, while `https://terminology.hl7.org/CodeSystem-v3-
-   ActClass.html` returns **200** directly on the unversioned current alias.
-   So the edit is literally prepending `https://terminology.hl7.org/` to the
-   href already present — 191 substitutions, no mapping table.
-
-   Leave the 19 canonical hrefs on the table index as they are. Different job:
-   there the link *text* is the canonical and we are making an identifier
-   clickable; here the text is a concept name and the href means "go read
-   this", which wants a page.
 
 ### Settled 2026-09-20
+
+- **The v3 narrative links use the canonical, and the fix is done.** The
+  reviewer overruled the page-URL choice recorded in `935153b0`: the HL7 proxy
+  redirects the canonical to the rendered page, so the redirect hop that
+  argument turned on is not a cost worth paying. All 191 hrefs in
+  `CodeSystem.text.div` now read
+  `http://terminology.hl7.org/CodeSystem/v3-<Name>` across six distinct
+  targets (ActClass 97, RoleClass 60, EntityClass 26, ActMood 4,
+  ParticipationType 3, ActCode 1). Implemented in
+  `generate_concept_domains.py` as `absolutize_narrative_links()`, which
+  rewrites a link only when the THO snapshot carries that code system at that
+  canonical, and reports anything it declines to touch rather than guessing.
+  Version unchanged at 4.0.0 — narrative is not compared by the merge and is
+  not in the versioning element tables. The 19 canonical hrefs on the table
+  index still stay as they are; different job.
+- **The eleven comma bumps need no review.** The reviewer declined the offer to
+  see the list: the ruling stands and the increments stand. Not an open item.
 
 - **ADR-0011 is Accepted.** The reviewer read both ADRs and is content
   with the plan for 0560 and 0292, and independently made ADR-0011's own

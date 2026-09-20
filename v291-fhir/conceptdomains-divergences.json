@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-16",
+  "generated": "2026-09-20",
   "basedOn": {
     "package": "hl7.terminology.r5",
     "resource": "CodeSystem/conceptdomains",
@@ -9,6 +9,7 @@
     "version": "4.0.0"
   },
   "counts": {
+    "inherited_narrative_link_absolutized": 6,
     "symbolic_name_is_not_a_plain_token": 51,
     "added_from_chapter_2c": 177,
     "domain_declared_by_multiple_tables": 26,
@@ -18,6 +19,36 @@
     "inherited_undeclared_property": 1
   },
   "divergences": [
+    {
+      "kind": "inherited_narrative_link_absolutized",
+      "conceptDomain": "CodeSystem-v3-ActClass.html",
+      "detail": "THO's narrative linked to the page CodeSystem-v3-ActClass.html, which resolves only inside THO's own site. Rewritten to the canonical URL in 97 place(s). Narrative takes no part in versioning."
+    },
+    {
+      "kind": "inherited_narrative_link_absolutized",
+      "conceptDomain": "CodeSystem-v3-ActCode.html",
+      "detail": "THO's narrative linked to the page CodeSystem-v3-ActCode.html, which resolves only inside THO's own site. Rewritten to the canonical URL in 1 place(s). Narrative takes no part in versioning."
+    },
+    {
+      "kind": "inherited_narrative_link_absolutized",
+      "conceptDomain": "CodeSystem-v3-ActMood.html",
+      "detail": "THO's narrative linked to the page CodeSystem-v3-ActMood.html, which resolves only inside THO's own site. Rewritten to the canonical URL in 4 place(s). Narrative takes no part in versioning."
+    },
+    {
+      "kind": "inherited_narrative_link_absolutized",
+      "conceptDomain": "CodeSystem-v3-EntityClass.html",
+      "detail": "THO's narrative linked to the page CodeSystem-v3-EntityClass.html, which resolves only inside THO's own site. Rewritten to the canonical URL in 26 place(s). Narrative takes no part in versioning."
+    },
+    {
+      "kind": "inherited_narrative_link_absolutized",
+      "conceptDomain": "CodeSystem-v3-ParticipationType.html",
+      "detail": "THO's narrative linked to the page CodeSystem-v3-ParticipationType.html, which resolves only inside THO's own site. Rewritten to the canonical URL in 3 place(s). Narrative takes no part in versioning."
+    },
+    {
+      "kind": "inherited_narrative_link_absolutized",
+      "conceptDomain": "CodeSystem-v3-RoleClass.html",
+      "detail": "THO's narrative linked to the page CodeSystem-v3-RoleClass.html, which resolves only inside THO's own site. Rewritten to the canonical URL in 60 place(s). Narrative takes no part in versioning."
+    },
     {
       "kind": "symbolic_name_is_not_a_plain_token",
       "conceptDomain": "AbnormalText/CodesforCategoricalObservations",
