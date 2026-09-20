@@ -170,3 +170,8 @@ output-vocab
 #   git show reference/policy-snapshots:CS_versioning_policy.pdf > CS_versioning_policy.pdf
 CS_versioning_policy.pdf
 VS_versioning_policy.pdf
+
+# Pre-build snapshots of vocab-ig/output. The publisher wipes output/ on
+# startup, so a snapshot is taken before a build when the existing IG still
+# needs to be readable (e.g. review in progress, travelling, offline).
+vocab-ig/output-snapshot/

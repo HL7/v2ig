@@ -30,10 +30,33 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 populated — 9,647 files. Errors **3288**, Warnings 145, **Broken Links 0**.
 This is the first session in three where the numbers quoted below are real.
 
-**One thing is built-but-unverified: `cac6c77e` (the S3-03 fix).** Its pages are
-regenerated and tested but have not been through the publisher. Presentation
-only, and the anchor pattern it relies on was proven by this build, so the risk
-is low — but it is the one outstanding claim.
+**A second build was started at the end of the session and may not have
+finished.** It covers `cac6c77e` (the S3-03 fix) and `45f8c81e` (the
+orchestrator), neither of which had been through the publisher. It was launched
+**detached** — its own session, immune to this session ending — as
+`setsid nohup python3 tooling/scripts/build_vocab_ig.py --publish`, logging to
+`/tmp/vocab-build.log`.
+
+**Check that first:**
+
+```
+tail -20 /tmp/vocab-build.log
+ps -eo pid,etime,comm | awk '$3=="java"'
+```
+
+- **Finished:** the log's last lines give `Errors: … Broken Links: …`. Expect
+  **Errors 3288** and **Broken Links 0**, unchanged from the previous build —
+  `cac6c77e` is presentation-only. **Broken Links above 0 means the two new
+  anchors did not land**, and the remedy is to revert that one commit.
+- **Still running:** leave it. ~17 min, silent for ~13 during "Run Template".
+- **Killed mid-run (log stops, no java):** `vocab-ig/output/` is wiped and the
+  IG is dark. Re-run the command above; nothing is damaged.
+
+**`vocab-ig/output-snapshot/` is a complete copy of the previous, fully verified
+build** — 16,164 files, 379,539,246 bytes, taken because the publisher wipes
+`output/` on startup and the IG was needed for reading offline. It is gitignored.
+**Delete it once `output/` is good again**; it is 406 MB and it is not a second
+source of truth. Do not let a later session mistake it for the current build.
 
 ### First thing next session
 
