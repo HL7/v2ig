@@ -68,20 +68,33 @@ and the external-code-system → ValueSet-canonical gap analysis.
    ADR-0010's rule against keying an override by table number, arguing the rule
    does not reach a *provisional* deviation whose scope genuinely is one table.
    It needs a yes or a redirect. The mechanism is built and 0292 rides on it.
-2. **The two policy PDFs.** Reviewer: fine untracked forever, but asked whether
-   there is a tidy way to keep them on a dev branch. Offered an orphan branch
-   (`reference/policy-snapshots`) plus `.gitignore` so they stop cluttering
-   `git status`. **Not done — awaiting a yes.**
-3. **Eleven artifacts took a major version bump for a comma.** That follows
+2. **Eleven artifacts took a major version bump for a comma.** That follows
    from the ruling and is implemented; flagged because a committee member will
    notice and the reviewer may want to see the list first.
-4. **The v3 link fix is far cheaper than the page implies** and is not yet
+3. **The v3 link fix is far cheaper than the page implies** and is not yet
    done. The 191 dangling hrefs live in `CodeSystem.text.div`, inherited
    verbatim from THO, and each anchor already carries the canonical in its
    `title`. **No version cost** (narrative is not compared by the merge and not
    in the versioning element tables) and **no human ever sees them** — the
    rendered HTML has none; they exist only in the distributed `.json`/`.xml`/
    `.ttl` and QA. Only open choice: link the canonical or THO's page URL.
+
+### Settled 2026-09-20
+
+- **ADR-0011 accepted in substance.** The reviewer read both ADRs and is content
+  with the plan for 0560 and 0292, and independently made ADR-0011's own
+  argument: a general rule that catches one exception table is not worth
+  finding. 0292 is keyed by table number, which is what ADR-0011 already does.
+  The one general rule that stands is 0227's truncated-prefix condition, kept
+  because it has **15 latent members** — the other truncated descriptions become
+  recoverable the moment THO gains their text, which the register is asking for.
+- **The policy PDFs are on the orphan branch `reference/policy-snapshots`**
+  (`bd2f96b7`), which shares no history with anything and is never merged. They
+  are off the working tree entirely and gitignored so a re-export does not look
+  like new work. `tho_versioning_policy.py`'s docstring says how to get them
+  back. **Note the hazard if you ever do this again: from an orphan branch the
+  whole repo looks untracked, so switching away needs `git checkout -f` — take
+  checksums of untracked files first.**
 
 ### What the build numbers mean now
 

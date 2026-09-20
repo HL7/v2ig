@@ -14,10 +14,16 @@ Two TSMG Confluence pages, exported to PDF and read on 2026-09-17:
 Both were last updated by Jessica Bota on 24 Jan 2025.
 
 The element tables below are transcribed from those pages rather than parsed
-from them. The PDFs are Confluence exports that are not checked in, so a parser
-would give us a build that only works on one person's machine; and a
-transcription can be read and checked against the page by anyone reviewing this
-file, which a column-position heuristic cannot.
+from them: a transcription can be read and checked against the page by anyone
+reviewing this file, which a column-position heuristic cannot, and parsing a
+PDF would give us a build that only works where that PDF happens to be.
+
+The exports themselves are kept on the orphan branch
+`reference/policy-snapshots`, which shares no history with anything and is
+never merged, so they can be checked row for row against what the pages said
+on the day without cluttering any working tree:
+
+    git show reference/policy-snapshots:CS_versioning_policy.pdf > /tmp/cs.pdf
 
 The rules, in short
 -------------------

@@ -163,3 +163,10 @@ Thumbs.db
 vocab-ig/input/resources/
 vocab-ig/input-cache/
 output-vocab
+
+# TSMG versioning policy PDF snapshots live on the orphan branch
+# reference/policy-snapshots, which is never merged anywhere. Re-exporting
+# them from Confluence should not make them look like new work:
+#   git show reference/policy-snapshots:CS_versioning_policy.pdf > CS_versioning_policy.pdf
+CS_versioning_policy.pdf
+VS_versioning_policy.pdf
