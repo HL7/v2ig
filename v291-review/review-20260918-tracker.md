@@ -36,26 +36,39 @@ sections 449 -> 473 after the missing-section fix; 455 index rows link to one.
 
 | ID | Item | Decision | Status |
 |---|---|---|---|
-| S2-01 | Versioning: editorial carve-out was left in the policy by error | All changes are major; re-increment | todo |
-| S2-02 | General questions #2, #3, #4 | Answered by S2-01; retire as questions, record as settled | todo |
+| S2-01 | Versioning: editorial carve-out was left in the policy by error | All changes are major; re-increment | done |
+| S2-02 | General questions #2, #3, #4 | Answered by S2-01; retire as questions, record as settled | done |
 | S2-03 | General question #1 (concept reordering) | Still open — not ruled on | asked |
-| S2-04 | Status `N` → `active` | Apply now; note the decision in the IG; it is a technical correction | todo |
+| S2-04 | Status `N` → `active` | Apply now; note the decision in the IG; it is a technical correction | done |
 | S2-05 | Status `B` (5 concepts, 3 tables) | Defer pending V2MGMT | asked |
-| S2-06 | THO/Ch2c status discrepancies remain recorded and surfaced | Keep surfacing | todo |
-| S2-07 | General question #7 (OID conflicts) | Likely technical corrections — reframe | todo |
-| S2-08 | General question #8 | Keep THO version; note 0719 may need retiring in THO | todo |
-| S2-09 | General question #9 (table OID) | Leave out of CS/VS; keep extension as a documented option | todo |
-| S2-10 | Table 0292 | Tentatively treat as a real table, NOT concept-domain-only; flag prominently; final call to TSMG/V2MGMT | todo |
-| S2-11 | 0567/0568 need real deprecated/retired CS+VS | New TSMG question | todo |
-| S2-12 | 0350/0351 — THO publishes VS with no matching CS | New item; likely THO's to fix | todo |
-| S2-13 | `v2-tables` CS retirement | V2MGMT/TSMG question + post-fidelity backlog | todo |
-| S2-14 | `v2-table-deprecated` vs status: 191 conflicts | Surface as a class, mark every occurrence, propose status=deprecated, do NOT apply | todo |
+| S2-06 | THO/Ch2c status discrepancies remain recorded and surfaced | Keep surfacing | done |
+| S2-07 | General question #7 (OID conflicts) | Likely technical corrections — reframe | done |
+| S2-08 | General question #8 | Keep THO version; note 0719 may need retiring in THO | done |
+| S2-09 | General question #9 (table OID) | Leave out of CS/VS; keep extension as a documented option | done |
+| S2-10 | Table 0292 | Tentatively treat as a real table, NOT concept-domain-only; flag prominently; final call to TSMG/V2MGMT | done |
+| S2-11 | 0567/0568 need real deprecated/retired CS+VS | New TSMG question | done |
+| S2-12 | 0350/0351 — THO publishes VS with no matching CS | New item; likely THO's to fix | done |
+| S2-13 | `v2-tables` CS retirement | V2MGMT/TSMG question + post-fidelity backlog | done |
+| S2-14 | `v2-table-deprecated` vs status: 191 conflicts | Surface as a class, mark every occurrence, propose status=deprecated, do NOT apply | done |
 | S2-15 | `CodeSystem.status` has no "deprecated" value | Post-fidelity backlog entry | todo |
 | S2-16 | Property-instance suppression mechanism | Needed; means suppressing a value on a concept, not removing a declaration | todo |
-| S2-17 | Migrate 7 absent register items into the IG | todo | |
-| S2-18 | Migrate 9 `vocabulary-future-corrections.md` items into the IG | todo | |
+| S2-17 | Migrate 7 absent register items into the IG | moved to S3 |  |
+| S2-18 | Migrate 9 `vocabulary-future-corrections.md` items into the IG | moved to S3 |  |
 | S2-19 | Six flagged tables 0005 0010 0078 0133 0188 0292 | Research out; decisions follow | done |
 | S2-20 | Page-URL defects / missing spaces: classify against errata rubric | `technical_correction_guidance.txt` is the rubric | todo |
+
+
+**Session 2 closed at commit `6a896e44`.** Build exit 0, errors 3479 / warnings
+145 / broken links 0, 464 tests. The status column above was reconciled on
+2026-09-20 against the commits and the register, not from memory: S2-01, S2-02,
+S2-04, S2-08 and S2-10 are named in `6a896e44`'s own message; S2-09 landed in
+`e5b31e9a`; S2-07, S2-11, S2-12, S2-13 and S2-14 each exist as a register item
+in `vocabulary_escalations.py`; S2-06 is a standing behaviour now in place.
+**S2-15, S2-16 and S2-20 are genuinely still open** — a sweep of the tooling and
+of `vocabulary-future-corrections.md` finds no trace of any of the three.
+S2-17 and S2-18 are the register/backlog items with no IG page, which the ACTIVE
+handoff folds into session 3.
+
 
 ## Session 3 — one product
 
