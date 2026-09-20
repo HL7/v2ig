@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted
 
 ## Date
 
@@ -47,7 +47,10 @@ gate is permanent and carries no notion of a pending ruling; an override recorde
 that way is indistinguishable from a settled decision, and nothing would make it
 expire or resurface.
 
-The tension with ADR-0010 is real and should not be waved away. Its argument is
+The tension with ADR-0010 is real and should not be waved away. On review it
+was judged not to be a conflict: the same conclusion was reached independently
+from the other direction, that hunting for a general rule which catches a
+single exception table is not worth doing. Its argument is
 that a table number in the code is a conclusion with the reasoning thrown away.
 That argument has force precisely when the override *is* derivable from a general
 rule — then the rule is the honest expression of it, and it catches the next table

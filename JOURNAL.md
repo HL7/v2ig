@@ -64,14 +64,10 @@ and the external-code-system → ValueSet-canonical gap analysis.
 
 ### Open questions for the reviewer
 
-1. **ADR-0011 is `Proposed`, not `Accepted`** — it partly pushes back on
-   ADR-0010's rule against keying an override by table number, arguing the rule
-   does not reach a *provisional* deviation whose scope genuinely is one table.
-   It needs a yes or a redirect. The mechanism is built and 0292 rides on it.
-2. **Eleven artifacts took a major version bump for a comma.** That follows
+1. **Eleven artifacts took a major version bump for a comma.** That follows
    from the ruling and is implemented; flagged because a committee member will
    notice and the reviewer may want to see the list first.
-3. **The v3 link fix is far cheaper than the page implies** and is not yet
+2. **The v3 link fix is far cheaper than the page implies** and is not yet
    done. The 191 dangling hrefs live in `CodeSystem.text.div`, inherited
    verbatim from THO, and each anchor already carries the canonical in its
    `title`. **No version cost** (narrative is not compared by the merge and not
@@ -81,7 +77,7 @@ and the external-code-system → ValueSet-canonical gap analysis.
 
 ### Settled 2026-09-20
 
-- **ADR-0011 accepted in substance.** The reviewer read both ADRs and is content
+- **ADR-0011 is Accepted.** The reviewer read both ADRs and is content
   with the plan for 0560 and 0292, and independently made ADR-0011's own
   argument: a general rule that catches one exception table is not worth
   finding. 0292 is keyed by table number, which is what ADR-0011 already does.
