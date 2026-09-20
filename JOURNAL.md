@@ -93,12 +93,13 @@ Both are now *answerable* — the IG is built and can be looked at.
 
 ### Things that will bite
 
-- **There is still no orchestrator script.** The build order is held only by
-  this note, and it is now the *fourth* ordering constraint on the honour
-  system: `generate_concept_domains.py` → `write_utg_xml.py` →
-  `render_tho_merge_page.py` → `render_table_ledger.py` →
-  `generate_table_index.py` → `render_review_pages.py` → `stage_vocab_ig.py`.
-  Thirty lines. It has been deferred three sessions running.
+- **The build order is now enforced, not remembered.**
+  `tooling/scripts/build_vocab_ig.py` runs the seven preprocessing steps in
+  order; each declares what it produces and consumes, and `check_order()`
+  refuses to run if any step's inputs are not produced by an earlier one.
+  `--list` shows the chain, `--from` resumes after a failure, `--publish` also
+  runs the IG Publisher. **The whole chain takes 11 seconds** — the expensive
+  part was only ever the publisher. Do not hand-run the seven scripts.
 - **`pgrep -f` matches the Bash tool's own wrapper.** MEMORY documents this for
   the java build check; it bit again this session on `pgrep -f "http.server"`,
   which reported a server running when nothing was listening. **The trap is the
@@ -127,7 +128,15 @@ Unchanged this session. 57 open items total (39 escalations, 14 decisions) plus
 ### Build
 
 ```
-python3 tooling/scripts/stage_vocab_ig.py
+python3 tooling/scripts/build_vocab_ig.py --publish
+```
+
+That is the whole thing: the seven preprocessing steps (11 s) and then the
+publisher. `--list` shows the chain and runs nothing. The equivalent by hand,
+if the orchestrator is ever unavailable:
+
+```
+python3 tooling/scripts/build_vocab_ig.py       # or the seven scripts in order
 GEM_HOME=/home/claude/.gems GEM_PATH=/home/claude/.gems \
 PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
 /home/claude/jdk/bin/java -Xmx8g -jar input-cache/publisher.jar \
@@ -274,11 +283,43 @@ The second is the heading-interpolation bug above. It is recorded because it was
 caught by reasoning about the anchor rather than by a test, and there is still
 no test that would catch the next instance of it.
 
+### The orchestrator, finally, and what it turned up
+
+`build_vocab_ig.py` runs the seven preprocessing steps. The part worth keeping
+is that the order is **data, not a comment**: each step declares what it
+`produces` and what it `consumes`, and `check_order()` verifies every step's
+inputs come from an earlier step. Get the order wrong and it refuses to start,
+naming the input that would not exist yet — rather than failing seventeen
+minutes into a publisher run, or, worse, succeeding by silently reading last
+run's file.
+
+The dependencies were re-derived from the scripts rather than copied from the
+note, which was the right call: the note said `render_review_pages.py` needs
+`generate_concept_domains.py`, and it does, but it also needs
+`write_utg_xml.py`'s writer report, which the note never said. The hardest edge
+is that `generate_table_index.py` reads `table-ledger.md` through
+`load_ledger_anchors()`, so the ledger must precede the index. That specific
+swap has its own test.
+
+**Two things fell out of building it.**
+
+The chain takes **11 seconds**. It had been treated as part of an expensive
+build for four sessions; the expense was always the publisher alone. Nothing
+was ever gained by hand-running a subset.
+
+Running it end to end regenerated the committed tree with **zero diff**, which
+makes the whole pipeline byte-for-byte reproducible from the corpus. That was
+not previously known — it is a stronger property than the orchestrator was
+written to deliver, and it is the thing that makes `--from` safe to trust.
+
+A sizing note that briefly looked like a discrepancy: the generators report
+**characters** and `ls` reports **bytes**. For `evidence.md` that is 1,787,012
+against 1,790,805 — 3,793 bytes of multibyte UTF-8, not a change.
+
 ### Not done
 
-The **orchestrator script** was deferred for the third session running. It is
-thirty lines and it now carries four ordering constraints. Each session it is
-deferred, the note it replaces gets longer.
+The **orchestrator script** was deferred for three sessions and then written
+at the end of this one — see the entry above it.
 
 `cac6c77e` has not been through the publisher.
 

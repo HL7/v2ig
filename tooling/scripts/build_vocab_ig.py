@@ -1,0 +1,287 @@
+#!/usr/bin/env python3
+"""Run the vocabulary IG preprocessing chain in the one order that works.
+
+Seven scripts have to run before the IG Publisher, and the order matters
+because they pass files to each other. That order lived in a note in
+JOURNAL.md for four sessions and picked up a new constraint each time. This
+script is that note, made executable.
+
+The ordering is not asserted here as a list somebody has to keep correct by
+hand. Each step declares what it PRODUCES and what it CONSUMES, and
+`check_order()` verifies that every step's inputs are produced by an earlier
+step. A step inserted in the wrong place fails that check immediately, with a
+message naming the input that would not exist yet -- rather than at the far end
+of a seventeen-minute build, or worse, silently, by reading last run's file.
+
+Usage:
+
+    python3 tooling/scripts/build_vocab_ig.py            # the whole chain
+    python3 tooling/scripts/build_vocab_ig.py --list     # show it, run nothing
+    python3 tooling/scripts/build_vocab_ig.py --from render_table_ledger
+    python3 tooling/scripts/build_vocab_ig.py --only generate_table_index
+    python3 tooling/scripts/build_vocab_ig.py --publish  # then the IG Publisher
+
+`--from` is for resuming after a step failed and you have fixed it: it skips
+the steps that already succeeded. It trusts you that their outputs are still
+good, so do not use it after changing something early in the chain.
+"""
+
+import argparse
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+# The IG Publisher invocation, matching the one in JOURNAL.md. Only used with
+# --publish. It needs Ruby on PATH because the publisher shells out to Jekyll.
+PUBLISHER_JAR = PROJECT_ROOT / "input-cache" / "publisher.jar"
+IG_INI = PROJECT_ROOT / "vocab-ig" / "ig.ini"
+JAVA = Path("/home/claude/jdk/bin/java")
+GEM_HOME = "/home/claude/.gems"
+RUBY_BIN = "/home/claude/ruby/arm64/bin"
+
+
+# --------------------------------------------------------------------------
+# The chain
+# --------------------------------------------------------------------------
+#
+# `produces` and `consumes` are logical names for the artefacts that pass
+# between steps, not file paths. They are deliberately coarse: the point is to
+# pin the ORDER, and a finer-grained graph would need updating every time a
+# script gained a field.
+#
+# Steps with no `consumes` read only the corpus on disk (v291-extracted,
+# tho-r5, UTG), which nothing in this chain writes.
+
+STEPS = [
+    {
+        "name": "generate_concept_domains",
+        "produces": {"concept-domains", "divergences"},
+        "consumes": set(),
+        "why": "Reads the extracted corpus and the THO snapshot. Nothing in "
+               "the chain writes its inputs, so it can go first.",
+    },
+    {
+        "name": "write_utg_xml",
+        "produces": {"resources", "write-report", "fill-report"},
+        "consumes": set(),
+        "why": "Writes the CodeSystem/ValueSet resources and the two reports "
+               "every later page is built from.",
+    },
+    {
+        "name": "render_tho_merge_page",
+        "produces": {"page-tho-merge"},
+        "consumes": {"fill-report"},
+        "why": "The per-class view of the merge.",
+    },
+    {
+        "name": "render_table_ledger",
+        "produces": {"page-table-ledger"},
+        "consumes": {"fill-report", "write-report"},
+        "why": "The per-table view of the same merge. Must precede the table "
+               "index, which reads this page's anchors.",
+    },
+    {
+        "name": "generate_table_index",
+        "produces": {"page-table-index"},
+        "consumes": {"write-report", "concept-domains", "page-table-ledger"},
+        "why": "Reads table-ledger.md via load_ledger_anchors() to link into "
+               "it, so the ledger has to exist first. This is the edge most "
+               "likely to be got wrong.",
+    },
+    {
+        "name": "render_review_pages",
+        "produces": {"page-open-items", "page-evidence"},
+        "consumes": {"divergences", "write-report"},
+        "why": "Builds open-items and evidence from the divergence log and "
+               "the writer report.",
+    },
+    {
+        "name": "stage_vocab_ig",
+        "produces": {"staged-ig"},
+        "consumes": {"resources", "concept-domains"},
+        "why": "Copies resources into vocab-ig/input and self-checks the "
+               "counts on index.md. Last, so index.md counts what is really "
+               "there.",
+    },
+]
+
+
+def check_order(steps=STEPS):
+    """Verify every step's inputs are produced by a step that runs earlier.
+
+    Returns a list of complaints, empty when the order is sound. This is what
+    turns the ordering from a convention into something the script enforces.
+    """
+    problems = []
+    available = set()
+    for position, step in enumerate(steps, 1):
+        missing = step["consumes"] - available
+        if missing:
+            problems.append(
+                f"step {position} ({step['name']}) needs "
+                f"{', '.join(sorted(missing))}, which no earlier step produces"
+            )
+        available |= step["produces"]
+    return problems
+
+
+def script_path(name):
+    """The file a step runs."""
+    return SCRIPT_DIR / f"{name}.py"
+
+
+def run_step(step, position, total):
+    """Run one step, streaming its output. Returns its elapsed seconds.
+
+    Raises SystemExit if the step fails, because every later step reads what
+    this one writes -- carrying on would build pages from a stale file and the
+    result would look fine.
+    """
+    path = script_path(step["name"])
+    print(f"\n[{position}/{total}] {step['name']}", flush=True)
+    print(f"        {step['why']}", flush=True)
+
+    started = time.monotonic()
+    result = subprocess.run([sys.executable, str(path)], cwd=PROJECT_ROOT)
+    elapsed = time.monotonic() - started
+
+    if result.returncode != 0:
+        print(f"\nFAILED: {step['name']} exited {result.returncode} after "
+              f"{elapsed:.1f}s.", file=sys.stderr)
+        print(f"Fix it, then resume with:\n"
+              f"  python3 tooling/scripts/build_vocab_ig.py "
+              f"--from {step['name']}", file=sys.stderr)
+        raise SystemExit(result.returncode)
+
+    print(f"        done in {elapsed:.1f}s", flush=True)
+    return elapsed
+
+
+def run_publisher():
+    """Run the IG Publisher over the staged tree.
+
+    Separate from the chain above because it is Java rather than Python, takes
+    about seventeen minutes, and is silent for roughly thirteen of them during
+    "Run Template" -- that silence is normal and is not a hang.
+    """
+    if not PUBLISHER_JAR.exists():
+        print(f"No publisher at {PUBLISHER_JAR}", file=sys.stderr)
+        raise SystemExit(1)
+
+    env = dict(os.environ)
+    env["GEM_HOME"] = GEM_HOME
+    env["GEM_PATH"] = GEM_HOME
+    env["PATH"] = f"{GEM_HOME}/bin:{RUBY_BIN}:{env.get('PATH', '')}"
+
+    command = [str(JAVA), "-Xmx8g", "-jar", str(PUBLISHER_JAR),
+               "-ig", str(IG_INI), "-no-sushi"]
+
+    print("\n" + "=" * 70)
+    print("IG Publisher — ~17 minutes, silent for ~13 during \"Run Template\".")
+    print("That silence is expected. Check liveness in another shell with:")
+    print("  ps -eo pid,etime,comm,args | awk '$3==\"java\"'")
+    print("=" * 70, flush=True)
+
+    started = time.monotonic()
+    result = subprocess.run(command, cwd=PROJECT_ROOT, env=env)
+    elapsed = time.monotonic() - started
+
+    if result.returncode != 0:
+        print(f"\nPublisher exited {result.returncode} after {elapsed / 60:.1f} "
+              "min.", file=sys.stderr)
+        raise SystemExit(result.returncode)
+    print(f"\nPublisher finished in {elapsed / 60:.1f} min.")
+
+
+def print_chain(steps):
+    """Show the order and the reason for it, without running anything."""
+    print("Vocabulary IG preprocessing chain:\n")
+    for position, step in enumerate(steps, 1):
+        needs = ", ".join(sorted(step["consumes"])) or "the corpus on disk"
+        print(f"  {position}. {step['name']}")
+        print(f"     needs: {needs}")
+        print(f"     {step['why']}\n")
+    print("Then the IG Publisher (--publish), or run it yourself against "
+          "vocab-ig/ig.ini.")
+
+
+def select_steps(args):
+    """Work out which steps this invocation should run."""
+    names = [s["name"] for s in STEPS]
+
+    if args.only:
+        if args.only not in names:
+            raise SystemExit(f"No step named {args.only!r}. "
+                             f"Known: {', '.join(names)}")
+        return [s for s in STEPS if s["name"] == args.only]
+
+    if args.start_from:
+        if args.start_from not in names:
+            raise SystemExit(f"No step named {args.start_from!r}. "
+                             f"Known: {', '.join(names)}")
+        return STEPS[names.index(args.start_from):]
+
+    return list(STEPS)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--list", action="store_true",
+                        help="show the chain and exit")
+    parser.add_argument("--from", dest="start_from", metavar="STEP",
+                        help="resume from this step, skipping earlier ones")
+    parser.add_argument("--only", metavar="STEP",
+                        help="run just this step")
+    parser.add_argument("--publish", action="store_true",
+                        help="also run the IG Publisher when the chain passes")
+    args = parser.parse_args()
+
+    # Always check the declared order, even for --list. A broken graph is worth
+    # hearing about at the cheapest possible moment.
+    problems = check_order()
+    if problems:
+        print("The step order is inconsistent with the declared "
+              "dependencies:", file=sys.stderr)
+        for problem in problems:
+            print(f"  - {problem}", file=sys.stderr)
+        raise SystemExit(2)
+
+    if args.list:
+        print_chain(STEPS)
+        return
+
+    if args.only and args.start_from:
+        raise SystemExit("--only and --from do not go together.")
+
+    steps = select_steps(args)
+    missing = [s["name"] for s in steps if not script_path(s["name"]).exists()]
+    if missing:
+        raise SystemExit(f"Missing script(s): {', '.join(missing)}")
+
+    if len(steps) < len(STEPS):
+        print(f"Running {len(steps)} of {len(STEPS)} steps. Earlier steps' "
+              "outputs are assumed current.")
+
+    started = time.monotonic()
+    for position, step in enumerate(steps, 1):
+        run_step(step, position, len(steps))
+    total = time.monotonic() - started
+
+    print(f"\nChain complete in {total:.1f}s.")
+
+    if args.publish:
+        run_publisher()
+    else:
+        print("The staged tree is ready. Re-run with --publish to build the "
+              "IG, or run the publisher yourself against vocab-ig/ig.ini.")
+
+
+if __name__ == "__main__":
+    main()
