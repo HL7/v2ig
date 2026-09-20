@@ -28,6 +28,10 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from render_review_pages import question_anchor  # noqa: E402
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FILL_REPORT = PROJECT_ROOT / "v291-fhir" / "tho-fill-report.json"
 OUTPUT_PAGE = (PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent"
@@ -133,7 +137,7 @@ def render_page(report):
         "One rule behind these numbers is still a judgement call rather than "
         "a fact — whether reordering a code system's concepts is a change. "
         "It is stated, with what rides on it, under "
-        "[General questions](general-questions.html).",
+        f"[What needs an answer]({question_anchor('gq-does-reordering-a-code-system')}).",
         "",
         "| Outcome | Count |",
         "|---|---:|",

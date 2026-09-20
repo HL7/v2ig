@@ -2,19 +2,19 @@ This page exists so that a reviewer can tell the difference between a defect in
 the pipeline and a defect we already know about. **Read it before filing
 anything.**
 
-### Broken links out of `conceptdomains`
+### Links out of `conceptdomains` — resolved
 
-The narrative carried by `CodeSystem/conceptdomains` links to v3 code system
-pages — `CodeSystem-v3-ActClass.html`, `CodeSystem-v3-RoleClass.html` and
-others — that are **not part of this guide**, so those links do not resolve.
-There are **191 of them**, and they are the largest block of errors in the QA
-report that genuinely belongs to this guide; almost everything else there
-traces back to the unreachable terminology server.
+The narrative carried by `CodeSystem/conceptdomains` comes from THO, and THO
+links to sibling v3 code systems by page filename —
+`CodeSystem-v3-ActClass.html` and five others. Those resolve inside THO's own
+site and nowhere else, so in this guide all **191** of them dangled.
 
-They are a packaging artifact, not a content defect: the concepts and their
-properties are correct. The open question is whether this guide declares a
-dependency on the v3 code systems or points the links at the artifacts already
-published on `terminology.hl7.org`, and that decision has not been taken.
+They now point at the canonical URL of the code system they name, which the
+HL7 proxy redirects to the rendered page. The rewrite is checked against the
+THO package rather than assumed: a link is only changed when THO really does
+publish a code system of that id at that canonical, and anything else is left
+exactly as published and reported. Narrative takes no part in the merge or in
+versioning, so no artifact version moved.
 
 ### Fourteen tables with nothing written
 
@@ -24,7 +24,9 @@ These are blocked on a decision, not on work:
 `0953` `0956` `0963`
 
 Each is recorded with its evidence on the [per-table
-ledger](table-ledger.html). **0459 is a hard stop**: the chapter gives its code
+ledger](table-ledger.html), and the reason the writer stopped at each one is
+grouped by cause under [what needs an
+answer](open-items.html). **0459 is a hard stop**: the chapter gives its code
 system only as OID `2.16.840.1.113883.6.301.9`, which nothing in THO or FHIR
 core resolves.
 

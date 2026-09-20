@@ -64,9 +64,15 @@
         <generation value="markdown"/>
       </page>
       <page>
-        <sourceUrl value="general-questions.html"/>
-        <name value="general-questions.html"/>
-        <title value="General questions"/>
+        <sourceUrl value="open-items.html"/>
+        <name value="open-items.html"/>
+        <title value="What needs an answer"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <sourceUrl value="evidence.html"/>
+        <name value="evidence.html"/>
+        <title value="Evidence"/>
         <generation value="markdown"/>
       </page>
       <page>

@@ -53,6 +53,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from render_review_pages import question_anchor  # noqa: E402
+
 import vocabulary_escalations  # noqa: E402
 from write_utg_xml import observation_class  # noqa: E402
 
@@ -629,7 +631,7 @@ def oid_overview(index, identifiers):
         "value set, and neither of them is the table. So the `.12` OID is "
         "carried by no published resource. That is the current behaviour "
         "rather than a decision anyone has taken — see "
-        "[General questions](general-questions.html).",
+        f"[What needs an answer]({question_anchor('gq-chapter-2c-gives-every-table')}).",
         "",
         f"**{len(conflicts)} tables give an OID that disagrees with THO's**"
         + (f" — {jumps}. " if conflicts else ". ")

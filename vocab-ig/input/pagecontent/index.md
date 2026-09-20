@@ -50,6 +50,9 @@ difference is recorded** rather than quietly resolved.
   THO's published content preserved, where the two disagree, and what that
   does to version numbers
 - **[How these resources were produced](provenance.html)** — the pipeline, and what is authoritative
-- **[General questions](general-questions.html)** — the judgement calls this
-  guide had to make, what it currently does about each, and who should confirm
+- **[What needs an answer](open-items.html)** — everything still open: the V2
+  Management and TSMG register, the judgement calls this guide had to make, and
+  the decisions it cannot take for itself
+- **[Evidence](evidence.html)** — every finding already settled or disclosed for
+  completeness. Nothing here asks for anything; it is here to be checked
 - **[Known issues in this build](known-issues.html)** — read before filing anything

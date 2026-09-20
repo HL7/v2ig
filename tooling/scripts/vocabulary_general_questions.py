@@ -1,4 +1,27 @@
-Questions this guide has had to answer in order to produce anything at all,
+#!/usr/bin/env python3
+"""The general questions this guide puts to V2 Management and to TSMG.
+
+These are the judgement calls: places where producing anything at all required
+an answer that is an opinion rather than a fact, and where somebody other than
+this project should confirm the opinion. They are authored prose rather than a
+computed finding, which is why they are text here -- but they live in a module
+rather than in a page of their own so that one generator owns the whole review
+page and a reader meets a single ordered document.
+
+Each entry says what this build currently does and what would change if the
+answer came back differently, so that no question is blocking.
+
+Bodies are Markdown and are emitted verbatim. Headings inside a body start at
+`#####`: the template prints the page title as an `h2` and this generator gives
+each question an `h4`, and the section numbering is CSS counters that a stray
+`#` or `##` breaks for the whole page.
+
+Two audiences, because they are two committees with two agendas: TSMG owns the
+artifact versioning policy, V2 Management owns what Chapter 2C says.
+"""
+
+# Opening prose, before any question.
+INTRO = """Questions this guide has had to answer in order to produce anything at all,
 where the answer is a judgement rather than a fact, and where somebody other
 than us should confirm it.
 
@@ -8,13 +31,13 @@ None of them is blocking: every question below has a defensible working answer
 already applied.
 
 One is for **TSMG**, because it is about the artifact versioning policy. The
-rest are for **V2 Management**, because they are about what Chapter 2C says.
+rest are for **V2 Management**, because they are about what Chapter 2C says."""
 
----
+# TSMG owns the versioning policy. The prose below is the settled part; the
+# question banked against this audience is the one piece still open.
+TSMG_TITLE = """For TSMG — the versioning policy"""
 
-### For TSMG — the versioning policy
-
-**Settled: a description difference is always a major increment.** The
+TSMG_PREAMBLE = """**Settled: a description difference is always a major increment.** The
 published CodeSystem policy qualifies the rule — *"major unless only change is
 improved clarity or perform editorial corrections"* — but that qualification
 was left in the policy by error. There is no editorial exemption and no
@@ -37,11 +60,32 @@ now exceptional.
 
 **Version outcomes across the corpus:** code systems — 2 first publications, 58
 incremented, 339 unchanged. Value sets — 9 first publications, 23 incremented,
-392 unchanged.
+392 unchanged."""
 
-#### 1. Does reordering a code system's concepts count as a change?
+V2MGMT_TITLE = """For V2 Management — what the chapter says"""
 
-**What we do:** no. Concepts are compared as a set keyed by code. A code
+# Closes the page by saying where the per-table detail lives.
+CLOSING_TITLE = """Where the rest of the detail is"""
+
+CLOSING_BODY = """- **[What this guide keeps from THO](tho-merge.html)** — the full class-by-class
+  account of the merge, and what it does to version numbers.
+- **[Known issues in this build](known-issues.html)** — defects in the build
+  itself, as opposed to open questions about the content.
+- **[Per-table ledger](table-ledger.html)** — one section per table: every
+  difference from what THO publishes, and which open question touches it.
+- **[Table index](table-index.html)** — per-table, which artifacts exist where."""
+
+
+# One entry per numbered question, in the order a reader meets them. `audience`
+# decides which banner it appears under; `number` is the number the question has
+# been carrying since it was first put, and is not renumbered when one closes.
+GENERAL_QUESTIONS = [
+    {
+        "id": "gq-does-reordering-a-code-system",
+        "number": 1,
+        "audience": """TSMG""",
+        "title": """Does reordering a code system's concepts count as a change?""",
+        "body": """**What we do:** no. Concepts are compared as a set keyed by code. A code
 system whose codes are identical to THO's but listed in a different order is
 treated as unchanged and keeps THO's version.
 
@@ -60,13 +104,14 @@ from a difference the policy names outright.
 **If the answer is no:** nothing changes. **If the answer is yes:** it is one
 line in the comparison, and 32 more artifacts increment.
 
----
-
-### For V2 Management — what the chapter says
-
-#### 2. The concept status `B`, and where these letters should be defined
-
-Chapter 2C carries its own legend for the status column:
+---""",
+    },
+    {
+        "id": "gq-the-concept-status-b-and",
+        "number": 2,
+        "audience": """V2 Management""",
+        "title": """The concept status `B`, and where these letters should be defined""",
+        "body": """Chapter 2C carries its own legend for the status column:
 
 | Code | Chapter 2C's meaning |
 |---|---|
@@ -117,11 +162,14 @@ a reader to notice.
    neither, and no value set enumerates them. Defining them in
    `utg-concept-properties` would at least make what is already published
    legal. Replacing `N` with a non-decaying "version introduced" property would
-   be better, and the chapter already records that fact in prose elsewhere.
-
-#### 3. Table 0560 — a code system the chapter says does not exist
-
-Chapter 2C gives table 0560 a code system block whose symbolic name is
+   be better, and the chapter already records that fact in prose elsewhere.""",
+    },
+    {
+        "id": "gq-table-0560-a-code-system",
+        "number": 3,
+        "audience": """V2 Management""",
+        "title": """Table 0560 — a code system the chapter says does not exist""",
+        "body": """Chapter 2C gives table 0560 a code system block whose symbolic name is
 `noObject`, whose OID is `-` and whose description is `noDescription`. Read
 literally, the table has no code system. Read in full, the same section:
 
@@ -148,11 +196,14 @@ ADR-0009.
 
 **What we would like:** the chapter's 0560 section corrected — the placeholder
 block replaced with the real code system, the "No suggested values" note
-removed, and the copied-in code system name fixed.
-
-#### 4. Three OIDs where one number would end up naming two artifacts
-
-| Artifact | Chapter 2C | THO |
+removed, and the copied-in code system name fixed.""",
+    },
+    {
+        "id": "gq-three-oids-where-one-number",
+        "number": 4,
+        "audience": """V2 Management""",
+        "title": """Three OIDs where one number would end up naming two artifacts""",
+        "body": """| Artifact | Chapter 2C | THO |
 |---|---|---|
 | `CodeSystem/v2-0001` | `2.16.840.1.113883.18.458` | `2.16.840.1.113883.18.2` |
 | `ValueSet/v2-0719` | `2.16.840.1.113883.1.11.20429` | `2.16.840.1.113883.1.11.20428` |
@@ -226,11 +277,14 @@ but two identifiers assert that both OIDs name this artifact, which is
 demonstrably false for 0719, where `...20429` names a different v3 value set
 that THO also publishes. It may be right for 0001, where the two could be one
 code system under two registrations. Please rule per artifact rather than as a
-blanket policy.
-
-#### 5. Two descriptions where THO says more than the chapter
-
-These are the two description differences that are **not** punctuation, and
+blanket policy.""",
+    },
+    {
+        "id": "gq-two-descriptions-where-tho-says",
+        "number": 5,
+        "audience": """V2 Management""",
+        "title": """Two descriptions where THO says more than the chapter""",
+        "body": """These are the two description differences that are **not** punctuation, and
 both are cases where THO's text carries something the chapter's does not:
 
 - **`ValueSet/v2-0227`** — THO's description ends with a link to the code
@@ -259,11 +313,14 @@ note THO carries documents a defect that goes further than the wording: 0719
 also shares its identifier with `v3-InformationSensitivityPolicy`, which is one
 of the cases in question 4. The question is whether the artifact should be
 **retired in THO altogether**, and it should be settled together with the
-identifier rather than as a matter of which sentence to publish.
-
-#### 6. Chapter 2C gives every table its own OID, and we publish it nowhere
-
-Chapter 2C carries **three** OIDs per table, in three separate metadata blocks,
+identifier rather than as a matter of which sentence to publish.""",
+    },
+    {
+        "id": "gq-chapter-2c-gives-every-table",
+        "number": 6,
+        "audience": """V2 Management""",
+        "title": """Chapter 2C gives every table its own OID, and we publish it nowhere""",
+        "body": """Chapter 2C carries **three** OIDs per table, in three separate metadata blocks,
 identifying three different things:
 
 | Chapter 2C block | Arc | Tables | Published to |
@@ -308,11 +365,14 @@ implementers do resolve these.
 **What we need, narrowly:** does V2 Management require the table OID to be
 preserved in the FHIR resources at all? If it does, the extension is the shape
 we would use, and the question of who defines it follows. If it does not, the
-current behaviour becomes a ruling rather than a default.
-
-#### 7. Table 0292 — published against the chapter's own flag, pending a ruling
-
-Chapter 2C flags table 0292 *Vaccines Administered* `Concept Domain Only: yes`,
+current behaviour becomes a ruling rather than a default.""",
+    },
+    {
+        "id": "gq-table-0292-published-against-the",
+        "number": 7,
+        "audience": """V2 Management""",
+        "title": """Table 0292 — published against the chapter's own flag, pending a ruling""",
+        "body": """Chapter 2C flags table 0292 *Vaccines Administered* `Concept Domain Only: yes`,
 which would mean no code system and no value set. The table metadata grid a few
 lines further down **in the same section** gives `Full Name: Vaccines
 Administered Code System` and `URI: http://hl7.org/fhir/sid/cvx`. Both
@@ -358,14 +418,6 @@ ADR-0011.
 the deviation is withdrawn and 0292 reverts to concept domain only, with no
 artifacts published for it.
 
----
-
-### Where the rest of the detail is
-
-- **[What this guide keeps from THO](tho-merge.html)** — the full class-by-class
-  account of the merge, and what it does to version numbers.
-- **[Known issues in this build](known-issues.html)** — defects in the build
-  itself, as opposed to open questions about the content.
-- **[Per-table ledger](table-ledger.html)** — one section per table: every
-  difference from what THO publishes, and which open question touches it.
-- **[Table index](table-index.html)** — per-table, which artifacts exist where.
+---""",
+    },
+]

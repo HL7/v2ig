@@ -83,7 +83,7 @@ An artifact that ends up matching THO **keeps THO's version**. That is the merge
 
 Every difference counts, whatever its size: a description that gained a comma increments exactly as a reworded one does. Some of the increments below rest on nothing more than that, and the per-table ledger says which.
 
-One rule behind these numbers is still a judgement call rather than a fact — whether reordering a code system's concepts is a change. It is stated, with what rides on it, under [General questions](general-questions.html).
+One rule behind these numbers is still a judgement call rather than a fact — whether reordering a code system's concepts is a change. It is stated, with what rides on it, under [What needs an answer](open-items.html#gq-does-reordering-a-code-system).
 
 | Outcome | Count |
 |---|---:|

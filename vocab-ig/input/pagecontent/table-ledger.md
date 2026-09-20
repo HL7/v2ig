@@ -29,7 +29,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 **50 of those table OIDs are not identifiers.** They are `2.16.840.1.113883.1` — an arc root with no leaf on the end, on tables the chapter types *undefined*. The count above includes them because the chapter does; nothing should resolve them.
 
-**The table OID has nowhere to go.** In V2 the table is the thing with an identity; in FHIR that table becomes a code system *and* a value set, and neither of them is the table. So the `.12` OID is carried by no published resource. That is the current behaviour rather than a decision anyone has taken — see [General questions](general-questions.html).
+**The table OID has nowhere to go.** In V2 the table is the thing with an identity; in FHIR that table becomes a code system *and* a value set, and neither of them is the table. So the `.12` OID is carried by no published resource. That is the current behaviour rather than a decision anyone has taken — see [What needs an answer](open-items.html#gq-chapter-2c-gives-every-table).
 
 **2 tables give an OID that disagrees with THO's** — [0001](#tbl-0001), [0719](#tbl-0719). THO's is published in both cases, because the canonical URL is THO's and an identifier is identity rather than content. Each is set out in that table's own section.
 

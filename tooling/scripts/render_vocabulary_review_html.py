@@ -101,6 +101,22 @@ CONCEPT_DOMAIN_PRESENTATION = {
         "informational",
         "THO marks these as v2-sourced but no Chapter 2C table declares them.",
     ),
+    "inherited_narrative_link_absolutized": (
+        "resolved",
+        "THO's narrative links to sibling code systems by page filename, which "
+        "resolves only inside THO's own site. Each one was rewritten to the "
+        "canonical URL, which the HL7 proxy redirects to the rendered page. "
+        "Listed so the change to THO's text is visible, not because anything "
+        "is outstanding: narrative takes no part in the merge or in versioning, "
+        "so no artifact version moved.",
+    ),
+    "inherited_narrative_link_unresolved": (
+        "decide",
+        "THO's narrative links to a page this guide cannot match to a "
+        "published code system, so the link was left exactly as published and "
+        "will not resolve. Decide whether to drop the link, point it "
+        "somewhere, or leave it as THO has it.",
+    ),
     "inherited_undeclared_property": (
         "informational",
         "A property used by THO's own content but not declared in its "
