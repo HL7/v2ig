@@ -67,13 +67,26 @@ and the external-code-system → ValueSet-canonical gap analysis.
 1. **Eleven artifacts took a major version bump for a comma.** That follows
    from the ruling and is implemented; flagged because a committee member will
    notice and the reviewer may want to see the list first.
-2. **The v3 link fix is far cheaper than the page implies** and is not yet
-   done. The 191 dangling hrefs live in `CodeSystem.text.div`, inherited
-   verbatim from THO, and each anchor already carries the canonical in its
-   `title`. **No version cost** (narrative is not compared by the merge and not
-   in the versioning element tables) and **no human ever sees them** — the
-   rendered HTML has none; they exist only in the distributed `.json`/`.xml`/
-   `.ttl` and QA. Only open choice: link the canonical or THO's page URL.
+2. **The v3 link fix is decided and costed, just not done** — it is the first
+   concrete task of session 3. The 191 dangling hrefs live in
+   `CodeSystem.text.div`, inherited verbatim from THO, and
+   `generate_concept_domains.py` never touches narrative. **No version cost**
+   (narrative is not compared by the merge and is not in the versioning element
+   tables) and **no human currently sees them** — the rendered HTML has none;
+   they exist only in the distributed `.json`/`.xml`/`.ttl` and in QA.
+
+   **Use THO's page URL, not the canonical.** Both resolve, verified against
+   the live host: the canonical `http://terminology.hl7.org/CodeSystem/
+   v3-ActClass` returns a **302** to a *version-pinned* `…/7.3.0/CodeSystem-
+   v3-ActClass.html`, while `https://terminology.hl7.org/CodeSystem-v3-
+   ActClass.html` returns **200** directly on the unversioned current alias.
+   So the edit is literally prepending `https://terminology.hl7.org/` to the
+   href already present — 191 substitutions, no mapping table.
+
+   Leave the 19 canonical hrefs on the table index as they are. Different job:
+   there the link *text* is the canonical and we are making an identifier
+   clickable; here the text is a concept name and the href means "go read
+   this", which wants a page.
 
 ### Settled 2026-09-20
 
