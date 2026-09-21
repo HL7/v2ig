@@ -18,7 +18,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-20 (session 4: built, verified, and briefed for Rockville)
+## ACTIVE — 2026-09-21 (session 5: the ledger stops asking questions it already knows the answer to)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
@@ -27,27 +27,38 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 ### Read this before anything else
 
 **Session 5 (2026-09-21) was worked from the HL7 Plenary in Rockville**, around
-the Terminology Infrastructure WG meeting. Three commits landed after the last
-verified build, and a build covering them was started at the end of the
-session.
+the Terminology Infrastructure WG meeting, in short stretches between sessions.
+The briefing written the day before was presented.
 
-**Check the build first:**
+**Everything is built and verified. Nothing is outstanding.** The 2026-09-21
+build covers every commit through `019244ff`:
 
 ```
-tail -20 /tmp/vocab-build.log
-ps -eo pid,etime,comm | awk '$3=="java"'
+Errors: 3288, Warnings: 145, Info: 92, Broken Links: 0     (20.6 min)
 ```
 
-Expect `Broken Links: 0` and errors at or very near **3288** (the figure from
-the 2026-09-20 build, which was clean at 20.2 min). The changes below are
-presentation and five display strings, so a materially different error count is
-worth investigating rather than accepting. If the log stops with no java
-running, the run was killed; re-run `build_vocab_ig.py --publish`, nothing is
-damaged.
+Identical on every number to the build before it, which is right for a change
+that moved rows between tables and altered five display strings. Confirmed in
+the published HTML: 45 tables carry the new *"Written differently"* table, 211
+status rows are explained, 2 `tho-dropped` cases are surfaced, and
+`Dentist Office Number` is published with the old lower-cased form gone.
 
 **`vocab-ig/output-snapshot/` is managed automatically** and holds the last
 build that finished, so the IG is readable even mid-build. `--no-snapshot`
 turns it off. It is a copy; the live build is `vocab-ig/output/`.
+
+### First thing next session
+
+**Capture what the Terminology Infrastructure WG said.** The briefing was
+presented on 2026-09-21 and the feedback has not been written down anywhere.
+Five of the guide's open questions are addressed to exactly those people, and
+this is the most perishable thing in the project — every other item below will
+keep.
+
+If that is already captured, the largest untouched work is **session 4**:
+promote `render_field_mapping.py` into the IG; decide what maps to
+properties / extensions / nothing; Ch2c steward against THO's
+`structuredefinition-wg`; external code systems against ValueSet canonical gaps.
 
 ### What landed in session 5
 
@@ -78,38 +89,6 @@ what the room said** — several of the guide's open questions are addressed to
 exactly those people, and that feedback is the most perishable thing in this
 project right now.
 
-### First thing next session
-
-**The user is at the HL7 Plenary in Rockville and meets the Terminology
-Infrastructure WG on the morning of Monday 2026-09-21.** The briefing for that
-meeting is written and committed. The first move next session is almost
-certainly **whatever the room said** — capture it while it is fresh, because
-several of the guide's open questions are addressed to exactly those people.
-
-If the meeting has not happened yet, the useful work is **build `cac6c77e`** and
-confirm broken links stay at 0.
-
-### What landed this session
-
-- **Built the vocabulary IG and verified all four checks** the previous handoff
-  set. Every prediction held:
-  1. **Broken links 0**, across 625,068 links. `general-questions.html` is gone
-     and both retargeted cross-links resolve — the ledger's table-OID paragraph
-     reaches question **6**, the merge page's reordering paragraph reaches
-     question **1**, which is what was specified.
-  2. **`evidence.md` did not choke.** 1.79 MB in, 1.81 MB HTML, 91 sections, no
-     publisher complaint. Whether it is *pleasant* to read is still open.
-  3. **Section numbering intact** — both new pages are h3/h4 under the
-     template's single h2.
-  4. **Errors fell 3479 → 3288**, a drop of exactly **191**, matching the
-     narrative-link count. The fix reaches the published resource.
-- **`cac6c77e` — S3-03 closed.** See the session entry for the reasoning; the
-  short version is that both counts were right and only the shared title was
-  wrong. **497 tests pass** (490 + 7 new).
-- **`ec2df186` — the Terminology Infrastructure WG briefing**, authored in
-  `tooling/scripts/render_ti_briefing.py`, rendered to
-  `v291-extracted/ti-briefing.{html,md}`.
-
 ### Open questions for the reviewer
 
 Both are now *answerable* — the IG is built and can be looked at.
@@ -132,7 +111,17 @@ Both are now *answerable* — the IG is built and can be looked at.
 - **Session 4 work untouched**: promote `render_field_mapping.py` into the IG;
   decide what maps to properties/extensions/nothing; Ch2c steward ↔ THO
   `structuredefinition-wg`; external code systems → ValueSet canonical gaps.
-- **S3-03 is closed.**
+- **S3-03 is closed**, and so is the disagreement-classification work that
+  came out of reading the ledger in session 5.
+- **Two smaller things noticed in session 5 and not acted on.** Table 0347's
+  `title` is `hl7VS-stateProvince` against THO's
+  `HL7 Value Set for State/Province` — ours reads like an id in a title field.
+  Only two title differences exist in the corpus, so it is not systematic, but
+  it is the sort of thing the TI WG would spot. And
+  `v291-fhir/conceptdomains-divergences.json` carries a `generated` date, so
+  the pipeline churns one line across a day boundary; harmless, but it is the
+  one thing stopping the chain being byte-reproducible over time, and that
+  reproducibility is what makes `build_vocab_ig.py --from` safe to trust.
 
 ### Things that will bite
 
@@ -221,6 +210,121 @@ them in — stage vocabulary files explicitly.**
 
 
 ## Session History
+
+## 2026-09-21 — The ledger stops asking questions it already knows the answer to
+
+Worked from the HL7 Plenary in Rockville in short stretches around the
+Terminology Infrastructure WG meeting. Six commits, two builds, both clean.
+
+### The reviewer read the ledger and found it was shouting
+
+The report said 489 "Differences from THO", each row framed as something a
+committee might have to adjudicate. Reading it in anger, the reviewer noticed
+rows that "amount only to capitalization changes in the display value", and
+then that the same applied to status `N` becoming `active`.
+
+Counting bore it out, and the numbers were worse than the complaint: **287 of
+489 were never questions.** 211 were THO carrying the V2 status letter where
+this guide carries the FHIR status it maps to; 76 were the same words styled
+differently. Only 202 were real, and they were being crowded out.
+
+**Two things were wrong underneath the presentation, and neither was visible
+from the page.**
+
+The status ruling *already existed*. `INHERITED_STATUS_CORRECTIONS` has said
+`N` reads as `active` since the merge was written, with a docstring explaining
+why. But it is reached only by `correct_inherited_status`, which handles
+concepts taken wholesale from THO — **one record in the corpus**. The 209
+concepts both sides carry went through generic property comparison and came out
+as unexplained differences. The same fact got two treatments depending on which
+code path found it, and nothing anywhere said so.
+
+And `is_editorial()` never reached concept level. It was recorded on
+description, purpose and name — 14 records — while concept display and
+properties got nothing. Worse, because `words()` lowercases, capitalisation
+*would* have been swallowed into "punctuation" had the flag reached them,
+losing the one distinction that turned out to matter.
+
+So the fix was not a new idea, it was applying two existing ones consistently
+and giving case a direction.
+
+### The carve-out, and why it is not symmetrical
+
+The reviewer chose to **publish THO's capitalisation** where THO is the more
+capitalised side, rather than only reclassifying. That is a genuine exception
+to chapter-wins and is recorded as **ADR-0012**. It is defensible because the
+words are identical — the chapter loses nothing — and re-lower-casing a display
+THO had tidied would make the artifact worse for no reason. Five displays,
+tables 0203 and 0396. **No version moved**; both were already incrementing.
+
+The reverse is deliberately *not* symmetrical, and this is the part worth
+remembering. `tho-dropped` is ambiguous in a way `tho-added` is not: the one
+real instance is THO correctly lower-casing "for" in *Sex Parameter For
+Clinical Use*, which is an improvement — but the identical signature would be
+produced by THO losing a proper noun. Only a person can tell those apart, so
+they are surfaced rather than absorbed in either direction.
+
+**Looking at the data kept the carve-out honest twice.** The seven case-only
+differences were not all displays: one is a resource `name`,
+`Hl7VSStateProvince` against `Hl7VsStateProvince`, where *ours* is arguably
+right because VS abbreviates ValueSet. `name` is identity-adjacent and had to
+be excluded. The reviewer then asked a sharper question — whether the casing
+was the *only* thing driving that artifact's version — and the write report
+answered it outright: table 0347 increments on `compose.include`, `name` **and**
+`title`. Three triggers, so the condition did not bind and nothing changed.
+
+### Then the briefing failed in the way documents do
+
+The reviewer, holding the briefing in a meeting: the asks name a problem but
+give no way to get to the evidence. That gap is invisible while writing and
+expensive in the room — you read the question out, somebody asks "which
+tables?", and you are hunting through 799 sections on a projector.
+
+Every ask now carries its affected tables as links straight into the ledger.
+The numbers are derived from the merge report rather than the prose:
+0350/0351/0456/0895 for the value sets THO cannot expand, 0001 and 0719 for the
+only two OID disagreements in the corpus, 0227 and 0719 for the descriptions,
+0440 for the one concept carrying status `B`. A test resolves every link
+against the built IG, fragment included.
+
+### The orchestrator, and the snapshot it grew
+
+`build_vocab_ig.py` replaced the build-order note that had been accumulating
+constraints in this file for four sessions. The order is data — each step
+declares what it produces and consumes, and `check_order()` refuses to run if
+a step's inputs come from later. Re-deriving those dependencies from the
+scripts rather than the note found the note incomplete: `render_review_pages.py`
+needs the writer report as well as the divergences.
+
+Two things fell out of it. **The chain takes 11 seconds** — the expense of a
+build was always the publisher alone, and four sessions of caution about
+running generators were misplaced. And running it end to end **reproduced the
+committed tree with zero diff**, which is a stronger property than it was
+written for.
+
+That led to the snapshot. The publisher wipes `output/` on startup, so for
+twenty minutes there is no readable IG, and after an interrupted run there is
+none at all — the state this session opened in. `--publish` now refreshes
+`output-snapshot/` **after a run that exits 0**, never before: snapshot-before
+would happily preserve a half-finished build. It ran for real during the second
+build, kept the IG readable throughout, and refreshed in 27.7 s.
+
+### Two traps
+
+`pgrep -f "http.server"` reported a server running when nothing was listening —
+it matched the Bash tool's own wrapper. MEMORY documents this for the java build
+check; the lesson is the pattern, not the command, and ACTIVE now says so.
+
+And a near miss: the first cut of the ledger fix interpolated the count into a
+heading. That number would have landed in the generated anchor and broken the
+inbound link the first time it moved. Caught by reasoning about the anchor, not
+by a test — and there is still no test that would catch the next one.
+
+### Not done
+
+The TI WG's actual feedback is not written down anywhere. That is the first job
+next session and the only perishable one.
+
 
 ## 2026-09-20 — Built, verified, and briefed for Rockville
 
@@ -441,181 +545,3 @@ Everything this session did to the page set — a deleted page, two new ones, a
 changed navbar and a changed page registration — is therefore unverified, and
 the first job next session is to build and check the four things the ACTIVE
 section lists.
-
-
-## 2026-09-19 — The plane review: presentation, then the rulings
-
-A 40-item review written while travelling, triaged into four sessions and
-tracked item by item in `v291-review/review-20260918-tracker.md`. Two sessions
-landed. What is worth knowing that the commits do not say:
-
-### Three defects found by going after something else
-
-**The ugly characters in the table index were NUL bytes.** `PAGE_STYLE` is a
-non-raw Python string, so the middle-dot escape `"\00b7"` was read as octal and
-two U+0000 went into the page. That also explains why `table-index.html` was
-the one page the publisher gave no `--heading-prefix`: the NULs broke it. Both
-fixed by one backslash.
-
-**Section numbering was broken on every page, not the two where it was
-noticed.** The template numbers with CSS counters and `h2:before` prints only
-`var(--heading-prefix)` with no counter, so every `h2` on a page rendered the
-same digit. `tho-merge` looked fine only because its single `h3` picked up
-`counter(sub-section)`. The template already emits the page title as `h2`, so
-each page's own sections were colliding with it. Every page now starts at `h3`.
-
-**Table 0821 had no ledger section at all** — `needs-decision` with no merge
-observations, so it fell to a bare list at the foot of the page, along with 24
-others, and the "open register item" jump list was quietly showing 57 of 73.
-Found by an agent asked to give 0821 stronger flagging, which is the sort of
-thing that only surfaces when someone tries to do the small task.
-
-### The carve-out was not where the policy was
-
-Removing the description carve-out looked like a one-file change to
-`tho_versioning_policy.py`. It was not: `tho_merge.py` enforced it and never
-imported the policy module, so the obvious change would have moved zero version
-numbers while looking correct. The agent that had the policy file said so and
-stopped rather than reaching outside its brief.
-
-Kept the punctuation-only *information* while removing its version consequence.
-Eleven artifacts now increment for a comma; a reader who wants to know that can
-see it on the ledger row.
-
-### 0292, and an argument with an accepted ADR
-
-The reviewer ruled 0292 should be treated tentatively as a real table. Nothing
-in the pipeline could express that: the register changes no output, and
-ADR-0010's evidence gate is permanent and explicitly forbids keying an override
-by table number.
-
-ADR-0011 (**Proposed**) argues the prohibition does not reach this case. What is
-asserted for 0292 is not a rule but a provisional judgement about one table
-awaiting a named committee's answer — the table number is the actual scope of
-the claim, not an impoverished stand-in for a rule, and writing it as a general
-condition would imply a generality nobody has established. The general form was
-tried: it fits three tables, of which one is a placeholder section and one is
-already routed correctly, which is a table number wearing a disguise.
-
-Two things stop it rotting: every override must name a register item that
-exists, enforced by a test, and the un-ruled count is computed every run.
-
-The writer agent implemented the classification and then found the artifact
-still was not written — the chapter prints no Value Set block for a table it
-calls domain-only, so `process()` refused. It stopped rather than opening the
-gate. Scoped the fix to the override itself: an override authorises its own
-write and nothing else does. Honouring a classification while refusing to write
-makes the override ceremonial.
-
-### One ruling that covered two different cases
-
-"Keep the THO version" for the two descriptions where THO says more read as one
-decision and was two. 0227's chapter text stops mid-word and THO's continues —
-the chapter is incomplete. 0719's is a complete sentence to which THO *appended*
-a note recording its own error — something the register itself says Chapter 2C
-should not inherit. The reviewer confirmed: 0227 only.
-
-Written as a condition rather than a table number — a prefix that stops
-mid-sentence — which reaches exactly 0227 and deliberately not 0719. Measured:
-exactly two descriptions in the chapter are a prefix of THO's, and the terminal
--punctuation test separates them. Recovering the words removes the difference,
-so 0227 falls back to THO's 4.0.0.
-
-### Agents correcting the brief
-
-Worth recording as a pattern, because it happened five times and every
-correction was right. The register agent found the deprecation-flag counts were
-our output and not THO's (37/246 against the snapshot, and the exclusion of
-`v2-0005` is exactly what makes "none of the 36" true); that 0227 is typed
-`Imported`, not `External`; and that the 0005 question was posed wrongly, since
-`ValueSet/v2-0005` does not draw on the retired code system at all. The
-truncation sweep came back a clean negative — no cohort of truncated CodeSystem
-descriptions exists, so the reviewer's "~21" was a misremembering of the 16
-ValueSet ones. **Brief an agent with the evidence and ask it to spot-check, not
-to trust.**
-
-
-## 2026-09-18 — The per-table ledger, and what the OID question actually was
-
-### Completed
-
-**The per-table ledger** — item 4 and the last of the 2026-09-17 plan.
-`tooling/scripts/render_table_ledger.py` → `table-ledger.md`, 449 sections,
-registered in `vocabulary.xml` and linked from `index.md`. 16 tests.
-
-The design question was what to list and what to count. Differences from THO
-(~700) are listed individually because each is a decision somebody may want to
-challenge; fills (7,575) are counted, because every one of them is the
-*absence* of a change and nobody will read seven thousand rows. The column that
-makes the page worth having is **Also affects**: each difference says how many
-other tables the same class reaches, so a reader can tell "this table has a
-typo" from "this is a policy nobody has ruled on yet".
-
-`tho-merge.html` keeps the class view and the two pages now link to each other
-rather than duplicating. Its per-item lists stayed — they are the consolidated
-"needs a person" view, which the ledger scatters across 449 sections — but
-every table number in them now links into the ledger.
-
-### The OID question, which was asked as one question and was three
-
-The reviewer asked whether the conflicting OIDs were for the *tables* or for
-the code systems and value sets, and suspected a nuance. There was one.
-
-**Chapter 2C carries three OIDs per table**, in three separate metadata blocks:
-a Table OID in the `.12` arc (798 of 799 tables), a Code System OID in `.18`
-(435), a Value Set OID in `.21` (438). Only the last two were known about.
-
-1. **The comparison was sound.** THO uses the same two latter arcs for the same
-   two resource types, so it is like for like. Recomputed independently of the
-   merge code as a check: 395 of 396 code systems and 411 of 412 value sets
-   agree, and the two known conflicts are the only two.
-2. **The table OID is published nowhere** — verified directly, no authored
-   resource contains a `.12.` OID. Not a decision: a V2 table becomes a code
-   system *and* a value set, and neither of them *is* the table, so a
-   one-to-one identifier meeting a one-to-two split lands nowhere by default.
-   Registered as `esc-table-oid-unpublished`, question 9 on General questions.
-   The argument that it matters is THO's own: its description of table 0227
-   resolves the code system by the `.12.227` table OID.
-3. **Neither conflict is a transcription error**, which the register implied.
-   0001's chapter block is titled *Jurisdiction Gender Code System* and its OID
-   resolves to nothing in THO. 0719's two OIDs are both live **v3** value set
-   OIDs for *different* value sets, and THO's `v2-0719` shares one of them with
-   THO's own `v3-InformationSensitivityPolicy` — which is exactly the error THO
-   documents in that artifact's own description.
-
-The reviewer's suggestion of **carrying both OIDs as identifiers** is recorded
-as a third option rather than applied. It is mechanically available
-(`identifier` is `0..*`) and defensible for 0001, where the two may be one code
-system under two registrations. It is misleading for 0719, where the second OID
-names a different artifact THO also publishes. **The ask went out per artifact
-rather than as a blanket policy.**
-
-### Three things found while checking, worth not rediscovering
-
-- **The page's own arithmetic was wrong** — 449 sections against 799 tables and
-  368 remaining, which sums to 817. 18 of the sections are `v2-NNNN` canonicals
-  THO publishes that Chapter 2C has **no section for at all**. They belong on
-  the page but not in the 799. They now have their own section and the counts
-  read 431 + 368 = 799, with a test that holds the arithmetic.
-- **`<small>` is rejected by the IG Publisher's HTML checker** and warns on
-  every use. It was already doing this on `tho-merge.html` before this session.
-  Both pages now use `<span class="tl-note">` with the class in the page's own
-  `<style>` — the vocabulary IG uses the stock base template, so there is no
-  shared stylesheet. Warnings 137 → 135.
-- **Two factual errors in hand-written text.** `general-questions.md` gave
-  0719's OIDs in the `.21` arc when they are `.1.11`; the register claimed 412
-  of 413 value sets agree when it is 411 of 412. Both are the hazard of
-  hand-authored numbers next to computed ones — the register text now states
-  its basis so the figure can be rechecked.
-
-### State
-
-Branch `dev/v291-vocabulary-ig`, commit `e5b31e9a`. 403 tests pass. Build is
-exit 0, 17m53s, **0 broken links**, 449 sections rendered; errors 3,478 (the
-settled terminology-server baseline, unchanged), warnings 135.
-
-### Next
-
-The 2026-09-17 plan is complete, so nothing is half-finished. Rockville is the
-week of 2026-09-21 — reading the 34-item register and the 9 General questions
-end to end, as a committee member would, is probably what is worth doing next.
