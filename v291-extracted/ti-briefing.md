@@ -115,6 +115,11 @@ Chapter 2C and THO frequently agree on the whole set of concepts but present the
 
 **Ask:** Confirm that concept order is presentation, or tell us it is content and we will re-run the policy.
 
+Not table-specific — it decides how many of the 823 artifacts keep THO's version.
+
+- [The versioning table: 339 + 393 artifacts currently unchanged](../vocab-ig/output/tho-merge.html)
+- [Question 1, with what this build does and what would change](../vocab-ig/output/open-items.html#gq-does-reordering-a-code-system)
+
 ### 2. The concept status letters, and where they should be defined [TSMG / THO]
 
 It is a question about THO's property vocabulary, which is this room's to answer.
@@ -125,6 +130,12 @@ Chapter 2C marks concepts with status letters — including `B` — that describ
 
 **Ask:** Tell us whether these letters should be defined in THO's existing property vocabulary or in a v2-specific one.
 
+**Affected tables:** 0003, 0357, 0440
+
+0440 is the one carrying `B`. The `N`-reads-as-`active` mapping spans 25 tables and is now listed per table as “written differently” rather than as a disagreement.
+
+- [Question 2, on where the letters should be defined](../vocab-ig/output/open-items.html#gq-the-concept-status-b-and)
+
 ### 3. Three OIDs where one number would end up naming two artifacts [Identifiers]
 
 An OID naming two distinct artifacts is an identifier defect that outlives whatever we publish.
@@ -132,6 +143,12 @@ An OID naming two distinct artifacts is an identifier defect that outlives whate
 In three cases the chapter's numbering leads to a single OID being carried by two different artifacts. An identifier that resolves to two things is not an identifier, and unlike a content disagreement this does not get better by picking a winner on content grounds.
 
 **Ask:** Rule on which artifact keeps the number, or confirm that a new OID should be minted for the other.
+
+**Affected tables:** 0001, 0078, 0719
+
+The only two OID disagreements in the corpus (0001, 0719) plus 0078, which is different in kind. 395 of 396 code system OIDs and 411 of 412 value set OIDs agree.
+
+- [Question 4, with the OID for each side side by side](../vocab-ig/output/open-items.html#gq-three-oids-where-one-number)
 
 ### 4. Chapter 2C gives every table an OID, and it is published nowhere [Identifiers]
 
@@ -143,6 +160,11 @@ In V2 the _table_ is the thing with an identity. In FHIR that table becomes a co
 
 **Ask:** Decide whether the table OID should land on the code system, the value set, both, or be allowed to lapse.
 
+All 799 tables carry one; 50 of them are a bare arc root with no leaf.
+
+- [The OID overview at the head of the ledger](../vocab-ig/output/table-ledger.html)
+- [Question 6, on where the table OID should land](../vocab-ig/output/open-items.html#gq-chapter-2c-gives-every-table)
+
 ### 5. Two descriptions where THO says more than the chapter [Merge policy]
 
 It is the one place where the merge rule and the fidelity rule point in opposite directions.
@@ -153,6 +175,12 @@ Our default is that on a genuine disagreement the chapter wins, because publishi
 
 **Ask:** Confirm the chapter wins even when THO's text is better, or give us a rule for when it does not.
 
+**Affected tables:** 0227, 0719
+
+0227 is settled; 0719 is the one still open.
+
+- [Question 5, with both descriptions in full](../vocab-ig/output/open-items.html#gq-two-descriptions-where-tho-says)
+
 ### 6. Four THO value sets compose from code systems THO does not publish [THO defect]
 
 This one is not ours and is not a question &mdash; it is a defect in THO that we found, and this is the room that can fix it.
@@ -162,6 +190,12 @@ Four value sets published by THO compose from a code system THO does not publish
 We are not proposing to fix them — they are THO's artifacts. They are flagged on the table index as _Dangling in THO_ so that the situation is visible rather than inherited silently.
 
 **Ask:** Take these four away as a THO maintenance item.
+
+**Affected tables:** 0350, 0351, 0456, 0895
+
+All four are flagged _Dangling in THO_ on the table index, which names the code system each one composes from.
+
+- [The coverage anomalies, where these are listed with the other 16](../vocab-ig/output/table-index.html#coverage-anomalies)
 
 The remaining general questions in the guide are about what Chapter 2C itself says rather than about terminology infrastructure, and are going to **V2 Management**: **Table 0560**, a code system the chapter says does not exist; and **Table 0292**, published against the chapter's own flag pending a ruling. They are listed here only so that nobody leaves thinking they have seen the whole register.
 

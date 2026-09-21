@@ -49,10 +49,6 @@ SUBTITLE = "Executive briefing and IG walkthrough — Terminology Infrastructure
 MEETING_DATE = "2026-09-21"
 BUILD_DATE = "2026-09-20"
 
-# The IG's own pages. Relative, so the briefing works next to a local build and
-# also when both are published.
-IG = "vocab-ig/output"
-
 SUMMARY = """
 <p>This guide turns the whole of <b>Chapter 2C of HL7 V2.9.1 &mdash; 799 tables</b>
 &mdash; into FHIR CodeSystems and ValueSets: <b>824 artifacts</b>, built and
@@ -264,9 +260,56 @@ things not being asked about were not being hidden.</p>""",
 # The last item is not one of the seven. It is a defect in THO itself, and this
 # is the only room where raising it is useful.
 
+# --------------------------------------------------------------------------
+# Getting from a question to the evidence
+# --------------------------------------------------------------------------
+#
+# The asks below name a problem; the IG holds the detail that answers it. In a
+# meeting the gap between those two is what kills you -- you read the question
+# out, somebody asks "which tables?", and you are hunting through 799 sections
+# on a projector.
+#
+# So every ask carries the affected tables and a direct link per table. The
+# path is relative, which works both from a local build opened off disk and
+# from the two published side by side.
+
+IG = "../vocab-ig/output"
+
+
+def table_chips(tables):
+    """One link per affected table, straight to its section in the ledger."""
+    # Sorted here rather than trusted from the author, so a list written in
+    # the order the evidence turned up still reads as table numbers.
+    return " ".join(
+        f'<a class="tbl" href="{IG}/table-ledger.html#tbl-{table}">{table}</a>'
+        for table in sorted(tables))
+
+
+def where_block(ask):
+    """The "where the detail lives" panel under one ask."""
+    tables = ask.get("tables") or []
+    links = ask.get("where") or []
+    if not tables and not links:
+        return ""
+    out = ["<div class='where'>", "<b>Where the detail lives</b>"]
+    if tables:
+        out.append(f"<div class='chips'>{table_chips(tables)}</div>")
+    if ask.get("tableNote"):
+        out.append(f"<div class='chip-note'>{ask['tableNote']}</div>")
+    if links:
+        out.append("<ul class='where-links'>")
+        out += [f"<li><a href='{href}'>{label}</a></li>" for label, href in links]
+        out.append("</ul>")
+    out.append("</div>")
+    return "\n".join(out)
+
+
 ASKS = [
     {
         "id": "a-reorder",
+        "tables": [],
+        "tableNote": "Not table-specific — it decides how many of the 823 artifacts keep THO's version.",
+        "where": [('The versioning table: 339 + 393 artifacts currently unchanged', f'{IG}/tho-merge.html'), ('Question 1, with what this build does and what would change', f'{IG}/open-items.html#gq-does-reordering-a-code-system')],
         "n": 1,
         "tag": "TSMG",
         "title": "Does reordering a code system's concepts count as a change?",
@@ -288,6 +331,9 @@ Nothing else changes &mdash; the published content is identical either way.</p>"
     },
     {
         "id": "a-status",
+        "tables": ['0440', '0003', '0357'],
+        "tableNote": '0440 is the one carrying <code>B</code>. The <code>N</code>-reads-as-<code>active</code> mapping spans 25 tables and is now listed per table as &ldquo;written differently&rdquo; rather than as a disagreement.',
+        "where": [('Question 2, on where the letters should be defined', f'{IG}/open-items.html#gq-the-concept-status-b-and')],
         "n": 2,
         "tag": "TSMG / THO",
         "title": "The concept status letters, and where they should be defined",
@@ -307,6 +353,9 @@ vocabulary that means the same thing.</p>""",
     },
     {
         "id": "a-oid-collision",
+        "tables": ['0001', '0719', '0078'],
+        "tableNote": 'The only two OID disagreements in the corpus (0001, 0719) plus 0078, which is different in kind. 395 of 396 code system OIDs and 411 of 412 value set OIDs agree.',
+        "where": [('Question 4, with the OID for each side side by side', f'{IG}/open-items.html#gq-three-oids-where-one-number')],
         "n": 3,
         "tag": "Identifiers",
         "title": "Three OIDs where one number would end up naming two artifacts",
@@ -322,6 +371,9 @@ picking a winner on content grounds.</p>""",
     },
     {
         "id": "a-table-oid",
+        "tables": [],
+        "tableNote": 'All 799 tables carry one; 50 of them are a bare arc root with no leaf.',
+        "where": [('The OID overview at the head of the ledger', f'{IG}/table-ledger.html'), ('Question 6, on where the table OID should land', f'{IG}/open-items.html#gq-chapter-2c-gives-every-table')],
         "n": 4,
         "tag": "Identifiers",
         "title": "Chapter 2C gives every table an OID, and it is published nowhere",
@@ -342,6 +394,9 @@ ever resolve those.</p>""",
     },
     {
         "id": "a-descriptions",
+        "tables": ['0227', '0719'],
+        "tableNote": '0227 is settled; 0719 is the one still open.',
+        "where": [('Question 5, with both descriptions in full', f'{IG}/open-items.html#gq-two-descriptions-where-tho-says')],
         "n": 5,
         "tag": "Merge policy",
         "title": "Two descriptions where THO says more than the chapter",
@@ -359,6 +414,9 @@ the choice is visible rather than silent.</p>""",
     },
     {
         "id": "a-dangling",
+        "tables": ['0350', '0351', '0456', '0895'],
+        "tableNote": 'All four are flagged <i>Dangling in THO</i> on the table index, which names the code system each one composes from.',
+        "where": [('The coverage anomalies, where these are listed with the other 16', f'{IG}/table-index.html#coverage-anomalies')],
         "n": 6,
         "tag": "THO defect",
         "title": "Four THO value sets compose from code systems THO does not publish",
@@ -391,6 +449,16 @@ right.</p>
 """ % BUILD_DATE
 
 EXTRA_STYLE = """
+.where { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 5px;
+         padding: 0.6rem 0.8rem; margin: 0.9rem 0 0.2rem; font-size: 0.94em; }
+.where > b { display: block; margin-bottom: 0.4rem; color: #24292f; }
+.chips { line-height: 2.1; }
+a.tbl { display: inline-block; font-family: monospace; font-weight: 600;
+        background: #fff; border: 1px solid #0969da; border-radius: 3px;
+        padding: 0.05rem 0.45rem; margin-right: 0.3rem; text-decoration: none; }
+.chip-note { color: #57606a; margin-top: 0.35rem; }
+.where-links { margin: 0.45rem 0 0; padding-left: 1.1rem; }
+.where-links li { margin: 0.15rem 0; }
 .stop { border-left: 3px solid #0969da; padding: 0.1rem 0 0.1rem 1.1rem;
         margin: 1.8rem 0; }
 .stop .pg { font-family: monospace; font-size: 0.86em; color: #57606a; }
@@ -469,6 +537,7 @@ def render_html(generated):
         add(f"<p class='lede'>{a['why']}</p>")
         add(a["body"])
         add(f"<p class='ask'><span class='ask-tag'>Ask</span>{a['ask']}</p>")
+        add(where_block(a))
         add("</section>")
 
     add(FOOTER_NOTE)
@@ -502,6 +571,14 @@ def render_markdown(generated):
         lines += [f"### {a['n']}. {a['title']} [{a['tag']}]", "", a["why"], ""]
         lines.append(_text(a["body"]))
         lines += ["", f"**Ask:** {a['ask']}", ""]
+        if a.get("tables"):
+            lines += [f"**Affected tables:** "
+                      f"{', '.join(sorted(a['tables']))}", ""]
+        if a.get("tableNote"):
+            lines += [_text(a["tableNote"]), ""]
+        for label, href in a.get("where") or []:
+            lines.append(f"- [{label}]({href})")
+        lines.append("")
 
     lines.append(_text(FOOTER_NOTE))
     return "\n".join(lines) + "\n"

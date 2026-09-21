@@ -108,6 +108,16 @@ li { margin-bottom: 5px; }
   body { font-size: 11pt; }
 }
 
+.where { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 5px;
+         padding: 0.6rem 0.8rem; margin: 0.9rem 0 0.2rem; font-size: 0.94em; }
+.where > b { display: block; margin-bottom: 0.4rem; color: #24292f; }
+.chips { line-height: 2.1; }
+a.tbl { display: inline-block; font-family: monospace; font-weight: 600;
+        background: #fff; border: 1px solid #0969da; border-radius: 3px;
+        padding: 0.05rem 0.45rem; margin-right: 0.3rem; text-decoration: none; }
+.chip-note { color: #57606a; margin-top: 0.35rem; }
+.where-links { margin: 0.45rem 0 0; padding-left: 1.1rem; }
+.where-links li { margin: 0.15rem 0; }
 .stop { border-left: 3px solid #0969da; padding: 0.1rem 0 0.1rem 1.1rem;
         margin: 1.8rem 0; }
 .stop .pg { font-family: monospace; font-size: 0.86em; color: #57606a; }
@@ -324,6 +334,14 @@ count is as high as it is.</p>
 &ldquo;unchanged&rdquo; to &ldquo;incremented&rdquo; and the headline 732 falls.
 Nothing else changes &mdash; the published content is identical either way.</p>
 <p class='ask'><span class='ask-tag'>Ask</span>Confirm that concept order is presentation, or tell us it is content and we will re-run the policy.</p>
+<div class='where'>
+<b>Where the detail lives</b>
+<div class='chip-note'>Not table-specific — it decides how many of the 823 artifacts keep THO's version.</div>
+<ul class='where-links'>
+<li><a href='../vocab-ig/output/tho-merge.html'>The versioning table: 339 + 393 artifacts currently unchanged</a></li>
+<li><a href='../vocab-ig/output/open-items.html#gq-does-reordering-a-code-system'>Question 1, with what this build does and what would change</a></li>
+</ul>
+</div>
 </section>
 <section class='ask-item' id='a-status'>
 <h3><span class='tag'>TSMG / THO</span> 2. The concept status letters, and where they should be defined</h3>
@@ -338,6 +356,14 @@ in a v2 code system; if they are the same idea THO already expresses elsewhere,
 they should reuse THO's existing property rather than minting a parallel
 vocabulary that means the same thing.</p>
 <p class='ask'><span class='ask-tag'>Ask</span>Tell us whether these letters should be defined in THO's existing property vocabulary or in a v2-specific one.</p>
+<div class='where'>
+<b>Where the detail lives</b>
+<div class='chips'><a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0003">0003</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0357">0357</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0440">0440</a></div>
+<div class='chip-note'>0440 is the one carrying <code>B</code>. The <code>N</code>-reads-as-<code>active</code> mapping spans 25 tables and is now listed per table as &ldquo;written differently&rdquo; rather than as a disagreement.</div>
+<ul class='where-links'>
+<li><a href='../vocab-ig/output/open-items.html#gq-the-concept-status-b-and'>Question 2, on where the letters should be defined</a></li>
+</ul>
+</div>
 </section>
 <section class='ask-item' id='a-oid-collision'>
 <h3><span class='tag'>Identifiers</span> 3. Three OIDs where one number would end up naming two artifacts</h3>
@@ -348,6 +374,14 @@ two different artifacts. An identifier that resolves to two things is not an
 identifier, and unlike a content disagreement this does not get better by
 picking a winner on content grounds.</p>
 <p class='ask'><span class='ask-tag'>Ask</span>Rule on which artifact keeps the number, or confirm that a new OID should be minted for the other.</p>
+<div class='where'>
+<b>Where the detail lives</b>
+<div class='chips'><a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0001">0001</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0078">0078</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0719">0719</a></div>
+<div class='chip-note'>The only two OID disagreements in the corpus (0001, 0719) plus 0078, which is different in kind. 395 of 396 code system OIDs and 411 of 412 value set OIDs agree.</div>
+<ul class='where-links'>
+<li><a href='../vocab-ig/output/open-items.html#gq-three-oids-where-one-number'>Question 4, with the OID for each side side by side</a></li>
+</ul>
+</div>
 </section>
 <section class='ask-item' id='a-table-oid'>
 <h3><span class='tag'>Identifiers</span> 4. Chapter 2C gives every table an OID, and it is published nowhere</h3>
@@ -362,6 +396,14 @@ table OIDs are not identifiers at all</b> &mdash; they are a bare arc root with
 no leaf, on tables the chapter itself types <i>undefined</i>. Nothing should
 ever resolve those.</p>
 <p class='ask'><span class='ask-tag'>Ask</span>Decide whether the table OID should land on the code system, the value set, both, or be allowed to lapse.</p>
+<div class='where'>
+<b>Where the detail lives</b>
+<div class='chip-note'>All 799 tables carry one; 50 of them are a bare arc root with no leaf.</div>
+<ul class='where-links'>
+<li><a href='../vocab-ig/output/table-ledger.html'>The OID overview at the head of the ledger</a></li>
+<li><a href='../vocab-ig/output/open-items.html#gq-chapter-2c-gives-every-table'>Question 6, on where the table OID should land</a></li>
+</ul>
+</div>
 </section>
 <section class='ask-item' id='a-descriptions'>
 <h3><span class='tag'>Merge policy</span> 5. Two descriptions where THO says more than the chapter</h3>
@@ -374,6 +416,14 @@ the chapter's; the additive principle says do not throw away what THO has.</p>
 <p><b>What this build does:</b> publishes the chapter's text and lists both, so
 the choice is visible rather than silent.</p>
 <p class='ask'><span class='ask-tag'>Ask</span>Confirm the chapter wins even when THO's text is better, or give us a rule for when it does not.</p>
+<div class='where'>
+<b>Where the detail lives</b>
+<div class='chips'><a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0227">0227</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0719">0719</a></div>
+<div class='chip-note'>0227 is settled; 0719 is the one still open.</div>
+<ul class='where-links'>
+<li><a href='../vocab-ig/output/open-items.html#gq-two-descriptions-where-tho-says'>Question 5, with both descriptions in full</a></li>
+</ul>
+</div>
 </section>
 <section class='ask-item' id='a-dangling'>
 <h3><span class='tag'>THO defect</span> 6. Four THO value sets compose from code systems THO does not publish</h3>
@@ -386,6 +436,14 @@ and that is true today, independent of anything this guide does.</p>
 flagged on the table index as <i>Dangling in THO</i> so that the situation is
 visible rather than inherited silently.</p>
 <p class='ask'><span class='ask-tag'>Ask</span>Take these four away as a THO maintenance item.</p>
+<div class='where'>
+<b>Where the detail lives</b>
+<div class='chips'><a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0350">0350</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0351">0351</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0456">0456</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0895">0895</a></div>
+<div class='chip-note'>All four are flagged <i>Dangling in THO</i> on the table index, which names the code system each one composes from.</div>
+<ul class='where-links'>
+<li><a href='../vocab-ig/output/table-index.html#coverage-anomalies'>The coverage anomalies, where these are listed with the other 16</a></li>
+</ul>
+</div>
 </section>
 
 <p>The remaining general questions in the guide are about what Chapter 2C itself
