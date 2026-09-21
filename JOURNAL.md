@@ -26,37 +26,57 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 
 ### Read this before anything else
 
-**The IG is built and everything in it is verified.** `vocab-ig/output/` is
-populated — 9,647 files. Errors **3288**, Warnings 145, **Broken Links 0**.
-This is the first session in three where the numbers quoted below are real.
+**Session 5 (2026-09-21) was worked from the HL7 Plenary in Rockville**, around
+the Terminology Infrastructure WG meeting. Three commits landed after the last
+verified build, and a build covering them was started at the end of the
+session.
 
-**Everything is built and verified. Nothing is outstanding.** The final build
-of 2026-09-20 covers every commit through `569f24e9`:
+**Check the build first:**
 
 ```
-Errors: 3288, Warnings: 145, Info: 92, Broken Links: 0     (20.2 min)
+tail -20 /tmp/vocab-build.log
+ps -eo pid,etime,comm | awk '$3=="java"'
 ```
 
-Identical on every number to the build before it, which is what a
-presentation-only change should produce. 16,164 files in `vocab-ig/output/`.
+Expect `Broken Links: 0` and errors at or very near **3288** (the figure from
+the 2026-09-20 build, which was clean at 20.2 min). The changes below are
+presentation and five display strings, so a materially different error count is
+worth investigating rather than accepting. If the log stops with no java
+running, the run was killed; re-run `build_vocab_ig.py --publish`, nothing is
+damaged.
 
-**`cac6c77e` (S3-03) is confirmed in the published HTML**, which was the one
-open claim: both authored anchors render (`coverage-anomalies`,
-`content-and-open-items`), both reciprocal links resolve, and the old
-"need a second look" phrasing is gone from both pages. The regeneration
-produced a zero diff, so the pipeline is reproducible end to end.
+**`vocab-ig/output-snapshot/` is managed automatically** and holds the last
+build that finished, so the IG is readable even mid-build. `--no-snapshot`
+turns it off. It is a copy; the live build is `vocab-ig/output/`.
 
-`45f8c81e`'s orchestrator ran that whole build unattended and detached, which
-was its first real use.
+### What landed in session 5
 
-**`vocab-ig/output-snapshot/` is now managed automatically** and currently
-holds a copy of the build above. `build_vocab_ig.py --publish` refreshes it
-after every publisher run that exits 0, so the IG is readable while a build is
-running and after one that fails — the "IG is dark" state this session started
-in cannot happen again. `--no-snapshot` turns it off. It is gitignored, ~406 MB,
-carries a `SNAPSHOT.txt` saying what it is and which commit it came from, and is
-never a build that failed. **It is still a copy — the live build is
-`vocab-ig/output/`.**
+- **`02b8b2ce` — presentation differences separated from disagreements.** The
+  ledger listed 489 differences under one heading; **287 were never
+  questions**. 211 were THO carrying the V2 status letter where this guide
+  carries the FHIR status it maps to, and 76 were the same words styled
+  differently (44 punctuation, 25 spacing, 7 capitalisation). **202 genuine
+  disagreements remain.** They now render in their own table, *"Written
+  differently, saying the same thing"*, which says nothing in it needs a
+  decision.
+- **ADR-0012 — five concept displays now publish THO's capitalisation**
+  (0203 `GKV`/`KZVA`/`PKV`/`ZANR`, 0396 `DAR`). An exception to chapter-wins,
+  justified because the words are identical. **No version moved.** The reverse
+  direction is deliberately not symmetrical — see the ADR.
+- **`48696948` — every briefing ask points at the evidence.** Affected tables
+  as links into the ledger, plus named links to the page holding the detail.
+  All 19 verified to resolve, fragments included.
+- **`29230899` — the build keeps a snapshot** of the last run that finished.
+- **`45f8c81e` — the build order is enforced, not remembered**
+  (`build_vocab_ig.py`).
+
+### Deliverable in use
+
+`v291-extracted/ti-briefing.html` was presented to the Terminology
+Infrastructure WG on 2026-09-21. Self-contained; open it off disk. **Capture
+what the room said** — several of the guide's open questions are addressed to
+exactly those people, and that feedback is the most perishable thing in this
+project right now.
 
 ### First thing next session
 
