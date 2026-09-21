@@ -110,6 +110,89 @@ def is_editorial(ours, theirs):
     return bool(words(ours)) and words(ours) == words(theirs)
 
 
+# --------------------------------------------------------------------------
+# Differences that are not disagreements
+# --------------------------------------------------------------------------
+#
+# A reader of the ledger has to be able to tell "we and THO have made different
+# editorial choices" from "we and THO say different things". Without that, 489
+# rows all read as questions somebody has to answer, and the ones that really
+# are questions get lost among the ones that are not.
+#
+# Nothing here decides a version. Every difference is still a change for
+# versioning purposes -- see `changed_fields`. This only says what KIND of
+# difference it was.
+
+def uppercase_count(value):
+    """How many characters are upper case. Used only to give case a direction."""
+    return sum(1 for character in str(value) if character.isupper())
+
+
+def presentation_difference(ours, theirs):
+    """Classify a difference that is only in how the text is presented.
+
+    Returns None when the two genuinely say different things, otherwise a dict
+    with `kind` and, for case, a `direction`.
+
+    The kinds are checked most-specific first, so a pair differing only in case
+    is reported as case rather than as punctuation -- `words()` lowercases, so
+    every case-only pair would otherwise be swallowed by the punctuation test.
+
+    `direction` is which side is more capitalised, and it is the whole reason
+    case is separated from the rest: THO adding capitals to a lower-cased
+    display is THO improving it, while THO removing them is worth a look.
+    Note that "tho-dropped" does not mean THO is wrong -- one real instance is
+    THO correctly lower-casing "for" in a title -- so it is surfaced for
+    review, never as a defect.
+    """
+    if not isinstance(ours, str) or not isinstance(theirs, str):
+        return None
+    if not ours.strip() or not theirs.strip():
+        return None
+    if normalize(ours) == normalize(theirs):
+        return None
+
+    if ours.lower() == theirs.lower():
+        return {
+            "kind": "case",
+            "direction": ("tho-added"
+                          if uppercase_count(theirs) > uppercase_count(ours)
+                          else "tho-dropped"),
+        }
+
+    despaced = (re.sub(r"\s+", "", ours).lower(),
+                re.sub(r"\s+", "", theirs).lower())
+    if despaced[0] == despaced[1]:
+        return {"kind": "spacing"}
+
+    if is_editorial(ours, theirs):
+        return {"kind": "punctuation"}
+
+    return None
+
+
+# THO stores the raw V2 status letter where this guide stores the FHIR concept
+# status it maps to. That is not the two sides disagreeing about a concept's
+# standing -- it is the same fact written in two vocabularies, and this guide
+# has already ruled on the mapping (see INHERITED_STATUS_CORRECTIONS, which
+# applies it to concepts taken wholesale from THO).
+#
+# This table is for RECOGNISING the pair, not for rewriting it, which is why it
+# is separate from INHERITED_STATUS_CORRECTIONS and why adding a letter here
+# changes no published value.
+STATUS_LETTER_READINGS = {"N": "active", "B": "deprecated"}
+
+
+def is_status_letter_reading(ours, theirs):
+    """Whether a status pair is THO's V2 letter against our FHIR reading of it.
+
+    `ours='active'` against `tho='N'` is this. `ours='deprecated'` against
+    `tho='active'` is not -- both are FHIR codes, so that is a real
+    disagreement about the concept's standing.
+    """
+    return STATUS_LETTER_READINGS.get(str(theirs)) == str(ours)
+
+
 class Observations:
     """Everything the merge noticed, one record per instance.
 
@@ -122,8 +205,14 @@ class Observations:
         self.records = []
 
     def _add(self, kind, **fields):
+        # Fields that are None are dropped rather than stored. The classifiers
+        # return None for "this does not apply", and a report carrying
+        # `presentation: null` on all 489 discrepancies is both larger and
+        # harder to read than one where the key's presence is itself the
+        # signal. Consumers already cope with absent keys -- `code` was only
+        # ever on the records that have one.
         record = {"kind": kind}
-        record.update(fields)
+        record.update({k: v for k, v in fields.items() if v is not None})
         self.records.append(record)
 
     def fill(self, **fields):
@@ -336,8 +425,23 @@ def _merge_properties(ours, theirs, observe, context):
             continue
         our_key, our_value = ours_by_code[code]
         if normalize(our_value) != normalize(value) or our_key != key:
-            observe.discrepancy(element="concept.property", property=code,
-                                ours=our_value, tho=value, **context)
+            # A status pair that is THO's V2 letter against this guide's FHIR
+            # reading of it is not a disagreement, and the ruling that makes it
+            # so is already written down. It was being applied on only one of
+            # the two paths that reach here -- concepts taken wholesale from
+            # THO got the reasoned treatment, concepts carried by both sides
+            # got reported 209 times as an unexplained difference.
+            letter_reading = (code == "status"
+                              and is_status_letter_reading(our_value, value))
+            observe.discrepancy(
+                element="concept.property", property=code,
+                ours=our_value, tho=value,
+                presentation=presentation_difference(our_value, value),
+                statusLetterReading=letter_reading or None,
+                reason=("THO carries the V2 status letter; this guide "
+                        "publishes the FHIR status it maps to."
+                        if letter_reading else None),
+                **context)
 
     for code, _key, value in ours:
         if code not in theirs_by_code:
@@ -369,8 +473,38 @@ def merge_concept(chapter_row, tho_concept, observe, context):
             merged[element] = theirs
             observe.fill(element=f"concept.{element}", value=theirs, **context)
         elif normalize(ours) != normalize(theirs):
+            presentation = presentation_difference(ours, theirs)
+            # The one place THO's text is published over the chapter's. A
+            # display that differs from THO only by capitalisation, where THO
+            # is the more capitalised, is THO having tidied a lower-cased
+            # display; keeping that is free under the errata rules and loses
+            # the chapter nothing, because the words are identical. See
+            # ADR-0012.
+            #
+            # Deliberately narrow. It does not apply to `definition`, where a
+            # case difference is more likely to be meaningful, and it does not
+            # apply when THO is the LESS capitalised side -- that is surfaced
+            # for review instead, because THO may be right (correct title case)
+            # or may have lost a proper noun, and only a person can tell.
+            takes_thos_casing = (
+                element == "display"
+                and presentation is not None
+                and presentation["kind"] == "case"
+                and presentation["direction"] == "tho-added"
+            )
+            if takes_thos_casing:
+                merged[element] = theirs
             observe.discrepancy(element=f"concept.{element}", ours=ours,
-                                tho=theirs, **context)
+                                tho=theirs, presentation=presentation,
+                                # `publishedValue`, not `published`: the
+                                # identifier records already use `published`
+                                # to name a SIDE ("tho"), and one key with two
+                                # meanings is unreadable downstream. Present
+                                # only where THO's value was the one
+                                # published, so its presence is the signal.
+                                publishedValue=(theirs if takes_thos_casing
+                                                else None),
+                                **context)
 
     designations = tho_concept.get("designation") or []
     if designations:
@@ -600,8 +734,13 @@ def changed_fields(fields, tho_resource, compared, observe, context):
             observe.addition(element=name, value=ours, **context)
             continue
         changed.append(name)
+        # `editorial` is kept as-is so nothing downstream that reads it
+        # changes meaning; `presentation` is the finer classification that
+        # separates case from punctuation and gives case a direction.
         observe.discrepancy(element=name, ours=ours, tho=theirs,
-                            editorial=is_editorial(ours, theirs), **context)
+                            editorial=is_editorial(ours, theirs),
+                            presentation=presentation_difference(ours, theirs),
+                            **context)
     return changed
 
 
@@ -671,9 +810,13 @@ def merge_compose(compose, tho_resource, observe, context):
                              value=concept.get("display"), **context)
             elif (normalize(ours[code].get("display"))
                   != normalize(concept.get("display"))):
-                observe.discrepancy(element="compose.include.concept.display",
-                                    code=code, ours=ours[code].get("display"),
-                                    tho=concept.get("display"), **context)
+                observe.discrepancy(
+                    element="compose.include.concept.display",
+                    code=code, ours=ours[code].get("display"),
+                    tho=concept.get("display"),
+                    presentation=presentation_difference(
+                        ours[code].get("display"), concept.get("display")),
+                    **context)
         theirs = {concept.get("code") for concept in counterpart["concept"]}
         for code in ours:
             if code not in theirs:

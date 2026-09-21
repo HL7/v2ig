@@ -388,6 +388,57 @@ def decision_callout(table, entry):
     return quoted + ["{: .tl-callout}", ""]
 
 
+# --------------------------------------------------------------------------
+# Disagreements versus differences in presentation
+# --------------------------------------------------------------------------
+#
+# A reader who meets 489 rows all headed "Differences from THO" reads 489
+# questions. Most are not questions: 76 are the two sides styling the same
+# words differently, and 211 are THO holding the V2 status letter where this
+# guide holds the FHIR status it maps to -- a mapping this guide already ruled
+# on. Both are classified upstream in tho_merge.py; this only decides which
+# table a row lands in.
+#
+# They are still listed, and they still count as changes for versioning. The
+# split is about what a reader is being asked to DO.
+
+PRESENTATION_NOTE = {
+    "case": "Same words; only capitalisation differs.",
+    "punctuation": "Same words in the same order; only punctuation differs.",
+    "spacing": "Same text; only spacing differs.",
+}
+
+
+def is_presentational(record):
+    """Whether a difference is one nobody needs to adjudicate."""
+    return bool(record.get("presentation")
+                or record.get("statusLetterReading"))
+
+
+def presentation_reason(record):
+    """The sentence explaining why a difference is not a disagreement."""
+    if record.get("statusLetterReading"):
+        return ("THO carries the V2 status letter; this guide publishes the "
+                "FHIR status it maps to. The mapping is settled.")
+    presentation = record.get("presentation") or {}
+    reason = PRESENTATION_NOTE.get(presentation.get("kind"), "")
+    if presentation.get("kind") != "case":
+        return reason
+    if presentation.get("direction") == "tho-added":
+        if record.get("publishedValue"):
+            # Both value columns show THO's text once its casing is adopted,
+            # so the chapter's own wording would otherwise vanish from the
+            # page entirely. It is named here instead.
+            return (reason + " THO's capitalisation is the better of the two, "
+                    "so this guide publishes it; the chapter has "
+                    f"\u201c{cell(record.get('ours'))}\u201d.")
+        return reason + " THO is the more capitalised side."
+    return (reason + " <b>THO is the less capitalised side</b> \u2014 which may be "
+            "correct style or may be a lost capital, so it is shown here "
+            "rather than absorbed.")
+
+
+
 def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
                          classes, issues, oids, in_chapter=True, flag=None,
                          reasons=()):
@@ -426,11 +477,17 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
     if versions:
         lines += [f"- {part}" for part in versions] + [""]
 
-    if diffs:
+    substantive = [item for item in diffs if not is_presentational(item[0])]
+    styling = [item for item in diffs if is_presentational(item[0])]
+
+    if substantive:
         lines += [
-            f"**Differences from THO ({len(diffs)}).** "
+            f"**Differences from THO ({len(substantive)}).** "
             "Everything this guide publishes at THO's canonical that THO does "
-            "not say, or says differently.",
+            "not say, or says differently."
+            + (f" A further {len(styling)} differ only in how the same content "
+               "is written; those are listed separately below."
+               if styling else ""),
             "",
             "| Difference | Element | Code | This guide publishes | THO has "
             "| Also affects |",
@@ -440,6 +497,9 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
             DIFFERENCE_ORDER.index(item[0]["kind"]),
             item[0].get("element") or "",
             item[0].get("code") or ""))
+        # Differences that are only in presentation go to their own table
+        # below, so this one holds only what somebody may want to challenge.
+        ordered = [item for item in ordered if not is_presentational(item[0])]
         for record, key, _title in ordered:
             label = DIFFERENCE_LABEL.get(record["kind"], record["kind"])
             skip = 0
@@ -463,6 +523,34 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
             lines.append(
                 f"| {label} | {element_label(record)} | {code_cell(record)} "
                 f"| {cell(ours, skip)}{note} | {cell(theirs, skip)} | {spread} |")
+        lines.append("")
+
+    if styling:
+        lines += [
+            f"**Written differently, saying the same thing ({len(styling)}).** "
+            "The two sides style the same content differently, or THO carries "
+            "a V2 status letter where this guide carries the FHIR status it "
+            "maps to. **Nothing here needs a decision.** Each still counts as "
+            "a change for versioning, and each is listed so that nothing is "
+            "hidden.",
+            "",
+            "| Element | Code | This guide publishes | THO has | Why it is "
+            "not a disagreement |",
+            "|---|---|---|---|---|",
+        ]
+        for record, _key, _title in sorted(styling, key=lambda item: (
+                item[0].get("element") or "", item[0].get("code") or "")):
+            # The column says "this guide publishes", so it must show what
+            # was published. For the capitalisation carve-out that is THO's
+            # value, not the chapter's -- showing `ours` there would
+            # contradict the sentence beside it.
+            ours = record.get("publishedValue") or record.get("ours")
+            theirs = record.get("tho")
+            skip = window_onto_difference(ours, theirs)
+            lines.append(
+                f"| {element_label(record)} | {code_cell(record)} "
+                f"| {cell(ours, skip)} | {cell(theirs, skip)} "
+                f"| {presentation_reason(record)} |")
         lines.append("")
 
     if fill_counts:

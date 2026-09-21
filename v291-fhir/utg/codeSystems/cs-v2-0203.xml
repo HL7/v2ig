@@ -774,7 +774,7 @@
   </concept>
   <concept id="2105">
     <code value="GKV"/>
-    <display value="insured&#39;s ID with public insurance"/>
+    <display value="Insured&#39;s ID with Public Insurance"/>
     <definition value="Identifier that can be used to unambiguously describe the ID of a patient with a public insurance company."/>
     <property>
       <code value="v2-concComment"/>
@@ -868,7 +868,7 @@
   </concept>
   <concept id="2108">
     <code value="KZVA"/>
-    <display value="dentist office number"/>
+    <display value="Dentist Office Number"/>
     <definition value="Identifier that can be used to unambiguously identify the practice of a dentist."/>
     <property>
       <code value="v2-concComment"/>
@@ -1509,7 +1509,7 @@
   </concept>
   <concept id="2106">
     <code value="PKV"/>
-    <display value="insured&#39;s ID with private insurance"/>
+    <display value="Insured&#39;s ID with Private Insurance"/>
     <definition value="Identifier that can be used to unambiguously describe the ID of a patient with a private insurance company."/>
     <property>
       <code value="v2-concComment"/>
@@ -2137,7 +2137,7 @@
   </concept>
   <concept id="2107">
     <code value="ZANR"/>
-    <display value="dentist identifier"/>
+    <display value="Dentist Identifier"/>
     <definition value="Identifier that can be used to unambiguously describe the ID of a dentist."/>
     <property>
       <code value="v2-concComment"/>

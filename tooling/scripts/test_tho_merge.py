@@ -512,3 +512,141 @@ def test_recovery_needs_a_real_prefix_not_merely_a_difference():
         {"description": "alpha beta"}, {"description": "alpha gamma"},
         ("description",), observe, {"table": "0001", "resource": "ValueSet"})
     assert merged["description"] == "alpha beta"
+
+
+# --------------------------------------------------------------------------
+# Differences that are not disagreements
+# --------------------------------------------------------------------------
+
+def test_a_case_only_difference_is_classified_as_case():
+    result = tho_merge.presentation_difference("dentist office number",
+                                               "Dentist Office Number")
+    assert result["kind"] == "case"
+
+
+def test_case_is_checked_before_punctuation():
+    """words() lowercases, so without ordering every case-only pair would be
+    reported as a punctuation difference and lose its direction."""
+    result = tho_merge.presentation_difference("dataAbsentReason",
+                                               "DataAbsentReason")
+    assert result["kind"] == "case"
+
+
+def test_tho_adding_capitals_is_recorded_as_such():
+    result = tho_merge.presentation_difference("dentist identifier",
+                                               "Dentist Identifier")
+    assert result["direction"] == "tho-added"
+
+
+def test_tho_dropping_capitals_is_recorded_as_such():
+    """THO lower-casing "For" to "for" is correct title case, so this is
+    surfaced for review rather than treated as a defect -- but it must be
+    distinguishable from THO adding capitals, which is kept silently."""
+    result = tho_merge.presentation_difference("Sex Parameter For Clinical Use",
+                                               "Sex Parameter for Clinical Use")
+    assert result["kind"] == "case"
+    assert result["direction"] == "tho-dropped"
+
+
+def test_a_punctuation_difference_is_classified_as_punctuation():
+    result = tho_merge.presentation_difference("Dentist, office number",
+                                               "Dentist office number")
+    assert result["kind"] == "punctuation"
+
+
+def test_a_spacing_difference_is_classified_as_spacing():
+    result = tho_merge.presentation_difference("HealthCare", "Health Care")
+    assert result["kind"] == "spacing"
+
+
+def test_genuinely_different_text_is_not_a_presentation_difference():
+    assert tho_merge.presentation_difference("Dentist identifier",
+                                             "Physician identifier") is None
+
+
+def test_identical_text_is_not_a_difference_at_all():
+    assert tho_merge.presentation_difference("same", "same") is None
+    assert tho_merge.presentation_difference("same  text", "same text") is None
+
+
+def test_an_empty_side_is_never_a_presentation_difference():
+    """Absent content is a fill or an addition, not a difference in styling."""
+    assert tho_merge.presentation_difference("", "Something") is None
+    assert tho_merge.presentation_difference("Something", "   ") is None
+
+
+def test_non_text_is_not_a_presentation_difference():
+    assert tho_merge.presentation_difference(None, "x") is None
+    assert tho_merge.presentation_difference(3, "3") is None
+
+
+def test_thos_status_letter_against_our_reading_is_not_a_disagreement():
+    """THO carries the V2 letter, we carry the FHIR status it maps to. The
+    ruling already existed; it was only being applied on one of two paths."""
+    assert tho_merge.is_status_letter_reading("active", "N")
+    assert tho_merge.is_status_letter_reading("deprecated", "B")
+
+
+def test_two_fhir_statuses_that_differ_is_a_real_disagreement():
+    """Both sides using FHIR codes and disagreeing is a genuine difference
+    about the concept's standing, and must stay visible."""
+    assert not tho_merge.is_status_letter_reading("deprecated", "active")
+    assert not tho_merge.is_status_letter_reading("active", "deprecated")
+
+
+def test_recognising_a_status_letter_does_not_rewrite_it():
+    """STATUS_LETTER_READINGS is for classification only. The rewriting table
+    is INHERITED_STATUS_CORRECTIONS, and widening one must not widen the
+    other -- adding B here changes no published value."""
+    assert "B" in tho_merge.STATUS_LETTER_READINGS
+    assert "B" not in tho_merge.INHERITED_STATUS_CORRECTIONS
+
+
+# --------------------------------------------------------------------------
+# The capitalisation carve-out (ADR-0012)
+# --------------------------------------------------------------------------
+#
+# The one place THO's text is published over the chapter's. Narrow on purpose:
+# display only, case only, and only where THO is the more capitalised side.
+
+def test_thos_capitalisation_of_a_display_is_published():
+    merged, records = merge_one(
+        chapter_row(display="dentist office number"),
+        tho_concept(display="Dentist Office Number"))
+    assert merged["display"] == "Dentist Office Number"
+
+
+def test_taking_thos_casing_is_recorded_as_what_was_published():
+    _merged, records = merge_one(
+        chapter_row(display="dentist office number"),
+        tho_concept(display="Dentist Office Number"))
+    discrepancy = next(r for r in records if r["kind"] == "discrepancy")
+    assert discrepancy["publishedValue"] == "Dentist Office Number"
+    assert discrepancy["presentation"]["direction"] == "tho-added"
+
+
+def test_the_chapter_keeps_its_casing_when_tho_dropped_capitals():
+    """THO having FEWER capitals is surfaced for review, not absorbed -- it
+    may be correct title case or it may be a lost proper noun."""
+    merged, records = merge_one(
+        chapter_row(display="Sex Parameter For Clinical Use"),
+        tho_concept(display="Sex Parameter for Clinical Use"))
+    assert merged["display"] == "Sex Parameter For Clinical Use"
+    discrepancy = next(r for r in records if r["kind"] == "discrepancy")
+    assert "publishedValue" not in discrepancy
+
+
+def test_the_carve_out_does_not_reach_definitions():
+    """A case difference in a definition is likelier to carry meaning, and
+    nothing has ruled on it."""
+    merged, _records = merge_one(
+        chapter_row(display="Female", definition="female patient"),
+        tho_concept(display="Female", definition="Female Patient"))
+    assert merged["definition"] == "female patient"
+
+
+def test_the_carve_out_does_not_reach_a_real_wording_difference():
+    merged, _records = merge_one(
+        chapter_row(display="Dentist identifier"),
+        tho_concept(display="Physician identifier"))
+    assert merged["display"] == "Dentist identifier"

@@ -832,7 +832,7 @@
   </concept>
   <concept id="14060">
     <code value="DAR"/>
-    <display value="dataAbsentReason"/>
+    <display value="DataAbsentReason"/>
     <definition value="Used to specify why the normally expected content of the data element is missing."/>
     <property>
       <code value="v2-concComment"/>
