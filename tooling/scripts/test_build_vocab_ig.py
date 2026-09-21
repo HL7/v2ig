@@ -86,3 +86,85 @@ def test_an_unknown_step_name_is_refused():
         capture_output=True, text=True)
     assert result.returncode != 0
     assert "no_such_step" in result.stderr
+
+
+# --------------------------------------------------------------------------
+# The post-build snapshot
+# --------------------------------------------------------------------------
+#
+# The snapshot exists so the IG stays readable while the publisher is running
+# (it wipes output/ on startup) and after a build that fails. These tests use
+# tiny fake trees rather than the real 406 MB one.
+
+def _redirect(monkeypatch, tmp_path):
+    """Point the module's output/snapshot paths at a temp directory."""
+    out = tmp_path / "output"
+    snap = tmp_path / "output-snapshot"
+    monkeypatch.setattr(build, "IG_OUTPUT", out)
+    monkeypatch.setattr(build, "IG_SNAPSHOT", snap)
+    return out, snap
+
+
+def test_a_finished_build_is_copied_to_the_snapshot(monkeypatch, tmp_path):
+    out, snap = _redirect(monkeypatch, tmp_path)
+    out.mkdir()
+    (out / "index.html").write_text("current build")
+
+    build.snapshot_output()
+
+    assert (snap / "index.html").read_text() == "current build"
+
+
+def test_the_snapshot_says_it_is_not_the_live_build(monkeypatch, tmp_path):
+    """16,000 HTML pages look exactly like the real thing without this."""
+    out, snap = _redirect(monkeypatch, tmp_path)
+    out.mkdir()
+    (out / "index.html").write_text("current build")
+
+    build.snapshot_output()
+
+    marker = (snap / "SNAPSHOT.txt").read_text()
+    assert "NOT the live build" in marker
+    assert "vocab-ig/output/" in marker
+
+
+def test_an_older_snapshot_is_replaced_not_merged(monkeypatch, tmp_path):
+    """A file from the previous build must not survive into the new snapshot."""
+    out, snap = _redirect(monkeypatch, tmp_path)
+    out.mkdir()
+    (out / "index.html").write_text("new build")
+    snap.mkdir()
+    (snap / "index.html").write_text("old build")
+    (snap / "page-that-was-deleted.html").write_text("stale")
+
+    build.snapshot_output()
+
+    assert (snap / "index.html").read_text() == "new build"
+    assert not (snap / "page-that-was-deleted.html").exists()
+
+
+def test_no_scratch_directories_are_left_behind(monkeypatch, tmp_path):
+    out, snap = _redirect(monkeypatch, tmp_path)
+    out.mkdir()
+    (out / "index.html").write_text("current build")
+
+    build.snapshot_output()
+
+    siblings = {p.name for p in tmp_path.iterdir()}
+    assert siblings == {"output", "output-snapshot"}, siblings
+
+
+def test_a_missing_output_directory_is_not_fatal(monkeypatch, tmp_path):
+    """Nothing to snapshot is a skip, not a crash -- it must not fail a build
+    that otherwise succeeded."""
+    _redirect(monkeypatch, tmp_path)
+    build.snapshot_output()  # output/ does not exist
+
+
+def test_snapshotting_is_on_by_default_and_can_be_turned_off():
+    """A flag you have to remember is the one you forget on the day it
+    matters, so the default is on."""
+    parser_args = subprocess.run(
+        [sys.executable, str(build.SCRIPT_DIR / "build_vocab_ig.py"), "--help"],
+        capture_output=True, text=True)
+    assert "--no-snapshot" in parser_args.stdout

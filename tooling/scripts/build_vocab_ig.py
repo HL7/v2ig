@@ -28,6 +28,7 @@ good, so do not use it after changing something early in the chain.
 
 import argparse
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -40,6 +41,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 # --publish. It needs Ruby on PATH because the publisher shells out to Jekyll.
 PUBLISHER_JAR = PROJECT_ROOT / "input-cache" / "publisher.jar"
 IG_INI = PROJECT_ROOT / "vocab-ig" / "ig.ini"
+IG_OUTPUT = PROJECT_ROOT / "vocab-ig" / "output"
+IG_SNAPSHOT = PROJECT_ROOT / "vocab-ig" / "output-snapshot"
 JAVA = Path("/home/claude/jdk/bin/java")
 GEM_HOME = "/home/claude/.gems"
 RUBY_BIN = "/home/claude/ruby/arm64/bin"
@@ -198,6 +201,70 @@ def run_publisher():
     print(f"\nPublisher finished in {elapsed / 60:.1f} min.")
 
 
+def snapshot_output():
+    """Copy a just-completed build to output-snapshot/, replacing the old one.
+
+    The publisher deletes output/ when it starts, so from that moment until it
+    finishes -- about twenty minutes -- there is no readable IG, and if the run
+    is interrupted there is none afterwards either. Keeping the last build that
+    actually finished means that state cannot happen.
+
+    Only ever called after the publisher exits 0, so the snapshot is always a
+    build that completed. A failed build leaves the previous snapshot alone,
+    which is the whole point.
+
+    The copy goes to a scratch directory and is renamed into place, so an
+    interrupted copy cannot destroy the good snapshot it was replacing.
+    """
+    if not IG_OUTPUT.is_dir():
+        print(f"No {IG_OUTPUT} to snapshot; skipping.")
+        return
+
+    scratch = IG_SNAPSHOT.with_name(IG_SNAPSHOT.name + ".incoming")
+    previous = IG_SNAPSHOT.with_name(IG_SNAPSHOT.name + ".previous")
+    for leftover in (scratch, previous):
+        if leftover.exists():
+            shutil.rmtree(leftover)
+
+    started = time.monotonic()
+    shutil.copytree(IG_OUTPUT, scratch, symlinks=True)
+
+    # A file saying what this is, because a directory of 16,000 HTML pages is
+    # otherwise indistinguishable from the live build at a glance.
+    (scratch / "SNAPSHOT.txt").write_text(
+        "This is a COPY of a completed vocab-ig build, kept so that the IG is\n"
+        "still readable while the publisher is running (it wipes output/ on\n"
+        "startup) and after a build that fails.\n\n"
+        "It is NOT the live build. The live build is vocab-ig/output/.\n\n"
+        f"taken:  {time.strftime('%Y-%m-%d %H:%M:%S')}\n"
+        f"commit: {current_commit()}\n"
+        f"source: {IG_OUTPUT}\n",
+        encoding="utf-8")
+
+    # Rename the old one aside, move the new one in, then delete the old one.
+    # At no point is there no snapshot.
+    if IG_SNAPSHOT.exists():
+        IG_SNAPSHOT.rename(previous)
+    scratch.rename(IG_SNAPSHOT)
+    if previous.exists():
+        shutil.rmtree(previous)
+
+    elapsed = time.monotonic() - started
+    print(f"Snapshot updated: {IG_SNAPSHOT} ({elapsed:.1f}s). "
+          "It is a copy, not the live build.")
+
+
+def current_commit():
+    """The HEAD commit, for the snapshot marker. Never fatal."""
+    try:
+        result = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                                cwd=PROJECT_ROOT, capture_output=True,
+                                text=True, timeout=10)
+        return result.stdout.strip() or "unknown"
+    except Exception:
+        return "unknown"
+
+
 def print_chain(steps):
     """Show the order and the reason for it, without running anything."""
     print("Vocabulary IG preprocessing chain:\n")
@@ -241,6 +308,9 @@ def main():
                         help="run just this step")
     parser.add_argument("--publish", action="store_true",
                         help="also run the IG Publisher when the chain passes")
+    parser.add_argument("--no-snapshot", dest="snapshot", action="store_false",
+                        help="do not refresh vocab-ig/output-snapshot after a "
+                             "successful publish")
     args = parser.parse_args()
 
     # Always check the declared order, even for --list. A broken graph is worth
@@ -278,6 +348,8 @@ def main():
 
     if args.publish:
         run_publisher()
+        if args.snapshot:
+            snapshot_output()
     else:
         print("The staged tree is ready. Re-run with --publish to build the "
               "IG, or run the publisher yourself against vocab-ig/ig.ini.")

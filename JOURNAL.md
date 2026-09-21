@@ -30,33 +30,33 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 populated — 9,647 files. Errors **3288**, Warnings 145, **Broken Links 0**.
 This is the first session in three where the numbers quoted below are real.
 
-**A second build was started at the end of the session and may not have
-finished.** It covers `cac6c77e` (the S3-03 fix) and `45f8c81e` (the
-orchestrator), neither of which had been through the publisher. It was launched
-**detached** — its own session, immune to this session ending — as
-`setsid nohup python3 tooling/scripts/build_vocab_ig.py --publish`, logging to
-`/tmp/vocab-build.log`.
-
-**Check that first:**
+**Everything is built and verified. Nothing is outstanding.** The final build
+of 2026-09-20 covers every commit through `569f24e9`:
 
 ```
-tail -20 /tmp/vocab-build.log
-ps -eo pid,etime,comm | awk '$3=="java"'
+Errors: 3288, Warnings: 145, Info: 92, Broken Links: 0     (20.2 min)
 ```
 
-- **Finished:** the log's last lines give `Errors: … Broken Links: …`. Expect
-  **Errors 3288** and **Broken Links 0**, unchanged from the previous build —
-  `cac6c77e` is presentation-only. **Broken Links above 0 means the two new
-  anchors did not land**, and the remedy is to revert that one commit.
-- **Still running:** leave it. ~17 min, silent for ~13 during "Run Template".
-- **Killed mid-run (log stops, no java):** `vocab-ig/output/` is wiped and the
-  IG is dark. Re-run the command above; nothing is damaged.
+Identical on every number to the build before it, which is what a
+presentation-only change should produce. 16,164 files in `vocab-ig/output/`.
 
-**`vocab-ig/output-snapshot/` is a complete copy of the previous, fully verified
-build** — 16,164 files, 379,539,246 bytes, taken because the publisher wipes
-`output/` on startup and the IG was needed for reading offline. It is gitignored.
-**Delete it once `output/` is good again**; it is 406 MB and it is not a second
-source of truth. Do not let a later session mistake it for the current build.
+**`cac6c77e` (S3-03) is confirmed in the published HTML**, which was the one
+open claim: both authored anchors render (`coverage-anomalies`,
+`content-and-open-items`), both reciprocal links resolve, and the old
+"need a second look" phrasing is gone from both pages. The regeneration
+produced a zero diff, so the pipeline is reproducible end to end.
+
+`45f8c81e`'s orchestrator ran that whole build unattended and detached, which
+was its first real use.
+
+**`vocab-ig/output-snapshot/` is now managed automatically** and currently
+holds a copy of the build above. `build_vocab_ig.py --publish` refreshes it
+after every publisher run that exits 0, so the IG is readable while a build is
+running and after one that fails — the "IG is dark" state this session started
+in cannot happen again. `--no-snapshot` turns it off. It is gitignored, ~406 MB,
+carries a `SNAPSHOT.txt` saying what it is and which commit it came from, and is
+never a build that failed. **It is still a copy — the live build is
+`vocab-ig/output/`.**
 
 ### First thing next session
 
@@ -116,6 +116,9 @@ Both are now *answerable* — the IG is built and can be looked at.
 
 ### Things that will bite
 
+- **A snapshot is kept of the last build that finished.** It is a copy, not
+  a second source of truth, and it is 406 MB. Do not diff against it, cite it,
+  or serve it; if a page looks wrong, check which directory it came from.
 - **The build order is now enforced, not remembered.**
   `tooling/scripts/build_vocab_ig.py` runs the seven preprocessing steps in
   order; each declares what it produces and consumes, and `check_order()`
