@@ -2,7 +2,7 @@
 
 Older session entries, moved out of `JOURNAL.md` to keep session-start context lean. Append-only; read on demand only — not loaded at session start.
 
-The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-09-21**, to **2026-09-20**: every entry before that date is below, and entries from 2026-09-20 onward remain in the active `JOURNAL.md`.
+The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-09-22**, when the 2026-09-20 *"One product"* entry came across: the active `JOURNAL.md` now starts at the 2026-09-20 *"Built, verified, and briefed for Rockville"* entry, and everything earlier is below.
 
 ---
 
@@ -2545,6 +2545,80 @@ register items, Batch A.
 
 The same five files from the structural workstream, now dated across six
 sessions. They belong to `dev/framework`.
+
+---
+
+## 2026-09-20 — One product: the report becomes two pages of the guide
+
+Short session, ended for a flight. Three commits, no build.
+
+### The reviewer overruled yesterday's URL decision, and was right
+
+`935153b0` had reasoned carefully to the wrong answer: THO's page URL returns
+200 directly while the canonical 302s to a version-pinned page, so the page URL
+avoided a redirect hop. The reviewer's answer — the HL7 proxy redirects the
+canonical to the rendered page, so the hop is free — makes the hop a
+non-argument, and what is left is that the canonical is the identifier we
+actually mean. Worth recording because the earlier reasoning was sound and
+still reached the wrong place: it optimised the mechanism and never asked what
+the link was *for*.
+
+The rewrite proves each target against the THO snapshot before writing it,
+rather than pattern-matching `CodeSystem-X.html` into a canonical. That is not
+defensive dressing: the pattern would happily mint a plausible URL for a code
+system THO does not publish, and nothing downstream would catch it.
+
+### Asking a question turned up work nobody had counted
+
+The reviewer asked what else was left. Answering it honestly meant checking the
+tracker rather than quoting it — and the session-2 status column had never been
+updated, so fourteen rows read `todo` for work that shipped in `6a896e44`.
+Reconciling it surfaced **three items that were in no session's plan**: S2-15,
+S2-16 and S2-20. S2-16, property-instance suppression, is real work.
+
+The general lesson is the boring one: a status column that is written once and
+never reconciled is worse than no status column, because it reads as current.
+
+### The fold, and the choice not to keep three pages
+
+Offered three shapes for `general-questions.md`; the reviewer took the most
+invasive one — absorb it. That is the right call for "one product" and it is
+also the one that risks mangling 371 lines of their own prose, so the lift was
+done **programmatically**, splitting the file on its own headings and writing
+the parts out as literals. Git reports the result as a rename of the page into
+the module, which is the evidence that nothing was retyped.
+
+One structural thing worth keeping: **the split between the two pages is by the
+ACTION class the report already assigns.** The alternative — deciding
+page-by-page what counts as an ask — would have been a second classification
+that could drift from the first. As built, re-classing a group moves it, and an
+action class with no page assignment stops the run rather than dropping the
+group quietly. That last case is the one that would never have been noticed.
+
+Rows became blocks rather than table rows, because the findings carry
+paragraphs and nested evidence tables that a Markdown table cannot hold. The
+standalone report gets away with a grid because it is a catalog; an agenda of
+sixty items is a list.
+
+### Two things that cost time and should not cost it again
+
+**`grep -c $'\x00'` reports every line as a hit.** Bash cannot put a NUL in a
+string, so the pattern is empty. It looked exactly like having reintroduced the
+NUL-byte bug from session 1 — 653 and 11,490 of them. There were zero. Check
+binary content in Python.
+
+**`git add` of a path list is not the same as staging a directory.** Kept to
+explicit paths throughout, per the standing note, and the three
+structural-workstream files stayed untracked.
+
+### Left dark
+
+A build was started and killed a minute in at the reviewer's request, and the
+publisher wipes `output/` on startup. The IG does not exist on disk right now.
+Everything this session did to the page set — a deleted page, two new ones, a
+changed navbar and a changed page registration — is therefore unverified, and
+the first job next session is to build and check the four things the ACTIVE
+section lists.
 
 ---
 

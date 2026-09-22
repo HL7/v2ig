@@ -18,147 +18,138 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-21 (session 5: the ledger stops asking questions it already knows the answer to)
+## ACTIVE — 2026-09-22 (session 6: the first ruling, and somewhere to put the next one)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
 **Do not commit vocabulary work to `dev/framework`.**
 
-### Read this before anything else
-
-**Session 5 (2026-09-21) was worked from the HL7 Plenary in Rockville**, around
-the Terminology Infrastructure WG meeting, in short stretches between sessions.
-The briefing written the day before was presented.
-
-**Everything is built and verified. Nothing is outstanding.** The 2026-09-21
-build covers every commit through `019244ff`:
-
-```
-Errors: 3288, Warnings: 145, Info: 92, Broken Links: 0     (20.6 min)
-```
-
-Identical on every number to the build before it, which is right for a change
-that moved rows between tables and altered five display strings. Confirmed in
-the published HTML: 45 tables carry the new *"Written differently"* table, 211
-status rows are explained, 2 `tho-dropped` cases are surfaced, and
-`Dentist Office Number` is published with the old lower-cased form gone.
-
-**`vocab-ig/output-snapshot/` is managed automatically** and holds the last
-build that finished, so the IG is readable even mid-build. `--no-snapshot`
-turns it off. It is a copy; the live build is `vocab-ig/output/`.
-
 ### First thing next session
 
-**Capture what the Terminology Infrastructure WG said.** The briefing was
-presented on 2026-09-21 and the feedback has not been written down anywhere.
-Five of the guide's open questions are addressed to exactly those people, and
-this is the most perishable thing in the project — every other item below will
-keep.
+**Capture what V2 Management said.** The meeting is **2026-09-23**, the day
+after this session, and the refreshed briefing was prepared for it. Their two
+blocking rulings have been outstanding since August and are the only things
+genuinely blocking the work.
 
-If that is already captured, the largest untouched work is **session 4**:
-promote `render_field_mapping.py` into the IG; decide what maps to
-properties / extensions / nothing; Ch2c steward against THO's
-`structuredefinition-wg`; external code systems against ValueSet canonical gaps.
+**There is now a mechanism for this, so use it rather than editing prose.** Add
+a `resolution` to the item in `vocabulary_escalations.py` or
+`vocabulary_general_questions.py` — five keys, all required:
 
-### What landed in session 5
+```python
+"resolution": {
+    "who":    "V2 Management",       # the body with the authority
+    "forum":  "V2 Management call",  # the room it was given in
+    "date":   "2026-09-23",
+    "ruling": "One sentence: what they actually decided.",
+    "effect": "What changed here. 'Nothing' is a real answer and worth saying.",
+}
+```
 
-- **`02b8b2ce` — presentation differences separated from disagreements.** The
-  ledger listed 489 differences under one heading; **287 were never
-  questions**. 211 were THO carrying the V2 status letter where this guide
-  carries the FHIR status it maps to, and 76 were the same words styled
-  differently (44 punctuation, 25 spacing, 7 capitalisation). **202 genuine
-  disagreements remain.** They now render in their own table, *"Written
-  differently, saying the same thing"*, which says nothing in it needs a
-  decision.
-- **ADR-0012 — five concept displays now publish THO's capitalisation**
-  (0203 `GKV`/`KZVA`/`PKV`/`ZANR`, 0396 `DAR`). An exception to chapter-wins,
-  justified because the words are identical. **No version moved.** The reverse
-  direction is deliberately not symmetrical — see the ADR.
-- **`48696948` — every briefing ask points at the evidence.** Affected tables
-  as links into the ledger, plus named links to the page holding the detail.
-  All 19 verified to resolve, fragments included.
-- **`29230899` — the build keeps a snapshot** of the last run that finished.
-- **`45f8c81e` — the build order is enforced, not remembered**
-  (`build_vocab_ig.py`).
+That one key moves the item: it stops rendering on `open-items` and starts
+rendering on `evidence` with its ruling attached, keeping its number and its
+original text. Counts, the audience sentence and every cross-link follow
+automatically. Then re-run the chain and rebuild.
 
-### Deliverable in use
+`who` is the body with the authority, which is not always the room — the
+reordering ruling is a **TSMG** ruling given in a **TI WG** meeting, and it is
+recorded as exactly that.
 
-`v291-extracted/ti-briefing.html` was presented to the Terminology
-Infrastructure WG on 2026-09-21. Self-contained; open it off disk. **Capture
-what the room said** — several of the guide's open questions are addressed to
-exactly those people, and that feedback is the most perishable thing in this
-project right now.
+### What landed in session 6
 
-### Open questions for the reviewer
+- **`70f062c1` — the reordering question is answered and closed.** TSMG ruled
+  on 2026-09-21, via TSMG members at the TI WG meeting, that **reordering a
+  code system's concepts is not a change and does not increment the version.**
+  It confirmed what the build already did — `concepts_changed` has compared
+  concepts as a map keyed by code since the merge was written, and
+  `_canonical_compose` sorts both sides — so **no artifact moved and no version
+  number changed.** What moved is the standing of the rule: the 32 tables
+  carrying exactly THO's codes in a different order now keep THO's version on
+  the policy owner's authority rather than on our reading of the policy.
+- **The same commit built the mechanism**, because nothing had ever been
+  answered before and there was nowhere to put an answer. Two things it
+  exposed: `question_anchor()` hard-coded `open-items.html`, so the first
+  ruling would have turned every cross-link in the guide into a link to a page
+  the question was no longer on; and the intro hard-coded "one is for TSMG, the
+  rest for V2 Management", which is wrong the morning after any meeting. Both
+  are computed now.
+- **`00cce13f` — the V2 Management briefing is current.** Re-dated to
+  2026-09-23, summary rewritten around the guide existing, and **every ask now
+  points at its evidence** — the September lesson, applied to the other room.
+  Link helpers moved down into `render_v2mgmt_briefing` (which
+  `render_ti_briefing` already imports from); the TI briefing's rendered output
+  is **byte-identical**, checked before and after.
 
-Both are now *answerable* — the IG is built and can be looked at.
+### Three numbers were wrong. They are fixed, and now tested.
 
-1. **Is `Evidence` the right name in the navbar?** Currently "For review → What
-   needs an answer / Evidence / Known issues".
-2. **Does the evidence page want splitting?** It renders at 1.81 MB and 91
-   sections. If it does, the split is Decided (74 groups, 1,534 values) /
-   Informational (17 groups, 544 values) — the generator already groups by
-   action class, so it is a small change to `build_evidence_page()`.
+This is the part worth remembering, because it will recur. The briefings and
+the authored prose carry numbers that are **transcribed** from the build, and
+transcriptions rot.
 
-### Still open on the review
+- The guide's own TSMG preamble said **23 value sets increment, 392 hold**. It
+  is **22 and 393** — a concept display stopped triggering an increment in
+  September and the sentence did not follow. It no longer restates them; it
+  points at the version table on `tho-merge`, which is computed.
+- **"355 tables with no code system block" is 362.**
+- `5,540` codes and the eleven description-only increments were checked and
+  **are** exact.
 
-- **S3-04 is partial**: the fourteen tables are grouped by cause on
-  `open-items`, and `known-issues.md` points at it, but the review-report
-  evidence per table is not folded into the ledger sections.
-- **S2-15** (no `deprecated` value for `CodeSystem.status` → backlog entry),
-  **S2-16** (property-instance suppression — the one with teeth), **S2-20**
-  (classify the page-URL/missing-space defects against the errata rubric).
-- **Session 4 work untouched**: promote `render_field_mapping.py` into the IG;
-  decide what maps to properties/extensions/nothing; Ch2c steward ↔ THO
-  `structuredefinition-wg`; external code systems → ValueSet canonical gaps.
-- **S3-03 is closed**, and so is the disagreement-classification work that
-  came out of reading the ledger in session 5.
-- **Two smaller things noticed in session 5 and not acted on.** Table 0347's
-  `title` is `hl7VS-stateProvince` against THO's
-  `HL7 Value Set for State/Province` — ours reads like an id in a title field.
-  Only two title differences exist in the corpus, so it is not systematic, but
-  it is the sort of thing the TI WG would spot. And
-  `v291-fhir/conceptdomains-divergences.json` carries a `generated` date, so
-  the pipeline churns one line across a day boundary; harmless, but it is the
-  one thing stopping the chain being byte-reproducible over time, and that
-  reproducibility is what makes `build_vocab_ig.py --from` safe to trust.
+`test_render_v2mgmt_briefing.py` now compares the briefing's headline numbers
+against `tho-fill-report.json` and the extraction on every run. **If you author
+a number into a briefing, add it to that test.**
 
 ### Things that will bite
 
-- **A snapshot is kept of the last build that finished.** It is a copy, not
-  a second source of truth, and it is 406 MB. Do not diff against it, cite it,
-  or serve it; if a page looks wrong, check which directory it came from.
-- **The build order is now enforced, not remembered.**
-  `tooling/scripts/build_vocab_ig.py` runs the seven preprocessing steps in
-  order; each declares what it produces and consumes, and `check_order()`
-  refuses to run if any step's inputs are not produced by an earlier one.
-  `--list` shows the chain, `--from` resumes after a failure, `--publish` also
-  runs the IG Publisher. **The whole chain takes 11 seconds** — the expensive
-  part was only ever the publisher. Do not hand-run the seven scripts.
-- **`pgrep -f` matches the Bash tool's own wrapper.** MEMORY documents this for
-  the java build check; it bit again this session on `pgrep -f "http.server"`,
-  which reported a server running when nothing was listening. **The trap is the
-  pattern, not the process** — match on `comm` for anything.
-- **Cross-page links must target an authored anchor**, never a heading slug the
-  publisher generates. `<a id="x"></a>` survives the publisher verbatim
-  (verified against `tbl-0001` in this build). Note that the *question* anchors
-  come out as `<a name="...">` — the older form — which is why they still pass
-  the link checker.
-- **Never interpolate a count into a heading.** It lands in the generated
-  anchor and breaks inbound links the first time the number moves. This was a
-  live bug in `generate_table_index.py`, caught before it shipped.
-- **`ADR-0010` names `general-questions.html`**, which is gone. Left alone
-  deliberately — an accepted ADR records what was true when written.
-- **Every page starts at `###`.** A `#` or `##` anywhere breaks CSS-counter
-  numbering for the whole page.
-- **`grep` cannot search for a NUL byte** — check in Python.
-- `stage_vocab_ig.py` self-checks the counts on `index.md`. Believe it.
-  399 CodeSystems, 424 ValueSets, 824 total.
+- **A chip only links when the ledger has a section for that table.** Four of
+  the eleven tables behind the concept-domain blocker have none — the merge
+  found nothing to report against them. The first draft linked all eleven; the
+  link test caught it. A link into a section that does not exist drops the
+  reader at the top of a very long page, which is **worse** than no link.
+- **The register's Markdown numbering is positional**, so answering an item
+  renumbers the ones after it. That is fine there — the file is regenerated and
+  never hand-edited — but **general question numbers are stable identifiers and
+  are never reused**, because people cite them in minutes.
+- Everything in the previous ACTIVE section still applies: the build snapshot,
+  the enforced build order, `pgrep -f` matching the Bash tool's own wrapper,
+  authored anchors over generated heading slugs, never interpolating a count
+  into a heading, every page starting at `###`, and `grep` being unable to
+  search for a NUL byte.
 
-### Register — 38 items
+### Register — 38 items, 37 of them open
 
-Unchanged this session. 57 open items total (39 escalations, 14 decisions) plus
-7 general questions.
+One answered. 56 open items on `open-items` (was 57) plus **6** general
+questions (was 7).
+
+### Still open on the review
+
+Unchanged from session 5, and none of it was touched:
+
+- **Session 4 work**: promote `render_field_mapping.py` into the IG; decide
+  what maps to properties / extensions / nothing; Ch2c steward against THO's
+  `structuredefinition-wg`; external code systems against ValueSet canonical
+  gaps.
+- **S3-04 is partial**; **S2-15**, **S2-16** (property-instance suppression —
+  the one with teeth), **S2-20**.
+- **Two reviewer questions from session 5 are still unanswered**: is `Evidence`
+  the right navbar name, and does the evidence page want splitting? It is now
+  **1.79 MB** and carries one more section than it did.
+- **Table 0347's `title`** is `hl7VS-stateProvince` against THO's
+  `HL7 Value Set for State/Province` — ours reads like an id in a title field.
+- **`v291-fhir/conceptdomains-divergences.json` carries a `generated` date**, so
+  the pipeline churns one line across a day boundary. It is the one thing
+  stopping the chain being byte-reproducible, and that reproducibility is what
+  makes `build_vocab_ig.py --from` safe to trust. It was left unstaged again
+  this session rather than fixed.
+
+### A defect in a document that has already been presented
+
+`render_ti_briefing.py`'s reordering ask says *"If the answer is **no**, a
+meaningful number of artifacts move from unchanged to incremented"*. That is
+inverted — answering *no* is what the build already does and changes nothing;
+it is *yes* that moves them. The general-questions module has it the right way
+round. **Left unfixed deliberately**: the briefing is dated 2026-09-21 and was
+presented, and editing it rewrites the record of what the room was shown. The
+room gave the right answer regardless. Fix it only if the file is ever reused
+for a different meeting.
 
 ### Build
 
@@ -166,37 +157,17 @@ Unchanged this session. 57 open items total (39 escalations, 14 decisions) plus
 python3 tooling/scripts/build_vocab_ig.py --publish
 ```
 
-That is the whole thing: the seven preprocessing steps (11 s) and then the
-publisher. `--list` shows the chain and runs nothing. The equivalent by hand,
-if the orchestrator is ever unavailable:
-
-```
-python3 tooling/scripts/build_vocab_ig.py       # or the seven scripts in order
-GEM_HOME=/home/claude/.gems GEM_PATH=/home/claude/.gems \
-PATH="/home/claude/.gems/bin:/home/claude/ruby/arm64/bin:$PATH" \
-/home/claude/jdk/bin/java -Xmx8g -jar input-cache/publisher.jar \
-  -ig vocab-ig/ig.ini -no-sushi
-```
-
-~17 min, **silent for ~13 of them** during "Run Template" — check the process is
-alive rather than assuming it hung, with
-`ps -eo pid,etime,comm,args | awk '$3=="java"'`. **`kill` on the shell wrapper
-does not stop the JVM**; kill the java pid, or two publishers write the same
-directory.
+Seven preprocessing steps (11 s), then the publisher (~17 min, silent for ~13
+of them during "Run Template"). Check it is alive with
+`ps -eo pid,etime,comm,args | awk '$3=="java"'` rather than assuming it hung.
+**`kill` on the shell wrapper does not stop the JVM**; kill the java pid, or two
+publishers write the same directory.
 
 ### How to look at the IG
 
-**No web server needed** — verified this session. The IG's own JS does no
-runtime data loading, so `file://` works: open `vocab-ig/output/index.html`
-directly. Only `searchform.html` pulls external CSS, and it needs a live search
-service anyway. External links out to hl7.org will not resolve offline, which is
-inherent to being offline.
-
-The briefing is self-contained (inline CSS, no scripts):
-`v291-extracted/ti-briefing.html`.
-
-If a server is genuinely wanted: bind `0.0.0.0`, never `127.0.0.1`; container
-3000 → host 20010.
+**No web server needed.** Open `vocab-ig/output/index.html` off disk. Both
+briefings are self-contained and sit in `v291-extracted/`; their links into the
+IG are relative, so they resolve from there with a build present.
 
 ### Not ours — leave alone
 
@@ -210,6 +181,116 @@ them in — stage vocabulary files explicitly.**
 
 
 ## Session History
+
+## 2026-09-22 — The first ruling, and somewhere to put the next one
+
+Two commits. The session had one piece of new information in it and spent the
+rest of its time on what that information exposed.
+
+### The ruling confirmed the code and changed the argument
+
+The reviewer came back from the Rockville plenary with one decision: **TSMG,
+via its members at the Terminology Infrastructure WG meeting, ruled that
+reordering a code system's concepts is not a change and does not increment the
+version.**
+
+Checking before writing anything was the right order. `concepts_changed` has
+compared concepts as a map keyed by code since the merge was written, with a
+docstring saying why, and `_canonical_compose` sorts both sides; two tests
+already locked both in. **So the ruling moved nothing.** No artifact changed,
+no version number changed, and the 32 affected tables were already keeping
+THO's version.
+
+What it changed is the standing of the rule. The guide had been saying this was
+"the one rule behind the version numbers that rests on a judgement rather than
+a fact". It is now a fact, and the 32 tables keep THO's version on the policy
+owner's authority rather than on our reading of the policy. That is worth more
+than a code change would have been.
+
+**The authority and the room are different things, and the record has to say
+both.** The question was tagged TSMG in both registers; the briefing was
+presented to the TI WG. Asking the reviewer which to record produced the
+detail that settles it — TSMG members were in the room — and that distinction
+is now a field rather than a footnote: `who` is the body with the authority,
+`forum` is where it was given.
+
+### There was nowhere to put an answer
+
+Nothing had ever been answered, so nothing in the pipeline could represent an
+answer. The question was being asked in four places and the merge report in a
+fifth, all of them phrased as open.
+
+The fix used a split the review pages already have. `render_review_pages` asks
+one question of every section — *is this asking me for something, or showing me
+what was decided?* — and routes on it. An answered question asks for nothing,
+so it crosses that line on the strength of one key. `resolution` carries who,
+forum, date, ruling and effect; all five are required, because an answer with
+no attribution is not usable six months later, and `effect` is required
+separately because "the committee agreed with what we were already doing" is a
+different and more reassuring fact than "the committee has not been asked".
+
+Items keep their number and their original text. The register is circulated,
+and an item that vanished between two circulations reads as dropped rather
+than settled.
+
+**Two latent bugs surfaced, both of the kind that only fire once.**
+`question_anchor()` returned `open-items.html#<id>` unconditionally — correct
+while nothing had ever been answered, and wrong for every cross-link in the
+guide the moment something was. And the page intro hard-coded "one is for TSMG,
+the rest for V2 Management", which is wrong the morning after any meeting.
+Both are computed now, and an audience with nothing open says so and links to
+the answer rather than leaving a heading that reads as a dropped question.
+
+### The briefing refresh turned into a numbers audit
+
+With the V2 Management meeting the next day, the briefing was still dated
+28 August and still described the resources as newly generated.
+
+Re-dating it was the small part. The useful part was checking its numbers
+against the build instead of carrying them forward, which found three wrong —
+and one of them was not in the briefing at all but in the guide:
+
+- **The guide's TSMG preamble said 23 value sets increment and 392 hold. It is
+  22 and 393.** ADR-0012 removed an increment trigger in September and the
+  authored sentence did not follow. It now points at the computed version table
+  on `tho-merge` rather than restating it, which removes the drift permanently.
+  The eleven description-only increments the same paragraph names were checked
+  against the write report and are exact, each with `triggers: ['description']`
+  and nothing else.
+- **"355 tables with no code system block" is 362.**
+- `5,540` codes is exactly right.
+
+Those now have tests that read `tho-fill-report.json` and the extraction, so
+the next drift fails a test instead of reaching a committee.
+
+### Applying September's lesson to the other room
+
+The TI meeting's lesson was that an ask with no route to the evidence fails on
+a projector. The V2 Management briefing had the same gap, so both blockers and
+the design question now carry their affected tables as chips and named links
+into the pages holding the detail — in the HTML and in the Markdown twin, which
+is what gets pasted into an agenda.
+
+The link helpers moved down into `render_v2mgmt_briefing`, which
+`render_ti_briefing` already imports from, rather than being copied. The TI
+briefing's output was hashed before and after and is byte-identical, which
+matters because it is a document that has already been presented.
+
+**The link test earned itself immediately.** Four of the eleven tables behind
+the concept-domain blocker have no ledger section — the merge found nothing to
+report against them — and the first draft linked all eleven. Chips now resolve
+against the ledger and render plain, with a note, when there is no section to
+reach. A link into a section that does not exist drops the reader at the top of
+a very long page, which is worse than no link at all.
+
+### Noticed and deliberately not fixed
+
+`render_ti_briefing.py`'s reordering ask has its conditional inverted — it says
+answering *no* moves artifacts to "incremented", when *no* is what the build
+does and changes nothing. The general-questions module has it the right way
+round, and the room answered correctly regardless. It is left alone because the
+briefing is dated and was presented, and editing it rewrites the record of what
+was shown.
 
 ## 2026-09-21 — The ledger stops asking questions it already knows the answer to
 
@@ -472,76 +553,3 @@ The **orchestrator script** was deferred for three sessions and then written
 at the end of this one — see the entry above it.
 
 `cac6c77e` has not been through the publisher.
-
-
-## 2026-09-20 — One product: the report becomes two pages of the guide
-
-Short session, ended for a flight. Three commits, no build.
-
-### The reviewer overruled yesterday's URL decision, and was right
-
-`935153b0` had reasoned carefully to the wrong answer: THO's page URL returns
-200 directly while the canonical 302s to a version-pinned page, so the page URL
-avoided a redirect hop. The reviewer's answer — the HL7 proxy redirects the
-canonical to the rendered page, so the hop is free — makes the hop a
-non-argument, and what is left is that the canonical is the identifier we
-actually mean. Worth recording because the earlier reasoning was sound and
-still reached the wrong place: it optimised the mechanism and never asked what
-the link was *for*.
-
-The rewrite proves each target against the THO snapshot before writing it,
-rather than pattern-matching `CodeSystem-X.html` into a canonical. That is not
-defensive dressing: the pattern would happily mint a plausible URL for a code
-system THO does not publish, and nothing downstream would catch it.
-
-### Asking a question turned up work nobody had counted
-
-The reviewer asked what else was left. Answering it honestly meant checking the
-tracker rather than quoting it — and the session-2 status column had never been
-updated, so fourteen rows read `todo` for work that shipped in `6a896e44`.
-Reconciling it surfaced **three items that were in no session's plan**: S2-15,
-S2-16 and S2-20. S2-16, property-instance suppression, is real work.
-
-The general lesson is the boring one: a status column that is written once and
-never reconciled is worse than no status column, because it reads as current.
-
-### The fold, and the choice not to keep three pages
-
-Offered three shapes for `general-questions.md`; the reviewer took the most
-invasive one — absorb it. That is the right call for "one product" and it is
-also the one that risks mangling 371 lines of their own prose, so the lift was
-done **programmatically**, splitting the file on its own headings and writing
-the parts out as literals. Git reports the result as a rename of the page into
-the module, which is the evidence that nothing was retyped.
-
-One structural thing worth keeping: **the split between the two pages is by the
-ACTION class the report already assigns.** The alternative — deciding
-page-by-page what counts as an ask — would have been a second classification
-that could drift from the first. As built, re-classing a group moves it, and an
-action class with no page assignment stops the run rather than dropping the
-group quietly. That last case is the one that would never have been noticed.
-
-Rows became blocks rather than table rows, because the findings carry
-paragraphs and nested evidence tables that a Markdown table cannot hold. The
-standalone report gets away with a grid because it is a catalog; an agenda of
-sixty items is a list.
-
-### Two things that cost time and should not cost it again
-
-**`grep -c $'\x00'` reports every line as a hit.** Bash cannot put a NUL in a
-string, so the pattern is empty. It looked exactly like having reintroduced the
-NUL-byte bug from session 1 — 653 and 11,490 of them. There were zero. Check
-binary content in Python.
-
-**`git add` of a path list is not the same as staging a directory.** Kept to
-explicit paths throughout, per the standing note, and the three
-structural-workstream files stayed untracked.
-
-### Left dark
-
-A build was started and killed a minute in at the reviewer's request, and the
-publisher wipes `output/` on startup. The IG does not exist on disk right now.
-Everything this session did to the page set — a deleted page, two new ones, a
-changed navbar and a changed page registration — is therefore unverified, and
-the first job next session is to build and check the four things the ACTIVE
-section lists.
