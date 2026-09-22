@@ -250,9 +250,11 @@ The same rule applies without qualification to concept definitions and concept
 displays, which the policy already lists unqualified, so nothing about them is
 now exceptional.
 
-**Version outcomes across the corpus:** code systems — 2 first publications, 58
-incremented, 339 unchanged. Value sets — 9 first publications, 23 incremented,
-392 unchanged.
+**Version outcomes across the corpus** are computed from the merge and
+published as a table on [what this guide keeps from THO](tho-merge.html). They
+are deliberately not repeated here: this paragraph carried them for a while and
+was a value set out of date within a month of being written, because a single
+concept display losing its increment moves one of the totals.
 
 **Nothing is open for TSMG.** The question put to them ([question 1](evidence.html#gq-does-reordering-a-code-system)) was answered; the ruling and what it changed are recorded on the evidence page.
 

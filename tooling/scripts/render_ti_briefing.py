@@ -40,6 +40,11 @@ from briefing_style import STYLE  # noqa: E402
 # smaller evil against a second copy of sixty lines of regex that would drift.
 from render_v2mgmt_briefing import _text, _close_tables  # noqa: E402
 
+# The link helpers live in the V2 Management briefing module. They were written
+# here, for this document, and moved down when that briefing needed them too --
+# both rooms ask "which tables?" and one copy of the answer is enough.
+from render_v2mgmt_briefing import IG, table_chips, where_block  # noqa: E402,F401
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_HTML = PROJECT_ROOT / "v291-extracted" / "ti-briefing.html"
 DEFAULT_MD = PROJECT_ROOT / "v291-extracted" / "ti-briefing.md"
@@ -272,37 +277,6 @@ things not being asked about were not being hidden.</p>""",
 # So every ask carries the affected tables and a direct link per table. The
 # path is relative, which works both from a local build opened off disk and
 # from the two published side by side.
-
-IG = "../vocab-ig/output"
-
-
-def table_chips(tables):
-    """One link per affected table, straight to its section in the ledger."""
-    # Sorted here rather than trusted from the author, so a list written in
-    # the order the evidence turned up still reads as table numbers.
-    return " ".join(
-        f'<a class="tbl" href="{IG}/table-ledger.html#tbl-{table}">{table}</a>'
-        for table in sorted(tables))
-
-
-def where_block(ask):
-    """The "where the detail lives" panel under one ask."""
-    tables = ask.get("tables") or []
-    links = ask.get("where") or []
-    if not tables and not links:
-        return ""
-    out = ["<div class='where'>", "<b>Where the detail lives</b>"]
-    if tables:
-        out.append(f"<div class='chips'>{table_chips(tables)}</div>")
-    if ask.get("tableNote"):
-        out.append(f"<div class='chip-note'>{ask['tableNote']}</div>")
-    if links:
-        out.append("<ul class='where-links'>")
-        out += [f"<li><a href='{href}'>{label}</a></li>" for label, href in links]
-        out.append("</ul>")
-    out.append("</div>")
-    return "\n".join(out)
-
 
 ASKS = [
     {

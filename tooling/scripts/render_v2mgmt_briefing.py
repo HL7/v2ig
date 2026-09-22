@@ -29,36 +29,49 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_HTML = PROJECT_ROOT / "v291-extracted" / "v2mgmt-briefing.html"
 DEFAULT_MD = PROJECT_ROOT / "v291-extracted" / "v2mgmt-briefing.md"
 
+# Where the built guide sits, relative to the briefing. Relative because the
+# briefing is read by opening the file off disk, which an absolute path breaks.
+IG = "../vocab-ig/output"
+
 TITLE = "V2.9.1 Chapter 2C terminology"
 SUBTITLE = "Executive briefing for V2 Management"
-MEETING_DATE = "2026-08-28"
+MEETING_DATE = "2026-09-23"
 
 SUMMARY = """
 <p>We have extracted the whole of Chapter 2C &mdash; <b>799 tables, 5,540
-codes</b> &mdash; and are turning it into FHIR CodeSystems and ValueSets. The
+codes</b> &mdash; and turned it into FHIR CodeSystems and ValueSets. The
 extraction and text-fidelity pass is <b>complete and reviewed</b>. Nothing is
 outstanding on our side.</p>
 
-<p><b>Since we last met on 21 August, the resources exist.</b> The generator is
-built and produces <b>398 CodeSystems and 422 ValueSets</b>, every one of which
-validates against the IG Publisher with no errors. 329 of the value sets come
-out byte-identical to the ones UTG already publishes, without any tuning, which
-is the best evidence we have that the extraction is faithful.</p>
+<p><b>Since we last met on 28 August, it is a published implementation
+guide.</b> <b>824 artifacts</b> &mdash; 399 CodeSystems, 424 ValueSets and the
+concept domains &mdash; build and validate, with <b>zero broken links across
+625,068 checked</b>. You can open it and follow any claim on this page to the
+evidence behind it.</p>
+
+<p><b>It is additive with respect to THO.</b> We publish at THO's own canonical
+URLs, so a naive load would silently delete anything THO carries that
+Chapter 2C is silent about. It does not: <b>7,580 values that exist only in THO
+are preserved</b>, and <b>732 of 823 artifacts keep THO's existing version
+number</b> because nothing about them actually changed.</p>
 
 <p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
-for v2 terminology there. The UTG subcommittee of TSMG is receptive; the
-canonical URLs and the merge route are agreed.</p>
+for v2 terminology there. It was walked through with the <b>Terminology
+Infrastructure WG on 21 September</b>; the canonical URLs and the merge route
+are agreed, and TSMG settled the one versioning question that was still open.</p>
 
-<p><b>What we need from V2 Management is two rulings, one new steer, and a
-stack of acknowledgements.</b> The two rulings are unchanged from last time and
-still outstanding. Building the resources turned up three further classes of
-defect, marked <span class="badge b-new">NEW</span> below.</p>
+<p><b>What we need from V2 Management is unchanged: two rulings, one steer, and
+a stack of acknowledgements.</b> The two rulings have been outstanding since
+August and are the only things genuinely blocking us. Nothing new has been
+added to your list since the last meeting &mdash; the work since then has been
+building the thing and cutting the list down.</p>
 """
 
 METRICS = [
     ("799", "tables extracted", "good"),
-    ("820", "resources generated", "good"),
-    ("100%", "text fidelity pass complete", "good"),
+    ("824", "artifacts published", "good"),
+    ("7,580", "THO-only values preserved", "good"),
+    ("0", "broken links", "good"),
     ("2", "blocking questions", "escalate"),
     ("8", "classes of chapter defect", "flag"),
 ]
@@ -81,6 +94,16 @@ BLOCKERS = [
     {
         "id": "policy",
         "n": 1,
+        "tables": ["0931", "0560", "0821"],
+        "tableNote": "The three instances the argument rests on. The ruling "
+                     "asked for is on the principle, and it reaches every "
+                     "class further down this page.",
+        "where": [
+            ("Table 0560, as its own question with what we publish today",
+             f"{IG}/open-items.html#gq-table-0560-a-code-system"),
+            ("The register: 37 open items, each with its affected tables",
+             f"{IG}/open-items.html"),
+        ],
         "title": "When the chapter publishes something demonstrably wrong, do "
                  "we reproduce it or correct it?",
         "why": "This is the ruling we most need. It sets the default for every "
@@ -135,6 +158,14 @@ balloted.</p>
     {
         "id": "domain-conflicts",
         "n": 2,
+        "tables": ["0259", "0560", "0568", "0602", "0604",
+                   "0657", "0682", "0777", "0930", "0961", "0962"],
+        "tableNote": "The eleven tables that declare the five contested "
+                     "domains between them.",
+        "where": [
+            ("The register, where the competing definitions are set out in "
+             "full", f"{IG}/open-items.html"),
+        ],
         "title": "Five concept domains are declared by more than one table, "
                  "with a different definition each time",
         "why": "A concept domain has one definition by definition. Two tables "
@@ -191,42 +222,61 @@ pair below.</p>
 # that silently disappears looks like a question that was dropped.
 
 RESOLVED = [
-    ("Where the value sets are published",
-     "0291, 0347, 0399, 0834",
-     "We were minting canonical URLs of the form <code>&hellip;/v2-NNNN</code> "
-     "for four tables that THO already publishes at "
-     "<code>&hellip;/v2-notAllCodes-NNNN</code>. <b>Settled: a canonical is an "
-     "identifier, and where one already exists it is the one to use</b>, "
-     "whatever it looks like. Corrected; the four now match THO and UTG "
-     "exactly. No action from V2 Management &mdash; recorded because it "
-     "changed generated output."),
-    ("Table 0227 Manufacturers of Vaccines",
-     "0227",
-     "The chapter declares a value set and no code system. Resolved: MVX is an "
-     "external CDC code system that THO records as a NamingSystem and "
-     "deliberately does <i>not</i> publish a CodeSystem for. We compose a "
-     "value set over the external system, which is correct and complete. No "
-     "decision needed."),
-    ("Concept-domain-only tables that also list codes",
-     "0093, 0340, 0451",
-     "Carried over from the last meeting because it was corrected there rather "
-     "than answered. Not a contradiction &mdash; the V3 requirements for "
-     "declaring a concept domain call for <b>example codes</b>, so these "
-     "tables are correct as published. Where the examples should live is a "
-     "representation question for TSMG, not a chapter defect."),
+    ("Concept order does not cost a version number",
+     "32 tables",
+     "Chapter 2C and THO often carry exactly the same codes in a different "
+     "order, and the versioning policy could be read literally as making that "
+     "a change. <b>TSMG settled it on 21 September: reordering is not a "
+     "change and does not increment the version.</b> That confirmed what we "
+     "were already doing, so no version number moved. Recorded because it was "
+     "the last rule behind the version numbers resting on our reading of the "
+     "policy rather than on a ruling. No action from V2 Management."),
+    ("Most of the differences from THO were never disagreements",
+     "489 &rarr; 202",
+     "The review listed <b>489 differences</b> from what THO publishes, each "
+     "framed as something a committee might have to adjudicate. On inspection "
+     "<b>287 of them were not questions at all</b>: 211 are THO recording the "
+     "V2 status letter where we record the FHIR status it maps to, and 76 are "
+     "the same words with different punctuation, spacing or capitalisation. "
+     "<b>202 genuine disagreements remain</b>, and they are no longer crowded "
+     "out. Nothing was suppressed &mdash; the 287 are still listed, under a "
+     "heading that says they need no decision."),
+    ("Five concept displays now follow THO's capitalisation",
+     "0203, 0396",
+     "Where THO and the chapter agree on the words and differ only in case, "
+     "and THO is the more capitalised side, we now publish THO's form &mdash; "
+     "<code>GKV</code>, <code>KZVA</code>, <code>PKV</code>, <code>ZANR</code> "
+     "and <code>DAR</code>. A deliberate exception to chapter-wins, taken "
+     "because the words are identical so the chapter loses nothing. "
+     "<b>No version moved.</b> The reverse case is not treated symmetrically: "
+     "where THO is the <i>less</i> capitalised side we surface it rather than "
+     "absorb it, because a correct lower-casing and a lost proper noun look "
+     "identical to a machine."),
 ]
 
 # --------------------------------------------------------------------------
-# The one genuinely new ask
+# The design question
 # --------------------------------------------------------------------------
 #
 # Not a defect and not a blocker, so it sits between the blockers and the
 # defect classes rather than in either. It is here because it is the one thing
 # on this page that is cheap to answer now and expensive to revisit: once the
 # resources are loaded into THO, information that was dropped is gone.
+#
+# First asked on 28 August and still unanswered. The deadline in it is real and
+# is closer than it was.
 
 NEW_QUESTION = {
     "id": "not-carried",
+    "tables": [],
+    "tableNote": "Not table-specific — it applies to all 799, and decides "
+                 "what a FHIR consumer can recover about any of them.",
+    "where": [
+        ("The same question for one field, the per-table OID, with what we do "
+         "today", f"{IG}/open-items.html#gq-chapter-2c-gives-every-table"),
+        ("What the guide does carry, table by table",
+         f"{IG}/table-index.html"),
+    ],
     "title": "Chapter 2C publishes a lot about each table that a CodeSystem "
              "and a ValueSet have nowhere to put. How much of it do you want "
              "kept?",
@@ -243,7 +293,7 @@ home:</p>
 <table>
 <tr><th>Field</th><th class='num'>Tables</th><th>Comment</th></tr>
 <tr><td><b>Table Description</b></td><td class='num'>799</td>
-<td>Describes the table as a whole. For the 355 tables with no code system
+<td>Describes the table as a whole. For the 362 tables with no code system
 block, it is the only prose the chapter offers.</td></tr>
 <tr><td><b>Type</b></td><td class='num'>799</td>
 <td><code>User</code> vs <code>HL7</code> and the rest &mdash; a real
@@ -288,7 +338,7 @@ CLASSES = [
     {
         "id": "cls-truncated",
         "kind": "finding",
-        "new": True,
+        "new": False,
         "name": "Value Set descriptions that stop mid-word",
         "count": "16 tables",
         "body": """
@@ -333,7 +383,7 @@ too.</p>
     {
         "id": "cls-punctuation",
         "kind": "finding",
-        "new": True,
+        "new": False,
         "name": "Concepts whose code is nothing but punctuation",
         "count": "17 tables, 23 codes",
         "body": """
@@ -508,12 +558,116 @@ tables, with every remaining difference adjudicated against the source. Every
 change to published text is recorded with the decision that authorised it, and
 can be reversed.</p>
 
-<p><b>The full detail</b> is in an 18-item register written for V2 Management
-and TSMG, which now lists every affected table for the truncated descriptions
-and the punctuation codes. This page is the executive cut; the register has the
-evidence for each item. The field-by-field mapping behind the new question is a
-separate document and can be circulated on request.</p>
+<p><b>The full detail</b> is in a register of 37 open items written for V2
+Management and TSMG, which lists every affected table. This page is the
+executive cut; the register has the evidence for each item, and the register
+itself is now a page in the guide rather than a separate document, so every
+item can be followed to the artifact it is about. The field-by-field mapping
+behind the design question is still a separate document and can be circulated
+on request.</p>
 """
+
+# --------------------------------------------------------------------------
+# Getting from an ask to the evidence
+# --------------------------------------------------------------------------
+#
+# The lesson from the September Terminology Infrastructure meeting: an ask that
+# names a problem but gives no way to reach the evidence fails in the room. You
+# read the question out, somebody asks "which tables?", and you are hunting
+# through the guide on a projector.
+#
+# These live here rather than in the Terminology Infrastructure briefing, which
+# is where they were written, because both briefings need them and that module
+# already imports from this one. Two copies would drift.
+#
+# `IG` itself is defined with the other paths at the top of the module, because
+# the asks interpolate it and they are declared before this point.
+
+
+def ledger_tables():
+    """The table numbers the per-table ledger actually has a section for.
+
+    The ledger only carries a table that has something to say about it, so a
+    table an ask names may legitimately have no section. Linking to one anyway
+    drops the reader at the top of a very long page, which is worse than not
+    linking at all -- they cannot tell whether they missed it or it is not
+    there.
+
+    Read from the generated ledger rather than recomputed, for the same reason
+    `generate_table_index` reads it: the ledger owns that decision, and a
+    second copy of it drifts.
+    """
+    page = PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent" / "table-ledger.md"
+    if not page.is_file():
+        return set()
+    return set(re.findall(r'id="tbl-([^"]+)"', page.read_text(encoding="utf-8")))
+
+
+def table_chips(tables, known=None):
+    """One chip per affected table, linked into the ledger where it has a section.
+
+    A table with no ledger section still gets a chip -- it is affected, and the
+    room needs the number -- but a plain one, so the page never offers a link
+    that goes nowhere.
+    """
+    # Sorted here rather than trusted from the author, so a list written in
+    # the order the evidence turned up still reads as table numbers.
+    known = ledger_tables() if known is None else known
+    out = []
+    for table in sorted(tables):
+        if table in known:
+            out.append(f'<a class="tbl" '
+                       f'href="{IG}/table-ledger.html#tbl-{table}">{table}</a>')
+        else:
+            out.append(f'<span class="tbl tbl-plain">{table}</span>')
+    return " ".join(out)
+
+
+def where_block(ask):
+    """The "where the detail lives" panel under one ask."""
+    tables = ask.get("tables") or []
+    links = ask.get("where") or []
+    if not tables and not links:
+        return ""
+    out = ["<div class='where'>", "<b>Where the detail lives</b>"]
+    if tables:
+        out.append(f"<div class='chips'>{table_chips(tables)}</div>")
+    if ask.get("tableNote"):
+        out.append(f"<div class='chip-note'>{ask['tableNote']}</div>")
+    unlinked = sorted(set(tables) - ledger_tables())
+    if unlinked:
+        out.append(f"<div class='chip-note'>{', '.join(unlinked)} "
+                   f"{'has' if len(unlinked) == 1 else 'have'} no ledger "
+                   f"section: the merge found nothing to report against "
+                   f"{'it' if len(unlinked) == 1 else 'them'}, so "
+                   f"{'it is' if len(unlinked) == 1 else 'they are'} shown "
+                   f"without a link.</div>")
+    if links:
+        out.append("<ul class='where-links'>")
+        out += [f"<li><a href='{href}'>{label}</a></li>" for label, href in links]
+        out.append("</ul>")
+    out.append("</div>")
+    return "\n".join(out)
+
+
+def where_markdown(ask):
+    """The same pointers as `where_block`, for the Markdown twin.
+
+    The twin is what gets pasted into an agenda or an email, so it has to carry
+    the tables too. A twin that quietly dropped them would send people to the
+    meeting with the version that cannot answer "which tables?".
+    """
+    lines = []
+    if ask.get("tables"):
+        lines += [f"**Affected tables:** {', '.join(sorted(ask['tables']))}", ""]
+    if ask.get("tableNote"):
+        lines += [_text(ask["tableNote"]), ""]
+    for label, href in ask.get("where") or []:
+        lines.append(f"- [{_text(label)}]({href})")
+    if lines and lines[-1] != "":
+        lines.append("")
+    return lines
+
 
 KIND_LABEL = {
     "blocker": ("BLOCKS US", "b-decide"),
@@ -521,14 +675,29 @@ KIND_LABEL = {
     "fyi": ("FYI", "b-info"),
 }
 
-# Half this room read the 21 August version. Marking what has appeared since
-# means they can skim to it rather than re-read the whole page.
+# The badge marks what has appeared since the previous meeting, so that anyone
+# who read the earlier version can skim to it rather than re-read the page.
+# Nothing is marked for 23 September: the work since 28 August went into
+# building the guide and shortening this list, not into finding new defects.
+# The badge stays because the next meeting will very likely need it.
 NEW_BADGE = "<span class='badge b-new'>NEW</span> "
 
 EXTRA_STYLE = """
 .badge.b-new { background: #1a7f37; }
 .new-question { border: 2px solid #bc4c00; border-radius: 10px;
   padding: 18px 22px; margin: 22px 0; background: #fffaf5; }
+.where { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 5px;
+         padding: 0.6rem 0.8rem; margin: 0.9rem 0 0.2rem; font-size: 0.94em; }
+.where > b { display: block; margin-bottom: 0.4rem; color: #24292f; }
+.chips { line-height: 2.1; }
+a.tbl { display: inline-block; font-family: monospace; font-weight: 600;
+        background: #fff; border: 1px solid #0969da; border-radius: 3px;
+        padding: 0.05rem 0.45rem; margin-right: 0.3rem; text-decoration: none; }
+.chip-note { color: #57606a; margin-top: 0.35rem; }
+span.tbl.tbl-plain { border-style: dashed; border-color: #8c959f;
+                     color: #57606a; }
+.where-links { margin: 0.45rem 0 0; padding-left: 1.1rem; }
+.where-links li { margin: 0.15rem 0; }
 """
 
 
@@ -550,7 +719,7 @@ def render_html(generated):
     for b in BLOCKERS:
         add(f"<a href='#{b['id']}'><span class='n'>{b['n']}</span>"
             f"{b['title']}</a>")
-    add("<h2>New ask</h2>")
+    add("<h2>Design question</h2>")
     add(f"<a href='#{NEW_QUESTION['id']}'><span class='n'>?</span>"
         "What to keep that FHIR has no room for</a>")
     add("<h2>Settled</h2>")
@@ -590,19 +759,21 @@ def render_html(generated):
             f"<a href='#{b['id']}'>{b['title']}</a>"
             f"<div class='ask-line'>{b['ask']}</div></li>")
     add("</ol>")
-    add("<p class='asks-foot'>Then <b>one new question</b> that is not a "
-        "defect but has a deadline, and <b>defects in the published chapter</b> "
+    add("<p class='asks-foot'>Then <b>one design question</b>, open since "
+        "August, that is not a defect but has a deadline, and <b>defects in "
+        "the published chapter</b> "
         f"grouped into {len(CLASSES)} classes. Most of those need only a nod "
         "that they are real and will be fixed in a future publication.</p>")
     add("</section>")
 
     # ---- the new question ----
     add(f"<section class='new-question' id='{NEW_QUESTION['id']}'>")
-    add(f"<h2 class='plain'>{NEW_BADGE}{NEW_QUESTION['title']}</h2>")
+    add(f"<h2 class='plain'>{NEW_QUESTION['title']}</h2>")
     add(f"<p class='lede'>{NEW_QUESTION['why']}</p>")
     add(NEW_QUESTION["body"])
     add(f"<p class='ask'><span class='ask-tag'>Ask</span>"
         f"{NEW_QUESTION['ask']}</p>")
+    add(where_block(NEW_QUESTION))
     add("</section>")
 
     # ---- what came off the list ----
@@ -626,12 +797,17 @@ def render_html(generated):
         add(f"<p class='lede'>{b['why']}</p>")
         add(b["body"])
         add(f"<p class='ask'><span class='ask-tag'>Ask</span>{b['ask']}</p>")
+        add(where_block(b))
         add("</section>")
 
     # ---- classes ----
     add("<h2>Defects in the published chapter, by class</h2>")
     add("<p class='sub'>Counts are tables affected. None of these blocks us; "
-        "we have a working treatment for each and it is recorded.</p>")
+        "we have a working treatment for each and it is recorded. Every one "
+        "of them is in <a href='" + IG + "/open-items.html'>the register</a> "
+        "with its affected tables listed, and each table links through to "
+        "<a href='" + IG + "/table-ledger.html'>the ledger entry</a> showing "
+        "what we publish for it.</p>")
     for c in CLASSES:
         label, cls = KIND_LABEL[c["kind"]]
         kind_css = "k-fyi" if c["kind"] == "fyi" else "k-finding"
@@ -738,9 +914,10 @@ def render_markdown(generated):
     for b in BLOCKERS:
         out.append(f"{b['n']}. **[BLOCKS US]** {_text(b['title'])}  ")
         out.append(f"   _Ask:_ {_text(b['ask'])}")
-    out += ["", f"## NEW — {_text(NEW_QUESTION['title'])}", "",
+    out += ["", f"## {_text(NEW_QUESTION['title'])}", "",
             _text(NEW_QUESTION["why"]), "", _text(NEW_QUESTION["body"]).strip(),
             "", f"**Ask:** {_text(NEW_QUESTION['ask'])}", ""]
+    out += where_markdown(NEW_QUESTION)
     out += ["## Already settled — here so they are not raised twice", ""]
     for name, tables, outcome in RESOLVED:
         out.append(f"- **{_text(name)}** ({_text(tables)}) — {_text(outcome)}")
@@ -749,6 +926,7 @@ def render_markdown(generated):
         out += [f"### {b['n']}. {_text(b['title'])}", "",
                 _text(b["why"]).strip(), "", _text(b["body"]).strip(), "",
                 f"**Ask:** {_text(b['ask'])}", ""]
+        out += where_markdown(b)
     out += ["## Defects in the published chapter, by class", ""]
     for c in CLASSES:
         marker = "NEW — " if c.get("new") else ""

@@ -1,14 +1,16 @@
 # V2.9.1 Chapter 2C terminology — Executive briefing for V2 Management
 
-**2026-08-28**
+**2026-09-23**
 
-We have extracted the whole of Chapter 2C — **799 tables, 5,540 codes** — and are turning it into FHIR CodeSystems and ValueSets. The extraction and text-fidelity pass is **complete and reviewed**. Nothing is outstanding on our side.
+We have extracted the whole of Chapter 2C — **799 tables, 5,540 codes** — and turned it into FHIR CodeSystems and ValueSets. The extraction and text-fidelity pass is **complete and reviewed**. Nothing is outstanding on our side.
 
-**Since we last met on 21 August, the resources exist.** The generator is built and produces **398 CodeSystems and 422 ValueSets**, every one of which validates against the IG Publisher with no errors. 329 of the value sets come out byte-identical to the ones UTG already publishes, without any tuning, which is the best evidence we have that the extraction is faithful.
+**Since we last met on 28 August, it is a published implementation guide.** **824 artifacts** — 399 CodeSystems, 424 ValueSets and the concept domains — build and validate, with **zero broken links across 625,068 checked**. You can open it and follow any claim on this page to the evidence behind it.
 
-The work is destined for **THO**, and it establishes a corrected baseline for v2 terminology there. The UTG subcommittee of TSMG is receptive; the canonical URLs and the merge route are agreed.
+**It is additive with respect to THO.** We publish at THO's own canonical URLs, so a naive load would silently delete anything THO carries that Chapter 2C is silent about. It does not: **7,580 values that exist only in THO are preserved**, and **732 of 823 artifacts keep THO's existing version number** because nothing about them actually changed.
 
-**What we need from V2 Management is two rulings, one new steer, and a stack of acknowledgements.** The two rulings are unchanged from last time and still outstanding. Building the resources turned up three further classes of defect, marked NEW below.
+The work is destined for **THO**, and it establishes a corrected baseline for v2 terminology there. It was walked through with the **Terminology Infrastructure WG on 21 September**; the canonical URLs and the merge route are agreed, and TSMG settled the one versioning question that was still open.
+
+**What we need from V2 Management is unchanged: two rulings, one steer, and a stack of acknowledgements.** The two rulings have been outstanding since August and are the only things genuinely blocking us. Nothing new has been added to your list since the last meeting — the work since then has been building the thing and cutting the list down.
 
 ## If you read one thing
 
@@ -17,7 +19,7 @@ The work is destined for **THO**, and it establishes a corrected baseline for v2
 2. **[BLOCKS US]** Five concept domains are declared by more than one table, with a different definition each time  
    _Ask:_ Say which definition is correct for each of the five. We will take any of them — what we cannot do is keep choosing by document order.
 
-## NEW — Chapter 2C publishes a lot about each table that a CodeSystem and a ValueSet have nowhere to put. How much of it do you want kept?
+## Chapter 2C publishes a lot about each table that a CodeSystem and a ValueSet have nowhere to put. How much of it do you want kept?
 
 Not a defect — a design question, and the only one on this page with a deadline attached. Once this content is in THO, whatever we did not carry across is not recoverable from the resources.
 
@@ -25,7 +27,7 @@ We mapped every field the chapter publishes about a table against the FHIR resou
 
 | Field | Tables | Comment |
 | --- | --- | --- |
-| **Table Description** | 799 | Describes the table as a whole. For the 355 tables with no code system block, it is the only prose the chapter offers. |
+| **Table Description** | 799 | Describes the table as a whole. For the 362 tables with no code system block, it is the only prose the chapter offers. |
 | **Type** | 799 | `User` vs `HL7` and the rest — a real distinction with conformance consequences, and one implementers ask about. |
 | **where used** | 779 | The fields a table is bound to, `PID-8` and so on. The link between the vocabulary and the rest of the standard. |
 | **HL7 Version Introduced** | 607 | Which release the table first appeared in. |
@@ -36,11 +38,16 @@ Each of these could be preserved as a concept property or an extension, but ever
 
 **Ask:** You do not need to answer field by field today. What we need is a steer: **is the intent that a FHIR consumer can recover what Chapter 2C says about a table, or only the codes it defines?** That one answer tells us whether to design extensions for the list above or to record the loss and move on. The full mapping, with all 43 fields and counts, is a separate document we can circulate.
 
+Not table-specific — it applies to all 799, and decides what a FHIR consumer can recover about any of them.
+
+- [The same question for one field, the per-table OID, with what we do today](../vocab-ig/output/open-items.html#gq-chapter-2c-gives-every-table)
+- [What the guide does carry, table by table](../vocab-ig/output/table-index.html)
+
 ## Already settled — here so they are not raised twice
 
-- **Where the value sets are published** (0291, 0347, 0399, 0834) — We were minting canonical URLs of the form `…/v2-NNNN` for four tables that THO already publishes at `…/v2-notAllCodes-NNNN`. **Settled: a canonical is an identifier, and where one already exists it is the one to use**, whatever it looks like. Corrected; the four now match THO and UTG exactly. No action from V2 Management — recorded because it changed generated output.
-- **Table 0227 Manufacturers of Vaccines** (0227) — The chapter declares a value set and no code system. Resolved: MVX is an external CDC code system that THO records as a NamingSystem and deliberately does _not_ publish a CodeSystem for. We compose a value set over the external system, which is correct and complete. No decision needed.
-- **Concept-domain-only tables that also list codes** (0093, 0340, 0451) — Carried over from the last meeting because it was corrected there rather than answered. Not a contradiction — the V3 requirements for declaring a concept domain call for **example codes**, so these tables are correct as published. Where the examples should live is a representation question for TSMG, not a chapter defect.
+- **Concept order does not cost a version number** (32 tables) — Chapter 2C and THO often carry exactly the same codes in a different order, and the versioning policy could be read literally as making that a change. **TSMG settled it on 21 September: reordering is not a change and does not increment the version.** That confirmed what we were already doing, so no version number moved. Recorded because it was the last rule behind the version numbers resting on our reading of the policy rather than on a ruling. No action from V2 Management.
+- **Most of the differences from THO were never disagreements** (489 → 202) — The review listed **489 differences** from what THO publishes, each framed as something a committee might have to adjudicate. On inspection **287 of them were not questions at all**: 211 are THO recording the V2 status letter where we record the FHIR status it maps to, and 76 are the same words with different punctuation, spacing or capitalisation. **202 genuine disagreements remain**, and they are no longer crowded out. Nothing was suppressed — the 287 are still listed, under a heading that says they need no decision.
+- **Five concept displays now follow THO's capitalisation** (0203, 0396) — Where THO and the chapter agree on the words and differ only in case, and THO is the more capitalised side, we now publish THO's form — `GKV`, `KZVA`, `PKV`, `ZANR` and `DAR`. A deliberate exception to chapter-wins, taken because the words are identical so the chapter loses nothing. **No version moved.** The reverse case is not treated symmetrically: where THO is the _less_ capitalised side we surface it rather than absorb it, because a correct lower-casing and a lost proper noun look identical to a machine.
 
 ## The two that block us
 
@@ -58,6 +65,13 @@ Our governing requirement has been fidelity — publish exactly what Chapter 2C 
 **HL7's own errata guidance may already answer most of this, and would let you give us a narrow answer instead of a broad one.** It defines a technical correction as a non-controversial change that makes a document say what the Work Group intended, typically repairing normative content that was “not made, incorrectly made, or inconsistently made during the editing process”. That test splits our list cleanly in two. The _editing-process_ defects — 0821's grid emptied in publication, the truncated descriptions, the links to rendered pages where canonical URLs belong, the missing spaces — are technical corrections on that definition. The _content_ defects — 0931's invalid UCUM code, 0560's time units — change what the standard means, and the same guidance requires a substantive change to normative content to be balloted.
 
 **Ask:** Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. **If the full question is too broad for the time available, the narrow one would unblock most of the list:** may we treat the editing-process defects as technical corrections, leaving only the genuinely substantive ones for a ballot? The guidance notes that where there is doubt a Work Group may ask the TSC to rule.
+
+**Affected tables:** 0560, 0821, 0931
+
+The three instances the argument rests on. The ruling asked for is on the principle, and it reaches every class further down this page.
+
+- [Table 0560, as its own question with what we publish today](../vocab-ig/output/open-items.html#gq-table-0560-a-code-system)
+- [The register: 37 open items, each with its affected tables](../vocab-ig/output/open-items.html)
 
 ### 2. Five concept domains are declared by more than one table, with a different definition each time
 
@@ -77,9 +91,15 @@ We emit the **first description in document order**, purely to keep the output d
 
 **Ask:** Say which definition is correct for each of the five. We will take any of them — what we cannot do is keep choosing by document order.
 
+**Affected tables:** 0259, 0560, 0568, 0602, 0604, 0657, 0682, 0777, 0930, 0961, 0962
+
+The eleven tables that declare the five contested domains between them.
+
+- [The register, where the competing definitions are set out in full](../vocab-ig/output/open-items.html)
+
 ## Defects in the published chapter, by class
 
-### NEW — Value Set descriptions that stop mid-word — 16 tables
+### Value Set descriptions that stop mid-word — 16 tables
 
 Table 0227's value set description ends _“… and the code system may be acce”_. Sweeping the corpus found **sixteen descriptions that stop without punctuation, every one between 242 and 252 characters**. Nothing else behaves this way — code system descriptions in the same tables run past 500 characters and end in complete sentences. It is a length cap of about 250 characters applied to one field somewhere in the publication toolchain.
 
@@ -91,7 +111,7 @@ Table 0227's value set description ends _“… and the code system may be acce�
 
 **Need:** **Please find out who holds the source these descriptions are generated from** — the loss is at publication, not at authoring, so the full text is likely intact upstream. Restoring it should be a technical correction rather than a ballot. Two riders: 0227's text is available from THO right now and we can restore it immediately if you say so; and because THO carries the same truncation, any fix has to be made in both places or the two will fork. All sixteen are listed in the register.
 
-### NEW — Concepts whose code is nothing but punctuation — 17 tables, 23 codes
+### Concepts whose code is nothing but punctuation — 17 tables, 23 codes
 
 Noticed because table 0291's code system carries a concept whose code is a single ellipsis character. Scanning Chapter 2C and THO's v2 code systems for codes containing no letter or digit found **23 concepts across 17 tables**, in three quite different groups.
 
@@ -161,6 +181,6 @@ Mentioned only so it is on the record that the chapter's published text needed r
 
 **Method, briefly.** Two independent extractions of the same document — one character-faithful, one structural — agreeing on 740 of 799 tables, with every remaining difference adjudicated against the source. Every change to published text is recorded with the decision that authorised it, and can be reversed.
 
-**The full detail** is in an 18-item register written for V2 Management and TSMG, which now lists every affected table for the truncated descriptions and the punctuation codes. This page is the executive cut; the register has the evidence for each item. The field-by-field mapping behind the new question is a separate document and can be circulated on request.
+**The full detail** is in a register of 37 open items written for V2 Management and TSMG, which lists every affected table. This page is the executive cut; the register has the evidence for each item, and the register itself is now a page in the guide rather than a separate document, so every item can be followed to the artifact it is about. The field-by-field mapping behind the design question is still a separate document and can be circulated on request.
 
-_Generated 2026-09-18 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._
+_Generated 2026-09-22 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._
