@@ -29,6 +29,16 @@ used to be a hand-written page of their own, which meant three review-facing
 pages and a reader having to work out which one asked what. They are prose and
 stay prose; this generator only decides where they sit.
 
+They split along the same line as everything else. A question carrying a
+`resolution` has been answered, so it is no longer asking for anything and
+moves to the evidence page with its ruling attached:
+
+    no resolution   -> open-items.md
+    resolution      -> evidence.md
+
+It keeps its number and its original text in both places, and `question_anchor`
+resolves cross-links to whichever page it is currently on.
+
 Sources:
     tooling/scripts/render_vocabulary_review_html.py  the sections
     tooling/scripts/vocabulary_general_questions.py   the authored prose
@@ -89,6 +99,9 @@ PAGE_STYLE = r"""<style>
 .ri-ev table { font-size: 0.92em; }
 .ri-ev td, .ri-ev th { vertical-align: top; padding: 0.2rem 0.5rem; }
 .ri-scroll { max-height: 18rem; overflow: auto; }
+.ri-answered { background: #eaf5ea; border-left: 3px solid #1a7f37;
+               padding: 0.5rem 0.8rem; margin: 0.6rem 0 0.9rem; }
+.ri-answered p { margin: 0.35rem 0; }
 </style>"""
 
 
@@ -168,6 +181,46 @@ def render_group(section, heading):
     ])
 
 
+def is_open(question):
+    """Whether a general question is still waiting on somebody.
+
+    One key decides it. A question with a `resolution` has been answered and
+    belongs with the things this guide has settled; one without is still an
+    ask. Nothing else -- not the audience, not the wording -- moves a question
+    between the two pages.
+    """
+    return not question.get("resolution")
+
+
+def open_questions():
+    """The questions still waiting on an answer, in page order."""
+    return [q for q in questions.GENERAL_QUESTIONS if is_open(q)]
+
+
+def answered_questions():
+    """The questions a committee has answered, in page order."""
+    return [q for q in questions.GENERAL_QUESTIONS if not is_open(q)]
+
+
+def render_resolution(resolution):
+    """The answer to a question, as the block that replaces the ask.
+
+    Attribution is the whole point of the block, so all five fields are shown
+    rather than summarised: who ruled, where, when, what they said, and what it
+    changed here. `effect` is shown even when it is "nothing", because "the
+    committee agreed with what we were already doing" is a different and more
+    reassuring fact than "the committee has not been asked".
+    """
+    return "\n".join([
+        '<div class="ri-answered">',
+        f'<p><b>Answered by {esc(resolution["who"])}</b> '
+        f'&mdash; {esc(resolution["forum"])}, {esc(resolution["date"])}.</p>',
+        f'<p><b>The ruling:</b> {esc(resolution["ruling"])}</p>',
+        f'<p><b>What it changed here:</b> {esc(resolution["effect"])}</p>',
+        "</div>",
+    ])
+
+
 def render_question(question):
     """One authored general question, at `####`, body emitted verbatim.
 
@@ -175,24 +228,103 @@ def render_question(question):
     derived from the title and would break the moment the title is reworded,
     whereas the id in `vocabulary_general_questions` is chosen once and does
     not move; `question_anchor()` is the only thing that knows the shape.
+
+    An answered question renders its ruling first and its original body after.
+    That order is deliberate: a reader arriving from a link wants the answer,
+    not the argument that was made before there was one.
     """
-    return "\n".join([
+    parts = [
         f'<a name="{question["id"]}"> </a>',
         "",
         f'#### {question["number"]}. {question["title"]}',
         "",
-        question["body"],
-        "",
-    ])
+    ]
+    if not is_open(question):
+        parts += [render_resolution(question["resolution"]), ""]
+    parts += [question["body"], ""]
+    return "\n".join(parts)
 
 
 def question_anchor(question_id):
-    """The link a page elsewhere in the guide uses to reach one question."""
+    """The link a page elsewhere in the guide uses to reach one question.
+
+    Which page that is depends on whether the question has been answered, so
+    this resolves it rather than assuming. Hard-coding `open-items.html` was
+    correct only while nothing had ever been answered; the first ruling would
+    have turned every cross-link in the guide into a link to a page the
+    question is no longer on.
+    """
+    for question in questions.GENERAL_QUESTIONS:
+        if question["id"] == question_id:
+            page = OPEN_ITEMS_PAGE if is_open(question) else EVIDENCE_PAGE
+            return f"{page.stem}.html#{question_id}"
     known = {q["id"] for q in questions.GENERAL_QUESTIONS}
-    if question_id not in known:
-        raise KeyError(f"no general question with id {question_id!r}; "
-                       f"known ids: {', '.join(sorted(known))}")
-    return f"{OPEN_ITEMS_PAGE.stem}.html#{question_id}"
+    raise KeyError(f"no general question with id {question_id!r}; "
+                   f"known ids: {', '.join(sorted(known))}")
+
+
+def audience_sentence(still_open):
+    """Which committees still have questions waiting, as a sentence.
+
+    Computed rather than authored. The counts change the morning after every
+    meeting, and a hand-written sentence saying "one is for TSMG" is wrong the
+    moment TSMG answers it.
+    """
+    if not still_open:
+        return ("**Every general question has now been answered.** They are "
+                "recorded, with who ruled and when, on the "
+                "[evidence page](evidence.html).")
+    counts = Counter(q["audience"] for q in still_open)
+    ordered = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    total = len(still_open)
+    ownership = ("TSMG owns the artifact versioning policy; V2 Management "
+                 "owns what Chapter 2C says.")
+
+    if len(ordered) == 1:
+        audience, _ = ordered[0]
+        subject = ("The one question below is"
+                   if total == 1 else f"All **{total}** questions below are")
+        return f"{subject} for **{audience}**. {ownership}"
+
+    clauses = [f"**{n}** for **{audience}**" for audience, n in ordered]
+    listed = ", ".join(clauses[:-1]) + " and " + clauses[-1]
+    return f"Of the **{total}** questions below, {listed}. {ownership}"
+
+
+def answered_sentence(answered):
+    """A pointer to the questions that have been answered and have moved."""
+    links = ", ".join(
+        f'[{q["number"]}. {q["title"]}]'
+        f'({EVIDENCE_PAGE.stem}.html#{q["id"]})'
+        for q in answered)
+    noun = "question has" if len(answered) == 1 else "questions have"
+    return (f"**{len(answered)} {noun} since been answered** and moved to the "
+            f"evidence page: {links}.")
+
+
+def audience_questions(audience, still_open, answered):
+    """The block under one audience heading: its open questions, or a pointer.
+
+    An audience with nothing open still gets a line, rather than an empty
+    heading. A reader who remembers asking TSMG something should be told what
+    happened to it here, where they are looking for it, instead of being left
+    to conclude the question was dropped.
+    """
+    mine_open = [q for q in still_open if q["audience"] == audience]
+    if mine_open:
+        return [render_question(q) for q in mine_open]
+
+    mine_answered = [q for q in answered if q["audience"] == audience]
+    if not mine_answered:
+        return [f"Nothing is currently open for {audience}.", ""]
+    links = ", ".join(
+        f'[question {q["number"]}]({EVIDENCE_PAGE.stem}.html#{q["id"]})'
+        for q in mine_answered)
+    noun = "question" if len(mine_answered) == 1 else "questions"
+    was = "was" if len(mine_answered) == 1 else "were"
+    return [f"**Nothing is open for {audience}.** The {noun} put to them "
+            f"({links}) {was} answered; the ruling and what it changed are "
+            f"recorded on the evidence page.", ""]
 
 
 def build_open_items_page(sections):
@@ -201,20 +333,25 @@ def build_open_items_page(sections):
     decides = [s for s in sections if s["action"] == "decide"]
 
     open_count = sum(s["count"] for s in escalations + decides)
-    banked = len(questions.GENERAL_QUESTIONS)
+    still_open = open_questions()
+    answered = answered_questions()
 
     parts = [
         PAGE_STYLE,
         "",
         questions.INTRO,
         "",
-        f"There are **{open_count} open items** below, plus **{banked} general "
-        f"questions** that have a working answer already applied. Everything "
-        f"this guide has *settled* is on the "
+        audience_sentence(still_open),
+        "",
+        f"There are **{open_count} open items** below, plus **{len(still_open)} "
+        f"general questions** that have a working answer already applied. "
+        f"Everything this guide has *settled* is on the "
         f"[evidence page](evidence.html) instead, so that this page stays a "
         f"list of things somebody still has to do.",
         "",
     ]
+    if answered:
+        parts += [answered_sentence(answered), ""]
 
     for section in escalations:
         parts.append(f'### {section["group"]}')
@@ -225,15 +362,11 @@ def build_open_items_page(sections):
     parts.append("")
     parts.append(questions.TSMG_PREAMBLE)
     parts.append("")
-    for question in questions.GENERAL_QUESTIONS:
-        if question["audience"] == "TSMG":
-            parts.append(render_question(question))
+    parts += audience_questions("TSMG", still_open, answered)
 
     parts.append(f"### {questions.V2MGMT_TITLE}")
     parts.append("")
-    for question in questions.GENERAL_QUESTIONS:
-        if question["audience"] == "V2 Management":
-            parts.append(render_question(question))
+    parts += audience_questions("V2 Management", still_open, answered)
 
     if decides:
         parts.append("### Decisions still to take")
@@ -263,6 +396,7 @@ def build_evidence_page(sections):
         by_action[section["action"]] += section["count"]
 
     total = sum(by_action.values())
+    answered = answered_questions()
     parts = [
         PAGE_STYLE,
         "",
@@ -278,6 +412,25 @@ def build_evidence_page(sections):
         "rather than read.",
         "",
     ]
+
+    # The answered general questions come first, before the computed groups.
+    # They are the shortest section on the page and the one most likely to be
+    # what a reader came for: a committee ruling is the thing people follow a
+    # link to check, and burying it under two thousand rows of evidence would
+    # make it unfindable.
+    if answered:
+        parts.append(f'### Answered by committee '
+                     f'<span class="ri-count">&mdash; {len(answered)} '
+                     f'question{"" if len(answered) == 1 else "s"}</span>')
+        parts.append("")
+        parts.append(
+            "Questions this guide put to a committee, and what came back. "
+            "Each keeps the number it was asked under and the text of the "
+            "original ask, so that a reference to it made before the answer "
+            "still lands in the right place.")
+        parts.append("")
+        for question in answered:
+            parts.append(render_question(question))
 
     for action in report.ACTION_ORDER:
         group = [s for s in shown if s["action"] == action]

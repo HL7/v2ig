@@ -18,6 +18,31 @@ each question an `h4`, and the section numbering is CSS counters that a stray
 
 Two audiences, because they are two committees with two agendas: TSMG owns the
 artifact versioning policy, V2 Management owns what Chapter 2C says.
+
+Answered questions
+------------------
+
+A question that has been answered carries a `resolution`, and that key is the
+only thing that moves it: it stops being rendered on the page that asks for
+things and starts being rendered on the page that shows what was decided. The
+question is never deleted and never renumbered. A reader who remembers a
+question should be able to find out what happened to it, and a number that got
+reused would make every reference to it in a minute or an email wrong.
+
+A `resolution` has five keys, all required, because an answer with no
+attribution is not usable six months later:
+
+    who      the body whose answer it is -- the one that owns the question
+    forum    where it was given, specifically enough to be looked up
+    date     ISO, the day it was given
+    ruling   what they actually decided, in one sentence
+    effect   what changed here as a result, including "nothing" when the
+             answer confirms what the build already did
+
+`who` is the body with the authority, which is not always the room: a TSMG
+ruling is a TSMG ruling whether it was given in a TSMG meeting or by TSMG
+members sitting in somebody else's. `forum` records the room, so that the
+distinction stays visible rather than being flattened away.
 """
 
 # Opening prose, before any question.
@@ -28,13 +53,14 @@ than us should confirm it.
 Each one says **what this build currently does**, so that a reader is never
 guessing, and **what we would change** if the answer comes back differently.
 None of them is blocking: every question below has a defensible working answer
-already applied.
+already applied."""
 
-One is for **TSMG**, because it is about the artifact versioning policy. The
-rest are for **V2 Management**, because they are about what Chapter 2C says."""
+# Which committee still has questions waiting is a fact about the data, and it
+# changes every time one of them answers something. `render_review_pages`
+# computes the sentence rather than having it hand-maintained here, because a
+# hand-maintained one is wrong the morning after a meeting.
 
-# TSMG owns the versioning policy. The prose below is the settled part; the
-# question banked against this audience is the one piece still open.
+# TSMG owns the versioning policy. The prose below is the settled part.
 TSMG_TITLE = """For TSMG — the versioning policy"""
 
 TSMG_PREAMBLE = """**Settled: a description difference is always a major increment.** The
@@ -105,6 +131,22 @@ from a difference the policy names outright.
 line in the comparison, and 32 more artifacts increment.
 
 ---""",
+        "resolution": {
+            "who": "TSMG",
+            "forum": "Terminology Infrastructure WG meeting, "
+                     "HL7 Plenary, Rockville",
+            "date": "2026-09-21",
+            "ruling": "Reordering a code system's concepts is not a change, "
+                      "and does not increment the version.",
+            "effect": "None. The comparison already treated concept order as "
+                      "presentation, so no artifact moved and no version "
+                      "number changed. What the ruling settles is the "
+                      "standing of the rule rather than its result: the "
+                      "32 tables that carry exactly THO's codes in a "
+                      "different order keep THO's version because the policy "
+                      "owner says they should, and not because this project "
+                      "read the policy that way.",
+        },
     },
     {
         "id": "gq-the-concept-status-b-and",

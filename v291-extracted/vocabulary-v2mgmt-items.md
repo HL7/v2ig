@@ -54,9 +54,8 @@ this file.
 33. [Chapter 2C gives every table its own OID, and this guide publishes it nowhere](#33) — 798 tables
 34. [The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not](#34) — 0003, 0125, 0357 for B; 25 tables, 261 concepts for N
 35. [191 concepts say they are active and deprecated as of 2.9 at the same time](#35) — 0003, 0006, 0065, 0066, 0074, 0076, 0104, 0131, 0163, 0175, 0191, 0200, 0207, 0211, 0223, 0272, 0277, 0278, 0279, 0281, 0291, 0294, 0354, 0359, 0365, 0366, 0367, 0391, 0396, 0418, 0440, 0474, 0487, 0492, 0544, 0916
-36. [Does reordering a code system's concepts count as a change for versioning?](#36) — 32 tables
-37. [How far does the description “editorial corrections” carve-out reach?](#37) — policy; 12 descriptions, 25 concepts
-38. [Two THO descriptions carry text the chapter's do not, including THO documenting its own error](#38) — 0227, 0719
+36. [How far does the description “editorial corrections” carve-out reach?](#36) — policy; 12 descriptions, 25 concepts
+37. [Two THO descriptions carry text the chapter's do not, including THO documenting its own error](#37) — 0227, 0719
 
 ---
 
@@ -492,18 +491,7 @@ Chapter 2C carries its own legend for the status column: blank means an active c
 
 <a id="36"></a>
 
-## 36. Does reordering a code system's concepts count as a change for versioning?
-
-**Tables:** 32 tables  
-**Goes to:** TSMG
-
-This project compares its concepts against THO's as a set keyed by code, so a code system whose codes are identical to THO's but listed in a different order is treated as unchanged and keeps THO's version. The reasoning is that order is not information in a flat code system: a `CodeSystem` with `hierarchyMeaning` of `is-a` and no nesting says nothing by putting one code before another. **32 tables carry exactly THO's codes in a different order.** If order is a change under the artifact versioning policy, those 32 all increment — and they increment again every time the chapter is re-laid-out, which is a version number spent on typesetting.
-
-**The ask:** Confirm that concept order is not a versionable change, or say that it is. Either answer is one line in this project's comparison. The question is asked because the policy's element table lists `CodeSystem.concept (and all subelements)` without qualification, and a literal reading could be taken to cover sequence.
-
-<a id="37"></a>
-
-## 37. How far does the description “editorial corrections” carve-out reach?
+## 36. How far does the description “editorial corrections” carve-out reach?
 
 **Tables:** policy; 12 descriptions, 25 concepts  
 **Goes to:** TSMG
@@ -512,9 +500,9 @@ The Code Systems versioning policy qualifies exactly one element: `CodeSystem.de
 
 **The ask:** Confirm the punctuation waiver, say whether it should extend to concept definitions and displays, and confirm whether the missing ValueSet carve-out is deliberate. Each answer is a located change in this project; none of them is a rewrite.
 
-<a id="38"></a>
+<a id="37"></a>
 
-## 38. Two THO descriptions carry text the chapter's do not, including THO documenting its own error
+## 37. Two THO descriptions carry text the chapter's do not, including THO documenting its own error
 
 **Tables:** 0227, 0719  
 **Goes to:** V2 Management + TSMG
@@ -522,3 +510,25 @@ The Code Systems versioning policy qualifies exactly one element: `CodeSystem.de
 Of the description differences between this project's output and THO, all but two are punctuation. These two are not, and in both THO's text carries something the chapter's does not. **`ValueSet/v2-0227`:** THO's description ends with a link to the code system on PHIN VADS. The chapter's stops before it, so publishing the chapter's drops a working source reference for a code system HL7 does not itself maintain. **`ValueSet/v2-0719`:** THO's description ends “Note that this resource was created in THO in error due to an oversight in the import processing.” That is THO documenting its own mistake in the artifact's description. It is not something Chapter 2C should inherit, but it does say the artifact needs attention rather than a redraft — and 0719 is also one of the two artifacts with an OID conflict. This project publishes the chapter's description in both cases and increments the version. The merge fills an absent value from THO but never splices two pieces of prose together, because concatenating them would publish text neither source wrote.
 
 **The ask:** For 0227, decide whether the source reference should be carried into the chapter's description or dropped. For 0719, decide what should happen to a THO artifact whose own description says it was created in error — and settle that together with its OID conflict, since the two are likely the same story.
+
+---
+
+## Answered
+
+Items a committee has ruled on since this register was opened.
+They are no longer counted above. The finding and the original
+ask are kept so the record shows what was asked as well as what
+came back.
+
+<a id="esc-concept-ordering"></a>
+
+### Does reordering a code system's concepts count as a change for versioning?
+
+**Tables:** 32 tables  
+**Answered by:** TSMG — Terminology Infrastructure WG meeting, HL7 Plenary, Rockville, 2026-09-21
+
+**Ruling:** Reordering a code system's concepts is not a change, and does not increment the version.
+
+**Effect here:** None. The comparison already compared concepts as a set keyed by code, so no artifact moved and no version number changed. The 32 tables carrying exactly THO's codes in a different order keep THO's version on the policy owner's authority rather than on this project's reading of the policy.
+
+This project compares its concepts against THO's as a set keyed by code, so a code system whose codes are identical to THO's but listed in a different order is treated as unchanged and keeps THO's version. The reasoning is that order is not information in a flat code system: a `CodeSystem` with `hierarchyMeaning` of `is-a` and no nesting says nothing by putting one code before another. **32 tables carry exactly THO's codes in a different order.** If order is a change under the artifact versioning policy, those 32 all increment — and they increment again every time the chapter is re-laid-out, which is a version number spent on typesetting.

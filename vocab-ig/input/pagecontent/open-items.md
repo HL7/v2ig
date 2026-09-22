@@ -15,6 +15,9 @@
 .ri-ev table { font-size: 0.92em; }
 .ri-ev td, .ri-ev th { vertical-align: top; padding: 0.2rem 0.5rem; }
 .ri-scroll { max-height: 18rem; overflow: auto; }
+.ri-answered { background: #eaf5ea; border-left: 3px solid #1a7f37;
+               padding: 0.5rem 0.8rem; margin: 0.6rem 0 0.9rem; }
+.ri-answered p { margin: 0.35rem 0; }
 </style>
 
 Questions this guide has had to answer in order to produce anything at all,
@@ -26,14 +29,15 @@ guessing, and **what we would change** if the answer comes back differently.
 None of them is blocking: every question below has a defensible working answer
 already applied.
 
-One is for **TSMG**, because it is about the artifact versioning policy. The
-rest are for **V2 Management**, because they are about what Chapter 2C says.
+All **6** questions below are for **V2 Management**. TSMG owns the artifact versioning policy; V2 Management owns what Chapter 2C says.
 
-There are **57 open items** below, plus **7 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
+There are **56 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
+
+**1 question has since been answered** and moved to the evidence page: [1. Does reordering a code system's concepts count as a change?](evidence.html#gq-does-reordering-a-code-system).
 
 ### For V2 Management / TSMG
 
-#### Open items <span class="ri-count">&mdash; 38 items</span>
+#### Open items <span class="ri-count">&mdash; 37 items</span>
 
 <div class="ri-blurb">Defects in the published Chapter 2C, in THO, or in both. None of these is this project's to resolve, and each needs a committee answer. They are listed first because a representation decision can be revisited at any time, whereas getting an item onto an agenda has a lead time.</div>
 
@@ -213,11 +217,6 @@ There are **57 open items** below, plus **7 general questions** that have a work
   <div class="ri-who">Goes to: V2 Management</div>
 </div>
 <div class="ri-item ri-escalate">
-  <div class="ri-key">32 tables</div>
-  <p><b>Does reordering a code system's concepts count as a change for versioning?</b></p><p>This project compares its concepts against THO's as a set keyed by code, so a code system whose codes are identical to THO's but listed in a different order is treated as unchanged and keeps THO's version. The reasoning is that order is not information in a flat code system: a <code>CodeSystem</code> with <code>hierarchyMeaning</code> of <code>is-a</code> and no nesting says nothing by putting one code before another. <b>32 tables carry exactly THO's codes in a different order.</b> If order is a change under the artifact versioning policy, those 32 all increment &mdash; and they increment again every time the chapter is re-laid-out, which is a version number spent on typesetting.</p><p class="ask"><b>The ask:</b> Confirm that concept order is not a versionable change, or say that it is. Either answer is one line in this project's comparison. The question is asked because the policy's element table lists <code>CodeSystem.concept (and all subelements)</code> without qualification, and a literal reading could be taken to cover sequence.</p>
-  <div class="ri-who">Goes to: TSMG</div>
-</div>
-<div class="ri-item ri-escalate">
   <div class="ri-key">policy; 12 descriptions, 25 concepts</div>
   <p><b>How far does the description &ldquo;editorial corrections&rdquo; carve-out reach?</b></p><p>The Code Systems versioning policy qualifies exactly one element: <code>CodeSystem.description</code> is &ldquo;major unless only change is improved clarity or perform editorial corrections&rdquo;. This project applies that where it can do so honestly &mdash; where our description and THO's contain exactly the same words in the same order, so that only punctuation or spacing moved. <b>12 descriptions across 7 tables</b> are waived on that basis, every one of them our <code>e.g.,</code> against THO's <code>e.g.</code>, or our <code>code system.</code> against THO's <code>code system .</code>. Three things about this need confirming. <b>First, the rule itself:</b> is a punctuation-only difference an editorial correction? <b>Second, the asymmetry it creates.</b> The carve-out is written against <code>description</code> alone, while <code>CodeSystem.concept (and all subelements)</code> is listed unqualified. So <b>4 concept definitions and 21 concept displays that differ from THO only in punctuation do increment</b>. A comma in a description is free; the same comma in a display costs a major version. This project has not smoothed that over, because guessing at an unwritten carve-out is how a pipeline quietly stops matching the rules it claims to follow &mdash; but it looks more like an oversight than a decision. <b>Third, the Value Sets policy has no equivalent carve-out at all</b>, so read literally it makes every description difference a major increment however trivial. This project treats <code>ValueSet.description</code> exactly as it treats <code>CodeSystem.description</code>, rather than encode an asymmetry believed to be a drafting slip.</p><p class="ask"><b>The ask:</b> Confirm the punctuation waiver, say whether it should extend to concept definitions and displays, and confirm whether the missing ValueSet carve-out is deliberate. Each answer is a located change in this project; none of them is a rewrite.</p>
   <div class="ri-who">Goes to: TSMG</div>
@@ -255,30 +254,7 @@ now exceptional.
 incremented, 339 unchanged. Value sets — 9 first publications, 23 incremented,
 392 unchanged.
 
-<a name="gq-does-reordering-a-code-system"> </a>
-
-#### 1. Does reordering a code system's concepts count as a change?
-
-**What we do:** no. Concepts are compared as a set keyed by code. A code
-system whose codes are identical to THO's but listed in a different order is
-treated as unchanged and keeps THO's version.
-
-**Why:** order is not information in a flat code system. A `CodeSystem` with
-`hierarchyMeaning` of `is-a` and no nesting says nothing by putting `M` before
-`F`, and nobody reading the resource learns anything from the sequence.
-
-**How much rides on it:** **32 tables** have exactly THO's codes in a
-different order. If order is a change, those 32 all increment, and they
-increment again every time the chapter is re-laid-out.
-
-**This is now the only rule behind the version numbers that rests on a
-judgement rather than a fact.** Every other increment in this build follows
-from a difference the policy names outright.
-
-**If the answer is no:** nothing changes. **If the answer is yes:** it is one
-line in the comparison, and 32 more artifacts increment.
-
----
+**Nothing is open for TSMG.** The question put to them ([question 1](evidence.html#gq-does-reordering-a-code-system)) was answered; the ruling and what it changed are recorded on the evidence page.
 
 ### For V2 Management — what the chapter says
 

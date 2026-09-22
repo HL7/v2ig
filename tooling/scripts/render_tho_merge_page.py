@@ -134,10 +134,14 @@ def render_page(report):
         "the increments below rest on nothing more than that, and the "
         "per-table ledger says which.",
         "",
-        "One rule behind these numbers is still a judgement call rather than "
-        "a fact — whether reordering a code system's concepts is a change. "
-        "It is stated, with what rides on it, under "
-        f"[What needs an answer]({question_anchor('gq-does-reordering-a-code-system')}).",
+        "The one rule behind these numbers that used to rest on a judgement "
+        "rather than a fact — whether reordering a code system's concepts is "
+        "a change — **was answered by TSMG on 2026-09-21: it is not, and it "
+        "does not increment the version.** That confirmed what this build "
+        "already did, so no number here moved. The ruling and its attribution "
+        "are recorded under "
+        f"[Answered by committee]"
+        f"({question_anchor('gq-does-reordering-a-code-system')}).",
         "",
         "| Outcome | Count |",
         "|---|---:|",

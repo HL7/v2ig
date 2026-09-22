@@ -1881,6 +1881,20 @@ ESCALATIONS = [
             "table lists <code>CodeSystem.concept (and all subelements)</code> "
             "without qualification, and a literal reading could be taken to "
             "cover sequence.",
+        "resolution": {
+            "who": "TSMG",
+            "forum": "Terminology Infrastructure WG meeting, "
+                     "HL7 Plenary, Rockville",
+            "date": "2026-09-21",
+            "ruling": "Reordering a code system's concepts is not a change, "
+                      "and does not increment the version.",
+            "effect": "None. The comparison already compared concepts as a "
+                      "set keyed by code, so no artifact moved and no version "
+                      "number changed. The 32 tables carrying exactly THO's "
+                      "codes in a different order keep THO's version on the "
+                      "policy owner's authority rather than on this project's "
+                      "reading of the policy.",
+        },
     },
     {
         "id": "esc-description-editorial-carveout",
@@ -2009,14 +2023,17 @@ def render_markdown():
         "",
     ]
 
-    for number, item in enumerate(ESCALATIONS, start=1):
+    open_items = [i for i in ESCALATIONS if not i.get("resolution")]
+    answered = [i for i in ESCALATIONS if i.get("resolution")]
+
+    for number, item in enumerate(open_items, start=1):
         title = to_markdown_text(item["title"])
         lines.append(f"{number}. [{title}](#{number}) — {item['tables']}")
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    for number, item in enumerate(ESCALATIONS, start=1):
+    for number, item in enumerate(open_items, start=1):
         lines += [
             f'<a id="{number}"></a>',
             "",
@@ -2032,6 +2049,42 @@ def render_markdown():
         ]
         if item.get("evidence"):
             lines += render_markdown_evidence(item["evidence"]) + [""]
+
+    # Answered items keep their place in the document but not in the numbered
+    # list, which counts what is still outstanding. They are listed after it,
+    # because the register is circulated to people who need to know what was
+    # settled as well as what is left -- an item that simply disappeared
+    # between two circulations reads as dropped rather than as answered.
+    if answered:
+        lines += [
+            "---",
+            "",
+            "## Answered",
+            "",
+            "Items a committee has ruled on since this register was opened.",
+            "They are no longer counted above. The finding and the original",
+            "ask are kept so the record shows what was asked as well as what",
+            "came back.",
+            "",
+        ]
+        for item in answered:
+            resolution = item["resolution"]
+            lines += [
+                f'<a id="{item["id"]}"></a>',
+                "",
+                f"### {to_markdown_text(item['title'])}",
+                "",
+                f"**Tables:** {item['tables']}  ",
+                f"**Answered by:** {resolution['who']} — "
+                f"{resolution['forum']}, {resolution['date']}",
+                "",
+                f"**Ruling:** {to_markdown_text(resolution['ruling'])}",
+                "",
+                f"**Effect here:** {to_markdown_text(resolution['effect'])}",
+                "",
+                to_markdown_text(item["body"]),
+                "",
+            ]
 
     return "\n".join(lines)
 
@@ -2089,7 +2142,11 @@ def check_table_lists():
 def main():
     DEFAULT_OUT.parent.mkdir(parents=True, exist_ok=True)
     DEFAULT_OUT.write_text(render_markdown())
-    print(f"{len(ESCALATIONS)} items -> {DEFAULT_OUT}")
+    answered = sum(1 for i in ESCALATIONS if i.get("resolution"))
+    summary = f"{len(ESCALATIONS) - answered} open"
+    if answered:
+        summary += f" + {answered} answered"
+    print(f"{summary} -> {DEFAULT_OUT}")
 
     warnings = check_table_lists()
     if warnings:

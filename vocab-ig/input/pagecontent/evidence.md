@@ -15,13 +15,51 @@
 .ri-ev table { font-size: 0.92em; }
 .ri-ev td, .ri-ev th { vertical-align: top; padding: 0.2rem 0.5rem; }
 .ri-scroll { max-height: 18rem; overflow: auto; }
+.ri-answered { background: #eaf5ea; border-left: 3px solid #1a7f37;
+               padding: 0.5rem 0.8rem; margin: 0.6rem 0 0.9rem; }
+.ri-answered p { margin: 0.35rem 0; }
 </style>
 
-Every finding this guide has already settled, and everything disclosed for completeness: **2,078 values** across **91 groups**. Nothing on this page is asking for anything. What is still open is on [what needs an answer](open-items.html).
+Every finding this guide has already settled, and everything disclosed for completeness: **2,079 values** across **92 groups**. Nothing on this page is asking for anything. What is still open is on [what needs an answer](open-items.html).
 
 This page exists so that any claim the guide makes about the chapter can be checked against the thing that was observed, without reading the pipeline. It is long by design and is meant to be searched rather than read.
 
-### Decided <span class="ri-count">&mdash; 74 groups, 1,534 values</span>
+### Answered by committee <span class="ri-count">&mdash; 1 question</span>
+
+Questions this guide put to a committee, and what came back. Each keeps the number it was asked under and the text of the original ask, so that a reference to it made before the answer still lands in the right place.
+
+<a name="gq-does-reordering-a-code-system"> </a>
+
+#### 1. Does reordering a code system's concepts count as a change?
+
+<div class="ri-answered">
+<p><b>Answered by TSMG</b> &mdash; Terminology Infrastructure WG meeting, HL7 Plenary, Rockville, 2026-09-21.</p>
+<p><b>The ruling:</b> Reordering a code system&#x27;s concepts is not a change, and does not increment the version.</p>
+<p><b>What it changed here:</b> None. The comparison already treated concept order as presentation, so no artifact moved and no version number changed. What the ruling settles is the standing of the rule rather than its result: the 32 tables that carry exactly THO&#x27;s codes in a different order keep THO&#x27;s version because the policy owner says they should, and not because this project read the policy that way.</p>
+</div>
+
+**What we do:** no. Concepts are compared as a set keyed by code. A code
+system whose codes are identical to THO's but listed in a different order is
+treated as unchanged and keeps THO's version.
+
+**Why:** order is not information in a flat code system. A `CodeSystem` with
+`hierarchyMeaning` of `is-a` and no nesting says nothing by putting `M` before
+`F`, and nobody reading the resource learns anything from the sequence.
+
+**How much rides on it:** **32 tables** have exactly THO's codes in a
+different order. If order is a change, those 32 all increment, and they
+increment again every time the chapter is re-laid-out.
+
+**This is now the only rule behind the version numbers that rests on a
+judgement rather than a fact.** Every other increment in this build follows
+from a difference the policy names outright.
+
+**If the answer is no:** nothing changes. **If the answer is yes:** it is one
+line in the comparison, and 32 more artifacts increment.
+
+---
+
+### Decided <span class="ri-count">&mdash; 75 groups, 1,535 values</span>
 
 A judgement was made and applied. The reasoning is recorded with each group.
 
@@ -1556,6 +1594,16 @@ A judgement was made and applied. The reasoning is recorded with each group.
   <code>valueSets[0].</code>
   <div class="cell"><span class="absent">&mdash; absent &mdash;</span></div>
   <div class="ri-who">LLM: <div class="cell"><span class="empty">(empty)</span></div></div>
+</div>
+
+#### For V2 Management / TSMG &mdash; Answered <span class="ri-count">&mdash; 1 item</span>
+
+<div class="ri-blurb">Register items a committee has ruled on. The original finding and ask are kept alongside the ruling, so that the record shows what was asked as well as what came back.</div>
+
+<div class="ri-item ri-resolved">
+  <div class="ri-key">32 tables</div>
+  <p><b>Does reordering a code system's concepts count as a change for versioning?</b></p><p>This project compares its concepts against THO's as a set keyed by code, so a code system whose codes are identical to THO's but listed in a different order is treated as unchanged and keeps THO's version. The reasoning is that order is not information in a flat code system: a <code>CodeSystem</code> with <code>hierarchyMeaning</code> of <code>is-a</code> and no nesting says nothing by putting one code before another. <b>32 tables carry exactly THO's codes in a different order.</b> If order is a change under the artifact versioning policy, those 32 all increment &mdash; and they increment again every time the chapter is re-laid-out, which is a version number spent on typesetting.</p><p class="ask"><b>The ask:</b> Confirm that concept order is not a versionable change, or say that it is. Either answer is one line in this project's comparison. The question is asked because the policy's element table lists <code>CodeSystem.concept (and all subelements)</code> without qualification, and a literal reading could be taken to cover sequence.</p>
+  <div class="ri-who">Ruling: <p><b>TSMG</b> &mdash; Terminology Infrastructure WG meeting, HL7 Plenary, Rockville, 2026-09-21.</p><p><b>Ruling:</b> Reordering a code system's concepts is not a change, and does not increment the version.</p><p><b>Effect here:</b> None. The comparison already compared concepts as a set keyed by code, so no artifact moved and no version number changed. The 32 tables carrying exactly THO's codes in a different order keep THO's version on the policy owner's authority rather than on this project's reading of the policy.</p></div>
 </div>
 
 #### Published document &mdash; Duplicate table metadata block <span class="ri-count">&mdash; 1 item</span>

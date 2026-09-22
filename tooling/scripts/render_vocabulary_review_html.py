@@ -1181,14 +1181,17 @@ def build_escalation_section():
     better as a list than as a dozen separate headings, and because the reader
     of this report is not being asked to act on them individually.
     """
-    rows = []
-    for item in ESCALATIONS:
+    def finding_html(item):
         finding = (f'<p><b>{item["title"]}</b></p><p>{item["body"]}</p>'
                    f'<p class="ask"><b>The ask:</b> {item["ask"]}</p>')
         if item.get("evidence"):
             finding += render_evidence_table(item["evidence"])
-        rows.append([item["tables"], finding, item["who"]])
-    return [{
+        return finding
+
+    open_items = [i for i in ESCALATIONS if not i.get("resolution")]
+    answered = [i for i in ESCALATIONS if i.get("resolution")]
+
+    sections = [{
         "id": "escalations",
         "group": "For V2 Management / TSMG",
         "title": "Open items",
@@ -1199,12 +1202,44 @@ def build_escalation_section():
             "answer. They are listed first because a representation decision "
             "can be revisited at any time, whereas getting an item onto an "
             "agenda has a lead time.",
-        "count": len(ESCALATIONS),
+        "count": len(open_items),
         "columns": ["Tables", "Finding", "Goes to"],
-        "rows": rows,
+        "rows": [[i["tables"], finding_html(i), i["who"]] for i in open_items],
         "raw_html_columns": {1},
         "open_by_default": True,
     }]
+
+    # An answered item stops being an ask and becomes a record, so it is
+    # classed `resolved` and the page router moves it to the evidence page on
+    # that basis alone. It is never deleted: the register is circulated, and an
+    # item that vanished between two circulations reads as one that was dropped
+    # rather than one that was settled.
+    if answered:
+        sections.append({
+            "id": "escalations-answered",
+            "group": "For V2 Management / TSMG",
+            "title": "Answered",
+            "action": "resolved",
+            "blurb":
+                "Register items a committee has ruled on. The original finding "
+                "and ask are kept alongside the ruling, so that the record "
+                "shows what was asked as well as what came back.",
+            "count": len(answered),
+            "columns": ["Tables", "Finding", "Ruling"],
+            "rows": [[i["tables"], finding_html(i), _resolution_html(i["resolution"])]
+                     for i in answered],
+            "raw_html_columns": {1, 2},
+            "open_by_default": False,
+        })
+    return sections
+
+
+def _resolution_html(resolution):
+    """One register item's ruling, for the cell that replaces its ask."""
+    return (f'<p><b>{resolution["who"]}</b> &mdash; {resolution["forum"]}, '
+            f'{resolution["date"]}.</p>'
+            f'<p><b>Ruling:</b> {resolution["ruling"]}</p>'
+            f'<p><b>Effect here:</b> {resolution["effect"]}</p>')
 
 
 # Batch A is the set of publication-metadata defaults Chapter 2C does not
