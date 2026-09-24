@@ -76,20 +76,14 @@ Usage Notes:
 
 Transcription is not a defining quality for the selection of an MDM or ORU message. In an MDM message, the document/report is typically dictated or transcribed, but not always. Machine-generated or automated output is an example of a document/report that is appropriate to the MDM but is not transcribed.
 
-// FIXME do we really want to keep this?
-=== Suffixes for Defining Observation IDs for Common Components of Narrative Reports
-[v291_section="7.2.5"]
-
-*Retained for backwards compatability only as of V2.7 and withdrawn as of v2.9, in favor of using LOINC codes that pre-coordinate the appropriate identifiers with the suffices. See Chapter 2.8.4.c.*
-
 == General Use Cases / Background
 
-=== Figure 4-8 Associations between Order Control Codes and Trigger Events
+=== Associations between Order Control Codes and Trigger Events
 [v291_section="4.18.1"]
 
-Figure 4-8 defines the explicit relationships that exist between Order Control Codes and Trigger Events. A value of "Y" at the intersection of an Order Control Code and a Trigger Event indicates that is a valid combination that can be used in a message. A value of "N" indicates that combination is not valid in any message. No value at an intersection indicates that no business case has been brought forward for to justify or exclude that combination. Implementers are encouraged to bring business cases forward for currently undefined combinations of Order Control Codes and Trigger Events.
+The table below defines the explicit relationships that exist between Order Control Codes and Trigger Events. A value of "Y" at the intersection of an Order Control Code and a Trigger Event indicates that is a valid combination that can be used in a message. A value of "N" indicates that combination is not valid in any message. No value at an intersection indicates that no business case has been brought forward for to justify or exclude that combination. Implementers are encouraged to bring business cases forward for currently undefined combinations of Order Control Codes and Trigger Events.
 
-.Figure 4-8 Order Control Codes / Trigger Event Matrix
+Order Control Codes / Trigger Event Matrix
 [width="100%",cols="28%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%,3%",options="header",]
 |===
 | |O01 |O02 |O03 |O04 |O05 |O06 |O07 |O08 |O09 |O10 |O11 |O12 |O13 |O14 |O15 |O16 |O18 |O19 |O20 |O21 |P03 |P11 |Q06 |R01
@@ -146,6 +140,8 @@ Figure 4-8 defines the explicit relationships that exist between Order Control C
 |XX |Y | | | |Y | |Y | | | |Y | |Y | |Y | | |Y | |Y | | | |
 |===
 
+FIXME - either remove the note below or do something about it (see outstanding question in GitHub about the content of this table)
+
 Editor’s note: The order control codes need to be assessed for their application to these trigger events O22 through O48. The current table structure will not accommodate these additional columns; a new table structure needs to be considered.
 
 == Implementation Considerations
@@ -153,7 +149,7 @@ Editor’s note: The order control codes need to be assessed for their applicati
 === Snapshot Mode
 [v291_section="7.2.1"]
 
-Chapter 2, Section 2.10.4 defines the meaning of snapshot mode updates and indicates that each chapter or related implementation guides may further refine this definition. The following guidance applies to results messages:
+Chapter 2, Section 2.10.4 defines the meaning of snapshot mode updates and indicates that each topic or related implementation guide may further refine this definition. The following guidance applies to results messages:
 
 • In some instances there are tests that have a precise relationship between the parent and child to assist the clinician in understanding to which OBX in the parent OBR the child is connected. In those instances the ORDER_OBSERVATION segment groups of the parent and other children should be included in the snapshot rather than sending the child's ORDER_OBSERVATION segment group (including the OBR/OBX set) by itself. Example: OBRs of the parent OBR (example would be microbiology with culture and Sensitivity Panels (Sensi-Panels)), unless advised otherwise by trading partners, would be included in the snapshot reporting. 
 
