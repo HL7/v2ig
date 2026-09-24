@@ -32,6 +32,8 @@ This file contains a TODO list for tasks related to setting up the v2+ editing e
 
 * In the examples, should MSH-12 be updated to 2.9.1?
 
+* In the General Lab Orders and Results topic, should the Associations between Order Control Codes and Trigger Events table be updated to (1) remove deprecated events such as O01 (2) add all result events (not just R01) (3) include event types that are specifically in this topic (but are in other topics)?
+
 == Glossary questions
 
 * Will need to add the Glossary links for "Generic Name" and "Brand Name" to the PCD segment field descriptions, since not in this text here anywhere.
