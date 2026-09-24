@@ -202,13 +202,10 @@ ORM message:
 ....
 MSH|...<cr>
 PID|...<cr>
-ORC|NW|A226677^PC||946281^PC||N|3^QAM||200601121132|444-44-4444^HIPPOCRATES^HAROLD^^^^MD|||4EAST|...<cr>
-....
-// EKG order
+ORC|NW|A226677^PC||946281^PC||N|3^QAM||200601121132|444-44-4444^HIPPOCRATES^HAROLD^^^^MD|||4EAST|...<cr>  // EKG order
 OBR|1|||8601-7^EKG IMPRESSION^LN||||||||||||222-33-4444^PUMP^PATRICK^^^^MD|||||||||||3^QAM|...<cr>
 BLG|...<cr>
-ORC|NW|...<cr>
-// Another order yet others may follow
+ORC|NW|...<cr>  // Another order yet others may follow
 ....
 
 There is a group number first component indicating that an order group is being created.
