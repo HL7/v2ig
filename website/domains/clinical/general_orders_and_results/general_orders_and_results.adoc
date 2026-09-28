@@ -618,7 +618,7 @@ OBX|4|NM|2028-9^CARBON DIOXIDE^LN||27|mmol/L|24‑31|N||N|F|20260329|...<cr>
 ....
 MSH|...<cr>
 PID|...<cr>
-OBR|2|870930011^OE|HEM3268^LAB|24359-2^HEMOGRAM+DIFFERENTIAL PANEL^LN| ||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|||||BLDV|^HIPPOCRATES^HAROLD^H^^DR|(555)555‑1003|This is requestor field #1.|This is Requestor field #2.|This is lab field #1.|Lab field #2.|202603311400|||F|...<cr>
+OBR|1|870930011^OE|HEM3268^LAB|24359-2^HEMOGRAM+DIFFERENTIAL PANEL^LN| ||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|||||BLDV|^HIPPOCRATES^HAROLD^H^^DR|(555)555‑1003|This is requestor field #1.|This is Requestor field #2.|This is lab field #1.|Lab field #2.|202603311400|||F|...<cr>
 OBX|1|NM|718-7^HEMOGLOBIN^LN||13.4|GM/DL|14-18|N||S|F|20260329|...<cr>
 OBX|2|NM|4544-3^HEMATOCRIT^LN||40.3|%|42-52|L||S|F|20260329|...<cr>
 OBX|3|NM|789-8^ERYTHROCYTES^LN||4.56|10*6/ml|4.7-6.1|L||S|F|20260329|...<cr>
@@ -639,7 +639,7 @@ OBX|11|NM|713-8^EOSINOPHILS/100 LEUKOCYTES:^LN||2|%|||||F|...<cr>
 ....
 MSH|...<cr>
 PID|...<cr>
-OBR|3|870930011^OE|HEM3269^LAB|4537-7^ERYTHROCYTE SEDIMENTATION RATE^LN|||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|||||BLDV|^HIPPOCRATES^HAROLD^H^^DR|(555)555-1003|This is requestor field #1.|This is Requestor field #2.|This is lab field#1.|Lab field #2.|202603311400|||F|...<cr>
+OBR|1|870930011^OE|HEM3269^LAB|4537-7^ERYTHROCYTE SEDIMENTATION RATE^LN|||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|||||BLDV|^HIPPOCRATES^HAROLD^H^^DR|(555)555-1003|This is requestor field #1.|This is Requestor field #2.|This is lab field#1.|Lab field #2.|202603311400|||F|...<cr>
 OBX|1|NM|4537-7^ERYTHROCYTE SEDIMENTATION RATE:^LN||7|MM/HR|0-10|N||S|F|20260329|...<cr>
 ....
 
@@ -649,7 +649,7 @@ OBX|1|NM|4537-7^ERYTHROCYTE SEDIMENTATION RATE:^LN||7|MM/HR|0-10|N||S|F|20260329
 ....
 MSH|...<cr>
 PID|...<cr>
-OBR|4|2740X^OE|BC376^MIC|87040^Blood culture| ||198703290800|||99-2^SPINNER^SAM^S||^Hepatitis risk||198703290830|BLDV|4010^INTERN^IRVING^I^^^MD^L|555-1022 X3472^^^^^^^3472|Requestor field 1|Requestor field 2|Producer's field 1|Producer's field 2|198703301000|35.00|MB|F|...<cr>
+OBR|1|2740X^OE|BC376^MIC|87040^Blood culture| ||198703290800|||99-2^SPINNER^SAM^S||^Hepatitis risk||198703290830|BLDV|4010^INTERN^IRVING^I^^^MD^L|555-1022 X3472^^^^^^^3472|Requestor field 1|Requestor field 2|Producer's field 1|Producer's field 2|198703301000|35.00|MB|F|...<cr>
 OBX|1|CWE|600-7^MICROORGANISM IDENTIFIED^LN|1|^E Coli|||A|||F|...<cr>
 OBX|2|CWE|600-7^MICROORGANISM IDENTIFIED^LN|2|^S Aureus|||A|||F|...<cr>
 ....
@@ -658,7 +658,7 @@ OBX|2|CWE|600-7^MICROORGANISM IDENTIFIED^LN|2|^S Aureus|||A|||F|...<cr>
 
 [.er7]
 ....
-OBR|5|2740X^OE|BC402^MIC|87186^Antibiotic MIC|||202603290800||||G|^Hepatitis Risk||198703290830|BLDB|401.0\^INTERN^IRVING\^I^\^^MD\^L|555-1022 X3472^\^^\^^\^^3472|||||202603310900|40.00|MB|F|600-7&MICROORGANISM IDENTIFIED&LN\^1|||2740X&OE^BC376&MIC|...<cr>
+OBR|2|2740X^OE|BC402^MIC|87186^Antibiotic MIC|||202603290800||||G|^Hepatitis Risk||198703290830|BLDB|401.0\^INTERN^IRVING\^I^\^^MD\^L|555-1022 X3472^\^^\^^\^^3472|||||202603310900|40.00|MB|F|600-7&MICROORGANISM IDENTIFIED&LN\^1|||2740X&OE^BC376&MIC|...<cr>
 OBX|1|ST|28-1^AMIPICILLIN:SUSC:PT:ISLT:QN:MIC^LN||<2|ug/ml||S|||F|...<cr>
 OBX|2|ST|60-4^CARBENICILLIN:SUSC:PT:ISLT:QN:MIC^LN||<16|ug/ml||S|||F|...<cr>
 OBX|3|ST|267-5^GENTAMICIN:SUSC:PT:ISLT:QN:MIC^LN||<2|ug/ml||S|||F|...<cr>
@@ -682,7 +682,7 @@ OBX|17|ST|185-9^CIPROFLOXACIN:SUSC:PT:ISLT:QN:MIC^LN||<1|ug/ml||S|||F|...<cr>
 
 [.er7]
 ....
-OBR|6|2740X^OE|BC403^MIC|87186^Antibiotic MIC|||202603290800||||G|^Hepatitis risk||202603290830|BLDV|401.0^INTERN^IRVING^I^^^MD^L|321-4321 X3472^^^^^^^3472|||||202603310900|40.00|MB|F|600-7&MICROORGANISM IDENTIFIED &LN^2|||2740X&OE^BC376&MIC|...<cr>
+OBR|3|2740X^OE|BC403^MIC|87186^Antibiotic MIC|||202603290800||||G|^Hepatitis risk||202603290830|BLDV|401.0^INTERN^IRVING^I^^^MD^L|321-4321 X3472^^^^^^^3472|||||202603310900|40.00|MB|F|600-7&MICROORGANISM IDENTIFIED &LN^2|||2740X&OE^BC376&MIC|...<cr>
 OBX|1|ST|28-1^AMPICILLIN:SUSC:PT:ISLT:QN:MIC^LN||<8|ug/ml||R|||F|...<cr>
 OBX|2|ST|193-3^CLINDAMYCIN:SUSC:PT:ISLT:QN:MIC^LN||<.25|ug/ml||S|||F|...<cr>
 OBX|3|ST|267-5^GENTAMICIN:SUSC:PT:ISLT:QN:MIC^LN||<1|ug/ml||S|||F|...<cr>
@@ -700,7 +700,7 @@ OBX|12|ST|428-3^RIFAMPIN:SUSC:PT:ISLT:QN:MIC^LN||<1|ug/ml||S|||F|...<cr>
 === Narrative report messages
 [v291_section="7.5.4"]
 
-This example of the body of reports shows the following observation from what are usually free text reports. The text within these examples that begins with **-- and ends with --** are explanatory comments, not a formal part of the message. The following outline shows the segments that are included in this example message.
+This example of the body of reports shows the following observation from what are usually free text reports. The text within these examples that is bolded are explanatory comments, not a formal part of the message. The following outline shows the segments that are included in this example message.
 
 {empty}a) patient identifying record (PID)
 
@@ -726,140 +726,84 @@ This example of the body of reports shows the following observation from what ar
 
 {empty}l) end record
 
+[.er7]
+....
 MSH|...<cr>
-
 PID|...<cr>
+....
 
-Order record for CXR
+*Order record for CXR*
 
 [.er7]
 ....
-OBR|2|P8754^OE|XR1501^XR|24646-2^CXR PA+LAT^LN|||198703290800|||
+OBR|2|P8754^OE|XR1501^XR|24646-2^CXR PA+LAT^LN|||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|...<cr>
 ....
-
-401-0^INTERN^IRVING^I^^^MD^L|...<cr>
 
 Two CXR diagnostic impressions
 
 [.er7]
 ....
-OBX|1|CWE|24646-2&IMP^CXR PA+LAT^LN
-....
-[.er7]
-....
-|1|.61\^RUL^ACR~.212\^Bronchopneumonia^ACR|||A|||F|...<cr>
-....
-[.er7]
-....
+OBX|1|CWE|24646-2&IMP^CXR PA+LAT^LN|1|.61\^RUL^ACR~.212\^Bronchopneumonia^ACR|||A|||F|...<cr>
 OBX|2|CWE|24646-2&IMP^CXR PA+LAT^LN |2|51.71^Congestive heart failure^ACR|||A|||F|...<cr>
 ....
 
-CXR Description with continuation records
+*CXR Description with continuation records*
 
 [.er7]
 ....
 OBX|3|TX|24646-2&GDT^CXR PA+LAT^LN||Infiltrate probably representing bronchopneumonia in the right lower lobe. Also pulmonary venous congestion cardiomegaly and cephalization, indicating early congestive heart failure.|...<cr>
 ....
 
-Recommendations about CXR report to follow up one month with a repeat CXR
+*Recommendations about CXR report to follow up one month with a repeat CXR*
 
 [.er7]
 ....
 OBX|4|CWE|24646-2&REC^CXR PA+LAT^LN||71020^Followup CXR 1 month^AS4||||||F|...<cr>
 ....
 
-Order record for pathology report
+*Order record for pathology report*
 
 [.er7]
 ....
-OBR|3|P8755^OE|SP89-739^SP|11529-5^Surgical Path
-....
-
-Report^LN|||198703290800|||401-0^INTERN^IRVING^I^^^MD^L|...<cr>
-
-[.er7]
-....
+OBR|3|P8755^OE|SP89-739^SP|11529-5^Surgical Path Report^LN|||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|...<cr>
 OBX|1|CWE|11529-5&ANT^Surgical Path Report^LN|1|Y0480-912001^orbital region^SNM||||||F|...<cr>
 ....
 
-Gross description record (with overflow) for pathology
+*Gross description record (with overflow) for pathology*
 
 [.er7]
 ....
 OBX|2|TX|22634-0^Path report.gross observation^LN||The specimen is received in four containers. The first is labeled with the patient's name and consists of three fragments of reddish-brown tissue each of which measures 2 mm in greatest dimension. They are wrapped in tissue paper and submitted in toto in a single cassette|...<cr>
 ....
 
-Microscopic description record for pathology
+*Microscopic description record for pathology*
 
 [.er7]
 ....
 OBX|3|TX|22635-7^Path report.microscopic observation^LN|1|Sections of the first specimen received for frozen section diagnosis reveal thick walled, ramifying vessels lined by a single layer of flattened endothelial cells. The thick smooth muscle walls exhibit no malignant cytologic features nor do the endothelial lining cells. Within the same specimen are also found fragments of fibrous connective tissue, bone, and nerve which are histologically unremarkable||||||F|...<cr>
 ....
 
-Vital signs using LOINC® codes as observation identifiers
+*Vital signs using LOINC® codes as observation identifiers*
 
 [.er7]
 ....
-OBR|4|P8756^OE|N2345^NR|29274-8^VITAL SIGNS^LN| ||198703290800|||401-0^INTERN^IRVING^I^^^MD^L|...<cr>
-....
-[.er7]
-....
+OBR|4|P8756^OE|N2345^NR|29274-8^VITAL SIGNS^LN| ||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|...<cr>
 OBX|1|NM|8462-4^INTRAVASCULAR DIASTOLIC:PRES^LN||90|mm(hg)|60-90||||F|...<cr>
-....
-[.er7]
-....
-OBX|2|NM|8479-8^INTRAVASCULAR SYSTOLIC:PRES^LN||120|mm(hg)
-....
-[.er7]
-....
-|100-160||||F|...<cr>
-....
-[.er7]
-....
+OBX|2|NM|8479-8^INTRAVASCULAR SYSTOLIC:PRES^LN||120|mm(hg)|100-160||||F|...<cr>
 OBX|3|NM|8478-0^INTRAVASCULAR MEAN:PRES^LN||100|mm(hg)|80-120|N|||F|...<cr>
-....
-[.er7]
-....
 OBX|4|NM|8867-4^HEART BEAT RATE^LN||74|/min|60-100|N|||F|...<cr>
-....
-[.er7]
-....
 OBX|5|ST|8357-6^BLOOD PRESSURE METHOD^LN||MANUAL BY CUFF||||||F|...<cr>
-....
-[.er7]
-....
 OBX|6|ST|8886-4^HEART RATE METHOD^LN||MANUAL BY PALP||||||F|...<cr>
 ....
 
-Part of the patient's history
+*Part of the patient's history*
 
 [.er7]
 ....
-OBR|5|P8568^OE|HX2230^^CLN||2000^HISTORY| ||198703290800||401
-....
-
-0^INTERN^IRVING^I^^^MD^L||...<cr>
-
-[.er7]
-....
+OBR|5|P8568^OE|HX2230^^CLN||2000^HISTORY| ||202603290800||4010^INTERN^IRVING^I^^^MD^L||...<cr>
 OBX|1|CWE|8661-1^CHIEF COMPLAINT^LN||...<cr>
-....
-[.er7]
-....
 OBX|2|ST|8674-4^HISTORY SOURCE^LN||PATIENT||||||F|...<cr>
-....
-[.er7]
-....
-OBX|3|TX|8684-3^PRESENT ILLNESS^LN||SUDDEN ONSET OF CHEST PAIN. 2 DAYS,
-....
-
-PTA ASSOCIATED WITH NAUSEA, VOMITING \T\ SOB. NO RELIEF WITH ANTACIDS
-
-OR NTG. NO OTHER SX. NOT PREVIOUSLY ILL.||||||F|...<cr>
-
-.
-
-.
+OBX|3|TX|8684-3^PRESENT ILLNESS^LN||SUDDEN ONSET OF CHEST PAIN. 2 DAYS, PTA ASSOCIATED WITH NAUSEA, VOMITING \T\ SOB. NO RELIEF WITH ANTACIDS OR NTG. NO OTHER SX. NOT PREVIOUSLY ILL.||||||F|...<cr>
 
 and so on.
 
