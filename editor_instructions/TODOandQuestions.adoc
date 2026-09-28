@@ -22,6 +22,8 @@ This file contains a TODO list for tasks related to setting up the v2+ editing e
 
 * Look at the examples in "An order replaced by three orders" in the general orders and results topic for (1) The reference to ORC-7 showing the scheduled dates/times seems inconsistent with the example messages where ORC-7 is blank but something later in the segment seems to have a date/time (but not clear what field it is intended to be) and (2) ORC-7 has been deprecated, should this be updated to also show TQ1 segments instead?
 
+Figure out if we can address https://jira.hl7.org/browse/V2-26085 now
+
 == Questions
 
 * Should the links to tech_specs really not include the event(s) identifiers??
