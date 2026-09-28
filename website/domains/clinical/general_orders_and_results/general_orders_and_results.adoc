@@ -726,6 +726,8 @@ This example of the body of reports shows the following observation from what ar
 
 {empty}l) end record
 
+*Message start*
+
 [.er7]
 ....
 MSH|...<cr>
@@ -739,7 +741,7 @@ PID|...<cr>
 OBR|2|P8754^OE|XR1501^XR|24646-2^CXR PA+LAT^LN|||202603290800|||401-0^INTERN^IRVING^I^^^MD^L|...<cr>
 ....
 
-Two CXR diagnostic impressions
+*Two CXR diagnostic impressions*
 
 [.er7]
 ....
@@ -804,6 +806,7 @@ OBR|5|P8568^OE|HX2230^^CLN||2000^HISTORY| ||202603290800||4010^INTERN^IRVING^I^^
 OBX|1|CWE|8661-1^CHIEF COMPLAINT^LN||...<cr>
 OBX|2|ST|8674-4^HISTORY SOURCE^LN||PATIENT||||||F|...<cr>
 OBX|3|TX|8684-3^PRESENT ILLNESS^LN||SUDDEN ONSET OF CHEST PAIN. 2 DAYS, PTA ASSOCIATED WITH NAUSEA, VOMITING \T\ SOB. NO RELIEF WITH ANTACIDS OR NTG. NO OTHER SX. NOT PREVIOUSLY ILL.||||||F|...<cr>
+....
 
 and so on.
 
