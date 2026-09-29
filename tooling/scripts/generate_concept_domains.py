@@ -46,6 +46,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vocabulary_text_policy import apply_text_policy  # noqa: E402
+from tho_merge import is_editorial  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
@@ -283,9 +284,26 @@ def build(tho_resource, tho_index, chapter_domains):
             tho_concept = tho_index[symbolic_name]["concept"]
             tho_definition = tho_concept.get("definition", "")
             if normalize_prose(description) != normalize_prose(tho_definition):
-                record("definition_differs_from_tho", symbolic_name,
-                       "Chapter 2C and THO describe the same domain differently. "
-                       "THO's definition was kept.",
+                # Same words in the same order means only punctuation or
+                # markup moved, and no reader learns anything different from
+                # one than from the other. Reporting that as the two bodies
+                # describing the domain differently sends a committee to
+                # adjudicate a full stop: THO's `Confidentiality` differs from
+                # the chapter's by nothing but `*Usage Note:*` emphasis and a
+                # trailing period. `is_editorial` is the same test the THO
+                # merge applies, so the two agree on what counts as a real
+                # difference.
+                kind = ("definition_differs_from_tho_editorially"
+                        if is_editorial(description, tho_definition)
+                        else "definition_differs_from_tho")
+                detail = ("Chapter 2C and THO describe the same domain "
+                          "differently. THO's definition was kept.")
+                if kind.endswith("_editorially"):
+                    detail = ("Chapter 2C and THO use the same words in the "
+                              "same order; only punctuation or markup "
+                              "differs. THO's definition was kept. Not a "
+                              "disagreement about what the domain means.")
+                record(kind, symbolic_name, detail,
                        chapter_value=description, tho_value=tho_definition,
                        tables=tables)
             continue

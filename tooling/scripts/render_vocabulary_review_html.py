@@ -87,6 +87,12 @@ CONCEPT_DOMAIN_PRESENTATION = {
         "Chapter 2C and THO describe the same domain differently. THO's wording "
         "was kept; decide whether Chapter 2C's should win instead.",
     ),
+    "definition_differs_from_tho_editorially": (
+        "informational",
+        "Chapter 2C and THO use the same words in the same order and differ "
+        "only in punctuation or markup. THO's wording was kept. Listed so the "
+        "difference is visible, but there is nothing here to adjudicate.",
+    ),
     "conflicting_descriptions_within_chapter": (
         "decide",
         "Chapter 2C itself gives this domain more than one description. The "
@@ -952,6 +958,7 @@ def build_concept_domain_sections(concept_domains):
         # Only the definition comparison benefits from a diff: the other kinds
         # put a name against a name, where the difference is already obvious.
         marks_differences = kind in ("definition_differs_from_tho",
+                                     "definition_differs_from_tho_editorially",
                                      "symbolic_name_near_match_in_tho")
 
         rows = []

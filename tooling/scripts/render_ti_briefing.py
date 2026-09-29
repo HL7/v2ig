@@ -43,7 +43,8 @@ from render_v2mgmt_briefing import _text, _close_tables  # noqa: E402
 # The link helpers live in the V2 Management briefing module. They were written
 # here, for this document, and moved down when that briefing needed them too --
 # both rooms ask "which tables?" and one copy of the answer is enough.
-from render_v2mgmt_briefing import IG, table_chips, where_block  # noqa: E402,F401
+from render_v2mgmt_briefing import (  # noqa: E402,F401
+    IG, table_chips, where_block, question_link)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_HTML = PROJECT_ROOT / "v291-extracted" / "ti-briefing.html"
@@ -283,7 +284,7 @@ ASKS = [
         "id": "a-reorder",
         "tables": [],
         "tableNote": "Not table-specific — it decides how many of the 823 artifacts keep THO's version.",
-        "where": [('The versioning table: 339 + 393 artifacts currently unchanged', f'{IG}/tho-merge.html'), ('Question 1, with what this build does and what would change', f'{IG}/open-items.html#gq-does-reordering-a-code-system')],
+        "where": [('The versioning table: 339 + 393 artifacts currently unchanged', f'{IG}/tho-merge.html'), ('Question 1, with what this build does and what would change', question_link("gq-does-reordering-a-code-system"))],
         "n": 1,
         "tag": "TSMG",
         "title": "Does reordering a code system's concepts count as a change?",
@@ -307,7 +308,7 @@ Nothing else changes &mdash; the published content is identical either way.</p>"
         "id": "a-status",
         "tables": ['0440', '0003', '0357'],
         "tableNote": '0440 is the one carrying <code>B</code>. The <code>N</code>-reads-as-<code>active</code> mapping spans 25 tables and is now listed per table as &ldquo;written differently&rdquo; rather than as a disagreement.',
-        "where": [('Question 2, on where the letters should be defined', f'{IG}/open-items.html#gq-the-concept-status-b-and')],
+        "where": [('Question 2, on where the letters should be defined', question_link("gq-the-concept-status-b-and"))],
         "n": 2,
         "tag": "TSMG / THO",
         "title": "The concept status letters, and where they should be defined",
@@ -329,7 +330,7 @@ vocabulary that means the same thing.</p>""",
         "id": "a-oid-collision",
         "tables": ['0001', '0719', '0078'],
         "tableNote": 'The only two OID disagreements in the corpus (0001, 0719) plus 0078, which is different in kind. 395 of 396 code system OIDs and 411 of 412 value set OIDs agree.',
-        "where": [('Question 4, with the OID for each side side by side', f'{IG}/open-items.html#gq-three-oids-where-one-number')],
+        "where": [('Question 4, with the OID for each side side by side', question_link("gq-three-oids-where-one-number"))],
         "n": 3,
         "tag": "Identifiers",
         "title": "Three OIDs where one number would end up naming two artifacts",
@@ -347,7 +348,7 @@ picking a winner on content grounds.</p>""",
         "id": "a-table-oid",
         "tables": [],
         "tableNote": 'All 799 tables carry one; 50 of them are a bare arc root with no leaf.',
-        "where": [('The OID overview at the head of the ledger', f'{IG}/table-ledger.html'), ('Question 6, on where the table OID should land', f'{IG}/open-items.html#gq-chapter-2c-gives-every-table')],
+        "where": [('The OID overview at the head of the ledger', f'{IG}/table-ledger.html'), ('Question 6, on where the table OID should land', question_link("gq-chapter-2c-gives-every-table"))],
         "n": 4,
         "tag": "Identifiers",
         "title": "Chapter 2C gives every table an OID, and it is published nowhere",
@@ -370,7 +371,7 @@ ever resolve those.</p>""",
         "id": "a-descriptions",
         "tables": ['0227', '0719'],
         "tableNote": '0227 is settled; 0719 is the one still open.',
-        "where": [('Question 5, with both descriptions in full', f'{IG}/open-items.html#gq-two-descriptions-where-tho-says')],
+        "where": [('Question 5, with both descriptions in full', question_link("gq-two-descriptions-where-tho-says"))],
         "n": 5,
         "tag": "Merge policy",
         "title": "Two descriptions where THO says more than the chapter",

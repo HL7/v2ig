@@ -4,20 +4,20 @@
 
 We have extracted the whole of Chapter 2C — **799 tables, 5,540 codes** — and turned it into FHIR CodeSystems and ValueSets. The extraction and text-fidelity pass is **complete and reviewed**. Nothing is outstanding on our side.
 
-**Since we last met on 28 August, it is a published implementation guide.** **824 artifacts** — 399 CodeSystems, 424 ValueSets and the concept domains — build and validate, with **zero broken links across 625,068 checked**. You can open it and follow any claim on this page to the evidence behind it.
+**Since we last met on 28 August, it builds as an implementation guide.** **824 artifacts** — 399 CodeSystems, 424 ValueSets and the concept domains — generate and validate through the IG Publisher, with **zero broken links across 625,068 checked**. You can open it and follow any claim on this page to the evidence behind it. **It is not a published IG** — publication is a status conferred by the HL7 process, and nothing here has been through it.
 
 **It is additive with respect to THO.** We publish at THO's own canonical URLs, so a naive load would silently delete anything THO carries that Chapter 2C is silent about. It does not: **7,580 values that exist only in THO are preserved**, and **732 of 823 artifacts keep THO's existing version number** because nothing about them actually changed.
 
 The work is destined for **THO**, and it establishes a corrected baseline for v2 terminology there. It was walked through with the **Terminology Infrastructure WG on 21 September**; the canonical URLs and the merge route are agreed, and TSMG settled the one versioning question that was still open.
 
-**What we need from V2 Management is unchanged: two rulings, one steer, and a stack of acknowledgements.** The two rulings have been outstanding since August and are the only things genuinely blocking us. Nothing new has been added to your list since the last meeting — the work since then has been building the thing and cutting the list down.
+**What we need from V2 Management is one ruling, one confirmation, one steer, and a stack of acknowledgements.** The ruling — reproduce or correct — has been outstanding since August and is now the only thing genuinely blocking us. The second item has changed shape: we found the guide was not making the arbitrary choice an earlier draft of this page told you it was, so it needs confirming rather than deciding. Nothing new has been added since the last meeting.
 
 ## If you read one thing
 
 1. **[BLOCKS US]** When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?  
    _Ask:_ Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. **If the full question is too broad for the time available, the narrow one would unblock most of the list:** may we treat the editing-process defects as technical corrections, leaving only the genuinely substantive ones for a ballot? The guidance notes that where there is doubt a Work Group may ask the TSC to rule.
-2. **[BLOCKS US]** Five concept domains are declared by more than one table, with a different definition each time  
-   _Ask:_ Say which definition is correct for each of the five. We will take any of them — what we cannot do is keep choosing by document order.
+2. **[NEEDS A RULING]** Chapter 2C and THO define the same concept domains differently. THO wins — confirm that.  
+   _Ask:_ Confirm the rule rather than the instances: **where THO already carries a definition for a concept domain, THO's definition stands and Chapter 2C's competing wording is not carried into THO.** That settles all four above and the 582 domains behind them in one answer. If you want the chapter's wording preserved somewhere rather than dropped, say so now — that is a different question and it has the same deadline as the one below.
 
 ## Chapter 2C publishes a lot about each table that a CodeSystem and a ValueSet have nowhere to put. How much of it do you want kept?
 
@@ -49,7 +49,7 @@ Not table-specific — it applies to all 799, and decides what a FHIR consumer c
 - **Most of the differences from THO were never disagreements** (489 → 202) — The review listed **489 differences** from what THO publishes, each framed as something a committee might have to adjudicate. On inspection **287 of them were not questions at all**: 211 are THO recording the V2 status letter where we record the FHIR status it maps to, and 76 are the same words with different punctuation, spacing or capitalisation. **202 genuine disagreements remain**, and they are no longer crowded out. Nothing was suppressed — the 287 are still listed, under a heading that says they need no decision.
 - **Five concept displays now follow THO's capitalisation** (0203, 0396) — Where THO and the chapter agree on the words and differ only in case, and THO is the more capitalised side, we now publish THO's form — `GKV`, `KZVA`, `PKV`, `ZANR` and `DAR`. A deliberate exception to chapter-wins, taken because the words are identical so the chapter loses nothing. **No version moved.** The reverse case is not treated symmetrically: where THO is the _less_ capitalised side we surface it rather than absorb it, because a correct lower-casing and a lost proper noun look identical to a machine.
 
-## The two that block us
+## The two at the top of your list
 
 ### 1. When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?
 
@@ -73,27 +73,32 @@ The three instances the argument rests on. The ruling asked for is on the princi
 - [Table 0560, as its own question with what we publish today](../vocab-ig/output/open-items.html#gq-table-0560-a-code-system)
 - [The register: 37 open items, each with its affected tables](../vocab-ig/output/open-items.html)
 
-### 2. Five concept domains are declared by more than one table, with a different definition each time
+### 2. Chapter 2C and THO define the same concept domains differently. THO wins — confirm that.
 
-A concept domain has one definition by definition. Two tables describing the same domain differently is a source defect we cannot adjudicate, and it is the only class here where we are currently emitting a guess.
+**This is no longer blocking.** An earlier draft of this page said we were choosing between competing definitions by document order, and that was wrong. It stays at the top because it decides what does and does not get carried into THO, which is expensive to revisit.
 
-We emit the **first description in document order**, purely to keep the output deterministic. That is a coin toss, not a judgement — and in at least two cases below the second description is clearly the better one.
+**THO already defines most of these domains, and where it does, we keep THO's definition.** Chapter 2C names **760 concept domains**; **THO already has a definition for 582 of them**. Our rule is that THO's definition stands and the chapter's competing wording is recorded rather than published.
 
-| Concept domain | Tables | The competing definitions |
+**So the five domains declared by more than one table are not actually a choice we are making.** All five — `DeviceStatus`, `DeviceType`, `Modality`, `QuantityUnits`, `VolumeUnits` — already have a THO definition, and that is what we publish. **Every domain whose tables describe it differently has a THO definition to fall back on**, so document order never decides an outcome. The earlier claim that it did is withdrawn.
+
+To be exact, because the weaker version of this is not true: **26 domains are declared by more than one table and 20 of those have no THO definition** — but in all 20 the tables agree with each other, so there is nothing to choose between. The five where the tables genuinely conflict all have a THO definition.
+
+**What is real is the disagreement itself.** After the shared text policy is applied, **four domains have a chapter definition that substantively disagrees with THO's**:
+
+| Concept domain | THO says | Chapter 2C says |
 | --- | --- | --- |
-| `DeviceStatus` | 0682, 0962 | “the state of a device” _vs_ “the availability status of a device” |
-| `DeviceType` | 0657, 0961 | “the kind of device as defined by the manufacturer” _vs_ “what kind a particular device is … devices used in the medical field” |
-| `Modality` | 0259, 0604 | “the imaging apparatus expected to be used … **removed from the standard as of 2.7 in favour of table 0910**” _vs_ “the type of Modality” |
-| `QuantityUnits` | 0560, 0602 | “the adjustment quantity” _vs_ “the type of Quantity Units” |
-| `VolumeUnits` | 0568, 0777, 0930 | “units of measure used to specify volume” _vs_ “the type of Volume Units” |
+| `Country` | Countries of the world. ISO 3166, part 1, alpha-3 set. | “the type of Country” |
+| `EmploymentStatus` | A code used to define the employment status of the insured individual identified in UB-92 FL 58. | “the guarantor's employment status” |
+| `ObservationMethod` | A code that provides additional detail about the means or technique used to ascertain the observation. | “the type of Observation Method” |
+| `ContainerForm` | Describes the nature (or type) of the container, with examples. | “shape or type of the container”, with a different example list. |
 
-**Two of these are entangled with other items.** `Modality`'s first definition says the table was _removed from the standard as of 2.7_ — so we are currently publishing a withdrawn table's wording as the live definition. And `VolumeUnits` is declared by three tables, two of which (0568, 0930) are the deprecated/current pair below.
+**In three of the four, THO's definition is plainly the better one** — the chapter's is a restatement of the domain's own name (“the type of Country”). That is a pattern worth noticing rather than four separate incidents. **A further seven domains differ from THO only in punctuation or markup** — including `Confidentiality`, which an earlier draft of this page listed above as a substantive disagreement and which is not one. They are recorded but there is nothing in them to decide.
 
-**Ask:** Say which definition is correct for each of the five. We will take any of them — what we cannot do is keep choosing by document order.
+**Ask:** Confirm the rule rather than the instances: **where THO already carries a definition for a concept domain, THO's definition stands and Chapter 2C's competing wording is not carried into THO.** That settles all four above and the 582 domains behind them in one answer. If you want the chapter's wording preserved somewhere rather than dropped, say so now — that is a different question and it has the same deadline as the one below.
 
 **Affected tables:** 0259, 0560, 0568, 0602, 0604, 0657, 0682, 0777, 0930, 0961, 0962
 
-The eleven tables that declare the five contested domains between them.
+The eleven tables that declare the five multiply-declared domains between them.
 
 - [The register, where the competing definitions are set out in full](../vocab-ig/output/open-items.html)
 
@@ -183,4 +188,4 @@ Mentioned only so it is on the record that the chapter's published text needed r
 
 **The full detail** is in a register of 37 open items written for V2 Management and TSMG, which lists every affected table. This page is the executive cut; the register has the evidence for each item, and the register itself is now a page in the guide rather than a separate document, so every item can be followed to the artifact it is about. The field-by-field mapping behind the design question is still a separate document and can be circulated on request.
 
-_Generated 2026-09-22 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._
+_Generated 2026-09-29 by `tooling/scripts/render_v2mgmt_briefing.py`. Edit the module, not this file._

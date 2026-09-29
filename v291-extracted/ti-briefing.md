@@ -118,7 +118,7 @@ Chapter 2C and THO frequently agree on the whole set of concepts but present the
 Not table-specific — it decides how many of the 823 artifacts keep THO's version.
 
 - [The versioning table: 339 + 393 artifacts currently unchanged](../vocab-ig/output/tho-merge.html)
-- [Question 1, with what this build does and what would change](../vocab-ig/output/open-items.html#gq-does-reordering-a-code-system)
+- [Question 1, with what this build does and what would change](../vocab-ig/output/evidence.html#gq-does-reordering-a-code-system)
 
 ### 2. The concept status letters, and where they should be defined [TSMG / THO]
 

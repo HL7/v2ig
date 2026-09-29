@@ -33,6 +33,19 @@ DEFAULT_MD = PROJECT_ROOT / "v291-extracted" / "v2mgmt-briefing.md"
 # briefing is read by opening the file off disk, which an absolute path breaks.
 IG = "../vocab-ig/output"
 
+
+def question_link(question_id):
+    """A briefing link to one of the guide's general questions.
+
+    Always built through `question_anchor`, never written out as a literal.
+    A question moves page the moment a committee answers it, and a hard-coded
+    `open-items.html#...` is a dead link from that moment on -- which is
+    exactly what happened to the Terminology Infrastructure briefing when the
+    reordering question was answered.
+    """
+    from render_review_pages import question_anchor
+    return f"{IG}/{question_anchor(question_id)}"
+
 TITLE = "V2.9.1 Chapter 2C terminology"
 SUBTITLE = "Executive briefing for V2 Management"
 MEETING_DATE = "2026-09-23"
@@ -43,11 +56,13 @@ codes</b> &mdash; and turned it into FHIR CodeSystems and ValueSets. The
 extraction and text-fidelity pass is <b>complete and reviewed</b>. Nothing is
 outstanding on our side.</p>
 
-<p><b>Since we last met on 28 August, it is a published implementation
+<p><b>Since we last met on 28 August, it builds as an implementation
 guide.</b> <b>824 artifacts</b> &mdash; 399 CodeSystems, 424 ValueSets and the
-concept domains &mdash; build and validate, with <b>zero broken links across
-625,068 checked</b>. You can open it and follow any claim on this page to the
-evidence behind it.</p>
+concept domains &mdash; generate and validate through the IG Publisher, with
+<b>zero broken links across 625,068 checked</b>. You can open it and follow any
+claim on this page to the evidence behind it. <b>It is not a published IG</b>
+&mdash; publication is a status conferred by the HL7 process, and nothing here
+has been through it.</p>
 
 <p><b>It is additive with respect to THO.</b> We publish at THO's own canonical
 URLs, so a naive load would silently delete anything THO carries that
@@ -60,19 +75,21 @@ for v2 terminology there. It was walked through with the <b>Terminology
 Infrastructure WG on 21 September</b>; the canonical URLs and the merge route
 are agreed, and TSMG settled the one versioning question that was still open.</p>
 
-<p><b>What we need from V2 Management is unchanged: two rulings, one steer, and
-a stack of acknowledgements.</b> The two rulings have been outstanding since
-August and are the only things genuinely blocking us. Nothing new has been
-added to your list since the last meeting &mdash; the work since then has been
-building the thing and cutting the list down.</p>
+<p><b>What we need from V2 Management is one ruling, one confirmation, one
+steer, and a stack of acknowledgements.</b> The ruling &mdash; reproduce or
+correct &mdash; has been outstanding since August and is now the only thing
+genuinely blocking us. The second item has changed shape: we found the guide
+was not making the arbitrary choice an earlier draft of this page told you it
+was, so it needs confirming rather than deciding. Nothing new has been added
+since the last meeting.</p>
 """
 
 METRICS = [
     ("799", "tables extracted", "good"),
-    ("824", "artifacts published", "good"),
+    ("824", "artifacts generated", "good"),
     ("7,580", "THO-only values preserved", "good"),
     ("0", "broken links", "good"),
-    ("2", "blocking questions", "escalate"),
+    ("1", "blocking question", "escalate"),
     ("8", "classes of chapter defect", "flag"),
 ]
 
@@ -100,7 +117,7 @@ BLOCKERS = [
                      "class further down this page.",
         "where": [
             ("Table 0560, as its own question with what we publish today",
-             f"{IG}/open-items.html#gq-table-0560-a-code-system"),
+             question_link("gq-table-0560-a-code-system")),
             ("The register: 37 open items, each with its affected tables",
              f"{IG}/open-items.html"),
         ],
@@ -158,58 +175,87 @@ balloted.</p>
     {
         "id": "domain-conflicts",
         "n": 2,
+        "badge": ("NEEDS A RULING", "b-flag"),
         "tables": ["0259", "0560", "0568", "0602", "0604",
                    "0657", "0682", "0777", "0930", "0961", "0962"],
-        "tableNote": "The eleven tables that declare the five contested "
+        "tableNote": "The eleven tables that declare the five multiply-declared "
                      "domains between them.",
         "where": [
             ("The register, where the competing definitions are set out in "
              "full", f"{IG}/open-items.html"),
         ],
-        "title": "Five concept domains are declared by more than one table, "
-                 "with a different definition each time",
-        "why": "A concept domain has one definition by definition. Two tables "
-               "describing the same domain differently is a source defect we "
-               "cannot adjudicate, and it is the only class here where we are "
-               "currently emitting a guess.",
+        "title": "Chapter 2C and THO define the same concept domains "
+                 "differently. THO wins — confirm that.",
+        "why": "<b>This is no longer blocking.</b> An earlier draft of this "
+               "page said we were choosing between competing definitions by "
+               "document order, and that was wrong. It stays at the top "
+               "because it decides what does and does not get carried into "
+               "THO, which is expensive to revisit.",
         "body": """
-<p>We emit the <b>first description in document order</b>, purely to keep the
-output deterministic. That is a coin toss, not a judgement &mdash; and in at
-least two cases below the second description is clearly the better one.</p>
+<p><b>THO already defines most of these domains, and where it does, we keep
+THO's definition.</b> Chapter 2C names <b>760 concept domains</b>;
+<b>THO already has a definition for 582 of them</b>. Our rule is that THO's
+definition stands and the chapter's competing wording is recorded rather than
+published.</p>
+
+<div class="settled">
+<p class="tight"><b>So the five domains declared by more than one table are not
+actually a choice we are making.</b> All five &mdash;
+<code>DeviceStatus</code>, <code>DeviceType</code>, <code>Modality</code>,
+<code>QuantityUnits</code>, <code>VolumeUnits</code> &mdash; already have a THO
+definition, and that is what we publish. <b>Every domain whose tables describe
+it differently has a THO definition to fall back on</b>, so document order
+never decides an outcome. The earlier claim that it did is withdrawn.</p>
+
+<p class="tight">To be exact, because the weaker version of this is not true:
+<b>26 domains are declared by more than one table and 20 of those have no THO
+definition</b> &mdash; but in all 20 the tables agree with each other, so there
+is nothing to choose between. The five where the tables genuinely conflict all
+have a THO definition.</p>
+</div>
+
+<p><b>What is real is the disagreement itself.</b> After the shared text policy
+is applied, <b>four domains have a chapter definition that substantively
+disagrees with THO's</b>:</p>
 
 <table>
-<tr><th>Concept domain</th><th>Tables</th><th>The competing definitions</th></tr>
-<tr><td><code>DeviceStatus</code></td><td class='nowrap'>0682, 0962</td>
-<td>&ldquo;the state of a device&rdquo; <i>vs</i> &ldquo;the availability
-status of a device&rdquo;</td></tr>
-<tr><td><code>DeviceType</code></td><td class='nowrap'>0657, 0961</td>
-<td>&ldquo;the kind of device as defined by the manufacturer&rdquo; <i>vs</i>
-&ldquo;what kind a particular device is &hellip; devices used in the medical
-field&rdquo;</td></tr>
-<tr><td><code>Modality</code></td><td class='nowrap'>0259, 0604</td>
-<td>&ldquo;the imaging apparatus expected to be used &hellip; <b>removed from
-the standard as of 2.7 in favour of table 0910</b>&rdquo; <i>vs</i> &ldquo;the
-type of Modality&rdquo;</td></tr>
-<tr><td><code>QuantityUnits</code></td><td class='nowrap'>0560, 0602</td>
-<td>&ldquo;the adjustment quantity&rdquo; <i>vs</i> &ldquo;the type of Quantity
-Units&rdquo;</td></tr>
-<tr><td><code>VolumeUnits</code></td><td class='nowrap'>0568, 0777, 0930</td>
-<td>&ldquo;units of measure used to specify volume&rdquo; <i>vs</i> &ldquo;the
-type of Volume Units&rdquo;</td></tr>
+<tr><th>Concept domain</th><th>THO says</th><th>Chapter 2C says</th></tr>
+<tr><td><code>Country</code></td>
+<td>Countries of the world. ISO 3166, part 1, alpha-3 set.</td>
+<td>&ldquo;the type of Country&rdquo;</td></tr>
+<tr><td><code>EmploymentStatus</code></td>
+<td>A code used to define the employment status of the insured individual
+identified in UB-92 FL 58.</td>
+<td>&ldquo;the guarantor's employment status&rdquo;</td></tr>
+<tr><td><code>ObservationMethod</code></td>
+<td>A code that provides additional detail about the means or technique used to
+ascertain the observation.</td>
+<td>&ldquo;the type of Observation Method&rdquo;</td></tr>
+<tr><td><code>ContainerForm</code></td>
+<td>Describes the nature (or type) of the container, with examples.</td>
+<td>&ldquo;shape or type of the container&rdquo;, with a different example
+list.</td></tr>
 </table>
 
 <div class="counter">
-<p class="tight"><b>Two of these are entangled with other items.</b>
-<code>Modality</code>'s first definition says the table was <i>removed from the
-standard as of 2.7</i> &mdash; so we are currently publishing a withdrawn
-table's wording as the live definition. And <code>VolumeUnits</code> is
-declared by three tables, two of which (0568, 0930) are the deprecated/current
-pair below.</p>
+<p class="tight"><b>In three of the four, THO's definition is plainly the
+better one</b> &mdash; the chapter's is a restatement of the domain's own name
+(&ldquo;the type of Country&rdquo;). That is a pattern worth noticing rather
+than four separate incidents. <b>A further seven domains differ from THO only
+in punctuation or markup</b> &mdash; including <code>Confidentiality</code>,
+which an earlier draft of this page listed above as a substantive disagreement
+and which is not one. They are recorded but there is nothing in them to
+decide.</p>
 </div>
 """,
-        "ask": "Say which definition is correct for each of the five. We will "
-               "take any of them &mdash; what we cannot do is keep choosing by "
-               "document order.",
+        "ask": "Confirm the rule rather than the instances: <b>where THO "
+               "already carries a definition for a concept domain, THO's "
+               "definition stands and Chapter 2C's competing wording is not "
+               "carried into THO.</b> That settles all four above and the 582 "
+               "domains behind them in one answer. If you want the chapter's "
+               "wording preserved somewhere rather than dropped, say so now "
+               "&mdash; that is a different question and it has the same "
+               "deadline as the one below.",
     },
 ]
 
@@ -273,7 +319,7 @@ NEW_QUESTION = {
                  "what a FHIR consumer can recover about any of them.",
     "where": [
         ("The same question for one field, the per-table OID, with what we do "
-         "today", f"{IG}/open-items.html#gq-chapter-2c-gives-every-table"),
+         "today", question_link("gq-chapter-2c-gives-every-table")),
         ("What the guide does carry, table by table",
          f"{IG}/table-index.html"),
     ],
@@ -714,7 +760,7 @@ def render_html(generated):
     add("<nav id='sidebar'>")
     add(f"<div class='brand'>{TITLE}</div>")
     add(f"<div class='brand-sub'>{SUBTITLE}</div>")
-    add("<a class='top' href='#blockers'>&uarr; The two that block us</a>")
+    add("<a class='top' href='#blockers'>&uarr; The two at the top</a>")
     add("<h2>Blocking</h2>")
     for b in BLOCKERS:
         add(f"<a href='#{b['id']}'><span class='n'>{b['n']}</span>"
@@ -751,11 +797,13 @@ def render_html(generated):
     # ---- the three asks ----
     add("<section id='blockers' class='asks-card'>")
     add("<h2 class='plain'>If you read one thing</h2>")
-    add("<p class='asks-intro'>Two questions block us. Everything else on "
+    add("<p class='asks-intro'>One question blocks us and one needs "
+        "confirming. Everything else on "
         "this page needs acknowledgement rather than a decision.</p>")
     add("<ol class='asks-list'>")
     for b in BLOCKERS:
-        add(f"<li><span class='badge b-decide'>BLOCKS US</span> "
+        label, cls = b.get("badge") or ("BLOCKS US", "b-decide")
+        add(f"<li><span class='badge {cls}'>{label}</span> "
             f"<a href='#{b['id']}'>{b['title']}</a>"
             f"<div class='ask-line'>{b['ask']}</div></li>")
     add("</ol>")
@@ -789,10 +837,11 @@ def render_html(generated):
     add("</table>")
 
     # ---- blockers in full ----
-    add("<h2>The two that block us</h2>")
+    add("<h2>The two at the top of your list</h2>")
     for b in BLOCKERS:
         add(f"<section class='item k-decision' id='{b['id']}'>")
-        add(f"<h3><span class='badge b-decide'>BLOCKS US</span> "
+        label, cls = b.get("badge") or ("BLOCKS US", "b-decide")
+        add(f"<h3><span class='badge {cls}'>{label}</span> "
             f"<span class='n'>{b['n']}.</span> {b['title']}</h3>")
         add(f"<p class='lede'>{b['why']}</p>")
         add(b["body"])
@@ -912,7 +961,8 @@ def render_markdown(generated):
     out = [f"# {TITLE} — {SUBTITLE}", "", f"**{MEETING_DATE}**", "",
            _text(SUMMARY).strip(), "", "## If you read one thing", ""]
     for b in BLOCKERS:
-        out.append(f"{b['n']}. **[BLOCKS US]** {_text(b['title'])}  ")
+        tag = (b.get("badge") or ("BLOCKS US", ""))[0]
+        out.append(f"{b['n']}. **[{tag}]** {_text(b['title'])}  ")
         out.append(f"   _Ask:_ {_text(b['ask'])}")
     out += ["", f"## {_text(NEW_QUESTION['title'])}", "",
             _text(NEW_QUESTION["why"]), "", _text(NEW_QUESTION["body"]).strip(),
@@ -921,7 +971,7 @@ def render_markdown(generated):
     out += ["## Already settled — here so they are not raised twice", ""]
     for name, tables, outcome in RESOLVED:
         out.append(f"- **{_text(name)}** ({_text(tables)}) — {_text(outcome)}")
-    out += ["", "## The two that block us", ""]
+    out += ["", "## The two at the top of your list", ""]
     for b in BLOCKERS:
         out += [f"### {b['n']}. {_text(b['title'])}", "",
                 _text(b["why"]).strip(), "", _text(b["body"]).strip(), "",

@@ -127,10 +127,10 @@ span.tbl.tbl-plain { border-style: dashed; border-color: #8c959f;
 <nav id='sidebar'>
 <div class='brand'>V2.9.1 Chapter 2C terminology</div>
 <div class='brand-sub'>Executive briefing for V2 Management</div>
-<a class='top' href='#blockers'>&uarr; The two that block us</a>
+<a class='top' href='#blockers'>&uarr; The two at the top</a>
 <h2>Blocking</h2>
 <a href='#policy'><span class='n'>1</span>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a>
-<a href='#domain-conflicts'><span class='n'>2</span>Five concept domains are declared by more than one table, with a different definition each time</a>
+<a href='#domain-conflicts'><span class='n'>2</span>Chapter 2C and THO define the same concept domains differently. THO wins — confirm that.</a>
 <h2>Design question</h2>
 <a href='#not-carried'><span class='n'>?</span>What to keep that FHIR has no room for</a>
 <h2>Settled</h2>
@@ -156,11 +156,13 @@ codes</b> &mdash; and turned it into FHIR CodeSystems and ValueSets. The
 extraction and text-fidelity pass is <b>complete and reviewed</b>. Nothing is
 outstanding on our side.</p>
 
-<p><b>Since we last met on 28 August, it is a published implementation
+<p><b>Since we last met on 28 August, it builds as an implementation
 guide.</b> <b>824 artifacts</b> &mdash; 399 CodeSystems, 424 ValueSets and the
-concept domains &mdash; build and validate, with <b>zero broken links across
-625,068 checked</b>. You can open it and follow any claim on this page to the
-evidence behind it.</p>
+concept domains &mdash; generate and validate through the IG Publisher, with
+<b>zero broken links across 625,068 checked</b>. You can open it and follow any
+claim on this page to the evidence behind it. <b>It is not a published IG</b>
+&mdash; publication is a status conferred by the HL7 process, and nothing here
+has been through it.</p>
 
 <p><b>It is additive with respect to THO.</b> We publish at THO's own canonical
 URLs, so a naive load would silently delete anything THO carries that
@@ -173,26 +175,28 @@ for v2 terminology there. It was walked through with the <b>Terminology
 Infrastructure WG on 21 September</b>; the canonical URLs and the merge route
 are agreed, and TSMG settled the one versioning question that was still open.</p>
 
-<p><b>What we need from V2 Management is unchanged: two rulings, one steer, and
-a stack of acknowledgements.</b> The two rulings have been outstanding since
-August and are the only things genuinely blocking us. Nothing new has been
-added to your list since the last meeting &mdash; the work since then has been
-building the thing and cutting the list down.</p>
+<p><b>What we need from V2 Management is one ruling, one confirmation, one
+steer, and a stack of acknowledgements.</b> The ruling &mdash; reproduce or
+correct &mdash; has been outstanding since August and is now the only thing
+genuinely blocking us. The second item has changed shape: we found the guide
+was not making the arbitrary choice an earlier draft of this page told you it
+was, so it needs confirming rather than deciding. Nothing new has been added
+since the last meeting.</p>
 
 <div class='metric-grid'>
 <div class='metric-card mc-good'><div class='number'>799</div><div class='label'>tables extracted</div></div>
-<div class='metric-card mc-good'><div class='number'>824</div><div class='label'>artifacts published</div></div>
+<div class='metric-card mc-good'><div class='number'>824</div><div class='label'>artifacts generated</div></div>
 <div class='metric-card mc-good'><div class='number'>7,580</div><div class='label'>THO-only values preserved</div></div>
 <div class='metric-card mc-good'><div class='number'>0</div><div class='label'>broken links</div></div>
-<div class='metric-card mc-escalate'><div class='number'>2</div><div class='label'>blocking questions</div></div>
+<div class='metric-card mc-escalate'><div class='number'>1</div><div class='label'>blocking question</div></div>
 <div class='metric-card mc-flag'><div class='number'>8</div><div class='label'>classes of chapter defect</div></div>
 </div>
 <section id='blockers' class='asks-card'>
 <h2 class='plain'>If you read one thing</h2>
-<p class='asks-intro'>Two questions block us. Everything else on this page needs acknowledgement rather than a decision.</p>
+<p class='asks-intro'>One question blocks us and one needs confirming. Everything else on this page needs acknowledgement rather than a decision.</p>
 <ol class='asks-list'>
 <li><span class='badge b-decide'>BLOCKS US</span> <a href='#policy'>When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</a><div class='ask-line'>Rule on the principle, not the instances: reproduce and record, reproduce but deprecate, or correct and annotate. <b>If the full question is too broad for the time available, the narrow one would unblock most of the list:</b> may we treat the editing-process defects as technical corrections, leaving only the genuinely substantive ones for a ballot? The guidance notes that where there is doubt a Work Group may ask the TSC to rule.</div></li>
-<li><span class='badge b-decide'>BLOCKS US</span> <a href='#domain-conflicts'>Five concept domains are declared by more than one table, with a different definition each time</a><div class='ask-line'>Say which definition is correct for each of the five. We will take any of them &mdash; what we cannot do is keep choosing by document order.</div></li>
+<li><span class='badge b-flag'>NEEDS A RULING</span> <a href='#domain-conflicts'>Chapter 2C and THO define the same concept domains differently. THO wins — confirm that.</a><div class='ask-line'>Confirm the rule rather than the instances: <b>where THO already carries a definition for a concept domain, THO's definition stands and Chapter 2C's competing wording is not carried into THO.</b> That settles all four above and the 582 domains behind them in one answer. If you want the chapter's wording preserved somewhere rather than dropped, say so now &mdash; that is a different question and it has the same deadline as the one below.</div></li>
 </ol>
 <p class='asks-foot'>Then <b>one design question</b>, open since August, that is not a defect but has a deadline, and <b>defects in the published chapter</b> grouped into 8 classes. Most of those need only a nod that they are real and will be fixed in a future publication.</p>
 </section>
@@ -249,7 +253,7 @@ deliberate rather than exhaustive.</p>
 <tr><td><b>Most of the differences from THO were never disagreements</b></td><td class='nowrap'>489 &rarr; 202</td><td>The review listed <b>489 differences</b> from what THO publishes, each framed as something a committee might have to adjudicate. On inspection <b>287 of them were not questions at all</b>: 211 are THO recording the V2 status letter where we record the FHIR status it maps to, and 76 are the same words with different punctuation, spacing or capitalisation. <b>202 genuine disagreements remain</b>, and they are no longer crowded out. Nothing was suppressed &mdash; the 287 are still listed, under a heading that says they need no decision.</td></tr>
 <tr><td><b>Five concept displays now follow THO's capitalisation</b></td><td class='nowrap'>0203, 0396</td><td>Where THO and the chapter agree on the words and differ only in case, and THO is the more capitalised side, we now publish THO's form &mdash; <code>GKV</code>, <code>KZVA</code>, <code>PKV</code>, <code>ZANR</code> and <code>DAR</code>. A deliberate exception to chapter-wins, taken because the words are identical so the chapter loses nothing. <b>No version moved.</b> The reverse case is not treated symmetrically: where THO is the <i>less</i> capitalised side we surface it rather than absorb it, because a correct lower-casing and a lost proper noun look identical to a machine.</td></tr>
 </table>
-<h2>The two that block us</h2>
+<h2>The two at the top of your list</h2>
 <section class='item k-decision' id='policy'>
 <h3><span class='badge b-decide'>BLOCKS US</span> <span class='n'>1.</span> When the chapter publishes something demonstrably wrong, do we reproduce it or correct it?</h3>
 <p class='lede'>This is the ruling we most need. It sets the default for every other item on this page, and we cannot generate the affected tables until it is answered.</p>
@@ -302,48 +306,70 @@ balloted.</p>
 </div>
 </section>
 <section class='item k-decision' id='domain-conflicts'>
-<h3><span class='badge b-decide'>BLOCKS US</span> <span class='n'>2.</span> Five concept domains are declared by more than one table, with a different definition each time</h3>
-<p class='lede'>A concept domain has one definition by definition. Two tables describing the same domain differently is a source defect we cannot adjudicate, and it is the only class here where we are currently emitting a guess.</p>
+<h3><span class='badge b-flag'>NEEDS A RULING</span> <span class='n'>2.</span> Chapter 2C and THO define the same concept domains differently. THO wins — confirm that.</h3>
+<p class='lede'><b>This is no longer blocking.</b> An earlier draft of this page said we were choosing between competing definitions by document order, and that was wrong. It stays at the top because it decides what does and does not get carried into THO, which is expensive to revisit.</p>
 
-<p>We emit the <b>first description in document order</b>, purely to keep the
-output deterministic. That is a coin toss, not a judgement &mdash; and in at
-least two cases below the second description is clearly the better one.</p>
+<p><b>THO already defines most of these domains, and where it does, we keep
+THO's definition.</b> Chapter 2C names <b>760 concept domains</b>;
+<b>THO already has a definition for 582 of them</b>. Our rule is that THO's
+definition stands and the chapter's competing wording is recorded rather than
+published.</p>
+
+<div class="settled">
+<p class="tight"><b>So the five domains declared by more than one table are not
+actually a choice we are making.</b> All five &mdash;
+<code>DeviceStatus</code>, <code>DeviceType</code>, <code>Modality</code>,
+<code>QuantityUnits</code>, <code>VolumeUnits</code> &mdash; already have a THO
+definition, and that is what we publish. <b>Every domain whose tables describe
+it differently has a THO definition to fall back on</b>, so document order
+never decides an outcome. The earlier claim that it did is withdrawn.</p>
+
+<p class="tight">To be exact, because the weaker version of this is not true:
+<b>26 domains are declared by more than one table and 20 of those have no THO
+definition</b> &mdash; but in all 20 the tables agree with each other, so there
+is nothing to choose between. The five where the tables genuinely conflict all
+have a THO definition.</p>
+</div>
+
+<p><b>What is real is the disagreement itself.</b> After the shared text policy
+is applied, <b>four domains have a chapter definition that substantively
+disagrees with THO's</b>:</p>
 
 <table>
-<tr><th>Concept domain</th><th>Tables</th><th>The competing definitions</th></tr>
-<tr><td><code>DeviceStatus</code></td><td class='nowrap'>0682, 0962</td>
-<td>&ldquo;the state of a device&rdquo; <i>vs</i> &ldquo;the availability
-status of a device&rdquo;</td></tr>
-<tr><td><code>DeviceType</code></td><td class='nowrap'>0657, 0961</td>
-<td>&ldquo;the kind of device as defined by the manufacturer&rdquo; <i>vs</i>
-&ldquo;what kind a particular device is &hellip; devices used in the medical
-field&rdquo;</td></tr>
-<tr><td><code>Modality</code></td><td class='nowrap'>0259, 0604</td>
-<td>&ldquo;the imaging apparatus expected to be used &hellip; <b>removed from
-the standard as of 2.7 in favour of table 0910</b>&rdquo; <i>vs</i> &ldquo;the
-type of Modality&rdquo;</td></tr>
-<tr><td><code>QuantityUnits</code></td><td class='nowrap'>0560, 0602</td>
-<td>&ldquo;the adjustment quantity&rdquo; <i>vs</i> &ldquo;the type of Quantity
-Units&rdquo;</td></tr>
-<tr><td><code>VolumeUnits</code></td><td class='nowrap'>0568, 0777, 0930</td>
-<td>&ldquo;units of measure used to specify volume&rdquo; <i>vs</i> &ldquo;the
-type of Volume Units&rdquo;</td></tr>
+<tr><th>Concept domain</th><th>THO says</th><th>Chapter 2C says</th></tr>
+<tr><td><code>Country</code></td>
+<td>Countries of the world. ISO 3166, part 1, alpha-3 set.</td>
+<td>&ldquo;the type of Country&rdquo;</td></tr>
+<tr><td><code>EmploymentStatus</code></td>
+<td>A code used to define the employment status of the insured individual
+identified in UB-92 FL 58.</td>
+<td>&ldquo;the guarantor's employment status&rdquo;</td></tr>
+<tr><td><code>ObservationMethod</code></td>
+<td>A code that provides additional detail about the means or technique used to
+ascertain the observation.</td>
+<td>&ldquo;the type of Observation Method&rdquo;</td></tr>
+<tr><td><code>ContainerForm</code></td>
+<td>Describes the nature (or type) of the container, with examples.</td>
+<td>&ldquo;shape or type of the container&rdquo;, with a different example
+list.</td></tr>
 </table>
 
 <div class="counter">
-<p class="tight"><b>Two of these are entangled with other items.</b>
-<code>Modality</code>'s first definition says the table was <i>removed from the
-standard as of 2.7</i> &mdash; so we are currently publishing a withdrawn
-table's wording as the live definition. And <code>VolumeUnits</code> is
-declared by three tables, two of which (0568, 0930) are the deprecated/current
-pair below.</p>
+<p class="tight"><b>In three of the four, THO's definition is plainly the
+better one</b> &mdash; the chapter's is a restatement of the domain's own name
+(&ldquo;the type of Country&rdquo;). That is a pattern worth noticing rather
+than four separate incidents. <b>A further seven domains differ from THO only
+in punctuation or markup</b> &mdash; including <code>Confidentiality</code>,
+which an earlier draft of this page listed above as a substantive disagreement
+and which is not one. They are recorded but there is nothing in them to
+decide.</p>
 </div>
 
-<p class='ask'><span class='ask-tag'>Ask</span>Say which definition is correct for each of the five. We will take any of them &mdash; what we cannot do is keep choosing by document order.</p>
+<p class='ask'><span class='ask-tag'>Ask</span>Confirm the rule rather than the instances: <b>where THO already carries a definition for a concept domain, THO's definition stands and Chapter 2C's competing wording is not carried into THO.</b> That settles all four above and the 582 domains behind them in one answer. If you want the chapter's wording preserved somewhere rather than dropped, say so now &mdash; that is a different question and it has the same deadline as the one below.</p>
 <div class='where'>
 <b>Where the detail lives</b>
 <div class='chips'><span class="tbl tbl-plain">0259</span> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0560">0560</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0568">0568</a> <span class="tbl tbl-plain">0602</span> <span class="tbl tbl-plain">0604</span> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0657">0657</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0682">0682</a> <span class="tbl tbl-plain">0777</span> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0930">0930</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0961">0961</a> <a class="tbl" href="../vocab-ig/output/table-ledger.html#tbl-0962">0962</a></div>
-<div class='chip-note'>The eleven tables that declare the five contested domains between them.</div>
+<div class='chip-note'>The eleven tables that declare the five multiply-declared domains between them.</div>
 <div class='chip-note'>0259, 0602, 0604, 0777 have no ledger section: the merge found nothing to report against them, so they are shown without a link.</div>
 <ul class='where-links'>
 <li><a href='../vocab-ig/output/open-items.html'>The register, where the competing definitions are set out in full</a></li>
@@ -536,5 +562,5 @@ item can be followed to the artifact it is about. The field-by-field mapping
 behind the design question is still a separate document and can be circulated
 on request.</p>
 
-<p class='faint'>Generated 2026-09-22 by <code>tooling/scripts/render_v2mgmt_briefing.py</code>. Edit the module, not this file.</p>
+<p class='faint'>Generated 2026-09-29 by <code>tooling/scripts/render_v2mgmt_briefing.py</code>. Edit the module, not this file.</p>
 </main></body></html>
