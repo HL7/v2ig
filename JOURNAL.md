@@ -18,7 +18,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-22 (session 6: the first ruling, and somewhere to put the next one)
+## ACTIVE — 2026-09-29 (session 7: the briefing's own claims checked, and two found wrong)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
@@ -26,10 +26,17 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 
 ### First thing next session
 
-**Capture what V2 Management said.** The meeting is **2026-09-23**, the day
-after this session, and the refreshed briefing was prepared for it. Their two
-blocking rulings have been outstanding since August and are the only things
-genuinely blocking the work.
+**Capture what V2 Management said on 2026-09-23.** That meeting has now
+happened and **nothing from it has been recorded** — session 7 did not attend
+to it. The refreshed briefing was prepared for that meeting, so whatever was
+said there is the most valuable un-captured thing in the project.
+
+**There is now only one genuinely blocking ruling**, not two: *reproduce or
+correct*, outstanding since August. The second item (concept domain
+definitions) was downgraded to a confirmation in session 7 — see below.
+
+**Use the `resolution` mechanism rather than editing prose.** It is described
+below and it works; one item already uses it.
 
 **There is now a mechanism for this, so use it rather than editing prose.** Add
 a `resolution` to the item in `vocabulary_escalations.py` or
@@ -53,6 +60,59 @@ automatically. Then re-run the chain and rebuild.
 `who` is the body with the authority, which is not always the room — the
 reordering ruling is a **TSMG** ruling given in a **TI WG** meeting, and it is
 recorded as exactly that.
+
+### What landed in session 7
+
+Session 7 was short and did two things: it answered a question about the OIDs,
+and it committed the briefing work session 6 left uncommitted — **after
+checking its claims, two of which were wrong.**
+
+- **`4e81c91d` — the uncommitted briefing rework, corrected and committed.**
+  Session 6 ended with a substantial uncommitted diff. Its central claim was
+  verified and **holds**: the guide was never choosing between competing
+  concept domain definitions by document order. All five multiply-declared
+  domains publish THO's definition — checked against the published
+  `conceptdomains` resource, not against the report about it. So the V2
+  Management item really does drop from a ruling to a confirmation, and the
+  blocking count from two to one.
+- **Two claims in it were wrong, and both are the kind that would have been
+  challenged in the room.**
+  - It said there is *no case in the corpus* of a domain declared by several
+    tables with no THO definition to fall back on. **There are 20** — `Units`,
+    `GiveUnits`, `Indication` and others. The true claim is narrower and is
+    the one the argument actually needs: every domain whose tables describe it
+    *differently* has a THO definition, so document order never decides an
+    outcome. In all 20 the tables agree with each other, so there is nothing
+    to choose between. The page now states both numbers.
+  - It listed **`Confidentiality`** as a substantive disagreement with THO. It
+    is not one: the two texts are word-for-word identical and differ by THO's
+    `*Usage Note:*` emphasis and a trailing full stop.
+- **That second one was a pipeline defect, not a prose defect**, which is why
+  it is worth remembering. `generate_concept_domains.py` compared definitions
+  **without the punctuation carve-out the THO merge applies everywhere else**,
+  so it classified a formatting difference as the two bodies describing a
+  domain differently. It now uses `tho_merge.is_editorial` — the project's
+  existing canonical test — and reports such cases as their own kind,
+  `definition_differs_from_tho_editorially`. **Four** substantive
+  disagreements, not five, computed correctly wherever the number appears.
+- **`question_link()` is confirmed working.** Session 6 built it; session 7
+  verified it does its job. The answered reordering question now resolves to
+  `evidence.html` while the open ones stay on `open-items.html` — which is
+  exactly the dead link it was written to prevent. **All 67 briefing→IG links
+  resolve** against the built IG.
+
+### The OID question, asked and answered this session
+
+The reviewer asked whether the conflicting OIDs were for the *tables* or for
+the code systems and value sets. **It is both, and the distinction matters.**
+Chapter 2C carries **three** OIDs per table: a Table OID in the `.12` arc (798
+of 799 tables), a Code System OID in `.18` (435), a Value Set OID in `.21`
+(438). The comparison is sound — THO uses the same two latter arcs for the
+same two resource types — and the two known conflicts are the only two. **The
+table OID is published nowhere**, which is a default rather than a decision,
+and is registered as `esc-table-oid-unpublished`. This is all already on the
+ledger's OID overview and in the register; it is repeated here only because it
+was asked again.
 
 ### What landed in session 6
 
@@ -97,6 +157,14 @@ transcriptions rot.
 against `tho-fill-report.json` and the extraction on every run. **If you author
 a number into a briefing, add it to that test.**
 
+**Session 7 found two more of exactly this kind**, which puts the count at five
+across two sessions. Both were in authored prose that no test covered, and one
+of them traced back to a pipeline classifier rather than the prose. The
+standing lesson: **a claim in a briefing is a claim about the build, and the
+build can be asked.** Before presenting a number or a "there is no case
+where…", compute it. The absolute claims are the dangerous ones — "no case in
+the corpus" was false the moment it was written.
+
 ### Things that will bite
 
 - **A chip only links when the ledger has a section for that table.** Four of
@@ -116,8 +184,8 @@ a number into a briefing, add it to that test.**
 
 ### Register — 38 items, 37 of them open
 
-One answered. 56 open items on `open-items` (was 57) plus **6** general
-questions (was 7).
+One answered. Plus **7 general questions, 1 answered and 6 open** — verified
+against the modules this session, not transcribed.
 
 ### Still open on the review
 
@@ -131,14 +199,16 @@ Unchanged from session 5, and none of it was touched:
   the one with teeth), **S2-20**.
 - **Two reviewer questions from session 5 are still unanswered**: is `Evidence`
   the right navbar name, and does the evidence page want splitting? It is now
-  **1.79 MB** and carries one more section than it did.
+  **1.79 MB** and carries one more section than it did. Three sessions old now
+  — worth either asking directly or dropping.
 - **Table 0347's `title`** is `hl7VS-stateProvince` against THO's
   `HL7 Value Set for State/Province` — ours reads like an id in a title field.
 - **`v291-fhir/conceptdomains-divergences.json` carries a `generated` date**, so
   the pipeline churns one line across a day boundary. It is the one thing
   stopping the chain being byte-reproducible, and that reproducibility is what
-  makes `build_vocab_ig.py --from` safe to trust. It was left unstaged again
-  this session rather than fixed.
+  makes `build_vocab_ig.py --from` safe to trust. **Still not fixed** — it has
+  now survived three sessions. It was at least committed this time rather than
+  left dangling, so the tree is clean, but the churn remains.
 
 ### A defect in a document that has already been presented
 
@@ -181,6 +251,84 @@ them in — stage vocabulary files explicitly.**
 
 
 ## Session History
+
+## 2026-09-29 — Session 7: the briefing's own claims, checked
+
+### Completed
+
+**Committed session 6's uncommitted briefing work as `4e81c91d` — after
+checking it.** An interrupted session left a substantial diff in the tree. The
+reviewer asked for it to be reviewed and committed; reviewing it turned out to
+be the point.
+
+**Its central claim holds, and was verified rather than trusted.** The guide
+was never choosing between competing concept domain definitions by document
+order — all five multiply-declared domains publish THO's definition, checked
+against the published `conceptdomains` resource rather than the report about
+it. The V2 Management item genuinely drops from a ruling to a confirmation,
+and the blocking count from two to one.
+
+**Two claims in it were wrong.**
+
+The first was an overstatement: *"there is no case anywhere in the corpus of a
+domain declared by several tables with no THO definition to fall back on"*.
+There are 20. The claim the argument needs is narrower — every domain whose
+tables describe it **differently** has a THO definition — and that one is
+true. In all 20 the tables agree with each other, so nothing is being chosen.
+The page now gives both numbers, because the absolute version invites an
+objection it cannot survive, in front of a committee.
+
+The second was a misclassification, and it was a **pipeline defect rather
+than a prose defect**. `Confidentiality` was listed as a substantive
+disagreement with THO; the two texts are word-for-word identical and differ by
+THO's `*Usage Note:*` emphasis and a trailing full stop.
+`generate_concept_domains.py` was comparing definitions without the
+punctuation carve-out the THO merge applies everywhere else, so a formatting
+difference read as the two bodies disagreeing about what a domain means. It
+now uses `tho_merge.is_editorial`, the project's existing canonical test, and
+reports such cases as `definition_differs_from_tho_editorially`. Four
+substantive disagreements, not five — and now computed correctly wherever the
+number appears, rather than corrected in one document.
+
+Fixing it in the pipeline rather than the prose was the whole point: the same
+number appears in the briefing, the review report and the divergences JSON,
+and patching the sentence would have left the other two wrong.
+
+### Also
+
+- **`question_link()` verified.** Session 6 built it to stop briefing links
+  dying when a question moves page on being answered. It works: the answered
+  reordering question resolves to `evidence.html`, the open ones to
+  `open-items.html`. All 67 briefing→IG links resolve against the built IG.
+- One incidental catch: the new review-page entry first got the action value
+  `"note"`, which is not in `ACTION_ORDER` and would have raised `KeyError` at
+  render time. It is `"informational"`.
+- **Two stale items were cleared from the handoff, both my error.** It was
+  still asking what to do with the versioning-policy PDFs — already decided and
+  already executed, on the orphan branch `reference/policy-snapshots`
+  (`bd2f96b7`, 20 September), which shares no history with anything and cannot
+  be merged by accident. And it carried "the V2 Management meeting of
+  2026-08-28 is still unrecorded" across six handoffs; searching both JOURNAL
+  files found **no record of what those minutes were ever wanted for** — no
+  register item cites them and no decision waits on them. It was surviving on
+  momentum. Dropped.
+
+**The general lesson, now five instances across two sessions:** a number in a
+briefing is a claim about the build, and the build can be asked. Absolute
+claims — "there is no case where…" — are the dangerous ones.
+
+### State
+
+Branch `dev/v291-vocabulary-ig`, commit `4e81c91d`. **562 tests pass.** Working
+tree clean apart from the five `dev/framework` files. No build was run this
+session — nothing touched the resources, only the reports and briefings that
+describe them.
+
+### Next
+
+**Capture the 2026-09-23 V2 Management meeting.** It has happened, the briefing
+was prepared for it, and nothing from it is recorded. That is the largest
+un-captured thing in the project.
 
 ## 2026-09-22 — The first ruling, and somewhere to put the next one
 
@@ -405,151 +553,3 @@ by a test — and there is still no test that would catch the next one.
 
 The TI WG's actual feedback is not written down anywhere. That is the first job
 next session and the only perishable one.
-
-
-## 2026-09-20 — Built, verified, and briefed for Rockville
-
-Three commits. The IG went from dark to built-and-checked, the last big
-session-3 item closed, and the Terminology Infrastructure WG briefing is
-written. Session ran against an airport clock throughout.
-
-### The build answered every question the last handoff asked
-
-Four checks were set, and the reason they were set is that the previous session
-changed the *page set* rather than the content of a page. All four passed, and
-two of them passed in a way worth recording.
-
-**The error count fell by exactly 191** — 3479 → 3288 — against a prediction of
-"~191" derived from the number of `conceptdomains` narrative links rewritten in
-`3a6b1acd`. An exact match on a number derived independently is the strongest
-evidence available that the fix reaches the published resource and is not
-merely present in the source.
-
-**The cross-links land on the right questions.** Broken links stayed at 0 across
-625,068, but 0 broken links only proves the anchors *exist* — `question_anchor()`
-raises on an unknown id, so a dangling link was already near-impossible. The
-open risk was a link that resolves to the *wrong* question. Checked
-positionally: the table-OID paragraph reaches question 6 and the reordering
-paragraph reaches question 1, as specified.
-
-Incidentally established: the question anchors render as `<a name="...">`, the
-older form, which is why the link checker accepts them.
-
-### S3-03: both numbers were right, which is why it survived three sessions
-
-The item read "the two 'needs a second look' computations still disagree — table
-index says 21 rows; the ledger says 97 changed + 73 register-named". The first
-finding was that **those numbers were stale**; the tree said 20 and
-96 / 101 / 14. The second finding was that the framing was wrong. They are not
-two computations of one quantity that disagree. They are two different
-quantities:
-
-- the **index** counts *coverage* — does the right KIND of artifact exist at
-  all (4 kinds: new to THO, in THO not here, dangling in THO, nothing anywhere);
-- the **ledger** counts *content and governance* — does it differ from THO, does
-  a register item name it, is someone still deciding.
-
-Neither is a subset of the other: 15 of the 20 are in the ledger's union, 5 are
-not, and 150 ledger tables are not in the 20. So there was nothing to
-reconcile and no recompute to do. The defect was that both sections were titled
-"tables that need a second look", so a reader met 20 and 165 and concluded a
-page was broken.
-
-Retitled both, each stating its own count, each pointing at the other's
-*question*. Two details are worth more than the fix:
-
-- **The index heading interpolated its count** (`The 20 rows...`). That number
-  would have landed in the generated anchor, so the ledger's new inbound link
-  would have broken the first time the count moved. Caught before shipping; the
-  heading is now static and the count sits below it. Generalised into the ACTIVE
-  section: never interpolate a count into a heading.
-- **The cross-links deliberately do not quote each other's number.**
-  `generate_table_index.py` cannot see the register or difference data, so
-  quoting the ledger's total would have meant a new cross-script dependency and
-  a figure maintained in two places — which is precisely the failure being
-  repaired. Each page owns its own count.
-
-Both links use authored anchors rather than publisher-generated heading slugs,
-matching every other cross-page link in the guide. That pattern was chosen
-before the build and confirmed by it: `<a id="tbl-0001">` survives verbatim.
-
-### The briefing, and what was left out of it
-
-`ec2df186` writes the Terminology Infrastructure WG briefing for the Monday
-morning meeting, following the established pattern — authored in
-`render_ti_briefing.py`, rendered to HTML with a Markdown twin, sharing
-`briefing_style`.
-
-The room already knows what a FHIR IG is and why this one exists, so there is no
-background section. It makes three claims and shows where each is backed:
-THO-additive, issues surfaced as classes, and an auditable record of both kinds
-of imperfection.
-
-**The walkthrough order is the one editorial argument worth defending.** The
-merge page comes second, immediately after Home, because the per-table pages
-only make sense once the reader accepts that we write into THO's *canonicals*.
-Until then "96 tables differ from THO" reads as a fork rather than a merge.
-
-**The asks are filtered rather than reprinted.** The guide carries 57 open items
-and 7 general questions; the briefing argues five, plus one item that is not in
-the register at all — **four THO value sets that compose from a code system THO
-does not publish and therefore cannot expand**. That is a live defect in THO,
-found by this work, not ours to fix, and this is the only room where raising it
-is useful. Tables 0560 and 0292 are named but not argued: they are about what
-Chapter 2C says and belong to V2 Management.
-
-**Every figure is transcribed, not computed**, and the briefing says so in its
-footer and states that the guide wins any disagreement. Authored prose goes
-stale, and a committee document that quietly contradicts the IG three weeks
-later is worse than no document.
-
-### Two traps, one old and one new
-
-`pgrep -f "http.server"` reported a server running when nothing was listening —
-it matched the Bash tool's own wrapper. MEMORY documents this trap for the java
-build check; the lesson generalises to any `-f`/command-line match, and the
-ACTIVE section now says so rather than naming one command.
-
-The second is the heading-interpolation bug above. It is recorded because it was
-caught by reasoning about the anchor rather than by a test, and there is still
-no test that would catch the next instance of it.
-
-### The orchestrator, finally, and what it turned up
-
-`build_vocab_ig.py` runs the seven preprocessing steps. The part worth keeping
-is that the order is **data, not a comment**: each step declares what it
-`produces` and what it `consumes`, and `check_order()` verifies every step's
-inputs come from an earlier step. Get the order wrong and it refuses to start,
-naming the input that would not exist yet — rather than failing seventeen
-minutes into a publisher run, or, worse, succeeding by silently reading last
-run's file.
-
-The dependencies were re-derived from the scripts rather than copied from the
-note, which was the right call: the note said `render_review_pages.py` needs
-`generate_concept_domains.py`, and it does, but it also needs
-`write_utg_xml.py`'s writer report, which the note never said. The hardest edge
-is that `generate_table_index.py` reads `table-ledger.md` through
-`load_ledger_anchors()`, so the ledger must precede the index. That specific
-swap has its own test.
-
-**Two things fell out of building it.**
-
-The chain takes **11 seconds**. It had been treated as part of an expensive
-build for four sessions; the expense was always the publisher alone. Nothing
-was ever gained by hand-running a subset.
-
-Running it end to end regenerated the committed tree with **zero diff**, which
-makes the whole pipeline byte-for-byte reproducible from the corpus. That was
-not previously known — it is a stronger property than the orchestrator was
-written to deliver, and it is the thing that makes `--from` safe to trust.
-
-A sizing note that briefly looked like a discrepancy: the generators report
-**characters** and `ls` reports **bytes**. For `evidence.md` that is 1,787,012
-against 1,790,805 — 3,793 bytes of multibyte UTF-8, not a change.
-
-### Not done
-
-The **orchestrator script** was deferred for three sessions and then written
-at the end of this one — see the entry above it.
-
-`cac6c77e` has not been through the publisher.
