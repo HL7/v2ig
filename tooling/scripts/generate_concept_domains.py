@@ -36,7 +36,6 @@ Usage:
 
 import argparse
 import copy
-import datetime
 import glob
 import json
 import re
@@ -395,8 +394,11 @@ def main():
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     RESOURCE_PATH.write_text(json.dumps(resource, indent=2, ensure_ascii=False) + "\n")
+    # No generated-at date. Nothing reads one, and a date stamp makes the
+    # file differ across a day boundary when its content has not changed --
+    # which is exactly the signal `--from` needs to be trustworthy: a clean
+    # diff after a re-run should mean the step is reproducible.
     DIVERGENCES_PATH.write_text(json.dumps({
-        "generated": datetime.date.today().isoformat(),
         "basedOn": {
             "package": "hl7.terminology.r5",
             "resource": "CodeSystem/conceptdomains",

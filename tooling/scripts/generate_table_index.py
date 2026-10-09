@@ -83,6 +83,7 @@ ROUTE_LABEL = {
     "value-set-only": "VS only",
     "needs-decision": "Needs decision",
     "nothing-to-write": "Nothing",
+    "suppressed-by-ruling": "Withheld",
 }
 
 # What each route is expected to look like once loaded into THO. A row is an
@@ -95,6 +96,10 @@ ROUTE_NORM = {
     "value-set-only": (None, "both"),
     "needs-decision": ("neither", "neither"),
     "nothing-to-write": ("neither", "neither"),
+    # Withheld on a ruling: THO still publishes the value set -- that is
+    # what the Jira ticket is for -- so its presence there is expected
+    # and is not an exception to shade.
+    "suppressed-by-ruling": (None, None),
 }
 
 PRESENCE = {(1, 1): "both", (1, 0): "ig-only", (0, 1): "tho-only", (0, 0): "neither"}

@@ -101,6 +101,11 @@ Thumbs.db
 # tooling/scripts/vocabulary_escalations.py, but tracked so the register is
 # readable and diffable without running anything.
 !/v291-extracted/vocabulary-v2mgmt-items.md
+# The defect review list: the same register regrouped by class of defect, for
+# walking item by item. Generated from tooling/scripts/render_defect_review.py
+# and tracked for the same reason as the register above.
+!/v291-extracted/defect-review.md
+!/v291-extracted/defect-review.html
 !/v291-extracted/utg-briefing.html
 !/v291-extracted/v2mgmt-briefing.html
 !/v291-extracted/v2mgmt-briefing.md

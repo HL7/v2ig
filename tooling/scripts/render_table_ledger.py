@@ -19,7 +19,11 @@ The three kinds of thing a section can say:
   * **Kept from THO** — the fills, given as counts by class. There are seven
     and a half thousand of these and they are all the *absence* of a change,
     so a count is the honest summary and the instance detail stays in the JSON.
-  * **Open issues** — register items whose table list names this table.
+  * **Open issues** — register items whose table list names this table and
+    which no committee has answered yet.
+  * **Answered by a committee** — the same, for items that have been ruled
+    on, carrying the ruling. Separate because an answered item listed as open
+    says the opposite of what happened.
 
 A table gets a section when this guide authors an artifact for it or when the
 merge observed anything about it. Every other chapter table is listed once,
@@ -76,6 +80,7 @@ ROUTE_LABEL = {
     "value-set-only": "value set only",
     "needs-decision": "blocked on a decision",
     "nothing-to-write": "nothing written",
+    "suppressed-by-ruling": "withheld on a ruling",
 }
 
 # How each kind of difference is labelled in the Difference column, and the
@@ -240,6 +245,7 @@ def load_register():
                 "title": vocabulary_escalations.to_markdown_text(item["title"]),
                 "who": item.get("who", ""),
                 "partial": partial,
+                "resolution": item.get("resolution"),
             })
     for items in by_table.values():
         items.sort(key=lambda entry: entry["id"])
@@ -567,14 +573,36 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
             lines.append(f"| {fill_titles.get(key, key)} | {count} |")
         lines.append("")
 
-    if issues:
+    # An answered item is not an open issue, and listing it as one tells a
+    # reader the opposite of what happened. They are kept rather than dropped
+    # -- somebody who remembers the question needs to find the answer against
+    # the table it was about -- but under their own heading, carrying the
+    # ruling.
+    open_issues = [i for i in issues if not i.get("resolution")]
+    answered = [i for i in issues if i.get("resolution")]
+
+    def issue_line(issue):
+        hedge = (" <span class=\"tl-note\">(the register lists this table as an example; "
+                 "its list is not exhaustive)</span>"
+                 if issue["partial"] else "")
+        return (f"- `{issue['id']}` — {issue['title']} "
+                f"— *{issue['who']}*{hedge}")
+
+    if open_issues:
         lines += ["**Open issues.**", ""]
-        for issue in issues:
-            hedge = (" <span class=\"tl-note\">(the register lists this table as an example; "
-                     "its list is not exhaustive)</span>"
-                     if issue["partial"] else "")
-            lines.append(f"- `{issue['id']}` — {issue['title']} "
-                         f"— *{issue['who']}*{hedge}")
+        lines += [issue_line(issue) for issue in open_issues]
+        lines.append("")
+
+    if answered:
+        lines += ["**Answered by a committee.**", ""]
+        for issue in answered:
+            resolution = issue["resolution"]
+            ruling = vocabulary_escalations.to_markdown_text(
+                resolution["ruling"])
+            lines.append(
+                f"- `{issue['id']}` — {issue['title']} "
+                f"— *{resolution['who']}, {resolution['date']}*<br/>"
+                f"<span class=\"tl-note\">{ruling}</span>")
         lines.append("")
 
     if oids:
@@ -583,7 +611,8 @@ def render_table_section(table, name, entry, diffs, fill_counts, fill_titles,
     # The reassuring line is only true when there is something published to
     # compare. A table blocked on a decision has no artifact at all, and its
     # callout has just said so.
-    if not (diffs or fill_counts or issues or oids or blocked):
+    if not (diffs or fill_counts or open_issues or answered or oids
+            or blocked):
         lines += ["Nothing to report: what this guide publishes matches THO "
                   "on every element compared.", ""]
     return lines

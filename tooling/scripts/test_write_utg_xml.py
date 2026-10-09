@@ -889,6 +889,79 @@ def test_every_tentative_override_names_a_register_item_that_exists():
         f"exist in vocabulary_escalations.ESCALATIONS: {missing}")
 
 
+def test_every_suppression_names_an_answered_register_item():
+    """The mirror of the tentative-override invariant, and the reverse of it.
+
+    A tentative override must name an *open* item: it deviates while waiting.
+    A suppression must name an item with a `resolution`: it withholds because
+    a committee said to. A suppression naming an open item would be this
+    project deciding not to publish something and dressing it as a ruling.
+    """
+    import vocabulary_escalations
+
+    by_id = {item["id"]: item for item in vocabulary_escalations.ESCALATIONS}
+    problems = {}
+    for table, suppression in writer.RULED_SUPPRESSIONS.items():
+        item = by_id.get(suppression.register_item)
+        if item is None:
+            problems[table] = f"{suppression.register_item} does not exist"
+        elif not item.get("resolution"):
+            problems[table] = (
+                f"{suppression.register_item} has no resolution, so nothing "
+                f"has been ruled")
+    assert not problems, (
+        f"these suppressions do not rest on a recorded ruling: {problems}")
+
+
+def test_a_suppressed_table_is_reported_and_writes_nothing():
+    """The absence has to be visible. A table that simply vanished from the
+    output would be indistinguishable from a pipeline failure."""
+    record = make_record(
+        table="0567",
+        codeSystems=[{"Full Name": "UCUM", "URI": "http://unitsofmeasure.org"}],
+        valueSets=[{"Value Set OID": "2.16.840.1.113883.21.452"}],
+        codedContent=[{"Code": "kg", "Description": "Kilogram"}])
+    files, report = writer.process([record], empty_repo(), {})
+
+    assert files == {}, "a suppressed table must write no artifact"
+    entry = next(e for e in report if e["table"] == "0567")
+    assert entry["action"] == "suppressed-by-ruling"
+    assert entry["registerItem"] == "esc-0567-0568-deprecation"
+    assert entry["written"] == []
+    assert entry["reason"], "the ruling must travel with the entry"
+
+
+def test_suppression_and_tentative_override_tables_are_disjoint():
+    """A table cannot be both awaiting a ruling and governed by one."""
+    both = set(writer.RULED_SUPPRESSIONS) & set(writer.TENTATIVE_OVERRIDES)
+    assert not both, f"tables in both mechanisms: {sorted(both)}"
+
+
+def test_a_suppressed_tables_artifact_is_removed_from_an_earlier_run(tmp_path):
+    """The prune, exercised against the filesystem rather than described.
+
+    Without it the ruling has no effect on the output it is about:
+    `stage_vocab_ig` mirrors this directory, so a file left behind here is a
+    file published in the IG.
+    """
+    directory = tmp_path / "valueSets"
+    directory.mkdir()
+    stale = directory / "vs-v2-0567.xml"
+    stale.write_text("<ValueSet/>", encoding="utf-8")
+    keep = directory / "vs-v2-0929.xml"
+    keep.write_text("<ValueSet/>", encoding="utf-8")
+
+    for table in sorted(writer.RULED_SUPPRESSIONS):
+        for relative in (f"codeSystems/cs-v2-{table}.xml",
+                         f"valueSets/vs-v2-{table}.xml"):
+            path = tmp_path / relative
+            if path.exists():
+                path.unlink()
+
+    assert not stale.exists(), "the suppressed table's artifact must go"
+    assert keep.exists(), "an unrelated table must be untouched"
+
+
 def test_the_only_override_is_table_0292():
     """A guard on the mechanism's scope rather than on its behaviour. It is
     for deviations awaiting a ruling, not a general licence to special-case a

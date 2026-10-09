@@ -1,5 +1,4 @@
 {
-  "generated": "2026-09-29",
   "basedOn": {
     "package": "hl7.terminology.r5",
     "resource": "CodeSystem/conceptdomains",

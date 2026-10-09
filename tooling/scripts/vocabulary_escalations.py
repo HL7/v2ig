@@ -436,9 +436,11 @@ ESCALATIONS = [
             "Also in this table: the Code System Version block gives the UCUM "
             "version as <code>2</code>, which is not a UCUM version.",
         "ask":
-            "This is the cleanest test case for the policy question at the "
-            "top of this list. Chapter 2C reproduces an error; THO corrected "
-            "it and said so. Which does this IG follow? And separately: "
+            "This is the cleanest test case in the corpus for "
+            "reproduce-versus-correct, and the one to decide first: Chapter "
+            "2C reproduces an error, THO corrected it and said so, and the "
+            "two cannot both be followed. Which does this IG follow? And "
+            "separately: "
             "should 0931 be filled out into an actual set of temperature "
             "units, or is the two-code set intentional?",
     },
@@ -875,9 +877,13 @@ ESCALATIONS = [
     {
         "id": "esc-tables-that-should-be-domains",
         "who": "V2 Management",
-        "tables": "0010, 0188, 9999",
-        "title": "Three &ldquo;tables&rdquo; that carry no terminology at all",
+        "tables": "0188, 9999",
+        "title": "Two &ldquo;tables&rdquo; that carry no terminology at all",
         "body":
+            "<b>This item covered three tables. 0010 was answered on "
+            "2026-10-09 and is now its own item, "
+            "<code>esc-0010-withdrawn</code>; what follows is the original "
+            "finding, which measured all three together.</b> "
             "Of the 799 sections in Chapter 2C, exactly three declare no "
             "concept domain, no code system, no value set and no codes. "
             "<code>0010</code> <i>Physician ID</i> and <code>0188</code> "
@@ -900,11 +906,64 @@ ESCALATIONS = [
             "CodeSystem and no ValueSet for any of the three.</b> Nothing has "
             "been minted for them and nothing needs to be withdrawn.",
         "ask":
-            "Confirm that 0010 and 0188 should be concept domains rather than "
-            "code tables, and decide what becomes of 9999 &mdash; a "
+            "Confirm that 0188 should be a concept domain rather than a "
+            "code table, and decide what becomes of 9999 &mdash; a "
             "placeholder that occupies a table number is a trap for anyone "
             "generating resources from the chapter mechanically. This project "
-            "writes nothing for any of the three.",
+            "writes nothing for either of them. <b>Note that 0010, the "
+            "closest peer of 0188, was withdrawn rather than converted to a "
+            "concept domain</b>, which is evidence for what should happen "
+            "here but not an answer: 0188 was not named in that ruling.",
+    },
+    {
+        "id": "esc-0010-withdrawn",
+        "who": "V2 Management",
+        "tables": "0010",
+        "title": "Table 0010 <i>Physician ID</i> carries no terminology and "
+                 "is withdrawn",
+        "body":
+            "Table 0010 is one of three sections in Chapter 2C that declare "
+            "no concept domain, no code system, no value set and no codes. "
+            "It is a <code>User</code> table whose description ends "
+            "&ldquo;No suggested values&rdquo; &mdash; a site-defined "
+            "identifier that was arguably never a code table. "
+            "The omission is an outlier rather than house style: of the 149 "
+            "tables whose description says &ldquo;No suggested values&rdquo;, "
+            "<b>147 carry a concept domain block</b>. The two that do not "
+            "are 0010 and 0188. "
+            "Neither THO nor the UTG repository has a CodeSystem or a "
+            "ValueSet for it, so nothing was ever minted and nothing needs "
+            "withdrawing from THO. "
+            "<b>What it does have is bindings.</b> Fields across several "
+            "segments &mdash; PV1, IN3, SCD and others &mdash; still name "
+            "table 0010 in the source of truth, and those bindings point at "
+            "a table that is about to stop existing.",
+        "ask":
+            "Answered. Kept because the binding removal is work this "
+            "project has to do, and the ruling is the authority for doing "
+            "it.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-09",
+            "ruling": "Table 10 goes away, and any terminology bindings to "
+                      "table 10 will be removed as v2+ is prepared.",
+            "effect": "Nothing changes in the vocabulary IG: this guide "
+                      "already writes no artifact for 0010 and routes it "
+                      "<code>nothing-to-write</code>, so there is nothing to "
+                      "suppress and no artifact to withdraw. "
+                      "<b>The work the ruling creates is in the v2+ IG, not "
+                      "here</b> &mdash; removing the bindings that name "
+                      "table 0010 in <code>input/sourceOfTruth/segment/</code> "
+                      "and the segment intros that document them. That is "
+                      "the structural workstream's to do, and it is recorded "
+                      "here because this register is where the ruling "
+                      "arrived. "
+                      "The companion finding for <b>0188</b>, the only other "
+                      "table of this shape, is <b>not</b> answered by this "
+                      "ruling and stays open as "
+                      "<code>esc-tables-that-should-be-domains</code>.",
+        },
     },
     {
         "id": "esc-0292-cdo-contradiction",
@@ -1023,6 +1082,38 @@ ESCALATIONS = [
             "intensional reference to the UCUM units for the quantity? "
             "Note that whichever way (2) goes, it applies equally to the "
             "replacements 0929 and 0930.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-09-23",
+            "ruling": "Tables 0567 and 0568 should never have been created. "
+                      "Their value sets will be retired, but not by this IG "
+                      "and not as part of this load: a separate Jira ticket "
+                      "will be raised against THO to retire "
+                      "<code>ValueSet/v2-0567</code> and "
+                      "<code>ValueSet/v2-0568</code>. This IG is to do "
+                      "nothing with them.",
+            "effect": "This guide stops publishing both value sets. It had "
+                      "been publishing them at 4.0.0 against THO's 3.0.0 "
+                      "&mdash; an increment earned only by adding display "
+                      "text to codes THO leaves bare &mdash; so the guide was "
+                      "minting a new version of two artifacts it has now been "
+                      "told to leave alone. Suppression is recorded in "
+                      "<code>write_utg_xml.py</code>'s "
+                      "<code>RULED_SUPPRESSIONS</code> and the two tables are "
+                      "reported as <code>suppressed-by-ruling</code>, so the "
+                      "guide says why they are absent rather than being "
+                      "silently short of two artifacts. "
+                      "<b>Question (2) of the ask is not answered and "
+                      "survives this ruling:</b> whether the enumerated "
+                      "subset is intended, or whether these should be an "
+                      "intensional reference to the UCUM units for the "
+                      "quantity. It applies to the live replacements 0929 and "
+                      "0930, which this guide does publish &mdash; carrying "
+                      "byte-identical code lists to the two tables being "
+                      "retired. It is now asked against those two tables as "
+                      "its own item.",
+        },
     },
     {
         "id": "esc-0567-0568-representation",
@@ -1109,6 +1200,82 @@ ESCALATIONS = [
             "correctly named. Both are about THO's own records rather than "
             "about anything this guide writes, which is why they are parked "
             "here rather than acted on.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-09-23",
+            "ruling": "Both halves are settled, and neither lands on this "
+                      "IG. The 0567/0568 retirement goes to THO as a separate "
+                      "Jira ticket, so no deprecation needs representing "
+                      "here. For table 0005, the value set stays and the code "
+                      "system is correctly retired already; this IG will not "
+                      "link the value set and should not inform any change to "
+                      "it.",
+            "effect": "Nothing is published differently on account of 0005 "
+                      "&mdash; the guide was already neither altering nor "
+                      "linking <code>ValueSet/v2-0005</code>. What changes is "
+                      "that this is now a decision rather than an omission. "
+                      "The representation question the item was really about "
+                      "&mdash; whether marking a THO value set deprecated "
+                      "would need "
+                      "<code>standards-status = deprecated</code>, the first "
+                      "use of that code in THO's history, plus a "
+                      "<code>relatedArtifact</code> successor pointer "
+                      "&mdash; is <b>not answered, only avoided</b>. The "
+                      "Jira ticket that retires 0567 and 0568 will meet it "
+                      "again, because <code>retired</code> still says "
+                      "something stronger than the facts: the UCUM codes in "
+                      "those value sets remain valid and are still sent. "
+                      "<b>Recorded here because the next person to need it "
+                      "should not have to rediscover it.</b> So are the two "
+                      "findings about THO's own records that no ruling "
+                      "touched: <code>CodeSystem/v2-tables</code> carries the "
+                      "replacements' canonicals as 0567's and 0568's own "
+                      "<code>v2-vs-uri</code>, and the value set OIDs "
+                      "<code>&hellip;21.452</code> and "
+                      "<code>&hellip;21.453</code> each sit on two artifacts "
+                      "at once.",
+        },
+    },
+    {
+        "id": "esc-0929-0930-enumerated-subset",
+        "who": "V2 Management",
+        "tables": "0929, 0930",
+        "title": "Do the UCUM weight and volume value sets mean the handful "
+                 "of codes they list, or the UCUM units for the quantity?",
+        "body":
+            "This is the half of the 0567/0568 question that the "
+            "2026-09-23 ruling did not reach. That ruling retires 0567 and "
+            "0568, which removes them from this guide &mdash; but it leaves "
+            "the same question standing against their live replacements, "
+            "which this guide does publish. "
+            "<b>The replacements carry byte-identical code lists to the "
+            "tables being retired.</b> 0929 enumerates the same four codes as "
+            "0567 &mdash; <code>[lb_av]</code>, <code>[oz_av]</code>, "
+            "<code>kg</code>, <code>g</code> &mdash; and 0930 the same three "
+            "as 0568: <code>l</code>, <code>[pt_us]</code>, "
+            "<code>ml</code>. So retiring the old pair does not retire the "
+            "question; it moves it. "
+            "<b>The description promises more than the value set "
+            "delivers.</b> 0930's concept domain is &ldquo;the domain of "
+            "possible values of units of measure that are used to specify "
+            "volume&rdquo; and its code system is UCUM, which has a great "
+            "many volume units. Three are enumerated. A sender needing "
+            "centilitres, fluid ounces or cubic centimetres finds them "
+            "absent from a value set whose description says it covers the "
+            "quantity. "
+            "Whether that is a deliberate interoperability constraint &mdash; "
+            "a short list implementers can actually support &mdash; or an "
+            "accident of how the table was first populated is not something "
+            "this project can determine from the chapter.",
+        "ask":
+            "Is the enumerated subset intended, or should these value sets "
+            "be an intensional reference to the UCUM units for the quantity? "
+            "If the short list is deliberate, the descriptions should say so, "
+            "because as written they describe the whole quantity. If it is "
+            "not, these are two value sets that need rebuilding and the "
+            "replacement tables inherited the defect they were meant to "
+            "replace.",
     },
     {
         "id": "esc-0823-not-in-tho",

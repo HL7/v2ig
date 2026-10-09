@@ -67,7 +67,7 @@ has been through it.</p>
 <p><b>It is additive with respect to THO.</b> We publish at THO's own canonical
 URLs, so a naive load would silently delete anything THO carries that
 Chapter 2C is silent about. It does not: <b>7,580 values that exist only in THO
-are preserved</b>, and <b>732 of 823 artifacts keep THO's existing version
+are preserved</b>, and <b>731 of 820 artifacts keep THO's existing version
 number</b> because nothing about them actually changed.</p>
 
 <p>The work is destined for <b>THO</b>, and it establishes a corrected baseline

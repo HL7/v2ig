@@ -3,8 +3,9 @@
     "code-system-and-value-set": 399,
     "concept-domain-only": 358,
     "nothing-to-write": 3,
-    "value-set-only": 25,
-    "needs-decision": 14
+    "value-set-only": 22,
+    "needs-decision": 15,
+    "suppressed-by-ruling": 2
   },
   "tentativeOverrides": {
     "count": 1,
@@ -16,6 +17,16 @@
     ],
     "appliedThisRun": [
       "0292"
+    ]
+  },
+  "ruledSuppressions": {
+    "count": 2,
+    "tables": [
+      "0567",
+      "0568"
+    ],
+    "registerItems": [
+      "esc-0567-0568-deprecation"
     ]
   },
   "tables": [
@@ -10329,45 +10340,21 @@
     },
     {
       "table": "0567",
-      "name": "Weight Units",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0567.xml"
-      ],
-      "systemUrl": "http://unitsofmeasure.org",
-      "resolvedBy": "published URI",
-      "valueSetVersion": {
-        "version": "4.0.0",
-        "reason": "Changed: compose.include.",
-        "incremented": true,
-        "triggers": [
-          "compose.include"
-        ],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is to do nothing with them.",
+      "registerItem": "esc-0567-0568-deprecation",
+      "consequence": "ValueSet/v2-0567 is not written. The guide had been publishing it at 4.0.0 against THO's 3.0.0, an increment earned only by adding display text to the four UCUM codes THO leaves bare.",
+      "written": [],
+      "name": "Weight Units"
     },
     {
       "table": "0568",
-      "name": "Volume Units",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0568.xml"
-      ],
-      "systemUrl": "http://unitsofmeasure.org",
-      "resolvedBy": "published URI",
-      "valueSetVersion": {
-        "version": "4.0.0",
-        "reason": "Changed: compose.include.",
-        "incremented": true,
-        "triggers": [
-          "compose.include"
-        ],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is to do nothing with them.",
+      "registerItem": "esc-0567-0568-deprecation",
+      "consequence": "ValueSet/v2-0568 is not written. The guide had been publishing it at 4.0.0 against THO's 3.0.0, an increment earned only by adding display text to the three UCUM codes THO leaves bare.",
+      "written": [],
+      "name": "Volume Units"
     },
     {
       "table": "0569",
@@ -14403,22 +14390,10 @@
     {
       "table": "0962",
       "name": "Device Status",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0962.xml"
-      ],
-      "systemUrl": "http://hl7.org/fhir/device-status",
-      "resolvedBy": "THO resolves OID 2.16.840.1.113883.4.642.1.200",
-      "published": "http://hl7.org/fhir/codesystem-device-status.html",
-      "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Nothing the policy counts as a change, so THO's version stands.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "needs-decision",
+      "reason": "The code system is given only as OID 2.16.840.1.113883.4.642.1.200, which nothing in THO or FHIR core resolves to a canonical URL.",
+      "written": [],
+      "published": "http://hl7.org/fhir/codesystem-device-status.html"
     },
     {
       "table": "0963",

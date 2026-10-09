@@ -57,6 +57,12 @@ How a table is classified
       Something about the table cannot be settled mechanically. Reported with
       the specific obstacle so it can be answered once and re-run.
 
+  suppressed-by-ruling
+      A committee has ruled that this guide should not publish the table at
+      all. Nothing is written, and the ruling travels with the entry. See
+      `RULED_SUPPRESSIONS` below -- this is the only route that produces no
+      artifact for a table the chapter does publish content for.
+
 Metadata inherited from UTG
 ---------------------------
 
@@ -312,6 +318,99 @@ TENTATIVE_OVERRIDES = {
         ),
     ),
 }
+
+
+# --------------------------------------------------------------------------
+# Suppressions by ruling
+# --------------------------------------------------------------------------
+#
+# Tables a committee has ruled this guide should not publish. The mirror image
+# of a tentative override: that mechanism deviates from the chapter *while
+# waiting* for an answer and names the open question, this one deviates
+# *because* an answer arrived and names the ruling.
+#
+# They must stay separate. `TENTATIVE_OVERRIDES` carries the guide's un-ruled
+# deviation debt, and a test requires every entry there to name an *open*
+# register item. Filing a settled ruling in that table would both break the
+# invariant and misreport a decision as a pending question.
+#
+# An entry belongs here only when all three hold:
+#
+#   * a body with the authority has ruled that this guide should not publish
+#     the table,
+#   * the register item carrying that ruling has a `resolution` -- the
+#     suppression is not this project's judgement and must not look like one,
+#   * the absence is reported rather than silent, so a reader who expects the
+#     artifact finds out why it is missing.
+#
+# The second is the invariant, enforced by a test, and it is the reverse of
+# the tentative-override one: that table's items must be open, this table's
+# must be answered.
+#
+# Suppression is reversible by deleting the entry. Nothing else in the writer
+# knows about these tables, so the chapter's reading is restored intact.
+#
+#   ruling         what was decided, in the words of the decision
+#   register_item  the id of the register item carrying the resolution
+#   consequence    what stops being published, stated concretely enough that
+#                  a reader can tell what is now absent
+Suppression = namedtuple("Suppression", "ruling register_item consequence")
+
+RULED_SUPPRESSIONS = {
+    "0567": Suppression(
+        ruling="Tables 0567 and 0568 should never have been created. Their "
+               "value sets will be retired by a separate Jira ticket against "
+               "THO, not by this IG, which is to do nothing with them.",
+        register_item="esc-0567-0568-deprecation",
+        consequence="ValueSet/v2-0567 is not written. The guide had been "
+                    "publishing it at 4.0.0 against THO's 3.0.0, an "
+                    "increment earned only by adding display text to the "
+                    "four UCUM codes THO leaves bare.",
+    ),
+    "0568": Suppression(
+        ruling="Tables 0567 and 0568 should never have been created. Their "
+               "value sets will be retired by a separate Jira ticket against "
+               "THO, not by this IG, which is to do nothing with them.",
+        register_item="esc-0567-0568-deprecation",
+        consequence="ValueSet/v2-0568 is not written. The guide had been "
+                    "publishing it at 4.0.0 against THO's 3.0.0, an "
+                    "increment earned only by adding display text to the "
+                    "three UCUM codes THO leaves bare.",
+    ),
+}
+
+
+def ruled_suppression(table):
+    """The ruling suppressing this table, or None."""
+    return RULED_SUPPRESSIONS.get(table)
+
+
+def suppression_report(table, suppression):
+    """The entry written for a suppressed table.
+
+    It carries the ruling rather than just the fact of suppression, because
+    the report is what downstream pages read: a table that is simply absent
+    from the output and present in the chapter is indistinguishable from a
+    pipeline bug.
+    """
+    return {
+        "table": table,
+        "action": "suppressed-by-ruling",
+        "reason": suppression.ruling,
+        "registerItem": suppression.register_item,
+        "consequence": suppression.consequence,
+        "written": [],
+    }
+
+
+def suppression_summary():
+    """What this guide withholds on somebody else's authority, computed."""
+    return {
+        "count": len(RULED_SUPPRESSIONS),
+        "tables": sorted(RULED_SUPPRESSIONS),
+        "registerItems": sorted(
+            {s.register_item for s in RULED_SUPPRESSIONS.values()}),
+    }
 
 
 def tentative_override(table, gate):
@@ -1371,6 +1470,18 @@ def process(records, utg, oid_index, published_urls=None, snapshot=None,
 
     for record in records:
         table = record["tableNumber"]
+
+        # Before classification, not after. A suppressed table is one nobody
+        # wants an opinion about: classifying it first and then discarding
+        # the result would run the THO merge over it and file observations
+        # against a table the guide is not publishing.
+        suppression = ruled_suppression(table)
+        if suppression is not None:
+            entry = suppression_report(table, suppression)
+            entry["name"] = record.get("tableName", "")
+            report.append(entry)
+            continue
+
         plan = classify(record, oid_index, snapshot)
         entry = {
             "table": table,
@@ -1786,6 +1897,13 @@ def main():
               f"inherit from), {len(defaulted)}:")
         print("  " + ", ".join(e["table"] for e in defaulted))
 
+    suppressions = suppression_summary()
+    if suppressions["count"]:
+        print(f"\nWithheld on a committee ruling, {suppressions['count']}:")
+        for entry in report:
+            if entry["action"] == "suppressed-by-ruling":
+                print(f"  {entry['table']}  ({entry['registerItem']})")
+
     overrides = tentative_override_summary(report)
     if overrides["count"]:
         print(f"\nDeviating from the chapter while a ruling is pending "
@@ -1857,15 +1975,62 @@ def main():
         return 0
 
     output_dir = Path(args.output_dir)
+
+    # A suppressed table's artifact from an earlier run has to go. Nothing
+    # else prunes this directory -- `stage_vocab_ig.py` mirrors whatever is in
+    # it -- so a file left behind here is a file published in the IG, and the
+    # ruling would have had no effect on the output it was about.
+    #
+    # Only the exact paths for suppressed tables are removed. A broader sweep
+    # would be wrong under `--table`, where `files` holds one table's output
+    # and everything else on disk is still current.
+    orphans = []
+    for table in sorted(RULED_SUPPRESSIONS):
+        for relative in (f"codeSystems/cs-v2-{table}.xml",
+                         f"valueSets/vs-v2-{table}.xml"):
+            stale = output_dir / relative
+            if stale.exists():
+                stale.unlink()
+                print(f"Removed (withheld on a ruling): {relative}")
+
     for relative, document in files.items():
         path = output_dir / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(document, encoding="utf-8", newline="\n")
 
+    # Files this run did not write and did not mean to leave. `stage_vocab_ig`
+    # mirrors this directory wholesale, so an artifact for a table that has
+    # since stopped routing to an artifact -- it became `needs-decision`, or
+    # the chapter changed under it -- is published regardless, and nothing
+    # upstream would ever mention it again.
+    #
+    # Reported, not deleted. A full run knows what the corpus should contain,
+    # but `--table` and `--dry-run` do not, and a sweep that guessed wrong
+    # would delete resources the chain still needs. The count is small enough
+    # to act on by hand and loud enough not to be missed.
+    if not args.table:
+        expected = set(files)
+        for subdirectory in ("codeSystems", "valueSets"):
+            directory = output_dir / subdirectory
+            if not directory.is_dir():
+                continue
+            for path in sorted(directory.glob("*.xml")):
+                relative = f"{subdirectory}/{path.name}"
+                if relative not in expected:
+                    orphans.append(relative)
+        if orphans:
+            print(f"\nWARNING: {len(orphans)} file(s) in {output_dir} were "
+                  f"not written by this run. They are still staged into the "
+                  f"IG. Check whether the table stopped routing to an "
+                  f"artifact, and delete them if so:")
+            for relative in orphans:
+                print(f"  {relative}")
+
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(
         json.dumps({"counts": dict(actions),
                     "tentativeOverrides": overrides,
+                    "ruledSuppressions": suppressions,
                     "tables": report},
                    indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",

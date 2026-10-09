@@ -167,6 +167,42 @@ def test_a_register_item_with_an_open_ended_table_list_says_so():
     assert "not exhaustive" in page
 
 
+def test_an_answered_register_item_is_not_listed_as_an_open_issue():
+    """It says the opposite of what happened. This was latent until the
+    first answered item with a table number in its list: the one answered
+    item before that was scoped to "32 tables", which matches no number, so
+    it never reached a table section."""
+    register = {"0001": [{
+        "id": "esc-0567-0568-deprecation", "title": "Deprecated?",
+        "who": "V2 Management + TSMG", "partial": False,
+        "resolution": {"who": "V2 Management", "forum": "V2 Management call",
+                       "date": "2026-09-23",
+                       "ruling": "Do nothing with them.",
+                       "effect": "Both value sets are withheld."},
+    }]}
+    page = render([], register=register)
+    assert "**Answered by a committee.**" in page
+    assert "**Open issues.**" not in page
+    assert "Do nothing with them." in page, "the ruling has to travel with it"
+    assert "2026-09-23" in page
+
+
+def test_open_and_answered_items_on_one_table_are_split():
+    register = {"0001": [
+        {"id": "esc-ucum-full-name", "title": "Copied name",
+         "who": "V2 Management", "partial": False},
+        {"id": "esc-0567-0568-deprecation", "title": "Deprecated?",
+         "who": "V2 Management", "partial": False,
+         "resolution": {"who": "V2 Management", "forum": "call",
+                        "date": "2026-09-23", "ruling": "Withhold.",
+                        "effect": "Not published."}},
+    ]}
+    page = render([], register=register)
+    assert "**Open issues.**" in page and "**Answered by a committee.**" in page
+    assert page.index("**Open issues.**") < page.index(
+        "**Answered by a committee.**"), "what is still open comes first"
+
+
 def test_pipes_in_a_value_cannot_break_the_table():
     page = render([{"kind": "discrepancy", "element": "concept.display",
                     "ours": "a|b", "tho": "c|d", "table": "0001",
