@@ -1,6 +1,6 @@
 # Chapter 2C defects, grouped for decision
 
-Review list for V2 Management — 35 open findings.
+Review list for V2 Management — 34 open findings.
 
 This document replaces the blanket policy question `esc-retain-known-errors`. V2 Management ruled on 2026-10-08 that There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.
 
@@ -252,21 +252,20 @@ The table's code system block gives a symbolic name actMood, a description of tb
 
 ### Three artifacts where one OID would end up naming two things, which versioning cannot reconcile
 
-**Tables:** 0001, 0078, 0719  
+**Tables:** 0001, 0719  
 **Goes to:** V2 Management + TSMG  
 **Register id:** `esc-oid-conflicts`
 
-*Why this class: One OID on two artifacts. An identifier that identifies two things identifies neither.*
+*Why this class: One OID on two artifacts, for 0001 and 0719. An identifier that identifies two things identifies neither. The third conflict, 0078, was removed rather than adjudicated.*
 
 Two artifacts carry a different identifier OID in Chapter 2C than the one THO publishes at the same canonical URL, and a third would create the same breach from the other direction. CodeSystem/v2-0001 Administrative Sex: the chapter gives 2.16.840.1.113883.18.458, THO publishes 2.16.840.1.113883.18.2. Both sit in the HL7 v2 code system arc, so neither is obviously a stray. This is the most widely implemented table in V2. The chapter's block is titled Jurisdiction Gender Code System, not Administrative Sex, and ...18.458 resolves to nothing anywhere in THO — so this may be a disagreement about which code system the table points at rather than a mistyped digit. ValueSet/v2-0719: the chapter gives 2.16.840.1.113883.1.11.20429, THO publishes ...20428. These are adjacent but they are not near-misses: both are v3 value set OIDs and both are in use, ...20428 for ActInformationSensitivityPolicy's parent InformationSensitivityPolicy and ...20429 for ActInformationSensitivityPolicy itself. THO's ValueSet/v2-0719 shares ...20428 with THO's own v3-InformationSensitivityPolicy — one OID on two artifacts — which fits THO's own description of 0719, that it “was created in THO in error due to an oversight in the import processing”. So the question is which v3 value set table 0719 corresponds to, not which digit is a typo. ValueSet/v2-0078 Interpretation Codes is different in kind, and the difference is the point: we create this one, THO does not. Chapter 2C prints the canonical http://terminology.hl7.org/ValueSet/v2-0078 for the table and the value set OID 2.16.840.1.113883.1.11.78. THO publishes nothing at that canonical, so this is a first publication rather than a disagreement with an existing artifact. But …1.11.78 is not free. THO's ValueSet/v3-ObservationInterpretation already carries it, on a value set whose content logical definition is byte-identical to the one we would write: a single bare include of CodeSystem/v3-ObservationInterpretation, no filter, no enumerated concepts. It is the only ValueSet in the snapshot with either that OID or that compose. So publishing v2-0078 at the chapter's canonical with the chapter's identifier puts one OID on two artifacts — the same policy breach this item already records for 0719. Why this is not a versioning question. The THO artifact versioning policy treats every other divergence found in this comparison as something a version increment covers. Identifiers are the exception: the policy states that an identifier cannot be changed or removed, that adding one makes it immutable, and that an identifier change requires a new artifact rather than a new version — “extreme care must be taken with identifiers”. Publishing our OID at THO's canonical would therefore be a policy violation, not a bump. Every other artifact agrees. Counting the tables where Chapter 2C and THO both give an OID for the same resource type: 395 of 396 code systems and 411 of 412 value sets carry identical identifiers. (0078 is not in that count: THO publishes no artifact at that canonical to compare against.)
 
 **What this guide publishes today:**
 
 - `0001` Administrative Sex: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
-- `0078` Interpretation Codes: ValueSet published; code system is another body's — VS 1.0.0 (held)
 - `0719` Access Restriction Reason Code: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
 
-**Decision needed:** Adjudicate each OID. For 0001, establish which of ...18.458 and ...18.2 is the registered identifier for the Administrative Sex code system, and correct the other source. For 0719, establish whether ...20429 or ...20428 is right. Until both are settled this project publishes THO's identifier rather than the chapter's, because the policy forbids changing a published identifier and the canonical URL is THO's. That is now enforced in the pipeline rather than left as a recommendation: the identifier is the one element where the chapter does not win a disagreement, because an identifier is identity rather than content. Both conflicts are recomputed on every run, so neither can drift out of view. A third option has been raised and needs ruling on: publish both OIDs as identifiers. identifier is 0..* on both CodeSystem and ValueSet, so it is mechanically available, and it would avoid choosing before the committees have. It is not obviously right: two identifiers on one artifact asserts that both OIDs name it, which for 0719 is demonstrably false — ...20429 names a different v3 value set, which THO also publishes. Carrying both would be defensible for 0001, where the two may be the same code system under two registrations, and misleading for 0719. Please rule per artifact rather than as a blanket policy. For 0078 the question is what this guide should publish, since neither source needs correcting. Three options: (a) keep the chapter's identifier, which is fidelity and creates the collision; (b) publish ValueSet/v2-0078 at its own canonical with no identifier, which avoids the collision at the cost of dropping something the chapter prints; (c) treat table 0078's value set as an alias of v3-ObservationInterpretation and publish no separate artifact, which the identical compose would support. Option (b) is not something this project will do on its own initiative. Silently dropping a published identifier is the same class of act as silently changing one, and the policy's “extreme care must be taken with identifiers” cuts both ways. It needs a ruling.
+**Decision needed:** Adjudicate each OID. For 0001, establish which of ...18.458 and ...18.2 is the registered identifier for the Administrative Sex code system, and correct the other source. For 0719, establish whether ...20429 or ...20428 is right. Until both are settled this project publishes THO's identifier rather than the chapter's, because the policy forbids changing a published identifier and the canonical URL is THO's. That is now enforced in the pipeline rather than left as a recommendation: the identifier is the one element where the chapter does not win a disagreement, because an identifier is identity rather than content. Both conflicts are recomputed on every run, so neither can drift out of view. A third option has been raised and needs ruling on: publish both OIDs as identifiers. identifier is 0..* on both CodeSystem and ValueSet, so it is mechanically available, and it would avoid choosing before the committees have. It is not obviously right: two identifiers on one artifact asserts that both OIDs name it, which for 0719 is demonstrably false — ...20429 names a different v3 value set, which THO also publishes. Carrying both would be defensible for 0001, where the two may be the same code system under two registrations, and misleading for 0719. Please rule per artifact rather than as a blanket policy. 0078 was the third conflict here and has been answered — see esc-0078-alias-of-v3. V2 Management ruled on 2026-10-14 that the existing v3-ObservationInterpretation serves and no second artifact is created, which removed that collision rather than adjudicating it. It is not a precedent for these two: 0078's collision existed only because this guide was about to create the second artifact, and 0001 and 0719 are conflicts between artifacts that already exist.
 
 ---
 
@@ -284,7 +283,7 @@ Chapter 2C carries three OIDs per table, in three separate metadata blocks, and 
 
 ---
 
-## The chapter contradicting itself (8)
+## The chapter contradicting itself (7)
 
 A table says two incompatible things about itself, so no reading of it is faithful. These cannot be reproduced faithfully — something has to be chosen — which is why they are the ones most likely to be producing a wrong artifact right now.
 
@@ -309,22 +308,21 @@ Both tables define their value set as a subtree of v3-ObservationValue. 0957 Emp
 
 ---
 
-### Two “tables” that carry no terminology at all
+### Table 9999 is a placeholder occupying a table number
 
-**Tables:** 0188, 9999  
+**Tables:** 9999  
 **Goes to:** V2 Management  
 **Register id:** `esc-tables-that-should-be-domains`
 
-*Why this class: Three table numbers carrying no terminology at all, one of them a placeholder occupying a number.*
+*Why this class: A placeholder occupying a table number. Its two companions in the original finding, 0010 and 0188, have both been withdrawn.*
 
-This item covered three tables. 0010 was answered on 2026-10-09 and is now its own item, esc-0010-withdrawn; what follows is the original finding, which measured all three together. Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no code system, no value set and no codes. 0010 Physician ID and 0188 Operator ID are User tables whose descriptions end “No suggested values” — they are site-defined identifiers, and were arguably never code tables. One measurement turns that judgement into a fact. Of the 799 sections only three carry no concept domain block at all, and of the 149 tables whose description says “No suggested values”, 147 carry one. The two that do not are 0010 and 0188. The chapter supplies a concept domain for every peer of these two and omitted it for exactly these two, so the omission is an outlier rather than the house style for site-defined identifiers. 9999 Placeholder Table Representation is not a table at all: it carries the literal placeholder strings noObject and noDescription, the same markers that appear in the two concept-domain-only tables. Checked against both THO and the UTG repository: there is no CodeSystem and no ValueSet for any of the three. Nothing has been minted for them and nothing needs to be withdrawn.
+This item covered three tables. 0010 and 0188 have both since been withdrawn — see esc-0010-withdrawn and esc-0188-withdrawn — leaving only 9999. What follows is the original finding, which measured all three together. Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no code system, no value set and no codes. 0010 Physician ID and 0188 Operator ID are User tables whose descriptions end “No suggested values” — they are site-defined identifiers, and were arguably never code tables. One measurement turns that judgement into a fact. Of the 799 sections only three carry no concept domain block at all, and of the 149 tables whose description says “No suggested values”, 147 carry one. The two that do not are 0010 and 0188. The chapter supplies a concept domain for every peer of these two and omitted it for exactly these two, so the omission is an outlier rather than the house style for site-defined identifiers. 9999 Placeholder Table Representation is not a table at all: it carries the literal placeholder strings noObject and noDescription, the same markers that appear in the two concept-domain-only tables. Checked against both THO and the UTG repository: there is no CodeSystem and no ValueSet for any of the three. Nothing has been minted for them and nothing needs to be withdrawn.
 
 **What this guide publishes today:**
 
-- `0188` Operator ID: nothing published
 - `9999` Placeholder Table Representation: nothing published
 
-**Decision needed:** Confirm that 0188 should be a concept domain rather than a code table, and decide what becomes of 9999 — a placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically. This project writes nothing for either of them. Note that 0010, the closest peer of 0188, was withdrawn rather than converted to a concept domain, which is evidence for what should happen here but not an answer: 0188 was not named in that ruling.
+**Decision needed:** Decide what becomes of 9999. A placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically, and this project writes nothing for it. Its two companions in this finding were both withdrawn, which is not an answer for 9999: 0010 and 0188 were real tables that stopped being needed, and 9999 was never a table at all.
 
 ---
 
@@ -379,24 +377,6 @@ The table is Type: HL7-EXT, stewarded by PA, and declares three code systems —
 - `0340` Procedure Code Modifier: concept domain only, no artifact
 
 **Decision needed:** Confirm that 0340 is correctly concept-domain-only and that the two rows are documentation of candidate external code systems rather than codes. If they are meant to be usable, they need to be expressed as external code system references rather than as grid rows.
-
----
-
-### Table 0133 says three incompatible things about itself, and THO publishes nine codes for it
-
-**Tables:** 0133  
-**Goes to:** V2 Management  
-**Register id:** `esc-0133-contradictory`
-
-*Why this class: Says three incompatible things about itself while THO publishes nine codes for it.*
-
-Table 0133 Procedure practitioner identifier code type carries three statements that cannot all hold. One: its concept domain block sets Concept Domain Only: yes, and it publishes no code system, no value set and no codes — so this project writes nothing for it, which is the correct reading of that flag. Two: its own table metadata describes it as a code set: “HL7-defined table of concepts which specify the different types of practitioners associated with this procedure. This set of codes is known to be incomplete.” A table that is concept-domain-only has no set of codes to be incomplete. Three: the same description says the table is obsolete — “as of v2.6, this table and the field(s) it was used in was replaced by table 443 used in the ROL segment” — yet its Type is undefined rather than anything marking it withdrawn, and it is still published in 2.9.1. Meanwhile THO publishes CodeSystem/v2-0133 with nine codes, content: complete and status: active, plus a matching value set. So the chapter says there are no codes, says the codes are incomplete, and says the table was superseded in v2.6, while THO says there are nine active ones. To be clear about what is not anomalous here, so this does not read as a fourth contradiction: a CodeSystem holding the concepts plus a ValueSet whose compose is a single bare include of it is THO's standard pair shape for a v2 table that owns its codes, and this guide generates the same pair for 399 tables. The pair is not the problem. The problem is that THO has anything at all for a table the chapter flags concept domain only and says 0443 replaced in v2.6, and that both resources are active with content: complete. This is why 0133 shows as In THO, not here on the table index: the divergence is real and is not ours to resolve.
-
-**What this guide publishes today:**
-
-- `0133` Procedure practitioner identifier code type: concept domain only, no artifact
-
-**Decision needed:** Decide what 0133 is. If it was genuinely replaced by table 0443 in v2.6, it should be marked withdrawn in the chapter and its THO code system and value set retired or deprecated, rather than left active. If it is still live, the Concept Domain Only flag contradicts both its own description and THO's nine codes, and one of the three has to give. Either way the description should stop asserting an incomplete code set for a table that publishes none.
 
 ---
 
@@ -554,21 +534,20 @@ This is the half of the 0567/0568 question that the 2026-09-23 ruling did not re
 
 ### User-defined tables are treated three different ways, and two of them get a freshly minted canonical
 
-**Tables:** 0460, 0411, 0093  
+**Tables:** 0460, 0093  
 **Goes to:** V2 Management  
 **Register id:** `esc-0460-user-defined-mint`
 
-*Why this class: Whether a user-defined table gets a minted code system.*
+*Why this class: Whether a user-defined table gets a minted code system. Sharper since 0411 was ruled concept-domain-only: 0460 is now the only minted canonical in the corpus.*
 
 0460 Denial or Rejection Code and 0411 Supplemental Service Information Values are the only two tables in the whole chapter for which this project mints a new CodeSystem canonical — every other code-bearing table either reuses a THO canonical or draws on another authority's code system. Both are Type: User. A user-defined table is by definition a set of suggested values that an implementation is expected to replace, so minting CodeSystem/v2-0460 publishes suggestions with the authority of a standard code system. The chapter is not consistent about this. Compare 0093 Release Information, also Type: User, which is declared concept-domain-only and so produces no code system and no value set at all — even though it lists Y and N in its grid. Three user tables, three outcomes: 0460 and 0411 get minted resources, 0093 gets nothing. Nothing in the chapter explains the difference. 0411 additionally has the defect already recorded above — the chapter prints a canonical for a resource that does not exist — and is a mess independent of this question.
 
 **What this guide publishes today:**
 
 - `0460` Denial or Rejection Code: CodeSystem + ValueSet published — CS 1.0.0 (held) VS 1.0.0 (held)
-- `0411` Supplemental Service Information Values: CodeSystem + ValueSet published — CS 1.0.0 (held) VS 1.0.0 (held)
 - `0093` Release Information: concept domain only, no artifact
 
-**Decision needed:** Decide what a user-defined table should produce. Options: a CodeSystem and ValueSet like any other (the current behaviour), a concept domain only (as 0093 is treated), or a ValueSet whose codes are marked as examples. The answer decides whether these two new canonicals should exist at all, and it should be applied to 0093 at the same time so that like tables are treated alike.
+**Decision needed:** 0411 has since been answered — it is concept domain only, see esc-0411-concept-domain-only — which sharpens this question rather than shrinking it. Two of the three user tables now produce nothing, leaving 0460 as the only minted CodeSystem canonical in the entire corpus. Decide what a user-defined table should produce. Options: a CodeSystem and ValueSet like any other (the current behaviour), a concept domain only (as 0093 is treated), or a ValueSet whose codes are marked as examples. The answer decides whether these two new canonicals should exist at all, and it should be applied to 0093 at the same time so that like tables are treated alike.
 
 ---
 

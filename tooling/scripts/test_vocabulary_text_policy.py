@@ -11,6 +11,9 @@ text, so the cases that matter most are the ones it must NOT change. Every
 import pytest
 
 from vocabulary_text_policy import (
+    CORRECTION_KINDS,
+    CORRECTION_TABLES,
+    EMPHASIS_ADDED,
     MANUAL_CORRECTIONS,
     MISSING_SPACE_CORRECTIONS,
     add_comma_after_abbreviation,
@@ -718,3 +721,48 @@ class TestMissingSpaceCorrections:
                 assert correction.corrected == correction.published.replace(
                     ".", ". ", 1), f"{table}: {correction.published!r}"
                 assert correction.why, f"{table}: a correction needs a reason"
+
+
+def test_emphasis_is_a_separate_kind_from_correction():
+    """Adding emphasis on a committee's instruction is a different act from
+    repairing a typo. The change log attributes a change to the decision that
+    authorised it, so the two must not share a kind."""
+    kinds = dict(CORRECTION_TABLES)
+    assert "emphasis_added" in kinds
+    assert kinds["emphasis_added"] is EMPHASIS_ADDED
+    assert "emphasis_added" in CORRECTION_KINDS
+
+
+def test_0133_warns_on_both_the_table_and_the_concept_domain():
+    """0133 is concept-domain-only, so the concept domain entry is the only
+    artifact this guide publishes for it. A warning on the table description
+    alone would reach the review pages and nothing a reader of the published
+    guide opens."""
+    table_text = ("HL7-defined table of concepts which specify the different "
+                  "types of practitioners associated with this procedure. "
+                  "This set of codes is known to be incomplete. Note that as "
+                  "of v2.6, this table and the field(s) it was used in was "
+                  "replaced by table 443 used in the ROL segment.")
+    domain_text = ("The domain of possible values of concepts which specify "
+                   "the different types of practitioners associated with "
+                   "this procedure.")
+
+    for text in (table_text, domain_text):
+        out, applied = apply_manual_corrections("0133", text)
+        assert "**" in out, f"no emphasis reached: {text[:40]}"
+        assert "replaced by table 0443" in out
+        assert [kind for kind, *_ in applied] == ["emphasis_added"]
+
+
+def test_the_chapters_own_sentence_survives_the_emphasis():
+    """Nothing published is removed. The added sentence sits alongside the
+    chapter's wording so the two can be compared."""
+    table_text = ("HL7-defined table of concepts which specify the different "
+                  "types of practitioners associated with this procedure. "
+                  "This set of codes is known to be incomplete. Note that as "
+                  "of v2.6, this table and the field(s) it was used in was "
+                  "replaced by table 443 used in the ROL segment.")
+    out, _ = apply_manual_corrections("0133", table_text)
+    assert ("Note that as of v2.6, this table and the field(s) it was used "
+            "in was replaced by table 443 used in the ROL segment." in out)
+

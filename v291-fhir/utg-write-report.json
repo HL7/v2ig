@@ -1,11 +1,11 @@
 {
   "counts": {
-    "code-system-and-value-set": 399,
+    "code-system-and-value-set": 398,
     "concept-domain-only": 358,
     "nothing-to-write": 3,
-    "value-set-only": 22,
-    "needs-decision": 15,
-    "suppressed-by-ruling": 2
+    "suppressed-by-ruling": 4,
+    "value-set-only": 21,
+    "needs-decision": 15
   },
   "tentativeOverrides": {
     "count": 1,
@@ -20,12 +20,16 @@
     ]
   },
   "ruledSuppressions": {
-    "count": 2,
+    "count": 4,
     "tables": [
+      "0078",
+      "0411",
       "0567",
       "0568"
     ],
     "registerItems": [
+      "esc-0078-alias-of-v3",
+      "esc-0411-concept-domain-only",
       "esc-0567-0568-deprecation"
     ]
   },
@@ -770,22 +774,12 @@
     },
     {
       "table": "0078",
-      "name": "Interpretation Codes",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0078.xml"
-      ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
-      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.83",
-      "valueSetVersion": {
-        "version": "1.0.0",
-        "reason": "THO publishes no such artifact, so this is a first publication.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "ValueSet/v2-0078 already exists under a different URL, ValueSet/v3-ObservationInterpretation. That value set is allowed to serve and no new one is created. This is noted in the ledger.",
+      "registerItem": "esc-0078-alias-of-v3",
+      "consequence": "ValueSet/v2-0078 is not written. It would have been a first publication at 1.0.0 -- THO has nothing at that canonical -- carrying a compose byte-identical to v3-ObservationInterpretation's and the OID 2.16.840.1.113883.1.11.78, which that value set already holds. Not writing it resolves the one-OID-on-two-artifacts conflict by removing the second artifact.",
+      "written": [],
+      "name": "Interpretation Codes"
     },
     {
       "table": "0080",
@@ -7075,31 +7069,12 @@
     },
     {
       "table": "0411",
-      "name": "Supplemental Service Information Values",
-      "action": "code-system-and-value-set",
-      "reason": "The code system is this table's own canonical.",
-      "written": [
-        "codeSystems/cs-v2-0411.xml",
-        "valueSets/vs-v2-0411.xml"
-      ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0411",
-      "resolvedBy": "published URI",
-      "codeSystemVersion": {
-        "version": "1.0.0",
-        "reason": "THO publishes no such artifact, so this is a first publication.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      },
-      "valueSetVersion": {
-        "version": "1.0.0",
-        "reason": "THO publishes no such artifact, so this is a first publication.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "Table 0411 should be concept domain only, so no CodeSystem and no ValueSet.",
+      "registerItem": "esc-0411-concept-domain-only",
+      "consequence": "Neither CodeSystem/v2-0411 nor ValueSet/v2-0411 is written. Both would have been first publications -- THO has nothing for this table -- and the CodeSystem was one of only two canonicals this guide minted anywhere in the corpus. The two codes the chapter lists, NDBS and CG, are no longer published as concepts. The table's concept domain is unaffected and continues to be published in CodeSystem/conceptdomains.",
+      "written": [],
+      "name": "Supplemental Service Information Values"
     },
     {
       "table": "0412",

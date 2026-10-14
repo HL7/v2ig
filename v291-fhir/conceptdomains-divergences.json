@@ -1647,7 +1647,7 @@
       "kind": "added_from_chapter_2c",
       "conceptDomain": "ProcedurePractitionerIdentifierCodeType",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
-      "chapter2C": "The domain of possible values of concepts which specify the different types of practitioners associated with this procedure.",
+      "chapter2C": "The domain of possible values of concepts which specify the different types of practitioners associated with this procedure. **Table 0133 was discontinued as of v2.6 and replaced by table 0443, used in the ROL segment.**",
       "tables": [
         "0133"
       ]

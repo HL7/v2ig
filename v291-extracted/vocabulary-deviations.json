@@ -1,5 +1,5 @@
 {
-  "extractionDate": "2026-08-20",
+  "extractionDate": "2026-10-14",
   "sourceFile": "CH02C_Tables.docx",
   "policy": {
     "normalized": [
@@ -17,7 +17,8 @@
       "repeated_space_collapsed",
       "missing_comma_after_abbreviation",
       "manual_correction",
-      "missing_space_correction"
+      "missing_space_correction",
+      "emphasis_added"
     ],
     "preserved": [
       "internal_double_space",
@@ -42,6 +43,7 @@
       "repeated_space_collapsed": 150,
       "missing_comma_after_abbreviation": 62,
       "double_space_after_sentence_close": 6,
+      "emphasis_added": 2,
       "mojibake_non_breaking_space": 1,
       "non_breaking_space_in_text": 4,
       "missing_space_correction": 10,
@@ -77,6 +79,7 @@
     "missing_comma_after_abbreviation": 60,
     "double_space_after_sentence_close": 6,
     "leading_trailing_whitespace": 44,
+    "emphasis_added": 2,
     "mojibake_non_breaking_space": 1,
     "non_breaking_space_in_text": 2,
     "missing_space_correction": 10,
@@ -125,6 +128,10 @@
       "valueSet.Description": 6,
       "tableMetadata.Description": 4,
       "valueSet.Content Logical Definition": 2
+    },
+    "emphasis_added": {
+      "conceptDomain.Description": 1,
+      "tableMetadata.Description": 1
     },
     "leading_trailing_whitespace": {
       "codedContent.comment": 8,
@@ -13554,6 +13561,52 @@
           "raw": "This value set includes codes from the following code systems:\n\nInclude codes from http://snomed.info/sct   where concept is-a 49062001 (Device)",
           "section": "valueSet",
           "field": "Content Logical Definition"
+        }
+      ]
+    },
+    {
+      "kind": "emphasis_added",
+      "action": "normalized",
+      "section": "conceptDomain",
+      "field": "Description",
+      "count": 1,
+      "tables": [
+        "0133"
+      ],
+      "deviations": [
+        {
+          "kind": "emphasis_added",
+          "action": "normalized",
+          "tableNumber": "0133",
+          "location": "conceptDomain.Description",
+          "raw": "The domain of possible values of concepts which specify the different types of practitioners associated with this procedure.",
+          "normalized": "The domain of possible values of concepts which specify the different types of practitioners associated with this procedure. **Table 0133 was discontinued as of v2.6 and replaced by table 0443, used in the ROL segment.**",
+          "placesChanged": 1,
+          "section": "conceptDomain",
+          "field": "Description"
+        }
+      ]
+    },
+    {
+      "kind": "emphasis_added",
+      "action": "normalized",
+      "section": "tableMetadata",
+      "field": "Description",
+      "count": 1,
+      "tables": [
+        "0133"
+      ],
+      "deviations": [
+        {
+          "kind": "emphasis_added",
+          "action": "normalized",
+          "tableNumber": "0133",
+          "location": "tableMetadata.Description",
+          "raw": "HL7-defined table of concepts which specify the different types of practitioners associated with this procedure. This set of codes is known to be incomplete. Note that as of v2.6, this table and the field(s) it was used in was replaced by table 443 used in the ROL segment.",
+          "normalized": "HL7-defined table of concepts which specify the different types of practitioners associated with this procedure. This set of codes is known to be incomplete. **This table was discontinued as of v2.6 and replaced by table 0443, used in the ROL segment.** Note that as of v2.6, this table and the field(s) it was used in was replaced by table 443 used in the ROL segment.",
+          "placesChanged": 1,
+          "section": "tableMetadata",
+          "field": "Description"
         }
       ]
     },

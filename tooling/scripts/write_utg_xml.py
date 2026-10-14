@@ -357,6 +357,33 @@ TENTATIVE_OVERRIDES = {
 Suppression = namedtuple("Suppression", "ruling register_item consequence")
 
 RULED_SUPPRESSIONS = {
+    "0078": Suppression(
+        ruling="ValueSet/v2-0078 already exists under a different URL, "
+               "ValueSet/v3-ObservationInterpretation. That value set is "
+               "allowed to serve and no new one is created. This is noted in "
+               "the ledger.",
+        register_item="esc-0078-alias-of-v3",
+        consequence="ValueSet/v2-0078 is not written. It would have been a "
+                    "first publication at 1.0.0 -- THO has nothing at that "
+                    "canonical -- carrying a compose byte-identical to "
+                    "v3-ObservationInterpretation's and the OID "
+                    "2.16.840.1.113883.1.11.78, which that value set already "
+                    "holds. Not writing it resolves the one-OID-on-two-"
+                    "artifacts conflict by removing the second artifact.",
+    ),
+    "0411": Suppression(
+        ruling="Table 0411 should be concept domain only, so no CodeSystem "
+               "and no ValueSet.",
+        register_item="esc-0411-concept-domain-only",
+        consequence="Neither CodeSystem/v2-0411 nor ValueSet/v2-0411 is "
+                    "written. Both would have been first publications -- THO "
+                    "has nothing for this table -- and the CodeSystem was "
+                    "one of only two canonicals this guide minted anywhere "
+                    "in the corpus. The two codes the chapter lists, NDBS "
+                    "and CG, are no longer published as concepts. The "
+                    "table's concept domain is unaffected and continues to "
+                    "be published in CodeSystem/conceptdomains.",
+    ),
     "0567": Suppression(
         ruling="Tables 0567 and 0568 should never have been created. Their "
                "value sets will be retired by a separate Jira ticket against "

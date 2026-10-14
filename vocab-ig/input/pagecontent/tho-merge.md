@@ -87,10 +87,10 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 
 | Outcome | Count |
 |---|---:|
-| codeSystem: first publication at 1.0.0 | 2 |
+| codeSystem: first publication at 1.0.0 | 1 |
 | codeSystem: incremented | 58 |
 | codeSystem: unchanged, THO's version kept | 339 |
-| valueSet: first publication at 1.0.0 | 9 |
+| valueSet: first publication at 1.0.0 | 7 |
 | valueSet: incremented | 20 |
 | valueSet: unchanged, THO's version kept | 392 |
 

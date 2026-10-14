@@ -207,8 +207,9 @@ CLASSIFICATION = {
         "The URI of the v3 code system the table draws from is omitted."),
     "esc-oid-conflicts": (
         "wrong-identifier",
-        "One OID on two artifacts. An identifier that identifies two things "
-        "identifies neither."),
+        "One OID on two artifacts, for 0001 and 0719. An identifier that "
+        "identifies two things identifies neither. The third conflict, "
+        "0078, was removed rather than adjudicated."),
     "esc-table-oid-unpublished": (
         "wrong-identifier",
         "The Table OID arc is published nowhere. A default rather than a "
@@ -216,10 +217,6 @@ CLASSIFICATION = {
     "esc-0459-unresolvable-oid": (
         "wrong-identifier",
         "An OID that resolves to nothing. Blocks the table mechanically."),
-    "esc-0133-contradictory": (
-        "self-contradiction",
-        "Says three incompatible things about itself while THO publishes "
-        "nine codes for it."),
     "esc-0292-cdo-contradiction": (
         "self-contradiction",
         "Flagged concept-domain-only in the same section that names its code "
@@ -236,8 +233,8 @@ CLASSIFICATION = {
         "divergence; the chapter does not say which."),
     "esc-tables-that-should-be-domains": (
         "self-contradiction",
-        "Three table numbers carrying no terminology at all, one of them a "
-        "placeholder occupying a number."),
+        "A placeholder occupying a table number. Its two companions in the "
+        "original finding, 0010 and 0188, have both been withdrawn."),
     "esc-0823-not-in-tho": (
         "self-contradiction",
         "The chapter publishes a table THO has nothing for, and the guide "
@@ -261,7 +258,9 @@ CLASSIFICATION = {
         "ruling that retired 0567 and 0568."),
     "esc-0460-user-defined-mint": (
         "representation",
-        "Whether a user-defined table gets a minted code system."),
+        "Whether a user-defined table gets a minted code system. Sharper "
+        "since 0411 was ruled concept-domain-only: 0460 is now the only "
+        "minted canonical in the corpus."),
     "esc-punctuation-codes": (
         "representation",
         "Twenty-three concepts whose code is nothing but punctuation. Part "

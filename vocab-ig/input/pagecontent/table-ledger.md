@@ -601,13 +601,11 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 <p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: value set only.*
+*Route: withheld on a ruling.*
 
-- Value set **1.0.0** — THO publishes no such artifact, so this is a first publication.
+**Answered by a committee.**
 
-**Open issues.**
-
-- `esc-oid-conflicts` — Three artifacts where one OID would end up naming two things, which versioning cannot reconcile — *V2 Management + TSMG*
+- `esc-0078-alias-of-v3` — Table 0078 _Interpretation Codes_ duplicates an existing THO value set under a new URL — *V2 Management, 2026-10-14*<br/><span class="tl-note">The value set already exists, just at a different URL: `ValueSet-v3-ObservationInterpretation`. That value set is allowed to serve and no new one is created. The situation is noted in the ledger. This keeps fidelity to Chapter 2C in as much as the guide is simply not adding something, rather than doing something different.</span>
 
 <a id="tbl-0080"></a>
 
@@ -1078,9 +1076,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0133 | 27 other tables |
 | Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0133 | 27 other tables |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-0133-contradictory` — Table 0133 says three incompatible things about itself, and THO publishes nine codes for it — *V2 Management*
+- `esc-0133-contradictory` — Table 0133 says three incompatible things about itself, and THO publishes nine codes for it — *V2 Management, 2026-10-14*<br/><span class="tl-note">Manipulate the markdown description so it jumps out that this is a discontinued code system as of v2.6 that was replaced.</span>
 
 <a id="tbl-0135"></a>
 
@@ -1720,9 +1718,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 *Route: nothing written.*
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-tables-that-should-be-domains` — Two “tables” that carry no terminology at all — *V2 Management*
+- `esc-0188-withdrawn` — Table 0188 _Operator ID_ carries no terminology and is withdrawn — *V2 Management, 2026-10-14*<br/><span class="tl-note">Same situation as table 0010: the table goes away, and terminology bindings to it are removed as v2+ is prepared.</span>
 
 <a id="tbl-0189"></a>
 
@@ -4774,14 +4772,11 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: code system + value set.*
+*Route: withheld on a ruling.*
 
-- Code system **1.0.0** — THO publishes no such artifact, so this is a first publication.
-- Value set **1.0.0** — THO publishes no such artifact, so this is a first publication.
+**Answered by a committee.**
 
-**Open issues.**
-
-- `esc-0460-user-defined-mint` — User-defined tables are treated three different ways, and two of them get a freshly minted canonical — *V2 Management*
+- `esc-0411-concept-domain-only` — Table 0411 _Supplemental Service Information Values_ is concept domain only — *V2 Management, 2026-10-14*<br/><span class="tl-note">Table 0411 should be concept domain only, so no code system and no value set.</span>
 
 <a id="tbl-0415"></a>
 
@@ -8843,7 +8838,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
-- `esc-tables-that-should-be-domains` — Two “tables” that carry no terminology at all — *V2 Management*
+- `esc-tables-that-should-be-domains` — Table 9999 is a placeholder occupying a table number — *V2 Management*
 
 ### Canonicals with no Chapter 2C table
 

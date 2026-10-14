@@ -42,7 +42,7 @@
     <description value="A code that indicates the status of the concept"/>
     <type value="code"/>
   </property>
-  <concept id="55046">
+  <concept id="55044">
     <code value="0"/>
     <display value="Line item not denied or rejected"/>
     <property>
@@ -50,7 +50,7 @@
       <valueCode value="active"/>
     </property>
   </concept>
-  <concept id="55047">
+  <concept id="55045">
     <code value="1"/>
     <display value="Line item denied or rejected"/>
     <property>
@@ -58,7 +58,7 @@
       <valueCode value="active"/>
     </property>
   </concept>
-  <concept id="55048">
+  <concept id="55046">
     <code value="2"/>
     <display value="Line item is on a multiple-day claim. The line item is not denied or rejected, but occurs on a day that has been denied or rejected."/>
     <property>

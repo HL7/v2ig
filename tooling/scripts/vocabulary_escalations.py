@@ -877,13 +877,15 @@ ESCALATIONS = [
     {
         "id": "esc-tables-that-should-be-domains",
         "who": "V2 Management",
-        "tables": "0188, 9999",
-        "title": "Two &ldquo;tables&rdquo; that carry no terminology at all",
+        "tables": "9999",
+        "title": "Table 9999 is a placeholder occupying a table number",
         "body":
-            "<b>This item covered three tables. 0010 was answered on "
-            "2026-10-09 and is now its own item, "
-            "<code>esc-0010-withdrawn</code>; what follows is the original "
-            "finding, which measured all three together.</b> "
+            "<b>This item covered three tables. 0010 and 0188 have both "
+            "since been withdrawn &mdash; see "
+            "<code>esc-0010-withdrawn</code> and "
+            "<code>esc-0188-withdrawn</code> &mdash; leaving only 9999. "
+            "What follows is the original finding, which measured all three "
+            "together.</b> "
             "Of the 799 sections in Chapter 2C, exactly three declare no "
             "concept domain, no code system, no value set and no codes. "
             "<code>0010</code> <i>Physician ID</i> and <code>0188</code> "
@@ -906,14 +908,13 @@ ESCALATIONS = [
             "CodeSystem and no ValueSet for any of the three.</b> Nothing has "
             "been minted for them and nothing needs to be withdrawn.",
         "ask":
-            "Confirm that 0188 should be a concept domain rather than a "
-            "code table, and decide what becomes of 9999 &mdash; a "
-            "placeholder that occupies a table number is a trap for anyone "
-            "generating resources from the chapter mechanically. This project "
-            "writes nothing for either of them. <b>Note that 0010, the "
-            "closest peer of 0188, was withdrawn rather than converted to a "
-            "concept domain</b>, which is evidence for what should happen "
-            "here but not an answer: 0188 was not named in that ruling.",
+            "Decide what becomes of 9999. A placeholder that occupies a "
+            "table number is a trap for anyone generating resources from "
+            "the chapter mechanically, and this project writes nothing for "
+            "it. <b>Its two companions in this finding were both "
+            "withdrawn</b>, which is not an answer for 9999: 0010 and 0188 "
+            "were real tables that stopped being needed, and 9999 was never "
+            "a table at all.",
     },
     {
         "id": "esc-0010-withdrawn",
@@ -963,6 +964,52 @@ ESCALATIONS = [
                       "table of this shape, is <b>not</b> answered by this "
                       "ruling and stays open as "
                       "<code>esc-tables-that-should-be-domains</code>.",
+        },
+    },
+    {
+        "id": "esc-0188-withdrawn",
+        "who": "V2 Management",
+        "tables": "0188",
+        "title": "Table 0188 <i>Operator ID</i> carries no terminology and "
+                 "is withdrawn",
+        "body":
+            "The companion of <code>esc-0010-withdrawn</code>, and ruled on "
+            "the same way. 0188 is one of three sections in Chapter 2C that "
+            "declare no concept domain, no code system, no value set and no "
+            "codes. It is a <code>User</code> table whose description ends "
+            "&ldquo;No suggested values&rdquo; &mdash; a site-defined "
+            "identifier that was arguably never a code table. "
+            "The omission is an outlier rather than house style: of the 149 "
+            "tables whose description says &ldquo;No suggested values&rdquo;, "
+            "<b>147 carry a concept domain block</b>. The two that do not "
+            "are 0010 and 0188. "
+            "Neither THO nor the UTG repository has a CodeSystem or a "
+            "ValueSet for it, so nothing was ever minted and nothing needs "
+            "withdrawing from THO. "
+            "<b>As with 0010, what it does have is bindings</b> that name "
+            "the table in the source of truth and will point at a table "
+            "that no longer exists.",
+        "ask":
+            "Answered. Kept because the binding removal is work this "
+            "project has to do, and the ruling is the authority for doing "
+            "it.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-14",
+            "ruling": "Same situation as table 0010: the table goes away, "
+                      "and terminology bindings to it are removed as v2+ is "
+                      "prepared.",
+            "effect": "Nothing changes in the vocabulary IG. This guide "
+                      "already writes no artifact for 0188 and routes it "
+                      "<code>nothing-to-write</code>, so there is nothing to "
+                      "suppress and no artifact to withdraw. "
+                      "<b>The work is in the v2+ IG</b>, removing the "
+                      "bindings that name table 0188, and belongs to the "
+                      "structural workstream exactly as 0010's does. "
+                      "<code>esc-tables-that-should-be-domains</code> now "
+                      "covers only 9999, which was never a table and is not "
+                      "answered by either ruling.",
         },
     },
     {
@@ -1340,7 +1387,7 @@ ESCALATIONS = [
     {
         "id": "esc-0460-user-defined-mint",
         "who": "V2 Management",
-        "tables": "0460, 0411, 0093",
+        "tables": "0460, 0093",
         "title": "User-defined tables are treated three different ways, and "
                  "two of them get a freshly minted canonical",
         "body":
@@ -1366,6 +1413,12 @@ ESCALATIONS = [
             "the chapter prints a canonical for a resource that does not "
             "exist &mdash; and is a mess independent of this question.",
         "ask":
+            "<b>0411 has since been answered &mdash; it is concept domain "
+            "only, see <code>esc-0411-concept-domain-only</code> &mdash; "
+            "which sharpens this question rather than shrinking it.</b> Two "
+            "of the three user tables now produce nothing, leaving "
+            "<b>0460 as the only minted CodeSystem canonical in the entire "
+            "corpus</b>. "
             "Decide what a user-defined table should produce. Options: a "
             "CodeSystem and ValueSet like any other (the current behaviour), "
             "a concept domain only (as 0093 is treated), or a ValueSet whose "
@@ -1373,6 +1426,59 @@ ESCALATIONS = [
             "two new canonicals should exist at all, and it should be "
             "applied to 0093 at the same time so that like tables are "
             "treated alike.",
+    },
+    {
+        "id": "esc-0411-concept-domain-only",
+        "who": "V2 Management",
+        "tables": "0411",
+        "title": "Table 0411 <i>Supplemental Service Information Values</i> "
+                 "is concept domain only",
+        "body":
+            "Split from <code>esc-0460-user-defined-mint</code>, which asks "
+            "what a user-defined table should produce across three tables; "
+            "0411 has been answered and 0460 and 0093 have not. "
+            "0411 was one of only <b>two</b> tables in the whole chapter for "
+            "which this guide minted a new CodeSystem canonical &mdash; "
+            "every other code-bearing table either reuses a THO canonical or "
+            "draws on another authority's code system. THO has no CodeSystem "
+            "and no ValueSet for it, so both resources were first "
+            "publications. "
+            "The table is <code>Type: User</code> and lists two codes, "
+            "<code>NDBS</code> and <code>CG</code>. It also carries the "
+            "defect recorded under "
+            "<code>esc-retain-known-errors</code>: the chapter prints a "
+            "canonical for a code system resource that does not exist.",
+        "ask":
+            "Answered. Kept because the two codes the chapter publishes stop "
+            "appearing anywhere as a result, which a reader of the chapter "
+            "may come looking for.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-14",
+            "ruling": "Table 0411 should be concept domain only, so no code "
+                      "system and no value set.",
+            "effect": "Both <code>CodeSystem/v2-0411</code> and "
+                      "<code>ValueSet/v2-0411</code> are withheld. This "
+                      "removes one of the two minted canonicals, and with it "
+                      "the defect that the chapter prints a canonical for a "
+                      "resource that does not exist &mdash; it now does not "
+                      "exist here either, deliberately. "
+                      "<b>The chapter's two codes, <code>NDBS</code> and "
+                      "<code>CG</code>, are no longer published as "
+                      "concepts anywhere.</b> That is what the ruling asks "
+                      "for and it is worth stating plainly, because it is "
+                      "content the chapter prints and this guide now does "
+                      "not. The concept domain is unaffected. "
+                      "<b>0460 and 0093 are not answered by this ruling</b> "
+                      "and stay open on "
+                      "<code>esc-0460-user-defined-mint</code>. The original "
+                      "finding asked for the three to be treated alike; this "
+                      "ruling moves 0411 to the same outcome as 0093, which "
+                      "leaves <b>0460 as the only minted canonical in the "
+                      "corpus</b> and makes it more of an outlier than it "
+                      "was, not less.",
+        },
     },
     {
         "id": "esc-0725-missing-uri",
@@ -1695,11 +1801,99 @@ ESCALATIONS = [
             "and one of the three has to give. Either way the description "
             "should stop asserting an incomplete code set for a table that "
             "publishes none.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-14",
+            "ruling": "Manipulate the markdown description so it jumps out "
+                      "that this is a discontinued code system as of v2.6 "
+                      "that was replaced.",
+            "effect": "The table description now carries a bolded statement "
+                      "ahead of the chapter's own sentence &mdash; "
+                      "<i>&ldquo;This table was discontinued as of v2.6 and "
+                      "replaced by table 0443, used in the ROL "
+                      "segment.&rdquo;</i> &mdash; as markdown, which the "
+                      "publisher renders as bold. It is recorded in "
+                      "<code>vocabulary_text_policy.py</code> under a new "
+                      "<code>EMPHASIS_ADDED</code> table rather than among "
+                      "the corrections, because adding emphasis on a "
+                      "committee's instruction is a different act from "
+                      "repairing a typo and the change log should not "
+                      "conflate them. The chapter's original sentence is "
+                      "kept after the added one, so nothing published is "
+                      "removed and the two can be compared. "
+                      "<b>What the ruling does not change:</b> the table is "
+                      "still <code>Concept Domain Only: yes</code>, so this "
+                      "guide publishes no code system and no value set for "
+                      "it, and THO still publishes nine active concepts at "
+                      "<code>CodeSystem/v2-0133</code> with "
+                      "<code>content: complete</code>. The contradiction "
+                      "between the two bodies is unresolved &mdash; the "
+                      "description now warns a reader about it. Whether "
+                      "THO's pair should be retired is a TSMG question that "
+                      "has not been put to them.",
+        },
+    },
+    {
+        "id": "esc-0078-alias-of-v3",
+        "who": "V2 Management",
+        "tables": "0078",
+        "title": "Table 0078 <i>Interpretation Codes</i> duplicates an "
+                 "existing THO value set under a new URL",
+        "body":
+            "Split from <code>esc-oid-conflicts</code>, which asked about "
+            "three OIDs; this third of it has been answered and the other "
+            "two are still open. "
+            "Chapter 2C prints the canonical "
+            "<code>http://terminology.hl7.org/ValueSet/v2-0078</code> and the "
+            "value set OID <code>2.16.840.1.113883.1.11.78</code>. THO "
+            "publishes nothing at that canonical, so writing it would be a "
+            "first publication rather than a disagreement &mdash; but the "
+            "OID is not free. THO's "
+            "<code>ValueSet/v3-ObservationInterpretation</code> already "
+            "carries it, on a value set whose content logical definition is "
+            "<i>byte-identical</i> to the one this guide would write: a "
+            "single bare include of "
+            "<code>CodeSystem/v3-ObservationInterpretation</code>, no "
+            "filter, no enumerated concepts. It is the only ValueSet in the "
+            "snapshot with either that OID or that compose. Publishing "
+            "<code>v2-0078</code> would therefore put <b>one OID on two "
+            "artifacts</b> &mdash; the policy breach "
+            "<code>esc-oid-conflicts</code> records for 0719.",
+        "ask":
+            "Answered. Kept because the ledger note the ruling calls for is "
+            "work this project has to do.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-14",
+            "ruling": "The value set already exists, just at a different "
+                      "URL: <code>ValueSet-v3-ObservationInterpretation</code>. "
+                      "That value set is allowed to serve and no new one is "
+                      "created. The situation is noted in the ledger. This "
+                      "keeps fidelity to Chapter 2C in as much as the guide "
+                      "is simply not adding something, rather than doing "
+                      "something different.",
+            "effect": "<code>ValueSet/v2-0078</code> is no longer written. "
+                      "It had been a first publication at 1.0.0 carrying the "
+                      "chapter's OID, so dropping it removes the second "
+                      "artifact that the OID collision was about &mdash; "
+                      "resolving that third of "
+                      "<code>esc-oid-conflicts</code> without having to "
+                      "choose between two identifiers. The register's option "
+                      "<b>(c)</b> for this table, which the identical "
+                      "compose was said to support. "
+                      "<b>0001 and 0719 are not answered by this ruling</b> "
+                      "and stay open on <code>esc-oid-conflicts</code>: "
+                      "those are genuine conflicts between two existing "
+                      "artifacts, where this one was avoidable by not "
+                      "creating the second.",
+        },
     },
     {
         "id": "esc-oid-conflicts",
         "who": "V2 Management + TSMG",
-        "tables": "0001, 0078, 0719",
+        "tables": "0001, 0719",
         "title": "Three artifacts where one OID would end up naming two "
                  "things, which versioning cannot reconcile",
         "body":
@@ -1789,21 +1983,15 @@ ESCALATIONS = [
             "for 0001, where the two may be the same code system under two "
             "registrations, and misleading for 0719. <b>Please rule per "
             "artifact rather than as a blanket policy.</b> "
-            "<b>For 0078 the question is what this guide should publish</b>, "
-            "since neither source needs correcting. Three options: <b>(a)</b> "
-            "keep the chapter's identifier, which is fidelity and creates the "
-            "collision; <b>(b)</b> publish "
-            "<code>ValueSet/v2-0078</code> at its own canonical with no "
-            "identifier, which avoids the collision at the cost of dropping "
-            "something the chapter prints; <b>(c)</b> treat table 0078's "
-            "value set as an alias of "
-            "<code>v3-ObservationInterpretation</code> and publish no "
-            "separate artifact, which the identical compose would support. "
-            "<b>Option (b) is not something this project will do on its own "
-            "initiative.</b> Silently dropping a published identifier is the "
-            "same class of act as silently changing one, and the policy's "
-            "&ldquo;extreme care must be taken with identifiers&rdquo; cuts "
-            "both ways. It needs a ruling.",
+            "<b>0078 was the third conflict here and has been answered</b> "
+            "&mdash; see <code>esc-0078-alias-of-v3</code>. V2 Management "
+            "ruled on 2026-10-14 that the existing "
+            "<code>v3-ObservationInterpretation</code> serves and no second "
+            "artifact is created, which removed that collision rather than "
+            "adjudicating it. <b>It is not a precedent for these two:</b> "
+            "0078's collision existed only because this guide was about to "
+            "create the second artifact, and 0001 and 0719 are conflicts "
+            "between artifacts that already exist.",
     },
     {
         "id": "esc-table-oid-unpublished",

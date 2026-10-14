@@ -666,12 +666,66 @@ MISSING_SPACE_CORRECTIONS = {
 }
 
 
+# --------------------------------------------------------------------------
+# Emphasis added on a committee ruling
+# --------------------------------------------------------------------------
+#
+# Not corrections. The two tables above repair text that is wrong -- a space
+# before a comma, a missing space after a period -- and both are defensible
+# as technical corrections because they do not change what the text says.
+# These change what the text *emphasises*, at a committee's explicit
+# direction, and that is a different kind of act which should not hide inside
+# a table called CORRECTIONS.
+#
+# The distinction matters for the change log: a reader auditing this guide's
+# departures from the published chapter should be able to separate "we fixed
+# a typo" from "a committee told us to make something stand out". The first
+# needs no authority beyond the errata guidance; the second needs a named
+# ruling, and every entry here carries one.
+#
+# Markdown is deliberate. These descriptions are rendered as markdown by the
+# IG Publisher, so `**text**` reaches the reader as bold. That is the whole
+# mechanism the ruling asked for -- see `esc-0133-contradictory`.
+EMPHASIS_ADDED = {
+    "0133": (
+        Correction(
+            "Note that as of v2.6, this table and the field(s) it was used "
+            "in was replaced by table 443 used in the ROL segment.",
+            "**This table was discontinued as of v2.6 and replaced by table "
+            "0443, used in the ROL segment.** Note that as of v2.6, this "
+            "table and the field(s) it was used in was replaced by table 443 "
+            "used in the ROL segment.",
+            "V2 Management, 2026-10-14: make it jump out that this is a "
+            "discontinued code system, replaced as of v2.6. The original "
+            "sentence is kept after the added one rather than rewritten, so "
+            "the chapter's own wording is still there to compare against and "
+            "nothing published is removed."),
+        Correction(
+            "The domain of possible values of concepts which specify the "
+            "different types of practitioners associated with this "
+            "procedure.",
+            "The domain of possible values of concepts which specify the "
+            "different types of practitioners associated with this "
+            "procedure. **Table 0133 was discontinued as of v2.6 and "
+            "replaced by table 0443, used in the ROL segment.**",
+            "The same warning on the concept domain description, which is "
+            "a different field from the one above. It is needed because "
+            "0133 is concept-domain-only: the concept domain entry is the "
+            "*only* artifact this guide publishes for the table, so a "
+            "warning that reached the table description alone would appear "
+            "on the review pages and nowhere a reader of the published "
+            "guide would meet it."),
+    ),
+}
+
+
 # Every table of individual corrections, with the rule kind each one reports
 # under. The kind is what the change log and the review report use to attribute
 # a change to its decision, so a new table needs a new kind, not a reused one.
 CORRECTION_TABLES = (
     ("manual_correction", MANUAL_CORRECTIONS),
     ("missing_space_correction", MISSING_SPACE_CORRECTIONS),
+    ("emphasis_added", EMPHASIS_ADDED),
 )
 
 # The kinds the tables above report under. Callers that count or describe every
