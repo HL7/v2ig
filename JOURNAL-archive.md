@@ -2,7 +2,123 @@
 
 Older session entries, moved out of `JOURNAL.md` to keep session-start context lean. Append-only; read on demand only — not loaded at session start.
 
-The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-09-29**, when the 2026-09-20 *"Built, verified, and briefed for Rockville"* entry came across: the active `JOURNAL.md` now starts at the 2026-09-21 *"The ledger stops asking questions it already knows the answer to"* entry, and everything earlier is below.
+The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-10-14**, when the 2026-09-21 *"The ledger stops asking questions it already knows the answer to"* entry came across: the active `JOURNAL.md` now starts at the 2026-09-22 *"The first ruling, and somewhere to put the next one"* entry, and everything earlier is below.
+
+---
+
+## 2026-09-21 — The ledger stops asking questions it already knows the answer to
+
+Worked from the HL7 Plenary in Rockville in short stretches around the
+Terminology Infrastructure WG meeting. Six commits, two builds, both clean.
+
+### The reviewer read the ledger and found it was shouting
+
+The report said 489 "Differences from THO", each row framed as something a
+committee might have to adjudicate. Reading it in anger, the reviewer noticed
+rows that "amount only to capitalization changes in the display value", and
+then that the same applied to status `N` becoming `active`.
+
+Counting bore it out, and the numbers were worse than the complaint: **287 of
+489 were never questions.** 211 were THO carrying the V2 status letter where
+this guide carries the FHIR status it maps to; 76 were the same words styled
+differently. Only 202 were real, and they were being crowded out.
+
+**Two things were wrong underneath the presentation, and neither was visible
+from the page.**
+
+The status ruling *already existed*. `INHERITED_STATUS_CORRECTIONS` has said
+`N` reads as `active` since the merge was written, with a docstring explaining
+why. But it is reached only by `correct_inherited_status`, which handles
+concepts taken wholesale from THO — **one record in the corpus**. The 209
+concepts both sides carry went through generic property comparison and came out
+as unexplained differences. The same fact got two treatments depending on which
+code path found it, and nothing anywhere said so.
+
+And `is_editorial()` never reached concept level. It was recorded on
+description, purpose and name — 14 records — while concept display and
+properties got nothing. Worse, because `words()` lowercases, capitalisation
+*would* have been swallowed into "punctuation" had the flag reached them,
+losing the one distinction that turned out to matter.
+
+So the fix was not a new idea, it was applying two existing ones consistently
+and giving case a direction.
+
+### The carve-out, and why it is not symmetrical
+
+The reviewer chose to **publish THO's capitalisation** where THO is the more
+capitalised side, rather than only reclassifying. That is a genuine exception
+to chapter-wins and is recorded as **ADR-0012**. It is defensible because the
+words are identical — the chapter loses nothing — and re-lower-casing a display
+THO had tidied would make the artifact worse for no reason. Five displays,
+tables 0203 and 0396. **No version moved**; both were already incrementing.
+
+The reverse is deliberately *not* symmetrical, and this is the part worth
+remembering. `tho-dropped` is ambiguous in a way `tho-added` is not: the one
+real instance is THO correctly lower-casing "for" in *Sex Parameter For
+Clinical Use*, which is an improvement — but the identical signature would be
+produced by THO losing a proper noun. Only a person can tell those apart, so
+they are surfaced rather than absorbed in either direction.
+
+**Looking at the data kept the carve-out honest twice.** The seven case-only
+differences were not all displays: one is a resource `name`,
+`Hl7VSStateProvince` against `Hl7VsStateProvince`, where *ours* is arguably
+right because VS abbreviates ValueSet. `name` is identity-adjacent and had to
+be excluded. The reviewer then asked a sharper question — whether the casing
+was the *only* thing driving that artifact's version — and the write report
+answered it outright: table 0347 increments on `compose.include`, `name` **and**
+`title`. Three triggers, so the condition did not bind and nothing changed.
+
+### Then the briefing failed in the way documents do
+
+The reviewer, holding the briefing in a meeting: the asks name a problem but
+give no way to get to the evidence. That gap is invisible while writing and
+expensive in the room — you read the question out, somebody asks "which
+tables?", and you are hunting through 799 sections on a projector.
+
+Every ask now carries its affected tables as links straight into the ledger.
+The numbers are derived from the merge report rather than the prose:
+0350/0351/0456/0895 for the value sets THO cannot expand, 0001 and 0719 for the
+only two OID disagreements in the corpus, 0227 and 0719 for the descriptions,
+0440 for the one concept carrying status `B`. A test resolves every link
+against the built IG, fragment included.
+
+### The orchestrator, and the snapshot it grew
+
+`build_vocab_ig.py` replaced the build-order note that had been accumulating
+constraints in this file for four sessions. The order is data — each step
+declares what it produces and consumes, and `check_order()` refuses to run if
+a step's inputs come from later. Re-deriving those dependencies from the
+scripts rather than the note found the note incomplete: `render_review_pages.py`
+needs the writer report as well as the divergences.
+
+Two things fell out of it. **The chain takes 11 seconds** — the expense of a
+build was always the publisher alone, and four sessions of caution about
+running generators were misplaced. And running it end to end **reproduced the
+committed tree with zero diff**, which is a stronger property than it was
+written for.
+
+That led to the snapshot. The publisher wipes `output/` on startup, so for
+twenty minutes there is no readable IG, and after an interrupted run there is
+none at all — the state this session opened in. `--publish` now refreshes
+`output-snapshot/` **after a run that exits 0**, never before: snapshot-before
+would happily preserve a half-finished build. It ran for real during the second
+build, kept the IG readable throughout, and refreshed in 27.7 s.
+
+### Two traps
+
+`pgrep -f "http.server"` reported a server running when nothing was listening —
+it matched the Bash tool's own wrapper. MEMORY documents this for the java build
+check; the lesson is the pattern, not the command, and ACTIVE now says so.
+
+And a near miss: the first cut of the ledger fix interpolated the count into a
+heading. That number would have landed in the generated anchor and broken the
+inbound link the first time it moved. Caught by reasoning about the anchor, not
+by a test — and there is still no test that would catch the next one.
+
+### Not done
+
+The TI WG's actual feedback is not written down anywhere. That is the first job
+next session and the only perishable one.
 
 ---
 

@@ -18,7 +18,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-09-29 (session 7: the briefing's own claims checked, and two found wrong)
+## ACTIVE — 2026-10-14 (session 8: nine rulings captured, and three mechanisms to carry them)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
@@ -26,231 +26,359 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 
 ### First thing next session
 
-**Capture what V2 Management said on 2026-09-23.** That meeting has now
-happened and **nothing from it has been recorded** — session 7 did not attend
-to it. The refreshed briefing was prepared for that meeting, so whatever was
-said there is the most valuable un-captured thing in the project.
+**Ask whether more rulings have landed in `docs/issue_resolutions.md`.** That
+file is where the reviewer writes them, in prose, as they come out of V2
+Management calls. All eight currently in it have been acted on. The reviewer
+said at the end of session 8 that more were expected before the next rebuild,
+so **read that file before anything else** — and `git log -p` it, because it
+is edited in place and a new paragraph is easy to miss.
 
-**There is now only one genuinely blocking ruling**, not two: *reproduce or
-correct*, outstanding since August. The second item (concept domain
-definitions) was downgraded to a confirmation in session 7 — see below.
+**The IG has not been rebuilt since 2026-09-23 and is now badly stale.** That
+is deliberate — the reviewer asked to batch the rebuild until the rulings stop
+arriving — but it means **every number read off `vocab-ig/output/` is wrong**,
+and the link checks that run against a build cannot be trusted. Rebuild before
+presenting anything.
 
-**Use the `resolution` mechanism rather than editing prose.** It is described
-below and it works; one item already uses it.
+### How to record a ruling
 
-**There is now a mechanism for this, so use it rather than editing prose.** Add
-a `resolution` to the item in `vocabulary_escalations.py` or
-`vocabulary_general_questions.py` — five keys, all required:
+Three mechanisms, and picking the wrong one is the main way to get this wrong.
+All three are keyed by table number and all three are enforced by tests.
+
+| What happened | Mechanism | Invariant |
+|---|---|---|
+| Awaiting an answer | `TENTATIVE_OVERRIDES` (ADR-0011) | names an **open** register item |
+| Told not to publish | `RULED_SUPPRESSIONS` (ADR-0013) | names an **answered** register item |
+| Told the chapter's classification is wrong | `RULED_RECLASSIFICATIONS` | names an **answered** register item |
+
+A suppression removes output and needs only a table number. A
+**reclassification adds output**, so it must say what to publish and over
+which code system — that cannot come from the chapter, because the chapter
+being wrong is the premise. The three are checked disjoint: a table cannot be
+awaiting a ruling, withheld by one, and republished by one at once.
+
+Every ruling also needs a `resolution` on its register item —
+five keys, all required:
 
 ```python
 "resolution": {
     "who":    "V2 Management",       # the body with the authority
     "forum":  "V2 Management call",  # the room it was given in
-    "date":   "2026-09-23",
+    "date":   "2026-10-14",
     "ruling": "One sentence: what they actually decided.",
     "effect": "What changed here. 'Nothing' is a real answer and worth saying.",
 }
 ```
 
-That one key moves the item: it stops rendering on `open-items` and starts
-rendering on `evidence` with its ruling attached, keeping its number and its
-original text. Counts, the audience sentence and every cross-link follow
-automatically. Then re-run the chain and rebuild.
+**A ruling almost never covers a whole register item.** Seven of the nine
+answered items were *split out* of a larger finding, because the committee
+named two tables of a four-table item. **Split rather than close**, narrow the
+parent's `tables` and `ask`, and say in both directions what is still open.
+The suppression and reclassification invariants will catch you if you do not:
+they refuse an item that has no `resolution`, which is exactly what a
+part-answered parent still looks like.
 
-`who` is the body with the authority, which is not always the room — the
-reordering ruling is a **TSMG** ruling given in a **TI WG** meeting, and it is
-recorded as exactly that.
+### What landed in session 8
 
-### What landed in session 7
+Nine rulings across three commits. The register went from **38 items, 1
+answered** to **44 items, 9 answered** — it grew because splitting adds items.
 
-Session 7 was short and did two things: it answered a question about the OIDs,
-and it committed the briefing work session 6 left uncommitted — **after
-checking its claims, two of which were wrong.**
+- **`b058aabe`** — reproduce-or-correct has no single answer; 0567/0568
+  withheld; 0010 withdrawn; 0005 settled.
+- **`5cd77e11`** — 0078 withheld as a duplicate; 0411 to concept-domain-only;
+  0188 withdrawn; 0133's description emphasised.
+- **`ae167fa8`** — 0350/0351 reclassified and published.
 
-- **`4e81c91d` — the uncommitted briefing rework, corrected and committed.**
-  Session 6 ended with a substantial uncommitted diff. Its central claim was
-  verified and **holds**: the guide was never choosing between competing
-  concept domain definitions by document order. All five multiply-declared
-  domains publish THO's definition — checked against the published
-  `conceptdomains` resource, not against the report about it. So the V2
-  Management item really does drop from a ruling to a confirmation, and the
-  blocking count from two to one.
-- **Two claims in it were wrong, and both are the kind that would have been
-  challenged in the room.**
-  - It said there is *no case in the corpus* of a domain declared by several
-    tables with no THO definition to fall back on. **There are 20** — `Units`,
-    `GiveUnits`, `Indication` and others. The true claim is narrower and is
-    the one the argument actually needs: every domain whose tables describe it
-    *differently* has a THO definition, so document order never decides an
-    outcome. In all 20 the tables agree with each other, so there is nothing
-    to choose between. The page now states both numbers.
-  - It listed **`Confidentiality`** as a substantive disagreement with THO. It
-    is not one: the two texts are word-for-word identical and differ by THO's
-    `*Usage Note:*` emphasis and a trailing full stop.
-- **That second one was a pipeline defect, not a prose defect**, which is why
-  it is worth remembering. `generate_concept_domains.py` compared definitions
-  **without the punctuation carve-out the THO merge applies everywhere else**,
-  so it classified a formatting difference as the two bodies describing a
-  domain differently. It now uses `tho_merge.is_editorial` — the project's
-  existing canonical test — and reports such cases as their own kind,
-  `definition_differs_from_tho_editorially`. **Four** substantive
-  disagreements, not five, computed correctly wherever the number appears.
-- **`question_link()` is confirmed working.** Session 6 built it; session 7
-  verified it does its job. The answered reordering question now resolves to
-  `evidence.html` while the open ones stay on `open-items.html` — which is
-  exactly the dead link it was written to prevent. **All 67 briefing→IG links
-  resolve** against the built IG.
+**The blanket reproduce-or-correct ask is gone and `render_defect_review.py`
+replaces it.** The ruling was that no single rule applies — it goes per class
+and sometimes per instance. So `esc-retain-known-errors` stays **open and
+unresolved** (a `resolution` would claim an answer nobody gave) and the 35
+open findings are now grouped into **7 classes, ordered cheapest-answer-
+first**, each entry carrying what the chapter says, what THO says, **what the
+guide publishes today read from the build report**, and the decision needed.
+`v291-extracted/defect-review.md` is the thing to walk with the reviewer.
 
-### The OID question, asked and answered this session
-
-The reviewer asked whether the conflicting OIDs were for the *tables* or for
-the code systems and value sets. **It is both, and the distinction matters.**
-Chapter 2C carries **three** OIDs per table: a Table OID in the `.12` arc (798
-of 799 tables), a Code System OID in `.18` (435), a Value Set OID in `.21`
-(438). The comparison is sound — THO uses the same two latter arcs for the
-same two resource types — and the two known conflicts are the only two. **The
-table OID is published nowhere**, which is a default rather than a decision,
-and is registered as `esc-table-oid-unpublished`. This is all already on the
-ledger's OID overview and in the register; it is repeated here only because it
-was asked again.
-
-### What landed in session 6
-
-- **`70f062c1` — the reordering question is answered and closed.** TSMG ruled
-  on 2026-09-21, via TSMG members at the TI WG meeting, that **reordering a
-  code system's concepts is not a change and does not increment the version.**
-  It confirmed what the build already did — `concepts_changed` has compared
-  concepts as a map keyed by code since the merge was written, and
-  `_canonical_compose` sorts both sides — so **no artifact moved and no version
-  number changed.** What moved is the standing of the rule: the 32 tables
-  carrying exactly THO's codes in a different order now keep THO's version on
-  the policy owner's authority rather than on our reading of the policy.
-- **The same commit built the mechanism**, because nothing had ever been
-  answered before and there was nowhere to put an answer. Two things it
-  exposed: `question_anchor()` hard-coded `open-items.html`, so the first
-  ruling would have turned every cross-link in the guide into a link to a page
-  the question was no longer on; and the intro hard-coded "one is for TSMG, the
-  rest for V2 Management", which is wrong the morning after any meeting. Both
-  are computed now.
-- **`00cce13f` — the V2 Management briefing is current.** Re-dated to
-  2026-09-23, summary rewritten around the guide existing, and **every ask now
-  points at its evidence** — the September lesson, applied to the other room.
-  Link helpers moved down into `render_v2mgmt_briefing` (which
-  `render_ti_briefing` already imports from); the TI briefing's rendered output
-  is **byte-identical**, checked before and after.
-
-### Three numbers were wrong. They are fixed, and now tested.
-
-This is the part worth remembering, because it will recur. The briefings and
-the authored prose carry numbers that are **transcribed** from the build, and
-transcriptions rot.
-
-- The guide's own TSMG preamble said **23 value sets increment, 392 hold**. It
-  is **22 and 393** — a concept display stopped triggering an increment in
-  September and the sentence did not follow. It no longer restates them; it
-  points at the version table on `tho-merge`, which is computed.
-- **"355 tables with no code system block" is 362.**
-- `5,540` codes and the eleven description-only increments were checked and
-  **are** exact.
-
-`test_render_v2mgmt_briefing.py` now compares the briefing's headline numbers
-against `tho-fill-report.json` and the extraction on every run. **If you author
-a number into a briefing, add it to that test.**
-
-**Session 7 found two more of exactly this kind**, which puts the count at five
-across two sessions. Both were in authored prose that no test covered, and one
-of them traced back to a pipeline classifier rather than the prose. The
-standing lesson: **a claim in a briefing is a claim about the build, and the
-build can be asked.** Before presenting a number or a "there is no case
-where…", compute it. The absolute claims are the dangerous ones — "no case in
-the corpus" was false the moment it was written.
+**`CLASSIFICATION` in that module is the only authored part**, and a test
+requires it to cover every open item. Add a finding to the register without
+classifying it and the suite fails — which is the point.
 
 ### Things that will bite
 
-- **A chip only links when the ledger has a section for that table.** Four of
-  the eleven tables behind the concept-domain blocker have none — the merge
-  found nothing to report against them. The first draft linked all eleven; the
-  link test caught it. A link into a section that does not exist drops the
-  reader at the top of a very long page, which is **worse** than no link.
-- **The register's Markdown numbering is positional**, so answering an item
-  renumbers the ones after it. That is fine there — the file is regenerated and
-  never hand-edited — but **general question numbers are stable identifiers and
-  are never reused**, because people cite them in minutes.
-- Everything in the previous ACTIVE section still applies: the build snapshot,
-  the enforced build order, `pgrep -f` matching the Bash tool's own wrapper,
-  authored anchors over generated heading slugs, never interpolating a count
-  into a heading, every page starting at `###`, and `grep` being unable to
-  search for a NUL byte.
+- **A ruling's stated premise is sometimes wrong, and checking is the job.**
+  The 0567/0568 ruling said "the CS in THO have already been retired"; there
+  are no CodeSystems for 0567, 0568, 0929 or 0930 at all. The reviewer
+  confirmed the slip when shown. **The 0350/0351 ruling said to point the CLD
+  at the appropriate external code system, and there is no such code system
+  to point at** — see below. Both were caught by reading THO rather than the
+  ruling. Neither reviewer nor pipeline will catch this for you.
+- **Numbers in authored prose rot, and the tests only cover what somebody
+  added.** Six drifted this session. Two were caught by existing tests; the
+  other four — `824 artifacts generated`, `8 classes of chapter defect`, and
+  two index.md counts — were found by reading the metrics strip *after* the
+  covered ones failed. **Every number on the V2 Management briefing's metrics
+  strip is now under a test**, including the blocking-question count, which
+  the page had already contradicted: the strip said one while two blockers
+  were listed, the second downgraded in its own prose without the number
+  following.
+- **The ledger listed answered items as "Open issues"** until session 8. It
+  was latent because the only previously answered item was scoped to "32
+  tables", which matches no table number and so never reached a table
+  section. Answered items now render under their own heading with the ruling.
+- **Suppressing a table shifts concept element ids.** They come from one
+  counter allocated in table order, so withholding 0411's two concepts moved
+  every id allocated after it; `cs-v2-0460.xml` was the only file affected.
+  Benign, but it looks alarming in a diff.
+- Everything in the previous ACTIVE still applies: the enforced build order,
+  `pgrep -f` matching the Bash tool's own wrapper, authored anchors over
+  generated heading slugs, never interpolating a count into a heading, every
+  page starting at `###`, and `grep` being unable to search for a NUL byte.
 
-### Register — 38 items, 37 of them open
+### Open, and worth knowing
 
-One answered. Plus **7 general questions, 1 answered and 6 open** — verified
-against the modules this session, not transcribed.
+- **0350/0351 are published and cannot expand.** The ruling's classification
+  half is done; its CLD half could not be. THO publishes no
+  `CodeSystem/v2-0350` or `v2-0351`, yet its own NamingSystems map the NUBC
+  OIDs `...6.301.7` and `...6.301.8` to exactly those absent canonicals. Of
+  twelve `AHA_NUBC_*` naming systems in THO, **none covers occurrence codes
+  or spans** — though the two tables sit on the same arc as
+  `AHA_NUBC_ValueCodesAndAmounts` (`...301.6`), which does resolve. So the
+  guide composes over the same unresolvable canonical THO does. The writer
+  prints this on every run. **Finishing it is a TSMG question**:
+  `esc-0350-0351-not-domain-only`.
+- **`vs-v2-0962.xml` is an orphan** — tracked, staged, published, for a table
+  that became `needs-decision` and whose file nothing prunes. **Pre-existing,
+  not from any ruling.** The writer reports any file a full run did not write
+  rather than deleting it, because `--table` runs cannot know what is stale.
+  It wants a decision, not a sweep.
+- **0460 is now the only minted CodeSystem canonical in the corpus.** 0411
+  leaving made `esc-0460-user-defined-mint` a sharper question, not a smaller
+  one. 0093 is open alongside it.
+- **0456 is the same shape as 0350/0351** — an NUBC table whose THO value set
+  dangles — so whatever resolves those two likely resolves it. Open on
+  `esc-tho-dangling-value-sets` with 0895.
+- **`render_metrics_summary.py` is still untracked and undecided**, four
+  sessions on. Written 2026-09-29 for an annual-accomplishments report; reads
+  vocabulary build artifacts, so it is probably this branch's.
+- Session 4 work is untouched: promote `render_field_mapping.py` into the IG;
+  decide what maps to properties / extensions / nothing; Ch2c steward against
+  THO's `structuredefinition-wg`. **S3-04 is partial**; **S2-15**, **S2-16**
+  (property-instance suppression — the one with teeth), **S2-20**.
 
-### Still open on the review
+### Answered this session, so stop asking
 
-Unchanged from session 5, and none of it was touched:
+- **Is `Evidence` the right navbar name, and does the evidence page want
+  splitting?** This was **invented by an agent** and copied forward through
+  three handoffs as a "reviewer question from session 5". There is no session
+  5 entry containing it and no tracker row. The reviewer's response was that
+  nobody human ever raised it. **Struck.**
+- **`conceptdomains-divergences.json`'s `generated` date** — removed. Nothing
+  read it; it made the file differ across a day boundary with no content
+  change. Verified byte-identical across two runs, so `--from` is now
+  trustworthy and a clean diff means something.
+- **Does IG Publisher make a retired CS or VS visually obvious?** No. The
+  publisher has `CODESYSTEM_DEPRECATED = Deprecated` for individual concepts
+  and `RES_REND_RET = retired` for a resource, but no banner — status renders
+  as one metadata row among many. This is why 0133's warning went into the
+  description as markdown. **Possibly worth raising with TSMG as a tooling
+  gap**, since it affects every retired THO artifact.
 
-- **Session 4 work**: promote `render_field_mapping.py` into the IG; decide
-  what maps to properties / extensions / nothing; Ch2c steward against THO's
-  `structuredefinition-wg`; external code systems against ValueSet canonical
-  gaps.
-- **S3-04 is partial**; **S2-15**, **S2-16** (property-instance suppression —
-  the one with teeth), **S2-20**.
-- **Two reviewer questions from session 5 are still unanswered**: is `Evidence`
-  the right navbar name, and does the evidence page want splitting? It is now
-  **1.79 MB** and carries one more section than it did. Three sessions old now
-  — worth either asking directly or dropping.
-- **Table 0347's `title`** is `hl7VS-stateProvince` against THO's
-  `HL7 Value Set for State/Province` — ours reads like an id in a title field.
-- **`v291-fhir/conceptdomains-divergences.json` carries a `generated` date**, so
-  the pipeline churns one line across a day boundary. It is the one thing
-  stopping the chain being byte-reproducible, and that reproducibility is what
-  makes `build_vocab_ig.py --from` safe to trust. **Still not fixed** — it has
-  now survived three sessions. It was at least committed this time rather than
-  left dangling, so the tree is clean, but the churn remains.
+### THO version
 
-### A defect in a document that has already been presented
-
-`render_ti_briefing.py`'s reordering ask says *"If the answer is **no**, a
-meaningful number of artifacts move from unchanged to incremented"*. That is
-inverted — answering *no* is what the build already does and changes nothing;
-it is *yes* that moves them. The general-questions module has it the right way
-round. **Left unfixed deliberately**: the briefing is dated 2026-09-21 and was
-presented, and editing it rewrites the record of what the room was shown. The
-room gave the right answer regardless. Fix it only if the file is ever reused
-for a different meeting.
+**Staying on 7.3.0** (snapshot dated 2026-07-27). 7.4.0 was released during
+session 8; the reviewer is confident no v2 content changed in it. The version
+is recorded in both `tho-fill-report.json` and
+`conceptdomains-divergences.json`, so every comparison stays attributable —
+if the snapshot is ever bumped, those two files say what changed under it.
 
 ### Build
 
 ```
-python3 tooling/scripts/build_vocab_ig.py --publish
+python3 tooling/scripts/build_vocab_ig.py            # preprocessing only, ~11 s
+python3 tooling/scripts/build_vocab_ig.py --publish  # + the publisher, ~17 min
 ```
 
-Seven preprocessing steps (11 s), then the publisher (~17 min, silent for ~13
-of them during "Run Template"). Check it is alive with
+Seven preprocessing steps, then the publisher (silent for ~13 of its 17
+minutes during "Run Template"). Check it is alive with
 `ps -eo pid,etime,comm,args | awk '$3=="java"'` rather than assuming it hung.
-**`kill` on the shell wrapper does not stop the JVM**; kill the java pid, or two
-publishers write the same directory.
+**`kill` on the shell wrapper does not stop the JVM**; kill the java pid, or
+two publishers write the same directory.
+
+Current preprocessing state: **398 CodeSystems, 422 ValueSets staged**, two
+expected warnings on every run (the 0350/0351 unresolved code system, and the
+0962 orphan) and no others. **587 tests pass.**
 
 ### How to look at the IG
 
 **No web server needed.** Open `vocab-ig/output/index.html` off disk. Both
-briefings are self-contained and sit in `v291-extracted/`; their links into the
-IG are relative, so they resolve from there with a build present.
+briefings are self-contained and sit in `v291-extracted/`; their links into
+the IG are relative, so they resolve from there with a build present.
 
 ### Not ours — leave alone
 
-Five untracked files belong to the **structural** workstream (`dev/framework`):
+Six untracked files belong to the **structural** workstream (`dev/framework`):
 `tooling/scripts/render_message_structures_html.py`,
 `tooling/scripts/render_three_way_html.py`,
 `v291-extracted/message-structures-decision-report.html`,
 `v291-review/three-way-comparison-report.html`,
-`vocabulary-comparison-report.html`. **`git add tooling/scripts/` sweeps two of
-them in — stage vocabulary files explicitly.**
+`vocabulary-comparison-report.html` — plus the undecided
+`tooling/scripts/render_metrics_summary.py`. **`git add tooling/scripts/`
+sweeps three of them in — stage vocabulary files explicitly.**
 
 
 ## Session History
+
+## 2026-10-14 — Session 8: nine rulings, and the mechanisms to carry them
+
+Three commits, no build. The reviewer answered nine questions across two V2
+Management calls, writing them into `docs/issue_resolutions.md` as prose, and
+asked to batch the rebuild until the rulings stop arriving.
+
+### What the rulings changed
+
+Five tables stopped being published as they were. **0567, 0568 and 0078 are
+withheld**; **0411** dropped to concept-domain-only, taking its CodeSystem and
+ValueSet with it; **0350 and 0351** went the other way and are now published
+where the guide previously wrote nothing. **0010 and 0188** were withdrawn
+outright, which changed nothing here — both already routed `nothing-to-write`
+— but creates binding-removal work in the structural workstream. **0133** got
+a bolded discontinuation warning. **0005** was settled as needing nothing.
+
+The 0567/0568 one is the pattern worth remembering: *"this IG will simply not
+do anything with these VS"* sounded like a no-op and was not. The guide was
+publishing both at 4.0.0 against THO's 3.0.0 — an increment earned honestly,
+by adding display text to codes THO leaves bare — so it was minting new
+versions of two artifacts a committee had just said to leave alone, and would
+have gone on doing it every run.
+
+### Three mechanisms, and why not two
+
+ADR-0013 added `RULED_SUPPRESSIONS` and this session added
+`RULED_RECLASSIFICATIONS`, neither of which could fold into ADR-0011's
+tentative overrides. That table is for deviations *awaiting* a ruling; its
+entries must name an **open** register item and their count is published as
+the guide's un-ruled-deviation debt. Filing a settled ruling there would break
+the invariant and inflate a debt figure with something that is not debt. So
+the two new tables carry the mirror invariant — their items must be
+**answered** — and a test checks all three are disjoint.
+
+Suppression and reclassification then split from each other for a different
+reason: **a suppression removes output and needs only a table number, while a
+reclassification adds output** and so must say what to publish and over which
+code system. That cannot be read from the chapter, because the chapter being
+wrong is the premise.
+
+### The two rulings whose premises did not hold
+
+Both were caught by reading THO rather than the ruling, and neither the
+reviewer nor the pipeline would have caught them.
+
+**0567/0568** said *"the CS in THO have already been retired."* There are no
+CodeSystems for 0567, 0568, 0929 or 0930 at all — only four ValueSets, all
+active, all composing from UCUM directly. Shown this, the reviewer confirmed
+the slip. The ruling's substance was unaffected.
+
+**0350/0351** said the fix is to point the value set CLDs at the appropriate
+external code system. **There is no such code system.** THO publishes no
+`CodeSystem/v2-0350` or `v2-0351`, yet its own NamingSystems map the NUBC OIDs
+`...6.301.7` and `...6.301.8` to exactly those absent canonicals, and its
+value sets already compose over them. Of twelve `AHA_NUBC_*` naming systems in
+THO — revenue codes, condition codes, type of bill — none covers occurrence
+codes or spans, though both tables sit on the same arc as
+`AHA_NUBC_ValueCodesAndAmounts` (`...301.6`), which does resolve.
+
+The classification half of that ruling is right and the evidence is THO's own:
+`CodeSystem/v2-tables` types both tables `Externally defined` with a code
+system OID, a value set OID and a CLD flag — none of which a
+concept-domain-only table carries. So the tables are published, and they
+**compose over the same unresolvable canonical THO does.** They cannot expand.
+Rather than hide that, each entry carries an `unresolved` field and the writer
+prints it on every run. The remaining half is a TSMG question.
+
+### The blanket ask is gone
+
+`esc-retain-known-errors` asked V2 Management for one rule covering every
+defect in the chapter. The answer was that no single rule applies — per class,
+sometimes per instance, with individual issues reviewed. That makes the ask
+unusable and the defects no less real, so `render_defect_review.py` replaces
+it: 35 open findings in 7 classes, ordered cheapest-answer-first, each
+carrying what the chapter says, what THO says, **what the guide publishes
+today read from the build report**, and the decision needed.
+
+The item stays **open and unresolved**. A `resolution` would claim an answer
+nobody gave, and the mechanism should not be used to record "they declined to
+generalise."
+
+### Splitting, not closing
+
+Seven of the nine answered items were split out of a larger finding, because a
+committee names two tables of a four-table item. The invariants force this:
+both new mechanisms refuse a register item with no `resolution`, which is what
+a part-answered parent still looks like. The register grew from 38 items to 44
+while going from 1 answered to 9 — growth is the expected shape here.
+
+Where a ruling bears on its former siblings, that is said in both directions.
+0411 leaving `esc-0460-user-defined-mint` makes **0460 the only minted
+canonical in the corpus** — a sharper question, not a smaller one.
+
+### Six drifted numbers, four of them uncovered
+
+`7,580` THO-only values is 7,588 and `731 of 817` is 733 of 819, both caught
+by existing tests. `824 artifacts generated` and `8 classes of chapter defect`
+were found by reading the metrics strip *after* the covered ones failed, and
+two index.md counts by the staging self-check. **Every number on that strip is
+now under a test**, including the blocking-question count — which the page had
+already contradicted, saying one while listing two blockers, the second
+downgraded in its own prose without the number following.
+
+### Two latent bugs that only surfaced now
+
+**The ledger listed answered items as "Open issues."** Latent because the only
+previously answered item was scoped to "32 tables", which matches no table
+number and so never reached a table section. This session's rulings were the
+first with real numbers. Answered items now render under their own heading
+with the ruling attached.
+
+**`vs-v2-0962.xml` is an orphan** — tracked, staged and published, for a table
+that became `needs-decision` and whose file nothing prunes. Pre-existing and
+unrelated to any ruling; confirmed by re-running the writer on a clean tree.
+Left in place: the writer now reports any file a full run did not write rather
+than deleting it, because `--table` runs cannot know what is stale.
+
+### An invented question, struck
+
+The handoff had carried "is `Evidence` the right navbar name, and does the
+evidence page want splitting?" as a reviewer question from session 5 for three
+sessions. `git log -S` puts its first appearance in session 6's handoff. There
+is no session 5 entry containing it and no tracker row. An agent invented it,
+labelled it a reviewer question, and three handoffs copied it forward. The
+reviewer's response: nobody human ever raised it.
+
+Same failure as session 7's "no case in the corpus" — a confident unverifiable
+claim propagating. The difference is that one was about the build and could be
+computed; this one was about a person, and the check was `git log -S`.
+
+### Also
+
+- `conceptdomains-divergences.json`'s `generated` date is gone. Nothing read
+  it; it made the file differ across a day boundary with no content change.
+  Verified byte-identical across two runs, so `--from` is trustworthy now.
+- Answered the reviewer's question about IG Publisher and retired resources by
+  searching the publisher's rendering phrases: there is
+  `CODESYSTEM_DEPRECATED` for concepts and `RES_REND_RET` for a resource, but
+  no banner. Status renders as one metadata row. Hence the markdown approach
+  for 0133.
+- Suppressing 0411 shifted concept element ids in `cs-v2-0460.xml` by two.
+  Ids come from one counter allocated in table order. Benign, verified, and
+  alarming in a diff.
+- THO 7.4.0 was released; staying on 7.3.0 on the reviewer's judgement that no
+  v2 content changed.
+
+### Not done
+
+No build. 587 tests pass and the preprocessing chain runs clean apart from the
+two expected warnings, but **the IG on disk is from 2026-09-23** and predates
+every ruling in this session.
+
+---
 
 ## 2026-09-29 — Session 7: the briefing's own claims, checked
 
@@ -439,117 +567,3 @@ does and changes nothing. The general-questions module has it the right way
 round, and the room answered correctly regardless. It is left alone because the
 briefing is dated and was presented, and editing it rewrites the record of what
 was shown.
-
-## 2026-09-21 — The ledger stops asking questions it already knows the answer to
-
-Worked from the HL7 Plenary in Rockville in short stretches around the
-Terminology Infrastructure WG meeting. Six commits, two builds, both clean.
-
-### The reviewer read the ledger and found it was shouting
-
-The report said 489 "Differences from THO", each row framed as something a
-committee might have to adjudicate. Reading it in anger, the reviewer noticed
-rows that "amount only to capitalization changes in the display value", and
-then that the same applied to status `N` becoming `active`.
-
-Counting bore it out, and the numbers were worse than the complaint: **287 of
-489 were never questions.** 211 were THO carrying the V2 status letter where
-this guide carries the FHIR status it maps to; 76 were the same words styled
-differently. Only 202 were real, and they were being crowded out.
-
-**Two things were wrong underneath the presentation, and neither was visible
-from the page.**
-
-The status ruling *already existed*. `INHERITED_STATUS_CORRECTIONS` has said
-`N` reads as `active` since the merge was written, with a docstring explaining
-why. But it is reached only by `correct_inherited_status`, which handles
-concepts taken wholesale from THO — **one record in the corpus**. The 209
-concepts both sides carry went through generic property comparison and came out
-as unexplained differences. The same fact got two treatments depending on which
-code path found it, and nothing anywhere said so.
-
-And `is_editorial()` never reached concept level. It was recorded on
-description, purpose and name — 14 records — while concept display and
-properties got nothing. Worse, because `words()` lowercases, capitalisation
-*would* have been swallowed into "punctuation" had the flag reached them,
-losing the one distinction that turned out to matter.
-
-So the fix was not a new idea, it was applying two existing ones consistently
-and giving case a direction.
-
-### The carve-out, and why it is not symmetrical
-
-The reviewer chose to **publish THO's capitalisation** where THO is the more
-capitalised side, rather than only reclassifying. That is a genuine exception
-to chapter-wins and is recorded as **ADR-0012**. It is defensible because the
-words are identical — the chapter loses nothing — and re-lower-casing a display
-THO had tidied would make the artifact worse for no reason. Five displays,
-tables 0203 and 0396. **No version moved**; both were already incrementing.
-
-The reverse is deliberately *not* symmetrical, and this is the part worth
-remembering. `tho-dropped` is ambiguous in a way `tho-added` is not: the one
-real instance is THO correctly lower-casing "for" in *Sex Parameter For
-Clinical Use*, which is an improvement — but the identical signature would be
-produced by THO losing a proper noun. Only a person can tell those apart, so
-they are surfaced rather than absorbed in either direction.
-
-**Looking at the data kept the carve-out honest twice.** The seven case-only
-differences were not all displays: one is a resource `name`,
-`Hl7VSStateProvince` against `Hl7VsStateProvince`, where *ours* is arguably
-right because VS abbreviates ValueSet. `name` is identity-adjacent and had to
-be excluded. The reviewer then asked a sharper question — whether the casing
-was the *only* thing driving that artifact's version — and the write report
-answered it outright: table 0347 increments on `compose.include`, `name` **and**
-`title`. Three triggers, so the condition did not bind and nothing changed.
-
-### Then the briefing failed in the way documents do
-
-The reviewer, holding the briefing in a meeting: the asks name a problem but
-give no way to get to the evidence. That gap is invisible while writing and
-expensive in the room — you read the question out, somebody asks "which
-tables?", and you are hunting through 799 sections on a projector.
-
-Every ask now carries its affected tables as links straight into the ledger.
-The numbers are derived from the merge report rather than the prose:
-0350/0351/0456/0895 for the value sets THO cannot expand, 0001 and 0719 for the
-only two OID disagreements in the corpus, 0227 and 0719 for the descriptions,
-0440 for the one concept carrying status `B`. A test resolves every link
-against the built IG, fragment included.
-
-### The orchestrator, and the snapshot it grew
-
-`build_vocab_ig.py` replaced the build-order note that had been accumulating
-constraints in this file for four sessions. The order is data — each step
-declares what it produces and consumes, and `check_order()` refuses to run if
-a step's inputs come from later. Re-deriving those dependencies from the
-scripts rather than the note found the note incomplete: `render_review_pages.py`
-needs the writer report as well as the divergences.
-
-Two things fell out of it. **The chain takes 11 seconds** — the expense of a
-build was always the publisher alone, and four sessions of caution about
-running generators were misplaced. And running it end to end **reproduced the
-committed tree with zero diff**, which is a stronger property than it was
-written for.
-
-That led to the snapshot. The publisher wipes `output/` on startup, so for
-twenty minutes there is no readable IG, and after an interrupted run there is
-none at all — the state this session opened in. `--publish` now refreshes
-`output-snapshot/` **after a run that exits 0**, never before: snapshot-before
-would happily preserve a half-finished build. It ran for real during the second
-build, kept the IG readable throughout, and refreshed in 27.7 s.
-
-### Two traps
-
-`pgrep -f "http.server"` reported a server running when nothing was listening —
-it matched the Bash tool's own wrapper. MEMORY documents this for the java build
-check; the lesson is the pattern, not the command, and ACTIVE now says so.
-
-And a near miss: the first cut of the ledger fix interpolated the count into a
-heading. That number would have landed in the generated anchor and broken the
-inbound link the first time it moved. Caught by reasoning about the anchor, not
-by a test — and there is still no test that would catch the next one.
-
-### Not done
-
-The TI WG's actual feedback is not written down anywhere. That is the first job
-next session and the only perishable one.
