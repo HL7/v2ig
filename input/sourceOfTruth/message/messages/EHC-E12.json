@@ -44,7 +44,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Message/ACK-E12"
+              "http://hl7.org/fhir/StructureDefinition/Message/EHC-E13"
             ]
           }
         ]
@@ -68,7 +68,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Message/ACK-E12"
+              "http://hl7.org/fhir/StructureDefinition/Message/EHC-E13"
             ]
           }
         ]

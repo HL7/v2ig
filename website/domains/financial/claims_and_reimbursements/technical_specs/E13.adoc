@@ -3,7 +3,7 @@
 :v2_section_name: "EHC^E13 – Additional Information Response (Event E13) "
 :generated: "Thu, 01 Aug 2024 15:25:17 -0600"
 
-This message is used by a Provider to immediately respond to an EHC^E12 Request for Additional Information, in other words an automated response. The EHC^E13 message cannot be sent unsolicited.
+This message is used by a Provider to respond to an EHC^E12 Request for Additional Information, in other words an automated response. The EHC^E13 message cannot be sent unsolicited.
 
 The EHC^E13 message supports three types of response modalities:
 
