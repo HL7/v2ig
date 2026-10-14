@@ -7,13 +7,13 @@ The rule this guide follows, and what this page reports on:
 
 > Where THO has content and Chapter 2C has no opinion, **THO's content survives**. Where both have something and they differ, the **chapter wins** and the disagreement is recorded.
 
-Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,269 observations in total.
+Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,275 observations in total.
 
 ### Kept from THO
 
 Content THO publishes that Chapter 2C says nothing about. Without the merge each of these would have been deleted from an artifact published at THO's own canonical URL. None of them changes the artifact relative to THO, so none of them costs a version increment.
 
-**7,580 in total.**
+**7,588 in total.**
 
 | What | Count | Tables |
 |---|---:|---|
@@ -23,11 +23,11 @@ Content THO publishes that Chapter 2C says nothing about. Without the merge each
 | Codes kept from THO that the chapter does not list<br/><span class="tl-note">THO publishes these codes at this canonical. Dropping them would remove codes implementers may already be sending.</span> | 211 | 37 |
 | Usage notes kept from THO<br/><span class="tl-note">Guidance THO carries on individual concepts, with no counterpart in the chapter's grid.</span> | 122 | 15 |
 | Deprecation markers kept from THO<br/><span class="tl-note">The HL7 version in which a code was deprecated. The chapter's status column says that a code is deprecated but not when.</span> | 40 | 3 |
-| Resource descriptions kept from THO<br/><span class="tl-note">Where the chapter's description is missing or a placeholder such as 'tbd', THO's text stands.</span> | 5 | 5 |
-| Resource names kept from THO<br/><span class="tl-note">The chapter supplies no name.</span> | 3 | 3 |
-| Resource titles kept from THO<br/><span class="tl-note">The chapter supplies no title.</span> | 3 | 3 |
+| Resource descriptions kept from THO<br/><span class="tl-note">Where the chapter's description is missing or a placeholder such as 'tbd', THO's text stands.</span> | 7 | 7 |
+| Resource names kept from THO<br/><span class="tl-note">The chapter supplies no name.</span> | 5 | 5 |
+| Resource titles kept from THO<br/><span class="tl-note">The chapter supplies no title.</span> | 5 | 5 |
+| Identifiers kept from THO<br/><span class="tl-note">The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</span> | 4 | 4 |
 | Value set members kept from THO<br/><span class="tl-note">Codes THO enumerates in the value set that the chapter's table does not.</span> | 2 | 2 |
-| Identifiers kept from THO<br/><span class="tl-note">The chapter gives no OID. Publishing without THO's would be *removing* an identifier, which the policy says needs a whole new artifact rather than a new version.</span> | 2 | 2 |
 
 ### Where the chapter and THO disagree
 
@@ -69,11 +69,11 @@ Content in Chapter 2C that THO does not carry. These are real changes to the art
 
 THO publishes an artifact and this guide publishes nothing at that canonical. Nothing is destroyed — THO's artifact stands untouched — so the merge does not invent a replacement. They are listed because a reviewer should see the gaps deliberately rather than discover them.
 
-**48 in total.**
+**46 in total.**
 
 | What | Count | Tables |
 |---|---:|---|
-| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 48 | 28 |
+| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 46 | 26 |
 
 ### What it does to version numbers
 
@@ -92,11 +92,11 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 | codeSystem: unchanged, THO's version kept | 339 |
 | valueSet: first publication at 1.0.0 | 7 |
 | valueSet: incremented | 20 |
-| valueSet: unchanged, THO's version kept | 392 |
+| valueSet: unchanged, THO's version kept | 394 |
 
 ### The artifacts THO has and this guide does not
 
-48 of them, across 28 tables. Each is listed with the reason the writer gave for publishing nothing.
+46 of them, across 26 tables. Each is listed with the reason the writer gave for publishing nothing.
 
 | Table | Resource | Why this guide writes nothing |
 |---|---|---|
@@ -134,8 +134,6 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 | [0290](table-ledger.html#tbl-0290) | ValueSet | The chapter has no section for it. |
 | [0323](table-ledger.html#tbl-0323) | CodeSystem | The chapter has no section for it. |
 | [0323](table-ledger.html#tbl-0323) | ValueSet | The chapter has no section for it. |
-| [0350](table-ledger.html#tbl-0350) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
-| [0351](table-ledger.html#tbl-0351) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
 | [0399](table-ledger.html#tbl-0399) | ValueSet | The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'. |
 | [0456](table-ledger.html#tbl-0456) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
 | [0524](table-ledger.html#tbl-0524) | CodeSystem | The chapter has no section for it. |

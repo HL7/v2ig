@@ -1556,7 +1556,7 @@ ESCALATIONS = [
     {
         "id": "esc-tho-dangling-value-sets",
         "who": "TSMG / UTG",
-        "tables": "0350, 0351, 0456, 0895",
+        "tables": "0456, 0895",
         "title": "Four THO value sets draw from v2 code systems that THO does "
                  "not publish, so they cannot expand",
         "body":
@@ -1586,12 +1586,118 @@ ESCALATIONS = [
             "authority owning the codes is the intended arrangement, not a "
             "gap.",
         "ask":
-            "Decide what should happen to the four. Either the missing v2 code "
-            "systems should be published, or the value sets should compose "
-            "from the external authority that actually owns the codes (NUBC "
-            "for three of them), or they should be retired. Whichever way it "
-            "goes, it is worth asking how four unexpandable value sets came to "
-            "be published, because the same process would produce more.",
+            "<b>This finding covered four tables; 0350 and 0351 have since "
+            "been answered &mdash; see "
+            "<code>esc-0350-0351-not-domain-only</code> &mdash; so this item "
+            "now covers 0456 and 0895.</b> That ruling settled their "
+            "<i>classification</i> and explicitly did not settle the code "
+            "system, so the half that applies here is untouched by it. "
+            "Decide what should happen to these two. Either the missing v2 "
+            "code systems should be published, or the value sets should "
+            "compose from the external authority that actually owns the "
+            "codes (NUBC for 0456), or they should be retired. <b>0456 is "
+            "the same shape as 0350 and 0351</b> &mdash; an NUBC table whose "
+            "THO value set dangles &mdash; so whatever resolves those two "
+            "very likely resolves it, and the three are worth taking "
+            "together. It is still worth asking how four unexpandable value "
+            "sets came to be published, because the same process would "
+            "produce more.",
+    },
+    {
+        "id": "esc-0350-0351-not-domain-only",
+        "who": "V2 Management",
+        "tables": "0350, 0351",
+        "title": "Tables 0350 and 0351 are not concept domain only, and "
+                 "their value sets compose over a code system nobody "
+                 "publishes",
+        "body":
+            "Split from <code>esc-tho-dangling-value-sets</code>, which "
+            "covers four tables; these two have been ruled on and 0456 and "
+            "0895 have not. "
+            "<b>The chapter and THO disagree about what these tables "
+            "are.</b> Chapter 2C flags both <code>Concept Domain Only: "
+            "yes</code> and prints no code system block, no value set block "
+            "and no codes. THO's own <code>CodeSystem/v2-tables</code> types "
+            "both <code>Externally defined</code> and records a code system "
+            "OID, a value set OID and a content-logical-definition flag for "
+            "each &mdash; none of which a concept-domain-only table carries. "
+            "The chapter contradicts itself in the same breath: its table "
+            "descriptions name the National Uniform Billing Committee and "
+            "print the code system OIDs "
+            "<code>2.16.840.1.113883.6.301.7</code> and "
+            "<code>&hellip;.301.8</code>. "
+            "<b>THO publishes both value sets, and both are unexpandable.</b> "
+            "<code>ValueSet/v2-0350</code> and <code>v2-0351</code> are "
+            "active resources composing over "
+            "<code>CodeSystem/v2-0350</code> and <code>v2-0351</code>, "
+            "<b>neither of which THO publishes</b>. Its "
+            "<code>NamingSystem/v2-0350</code> and "
+            "<code>NamingSystem/v2-0351</code> map the two NUBC OIDs to "
+            "those same absent canonicals, so the index asserts the NUBC "
+            "codes live at a THO URL that serves nothing. "
+            "<b>There is no NUBC URI to point at instead.</b> THO carries "
+            "twelve <code>AHA_NUBC_*</code> naming systems &mdash; revenue "
+            "codes, condition codes, type of bill &mdash; each resolving to "
+            "a <code>https://www.nubc.org/CodeSystem/&hellip;</code> URI. "
+            "<b>Occurrence codes and occurrence spans are not among "
+            "them.</b> The two tables sit on the same OID arc as "
+            "<code>AHA_NUBC_ValueCodesAndAmounts</code> "
+            "(<code>&hellip;.301.6</code>), which does resolve, so the "
+            "registration looks like an omission rather than a decision. "
+            "The chapter's note that the UB-04 manual is available by "
+            "subscription is the likely reason no code system was ever "
+            "minted.",
+        "ask":
+            "Answered as to classification; <b>the code system is still "
+            "unresolved and needs TSMG.</b> Either mint "
+            "<code>CodeSystem/v2-0350</code> and <code>v2-0351</code> so the "
+            "existing pointers resolve, or register NUBC URIs for occurrence "
+            "codes and spans as the other ten NUBC systems have and repoint "
+            "the naming systems and value sets at them. Until one of those "
+            "happens both value sets are published and cannot expand.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-14",
+            "ruling": "0350 and 0351 are <b>not</b> concept domain only. "
+                      "The value sets exist in THO, which makes them v2 "
+                      "content and therefore fair game for revision in this "
+                      "IG, and the fix is to the content logical "
+                      "definitions in the value sets. This corrects the "
+                      "error in Chapter 2C that declares the tables concept "
+                      "domain only.",
+            "effect": "Both tables are reclassified "
+                      "<code>value-set-only</code> and this guide now "
+                      "publishes <code>ValueSet/v2-0350</code> and "
+                      "<code>ValueSet/v2-0351</code> where it previously "
+                      "wrote nothing. They carry THO's identity, "
+                      "description and version unchanged, so neither "
+                      "increments. Recorded in "
+                      "<code>write_utg_xml.py</code>'s "
+                      "<code>RULED_RECLASSIFICATIONS</code> &mdash; a third "
+                      "mechanism beside the tentative overrides and the "
+                      "suppressions, because a reclassification adds output "
+                      "and so has to say what to publish and over what. "
+                      "<b>The CLD is reproduced, not repaired, and that is "
+                      "the part the ruling could not reach.</b> The fix "
+                      "asked for is to point the compose at the appropriate "
+                      "external code system &mdash; but there is no such "
+                      "code system to point at. THO registers no NUBC URI "
+                      "for occurrence codes or spans, and the only "
+                      "canonical either value set has ever named is the "
+                      "absent <code>CodeSystem/v2-NNNN</code>. So this "
+                      "guide composes over the same unresolvable canonical "
+                      "THO does: the value sets exist and are correctly "
+                      "classified, and they still cannot expand. The writer "
+                      "reports this on every run rather than letting it "
+                      "pass, and the remaining half is a TSMG question. "
+                      "<b>0456 and 0895 are not answered by this ruling</b> "
+                      "and stay open on "
+                      "<code>esc-tho-dangling-value-sets</code>. 0456 is "
+                      "the same shape &mdash; an NUBC table whose THO value "
+                      "set dangles &mdash; and the reasoning here would "
+                      "likely apply, but it was not named.",
+        },
     },
     {
         "id": "esc-v2tables-domain-gaps",

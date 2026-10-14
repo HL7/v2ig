@@ -1,10 +1,10 @@
 {
   "counts": {
     "code-system-and-value-set": 398,
-    "concept-domain-only": 358,
+    "concept-domain-only": 356,
     "nothing-to-write": 3,
     "suppressed-by-ruling": 4,
-    "value-set-only": 21,
+    "value-set-only": 23,
     "needs-decision": 15
   },
   "tentativeOverrides": {
@@ -31,6 +31,24 @@
       "esc-0078-alias-of-v3",
       "esc-0411-concept-domain-only",
       "esc-0567-0568-deprecation"
+    ]
+  },
+  "ruledReclassifications": {
+    "count": 2,
+    "tables": [
+      "0350",
+      "0351"
+    ],
+    "registerItems": [
+      "esc-0350-0351-not-domain-only"
+    ],
+    "unresolvedSystems": [
+      "0350",
+      "0351"
+    ],
+    "appliedThisRun": [
+      "0350",
+      "0351"
     ]
   },
   "tables": [
@@ -5823,16 +5841,62 @@
     {
       "table": "0350",
       "name": "Occurrence Code",
-      "action": "concept-domain-only",
-      "reason": "Declared concept domain only. A binding to a domain needs no value set.",
-      "written": []
+      "action": "value-set-only",
+      "reason": "Tables 0350 and 0351 are not concept domain only. The value sets exist in THO, which makes them v2 content and fair game for revision in this IG, and the fix is to their content logical definitions.",
+      "written": [
+        "valueSets/vs-v2-0350.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0350",
+      "resolvedBy": "committee ruling, esc-0350-0351-not-domain-only",
+      "ruledReclassification": {
+        "table": "0350",
+        "registerItem": "esc-0350-0351-not-domain-only",
+        "ruling": "Tables 0350 and 0351 are not concept domain only. The value sets exist in THO, which makes them v2 content and fair game for revision in this IG, and the fix is to their content logical definitions.",
+        "rationale": [
+          "THO's own CodeSystem/v2-tables types this table `Externally defined` and records a code system OID, a value set OID and a CLD flag for it -- none of which a concept-domain-only table has.",
+          "THO publishes ValueSet/v2-0350 as an active resource, so the value set is established v2 content rather than something this guide would be creating.",
+          "The chapter's own table description names the National Uniform Billing Committee and prints the code system OID 2.16.840.1.113883.6.301.7, which contradicts the concept-domain-only flag in the same section."
+        ],
+        "unresolvedSystem": "THO publishes no CodeSystem at this canonical. Its own NamingSystem/v2-0350 maps the NUBC OID 2.16.840.1.113883.6.301.7 to it, and ValueSet/v2-0350 already composes over it, so this guide is reproducing THO's pointer rather than inventing one -- but the target does not exist and the value set cannot expand. The NUBC arc's other members resolve to nubc.org URIs through their own NamingSystems; occurrence codes have no such registration."
+      },
+      "valueSetVersion": {
+        "version": "3.0.0",
+        "reason": "Nothing the policy counts as a change, so THO's version stands.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0351",
       "name": "Occurrence Span",
-      "action": "concept-domain-only",
-      "reason": "Declared concept domain only. A binding to a domain needs no value set.",
-      "written": []
+      "action": "value-set-only",
+      "reason": "Tables 0350 and 0351 are not concept domain only. The value sets exist in THO, which makes them v2 content and fair game for revision in this IG, and the fix is to their content logical definitions.",
+      "written": [
+        "valueSets/vs-v2-0351.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0351",
+      "resolvedBy": "committee ruling, esc-0350-0351-not-domain-only",
+      "ruledReclassification": {
+        "table": "0351",
+        "registerItem": "esc-0350-0351-not-domain-only",
+        "ruling": "Tables 0350 and 0351 are not concept domain only. The value sets exist in THO, which makes them v2 content and fair game for revision in this IG, and the fix is to their content logical definitions.",
+        "rationale": [
+          "THO's CodeSystem/v2-tables types this table `Externally defined` with a code system OID, a value set OID and a CLD flag.",
+          "THO publishes ValueSet/v2-0351 as an active resource.",
+          "The chapter's table description names the NUBC and prints the code system OID 2.16.840.1.113883.6.301.8."
+        ],
+        "unresolvedSystem": "THO publishes no CodeSystem at this canonical. Same shape as 0350: NamingSystem/v2-0351 maps the NUBC OID 2.16.840.1.113883.6.301.8 to it and ValueSet/v2-0351 composes over it, but nothing serves the target."
+      },
+      "valueSetVersion": {
+        "version": "3.0.0",
+        "reason": "Nothing the policy counts as a change, so THO's version stands.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0353",

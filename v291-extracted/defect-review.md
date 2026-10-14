@@ -644,7 +644,7 @@ For 577 of the 582 shared concept domains, Chapter 2C and THO agree word for wor
 
 ### Four THO value sets draw from v2 code systems that THO does not publish, so they cannot expand
 
-**Tables:** 0350, 0351, 0456, 0895  
+**Tables:** 0456, 0895  
 **Goes to:** TSMG / UTG  
 **Register id:** `esc-tho-dangling-value-sets`
 
@@ -654,12 +654,10 @@ Found by putting this corpus side by side with hl7.terminology.r5#7.3.0 rather t
 
 **What this guide publishes today:**
 
-- `0350` Occurrence Code: concept domain only, no artifact
-- `0351` Occurrence Span: concept domain only, no artifact
 - `0456` Revenue code: concept domain only, no artifact
 - `0895` Present On Admission (POA) Indicator: BLOCKED — no artifact, pipeline cannot settle it
 
-**Decision needed:** Decide what should happen to the four. Either the missing v2 code systems should be published, or the value sets should compose from the external authority that actually owns the codes (NUBC for three of them), or they should be retired. Whichever way it goes, it is worth asking how four unexpandable value sets came to be published, because the same process would produce more.
+**Decision needed:** This finding covered four tables; 0350 and 0351 have since been answered — see esc-0350-0351-not-domain-only — so this item now covers 0456 and 0895. That ruling settled their classification and explicitly did not settle the code system, so the half that applies here is untouched by it. Decide what should happen to these two. Either the missing v2 code systems should be published, or the value sets should compose from the external authority that actually owns the codes (NUBC for 0456), or they should be retired. 0456 is the same shape as 0350 and 0351 — an NUBC table whose THO value set dangles — so whatever resolves those two very likely resolves it, and the three are worth taking together. It is still worth asking how four unexpandable value sets came to be published, because the same process would produce more.
 
 ---
 

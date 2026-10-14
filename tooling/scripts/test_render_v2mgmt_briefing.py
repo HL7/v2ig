@@ -156,6 +156,57 @@ def test_the_kept_version_count_matches_the_merge():
         f"summary should say {kept} of {total} artifacts keep THO's version"
 
 
+def write_report():
+    path = briefing.PROJECT_ROOT / "v291-fhir" / "utg-write-report.json"
+    if not path.exists():
+        pytest.skip("no write report")
+    return json.loads(path.read_text())
+
+
+def metric(label):
+    """The value the metrics strip carries for a label, or None."""
+    for value, text, _tone in briefing.METRICS:
+        if text == label:
+            return value
+    return None
+
+
+def test_the_artifact_count_matches_what_was_written():
+    """Caught drifting at 824 against a real 820 after three suppressions
+    removed artifacts. Every number on the metrics strip is a claim about the
+    build, so every one of them belongs in a test."""
+    report = write_report()
+    written = sum(len(t["written"]) for t in report["tables"])
+    expected = written + 1          # the conceptdomains CodeSystem
+    assert metric("artifacts generated") == str(expected), (
+        f"metrics say {metric('artifacts generated')} artifacts, the build "
+        f"wrote {expected}")
+
+
+def test_the_defect_class_count_matches_the_review_list():
+    """The briefing counts the classes the review list actually populates.
+    An empty class is not a class of defect the committee has to rule on."""
+    import render_defect_review
+
+    buckets, _unclassified = render_defect_review.grouped()
+    populated = sum(1 for items in buckets.values() if items)
+    assert metric("classes of chapter defect") == str(populated), (
+        f"metrics say {metric('classes of chapter defect')} defect classes, "
+        f"the review list has {populated}")
+
+
+def test_the_blocking_question_count_matches_the_blockers():
+    """The strip says how many blocking questions there are and the page then
+    lists them. The two disagreed once already: the strip said one while the
+    page carried two, one of which had been answered and downgraded in its
+    own prose without the number following."""
+    still_blocking = [b for b in briefing.BLOCKERS
+                      if "no longer blocking" not in (b.get("why") or "")]
+    assert metric("blocking question") == str(len(still_blocking)), (
+        f"metrics say {metric('blocking question')} blocking question(s), "
+        f"the page carries {len(still_blocking)}")
+
+
 def test_the_meeting_date_is_not_the_one_before_it():
     """A briefing rendered under the previous meeting's date is the previous
     meeting's briefing, whatever its content says."""

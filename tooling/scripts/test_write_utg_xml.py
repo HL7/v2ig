@@ -962,6 +962,68 @@ def test_a_suppressed_tables_artifact_is_removed_from_an_earlier_run(tmp_path):
     assert keep.exists(), "an unrelated table must be untouched"
 
 
+def test_every_reclassification_names_an_answered_register_item():
+    """Same invariant as suppressions, for the same reason: publishing
+    against the chapter is somebody else's decision, and must look like it."""
+    import vocabulary_escalations
+
+    by_id = {item["id"]: item for item in vocabulary_escalations.ESCALATIONS}
+    problems = {}
+    for table, entry in writer.RULED_RECLASSIFICATIONS.items():
+        item = by_id.get(entry.register_item)
+        if item is None:
+            problems[table] = f"{entry.register_item} does not exist"
+        elif not item.get("resolution"):
+            problems[table] = (
+                f"{entry.register_item} has no resolution, so nothing has "
+                f"been ruled")
+    assert not problems, (
+        f"these reclassifications do not rest on a recorded ruling: "
+        f"{problems}")
+
+
+def test_a_reclassification_publishes_what_the_chapter_says_not_to():
+    """0350 is flagged `Concept Domain Only: yes` and has no value set block.
+    Both are what the ruling says is wrong, so the write has to happen in
+    spite of them or the reclassification does nothing."""
+    record = make_record(
+        table="0350",
+        conceptDomain={"SymbolicName": "OccurrenceCode",
+                       "Concept Domain Only": "yes"},
+        codeSystems=[], valueSets=[], codedContent=[],
+        tableMetadata={"Table OID": "2.16.840.1.113883.12.350",
+                       "Steward": "InM/FM"})
+    files, report = writer.process([record], empty_repo(), {})
+
+    entry = next(e for e in report if e["table"] == "0350")
+    assert entry["action"] == "value-set-only"
+    assert "valueSets/vs-v2-0350.xml" in entry["written"]
+    assert entry["ruledReclassification"]["registerItem"] == (
+        "esc-0350-0351-not-domain-only")
+    assert files, "the reclassified table must produce an artifact"
+
+
+def test_an_unresolved_code_system_is_reported_not_hidden():
+    """The known cost of the 0350/0351 ruling. THO publishes no CodeSystem at
+    the canonical these value sets compose over, so they cannot expand --
+    which is the defect being corrected, reproduced. It has to be visible."""
+    summary = writer.reclassification_summary([])
+    assert summary["unresolvedSystems"] == ["0350", "0351"]
+    for table in summary["unresolvedSystems"]:
+        assert writer.RULED_RECLASSIFICATIONS[table].unresolved
+
+
+def test_the_three_ruling_mechanisms_are_disjoint():
+    """A table cannot be awaiting a ruling, withheld by one, and republished
+    by one at the same time."""
+    tentative = set(writer.TENTATIVE_OVERRIDES)
+    suppressed = set(writer.RULED_SUPPRESSIONS)
+    reclassified = set(writer.RULED_RECLASSIFICATIONS)
+    assert not tentative & suppressed
+    assert not tentative & reclassified
+    assert not suppressed & reclassified
+
+
 def test_the_only_override_is_table_0292():
     """A guard on the mechanism's scope rather than on its behaviour. It is
     for deviations awaiting a ruling, not a general licence to special-case a

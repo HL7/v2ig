@@ -407,6 +407,136 @@ RULED_SUPPRESSIONS = {
 }
 
 
+# --------------------------------------------------------------------------
+# Reclassifications by ruling
+# --------------------------------------------------------------------------
+#
+# Tables a committee has ruled the chapter classifies wrongly, where the
+# correct classification is stated rather than derived.
+#
+# The third of the ruling-driven mechanisms, and the distinctions matter:
+#
+#   TENTATIVE_OVERRIDES   deviate from the chapter *while awaiting* a ruling;
+#                         must name an OPEN register item (ADR-0011)
+#   RULED_SUPPRESSIONS    withhold a table *because of* a ruling; must name an
+#                         ANSWERED register item (ADR-0013)
+#   RULED_RECLASSIFICATIONS  publish a table the chapter says not to, or
+#                         differently from what it says, because of a ruling
+#
+# This one cannot be folded into either. A suppression removes output and
+# needs nothing but a table number. A reclassification *adds* output, so it
+# has to say what to publish and over which code system -- and that cannot
+# come from the chapter, because the chapter being wrong is the premise.
+#
+# An entry belongs here only when all four hold:
+#
+#   * a body with the authority has ruled the chapter's classification wrong,
+#   * the register item carrying that ruling has a `resolution`,
+#   * the replacement classification is stated in the ruling or follows
+#     directly from it, and
+#   * `system_url` names a code system that something authoritative actually
+#     publishes, OR the entry records why it does not and what that costs.
+#
+# The fourth is the one with teeth here, and it is not satisfied for 0350 and
+# 0351 -- see `unresolved` below. Publishing a value set that composes over a
+# canonical nothing serves is what THO already does for these two tables and
+# is the defect being corrected, so repeating it silently would be worse than
+# the gap. The entry carries the gap instead.
+#
+#   action         the classification to use instead of the chapter's
+#   system_url     the code system the value set composes over
+#   unresolved     None when `system_url` is published and resolvable; a
+#                  sentence saying what is wrong with it when it is not
+#   ruling         what was decided, in the words of the decision
+#   register_item  the id of the register item carrying the resolution
+#   rationale      why the chapter's classification is wrong, with evidence
+Reclassification = namedtuple(
+    "Reclassification",
+    "action system_url unresolved ruling register_item rationale")
+
+NUBC_OCCURRENCE_RULING = (
+    "Tables 0350 and 0351 are not concept domain only. The value sets exist "
+    "in THO, which makes them v2 content and fair game for revision in this "
+    "IG, and the fix is to their content logical definitions."
+)
+
+RULED_RECLASSIFICATIONS = {
+    "0350": Reclassification(
+        action="value-set-only",
+        system_url="http://terminology.hl7.org/CodeSystem/v2-0350",
+        unresolved="THO publishes no CodeSystem at this canonical. Its own "
+                   "NamingSystem/v2-0350 maps the NUBC OID "
+                   "2.16.840.1.113883.6.301.7 to it, and ValueSet/v2-0350 "
+                   "already composes over it, so this guide is reproducing "
+                   "THO's pointer rather than inventing one -- but the "
+                   "target does not exist and the value set cannot expand. "
+                   "The NUBC arc's other members resolve to nubc.org URIs "
+                   "through their own NamingSystems; occurrence codes have "
+                   "no such registration.",
+        ruling=NUBC_OCCURRENCE_RULING,
+        register_item="esc-0350-0351-not-domain-only",
+        rationale=(
+            "THO's own CodeSystem/v2-tables types this table "
+            "`Externally defined` and records a code system OID, a value set "
+            "OID and a CLD flag for it -- none of which a concept-domain-only "
+            "table has.",
+            "THO publishes ValueSet/v2-0350 as an active resource, so the "
+            "value set is established v2 content rather than something this "
+            "guide would be creating.",
+            "The chapter's own table description names the National Uniform "
+            "Billing Committee and prints the code system OID "
+            "2.16.840.1.113883.6.301.7, which contradicts the "
+            "concept-domain-only flag in the same section.",
+        ),
+    ),
+    "0351": Reclassification(
+        action="value-set-only",
+        system_url="http://terminology.hl7.org/CodeSystem/v2-0351",
+        unresolved="THO publishes no CodeSystem at this canonical. Same "
+                   "shape as 0350: NamingSystem/v2-0351 maps the NUBC OID "
+                   "2.16.840.1.113883.6.301.8 to it and ValueSet/v2-0351 "
+                   "composes over it, but nothing serves the target.",
+        ruling=NUBC_OCCURRENCE_RULING,
+        register_item="esc-0350-0351-not-domain-only",
+        rationale=(
+            "THO's CodeSystem/v2-tables types this table "
+            "`Externally defined` with a code system OID, a value set OID "
+            "and a CLD flag.",
+            "THO publishes ValueSet/v2-0351 as an active resource.",
+            "The chapter's table description names the NUBC and prints the "
+            "code system OID 2.16.840.1.113883.6.301.8.",
+        ),
+    ),
+}
+
+
+def ruled_reclassification(table):
+    """The reclassification ruling for this table, or None."""
+    return RULED_RECLASSIFICATIONS.get(table)
+
+
+def reclassification_summary(report):
+    """What this guide publishes against the chapter's classification.
+
+    `unresolved` is the part worth surfacing: a reclassification whose code
+    system nothing publishes produces a value set that cannot expand, and
+    that is a known cost of the ruling rather than a defect to discover
+    later.
+    """
+    applied = [entry for entry in report
+               if entry.get("ruledReclassification")]
+    return {
+        "count": len(RULED_RECLASSIFICATIONS),
+        "tables": sorted(RULED_RECLASSIFICATIONS),
+        "registerItems": sorted(
+            {r.register_item for r in RULED_RECLASSIFICATIONS.values()}),
+        "unresolvedSystems": sorted(
+            table for table, r in RULED_RECLASSIFICATIONS.items()
+            if r.unresolved),
+        "appliedThisRun": sorted(entry["table"] for entry in applied),
+    }
+
+
 def ruled_suppression(table):
     """The ruling suppressing this table, or None."""
     return RULED_SUPPRESSIONS.get(table)
@@ -841,6 +971,33 @@ def classify(record, oid_index, snapshot=None):
         table's codes actually belong to.
     """
     table = record["tableNumber"]
+
+    # A ruling that the chapter's classification is wrong replaces it
+    # outright. Checked before the tentative overrides because a settled
+    # answer outranks a pending question, and before the chapter reading
+    # because that reading is what was ruled wrong.
+    reclassification = ruled_reclassification(table)
+    if reclassification is not None:
+        plan = {
+            "action": reclassification.action,
+            "reason": reclassification.ruling,
+            "systemUrl": reclassification.system_url,
+            "resolvedBy": f"committee ruling, "
+                          f"{reclassification.register_item}",
+            # The chapter declares no value set block for these tables --
+            # that absence is part of what was ruled wrong -- so the write
+            # has to be authorised here or the reclassification does nothing.
+            "hasValueSet": True,
+            "ruledReclassification": {
+                "table": table,
+                "registerItem": reclassification.register_item,
+                "ruling": reclassification.ruling,
+                "rationale": list(reclassification.rationale),
+                "unresolvedSystem": reclassification.unresolved,
+            },
+        }
+        return plan
+
     override = tentative_override(table, "concept-domain-only")
     plan = classify_chapter_reading(
         record, oid_index, snapshot,
@@ -1518,7 +1675,7 @@ def process(records, utg, oid_index, published_urls=None, snapshot=None,
             "written": [],
         }
         for key in ("systemUrl", "resolvedBy", "published", "candidates",
-                    "tentativeOverride"):
+                    "tentativeOverride", "ruledReclassification"):
             if key in plan:
                 entry[key] = plan[key]
 
@@ -1924,6 +2081,23 @@ def main():
               f"inherit from), {len(defaulted)}:")
         print("  " + ", ".join(e["table"] for e in defaulted))
 
+    reclassifications = reclassification_summary(report)
+    if reclassifications["count"]:
+        print(f"\nPublished against the chapter's classification on a "
+              f"committee ruling, {reclassifications['count']}:")
+        for entry in report:
+            block = entry.get("ruledReclassification")
+            if block:
+                print(f"  {block['table']}  -> {entry['action']}  "
+                      f"({block['registerItem']})")
+        if reclassifications["unresolvedSystems"]:
+            print(f"  WARNING: the code system is unresolved for "
+                  f"{', '.join(reclassifications['unresolvedSystems'])}. "
+                  f"Those value sets cannot expand:")
+            for table in reclassifications["unresolvedSystems"]:
+                print(f"    {table}: "
+                      f"{RULED_RECLASSIFICATIONS[table].unresolved}")
+
     suppressions = suppression_summary()
     if suppressions["count"]:
         print(f"\nWithheld on a committee ruling, {suppressions['count']}:")
@@ -2058,6 +2232,7 @@ def main():
         json.dumps({"counts": dict(actions),
                     "tentativeOverrides": overrides,
                     "ruledSuppressions": suppressions,
+                    "ruledReclassifications": reclassifications,
                     "tables": report},
                    indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",

@@ -6,7 +6,7 @@ We have extracted the whole of Chapter 2C — **799 tables, 5,540 codes** — an
 
 **Since we last met on 28 August, it builds as an implementation guide.** **824 artifacts** — 399 CodeSystems, 424 ValueSets and the concept domains — generate and validate through the IG Publisher, with **zero broken links across 625,068 checked**. You can open it and follow any claim on this page to the evidence behind it. **It is not a published IG** — publication is a status conferred by the HL7 process, and nothing here has been through it.
 
-**It is additive with respect to THO.** We publish at THO's own canonical URLs, so a naive load would silently delete anything THO carries that Chapter 2C is silent about. It does not: **7,580 values that exist only in THO are preserved**, and **731 of 817 artifacts keep THO's existing version number** because nothing about them actually changed.
+**It is additive with respect to THO.** We publish at THO's own canonical URLs, so a naive load would silently delete anything THO carries that Chapter 2C is silent about. It does not: **7,588 values that exist only in THO are preserved**, and **733 of 819 artifacts keep THO's existing version number** because nothing about them actually changed.
 
 The work is destined for **THO**, and it establishes a corrected baseline for v2 terminology there. It was walked through with the **Terminology Infrastructure WG on 21 September**; the canonical URLs and the merge route are agreed, and TSMG settled the one versioning question that was still open.
 

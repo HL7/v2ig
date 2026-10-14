@@ -1,5 +1,5 @@
 This guide carries the code tables of **HL7 V2.9.1 Chapter 2C** as FHIR R5
-terminology resources: **398 CodeSystems**, **420 ValueSets**, and an extended
+terminology resources: **398 CodeSystems**, **422 ValueSets**, and an extended
 `conceptdomains` CodeSystem.
 
 > **This is a draft for committee review, not a publication.** It exists so
