@@ -3,7 +3,7 @@
 :v2_section_name: "Pharmacy Query/Response Message Pair (Events Q11 and K31)"
 :generated: "Thu, 01 Aug 2024 15:25:17 -0600"
 
-.Conformance Statement
+Conformance Statement
 [width="100%",cols="39%,61%",options="header",]
 |===
 |Query Statement ID (Query ID=Q31): |Q31
@@ -22,7 +22,7 @@
 Q11
 K31
 
-.QPD Input Parameter Specification
+QPD Input Parameter Specification
 [width="100%",cols="11%,14%,8%,3%,6%,8%,3%,3%,8%,8%,9%,8%,11%",options="header",]
 |===
 |Field Seq (Query ID=Q31) |Name a|
@@ -41,16 +41,16 @@ Search
 = | |RXD.3 | |RXD-3: Date/Time Dispensed
 |===
 
-.QPD Input Parameter Field Description and Commentary
+QPD Input Parameter Field Description and Commentary
 [width="100%",cols="19%,11%,6%,64%",options="header",]
 |===
 |Input Parameter (Query ID=Q31) |Comp. Name |DT |Description
 |MessageQueryName | |CWE |Must be valued Q31^Dispense History^HL7nnnn.
 |QueryTag | |ST |Unique to each query message instance.
 |PatientList | |CX |The combination of values for _PatientList.ID, and PatientList.AssigningAuthority,_ are intended to identify a unique entry on the PATIENT_MASTER table. The _PatientList.IdentifierTypeCode_ is useful for further filtering or to supply uniqueness in the event that the assigning authority may have more than one coding system. (The PATIENT_MASTER table contains a constraint that prevents multiple patients from being identified by the same combination of field values.) This PATIENT_MASTER entry will be searched against on the PHARMACY_DISPENSE_TRANSACTION table to retrieve the rows fulfilling the query conditions. +
-+
+
 If this field is not valued, all values for this field are considered to be a match. +
-+
+
 If one PID.3 is specified, only 1 segment pattern will be returned.
 | |ID |ID |If this field, PID.3.1, is not valued, all values for this field are considered to be a match.
 | |Assigning Authority |HD |If this field, PID.3.4, is not valued, all values for this field are considered to be a match.
@@ -60,3 +60,38 @@ If one PID.3 is specified, only 1 segment pattern will be returned.
 |DispenseDate.UL | |DTM |This is the latest value to be returned for Date/Time Dispensed. If this field is not valued, all values for this field are considered to be a match.
 |===
 
+=== Example
+
+The user wishes to know all the medications dispensed for the patient whose medical record number is "555444222111" for the period beginning 5/31/2025 and ending 5/31/2026. The following QBP message is generated.
+
+[.er7]
+....
+MSH|^&~\|PCR|Gen Hosp|Pharm||202611201400-0800||QBP^Q31^QBP_Q11|ACK9901|P|2.8|
+QPD|Q31^Dispense History^HL70471|Q001|555444222111^^^MPI^MR||20250531|20260531|
+RCP|I|999^RD|
+....
+
+The pharmacy system identifies medical record number "555444222111" as belonging to Adam Everyman and locates 4 prescription dispenses for the period beginning 5/31/2025 and ending 5/31/2026 and returns the following RSP message:
+
+[.er7]
+....
+MSH|^&~\|Pharm|Gen hosp|PCR||202611201400-0800||RSP^K31^RSP_K31|8858|P|2.8|
+MSA|AA|ACK9901|
+QAK|Q001|OK|Q31^Dispense History^HL70471|4|
+QPD|Q31^Dispense History^HL70471|Q001|444-33-3333^^^MPI^MR||20250531|20260531|
+PID|||444-33-3333^^^MPI^MR||Everyman^Adam||19800614|M||C|2222 Home Street ^^Anytown^US^12345||^^^^^555^5552004|
+ORC|RE||89968665||||||202605121345-0700|||444-44-4444^HIPPOCRATES^HAROLD^^^^MD||^^^^^555^5551003|
+RXE|1^BID^^20250529|00378112001^Verapamil Hydrochloride 120 mg TAB^NDC |120||mgm|
+RXD|1|00378112001^Verapamil Hydrochloride 120 mg TAB^NDC |202505291115-0700|100|||1331665|3|
+RXR|PO|
+ORC|RE||89968665||||||202505291030-0700|||444-44-4444^HIPPOCRATES^HAROLD^^^^MD||^^^^^555^5551003|
+RXE|1^^D100^^20070731^^^TAKE 1 TABLET DAILY --GENERIC FOR CALAN SR|00182196901^VERAPAMIL HCL ER TAB 180MG ER^NDC |100||180MG|TABLET SA|||G|||0|BC3126631^CHU^Y^L||213220929|0|0|20250821|
+RXD|1|00182196901^VERAPAMIL HCL ER TAB 180MG ER^NDC |20250821|100|||213220929|0|TAKE 1 TABLET DAILY --GENERIC FOR CALAN SR|
+RXR|PO|
+ORC|RE||235134037||||||202509221330-0700|||444-44-4444^HIPPOCRATES^HAROLD^^^^MD||^^^^^555^5551003|
+RXD|1|00172409660^BACLOFEN 10MG TABS^NDC|202509221415-0700|10|||235134037|5|AS DIRECTED|
+RXR|PO|
+ORC|RE||235134030||||||202510121030-0700|||222-33-4444^PUMP^PATRICK^^^^MD ||^^^^^555^5551027|
+RXD|1|00054384163^THEOPHYLLINE 80MG/15ML SOLN^NDC|202510121145-0700|10|||235134030|5|AS DIRECTED|
+RXR|PO|
+....
