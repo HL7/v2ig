@@ -3,7 +3,7 @@
 :v2_section_name: "OMN - non-stock requisition order message (Event O07)"
 :generated: "Thu, 01 Aug 2024 15:25:17 -0600"
 
-Non-stock requisitions can use the ORM message with the RQD and RQ1 segments as the detail segment, or use the OMN and ORN messages described below.
+Non-stock requisitions use the OMN and ORN messages described below. Some systems may use the deprecated ORM message type with the RQD and RQ1 segments as the detail segment for backward compatibility.
 
 [tabset]
 O07
