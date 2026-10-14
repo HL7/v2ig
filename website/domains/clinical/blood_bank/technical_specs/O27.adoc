@@ -10,11 +10,6 @@ Blood product orders use the OMB message with the BPO segment for the detail seg
 [tabset]
 O27
 
-OMB use notes
-
 The NTE segment(s) can be included in the OMB message in four places; in each place the NTE refers to the segment that it follows. In particular, the NTEs following the MSH refer only to the message header; the NTEs following the blood product order segment apply to the service defined by that ORC and blood product order segment.
 
 The PID segment is required if and only if new orders are being entered and they are related to a particular patient. For non-patient-related orders the PID segment is never included.
-
-
-
