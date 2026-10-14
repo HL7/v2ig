@@ -1,6 +1,6 @@
 # Chapter 2C defects, grouped for decision
 
-Review list for V2 Management — 34 open findings.
+Review list for V2 Management — 33 open findings.
 
 This document replaces the blanket policy question `esc-retain-known-errors`. V2 Management ruled on 2026-10-08 that There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.
 
@@ -614,7 +614,7 @@ Table 0567 and table 0929 are both named Weight Units, declare the concept domai
 
 ---
 
-## Where this guide and THO disagree (7)
+## Where this guide and THO disagree (6)
 
 Both bodies publish something, and they differ. Whatever is decided has to be decided for both, or the two fork.
 
@@ -639,25 +639,6 @@ For 577 of the 582 shared concept domains, Chapter 2C and THO agree word for wor
 - `0626` Observation Method (OBX-17): concept domain only, no artifact
 
 **Decision needed:** Reconcile the five between the two bodies. The four unrelated definitions matter more than the near-match: if Chapter 2C and THO genuinely disagree about what a domain means, choosing a wording does not fix that.
-
----
-
-### Four THO value sets draw from v2 code systems that THO does not publish, so they cannot expand
-
-**Tables:** 0456, 0895  
-**Goes to:** TSMG / UTG  
-**Register id:** `esc-tho-dangling-value-sets`
-
-*Why this class: THO publishes value sets for tables the chapter has nothing for.*
-
-Found by putting this corpus side by side with hl7.terminology.r5#7.3.0 rather than by inspection. Each of these four value sets is published by THO at ValueSet/v2-NNNN and composes from CodeSystem/v2-NNNN at the matching canonical — and THO publishes no such code system. An expansion has nothing to draw from. This is not a defect this project introduces or can repair. Chapter 2C agrees with THO that these tables have no codes of their own: 0350 Occurrence Code, 0351 Occurrence Span and 0456 Revenue code all point at the National Uniform Billing Committee, and the chapter declares a concept domain for each rather than a code set. This guide therefore writes nothing for them, which is correct. The dangling value sets are THO's, and they predate us. 0895 Present On Admission (POA) Indicator is the same shape but arrives by a different route: this project has it on the needs-decision list because its Content Logical Definition is not one of the shapes we build. Two neighbouring cases are not defects and should not be swept in: 0005 Race and 0292 Vaccines Administered also have THO value sets with no v2 code system, but they compose from the CDC race codes and CVX respectively — an external authority owning the codes is the intended arrangement, not a gap.
-
-**What this guide publishes today:**
-
-- `0456` Revenue code: concept domain only, no artifact
-- `0895` Present On Admission (POA) Indicator: BLOCKED — no artifact, pipeline cannot settle it
-
-**Decision needed:** This finding covered four tables; 0350 and 0351 have since been answered — see esc-0350-0351-not-domain-only — so this item now covers 0456 and 0895. That ruling settled their classification and explicitly did not settle the code system, so the half that applies here is untouched by it. Decide what should happen to these two. Either the missing v2 code systems should be published, or the value sets should compose from the external authority that actually owns the codes (NUBC for 0456), or they should be retired. 0456 is the same shape as 0350 and 0351 — an NUBC table whose THO value set dangles — so whatever resolves those two very likely resolves it, and the three are worth taking together. It is still worth asking how four unexpandable value sets came to be published, because the same process would produce more.
 
 ---
 

@@ -285,9 +285,6 @@ CLASSIFICATION = {
     "esc-tho-descriptions-say-more": (
         "tho-divergence",
         "THO's descriptions carry content the chapter's do not."),
-    "esc-tho-dangling-value-sets": (
-        "tho-divergence",
-        "THO publishes value sets for tables the chapter has nothing for."),
     "esc-v2tables-domain-gaps": (
         "tho-divergence",
         "Gaps in CodeSystem/v2-tables' concept domain coverage."),

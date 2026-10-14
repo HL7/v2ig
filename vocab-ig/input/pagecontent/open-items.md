@@ -31,13 +31,13 @@ already applied.
 
 All **6** questions below are for **V2 Management**. TSMG owns the artifact versioning policy; V2 Management owns what Chapter 2C says.
 
-There are **57 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
+There are **56 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
 
 **1 question has since been answered** and moved to the evidence page: [1. Does reordering a code system's concepts count as a change?](evidence.html#gq-does-reordering-a-code-system).
 
 ### For V2 Management / TSMG
 
-#### Open items <span class="ri-count">&mdash; 35 items</span>
+#### Open items <span class="ri-count">&mdash; 34 items</span>
 
 <div class="ri-blurb">Defects in the published Chapter 2C, in THO, or in both. None of these is this project's to resolve, and each needs a committee answer. They are listed first because a representation decision can be revisited at any time, whereas getting an item onto an agenda has a lead time.</div>
 
@@ -165,11 +165,6 @@ There are **57 open items** below, plus **6 general questions** that have a work
   <div class="ri-key">0685, 0767</div>
   <p><b>Two table headings are styled <code>Normal</code> instead of <code>Heading 3</code></b></p><p>Both tables are consequently absent from the document's own table of contents, and both were invisible to extraction until they were special-cased. Their content is complete and is extracted in full; the defect is in the styling of the published document. Recorded here for completeness &mdash; it is the smallest item on this list and needs nothing from this project.</p><p class="ask"><b>The ask:</b> Fix the styles in a future publication.</p>
   <div class="ri-who">Goes to: V2 Management</div>
-</div>
-<div class="ri-item ri-escalate">
-  <div class="ri-key">0456, 0895</div>
-  <p><b>Four THO value sets draw from v2 code systems that THO does not publish, so they cannot expand</b></p><p>Found by putting this corpus side by side with <code>hl7.terminology.r5#7.3.0</code> rather than by inspection. Each of these four value sets is published by THO at <code>ValueSet/v2-NNNN</code> and composes from <code>CodeSystem/v2-NNNN</code> at the matching canonical &mdash; and THO publishes no such code system. An expansion has nothing to draw from. <b>This is not a defect this project introduces or can repair.</b> Chapter 2C agrees with THO that these tables have no codes of their own: 0350 <i>Occurrence Code</i>, 0351 <i>Occurrence Span</i> and 0456 <i>Revenue code</i> all point at the National Uniform Billing Committee, and the chapter declares a concept domain for each rather than a code set. This guide therefore writes nothing for them, which is correct. The dangling value sets are THO's, and they predate us. 0895 <i>Present On Admission (POA) Indicator</i> is the same shape but arrives by a different route: this project has it on the needs-decision list because its Content Logical Definition is not one of the shapes we build. Two neighbouring cases are <b>not</b> defects and should not be swept in: 0005 <i>Race</i> and 0292 <i>Vaccines Administered</i> also have THO value sets with no v2 code system, but they compose from the CDC race codes and CVX respectively &mdash; an external authority owning the codes is the intended arrangement, not a gap.</p><p class="ask"><b>The ask:</b> <b>This finding covered four tables; 0350 and 0351 have since been answered &mdash; see <code>esc-0350-0351-not-domain-only</code> &mdash; so this item now covers 0456 and 0895.</b> That ruling settled their <i>classification</i> and explicitly did not settle the code system, so the half that applies here is untouched by it. Decide what should happen to these two. Either the missing v2 code systems should be published, or the value sets should compose from the external authority that actually owns the codes (NUBC for 0456), or they should be retired. <b>0456 is the same shape as 0350 and 0351</b> &mdash; an NUBC table whose THO value set dangles &mdash; so whatever resolves those two very likely resolves it, and the three are worth taking together. It is still worth asking how four unexpandable value sets came to be published, because the same process would produce more.</p>
-  <div class="ri-who">Goes to: TSMG / UTG</div>
 </div>
 <div class="ri-item ri-escalate">
   <div class="ri-key">35 tables in v2-tables, none of them in Chapter 2C 2.9.1</div>

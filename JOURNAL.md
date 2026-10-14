@@ -18,7 +18,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-10-14 (session 8: nine rulings captured, and three mechanisms to carry them)
+## ACTIVE — 2026-10-14 (session 8: ten rulings captured, three mechanisms to carry them, and one of my own findings withdrawn)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
@@ -69,7 +69,7 @@ five keys, all required:
 }
 ```
 
-**A ruling almost never covers a whole register item.** Seven of the nine
+**A ruling almost never covers a whole register item.** Seven of the ten
 answered items were *split out* of a larger finding, because the committee
 named two tables of a four-table item. **Split rather than close**, narrow the
 parent's `tables` and `ask`, and say in both directions what is still open.
@@ -79,23 +79,29 @@ part-answered parent still looks like.
 
 ### What landed in session 8
 
-Nine rulings across three commits. The register went from **38 items, 1
-answered** to **44 items, 9 answered** — it grew because splitting adds items.
+Ten rulings across four commits. The register went from **38 items, 1
+answered** to **44 items, 10 answered** — it grew because splitting adds
+items, and one of the answers withdrew a finding of ours rather than
+settling a question of the chapter's.
 
 - **`b058aabe`** — reproduce-or-correct has no single answer; 0567/0568
   withheld; 0010 withdrawn; 0005 settled.
 - **`5cd77e11`** — 0078 withheld as a duplicate; 0411 to concept-domain-only;
   0188 withdrawn; 0133's description emphasised.
 - **`ae167fa8`** — 0350/0351 reclassified and published.
+- **the correction** — `esc-tho-dangling-value-sets` withdrawn as a mistaken
+  finding, and the false "cannot expand" warning removed from the build.
 
 **The blanket reproduce-or-correct ask is gone and `render_defect_review.py`
 replaces it.** The ruling was that no single rule applies — it goes per class
 and sometimes per instance. So `esc-retain-known-errors` stays **open and
-unresolved** (a `resolution` would claim an answer nobody gave) and the 35
-open findings are now grouped into **7 classes, ordered cheapest-answer-
+unresolved** (a `resolution` would claim an answer nobody gave) and the 34
+open findings are now grouped into **6 classes, ordered cheapest-answer-
 first**, each entry carrying what the chapter says, what THO says, **what the
 guide publishes today read from the build report**, and the decision needed.
 `v291-extracted/defect-review.md` is the thing to walk with the reviewer.
+It now carries **34 findings in 6 classes**; the THO-divergence class lost
+one when the dangling-value-sets finding was withdrawn.
 
 **`CLASSIFICATION` in that module is the only authored part**, and a test
 requires it to cover every open item. Add a finding to the register without
@@ -103,13 +109,31 @@ classifying it and the suite fails — which is the point.
 
 ### Things that will bite
 
-- **A ruling's stated premise is sometimes wrong, and checking is the job.**
-  The 0567/0568 ruling said "the CS in THO have already been retired"; there
-  are no CodeSystems for 0567, 0568, 0929 or 0930 at all. The reviewer
-  confirmed the slip when shown. **The 0350/0351 ruling said to point the CLD
-  at the appropriate external code system, and there is no such code system
-  to point at** — see below. Both were caught by reading THO rather than the
-  ruling. Neither reviewer nor pipeline will catch this for you.
+- **A THO canonical with no CodeSystem behind it is usually not a defect.**
+  This cost the session its biggest wrong turn, and it is the single most
+  useful thing on this page. THO mints endorsed URIs under
+  `http://terminology.hl7.org/CodeSystem/` for code systems whose *content*
+  belongs to somebody else, registers them as NamingSystems with a
+  `responsible` party, and publishes no content at all. Its
+  [external code systems page](https://terminology.hl7.org/en/external_code_systems.html)
+  lists them. **The right test for a compose target is "THO publishes a
+  CodeSystem at it OR registers it as an external code system."** Testing
+  only the first produced a four-table "dangling value sets" finding that
+  was entirely wrong; under the correct test, exactly **one** unresolvable
+  target exists in every v2 value set THO publishes, and it is the already
+  known `v2-0962` → `http://hl7.org/fhir/device-status`. Nothing in a value
+  set distinguishes the two cases — the distinction lives in the
+  NamingSystem, in a `responsible` field that is easy to read past.
+- **A ruling's stated premise is sometimes wrong, and checking is the job —
+  but check your own premises with the same force.** The 0567/0568 ruling
+  said "the CS in THO have already been retired"; there are no CodeSystems
+  for those tables at all, and the reviewer confirmed the slip. The
+  0350/0351 ruling said the CLDs needed repointing; **they did not, and the
+  reason I believed they did was my own bad finding, which the reviewer had
+  taken on trust from the register.** The register fed the reviewer a wrong
+  premise, and the reviewer fed it back. That loop is the failure mode to
+  watch: a finding in the register is evidence to whoever reads it, so a
+  wrong one does not stay contained.
 - **Numbers in authored prose rot, and the tests only cover what somebody
   added.** Six drifted this session. Two were caught by existing tests; the
   other four — `824 artifacts generated`, `8 classes of chapter defect`, and
@@ -134,16 +158,9 @@ classifying it and the suite fails — which is the point.
 
 ### Open, and worth knowing
 
-- **0350/0351 are published and cannot expand.** The ruling's classification
-  half is done; its CLD half could not be. THO publishes no
-  `CodeSystem/v2-0350` or `v2-0351`, yet its own NamingSystems map the NUBC
-  OIDs `...6.301.7` and `...6.301.8` to exactly those absent canonicals. Of
-  twelve `AHA_NUBC_*` naming systems in THO, **none covers occurrence codes
-  or spans** — though the two tables sit on the same arc as
-  `AHA_NUBC_ValueCodesAndAmounts` (`...301.6`), which does resolve. So the
-  guide composes over the same unresolvable canonical THO does. The writer
-  prints this on every run. **Finishing it is a TSMG question**:
-  `esc-0350-0351-not-domain-only`.
+- **0350/0351 are published and complete.** Both halves of the ruling are
+  done, and the CLD half turned out to need nothing. See the correction
+  below — this entry said the opposite for most of the session.
 - **`vs-v2-0962.xml` is an orphan** — tracked, staged, published, for a table
   that became `needs-decision` and whose file nothing prunes. **Pre-existing,
   not from any ruling.** The writer reports any file a full run did not write
@@ -152,9 +169,10 @@ classifying it and the suite fails — which is the point.
 - **0460 is now the only minted CodeSystem canonical in the corpus.** 0411
   leaving made `esc-0460-user-defined-mint` a sharper question, not a smaller
   one. 0093 is open alongside it.
-- **0456 is the same shape as 0350/0351** — an NUBC table whose THO value set
-  dangles — so whatever resolves those two likely resolves it. Open on
-  `esc-tho-dangling-value-sets` with 0895.
+- **0895 is still on the needs-decision list**, for a reason unrelated to
+  anything ruled this session: its Content Logical Definition is not one of
+  the shapes this guide builds. **0456 needs nothing** — it was only ever on
+  the withdrawn dangling-value-sets finding.
 - **`render_metrics_summary.py` is still untracked and undecided**, four
   sessions on. Written 2026-09-29 for an annual-accomplishments report; reads
   vocabulary build artifacts, so it is probably this branch's.
@@ -226,11 +244,12 @@ sweeps three of them in — stage vocabulary files explicitly.**
 
 ## Session History
 
-## 2026-10-14 — Session 8: nine rulings, and the mechanisms to carry them
+## 2026-10-14 — Session 8: ten rulings, and a finding of ours that was wrong
 
-Three commits, no build. The reviewer answered nine questions across two V2
+Four commits, no build. The reviewer answered ten questions across two V2
 Management calls, writing them into `docs/issue_resolutions.md` as prose, and
-asked to batch the rebuild until the rulings stop arriving.
+asked to batch the rebuild until the rulings stop arriving. The last of the
+ten withdrew a finding of ours rather than settling anything in the chapter.
 
 ### What the rulings changed
 
@@ -266,32 +285,47 @@ reclassification adds output** and so must say what to publish and over which
 code system. That cannot be read from the chapter, because the chapter being
 wrong is the premise.
 
-### The two rulings whose premises did not hold
-
-Both were caught by reading THO rather than the ruling, and neither the
-reviewer nor the pipeline would have caught them.
+### One ruling's premise did not hold, and one of mine did not either
 
 **0567/0568** said *"the CS in THO have already been retired."* There are no
 CodeSystems for 0567, 0568, 0929 or 0930 at all — only four ValueSets, all
 active, all composing from UCUM directly. Shown this, the reviewer confirmed
 the slip. The ruling's substance was unaffected.
 
-**0350/0351** said the fix is to point the value set CLDs at the appropriate
-external code system. **There is no such code system.** THO publishes no
-`CodeSystem/v2-0350` or `v2-0351`, yet its own NamingSystems map the NUBC OIDs
-`...6.301.7` and `...6.301.8` to exactly those absent canonicals, and its
-value sets already compose over them. Of twelve `AHA_NUBC_*` naming systems in
-THO — revenue codes, condition codes, type of bill — none covers occurrence
-codes or spans, though both tables sit on the same arc as
-`AHA_NUBC_ValueCodesAndAmounts` (`...301.6`), which does resolve.
+**0350/0351 is the one worth reading.** The ruling said the value set CLDs
+needed repointing at the appropriate external code system. I reported back
+that there was no such code system to point at: THO publishes no
+`CodeSystem/v2-0350` or `v2-0351`, yet its NamingSystems map the NUBC OIDs to
+exactly those canonicals. I published the tables composing over what I
+believed was a dangling pointer, flagged them as unable to expand, and wired
+a warning into every run.
 
-The classification half of that ruling is right and the evidence is THO's own:
-`CodeSystem/v2-tables` types both tables `Externally defined` with a code
-system OID, a value set OID and a CLD flag — none of which a
-concept-domain-only table carries. So the tables are published, and they
-**compose over the same unresolvable canonical THO does.** They cannot expand.
-Rather than hide that, each entry carries an `unresolved` field and the writer
-prints it on every run. The remaining half is a TSMG question.
+**That was wrong.** The reviewer pointed at THO's
+[external code systems page](https://terminology.hl7.org/en/external_code_systems.html):
+`http://terminology.hl7.org/CodeSystem/v2-0350` and `.../v2-0351` are the
+**HL7-endorsed URIs for the two NUBC code systems**, listed there with dashes
+in both the Fragment and Complete Code System columns. THO mints a canonical
+under its own hostname for a code system whose content belongs elsewhere,
+registers it as a NamingSystem with `responsible: NUBC`, and publishes no
+content. The CLDs were already correct. The classification half of the ruling
+stands on its own evidence — `v2-tables` types both tables `Externally
+defined` — so the tables are published, unchanged from THO, and complete.
+
+**And the error was older than this session.** `esc-tho-dangling-value-sets`
+had claimed four unexpandable THO value sets since the merge was first run.
+All four are NUBC systems of exactly this kind. The finding is now withdrawn
+rather than deleted, carrying why it was wrong, because it was circulated and
+because anybody re-deriving it would make the same mistake: the comparison
+asked whether a `CodeSystem-*.json` existed at the compose target, which is
+the right test for an HL7-owned code system and the wrong one for an
+externally-owned system under an HL7-endorsed URI. Re-tested correctly,
+**one** unresolvable target exists across every v2 value set THO publishes —
+the already-known `v2-0962` → `http://hl7.org/fhir/device-status`.
+
+The loop is the part to remember. A wrong finding in the register became the
+premise of a ruling, which came back as an instruction to fix something that
+was not broken. **The register is evidence to whoever reads it**, so a bad
+finding does not stay contained.
 
 ### The blanket ask is gone
 
@@ -299,7 +333,7 @@ prints it on every run. The remaining half is a TSMG question.
 defect in the chapter. The answer was that no single rule applies — per class,
 sometimes per instance, with individual issues reviewed. That makes the ask
 unusable and the defects no less real, so `render_defect_review.py` replaces
-it: 35 open findings in 7 classes, ordered cheapest-answer-first, each
+it: 34 open findings in 6 classes, ordered cheapest-answer-first, each
 carrying what the chapter says, what THO says, **what the guide publishes
 today read from the build report**, and the decision needed.
 
@@ -309,11 +343,11 @@ generalise."
 
 ### Splitting, not closing
 
-Seven of the nine answered items were split out of a larger finding, because a
+Seven of the ten answered items were split out of a larger finding, because a
 committee names two tables of a four-table item. The invariants force this:
 both new mechanisms refuse a register item with no `resolution`, which is what
 a part-answered parent still looks like. The register grew from 38 items to 44
-while going from 1 answered to 9 — growth is the expected shape here.
+while going from 1 answered to 10 — growth is the expected shape here.
 
 Where a ruling bears on its former siblings, that is said in both directions.
 0411 leaving `esc-0460-user-defined-mint` makes **0460 the only minted

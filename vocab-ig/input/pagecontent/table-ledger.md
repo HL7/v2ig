@@ -3850,7 +3850,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 **Answered by a committee.**
 
-- `esc-0350-0351-not-domain-only` — Tables 0350 and 0351 are not concept domain only, and their value sets compose over a code system nobody publishes — *V2 Management, 2026-10-14*<br/><span class="tl-note">0350 and 0351 are **not** concept domain only. The value sets exist in THO, which makes them v2 content and therefore fair game for revision in this IG, and the fix is to the content logical definitions in the value sets. This corrects the error in Chapter 2C that declares the tables concept domain only.</span>
+- `esc-0350-0351-not-domain-only` — Tables 0350 and 0351 are not concept domain only — *V2 Management, 2026-10-14*<br/><span class="tl-note">0350 and 0351 are **not** concept domain only. The value sets exist in THO, which makes them v2 content and therefore fair game for revision in this IG. This corrects the error in Chapter 2C that declares the tables concept domain only.</span>
 
 **Identifiers.**
 
@@ -3879,7 +3879,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 **Answered by a committee.**
 
-- `esc-0350-0351-not-domain-only` — Tables 0350 and 0351 are not concept domain only, and their value sets compose over a code system nobody publishes — *V2 Management, 2026-10-14*<br/><span class="tl-note">0350 and 0351 are **not** concept domain only. The value sets exist in THO, which makes them v2 content and therefore fair game for revision in this IG, and the fix is to the content logical definitions in the value sets. This corrects the error in Chapter 2C that declares the tables concept domain only.</span>
+- `esc-0350-0351-not-domain-only` — Tables 0350 and 0351 are not concept domain only — *V2 Management, 2026-10-14*<br/><span class="tl-note">0350 and 0351 are **not** concept domain only. The value sets exist in THO, which makes them v2 content and therefore fair game for revision in this IG. This corrects the error in Chapter 2C that declares the tables concept domain only.</span>
 
 **Identifiers.**
 
@@ -5340,9 +5340,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---|---|---|---|---|
 | Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0456 | 25 other tables |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-tho-dangling-value-sets` — Four THO value sets draw from v2 code systems that THO does not publish, so they cannot expand — *TSMG / UTG*
+- `esc-tho-dangling-value-sets` — Withdrawn — the “dangling” value sets are not dangling — *V2 Management, 2026-10-14*<br/><span class="tl-note">The current content logical definitions are right. THO does publish the URIs of these external code systems as `http://terminology.hl7.org/CodeSystem/v2-0350` and `…/v2-0351`, per its external code systems page.</span>
 
 <a id="tbl-0457"></a>
 
@@ -7784,9 +7784,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---|---|---|---|---|
 | Not published | `resource` | — | nothing<br/><span class="tl-note">The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.</span> | http://terminology.hl7.org/ValueSet/v2-0895 | 25 other tables |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-tho-dangling-value-sets` — Four THO value sets draw from v2 code systems that THO does not publish, so they cannot expand — *TSMG / UTG*
+- `esc-tho-dangling-value-sets` — Withdrawn — the “dangling” value sets are not dangling — *V2 Management, 2026-10-14*<br/><span class="tl-note">The current content logical definitions are right. THO does publish the URIs of these external code systems as `http://terminology.hl7.org/CodeSystem/v2-0350` and `…/v2-0351`, per its external code systems page.</span>
 
 <a id="tbl-0904"></a>
 

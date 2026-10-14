@@ -434,14 +434,22 @@ RULED_SUPPRESSIONS = {
 #   * the register item carrying that ruling has a `resolution`,
 #   * the replacement classification is stated in the ruling or follows
 #     directly from it, and
-#   * `system_url` names a code system that something authoritative actually
-#     publishes, OR the entry records why it does not and what that costs.
+#   * `system_url` names a code system identity that THO recognises, OR the
+#     entry records why it does not and what that costs.
 #
-# The fourth is the one with teeth here, and it is not satisfied for 0350 and
-# 0351 -- see `unresolved` below. Publishing a value set that composes over a
-# canonical nothing serves is what THO already does for these two tables and
-# is the defect being corrected, so repeating it silently would be worse than
-# the gap. The entry carries the gap instead.
+# "Recognises" is the part that is easy to get wrong, and this mechanism got
+# it wrong first time round. A canonical under
+# `http://terminology.hl7.org/CodeSystem/` does NOT have to have a CodeSystem
+# resource behind it. THO mints endorsed URIs for code systems whose content
+# belongs to somebody else and registers them as NamingSystems with a
+# `responsible` party, publishing no content at all -- its own
+# `external_code_systems.html` lists them. Tables 0350, 0351, 0456 and 0895
+# are all NUBC systems of exactly that kind.
+#
+# So the test for a resolvable `system_url` is "THO publishes a CodeSystem at
+# it OR registers it as an external code system", not "THO publishes a
+# CodeSystem at it". Applying the narrow test flagged four value sets as
+# unexpandable that are nothing of the sort.
 #
 #   action         the classification to use instead of the chapter's
 #   system_url     the code system the value set composes over
@@ -464,15 +472,7 @@ RULED_RECLASSIFICATIONS = {
     "0350": Reclassification(
         action="value-set-only",
         system_url="http://terminology.hl7.org/CodeSystem/v2-0350",
-        unresolved="THO publishes no CodeSystem at this canonical. Its own "
-                   "NamingSystem/v2-0350 maps the NUBC OID "
-                   "2.16.840.1.113883.6.301.7 to it, and ValueSet/v2-0350 "
-                   "already composes over it, so this guide is reproducing "
-                   "THO's pointer rather than inventing one -- but the "
-                   "target does not exist and the value set cannot expand. "
-                   "The NUBC arc's other members resolve to nubc.org URIs "
-                   "through their own NamingSystems; occurrence codes have "
-                   "no such registration.",
+        unresolved=None,
         ruling=NUBC_OCCURRENCE_RULING,
         register_item="esc-0350-0351-not-domain-only",
         rationale=(
@@ -492,10 +492,7 @@ RULED_RECLASSIFICATIONS = {
     "0351": Reclassification(
         action="value-set-only",
         system_url="http://terminology.hl7.org/CodeSystem/v2-0351",
-        unresolved="THO publishes no CodeSystem at this canonical. Same "
-                   "shape as 0350: NamingSystem/v2-0351 maps the NUBC OID "
-                   "2.16.840.1.113883.6.301.8 to it and ValueSet/v2-0351 "
-                   "composes over it, but nothing serves the target.",
+        unresolved=None,
         ruling=NUBC_OCCURRENCE_RULING,
         register_item="esc-0350-0351-not-domain-only",
         rationale=(

@@ -1003,14 +1003,21 @@ def test_a_reclassification_publishes_what_the_chapter_says_not_to():
     assert files, "the reclassified table must produce an artifact"
 
 
-def test_an_unresolved_code_system_is_reported_not_hidden():
-    """The known cost of the 0350/0351 ruling. THO publishes no CodeSystem at
-    the canonical these value sets compose over, so they cannot expand --
-    which is the defect being corrected, reproduced. It has to be visible."""
+def test_no_reclassification_claims_an_unresolved_code_system():
+    """`unresolved` exists for a reclassification whose code system nothing
+    recognises, and nothing currently qualifies.
+
+    0350 and 0351 carried one until it was found to be wrong: their compose
+    target is an HL7-endorsed URI for an externally-owned NUBC code system,
+    registered as a NamingSystem with no content behind it, which is THO's
+    documented convention rather than a dangling pointer. Asserting the
+    empty case keeps a future entry from inheriting that mistake silently --
+    setting `unresolved` should be a deliberate act with evidence."""
     summary = writer.reclassification_summary([])
-    assert summary["unresolvedSystems"] == ["0350", "0351"]
-    for table in summary["unresolvedSystems"]:
-        assert writer.RULED_RECLASSIFICATIONS[table].unresolved
+    assert summary["unresolvedSystems"] == [], (
+        f"these reclassifications claim an unresolved code system: "
+        f"{summary['unresolvedSystems']}. Check whether THO registers the "
+        f"canonical as an external code system before believing it.")
 
 
 def test_the_three_ruling_mechanisms_are_disjoint():
