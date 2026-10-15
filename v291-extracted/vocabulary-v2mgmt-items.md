@@ -35,24 +35,23 @@ this file.
 14. [Twenty-three concepts have a code that is nothing but punctuation](#14) — 0005, 0066, 0093, 0200, 0255, 0291, 0359, 0365, 0366, 0367, 0418, 0466, 0487, 0492, 0505, 0523, 0544
 15. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#15) — 0954, 0957
 16. [Where should a concept domain’s example codes live?](#16) — 0093, 0340, 0451
-17. [Table 9999 is a placeholder occupying a table number](#17) — 9999
-18. [Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section](#18) — 0292
-19. [Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?](#19) — 0929, 0930
-20. [Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO](#20) — 0823
-21. [Table 0459 names its code system only by an OID that nothing resolves](#21) — 0459
-22. [User-defined tables are treated three different ways, and two of them get a freshly minted canonical](#22) — 0460, 0093
-23. [Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from](#23) — 0725
-24. [Table 0340's code grid lists code systems, not codes](#24) — 0340
-25. [Two table headings are styled `Normal` instead of `Heading 3`](#25) — 0685, 0767
-26. [THO's `v2-tables` names 35 concept domains that `conceptdomains` does not define](#26) — 35 tables in v2-tables, none of them in Chapter 2C 2.9.1
-27. [`v2-tables` misspells the concept domain for table 0034 as `SiteAdminstered`](#27) — 0034
-28. [Should `CodeSystem/v2-tables` be retired?](#28) — v2-tables, all 628 entries
-29. [Three artifacts where one OID would end up naming two things, which versioning cannot reconcile](#29) — 0001, 0719
-30. [Chapter 2C gives every table its own OID, and this guide publishes it nowhere](#30) — 798 tables
-31. [The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not](#31) — 0003, 0125, 0357 for B; 25 tables, 261 concepts for N
-32. [191 concepts say they are active and deprecated as of 2.9 at the same time](#32) — 0003, 0006, 0065, 0066, 0074, 0076, 0104, 0131, 0163, 0175, 0191, 0200, 0207, 0211, 0223, 0272, 0277, 0278, 0279, 0281, 0291, 0294, 0354, 0359, 0365, 0366, 0367, 0391, 0396, 0418, 0440, 0474, 0487, 0492, 0544, 0916
-33. [How far does the description “editorial corrections” carve-out reach?](#33) — policy; 12 descriptions, 25 concepts
-34. [Two THO descriptions carry text the chapter's do not, including THO documenting its own error](#34) — 0227, 0719
+17. [Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section](#17) — 0292
+18. [Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?](#18) — 0929, 0930
+19. [Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO](#19) — 0823
+20. [Table 0459 names its code system only by an OID that nothing resolves](#20) — 0459
+21. [User-defined tables are treated three different ways, and two of them get a freshly minted canonical](#21) — 0460, 0093
+22. [Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from](#22) — 0725
+23. [Table 0340's code grid lists code systems, not codes](#23) — 0340
+24. [Two table headings are styled `Normal` instead of `Heading 3`](#24) — 0685, 0767
+25. [THO's `v2-tables` names 35 concept domains that `conceptdomains` does not define](#25) — 35 tables in v2-tables, none of them in Chapter 2C 2.9.1
+26. [`v2-tables` misspells the concept domain for table 0034 as `SiteAdminstered`](#26) — 0034
+27. [Should `CodeSystem/v2-tables` be retired?](#27) — v2-tables, all 628 entries
+28. [Three artifacts where one OID would end up naming two things, which versioning cannot reconcile](#28) — 0001, 0719
+29. [Chapter 2C gives every table its own OID, and this guide publishes it nowhere](#29) — 798 tables
+30. [The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not](#30) — 0003, 0125, 0357 for B; 25 tables, 261 concepts for N
+31. [191 concepts say they are active and deprecated as of 2.9 at the same time](#31) — 0003, 0006, 0065, 0066, 0074, 0076, 0104, 0131, 0163, 0175, 0191, 0200, 0207, 0211, 0223, 0272, 0277, 0278, 0279, 0281, 0291, 0294, 0354, 0359, 0365, 0366, 0367, 0391, 0396, 0418, 0440, 0474, 0487, 0492, 0544, 0916
+32. [How far does the description “editorial corrections” carve-out reach?](#32) — policy; 12 descriptions, 25 concepts
+33. [Two THO descriptions carry text the chapter's do not, including THO documenting its own error](#33) — 0227, 0719
 
 ---
 
@@ -279,18 +278,7 @@ These three tables are declared _Concept Domain Only_ and yet each publishes a s
 
 <a id="17"></a>
 
-## 17. Table 9999 is a placeholder occupying a table number
-
-**Tables:** 9999  
-**Goes to:** V2 Management
-
-**This item covered three tables. 0010 and 0188 have both since been withdrawn — see `esc-0010-withdrawn` and `esc-0188-withdrawn` — leaving only 9999. What follows is the original finding, which measured all three together.** Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no code system, no value set and no codes. `0010` _Physician ID_ and `0188` _Operator ID_ are User tables whose descriptions end “No suggested values” — they are site-defined identifiers, and were arguably never code tables. **One measurement turns that judgement into a fact.** Of the 799 sections only **three** carry no concept domain block at all, and of the **149** tables whose description says “No suggested values”, **147 carry one**. The two that do not are 0010 and 0188. The chapter supplies a concept domain for every peer of these two and omitted it for exactly these two, so the omission is an outlier rather than the house style for site-defined identifiers. `9999` _Placeholder Table Representation_ is not a table at all: it carries the literal placeholder strings `noObject` and `noDescription`, the same markers that appear in the two concept-domain-only tables. **Checked against both THO and the UTG repository: there is no CodeSystem and no ValueSet for any of the three.** Nothing has been minted for them and nothing needs to be withdrawn.
-
-**The ask:** Decide what becomes of 9999. A placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically, and this project writes nothing for it. **Its two companions in this finding were both withdrawn**, which is not an answer for 9999: 0010 and 0188 were real tables that stopped being needed, and 9999 was never a table at all.
-
-<a id="18"></a>
-
-## 18. Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section
+## 17. Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section
 
 **Tables:** 0292  
 **Goes to:** V2 Management
@@ -299,9 +287,9 @@ The concept domain block sets `Concept Domain Only: yes`. The table metadata gri
 
 **The ask:** Confirm that 0292 should be routed **value set only**, its value set composing over `http://hl7.org/fhir/sid/cvx`, consistent with 0227 and with the external-code-system rule in ADR-0008 Batch A — and that the `Concept Domain Only: yes` flag is the error. **Minting a `CodeSystem/v2-0292` would be the wrong answer**, and it is worth saying so explicitly because it is the shape most of the corpus takes. The chapter publishes zero codes for this table, so there would be nothing to put in it; THO deliberately carries no CodeSystem for CVX, only the NamingSystem; and a `v2-0292` code system would claim the table OID that `NamingSystem/CVX` has already bound to the CDC's URI. **This guide tentatively publishes 0292 as a real table** on that reading rather than writing nothing for it, because writing nothing discards the one thing the chapter states unambiguously: which code system the table draws on. It is flagged in the guide as needing attention, so the tentative reading is visible rather than silent, and it is reverted if the ruling goes the other way.
 
-<a id="19"></a>
+<a id="18"></a>
 
-## 19. Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?
+## 18. Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?
 
 **Tables:** 0929, 0930  
 **Goes to:** V2 Management
@@ -310,9 +298,9 @@ This is the half of the 0567/0568 question that the 2026-09-23 ruling did not re
 
 **The ask:** Is the enumerated subset intended, or should these value sets be an intensional reference to the UCUM units for the quantity? If the short list is deliberate, the descriptions should say so, because as written they describe the whole quantity. If it is not, these are two value sets that need rebuilding and the replacement tables inherited the defect they were meant to replace.
 
-<a id="20"></a>
+<a id="19"></a>
 
-## 20. Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO
+## 19. Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO
 
 **Tables:** 0823  
 **Goes to:** V2 Management + TSMG
@@ -321,9 +309,9 @@ The table is `Type: HL7-EXT`, stewarded by PA, and declares three code systems �
 
 **The ask:** Confirm whether tables 0821 and 0823 are live commitments or abandoned ones. If live, the per-code system assignments are needed before a value set can be generated, and a `ValueSet/v2-0823` needs to exist in THO. If they were dropped, say so and this project will record them as published-but-unimplemented rather than as blockers.
 
-<a id="21"></a>
+<a id="20"></a>
 
-## 21. Table 0459 names its code system only by an OID that nothing resolves
+## 20. Table 0459 names its code system only by an OID that nothing resolves
 
 **Tables:** 0459  
 **Goes to:** V2 Management + TSMG
@@ -332,9 +320,9 @@ The table is `Type: HL7-EXT`, stewarded by PA, and declares three code systems �
 
 **The ask:** Supply the canonical URL for the CMS OCE Edit Code system, or confirm that an external code system record needs to be created in THO for it. If neither is available, decide whether 0459 should become concept-domain-only, in which case no value set is needed and the OID becomes documentation rather than a dependency.
 
-<a id="22"></a>
+<a id="21"></a>
 
-## 22. User-defined tables are treated three different ways, and two of them get a freshly minted canonical
+## 21. User-defined tables are treated three different ways, and two of them get a freshly minted canonical
 
 **Tables:** 0460, 0093  
 **Goes to:** V2 Management
@@ -343,9 +331,9 @@ The table is `Type: HL7-EXT`, stewarded by PA, and declares three code systems �
 
 **The ask:** **0411 has since been answered — it is concept domain only, see `esc-0411-concept-domain-only` — which sharpens this question rather than shrinking it.** Two of the three user tables now produce nothing, leaving **0460 as the only minted CodeSystem canonical in the entire corpus**. Decide what a user-defined table should produce. Options: a CodeSystem and ValueSet like any other (the current behaviour), a concept domain only (as 0093 is treated), or a ValueSet whose codes are marked as examples. The answer decides whether these two new canonicals should exist at all, and it should be applied to 0093 at the same time so that like tables are treated alike.
 
-<a id="23"></a>
+<a id="22"></a>
 
-## 23. Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from
+## 22. Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from
 
 **Tables:** 0725  
 **Goes to:** V2 Management
@@ -354,9 +342,9 @@ The table's code system block gives a symbolic name `actMood`, a description of 
 
 **The ask:** Confirm this as a technical correction under the editing-process test — add the URI `http://terminology.hl7.org/CodeSystem/v3-ActMood` and replace the `tbd` description. Nothing in the generated output changes.
 
-<a id="24"></a>
+<a id="23"></a>
 
-## 24. Table 0340's code grid lists code systems, not codes
+## 23. Table 0340's code grid lists code systems, not codes
 
 **Tables:** 0340  
 **Goes to:** V2 Management
@@ -365,9 +353,9 @@ The table's code system block gives a symbolic name `actMood`, a description of 
 
 **The ask:** Confirm that 0340 is correctly concept-domain-only and that the two rows are documentation of candidate external code systems rather than codes. If they are meant to be usable, they need to be expressed as external code system references rather than as grid rows.
 
-<a id="25"></a>
+<a id="24"></a>
 
-## 25. Two table headings are styled `Normal` instead of `Heading 3`
+## 24. Two table headings are styled `Normal` instead of `Heading 3`
 
 **Tables:** 0685, 0767  
 **Goes to:** V2 Management
@@ -376,9 +364,9 @@ Both tables are consequently absent from the document's own table of contents, a
 
 **The ask:** Fix the styles in a future publication.
 
-<a id="26"></a>
+<a id="25"></a>
 
-## 26. THO's `v2-tables` names 35 concept domains that `conceptdomains` does not define
+## 25. THO's `v2-tables` names 35 concept domains that `conceptdomains` does not define
 
 **Tables:** 35 tables in v2-tables, none of them in Chapter 2C 2.9.1  
 **Goes to:** TSMG / UTG
@@ -387,9 +375,9 @@ Both tables are consequently absent from the document's own table of contents, a
 
 **The ask:** Confirm that `vocab-domain` is meant to resolve into `conceptdomains`. If it is, either the 35 missing domains should be restored, or the entries that name them should be marked as no longer used, or the property should be cleared for tables that have left the standard. If it is genuinely a free string with no such contract, that is worth stating, because readers will assume otherwise. Retyping it as `code` would let validation catch the next occurrence.
 
-<a id="27"></a>
+<a id="26"></a>
 
-## 27. `v2-tables` misspells the concept domain for table 0034 as `SiteAdminstered`
+## 26. `v2-tables` misspells the concept domain for table 0034 as `SiteAdminstered`
 
 **Tables:** 0034  
 **Goes to:** TSMG / UTG
@@ -398,9 +386,9 @@ Both tables are consequently absent from the document's own table of contents, a
 
 **The ask:** Correct the `vocab-domain` value for table 0034 to `SiteAdministered` as a technical correction. The change should still be traceable — recorded in the UTG change history like any other edit — but it does not need the deprecate-and-replace treatment that a published code would. Separately, whether the corrected domain should then be _defined_ in `conceptdomains`, or the property cleared because table 0034 has left the standard, is part of `esc-v2tables-domain-gaps`.
 
-<a id="28"></a>
+<a id="27"></a>
 
-## 28. Should `CodeSystem/v2-tables` be retired?
+## 27. Should `CodeSystem/v2-tables` be retired?
 
 **Tables:** v2-tables, all 628 entries  
 **Goes to:** V2 Management + TSMG
@@ -409,9 +397,9 @@ Both tables are consequently absent from the document's own table of contents, a
 
 **The ask:** Decide whether `CodeSystem/v2-tables` should be retired, and if so what takes its place. It carries no codes anyone sends, it has no definitional dependents, and its own description says its pointers do not resolve. **The reasoning is already in this register.** `esc-v2tables-siteadministered` argues that correcting a misspelled `vocab-domain` is a technical correction _because_ nobody sends that value in a message and no instance data binds to it. This item is the same observation taken one step further. If the index is worth keeping, the question is what shape it should have, because a CodeSystem whose concepts are not concepts will keep attracting the defects recorded above, and a reader who finds a code system in THO is entitled to assume its codes turn up in instances. If it is retired, the 14 properties that exist only to serve it should go with it, and this guide's per-table pages become where that information lives. Either way the answer needs both groups: V2 Management owns what the tables are, TSMG owns what THO publishes about them.
 
-<a id="29"></a>
+<a id="28"></a>
 
-## 29. Three artifacts where one OID would end up naming two things, which versioning cannot reconcile
+## 28. Three artifacts where one OID would end up naming two things, which versioning cannot reconcile
 
 **Tables:** 0001, 0719  
 **Goes to:** V2 Management + TSMG
@@ -420,9 +408,9 @@ Two artifacts carry a different `identifier` OID in Chapter 2C than the one THO 
 
 **The ask:** Adjudicate each OID. For 0001, establish which of `...18.458` and `...18.2` is the registered identifier for the Administrative Sex code system, and correct the other source. For 0719, establish whether `...20429` or `...20428` is right. Until both are settled this project publishes THO's identifier rather than the chapter's, because the policy forbids changing a published identifier and the canonical URL is THO's. **That is now enforced in the pipeline** rather than left as a recommendation: the identifier is the one element where the chapter does not win a disagreement, because an identifier is identity rather than content. Both conflicts are recomputed on every run, so neither can drift out of view. **A third option has been raised and needs ruling on: publish _both_ OIDs as identifiers.** `identifier` is 0..* on both CodeSystem and ValueSet, so it is mechanically available, and it would avoid choosing before the committees have. It is not obviously right: two identifiers on one artifact asserts that both OIDs name it, which for 0719 is demonstrably false — `...20429` names a different v3 value set, which THO also publishes. Carrying both would be defensible for 0001, where the two may be the same code system under two registrations, and misleading for 0719. **Please rule per artifact rather than as a blanket policy.** **0078 was the third conflict here and has been answered** — see `esc-0078-alias-of-v3`. V2 Management ruled on 2026-10-14 that the existing `v3-ObservationInterpretation` serves and no second artifact is created, which removed that collision rather than adjudicating it. **It is not a precedent for these two:** 0078's collision existed only because this guide was about to create the second artifact, and 0001 and 0719 are conflicts between artifacts that already exist.
 
-<a id="30"></a>
+<a id="29"></a>
 
-## 30. Chapter 2C gives every table its own OID, and this guide publishes it nowhere
+## 29. Chapter 2C gives every table its own OID, and this guide publishes it nowhere
 
 **Tables:** 798 tables  
 **Goes to:** V2 Management + TSMG
@@ -431,9 +419,9 @@ Chapter 2C carries **three** OIDs per table, in three separate metadata blocks, 
 
 **The ask:** Decide where a V2 table OID belongs in a FHIR representation of that table, and whether this guide should start writing it. The options each say something different and none is free. Putting it on the **CodeSystem** says the code system is the table, which is wrong for the 24 value-set-only tables whose codes belong to another authority. Putting it on **both** resources asserts one identifier for two artifacts, which is the same shape as the defect registered at `esc-oid-conflicts`. Putting it on the **concept domain** concept has no `identifier` element to hold it. Putting it **nowhere** is the current behaviour and may well be right — but it should be a ruling rather than an accident, because the identifier is in the published chapter and its absence from the FHIR artifacts is silent.
 
-<a id="31"></a>
+<a id="30"></a>
 
-## 31. The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not
+## 30. The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not
 
 **Tables:** 0003, 0125, 0357 for B; 25 tables, 261 concepts for N  
 **Goes to:** V2 Management + TSMG
@@ -442,9 +430,9 @@ Chapter 2C carries its own legend for the status column: blank means an active c
 
 **The ask:** Two things remain. **(1) Rule on `B`, per concept.** Five concepts in three tables is small enough to look at individually, and they are not obviously the same case — `0125`'s `IS` is a data type code, `0357`'s three are error conditions. For each, say whether the FHIR status should be `active`, `deprecated`, or `active` with a separate marker recording the backwards-compatibility restriction. **(2) Decide where, if anywhere, these letters should be defined.** Even with `N` resolved by mapping, THO still publishes 210 concepts carrying it as a literal status value and 6 carrying `B`, against a property whose definition admits neither. Defining them in `utg-concept-properties` would at least make what is already published legal; replacing `N` with a non-decaying “version introduced” property would be better, and the chapter already records that fact in prose elsewhere. **What this guide does now:** `N` is written as `active`; `B` is passed through unchanged pending (1); and all 261 chapter-versus-THO status disagreements are still recorded, because mapping `N` does not make the underlying divergence go away.
 
-<a id="32"></a>
+<a id="31"></a>
 
-## 32. 191 concepts say they are active and deprecated as of 2.9 at the same time
+## 31. 191 concepts say they are active and deprecated as of 2.9 at the same time
 
 **Tables:** 0003, 0006, 0065, 0066, 0074, 0076, 0104, 0131, 0163, 0175, 0191, 0200, 0207, 0211, 0223, 0272, 0277, 0278, 0279, 0281, 0291, 0294, 0354, 0359, 0365, 0366, 0367, 0391, 0396, 0418, 0440, 0474, 0487, 0492, 0544, 0916  
 **Goes to:** V2 Management
@@ -453,9 +441,9 @@ Chapter 2C carries its own legend for the status column: blank means an active c
 
 **The ask:** Confirm that a concept whose `v2-table-deprecated` is `2.9` should carry `status: deprecated`. One ruling resolves all 191, because there is nothing case-by-case about it: the flag says the code was deprecated in 2.9, and 2.9 has shipped. **This guide has not applied that, and is surfacing it for decision rather than fixing it.** Both the status and the flag are published values and both are reproduced, contradiction included. Changing 191 concept statuses is a content change to published normative material — which is the question the first item in this register asks in general terms — and it is not something to do on inference. Two smaller things should be settled alongside it. Give `v2-table-deprecated` a **single** definition, the concept-level one, since that is what the values are; or split it into two properties with two URIs, because at present one identifier means “this table is deprecated” in one place and “the version this code was deprecated in” in another. And decide whether the flag is still wanted once `status` says the same thing, or whether it becomes the record of _when_, which `status` cannot carry.
 
-<a id="33"></a>
+<a id="32"></a>
 
-## 33. How far does the description “editorial corrections” carve-out reach?
+## 32. How far does the description “editorial corrections” carve-out reach?
 
 **Tables:** policy; 12 descriptions, 25 concepts  
 **Goes to:** TSMG
@@ -464,9 +452,9 @@ The Code Systems versioning policy qualifies exactly one element: `CodeSystem.de
 
 **The ask:** Confirm the punctuation waiver, say whether it should extend to concept definitions and displays, and confirm whether the missing ValueSet carve-out is deliberate. Each answer is a located change in this project; none of them is a rewrite.
 
-<a id="34"></a>
+<a id="33"></a>
 
-## 34. Two THO descriptions carry text the chapter's do not, including THO documenting its own error
+## 33. Two THO descriptions carry text the chapter's do not, including THO documenting its own error
 
 **Tables:** 0227, 0719  
 **Goes to:** V2 Management + TSMG
@@ -483,6 +471,84 @@ Items a committee has ruled on since this register was opened.
 They are no longer counted above. The finding and the original
 ask are kept so the record shows what was asked as well as what
 came back.
+
+<a id="esc-0954-0957-duplicate-of-v3"></a>
+
+### Tables 0954 and 0957 would have duplicated value sets THO already publishes
+
+**Tables:** 0954, 0957  
+**Answered by:** V2 Management — V2 Management call, 2026-10-15
+
+**Ruling:** This guide should not create value sets for 0954 or 0957. Correct value sets already exist in THO — `v3-WorkScheduleODH` and `v3-employmentStatusODH` — and those are the ones to use.
+
+**Effect here:** Both value sets are withheld through `RULED_SUPPRESSIONS`, so two first publications stop being written and two duplicate OID assignments never reach the field. This follows the precedent set for 0078 on 2026-10-14: where a correct value set already exists under another canonical, the guide lets it serve rather than minting a v2 twin.
+
+Both tables name, in their own Value Set URI field, a value set THO already publishes under a v3 canonical: 0954 points at `ValueSet/v3-WorkScheduleODH` and 0957 at `ValueSet/v3-employmentStatusODH`, both active at 3.0.0. This guide was nonetheless writing `ValueSet/v2-0954` and `ValueSet/v2-0957` as first publications. **Each carried the OID of the value set it duplicated.** 0954's `2.16.840.1.113883.1.11.20561` is the identifier on `v3-WorkScheduleODH`, and 0957's `…20562` on `v3-employmentStatusODH` — so publishing either put one OID on two artifacts, the breach `esc-oid-conflicts` records elsewhere, in the one form this project could still prevent: by not creating the second artifact. **The two were not equally harmless.** 0957's compose was structurally identical to THO's — same `is-a _EmploymentStatus` filter, same exclude of the abstract grouper — so it duplicated an artifact without contradicting it. 0954's was not: the chapter's content logical definition omits the _Exclude codes where code = `_WorkSchedule`_ clause that THO's value set carries, so `v2-0954` would have been a second artifact on a live OID _and_ disagreed with the first about whether an abstract grouper is in the value set. That divergence is the subject of `esc-0954-cld-exclude`, which this ruling makes moot here while leaving it standing against the chapter.
+
+<a id="esc-0895-wrong-system-url"></a>
+
+### THO's ValueSet/v2-0895 composes over the wrong code system URL, and THO's own records say so
+
+**Tables:** 0895  
+**Answered by:** V2 Management — V2 Management call, 2026-10-15
+
+**Ruling:** THO's value set is wrong about the system URL. The correct one is the CMS coding page, which the external code systems page carries with the v2 code system URL as an additional identifier and the same OID as Chapter 2C. This IG fixes the THO artifact. No CodeSystem is created, because THO's record is already correct.
+
+**Effect here:** 0895 stops routing `needs-decision` and now publishes `ValueSet/v2-0895` composing over the CMS code system URL, through `RULED_RECLASSIFICATIONS`. It had been blocked for a reason the ruling dissolves: the writer saw a table owning its own code system with no codes listed, so it could not build a complete CodeSystem. The code system is not ours and the content already exists at CMS, so there was never a CodeSystem to build. **This also corrects a claim made to the reviewer on 2026-10-14**, that 0895 needed nothing on the dangling-value-sets account and remained blocked for an unrelated CLD reason. The CLD is _all codes_, which this guide builds routinely; the obstacle was the system URL all along.
+
+THO publishes `ValueSet/v2-0895` composing over `http://terminology.hl7.org/CodeSystem/v2-0895`, a canonical with no CodeSystem behind it. **The correct system URL is the CMS Present on Admission coding page**, `https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding`, and THO's own records establish this without anything needing to be inferred: `NamingSystem/presentOnAdmission` carries that CMS URL as its _preferred_ URI and lists the v2 canonical among its other identifiers, commented “The v2 table of present on admission indicators”. Both it and Chapter 2C carry the same OID, `2.16.840.1.113883.6.301.11`. **THO contradicts itself on this table.** It publishes `CodeSystem/presentOnAdmission` at the CMS URL, `content: complete` with five concepts — `Y`, `N`, `U`, `W` and `1` — and its own `ValueSet/POAIndicators` composes over that CMS URL. Only `ValueSet/v2-0895` points at the empty v2 canonical. **Two NamingSystems register the same OID, and the wrong one wins.** `NamingSystem/v2-0895` maps `…6.301.11` to the v2 canonical; `NamingSystem/presentOnAdmission` maps it to the CMS URL. This project's OID index loads NamingSystems in filename order and lets the last one win, so `v2-0895` overwrites `presentOnAdmission` and the OID resolves to the empty canonical. That is why the correct URL has to be stated by ruling rather than derived — the evidence is in THO, but not in the field the resolver reads. **This table is distinct from 0350, 0351 and 0456.** Those three are externally-owned NUBC systems under HL7-endorsed URIs with no content published anywhere, which is THO's documented convention and not a defect. 0895 has real content published at a real URL, and the v2 value set simply points somewhere else.
+
+<a id="esc-0719-superseded-by-v3"></a>
+
+### Table 0719's value set is superseded by a v3 one, and this guide was republishing it as active
+
+**Tables:** 0719  
+**Answered by:** V2 Management — V2 Management call, 2026-10-15
+
+**Ruling:** The correct value set is `v3-ActInformationSensitivityPolicy`. The v2 value set stays retired, and the only thing to do with it is update its text to point at the v3 one.
+
+**Effect here:** `ValueSet/v2-0719` is now written `retired`, which corrects a live defect — the guide had been publishing it active against THO's retired — and its description is prefixed with a version-less link to `v3-ActInformationSensitivityPolicy`. This is the first use of `RULED_SUPERSESSIONS` (ADR-0014). **The OID collision recorded in `esc-oid-conflicts` is moot for 0719**: the identifier is on a published, retired artifact and cannot be changed.
+
+Chapter 2C gives table 0719's Value Set URI as `ValueSet-v3-ActInformationSensitivityPolicy.html` — a v3 value set, not a v2 canonical. **THO already publishes `ValueSet/v2-0719` with `status: retired`, and this guide was writing it back out as `active`.** It is the only artifact in the corpus where this guide's status disagreed with THO's. The cause is structural rather than specific to 0719: `status` sits in `COMPARED_VALUE_SET_FIELDS` and not in `FILLABLE_VALUE_SET_FIELDS`, so a difference against THO was reported and bumped the version — the 4.0.0 increment names `status` among its triggers — but never filled. Everywhere else that is the right behaviour, because the chapter is the authority on content. For a retirement it is not, because retirement is a statement about the artifact rather than about its content. **The shared OID is not repairable and is recorded only so nobody re-opens it.** THO's retired `v2-0719` carries `2.16.840.1.113883.1.11.20428`, which is also the identifier on THO's `v3-InformationSensitivityPolicy` — the _parent_ of the value set the chapter names. An identifier on a published artifact cannot be changed or removed under the THO versioning policy, and this one is on an artifact that is already retired. There is nothing to decide.
+
+<a id="esc-0952-0959-superseded-by-v3"></a>
+
+### Tables 0952 and 0959 duplicate v3 value sets that already exist, and their OIDs say so
+
+**Tables:** 0952, 0959  
+**Answered by:** V2 Management — V2 Management call, 2026-10-15
+
+**Ruling:** The v3 URI for the code system is correct and the v3 resource should be used for the value set too. The v2 value sets have to be kept, because they already exist in THO, but they are to be retired with a note at the top of the description naming the correct v3 value set and linking to it — a link that will keep resolving in future versions of THO, so not a version-specific one.
+
+**Effect here:** Both value sets are now written `retired`, with the pointer note prefixed to their descriptions, through `RULED_SUPERSESSIONS` (ADR-0014). The version-less requirement is an invariant of that mechanism rather than a convention, enforced by a test: a replacement URL containing a version segment is refused.
+
+Both tables have a v2 value set published in THO — `ValueSet/v2-0952` and `ValueSet/v2-0959`, both active at 3.0.0 — and both carry the OID of a _different_ THO value set. 0952's `2.16.840.1.113883.1.11.10228` is the identifier on `v3-Confidentiality`, and 0959's `…20560` on `v3-WorkClassificationODH`. The v3 artifacts are the real ones; the v2 pair duplicates them. **0952's chapter entry is additionally malformed, and it is worth seeing exactly how.** Its _Code System_ URI field contains `http://terminology.hl7.org/ValueSet-v2-0952.html` — a ValueSet page URL sitting where a code system canonical belongs. This guide produces correct output anyway, by falling back to the code system OID `2.16.840.1.113883.5.25`, which resolves through THO to `v3-Confidentiality`. So the right answer is reached despite the input, which is worth knowing because it means the defect is invisible in the output and would survive any check that only read what was published. **0959 does not have that defect** — its Code System URI is a proper code system page link. Its only problem is the duplication. **Neither can be suppressed.** Suppression works only before first publication: it stops an artifact being created. These two exist in THO already, so withholding them would not unpublish anything — it would only remove this guide's ability to say anything about them, leaving two live duplicates in the field with nothing pointing at the replacements.
+
+<a id="esc-0960-duplicate-of-fhir-core"></a>
+
+### Table 0960 would have duplicated the FHIR core data-absent-reason value set
+
+**Tables:** 0960  
+**Answered by:** V2 Management — V2 Management call, 2026-10-15
+
+**Ruling:** This guide should not create a value set for 0960. Chapter 2C says the correct value set is FHIR core's `data-absent-reason`, and that is correct.
+
+**Effect here:** `ValueSet/v2-0960` is withheld through `RULED_SUPPRESSIONS`. Nothing else changes: the concept domain is unaffected and the chapter's own pointer to the core value set now stands unopposed.
+
+Chapter 2C gives table 0960's Value Set URI as `http://hl7.org/fhir/ValueSet/data-absent-reason` — FHIR core's own value set, not a v2 canonical. This guide was nonetheless writing `ValueSet/v2-0960` as a first publication at 1.0.0, composing over `CodeSystem/data-absent-reason`: the same code system the core value set draws on, at a canonical the chapter never asks for. **Unlike 0954 and 0957 there is no identifier collision forcing the issue** — nothing in the THO snapshot carries 0960's value set OID `2.16.840.1.113883.4.642.3.5`. The reason not to publish is simply that the chapter names the right value set and a second one would compete with it.
+
+<a id="esc-tables-that-should-be-domains"></a>
+
+### Table 9999 is a placeholder occupying a table number
+
+**Tables:** 9999  
+**Answered by:** V2 Management — V2 Management call, 2026-10-15
+
+**Ruling:** Do not put 9999 in this IG at all.
+
+**Effect here:** 9999 is excluded at the corpus boundary through `EXCLUDED_SECTIONS`, so it reaches no page rather than being routed `nothing-to-write` and mentioned on several. **It had been reaching the published IG three times over** — the table index, the ledger and the open-items register — because the writer reported it as a table with nothing to write rather than as something that is not a table. Excluding it at the boundary is what makes the ruling hold for pages added later. **The condition the ruling depended on was checked first.** Nothing in the V2.9.1 standard binds to 9999: a scan of every `tableBinding` in the extracted segments and data types found 1,187 bound fields across 731 distinct tables and no reference to it. The same scan finds 7 bindings to withdrawn table 0010 and 1 to 0188, so it does detect bindings to dead tables where they exist. The placeholder remains a defect in the published chapter, which is a matter for Chapter 2C rather than for this guide.
+
+**This item covered three tables. 0010 and 0188 have both since been withdrawn — see `esc-0010-withdrawn` and `esc-0188-withdrawn` — leaving only 9999. What follows is the original finding, which measured all three together.** Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no code system, no value set and no codes. `0010` _Physician ID_ and `0188` _Operator ID_ are User tables whose descriptions end “No suggested values” — they are site-defined identifiers, and were arguably never code tables. **One measurement turns that judgement into a fact.** Of the 799 sections only **three** carry no concept domain block at all, and of the **149** tables whose description says “No suggested values”, **147 carry one**. The two that do not are 0010 and 0188. The chapter supplies a concept domain for every peer of these two and omitted it for exactly these two, so the omission is an outlier rather than the house style for site-defined identifiers. `9999` _Placeholder Table Representation_ is not a table at all: it carries the literal placeholder strings `noObject` and `noDescription`, the same markers that appear in the two concept-domain-only tables. **Checked against both THO and the UTG repository: there is no CodeSystem and no ValueSet for any of the three.** Nothing has been minted for them and nothing needs to be withdrawn.
 
 <a id="esc-0010-withdrawn"></a>
 

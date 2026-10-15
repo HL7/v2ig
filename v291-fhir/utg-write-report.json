@@ -2,10 +2,11 @@
   "counts": {
     "code-system-and-value-set": 398,
     "concept-domain-only": 356,
-    "nothing-to-write": 3,
-    "suppressed-by-ruling": 4,
-    "value-set-only": 23,
-    "needs-decision": 15
+    "nothing-to-write": 2,
+    "suppressed-by-ruling": 7,
+    "value-set-only": 18,
+    "needs-decision": 14,
+    "superseded-by-ruling": 3
   },
   "tentativeOverrides": {
     "count": 1,
@@ -20,33 +21,58 @@
     ]
   },
   "ruledSuppressions": {
-    "count": 4,
+    "count": 7,
     "tables": [
       "0078",
       "0411",
       "0567",
-      "0568"
+      "0568",
+      "0954",
+      "0957",
+      "0960"
     ],
     "registerItems": [
       "esc-0078-alias-of-v3",
       "esc-0411-concept-domain-only",
-      "esc-0567-0568-deprecation"
+      "esc-0567-0568-deprecation",
+      "esc-0954-0957-duplicate-of-v3",
+      "esc-0960-duplicate-of-fhir-core"
     ]
   },
   "ruledReclassifications": {
-    "count": 2,
+    "count": 3,
     "tables": [
       "0350",
-      "0351"
+      "0351",
+      "0895"
     ],
     "registerItems": [
-      "esc-0350-0351-not-domain-only"
+      "esc-0350-0351-not-domain-only",
+      "esc-0895-wrong-system-url"
     ],
     "unresolvedSystems": [],
     "appliedThisRun": [
       "0350",
-      "0351"
+      "0351",
+      "0895"
     ]
+  },
+  "ruledSupersessions": {
+    "count": 3,
+    "tables": [
+      "0719",
+      "0952",
+      "0959"
+    ],
+    "registerItems": [
+      "esc-0719-superseded-by-v3",
+      "esc-0952-0959-superseded-by-v3"
+    ],
+    "replacements": {
+      "0719": "http://terminology.hl7.org/ValueSet/v3-ActInformationSensitivityPolicy",
+      "0952": "http://terminology.hl7.org/ValueSet/v3-Confidentiality",
+      "0959": "http://terminology.hl7.org/ValueSet/v3-WorkClassificationODH"
+    }
   },
   "tables": [
     {
@@ -11867,8 +11893,8 @@
     {
       "table": "0719",
       "name": "Access Restriction Reason Code",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "action": "superseded-by-ruling",
+      "reason": "The correct value set for table 0719 is THO's ValueSet/v3-ActInformationSensitivityPolicy. The only thing to do with the v2 value set is update its text to point at the v3 one.",
       "written": [
         "valueSets/vs-v2-0719.xml"
       ],
@@ -11877,15 +11903,27 @@
       "published": "http://terminology.hl7.org/CodeSystem-v3-ActCode.html",
       "valueSetVersion": {
         "version": "4.0.0",
-        "reason": "Changed: compose.include, description, status.",
+        "reason": "Changed: compose.include, description.",
         "incremented": true,
         "triggers": [
           "compose.include",
-          "description",
-          "status"
+          "description"
         ],
         "judgement": [],
         "newArtifact": []
+      },
+      "ruledSupersession": {
+        "table": "0719",
+        "registerItem": "esc-0719-superseded-by-v3",
+        "ruling": "The correct value set for table 0719 is THO's ValueSet/v3-ActInformationSensitivityPolicy. The only thing to do with the v2 value set is update its text to point at the v3 one.",
+        "replacementUrl": "http://terminology.hl7.org/ValueSet/v3-ActInformationSensitivityPolicy",
+        "replacementName": "v3-ActInformationSensitivityPolicy",
+        "rationale": [
+          "Chapter 2C's own Value Set URI field for 0719 names v3-ActInformationSensitivityPolicy, not a v2 canonical.",
+          "THO already publishes ValueSet/v2-0719 with status `retired`, so the supersession is THO's existing position rather than a new one. This guide had been republishing it as `active`.",
+          "The OID on the retired artifact, 2.16.840.1.113883.1.11.20428, is also on THO's v3-InformationSensitivityPolicy. An identifier on a published artifact cannot be changed, so this is a fact to record rather than a defect to repair."
+        ],
+        "status": "retired"
       }
     },
     {
@@ -13133,9 +13171,36 @@
     {
       "table": "0895",
       "name": "Present On Admission (POA) Indicator",
-      "action": "needs-decision",
-      "reason": "The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.",
-      "written": []
+      "action": "value-set-only",
+      "reason": "THO's ValueSet/v2-0895 is wrong about the system URL. The correct one is the CMS Present on Admission coding page, which THO's external code systems page carries with the v2 code system URL as an additional identifier and the same OID Chapter 2C gives. This IG fixes the THO artifact. No CodeSystem is created, because THO's record is correct.",
+      "written": [
+        "valueSets/vs-v2-0895.xml"
+      ],
+      "systemUrl": "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "resolvedBy": "committee ruling, esc-0895-wrong-system-url",
+      "ruledReclassification": {
+        "table": "0895",
+        "registerItem": "esc-0895-wrong-system-url",
+        "ruling": "THO's ValueSet/v2-0895 is wrong about the system URL. The correct one is the CMS Present on Admission coding page, which THO's external code systems page carries with the v2 code system URL as an additional identifier and the same OID Chapter 2C gives. This IG fixes the THO artifact. No CodeSystem is created, because THO's record is correct.",
+        "rationale": [
+          "THO publishes NamingSystem/presentOnAdmission with the preferred URI https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding and lists http://terminology.hl7.org/CodeSystem/v2-0895 among its other identifiers, commented \"The v2 table of present on admission indicators\".",
+          "Both that NamingSystem and Chapter 2C carry the same OID, 2.16.840.1.113883.6.301.11, so the two are demonstrably the same code system under two names.",
+          "THO publishes CodeSystem/presentOnAdmission at the CMS URL, content complete with five concepts -- Y, N, U, W and 1 -- so the value set composes over real content rather than an unresolvable pointer.",
+          "THO's own ValueSet/POAIndicators composes over the CMS URL, not over v2-0895, which is THO contradicting its own ValueSet/v2-0895.",
+          "A second NamingSystem, NamingSystem/v2-0895, registers the same OID against the v2 canonical and is what the OID index resolves to -- it sorts after presentOnAdmission and overwrites it. That is why this has to be stated rather than derived."
+        ],
+        "unresolvedSystem": null
+      },
+      "valueSetVersion": {
+        "version": "4.0.0",
+        "reason": "Changed: compose.include.",
+        "incremented": true,
+        "triggers": [
+          "compose.include"
+        ],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0904",
@@ -14244,8 +14309,8 @@
     {
       "table": "0952",
       "name": "Confidentiality Classification",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "action": "superseded-by-ruling",
+      "reason": "The v3 code system URI is the correct one and the v3 resource should be used for the value set as well. The v2 value set has to be kept because it already exists in THO, but it is to be retired and its description is to say, at the top, that the v3 value set is the correct one, with a link that keeps resolving in future versions of THO.",
       "written": [
         "valueSets/vs-v2-0952.xml"
       ],
@@ -14254,13 +14319,27 @@
       "published": "http://terminology.hl7.org/ValueSet-v2-0952.html",
       "valueSetVersion": {
         "version": "4.0.0",
-        "reason": "Changed: description.",
+        "reason": "Changed: description, status.",
         "incremented": true,
         "triggers": [
-          "description"
+          "description",
+          "status"
         ],
         "judgement": [],
         "newArtifact": []
+      },
+      "ruledSupersession": {
+        "table": "0952",
+        "registerItem": "esc-0952-0959-superseded-by-v3",
+        "ruling": "The v3 code system URI is the correct one and the v3 resource should be used for the value set as well. The v2 value set has to be kept because it already exists in THO, but it is to be retired and its description is to say, at the top, that the v3 value set is the correct one, with a link that keeps resolving in future versions of THO.",
+        "replacementUrl": "http://terminology.hl7.org/ValueSet/v3-Confidentiality",
+        "replacementName": "v3-Confidentiality",
+        "rationale": [
+          "Chapter 2C prints a *ValueSet* page URL, http://terminology.hl7.org/ValueSet-v2-0952.html, in the Code System URI field -- a value set where a code system belongs. The writer recovers by falling back to the code system OID 2.16.840.1.113883.5.25, which resolves to v3-Confidentiality, so the output is right despite the input being wrong.",
+          "The value set OID the chapter gives, 2.16.840.1.113883.1.11.10228, is the identifier on THO's v3-Confidentiality.",
+          "THO publishes ValueSet/v2-0952 as active at 3.0.0, so it cannot be withheld -- only retired and pointed away from."
+        ],
+        "status": "retired"
       }
     },
     {
@@ -14276,23 +14355,12 @@
     },
     {
       "table": "0954",
-      "name": "Work Schedule ODH",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0954.xml"
-      ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
-      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
-      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
-      "valueSetVersion": {
-        "version": "1.0.0",
-        "reason": "THO publishes no such artifact, so this is a first publication.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "This guide should not create a value set for table 0954. One already exists and is correct: THO's ValueSet/v3-WorkScheduleODH.",
+      "registerItem": "esc-0954-0957-duplicate-of-v3",
+      "consequence": "ValueSet/v2-0954 is not written. It would have been a first publication at 1.0.0 carrying the OID 2.16.840.1.113883.1.11.20561, which THO's v3-WorkScheduleODH already holds -- and it would have disagreed with that value set, because the chapter's content logical definition omits the <i>exclude _WorkSchedule</i> clause THO's carries. Not writing it removes both the duplicate identifier and the divergence.",
+      "written": [],
+      "name": "Work Schedule ODH"
     },
     {
       "table": "0955",
@@ -14324,23 +14392,12 @@
     },
     {
       "table": "0957",
-      "name": "Employment Status (ODH)",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0957.xml"
-      ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
-      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1063",
-      "published": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue.html",
-      "valueSetVersion": {
-        "version": "1.0.0",
-        "reason": "THO publishes no such artifact, so this is a first publication.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "The same as 0954: a correct value set already exists, THO's ValueSet/v3-employmentStatusODH, and this guide should use it rather than create a second one.",
+      "registerItem": "esc-0954-0957-duplicate-of-v3",
+      "consequence": "ValueSet/v2-0957 is not written. It would have been a first publication at 1.0.0 carrying the OID 2.16.840.1.113883.1.11.20562, which THO's v3-employmentStatusODH already holds, over a compose structurally identical to that value set's -- the same is-a filter and the same exclude. It was a duplicate in every respect but its canonical.",
+      "written": [],
+      "name": "Employment Status (ODH)"
     },
     {
       "table": "0958",
@@ -14364,8 +14421,8 @@
     {
       "table": "0959",
       "name": "Work Classification ODH",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "action": "superseded-by-ruling",
+      "reason": "The v3 code system URI is the correct one and the v3 resource should be used for the value set as well. The v2 value set has to be kept because it already exists in THO, but it is to be retired and its description is to say, at the top, that the v3 value set is the correct one, with a link that keeps resolving in future versions of THO.",
       "written": [
         "valueSets/vs-v2-0959.xml"
       ],
@@ -14374,33 +14431,37 @@
       "published": "http://terminology.hl7.org/CodeSystem-v3-WorkClassificationODH.html",
       "valueSetVersion": {
         "version": "4.0.0",
-        "reason": "Changed: description.",
+        "reason": "Changed: description, status.",
         "incremented": true,
         "triggers": [
-          "description"
+          "description",
+          "status"
         ],
         "judgement": [],
         "newArtifact": []
+      },
+      "ruledSupersession": {
+        "table": "0959",
+        "registerItem": "esc-0952-0959-superseded-by-v3",
+        "ruling": "The v3 code system URI is the correct one and the v3 resource should be used for the value set as well. The v2 value set has to be kept because it already exists in THO, but it is to be retired and its description is to say, at the top, that the v3 value set is the correct one, with a link that keeps resolving in future versions of THO.",
+        "replacementUrl": "http://terminology.hl7.org/ValueSet/v3-WorkClassificationODH",
+        "replacementName": "v3-WorkClassificationODH",
+        "rationale": [
+          "The value set OID the chapter gives, 2.16.840.1.113883.1.11.20560, is the identifier on THO's v3-WorkClassificationODH.",
+          "THO publishes ValueSet/v2-0959 as active at 3.0.0, so it cannot be withheld -- only retired and pointed away from.",
+          "Unlike 0952, this table's Code System URI field is a proper code system page link. The duplication is the only defect here."
+        ],
+        "status": "retired"
       }
     },
     {
       "table": "0960",
-      "name": "Data Absent Reason",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0960.xml"
-      ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-      "resolvedBy": "published URI",
-      "valueSetVersion": {
-        "version": "1.0.0",
-        "reason": "THO publishes no such artifact, so this is a first publication.",
-        "incremented": false,
-        "triggers": [],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "This guide should not create a value set for table 0960. Chapter 2C names the correct one, FHIR core's ValueSet/data-absent-reason, and that is correct.",
+      "registerItem": "esc-0960-duplicate-of-fhir-core",
+      "consequence": "ValueSet/v2-0960 is not written. It would have been a first publication at 1.0.0 composing over CodeSystem/data-absent-reason -- the same code system the FHIR core value set draws on -- at a v2 canonical the chapter does not ask for. The chapter's own Value Set URI field gives http://hl7.org/fhir/ValueSet/data-absent-reason, so not writing a second one follows what the chapter says rather than departing from it.",
+      "written": [],
+      "name": "Data Absent Reason"
     },
     {
       "table": "0961",
@@ -14541,13 +14602,6 @@
         "judgement": [],
         "newArtifact": []
       }
-    },
-    {
-      "table": "9999",
-      "name": "Placeholder Table Representation",
-      "action": "nothing-to-write",
-      "reason": "The chapter declares the table but no concept domain, code system or codes.",
-      "written": []
     }
   ]
 }

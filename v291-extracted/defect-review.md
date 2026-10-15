@@ -1,6 +1,6 @@
 # Chapter 2C defects, grouped for decision
 
-Review list for V2 Management — 33 open findings.
+Review list for V2 Management — 32 open findings.
 
 This document replaces the blanket policy question `esc-retain-known-errors`. V2 Management ruled on 2026-10-08 that There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.
 
@@ -263,7 +263,7 @@ Two artifacts carry a different identifier OID in Chapter 2C than the one THO pu
 **What this guide publishes today:**
 
 - `0001` Administrative Sex: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
-- `0719` Access Restriction Reason Code: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
+- `0719` Access Restriction Reason Code: retired on a ruling, superseded — VS 4.0.0 (incremented)
 
 **Decision needed:** Adjudicate each OID. For 0001, establish which of ...18.458 and ...18.2 is the registered identifier for the Administrative Sex code system, and correct the other source. For 0719, establish whether ...20429 or ...20428 is right. Until both are settled this project publishes THO's identifier rather than the chapter's, because the policy forbids changing a published identifier and the canonical URL is THO's. That is now enforced in the pipeline rather than left as a recommendation: the identifier is the one element where the chapter does not win a disagreement, because an identifier is identity rather than content. Both conflicts are recomputed on every run, so neither can drift out of view. A third option has been raised and needs ruling on: publish both OIDs as identifiers. identifier is 0..* on both CodeSystem and ValueSet, so it is mechanically available, and it would avoid choosing before the committees have. It is not obviously right: two identifiers on one artifact asserts that both OIDs name it, which for 0719 is demonstrably false — ...20429 names a different v3 value set, which THO also publishes. Carrying both would be defensible for 0001, where the two may be the same code system under two registrations, and misleading for 0719. Please rule per artifact rather than as a blanket policy. 0078 was the third conflict here and has been answered — see esc-0078-alias-of-v3. V2 Management ruled on 2026-10-14 that the existing v3-ObservationInterpretation serves and no second artifact is created, which removed that collision rather than adjudicating it. It is not a precedent for these two: 0078's collision existed only because this guide was about to create the second artifact, and 0001 and 0719 are conflicts between artifacts that already exist.
 
@@ -283,7 +283,7 @@ Chapter 2C carries three OIDs per table, in three separate metadata blocks, and 
 
 ---
 
-## The chapter contradicting itself (7)
+## The chapter contradicting itself (6)
 
 A table says two incompatible things about itself, so no reading of it is faithful. These cannot be reproduced faithfully — something has to be chosen — which is why they are the ones most likely to be producing a wrong artifact right now.
 
@@ -301,28 +301,10 @@ Both tables define their value set as a subtree of v3-ObservationValue. 0957 Emp
 
 **What this guide publishes today:**
 
-- `0954` Work Schedule ODH: ValueSet published; code system is another body's — VS 1.0.0 (held)
-- `0957` Employment Status (ODH): ValueSet published; code system is another body's — VS 1.0.0 (held)
+- `0954` Work Schedule ODH: withheld on a ruling
+- `0957` Employment Status (ODH): withheld on a ruling
 
 **Decision needed:** Confirm that 0954 is missing an Exclude codes where code = _WorkSchedule clause, in which case it is a technical correction and one line to apply. If the omission is deliberate, say so, because the value set then diverges from THO's and somebody will raise it again. The recommendation is to add it regardless of the notSelectable safety net: the clause costs nothing, it makes 0954 consistent with its sibling 0957 and with THO, and it removes a dependency on how a given expansion engine treats an advisory property.
-
----
-
-### Table 9999 is a placeholder occupying a table number
-
-**Tables:** 9999  
-**Goes to:** V2 Management  
-**Register id:** `esc-tables-that-should-be-domains`
-
-*Why this class: A placeholder occupying a table number. Its two companions in the original finding, 0010 and 0188, have both been withdrawn.*
-
-This item covered three tables. 0010 and 0188 have both since been withdrawn — see esc-0010-withdrawn and esc-0188-withdrawn — leaving only 9999. What follows is the original finding, which measured all three together. Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no code system, no value set and no codes. 0010 Physician ID and 0188 Operator ID are User tables whose descriptions end “No suggested values” — they are site-defined identifiers, and were arguably never code tables. One measurement turns that judgement into a fact. Of the 799 sections only three carry no concept domain block at all, and of the 149 tables whose description says “No suggested values”, 147 carry one. The two that do not are 0010 and 0188. The chapter supplies a concept domain for every peer of these two and omitted it for exactly these two, so the omission is an outlier rather than the house style for site-defined identifiers. 9999 Placeholder Table Representation is not a table at all: it carries the literal placeholder strings noObject and noDescription, the same markers that appear in the two concept-domain-only tables. Checked against both THO and the UTG repository: there is no CodeSystem and no ValueSet for any of the three. Nothing has been minted for them and nothing needs to be withdrawn.
-
-**What this guide publishes today:**
-
-- `9999` Placeholder Table Representation: nothing published
-
-**Decision needed:** Decide what becomes of 9999. A placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically, and this project writes nothing for it. Its two companions in this finding were both withdrawn, which is not an answer for 9999: 0010 and 0188 were real tables that stopped being needed, and 9999 was never a table at all.
 
 ---
 
@@ -632,7 +614,7 @@ For 577 of the 582 shared concept domains, Chapter 2C and THO agree word for wor
 
 **What this guide publishes today:**
 
-- `0952` Confidentiality Classification: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
+- `0952` Confidentiality Classification: retired on a ruling, superseded — VS 4.0.0 (incremented)
 - `0967` Container Form: concept domain only, no artifact
 - `0675` Country (PDC-2): concept domain only, no artifact
 - `0066` Employment Status: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
@@ -711,7 +693,7 @@ Of the description differences between this project's output and THO, all but tw
 **What this guide publishes today:**
 
 - `0227` Manufacturers of Vaccines (code=MVX): ValueSet published; code system is another body's — VS 4.0.0 (held)
-- `0719` Access Restriction Reason Code: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
+- `0719` Access Restriction Reason Code: retired on a ruling, superseded — VS 4.0.0 (incremented)
 
 **Decision needed:** For 0227, decide whether the source reference should be carried into the chapter's description or dropped. For 0719, decide what should happen to a THO artifact whose own description says it was created in error — and settle that together with its OID conflict, since the two are likely the same story.
 

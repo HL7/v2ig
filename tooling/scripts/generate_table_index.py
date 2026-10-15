@@ -84,6 +84,7 @@ ROUTE_LABEL = {
     "needs-decision": "Needs decision",
     "nothing-to-write": "Nothing",
     "suppressed-by-ruling": "Withheld",
+    "superseded-by-ruling": "Retired, superseded",
 }
 
 # What each route is expected to look like once loaded into THO. A row is an
@@ -100,6 +101,11 @@ ROUTE_NORM = {
     # what the Jira ticket is for -- so its presence there is expected
     # and is not an exception to shade.
     "suppressed-by-ruling": (None, None),
+    # Superseded on a ruling: the value set is still published, retired,
+    # pointing at its replacement. THO publishes it too -- that is why it
+    # could not simply be withheld -- so "both" is the norm, same as any
+    # other value-set-only table.
+    "superseded-by-ruling": (None, "both"),
 }
 
 PRESENCE = {(1, 1): "both", (1, 0): "ig-only", (0, 1): "tho-only", (0, 0): "neither"}

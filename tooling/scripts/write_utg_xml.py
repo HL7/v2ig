@@ -63,6 +63,13 @@ How a table is classified
       `RULED_SUPPRESSIONS` below -- this is the only route that produces no
       artifact for a table the chapter does publish content for.
 
+  superseded-by-ruling
+      A committee has ruled that the correct value set for this table is one
+      published elsewhere, but THO already publishes a v2 artifact that
+      cannot simply be withdrawn. The artifact is kept, marked `retired`, and
+      its description is prefixed with a pointer to the correct value set.
+      See `RULED_SUPERSESSIONS` below.
+
 Metadata inherited from UTG
 ---------------------------
 
@@ -110,6 +117,31 @@ from utg_xml import Node, render_document  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 VOCAB_DIR = PROJECT_ROOT / "v291-extracted" / "vocabulary"
+
+# Sections of Chapter 2C that are not tables and do not belong in this IG at
+# all. This is not a suppression: a suppression withholds a table's artifacts
+# and reports the absence, because somebody looking for the artifact deserves
+# to know why it is missing. 9999 has no artifacts to withhold and nobody is
+# looking for them -- it is a documentation placeholder that occupies a table
+# number, carrying the literal strings `noObject` and `noDescription` where a
+# code system and description belong.
+#
+# Excluded at the corpus boundary rather than filtered in each renderer. The
+# table reached the published IG three times over -- the table index, the
+# ledger, and the open-items register -- because every page that walks the
+# corpus had to remember to skip it, and a page added later would not.
+#
+# V2 Management, 2026-10-15: "Do not put 9999 in this IG at all." Nothing in
+# the V2.9.1 standard binds to it: a scan of every `tableBinding` in the
+# extracted segments and data types found 1,187 bound fields across 731
+# distinct tables and no reference to 9999. The same scan finds 7 bindings to
+# withdrawn table 0010 and 1 to 0188, so it does detect bindings to dead
+# tables where they exist.
+EXCLUDED_SECTIONS = {
+    "9999": "A documentation placeholder, not a table. V2 Management ruled "
+            "on 2026-10-15 that it does not belong in this IG. Nothing in "
+            "the V2.9.1 standard binds to it.",
+}
 THO_DIR = PROJECT_ROOT / "tho-r5"
 DEFAULT_UTG_REPO = PROJECT_ROOT / "UTG"
 OUTPUT_DIR = PROJECT_ROOT / "v291-fhir" / "utg"
@@ -384,6 +416,49 @@ RULED_SUPPRESSIONS = {
                     "table's concept domain is unaffected and continues to "
                     "be published in CodeSystem/conceptdomains.",
     ),
+    "0954": Suppression(
+        ruling="This guide should not create a value set for table 0954. One "
+               "already exists and is correct: THO's "
+               "ValueSet/v3-WorkScheduleODH.",
+        register_item="esc-0954-0957-duplicate-of-v3",
+        consequence="ValueSet/v2-0954 is not written. It would have been a "
+                    "first publication at 1.0.0 carrying the OID "
+                    "2.16.840.1.113883.1.11.20561, which THO's "
+                    "v3-WorkScheduleODH already holds -- and it would have "
+                    "disagreed with that value set, because the chapter's "
+                    "content logical definition omits the <i>exclude "
+                    "_WorkSchedule</i> clause THO's carries. Not writing it "
+                    "removes both the duplicate identifier and the "
+                    "divergence.",
+    ),
+    "0957": Suppression(
+        ruling="The same as 0954: a correct value set already exists, THO's "
+               "ValueSet/v3-employmentStatusODH, and this guide should use "
+               "it rather than create a second one.",
+        register_item="esc-0954-0957-duplicate-of-v3",
+        consequence="ValueSet/v2-0957 is not written. It would have been a "
+                    "first publication at 1.0.0 carrying the OID "
+                    "2.16.840.1.113883.1.11.20562, which THO's "
+                    "v3-employmentStatusODH already holds, over a compose "
+                    "structurally identical to that value set's -- the same "
+                    "is-a filter and the same exclude. It was a duplicate in "
+                    "every respect but its canonical.",
+    ),
+    "0960": Suppression(
+        ruling="This guide should not create a value set for table 0960. "
+               "Chapter 2C names the correct one, FHIR core's "
+               "ValueSet/data-absent-reason, and that is correct.",
+        register_item="esc-0960-duplicate-of-fhir-core",
+        consequence="ValueSet/v2-0960 is not written. It would have been a "
+                    "first publication at 1.0.0 composing over "
+                    "CodeSystem/data-absent-reason -- the same code system "
+                    "the FHIR core value set draws on -- at a v2 canonical "
+                    "the chapter does not ask for. The chapter's own Value "
+                    "Set URI field gives "
+                    "http://hl7.org/fhir/ValueSet/data-absent-reason, so not "
+                    "writing a second one follows what the chapter says "
+                    "rather than departing from it.",
+    ),
     "0567": Suppression(
         ruling="Tables 0567 and 0568 should never have been created. Their "
                "value sets will be retired by a separate Jira ticket against "
@@ -489,6 +564,43 @@ RULED_RECLASSIFICATIONS = {
             "concept-domain-only flag in the same section.",
         ),
     ),
+    "0895": Reclassification(
+        action="value-set-only",
+        system_url="https://www.cms.gov/Medicare/"
+                   "Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        unresolved=None,
+        ruling="THO's ValueSet/v2-0895 is wrong about the system URL. The "
+               "correct one is the CMS Present on Admission coding page, "
+               "which THO's external code systems page carries with the v2 "
+               "code system URL as an additional identifier and the same "
+               "OID Chapter 2C gives. This IG fixes the THO artifact. No "
+               "CodeSystem is created, because THO's record is correct.",
+        register_item="esc-0895-wrong-system-url",
+        rationale=(
+            "THO publishes NamingSystem/presentOnAdmission with the "
+            "preferred URI "
+            "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/"
+            "HospitalAcqCond/Coding and lists "
+            "http://terminology.hl7.org/CodeSystem/v2-0895 among its other "
+            "identifiers, commented \"The v2 table of present on admission "
+            "indicators\".",
+            "Both that NamingSystem and Chapter 2C carry the same OID, "
+            "2.16.840.1.113883.6.301.11, so the two are demonstrably the "
+            "same code system under two names.",
+            "THO publishes CodeSystem/presentOnAdmission at the CMS URL, "
+            "content complete with five concepts -- Y, N, U, W and 1 -- so "
+            "the value set composes over real content rather than an "
+            "unresolvable pointer.",
+            "THO's own ValueSet/POAIndicators composes over the CMS URL, "
+            "not over v2-0895, which is THO contradicting its own "
+            "ValueSet/v2-0895.",
+            "A second NamingSystem, NamingSystem/v2-0895, registers the "
+            "same OID against the v2 canonical and is what the OID index "
+            "resolves to -- it sorts after presentOnAdmission and "
+            "overwrites it. That is why this has to be stated rather than "
+            "derived.",
+        ),
+    ),
     "0351": Reclassification(
         action="value-set-only",
         system_url="http://terminology.hl7.org/CodeSystem/v2-0351",
@@ -505,6 +617,166 @@ RULED_RECLASSIFICATIONS = {
         ),
     ),
 }
+
+
+# --------------------------------------------------------------------------
+# Supersessions by ruling
+# --------------------------------------------------------------------------
+#
+# Tables where a committee has ruled that the correct value set is one
+# published elsewhere, and THO already publishes a v2 artifact that cannot
+# simply stop existing.
+#
+# The fourth ruling-driven mechanism, and the one the other three cannot
+# express:
+#
+#   RULED_SUPPRESSIONS       the artifact is never created. Right when this
+#                            guide would be minting something new -- 0954,
+#                            0957, 0960 -- because not creating it leaves
+#                            nothing behind.
+#   RULED_RECLASSIFICATIONS  the chapter's classification is wrong and the
+#                            correct one is stated. Changes *what* is
+#                            published, not its standing.
+#   RULED_SUPERSESSIONS      the artifact already exists in THO and is
+#                            superseded. Suppressing it would not unpublish
+#                            it; it would only stop this guide from saying
+#                            anything about it, leaving a live artifact in
+#                            the field with nothing pointing at its
+#                            replacement.
+#
+# That last distinction is the whole reason for a fourth table. Suppression
+# and supersession look alike -- both say "do not use this" -- but they act
+# on opposite situations. Suppression is available only before first
+# publication. Once THO publishes an artifact, the strongest available act
+# is to retire it and say where to go instead, and both halves matter: a
+# retired value set with no pointer tells an implementer they are wrong
+# without telling them what is right.
+#
+# An entry belongs here only when all four hold:
+#
+#   * a body with the authority has ruled that another value set is the
+#     correct one,
+#   * the register item carrying that ruling has a `resolution`,
+#   * THO already publishes the v2 artifact, so suppression is not available,
+#     and
+#   * `replacement_url` is version-less, so the pointer keeps resolving as
+#     THO publishes new versions.
+#
+# The last is a requirement rather than a style note. A ruling citing
+# `terminology.hl7.org/7.4.0/en/ValueSet-v3-Foo.html` names the right value
+# set through a link that rots at the next release; the canonical does not.
+#
+#   replacement_url    the canonical of the value set that supersedes this
+#                      one -- version-less, by invariant
+#   replacement_name   how to refer to it in the prose of the note
+#   ruling             what was decided, in the words of the decision
+#   register_item      the id of the register item carrying the resolution
+#   rationale          why this table's own value set is not the one to use
+Supersession = namedtuple(
+    "Supersession",
+    "replacement_url replacement_name ruling register_item rationale")
+
+ODH_SUPERSESSION_RULING = (
+    "The v3 code system URI is the correct one and the v3 resource should "
+    "be used for the value set as well. The v2 value set has to be kept "
+    "because it already exists in THO, but it is to be retired and its "
+    "description is to say, at the top, that the v3 value set is the "
+    "correct one, with a link that keeps resolving in future versions of "
+    "THO."
+)
+
+RULED_SUPERSESSIONS = {
+    "0719": Supersession(
+        replacement_url="http://terminology.hl7.org/ValueSet/"
+                        "v3-ActInformationSensitivityPolicy",
+        replacement_name="v3-ActInformationSensitivityPolicy",
+        ruling="The correct value set for table 0719 is THO's "
+               "ValueSet/v3-ActInformationSensitivityPolicy. The only thing "
+               "to do with the v2 value set is update its text to point at "
+               "the v3 one.",
+        register_item="esc-0719-superseded-by-v3",
+        rationale=(
+            "Chapter 2C's own Value Set URI field for 0719 names "
+            "v3-ActInformationSensitivityPolicy, not a v2 canonical.",
+            "THO already publishes ValueSet/v2-0719 with status `retired`, "
+            "so the supersession is THO's existing position rather than a "
+            "new one. This guide had been republishing it as `active`.",
+            "The OID on the retired artifact, 2.16.840.1.113883.1.11.20428, "
+            "is also on THO's v3-InformationSensitivityPolicy. An "
+            "identifier on a published artifact cannot be changed, so this "
+            "is a fact to record rather than a defect to repair.",
+        ),
+    ),
+    "0952": Supersession(
+        replacement_url="http://terminology.hl7.org/ValueSet/"
+                        "v3-Confidentiality",
+        replacement_name="v3-Confidentiality",
+        ruling=ODH_SUPERSESSION_RULING,
+        register_item="esc-0952-0959-superseded-by-v3",
+        rationale=(
+            "Chapter 2C prints a *ValueSet* page URL, "
+            "http://terminology.hl7.org/ValueSet-v2-0952.html, in the Code "
+            "System URI field -- a value set where a code system belongs. "
+            "The writer recovers by falling back to the code system OID "
+            "2.16.840.1.113883.5.25, which resolves to v3-Confidentiality, "
+            "so the output is right despite the input being wrong.",
+            "The value set OID the chapter gives, "
+            "2.16.840.1.113883.1.11.10228, is the identifier on THO's "
+            "v3-Confidentiality.",
+            "THO publishes ValueSet/v2-0952 as active at 3.0.0, so it "
+            "cannot be withheld -- only retired and pointed away from.",
+        ),
+    ),
+    "0959": Supersession(
+        replacement_url="http://terminology.hl7.org/ValueSet/"
+                        "v3-WorkClassificationODH",
+        replacement_name="v3-WorkClassificationODH",
+        ruling=ODH_SUPERSESSION_RULING,
+        register_item="esc-0952-0959-superseded-by-v3",
+        rationale=(
+            "The value set OID the chapter gives, "
+            "2.16.840.1.113883.1.11.20560, is the identifier on THO's "
+            "v3-WorkClassificationODH.",
+            "THO publishes ValueSet/v2-0959 as active at 3.0.0, so it "
+            "cannot be withheld -- only retired and pointed away from.",
+            "Unlike 0952, this table's Code System URI field is a proper "
+            "code system page link. The duplication is the only defect "
+            "here.",
+        ),
+    ),
+}
+
+# The note prefixed to a superseded value set's description. Markdown, because
+# the IG Publisher renders these as markdown -- the same mechanism the 0133
+# emphasis ruling uses. The link is written out as a markdown link so it is
+# clickable wherever the description is rendered.
+SUPERSESSION_NOTE = (
+    "**This value set has been retired. The correct value set to use is "
+    "[{name}]({url}).**"
+)
+
+
+def ruled_supersession(table):
+    """The supersession ruling for this table, or None."""
+    return RULED_SUPERSESSIONS.get(table)
+
+
+def supersession_note(supersession):
+    """The markdown note prefixed to a superseded value set's description."""
+    return SUPERSESSION_NOTE.format(name=supersession.replacement_name,
+                                    url=supersession.replacement_url)
+
+
+def supersession_summary():
+    """What this guide retires and points elsewhere, on somebody's ruling."""
+    return {
+        "count": len(RULED_SUPERSESSIONS),
+        "tables": sorted(RULED_SUPERSESSIONS),
+        "registerItems": sorted(
+            {s.register_item for s in RULED_SUPERSESSIONS.values()}),
+        "replacements": {table: s.replacement_url
+                         for table, s in sorted(RULED_SUPERSESSIONS.items())},
+    }
 
 
 def ruled_reclassification(table):
@@ -1155,12 +1427,17 @@ def classify_chapter_reading(record, oid_index, snapshot=None,
 
 
 def add_common_metadata(root, *, resource_id, url, oid, version, date,
-                        name, title, description):
+                        name, title, description, status=None):
     """Add the publication metadata every UTG v2 resource carries, in order.
 
     CodeSystem and ValueSet share this whole block and put it in the same
     place, so it is built once. Element order matters: FHIR XML is ordered, and
     a resource whose elements are shuffled will not validate.
+
+    `status` defaults to DEFAULT_STATUS, which is what every artifact carries
+    unless a ruling says otherwise. It is a parameter rather than a constant
+    only so `RULED_SUPERSESSIONS` can retire a value set; nothing else passes
+    it, and nothing else should without a ruling behind it.
     """
     root.add_value("id", resource_id)
     root.add_value("url", url)
@@ -1171,7 +1448,7 @@ def add_common_metadata(root, *, resource_id, url, oid, version, date,
     root.add_value("version", version)
     root.add_value("name", name)
     root.add_value("title", title)
-    root.add_value("status", DEFAULT_STATUS)
+    root.add_value("status", status or DEFAULT_STATUS)
     root.add_value("experimental", DEFAULT_EXPERIMENTAL)
     root.add_value("date", date)
     root.add_value("publisher", PUBLISHER)
@@ -1557,6 +1834,26 @@ def plan_value_set(record, plan, utg, published_urls=None, snapshot=None,
     fields = tho_merge.merge_fields(
         fields, tho, tho_merge.FILLABLE_VALUE_SET_FIELDS, observe, context)
 
+    # A supersession ruling, applied after the THO merge and before anything
+    # is compared. Two changes, and they must happen in this order: the merge
+    # fills `description` from THO where the chapter is silent, so prefixing
+    # the note first would see it overwritten.
+    #
+    # `status` is the reason this cannot be a quieter change. It is in
+    # COMPARED_VALUE_SET_FIELDS and not in FILLABLE_VALUE_SET_FIELDS -- a
+    # difference against THO is reported and bumps the version, but never
+    # fills. That is right everywhere else and wrong here: it is why this
+    # guide was republishing THO's retired v2-0719 as active. Setting it
+    # explicitly on a ruling is the only route that changes it.
+    supersession = ruled_supersession(table)
+    if supersession is not None:
+        fields["status"] = "retired"
+        note = supersession_note(supersession)
+        description = fields.get("description") or ""
+        if not description.startswith(note):
+            fields["description"] = (
+                f"{note}\n\n{description}" if description else note)
+
     shape = parse_logical_definition(value_set.get("Content Logical Definition"))
     compose = tho_merge.merge_compose(
         chapter_compose(record, plan, shape), tho, observe, context)
@@ -1595,6 +1892,7 @@ def render_value_set(resolved):
         name=fields["name"],
         title=fields["title"],
         description=fields["description"],
+        status=fields.get("status"),
     )
     root.add_value("copyright", COPYRIGHT)
 
@@ -1740,6 +2038,25 @@ def process(records, utg, oid_index, published_urls=None, snapshot=None,
                                               published_urls, snapshot,
                                               observe)
                     entry["valueSetVersion"] = resolved["version"]
+
+                    # A superseded value set is still written -- that is the
+                    # point of the mechanism -- so the report has to say that
+                    # what was written is retired, or a reader counting
+                    # published value sets would count this one as live.
+                    supersession = ruled_supersession(table)
+                    if supersession is not None:
+                        entry["action"] = "superseded-by-ruling"
+                        entry["reason"] = supersession.ruling
+                        entry["ruledSupersession"] = {
+                            "table": table,
+                            "registerItem": supersession.register_item,
+                            "ruling": supersession.ruling,
+                            "replacementUrl": supersession.replacement_url,
+                            "replacementName": supersession.replacement_name,
+                            "rationale": list(supersession.rationale),
+                            "status": "retired",
+                        }
+
                     document = render_document(render_value_set(resolved))
                     path = identity["file"]
                     files[path] = document
@@ -2031,6 +2348,13 @@ def main():
             return 1
 
     records = [json.loads(p.read_text(encoding="utf-8")) for p in paths]
+    excluded = [r for r in records if r["tableNumber"] in EXCLUDED_SECTIONS]
+    records = [r for r in records if r["tableNumber"] not in EXCLUDED_SECTIONS]
+    for record in excluded:
+        print(f"Excluded from the IG: {record['tableNumber']} "
+              f"{record.get('tableName', '')} -- "
+              f"{EXCLUDED_SECTIONS[record['tableNumber']]}")
+
     utg = UtgRepo(args.utg_repo)
     oid_index = load_oid_index()
     published_urls = load_published_value_set_urls()
@@ -2101,6 +2425,17 @@ def main():
         for entry in report:
             if entry["action"] == "suppressed-by-ruling":
                 print(f"  {entry['table']}  ({entry['registerItem']})")
+
+    supersessions = supersession_summary()
+    if supersessions["count"]:
+        print(f"\nRetired and pointed at a replacement on a committee "
+              f"ruling, {supersessions['count']}:")
+        for entry in report:
+            block = entry.get("ruledSupersession")
+            if block:
+                print(f"  {block['table']}  -> retired, see "
+                      f"{block['replacementName']}  "
+                      f"({block['registerItem']})")
 
     overrides = tentative_override_summary(report)
     if overrides["count"]:
@@ -2230,6 +2565,7 @@ def main():
                     "tentativeOverrides": overrides,
                     "ruledSuppressions": suppressions,
                     "ruledReclassifications": reclassifications,
+                    "ruledSupersessions": supersessions,
                     "tables": report},
                    indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",

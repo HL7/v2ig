@@ -10,7 +10,7 @@
   <version value="4.0.0"/>
   <name value="Confidentiality"/>
   <title value="Confidentiality"/>
-  <status value="active"/>
+  <status value="retired"/>
   <experimental value="false"/>
   <date value="2019-12-01"/>
   <publisher value="Health Level Seven International"/>
@@ -24,7 +24,7 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="Concepts drawn from the HL7 V3 Confidentiality code system.&#10;Used in Version 2 messaging in the Security Classification elements in the Message Header segment (MSH) and the Access Restrictions segment (ARV)."/>
+  <description value="**This value set has been retired. The correct value set to use is [v3-Confidentiality](http://terminology.hl7.org/ValueSet/v3-Confidentiality).**&#10;&#10;Concepts drawn from the HL7 V3 Confidentiality code system.&#10;Used in Version 2 messaging in the Security Classification elements in the Message Header segment (MSH) and the Access Restrictions segment (ARV)."/>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <compose>
     <include>

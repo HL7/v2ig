@@ -216,13 +216,19 @@ class TestSquishedDomains:
 
 
 class TestUnresolvedRows:
+    # 9999 was the fifth of these until 2026-10-15, when V2 Management ruled
+    # it out of the IG entirely. It is excluded from the corpus now, so it
+    # has no row to shade rather than a row shaded differently.
+    UNRESOLVED = ("0010", "0188", "0647", "0662")
+
     def test_nothing_anywhere_is_shaded_as_an_open_question(self):
         rows = {r["table"]: r for r in gti.build_rows()}
-        for table in ("0010", "0188", "9999", "0647", "0662"):
+        for table in self.UNRESOLVED:
             assert rows[table]["exception"] == "unresolved", table
 
-    def test_exactly_five_such_rows(self):
-        assert sum(1 for r in gti.build_rows() if r["exception"] == "unresolved") == 5
+    def test_exactly_four_such_rows(self):
+        assert sum(1 for r in gti.build_rows()
+                   if r["exception"] == "unresolved") == len(self.UNRESOLVED)
 
 
 class TestV2TablesCrossCheck:
@@ -318,9 +324,14 @@ class TestAgainstTheRealCorpus:
     """The join must stay total: every table resolves, every IG link is real."""
 
     def test_every_table_appears_once(self):
+        """798, not the chapter's 799: `9999` is excluded from the IG
+        entirely on a V2 Management ruling of 2026-10-15. It is a
+        documentation placeholder rather than a table, and nothing in the
+        standard binds to it."""
         rows = gti.build_rows()
-        assert len(rows) == 799
-        assert len({r["table"] for r in rows}) == 799
+        assert len(rows) == 798
+        assert len({r["table"] for r in rows}) == 798
+        assert "9999" not in {r["table"] for r in rows}
 
     def test_self_check_is_silent(self):
         assert gti.self_check(gti.build_rows()) == []
@@ -372,7 +383,9 @@ class TestNoNulBytes:
 class TestTypeColumn:
     """How Chapter 2C types each table, carried through to the page."""
 
-    EXPECTED = {"User": 399, "undefined": 193, "HL7": 176,
+    # HL7 is 175 rather than 176 because `9999`, typed HL7 in the chapter,
+    # is excluded from the IG on a ruling. See TestAgainstTheRealCorpus.
+    EXPECTED = {"User": 399, "undefined": 193, "HL7": 175,
                 "HL7-EXT": 15, "External": 14, "Imported": 2}
 
     def test_the_header_names_the_column(self):

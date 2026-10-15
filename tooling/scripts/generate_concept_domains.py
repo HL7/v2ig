@@ -45,6 +45,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vocabulary_text_policy import apply_text_policy  # noqa: E402
+import write_utg_xml  # noqa: E402  (for EXCLUDED_SECTIONS)
 from tho_merge import is_editorial  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -102,6 +103,8 @@ def load_chapter_domains():
     domains = defaultdict(lambda: {"tables": [], "descriptions": []})
     for path in sorted(VOCAB_DIR.glob("*.json")):
         record = json.loads(path.read_text())
+        if record.get("tableNumber") in write_utg_xml.EXCLUDED_SECTIONS:
+            continue
         block = record.get("conceptDomain") or {}
         symbolic_name = squish_spaces((block.get("SymbolicName") or "").strip())
         if not symbolic_name:

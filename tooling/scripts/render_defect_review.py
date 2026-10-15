@@ -231,10 +231,6 @@ CLASSIFICATION = {
         "The logical definition would include an abstract concept THO's "
         "equivalent excludes. Either an omitted clause or a deliberate "
         "divergence; the chapter does not say which."),
-    "esc-tables-that-should-be-domains": (
-        "self-contradiction",
-        "A placeholder occupying a table number. Its two companions in the "
-        "original finding, 0010 and 0188, have both been withdrawn."),
     "esc-0823-not-in-tho": (
         "self-contradiction",
         "The chapter publishes a table THO has nothing for, and the guide "
@@ -339,6 +335,7 @@ ACTION_PHRASE = {
     "nothing-to-write": "nothing published",
     "needs-decision": "BLOCKED — no artifact, pipeline cannot settle it",
     "suppressed-by-ruling": "withheld on a ruling",
+    "superseded-by-ruling": "retired on a ruling, superseded",
 }
 
 

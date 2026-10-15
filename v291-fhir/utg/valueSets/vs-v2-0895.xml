@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="v2-0960"/>
-  <url value="http://terminology.hl7.org/ValueSet/v2-0960"/>
+  <id value="v2-0895"/>
+  <url value="http://terminology.hl7.org/ValueSet/v2-0895"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.5"/>
+    <value value="urn:oid:2.16.840.1.113883.21.431"/>
   </identifier>
-  <version value="1.0.0"/>
-  <name value="DataAbsentReason"/>
-  <title value="dataAbsentReason"/>
+  <version value="4.0.0"/>
+  <name value="Hl7VSPresentOnAdmissionPoaIndicator"/>
+  <title value="hl7VS-presentOnAdmission(poa)Indicator"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2019-12-01"/>
@@ -24,11 +24,11 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="Used to specify why the normally expected content of the data element is missing."/>
+  <description value="Value Set of codes specifying the present on admission indicator for this particular diagnosis."/>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+      <system value="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding"/>
     </include>
   </compose>
 </ValueSet>

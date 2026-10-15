@@ -60,6 +60,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from render_review_pages import question_anchor  # noqa: E402
 
 import vocabulary_escalations  # noqa: E402
+import write_utg_xml  # noqa: E402  (for EXCLUDED_SECTIONS)
 from write_utg_xml import observation_class  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -81,6 +82,7 @@ ROUTE_LABEL = {
     "needs-decision": "blocked on a decision",
     "nothing-to-write": "nothing written",
     "suppressed-by-ruling": "withheld on a ruling",
+    "superseded-by-ruling": "retired on a ruling, superseded",
 }
 
 # How each kind of difference is labelled in the Difference column, and the
@@ -240,6 +242,14 @@ def load_register():
         raw = str(item.get("tables") or "")
         partial = any(hedge in raw.lower() for hedge in HEDGES)
         for number in set(TABLE_NUMBER_RE.findall(raw)):
+            # A section excluded from the IG gets no ledger entry, even
+            # though the register still discusses it. The register is a
+            # record of what was found and ruled on, which outlives the
+            # table; the ledger is a view of what this guide publishes, and
+            # an excluded section publishes nothing. Without this, 9999
+            # reappears here from its own resolution.
+            if number in write_utg_xml.EXCLUDED_SECTIONS:
+                continue
             by_table[number].append({
                 "id": item["id"],
                 "title": vocabulary_escalations.to_markdown_text(item["title"]),
@@ -1011,7 +1021,8 @@ def main(argv=None):
     report = json.loads(FILL_REPORT.read_text(encoding="utf-8"))
     write_report = json.loads(WRITE_REPORT.read_text(encoding="utf-8"))
     index = {row["tableNumber"]: row for row
-             in json.loads(VOCAB_INDEX.read_text(encoding="utf-8"))["tables"]}
+             in json.loads(VOCAB_INDEX.read_text(encoding="utf-8"))["tables"]
+             if row["tableNumber"] not in write_utg_xml.EXCLUDED_SECTIONS}
     page = render_page(report, write_report, index, load_register())
 
     if args.check:

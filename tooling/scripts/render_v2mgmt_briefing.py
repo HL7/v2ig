@@ -67,7 +67,7 @@ has been through it.</p>
 <p><b>It is additive with respect to THO.</b> We publish at THO's own canonical
 URLs, so a naive load would silently delete anything THO carries that
 Chapter 2C is silent about. It does not: <b>7,588 values that exist only in THO
-are preserved</b>, and <b>733 of 819 artifacts keep THO's existing version
+are preserved</b>, and <b>733 of 817 artifacts keep THO's existing version
 number</b> because nothing about them actually changed.</p>
 
 <p>The work is destined for <b>THO</b>, and it establishes a corrected baseline
@@ -86,7 +86,7 @@ since the last meeting.</p>
 
 METRICS = [
     ("799", "tables extracted", "good"),
-    ("820", "artifacts generated", "good"),
+    ("818", "artifacts generated", "good"),
     ("7,588", "THO-only values preserved", "good"),
     ("0", "broken links", "good"),
     ("1", "blocking question", "escalate"),

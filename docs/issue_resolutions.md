@@ -14,3 +14,20 @@ Table 10 just goes away and we will remove any terminology bindings to table 10 
 
 0411 should be conceptdomain only so no CS or VS
 
+--- NEW --- 
+
+NOT SURE - DO NOT IMPLEMENT - 0820 - Yes, create the VS and ensure that it correctly defines the CLD as just those three codes from LOINC.  Note that the Ch2c Full name for LOINC in the Code System Identification Information table for table 820 is just wrong, it says "Personal Pronoun Codes".  
+
+0895 is similar to 350 and 351 with nubc codes.  THO does publish the external code systems with the URI that looks like it should resolve to a v2 code system (but obviously doesn't).  Double check that I'm correct here.
+
+0954 - I don't see a problem here.  This looks okay to me.
+
+0957 - There is already a valueset for this at htp://terminology.hl7.org/ValueSet-v3-employmentStatusODH.html. Why shouldn't we use that???
+
+0960 - There is already a VS published at http://hl7.org/fhir/ValueSet/data-absent-reason and this is the correct VS for use with HL7 v2...I think.  It would be possible to publish a separate VS in THO but I don't know if anyone will think that is a good idea.  For now, assume that the FHIR VS is what we will use (and note as the correct VS in the ledger, etc.)
+
+9999 - Ideally, we don't have to deal with this in this IG.  However, this may hinge on whether any fields in the v2 standard are bound to 9999.  I'd like to know that first...
+
+
+
+

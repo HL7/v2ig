@@ -31,13 +31,13 @@ already applied.
 
 All **6** questions below are for **V2 Management**. TSMG owns the artifact versioning policy; V2 Management owns what Chapter 2C says.
 
-There are **56 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
+There are **54 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
 
 **1 question has since been answered** and moved to the evidence page: [1. Does reordering a code system's concepts count as a change?](evidence.html#gq-does-reordering-a-code-system).
 
 ### For V2 Management / TSMG
 
-#### Open items <span class="ri-count">&mdash; 34 items</span>
+#### Open items <span class="ri-count">&mdash; 33 items</span>
 
 <div class="ri-blurb">Defects in the published Chapter 2C, in THO, or in both. None of these is this project's to resolve, and each needs a committee answer. They are listed first because a representation decision can be revisited at any time, whereas getting an item onto an agenda has a lead time.</div>
 
@@ -119,11 +119,6 @@ There are **56 open items** below, plus **6 general questions** that have a work
 <div class="ri-item ri-escalate">
   <div class="ri-key">0093, 0340, 0451</div>
   <p><b>Where should a concept domain&rsquo;s example codes live?</b></p><p>These three tables are declared <i>Concept Domain Only</i> and yet each publishes a small set of codes &mdash; three, two and one respectively. That is not a contradiction: the V3 requirements for declaring a concept domain <b>call for example codes</b>, so the tables are conforming. It does leave the codes with nowhere obvious to go. A concept domain is not a code system, so the examples cannot be concepts; and a domain is bound with an extension on the binding rather than through a value set, so there is no value set to put them in either. <b>No CodeSystem and no ValueSet is minted for any of the three</b>, and nothing in THO or UTG carries one today, so nothing has to be unpicked whichever way this goes.</p><p class="ask"><b>The ask:</b> The likely representation is a <b>concept property on the concept in the concept domain code system</b>, carrying the example codes. Confirm that shape, or name another. Until it is decided the example codes are extracted and held but not published anywhere.</p>
-  <div class="ri-who">Goes to: V2 Management</div>
-</div>
-<div class="ri-item ri-escalate">
-  <div class="ri-key">9999</div>
-  <p><b>Table 9999 is a placeholder occupying a table number</b></p><p><b>This item covered three tables. 0010 and 0188 have both since been withdrawn &mdash; see <code>esc-0010-withdrawn</code> and <code>esc-0188-withdrawn</code> &mdash; leaving only 9999. What follows is the original finding, which measured all three together.</b> Of the 799 sections in Chapter 2C, exactly three declare no concept domain, no code system, no value set and no codes. <code>0010</code> <i>Physician ID</i> and <code>0188</code> <i>Operator ID</i> are User tables whose descriptions end &ldquo;No suggested values&rdquo; &mdash; they are site-defined identifiers, and were arguably never code tables. <b>One measurement turns that judgement into a fact.</b> Of the 799 sections only <b>three</b> carry no concept domain block at all, and of the <b>149</b> tables whose description says &ldquo;No suggested values&rdquo;, <b>147 carry one</b>. The two that do not are 0010 and 0188. The chapter supplies a concept domain for every peer of these two and omitted it for exactly these two, so the omission is an outlier rather than the house style for site-defined identifiers. <code>9999</code> <i>Placeholder Table Representation</i> is not a table at all: it carries the literal placeholder strings <code>noObject</code> and <code>noDescription</code>, the same markers that appear in the two concept-domain-only tables. <b>Checked against both THO and the UTG repository: there is no CodeSystem and no ValueSet for any of the three.</b> Nothing has been minted for them and nothing needs to be withdrawn.</p><p class="ask"><b>The ask:</b> Decide what becomes of 9999. A placeholder that occupies a table number is a trap for anyone generating resources from the chapter mechanically, and this project writes nothing for it. <b>Its two companions in this finding were both withdrawn</b>, which is not an answer for 9999: 0010 and 0188 were real tables that stopped being needed, and 9999 was never a table at all.</p>
   <div class="ri-who">Goes to: V2 Management</div>
 </div>
 <div class="ri-item ri-escalate">
@@ -557,7 +552,7 @@ artifacts published for it.
 
 Judgements this guide cannot make for itself. Each one has a working answer applied, so none of them blocks a build; each is here because the answer is somebody else's to give.
 
-#### For V2 Management / TSMG &mdash; Tables the XML writer will not guess at <span class="ri-count">&mdash; 15 items</span>
+#### For V2 Management / TSMG &mdash; Tables the XML writer will not guess at <span class="ri-count">&mdash; 14 items</span>
 
 <div class="ri-blurb">The writer produces a CodeSystem or ValueSet only where the chapter says clearly enough what it should be. These tables it leaves alone, and each group below is one decision rather than one per table. Nothing here is a defect in the tooling; each is a place the published chapter is ambiguous, incomplete, or points somewhere that does not resolve.</div>
 
@@ -571,10 +566,6 @@ Judgements this guide cannot make for itself. Each one has a working answer appl
 </div>
 <div class="ri-item ri-decide">
   <div class="ri-key">2</div>
-  <p>The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.</p><p class="ask">0467 <i>Modifier Edit Code</i>, 0895 <i>Present On Admission (POA) Indicator</i></p>
-</div>
-<div class="ri-item ri-decide">
-  <div class="ri-key">2</div>
   <p>The table declares 3 code systems; which one the value set draws from is not stated.</p><p class="ask">0821 <i>Gender Identity</i>, 0823 <i>Sexual Orientation</i></p>
 </div>
 <div class="ri-item ri-decide">
@@ -584,6 +575,10 @@ Judgements this guide cannot make for itself. Each one has a working answer appl
 <div class="ri-item ri-decide">
   <div class="ri-key">1</div>
   <p>The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: &#x27;ISO 3166-1 alpha-3 axis&#x27;.</p><p class="ask">0399 <i>Country Code</i></p>
+</div>
+<div class="ri-item ri-decide">
+  <div class="ri-key">1</div>
+  <p>The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.</p><p class="ask">0467 <i>Modifier Edit Code</i></p>
 </div>
 <div class="ri-item ri-decide">
   <div class="ri-key">1</div>

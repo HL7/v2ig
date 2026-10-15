@@ -798,6 +798,298 @@ ESCALATIONS = [
         "evidence": punctuation_evidence,
     },
     {
+        "id": "esc-0954-0957-duplicate-of-v3",
+        "who": "V2 Management",
+        "tables": "0954, 0957",
+        "title": "Tables 0954 and 0957 would have duplicated value sets "
+                 "THO already publishes",
+        "body":
+            "Both tables name, in their own Value Set URI field, a value set "
+            "THO already publishes under a v3 canonical: 0954 points at "
+            "<code>ValueSet/v3-WorkScheduleODH</code> and 0957 at "
+            "<code>ValueSet/v3-employmentStatusODH</code>, both active at "
+            "3.0.0. This guide was nonetheless writing "
+            "<code>ValueSet/v2-0954</code> and "
+            "<code>ValueSet/v2-0957</code> as first publications. "
+            "<b>Each carried the OID of the value set it duplicated.</b> "
+            "0954's <code>2.16.840.1.113883.1.11.20561</code> is the "
+            "identifier on <code>v3-WorkScheduleODH</code>, and 0957's "
+            "<code>&hellip;20562</code> on "
+            "<code>v3-employmentStatusODH</code> &mdash; so publishing "
+            "either put one OID on two artifacts, the breach "
+            "<code>esc-oid-conflicts</code> records elsewhere, in the one "
+            "form this project could still prevent: by not creating the "
+            "second artifact. "
+            "<b>The two were not equally harmless.</b> 0957's compose was "
+            "structurally identical to THO's &mdash; same <code>is-a "
+            "_EmploymentStatus</code> filter, same exclude of the abstract "
+            "grouper &mdash; so it duplicated an artifact without "
+            "contradicting it. 0954's was not: the chapter's content "
+            "logical definition omits the <i>Exclude codes where code = "
+            "<code>_WorkSchedule</code></i> clause that THO's value set "
+            "carries, so <code>v2-0954</code> would have been a second "
+            "artifact on a live OID <i>and</i> disagreed with the first "
+            "about whether an abstract grouper is in the value set. That "
+            "divergence is the subject of "
+            "<code>esc-0954-cld-exclude</code>, which this ruling makes "
+            "moot here while leaving it standing against the chapter.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-15",
+            "ruling": "This guide should not create value sets for 0954 or "
+                      "0957. Correct value sets already exist in THO "
+                      "&mdash; <code>v3-WorkScheduleODH</code> and "
+                      "<code>v3-employmentStatusODH</code> &mdash; and "
+                      "those are the ones to use.",
+            "effect": "Both value sets are withheld through "
+                      "<code>RULED_SUPPRESSIONS</code>, so two first "
+                      "publications stop being written and two duplicate "
+                      "OID assignments never reach the field. This follows "
+                      "the precedent set for 0078 on 2026-10-14: where a "
+                      "correct value set already exists under another "
+                      "canonical, the guide lets it serve rather than "
+                      "minting a v2 twin.",
+        },
+    },
+    {
+        "id": "esc-0895-wrong-system-url",
+        "who": "V2 Management",
+        "tables": "0895",
+        "title": "THO's ValueSet/v2-0895 composes over the wrong code "
+                 "system URL, and THO's own records say so",
+        "body":
+            "THO publishes <code>ValueSet/v2-0895</code> composing over "
+            "<code>http://terminology.hl7.org/CodeSystem/v2-0895</code>, a "
+            "canonical with no CodeSystem behind it. <b>The correct system "
+            "URL is the CMS Present on Admission coding page</b>, "
+            "<code>https://www.cms.gov/Medicare/Medicare-Fee-for-Service-"
+            "Payment/HospitalAcqCond/Coding</code>, and THO's own records "
+            "establish this without anything needing to be inferred: "
+            "<code>NamingSystem/presentOnAdmission</code> carries that CMS "
+            "URL as its <i>preferred</i> URI and lists the v2 canonical "
+            "among its other identifiers, commented &ldquo;The v2 table of "
+            "present on admission indicators&rdquo;. Both it and Chapter 2C "
+            "carry the same OID, "
+            "<code>2.16.840.1.113883.6.301.11</code>. "
+            "<b>THO contradicts itself on this table.</b> It publishes "
+            "<code>CodeSystem/presentOnAdmission</code> at the CMS URL, "
+            "<code>content: complete</code> with five concepts &mdash; "
+            "<code>Y</code>, <code>N</code>, <code>U</code>, <code>W</code> "
+            "and <code>1</code> &mdash; and its own "
+            "<code>ValueSet/POAIndicators</code> composes over that CMS "
+            "URL. Only <code>ValueSet/v2-0895</code> points at the empty v2 "
+            "canonical. "
+            "<b>Two NamingSystems register the same OID, and the wrong one "
+            "wins.</b> <code>NamingSystem/v2-0895</code> maps "
+            "<code>&hellip;6.301.11</code> to the v2 canonical; "
+            "<code>NamingSystem/presentOnAdmission</code> maps it to the "
+            "CMS URL. This project's OID index loads NamingSystems in "
+            "filename order and lets the last one win, so "
+            "<code>v2-0895</code> overwrites <code>presentOnAdmission</code> "
+            "and the OID resolves to the empty canonical. That is why the "
+            "correct URL has to be stated by ruling rather than derived "
+            "&mdash; the evidence is in THO, but not in the field the "
+            "resolver reads. "
+            "<b>This table is distinct from 0350, 0351 and 0456.</b> Those "
+            "three are externally-owned NUBC systems under HL7-endorsed "
+            "URIs with no content published anywhere, which is THO's "
+            "documented convention and not a defect. 0895 has real content "
+            "published at a real URL, and the v2 value set simply points "
+            "somewhere else.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-15",
+            "ruling": "THO's value set is wrong about the system URL. The "
+                      "correct one is the CMS coding page, which the "
+                      "external code systems page carries with the v2 code "
+                      "system URL as an additional identifier and the same "
+                      "OID as Chapter 2C. This IG fixes the THO artifact. "
+                      "No CodeSystem is created, because THO's record is "
+                      "already correct.",
+            "effect": "0895 stops routing <code>needs-decision</code> and "
+                      "now publishes <code>ValueSet/v2-0895</code> "
+                      "composing over the CMS code system URL, through "
+                      "<code>RULED_RECLASSIFICATIONS</code>. It had been "
+                      "blocked for a reason the ruling dissolves: the "
+                      "writer saw a table owning its own code system with "
+                      "no codes listed, so it could not build a complete "
+                      "CodeSystem. The code system is not ours and the "
+                      "content already exists at CMS, so there was never a "
+                      "CodeSystem to build. <b>This also corrects a claim "
+                      "made to the reviewer on 2026-10-14</b>, that 0895 "
+                      "needed nothing on the dangling-value-sets account "
+                      "and remained blocked for an unrelated CLD reason. "
+                      "The CLD is <i>all codes</i>, which this guide builds "
+                      "routinely; the obstacle was the system URL all "
+                      "along.",
+        },
+    },
+    {
+        "id": "esc-0719-superseded-by-v3",
+        "who": "V2 Management",
+        "tables": "0719",
+        "title": "Table 0719's value set is superseded by a v3 one, and "
+                 "this guide was republishing it as active",
+        "body":
+            "Chapter 2C gives table 0719's Value Set URI as "
+            "<code>ValueSet-v3-ActInformationSensitivityPolicy.html</code> "
+            "&mdash; a v3 value set, not a v2 canonical. "
+            "<b>THO already publishes <code>ValueSet/v2-0719</code> with "
+            "<code>status: retired</code>, and this guide was writing it "
+            "back out as <code>active</code>.</b> It is the only artifact "
+            "in the corpus where this guide's status disagreed with THO's. "
+            "The cause is structural rather than specific to 0719: "
+            "<code>status</code> sits in "
+            "<code>COMPARED_VALUE_SET_FIELDS</code> and not in "
+            "<code>FILLABLE_VALUE_SET_FIELDS</code>, so a difference "
+            "against THO was reported and bumped the version &mdash; the "
+            "4.0.0 increment names <code>status</code> among its triggers "
+            "&mdash; but never filled. Everywhere else that is the right "
+            "behaviour, because the chapter is the authority on content. "
+            "For a retirement it is not, because retirement is a statement "
+            "about the artifact rather than about its content. "
+            "<b>The shared OID is not repairable and is recorded only so "
+            "nobody re-opens it.</b> THO's retired "
+            "<code>v2-0719</code> carries "
+            "<code>2.16.840.1.113883.1.11.20428</code>, which is also the "
+            "identifier on THO's "
+            "<code>v3-InformationSensitivityPolicy</code> &mdash; the "
+            "<i>parent</i> of the value set the chapter names. An "
+            "identifier on a published artifact cannot be changed or "
+            "removed under the THO versioning policy, and this one is on an "
+            "artifact that is already retired. There is nothing to decide.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-15",
+            "ruling": "The correct value set is "
+                      "<code>v3-ActInformationSensitivityPolicy</code>. The "
+                      "v2 value set stays retired, and the only thing to do "
+                      "with it is update its text to point at the v3 one.",
+            "effect": "<code>ValueSet/v2-0719</code> is now written "
+                      "<code>retired</code>, which corrects a live defect "
+                      "&mdash; the guide had been publishing it active "
+                      "against THO's retired &mdash; and its description is "
+                      "prefixed with a version-less link to "
+                      "<code>v3-ActInformationSensitivityPolicy</code>. "
+                      "This is the first use of "
+                      "<code>RULED_SUPERSESSIONS</code> (ADR-0014). <b>The "
+                      "OID collision recorded in "
+                      "<code>esc-oid-conflicts</code> is moot for 0719</b>: "
+                      "the identifier is on a published, retired artifact "
+                      "and cannot be changed.",
+        },
+    },
+    {
+        "id": "esc-0952-0959-superseded-by-v3",
+        "who": "V2 Management",
+        "tables": "0952, 0959",
+        "title": "Tables 0952 and 0959 duplicate v3 value sets that already "
+                 "exist, and their OIDs say so",
+        "body":
+            "Both tables have a v2 value set published in THO &mdash; "
+            "<code>ValueSet/v2-0952</code> and "
+            "<code>ValueSet/v2-0959</code>, both active at 3.0.0 &mdash; "
+            "and both carry the OID of a <i>different</i> THO value set. "
+            "0952's <code>2.16.840.1.113883.1.11.10228</code> is the "
+            "identifier on <code>v3-Confidentiality</code>, and 0959's "
+            "<code>&hellip;20560</code> on "
+            "<code>v3-WorkClassificationODH</code>. The v3 artifacts are "
+            "the real ones; the v2 pair duplicates them. "
+            "<b>0952's chapter entry is additionally malformed, and it is "
+            "worth seeing exactly how.</b> Its <i>Code System</i> URI field "
+            "contains "
+            "<code>http://terminology.hl7.org/ValueSet-v2-0952.html</code> "
+            "&mdash; a ValueSet page URL sitting where a code system "
+            "canonical belongs. This guide produces correct output anyway, "
+            "by falling back to the code system OID "
+            "<code>2.16.840.1.113883.5.25</code>, which resolves through "
+            "THO to <code>v3-Confidentiality</code>. So the right answer is "
+            "reached despite the input, which is worth knowing because it "
+            "means the defect is invisible in the output and would survive "
+            "any check that only read what was published. "
+            "<b>0959 does not have that defect</b> &mdash; its Code System "
+            "URI is a proper code system page link. Its only problem is the "
+            "duplication. "
+            "<b>Neither can be suppressed.</b> Suppression works only "
+            "before first publication: it stops an artifact being created. "
+            "These two exist in THO already, so withholding them would not "
+            "unpublish anything &mdash; it would only remove this guide's "
+            "ability to say anything about them, leaving two live "
+            "duplicates in the field with nothing pointing at the "
+            "replacements.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-15",
+            "ruling": "The v3 URI for the code system is correct and the v3 "
+                      "resource should be used for the value set too. The "
+                      "v2 value sets have to be kept, because they already "
+                      "exist in THO, but they are to be retired with a note "
+                      "at the top of the description naming the correct v3 "
+                      "value set and linking to it &mdash; a link that will "
+                      "keep resolving in future versions of THO, so not a "
+                      "version-specific one.",
+            "effect": "Both value sets are now written "
+                      "<code>retired</code>, with the pointer note "
+                      "prefixed to their descriptions, through "
+                      "<code>RULED_SUPERSESSIONS</code> (ADR-0014). The "
+                      "version-less requirement is an invariant of that "
+                      "mechanism rather than a convention, enforced by a "
+                      "test: a replacement URL containing a version segment "
+                      "is refused.",
+        },
+    },
+    {
+        "id": "esc-0960-duplicate-of-fhir-core",
+        "who": "V2 Management",
+        "tables": "0960",
+        "title": "Table 0960 would have duplicated the FHIR core "
+                 "data-absent-reason value set",
+        "body":
+            "Chapter 2C gives table 0960's Value Set URI as "
+            "<code>http://hl7.org/fhir/ValueSet/data-absent-reason</code> "
+            "&mdash; FHIR core's own value set, not a v2 canonical. This "
+            "guide was nonetheless writing "
+            "<code>ValueSet/v2-0960</code> as a first publication at 1.0.0, "
+            "composing over "
+            "<code>CodeSystem/data-absent-reason</code>: the same code "
+            "system the core value set draws on, at a canonical the chapter "
+            "never asks for. "
+            "<b>Unlike 0954 and 0957 there is no identifier collision "
+            "forcing the issue</b> &mdash; nothing in the THO snapshot "
+            "carries 0960's value set OID "
+            "<code>2.16.840.1.113883.4.642.3.5</code>. The reason not to "
+            "publish is simply that the chapter names the right value set "
+            "and a second one would compete with it.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-15",
+            "ruling": "This guide should not create a value set for 0960. "
+                      "Chapter 2C says the correct value set is FHIR core's "
+                      "<code>data-absent-reason</code>, and that is "
+                      "correct.",
+            "effect": "<code>ValueSet/v2-0960</code> is withheld through "
+                      "<code>RULED_SUPPRESSIONS</code>. Nothing else "
+                      "changes: the concept domain is unaffected and the "
+                      "chapter's own pointer to the core value set now "
+                      "stands unopposed.",
+        },
+    },
+    {
         "id": "esc-0954-cld-exclude",
         "who": "V2 Management + TSMG",
         "tables": "0954, 0957",
@@ -908,13 +1200,35 @@ ESCALATIONS = [
             "CodeSystem and no ValueSet for any of the three.</b> Nothing has "
             "been minted for them and nothing needs to be withdrawn.",
         "ask":
-            "Decide what becomes of 9999. A placeholder that occupies a "
-            "table number is a trap for anyone generating resources from "
-            "the chapter mechanically, and this project writes nothing for "
-            "it. <b>Its two companions in this finding were both "
-            "withdrawn</b>, which is not an answer for 9999: 0010 and 0188 "
-            "were real tables that stopped being needed, and 9999 was never "
-            "a table at all.",
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management call",
+            "date": "2026-10-15",
+            "ruling": "Do not put 9999 in this IG at all.",
+            "effect": "9999 is excluded at the corpus boundary through "
+                      "<code>EXCLUDED_SECTIONS</code>, so it reaches no "
+                      "page rather than being routed "
+                      "<code>nothing-to-write</code> and mentioned on "
+                      "several. <b>It had been reaching the published IG "
+                      "three times over</b> &mdash; the table index, the "
+                      "ledger and the open-items register &mdash; because "
+                      "the writer reported it as a table with nothing to "
+                      "write rather than as something that is not a table. "
+                      "Excluding it at the boundary is what makes the "
+                      "ruling hold for pages added later. "
+                      "<b>The condition the ruling depended on was checked "
+                      "first.</b> Nothing in the V2.9.1 standard binds to "
+                      "9999: a scan of every <code>tableBinding</code> in "
+                      "the extracted segments and data types found 1,187 "
+                      "bound fields across 731 distinct tables and no "
+                      "reference to it. The same scan finds 7 bindings to "
+                      "withdrawn table 0010 and 1 to 0188, so it does "
+                      "detect bindings to dead tables where they exist. "
+                      "The placeholder remains a defect in the published "
+                      "chapter, which is a matter for Chapter 2C rather "
+                      "than for this guide.",
+        },
     },
     {
         "id": "esc-0010-withdrawn",

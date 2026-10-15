@@ -12,6 +12,7 @@ Run:
     python3 -m pytest tooling/scripts/test_write_utg_xml.py
 """
 
+import re
 import sys
 from pathlib import Path
 from xml.etree import ElementTree
@@ -25,6 +26,7 @@ import tho_merge as tho_merge_module  # noqa: E402
 import write_utg_xml as writer  # noqa: E402
 
 FHIR = "{http://hl7.org/fhir}"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 # --------------------------------------------------------------------------
@@ -1020,15 +1022,142 @@ def test_no_reclassification_claims_an_unresolved_code_system():
         f"canonical as an external code system before believing it.")
 
 
-def test_the_three_ruling_mechanisms_are_disjoint():
-    """A table cannot be awaiting a ruling, withheld by one, and republished
-    by one at the same time."""
-    tentative = set(writer.TENTATIVE_OVERRIDES)
-    suppressed = set(writer.RULED_SUPPRESSIONS)
-    reclassified = set(writer.RULED_RECLASSIFICATIONS)
-    assert not tentative & suppressed
-    assert not tentative & reclassified
-    assert not suppressed & reclassified
+def test_the_four_ruling_mechanisms_are_disjoint():
+    """A table cannot be awaiting a ruling, withheld by one, republished by
+    one and retired by one at the same time."""
+    mechanisms = {
+        "TENTATIVE_OVERRIDES": set(writer.TENTATIVE_OVERRIDES),
+        "RULED_SUPPRESSIONS": set(writer.RULED_SUPPRESSIONS),
+        "RULED_RECLASSIFICATIONS": set(writer.RULED_RECLASSIFICATIONS),
+        "RULED_SUPERSESSIONS": set(writer.RULED_SUPERSESSIONS),
+    }
+    names = sorted(mechanisms)
+    for i, first in enumerate(names):
+        for second in names[i + 1:]:
+            both = mechanisms[first] & mechanisms[second]
+            assert not both, (
+                f"tables in both {first} and {second}: {sorted(both)}")
+
+
+def test_an_excluded_section_reaches_no_page():
+    """9999 reached the published IG three times over -- the table index,
+    the ledger and the open-items register -- because every page that walked
+    the corpus had to remember to skip it. The exclusion is at the corpus
+    boundary so a page added later inherits it; this checks the pages that
+    exist today actually came out clean."""
+    pages = PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent"
+    if not pages.is_dir():
+        pytest.skip("no staged pages to check; run build_vocab_ig.py first")
+
+    for table in writer.EXCLUDED_SECTIONS:
+        for page in sorted(pages.glob("*.md")):
+            text = page.read_text(encoding="utf-8")
+            # index.md says why the section is excluded, and evidence.md
+            # carries the ruling that excluded it. Both are the exclusion
+            # being explained rather than the section being published.
+            if page.name in ("index.md", "evidence.md"):
+                continue
+            assert f"tbl-{table}" not in text, (
+                f"{page.name} still has a ledger anchor for excluded "
+                f"section {table}")
+            assert f"`{table}`" not in text, (
+                f"{page.name} still lists excluded section {table}")
+
+
+def test_every_supersession_names_an_answered_register_item():
+    """The same invariant as suppressions and reclassifications. Retiring a
+    published artifact is the heaviest act this guide takes, so it must rest
+    on a recorded ruling rather than on this project's judgement."""
+    import vocabulary_escalations
+
+    by_id = {item["id"]: item for item in vocabulary_escalations.ESCALATIONS}
+    problems = {}
+    for table, entry in writer.RULED_SUPERSESSIONS.items():
+        item = by_id.get(entry.register_item)
+        if item is None:
+            problems[table] = f"{entry.register_item} does not exist"
+        elif not item.get("resolution"):
+            problems[table] = (
+                f"{entry.register_item} has no resolution, so nothing has "
+                f"been ruled")
+    assert not problems, (
+        f"these supersessions do not rest on a recorded ruling: {problems}")
+
+
+def test_every_replacement_url_is_version_less():
+    """The ruling asked for links that keep resolving as THO publishes new
+    versions, which makes this an invariant rather than a style preference.
+
+    A version-specific link -- `terminology.hl7.org/7.4.0/en/...` -- names
+    the right value set today and rots at the next release, which is the
+    exact failure the note exists to prevent. Rendered `.html` page URLs are
+    refused for the same reason: the canonical is the durable identity.
+    """
+    problems = {}
+    for table, entry in writer.RULED_SUPERSESSIONS.items():
+        url = entry.replacement_url
+        if re.search(r"/\d+\.\d+\.\d+/", url):
+            problems[table] = f"{url} pins a THO version"
+        elif url.endswith(".html"):
+            problems[table] = f"{url} is a rendered page, not a canonical"
+        elif not url.startswith("http"):
+            problems[table] = f"{url} is not an absolute URL"
+    assert not problems, (
+        f"these replacement URLs will not keep resolving: {problems}")
+
+
+def test_a_superseded_value_set_is_retired_and_points_at_its_replacement():
+    """Both halves of the ruling, on the artifact rather than on the plan.
+
+    The status half is the one that was actually broken: `status` is
+    compared against THO but never filled from it, which is why this guide
+    was republishing THO's retired v2-0719 as active.
+    """
+    record = make_record(
+        table="0952",
+        codeSystems=[{"Code System OID": "2.16.840.1.113883.5.25",
+                      "URI": "http://terminology.hl7.org/"
+                             "CodeSystem/v3-Confidentiality"}],
+        valueSets=[{"Value Set OID": "2.16.840.1.113883.1.11.10228",
+                    "SymbolicName": "confidentiality",
+                    "Description": "Concepts drawn from the HL7 V3 "
+                                   "Confidentiality code system.",
+                    "Content Logical Definition": "all codes"}],
+        codedContent=[])
+    files, report = writer.process([record], empty_repo(), {})
+
+    entry = next(e for e in report if e["table"] == "0952")
+    assert entry["action"] == "superseded-by-ruling"
+    assert entry["ruledSupersession"]["registerItem"] == (
+        "esc-0952-0959-superseded-by-v3")
+    assert entry["written"], "a superseded value set is still published"
+
+    document = files["valueSets/vs-v2-0952.xml"]
+    assert '<status value="retired"/>' in document, (
+        "the ruling retires the artifact; publishing it active is the "
+        "defect this mechanism exists to fix")
+    assert "v3-Confidentiality" in document, (
+        "the description must name the replacement")
+    assert "/7.4.0/" not in document, (
+        "the pointer must not pin a THO version")
+
+
+def test_an_ordinary_value_set_is_still_active():
+    """The complement of the test above: making status settable must not
+    make it drift. Nothing without a supersession changes standing."""
+    record = make_record(
+        table="0001",
+        codeSystems=[{"Code System OID": "2.16.840.1.113883.18.2",
+                      "URI": "http://terminology.hl7.org/"
+                             "CodeSystem/v2-0001"}],
+        valueSets=[{"Value Set OID": "2.16.840.1.113883.1.11.1",
+                    "SymbolicName": "administrativeSex",
+                    "Content Logical Definition": "all codes"}],
+        codedContent=[{"Code": "F", "Description": "Female"}])
+    files, report = writer.process([record], empty_repo(), {})
+
+    for document in files.values():
+        assert '<status value="active"/>' in document
 
 
 def test_the_only_override_is_table_0292():
