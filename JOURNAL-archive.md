@@ -2,9 +2,120 @@
 
 Older session entries, moved out of `JOURNAL.md` to keep session-start context lean. Append-only; read on demand only — not loaded at session start.
 
-The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-10-14**, when the 2026-09-21 *"The ledger stops asking questions it already knows the answer to"* entry came across: the active `JOURNAL.md` now starts at the 2026-09-22 *"The first ruling, and somewhere to put the next one"* entry, and everything earlier is below.
+The split moves as `JOURNAL.md` grows past ~600 lines. It last moved on **2026-10-15**, when the 2026-09-22 *"The first ruling, and somewhere to put the next one"* entry came across: the active `JOURNAL.md` now starts at the 2026-09-29 *"Session 7: the briefing's own claims, checked"* entry, and everything earlier is below.
 
 ---
+
+## 2026-09-22 — The first ruling, and somewhere to put the next one
+
+Two commits. The session had one piece of new information in it and spent the
+rest of its time on what that information exposed.
+
+### The ruling confirmed the code and changed the argument
+
+The reviewer came back from the Rockville plenary with one decision: **TSMG,
+via its members at the Terminology Infrastructure WG meeting, ruled that
+reordering a code system's concepts is not a change and does not increment the
+version.**
+
+Checking before writing anything was the right order. `concepts_changed` has
+compared concepts as a map keyed by code since the merge was written, with a
+docstring saying why, and `_canonical_compose` sorts both sides; two tests
+already locked both in. **So the ruling moved nothing.** No artifact changed,
+no version number changed, and the 32 affected tables were already keeping
+THO's version.
+
+What it changed is the standing of the rule. The guide had been saying this was
+"the one rule behind the version numbers that rests on a judgement rather than
+a fact". It is now a fact, and the 32 tables keep THO's version on the policy
+owner's authority rather than on our reading of the policy. That is worth more
+than a code change would have been.
+
+**The authority and the room are different things, and the record has to say
+both.** The question was tagged TSMG in both registers; the briefing was
+presented to the TI WG. Asking the reviewer which to record produced the
+detail that settles it — TSMG members were in the room — and that distinction
+is now a field rather than a footnote: `who` is the body with the authority,
+`forum` is where it was given.
+
+### There was nowhere to put an answer
+
+Nothing had ever been answered, so nothing in the pipeline could represent an
+answer. The question was being asked in four places and the merge report in a
+fifth, all of them phrased as open.
+
+The fix used a split the review pages already have. `render_review_pages` asks
+one question of every section — *is this asking me for something, or showing me
+what was decided?* — and routes on it. An answered question asks for nothing,
+so it crosses that line on the strength of one key. `resolution` carries who,
+forum, date, ruling and effect; all five are required, because an answer with
+no attribution is not usable six months later, and `effect` is required
+separately because "the committee agreed with what we were already doing" is a
+different and more reassuring fact than "the committee has not been asked".
+
+Items keep their number and their original text. The register is circulated,
+and an item that vanished between two circulations reads as dropped rather
+than settled.
+
+**Two latent bugs surfaced, both of the kind that only fire once.**
+`question_anchor()` returned `open-items.html#<id>` unconditionally — correct
+while nothing had ever been answered, and wrong for every cross-link in the
+guide the moment something was. And the page intro hard-coded "one is for TSMG,
+the rest for V2 Management", which is wrong the morning after any meeting.
+Both are computed now, and an audience with nothing open says so and links to
+the answer rather than leaving a heading that reads as a dropped question.
+
+### The briefing refresh turned into a numbers audit
+
+With the V2 Management meeting the next day, the briefing was still dated
+28 August and still described the resources as newly generated.
+
+Re-dating it was the small part. The useful part was checking its numbers
+against the build instead of carrying them forward, which found three wrong —
+and one of them was not in the briefing at all but in the guide:
+
+- **The guide's TSMG preamble said 23 value sets increment and 392 hold. It is
+  22 and 393.** ADR-0012 removed an increment trigger in September and the
+  authored sentence did not follow. It now points at the computed version table
+  on `tho-merge` rather than restating it, which removes the drift permanently.
+  The eleven description-only increments the same paragraph names were checked
+  against the write report and are exact, each with `triggers: ['description']`
+  and nothing else.
+- **"355 tables with no code system block" is 362.**
+- `5,540` codes is exactly right.
+
+Those now have tests that read `tho-fill-report.json` and the extraction, so
+the next drift fails a test instead of reaching a committee.
+
+### Applying September's lesson to the other room
+
+The TI meeting's lesson was that an ask with no route to the evidence fails on
+a projector. The V2 Management briefing had the same gap, so both blockers and
+the design question now carry their affected tables as chips and named links
+into the pages holding the detail — in the HTML and in the Markdown twin, which
+is what gets pasted into an agenda.
+
+The link helpers moved down into `render_v2mgmt_briefing`, which
+`render_ti_briefing` already imports from, rather than being copied. The TI
+briefing's output was hashed before and after and is byte-identical, which
+matters because it is a document that has already been presented.
+
+**The link test earned itself immediately.** Four of the eleven tables behind
+the concept-domain blocker have no ledger section — the merge found nothing to
+report against them — and the first draft linked all eleven. Chips now resolve
+against the ledger and render plain, with a note, when there is no section to
+reach. A link into a section that does not exist drops the reader at the top of
+a very long page, which is worse than no link at all.
+
+### Noticed and deliberately not fixed
+
+`render_ti_briefing.py`'s reordering ask has its conditional inverted — it says
+answering *no* moves artifacts to "incremented", when *no* is what the build
+does and changes nothing. The general-questions module has it the right way
+round, and the room answered correctly regardless. It is left alone because the
+briefing is dated and was presented, and editing it rewrites the record of what
+was shown.
+
 
 ## 2026-09-21 — The ledger stops asking questions it already knows the answer to
 

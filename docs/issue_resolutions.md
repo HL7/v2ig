@@ -31,3 +31,28 @@ NOT SURE - DO NOT IMPLEMENT - 0820 - Yes, create the VS and ensure that it corre
 
 
 
+399 is fine as is
+
+458 use http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets and figure out if we can create a filter for CLD.  Make sure it doesn't expand.  Mary Kay McDaniels (check with)
+
+459 - use same external CS for OCE codes (PDF from last time) -- create VS that points at the right place (or maybe need seperate resource)
+
+467 also HCPCS, use existing Ch2c URL for new VS
+
+821 - CLD correctly pulls codes from three CS -- this looks okay.  This VS can actually be expanded (I think, SNOMED is OK??) maybe check GH IG, also US Core
+
+822 correct VS is https://build.fhir.org/ig/HL7/UTG/en/ValueSet-pronouns.html -- use that and move on
+
+823 see 821
+
+824 correct VS is https://terminology.hl7.org/en/ValueSet-recorded-sex-or-gender-type.html == use and go
+
+827 - use https://terminology.hl7.org/en/ValueSet-jurisdiction.html
+
+828 - use https://terminology.hl7.org/en/ValueSet-sex-parameter-for-clinical-use.html
+
+953 - use htp://terminology.hl7.org/ValueSet-v3-SecurityControlObserva􀆟onValue.html
+
+956 - https://www.hl7.org/fhir/2018May/valueset-supervisory-level-odh-us.html -- keep trying to figure this out
+
+
