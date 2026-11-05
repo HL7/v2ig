@@ -90,7 +90,7 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 | codeSystem: first publication at 1.0.0 | 1 |
 | codeSystem: incremented | 58 |
 | codeSystem: unchanged, THO's version kept | 339 |
-| valueSet: first publication at 1.0.0 | 4 |
+| valueSet: first publication at 1.0.0 | 6 |
 | valueSet: incremented | 21 |
 | valueSet: unchanged, THO's version kept | 394 |
 
@@ -134,7 +134,7 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 | [0290](table-ledger.html#tbl-0290) | ValueSet | The chapter has no section for it. |
 | [0323](table-ledger.html#tbl-0323) | CodeSystem | The chapter has no section for it. |
 | [0323](table-ledger.html#tbl-0323) | ValueSet | The chapter has no section for it. |
-| [0399](table-ledger.html#tbl-0399) | ValueSet | The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'. |
+| [0399](table-ledger.html#tbl-0399) | ValueSet | The correct value set for table 0399 already exists in THO, ValueSet/v2-notAllCodes-0399. It is the one to use; this guide creates nothing for the table. |
 | [0456](table-ledger.html#tbl-0456) | ValueSet | Declared concept domain only. A binding to a domain needs no value set. |
 | [0524](table-ledger.html#tbl-0524) | CodeSystem | The chapter has no section for it. |
 | [0524](table-ledger.html#tbl-0524) | ValueSet | The chapter has no section for it. |

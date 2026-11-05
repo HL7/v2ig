@@ -117,7 +117,7 @@ li { margin-bottom: 5px; }
 <h2>Classes</h2>
 <a href="#publication-damage">Content lost in publication <span class="n">2</span></a>
 <a href="#presentation">Presentation and wording <span class="n">6</span></a>
-<a href="#wrong-identifier">Wrong or missing identifiers <span class="n">5</span></a>
+<a href="#wrong-identifier">Wrong or missing identifiers <span class="n">6</span></a>
 <a href="#self-contradiction">The chapter contradicting itself <span class="n">6</span></a>
 <a href="#representation">Open representation questions <span class="n">4</span></a>
 <a href="#content-error">Published content that is wrong <span class="n">3</span></a>
@@ -126,7 +126,7 @@ li { margin-bottom: 5px; }
 <div id="main">
 <a id="top"></a>
 <h1>Chapter 2C defects, grouped for decision</h1>
-<p class="sub">Review list for V2 Management &middot; 32 open findings</p>
+<p class="sub">Review list for V2 Management &middot; 33 open findings</p>
 <div class="asks-card">
 <h2 class='plain'>Why this list exists</h2>
 <p>This project asked V2 Management a single policy question: when Chapter 2C publishes something demonstrably wrong, does this IG reproduce it or correct it? The answer, on 2026-10-08, was that <b>There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.</b></p>
@@ -143,7 +143,7 @@ li { margin-bottom: 5px; }
 <p class="sub"><b>Why this class:</b> Six rows by five columns, every cell empty, in a fully populated section. THO&#x27;s matching value set holds exactly the five concepts the row count implies.</p>
 <p>The grid is six rows by five columns and <i>every cell is empty</i>, while the section around it is fully populated: three code systems (SNOMED CT, FHIR DataAbsentReason, V3 NullFlavor), three code system versions, and a value set. Both extraction pipelines independently find zero codes, so this is the document rather than the tooling. The row count is the tell. Six rows is a header plus <b>five</b> code rows, and THO's <code>ValueSet/gender-identity</code> &mdash; whose OID <code>2.16.840.1.113883.4.642.3.3291</code> is exactly the one Chapter 2C prints for this value set &mdash; holds exactly <b>five</b> concepts: three SNOMED CT gender identities, <code>asked-declined</code>, and <code>UNK</code>. The grid was meant to carry those five and lost them somewhere in publication. Compare table 0823 Sexual Orientation, built the same way, which prints its codes. Minor, in the same section: the value set description runs two sentences together with no space &mdash; &ldquo;&hellip;within their community.Used in HL7 Version 2.x messages&rdquo;.</p>
 <div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0821</code> Gender Identity: BLOCKED — no artifact, pipeline cannot settle it</li>
+<li><code>0821</code> Gender Identity: withheld on a ruling</li>
 </ul></div>
 <p class="ask"><b>Decision needed:</b> Confirm the five intended codes and republish the grid. This project reuses THO's value set in the meantime, so nothing is blocked &mdash; but the published chapter is missing content and a reader of the PDF cannot tell what the table contains.</p>
 </div>
@@ -249,7 +249,7 @@ li { margin-bottom: 5px; }
 <p class="ask"><b>Decision needed:</b> Fix the styles in a future publication.</p>
 </div>
 <a id="wrong-identifier"></a>
-<h2>Wrong or missing identifiers <span class="n">(5)</span></h2>
+<h2>Wrong or missing identifiers <span class="n">(6)</span></h2>
 <p class="lede">The chapter names the wrong thing, or omits a name it needs. A URI that points at the wrong code system is not a typographic matter &mdash; it resolves, and it resolves to something else.</p>
 <p class="sub"><b>Cost of granting the class:</b> Correct the identifier. Mechanical, but it changes a normative value, so it needs confirming rather than just fixing.</p>
 <div class="item k-esc-0347-iso3166">
@@ -262,15 +262,26 @@ li { margin-bottom: 5px; }
 </ul></div>
 <p class="ask"><b>Decision needed:</b> Two technical corrections &mdash; the URI, and the Content Logical Definition. Neither should be contentious, but both change published text.</p>
 </div>
-<div class="item k-esc-0459-unresolvable-oid">
-<h3>Table 0459 names its code system only by an OID that nothing resolves</h3>
-<p class="tables">0459 &middot; goes to V2 Management + TSMG &middot; <code>esc-0459-unresolvable-oid</code></p>
-<p class="sub"><b>Why this class:</b> An OID that resolves to nothing. Blocks the table mechanically.</p>
-<p><code>0459</code> <i>Reimbursement Action Code</i> is an External table stewarded by FM. It declares one code system, <code>cms-OCEEditCode-cs</code>, identified solely by OID <code>2.16.840.1.113883.6.301.9</code> with no URI. <b>Neither THO nor the FHIR core packages resolve that OID to a canonical URL</b>, so there is no way to say what code system the table's four codes belong to. The writer therefore emits nothing for this table &mdash; not a CodeSystem, not a ValueSet &mdash; and it is one of only two tables in the chapter blocked this way. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.</p>
+<div class="item k-esc-0956-no-stable-home">
+<h3>Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned</h3>
+<p class="tables">0956 &middot; goes to V2 Management + TSMG &middot; <code>esc-0956-no-stable-home</code></p>
+<p class="sub"><b>Why this class:</b> The only two value sets that carry these codes are a withdrawn FHIR 3.3 ballot draft and a PHIN VADS entry the CDC is decommissioning. Neither is a location anything should be bound to, so the table has no usable value set identity at all.</p>
+<p><code>0956</code> <i>Job Supervisory Level or Pay Grade</i> declares the code system <code>PHOccupationalDataForHealthODH</code> and gives its content logical definition as &ldquo;unspecified&rdquo;, which is not a shape this guide can build. THO publishes no <code>ValueSet/v2-0956</code> and no obvious equivalent. <b>Two candidate value sets exist and neither is a durable home.</b> One is <code>valueset-supervisory-level-odh-us</code>, published in <b>FHIR 3.3 (2018May)</b> &mdash; a draft ballot snapshot, not a released FHIR version, and not a canonical anything should be bound to today. The other is a PHIN VADS value set at OID <code>2.16.840.1.114222.4.11.7613</code>; <b>PHIN VADS is being decommissioned by the CDC</b>, so everything hosted there is of uncertain future. Pointing this guide at either would be binding V2.9.1 content to a location that is known in advance to be going away. That is worse than publishing nothing, because a dead pointer in a published IG is harder to retract than an acknowledged gap.</p>
 <div class="settled"><b>What this guide publishes today</b><ul>
+<li><code>0956</code> Job Supervisory Level or Pay Grade: BLOCKED — no artifact, pipeline cannot settle it</li>
+</ul></div>
+<p class="ask"><b>Decision needed:</b> <b>Something needs to happen for 0956 and nobody yet knows what.</b> This item exists to keep that fact from being lost, which is the whole of its present purpose. The question for V2 Management and TSMG is where the supervisory level / pay grade codes should live once PHIN VADS is gone: a THO value set created for the purpose, an external code system record pointing at whatever the CDC designates as the successor, or a decision that the table is not viable and should become concept domain only. <b>In the meantime this guide publishes no CodeSystem and no ValueSet for 0956</b>, by decision rather than by omission. Its concept domain <code>JobSupervisoryLevelorPayGrade</code> is published in <code>CodeSystem/conceptdomains</code> and is unaffected, so a binding to the domain remains expressible while the terminology question is settled.</p>
+</div>
+<div class="item k-esc-0459-unresolvable-oid">
+<h3>Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register</h3>
+<p class="tables">0458, 0459 &middot; goes to V2 Management + TSMG &middot; <code>esc-0459-unresolvable-oid</code></p>
+<p class="sub"><b>Why this class:</b> An OID that resolves to nothing, on two tables. Blocks both mechanically. A THO external code system record has been requested; the canonical it carries closes this.</p>
+<p><code>0458</code> <i>OCE Edit Code</i> and <code>0459</code> <i>Reimbursement Action Code</i> both declare the code system <code>cms-OCEEditCode-cs</code>, identified solely by OID <code>2.16.840.1.113883.6.301.9</code> with no URI. 0459 is an External table stewarded by FM and prints four codes; 0458 prints none. <b>Neither THO nor the FHIR core packages resolve that OID to a canonical URL</b>, so there is no way to say what code system the four codes belong to. The writer therefore emits nothing for either table &mdash; not a CodeSystem, not a ValueSet. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.</p>
+<div class="settled"><b>What this guide publishes today</b><ul>
+<li><code>0458</code> OCE Edit Code: BLOCKED — no artifact, pipeline cannot settle it</li>
 <li><code>0459</code> Reimbursement Action Code: BLOCKED — no artifact, pipeline cannot settle it</li>
 </ul></div>
-<p class="ask"><b>Decision needed:</b> Supply the canonical URL for the CMS OCE Edit Code system, or confirm that an external code system record needs to be created in THO for it. If neither is available, decide whether 0459 should become concept-domain-only, in which case no value set is needed and the OID becomes documentation rather than a dependency.</p>
+<p class="ask"><b>Decision needed:</b> <b>Partly answered, and still open.</b> The reviewer confirmed on 2026-11-05 that the codes come from the CMS Integrated Outpatient Code Editor specification &mdash; for 0459, Table 7 row 13 of the I/OCE specification &mdash; and that a request has been made for THO to create an external code system record for it. <b>Until that record exists there is no canonical to compose over</b>, so both tables are held: no CodeSystem, no ValueSet, concept domain only. Both concept domains (<code>OceEditCode</code>, <code>ReimbursementActionCode</code>) are published and unaffected. What remains open is the THO record itself. Once it exists, the canonical URL it carries goes straight into both tables' content logical definitions and this item closes. <b>Nothing is to be extracted from the I/OCE specification PDF</b>; the canonical from the THO record is the only thing needed. Note that sibling table 0467 is in the same OCE arc and has <i>already</i> had its Jira ticket raised, so it is being published now &mdash; see <code>esc-0467-oce-modifier-edit</code>. The difference between them is the state of the THO request, not the shape of the problem.</p>
 </div>
 <div class="item k-esc-0725-missing-uri">
 <h3>Table 0725 <i>Mood Codes</i> omits the URI of the v3 code system it draws from</h3>
@@ -331,7 +342,7 @@ li { margin-bottom: 5px; }
 <p class="sub"><b>Why this class:</b> The chapter publishes a table THO has nothing for, and the guide cannot settle it mechanically.</p>
 <p>The table is <code>Type: HL7-EXT</code>, stewarded by PA, and declares three code systems &mdash; SNOMED CT, <code>DataAbsentReason</code> and <code>NullFlavor</code>. Drawing a value set from three code systems is perfectly normal, and the table does print its five codes. <b>What is missing is the value set itself: THO publishes no <code>ValueSet/v2-0823</code>.</b> The writer cannot proceed because the chapter does not state which of the three declared systems each code belongs to, so it emits nothing. The pattern is worth noting: this is the sister table to <code>0821</code> <i>Gender Identity</i>, built the same way and recorded above for having its grid emptied in publication. Both are Gender Harmony Project material. The plausible reading is that both were entered into Chapter 2C in anticipation of a V2 implementation that was subsequently not carried through &mdash; which would explain why one lost its codes and the other never got a value set in THO.</p>
 <div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0823</code> Sexual Orientation: BLOCKED — no artifact, pipeline cannot settle it</li>
+<li><code>0823</code> Sexual Orientation: ValueSet published; code system is another body&#x27;s &mdash; VS 1.0.0 (held)</li>
 </ul></div>
 <p class="ask"><b>Decision needed:</b> Confirm whether tables 0821 and 0823 are live commitments or abandoned ones. If live, the per-code system assignments are needed before a value set can be generated, and a <code>ValueSet/v2-0823</code> needs to exist in THO. If they were dropped, say so and this project will record them as published-but-unimplemented rather than as blockers.</p>
 </div>

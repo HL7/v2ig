@@ -389,6 +389,100 @@ TENTATIVE_OVERRIDES = {
 Suppression = namedtuple("Suppression", "ruling register_item consequence")
 
 RULED_SUPPRESSIONS = {
+    "0399": Suppression(
+        ruling="The correct value set for table 0399 already exists in THO, "
+               "ValueSet/v2-notAllCodes-0399. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0399 is not written. THO publishes "
+                    "ValueSet/v2-notAllCodes-0399, active at 2.0.0, carrying "
+                    "this table's own value set OID 2.16.840.1.113883.21.266 "
+                    "and the ISO 3166-1 alpha-3 regex filter the chapter's 'ISO "
+                    "3166-1 alpha-3 axis' content logical definition describes. "
+                    "This guide had been writing nothing for the table anyway, "
+                    "because that axis wording is not a shape it builds; the "
+                    "ruling turns an unexplained blank into a pointer at the "
+                    "artifact that serves.",
+    ),
+    "0821": Suppression(
+        ruling="The correct value set for table 0821 already exists in THO, "
+               "ValueSet/gender-identity. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0821 is not written. THO's "
+                    "ValueSet/gender-identity, active at 2.0.0, carries this "
+                    "table's value set OID 2.16.840.1.113883.4.642.3.3291 and "
+                    "the five concepts the chapter's grid was meant to hold -- "
+                    "three SNOMED CT gender identities, asked-declined and UNK. "
+                    "The chapter's own content logical definition is 'as "
+                    "defined in the linked value set', so deferring to it is "
+                    "what the chapter asks for. This also dissolves the "
+                    "blank-grid blockage recorded in esc-0821-blank-grid, which "
+                    "stays open against the chapter.",
+    ),
+    "0822": Suppression(
+        ruling="The correct value set for table 0822 already exists in THO, "
+               "ValueSet/pronouns. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0822 is not written. THO publishes "
+                    "ValueSet/pronouns, active at 2.0.0, carrying this table's "
+                    "value set OID 2.16.840.1.113883.4.642.3.3290 over three "
+                    "LOINC codes. The ruling cited a build.fhir.org CI-build "
+                    "URL; the durable canonical is used instead, because a CI "
+                    "build is a preview location rather than a published one.",
+    ),
+    "0824": Suppression(
+        ruling="The correct value set for table 0824 already exists in THO, "
+               "ValueSet/recorded-sex-or-gender-type. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0824 is not written. THO publishes "
+                    "ValueSet/recorded-sex-or-gender-type, active at 2.0.0, "
+                    "carrying this table's value set OID "
+                    "2.16.840.1.113883.4.642.3.3289 over three LOINC codes.",
+    ),
+    "0827": Suppression(
+        ruling="The correct value set for table 0827 already exists in THO, "
+               "ValueSet/jurisdiction. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0827 is not written. THO publishes "
+                    "ValueSet/jurisdiction, active at 1.0.0, over ISO 3166 "
+                    "parts 1 and 2 and the UN M49 region codes -- which is what "
+                    "this table's two declared code systems describe. This is "
+                    "the one table of the seven whose chapter value set OID "
+                    "(2.16.840.1.113883.21.485) is on nothing in the snapshot, "
+                    "so the identity rests on the chapter naming the "
+                    "jurisdiction value set outright in its Value Set URI field "
+                    "rather than on a matching identifier.",
+    ),
+    "0828": Suppression(
+        ruling="The correct value set for table 0828 already exists in THO, "
+               "ValueSet/sex-parameter-for-clinical-use. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0828 is not written. THO publishes "
+                    "ValueSet/sex-parameter-for-clinical-use, active at 2.0.0, "
+                    "carrying this table's value set OID "
+                    "2.16.840.1.113883.4.642.3.3181 and composing over both "
+                    "code systems the chapter declares.",
+    ),
+    "0953": Suppression(
+        ruling="The correct value set for table 0953 already exists in THO, "
+               "ValueSet/v3-SecurityControlObservationValue. It is the one to "
+               "use; this guide creates nothing for the table.",
+        register_item="esc-served-by-existing-tho-value-sets",
+        consequence="ValueSet/v2-0953 is not written. THO publishes "
+                    "ValueSet/v3-SecurityControlObservationValue, active at "
+                    "3.0.0, carrying this table's value set OID "
+                    "2.16.840.1.113883.1.11.20471 and composing over five other "
+                    "v3 value sets. The chapter's content logical definition is "
+                    "'refer to' that same value set. This also dissolves the "
+                    "two-code-systems blockage the writer reported: which of "
+                    "ActReason and ObservationValue the value set draws from "
+                    "stops mattering once the value set is THO's.",
+    ),
     "0078": Suppression(
         ruling="ValueSet/v2-0078 already exists under a different URL, "
                "ValueSet/v3-ObservationInterpretation. That value set is "
@@ -533,9 +627,21 @@ RULED_SUPPRESSIONS = {
 #   ruling         what was decided, in the words of the decision
 #   register_item  the id of the register item carrying the resolution
 #   rationale      why the chapter's classification is wrong, with evidence
+#   cld            the content logical definition to read in place of the
+#                  chapter's, where the chapter's own cell is unusable.
+#                  Defaults to None, meaning the chapter's is read as normal.
+#
+# `cld` exists for one table and should stay rare. Table 0823's Content
+# Logical Definition cell contains the string `HL7-EXT` -- the table's *Type*
+# value, leaked one column over in publication. It is the only cell in the
+# corpus where that has happened. The shape the chapter intended is plain
+# from the content around it: five codes listed in the table's own grid, so
+# `enumerated per table content`. Supplying that is reading the chapter
+# through an obvious transcription error, not overriding what it says.
 Reclassification = namedtuple(
     "Reclassification",
-    "action system_url unresolved ruling register_item rationale")
+    "action system_url unresolved ruling register_item rationale cld")
+Reclassification.__new__.__defaults__ = (None,)
 
 NUBC_OCCURRENCE_RULING = (
     "Tables 0350 and 0351 are not concept domain only. The value sets exist "
@@ -544,6 +650,105 @@ NUBC_OCCURRENCE_RULING = (
 )
 
 RULED_RECLASSIFICATIONS = {
+    "0467": Reclassification(
+        action="value-set-only",
+        system_url="http://terminology.hl7.org/CodeSystem/v2-0467",
+        unresolved="THO does not yet register this code system. A Jira "
+                   "ticket has been raised to create the external code "
+                   "system record, and it will carry the URL and OID "
+                   "Chapter 2C already prints, so the canonical composed "
+                   "over here is the one that will resolve. Until the "
+                   "record lands the value set points at a canonical with "
+                   "nothing behind it -- a known interim state, accepted "
+                   "in the ruling.",
+        ruling="A Jira ticket has been raised to create an external code "
+               "system record for this code system, carrying the URL and "
+               "OID Chapter 2C already lists. The value set composes over "
+               "all codes from that system. No CodeSystem is created: the "
+               "content is CMS's.",
+        register_item="esc-0467-oce-modifier-edit",
+        rationale=(
+            "The writer had reported the table blocked because it 'owns "
+            "its code system but publishes no codes'. It does not own it: "
+            "the OID 2.16.840.1.113883.6.301.10 sits in the CMS Outpatient "
+            "Code Editor arc, one along from 0458's ...6.301.9, and the "
+            "codes are published in the CMS I/OCE specification rather "
+            "than in Chapter 2C.",
+            "The chapter prints the canonical "
+            "http://terminology.hl7.org/CodeSystem/v2-0467 for the code "
+            "system and the matching value set URL, so the identity the "
+            "ruling confirms is the chapter's own and is not invented "
+            "here.",
+            "The chapter's content logical definition is 'all codes', "
+            "which over an external system is the whole system -- no "
+            "enumeration from Chapter 2C is needed or available.",
+            "Sibling tables 0458 and 0459 share the arc and are held "
+            "rather than published, because no THO record has been "
+            "requested for their system yet. The difference is the state "
+            "of the request, not the shape of the problem.",
+        ),
+    ),
+    "0820": Reclassification(
+        action="value-set-only",
+        system_url="http://loinc.org",
+        unresolved=None,
+        ruling="Create the value set, with no code system, since the codes "
+               "are LOINC's. Publish it at "
+               "http://terminology.hl7.org/ValueSet/gender-harmony-"
+               "attributes and carry Chapter 2C's value set OID "
+               "2.16.840.1.113883.21.480 on it.",
+        register_item="esc-0820-gender-harmony-canonical",
+        rationale=(
+            "The chapter enumerates three LOINC codes -- 76691-5, 76690-7 "
+            "and 90778-2 -- with a content logical definition of "
+            "'enumerated per table content', so the value set is "
+            "buildable from the chapter alone.",
+            "THO publishes nothing for this table: no ValueSet/v2-0820, "
+            "and nothing anywhere in the 7.3.0 snapshot carrying the value "
+            "set OID 2.16.840.1.113883.21.480. Both the ruled canonical "
+            "and the OID are unoccupied, so neither displaces anything.",
+            "The codes belong to LOINC, so no CodeSystem is this guide's "
+            "to write.",
+            "This is a canonical change rather than new content: the guide "
+            "was already publishing these three codes at "
+            "ValueSet/v2-0820, a URL constructed from the table number "
+            "because nothing better was available. vs-v2-0820.xml is "
+            "deleted when the artifact moves.",
+        ),
+    ),
+    "0823": Reclassification(
+        action="value-set-only",
+        system_url="http://snomed.info/sct",
+        unresolved=None,
+        ruling="The content logical definition correctly pulls codes from "
+               "three code systems and this is fine. A value set is not "
+               "restricted to one code system.",
+        register_item="esc-0823-multi-system-compose",
+        cld="enumerated per table content",
+        rationale=(
+            "The writer had reported the table blocked because it "
+            "'declares 3 code systems; which one the value set draws from "
+            "is not stated'. Composing from several code systems is "
+            "ordinary FHIR and this guide builds multi-system composes "
+            "elsewhere, so the count was never the obstacle.",
+            "Nor is the per-code attribution missing. Each of the five "
+            "rows names its own system in its comment: the three SNOMED "
+            "codes say \"the HL70396 code for this code is 'SCT'\", "
+            "asked-declined says it is drawn from FHIR DataAbsentReason "
+            "and names that canonical, and UNK says it is drawn from V3 "
+            "NullFlavor and names that one. The information the writer "
+            "called absent was in the grid it had already read.",
+            "All three systems resolve: SNOMED CT through OID "
+            "2.16.840.1.113883.6.96, DataAbsentReason through "
+            "...4.642.4.1048, NullFlavor through ...5.1008.",
+            "THO publishes no ValueSet/v2-0823, so this is a first "
+            "publication rather than a revision -- the separate "
+            "observation recorded in esc-0823-not-in-tho.",
+            "systemUrl names SNOMED CT as the primary system for "
+            "reporting, but the compose is built per code from the "
+            "attributions above rather than from this single value.",
+        ),
+    ),
     "0350": Reclassification(
         action="value-set-only",
         system_url="http://terminology.hl7.org/CodeSystem/v2-0350",
@@ -1130,6 +1335,61 @@ def load_published_value_set_urls():
     return index
 
 
+# --------------------------------------------------------------------------
+# Canonicals set by ruling
+# --------------------------------------------------------------------------
+#
+# Where a committee has said which canonical a table's ValueSet publishes at.
+#
+# Normally the canonical is not a choice: `value_set_identity` takes whatever
+# THO already publishes for the table, and constructs `.../ValueSet/v2-NNNN`
+# only where THO publishes nothing. That fallback is a last resort -- a URL
+# built from the table number because no better name was available -- and it
+# is the only case a ruling can reach. A table THO already publishes has its
+# canonical settled by THO, and this mechanism must not be used to move one.
+#
+# Table 0820 is the whole of it so far. The guide was publishing three LOINC
+# codes at the constructed `ValueSet/v2-0820`; the ruling names
+# `ValueSet/gender-harmony-attributes` instead, which is a better name for the
+# same content and which nothing in THO occupies.
+#
+# The ruling travels with the entry so the ledger can say why the canonical is
+# not the one the table number implies. Moving a canonical also orphans the
+# file written under the old one, so `prune_ruled_canonicals` deletes it --
+# without that the IG would publish both.
+#
+#   url            the canonical the ValueSet publishes at
+#   register_item  the id of the register item carrying the resolution
+#   replaces       the canonical this supersedes, so the stale file is pruned
+#                  and a reader can see what moved
+RuledCanonical = namedtuple("RuledCanonical", "url register_item replaces")
+
+RULED_CANONICALS = {
+    "0820": RuledCanonical(
+        url="http://terminology.hl7.org/ValueSet/gender-harmony-attributes",
+        register_item="esc-0820-gender-harmony-canonical",
+        replaces="http://terminology.hl7.org/ValueSet/v2-0820",
+    ),
+}
+
+
+def ruled_canonical(table):
+    """The canonical a ruling sets for this table's ValueSet, or None."""
+    return RULED_CANONICALS.get(table)
+
+
+def canonical_summary():
+    """Which canonicals were set by ruling rather than derived."""
+    return {
+        "count": len(RULED_CANONICALS),
+        "tables": sorted(RULED_CANONICALS),
+        "registerItems": sorted(
+            {c.register_item for c in RULED_CANONICALS.values()}),
+        "moved": {table: {"from": c.replaces, "to": c.url}
+                  for table, c in sorted(RULED_CANONICALS.items())},
+    }
+
+
 def value_set_identity(table, published_urls=None, utg=None):
     """Decide the canonical, resource id and file name for a table's ValueSet.
 
@@ -1145,11 +1405,25 @@ def value_set_identity(table, published_urls=None, utg=None):
         filed under their canonical and the fourth under its table number --
         so its file name is read rather than derived.
     """
-    url = (published_urls or {}).get(table) or VS_CANONICAL.format(table=table)
+    # A ruled canonical outranks both, but only where THO publishes nothing
+    # for the table -- see RULED_CANONICALS. Letting it override a THO
+    # canonical would fork an artifact that already exists.
+    ruled = ruled_canonical(table)
+    if ruled is not None and not (published_urls or {}).get(table):
+        url = ruled.url
+    else:
+        url = ((published_urls or {}).get(table)
+               or VS_CANONICAL.format(table=table))
     resource_id = url.rsplit("/", 1)[-1]
 
     inherited = (utg.value_sets.get(table, {}) if utg else {})
-    file_name = inherited.get("fileName") or f"vs-{resource_id}.xml"
+    # A ruled canonical renames the file too. Keeping UTG's inherited name
+    # would write the new canonical into the old file, leaving the IG with one
+    # artifact under a name that contradicts it.
+    if ruled is not None and url == ruled.url:
+        file_name = f"vs-{resource_id}.xml"
+    else:
+        file_name = inherited.get("fileName") or f"vs-{resource_id}.xml"
 
     return {"url": url, "id": resource_id, "file": f"valueSets/{file_name}"}
 
@@ -1777,6 +2051,87 @@ def build_code_system(record, plan, utg, published_urls=None, snapshot=None,
         record, plan, utg, published_urls, snapshot, observe))
 
 
+# Which code system a concept belongs to, where the chapter says so in the
+# concept's own comment rather than in the code system block.
+#
+# Tables 0821 and 0823 are the Gender Harmony pair: both declare three code
+# systems, and the writer used to report them unbuildable on the grounds that
+# "which one the value set draws from is not stated". That was wrong twice
+# over. A value set may draw on as many code systems as it likes -- this is
+# ordinary FHIR, and the guide builds multi-system composes elsewhere -- and
+# the attribution is not missing. Chapter 2C puts it in each concept's
+# comment, in two recognisable forms:
+#
+#     the HL70396 code for this code is 'SCT'
+#     This code is drawn from FHIR DataAbsentReason (http://...)
+#
+# The second form carries the canonical outright, so it is preferred. The
+# first gives an HL7 table 0396 mnemonic, which is mapped below.
+#
+# Only mnemonics actually seen in the corpus are mapped. An unrecognised one
+# leaves the concept unattributed, which `codes_by_system` reports rather than
+# guesses at -- a wrong system on a code is worse than a table still blocked.
+HL70396_SYSTEMS = {
+    "SCT": "http://snomed.info/sct",
+    "LN": "http://loinc.org",
+    "DAR": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+    "NULLFL": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+}
+
+HL70396_RE = re.compile(
+    r"HL70396 code for (?:this code|LOINC) is\s*[\u2018'\"]?([A-Z0-9]+)",
+    re.IGNORECASE)
+DRAWN_FROM_RE = re.compile(
+    r"drawn from [^(]*\((https?://[^)\s]+)\)", re.IGNORECASE)
+
+
+def concept_system(entry, declared):
+    """The code system one concept belongs to, from its own comment.
+
+    `declared` is the list of canonicals the table's code system block gives,
+    used to confirm that whatever the comment names is a system the table
+    actually declares. Returns None when the comment says nothing usable.
+    """
+    comment = (entry.get("comment") or "")
+
+    drawn = DRAWN_FROM_RE.search(comment)
+    if drawn:
+        url = drawn.group(1).rstrip(".")
+        if not declared or url in declared:
+            return url
+
+    mnemonic = HL70396_RE.search(comment)
+    if mnemonic:
+        url = HL70396_SYSTEMS.get(mnemonic.group(1).upper())
+        if url and (not declared or url in declared):
+            return url
+
+    return None
+
+
+def codes_by_system(record, declared):
+    """Group a table's codes by the code system each one names.
+
+    Returns `(grouped, unattributed)`: `grouped` maps a canonical to the list
+    of concepts drawn from it, in the order the chapter lists them, and
+    `unattributed` holds any concept whose comment named no system we could
+    resolve. A caller with anything in `unattributed` must not publish --
+    the value set would silently drop codes.
+    """
+    grouped = {}
+    unattributed = []
+    for entry in record.get("codedContent") or []:
+        system = concept_system(entry, declared)
+        if system is None:
+            unattributed.append(entry.get("value"))
+            continue
+        grouped.setdefault(system, []).append({
+            "code": entry.get("value"),
+            "display": entry.get("displayName"),
+        })
+    return grouped, unattributed
+
+
 def chapter_compose(record, plan, shape):
     """The compose the chapter asks for, as plain data.
 
@@ -1802,6 +2157,23 @@ def chapter_compose(record, plan, shape):
                 "concept": [{"code": shape["excludeRoot"]}],
             })
         return compose
+
+    # A table whose codes come from several code systems gets one include per
+    # system, built from the attribution in each concept's own comment. Only
+    # reached where the table really declares more than one system and every
+    # code could be placed; anything less falls through to the single-system
+    # form below, which is what all but two tables in the corpus need.
+    declared = {(s.get("URI") or "").strip()
+                for s in record.get("codeSystems") or []}
+    declared.discard("")
+    if shape["kind"] == "enumerated" and len(record.get("codeSystems") or []) > 1:
+        grouped, unattributed = codes_by_system(record, declared or None)
+        if grouped and not unattributed:
+            return {
+                "include": [{"system": system, "concept": concepts}
+                            for system, concepts in grouped.items()],
+                "exclude": [],
+            }
 
     include = {"system": plan["systemUrl"]}
     if shape["kind"] == "enumerated":
@@ -1854,7 +2226,7 @@ def plan_value_set(record, plan, utg, published_urls=None, snapshot=None,
             fields["description"] = (
                 f"{note}\n\n{description}" if description else note)
 
-    shape = parse_logical_definition(value_set.get("Content Logical Definition"))
+    shape = parse_logical_definition(logical_definition_text(record))
     compose = tho_merge.merge_compose(
         chapter_compose(record, plan, shape), tho, observe, context)
 
@@ -1920,6 +2292,21 @@ def build_value_set(record, plan, utg, published_urls=None, snapshot=None,
         record, plan, utg, published_urls, snapshot, observe))
 
 
+def logical_definition_text(record):
+    """The Content Logical Definition to read for this table.
+
+    The chapter's own cell, unless a ruling supplies one because that cell is
+    unusable -- see the `cld` field on `Reclassification`.
+    """
+    reclassification = ruled_reclassification(record["tableNumber"])
+    if reclassification is not None and reclassification.cld:
+        return reclassification.cld
+    value_sets = record.get("valueSets") or []
+    if not value_sets:
+        return ""
+    return (value_sets[0].get("Content Logical Definition") or "").strip()
+
+
 def compose_shape(record):
     """Say whether the Content Logical Definition is one we can build.
 
@@ -1928,7 +2315,7 @@ def compose_shape(record):
     value_sets = record.get("valueSets") or []
     if not value_sets:
         return None
-    definition = (value_sets[0].get("Content Logical Definition") or "").strip()
+    definition = logical_definition_text(record)
     if parse_logical_definition(definition) is not None:
         return None
     return definition
@@ -2525,6 +2912,19 @@ def main():
             if stale.exists():
                 stale.unlink()
                 print(f"Removed (withheld on a ruling): {relative}")
+
+    # A canonical moved by ruling leaves the file written under the old one
+    # behind. Same reasoning as the suppression prune above: nothing else
+    # cleans this directory, so without it the IG would publish the artifact
+    # twice, once at each canonical, with only one of them ruled.
+    for table, canonical in sorted(RULED_CANONICALS.items()):
+        old_id = canonical.replaces.rsplit("/", 1)[-1]
+        stale = output_dir / f"valueSets/vs-{old_id}.xml"
+        if stale.exists():
+            stale.unlink()
+            print(f"Removed (canonical moved by ruling): "
+                  f"valueSets/vs-{old_id}.xml -> "
+                  f"{value_set_identity(table, published_urls, utg)['file']}")
 
     for relative, document in files.items():
         path = output_dir / relative

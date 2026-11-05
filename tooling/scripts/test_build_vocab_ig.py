@@ -6,6 +6,8 @@ sound, that a wrong order is actually caught, and that every step names a
 script that exists.
 """
 
+import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -168,3 +170,149 @@ def test_snapshotting_is_on_by_default_and_can_be_turned_off():
         [sys.executable, str(build.SCRIPT_DIR / "build_vocab_ig.py"), "--help"],
         capture_output=True, text=True)
     assert "--no-snapshot" in parser_args.stdout
+
+
+# ---------------------------------------------------------------------------
+# The authored route table on index.md
+# ---------------------------------------------------------------------------
+#
+# index.md carries a hand-written table of how many tables took each route.
+# It has drifted in three separate sessions, and the last time it drifted
+# silently: `stage_vocab_ig` self-checks the resource counts on that page but
+# knows nothing about this table, and the authored version still listed five
+# routes when the writer had grown to seven. A route added without a row here
+# is invisible rather than wrong, which is the worse failure.
+#
+# Both halves are checked: every route the writer reports must have a row with
+# the right number, and every row must name a route the writer still produces.
+
+ROUTE_ROW_RE = re.compile(r"^\|\s*([^|]+?)\s*\|\s*([\d,]+)\s*\|", re.MULTILINE)
+
+# The prose label on index.md for each action in the write report.
+ROUTE_LABELS = {
+    "code-system-and-value-set": "Code system and value set",
+    "concept-domain-only": "Concept domain only",
+    "value-set-only": "Value set only",
+    "needs-decision": "Needs a decision",
+    "suppressed-by-ruling": "Withheld on a ruling",
+    "superseded-by-ruling": "Retired and superseded",
+    "nothing-to-write": "Nothing to write",
+}
+
+
+def _index_route_counts():
+    """The route table as authored on index.md, as {label: count}."""
+    page = (build.PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent"
+            / "index.md").read_text(encoding="utf-8")
+    rows = {}
+    for label, number in ROUTE_ROW_RE.findall(page):
+        if label in ROUTE_LABELS.values():
+            rows[label] = int(number.replace(",", ""))
+    return rows
+
+
+def _written_route_counts():
+    """The route counts the writer actually produced."""
+    report = json.loads(
+        (build.PROJECT_ROOT / "v291-fhir" / "utg-write-report.json")
+        .read_text(encoding="utf-8"))
+    return report["counts"]
+
+
+def test_every_route_the_writer_produces_has_a_row_on_index():
+    """A new route must be added to the page, not just to the writer."""
+    authored = _index_route_counts()
+    missing = [ROUTE_LABELS.get(action, action)
+               for action in _written_route_counts()
+               if ROUTE_LABELS.get(action) not in authored]
+    assert missing == [], (
+        f"index.md has no row for these routes, so they are invisible to a "
+        f"reader of that page: {missing}")
+
+
+def test_the_index_route_counts_match_the_write_report():
+    """The numbers, which drift whenever a ruling moves a table."""
+    authored = _index_route_counts()
+    wrong = {}
+    for action, count in _written_route_counts().items():
+        label = ROUTE_LABELS.get(action)
+        if label in authored and authored[label] != count:
+            wrong[label] = f"page says {authored[label]}, writer wrote {count}"
+    assert wrong == {}, f"index.md route counts are stale: {wrong}"
+
+
+def test_no_row_on_index_names_a_route_that_no_longer_exists():
+    """The other direction: a route retired from the writer leaves a row
+    behind that reads as current."""
+    produced = {ROUTE_LABELS[action] for action in _written_route_counts()
+                if action in ROUTE_LABELS}
+    stale = [label for label in _index_route_counts() if label not in produced]
+    assert stale == [], (
+        f"index.md lists routes the writer no longer produces: {stale}")
+
+
+# ---------------------------------------------------------------------------
+# The authored blocked-tables list on known-issues.md
+# ---------------------------------------------------------------------------
+#
+# Same failure mode as the route table above, and it had drifted further:
+# the page listed fourteen tables when five were blocked, and still named
+# 0895, which had been published a session earlier. A reader of that page was
+# being told nine tables were stuck that are not.
+#
+# The heading carries a spelled-out count, which is the part most likely to
+# be left behind when the list under it is edited, so it is checked too.
+
+BLOCKED_HEADING_RE = re.compile(
+    r"^###\s+(\w+)\s+tables? with nothing written\s*$", re.MULTILINE)
+BLOCKED_CODES_RE = re.compile(r"`(\d{4})`")
+
+NUMBER_WORDS = {
+    "One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6,
+    "Seven": 7, "Eight": 8, "Nine": 9, "Ten": 10, "Eleven": 11,
+    "Twelve": 12, "Thirteen": 13, "Fourteen": 14, "Fifteen": 15,
+    "Sixteen": 16, "Seventeen": 17, "Eighteen": 18, "Nineteen": 19,
+    "Twenty": 20,
+}
+
+
+def _known_issues_blocked():
+    """The blocked-table list as authored, as (heading word, [tables])."""
+    page = (build.PROJECT_ROOT / "vocab-ig" / "input" / "pagecontent"
+            / "known-issues.md").read_text(encoding="utf-8")
+    heading = BLOCKED_HEADING_RE.search(page)
+    assert heading, "known-issues.md has no 'N tables with nothing written' heading"
+    # The list is the paragraph of backticked numbers right after the heading.
+    rest = page[heading.end():]
+    paragraph = rest.split("\n\n")[1] if "\n\n" in rest else ""
+    return heading.group(1), BLOCKED_CODES_RE.findall(paragraph)
+
+
+def _blocked_tables():
+    """The tables the writer actually left unwritten."""
+    report = json.loads(
+        (build.PROJECT_ROOT / "v291-fhir" / "utg-write-report.json")
+        .read_text(encoding="utf-8"))
+    return sorted(entry["table"] for entry in report["tables"]
+                  if entry["action"] == "needs-decision")
+
+
+def test_known_issues_lists_exactly_the_blocked_tables():
+    """A ruling that unblocks a table must take it off this page too."""
+    _, authored = _known_issues_blocked()
+    assert sorted(authored) == _blocked_tables(), (
+        f"known-issues.md lists {sorted(authored)} as blocked; the writer "
+        f"left {_blocked_tables()} unwritten")
+
+
+def test_the_known_issues_heading_count_matches_its_own_list():
+    """The spelled-out number in the heading, which is edited separately
+    from the list under it and so gets left behind."""
+    word, authored = _known_issues_blocked()
+    expected = NUMBER_WORDS.get(word)
+    assert expected is not None, (
+        f"unrecognised number word {word!r} in the known-issues heading; "
+        f"add it to NUMBER_WORDS")
+    assert expected == len(authored), (
+        f"the heading says {word} ({expected}) but the list under it has "
+        f"{len(authored)} tables")

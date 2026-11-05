@@ -16,19 +16,32 @@ publish a code system of that id at that canonical, and anything else is left
 exactly as published and reported. Narrative takes no part in the merge or in
 versioning, so no artifact version moved.
 
-### Fourteen tables with nothing written
+### Five tables with nothing written
 
 These are blocked on a decision, not on work:
 
-`0399` `0458` `0459` `0467` `0821` `0822` `0823` `0824` `0827` `0828` `0895`
-`0953` `0956` `0963`
+`0458` `0459` `0956` `0962` `0963`
 
 Each is recorded with its evidence on the [per-table
 ledger](table-ledger.html), and the reason the writer stopped at each one is
 grouped by cause under [what needs an
-answer](open-items.html). **0459 is a hard stop**: the chapter gives its code
-system only as OID `2.16.840.1.113883.6.301.9`, which nothing in THO or FHIR
-core resolves.
+answer](open-items.html).
+
+**Three of the five are waiting on somebody else.** `0458` and `0459` give
+their code system only as OID `2.16.840.1.113883.6.301.9`, which nothing in
+THO or FHIR core resolves; a request has been made for THO to create the
+external code system record, and the canonical it carries is all that is
+needed. `0956` has no durable home at all — the only value sets carrying its
+codes are a withdrawn FHIR 3.3 ballot draft and a PHIN VADS entry the CDC is
+decommissioning, so pointing at either would bind this guide to a location
+known in advance to be going away.
+
+Every one of the five still publishes its concept domain in
+`CodeSystem/conceptdomains`, so a binding to the domain remains expressible
+while the terminology question is settled.
+
+This list was fourteen tables until November 2026, when a batch of V2
+Management rulings cleared nine of them.
 
 ### Defects reproduced from the published chapter on purpose
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="gender-harmony-attributes"/>
+  <url value="http://terminology.hl7.org/ValueSet/gender-harmony-attributes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.21.480"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="Hl7VSGenderHarmonyConcepts"/>
+  <title value="hl7VS-genderHarmonyConcepts"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Concepts used to properly describe a person’s self-asserted attributes like gender identity, pronouns and sexual orientation."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="76691-5"/>
+        <display value="Gender Identity"/>
+      </concept>
+      <concept>
+        <code value="76690-7"/>
+        <display value="Sexual Orientation"/>
+      </concept>
+      <concept>
+        <code value="90778-2"/>
+        <display value="Personal pronouns - Reported"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

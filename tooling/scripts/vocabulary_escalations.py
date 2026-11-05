@@ -1051,6 +1051,289 @@ ESCALATIONS = [
         },
     },
     {
+        "id": "esc-served-by-existing-tho-value-sets",
+        "who": "V2 Management",
+        "tables": "0399, 0821, 0822, 0824, 0827, 0828, 0953",
+        "title": "Seven tables are already served by a value set THO "
+                 "publishes, and this guide was about to write a second one",
+        "body":
+            "Each of these seven tables names, in its own Value Set URI "
+            "field or its content logical definition, a value set that "
+            "already exists &mdash; and in six of the seven the "
+            "identifier proves it rather than merely suggesting it. "
+            "<b>The value set OID Chapter 2C prints for the table is the "
+            "identifier on the THO artifact</b>: 0399's "
+            "<code>2.16.840.1.113883.21.266</code> is on "
+            "<code>ValueSet/v2-notAllCodes-0399</code>, 0821's "
+            "<code>&hellip;4.642.3.3291</code> on "
+            "<code>ValueSet/gender-identity</code>, 0822's "
+            "<code>&hellip;4.642.3.3290</code> on "
+            "<code>ValueSet/pronouns</code>, 0824's "
+            "<code>&hellip;4.642.3.3289</code> on "
+            "<code>ValueSet/recorded-sex-or-gender-type</code>, 0828's "
+            "<code>&hellip;4.642.3.3181</code> on "
+            "<code>ValueSet/sex-parameter-for-clinical-use</code>, and "
+            "0953's <code>2.16.840.1.113883.1.11.20471</code> on "
+            "<code>ValueSet/v3-SecurityControlObservationValue</code>. "
+            "0827 is the one exception: its OID "
+            "<code>2.16.840.1.113883.21.485</code> is on nothing in the "
+            "snapshot, but its Value Set URI field names the jurisdiction "
+            "value set outright. "
+            "<b>None of the seven has a v2 artifact in THO to compete "
+            "with</b>, so nothing has to be retired &mdash; the correct "
+            "outcome is simply that this guide writes nothing and the "
+            "existing value set serves. Each table's concept domain is "
+            "unaffected and continues to be published in "
+            "<code>CodeSystem/conceptdomains</code>. "
+            "<b>Two of the seven were blocked for reasons the ruling "
+            "dissolves rather than answers.</b> 0821 <i>Gender Identity</i> "
+            "was blocked because its coded content grid is published blank "
+            "(<code>esc-0821-blank-grid</code>); its content logical "
+            "definition is &ldquo;as defined in the linked value set&rdquo;, "
+            "and the linked value set carries the five codes the grid lost, "
+            "so pointing at it is both what the chapter asks for and the "
+            "repair. 0953 was blocked on which of its two declared code "
+            "systems the value set draws from &mdash; a question that does "
+            "not arise once the value set is THO's, which composes from "
+            "five other value sets and needs nothing from this guide.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "Written review",
+            "date": "2026-11-05",
+            "ruling": "For each of these tables the correct value set "
+                      "already exists in THO and should be used. No new "
+                      "value set and no code system is to be created. "
+                      "There is nothing this guide is using them "
+                      "<i>instead of</i>, so nothing needs to be retired "
+                      "or pointed away from &mdash; the artifacts simply "
+                      "are not written.",
+            "effect": "All seven are withheld through "
+                      "<code>RULED_SUPPRESSIONS</code>, each entry naming "
+                      "the value set that serves the table. Seven tables "
+                      "leave the needs-decision list without a single "
+                      "artifact being published. "
+                      "<b>A note on 0953, because the mistake is instructive.</b> "
+                      "The ruling as first written named "
+                      "<code>v3-WorkScheduleODH</code> for 0953. That is "
+                      "table 0954's value set; 0953 is <i>Security Label "
+                      "Handling Instructions</i> and its OID resolves to "
+                      "<code>v3-SecurityControlObservationValue</code>. The "
+                      "misattribution was caught before implementation and "
+                      "confirmed with the reviewer. Its cause is worth "
+                      "recording: in this guide's own table ledger the 0953 "
+                      "entry sits between the 0952/0959 supersession note "
+                      "and the 0954 ruling, with "
+                      "<code>v3-WorkScheduleODH</code> about fifteen lines "
+                      "from the 0953 anchor. Adjacent rulings about "
+                      "different tables are easy to misread as being about "
+                      "the table between them.",
+        },
+    },
+    {
+        "id": "esc-0820-gender-harmony-canonical",
+        "who": "V2 Management",
+        "tables": "0820",
+        "title": "Table 0820's value set is real content, published at a "
+                 "canonical built from the table number",
+        "body":
+            "<code>0820</code> <i>Gender Harmony Concepts</i> is the one "
+            "table in this group that needs an artifact rather than a "
+            "pointer. It enumerates three LOINC codes &mdash; "
+            "<code>76691-5</code> Gender Identity, <code>76690-7</code> "
+            "Sexual Orientation and <code>90778-2</code> Personal pronouns "
+            "- Reported &mdash; and <b>THO publishes nothing for it</b>: "
+            "no <code>ValueSet/v2-0820</code>, and nothing anywhere "
+            "carrying its value set OID "
+            "<code>2.16.840.1.113883.21.480</code>. So this is a genuine "
+            "first publication. "
+            "The question the ruling settles is not <i>whether</i> to "
+            "publish but <i>where</i>. This guide had been writing it to "
+            "<code>ValueSet/v2-0820</code>, a canonical constructed from "
+            "the table number because nothing else was available. The "
+            "codes are LOINC's, so no CodeSystem is involved either way. "
+            "A related defect is recorded separately in "
+            "<code>esc-full-name-copy-paste</code>: the chapter's Full "
+            "Name for this table's code system reads &ldquo;Personal "
+            "Pronouns Code System&rdquo;, copied from table 0822.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "Written review",
+            "date": "2026-11-05",
+            "ruling": "Create the value set, with no code system, since "
+                      "the codes are LOINC's. Publish it at "
+                      "<code>http://terminology.hl7.org/ValueSet/"
+                      "gender-harmony-attributes</code> and carry Chapter "
+                      "2C's value set OID "
+                      "<code>2.16.840.1.113883.21.480</code> on it.",
+            "effect": "The value set moves off the table-number canonical "
+                      "to <code>ValueSet/gender-harmony-attributes</code>, "
+                      "keeping the chapter's OID and its three LOINC "
+                      "codes. <code>vs-v2-0820.xml</code> is deleted and "
+                      "<code>vs-gender-harmony-attributes.xml</code> "
+                      "written in its place. Nothing in THO is displaced: "
+                      "the new canonical is unoccupied in the 7.3.0 "
+                      "snapshot, as is the OID.",
+        },
+    },
+    {
+        "id": "esc-0823-multi-system-compose",
+        "who": "V2 Management",
+        "tables": "0823",
+        "title": "Table 0823's value set draws on three code systems, and "
+                 "the chapter says which code comes from which",
+        "body":
+            "<code>0823</code> <i>Sexual Orientation</i> declares three "
+            "code systems &mdash; SNOMED CT, FHIR "
+            "<code>DataAbsentReason</code> and V3 <code>NullFlavor</code> "
+            "&mdash; and prints five codes. This guide was emitting "
+            "nothing, on the grounds that the chapter does not state which "
+            "system each code belongs to. "
+            "<b>That reading was wrong, and this item replaces it.</b> "
+            "Drawing a value set from several code systems is ordinary "
+            "FHIR and this guide builds multi-system composes elsewhere. "
+            "Nor is the attribution actually missing: each of the five "
+            "rows carries it in its own comment. Three SNOMED codes say "
+            "&ldquo;the HL70396 code for this code is "
+            "&lsquo;SCT&rsquo;&rdquo;; <code>asked-declined</code> says it "
+            "is drawn from FHIR DataAbsentReason and names the canonical; "
+            "<code>UNK</code> says it is drawn from V3 NullFlavor and "
+            "names that canonical. The information the writer said was "
+            "absent was in the grid it had already read. "
+            "The sister item <code>esc-0823-not-in-tho</code> records the "
+            "separate observation that THO publishes no "
+            "<code>ValueSet/v2-0823</code>; that remains true, and is why "
+            "this is a first publication.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "Written review",
+            "date": "2026-11-05",
+            "ruling": "The content logical definition correctly pulls "
+                      "codes from three code systems and this is fine. A "
+                      "value set is not restricted to one code system.",
+            "effect": "0823 stops routing <code>needs-decision</code> and "
+                      "publishes <code>ValueSet/v2-0823</code> as a first "
+                      "publication at 1.0.0, composing over all three "
+                      "declared systems with each of the five codes placed "
+                      "under the system its own comment names. No "
+                      "CodeSystem is written: all three systems belong to "
+                      "other authorities.",
+        },
+    },
+    {
+        "id": "esc-0467-oce-modifier-edit",
+        "who": "V2 Management",
+        "tables": "0467",
+        "title": "Table 0467's code system is an OCE arc OID that THO does "
+                 "not yet register",
+        "body":
+            "<code>0467</code> <i>Modifier Edit Code</i> declares the code "
+            "system <code>cms-OCEModifierEditCode-cs</code> at "
+            "<code>http://terminology.hl7.org/CodeSystem/v2-0467</code> "
+            "with OID <code>2.16.840.1.113883.6.301.10</code>, publishes "
+            "no codes, and gives its content logical definition as "
+            "&ldquo;all codes&rdquo;. The writer reported it blocked "
+            "because a table that owns its code system but lists no codes "
+            "cannot yield a complete CodeSystem. "
+            "<b>The table does not own that code system.</b> The OID sits "
+            "in the same CMS Outpatient Code Editor arc as 0458's "
+            "<code>&hellip;6.301.9</code>, and the codes are CMS's, "
+            "published in the I/OCE specification rather than in Chapter "
+            "2C. Neither OID resolves to a canonical in the THO 7.3.0 "
+            "snapshot. The difference from 0458 and 0459 is that a Jira "
+            "ticket has been raised to create the external code system "
+            "record for this one, and it will carry the URL and OID "
+            "Chapter 2C already prints &mdash; so the canonical this guide "
+            "composes over is known in advance and will resolve once the "
+            "record lands.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "Written review",
+            "date": "2026-11-05",
+            "ruling": "A Jira ticket has been raised to create an "
+                      "external code system record for this code system. "
+                      "Its URL and OID will be the ones Chapter 2C "
+                      "already lists. Publish the value set over that "
+                      "canonical with a content logical definition of all "
+                      "codes from the system.",
+            "effect": "0467 stops routing <code>needs-decision</code> and "
+                      "publishes <code>ValueSet/v2-0467</code> as a first "
+                      "publication at 1.0.0, composing over all codes from "
+                      "<code>CodeSystem/v2-0467</code>, with the "
+                      "chapter's own description. <b>The reviewer offered "
+                      "a fuller description</b> &mdash; &ldquo;The CMS I/OCE "
+                      "edit codes reported against a HCPCS or CPT modifier "
+                      "on a claim line, as listed in the <i>Modifier edit "
+                      "return buffer</i> row of the Edit Return Buffer Table "
+                      "in the I/OCE Specifications for the applicable "
+                      "release&rdquo; &mdash; which is more informative than "
+                      "the chapter's &ldquo;Value Set of codes that specify "
+                      "the edits of the modifiers for each line or "
+                      "HCPCS/CPT.&rdquo; <b>The chapter's text is kept for "
+                      "now</b>, because this guide carries Chapter 2C's "
+                      "descriptions as published and replacing one is a "
+                      "deviation that needs its own decision. The offered "
+                      "text is recorded here so adopting it is a one-line "
+                      "change if that is wanted. <b>No CodeSystem is "
+                      "written</b> &mdash; the content is CMS's. Until the THO record "
+                      "is created the value set composes over a canonical "
+                      "that does not yet resolve, which is a known and "
+                      "accepted interim state rather than a defect.",
+        },
+    },
+    {
+        "id": "esc-0956-no-stable-home",
+        "who": "V2 Management + TSMG",
+        "tables": "0956",
+        "title": "Table 0956's value set exists only in a withdrawn FHIR "
+                 "draft and a code repository being decommissioned",
+        "body":
+            "<code>0956</code> <i>Job Supervisory Level or Pay Grade</i> "
+            "declares the code system "
+            "<code>PHOccupationalDataForHealthODH</code> and gives its "
+            "content logical definition as &ldquo;unspecified&rdquo;, "
+            "which is not a shape this guide can build. THO publishes no "
+            "<code>ValueSet/v2-0956</code> and no obvious equivalent. "
+            "<b>Two candidate value sets exist and neither is a durable "
+            "home.</b> One is "
+            "<code>valueset-supervisory-level-odh-us</code>, published in "
+            "<b>FHIR 3.3 (2018May)</b> &mdash; a draft ballot snapshot, "
+            "not a released FHIR version, and not a canonical anything "
+            "should be bound to today. The other is a PHIN VADS value set "
+            "at OID <code>2.16.840.1.114222.4.11.7613</code>; "
+            "<b>PHIN VADS is being decommissioned by the CDC</b>, so "
+            "everything hosted there is of uncertain future. "
+            "Pointing this guide at either would be binding V2.9.1 content "
+            "to a location that is known in advance to be going away. "
+            "That is worse than publishing nothing, because a dead pointer "
+            "in a published IG is harder to retract than an acknowledged "
+            "gap.",
+        "ask":
+            "<b>Something needs to happen for 0956 and nobody yet knows "
+            "what.</b> This item exists to keep that fact from being lost, "
+            "which is the whole of its present purpose. "
+            "The question for V2 Management and TSMG is where the "
+            "supervisory level / pay grade codes should live once PHIN "
+            "VADS is gone: a THO value set created for the purpose, an "
+            "external code system record pointing at whatever the CDC "
+            "designates as the successor, or a decision that the table is "
+            "not viable and should become concept domain only. "
+            "<b>In the meantime this guide publishes no CodeSystem and no "
+            "ValueSet for 0956</b>, by decision rather than by omission. "
+            "Its concept domain "
+            "<code>JobSupervisoryLevelorPayGrade</code> is published in "
+            "<code>CodeSystem/conceptdomains</code> and is unaffected, so "
+            "a binding to the domain remains expressible while the "
+            "terminology question is settled.",
+    },
+    {
         "id": "esc-0960-duplicate-of-fhir-core",
         "who": "V2 Management",
         "tables": "0960",
@@ -1673,30 +1956,46 @@ ESCALATIONS = [
     {
         "id": "esc-0459-unresolvable-oid",
         "who": "V2 Management + TSMG",
-        "tables": "0459",
-        "title": "Table 0459 names its code system only by an OID that "
-                 "nothing resolves",
+        "tables": "0458, 0459",
+        "title": "Tables 0458 and 0459 name a CMS code system by an OID "
+                 "that THO does not yet register",
         "body":
-            "<code>0459</code> <i>Reimbursement Action Code</i> is an "
-            "External table stewarded by FM. It declares one code system, "
+            "<code>0458</code> <i>OCE Edit Code</i> and <code>0459</code> "
+            "<i>Reimbursement Action Code</i> both declare the code system "
             "<code>cms-OCEEditCode-cs</code>, identified solely by OID "
-            "<code>2.16.840.1.113883.6.301.9</code> with no URI. "
+            "<code>2.16.840.1.113883.6.301.9</code> with no URI. 0459 is an "
+            "External table stewarded by FM and prints four codes; 0458 "
+            "prints none. "
             "<b>Neither THO nor the FHIR core packages resolve that OID to a "
             "canonical URL</b>, so there is no way to say what code system "
-            "the table's four codes belong to. The writer therefore emits "
-            "nothing for this table &mdash; not a CodeSystem, not a ValueSet "
-            "&mdash; and it is one of only two tables in the chapter blocked "
-            "this way. "
+            "the four codes belong to. The writer therefore emits nothing "
+            "for either table &mdash; not a CodeSystem, not a ValueSet. "
             "Note the reviewer's separate reading that this table may be "
             "better modelled as a concept domain, which would dissolve the "
             "question rather than answer it.",
         "ask":
-            "Supply the canonical URL for the CMS OCE Edit Code system, or "
-            "confirm that an external code system record needs to be created "
-            "in THO for it. If neither is available, decide whether 0459 "
-            "should become concept-domain-only, in which case no value set "
-            "is needed and the OID becomes documentation rather than a "
-            "dependency.",
+            "<b>Partly answered, and still open.</b> The reviewer confirmed "
+            "on 2026-11-05 that the codes come from the CMS Integrated "
+            "Outpatient Code Editor specification &mdash; for 0459, Table 7 "
+            "row 13 of the I/OCE specification &mdash; and that a request "
+            "has been made for THO to create an external code system record "
+            "for it. <b>Until that record exists there is no canonical to "
+            "compose over</b>, so both tables are held: no CodeSystem, no "
+            "ValueSet, concept domain only. Both concept domains "
+            "(<code>OceEditCode</code>, <code>ReimbursementActionCode</code>) "
+            "are published and unaffected. "
+            "What remains open is the THO record itself. Once it exists, the "
+            "canonical URL it carries goes straight into both tables' "
+            "content logical definitions and this item closes. "
+            "<b>Nothing is to be extracted from the I/OCE specification "
+            "PDF</b>; the canonical from the THO record is the only thing "
+            "needed. "
+            "Note that sibling table 0467 is in the same OCE arc and has "
+            "<i>already</i> had its Jira ticket raised, so it is being "
+            "published now &mdash; see "
+            "<code>esc-0467-oce-modifier-edit</code>. The difference "
+            "between them is the state of the THO request, not the shape of "
+            "the problem.",
     },
     {
         "id": "esc-0460-user-defined-mint",

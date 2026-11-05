@@ -216,7 +216,15 @@ CLASSIFICATION = {
         "decision, which is why it is worth making one."),
     "esc-0459-unresolvable-oid": (
         "wrong-identifier",
-        "An OID that resolves to nothing. Blocks the table mechanically."),
+        "An OID that resolves to nothing, on two tables. Blocks both "
+        "mechanically. A THO external code system record has been "
+        "requested; the canonical it carries closes this."),
+    "esc-0956-no-stable-home": (
+        "wrong-identifier",
+        "The only two value sets that carry these codes are a withdrawn "
+        "FHIR 3.3 ballot draft and a PHIN VADS entry the CDC is "
+        "decommissioning. Neither is a location anything should be bound "
+        "to, so the table has no usable value set identity at all."),
     "esc-0292-cdo-contradiction": (
         "self-contradiction",
         "Flagged concept-domain-only in the same section that names its code "

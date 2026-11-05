@@ -1,6 +1,6 @@
 # Chapter 2C defects, grouped for decision
 
-Review list for V2 Management — 32 open findings.
+Review list for V2 Management — 33 open findings.
 
 This document replaces the blanket policy question `esc-retain-known-errors`. V2 Management ruled on 2026-10-08 that There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.
 
@@ -26,7 +26,7 @@ The grid is six rows by five columns and every cell is empty, while the section 
 
 **What this guide publishes today:**
 
-- `0821` Gender Identity: BLOCKED — no artifact, pipeline cannot settle it
+- `0821` Gender Identity: withheld on a ruling
 
 **Decision needed:** Confirm the five intended codes and republish the grid. This project reuses THO's value set in the meantime, so nothing is blocked — but the published chapter is missing content and a reader of the PDF cannot tell what the table contains.
 
@@ -190,7 +190,7 @@ Both tables are consequently absent from the document's own table of contents, a
 
 ---
 
-## Wrong or missing identifiers (5)
+## Wrong or missing identifiers (6)
 
 The chapter names the wrong thing, or omits a name it needs. A URI that points at the wrong code system is not a typographic matter — it resolves, and it resolves to something else.
 
@@ -214,21 +214,40 @@ The Code System Identification block correctly identifies ISO 3166-2 — OID 1.0
 
 ---
 
-### Table 0459 names its code system only by an OID that nothing resolves
+### Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned
 
-**Tables:** 0459  
+**Tables:** 0956  
 **Goes to:** V2 Management + TSMG  
-**Register id:** `esc-0459-unresolvable-oid`
+**Register id:** `esc-0956-no-stable-home`
 
-*Why this class: An OID that resolves to nothing. Blocks the table mechanically.*
+*Why this class: The only two value sets that carry these codes are a withdrawn FHIR 3.3 ballot draft and a PHIN VADS entry the CDC is decommissioning. Neither is a location anything should be bound to, so the table has no usable value set identity at all.*
 
-0459 Reimbursement Action Code is an External table stewarded by FM. It declares one code system, cms-OCEEditCode-cs, identified solely by OID 2.16.840.1.113883.6.301.9 with no URI. Neither THO nor the FHIR core packages resolve that OID to a canonical URL, so there is no way to say what code system the table's four codes belong to. The writer therefore emits nothing for this table — not a CodeSystem, not a ValueSet — and it is one of only two tables in the chapter blocked this way. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.
+0956 Job Supervisory Level or Pay Grade declares the code system PHOccupationalDataForHealthODH and gives its content logical definition as “unspecified”, which is not a shape this guide can build. THO publishes no ValueSet/v2-0956 and no obvious equivalent. Two candidate value sets exist and neither is a durable home. One is valueset-supervisory-level-odh-us, published in FHIR 3.3 (2018May) — a draft ballot snapshot, not a released FHIR version, and not a canonical anything should be bound to today. The other is a PHIN VADS value set at OID 2.16.840.1.114222.4.11.7613; PHIN VADS is being decommissioned by the CDC, so everything hosted there is of uncertain future. Pointing this guide at either would be binding V2.9.1 content to a location that is known in advance to be going away. That is worse than publishing nothing, because a dead pointer in a published IG is harder to retract than an acknowledged gap.
 
 **What this guide publishes today:**
 
+- `0956` Job Supervisory Level or Pay Grade: BLOCKED — no artifact, pipeline cannot settle it
+
+**Decision needed:** Something needs to happen for 0956 and nobody yet knows what. This item exists to keep that fact from being lost, which is the whole of its present purpose. The question for V2 Management and TSMG is where the supervisory level / pay grade codes should live once PHIN VADS is gone: a THO value set created for the purpose, an external code system record pointing at whatever the CDC designates as the successor, or a decision that the table is not viable and should become concept domain only. In the meantime this guide publishes no CodeSystem and no ValueSet for 0956, by decision rather than by omission. Its concept domain JobSupervisoryLevelorPayGrade is published in CodeSystem/conceptdomains and is unaffected, so a binding to the domain remains expressible while the terminology question is settled.
+
+---
+
+### Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register
+
+**Tables:** 0458, 0459  
+**Goes to:** V2 Management + TSMG  
+**Register id:** `esc-0459-unresolvable-oid`
+
+*Why this class: An OID that resolves to nothing, on two tables. Blocks both mechanically. A THO external code system record has been requested; the canonical it carries closes this.*
+
+0458 OCE Edit Code and 0459 Reimbursement Action Code both declare the code system cms-OCEEditCode-cs, identified solely by OID 2.16.840.1.113883.6.301.9 with no URI. 0459 is an External table stewarded by FM and prints four codes; 0458 prints none. Neither THO nor the FHIR core packages resolve that OID to a canonical URL, so there is no way to say what code system the four codes belong to. The writer therefore emits nothing for either table — not a CodeSystem, not a ValueSet. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.
+
+**What this guide publishes today:**
+
+- `0458` OCE Edit Code: BLOCKED — no artifact, pipeline cannot settle it
 - `0459` Reimbursement Action Code: BLOCKED — no artifact, pipeline cannot settle it
 
-**Decision needed:** Supply the canonical URL for the CMS OCE Edit Code system, or confirm that an external code system record needs to be created in THO for it. If neither is available, decide whether 0459 should become concept-domain-only, in which case no value set is needed and the OID becomes documentation rather than a dependency.
+**Decision needed:** Partly answered, and still open. The reviewer confirmed on 2026-11-05 that the codes come from the CMS Integrated Outpatient Code Editor specification — for 0459, Table 7 row 13 of the I/OCE specification — and that a request has been made for THO to create an external code system record for it. Until that record exists there is no canonical to compose over, so both tables are held: no CodeSystem, no ValueSet, concept domain only. Both concept domains (OceEditCode, ReimbursementActionCode) are published and unaffected. What remains open is the THO record itself. Once it exists, the canonical URL it carries goes straight into both tables' content logical definitions and this item closes. Nothing is to be extracted from the I/OCE specification PDF; the canonical from the THO record is the only thing needed. Note that sibling table 0467 is in the same OCE arc and has already had its Jira ticket raised, so it is being published now — see esc-0467-oce-modifier-edit. The difference between them is the state of the THO request, not the shape of the problem.
 
 ---
 
@@ -338,7 +357,7 @@ The table is Type: HL7-EXT, stewarded by PA, and declares three code systems —
 
 **What this guide publishes today:**
 
-- `0823` Sexual Orientation: BLOCKED — no artifact, pipeline cannot settle it
+- `0823` Sexual Orientation: ValueSet published; code system is another body's — VS 1.0.0 (held)
 
 **Decision needed:** Confirm whether tables 0821 and 0823 are live commitments or abandoned ones. If live, the per-code system assignments are needed before a value set can be generated, and a ValueSet/v2-0823 needs to exist in THO. If they were dropped, say so and this project will record them as published-but-unimplemented rather than as blockers.
 

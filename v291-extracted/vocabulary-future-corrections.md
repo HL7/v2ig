@@ -241,3 +241,49 @@ parentheses, underscores, asterisks, commas, quotation marks or an en dash
 `PrimaryKeyValue–STF`). Those are recorded as
 `symbolic_name_is_not_a_plain_token` divergences and are a separate question,
 because removing them changes the code rather than only its spacing.
+
+---
+
+## The table ledger makes adjacent rulings easy to misattribute
+
+**Observed 2026-11-05, while implementing the November batch of V2 Management
+rulings.** Not a defect in Chapter 2C and not a defect in any artifact — a
+defect in how *this guide* presents rulings, and it caused a real
+misattribution that was caught only because the OIDs disagreed.
+
+A ruling arrived saying the correct value set for table **0953** was
+`ValueSet/v3-WorkScheduleODH`. It is not: that is table **0954**'s value set.
+0953 is *Security Label Handling Instructions*, and its value set OID
+`2.16.840.1.113883.1.11.20471` resolves to
+`ValueSet/v3-SecurityControlObservationValue`.
+
+**Why the mistake was easy to make.** On `table-ledger.html` the 0953 entry
+sits between two rulings that both say "use the v3 value set instead" and
+neither of which is about 0953: the 0952/0959 supersession note immediately
+above it, and the 0954 suppression note immediately below, which names
+`v3-WorkScheduleODH` about fifteen lines from the 0953 anchor. Every entry
+uses the same heading level, the same callout styling, and the same phrasing.
+Read at speed, the ruling below a heading looks like it belongs to the heading
+above it.
+
+A second factor compounded it: the source text for the 0953 ruling had a
+corrupted URL — `htp://` and a `ti` ligature rendering
+`Observa`+U+FB00-style breakage where `ValueSet-v3-SecurityControlObservationValue`
+belonged — so the only legible value set name anywhere nearby was the
+neighbouring table's.
+
+**What would help.** Nothing here is wrong, so this is a readability change
+rather than a correction. Three candidates, in increasing order of effort:
+repeat the table number inside each ruling callout so a note is self-locating;
+visually separate a table's own rulings from its neighbours' with a rule or
+background; or render the value set a ruling names as a link with its OID in
+the title attribute, so the artifact a ruling points at can be confirmed
+without leaving the page.
+
+**Why it is worth recording rather than just fixing.** The ledger is the
+document committee members read when deciding what to rule on next. A
+presentation that makes rulings easy to misattribute does not merely risk a
+typo — it risks a ruling being *made* about the wrong table, which no
+downstream check would catch, because a ruling is authority rather than
+evidence. The OID cross-check that caught this one works only where the
+chapter prints a value set OID and THO carries it.

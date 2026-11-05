@@ -3,9 +3,9 @@
     "code-system-and-value-set": 398,
     "concept-domain-only": 356,
     "nothing-to-write": 2,
-    "suppressed-by-ruling": 7,
-    "value-set-only": 18,
-    "needs-decision": 14,
+    "suppressed-by-ruling": 14,
+    "value-set-only": 20,
+    "needs-decision": 5,
     "superseded-by-ruling": 3
   },
   "tentativeOverrides": {
@@ -21,12 +21,19 @@
     ]
   },
   "ruledSuppressions": {
-    "count": 7,
+    "count": 14,
     "tables": [
       "0078",
+      "0399",
       "0411",
       "0567",
       "0568",
+      "0821",
+      "0822",
+      "0824",
+      "0827",
+      "0828",
+      "0953",
       "0954",
       "0957",
       "0960"
@@ -36,24 +43,36 @@
       "esc-0411-concept-domain-only",
       "esc-0567-0568-deprecation",
       "esc-0954-0957-duplicate-of-v3",
-      "esc-0960-duplicate-of-fhir-core"
+      "esc-0960-duplicate-of-fhir-core",
+      "esc-served-by-existing-tho-value-sets"
     ]
   },
   "ruledReclassifications": {
-    "count": 3,
+    "count": 6,
     "tables": [
       "0350",
       "0351",
+      "0467",
+      "0820",
+      "0823",
       "0895"
     ],
     "registerItems": [
       "esc-0350-0351-not-domain-only",
+      "esc-0467-oce-modifier-edit",
+      "esc-0820-gender-harmony-canonical",
+      "esc-0823-multi-system-compose",
       "esc-0895-wrong-system-url"
     ],
-    "unresolvedSystems": [],
+    "unresolvedSystems": [
+      "0467"
+    ],
     "appliedThisRun": [
       "0350",
       "0351",
+      "0467",
+      "0820",
+      "0823",
       "0895"
     ]
   },
@@ -6972,12 +6991,12 @@
     },
     {
       "table": "0399",
-      "name": "Country Code",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0399 already exists in THO, ValueSet/v2-notAllCodes-0399. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0399 is not written. THO publishes ValueSet/v2-notAllCodes-0399, active at 2.0.0, carrying this table's own value set OID 2.16.840.1.113883.21.266 and the ISO 3166-1 alpha-3 regex filter the chapter's 'ISO 3166-1 alpha-3 axis' content logical definition describes. This guide had been writing nothing for the table anyway, because that axis wording is not a shape it builds; the ruling turns an unexplained blank into a pointer at the artifact that serves.",
       "written": [],
-      "systemUrl": "urn:iso:std:iso:3166",
-      "resolvedBy": "published URI"
+      "name": "Country Code"
     },
     {
       "table": "0401",
@@ -8226,9 +8245,33 @@
     {
       "table": "0467",
       "name": "Modifier Edit Code",
-      "action": "needs-decision",
-      "reason": "The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.",
-      "written": []
+      "action": "value-set-only",
+      "reason": "A Jira ticket has been raised to create an external code system record for this code system, carrying the URL and OID Chapter 2C already lists. The value set composes over all codes from that system. No CodeSystem is created: the content is CMS's.",
+      "written": [
+        "valueSets/vs-v2-0467.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0467",
+      "resolvedBy": "committee ruling, esc-0467-oce-modifier-edit",
+      "ruledReclassification": {
+        "table": "0467",
+        "registerItem": "esc-0467-oce-modifier-edit",
+        "ruling": "A Jira ticket has been raised to create an external code system record for this code system, carrying the URL and OID Chapter 2C already lists. The value set composes over all codes from that system. No CodeSystem is created: the content is CMS's.",
+        "rationale": [
+          "The writer had reported the table blocked because it 'owns its code system but publishes no codes'. It does not own it: the OID 2.16.840.1.113883.6.301.10 sits in the CMS Outpatient Code Editor arc, one along from 0458's ...6.301.9, and the codes are published in the CMS I/OCE specification rather than in Chapter 2C.",
+          "The chapter prints the canonical http://terminology.hl7.org/CodeSystem/v2-0467 for the code system and the matching value set URL, so the identity the ruling confirms is the chapter's own and is not invented here.",
+          "The chapter's content logical definition is 'all codes', which over an external system is the whole system -- no enumeration from Chapter 2C is needed or available.",
+          "Sibling tables 0458 and 0459 share the arc and are held rather than published, because no THO record has been requested for their system yet. The difference is the state of the request, not the shape of the problem."
+        ],
+        "unresolvedSystem": "THO does not yet register this code system. A Jira ticket has been raised to create the external code system record, and it will carry the URL and OID Chapter 2C already prints, so the canonical composed over here is the one that will resolve. Until the record lands the value set points at a canonical with nothing behind it -- a known interim state, accepted in the ruling."
+      },
+      "valueSetVersion": {
+        "version": "1.0.0",
+        "reason": "THO publishes no such artifact, so this is a first publication.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0468",
@@ -12861,12 +12904,26 @@
       "table": "0820",
       "name": "Gender Harmony Concepts",
       "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "reason": "Create the value set, with no code system, since the codes are LOINC's. Publish it at http://terminology.hl7.org/ValueSet/gender-harmony-attributes and carry Chapter 2C's value set OID 2.16.840.1.113883.21.480 on it.",
       "written": [
-        "valueSets/vs-v2-0820.xml"
+        "valueSets/vs-gender-harmony-attributes.xml"
       ],
       "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI",
+      "resolvedBy": "committee ruling, esc-0820-gender-harmony-canonical",
+      "ruledReclassification": {
+        "table": "0820",
+        "registerItem": "esc-0820-gender-harmony-canonical",
+        "ruling": "Create the value set, with no code system, since the codes are LOINC's. Publish it at http://terminology.hl7.org/ValueSet/gender-harmony-attributes and carry Chapter 2C's value set OID 2.16.840.1.113883.21.480 on it.",
+        "rationale": [
+          "The chapter enumerates three LOINC codes -- 76691-5, 76690-7 and 90778-2 -- with a content logical definition of 'enumerated per table content', so the value set is buildable from the chapter alone.",
+          "THO publishes nothing for this table: no ValueSet/v2-0820, and nothing anywhere in the 7.3.0 snapshot carrying the value set OID 2.16.840.1.113883.21.480. Both the ruled canonical and the OID are unoccupied, so neither displaces anything.",
+          "The codes belong to LOINC, so no CodeSystem is this guide's to write.",
+          "This is a canonical change rather than new content: the guide was already publishing these three codes at ValueSet/v2-0820, a URL constructed from the table number because nothing better was available. vs-v2-0820.xml is deleted when the artifact moves."
+        ],
+        "unresolvedSystem": null
+      },
+      "valueSetUrl": "http://terminology.hl7.org/ValueSet/gender-harmony-attributes",
+      "valueSetUrlNote": "Published at THO's existing canonical rather than one constructed from the table number.",
       "valueSetVersion": {
         "version": "1.0.0",
         "reason": "THO publishes no such artifact, so this is a first publication.",
@@ -12878,45 +12935,62 @@
     },
     {
       "table": "0821",
-      "name": "Gender Identity",
-      "action": "needs-decision",
-      "reason": "The table declares 3 code systems; which one the value set draws from is not stated.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0821 already exists in THO, ValueSet/gender-identity. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0821 is not written. THO's ValueSet/gender-identity, active at 2.0.0, carries this table's value set OID 2.16.840.1.113883.4.642.3.3291 and the five concepts the chapter's grid was meant to hold -- three SNOMED CT gender identities, asked-declined and UNK. The chapter's own content logical definition is 'as defined in the linked value set', so deferring to it is what the chapter asks for. This also dissolves the blank-grid blockage recorded in esc-0821-blank-grid, which stays open against the chapter.",
       "written": [],
-      "candidates": [
-        "2.16.840.1.113883.6.96",
-        "2.16.840.1.113883.4.642.4.1048",
-        "2.16.840.1.113883.5.1008"
-      ]
+      "name": "Gender Identity"
     },
     {
       "table": "0822",
-      "name": "Personal Pronouns",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0822 already exists in THO, ValueSet/pronouns. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0822 is not written. THO publishes ValueSet/pronouns, active at 2.0.0, carrying this table's value set OID 2.16.840.1.113883.4.642.3.3290 over three LOINC codes. The ruling cited a build.fhir.org CI-build URL; the durable canonical is used instead, because a CI build is a preview location rather than a published one.",
       "written": [],
-      "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI"
+      "name": "Personal Pronouns"
     },
     {
       "table": "0823",
       "name": "Sexual Orientation",
-      "action": "needs-decision",
-      "reason": "The table declares 3 code systems; which one the value set draws from is not stated.",
-      "written": [],
-      "candidates": [
-        "2.16.840.1.113883.6.96",
-        "2.16.840.1.113883.4.642.4.1048",
-        "2.16.840.1.113883.5.1008"
-      ]
+      "action": "value-set-only",
+      "reason": "The content logical definition correctly pulls codes from three code systems and this is fine. A value set is not restricted to one code system.",
+      "written": [
+        "valueSets/vs-v2-0823.xml"
+      ],
+      "systemUrl": "http://snomed.info/sct",
+      "resolvedBy": "committee ruling, esc-0823-multi-system-compose",
+      "ruledReclassification": {
+        "table": "0823",
+        "registerItem": "esc-0823-multi-system-compose",
+        "ruling": "The content logical definition correctly pulls codes from three code systems and this is fine. A value set is not restricted to one code system.",
+        "rationale": [
+          "The writer had reported the table blocked because it 'declares 3 code systems; which one the value set draws from is not stated'. Composing from several code systems is ordinary FHIR and this guide builds multi-system composes elsewhere, so the count was never the obstacle.",
+          "Nor is the per-code attribution missing. Each of the five rows names its own system in its comment: the three SNOMED codes say \"the HL70396 code for this code is 'SCT'\", asked-declined says it is drawn from FHIR DataAbsentReason and names that canonical, and UNK says it is drawn from V3 NullFlavor and names that one. The information the writer called absent was in the grid it had already read.",
+          "All three systems resolve: SNOMED CT through OID 2.16.840.1.113883.6.96, DataAbsentReason through ...4.642.4.1048, NullFlavor through ...5.1008.",
+          "THO publishes no ValueSet/v2-0823, so this is a first publication rather than a revision -- the separate observation recorded in esc-0823-not-in-tho.",
+          "systemUrl names SNOMED CT as the primary system for reporting, but the compose is built per code from the attributions above rather than from this single value."
+        ],
+        "unresolvedSystem": null
+      },
+      "valueSetVersion": {
+        "version": "1.0.0",
+        "reason": "THO publishes no such artifact, so this is a first publication.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0824",
-      "name": "Recorded Sex or Gender Type",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0824 already exists in THO, ValueSet/recorded-sex-or-gender-type. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0824 is not written. THO publishes ValueSet/recorded-sex-or-gender-type, active at 2.0.0, carrying this table's value set OID 2.16.840.1.113883.4.642.3.3289 over three LOINC codes.",
       "written": [],
-      "systemUrl": "http://loinc.org",
-      "resolvedBy": "published URI"
+      "name": "Recorded Sex or Gender Type"
     },
     {
       "table": "0826",
@@ -12927,25 +13001,21 @@
     },
     {
       "table": "0827",
-      "name": "Source Document Jurisdiction for Recorded Sex or  Gender",
-      "action": "needs-decision",
-      "reason": "The table declares 2 code systems; which one the value set draws from is not stated.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0827 already exists in THO, ValueSet/jurisdiction. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0827 is not written. THO publishes ValueSet/jurisdiction, active at 1.0.0, over ISO 3166 parts 1 and 2 and the UN M49 region codes -- which is what this table's two declared code systems describe. This is the one table of the seven whose chapter value set OID (2.16.840.1.113883.21.485) is on nothing in the snapshot, so the identity rests on the chapter naming the jurisdiction value set outright in its Value Set URI field rather than on a matching identifier.",
       "written": [],
-      "candidates": [
-        "1.0.3166.1",
-        "1.0.3166.2"
-      ]
+      "name": "Source Document Jurisdiction for Recorded Sex or  Gender"
     },
     {
       "table": "0828",
-      "name": "Sex Parameter for Clinical Use",
-      "action": "needs-decision",
-      "reason": "The table declares 2 code systems; which one the value set draws from is not stated.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0828 already exists in THO, ValueSet/sex-parameter-for-clinical-use. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0828 is not written. THO publishes ValueSet/sex-parameter-for-clinical-use, active at 2.0.0, carrying this table's value set OID 2.16.840.1.113883.4.642.3.3181 and composing over both code systems the chapter declares.",
       "written": [],
-      "candidates": [
-        "https://terminology.hl7.org/CodeSystem-sex-parameter-for-clinical-use.html",
-        "http://terminology.hl7.org/CodeSystem/data-absent-reason"
-      ]
+      "name": "Sex Parameter for Clinical Use"
     },
     {
       "table": "0832",
@@ -14344,14 +14414,12 @@
     },
     {
       "table": "0953",
-      "name": "Security Label Handling Instructions",
-      "action": "needs-decision",
-      "reason": "The table declares 2 code systems; which one the value set draws from is not stated.",
+      "action": "suppressed-by-ruling",
+      "reason": "The correct value set for table 0953 already exists in THO, ValueSet/v3-SecurityControlObservationValue. It is the one to use; this guide creates nothing for the table.",
+      "registerItem": "esc-served-by-existing-tho-value-sets",
+      "consequence": "ValueSet/v2-0953 is not written. THO publishes ValueSet/v3-SecurityControlObservationValue, active at 3.0.0, carrying this table's value set OID 2.16.840.1.113883.1.11.20471 and composing over five other v3 value sets. The chapter's content logical definition is 'refer to' that same value set. This also dissolves the two-code-systems blockage the writer reported: which of ActReason and ObservationValue the value set draws from stops mattering once the value set is THO's.",
       "written": [],
-      "candidates": [
-        "http://terminology.hl7.org/CodeSystem-v3-ActReason.html",
-        "http://terminology.hl7.org/CodeSystem-v3-ObservationValue.html"
-      ]
+      "name": "Security Label Handling Instructions"
     },
     {
       "table": "0954",

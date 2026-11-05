@@ -37,7 +37,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 ### Tables with a difference from THO or an open item
 
-**94 tables differ from THO** in at least one element that survived into the published artifact, **102 carry an open register item**, and **14 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
+**94 tables differ from THO** in at least one element that survived into the published artifact, **110 carry an open register item**, and **5 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
 
 This is about **content and governance**. Whether the right kind of artifact exists at all is a separate question, answered by [the tables whose artifact is missing, unexpected, or cannot expand](table-index.html#coverage-anomalies) on the table index — a much shorter list. A table can appear on both lists, on one, or on neither.
 
@@ -45,17 +45,17 @@ Each of these tables has its section heading shaded below, so the same informati
 
 <p class="tl-jump">Needs special consideration: <a href="#tbl-0821">0821</a></p>
 
-<p class="tl-jump">Blocked on a decision: <a href="#tbl-0399">0399</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0467">0467</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0822">0822</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0824">0824</a> <a href="#tbl-0827">0827</a> <a href="#tbl-0828">0828</a> <a href="#tbl-0953">0953</a> <a href="#tbl-0956">0956</a> <a href="#tbl-0962">0962</a> <a href="#tbl-0963">0963</a></p>
+<p class="tl-jump">Blocked on a decision: <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0956">0956</a> <a href="#tbl-0962">0962</a> <a href="#tbl-0963">0963</a></p>
 
 <p class="tl-jump">Differs from THO: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0012">0012</a> <a href="#tbl-0033">0033</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0048">0048</a> <a href="#tbl-0070">0070</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0083">0083</a> <a href="#tbl-0102">0102</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0106">0106</a> <a href="#tbl-0107">0107</a> <a href="#tbl-0108">0108</a> <a href="#tbl-0109">0109</a> <a href="#tbl-0119">0119</a> <a href="#tbl-0123">0123</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0136">0136</a> <a href="#tbl-0156">0156</a> <a href="#tbl-0157">0157</a> <a href="#tbl-0158">0158</a> <a href="#tbl-0174">0174</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0201">0201</a> <a href="#tbl-0202">0202</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0206">0206</a> <a href="#tbl-0208">0208</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0232">0232</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0287">0287</a> <a href="#tbl-0290">0290</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0301">0301</a> <a href="#tbl-0323">0323</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0338">0338</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0356">0356</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0369">0369</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0433">0433</a> <a href="#tbl-0434">0434</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0489">0489</a> <a href="#tbl-0496">0496</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0524">0524</a> <a href="#tbl-0529">0529</a> <a href="#tbl-0548">0548</a> <a href="#tbl-0555">0555</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0717">0717</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0834">0834</a> <a href="#tbl-0906">0906</a> <a href="#tbl-0907">0907</a> <a href="#tbl-0909">0909</a> <a href="#tbl-0912">0912</a> <a href="#tbl-0914">0914</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0937">0937</a> <a href="#tbl-0938">0938</a> <a href="#tbl-0945">0945</a> <a href="#tbl-0948">0948</a> <a href="#tbl-0949">0949</a> <a href="#tbl-0950">0950</a> <a href="#tbl-0951">0951</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0962">0962</a> <a href="#tbl-0970">0970</a> <a href="#tbl-0971">0971</a> <a href="#tbl-4000">4000</a></p>
 
-<p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0006">0006</a> <a href="#tbl-0010">0010</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0065">0065</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0074">0074</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0078">0078</a> <a href="#tbl-0093">0093</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0131">0131</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0163">0163</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0175">0175</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0188">0188</a> <a href="#tbl-0191">0191</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0207">0207</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0223">0223</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0272">0272</a> <a href="#tbl-0277">0277</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0279">0279</a> <a href="#tbl-0281">0281</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0292">0292</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0340">0340</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0391">0391</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0451">0451</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0474">0474</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0626">0626</a> <a href="#tbl-0675">0675</a> <a href="#tbl-0685">0685</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0767">0767</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0910">0910</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0957">0957</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0960">0960</a> <a href="#tbl-0967">0967</a></p>
+<p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0006">0006</a> <a href="#tbl-0010">0010</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0065">0065</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0074">0074</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0078">0078</a> <a href="#tbl-0093">0093</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0131">0131</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0163">0163</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0175">0175</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0188">0188</a> <a href="#tbl-0191">0191</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0207">0207</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0223">0223</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0272">0272</a> <a href="#tbl-0277">0277</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0279">0279</a> <a href="#tbl-0281">0281</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0292">0292</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0340">0340</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0391">0391</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0451">0451</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0467">0467</a> <a href="#tbl-0474">0474</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0626">0626</a> <a href="#tbl-0675">0675</a> <a href="#tbl-0685">0685</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0767">0767</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0822">0822</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0824">0824</a> <a href="#tbl-0827">0827</a> <a href="#tbl-0828">0828</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0910">0910</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0953">0953</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0956">0956</a> <a href="#tbl-0957">0957</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0960">0960</a> <a href="#tbl-0967">0967</a></p>
 
 <p class="tl-legend">
 <span class="tl-hd tl-hd-attention">Needs special consideration (1)</span>
-<span class="tl-hd tl-hd-decision">Blocked on a decision (13)</span>
-<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (38)</span>
-<span class="tl-hd tl-hd-issue">Carries an open register item (60)</span>
+<span class="tl-hd tl-hd-decision">Blocked on a decision (5)</span>
+<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (39)</span>
+<span class="tl-hd tl-hd-issue">Carries an open register item (67)</span>
 <span class="tl-hd tl-hd-diff">Differs from THO (54)</span>
 </p>
 
@@ -4671,22 +4671,21 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0399"></a>
 
 #### 0399 — Country Code
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-both}
 
-<p class="tl-why tl-why-decision">Blocked on a decision · Differs from THO</p>
+<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
-*Route: blocked on a decision.*
-
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 axis'.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+*Route: withheld on a ruling.*
 
 **Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'ISO 3166-1 alpha-3 a…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399 | 24 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The correct value set for table 0399 already exists in THO, ValueSet/v2-notAllCodes-0399. It is the one to use; this guide creates nothing for the ta…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399 | 24 other tables |
+
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0401"></a>
 
@@ -5375,6 +5374,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
+- `esc-0459-unresolvable-oid` — Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register — *V2 Management + TSMG*
 - `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
 
 <a id="tbl-0459"></a>
@@ -5393,7 +5393,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 **Open issues.**
 
-- `esc-0459-unresolvable-oid` — Table 0459 names its code system only by an OID that nothing resolves — *V2 Management + TSMG*
+- `esc-0459-unresolvable-oid` — Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register — *V2 Management + TSMG*
 
 <a id="tbl-0460"></a>
 
@@ -5453,16 +5453,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0467"></a>
 
 #### 0467 — Modifier Edit Code
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: value set only.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+- Value set **1.0.0** — THO publishes no such artifact, so this is a first publication.
+
+**Answered by a committee.**
+
+- `esc-0467-oce-modifier-edit` — Table 0467's code system is an OCE arc OID that THO does not yet register — *V2 Management, 2026-11-05*<br/><span class="tl-note">A Jira ticket has been raised to create an external code system record for this code system. Its URL and OID will be the ones Chapter 2C already lists. Publish the value set over that canonical with a content logical definition of all codes from the system.</span>
 
 <a id="tbl-0468"></a>
 
@@ -7555,109 +7556,97 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
 
+**Answered by a committee.**
+
+- `esc-0820-gender-harmony-canonical` — Table 0820's value set is real content, published at a canonical built from the table number — *V2 Management, 2026-11-05*<br/><span class="tl-note">Create the value set, with no code system, since the codes are LOINC's. Publish it at `http://terminology.hl7.org/ValueSet/gender-harmony-attributes` and carry Chapter 2C's value set OID `2.16.840.1.113883.21.480` on it.</span>
+
 <a id="tbl-0821"></a>
 
 #### 0821 — Gender Identity
 {: .tl-hd .tl-hd-attention}
 
-<p class="tl-why tl-why-attention">Needs special consideration · Blocked on a decision · Open register item</p>
+<p class="tl-why tl-why-attention">Needs special consideration · Open register item</p>
 
-*Route: blocked on a decision.*
-
-> **Table 0821 needs a decision before this guide can publish anything for it, and the published chapter needs correcting.**
->
-> Chapter 2C prints this table's coded content grid **completely blank**. The grid is six rows by five columns and every cell is empty, while the rest of the section is fully populated: three code systems (SNOMED CT, FHIR DataAbsentReason, V3 NullFlavor), three code system versions, and a value set. As published, the chapter names no codes for gender identity at all, and a reader of the chapter cannot tell what the table is supposed to contain.
->
-> The row count says what was lost. Six rows is a header plus **five** code rows, and THO's `ValueSet/gender-identity` — whose OID `2.16.840.1.113883.4.642.3.3291` is exactly the one Chapter 2C prints for this value set — holds exactly **five** concepts: three SNOMED CT gender identities, `asked-declined`, and `UNK`. Table 0823 *Sexual Orientation* is built the same way and does print its codes.
->
-> **Two things are open, and both are for V2 Management.** The five intended codes have to be confirmed and the grid republished. And the table declares three code systems without saying which one the value set draws from, so there is no way to tell whether the value set should bind to `2.16.840.1.113883.6.96`, `2.16.840.1.113883.4.642.4.1048` or `2.16.840.1.113883.5.1008`. Until both are answered this guide publishes no code system and no value set at this table's canonicals, and THO's `ValueSet/gender-identity` stands untouched.
->
-> One smaller thing in the same section: the value set description runs two sentences together with no space — “…within their community.Used in HL7 Version 2.x messages”.
-{: .tl-callout}
+*Route: withheld on a ruling.*
 
 **Open issues.**
 
 - `esc-0821-blank-grid` — Table 0821 _Gender Identity_ publishes its coded content grid completely blank — *V2 Management*
 
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
+
 <a id="tbl-0822"></a>
 
 #### 0822 — Personal Pronouns
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: withheld on a ruling.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0823"></a>
 
 #### 0823 — Sexual Orientation
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision · Open register item</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: value set only.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 3 code systems; which one the value set draws from is not stated.
->
-> The code systems the chapter declares are `2.16.840.1.113883.6.96`, `2.16.840.1.113883.4.642.4.1048`, `2.16.840.1.113883.5.1008`. Which of them the value set draws from has to be settled before either artifact can be written.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+- Value set **1.0.0** — THO publishes no such artifact, so this is a first publication.
 
 **Open issues.**
 
 - `esc-0823-not-in-tho` — Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO — *V2 Management + TSMG*
 
+**Answered by a committee.**
+
+- `esc-0823-multi-system-compose` — Table 0823's value set draws on three code systems, and the chapter says which code comes from which — *V2 Management, 2026-11-05*<br/><span class="tl-note">The content logical definition correctly pulls codes from three code systems and this is fine. A value set is not restricted to one code system.</span>
+
 <a id="tbl-0824"></a>
 
 #### 0824 — Recorded Sex or Gender Type
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: withheld on a ruling.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The Content Logical Definition is not one of the shapes this guide builds — all codes, enumerated per table content, or an is-a filter: 'as defined in the linked value set'.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0827"></a>
 
 #### 0827 — Source Document Jurisdiction for Recorded Sex or  Gender
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: withheld on a ruling.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 2 code systems; which one the value set draws from is not stated.
->
-> The code systems the chapter declares are `1.0.3166.1`, `1.0.3166.2`. Which of them the value set draws from has to be settled before either artifact can be written.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0828"></a>
 
 #### 0828 — Sex Parameter for Clinical Use
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: withheld on a ruling.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 2 code systems; which one the value set draws from is not stated.
->
-> The code systems the chapter declares are `https://terminology.hl7.org/CodeSystem-sex-parameter-for-clinical-use.html`, `http://terminology.hl7.org/CodeSystem/data-absent-reason`. Which of them the value set draws from has to be settled before either artifact can be written.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0834"></a>
 
@@ -8639,18 +8628,15 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0953"></a>
 
 #### 0953 — Security Label Handling Instructions
-{: .tl-hd .tl-hd-decision}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
-*Route: blocked on a decision.*
+*Route: withheld on a ruling.*
 
-> **This table is blocked on a decision, so this guide publishes no code system and no value set for it.** The table declares 2 code systems; which one the value set draws from is not stated.
->
-> The code systems the chapter declares are `http://terminology.hl7.org/CodeSystem-v3-ActReason.html`, `http://terminology.hl7.org/CodeSystem-v3-ObservationValue.html`. Which of them the value set draws from has to be settled before either artifact can be written.
->
-> Whatever THO already publishes at these canonicals stands untouched in the meantime.
-{: .tl-callout}
+**Answered by a committee.**
+
+- `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0954"></a>
 
@@ -8684,7 +8670,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 #### 0956 — Job Supervisory Level or Pay Grade
 {: .tl-hd .tl-hd-decision}
 
-<p class="tl-why tl-why-decision">Blocked on a decision</p>
+<p class="tl-why tl-why-decision">Blocked on a decision · Open register item</p>
 
 *Route: blocked on a decision.*
 
@@ -8692,6 +8678,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 >
 > Whatever THO already publishes at these canonicals stands untouched in the meantime.
 {: .tl-callout}
+
+**Open issues.**
+
+- `esc-0956-no-stable-home` — Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned — *V2 Management + TSMG*
 
 <a id="tbl-0957"></a>
 

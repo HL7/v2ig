@@ -1005,21 +1005,49 @@ def test_a_reclassification_publishes_what_the_chapter_says_not_to():
     assert files, "the reclassified table must produce an artifact"
 
 
-def test_no_reclassification_claims_an_unresolved_code_system():
-    """`unresolved` exists for a reclassification whose code system nothing
-    recognises, and nothing currently qualifies.
+# Reclassifications allowed to declare their code system unresolved, and why.
+# `unresolved` must be a deliberate act with evidence, never a shrug: 0350 and
+# 0351 carried one until it was found to be wrong -- their compose target is
+# an HL7-endorsed URI for an externally-owned NUBC code system, registered as
+# a NamingSystem with no content behind it, which is THO's documented
+# convention rather than a dangling pointer. Listing the exceptions by hand
+# keeps a future entry from inheriting that mistake silently.
+EXPECTED_UNRESOLVED_SYSTEMS = {
+    "0467": "The CMS I/OCE modifier edit code system. A Jira ticket has been "
+            "raised with THO to create the external code system record, "
+            "which will carry the URL and OID Chapter 2C already prints. "
+            "Remove this entry once THO publishes it.",
+}
 
-    0350 and 0351 carried one until it was found to be wrong: their compose
-    target is an HL7-endorsed URI for an externally-owned NUBC code system,
-    registered as a NamingSystem with no content behind it, which is THO's
-    documented convention rather than a dangling pointer. Asserting the
-    empty case keeps a future entry from inheriting that mistake silently --
-    setting `unresolved` should be a deliberate act with evidence."""
+
+def test_no_reclassification_claims_an_unresolved_code_system():
+    """Only the tables known to be waiting on THO may say `unresolved`.
+
+    THO registering a canonical as an external code system is enough to make
+    it resolvable; a missing CodeSystem resource is not evidence of a
+    dangling pointer. So an unexpected entry here means somebody applied the
+    narrow test again, and should check THO's external code systems page
+    before believing it."""
     summary = writer.reclassification_summary([])
-    assert summary["unresolvedSystems"] == [], (
-        f"these reclassifications claim an unresolved code system: "
-        f"{summary['unresolvedSystems']}. Check whether THO registers the "
-        f"canonical as an external code system before believing it.")
+    unexpected = [table for table in summary["unresolvedSystems"]
+                  if table not in EXPECTED_UNRESOLVED_SYSTEMS]
+    assert unexpected == [], (
+        f"these reclassifications claim an unresolved code system and are "
+        f"not in EXPECTED_UNRESOLVED_SYSTEMS: {unexpected}. Check whether "
+        f"THO registers the canonical as an external code system before "
+        f"believing it.")
+
+
+def test_every_expected_unresolved_system_is_still_unresolved():
+    """The exception list has to shrink. An entry whose code system THO has
+    since registered is a stale waiver, and leaving it would let a genuinely
+    unresolved system hide behind it."""
+    summary = writer.reclassification_summary([])
+    resolved = [table for table in EXPECTED_UNRESOLVED_SYSTEMS
+                if table not in summary["unresolvedSystems"]]
+    assert resolved == [], (
+        f"these tables are no longer unresolved, so their waiver in "
+        f"EXPECTED_UNRESOLVED_SYSTEMS should be deleted: {resolved}")
 
 
 def test_the_four_ruling_mechanisms_are_disjoint():

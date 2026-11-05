@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v2-0823"/>
+  <url value="http://terminology.hl7.org/ValueSet/v2-0823"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113762.1.4.1021.33"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="SexualOrientation"/>
+  <title value="Sexual Orientation"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Concepts to describe a person’s sexual orientation (who they are attracted to).&#10;Used in HL7 Version 2.x messages in the GSP segment."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="89217008"/>
+        <display value="Lesbian, gay or homosexual"/>
+      </concept>
+      <concept>
+        <code value="20430005"/>
+        <display value="heterosexual"/>
+      </concept>
+      <concept>
+        <code value="42035005"/>
+        <display value="Bisexual"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+      <concept>
+        <code value="asked-declined"/>
+        <display value="Asked But Declined"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

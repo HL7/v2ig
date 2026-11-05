@@ -31,13 +31,13 @@ already applied.
 
 All **6** questions below are for **V2 Management**. TSMG owns the artifact versioning policy; V2 Management owns what Chapter 2C says.
 
-There are **54 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
+There are **46 open items** below, plus **6 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
 
 **1 question has since been answered** and moved to the evidence page: [1. Does reordering a code system's concepts count as a change?](evidence.html#gq-does-reordering-a-code-system).
 
 ### For V2 Management / TSMG
 
-#### Open items <span class="ri-count">&mdash; 33 items</span>
+#### Open items <span class="ri-count">&mdash; 34 items</span>
 
 <div class="ri-blurb">Defects in the published Chapter 2C, in THO, or in both. None of these is this project's to resolve, and each needs a committee answer. They are listed first because a representation decision can be revisited at any time, whereas getting an item onto an agenda has a lead time.</div>
 
@@ -112,6 +112,11 @@ There are **54 open items** below, plus **6 general questions** that have a work
   <div class="ri-who">Goes to: V2 Management + TSMG</div>
 </div>
 <div class="ri-item ri-escalate">
+  <div class="ri-key">0956</div>
+  <p><b>Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned</b></p><p><code>0956</code> <i>Job Supervisory Level or Pay Grade</i> declares the code system <code>PHOccupationalDataForHealthODH</code> and gives its content logical definition as &ldquo;unspecified&rdquo;, which is not a shape this guide can build. THO publishes no <code>ValueSet/v2-0956</code> and no obvious equivalent. <b>Two candidate value sets exist and neither is a durable home.</b> One is <code>valueset-supervisory-level-odh-us</code>, published in <b>FHIR 3.3 (2018May)</b> &mdash; a draft ballot snapshot, not a released FHIR version, and not a canonical anything should be bound to today. The other is a PHIN VADS value set at OID <code>2.16.840.1.114222.4.11.7613</code>; <b>PHIN VADS is being decommissioned by the CDC</b>, so everything hosted there is of uncertain future. Pointing this guide at either would be binding V2.9.1 content to a location that is known in advance to be going away. That is worse than publishing nothing, because a dead pointer in a published IG is harder to retract than an acknowledged gap.</p><p class="ask"><b>The ask:</b> <b>Something needs to happen for 0956 and nobody yet knows what.</b> This item exists to keep that fact from being lost, which is the whole of its present purpose. The question for V2 Management and TSMG is where the supervisory level / pay grade codes should live once PHIN VADS is gone: a THO value set created for the purpose, an external code system record pointing at whatever the CDC designates as the successor, or a decision that the table is not viable and should become concept domain only. <b>In the meantime this guide publishes no CodeSystem and no ValueSet for 0956</b>, by decision rather than by omission. Its concept domain <code>JobSupervisoryLevelorPayGrade</code> is published in <code>CodeSystem/conceptdomains</code> and is unaffected, so a binding to the domain remains expressible while the terminology question is settled.</p>
+  <div class="ri-who">Goes to: V2 Management + TSMG</div>
+</div>
+<div class="ri-item ri-escalate">
   <div class="ri-key">0954, 0957</div>
   <p><b>Table 0954's logical definition would include an abstract concept THO's equivalent excludes</b></p><p>Both tables define their value set as a subtree of <code>v3-ObservationValue</code>. 0957 <i>Employment Status</i> says it in two clauses &mdash; <i>Include codes &hellip; where concept is-a <code>_EmploymentStatus</code></i>, then <i>Exclude codes where code = <code>_EmploymentStatus</code></i>. That second clause matters: in FHIR, an <code>is-a</code> filter includes the concept it is rooted at, and <code>_EmploymentStatus</code> is an abstract grouper that should never be sent in a message. The exclusion is what makes the value set mean &ldquo;the actual statuses&rdquo;. <b>0954 <i>Work Schedule</i> has the include clause and no exclude clause</b>, so read literally its value set contains the abstract <code>_WorkSchedule</code> grouper. THO's own <code>ValueSet/v3-WorkScheduleODH</code> <b>does</b> exclude it, and is otherwise identical to 0957's shape. So either the chapter dropped a clause from 0954, or the two tables genuinely differ &mdash; and nothing in the text says which. This project builds what the chapter says, so <b>the generated <code>ValueSet/v2-0954</code> currently has no exclude</b> and differs from THO on exactly this point. <b>There is a second line of defence, and it is the reason this is worth stating carefully rather than simply fixing.</b> Both groupers carry <code>notSelectable = true</code> as a concept property in THO's <code>CodeSystem/v3-ObservationValue</code> &mdash; verified on both <code>_WorkSchedule</code> and <code>_EmploymentStatus</code>. A terminology server that honours that property will keep the abstract concept out of the expansion whether or not the value set excludes it, which makes the exclude clause <i>optional</i> rather than load-bearing. But <code>notSelectable</code> is an advisory property, and honouring it in expansion is a matter of server implementation rather than something the value set can require. An explicit exclude does not depend on any server behaviour; relying on the property does.</p><p class="ask"><b>The ask:</b> Confirm that 0954 is missing an <i>Exclude codes where code = <code>_WorkSchedule</code></i> clause, in which case it is a technical correction and one line to apply. If the omission is deliberate, say so, because the value set then diverges from THO's and somebody will raise it again. The recommendation is to add it regardless of the <code>notSelectable</code> safety net: the clause costs nothing, it makes 0954 consistent with its sibling 0957 and with THO, and it removes a dependency on how a given expansion engine treats an advisory property.</p>
   <div class="ri-who">Goes to: V2 Management + TSMG</div>
@@ -137,8 +142,8 @@ There are **54 open items** below, plus **6 general questions** that have a work
   <div class="ri-who">Goes to: V2 Management + TSMG</div>
 </div>
 <div class="ri-item ri-escalate">
-  <div class="ri-key">0459</div>
-  <p><b>Table 0459 names its code system only by an OID that nothing resolves</b></p><p><code>0459</code> <i>Reimbursement Action Code</i> is an External table stewarded by FM. It declares one code system, <code>cms-OCEEditCode-cs</code>, identified solely by OID <code>2.16.840.1.113883.6.301.9</code> with no URI. <b>Neither THO nor the FHIR core packages resolve that OID to a canonical URL</b>, so there is no way to say what code system the table's four codes belong to. The writer therefore emits nothing for this table &mdash; not a CodeSystem, not a ValueSet &mdash; and it is one of only two tables in the chapter blocked this way. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.</p><p class="ask"><b>The ask:</b> Supply the canonical URL for the CMS OCE Edit Code system, or confirm that an external code system record needs to be created in THO for it. If neither is available, decide whether 0459 should become concept-domain-only, in which case no value set is needed and the OID becomes documentation rather than a dependency.</p>
+  <div class="ri-key">0458, 0459</div>
+  <p><b>Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register</b></p><p><code>0458</code> <i>OCE Edit Code</i> and <code>0459</code> <i>Reimbursement Action Code</i> both declare the code system <code>cms-OCEEditCode-cs</code>, identified solely by OID <code>2.16.840.1.113883.6.301.9</code> with no URI. 0459 is an External table stewarded by FM and prints four codes; 0458 prints none. <b>Neither THO nor the FHIR core packages resolve that OID to a canonical URL</b>, so there is no way to say what code system the four codes belong to. The writer therefore emits nothing for either table &mdash; not a CodeSystem, not a ValueSet. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.</p><p class="ask"><b>The ask:</b> <b>Partly answered, and still open.</b> The reviewer confirmed on 2026-11-05 that the codes come from the CMS Integrated Outpatient Code Editor specification &mdash; for 0459, Table 7 row 13 of the I/OCE specification &mdash; and that a request has been made for THO to create an external code system record for it. <b>Until that record exists there is no canonical to compose over</b>, so both tables are held: no CodeSystem, no ValueSet, concept domain only. Both concept domains (<code>OceEditCode</code>, <code>ReimbursementActionCode</code>) are published and unaffected. What remains open is the THO record itself. Once it exists, the canonical URL it carries goes straight into both tables' content logical definitions and this item closes. <b>Nothing is to be extracted from the I/OCE specification PDF</b>; the canonical from the THO record is the only thing needed. Note that sibling table 0467 is in the same OCE arc and has <i>already</i> had its Jira ticket raised, so it is being published now &mdash; see <code>esc-0467-oce-modifier-edit</code>. The difference between them is the state of the THO request, not the shape of the problem.</p>
   <div class="ri-who">Goes to: V2 Management + TSMG</div>
 </div>
 <div class="ri-item ri-escalate">
@@ -552,33 +557,13 @@ artifacts published for it.
 
 Judgements this guide cannot make for itself. Each one has a working answer applied, so none of them blocks a build; each is here because the answer is somebody else's to give.
 
-#### For V2 Management / TSMG &mdash; Tables the XML writer will not guess at <span class="ri-count">&mdash; 14 items</span>
+#### For V2 Management / TSMG &mdash; Tables the XML writer will not guess at <span class="ri-count">&mdash; 5 items</span>
 
 <div class="ri-blurb">The writer produces a CodeSystem or ValueSet only where the chapter says clearly enough what it should be. These tables it leaves alone, and each group below is one decision rather than one per table. Nothing here is a defect in the tooling; each is a place the published chapter is ambiguous, incomplete, or points somewhere that does not resolve.</div>
 
 <div class="ri-item ri-decide">
-  <div class="ri-key">3</div>
-  <p>The table declares 2 code systems; which one the value set draws from is not stated.</p><p class="ask">0827 <i>Source Document Jurisdiction for Recorded Sex or  Gender</i>, 0828 <i>Sex Parameter for Clinical Use</i>, 0953 <i>Security Label Handling Instructions</i></p>
-</div>
-<div class="ri-item ri-decide">
   <div class="ri-key">2</div>
   <p>The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.</p><p class="ask">0458 <i>OCE Edit Code</i>, 0459 <i>Reimbursement Action Code</i></p><p>As published: <code>2.16.840.1.113883.6.301.9</code></p>
-</div>
-<div class="ri-item ri-decide">
-  <div class="ri-key">2</div>
-  <p>The table declares 3 code systems; which one the value set draws from is not stated.</p><p class="ask">0821 <i>Gender Identity</i>, 0823 <i>Sexual Orientation</i></p>
-</div>
-<div class="ri-item ri-decide">
-  <div class="ri-key">2</div>
-  <p>The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: &#x27;as defined in the linked value set&#x27;.</p><p class="ask">0822 <i>Personal Pronouns</i>, 0824 <i>Recorded Sex or Gender Type</i></p>
-</div>
-<div class="ri-item ri-decide">
-  <div class="ri-key">1</div>
-  <p>The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: &#x27;ISO 3166-1 alpha-3 axis&#x27;.</p><p class="ask">0399 <i>Country Code</i></p>
-</div>
-<div class="ri-item ri-decide">
-  <div class="ri-key">1</div>
-  <p>The table owns its code system but publishes no codes, so a complete CodeSystem cannot be built.</p><p class="ask">0467 <i>Modifier Edit Code</i></p>
 </div>
 <div class="ri-item ri-decide">
   <div class="ri-key">1</div>
