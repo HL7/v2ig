@@ -1334,6 +1334,53 @@ ESCALATIONS = [
             "terminology question is settled.",
     },
     {
+        "id": "esc-0962-already-in-tho",
+        "who": "V2 Management",
+        "tables": "0962",
+        "title": "Table 0962's value set is published and correct in THO, "
+                 "and this guide reports the table blocked",
+        "body":
+            "<code>0962</code> <i>Device Status</i> routes "
+            "<code>needs-decision</code> because its code system block gives "
+            "a FHIR core <i>page</i> URL, "
+            "<code>http://hl7.org/fhir/codesystem-device-status.html</code>, "
+            "and an OID <code>2.16.840.1.113883.4.642.1.200</code> that "
+            "nothing in THO or FHIR core resolves. So the writer cannot say "
+            "what the value set composes over and emits nothing. "
+            "<b>THO nevertheless publishes "
+            "<code>ValueSet/v2-0962</code></b>, active at 3.0.0, carrying "
+            "this table's value set OID "
+            "<code>2.16.840.1.113883.4.642.3.209</code> and composing over "
+            "<code>http://hl7.org/fhir/device-status</code> &mdash; the real "
+            "canonical the chapter's page link was pointing at. The artifact "
+            "exists, it is correct, and nothing about it is in doubt. "
+            "<b>There is a loose end in this repository because of it.</b> "
+            "<code>vs-v2-0962.xml</code> is tracked and staged from an "
+            "earlier run, when the table still routed to an artifact. It is "
+            "byte-equivalent in substance to THO's. Nothing prunes it, "
+            "because the prune deliberately removes only the exact paths of "
+            "suppressed tables &mdash; a broader sweep would be wrong under "
+            "<code>--table</code>. So the writer warns about it on every "
+            "run, and it is the only artifact in the IG that no route "
+            "accounts for.",
+        "ask":
+            "<b>This is almost certainly the same question answered seven "
+            "times in November</b>, under "
+            "<code>esc-served-by-existing-tho-value-sets</code>: a correct "
+            "value set already exists, so this guide should not create one. "
+            "If that is the answer here too, 0962 becomes a suppression "
+            "naming <code>ValueSet/v2-0962</code>, the table leaves the "
+            "needs-decision list, and the orphaned file is pruned by the "
+            "mechanism rather than deleted by hand. "
+            "<b>The alternative</b> is that this guide should publish the "
+            "table, in which case the page-URL fallback that already "
+            "rescues seven other tables needs extending to reach FHIR core "
+            "code systems, and 0962 routes normally with no ruling needed. "
+            "Either answer closes it; the current state &mdash; blocked, "
+            "with an unexplained artifact published anyway &mdash; is the "
+            "only one that should not persist.",
+    },
+    {
         "id": "esc-0960-duplicate-of-fhir-core",
         "who": "V2 Management",
         "tables": "0960",

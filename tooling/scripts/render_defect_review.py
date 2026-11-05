@@ -219,6 +219,12 @@ CLASSIFICATION = {
         "An OID that resolves to nothing, on two tables. Blocks both "
         "mechanically. A THO external code system record has been "
         "requested; the canonical it carries closes this."),
+    "esc-0962-already-in-tho": (
+        "wrong-identifier",
+        "A FHIR core page URL where the code system canonical belongs, and "
+        "an OID that resolves to nothing. THO publishes the value set "
+        "correctly regardless, so the chapter's identifier is the only "
+        "thing wrong."),
     "esc-0956-no-stable-home": (
         "wrong-identifier",
         "The only two value sets that carry these codes are a withdrawn "
