@@ -8,4 +8,5 @@ FIXME
 
 xref:technical_specs/O23.adoc[Message - O23 Imaging Order]
 
-== Examples
+xref:../general_orders_and_results/technical_specs/R01.adoc[Message - R01 Unsolicited Observation]
+

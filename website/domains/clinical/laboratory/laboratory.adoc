@@ -14,6 +14,8 @@ xref:technical_specs/O37.adoc[Message - O37 Laboratory Order for Population/Loca
 
 xref:technical_specs/O59.adoc[Message - O59 Laboratory Result Interpretation Request]
 
+xref:../general_orders_and_results/technical_specs/R01.adoc[Message - R01 Unsolicited Observation]
+
 xref:technical_specs/R22.adoc[Message - R22 Unsolicited Specimen Oriented Observation]
 
 xref:technical_specs/R23.adoc[Message - R23 Unsolicited Specimen Container Oriented Observation]
