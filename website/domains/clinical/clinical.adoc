@@ -10,6 +10,8 @@ xref:blood_bank/blood_bank.adoc[Blood Bank]
 
 xref:clinical_trials/clinical_trials.adoc[Clinical Trials]
 
+xref:devices/devices.adoc[Device Alerts]
+
 xref:dietary/dietary.adoc[Dietary]
 
 xref:general_orders_and_results/general_orders_and_results.adoc[General Orders And Results]
