@@ -188,12 +188,6 @@ xref:technical_specs/R31.adoc[Message - R31 Unsolicited New Point-Of-Care Observ
 
 xref:technical_specs/R32.adoc[Message - R32 Unsolicited Pre-Ordered Point-Of-Care Observation]
 
-xref:technical_specs/R40.adoc[Message - R40 Unsolicited Alert Observation]
-
-xref:technical_specs/R42.adoc[Message - R42 Unsolicited Device Event Observation]
-
-xref:technical_specs/R43.adoc[Message - R43 Unsolicited Patient-Device Association Observation]
-
 == Example Transactions
 
 === General Message Examples
