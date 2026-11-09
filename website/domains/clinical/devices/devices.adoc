@@ -2,7 +2,7 @@
 
 == Introduction
 
-This topic covers messaging for unsolicited alerts and other notification observations via ORU messages.  As described below, specific use cases use dedicated message types and events to fulfill their functional requirements.
+This topic covers messaging for unsolicited alerts and other device-related notification observations via ORU messages.  As described below, specific use cases use dedicated message types and events to fulfill their functional requirements.
 
 == Technical Specs
 
