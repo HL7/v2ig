@@ -19,10 +19,9 @@ In contrast to ORU^R42, the ORU^R01 message is typically used to periodically re
 
 The OBX-8 field for these messages should be left blank or set to “N” for normal. Any abnormal or other non-normal indications should result in usage of the ORU^R40 message.
 
-The ORU^R40 message is outside of the order-fulfilling cycle of the ORU and OUL messages with other trigger events, and is supplemental to those order-fulfilling observations. As such, the results conveyed in the ORU^R40 message do not replace, edit, or override the results of messages with other trigger events.
+The ORU^R42 message is outside of the order-fulfilling cycle of the ORU and OUL messages with other trigger events, and is supplemental to those order-fulfilling observations. As such, the results conveyed in the ORU^R42 message do not replace, edit, or override the results of messages with other trigger events.
 
 [tabset]
-Obs
-
+R42
 
 
