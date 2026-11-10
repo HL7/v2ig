@@ -3465,3 +3465,175 @@ describe them.
 **Capture the 2026-09-23 V2 Management meeting.** It has happened, the briefing
 was prepared for it, and nothing from it is recorded. That is the largest
 un-captured thing in the project.
+
+---
+
+## 2026-10-14 — Session 8: ten rulings, and a finding of ours that was wrong
+
+Four commits, no build. The reviewer answered ten questions across two V2
+Management calls, writing them into `docs/issue_resolutions.md` as prose, and
+asked to batch the rebuild until the rulings stop arriving. The last of the
+ten withdrew a finding of ours rather than settling anything in the chapter.
+
+### What the rulings changed
+
+Five tables stopped being published as they were. **0567, 0568 and 0078 are
+withheld**; **0411** dropped to concept-domain-only, taking its CodeSystem and
+ValueSet with it; **0350 and 0351** went the other way and are now published
+where the guide previously wrote nothing. **0010 and 0188** were withdrawn
+outright, which changed nothing here — both already routed `nothing-to-write`
+— but creates binding-removal work in the structural workstream. **0133** got
+a bolded discontinuation warning. **0005** was settled as needing nothing.
+
+The 0567/0568 one is the pattern worth remembering: *"this IG will simply not
+do anything with these VS"* sounded like a no-op and was not. The guide was
+publishing both at 4.0.0 against THO's 3.0.0 — an increment earned honestly,
+by adding display text to codes THO leaves bare — so it was minting new
+versions of two artifacts a committee had just said to leave alone, and would
+have gone on doing it every run.
+
+### Three mechanisms, and why not two
+
+ADR-0013 added `RULED_SUPPRESSIONS` and this session added
+`RULED_RECLASSIFICATIONS`, neither of which could fold into ADR-0011's
+tentative overrides. That table is for deviations *awaiting* a ruling; its
+entries must name an **open** register item and their count is published as
+the guide's un-ruled-deviation debt. Filing a settled ruling there would break
+the invariant and inflate a debt figure with something that is not debt. So
+the two new tables carry the mirror invariant — their items must be
+**answered** — and a test checks all three are disjoint.
+
+Suppression and reclassification then split from each other for a different
+reason: **a suppression removes output and needs only a table number, while a
+reclassification adds output** and so must say what to publish and over which
+code system. That cannot be read from the chapter, because the chapter being
+wrong is the premise.
+
+### One ruling's premise did not hold, and one of mine did not either
+
+**0567/0568** said *"the CS in THO have already been retired."* There are no
+CodeSystems for 0567, 0568, 0929 or 0930 at all — only four ValueSets, all
+active, all composing from UCUM directly. Shown this, the reviewer confirmed
+the slip. The ruling's substance was unaffected.
+
+**0350/0351 is the one worth reading.** The ruling said the value set CLDs
+needed repointing at the appropriate external code system. I reported back
+that there was no such code system to point at: THO publishes no
+`CodeSystem/v2-0350` or `v2-0351`, yet its NamingSystems map the NUBC OIDs to
+exactly those canonicals. I published the tables composing over what I
+believed was a dangling pointer, flagged them as unable to expand, and wired
+a warning into every run.
+
+**That was wrong.** The reviewer pointed at THO's
+[external code systems page](https://terminology.hl7.org/en/external_code_systems.html):
+`http://terminology.hl7.org/CodeSystem/v2-0350` and `.../v2-0351` are the
+**HL7-endorsed URIs for the two NUBC code systems**, listed there with dashes
+in both the Fragment and Complete Code System columns. THO mints a canonical
+under its own hostname for a code system whose content belongs elsewhere,
+registers it as a NamingSystem with `responsible: NUBC`, and publishes no
+content. The CLDs were already correct. The classification half of the ruling
+stands on its own evidence — `v2-tables` types both tables `Externally
+defined` — so the tables are published, unchanged from THO, and complete.
+
+**And the error was older than this session.** `esc-tho-dangling-value-sets`
+had claimed four unexpandable THO value sets since the merge was first run.
+All four are NUBC systems of exactly this kind. The finding is now withdrawn
+rather than deleted, carrying why it was wrong, because it was circulated and
+because anybody re-deriving it would make the same mistake: the comparison
+asked whether a `CodeSystem-*.json` existed at the compose target, which is
+the right test for an HL7-owned code system and the wrong one for an
+externally-owned system under an HL7-endorsed URI. Re-tested correctly,
+**one** unresolvable target exists across every v2 value set THO publishes —
+the already-known `v2-0962` → `http://hl7.org/fhir/device-status`.
+
+The loop is the part to remember. A wrong finding in the register became the
+premise of a ruling, which came back as an instruction to fix something that
+was not broken. **The register is evidence to whoever reads it**, so a bad
+finding does not stay contained.
+
+### The blanket ask is gone
+
+`esc-retain-known-errors` asked V2 Management for one rule covering every
+defect in the chapter. The answer was that no single rule applies — per class,
+sometimes per instance, with individual issues reviewed. That makes the ask
+unusable and the defects no less real, so `render_defect_review.py` replaces
+it: 34 open findings in 6 classes, ordered cheapest-answer-first, each
+carrying what the chapter says, what THO says, **what the guide publishes
+today read from the build report**, and the decision needed.
+
+The item stays **open and unresolved**. A `resolution` would claim an answer
+nobody gave, and the mechanism should not be used to record "they declined to
+generalise."
+
+### Splitting, not closing
+
+Seven of the ten answered items were split out of a larger finding, because a
+committee names two tables of a four-table item. The invariants force this:
+both new mechanisms refuse a register item with no `resolution`, which is what
+a part-answered parent still looks like. The register grew from 38 items to 44
+while going from 1 answered to 10 — growth is the expected shape here.
+
+Where a ruling bears on its former siblings, that is said in both directions.
+0411 leaving `esc-0460-user-defined-mint` makes **0460 the only minted
+canonical in the corpus** — a sharper question, not a smaller one.
+
+### Six drifted numbers, four of them uncovered
+
+`7,580` THO-only values is 7,588 and `731 of 817` is 733 of 819, both caught
+by existing tests. `824 artifacts generated` and `8 classes of chapter defect`
+were found by reading the metrics strip *after* the covered ones failed, and
+two index.md counts by the staging self-check. **Every number on that strip is
+now under a test**, including the blocking-question count — which the page had
+already contradicted, saying one while listing two blockers, the second
+downgraded in its own prose without the number following.
+
+### Two latent bugs that only surfaced now
+
+**The ledger listed answered items as "Open issues."** Latent because the only
+previously answered item was scoped to "32 tables", which matches no table
+number and so never reached a table section. This session's rulings were the
+first with real numbers. Answered items now render under their own heading
+with the ruling attached.
+
+**`vs-v2-0962.xml` is an orphan** — tracked, staged and published, for a table
+that became `needs-decision` and whose file nothing prunes. Pre-existing and
+unrelated to any ruling; confirmed by re-running the writer on a clean tree.
+Left in place: the writer now reports any file a full run did not write rather
+than deleting it, because `--table` runs cannot know what is stale.
+
+### An invented question, struck
+
+The handoff had carried "is `Evidence` the right navbar name, and does the
+evidence page want splitting?" as a reviewer question from session 5 for three
+sessions. `git log -S` puts its first appearance in session 6's handoff. There
+is no session 5 entry containing it and no tracker row. An agent invented it,
+labelled it a reviewer question, and three handoffs copied it forward. The
+reviewer's response: nobody human ever raised it.
+
+Same failure as session 7's "no case in the corpus" — a confident unverifiable
+claim propagating. The difference is that one was about the build and could be
+computed; this one was about a person, and the check was `git log -S`.
+
+### Also
+
+- `conceptdomains-divergences.json`'s `generated` date is gone. Nothing read
+  it; it made the file differ across a day boundary with no content change.
+  Verified byte-identical across two runs, so `--from` is trustworthy now.
+- Answered the reviewer's question about IG Publisher and retired resources by
+  searching the publisher's rendering phrases: there is
+  `CODESYSTEM_DEPRECATED` for concepts and `RES_REND_RET` for a resource, but
+  no banner. Status renders as one metadata row. Hence the markdown approach
+  for 0133.
+- Suppressing 0411 shifted concept element ids in `cs-v2-0460.xml` by two.
+  Ids come from one counter allocated in table order. Benign, verified, and
+  alarming in a diff.
+- THO 7.4.0 was released; staying on 7.3.0 on the reviewer's judgement that no
+  v2 content changed.
+
+### Not done
+
+No build. 587 tests pass and the preprocessing chain runs clean apart from the
+two expected warnings, but **the IG on disk is from 2026-09-23** and predates
+every ruling in this session.
+
+---
