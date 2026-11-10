@@ -3387,3 +3387,81 @@ were in the index. They are not — all 35 remaining are among 39 tables Chapter
 
 None of the agreed plan. The additive merge, the computed version bumps, 0560,
 the per-table ledger and the two ADRs are all next session's work.
+
+## 2026-09-29 — Session 7: the briefing's own claims, checked
+
+### Completed
+
+**Committed session 6's uncommitted briefing work as `4e81c91d` — after
+checking it.** An interrupted session left a substantial diff in the tree. The
+reviewer asked for it to be reviewed and committed; reviewing it turned out to
+be the point.
+
+**Its central claim holds, and was verified rather than trusted.** The guide
+was never choosing between competing concept domain definitions by document
+order — all five multiply-declared domains publish THO's definition, checked
+against the published `conceptdomains` resource rather than the report about
+it. The V2 Management item genuinely drops from a ruling to a confirmation,
+and the blocking count from two to one.
+
+**Two claims in it were wrong.**
+
+The first was an overstatement: *"there is no case anywhere in the corpus of a
+domain declared by several tables with no THO definition to fall back on"*.
+There are 20. The claim the argument needs is narrower — every domain whose
+tables describe it **differently** has a THO definition — and that one is
+true. In all 20 the tables agree with each other, so nothing is being chosen.
+The page now gives both numbers, because the absolute version invites an
+objection it cannot survive, in front of a committee.
+
+The second was a misclassification, and it was a **pipeline defect rather
+than a prose defect**. `Confidentiality` was listed as a substantive
+disagreement with THO; the two texts are word-for-word identical and differ by
+THO's `*Usage Note:*` emphasis and a trailing full stop.
+`generate_concept_domains.py` was comparing definitions without the
+punctuation carve-out the THO merge applies everywhere else, so a formatting
+difference read as the two bodies disagreeing about what a domain means. It
+now uses `tho_merge.is_editorial`, the project's existing canonical test, and
+reports such cases as `definition_differs_from_tho_editorially`. Four
+substantive disagreements, not five — and now computed correctly wherever the
+number appears, rather than corrected in one document.
+
+Fixing it in the pipeline rather than the prose was the whole point: the same
+number appears in the briefing, the review report and the divergences JSON,
+and patching the sentence would have left the other two wrong.
+
+### Also
+
+- **`question_link()` verified.** Session 6 built it to stop briefing links
+  dying when a question moves page on being answered. It works: the answered
+  reordering question resolves to `evidence.html`, the open ones to
+  `open-items.html`. All 67 briefing→IG links resolve against the built IG.
+- One incidental catch: the new review-page entry first got the action value
+  `"note"`, which is not in `ACTION_ORDER` and would have raised `KeyError` at
+  render time. It is `"informational"`.
+- **Two stale items were cleared from the handoff, both my error.** It was
+  still asking what to do with the versioning-policy PDFs — already decided and
+  already executed, on the orphan branch `reference/policy-snapshots`
+  (`bd2f96b7`, 20 September), which shares no history with anything and cannot
+  be merged by accident. And it carried "the V2 Management meeting of
+  2026-08-28 is still unrecorded" across six handoffs; searching both JOURNAL
+  files found **no record of what those minutes were ever wanted for** — no
+  register item cites them and no decision waits on them. It was surviving on
+  momentum. Dropped.
+
+**The general lesson, now five instances across two sessions:** a number in a
+briefing is a claim about the build, and the build can be asked. Absolute
+claims — "there is no case where…" — are the dangerous ones.
+
+### State
+
+Branch `dev/v291-vocabulary-ig`, commit `4e81c91d`. **562 tests pass.** Working
+tree clean apart from the five `dev/framework` files. No build was run this
+session — nothing touched the resources, only the reports and briefings that
+describe them.
+
+### Next
+
+**Capture the 2026-09-23 V2 Management meeting.** It has happened, the briefing
+was prepared for it, and nothing from it is recorded. That is the largest
+un-captured thing in the project.

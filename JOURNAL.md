@@ -18,7 +18,7 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-10-15 (session 9: six rulings acted on, a fourth mechanism, and eleven more rulings waiting)
+## ACTIVE — 2026-11-10 (session 10: the needs-decision list all but emptied, and a publisher that cannot finish)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
@@ -26,208 +26,230 @@ nowhere else;** `dev/framework` carries only the structural-review workstream.
 
 ### First thing next session
 
-**Eleven new rulings are sitting uncommitted in `docs/issue_resolutions.md`.**
-They arrived *during* session 9, after its six were already implemented, and
-nothing has been done with them. `git diff docs/issue_resolutions.md` shows
-them — they are the block starting `399 is fine as is`. Read that diff first.
+**Get the publisher to finish.** It has not produced a `qa.html` since
+2026-09-23, and two full runs on 2026-11-05 failed for different reasons.
 
-**They are worth more than their count suggests: they clear 12 of the 14
-tables on the needs-decision list.** Only `0962` and `0963` would remain.
-That list has been the guide's standing backlog of mechanically-unresolvable
-tables since the beginning, and this batch very nearly empties it.
+1. **Raise `-Xmx` past `8g`** in `tooling/scripts/build_vocab_ig.py` (the box
+   has 15 GB). Run 2 died with `OutOfMemoryError` in
+   `ValidationPresenter.genQAHtml` — building the QA page itself, *after*
+   everything else had finished, 112 minutes in.
+2. **Start it early.** The link check alone took 96 minutes. Do not begin it
+   at the end of a session, which is the mistake made twice now.
 
-The tables, and what each ruling asks for:
+`-Xss16m` is already in and fixed the *first* failure; do not remove it.
+Section **A1** of `v291-extracted/readiness-action-items.md` has the full
+diagnosis of both crashes, and is the one document to read before starting.
 
-| Tables | What the ruling says | Shape of the work |
-|---|---|---|
-| 0822, 0824, 0827, 0828, 0953 | Use the named existing value set | Likely `RULED_SUPPRESSIONS` — the same "a correct one already exists" pattern as 0954/0957/0960 |
-| 0399 | "fine as is" | Check what that means against a table currently writing **nothing** |
-| 0821, 0823 | CLD pulls from three code systems and is correct | Needs the 3-code-system gate taught to accept the shape |
-| 0458, 0459, 0467 | Use the CMS HCPCS / OCE external code systems | New external URLs; 0458/0459 want a **filter that must not expand** |
-| 0956 | A 2018May FHIR link; "keep trying to figure this out" | **Explicitly unresolved.** Do not implement |
+### Where the corpus is
 
-**Four things in that batch need care.** (1) `0953`'s URL is mangled in the
-source — `htp://` and `Observa︀onValue` with a ligature where `ti` belongs;
-the artifact it means is `ValueSet/v3-SecurityControlObservationValue`, which
-THO publishes active at 3.0.0. (2) `0822`'s link is to `build.fhir.org`, a
-**CI build**, not a published location — THO publishes `ValueSet/pronouns` at
-2.0.0 and that is the durable canonical. (3) `0458`/`0459` both carry OID
-`2.16.840.1.113883.6.301.9` and **neither resolves** in the OID index;
-`0467`'s `...6.301.10` does not either, so all three need their system URL
-stated rather than derived. (4) `0458` says to check with **Mary Kay
-McDaniels** — that is a question to a person, not a decision already taken.
+| | |
+|---|---|
+| Tables | 798 |
+| CodeSystems | **397** |
+| ValueSets | **424** |
+| Needs-decision | **2** — `0956`, `0963` |
+| Register | **57 items, 22 answered** |
+| Tests | **598 pass**, 1 skips without a build |
 
-Verified this session: the five named THO value sets all exist in the 7.3.0
-snapshot and are active — `pronouns` 2.0.0, `recorded-sex-or-gender-type`
-2.0.0, `jurisdiction` 1.0.0, `sex-parameter-for-clinical-use` 2.0.0,
-`v3-SecurityControlObservationValue` 3.0.0.
+The needs-decision list was 14 at the start of this session. It is the
+lowest it has ever been, and **both survivors are waiting on other people**
+— 0956 for somewhere durable to put its codes once PHIN VADS is gone, 0963
+for HTA approval. Neither is ours to fix.
 
-**The IG has not been rebuilt since 2026-09-23 and is now five weeks stale.**
-Still deliberate — the reviewer asked to batch — but **every number read off
-`vocab-ig/output/` is wrong** and link checks against it cannot be trusted.
-Given this batch nearly empties the needs-decision list, it is probably the
-natural point to rebuild once it is in.
+### What is waiting on other people
+
+**Four THO external code system records**, requested and not yet created.
+`0458` → `CodeSystem/oce-edit-codes`, `0459` →
+`oce-reimbursement-action-codes`, `0460` → `oce-denial-or-rejection-flag`,
+`0467` → the URL Chapter 2C prints. All four value sets publish *now*, over
+canonicals that do not resolve yet. Each is waived by table in
+`EXPECTED_UNRESOLVED_SYSTEMS` in `test_write_utg_xml.py`, and **a second
+test fails if a waived table ever becomes resolvable** — so the waiver list
+shrinks as records land rather than quietly outliving them. Deleting an
+entry when its record appears is the whole maintenance task.
+
+**The Financial Management WG** is being consulted about `0466`, `0468`,
+`0469` and `0470` (`esc-gp2-oce-siblings`). They steward both the vocabulary
+and the GP1/GP2 segments that use it. **Nothing changes for those four
+meanwhile** — they keep publishing a CodeSystem and ValueSet exactly as
+before, so no artifact is at risk while the question is open.
+
+### Things that will bite
+
+- **The corpus depends on what is cached on the build machine.** Table 0962
+  went from `needs-decision` to published between two builds on the same day
+  with nothing in the repo changing. `load_oid_index` reads the FHIR R5 core
+  package from `~/.fhir/packages` as well as the pinned `tho-r5/`; the
+  publisher downloaded it mid-session, and the OID then resolved — through
+  an identifier FHIR marks `use: "old"`. **A fresh checkout produces a
+  different IG.** The output was correct both times, which is what makes it
+  dangerous: there was no error to notice. `esc-0962-already-in-tho`; **A3**
+  in the readiness list. Pin and vendor that package.
+- **The publisher's own comparison pages are malformed**, and that is a
+  permanent hazard rather than a one-off. Each THO release adds a
+  `comparison-vN/index.html` with thousands of unclosed `<a>` tags — 3,491
+  in the 7.5.0 page — nesting its parser 4,300 levels deep where every other
+  output file is under 20. If `-Xss16m` ever stops being enough, **the fix
+  is not a bigger number**: check whether those pages are still malformed
+  and report it upstream.
+- **A reported "8% broken links" is mostly an artifact of the crash.** Of
+  12,284 missing local targets, 4,936 are links to the `qa.html` the crash
+  prevented writing and 7,323 are `fhir.css` inside the publisher's own
+  comparison directories. **None originate in this guide's pages.** Do not
+  panic at that number before reading A1.
+- **Authored prose drifted four sessions running, and now two pages are
+  tested.** `index.md`'s route table and `known-issues.md`'s blocked list
+  both have tests, verified to fail on drift in both directions — they
+  caught the 0962 change nobody made. **Other authored pages are still
+  unguarded**, including the "zero broken links across 625,068 checked"
+  claim in two briefings, which has a test that only runs once a `qa.html`
+  exists.
+- **`git add -A tooling/scripts/` sweeps in three structural-workstream
+  files.** Stage vocabulary files explicitly. This bit again this session.
+- Everything in the previous ACTIVE still applies: the enforced build order,
+  `kill` on the shell wrapper not stopping the JVM, authored anchors over
+  generated heading slugs, never interpolating a count into a heading, every
+  page starting at `###`.
 
 ### How to record a ruling
 
-**Four** mechanisms now, and picking the wrong one is still the main way to
-get this wrong. All four are keyed by table number and all four are enforced.
+**Six** mechanisms now. All keyed by table number, all enforced by tests.
 
 | What happened | Mechanism | Invariant |
 |---|---|---|
 | Awaiting an answer | `TENTATIVE_OVERRIDES` (ADR-0011) | names an **open** register item |
-| Told not to publish, and nothing exists yet | `RULED_SUPPRESSIONS` (ADR-0013) | names an **answered** item |
+| Told not to publish, nothing exists yet | `RULED_SUPPRESSIONS` (ADR-0013) | names an **answered** item |
 | Told the classification is wrong | `RULED_RECLASSIFICATIONS` | names an **answered** item |
-| Told it is superseded, **and THO already publishes it** | `RULED_SUPERSESSIONS` (ADR-0014) | answered item; replacement URL **version-less** |
+| Told it is superseded, **and THO already publishes it** | `RULED_SUPERSESSIONS` (ADR-0014) | replacement URL **version-less** |
+| Told to publish at a different canonical | `RULED_CANONICALS` (ADR-0015) | only where **THO publishes nothing** |
+| Not a table at all | `EXCLUDED_SECTIONS` | — |
 
-**Suppression versus supersession is the distinction to get right, and both
-say "do not use this".** They act on opposite situations. Suppression is
-available *only before first publication*: not writing the artifact leaves
-nothing behind. Once THO publishes something, withholding it unpublishes
-nothing — it only removes this guide's ability to say it is superseded,
-leaving a live artifact in the field with nothing pointing at its
-replacement. That is why 0954/0957/0960 are suppressions and 0719/0952/0959
-are not.
+Suppression versus supersession still turns on whether THO has published.
+`RULED_CANONICALS` partitions against supersession the same way: moving a
+canonical THO already publishes is not a naming decision, it is a
+supersession. A `description` field on `Reclassification` now allows a ruled
+replacement for the chapter's value set description — used only by the four
+I/OCE tables, and a stated deviation from fidelity.
 
-Every ruling still needs a five-key `resolution` on its register item
-(`who`, `forum`, `date`, `ruling`, `effect`), and **a ruling still rarely
-covers a whole item** — split rather than close.
-
-### What landed in session 9
-
-One commit, `fb605979`. The register went from **44 items, 10 answered** to
-**49 items, 16 answered**.
-
-- **Suppressed: 0954, 0957, 0960.** All three were minting duplicates of
-  value sets that already exist. 0954 and 0957 each carried the OID of the
-  artifact they duplicated.
-- **Superseded: 0719, 0952, 0959** — new mechanism, ADR-0014. Written
-  `retired` with a version-less markdown pointer to the replacing v3 value
-  set.
-- **0895 reclassified and published**, composing over the CMS coding page.
-- **9999 excluded from the IG entirely** — 798 tables now, not 799.
-
-### Things that will bite
-
-- **`status` was unreachable, and that is how 0719 got un-retired.** THO has
-  `ValueSet/v2-0719` **retired**; this guide was writing it back out
-  **active** — the only artifact in the corpus whose status disagreed with
-  THO's, in the worst available direction. Two causes compounded: `status`
-  is in `COMPARED_VALUE_SET_FIELDS` and not `FILLABLE_VALUE_SET_FIELDS`, so
-  a difference was *reported* and *bumped the version* but never *filled*;
-  and `add_common_metadata` hard-coded `DEFAULT_STATUS`, so even a status
-  settled in the plan could not reach the XML. It is now a parameter, and a
-  test asserts every non-superseded artifact is still `active`. **Treat that
-  test as load-bearing** — it is what stops a newly-writable field drifting.
-- **Two NamingSystems can register the same OID, and filename order decides
-  which wins.** This is why 0895 needed a ruling rather than being derived.
-  `NamingSystem/presentOnAdmission` maps `...6.301.11` to the CMS coding page
-  (preferred, with the v2 canonical as a secondary identifier);
-  `NamingSystem/v2-0895` maps the same OID to the empty v2 canonical.
-  `load_oid_index` loads NamingSystems in sorted filename order and lets the
-  last overwrite, so `v2-0895` won. **The evidence was in THO and not in the
-  field the resolver reads** — the same shape of trap as the dangling-value-
-  sets mistake in session 8.
-- **A new `action` must be registered in four places or the chain dies.**
-  `superseded-by-ruling` broke `generate_table_index.py` with a bare
-  `KeyError` because `ROUTE_NORM` is a dict lookup with no default. The four:
-  `ROUTE_LABEL` and `ROUTE_NORM` in `generate_table_index.py`, plus the route
-  maps in `render_table_ledger.py` and `render_defect_review.py`.
-- **Excluding a table from the corpus is not one filter.** 9999 reached the
-  published IG by **three** separate routes: the write report, the ledger's
-  own join against the register (its *resolution* put it back), and the
-  ledger's chapter index from `vocabulary-index.json`. `EXCLUDED_SECTIONS`
-  lives in `write_utg_xml.py` and the other modules import it. A test now
-  checks no page carries an excluded section.
-- **Numbers drifted again — four this time**, all on authored prose:
-  `artifacts generated` (820 → 818), the kept-version count (819 → 817), and
-  two on `index.md`. Two were caught by tests; the index ones were not,
-  because the route table there was authored with five routes and there are
-  now seven. **The pattern repeats every session.**
-- **`--table` runs leave a one-table write report on disk**, which fails
-  ~14 tests that read it as the whole corpus. Harmless, and alarming if you
-  do not know: re-run the full chain.
-- Everything in the previous ACTIVE still applies: the enforced build order,
-  `pgrep -f` matching the Bash tool's own wrapper, authored anchors over
-  generated heading slugs, never interpolating a count into a heading, every
-  page starting at `###`, and `grep` being unable to search for a NUL byte.
-
-### Open, and worth knowing
-
-- **A ruling's premise is sometimes wrong — and so is a report of mine.** I
-  told the reviewer on 2026-10-14 that 0895 was blocked on an unsupported
-  CLD shape. It was not: the CLD is *all codes*, which the guide builds
-  routinely, and the real obstacle was the system URL. The correction is
-  recorded in `esc-0895-wrong-system-url`. **The reviewer was right and I
-  was wrong, on a table I had already reported on.**
-- **`vs-v2-0962.xml` is still an orphan** — tracked, staged, published, for
-  a table that became `needs-decision` and that nothing prunes. Pre-existing.
-  It and `0963` are the only two tables the new rulings do not reach.
-- **0820 remains explicitly tentative** — "NOT SURE - DO NOT IMPLEMENT".
-  Nothing has been done with it and nothing should be. The guide already
-  publishes `vs-v2-0820.xml` over the three LOINC codes, which happens to
-  match what the tentative ruling describes. The Full Name defect the
-  reviewer noted is real and already in `esc-full-name-copy-paste`.
-- **0929/0930's OID collision is THO's, not ours**, and dissolves only when
-  the Jira ticket retiring 0567/0568 lands. Until then the guide publishes
-  `v2-0929` at 4.0.0 against a live duplicate OID. Nothing to do here.
-- **The 0719 OID collision is closed as moot** — the identifier sits on a
-  published, retired artifact and cannot be changed. `esc-oid-conflicts`
-  still needs rulings for **0001** and **0719's live siblings**.
-- **0460 is the only minted CodeSystem canonical left**, with 0093 open
-  alongside it.
-- **`render_metrics_summary.py` is still untracked and undecided**, five
-  sessions on.
-- Session 4 work is untouched: promote `render_field_mapping.py` into the
-  IG; decide what maps to properties / extensions / nothing; Ch2c steward
-  against THO's `structuredefinition-wg`. **S3-04 is partial**; **S2-15**,
-  **S2-16** (property-instance suppression — the one with teeth), **S2-20**.
+**A ruling still rarely covers a whole item — split rather than close.**
+`esc-0460-user-defined-mint` was split this session: the ruling answered
+0460, and the principle it asks about still bites on 0093.
 
 ### THO version
 
-**Staying on 7.3.0** (snapshot dated 2026-07-27). Note the reviewer is now
-citing 7.4.0 URLs in rulings; the artifacts named have all been verified
-present in the 7.3.0 snapshot, so no bump is needed on their account. If the
-snapshot is ever bumped, `tho-fill-report.json` and
-`conceptdomains-divergences.json` both record the version.
+**Staying on 7.3.0** (snapshot dated 2026-07-27). **7.5.0 is released** and
+the pinned snapshot is now two behind, so every version increment in the
+corpus is computed against a stale baseline. Deliberately deferred: bumping
+in the same pass as a ruling batch makes it impossible to tell which caused
+what. **B4** in the readiness list; do it as its own piece of work with its
+own rebuild and diff.
 
 ### Build
 
 ```
-python3 tooling/scripts/build_vocab_ig.py            # preprocessing only, ~11 s
-python3 tooling/scripts/build_vocab_ig.py --publish  # + the publisher, ~17 min
+python3 tooling/scripts/build_vocab_ig.py            # preprocessing, ~11 s
+python3 tooling/scripts/build_vocab_ig.py --publish  # + publisher, ~2 h
 ```
 
-Seven preprocessing steps, then the publisher (silent for ~13 of its 17
-minutes during "Run Template"). Check it is alive with
-`ps -eo pid,etime,comm,args | awk '$3=="java"'` rather than assuming it hung.
-**`kill` on the shell wrapper does not stop the JVM**; kill the java pid, or
-two publishers write the same directory.
-
-Current preprocessing state: **398 CodeSystems, 420 ValueSets staged**
-(down from 422 — three suppressed, 0895 added). One expected warning, the
-0962 orphan; the 0350/0351 "cannot expand" warning is gone. **592 tests
-pass.**
-
-### How to look at the IG
-
-**No web server needed.** Open `vocab-ig/output/index.html` off disk. Both
-briefings are self-contained and sit in `v291-extracted/`; their links into
-the IG are relative, so they resolve from there with a build present.
+Seven preprocessing steps, then the publisher. Four `unresolved code system`
+warnings are expected — the OCE four. Check liveness with
+`ps -eo pid,etime,comm | awk '$3=="java"'` rather than assuming it hung.
 
 ### Not ours — leave alone
 
 Six untracked files belong to the **structural** workstream (`dev/framework`):
 `tooling/scripts/render_message_structures_html.py`,
-`tooling/scripts/render_three_way_html.py`,
+`render_three_way_html.py`, `render_metrics_summary.py`,
 `v291-extracted/message-structures-decision-report.html`,
 `v291-review/three-way-comparison-report.html`,
-`vocabulary-comparison-report.html` — plus the undecided
-`tooling/scripts/render_metrics_summary.py`. **`git add tooling/scripts/`
-sweeps three of them in — stage vocabulary files explicitly.**
-
+`vocabulary-comparison-report.html`. **`render_metrics_summary.py` is still
+undecided, seven sessions on** — adopt it or delete it.
 
 ## Session History
+
+## 2026-11-05/10 — Session 10: eleven rulings, four OCE realignments, and a publisher that will not finish
+
+Three commits: `f22cc08f`, `8e97e72f`, `767dc963`. The needs-decision list
+went from **14 tables to 2**, the lowest since the project began, and both
+survivors wait on people outside the project.
+
+### What the rulings did
+
+**Seven tables are served by a value set THO already publishes** and now
+write nothing: 0399, 0821, 0822, 0824, 0827, 0828, 0953. In six of the seven
+the chapter's own value set OID *is* the identifier on the THO artifact, so
+identity was proved rather than asserted. Nothing is retired — nothing
+existed at a v2 canonical to retire, which is the distinction the reviewer
+made sharply: *"there's nothing we're using it instead of."*
+
+**0820 moved** to `ValueSet/gender-harmony-attributes`, keeping Chapter 2C's
+OID, which needed a fifth mechanism (`RULED_CANONICALS`, ADR-0015) and a
+prune for the file left at the old canonical. **0823 publishes over three
+code systems.** **0458, 0459, 0460 and 0467 were realigned as CMS I/OCE
+content**, which withdrew `CodeSystem/v2-0460` — the last canonical this
+guide minted anywhere.
+
+### Two findings of mine that were wrong
+
+**0823.** I had reported it blocked because "which code system the value set
+draws from is not stated". A value set may draw on as many code systems as
+it likes, and the chapter *does* state it — in each concept's own comment
+(`SCT`, `DAR`, `NULLFL`). The information I called absent was in the grid the
+writer had already read. The reviewer's correction was blunt and correct.
+
+**0953.** The ruling as written named `v3-WorkScheduleODH`, which is table
+0954's value set. The OIDs caught it before implementation. **The cause is
+our own ledger**: the 0953 entry sits between the 0952/0959 supersession note
+and the 0954 ruling, with `v3-WorkScheduleODH` about fifteen lines from the
+0953 anchor, every entry styled identically. Recorded in
+`vocabulary-future-corrections.md`, because a ruling misattributed in the
+ledger is a ruling nothing downstream would catch — a ruling is authority,
+not evidence.
+
+### The finding that outlives the session
+
+**Table 0962 unblocked itself between two builds, and nobody decided that.**
+It published correctly — identical to THO's — because `load_oid_index` reads
+the FHIR R5 core package from `~/.fhir/packages`, the publisher downloaded
+that package mid-session, and the OID then resolved through an identifier
+FHIR marks `use: "old"`.
+
+Every other input is pinned and recorded; this one is neither. **A fresh
+checkout produces a different IG** — different table count, different route
+distribution, a `needs-decision` entry nobody could account for. The output
+was correct both times, which is exactly what makes it dangerous: there was
+no error to notice. Raised as `esc-0962-already-in-tho`, about the
+dependency rather than the table.
+
+### The publisher
+
+Two full runs, two different failures, no `qa.html` either time.
+
+**Run 1, 18.5 min: `StackOverflowError`.** Traced to the publisher's *own*
+comparison pages — generated because this IG's canonical is under
+`terminology.hl7.org`, so it finds THO's package-list. `comparison-v7.5.0/
+index.html` carries **3,491 unclosed `<a>` tags** against 814 closed; its
+parser nests ~4,300 deep where every other output file is under 20. **7.5.0's
+release is what pushed it over** — each THO release adds a page. Fixed with
+`-Xss16m`.
+
+**Run 2, 112 min: `OutOfMemoryError`** in `genQAHtml`, building the QA page
+after everything else finished. Not fixed; next step is raising `-Xmx`.
+
+Both crashes happen *after* a complete IG is written. Validation itself ran
+and passed, 822 resources in 30 seconds. The reported "56,515 broken links
+(8%)" decomposes into 4,936 links to the `qa.html` the crash prevented
+writing, 7,323 stylesheet references the publisher never copies into its own
+comparison directories, and 25 correct references to artifacts we suppressed.
+**None originate in this guide's pages.**
+
+### Guards added, because authored prose drifted a fourth time
+
+`known-issues.md` still claimed fourteen blocked tables including one
+published a session earlier. Both it and `index.md`'s route table now have
+tests covering the numbers *and* the shape, verified to fail on drift in both
+directions — and they immediately earned it by catching the 0962 change
+nobody made.
 
 ## 2026-10-15 — Session 9: six rulings, a fourth mechanism, and a status field nothing could write
 
@@ -500,81 +522,3 @@ two expected warnings, but **the IG on disk is from 2026-09-23** and predates
 every ruling in this session.
 
 ---
-
-## 2026-09-29 — Session 7: the briefing's own claims, checked
-
-### Completed
-
-**Committed session 6's uncommitted briefing work as `4e81c91d` — after
-checking it.** An interrupted session left a substantial diff in the tree. The
-reviewer asked for it to be reviewed and committed; reviewing it turned out to
-be the point.
-
-**Its central claim holds, and was verified rather than trusted.** The guide
-was never choosing between competing concept domain definitions by document
-order — all five multiply-declared domains publish THO's definition, checked
-against the published `conceptdomains` resource rather than the report about
-it. The V2 Management item genuinely drops from a ruling to a confirmation,
-and the blocking count from two to one.
-
-**Two claims in it were wrong.**
-
-The first was an overstatement: *"there is no case anywhere in the corpus of a
-domain declared by several tables with no THO definition to fall back on"*.
-There are 20. The claim the argument needs is narrower — every domain whose
-tables describe it **differently** has a THO definition — and that one is
-true. In all 20 the tables agree with each other, so nothing is being chosen.
-The page now gives both numbers, because the absolute version invites an
-objection it cannot survive, in front of a committee.
-
-The second was a misclassification, and it was a **pipeline defect rather
-than a prose defect**. `Confidentiality` was listed as a substantive
-disagreement with THO; the two texts are word-for-word identical and differ by
-THO's `*Usage Note:*` emphasis and a trailing full stop.
-`generate_concept_domains.py` was comparing definitions without the
-punctuation carve-out the THO merge applies everywhere else, so a formatting
-difference read as the two bodies disagreeing about what a domain means. It
-now uses `tho_merge.is_editorial`, the project's existing canonical test, and
-reports such cases as `definition_differs_from_tho_editorially`. Four
-substantive disagreements, not five — and now computed correctly wherever the
-number appears, rather than corrected in one document.
-
-Fixing it in the pipeline rather than the prose was the whole point: the same
-number appears in the briefing, the review report and the divergences JSON,
-and patching the sentence would have left the other two wrong.
-
-### Also
-
-- **`question_link()` verified.** Session 6 built it to stop briefing links
-  dying when a question moves page on being answered. It works: the answered
-  reordering question resolves to `evidence.html`, the open ones to
-  `open-items.html`. All 67 briefing→IG links resolve against the built IG.
-- One incidental catch: the new review-page entry first got the action value
-  `"note"`, which is not in `ACTION_ORDER` and would have raised `KeyError` at
-  render time. It is `"informational"`.
-- **Two stale items were cleared from the handoff, both my error.** It was
-  still asking what to do with the versioning-policy PDFs — already decided and
-  already executed, on the orphan branch `reference/policy-snapshots`
-  (`bd2f96b7`, 20 September), which shares no history with anything and cannot
-  be merged by accident. And it carried "the V2 Management meeting of
-  2026-08-28 is still unrecorded" across six handoffs; searching both JOURNAL
-  files found **no record of what those minutes were ever wanted for** — no
-  register item cites them and no decision waits on them. It was surviving on
-  momentum. Dropped.
-
-**The general lesson, now five instances across two sessions:** a number in a
-briefing is a claim about the build, and the build can be asked. Absolute
-claims — "there is no case where…" — are the dangerous ones.
-
-### State
-
-Branch `dev/v291-vocabulary-ig`, commit `4e81c91d`. **562 tests pass.** Working
-tree clean apart from the five `dev/framework` files. No build was run this
-session — nothing touched the resources, only the reports and briefings that
-describe them.
-
-### Next
-
-**Capture the 2026-09-23 V2 Management meeting.** It has happened, the briefing
-was prepared for it, and nothing from it is recorded. That is the largest
-un-captured thing in the project.
