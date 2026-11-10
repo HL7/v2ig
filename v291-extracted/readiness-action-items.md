@@ -17,14 +17,14 @@ the two goals and which do not. Where the two disagree, the register wins.
 | | Count |
 |---|---|
 | Tables in the chapter | 798 (799 sections less `9999`) |
-| CodeSystems published | 398 |
-| ValueSets published | 422 |
+| CodeSystems published | 397 |
+| ValueSets published | 424 |
 | `conceptdomains` | 1, at 4.0.0, 1,522 concepts |
-| Tables with nothing written | **5** (was 14 before this batch) |
-| Register items | 55, of which **20 answered** |
+| Tables with nothing written | **2** (was 14 before this batch) |
+| Register items | 57, of which **22 answered** |
 
 The needs-decision list is the lowest it has been since the project started.
-Five tables remain: `0458`, `0459`, `0956`, `0962`, `0963`.
+Two tables remain: `0956` and `0963`.
 
 ---
 
@@ -32,66 +32,121 @@ Five tables remain: `0458`, `0459`, `0956`, `0962`, `0963`.
 
 These must be closed, or consciously accepted, before the IG goes out.
 
-### A1. The IG has not been validated since 2026-09-23
+### A1. The publisher cannot finish, and no QA page exists
 
-Everything in section B and C assumes the current build is clean. Until the
-publisher run completes and its QA output is read, **every count in this
-document is from the preprocessing chain rather than from a built IG**, and
-no link check has been run against the current content. This is the first
-thing to confirm, and it is in progress as this is written.
+**Two full `--publish` runs on 2026-11-05 both failed, for different reasons,
+and neither produced `qa.html`.** The IG itself generates correctly — 22,560
+files, every page present — but the publisher dies after writing it.
 
-### A2. Five tables publish nothing, and three are waiting on other people
+**Run 1 (18.5 min): `StackOverflowError`** in `XhtmlParser`, during "Checking
+Output HTML". Cause found and fixed. Because this IG's canonical is under
+`terminology.hl7.org`, the publisher fetches THO's `package-list.json` and
+generates a comparison page per THO release. Those pages are the publisher's
+own output and they are malformed: `comparison-v7.5.0/index.html` carries
+**3,491 unclosed `<a>` tags** against 814 closed, so its parser nests ~4,300
+levels deep and overflows the default 1 MB stack. Measured depth is 4,300+ on
+all three comparison pages and **≤ 19 on every other file in the output**.
+Fixed with `-Xss16m` in `build_vocab_ig.py`, which cleared the crash.
+**7.5.0's release is what pushed it over** — each THO release adds a page.
+
+**Run 2 (112 min): `OutOfMemoryError: Java heap space`** in
+`ValidationPresenter.genQAHtml` — building the QA page itself, after
+everything else had finished. Not yet fixed. `-Xmx8g` was in effect; the box
+has 15 GB. **The next thing to try is raising `-Xmx`**, and the run is slow
+enough (the link check alone took 96 minutes) that it should be started early
+in a session rather than at the end.
+
+**What the failed runs did tell us.** Validation ran and passed — 822
+resources in 30 seconds. The link check completed and reported **56,515
+broken links of 677,466 (8%)**, which sounds alarming and is not: a full scan
+of the output attributes **12,284 missing local targets** to just three
+causes, all artifacts of the crash or of the publisher's own pages —
+
+| Cause | Count |
+|---|---|
+| Links to `qa.html`, which the crash prevented writing | 4,936 |
+| `fhir.css` inside the three `comparison-*` directories, which the publisher never copies there | 7,323 |
+| References inside those comparison pages to artifacts this guide suppressed or renamed — correct reporting, not defects | 25 |
+
+**Zero broken links originate in this guide's own pages.** Fragment links on
+`table-index.html` (2,075 of them) all resolve. So the content is in good
+shape and the *tooling* is what is blocking a clean QA result.
+
+**Until a run completes, the "zero broken links across 625,068 checked" claim
+in both briefings is unverified** — it was read off a build in September. A
+test now fails if a briefing claims zero while a `qa.html` reports otherwise,
+but it skips while no `qa.html` exists, which is the current state.
+
+### A2. Two tables publish nothing, and both wait on other people
 
 | Table | Waiting on | Can we unblock it? |
 |---|---|---|
-| `0458`, `0459` | THO creating the external code system record for the CMS I/OCE codes (OID `2.16.840.1.113883.6.301.9`) | No. The canonical the record carries is the only missing input. |
 | `0956` | A decision about where the supervisory level / pay grade codes live once PHIN VADS is decommissioned | No. Both candidate value sets are dead ends — a withdrawn FHIR 3.3 ballot draft and a PHIN VADS entry. |
-| `0962` | Nothing, arguably — see A3 | **Probably yes.** THO already publishes `ValueSet/v2-0962`, active at 3.0.0, identical to what this guide had been writing. |
-| `0963` | A CLD reading "See content logical definition of the referenced value set", and a system URL of "Not yet approved by HTA" | No — HTA approval is a precondition. |
+| `0963` | A system URL of "Not yet approved by HTA" | No — HTA approval is a precondition. |
 
-**The decision to make before submission** is not how to fix these. It is
-whether an IG with five tables publishing nothing is submittable. It probably
+`0458`, `0459` and `0467` left this list on 2026-11-06 when their CMS I/OCE
+external code system records were requested; they now publish value sets over
+those canonicals. See **A4**.
+
+**The decision to make before submission** is not how to fix these two. It is
+whether an IG with two tables publishing nothing is submittable. It probably
 is, provided each absence is explained on the page a reader lands on, which
 `known-issues.html` now does. **Confirm that is acceptable rather than
 assuming it.**
 
-### A3. `vs-v2-0962.xml` is a tracked orphan, and the fix is probably a ruling
+### A3. The generated corpus depends on what is cached on the build machine
 
-The file is staged and published for a table that routes to `needs-decision`.
-Nothing prunes it, because the prune is deliberately narrow — it removes only
-the exact paths for suppressed tables, since a broader sweep would be wrong
-under `--table`. The writer warns about it on every run. It is the only
-artifact in the IG that no route accounts for.
+**This replaces an earlier entry about `vs-v2-0962.xml` being an orphan. The
+orphan is gone, and how it went is the finding.**
 
-**Investigated 2026-11-05, and it is less awkward than it looks.** The table
-routes to `needs-decision` because its code system is given as a FHIR core
-*page* URL, `http://hl7.org/fhir/codesystem-device-status.html`, with an OID
-that resolves to nothing. But **THO already publishes
-`ValueSet/v2-0962`**, active at 3.0.0, carrying the same OID
-(`2.16.840.1.113883.4.642.3.209`) and the same compose over
-`http://hl7.org/fhir/device-status` that this guide's stale file holds. The
-orphan is not wrong; it is simply unexplained, because no route produces it.
+Table 0962 spent this session on the needs-decision list because its code
+system OID `2.16.840.1.113883.4.642.1.200` resolved to nothing. Between two
+builds on the same day it began routing normally and publishing
+`ValueSet/v2-0962` — correctly, identical to THO's: same compose over
+`http://hl7.org/fhir/device-status`, same value set OID, same version 3.0.0.
+Nothing in this repository changed to cause it, and nobody ruled on it.
 
-So there are two defensible outcomes and they need a decision rather than a
-code change:
+**What changed was the machine.** `load_oid_index` reads the FHIR R5 core
+package from `~/.fhir/packages` in addition to the pinned `tho-r5/` snapshot.
+That package was absent, so the OID was unresolvable. The IG Publisher
+downloaded it during the first build of the day, and the next run of the
+writer resolved the OID through `CodeSystem-device-status.json` — on an
+identifier FHIR itself marks `use: "old"`.
 
-- **Nothing is wrong with the artifact** — in which case 0962 is the same
-  shape as the seven tables suppressed this session: a correct value set
-  already exists, and the guide should stop writing one and say so. That
-  takes 0962 off the needs-decision list and deletes the orphan in one move.
-- **The guide should publish it** — in which case the page-URL fallback that
-  already rescues seven other tables should be extended to reach the FHIR
-  core code system, and 0962 routes normally.
+**Why this matters more than the table does.** Every other input to the
+writer is pinned and recorded: the THO snapshot is vendored with its version
+in `tho-fill-report.json`, the UTG checkout is a path. This one is neither.
+A fresh checkout on a clean machine produces a *different IG* — a different
+table count, a different route distribution, and a `needs-decision` entry
+nobody could account for. The output was correct both times, which is what
+makes it dangerous: there was no error to notice.
 
-**Recommended: ask for the ruling.** The first option is almost certainly
-right, and it is the same question V2 Management answered seven times this
-month. Raised as `esc-0962-already-in-tho`.
+**Recommended before submission:** pin and vendor the FHIR core package the
+way `tho-r5/` is, and record its version in the write report alongside THO's.
+Raised as `esc-0962-already-in-tho`, which is about the dependency rather
+than the table.
 
-### A4. 0467 composes over a canonical that does not resolve yet
+### A4. Four value sets compose over canonicals that do not resolve yet
 
-Published deliberately, on the ruling, with a test waiver recording why.
+`0458`, `0459`, `0460` and `0467` all publish over CMS I/OCE external code
+system canonicals that THO has been asked to create and has not yet created:
+
+| Table | Canonical awaited |
+|---|---|
+| `0458` | `CodeSystem/oce-edit-codes` |
+| `0459` | `CodeSystem/oce-reimbursement-action-codes` |
+| `0460` | `CodeSystem/oce-denial-or-rejection-flag` |
+| `0467` | the URL Chapter 2C already prints for `v2-0467` |
+
+Published deliberately, on the ruling, each flagged `unresolved` with the
+reason recorded on its entry and a test waiver in
+`EXPECTED_UNRESOLVED_SYSTEMS`. **A second test fails if a waived table ever
+becomes resolvable**, so the list has to shrink as the records land rather
+than quietly outliving them.
+
 Harmless in a review draft; it would be a defect in a publication. **Decide
-whether to hold 0467 back if the THO record has not landed by submission.**
+whether to hold these four back if the THO records have not landed by
+submission.**
 
 ### A5. Authored prose drifts every session
 
@@ -112,21 +167,33 @@ somebody take these artifacts and update THO with them".
 
 | Kind | Count | Notes |
 |---|---|---|
-| CodeSystems THO does not have | 1 | `0460` — the only minted CodeSystem canonical left |
-| ValueSets THO does not have | 6 | `0460`, `0467`, `0820`, `0823`, `0955`, `0958` |
+| CodeSystems THO does not have | **0** | `0460` was the last one, withdrawn 2026-11-06 |
+| ValueSets THO does not have | 8 | `0458`, `0459`, `0460`, `0467`, `0820`, `0823`, `0955`, `0958` |
 | CodeSystems with a version increment | 58 | Changed against THO on an element the TSMG policy counts |
 | ValueSets with a version increment | 21 | Same |
 | `conceptdomains` | 1 | 4.0.0: THO's 3.0.0 plus 177 concepts, none removed |
 
 **Roughly 87 artifacts carry a change.** That is the submission.
 
-### B2. The minted canonicals need ruling before they are submitted
+### B2. The minted canonicals are gone, and the question behind them is not
 
-`0460` is the only table for which this guide still mints a CodeSystem
-canonical, with `0093` open alongside it (`esc-0460-user-defined-mint`).
-Submitting a minted canonical to THO asks THO to adopt a name this project
-invented. **That is a decision for V2 Management, not a side effect of the
-pipeline**, and it is open.
+**This guide now mints no CodeSystem canonical anywhere in the corpus.** 0411
+was ruled concept-domain-only in October; 0460, the last one, was withdrawn
+on 2026-11-06 when its codes were identified as CMS I/OCE content
+(`esc-0460-oce-realignment`). Nothing in the submission asks THO to adopt a
+name this project invented, which removes what was the sharpest objection to
+submitting.
+
+**The principle is still unsettled**, and `esc-0460-user-defined-mint` has
+been narrowed to it. Both minted canonicals went away for reasons specific to
+their own tables rather than because anybody decided what a `Type: User`
+table should produce. `0093` *Release Information* is where it still bites: a
+user table, declared concept-domain-only, listing `Y` and `N` in a grid that
+reaches no artifact.
+
+Not submission-blocking any more — it changes no published artifact — but it
+should be answered before the next user-defined table arrives and gets
+handled case by case.
 
 ### B3. One OID conflict is unresolved and two are closed
 
@@ -189,16 +256,15 @@ Recorded so they are not rediscovered as surprises.
 
 ## Suggested order
 
-1. Finish and read the publisher QA output (**A1**) — nothing else is
-   trustworthy until this is done.
-2. Put `0962` to V2 Management (**A3**) — almost certainly an eighth
-   "a correct one already exists" suppression, which also deletes the
-   orphan.
+1. Get the publisher to finish (**A1**) — raise `-Xmx` past 8g and start
+   the run early; it takes ~2 hours. Nothing else is fully trustworthy
+   until a `qa.html` exists.
+2. Pin the FHIR core package (**A3**) — ours to fix, and until it is done
+   no build is reproducible on a different machine.
 3. Get a ruling on `esc-retain-known-errors` (**B5**) — it is the longest
    pole for the THO goal and has been open since August.
 4. Bump THO to 7.5.0 and rebuild (**B4**) — one focused change, one diff.
-5. Close `esc-oid-conflicts` for `0001` (**B3**) and
-   `esc-0460-user-defined-mint` (**B2**) — both are submission-blocking in a
-   way they are not review-blocking.
-6. Decide the five blocked tables are acceptable as-is (**A2**), or chase the
-   THO record for `0458`/`0459`.
+5. Close `esc-oid-conflicts` for `0001` (**B3**) — now the only
+   submission-blocking identifier question left.
+6. Decide the two blocked tables are acceptable as-is (**A2**), and chase
+   the four THO external code system records (**A4**).

@@ -110,7 +110,7 @@ Checking the UCUM finding against the whole chapter turned up the same defect el
 - `0125` Value Type: ValueSet published; code system is another body's — VS 3.0.0 (held)
 - `0180` Masterfile Action Code: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
 - `0203` Identifier Type: CodeSystem + ValueSet published — CS 6.0.0 (incremented) VS 3.0.0 (held)
-- `0458` OCE Edit Code: BLOCKED — no artifact, pipeline cannot settle it
+- `0458` OCE Edit Code: ValueSet published; code system is another body's — VS 1.0.0 (held)
 - `0820` Gender Harmony Concepts: ValueSet published; code system is another body's — VS 1.0.0 (held)
 
 **Decision needed:** If the UCUM correction is approved as a technical correction, the same reasoning covers these. Someone who knows the tables needs to separate the genuine exceptions from the copy-paste errors — this project can produce the candidate list but cannot make that call.
@@ -232,40 +232,42 @@ The Code System Identification block correctly identifies ISO 3166-2 — OID 1.0
 
 ---
 
-### Table 0962's value set is published and correct in THO, and this guide reports the table blocked
+### Table 0962 resolved itself when a cached package appeared, which is a reproducibility problem rather than a ruling
 
 **Tables:** 0962  
 **Goes to:** V2 Management  
 **Register id:** `esc-0962-already-in-tho`
 
-*Why this class: A FHIR core page URL where the code system canonical belongs, and an OID that resolves to nothing. THO publishes the value set correctly regardless, so the chapter's identifier is the only thing wrong.*
+*Why this class: A FHIR core page URL where the code system canonical belongs. It resolves only through an identifier FHIR marks superseded, in a package that reaches the build machine by accident rather than by declaration.*
 
 0962 Device Status routes needs-decision because its code system block gives a FHIR core page URL, http://hl7.org/fhir/codesystem-device-status.html, and an OID 2.16.840.1.113883.4.642.1.200 that nothing in THO or FHIR core resolves. So the writer cannot say what the value set composes over and emits nothing. THO nevertheless publishes ValueSet/v2-0962, active at 3.0.0, carrying this table's value set OID 2.16.840.1.113883.4.642.3.209 and composing over http://hl7.org/fhir/device-status — the real canonical the chapter's page link was pointing at. The artifact exists, it is correct, and nothing about it is in doubt. There is a loose end in this repository because of it. vs-v2-0962.xml is tracked and staged from an earlier run, when the table still routed to an artifact. It is byte-equivalent in substance to THO's. Nothing prunes it, because the prune deliberately removes only the exact paths of suppressed tables — a broader sweep would be wrong under --table. So the writer warns about it on every run, and it is the only artifact in the IG that no route accounts for.
 
 **What this guide publishes today:**
 
-- `0962` Device Status: BLOCKED — no artifact, pipeline cannot settle it
+- `0962` Device Status: ValueSet published; code system is another body's — VS 3.0.0 (held)
 
-**Decision needed:** This is almost certainly the same question answered seven times in November, under esc-served-by-existing-tho-value-sets: a correct value set already exists, so this guide should not create one. If that is the answer here too, 0962 becomes a suppression naming ValueSet/v2-0962, the table leaves the needs-decision list, and the orphaned file is pruned by the mechanism rather than deleted by hand. The alternative is that this guide should publish the table, in which case the page-URL fallback that already rescues seven other tables needs extending to reach FHIR core code systems, and 0962 routes normally with no ruling needed. Either answer closes it; the current state — blocked, with an unexplained artifact published anyway — is the only one that should not persist.
+**Decision needed:** The table is no longer blocked, and nobody decided that. On 2026-11-05 it began routing value-set-only and publishing ValueSet/v2-0962 — correctly: the output is identical to THO's, same compose over http://hl7.org/fhir/device-status, same value set OID, same version 3.0.0, and the orphan warning is gone. What changed was the machine, not the chapter and not this repository. load_oid_index reads the FHIR R5 core package out of ~/.fhir/packages as well as the THO snapshot. That package was not present, so the OID resolved to nothing; the IG Publisher downloaded it during a build earlier the same day, and the next run of the writer resolved 2.16.840.1.113883.4.642.1.200 through CodeSystem-device-status.json — on an identifier FHIR itself marks use: "old". So no ruling is needed for 0962 itself. The outcome is right and matches what the committee has said seven times this month about tables THO already serves. What needs attention is that the corpus this guide generates depends on whether a package happens to be cached on the build machine. A fresh checkout would have produced a different IG from this one, with a different table count and a needs-decision entry nobody could explain. The question for the project, not the committee: should the FHIR core package be pinned and vendored the way tho-r5/ is, so the OID index is a declared input rather than a property of the machine? Everything else the writer reads is version-pinned and recorded in a report; this one is not, and it silently moved a table between routes.
 
 ---
 
-### Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register
+### Four more GP2 tables look like CMS I/OCE content and are published as though HL7 owned them
 
-**Tables:** 0458, 0459  
-**Goes to:** V2 Management + TSMG  
-**Register id:** `esc-0459-unresolvable-oid`
+**Tables:** 0466, 0468, 0469, 0470  
+**Goes to:** Financial Management WG  
+**Register id:** `esc-gp2-oce-siblings`
 
-*Why this class: An OID that resolves to nothing, on two tables. Blocks both mechanically. A THO external code system record has been requested; the canonical it carries closes this.*
+*Why this class: Four GP2 tables publishing CMS I/OCE content, if that is what it is, at HL7 canonicals. The same shape as 0460, which was realigned once somebody read its own description.*
 
-0458 OCE Edit Code and 0459 Reimbursement Action Code both declare the code system cms-OCEEditCode-cs, identified solely by OID 2.16.840.1.113883.6.301.9 with no URI. 0459 is an External table stewarded by FM and prints four codes; 0458 prints none. Neither THO nor the FHIR core packages resolve that OID to a canonical URL, so there is no way to say what code system the four codes belong to. The writer therefore emits nothing for either table — not a CodeSystem, not a ValueSet. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.
+Between 2026-11-05 and 2026-11-06 four tables in the GP1/GP2 pair were realigned as CMS Integrated Outpatient Code Editor content: 0458, 0459, 0460 and 0467. Each now publishes a value set over an external code system record CMS owns, and 0460 stopped minting a v2 CodeSystem it never should have had. A sweep of the corpus for I/OCE and APC references found four more tables in the same segment that were not part of that batch, all stewarded by FM, all Type: User, all with all codes content logical definitions over canonicals this guide or UTG constructed: 0466 Ambulatory Payment Classification Code (GP2-7), 0468 Payment Adjustment Code (GP2-9), 0469 Packaging Status Code (GP2-10) and 0470 Reimbursement Type Code (GP2-12). The evidence is not equally strong across the four. 0468's own code displays name I/OCE return-buffer concepts — “payment adjustment applies to APC (status indicator G)”, “(status indicator H)”, “(status indicator J)”, and “specific list of HCPCS codes”. 0470's codes are APC payment categories outright: OPPS, Pckg, Lab, Thrpy, Mamm, PartH. 0466 is APC by name and its description says “the derived Ambulatory Payment Classification (APC) code”. 0469 is the weakest: the inference is field adjacency rather than content, and nothing in its own text names CMS or the I/OCE. For comparison, the precedent that makes this worth asking: 0460's code system description had said the codes specify “the OCE status of the line item” all along, and the table was still being published with a freshly minted HL7 canonical. The same mistake, if it is one, would not announce itself in these four either.
 
 **What this guide publishes today:**
 
-- `0458` OCE Edit Code: BLOCKED — no artifact, pipeline cannot settle it
-- `0459` Reimbursement Action Code: BLOCKED — no artifact, pipeline cannot settle it
+- `0466` Ambulatory Payment Classification Code: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
+- `0468` Payment Adjustment Code: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
+- `0469` Packaging Status Code: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
+- `0470` Reimbursement Type Code: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
 
-**Decision needed:** Partly answered, and still open. The reviewer confirmed on 2026-11-05 that the codes come from the CMS Integrated Outpatient Code Editor specification — for 0459, Table 7 row 13 of the I/OCE specification — and that a request has been made for THO to create an external code system record for it. Until that record exists there is no canonical to compose over, so both tables are held: no CodeSystem, no ValueSet, concept domain only. Both concept domains (OceEditCode, ReimbursementActionCode) are published and unaffected. What remains open is the THO record itself. Once it exists, the canonical URL it carries goes straight into both tables' content logical definitions and this item closes. Nothing is to be extracted from the I/OCE specification PDF; the canonical from the THO record is the only thing needed. Note that sibling table 0467 is in the same OCE arc and has already had its Jira ticket raised, so it is being published now — see esc-0467-oce-modifier-edit. The difference between them is the state of the THO request, not the shape of the problem.
+**Decision needed:** This is a question for the Financial Management Work Group, which stewards both this vocabulary and the GP1/GP2 segments that use it, rather than for V2 Management. For each of the four: are the codes CMS's, published in the I/OCE specification, in the way 0458, 0459, 0460 and 0467's are? If so each needs an external code system record in THO and a value set composing over it, and this guide should stop publishing a CodeSystem for it — the same treatment the other four just received. If the codes are genuinely HL7's, nothing changes and this item closes with that on the record. Nothing is being changed for these four in the meantime. They continue to publish a CodeSystem and a ValueSet at their existing canonicals exactly as before, so no answer is urgent and no artifact is at risk while the question is open.
 
 ---
 
@@ -551,9 +553,9 @@ This is the half of the 0567/0568 question that the 2026-09-23 ruling did not re
 
 ---
 
-### User-defined tables are treated three different ways, and two of them get a freshly minted canonical
+### What should a user-defined table produce? Three of them were treated three different ways
 
-**Tables:** 0460, 0093  
+**Tables:** 0093  
 **Goes to:** V2 Management  
 **Register id:** `esc-0460-user-defined-mint`
 
@@ -563,10 +565,9 @@ This is the half of the 0567/0568 question that the 2026-09-23 ruling did not re
 
 **What this guide publishes today:**
 
-- `0460` Denial or Rejection Code: CodeSystem + ValueSet published — CS 1.0.0 (held) VS 1.0.0 (held)
 - `0093` Release Information: concept domain only, no artifact
 
-**Decision needed:** 0411 has since been answered — it is concept domain only, see esc-0411-concept-domain-only — which sharpens this question rather than shrinking it. Two of the three user tables now produce nothing, leaving 0460 as the only minted CodeSystem canonical in the entire corpus. Decide what a user-defined table should produce. Options: a CodeSystem and ValueSet like any other (the current behaviour), a concept domain only (as 0093 is treated), or a ValueSet whose codes are marked as examples. The answer decides whether these two new canonicals should exist at all, and it should be applied to 0093 at the same time so that like tables are treated alike.
+**Decision needed:** Both of the minted canonicals this item was about are gone, and the question underneath them is still open. 0411 was ruled concept-domain-only in October (esc-0411-concept-domain-only). 0460 was realigned in November as CMS I/OCE content (esc-0460-oce-realignment), which withdrew its minted CodeSystem for a reason specific to that table rather than as an answer to this one. This guide now mints no CodeSystem canonical anywhere in the corpus. What remains unanswered is the principle, and 0093 Release Information is where it still bites: a Type: User table, declared concept-domain-only, listing Y and N in a grid that reaches no artifact. Decide what a user-defined table should produce — a CodeSystem and ValueSet like any other, a concept domain only, or a ValueSet whose codes are marked as examples — so that the next such table is handled by a rule rather than case by case. The answer no longer changes any published artifact; it decides what happens to 0093's codes and sets the precedent.
 
 ---
 

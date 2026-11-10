@@ -630,6 +630,16 @@ RULED_SUPPRESSIONS = {
 #   cld            the content logical definition to read in place of the
 #                  chapter's, where the chapter's own cell is unusable.
 #                  Defaults to None, meaning the chapter's is read as normal.
+#   description    the value set description to publish in place of the
+#                  chapter's. Defaults to None, meaning the chapter's is
+#                  used, which is what fidelity requires everywhere else.
+#
+# `description` is a deviation from the chapter and should be rare. It exists
+# for the I/OCE tables, where the chapter's one-line description does not say
+# which CMS publication the codes come from or which table within it -- and
+# for a value set that composes over an external system and enumerates
+# nothing, the description is the only place a reader can learn what is in
+# it. The replacements were supplied by the reviewer with the rulings.
 #
 # `cld` exists for one table and should stay rare. Table 0823's Content
 # Logical Definition cell contains the string `HL7-EXT` -- the table's *Type*
@@ -640,8 +650,9 @@ RULED_SUPPRESSIONS = {
 # through an obvious transcription error, not overriding what it says.
 Reclassification = namedtuple(
     "Reclassification",
-    "action system_url unresolved ruling register_item rationale cld")
-Reclassification.__new__.__defaults__ = (None,)
+    "action system_url unresolved ruling register_item rationale cld "
+    "description")
+Reclassification.__new__.__defaults__ = (None, None)
 
 NUBC_OCCURRENCE_RULING = (
     "Tables 0350 and 0351 are not concept domain only. The value sets exist "
@@ -650,6 +661,140 @@ NUBC_OCCURRENCE_RULING = (
 )
 
 RULED_RECLASSIFICATIONS = {
+    "0458": Reclassification(
+        action="value-set-only",
+        system_url="http://terminology.hl7.org/CodeSystem/oce-edit-codes",
+        unresolved="THO does not yet register this code system. A Jira "
+                   "ticket has been raised to create the external code "
+                   "system record at this URL. Until it lands the value "
+                   "set composes over a canonical with nothing behind it "
+                   "-- a known interim state, accepted in the ruling.",
+        ruling="The codes are the CMS I/OCE edit codes, which CMS defines "
+               "and maintains. A Jira ticket has been raised to create an "
+               "external code system record in THO at "
+               "CodeSystem/oce-edit-codes. Publish the value set over "
+               "that canonical. No CodeSystem is created here.",
+        register_item="esc-0459-unresolvable-oid",
+        description="The edit codes that the CMS Integrated Outpatient "
+                    "Code Editor (I/OCE) returns when it processes an "
+                    "outpatient institutional claim. Each code identifies "
+                    "a specific error or condition the I/OCE found, and "
+                    "its disposition tells the payer what to do: reject, "
+                    "deny, return to provider, suspend, or reject or deny "
+                    "a line item. CMS defines and maintains these codes, "
+                    "not HL7. This value set includes all edits listed in "
+                    "the \u201cEdit Descriptions and Reason for Edit "
+                    "Generation\u201d table of the I/OCE Specifications "
+                    "for the applicable release, excluding entries "
+                    "labeled \u201cReserved.\u201d Edits marked "
+                    "\u201c(inactive)\u201d are still valid codes for "
+                    "historical claims. Each edit\u2019s meaning is given "
+                    "by its Edit Description and Reason for Edit "
+                    "Generation in that table.",
+        rationale=(
+            "The chapter gives the code system only as OID "
+            "2.16.840.1.113883.6.301.9, with no URI, and nothing in THO "
+            "or FHIR core resolves it -- which is why the table had been "
+            "blocked since the beginning.",
+            "The codes are CMS's, published in the I/OCE specification "
+            "rather than in Chapter 2C, so no CodeSystem is this guide's "
+            "to write. The chapter lists none.",
+            "The canonical is stated rather than derived because the THO "
+            "record does not exist yet; it is the URL the raised ticket "
+            "asks for.",
+            "Sibling 0459 shares the same OID and the same code system; "
+            "it gets its own record because the two tables draw different "
+            "code sets from the same I/OCE publication.",
+        ),
+    ),
+    "0459": Reclassification(
+        action="value-set-only",
+        system_url="http://terminology.hl7.org/CodeSystem/"
+                   "oce-reimbursement-action-codes",
+        unresolved="THO does not yet register this code system. A Jira "
+                   "ticket has been raised to create the external code "
+                   "system record at this URL. Until it lands the value "
+                   "set composes over a canonical with nothing behind it "
+                   "-- a known interim state, accepted in the ruling.",
+        ruling="The codes are the CMS I/OCE line item action flags, which "
+               "CMS defines and maintains. A Jira ticket has been raised "
+               "to create an external code system record in THO at "
+               "CodeSystem/oce-reimbursement-action-codes. Publish the "
+               "value set over that canonical. No CodeSystem is created "
+               "here.",
+        register_item="esc-0459-unresolvable-oid",
+        description="Codes are the values listed for the \u201cLine item "
+                    "Action Flag\u201d row of the APC Return Buffer "
+                    "Table in the CMS Integrated Outpatient Code Editor "
+                    "(I/OCE) Specifications, with meanings as given in "
+                    "that row\u2019s Description column. The Line Item "
+                    "Action Flag is set by the Medicare Administrative "
+                    "Contractor (MAC) on input to the I/OCE to override, "
+                    "or to externally impose, line item denial, "
+                    "rejection, or adjustment, and is passed through to "
+                    "the Pricer. CMS defines and maintains the codes and "
+                    "publishes the specification with each quarterly "
+                    "I/OCE release.",
+        rationale=(
+            "Same unresolvable OID as 0458, 2.16.840.1.113883.6.301.9, "
+            "and the same reason the table was blocked.",
+            "The chapter lists four codes for this table -- 0, 1, 2 and 3 "
+            "-- which are plainly not HCPCS procedure codes. The reviewer "
+            "confirmed on 2026-11-05 that they come from Table 7, row 13 "
+            "of the I/OCE specification, which is the Line item Action "
+            "Flag row. So the codes belong to the external system and "
+            "this guide does not mint a CodeSystem for them.",
+            "The chapter's four codes are not written into the compose: "
+            "the content logical definition is 'all codes', and all codes "
+            "of an external system is the whole system.",
+        ),
+    ),
+    "0460": Reclassification(
+        action="value-set-only",
+        system_url="http://terminology.hl7.org/CodeSystem/"
+                   "oce-denial-or-rejection-flag",
+        unresolved="THO does not yet register this code system. The "
+                   "external metadata record is being created at this "
+                   "URL. Until it lands the value set composes over a "
+                   "canonical with nothing behind it -- a known interim "
+                   "state, accepted in the ruling.",
+        ruling="Align 0460 with the other I/OCE tables. The codes are the "
+               "CMS I/OCE Line-item Denial or Rejection Flag, which CMS "
+               "defines and maintains. The external metadata record URL "
+               "is CodeSystem/oce-denial-or-rejection-flag. Publish the "
+               "value set over that canonical and stop minting a v2 "
+               "CodeSystem.",
+        register_item="esc-0460-oce-realignment",
+        description="Codes returned by the CMS Integrated Outpatient Code "
+                    "Editor (I/OCE) for a claim line to indicate whether "
+                    "the line has been denied or rejected as a result of "
+                    "I/OCE editing, or flagged for informational purposes "
+                    "only. CMS defines and maintains these codes as the "
+                    "I/OCE Line-item Denial or Rejection Flag, not HL7. "
+                    "This value set includes all values listed for the "
+                    "Line-item Denial or Rejection Flag in the APC Return "
+                    "Buffer Table of the I/OCE Specifications for the "
+                    "applicable release.",
+        rationale=(
+            "This table was one of only two in the whole corpus for which "
+            "this guide minted a brand-new CodeSystem canonical, and the "
+            "other -- 0411 -- was suppressed in October. Withdrawing this "
+            "one leaves the guide minting no code system canonicals at "
+            "all.",
+            "The chapter's own code system description says the codes "
+            "specify \u201cthe OCE status of the line item\u201d, so "
+            "the chapter already ties this table to the I/OCE. The "
+            "minted canonical was a fallback for a code system the "
+            "chapter named without giving a URI, not a claim that HL7 "
+            "owns the codes.",
+            "The three codes the chapter lists -- 0, 1 and 2 -- are no "
+            "longer published as HL7 concepts. They are CMS's, and the "
+            "external record is where they belong.",
+            "This also answers the mint half of "
+            "esc-0460-user-defined-mint. The 0093 half of that item is "
+            "untouched and stays open.",
+        ),
+    ),
     "0467": Reclassification(
         action="value-set-only",
         system_url="http://terminology.hl7.org/CodeSystem/v2-0467",
@@ -667,6 +812,11 @@ RULED_RECLASSIFICATIONS = {
                "all codes from that system. No CodeSystem is created: the "
                "content is CMS's.",
         register_item="esc-0467-oce-modifier-edit",
+        description="The CMS I/OCE edit codes reported against a HCPCS or "
+                    "CPT modifier on a claim line, as listed in the "
+                    "\u201cModifier edit return buffer\u201d row of the "
+                    "Edit Return Buffer Table in the I/OCE Specifications "
+                    "for the applicable release.",
         rationale=(
             "The writer had reported the table blocked because it 'owns "
             "its code system but publishes no codes'. It does not own it: "
@@ -2206,6 +2356,14 @@ def plan_value_set(record, plan, utg, published_urls=None, snapshot=None,
     fields = tho_merge.merge_fields(
         fields, tho, tho_merge.FILLABLE_VALUE_SET_FIELDS, observe, context)
 
+    # A description set by ruling replaces both the chapter's and anything
+    # the THO merge filled, so it is applied after the merge. It is a stated
+    # deviation from fidelity and only the I/OCE tables carry one -- see the
+    # `description` field on `Reclassification` for why those need it.
+    reclassification = ruled_reclassification(table)
+    if reclassification is not None and reclassification.description:
+        fields["description"] = reclassification.description
+
     # A supersession ruling, applied after the THO merge and before anything
     # is compared. Two changes, and they must happen in this order: the merge
     # fills `description` from THO where the chapter is silent, so prefixing
@@ -2912,6 +3070,23 @@ def main():
             if stale.exists():
                 stale.unlink()
                 print(f"Removed (withheld on a ruling): {relative}")
+
+    # A reclassification that drops a table's CodeSystem leaves the file from
+    # the run before it behind, exactly as a moved canonical does. 0460 is the
+    # case: it minted CodeSystem/v2-0460 until the I/OCE ruling said the codes
+    # are CMS's, and an un-pruned cs-v2-0460.xml would keep publishing a code
+    # system the ruling withdrew.
+    #
+    # Only `value-set-only` reclassifications qualify, and only their
+    # CodeSystem is removed -- the value set is still written.
+    for table, reclassification in sorted(RULED_RECLASSIFICATIONS.items()):
+        if reclassification.action != "value-set-only":
+            continue
+        stale = output_dir / f"codeSystems/cs-v2-{table}.xml"
+        if stale.exists():
+            stale.unlink()
+            print(f"Removed (code system withdrawn by ruling): "
+                  f"codeSystems/cs-v2-{table}.xml")
 
     # A canonical moved by ruling leaves the file written under the old one
     # behind. Same reasoning as the suppression prune above: nothing else

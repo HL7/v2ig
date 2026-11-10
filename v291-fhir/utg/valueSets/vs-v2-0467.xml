@@ -24,7 +24,7 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="Value Set of codes that specify the edits of the modifiers for each line or HCPCS/CPT."/>
+  <description value="The CMS I/OCE edit codes reported against a HCPCS or CPT modifier on a claim line, as listed in the “Modifier edit return buffer” row of the Edit Return Buffer Table in the I/OCE Specifications for the applicable release."/>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <compose>
     <include>

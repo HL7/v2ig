@@ -1337,8 +1337,8 @@ ESCALATIONS = [
         "id": "esc-0962-already-in-tho",
         "who": "V2 Management",
         "tables": "0962",
-        "title": "Table 0962's value set is published and correct in THO, "
-                 "and this guide reports the table blocked",
+        "title": "Table 0962 resolved itself when a cached package appeared, "
+                 "which is a reproducibility problem rather than a ruling",
         "body":
             "<code>0962</code> <i>Device Status</i> routes "
             "<code>needs-decision</code> because its code system block gives "
@@ -1364,21 +1364,153 @@ ESCALATIONS = [
             "run, and it is the only artifact in the IG that no route "
             "accounts for.",
         "ask":
-            "<b>This is almost certainly the same question answered seven "
-            "times in November</b>, under "
-            "<code>esc-served-by-existing-tho-value-sets</code>: a correct "
-            "value set already exists, so this guide should not create one. "
-            "If that is the answer here too, 0962 becomes a suppression "
-            "naming <code>ValueSet/v2-0962</code>, the table leaves the "
-            "needs-decision list, and the orphaned file is pruned by the "
-            "mechanism rather than deleted by hand. "
-            "<b>The alternative</b> is that this guide should publish the "
-            "table, in which case the page-URL fallback that already "
-            "rescues seven other tables needs extending to reach FHIR core "
-            "code systems, and 0962 routes normally with no ruling needed. "
-            "Either answer closes it; the current state &mdash; blocked, "
-            "with an unexplained artifact published anyway &mdash; is the "
-            "only one that should not persist.",
+            "<b>The table is no longer blocked, and nobody decided that.</b> "
+            "On 2026-11-05 it began routing <code>value-set-only</code> and "
+            "publishing <code>ValueSet/v2-0962</code> &mdash; correctly: the "
+            "output is identical to THO's, same compose over "
+            "<code>http://hl7.org/fhir/device-status</code>, same value set "
+            "OID, same version 3.0.0, and the orphan warning is gone. "
+            "<b>What changed was the machine, not the chapter and not this "
+            "repository.</b> <code>load_oid_index</code> reads the FHIR R5 "
+            "core package out of <code>~/.fhir/packages</code> as well as "
+            "the THO snapshot. That package was not present, so the OID "
+            "resolved to nothing; the IG Publisher downloaded it during a "
+            "build earlier the same day, and the next run of the writer "
+            "resolved <code>2.16.840.1.113883.4.642.1.200</code> through "
+            "<code>CodeSystem-device-status.json</code> &mdash; on an "
+            "identifier FHIR itself marks <code>use: \"old\"</code>. "
+            "<b>So no ruling is needed for 0962 itself.</b> The outcome is "
+            "right and matches what the committee has said seven times "
+            "this month about tables THO already serves. What needs "
+            "attention is that <b>the corpus this guide generates depends "
+            "on whether a package happens to be cached on the build "
+            "machine</b>. A fresh checkout would have produced a different "
+            "IG from this one, with a different table count and a "
+            "<code>needs-decision</code> entry nobody could explain. "
+            "<b>The question for the project, not the committee:</b> should "
+            "the FHIR core package be pinned and vendored the way "
+            "<code>tho-r5/</code> is, so the OID index is a declared input "
+            "rather than a property of the machine? Everything else the "
+            "writer reads is version-pinned and recorded in a report; this "
+            "one is not, and it silently moved a table between routes.",
+    },
+    {
+        "id": "esc-gp2-oce-siblings",
+        "who": "Financial Management WG",
+        "tables": "0466, 0468, 0469, 0470",
+        "title": "Four more GP2 tables look like CMS I/OCE content and are "
+                 "published as though HL7 owned them",
+        "body":
+            "Between 2026-11-05 and 2026-11-06 four tables in the GP1/GP2 "
+            "pair were realigned as CMS Integrated Outpatient Code Editor "
+            "content: <code>0458</code>, <code>0459</code>, "
+            "<code>0460</code> and <code>0467</code>. Each now publishes a "
+            "value set over an external code system record CMS owns, and "
+            "<code>0460</code> stopped minting a v2 CodeSystem it never "
+            "should have had. "
+            "<b>A sweep of the corpus for I/OCE and APC references found "
+            "four more tables in the same segment that were not part of "
+            "that batch</b>, all stewarded by FM, all "
+            "<code>Type: User</code>, all with <code>all codes</code> "
+            "content logical definitions over canonicals this guide or UTG "
+            "constructed: "
+            "<code>0466</code> <i>Ambulatory Payment Classification Code</i> "
+            "(GP2-7), <code>0468</code> <i>Payment Adjustment Code</i> "
+            "(GP2-9), <code>0469</code> <i>Packaging Status Code</i> "
+            "(GP2-10) and <code>0470</code> <i>Reimbursement Type Code</i> "
+            "(GP2-12). "
+            "<b>The evidence is not equally strong across the four.</b> "
+            "<code>0468</code>'s own code displays name I/OCE return-buffer "
+            "concepts &mdash; &ldquo;payment adjustment applies to APC "
+            "(status indicator G)&rdquo;, &ldquo;(status indicator H)&rdquo;, "
+            "&ldquo;(status indicator J)&rdquo;, and &ldquo;specific list of "
+            "HCPCS codes&rdquo;. <code>0470</code>'s codes are APC payment "
+            "categories outright: <code>OPPS</code>, <code>Pckg</code>, "
+            "<code>Lab</code>, <code>Thrpy</code>, <code>Mamm</code>, "
+            "<code>PartH</code>. <code>0466</code> is APC by name and its "
+            "description says &ldquo;the derived Ambulatory Payment "
+            "Classification (APC) code&rdquo;. <code>0469</code> is the "
+            "weakest: the inference is field adjacency rather than content, "
+            "and nothing in its own text names CMS or the I/OCE. "
+            "<b>For comparison, the precedent that makes this worth "
+            "asking:</b> <code>0460</code>'s code system description had "
+            "said the codes specify &ldquo;the OCE status of the line "
+            "item&rdquo; all along, and the table was still being published "
+            "with a freshly minted HL7 canonical. The same mistake, if it is "
+            "one, would not announce itself in these four either.",
+        "ask":
+            "<b>This is a question for the Financial Management Work Group</b>, "
+            "which stewards both this vocabulary and the GP1/GP2 segments "
+            "that use it, rather than for V2 Management. "
+            "For each of the four: are the codes CMS's, published in the "
+            "I/OCE specification, in the way 0458, 0459, 0460 and 0467's "
+            "are? If so each needs an external code system record in THO "
+            "and a value set composing over it, and this guide should stop "
+            "publishing a CodeSystem for it &mdash; the same treatment the "
+            "other four just received. If the codes are genuinely HL7's, "
+            "nothing changes and this item closes with that on the record. "
+            "<b>Nothing is being changed for these four in the meantime.</b> "
+            "They continue to publish a CodeSystem and a ValueSet at their "
+            "existing canonicals exactly as before, so no answer is urgent "
+            "and no artifact is at risk while the question is open.",
+    },
+    {
+        "id": "esc-0460-oce-realignment",
+        "who": "V2 Management",
+        "tables": "0460",
+        "title": "Table 0460's codes are CMS I/OCE content, and this guide "
+                 "was minting an HL7 code system for them",
+        "body":
+            "<code>0460</code> <i>Denial or Rejection Code</i> was the "
+            "<b>last table in the corpus for which this guide minted a "
+            "brand-new CodeSystem canonical</b>. The chapter names a code "
+            "system, <code>denialOrRejectionType</code>, and gives an OID "
+            "but no URI, so the writer fell back to constructing "
+            "<code>CodeSystem/v2-0460</code> and publishing the chapter's "
+            "three codes under it as HL7 content. "
+            "<b>The evidence that they are not HL7's was in the chapter the "
+            "whole time.</b> Its own code system description reads "
+            "&ldquo;Code system of concepts specifying the <b>OCE status of "
+            "the line item</b>. Used in HL7 Version 2.x messaging in the "
+            "GP2 segment.&rdquo; The codes are the CMS Integrated "
+            "Outpatient Code Editor's Line-item Denial or Rejection Flag, "
+            "published in the I/OCE specification with each quarterly "
+            "release. The table sits at GP2-5, among the I/OCE siblings "
+            "0458, 0459 and 0467. "
+            "This is the same shape as <code>esc-0895-wrong-system-url</code> "
+            "and the 0458/0459 pair: a code system belonging to another "
+            "authority, reached through an identifier the chapter printed "
+            "without a URL, and a fallback that quietly asserted HL7 "
+            "ownership instead of reporting that it could not tell.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "Written review",
+            "date": "2026-11-06",
+            "ruling": "Align 0460 with the other I/OCE tables. The codes "
+                      "are CMS's Line-item Denial or Rejection Flag. The "
+                      "external metadata record URL is "
+                      "<code>CodeSystem/oce-denial-or-rejection-flag</code>. "
+                      "Publish the value set over that canonical with the "
+                      "supplied description, and stop minting a v2 "
+                      "CodeSystem.",
+            "effect": "<code>CodeSystem/v2-0460</code> is withdrawn and its "
+                      "file pruned, so <b>this guide now mints no CodeSystem "
+                      "canonical anywhere in the corpus</b>. "
+                      "<code>ValueSet/v2-0460</code> is rewritten to compose "
+                      "over the CMS canonical, carrying the description "
+                      "supplied with the ruling. The chapter's three codes "
+                      "&mdash; 0, 1 and 2 &mdash; are no longer published as "
+                      "HL7 concepts. "
+                      "Like 0458 and 0459, the canonical does not resolve "
+                      "until THO creates the record, which is waived in a "
+                      "test that must be deleted when it lands. "
+                      "This answers the 0460 half of "
+                      "<code>esc-0460-user-defined-mint</code>; the "
+                      "principle that item asks about is untouched and "
+                      "stays open against 0093.",
+        },
     },
     {
         "id": "esc-0960-duplicate-of-fhir-core",
@@ -2043,13 +2175,47 @@ ESCALATIONS = [
             "<code>esc-0467-oce-modifier-edit</code>. The difference "
             "between them is the state of the THO request, not the shape of "
             "the problem.",
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "Written review",
+            "date": "2026-11-06",
+            "ruling": "The codes for both tables come from the CMS "
+                      "Integrated Outpatient Code Editor specification, "
+                      "which CMS defines and maintains. Jira tickets have "
+                      "been raised to create external code system records "
+                      "in THO: <code>CodeSystem/oce-edit-codes</code> for "
+                      "0458, and "
+                      "<code>CodeSystem/oce-reimbursement-action-codes</code> "
+                      "for 0459. Publish a value set for each over its "
+                      "canonical, with the supplied description. Create no "
+                      "CodeSystem for either, and extract nothing from the "
+                      "I/OCE specification PDF &mdash; the canonical from "
+                      "the THO record is all that is needed.",
+            "effect": "Both tables stop routing "
+                      "<code>needs-decision</code> and publish "
+                      "<code>ValueSet/v2-0458</code> and "
+                      "<code>ValueSet/v2-0459</code> as first publications "
+                      "at 1.0.0, each composing over all codes from its own "
+                      "external canonical. Both carry a description "
+                      "supplied with the ruling rather than the chapter's, "
+                      "naming the I/OCE table the codes come from &mdash; a "
+                      "stated deviation from fidelity, because a value set "
+                      "that enumerates nothing has only its description to "
+                      "tell a reader what is in it. "
+                      "<b>Both compose over canonicals that do not resolve "
+                      "yet</b>, which is recorded on each entry and waived "
+                      "in a test that has to be deleted when the THO "
+                      "records land. The four codes Chapter 2C lists for "
+                      "0459 are not written into the compose: 'all codes' "
+                      "of an external system is the whole system.",
+        },
     },
     {
         "id": "esc-0460-user-defined-mint",
         "who": "V2 Management",
-        "tables": "0460, 0093",
-        "title": "User-defined tables are treated three different ways, and "
-                 "two of them get a freshly minted canonical",
+        "tables": "0093",
+        "title": "What should a user-defined table produce? Three of them "
+                 "were treated three different ways",
         "body":
             "<code>0460</code> <i>Denial or Rejection Code</i> and "
             "<code>0411</code> <i>Supplemental Service Information Values</i> "
@@ -2073,19 +2239,27 @@ ESCALATIONS = [
             "the chapter prints a canonical for a resource that does not "
             "exist &mdash; and is a mess independent of this question.",
         "ask":
-            "<b>0411 has since been answered &mdash; it is concept domain "
-            "only, see <code>esc-0411-concept-domain-only</code> &mdash; "
-            "which sharpens this question rather than shrinking it.</b> Two "
-            "of the three user tables now produce nothing, leaving "
-            "<b>0460 as the only minted CodeSystem canonical in the entire "
-            "corpus</b>. "
-            "Decide what a user-defined table should produce. Options: a "
-            "CodeSystem and ValueSet like any other (the current behaviour), "
-            "a concept domain only (as 0093 is treated), or a ValueSet whose "
-            "codes are marked as examples. The answer decides whether these "
-            "two new canonicals should exist at all, and it should be "
-            "applied to 0093 at the same time so that like tables are "
-            "treated alike.",
+            "<b>Both of the minted canonicals this item was about are "
+            "gone, and the question underneath them is still open.</b> "
+            "0411 was ruled concept-domain-only in October "
+            "(<code>esc-0411-concept-domain-only</code>). 0460 was "
+            "realigned in November as CMS I/OCE content "
+            "(<code>esc-0460-oce-realignment</code>), which withdrew its "
+            "minted CodeSystem for a reason specific to that table rather "
+            "than as an answer to this one. <b>This guide now mints no "
+            "CodeSystem canonical anywhere in the corpus.</b> "
+            "What remains unanswered is the principle, and "
+            "<code>0093</code> <i>Release Information</i> is where it "
+            "still bites: a <code>Type: User</code> table, declared "
+            "concept-domain-only, listing <code>Y</code> and <code>N</code> "
+            "in a grid that reaches no artifact. "
+            "Decide what a user-defined table should produce &mdash; a "
+            "CodeSystem and ValueSet like any other, a concept domain "
+            "only, or a ValueSet whose codes are marked as examples "
+            "&mdash; so that the next such table is handled by a rule "
+            "rather than case by case. The answer no longer changes any "
+            "published artifact; it decides what happens to 0093's codes "
+            "and sets the precedent.",
     },
     {
         "id": "esc-0411-concept-domain-only",

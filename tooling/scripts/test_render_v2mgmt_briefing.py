@@ -243,3 +243,62 @@ def test_the_no_code_system_table_count_matches_the_extraction():
     empty = sum(1 for f in files
                 if not json.loads(Path(f).read_text()).get("codeSystems"))
     assert f"{empty} tables with no code system" in briefing.NEW_QUESTION["body"]
+
+
+# ---------------------------------------------------------------------------
+# The authored QA claim
+# ---------------------------------------------------------------------------
+#
+# Two briefings tell the reader the IG validates with "zero broken links
+# across 625,068 checked". That number was read off a build by hand and is
+# authored in two modules, so nothing made it follow the build it describes.
+# It is exactly the shape of claim that goes quietly wrong: a reader who
+# trusts it has no way to tell how old it is, and "zero broken links" is the
+# single most load-bearing sentence in a review briefing.
+#
+# Checked against the publisher's own qa.html rather than recomputed, because
+# the publisher is the authority on its own output.
+
+QA_CLAIM_RE = re.compile(r"zero broken links[^.]*?([\d,]{4,})\s+checked",
+                         re.IGNORECASE | re.DOTALL)
+
+BRIEFINGS_CLAIMING_QA = ("render_v2mgmt_briefing", "render_ti_briefing")
+
+
+def _qa_broken_link_count():
+    """What the publisher's qa.html reports, or None when there is no build."""
+    qa = (briefing.PROJECT_ROOT / "vocab-ig" / "output" / "qa.html")
+    if not qa.exists():
+        return None
+    text = qa.read_text(encoding="utf-8", errors="replace")
+    # The publisher writes a line of the form "<n> broken links" / "no broken
+    # links" in its summary. Both forms are accepted; anything else means the
+    # format moved and the test should be looked at rather than trusted.
+    if re.search(r"\bno broken links\b", text, re.IGNORECASE):
+        return 0
+    match = re.search(r"([\d,]+)\s+broken links?\b", text, re.IGNORECASE)
+    if match:
+        return int(match.group(1).replace(",", ""))
+    return None
+
+
+def test_the_briefings_do_not_claim_zero_broken_links_against_a_bad_build():
+    """The claim has to match the build sitting next to it."""
+    import importlib
+
+    broken = _qa_broken_link_count()
+    if broken is None:
+        pytest.skip("no build, or qa.html does not report a link count")
+
+    claiming = []
+    for name in BRIEFINGS_CLAIMING_QA:
+        module = importlib.import_module(name)
+        source = "".join(str(getattr(module, attr, ""))
+                         for attr in dir(module)
+                         if attr.isupper() or attr.endswith("SUMMARY"))
+        if QA_CLAIM_RE.search(source):
+            claiming.append(name)
+
+    assert not (claiming and broken), (
+        f"these briefings claim zero broken links, but the current build's "
+        f"qa.html reports {broken}: {claiming}")

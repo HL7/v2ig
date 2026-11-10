@@ -7,7 +7,7 @@ The rule this guide follows, and what this page reports on:
 
 > Where THO has content and Chapter 2C has no opinion, **THO's content survives**. Where both have something and they differ, the **chapter wins** and the disagreement is recorded.
 
-Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,275 observations in total.
+Everything below is measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,274 observations in total.
 
 ### Kept from THO
 
@@ -69,11 +69,11 @@ Content in Chapter 2C that THO does not carry. These are real changes to the art
 
 THO publishes an artifact and this guide publishes nothing at that canonical. Nothing is destroyed — THO's artifact stands untouched — so the merge does not invent a replacement. They are listed because a reviewer should see the gaps deliberately rather than discover them.
 
-**45 in total.**
+**44 in total.**
 
 | What | Count | Tables |
 |---|---:|---|
-| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 45 | 25 |
+| Artifacts THO publishes that this guide does not<br/><span class="tl-note">Publishing nothing at a canonical destroys nothing -- THO's artifact stands -- so the merge does not invent one. Listed so that the silence is deliberate and visible.</span> | 44 | 24 |
 
 ### What it does to version numbers
 
@@ -87,16 +87,15 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 
 | Outcome | Count |
 |---|---:|
-| codeSystem: first publication at 1.0.0 | 1 |
 | codeSystem: incremented | 58 |
 | codeSystem: unchanged, THO's version kept | 339 |
-| valueSet: first publication at 1.0.0 | 6 |
+| valueSet: first publication at 1.0.0 | 8 |
 | valueSet: incremented | 21 |
-| valueSet: unchanged, THO's version kept | 394 |
+| valueSet: unchanged, THO's version kept | 395 |
 
 ### The artifacts THO has and this guide does not
 
-45 of them, across 25 tables. Each is listed with the reason the writer gave for publishing nothing.
+44 of them, across 24 tables. Each is listed with the reason the writer gave for publishing nothing.
 
 | Table | Resource | Why this guide writes nothing |
 |---|---|---|
@@ -142,7 +141,6 @@ The one rule behind these numbers that used to rest on a judgement rather than a
 | [0529](table-ledger.html#tbl-0529) | ValueSet | The chapter has no section for it. |
 | [0567](table-ledger.html#tbl-0567) | ValueSet | Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is to do nothing with them. |
 | [0568](table-ledger.html#tbl-0568) | ValueSet | Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is to do nothing with them. |
-| [0962](table-ledger.html#tbl-0962) | ValueSet | The code system is given only as OID 2.16.840.1.113883.4.642.1.200, which nothing in THO or FHIR core resolves to a canonical URL. |
 | [4000](table-ledger.html#tbl-4000) | CodeSystem | The chapter has no section for it. |
 | [4000](table-ledger.html#tbl-4000) | ValueSet | The chapter has no section for it. |
 

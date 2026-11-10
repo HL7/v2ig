@@ -1,5 +1,5 @@
 This guide carries the code tables of **HL7 V2.9.1 Chapter 2C** as FHIR R5
-terminology resources: **398 CodeSystems**, **422 ValueSets**, and an extended
+terminology resources: **397 CodeSystems**, **424 ValueSets**, and an extended
 `conceptdomains` CodeSystem.
 
 > **This is a draft for committee review, not a publication.** It exists so
@@ -20,10 +20,10 @@ out of this guide entirely:
 
 | Route | Tables | What was written |
 |---|---|---|
-| Code system and value set | 398 | Both, at the table's own THO canonical |
+| Code system and value set | 397 | Both, at the table's own THO canonical |
 | Concept domain only | 356 | No resource — the table names a domain, not a code set |
-| Value set only | 20 | The codes belong to another authority; only the value set is ours |
-| Needs a decision | 5 | Nothing written — see [Known issues](known-issues.html) |
+| Value set only | 24 | The codes belong to another authority; only the value set is ours |
+| Needs a decision | 2 | Nothing written — see [Known issues](known-issues.html) |
 | Withheld on a ruling | 14 | A committee ruled this guide should not publish them |
 | Retired and superseded | 3 | Published retired, pointing at the value set that replaces them |
 | Nothing to write | 2 | Tables 0010 and 0188 |

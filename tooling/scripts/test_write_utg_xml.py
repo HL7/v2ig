@@ -1013,6 +1013,13 @@ def test_a_reclassification_publishes_what_the_chapter_says_not_to():
 # convention rather than a dangling pointer. Listing the exceptions by hand
 # keeps a future entry from inheriting that mistake silently.
 EXPECTED_UNRESOLVED_SYSTEMS = {
+    "0458": "CodeSystem/oce-edit-codes. Jira ticket raised with THO. Remove "
+            "this entry once THO publishes the record.",
+    "0459": "CodeSystem/oce-reimbursement-action-codes. Jira ticket raised "
+            "with THO. Remove this entry once THO publishes the record.",
+    "0460": "CodeSystem/oce-denial-or-rejection-flag. The external metadata "
+            "record is being created. Remove this entry once THO publishes "
+            "it.",
     "0467": "The CMS I/OCE modifier edit code system. A Jira ticket has been "
             "raised with THO to create the external code system record, "
             "which will carry the URL and OID Chapter 2C already prints. "

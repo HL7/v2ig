@@ -181,7 +181,28 @@ def run_publisher():
     env["GEM_PATH"] = GEM_HOME
     env["PATH"] = f"{GEM_HOME}/bin:{RUBY_BIN}:{env.get('PATH', '')}"
 
-    command = [str(JAVA), "-Xmx8g", "-jar", str(PUBLISHER_JAR),
+    # -Xss is not optional here, and the reason is worth stating because the
+    # failure it prevents looks nothing like a stack problem.
+    #
+    # Because this IG's canonical is under terminology.hl7.org, the publisher
+    # finds THO's package-list.json and generates a "previous version
+    # comparison" page per published THO release. Those pages are the
+    # publisher's own output, and they are malformed: every row emits
+    # `<a href="...">Text</td>` with no closing `</a>`, 3,491 times in the
+    # 7.5.0 page alone. Its XhtmlParser treats each unclosed anchor as another
+    # level of nesting, so by the end of the table it is ~4,300 frames deep
+    # and overflows the default 1MB stack -- in "Checking Output HTML", the
+    # very last step, after a complete and correct IG has been written.
+    #
+    # The crash therefore destroys only qa.html, and it got worse with time
+    # rather than with anything in this repository: each new THO release adds
+    # another comparison page. 7.5.0's arrival is what pushed it over.
+    #
+    # 16MB is far more than the ~4,300 frames need and costs nothing on the
+    # main thread. If a future THO release crashes this again, the fix is not
+    # a bigger number -- check whether the comparison pages are still
+    # malformed and report it upstream.
+    command = [str(JAVA), "-Xmx8g", "-Xss16m", "-jar", str(PUBLISHER_JAR),
                "-ig", str(IG_INI), "-no-sushi"]
 
     print("\n" + "=" * 70)

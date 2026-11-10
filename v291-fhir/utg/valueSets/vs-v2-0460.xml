@@ -24,11 +24,11 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="Value Set of codes that specify the OCE status of the line item."/>
+  <description value="Codes returned by the CMS Integrated Outpatient Code Editor (I/OCE) for a claim line to indicate whether the line has been denied or rejected as a result of I/OCE editing, or flagged for informational purposes only. CMS defines and maintains these codes as the I/OCE Line-item Denial or Rejection Flag, not HL7. This value set includes all values listed for the Line-item Denial or Rejection Flag in the APC Return Buffer Table of the I/OCE Specifications for the applicable release."/>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v2-0460"/>
+      <system value="http://terminology.hl7.org/CodeSystem/oce-denial-or-rejection-flag"/>
     </include>
   </compose>
 </ValueSet>

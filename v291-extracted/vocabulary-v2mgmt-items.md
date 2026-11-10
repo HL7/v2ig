@@ -34,14 +34,14 @@ this file.
 13. [Sixteen Value Set descriptions stop mid-word, all at about 250 characters](#13) — 0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544
 14. [Twenty-three concepts have a code that is nothing but punctuation](#14) — 0005, 0066, 0093, 0200, 0255, 0291, 0359, 0365, 0366, 0367, 0418, 0466, 0487, 0492, 0505, 0523, 0544
 15. [Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned](#15) — 0956
-16. [Table 0962's value set is published and correct in THO, and this guide reports the table blocked](#16) — 0962
-17. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#17) — 0954, 0957
-18. [Where should a concept domain’s example codes live?](#18) — 0093, 0340, 0451
-19. [Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section](#19) — 0292
-20. [Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?](#20) — 0929, 0930
-21. [Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO](#21) — 0823
-22. [Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register](#22) — 0458, 0459
-23. [User-defined tables are treated three different ways, and two of them get a freshly minted canonical](#23) — 0460, 0093
+16. [Table 0962 resolved itself when a cached package appeared, which is a reproducibility problem rather than a ruling](#16) — 0962
+17. [Four more GP2 tables look like CMS I/OCE content and are published as though HL7 owned them](#17) — 0466, 0468, 0469, 0470
+18. [Table 0954's logical definition would include an abstract concept THO's equivalent excludes](#18) — 0954, 0957
+19. [Where should a concept domain’s example codes live?](#19) — 0093, 0340, 0451
+20. [Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section](#20) — 0292
+21. [Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?](#21) — 0929, 0930
+22. [Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO](#22) — 0823
+23. [What should a user-defined table produce? Three of them were treated three different ways](#23) — 0093
 24. [Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from](#24) — 0725
 25. [Table 0340's code grid lists code systems, not codes](#25) — 0340
 26. [Two table headings are styled `Normal` instead of `Heading 3`](#26) — 0685, 0767
@@ -269,18 +269,29 @@ Noticed in table 0291, whose code system carries a concept whose code is a singl
 
 <a id="16"></a>
 
-## 16. Table 0962's value set is published and correct in THO, and this guide reports the table blocked
+## 16. Table 0962 resolved itself when a cached package appeared, which is a reproducibility problem rather than a ruling
 
 **Tables:** 0962  
 **Goes to:** V2 Management
 
 `0962` _Device Status_ routes `needs-decision` because its code system block gives a FHIR core _page_ URL, `http://hl7.org/fhir/codesystem-device-status.html`, and an OID `2.16.840.1.113883.4.642.1.200` that nothing in THO or FHIR core resolves. So the writer cannot say what the value set composes over and emits nothing. **THO nevertheless publishes `ValueSet/v2-0962`**, active at 3.0.0, carrying this table's value set OID `2.16.840.1.113883.4.642.3.209` and composing over `http://hl7.org/fhir/device-status` — the real canonical the chapter's page link was pointing at. The artifact exists, it is correct, and nothing about it is in doubt. **There is a loose end in this repository because of it.** `vs-v2-0962.xml` is tracked and staged from an earlier run, when the table still routed to an artifact. It is byte-equivalent in substance to THO's. Nothing prunes it, because the prune deliberately removes only the exact paths of suppressed tables — a broader sweep would be wrong under `--table`. So the writer warns about it on every run, and it is the only artifact in the IG that no route accounts for.
 
-**The ask:** **This is almost certainly the same question answered seven times in November**, under `esc-served-by-existing-tho-value-sets`: a correct value set already exists, so this guide should not create one. If that is the answer here too, 0962 becomes a suppression naming `ValueSet/v2-0962`, the table leaves the needs-decision list, and the orphaned file is pruned by the mechanism rather than deleted by hand. **The alternative** is that this guide should publish the table, in which case the page-URL fallback that already rescues seven other tables needs extending to reach FHIR core code systems, and 0962 routes normally with no ruling needed. Either answer closes it; the current state — blocked, with an unexplained artifact published anyway — is the only one that should not persist.
+**The ask:** **The table is no longer blocked, and nobody decided that.** On 2026-11-05 it began routing `value-set-only` and publishing `ValueSet/v2-0962` — correctly: the output is identical to THO's, same compose over `http://hl7.org/fhir/device-status`, same value set OID, same version 3.0.0, and the orphan warning is gone. **What changed was the machine, not the chapter and not this repository.** `load_oid_index` reads the FHIR R5 core package out of `~/.fhir/packages` as well as the THO snapshot. That package was not present, so the OID resolved to nothing; the IG Publisher downloaded it during a build earlier the same day, and the next run of the writer resolved `2.16.840.1.113883.4.642.1.200` through `CodeSystem-device-status.json` — on an identifier FHIR itself marks `use: "old"`. **So no ruling is needed for 0962 itself.** The outcome is right and matches what the committee has said seven times this month about tables THO already serves. What needs attention is that **the corpus this guide generates depends on whether a package happens to be cached on the build machine**. A fresh checkout would have produced a different IG from this one, with a different table count and a `needs-decision` entry nobody could explain. **The question for the project, not the committee:** should the FHIR core package be pinned and vendored the way `tho-r5/` is, so the OID index is a declared input rather than a property of the machine? Everything else the writer reads is version-pinned and recorded in a report; this one is not, and it silently moved a table between routes.
 
 <a id="17"></a>
 
-## 17. Table 0954's logical definition would include an abstract concept THO's equivalent excludes
+## 17. Four more GP2 tables look like CMS I/OCE content and are published as though HL7 owned them
+
+**Tables:** 0466, 0468, 0469, 0470  
+**Goes to:** Financial Management WG
+
+Between 2026-11-05 and 2026-11-06 four tables in the GP1/GP2 pair were realigned as CMS Integrated Outpatient Code Editor content: `0458`, `0459`, `0460` and `0467`. Each now publishes a value set over an external code system record CMS owns, and `0460` stopped minting a v2 CodeSystem it never should have had. **A sweep of the corpus for I/OCE and APC references found four more tables in the same segment that were not part of that batch**, all stewarded by FM, all `Type: User`, all with `all codes` content logical definitions over canonicals this guide or UTG constructed: `0466` _Ambulatory Payment Classification Code_ (GP2-7), `0468` _Payment Adjustment Code_ (GP2-9), `0469` _Packaging Status Code_ (GP2-10) and `0470` _Reimbursement Type Code_ (GP2-12). **The evidence is not equally strong across the four.** `0468`'s own code displays name I/OCE return-buffer concepts — “payment adjustment applies to APC (status indicator G)”, “(status indicator H)”, “(status indicator J)”, and “specific list of HCPCS codes”. `0470`'s codes are APC payment categories outright: `OPPS`, `Pckg`, `Lab`, `Thrpy`, `Mamm`, `PartH`. `0466` is APC by name and its description says “the derived Ambulatory Payment Classification (APC) code”. `0469` is the weakest: the inference is field adjacency rather than content, and nothing in its own text names CMS or the I/OCE. **For comparison, the precedent that makes this worth asking:** `0460`'s code system description had said the codes specify “the OCE status of the line item” all along, and the table was still being published with a freshly minted HL7 canonical. The same mistake, if it is one, would not announce itself in these four either.
+
+**The ask:** **This is a question for the Financial Management Work Group**, which stewards both this vocabulary and the GP1/GP2 segments that use it, rather than for V2 Management. For each of the four: are the codes CMS's, published in the I/OCE specification, in the way 0458, 0459, 0460 and 0467's are? If so each needs an external code system record in THO and a value set composing over it, and this guide should stop publishing a CodeSystem for it — the same treatment the other four just received. If the codes are genuinely HL7's, nothing changes and this item closes with that on the record. **Nothing is being changed for these four in the meantime.** They continue to publish a CodeSystem and a ValueSet at their existing canonicals exactly as before, so no answer is urgent and no artifact is at risk while the question is open.
+
+<a id="18"></a>
+
+## 18. Table 0954's logical definition would include an abstract concept THO's equivalent excludes
 
 **Tables:** 0954, 0957  
 **Goes to:** V2 Management + TSMG
@@ -289,9 +300,9 @@ Both tables define their value set as a subtree of `v3-ObservationValue`. 0957 _
 
 **The ask:** Confirm that 0954 is missing an _Exclude codes where code = `_WorkSchedule`_ clause, in which case it is a technical correction and one line to apply. If the omission is deliberate, say so, because the value set then diverges from THO's and somebody will raise it again. The recommendation is to add it regardless of the `notSelectable` safety net: the clause costs nothing, it makes 0954 consistent with its sibling 0957 and with THO, and it removes a dependency on how a given expansion engine treats an advisory property.
 
-<a id="18"></a>
+<a id="19"></a>
 
-## 18. Where should a concept domain’s example codes live?
+## 19. Where should a concept domain’s example codes live?
 
 **Tables:** 0093, 0340, 0451  
 **Goes to:** V2 Management
@@ -300,9 +311,9 @@ These three tables are declared _Concept Domain Only_ and yet each publishes a s
 
 **The ask:** The likely representation is a **concept property on the concept in the concept domain code system**, carrying the example codes. Confirm that shape, or name another. Until it is decided the example codes are extracted and held but not published anywhere.
 
-<a id="19"></a>
+<a id="20"></a>
 
-## 19. Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section
+## 20. Table 0292 _Vaccines Administered_ is flagged concept domain only and names a code system in the same section
 
 **Tables:** 0292  
 **Goes to:** V2 Management
@@ -311,9 +322,9 @@ The concept domain block sets `Concept Domain Only: yes`. The table metadata gri
 
 **The ask:** Confirm that 0292 should be routed **value set only**, its value set composing over `http://hl7.org/fhir/sid/cvx`, consistent with 0227 and with the external-code-system rule in ADR-0008 Batch A — and that the `Concept Domain Only: yes` flag is the error. **Minting a `CodeSystem/v2-0292` would be the wrong answer**, and it is worth saying so explicitly because it is the shape most of the corpus takes. The chapter publishes zero codes for this table, so there would be nothing to put in it; THO deliberately carries no CodeSystem for CVX, only the NamingSystem; and a `v2-0292` code system would claim the table OID that `NamingSystem/CVX` has already bound to the CDC's URI. **This guide tentatively publishes 0292 as a real table** on that reading rather than writing nothing for it, because writing nothing discards the one thing the chapter states unambiguously: which code system the table draws on. It is flagged in the guide as needing attention, so the tentative reading is visible rather than silent, and it is reverted if the ruling goes the other way.
 
-<a id="20"></a>
+<a id="21"></a>
 
-## 20. Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?
+## 21. Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?
 
 **Tables:** 0929, 0930  
 **Goes to:** V2 Management
@@ -322,9 +333,9 @@ This is the half of the 0567/0568 question that the 2026-09-23 ruling did not re
 
 **The ask:** Is the enumerated subset intended, or should these value sets be an intensional reference to the UCUM units for the quantity? If the short list is deliberate, the descriptions should say so, because as written they describe the whole quantity. If it is not, these are two value sets that need rebuilding and the replacement tables inherited the defect they were meant to replace.
 
-<a id="21"></a>
+<a id="22"></a>
 
-## 21. Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO
+## 22. Table 0823 _Sexual Orientation_ draws on three code systems and has no value set in THO
 
 **Tables:** 0823  
 **Goes to:** V2 Management + TSMG
@@ -333,27 +344,16 @@ The table is `Type: HL7-EXT`, stewarded by PA, and declares three code systems �
 
 **The ask:** Confirm whether tables 0821 and 0823 are live commitments or abandoned ones. If live, the per-code system assignments are needed before a value set can be generated, and a `ValueSet/v2-0823` needs to exist in THO. If they were dropped, say so and this project will record them as published-but-unimplemented rather than as blockers.
 
-<a id="22"></a>
-
-## 22. Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register
-
-**Tables:** 0458, 0459  
-**Goes to:** V2 Management + TSMG
-
-`0458` _OCE Edit Code_ and `0459` _Reimbursement Action Code_ both declare the code system `cms-OCEEditCode-cs`, identified solely by OID `2.16.840.1.113883.6.301.9` with no URI. 0459 is an External table stewarded by FM and prints four codes; 0458 prints none. **Neither THO nor the FHIR core packages resolve that OID to a canonical URL**, so there is no way to say what code system the four codes belong to. The writer therefore emits nothing for either table — not a CodeSystem, not a ValueSet. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.
-
-**The ask:** **Partly answered, and still open.** The reviewer confirmed on 2026-11-05 that the codes come from the CMS Integrated Outpatient Code Editor specification — for 0459, Table 7 row 13 of the I/OCE specification — and that a request has been made for THO to create an external code system record for it. **Until that record exists there is no canonical to compose over**, so both tables are held: no CodeSystem, no ValueSet, concept domain only. Both concept domains (`OceEditCode`, `ReimbursementActionCode`) are published and unaffected. What remains open is the THO record itself. Once it exists, the canonical URL it carries goes straight into both tables' content logical definitions and this item closes. **Nothing is to be extracted from the I/OCE specification PDF**; the canonical from the THO record is the only thing needed. Note that sibling table 0467 is in the same OCE arc and has _already_ had its Jira ticket raised, so it is being published now — see `esc-0467-oce-modifier-edit`. The difference between them is the state of the THO request, not the shape of the problem.
-
 <a id="23"></a>
 
-## 23. User-defined tables are treated three different ways, and two of them get a freshly minted canonical
+## 23. What should a user-defined table produce? Three of them were treated three different ways
 
-**Tables:** 0460, 0093  
+**Tables:** 0093  
 **Goes to:** V2 Management
 
 `0460` _Denial or Rejection Code_ and `0411` _Supplemental Service Information Values_ are the **only two tables in the whole chapter** for which this project mints a new CodeSystem canonical — every other code-bearing table either reuses a THO canonical or draws on another authority's code system. Both are `Type: User`. A user-defined table is by definition a set of suggested values that an implementation is expected to replace, so minting `CodeSystem/v2-0460` publishes suggestions with the authority of a standard code system. **The chapter is not consistent about this.** Compare `0093` _Release Information_, also `Type: User`, which is declared concept-domain-only and so produces no code system and no value set at all — even though it lists `Y` and `N` in its grid. Three user tables, three outcomes: 0460 and 0411 get minted resources, 0093 gets nothing. Nothing in the chapter explains the difference. 0411 additionally has the defect already recorded above — the chapter prints a canonical for a resource that does not exist — and is a mess independent of this question.
 
-**The ask:** **0411 has since been answered — it is concept domain only, see `esc-0411-concept-domain-only` — which sharpens this question rather than shrinking it.** Two of the three user tables now produce nothing, leaving **0460 as the only minted CodeSystem canonical in the entire corpus**. Decide what a user-defined table should produce. Options: a CodeSystem and ValueSet like any other (the current behaviour), a concept domain only (as 0093 is treated), or a ValueSet whose codes are marked as examples. The answer decides whether these two new canonicals should exist at all, and it should be applied to 0093 at the same time so that like tables are treated alike.
+**The ask:** **Both of the minted canonicals this item was about are gone, and the question underneath them is still open.** 0411 was ruled concept-domain-only in October (`esc-0411-concept-domain-only`). 0460 was realigned in November as CMS I/OCE content (`esc-0460-oce-realignment`), which withdrew its minted CodeSystem for a reason specific to that table rather than as an answer to this one. **This guide now mints no CodeSystem canonical anywhere in the corpus.** What remains unanswered is the principle, and `0093` _Release Information_ is where it still bites: a `Type: User` table, declared concept-domain-only, listing `Y` and `N` in a grid that reaches no artifact. Decide what a user-defined table should produce — a CodeSystem and ValueSet like any other, a concept domain only, or a ValueSet whose codes are marked as examples — so that the next such table is handled by a rule rather than case by case. The answer no longer changes any published artifact; it decides what happens to 0093's codes and sets the precedent.
 
 <a id="24"></a>
 
@@ -600,6 +600,19 @@ Each of these seven tables names, in its own Value Set URI field or its content 
 
 `0467` _Modifier Edit Code_ declares the code system `cms-OCEModifierEditCode-cs` at `http://terminology.hl7.org/CodeSystem/v2-0467` with OID `2.16.840.1.113883.6.301.10`, publishes no codes, and gives its content logical definition as “all codes”. The writer reported it blocked because a table that owns its code system but lists no codes cannot yield a complete CodeSystem. **The table does not own that code system.** The OID sits in the same CMS Outpatient Code Editor arc as 0458's `…6.301.9`, and the codes are CMS's, published in the I/OCE specification rather than in Chapter 2C. Neither OID resolves to a canonical in the THO 7.3.0 snapshot. The difference from 0458 and 0459 is that a Jira ticket has been raised to create the external code system record for this one, and it will carry the URL and OID Chapter 2C already prints — so the canonical this guide composes over is known in advance and will resolve once the record lands.
 
+<a id="esc-0460-oce-realignment"></a>
+
+### Table 0460's codes are CMS I/OCE content, and this guide was minting an HL7 code system for them
+
+**Tables:** 0460  
+**Answered by:** V2 Management — Written review, 2026-11-06
+
+**Ruling:** Align 0460 with the other I/OCE tables. The codes are CMS's Line-item Denial or Rejection Flag. The external metadata record URL is `CodeSystem/oce-denial-or-rejection-flag`. Publish the value set over that canonical with the supplied description, and stop minting a v2 CodeSystem.
+
+**Effect here:** `CodeSystem/v2-0460` is withdrawn and its file pruned, so **this guide now mints no CodeSystem canonical anywhere in the corpus**. `ValueSet/v2-0460` is rewritten to compose over the CMS canonical, carrying the description supplied with the ruling. The chapter's three codes — 0, 1 and 2 — are no longer published as HL7 concepts. Like 0458 and 0459, the canonical does not resolve until THO creates the record, which is waived in a test that must be deleted when it lands. This answers the 0460 half of `esc-0460-user-defined-mint`; the principle that item asks about is untouched and stays open against 0093.
+
+`0460` _Denial or Rejection Code_ was the **last table in the corpus for which this guide minted a brand-new CodeSystem canonical**. The chapter names a code system, `denialOrRejectionType`, and gives an OID but no URI, so the writer fell back to constructing `CodeSystem/v2-0460` and publishing the chapter's three codes under it as HL7 content. **The evidence that they are not HL7's was in the chapter the whole time.** Its own code system description reads “Code system of concepts specifying the **OCE status of the line item**. Used in HL7 Version 2.x messaging in the GP2 segment.” The codes are the CMS Integrated Outpatient Code Editor's Line-item Denial or Rejection Flag, published in the I/OCE specification with each quarterly release. The table sits at GP2-5, among the I/OCE siblings 0458, 0459 and 0467. This is the same shape as `esc-0895-wrong-system-url` and the 0458/0459 pair: a code system belonging to another authority, reached through an identifier the chapter printed without a URL, and a fallback that quietly asserted HL7 ownership instead of reporting that it could not tell.
+
 <a id="esc-0960-duplicate-of-fhir-core"></a>
 
 ### Table 0960 would have duplicated the FHIR core data-absent-reason value set
@@ -677,6 +690,19 @@ Both table descriptions say so outright: _“Note this table has been deprecated
 **Effect here:** Nothing is published differently on account of 0005 — the guide was already neither altering nor linking `ValueSet/v2-0005`. What changes is that this is now a decision rather than an omission. The representation question the item was really about — whether marking a THO value set deprecated would need `standards-status = deprecated`, the first use of that code in THO's history, plus a `relatedArtifact` successor pointer — is **not answered, only avoided**. The Jira ticket that retires 0567 and 0568 will meet it again, because `retired` still says something stronger than the facts: the UCUM codes in those value sets remain valid and are still sent. **Recorded here because the next person to need it should not have to rediscover it.** So are the two findings about THO's own records that no ruling touched: `CodeSystem/v2-tables` carries the replacements' canonicals as 0567's and 0568's own `v2-vs-uri`, and the value set OIDs `…21.452` and `…21.453` each sit on two artifacts at once.
 
 The item above asks whether THO should deprecate the two tables Chapter 2C deprecates. This one is about what that would actually require, because the mechanism is not sitting there ready to be used. **There is no CodeSystem to mark.** None of the four tables in this family — 0567 and 0568 and their replacements 0929 and 0930 — has a CodeSystem in THO or here. All four are value sets enumerating a handful of codes from UCUM, which belongs to somebody else. So `ValueSet.status` is the only status the artifact has, and FHIR's `PublicationStatus` offers exactly `draft`, `active`, `retired` and `unknown`. There is no `deprecated` in it. `retired` is available but says something stronger and different: the codes in these value sets are valid UCUM units and are still sent. **THO's one artifact-level mechanism has never carried this value.** The `structuredefinition-standards-status` extension appears **53 times** in the snapshot, on 53 different resources, and every single one of them says `trial-use`. The `deprecated` code is defined in `CodeSystem/standards-status` and is perfectly bindable — it has simply never been used. So the representation that matches the facts here — `standards-status = deprecated` with `.status` left `active`, because the codes remain valid — would be the **first use of that code in THO's history**. That is a precedent, not a data entry. **A successor pointer needs a third element again.** R5's ValueSet has no `replacedBy`. The available shape is `relatedArtifact` with `type = successor` aimed at `v2-0929` and `v2-0930`, and nothing in the snapshot does that for a v2 value set either. **Worth recording: the replacement-canonical confusion is inside THO as well, not only in the chapter.** The item above notes that Chapter 2C prints the replacement's canonical as 0567's own URI. THO's `CodeSystem/v2-tables` does the same thing: entry `0567` carries `v2-vs-uri` = `http://terminology.hl7.org/ValueSet/v2-0929` and entry `0568` carries `…/v2-0930`, while both also carry the comment “replaced by 0929” and “replaced by 0930”. The index knows the tables were replaced and has overwritten their identity with their replacements' instead of recording the relationship. The value set OIDs are shared outright: `2.16.840.1.113883.21.452` is the identifier on both `ValueSet/v2-0567` and `ValueSet/v2-0929`, and `…21.453` on both `v2-0568` and `v2-0930` — two more instances of one OID on two artifacts.
+
+<a id="esc-0459-unresolvable-oid"></a>
+
+### Tables 0458 and 0459 name a CMS code system by an OID that THO does not yet register
+
+**Tables:** 0458, 0459  
+**Answered by:** V2 Management — Written review, 2026-11-06
+
+**Ruling:** The codes for both tables come from the CMS Integrated Outpatient Code Editor specification, which CMS defines and maintains. Jira tickets have been raised to create external code system records in THO: `CodeSystem/oce-edit-codes` for 0458, and `CodeSystem/oce-reimbursement-action-codes` for 0459. Publish a value set for each over its canonical, with the supplied description. Create no CodeSystem for either, and extract nothing from the I/OCE specification PDF — the canonical from the THO record is all that is needed.
+
+**Effect here:** Both tables stop routing `needs-decision` and publish `ValueSet/v2-0458` and `ValueSet/v2-0459` as first publications at 1.0.0, each composing over all codes from its own external canonical. Both carry a description supplied with the ruling rather than the chapter's, naming the I/OCE table the codes come from — a stated deviation from fidelity, because a value set that enumerates nothing has only its description to tell a reader what is in it. **Both compose over canonicals that do not resolve yet**, which is recorded on each entry and waived in a test that has to be deleted when the THO records land. The four codes Chapter 2C lists for 0459 are not written into the compose: 'all codes' of an external system is the whole system.
+
+`0458` _OCE Edit Code_ and `0459` _Reimbursement Action Code_ both declare the code system `cms-OCEEditCode-cs`, identified solely by OID `2.16.840.1.113883.6.301.9` with no URI. 0459 is an External table stewarded by FM and prints four codes; 0458 prints none. **Neither THO nor the FHIR core packages resolve that OID to a canonical URL**, so there is no way to say what code system the four codes belong to. The writer therefore emits nothing for either table — not a CodeSystem, not a ValueSet. Note the reviewer's separate reading that this table may be better modelled as a concept domain, which would dissolve the question rather than answer it.
 
 <a id="esc-0411-concept-domain-only"></a>
 

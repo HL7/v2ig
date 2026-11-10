@@ -16,32 +16,32 @@ publish a code system of that id at that canonical, and anything else is left
 exactly as published and reported. Narrative takes no part in the merge or in
 versioning, so no artifact version moved.
 
-### Five tables with nothing written
+### Two tables with nothing written
 
 These are blocked on a decision, not on work:
 
-`0458` `0459` `0956` `0962` `0963`
+`0956` `0963`
 
 Each is recorded with its evidence on the [per-table
 ledger](table-ledger.html), and the reason the writer stopped at each one is
 grouped by cause under [what needs an
 answer](open-items.html).
 
-**Three of the five are waiting on somebody else.** `0458` and `0459` give
-their code system only as OID `2.16.840.1.113883.6.301.9`, which nothing in
-THO or FHIR core resolves; a request has been made for THO to create the
-external code system record, and the canonical it carries is all that is
-needed. `0956` has no durable home at all — the only value sets carrying its
-codes are a withdrawn FHIR 3.3 ballot draft and a PHIN VADS entry the CDC is
-decommissioning, so pointing at either would bind this guide to a location
-known in advance to be going away.
+**Both are waiting on somebody else.** `0956` has no durable home — the only
+value sets carrying its codes are a withdrawn FHIR 3.3 ballot draft and a
+PHIN VADS entry the CDC is decommissioning, so pointing at either would bind
+this guide to a location known in advance to be going away. `0963` needs HTA
+approval before its code system can be named at all.
 
-Every one of the five still publishes its concept domain in
-`CodeSystem/conceptdomains`, so a binding to the domain remains expressible
-while the terminology question is settled.
+Both still publish their concept domain in `CodeSystem/conceptdomains`, so a
+binding to the domain remains expressible while the terminology question is
+settled.
 
-This list was fourteen tables until November 2026, when a batch of V2
-Management rulings cleared nine of them.
+This list was fourteen tables in October 2026. V2 Management rulings cleared
+nine, the CMS I/OCE realignment of `0458`, `0459` and `0467` cleared three
+more, and `0962` resolved once the FHIR R5 core package was present on the
+build machine — see `esc-0962-already-in-tho`, which is about that dependency
+rather than about the table.
 
 ### Defects reproduced from the published chapter on purpose
 

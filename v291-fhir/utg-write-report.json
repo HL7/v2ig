@@ -1,12 +1,12 @@
 {
   "counts": {
-    "code-system-and-value-set": 398,
+    "code-system-and-value-set": 397,
     "concept-domain-only": 356,
     "nothing-to-write": 2,
     "suppressed-by-ruling": 14,
-    "value-set-only": 20,
-    "needs-decision": 5,
-    "superseded-by-ruling": 3
+    "value-set-only": 24,
+    "superseded-by-ruling": 3,
+    "needs-decision": 2
   },
   "tentativeOverrides": {
     "count": 1,
@@ -48,10 +48,13 @@
     ]
   },
   "ruledReclassifications": {
-    "count": 6,
+    "count": 9,
     "tables": [
       "0350",
       "0351",
+      "0458",
+      "0459",
+      "0460",
       "0467",
       "0820",
       "0823",
@@ -59,17 +62,25 @@
     ],
     "registerItems": [
       "esc-0350-0351-not-domain-only",
+      "esc-0459-unresolvable-oid",
+      "esc-0460-oce-realignment",
       "esc-0467-oce-modifier-edit",
       "esc-0820-gender-harmony-canonical",
       "esc-0823-multi-system-compose",
       "esc-0895-wrong-system-url"
     ],
     "unresolvedSystems": [
+      "0458",
+      "0459",
+      "0460",
       "0467"
     ],
     "appliedThisRun": [
       "0350",
       "0351",
+      "0458",
+      "0459",
+      "0460",
       "0467",
       "0820",
       "0823",
@@ -8117,37 +8128,85 @@
     {
       "table": "0458",
       "name": "OCE Edit Code",
-      "action": "needs-decision",
-      "reason": "The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.",
-      "written": [],
-      "published": "2.16.840.1.113883.6.301.9"
-    },
-    {
-      "table": "0459",
-      "name": "Reimbursement Action Code",
-      "action": "needs-decision",
-      "reason": "The code system is given only as OID 2.16.840.1.113883.6.301.9, which nothing in THO or FHIR core resolves to a canonical URL.",
-      "written": [],
-      "published": "2.16.840.1.113883.6.301.9"
-    },
-    {
-      "table": "0460",
-      "name": "Denial or Rejection Code",
-      "action": "code-system-and-value-set",
-      "reason": "The code system is this table's own canonical.",
+      "action": "value-set-only",
+      "reason": "The codes are the CMS I/OCE edit codes, which CMS defines and maintains. A Jira ticket has been raised to create an external code system record in THO at CodeSystem/oce-edit-codes. Publish the value set over that canonical. No CodeSystem is created here.",
       "written": [
-        "codeSystems/cs-v2-0460.xml",
-        "valueSets/vs-v2-0460.xml"
+        "valueSets/vs-v2-0458.xml"
       ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v2-0460",
-      "resolvedBy": "OID 2.16.840.1.113883.18.294 is in the HL7 v2 code system arc",
-      "codeSystemVersion": {
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/oce-edit-codes",
+      "resolvedBy": "committee ruling, esc-0459-unresolvable-oid",
+      "ruledReclassification": {
+        "table": "0458",
+        "registerItem": "esc-0459-unresolvable-oid",
+        "ruling": "The codes are the CMS I/OCE edit codes, which CMS defines and maintains. A Jira ticket has been raised to create an external code system record in THO at CodeSystem/oce-edit-codes. Publish the value set over that canonical. No CodeSystem is created here.",
+        "rationale": [
+          "The chapter gives the code system only as OID 2.16.840.1.113883.6.301.9, with no URI, and nothing in THO or FHIR core resolves it -- which is why the table had been blocked since the beginning.",
+          "The codes are CMS's, published in the I/OCE specification rather than in Chapter 2C, so no CodeSystem is this guide's to write. The chapter lists none.",
+          "The canonical is stated rather than derived because the THO record does not exist yet; it is the URL the raised ticket asks for.",
+          "Sibling 0459 shares the same OID and the same code system; it gets its own record because the two tables draw different code sets from the same I/OCE publication."
+        ],
+        "unresolvedSystem": "THO does not yet register this code system. A Jira ticket has been raised to create the external code system record at this URL. Until it lands the value set composes over a canonical with nothing behind it -- a known interim state, accepted in the ruling."
+      },
+      "valueSetVersion": {
         "version": "1.0.0",
         "reason": "THO publishes no such artifact, so this is a first publication.",
         "incremented": false,
         "triggers": [],
         "judgement": [],
         "newArtifact": []
+      }
+    },
+    {
+      "table": "0459",
+      "name": "Reimbursement Action Code",
+      "action": "value-set-only",
+      "reason": "The codes are the CMS I/OCE line item action flags, which CMS defines and maintains. A Jira ticket has been raised to create an external code system record in THO at CodeSystem/oce-reimbursement-action-codes. Publish the value set over that canonical. No CodeSystem is created here.",
+      "written": [
+        "valueSets/vs-v2-0459.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/oce-reimbursement-action-codes",
+      "resolvedBy": "committee ruling, esc-0459-unresolvable-oid",
+      "ruledReclassification": {
+        "table": "0459",
+        "registerItem": "esc-0459-unresolvable-oid",
+        "ruling": "The codes are the CMS I/OCE line item action flags, which CMS defines and maintains. A Jira ticket has been raised to create an external code system record in THO at CodeSystem/oce-reimbursement-action-codes. Publish the value set over that canonical. No CodeSystem is created here.",
+        "rationale": [
+          "Same unresolvable OID as 0458, 2.16.840.1.113883.6.301.9, and the same reason the table was blocked.",
+          "The chapter lists four codes for this table -- 0, 1, 2 and 3 -- which are plainly not HCPCS procedure codes. The reviewer confirmed on 2026-11-05 that they come from Table 7, row 13 of the I/OCE specification, which is the Line item Action Flag row. So the codes belong to the external system and this guide does not mint a CodeSystem for them.",
+          "The chapter's four codes are not written into the compose: the content logical definition is 'all codes', and all codes of an external system is the whole system."
+        ],
+        "unresolvedSystem": "THO does not yet register this code system. A Jira ticket has been raised to create the external code system record at this URL. Until it lands the value set composes over a canonical with nothing behind it -- a known interim state, accepted in the ruling."
+      },
+      "valueSetVersion": {
+        "version": "1.0.0",
+        "reason": "THO publishes no such artifact, so this is a first publication.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
+    },
+    {
+      "table": "0460",
+      "name": "Denial or Rejection Code",
+      "action": "value-set-only",
+      "reason": "Align 0460 with the other I/OCE tables. The codes are the CMS I/OCE Line-item Denial or Rejection Flag, which CMS defines and maintains. The external metadata record URL is CodeSystem/oce-denial-or-rejection-flag. Publish the value set over that canonical and stop minting a v2 CodeSystem.",
+      "written": [
+        "valueSets/vs-v2-0460.xml"
+      ],
+      "systemUrl": "http://terminology.hl7.org/CodeSystem/oce-denial-or-rejection-flag",
+      "resolvedBy": "committee ruling, esc-0460-oce-realignment",
+      "ruledReclassification": {
+        "table": "0460",
+        "registerItem": "esc-0460-oce-realignment",
+        "ruling": "Align 0460 with the other I/OCE tables. The codes are the CMS I/OCE Line-item Denial or Rejection Flag, which CMS defines and maintains. The external metadata record URL is CodeSystem/oce-denial-or-rejection-flag. Publish the value set over that canonical and stop minting a v2 CodeSystem.",
+        "rationale": [
+          "This table was one of only two in the whole corpus for which this guide minted a brand-new CodeSystem canonical, and the other -- 0411 -- was suppressed in October. Withdrawing this one leaves the guide minting no code system canonicals at all.",
+          "The chapter's own code system description says the codes specify “the OCE status of the line item”, so the chapter already ties this table to the I/OCE. The minted canonical was a fallback for a code system the chapter named without giving a URI, not a claim that HL7 owns the codes.",
+          "The three codes the chapter lists -- 0, 1 and 2 -- are no longer published as HL7 concepts. They are CMS's, and the external record is where they belong.",
+          "This also answers the mint half of esc-0460-user-defined-mint. The 0093 half of that item is untouched and stays open."
+        ],
+        "unresolvedSystem": "THO does not yet register this code system. The external metadata record is being created at this URL. Until it lands the value set composes over a canonical with nothing behind it -- a known interim state, accepted in the ruling."
       },
       "valueSetVersion": {
         "version": "1.0.0",
@@ -14555,10 +14614,22 @@
     {
       "table": "0962",
       "name": "Device Status",
-      "action": "needs-decision",
-      "reason": "The code system is given only as OID 2.16.840.1.113883.4.642.1.200, which nothing in THO or FHIR core resolves to a canonical URL.",
-      "written": [],
-      "published": "http://hl7.org/fhir/codesystem-device-status.html"
+      "action": "value-set-only",
+      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "written": [
+        "valueSets/vs-v2-0962.xml"
+      ],
+      "systemUrl": "http://hl7.org/fhir/device-status",
+      "resolvedBy": "THO resolves OID 2.16.840.1.113883.4.642.1.200",
+      "published": "http://hl7.org/fhir/codesystem-device-status.html",
+      "valueSetVersion": {
+        "version": "3.0.0",
+        "reason": "Nothing the policy counts as a change, so THO's version stands.",
+        "incremented": false,
+        "triggers": [],
+        "judgement": [],
+        "newArtifact": []
+      }
     },
     {
       "table": "0963",

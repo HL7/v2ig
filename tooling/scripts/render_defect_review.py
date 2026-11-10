@@ -214,17 +214,17 @@ CLASSIFICATION = {
         "wrong-identifier",
         "The Table OID arc is published nowhere. A default rather than a "
         "decision, which is why it is worth making one."),
-    "esc-0459-unresolvable-oid": (
-        "wrong-identifier",
-        "An OID that resolves to nothing, on two tables. Blocks both "
-        "mechanically. A THO external code system record has been "
-        "requested; the canonical it carries closes this."),
     "esc-0962-already-in-tho": (
         "wrong-identifier",
-        "A FHIR core page URL where the code system canonical belongs, and "
-        "an OID that resolves to nothing. THO publishes the value set "
-        "correctly regardless, so the chapter's identifier is the only "
-        "thing wrong."),
+        "A FHIR core page URL where the code system canonical belongs. It "
+        "resolves only through an identifier FHIR marks superseded, in a "
+        "package that reaches the build machine by accident rather than by "
+        "declaration."),
+    "esc-gp2-oce-siblings": (
+        "wrong-identifier",
+        "Four GP2 tables publishing CMS I/OCE content, if that is what it "
+        "is, at HL7 canonicals. The same shape as 0460, which was "
+        "realigned once somebody read its own description."),
     "esc-0956-no-stable-home": (
         "wrong-identifier",
         "The only two value sets that carry these codes are a withdrawn "

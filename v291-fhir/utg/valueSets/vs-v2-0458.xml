@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v2-0458"/>
+  <url value="http://terminology.hl7.org/ValueSet/v2-0458"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.21.470"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="Hl7VSOCEEditCode"/>
+  <title value="hl7VS-OCEEditCode"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="The edit codes that the CMS Integrated Outpatient Code Editor (I/OCE) returns when it processes an outpatient institutional claim. Each code identifies a specific error or condition the I/OCE found, and its disposition tells the payer what to do: reject, deny, return to provider, suspend, or reject or deny a line item. CMS defines and maintains these codes, not HL7. This value set includes all edits listed in the “Edit Descriptions and Reason for Edit Generation” table of the I/OCE Specifications for the applicable release, excluding entries labeled “Reserved.” Edits marked “(inactive)” are still valid codes for historical claims. Each edit’s meaning is given by its Edit Description and Reason for Edit Generation in that table."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/oce-edit-codes"/>
+    </include>
+  </compose>
+</ValueSet>
