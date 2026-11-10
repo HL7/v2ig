@@ -89,6 +89,35 @@
       </code>
       <value value="true"/>
     </parameter>
+    <!--
+      version-comparison = n/a suppresses the publisher's previous-version
+      comparison pages. Without this parameter the publisher defaults the list
+      to {last} (PublisherIGLoader.makePreviousVersionComparator), resolves
+      THO's package-list.json because this IG's canonical is under
+      terminology.hl7.org, and generates one full comparison directory per THO
+      release: about 6,450 files and 94MB each, taking some 45 minutes apiece.
+
+      Those directories are the entire reason the build stopped finishing. As
+      of THO 7.5.0 there were three of them, contributing 7,323 broken links
+      (a fhir.css the publisher never copies into its own output) and one
+      malformed index.html with 4,306 unclosed anchor tags. They are also pure
+      waste here: this IG has never been published, so there is no previous
+      version of IT to compare against. The pages diff us against THO, which
+      is a different package and not what the feature is for.
+
+      The value "n/a" is checked by name in PublisherIGLoader: it creates the
+      list but adds nothing, and an EMPTY list is what suppresses the feature.
+      A null list means "not configured" and triggers the {last} default, so
+      removing this parameter restores the old behaviour. It cannot be
+      replaced by simply deleting something.
+    -->
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="version-comparison"/>
+      </code>
+      <value value="n/a"/>
+    </parameter>
     <!-- path-resource is NOT recursive: every leaf directory must be named. -->
     <parameter>
       <code>

@@ -97,22 +97,85 @@ comfortably under 12 and, notably, *above* the old 8 GB ceiling, so Run 2's
 OOM was a genuine shortage rather than a fluke. Everything except the QA
 page now completes.
 
-**What to try next, in order, and none of it is a JVM flag:**
+**The cause was found on 2026-11-10 and it is not the IG. It is the
+publisher's own comparison pages, which can be switched off.**
 
-1. **Find out why the page is ~1 GB.** 56,517 broken links at even 2 KB of
-   markup each is only ~108 MB, so the broken-link table alone does not
-   explain it — something else on that page is an order of magnitude larger
-   than expected, and that is the thing to identify. Start from the fact that
-   the publisher emits a `qa.min.html` as well; the second `genQAHtml` call
-   site passes `false` where the first passes `true`.
-2. **Cut the broken links at the source.** 7,323 of them are `fhir.css`
-   inside the publisher's own `comparison-*` directories and 4,936 point at
-   `qa.html` itself. If the comparison pages can be suppressed, the input to
-   the QA page shrinks a great deal. Whether the publisher can be told not to
-   generate them is the open question.
-3. **Report it upstream.** An int overflow on a page the publisher itself
-   generates is an upstream defect, and this is now a precise report: method,
-   line, the exact negative value and what it decodes to.
+### Why the build worked in September and not in November
+
+The September build is still on disk at `vocab-ig/output-snapshot/`, kept by
+the snapshot-after-success mechanism, and it is the control case this
+diagnosis needed:
+
+| | 21 Sep (worked) | 10 Nov (Run 3) |
+|---|---|---|
+| `qa.html` | **6.9 MB**, written without complaint | ~1 GB attempted, int overflow |
+| Broken links | **0** | 56,515 of 677,466 |
+| `comparison-*` directories | **1** (v7.3.0) | **3** (7.3.0, 7.4.0, 7.5.0) |
+| Output files | 16,165 | 29,033 |
+
+**Nothing in this repository caused the regression, and the publisher was
+never upgraded** — `input-cache/publisher.jar` is core 2.1.1, built
+2026-02-19, unchanged since February. What changed is that **THO released
+7.4.0 and 7.5.0**, which arrived in `~/.fhir/packages` on 2026-11-05. The
+publisher generates one comparison directory per THO release, so the count
+went from one to three, and all three failures follow from that:
+
+- the `StackOverflowError`, because 7.5.0's page is the malformed one and it
+  did not exist in September;
+- the broken-link count, because each directory contributes ~2,440
+  references to a `fhir.css` the publisher never copies there (2,440 + 2,440
+  + 2,443 = **7,323**, measured directly on Run 3's output);
+- the int overflow, because the QA page is essentially a table of broken
+  links. Zero of them gave a 6.9 MB page in September.
+
+Measured from directory mtimes, the three directories were written
+sequentially at 17:43, 18:32 and 19:18 — roughly **45 minutes each**, which
+is most of Run 3's 110-minute runtime.
+
+### The switch, and why `n/a` rather than deleting something
+
+Traced through the jar with `javap`. `PublisherIGLoader.makePreviousVersion\
+Comparator` checks `comparisonVersions`: when it is **null** it inserts the
+default `{last}` and the feature runs. An IG that declares no parameter
+therefore gets comparison pages, which is why ours did. The parameter handler
+for `version-comparison` special-cases the literal value **`n/a`**: it
+creates the list and adds nothing, leaving it **empty but non-null**, and
+`processVersions` iterates that list — an empty list means the loop body
+never executes and `fetchVersionHistory` is never called.
+
+So the suppression is **empty, not absent**, and the two are opposites.
+Removing the parameter restores the broken behaviour; it cannot be replaced
+by deleting anything. Applied to `vocab-ig/input/vocabulary.xml` with that
+reasoning written beside it.
+
+**The feature was never doing anything useful here.** It compares an IG
+against *its own* previous releases, read from the package-list of its
+canonical. This IG has never been published, so there is no previous version
+of it to compare against; because its canonical is under
+`terminology.hl7.org`, the publisher found *THO's* package-list and diffed us
+against a different package. ~280 MB of output and ~2¼ hours of build time
+for a comparison nobody asked for and nobody would read.
+
+**Expected effect, to be confirmed by Run 4** (started 2026-11-10, with the
+parameter in place and the three stale directories deleted): no
+`comparison-*` directories, ~7,323 fewer broken links, output down ~280 MB,
+runtime down by most of two hours, and a `qa.html` near September's 6.9 MB
+rather than a gigabyte.
+
+**Two things this does not settle.** The `qa.html`-targeted links (4,936) are
+a crash artifact and should disappear once a QA page exists, but that is a
+prediction, not a measurement. And 56,515 total broken links is far more than
+the 12,284 missing *local* targets decomposed below — the remainder is
+presumably external, and has not been accounted for. If Run 4 still produces
+a QA page too large to serialise, that unexplained remainder is where to look
+next.
+
+**Still worth reporting upstream**, because the int overflow is a real defect
+whatever we do locally: `genQAHtml` builds the whole page as one Java
+`String`, so any IG with enough findings hits `Integer.MAX_VALUE` and dies
+after a complete build. The report is precise — method, line, the exact
+negative value and what it decodes to. The malformed `comparison-v7.5.0/
+index.html` is a second, separate defect worth reporting with it.
 
 **A correction to what this document said about the comparison pages.**
 Measured on Run 3's actual output, only `comparison-v7.5.0/index.html` is

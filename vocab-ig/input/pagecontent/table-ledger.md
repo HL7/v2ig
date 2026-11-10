@@ -8784,9 +8784,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-0962-already-in-tho` — Table 0962 resolved itself when a cached package appeared, which is a reproducibility problem rather than a ruling — *V2 Management*
+- `esc-0962-already-in-tho` — Table 0962 resolved itself when a cached package appeared, which is a reproducibility problem rather than a ruling — *This project, 2026-11-10*<br/><span class="tl-note">Yes. The FHIR core package is pinned and vendored. It was never a question for a committee — the ask said so — and it is recorded here because the finding was raised here.</span>
 
 <a id="tbl-0963"></a>
 

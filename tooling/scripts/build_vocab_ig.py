@@ -181,26 +181,27 @@ def run_publisher():
     env["GEM_PATH"] = GEM_HOME
     env["PATH"] = f"{GEM_HOME}/bin:{RUBY_BIN}:{env.get('PATH', '')}"
 
-    # -Xss is not optional here, and the reason is worth stating because the
-    # failure it prevents looks nothing like a stack problem.
+    # -Xss16m is a SEATBELT now, not the fix it once was. Keep it anyway.
     #
-    # Because this IG's canonical is under terminology.hl7.org, the publisher
-    # finds THO's package-list.json and generates a "previous version
-    # comparison" page per published THO release. Those pages are the
-    # publisher's own output, and they are malformed: every row emits
-    # `<a href="...">Text</td>` with no closing `</a>`, 3,491 times in the
-    # 7.5.0 page alone. Its XhtmlParser treats each unclosed anchor as another
-    # level of nesting, so by the end of the table it is ~4,300 frames deep
-    # and overflows the default 1MB stack -- in "Checking Output HTML", the
-    # very last step, after a complete and correct IG has been written.
+    # It was added because the publisher generated a "previous version
+    # comparison" page per published THO release, and 7.5.0's page is
+    # malformed: every row emits `<a href="...">Text</td>` with no closing
+    # `</a>`, 4,306 times. Its XhtmlParser treats each unclosed anchor as
+    # another nesting level, hit ~4,300 frames deep, and overflowed the
+    # default 1MB stack in "Checking Output HTML" -- the very last step,
+    # after a complete and correct IG had been written.
     #
-    # The crash therefore destroys only qa.html, and it got worse with time
-    # rather than with anything in this repository: each new THO release adds
-    # another comparison page. 7.5.0's arrival is what pushed it over.
+    # Those pages are no longer generated at all. vocabulary.xml now sets
+    # the version-comparison parameter to n/a, which suppresses them; the
+    # reasoning is written out there and the full diagnosis is in readiness
+    # item A1. That removed the malformed page along with ~7,300 broken
+    # links, ~280MB of output and most of two hours of runtime.
     #
-    # 16MB is far more than the ~4,300 frames need and costs nothing on the
-    # main thread. If a future THO release crashes this again, the fix is not
-    # a bigger number -- check whether the comparison pages are still
+    # The flag stays because it costs nothing on the main thread and the
+    # suppression is one parameter away from being lost. If a future change
+    # re-enables comparison pages, this is what keeps the failure to a slow
+    # build rather than a crash at minute 18. If something DOES overflow the
+    # stack again, the fix is not a bigger number -- find which page is
     # malformed and report it upstream.
     #
     # -Xmx12g is a separate story. At 8g the run died with OutOfMemoryError in
