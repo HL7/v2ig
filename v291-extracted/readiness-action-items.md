@@ -42,19 +42,88 @@ files, every page present — but the publisher dies after writing it.
 Output HTML". Cause found and fixed. Because this IG's canonical is under
 `terminology.hl7.org`, the publisher fetches THO's `package-list.json` and
 generates a comparison page per THO release. Those pages are the publisher's
-own output and they are malformed: `comparison-v7.5.0/index.html` carries
-**3,491 unclosed `<a>` tags** against 814 closed, so its parser nests ~4,300
-levels deep and overflows the default 1 MB stack. Measured depth is 4,300+ on
-all three comparison pages and **≤ 19 on every other file in the output**.
-Fixed with `-Xss16m` in `build_vocab_ig.py`, which cleared the crash.
-**7.5.0's release is what pushed it over** — each THO release adds a page.
+own output and **one of them is malformed**: `comparison-v7.5.0/index.html`
+carries **4,306 unclosed `<a>` tags** (6,748 opening against 2,442 closed, as
+re-measured on Run 3's output), so its parser nests ~4,300 levels deep and
+overflows the default 1 MB stack, against **≤ 19 on every other file in the
+output**. Fixed with `-Xss16m` in `build_vocab_ig.py`, which cleared the
+crash and has held on every run since.
+
+**7.5.0's release is what pushed it over.** Note the limit of that claim: the
+`comparison-v7.3.0` and `comparison-v7.4.0` pages are **well-formed** — 10,213
+and 10,225 anchors, every one closed. So it is *not* true that each THO
+release adds another malformed page; 7.5.0's is the only bad one so far, and
+whether the next release repeats the defect is unknown.
 
 **Run 2 (112 min): `OutOfMemoryError: Java heap space`** in
 `ValidationPresenter.genQAHtml` — building the QA page itself, after
-everything else had finished. Not yet fixed. `-Xmx8g` was in effect; the box
-has 15 GB. **The next thing to try is raising `-Xmx`**, and the run is slow
-enough (the link check alone took 96 minutes) that it should be started early
-in a session rather than at the end.
+everything else had finished. `-Xmx8g` was in effect. Raising the heap was
+the obvious next move and it was tried; see Run 3.
+
+**Run 3 (110 min, 2026-11-10, `-Xmx12g`):
+`NegativeArraySizeException: -1360072342`, same method, and the heap was not
+the problem.** This is the run that settles what is actually wrong, and the
+answer is that **no amount of memory will fix it**.
+
+```
+java.lang.NegativeArraySizeException: -1360072342
+  at java.lang.String.encodeUTF8_UTF16(String.java:1288)
+  at java.lang.String.getBytes(String.java:1788)
+  at org.hl7.fhir.utilities.FileUtilities.stringToFile(FileUtilities.java:86)
+  at ...ValidationPresenter.genQAHtml(ValidationPresenter.java:916)
+```
+
+`genQAHtml` builds the entire QA page as **one Java `String`** and then calls
+`getBytes(UTF-8)` to write it. The UTF-8 encoder sizes its destination array
+at up to three bytes per char, and that multiplication **overflowed a signed
+32-bit int**. Read as unsigned, `-1360072342` is **2,934,894,954 bytes —
+2.73 GiB**, which is 787 MB past `Integer.MAX_VALUE`. So the page the
+publisher is trying to serialise is on the order of a gigabyte of text.
+
+**Why this is a hard ceiling, not a tuning problem.** A Java array cannot be
+longer than `Integer.MAX_VALUE`. The publisher would have to stream the page
+or split it for this to work at all, and that is upstream code. Giving the
+JVM 32 GB would produce the identical exception.
+
+**`qa.html` exists at 0 bytes.** `stringToFile` created the file and then the
+encode threw, so an empty `qa.html` is now in the output. That is worse than
+none at all for anything that tests `exists()` — see the note in A5.
+
+**What Run 3 did prove.** `-Xss16m` works: the run cleared "Checking Output
+HTML", the step that killed Run 1, with the 7.5.0 comparison page present.
+Validation passed (823 resources), **0 of 22,571 pages are invalid xhtml**,
+the final .zip built, and the heap peaked at ~7 GB during the link check —
+comfortably under 12 and, notably, *above* the old 8 GB ceiling, so Run 2's
+OOM was a genuine shortage rather than a fluke. Everything except the QA
+page now completes.
+
+**What to try next, in order, and none of it is a JVM flag:**
+
+1. **Find out why the page is ~1 GB.** 56,517 broken links at even 2 KB of
+   markup each is only ~108 MB, so the broken-link table alone does not
+   explain it — something else on that page is an order of magnitude larger
+   than expected, and that is the thing to identify. Start from the fact that
+   the publisher emits a `qa.min.html` as well; the second `genQAHtml` call
+   site passes `false` where the first passes `true`.
+2. **Cut the broken links at the source.** 7,323 of them are `fhir.css`
+   inside the publisher's own `comparison-*` directories and 4,936 point at
+   `qa.html` itself. If the comparison pages can be suppressed, the input to
+   the QA page shrinks a great deal. Whether the publisher can be told not to
+   generate them is the open question.
+3. **Report it upstream.** An int overflow on a page the publisher itself
+   generates is an upstream defect, and this is now a precise report: method,
+   line, the exact negative value and what it decodes to.
+
+**A correction to what this document said about the comparison pages.**
+Measured on Run 3's actual output, only `comparison-v7.5.0/index.html` is
+malformed — 6,748 opening anchors against 2,442 closed, 4,306 unclosed, which
+matches the ~4,300 nesting depth recorded earlier. The 7.3.0 and 7.4.0 pages
+are **well-formed** (10,213 and 10,225 anchors, all closed). The earlier
+claim that measured depth was "4,300+ on all three comparison pages" is
+wrong. It does not change the fix — `-Xss16m` is still required, because one
+bad page is enough — but "each THO release adds another malformed page" is
+not supported: two of three are fine, and the next release may or may not
+repeat 7.5.0's defect.
 
 **What the failed runs did tell us.** Validation ran and passed — 822
 resources in 30 seconds. The link check completed and reported **56,515

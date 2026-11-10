@@ -203,18 +203,31 @@ def run_publisher():
     # a bigger number -- check whether the comparison pages are still
     # malformed and report it upstream.
     #
-    # -Xmx is a separate story with the same shape. At 8g the run died with
-    # OutOfMemoryError in ValidationPresenter.genQAHtml, 112 minutes in --
-    # again after a complete IG had been written, and again destroying only
-    # qa.html. That page is built as one in-memory document before it is
-    # written, and it is enormous: an earlier build produced a 91MB qa.html,
-    # and the DOM behind such a page costs several times its serialised size.
+    # -Xmx12g is a separate story. At 8g the run died with OutOfMemoryError in
+    # ValidationPresenter.genQAHtml, so the heap was raised -- and the 12g run
+    # peaked at ~7GB during the link check, above the old ceiling, so that OOM
+    # was a real shortage. Keep 12g: it is what lets everything up to the QA
+    # page finish.
     #
-    # 12g on a 15GB box leaves ~3GB for the OS and for the Ruby/Jekyll the
-    # publisher shells out to. Jekyll has finished by the time genQAHtml runs,
-    # so the two peaks do not overlap. If this is still not enough, the thing
-    # to find out is how large qa.html wants to be -- the fix may be to reduce
-    # what goes on it rather than to keep buying heap.
+    # It does NOT make the QA page work, and no larger number will. At 12g the
+    # same method instead threw
+    #
+    #   java.lang.NegativeArraySizeException: -1360072342
+    #     at java.lang.String.encodeUTF8_UTF16 <- getBytes <- stringToFile
+    #     at ValidationPresenter.genQAHtml(ValidationPresenter.java:916)
+    #
+    # genQAHtml builds the entire QA page as one Java String and then calls
+    # getBytes(UTF-8). The encoder sizes its array at up to 3 bytes per char,
+    # and that multiply overflowed a signed int: read unsigned, -1360072342 is
+    # 2,934,894,954 bytes, 787MB past Integer.MAX_VALUE. A Java array cannot be
+    # longer than Integer.MAX_VALUE, so this is a hard ceiling in upstream
+    # code, not a tuning problem. 32g would throw the identical exception.
+    #
+    # The crash leaves a ZERO-BYTE qa.html behind, because stringToFile creates
+    # the file before the encode throws. Anything testing exists() will read
+    # that as a successful build; test_render_v2mgmt_briefing.py fails loudly
+    # on it rather than skipping. Readiness item A1 has the full diagnosis and
+    # what to try next -- all of it about shrinking the page, none of it flags.
     command = [str(JAVA), "-Xmx12g", "-Xss16m", "-jar", str(PUBLISHER_JAR),
                "-ig", str(IG_INI), "-no-sushi"]
 

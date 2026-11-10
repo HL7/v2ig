@@ -270,6 +270,17 @@ def _qa_broken_link_count():
     qa = (briefing.PROJECT_ROOT / "vocab-ig" / "output" / "qa.html")
     if not qa.exists():
         return None
+    # A zero-byte qa.html is not "no build" -- it is the specific wreckage the
+    # 2026-11-10 crash leaves behind. `FileUtilities.stringToFile` creates the
+    # file and then `getBytes` throws, so an empty file sits in the output
+    # looking like a successful one to anything that tests exists(). Treated as
+    # absent it would silently re-enable the very claim this test guards, so it
+    # is called out instead. See readiness item A1.
+    if qa.stat().st_size == 0:
+        pytest.fail(
+            "vocab-ig/output/qa.html is zero bytes -- the publisher crashed "
+            "in genQAHtml after creating it. Delete it or complete a build; "
+            "do not let it stand in for one.")
     text = qa.read_text(encoding="utf-8", errors="replace")
     # The publisher writes a line of the form "<n> broken links" / "no broken
     # links" in its summary. Both forms are accepted; anything else means the
