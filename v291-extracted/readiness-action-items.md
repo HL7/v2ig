@@ -488,16 +488,48 @@ not**, because on this evidence it should be.
 
 ### B5. Chapter 2C's own defects are reproduced on purpose, and THO may not want them
 
-The guide carries the chapter as published, including content known to be
-wrong — `0931`'s invalid UCUM code, `0560`'s time units under *Quantity
-Units*. `esc-retain-known-errors` is the policy question and it is **open and
-blocking by its own description**. THO has already answered it differently
-once: its `ValueSet/v2-0931` drops the bad code.
+**Corrected 2026-11-10: the blanket policy question was answered a month ago,
+and this entry had not caught up.** It described `esc-retain-known-errors` as
+"open and blocking by its own description" and called it the longest pole for
+the THO goal. It is neither.
 
-**This is the single most consequential open question for the THO goal.**
-Submitting known-wrong content to a terminology authority that has already
-chosen to correct it is a conflict that needs settling before, not during,
-submission.
+**V2 Management ruled on 2026-10-08:** there is *no* one-size-fits-all answer
+to reproduce-or-correct. It has to be decided per class of defect and
+sometimes case by case, with individual issues reviewed for decision. The
+ruling is recorded in `render_defect_review.py` as `SUPERSEDED` and printed at
+the head of the review list, deliberately, so a reader who remembers the
+policy ask can find out what happened to it.
+
+**That answer dissolved the blocker rather than removing the work.** There is
+no rule to obtain and then apply, so nothing is waiting on a committee
+decision before other work can start. What the project owes instead is a list
+that can be walked, and it exists: `v291-extracted/defect-review.md`, **33
+open findings in seven classes**, each stating what the chapter publishes,
+what THO publishes where it differs, what this guide publishes today read
+from the build report, and the single decision needed.
+
+| Class | Findings |
+|---|---|
+| Content lost in publication | 2 |
+| Presentation and wording | 6 |
+| Wrong or missing identifiers | 6 |
+| The chapter contradicting itself | 6 |
+| Open representation questions | 4 |
+| Published content that is wrong | 3 |
+| Where this guide and THO disagree | 6 |
+
+**What is actually left of B5** is the three findings under *Published
+content that is wrong* — `0931`'s invalid UCUM code and `0560`'s time units
+under *Quantity Units* among them — because those change what the standard
+*means*, and HL7's errata guidance requires a substantive change to normative
+content to be balloted. The rest of the list does not need a ballot and does
+not need this question settled first.
+
+**The real conflict with the THO goal is narrower than stated**, and still
+real: THO has already corrected `0931` where this guide reproduces it, so the
+two bodies have answered the same question differently at least once. That
+needs settling before submission — but it is three findings with a route,
+not an unanswered policy question blocking everything behind it.
 
 ---
 
@@ -528,8 +560,10 @@ Recorded so they are not rediscovered as surprises.
    until a `qa.html` exists.
 2. Pin the FHIR core package (**A3**) — ours to fix, and until it is done
    no build is reproducible on a different machine.
-3. Get a ruling on `esc-retain-known-errors` (**B5**) — it is the longest
-   pole for the THO goal and has been open since August.
+3. Walk the defect review list (**B5**) — `defect-review.md`, 33 findings
+   in seven classes. The blanket policy question this used to name was
+   answered on 2026-10-08 and is not a blocker; the three findings under
+   *Published content that is wrong* are what still bear on the THO goal.
 4. Bump THO to 7.5.0 and rebuild (**B4**) — one focused change, one diff.
 5. Close `esc-oid-conflicts` for `0001` (**B3**) — now the only
    submission-blocking identifier question left.
