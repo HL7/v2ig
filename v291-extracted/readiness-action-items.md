@@ -156,7 +156,27 @@ of it to compare against; because its canonical is under
 against a different package. ~280 MB of output and ~2¼ hours of build time
 for a comparison nobody asked for and nobody would read.
 
-**Expected effect, to be confirmed by Run 4** (started 2026-11-10, with the
+**Confirmed by Run 4's log at 38 seconds in:**
+
+```
+Previous Version Comparison        (00:00.001 / 00:37.779, 2Gb)
+```
+
+The step ran and did nothing — **one millisecond**, against roughly two and
+a quarter hours and 280 MB in Run 3. That is the empty-list path executing
+exactly as the bytecode said it would, and it settles the mechanism beyond
+inference.
+
+**Independently confirmed by the official parameter registry.** The
+`version-comparison` entry in `CodeSystem-ig-parameters` (build.fhir.org/ig/
+FHIR/fhir-tools-ig) documents the same four values and the same default:
+"`{last}` — compare with the last published version — **this is the default
+if the parameter doesn't appear**; `{current}`; `n/a` — don't do any
+comparison; `[v]` — a previous version". Two independent sources, the jar
+and the registry, agree. Sibling parameters `ipa-comparison` and
+`ips-comparison` take `n/a` the same way; neither applies here.
+
+**Remaining effect, still to be confirmed by Run 4** (started 2026-11-10, with the
 parameter in place and the three stale directories deleted): no
 `comparison-*` directories, ~7,323 fewer broken links, output down ~280 MB,
 runtime down by most of two hours, and a `qa.html` near September's 6.9 MB
@@ -174,8 +194,23 @@ next.
 whatever we do locally: `genQAHtml` builds the whole page as one Java
 `String`, so any IG with enough findings hits `Integer.MAX_VALUE` and dies
 after a complete build. The report is precise — method, line, the exact
-negative value and what it decodes to. The malformed `comparison-v7.5.0/
-index.html` is a second, separate defect worth reporting with it.
+negative value and what it decodes to.
+
+**Neither defect appears to be filed.** A search of HL7/fhir-ig-publisher
+issues and PRs on 2026-11-10 for `NegativeArraySizeException`, `encodeUTF8`,
+`genQAHtml`, `ValidationPresenter` and `Integer.MAX_VALUE` returned nothing,
+and nothing was found for the malformed comparison pages either. Note the
+limit of that: chat.fhir.org is Zulip and could not be searched, so "not
+found" here means not found on GitHub, not established as unreported.
+
+**The malformed page is a separate defect, not a symptom of size.** It is
+worth stating because the opposite is the natural guess: that one huge run
+produced both problems. It did not. Measured on Run 3's own output,
+`comparison-v7.3.0` and `v7.4.0` are **well-formed** — 10,213 and 10,225
+anchors, every one closed — while `v7.5.0` has 6,748 opening against 2,442
+closed. Same generator, same run, comparable volume, different result. So
+the unclosed anchors are a defect in what that one page renders, and the two
+should be reported as two issues rather than one.
 
 **A correction to what this document said about the comparison pages.**
 Measured on Run 3's actual output, only `comparison-v7.5.0/index.html` is
