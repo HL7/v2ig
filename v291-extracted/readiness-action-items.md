@@ -42,18 +42,21 @@ files, every page present — but the publisher dies after writing it.
 Output HTML". Cause found and fixed. Because this IG's canonical is under
 `terminology.hl7.org`, the publisher fetches THO's `package-list.json` and
 generates a comparison page per THO release. Those pages are the publisher's
-own output and **one of them is malformed**: `comparison-v7.5.0/index.html`
-carries **4,306 unclosed `<a>` tags** (6,748 opening against 2,442 closed, as
-re-measured on Run 3's output), so its parser nests ~4,300 levels deep and
-overflows the default 1 MB stack, against **≤ 19 on every other file in the
-output**. Fixed with `-Xss16m` in `build_vocab_ig.py`, which cleared the
-crash and has held on every run since.
+own output and **all of them are malformed**: `comparison-v7.5.0/index.html`
+carries **4,306 unclosed `<a>` tags** (6,748 opening against 2,442 closed),
+so its parser nests ~4,300 levels deep and overflows the default 1 MB stack,
+against **≤ 19 on every other file in the output**. Fixed with `-Xss16m` in
+`build_vocab_ig.py`, which cleared the crash and has held on every run since.
 
-**7.5.0's release is what pushed it over.** Note the limit of that claim: the
-`comparison-v7.3.0` and `comparison-v7.4.0` pages are **well-formed** — 10,213
-and 10,225 anchors, every one closed. So it is *not* true that each THO
-release adds another malformed page; 7.5.0's is the only bad one so far, and
-whether the next release repeats the defect is unknown.
+**It is the number of those pages that pushed it over, not 7.5.0's
+arrival.** This document twice claimed 7.3.0 and 7.4.0 were "well-formed —
+10,213 and 10,225 anchors, every one closed"; **that is wrong**, and the
+correction is recorded in full below. The September snapshot's
+`comparison-v7.3.0/index.html` has 6,733 opening anchors against 2,439
+closed — 4,294 unclosed, nesting 4,294 deep — and that is the page from the
+build that *succeeded*. Every comparison page carries the same defect at
+about the same depth, so the variable was never which release is bad; it was
+three pages where September had one.
 
 **Run 2 (112 min): `OutOfMemoryError: Java heap space`** in
 `ValidationPresenter.genQAHtml` — building the QA page itself, after
@@ -203,25 +206,63 @@ and nothing was found for the malformed comparison pages either. Note the
 limit of that: chat.fhir.org is Zulip and could not be searched, so "not
 found" here means not found on GitHub, not established as unreported.
 
-**The malformed page is a separate defect, not a symptom of size.** It is
-worth stating because the opposite is the natural guess: that one huge run
-produced both problems. It did not. Measured on Run 3's own output,
-`comparison-v7.3.0` and `v7.4.0` are **well-formed** — 10,213 and 10,225
-anchors, every one closed — while `v7.5.0` has 6,748 opening against 2,442
-closed. Same generator, same run, comparable volume, different result. So
-the unclosed anchors are a defect in what that one page renders, and the two
-should be reported as two issues rather than one.
+**Correction, 2026-11-10: every comparison page is malformed, and this
+document twice said otherwise.** The claim that 7.3.0 and 7.4.0 were
+"well-formed — 10,213 and 10,225 anchors, every one closed" is **wrong**.
+Re-measured on the September snapshot, `comparison-v7.3.0/index.html` has
+**6,733 opening anchors against 2,439 closed — 4,294 unclosed**, a peak
+nesting depth of 4,294, and it is the page from the build that *succeeded*.
+The earlier figures appear to have counted anchors without separating
+opening tags from closing ones; whatever produced them, they did not survive
+re-measurement.
 
-**A correction to what this document said about the comparison pages.**
-Measured on Run 3's actual output, only `comparison-v7.5.0/index.html` is
-malformed — 6,748 opening anchors against 2,442 closed, 4,306 unclosed, which
-matches the ~4,300 nesting depth recorded earlier. The 7.3.0 and 7.4.0 pages
-are **well-formed** (10,213 and 10,225 anchors, all closed). The earlier
-claim that measured depth was "4,300+ on all three comparison pages" is
-wrong. It does not change the fix — `-Xss16m` is still required, because one
-bad page is enough — but "each THO release adds another malformed page" is
-not supported: two of three are fine, and the next release may or may not
-repeat 7.5.0's defect.
+**Two conclusions change.** 7.5.0 is not special — it is one more instance
+of a defect every comparison page has, and the "7.5.0's release is what
+pushed it over" framing is wrong about *why*. What pushed the stack over was
+**three** malformed pages where September had **one**: the depth per page is
+essentially constant at ~4,300, so the trigger was count, not a newly bad
+page. And the September build survived the same ~4,294-deep page, which
+means the default stack was marginal all along rather than adequate until
+7.5.0 arrived.
+
+**The cause is in the core library, not the publisher,** and it is two
+distinct bugs in `org.hl7.fhir.r5.comparison`, both verified by disassembly
+of our own jar rather than taken from a source read of a newer master:
+
+- `ResourceComparer$ResourceComparison.refCell` — the common path, called
+  once per resource row. Its `hasWebPath()` branch concatenates
+  `<td><a href="…">` + text and returns, emitting **no `</a>`**. Confirmed
+  at bytecode offsets 24–60: the `makeConcatWithConstants` that builds the
+  anchor cell has no closing tag in its recipe.
+- `ResourceComparer$PlaceHolderComparison` — a straight typo, present
+  verbatim in the constant pool as `.html">Failed<a></td>`, opening a second
+  anchor where it meant to close the first. This fires only when a
+  comparison fails.
+
+`refCell` being the per-row common path is what matches the arithmetic: ~4,300
+unclosed anchors against 2,439 properly-closed ones from
+`CanonicalResourceComparison`, which *does* close its tags.
+
+**Neither is reported.** Neither appears in the issues of
+`HL7/fhir-ig-publisher` or `hapifhir/org.hl7.fhir.core`, and the file's
+commit history to 2020 shows no message describing either fix. A report
+belongs against **`hapifhir/org.hl7.fhir.core`**, not the publisher, because
+that is where the comparison renderer lives — and it should cite both
+methods, since fixing only the typo would leave the systemic one.
+
+**This does not change what we did.** The pages are suppressed, so none of
+these bugs can reach our output. It changes what a report should say, and it
+retires the idea that a future THO release might be "the one that breaks it
+again" — they are all like this, and the only variable is how many.
+
+**A correction that was itself wrong, kept here because the record should
+show it.** This paragraph previously said that only `comparison-v7.5.0` was
+malformed and that 7.3.0 and 7.4.0 were well-formed with "10,213 and 10,225
+anchors, all closed". Re-measurement on 2026-11-10 shows the opposite: 7.3.0
+has 4,294 unclosed anchors. The original claim it was "correcting" — that
+depth was 4,300+ on all three comparison pages — **was right**, and this
+paragraph wrongly overturned it. The full correction, with the two
+underlying bugs in `org.hl7.fhir.r5.comparison`, is below.
 
 **What the failed runs did tell us.** Validation ran and passed — 822
 resources in 30 seconds. The link check completed and reported **56,515
