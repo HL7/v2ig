@@ -101,16 +101,25 @@ org.hl7.fhir.igtools.publisher.ConformanceStatementHandler
 of a ~4,300-deep page does work proportional to that depth at every node.
 In one build the "Checking Output HTML" step over 22,571 files — of which
 three were these pages — took **1 hour 34 minutes**, and a later build over
-29,024 files was still in the same step after an hour of solid CPU. A thread
-dump taken during it shows the main thread RUNNABLE at ~1,020 frames, which
-is where that time goes.
+29,024 files was still in the same step after an hour of solid CPU.
+
+**Fifty stack samples of the latter, taken over about two minutes, were in
+`XhtmlNode.allText` recursion 50 times out of 50.** The innermost frames are
+consistently string copying — `Arrays.copyOf`, `StringUTF16.newString`,
+`AbstractStringBuilder.append` — which is `allText` re-concatenating the
+text of every descendant at each level as it unwinds. With ~4,300 levels
+that is quadratic in the depth, and it is where the hours go.
+
+(Sampled depth clusters at ~1,020 frames, but that is
+`MaxJavaStackTraceDepth`'s default of 1024 truncating the dump rather than
+the real depth, which is higher.)
 
 So raising `-Xss` makes a build survive these pages; it does not make them
 affordable. Well-formed output would fix both.
 
-We have not yet measured the same step with the pages absent, so we make no
-claim about how much of that time they account for — only that the stack is
-in `allText` recursion over them whenever it is sampled.
+We have not measured the same step with the pages absent, so we make no
+claim about the share of total runtime they account for — only that the
+thread is in `allText` over them every time it is sampled.
 
 ### Impact
 

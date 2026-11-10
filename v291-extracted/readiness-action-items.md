@@ -469,6 +469,30 @@ at one millisecond. Its effect on the scan is **not yet measured at all**,
 because Run 4 inherited the deep pages from `temp/` and is paying the same
 cost as Run 3.
 
+**What the scan is spending its time on, however, now is measured.** Fifty
+stack samples of Run 4's main thread during "Checking Output HTML", taken
+one to two seconds apart over roughly two minutes:
+
+| | |
+|---|---|
+| Samples inside `XhtmlNode.allText` recursion | **50 of 50** |
+| Samples anywhere else | 0 |
+
+The innermost frames are all string copying — `Arrays.copyOf`,
+`StringUTF16.newString`, `AbstractStringBuilder.append` — which is `allText`
+concatenating the text of every descendant at every level as it unwinds.
+That is the quadratic behaviour, caught in the act rather than reasoned
+about: each of the ~4,300 levels re-copies the accumulated string beneath
+it.
+
+**A caveat on the depth figure.** Sampled depths cluster at ~1,020 frames,
+and that is **`MaxJavaStackTraceDepth`, which defaults to 1024** — a limit
+of the tool, not a property of the stack. The true depth is some number
+above 1,024 and these samples cannot say what. Shallower readings do appear
+(26, 341, 718), which are genuine moments on smaller subtrees. So the
+correct statement is that the thread is *always* in this recursion and
+usually deeper than the tool can report.
+
 **The first run that demonstrates this end to end is the next one.** The
 expectation is that it is dramatically faster — ~10,082 files instead of
 29,024, none of them deep — but that is a prediction and the evidence for
