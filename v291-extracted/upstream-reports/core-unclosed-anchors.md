@@ -83,6 +83,30 @@ they are on the inner classes `ResourceComparer$ResourceComparison.refCell`
 and `ResourceComparer$PlaceHolderComparison`. Same defects, different
 location — worth checking which applies before patching.
 
+### The cost is not only the stack — it is quadratic work
+
+The nesting depth is also a performance defect, which is easy to miss
+because the stack overflow is the louder symptom. A thread dump of a build
+processing these pages shows the main thread RUNNABLE, burning CPU
+one-for-one with wall clock, ~983 frames deep in a single line:
+
+```
+org.hl7.fhir.utilities.xhtml.XhtmlNode.allText(XhtmlNode.java:399)
+  ... repeated ...
+org.hl7.fhir.igtools.publisher.ConformanceStatementHandler
+    .processMarkdownConformanceClauses(ConformanceStatementHandler.java:883)
+```
+
+`allText` recurses once per nesting level, so every pass that walks the DOM
+of a ~4,300-deep page does work proportional to that depth at every node.
+In our build the output HTML check over 29,024 files — of which three were
+these pages — ran for over 45 minutes without emitting a line, and an
+earlier run's equivalent step took 96 minutes. With the pages absent, the
+same step completed in **3.5 seconds**.
+
+So raising `-Xss` makes the build survive these pages; it does not make
+them affordable. Well-formed output would fix both.
+
 ### Impact
 
 Any IG whose canonical resolves to a package with published releases gets one

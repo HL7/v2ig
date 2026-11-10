@@ -427,10 +427,39 @@ one that asserts the clear happens *before* `run_publisher()` and was
 verified to fail when that ordering is broken.
 
 **Not yet confirmed on a clean run.** Run 4 was already in flight when this
-was found, so its `output/` still contains the 18,942 inherited files and
-its link check is scanning them. Its broken-link count will still carry the
-~7,300 `fhir.css` references. **The first run that actually demonstrates the
-suppression end to end is the next one.**
+was found, so its `output/` still contains the 18,942 inherited files.
+
+**And they did not merely inflate a count — they are what makes the link
+check take hours.** A thread dump of Run 4's JVM at 47 minutes, taken while
+the log had been frozen for eight, shows the main thread **RUNNABLE** and
+burning CPU one-for-one with wall clock in:
+
+```
+org.hl7.fhir.utilities.xhtml.XhtmlNode.allText(XhtmlNode.java:399)
+  ... 983 frames of the same line ...
+org.hl7.fhir.igtools.publisher.ConformanceStatementHandler
+    .processMarkdownConformanceClauses(ConformanceStatementHandler.java:883)
+```
+
+`allText` recurses once per nesting level, and the stale comparison pages
+nest ~4,300 deep because of the unclosed anchors — 4,294, 4,300 and 4,306 on
+the three. The thread sat at a depth of ~1,020 frames and oscillated rather
+than climbing, which is `allText` being re-entered per node across a tree
+that huge. **So the ~4,300-deep pages are not just a stack-overflow risk;
+they are quadratic work for every pass that walks the DOM.** That is where
+Run 3's 96-minute link check went, and it is why `-Xss16m` made the build
+*finish* that step rather than making it cheap.
+
+**The three findings now form one chain.** The unclosed anchors
+(`refCell`, upstream) make the pages pathologically deep; the depth makes
+every DOM walk enormously expensive and nearly overflows the stack; the
+resulting broken links make the QA page too large to serialise. Suppressing
+the pages cuts all three at the root, which is why the suppressed step took
+one millisecond and `Checking Output HTML` took 3.5 seconds.
+
+**The first run that demonstrates this end to end is the next one**, and it
+should be dramatically faster, not merely cleaner: ~10,082 files to scan
+instead of 29,024, with none of the deep ones.
 
 ---
 
