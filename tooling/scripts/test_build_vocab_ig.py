@@ -316,3 +316,44 @@ def test_the_known_issues_heading_count_matches_its_own_list():
     assert expected == len(authored), (
         f"the heading says {word} ({expected}) but the list under it has "
         f"{len(authored)} tables")
+
+
+def test_clear_stale_temp_removes_the_whole_directory(tmp_path, monkeypatch):
+    """temp/ is cumulative, and a left-behind page reappears in output/.
+
+    The publisher stages pages into temp/pages/ and Jekyll copies that whole
+    directory into output/. Nothing removes an entry the current run did not
+    produce, so suppressing a page's generation is not enough to keep it out
+    of the build -- a stale copy is still there to be copied. This is how
+    three comparison directories, 18,942 files, survived the parameter that
+    stopped them being generated.
+    """
+    temp = tmp_path / "temp"
+    (temp / "pages" / "comparison-v7.5.0").mkdir(parents=True)
+    stale = temp / "pages" / "comparison-v7.5.0" / "index.html"
+    stale.write_text("stale", encoding="utf-8")
+    monkeypatch.setattr(build, "IG_TEMP", temp)
+
+    build.clear_stale_temp()
+
+    assert not temp.exists(), (
+        "temp/ survived the clear, so the next build can still inherit "
+        "pages this one did not generate")
+
+
+def test_clear_stale_temp_is_quiet_when_there_is_nothing_to_clear(tmp_path,
+                                                                  monkeypatch):
+    """A first build on a clean checkout has no temp/ and must not fail."""
+    monkeypatch.setattr(build, "IG_TEMP", tmp_path / "absent")
+    build.clear_stale_temp()  # must not raise
+
+
+def test_the_publish_path_clears_temp_before_running_the_publisher():
+    """Order matters: clearing after the run would delete nothing useful and
+    leave the next build inheriting this one's pages."""
+    source = (build.PROJECT_ROOT / "tooling" / "scripts"
+              / "build_vocab_ig.py").read_text(encoding="utf-8")
+    clear = source.index("clear_stale_temp()\n        run_publisher()")
+    assert clear > 0, (
+        "clear_stale_temp() no longer runs immediately before "
+        "run_publisher() on the --publish path")

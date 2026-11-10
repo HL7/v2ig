@@ -131,9 +131,16 @@ went from one to three, and all three failures follow from that:
 - the int overflow, because the QA page is essentially a table of broken
   links. Zero of them gave a 6.9 MB page in September.
 
-Measured from directory mtimes, the three directories were written
-sequentially at 17:43, 18:32 and 19:18 — roughly **45 minutes each**, which
-is most of Run 3's 110-minute runtime.
+**A correction to a figure this document carried for one session.** It said
+the three directories "were written sequentially at 17:43, 18:32 and 19:18 —
+roughly 45 minutes each, which is most of Run 3's 110-minute runtime". Those
+are **copy** times, not generation times, and the inference from them was
+wrong. See A6: the directories are copied into `output/` from a cumulative
+`temp/` on every run, so their mtimes say when the copy happened and nothing
+about what generating them cost. The real generation cost is unmeasured.
+What *is* measured is that suppression took the publisher's own comparison
+step to one millisecond and its "Checking Output HTML" step to 3.5 seconds,
+where Run 1 crashed outright.
 
 ### The switch, and why `n/a` rather than deleting something
 
@@ -390,6 +397,40 @@ are now tested — `index.md`'s route table and `known-issues.md`'s blocked
 list, both verified to fail on drift in both directions. **Other authored
 pages are still unguarded.** Before submission, every page carrying a number
 should either derive it or have a test.
+
+### A6. `temp/` is cumulative, so a build inherits earlier builds' pages — FIXED 2026-11-10
+
+**Found because it made a working fix look broken.** With the comparison
+pages suppressed, the publisher's own `Previous Version Comparison` step
+dropped to **one millisecond** — and three `comparison-v*` directories
+appeared in `output/` regardless, 18,942 files of them.
+
+They were not generated. They were **copied**. The directories were created
+at 22:37 while their contents were dated 2026-09-21, 2026-09-22 and
+2026-11-10 17:31, and each was byte-identical to a copy sitting in
+`vocab-ig/temp/pages/`. The publisher stages every page into `temp/pages/`
+and Jekyll copies that whole directory into `output/`; **nothing ever
+removes an entry the current run did not produce.** Files from 2026-09-14
+were still being copied into `output/` on 2026-11-10.
+
+**This is the same class of defect as A3** — build output determined by what
+a previous run left on the machine rather than by the inputs — and it is
+worse in one respect: A3 changed which artifacts were generated, where this
+silently reintroduces artifacts a parameter was set specifically to prevent.
+Anyone checking whether the suppression worked by looking at `output/` would
+conclude it does nothing.
+
+**Fixed.** `clear_stale_temp()` deletes `vocab-ig/temp/` immediately before
+the publisher runs, on the `--publish` path only. The directory is wholly
+derived, so there is nothing to preserve. Three tests cover it, including
+one that asserts the clear happens *before* `run_publisher()` and was
+verified to fail when that ordering is broken.
+
+**Not yet confirmed on a clean run.** Run 4 was already in flight when this
+was found, so its `output/` still contains the 18,942 inherited files and
+its link check is scanning them. Its broken-link count will still carry the
+~7,300 `fhir.css` references. **The first run that actually demonstrates the
+suppression end to end is the next one.**
 
 ---
 

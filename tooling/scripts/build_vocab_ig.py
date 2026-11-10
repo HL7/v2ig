@@ -43,6 +43,7 @@ PUBLISHER_JAR = PROJECT_ROOT / "input-cache" / "publisher.jar"
 IG_INI = PROJECT_ROOT / "vocab-ig" / "ig.ini"
 IG_OUTPUT = PROJECT_ROOT / "vocab-ig" / "output"
 IG_SNAPSHOT = PROJECT_ROOT / "vocab-ig" / "output-snapshot"
+IG_TEMP = PROJECT_ROOT / "vocab-ig" / "temp"
 JAVA = Path("/home/claude/jdk/bin/java")
 GEM_HOME = "/home/claude/.gems"
 RUBY_BIN = "/home/claude/ruby/arm64/bin"
@@ -249,6 +250,34 @@ def run_publisher():
     print(f"\nPublisher finished in {elapsed / 60:.1f} min.")
 
 
+def clear_stale_temp():
+    """Delete vocab-ig/temp/ so the build cannot inherit a previous run's pages.
+
+    The publisher stages every page into temp/pages/ and Jekyll copies that
+    whole directory into output/. Nothing ever removes an entry that the
+    current run did not produce, so temp/ is cumulative: files from
+    2026-09-14 were still being copied into output/ on 2026-11-10.
+
+    That turned a working fix into one that looked broken. Suppressing the
+    version comparison stopped the pages being GENERATED -- the publisher's
+    own step dropped to one millisecond -- but three comparison directories
+    reappeared in output/ anyway, 18,942 files of them, copied out of temp/
+    where earlier runs had left them. A reader comparing output/ against the
+    parameter would conclude the parameter does nothing.
+
+    Deleting temp/ wholesale is safe because it is derived: the publisher
+    rebuilds everything it needs there on each run. It is not an optimisation
+    to skip -- a cached temp/ makes the build depend on what previous runs
+    happened to leave behind, which is the same class of defect as reading
+    the FHIR core package out of ~/.fhir/packages (readiness A3).
+    """
+    if not IG_TEMP.is_dir():
+        return
+    file_count = sum(1 for _ in IG_TEMP.rglob("*") if _.is_file())
+    print(f"Clearing {IG_TEMP} ({file_count:,} files from previous runs).")
+    shutil.rmtree(IG_TEMP)
+
+
 def snapshot_output():
     """Copy a just-completed build to output-snapshot/, replacing the old one.
 
@@ -395,6 +424,7 @@ def main():
     print(f"\nChain complete in {total:.1f}s.")
 
     if args.publish:
+        clear_stale_temp()
         run_publisher()
         if args.snapshot:
             snapshot_output()
