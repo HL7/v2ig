@@ -101,6 +101,11 @@ Thumbs.db
 # for review, (b) use as the candidate-artifact repository for updating THO.
 # Not regenerable -- it is judgement about the register, not a view of it.
 !/v291-extracted/readiness-action-items.md
+# Drafted bug reports against the IG Publisher and the FHIR core library.
+# Authored, not regenerable, and tracked because the evidence in them was
+# measured against a specific jar that will not be reproducible later.
+!/v291-extracted/upstream-reports/
+!/v291-extracted/upstream-reports/*.md
 # Findings for the V2 Management Group and TSMG. Generated from
 # tooling/scripts/vocabulary_escalations.py, but tracked so the register is
 # readable and diffable without running anything.

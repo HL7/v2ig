@@ -243,6 +243,13 @@ of our own jar rather than taken from a source read of a newer master:
 unclosed anchors against 2,439 properly-closed ones from
 `CanonicalResourceComparison`, which *does* close its tags.
 
+**Both reports are drafted** in `v291-extracted/upstream-reports/`:
+`core-unclosed-anchors.md` is ready to file, and
+`publisher-qa-int-overflow.md` has one blank that Run 4's outcome fills —
+whether suppression alone resolved the overflow, which changes the framing
+from "latent scaling defect" to "something else is large". Neither has been
+filed.
+
 **Neither is reported.** Neither appears in the issues of
 `HL7/fhir-ig-publisher` or `hapifhir/org.hl7.fhir.core`, and the file's
 commit history to 2020 shows no message describing either fix. A report
