@@ -239,6 +239,38 @@ and read the diff. Doing it in the same pass as a ruling batch makes it
 impossible to tell which caused what, which is why it was deliberately
 deferred this session.
 
+**Scoped read-only on 2026-11-10, against `hl7.terminology.r5#7.5.0` in the
+package cache. The delta is far smaller than "two releases behind" suggests,
+and this is the number that should set expectations for the bump:**
+
+| Between 7.3.0 and 7.5.0 | |
+|---|---|
+| `CodeSystem/v2-*` added / removed / re-versioned | **0 / 0 / 0** (418 both) |
+| `ValueSet/v2-*` added / removed / re-versioned | **0 / 0 / 0** (440 both) |
+| v2 artifacts whose content changed at all | **0** (hashed ignoring narrative and `meta`) |
+| NamingSystems added | 30, carrying **19 newly resolvable OIDs** |
+| OIDs whose target *changed* | **0** |
+
+**So the v2 corpus THO publishes did not move at all between these two
+releases.** Every version this guide computes against 7.3.0 would compute
+identically against 7.5.0, which means B4 is a provenance correction rather
+than a content risk — worth doing, but it is not holding numbers hostage the
+way this item previously implied.
+
+Of the 19 newly resolvable OIDs, 17 are `terminology.hl7.org.au` and the
+other two are IHE formatcode and an eatrightpro nutrition terminology; none
+is referenced by this chapter. **Neither remaining needs-decision table can
+be unblocked by the bump** — `0956` and `0963` are both blocked on Content
+Logical Definition *shape*, not on OID resolution, so no amount of new
+NamingSystems reaches them.
+
+**What still has to be done by hand, and why the bump is not a one-liner:**
+the vendored `tho-r5/` is gitignored, so bumping it changes an input that
+leaves no trace in a diff — the same class of problem as A3, which is why the
+version must be re-read into `tho-fill-report.json` and the rebuild diffed
+rather than trusted. Expect the diff to be empty; **investigate it if it is
+not**, because on this evidence it should be.
+
 ### B5. Chapter 2C's own defects are reproduced on purpose, and THO may not want them
 
 The guide carries the chapter as published, including content known to be
