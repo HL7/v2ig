@@ -1264,3 +1264,50 @@ def test_the_count_stands_even_when_a_run_applies_nothing():
     summary = writer.tentative_override_summary([])
     assert summary["count"] == 1
     assert summary["appliedThisRun"] == []
+
+
+# --------------------------------------------------------------------------
+# Where code system definitions are read from (A3)
+# --------------------------------------------------------------------------
+#
+# The corpus used to depend on what the IG Publisher had last downloaded into
+# ~/.fhir/packages: table 0962 moved from needs-decision to published between
+# two builds on the same day with nothing in the repository changing, and
+# neither output was wrong, so nothing raised an error. These tests hold the
+# input pinned. See fhir-r5-core/README.md.
+
+
+def test_the_core_package_is_read_from_the_vendored_copy():
+    assert writer.FHIR_CORE_DIR in writer.code_system_directories()
+
+
+def test_the_publishers_package_cache_is_not_read():
+    """A fallback to ~/.fhir/packages would restore the drift, and quietly."""
+    cache = Path.home() / ".fhir" / "packages"
+    for directory in writer.code_system_directories():
+        assert cache not in directory.parents, (
+            f"{directory} is inside the publisher's package cache, which is "
+            "written as a side effect of building and pins nothing")
+
+
+def test_tho_outranks_the_core_package():
+    """Lowest authority first: a later directory overwrites an earlier one."""
+    directories = writer.code_system_directories()
+    assert directories.index(writer.FHIR_CORE_DIR) < directories.index(
+        writer.THO_DIR)
+
+
+def test_the_vendored_copy_records_which_package_it_is():
+    """Pinned is only half of A3; recorded is the other half."""
+    provenance = writer.fhir_core_provenance()
+    assert provenance["present"] is True
+    assert provenance["package"] == "hl7.fhir.r5.core"
+    assert provenance["version"]
+    assert provenance["codeSystems"] > 0
+
+
+def test_a_missing_vendored_copy_is_reported_rather_than_assumed(monkeypatch):
+    monkeypatch.setattr(writer, "FHIR_CORE_DIR", Path("/nonexistent"))
+    assert writer.fhir_core_provenance() == {
+        "present": False, "path": "/nonexistent"}
+    assert writer.code_system_directories() == [writer.THO_DIR]

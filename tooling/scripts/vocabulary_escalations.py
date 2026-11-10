@@ -1393,6 +1393,37 @@ ESCALATIONS = [
             "rather than a property of the machine? Everything else the "
             "writer reads is version-pinned and recorded in a report; this "
             "one is not, and it silently moved a table between routes.",
+        "resolution": {
+            "who": "This project",
+            "forum": "Build reproducibility work, readiness item A3",
+            "date": "2026-11-10",
+            "ruling": "Yes. The FHIR core package is pinned and vendored. "
+                      "It was never a question for a committee &mdash; the "
+                      "ask said so &mdash; and it is recorded here because "
+                      "the finding was raised here.",
+            "effect": "The 448 <code>CodeSystem-*.json</code> files of "
+                      "<code>hl7.fhir.r5.core#5.0.0</code> are vendored in "
+                      "<code>fhir-r5-core/</code> with the package manifest "
+                      "beside them, and <code>code_system_directories</code> "
+                      "reads that copy instead of "
+                      "<code>~/.fhir/packages</code>. There is deliberately "
+                      "<b>no fallback</b> to the cache: a fallback would "
+                      "restore the same silent drift the first time the "
+                      "vendored copy went missing. The package name, "
+                      "version and date now appear as <code>fhirCore</code> "
+                      "in <code>tho-fill-report.json</code>, so a change of "
+                      "input shows up as a change in the report rather than "
+                      "as an unexplained change in the corpus. Five tests "
+                      "hold it: that the vendored copy is read, that the "
+                      "publisher's cache is not, that THO still outranks it, "
+                      "that the version is recorded, and that a missing copy "
+                      "is reported rather than assumed. Verified neutral "
+                      "&mdash; all 821 XML files are byte-identical across "
+                      "the change, and <code>0962</code> keeps publishing "
+                      "<code>ValueSet/v2-0962</code>, now because a pinned "
+                      "input says so rather than because a build happened to "
+                      "download something.",
+        },
     },
     {
         "id": "esc-gp2-oce-siblings",
@@ -3357,7 +3388,9 @@ def render_markdown():
             "",
             "## Answered",
             "",
-            "Items a committee has ruled on since this register was opened.",
+            "Items ruled on since this register was opened &mdash; by a",
+            "committee, or, where the ask said the question was the",
+            "project's to settle, by the project.",
             "They are no longer counted above. The finding and the original",
             "ask are kept so the record shows what was asked as well as what",
             "came back.",

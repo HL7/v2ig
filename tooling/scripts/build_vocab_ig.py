@@ -202,7 +202,20 @@ def run_publisher():
     # main thread. If a future THO release crashes this again, the fix is not
     # a bigger number -- check whether the comparison pages are still
     # malformed and report it upstream.
-    command = [str(JAVA), "-Xmx8g", "-Xss16m", "-jar", str(PUBLISHER_JAR),
+    #
+    # -Xmx is a separate story with the same shape. At 8g the run died with
+    # OutOfMemoryError in ValidationPresenter.genQAHtml, 112 minutes in --
+    # again after a complete IG had been written, and again destroying only
+    # qa.html. That page is built as one in-memory document before it is
+    # written, and it is enormous: an earlier build produced a 91MB qa.html,
+    # and the DOM behind such a page costs several times its serialised size.
+    #
+    # 12g on a 15GB box leaves ~3GB for the OS and for the Ruby/Jekyll the
+    # publisher shells out to. Jekyll has finished by the time genQAHtml runs,
+    # so the two peaks do not overlap. If this is still not enough, the thing
+    # to find out is how large qa.html wants to be -- the fix may be to reduce
+    # what goes on it rather than to keep buying heap.
+    command = [str(JAVA), "-Xmx12g", "-Xss16m", "-jar", str(PUBLISHER_JAR),
                "-ig", str(IG_INI), "-no-sushi"]
 
     print("\n" + "=" * 70)

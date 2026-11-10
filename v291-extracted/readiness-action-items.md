@@ -21,7 +21,7 @@ the two goals and which do not. Where the two disagree, the register wins.
 | ValueSets published | 424 |
 | `conceptdomains` | 1, at 4.0.0, 1,522 concepts |
 | Tables with nothing written | **2** (was 14 before this batch) |
-| Register items | 57, of which **22 answered** |
+| Register items | 57, of which **23 answered** |
 
 The needs-decision list is the lowest it has been since the project started.
 Two tables remain: `0956` and `0963`.
@@ -94,7 +94,7 @@ is, provided each absence is explained on the page a reader lands on, which
 `known-issues.html` now does. **Confirm that is acceptable rather than
 assuming it.**
 
-### A3. The generated corpus depends on what is cached on the build machine
+### A3. ~~The generated corpus depends on what is cached on the build machine~~ — DONE 2026-11-10
 
 **This replaces an earlier entry about `vs-v2-0962.xml` being an orphan. The
 orphan is gone, and how it went is the finding.**
@@ -121,10 +121,30 @@ table count, a different route distribution, and a `needs-decision` entry
 nobody could account for. The output was correct both times, which is what
 makes it dangerous: there was no error to notice.
 
-**Recommended before submission:** pin and vendor the FHIR core package the
-way `tho-r5/` is, and record its version in the write report alongside THO's.
-Raised as `esc-0962-already-in-tho`, which is about the dependency rather
-than the table.
+**Done 2026-11-10, and `esc-0962-already-in-tho` is closed against it.** The
+448 `CodeSystem-*.json` files of `hl7.fhir.r5.core#5.0.0` are vendored in
+`fhir-r5-core/` (3.8MB, tracked) with the package manifest beside them, and
+`code_system_directories` reads that copy. `~/.fhir/packages` is **no longer
+read at all**: a fallback to it would restore exactly this failure the first
+time the vendored copy went missing, and would do it silently, so a missing
+vendored copy now resolves fewer OIDs and sends those tables to the report
+— the same way a missing THO snapshot already behaves.
+
+The package name, version and date are recorded as `fhirCore` in
+`tho-fill-report.json`, which was the other half of this item: pinned *and*
+recorded. Five tests hold it, including one asserting that no directory read
+by the writer lives under the publisher's cache.
+
+**Verified neutral rather than assumed:** all 821 XML files are byte-identical
+across the change and the fill report is unchanged apart from the new
+`fhirCore` block, so the corpus is the same one — it is now the same one on a
+fresh checkout too.
+
+**What this does not fix.** 576 OIDs resolve only through this package, and
+176 of those resolve through an identifier FHIR marks `use: "old"` — 0962's
+among them. That is now a pinned, documented weakness rather than a moving
+one, but it is still weaker evidence than a THO match, and `fhir-r5-core/
+README.md` says so.
 
 ### A4. Four value sets compose over canonicals that do not resolve yet
 

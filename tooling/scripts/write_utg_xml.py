@@ -143,6 +143,10 @@ EXCLUDED_SECTIONS = {
             "the V2.9.1 standard binds to it.",
 }
 THO_DIR = PROJECT_ROOT / "tho-r5"
+# Vendored CodeSystem-*.json from hl7.fhir.r5.core, pinned so the corpus does
+# not depend on what the IG Publisher last downloaded. See the directory's
+# README and `code_system_directories` below.
+FHIR_CORE_DIR = PROJECT_ROOT / "fhir-r5-core"
 DEFAULT_UTG_REPO = PROJECT_ROOT / "UTG"
 OUTPUT_DIR = PROJECT_ROOT / "v291-fhir" / "utg"
 REPORT_PATH = PROJECT_ROOT / "v291-fhir" / "utg-write-report.json"
@@ -1248,15 +1252,56 @@ def code_system_directories():
     tables name a code system FHIR owns rather than THO -- table 0962's Device
     Status is `http://hl7.org/fhir/device-status` -- and without it those OIDs
     look unresolvable when they are merely defined somewhere else.
+
+    The core package is read from the vendored copy in `fhir-r5-core/`, and
+    deliberately NOT from `~/.fhir/packages`, which is where it used to come
+    from. That cache is written by the IG Publisher as a side effect of
+    building, so the corpus depended on what a previous build happened to
+    download: on 2026-11-05 table 0962 moved from `needs-decision` to
+    published between two builds on the same day with nothing in this
+    repository changing. Both outputs were correct, which is precisely what
+    made it dangerous -- the same commit produced two different IGs and
+    nothing raised an error. See `fhir-r5-core/README.md` and item A3 of the
+    readiness list.
+
+    Falling back to the cache when the vendored copy is missing would restore
+    exactly the failure mode this removes, and quietly. So a missing
+    `fhir-r5-core/` resolves fewer OIDs and sends those tables to the report,
+    which is the same way a missing THO snapshot already behaves: visible in
+    the output rather than papered over.
     """
     directories = []
-    package_cache = Path.home() / ".fhir" / "packages"
-    if package_cache.is_dir():
-        for package in sorted(package_cache.glob("hl7.fhir.r5.core#*/package")):
-            directories.append(package)
+    if FHIR_CORE_DIR.is_dir():
+        directories.append(FHIR_CORE_DIR)
     if THO_DIR.is_dir():
         directories.append(THO_DIR)
     return directories
+
+
+def fhir_core_provenance():
+    """What the vendored FHIR core copy is, for the top of the report.
+
+    Recorded for the same reason THO's version is: so the numbers in a report
+    can be repeated later, and so a change of input shows up as a change in
+    the report rather than as an unexplained change in the corpus. `present`
+    is False when the directory is missing, which resolves fewer OIDs and
+    sends the affected tables to the needs-decision list.
+    """
+    package = FHIR_CORE_DIR / "package.json"
+    if not package.is_file():
+        return {"present": False, "path": str(FHIR_CORE_DIR)}
+    try:
+        manifest = json.loads(package.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return {"present": True, "path": str(FHIR_CORE_DIR), "unreadable": True}
+    return {
+        "present": True,
+        "package": manifest.get("name"),
+        "version": manifest.get("version"),
+        "date": manifest.get("date"),
+        "path": str(FHIR_CORE_DIR),
+        "codeSystems": len(list(FHIR_CORE_DIR.glob("CodeSystem-*.json"))),
+    }
 
 
 def load_oid_index():
@@ -2851,6 +2896,7 @@ def build_fill_report(observe, snapshot, report):
 
     return {
         "source": snapshot.provenance(),
+        "fhirCore": fhir_core_provenance(),
         "counts": {
             "observations": len(observe.records),
             "byKind": dict(Counter(r["kind"] for r in observe.records)),

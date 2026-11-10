@@ -1,6 +1,6 @@
 # Chapter 2C defects, grouped for decision
 
-Review list for V2 Management — 34 open findings.
+Review list for V2 Management — 33 open findings.
 
 This document replaces the blanket policy question `esc-retain-known-errors`. V2 Management ruled on 2026-10-08 that There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.
 
@@ -190,7 +190,7 @@ Both tables are consequently absent from the document's own table of contents, a
 
 ---
 
-## Wrong or missing identifiers (7)
+## Wrong or missing identifiers (6)
 
 The chapter names the wrong thing, or omits a name it needs. A URI that points at the wrong code system is not a typographic matter — it resolves, and it resolves to something else.
 
@@ -229,24 +229,6 @@ The Code System Identification block correctly identifies ISO 3166-2 — OID 1.0
 - `0956` Job Supervisory Level or Pay Grade: BLOCKED — no artifact, pipeline cannot settle it
 
 **Decision needed:** Something needs to happen for 0956 and nobody yet knows what. This item exists to keep that fact from being lost, which is the whole of its present purpose. The question for V2 Management and TSMG is where the supervisory level / pay grade codes should live once PHIN VADS is gone: a THO value set created for the purpose, an external code system record pointing at whatever the CDC designates as the successor, or a decision that the table is not viable and should become concept domain only. In the meantime this guide publishes no CodeSystem and no ValueSet for 0956, by decision rather than by omission. Its concept domain JobSupervisoryLevelorPayGrade is published in CodeSystem/conceptdomains and is unaffected, so a binding to the domain remains expressible while the terminology question is settled.
-
----
-
-### Table 0962 resolved itself when a cached package appeared, which is a reproducibility problem rather than a ruling
-
-**Tables:** 0962  
-**Goes to:** V2 Management  
-**Register id:** `esc-0962-already-in-tho`
-
-*Why this class: A FHIR core page URL where the code system canonical belongs. It resolves only through an identifier FHIR marks superseded, in a package that reaches the build machine by accident rather than by declaration.*
-
-0962 Device Status routes needs-decision because its code system block gives a FHIR core page URL, http://hl7.org/fhir/codesystem-device-status.html, and an OID 2.16.840.1.113883.4.642.1.200 that nothing in THO or FHIR core resolves. So the writer cannot say what the value set composes over and emits nothing. THO nevertheless publishes ValueSet/v2-0962, active at 3.0.0, carrying this table's value set OID 2.16.840.1.113883.4.642.3.209 and composing over http://hl7.org/fhir/device-status — the real canonical the chapter's page link was pointing at. The artifact exists, it is correct, and nothing about it is in doubt. There is a loose end in this repository because of it. vs-v2-0962.xml is tracked and staged from an earlier run, when the table still routed to an artifact. It is byte-equivalent in substance to THO's. Nothing prunes it, because the prune deliberately removes only the exact paths of suppressed tables — a broader sweep would be wrong under --table. So the writer warns about it on every run, and it is the only artifact in the IG that no route accounts for.
-
-**What this guide publishes today:**
-
-- `0962` Device Status: ValueSet published; code system is another body's — VS 3.0.0 (held)
-
-**Decision needed:** The table is no longer blocked, and nobody decided that. On 2026-11-05 it began routing value-set-only and publishing ValueSet/v2-0962 — correctly: the output is identical to THO's, same compose over http://hl7.org/fhir/device-status, same value set OID, same version 3.0.0, and the orphan warning is gone. What changed was the machine, not the chapter and not this repository. load_oid_index reads the FHIR R5 core package out of ~/.fhir/packages as well as the THO snapshot. That package was not present, so the OID resolved to nothing; the IG Publisher downloaded it during a build earlier the same day, and the next run of the writer resolved 2.16.840.1.113883.4.642.1.200 through CodeSystem-device-status.json — on an identifier FHIR itself marks use: "old". So no ruling is needed for 0962 itself. The outcome is right and matches what the committee has said seven times this month about tables THO already serves. What needs attention is that the corpus this guide generates depends on whether a package happens to be cached on the build machine. A fresh checkout would have produced a different IG from this one, with a different table count and a needs-decision entry nobody could explain. The question for the project, not the committee: should the FHIR core package be pinned and vendored the way tho-r5/ is, so the OID index is a declared input rather than a property of the machine? Everything else the writer reads is version-pinned and recorded in a report; this one is not, and it silently moved a table between routes.
 
 ---
 
