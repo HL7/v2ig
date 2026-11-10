@@ -450,16 +450,31 @@ they are quadratic work for every pass that walks the DOM.** That is where
 Run 3's 96-minute link check went, and it is why `-Xss16m` made the build
 *finish* that step rather than making it cheap.
 
-**The three findings now form one chain.** The unclosed anchors
+**A claim made earlier today and committed was wrong, and this is the
+correction.** `Checking Output HTML` was reported as completing in "3.5
+seconds". It does not. That line is the step's **announce** line, and the
+number on it is the time to *emit* it; the scan's real duration appears much
+later on the `... N html files` line. Run 3 announced the step in 3.466s and
+then scanned for **1h34m55s**. Run 4 announced it in 3.497s — the same
+number, for the same reason — and is still scanning. The two runs are
+behaving almost identically here, which is precisely what the earlier claim
+denied.
+
+**The three findings still form one chain.** The unclosed anchors
 (`refCell`, upstream) make the pages pathologically deep; the depth makes
 every DOM walk enormously expensive and nearly overflows the stack; the
-resulting broken links make the QA page too large to serialise. Suppressing
-the pages cuts all three at the root, which is why the suppressed step took
-one millisecond and `Checking Output HTML` took 3.5 seconds.
+resulting broken links make the QA page too large to serialise. What is
+*measured* about the suppression is the `Previous Version Comparison` step
+at one millisecond. Its effect on the scan is **not yet measured at all**,
+because Run 4 inherited the deep pages from `temp/` and is paying the same
+cost as Run 3.
 
-**The first run that demonstrates this end to end is the next one**, and it
-should be dramatically faster, not merely cleaner: ~10,082 files to scan
-instead of 29,024, with none of the deep ones.
+**The first run that demonstrates this end to end is the next one.** The
+expectation is that it is dramatically faster — ~10,082 files instead of
+29,024, none of them deep — but that is a prediction and the evidence for
+it is indirect: no run has yet scanned an output without these pages in it.
+Read the `... N html files` line for the real duration, not the announce
+line.
 
 ---
 

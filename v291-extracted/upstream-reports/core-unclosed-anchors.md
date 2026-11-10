@@ -99,13 +99,18 @@ org.hl7.fhir.igtools.publisher.ConformanceStatementHandler
 
 `allText` recurses once per nesting level, so every pass that walks the DOM
 of a ~4,300-deep page does work proportional to that depth at every node.
-In our build the output HTML check over 29,024 files — of which three were
-these pages — ran for over 45 minutes without emitting a line, and an
-earlier run's equivalent step took 96 minutes. With the pages absent, the
-same step completed in **3.5 seconds**.
+In one build the "Checking Output HTML" step over 22,571 files — of which
+three were these pages — took **1 hour 34 minutes**, and a later build over
+29,024 files was still in the same step after an hour of solid CPU. A thread
+dump taken during it shows the main thread RUNNABLE at ~1,020 frames, which
+is where that time goes.
 
-So raising `-Xss` makes the build survive these pages; it does not make
-them affordable. Well-formed output would fix both.
+So raising `-Xss` makes a build survive these pages; it does not make them
+affordable. Well-formed output would fix both.
+
+We have not yet measured the same step with the pages absent, so we make no
+claim about how much of that time they account for — only that the stack is
+in `allText` recursion over them whenever it is sampled.
 
 ### Impact
 
