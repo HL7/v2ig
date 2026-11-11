@@ -493,12 +493,25 @@ above 1,024 and these samples cannot say what. Shallower readings do appear
 correct statement is that the thread is *always* in this recursion and
 usually deeper than the tool can report.
 
+**Run 4 was killed at 1h38m on 2026-11-10**, deliberately. It had been in
+"Checking Output HTML" for 1h24m of solid CPU, scanning 29,024 files of
+which 18,942 were comparison pages inherited from `temp/` before
+`clear_stale_temp()` existed. It was measuring a configuration that no
+longer exists, and every sample of it landed in `allText` recursion over
+pages the current build does not produce. Its log is kept at
+`/tmp/publish-run4-keep.log`; it never wrote a `qa.html`.
+
+For the record, since it is the closest thing to a controlled comparison:
+Run 3 scanned 22,571 files in 1h34m55s and finished the step. Run 4 had
+29,024 and had not finished at 1h24m. Both were dominated by three deep
+pages.
+
 **The first run that demonstrates this end to end is the next one.** The
 expectation is that it is dramatically faster — ~10,082 files instead of
 29,024, none of them deep — but that is a prediction and the evidence for
-it is indirect: no run has yet scanned an output without these pages in it.
-Read the `... N html files` line for the real duration, not the announce
-line.
+it is indirect: **no run has yet scanned an output without these pages in
+it.** Read the `... N html files` line for the real duration, not the
+announce line.
 
 ---
 

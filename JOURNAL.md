@@ -40,6 +40,14 @@ starting the build, so the handoff is safe off-machine.
 **Start a clean `--publish` run, first thing, before anything else.** It is
 the only remaining unknown and everything else is already done.
 
+**The ground is already prepared.** Run 4 was killed at 1h38m on
+2026-11-10 and `vocab-ig/temp/` and `vocab-ig/output/` were both deleted, so
+nothing stale can be inherited even by a build that predates
+`clear_stale_temp()`. `vocab-ig/output-snapshot/` is untouched — September's
+successful build, 6.9 MB `qa.html`, still the control case. Run 4's log is
+at `/tmp/publish-run4-keep.log` if its numbers are ever wanted; it never
+wrote a `qa.html`.
+
 ```
 python3 tooling/scripts/build_vocab_ig.py --publish
 ```
