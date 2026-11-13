@@ -18,58 +18,62 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-11-10 (session 11: the build regression was never ours, and three records were wrong)
+## ACTIVE — 2026-11-12 (session 12: the container was too small to build, and now the build says so)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
-**Do not commit vocabulary work to `dev/framework`.** Everything through
-`8d53b78f` is pushed; the 76-commit backlog is gone.
+**Do not commit vocabulary work to `dev/framework`.**
 
-**One commit is committed locally but NOT pushed** — `470b7b38`, this
-handoff. **The GitHub token expired mid-session**: pushes succeeded all
-session and then began failing with "Invalid username or token", and
-`curl -H "Authorization: token …" https://api.github.com/user` returns
-**401** for the token in `GITHUB_PERSONAL_ACCESS_TOKEN`, which
-`/home/claude/.git-credential-helper` also serves. Nothing is lost and the
-working tree is clean. **Refresh the token, then `git push origin
-dev/v291-vocabulary-ig` before doing anything else** — including before
-starting the build, so the handoff is safe off-machine.
+**Everything through `e02d4091` is pushed.** The GitHub token works again
+(`api.github.com/user` returned 200 on 2026-11-12), so session 11's
+expired-token blocker is gone. **Not pushed:** `9aff1242` (the memory check
+below) and the handoff commit after it. Ask the user, then push.
 
 ### First thing next session
 
-**Start a clean `--publish` run, first thing, before anything else.** It is
-the only remaining unknown and everything else is already done.
+**Confirm the container has the memory, then start a clean `--publish` run.**
+The user is resizing the container between sessions because run 5 could not
+run at all:
 
-**The ground is already prepared.** Run 4 was killed at 1h38m on
-2026-11-10 and `vocab-ig/temp/` and `vocab-ig/output/` were both deleted, so
-nothing stale can be inherited even by a build that predates
-`clear_stale_temp()`. `vocab-ig/output-snapshot/` is untouched — September's
-successful build, 6.9 MB `qa.html`, still the control case. Run 4's log is
-at `/tmp/publish-run4-keep.log` if its numbers are ever wanted; it never
-wrote a `qa.html`.
+- **Run 5 (2026-11-12) was SIGKILLed by the OOM killer 1.2 minutes in,** while
+  installing `hl7.fhir.r5.core#5.0.0`, long before the scan. The container had
+  1,939 MB and no swap; the publisher runs with `-Xmx12g`. Evidence:
+  `oom_kill 1` in `/sys/fs/cgroup/memory.events`. **The fix is still
+  untested** — no run has reached "Checking Output HTML" since the
+  suppression went in.
+- **`build_vocab_ig.py --publish` now refuses to start below 12GB available**
+  (`9aff1242`): exit 3, in under a second, before the chain. It reads the
+  smaller of `MemAvailable` and the cgroup's remaining limit.
+  `--skip-memory-check` overrides it — the heap peaked at ~7GB, so a machine
+  between 7 and 12GB might finish. If the check still refuses after the
+  resize, the resize did not take; check `free -m` and
+  `/sys/fs/cgroup/memory.max`.
+
+**The ground is still prepared.** `vocab-ig/temp/` and `vocab-ig/output/` do
+not exist; `vocab-ig/output-snapshot/` is September's successful build, 6.9 MB
+`qa.html`, the control case. Run 4's log (`/tmp/publish-run4-keep.log`) is
+**gone** — `/tmp` did not survive the container being recreated.
 
 ```
-python3 tooling/scripts/build_vocab_ig.py --publish
+python3 tooling/scripts/build_vocab_ig.py --publish > /tmp/publish-run6.log 2>&1
 ```
 
-It should now be *dramatically* faster, not merely cleaner — roughly 10,082
-files to scan instead of 29,024, none of them pathologically nested. If it
-still takes over an hour in "Checking Output HTML", something is wrong that
-this session did not find.
+It should be *dramatically* faster than runs 1–4 — roughly 10,082 files to
+scan instead of 29,024. If it still takes over an hour in "Checking Output
+HTML", something is wrong that session 11 did not find.
 
 **Two numbers to read off it, and one trap:**
 
 - **The scan's real duration is on the `... N html files` line, NOT on the
   `Checking Output HTML` line.** That line is an announce line showing ~3.5s
-  on every run including the ones that then scanned for 95 minutes. This
-  session misread it, reported the fix confirmed on the strength of it, and
-  had to retract. Do not repeat it.
+  on every run including the ones that then scanned for 95 minutes.
 - **Whether `qa.html` exists and what it weighs.** September's was 6.9 MB.
   If it writes, the int overflow is resolved in practice and
   `v291-extracted/upstream-reports/publisher-qa-int-overflow.md` can have
-  its one blank filled and be filed.
+  its one blank filled and be filed. A **zero-byte** `qa.html` means the
+  overflow struck again.
 
-### What this session found, in one paragraph
+### What session 11 found, in one paragraph
 
 The build had not produced a `qa.html` since 2026-09-23 and three runs failed
 three different ways. **None of it was ours.** The publisher was never
@@ -97,6 +101,14 @@ suppressing them: `version-comparison` = `n/a` in `vocab-ig/input/vocabulary.xml
   before suspecting the fix.**
 - **Directory mtimes in `output/` are copy times, not generation times.**
   A conclusion was drawn from them this session and was wrong.
+- **"Publisher exited -9" is a SIGKILL, and in this container that means the
+  OOM killer.** It leaves no Java stack trace and no OutOfMemoryError. Check
+  `grep oom /sys/fs/cgroup/memory.events` before suspecting anything else.
+  The memory check should now prevent it; it cannot catch memory taken by
+  something else after the publisher starts.
+- **A background `cmd > log; echo exit=$? >> log` reports exit 0 to the
+  harness regardless.** Read the `exit=` line in the log, not the
+  notification.
 - **`jstack` truncates at `MaxJavaStackTraceDepth` = 1024.** A depth reading
   of ~1,020 means "deeper than the tool reports", not "1,020 deep".
 - **`git add -A tooling/scripts/` sweeps in three structural-workstream
@@ -114,12 +126,12 @@ suppressing them: `version-comparison` = `n/a` in `vocab-ig/input/vocabulary.xml
 | CodeSystems / ValueSets | 397 / 424 |
 | Needs-decision | **2** — `0956`, `0963`, both waiting on other people |
 | Register | 57 items, 23 answered |
-| Tests | **606 pass**, 1 skips without a build |
+| Tests | **612 pass**, 4 skip without a build (they need `vocab-ig/output/`, deleted in session 11) |
 
-Unchanged this session. No ruling was implemented and no artifact moved —
-this was a tooling and record-correction session.
+Unchanged in sessions 11 and 12. No ruling was implemented and no artifact
+moved.
 
-### Three records were wrong, and that is the session's other half
+### Session 11: three records were wrong
 
 Each was believed, written down, and acted on before being caught:
 
@@ -196,6 +208,33 @@ Six untracked files belong to the **structural** workstream (`dev/framework`):
 undecided, eight sessions on** — adopt it or delete it.
 
 ## Session History
+
+## 2026-11-12 — Session 12: the container was too small to build, and now the build says so
+
+Short session. Pushed session 11's two stranded commits (`954eb934`,
+`e02d4091`): the token that had returned 401 returned 200 again, so nothing
+was needed but the push. The handoff's "`470b7b38` is unpushed" named a hash
+that does not exist; the handoff was actually `954eb934`, with `e02d4091`
+committed after it.
+
+Started run 5, the clean `--publish` session 11 prepared for. It died
+1.2 minutes in, `Publisher exited -9`, during package install — nowhere near
+the scan it was meant to measure. Cause: the container had been recreated
+with 1,939 MB RAM and no swap, against `-Xmx12g`; `memory.events` showed
+`oom_kill 1`. Earlier runs had evidently had far more. Lowering `-Xmx` was
+rejected — 8g already ran out in September.
+
+**Why the check exists:** a SIGKILL gives no Java error, so the only trace
+of the real cause was a counter in the cgroup. The build now compares
+available memory to the heap before the chain runs (`check_publisher_memory`,
+`read_available_memory_bytes`, constant `PUBLISHER_HEAP_GB` shared with
+`-Xmx`), refuses with exit 3 and a message naming the cause, and takes
+`--skip-memory-check` for deliberate attempts on 7–12GB machines. An
+unreadable figure lets the build through rather than blocking on a guess.
+9 tests; suite 612 pass, 4 skip. Commit `9aff1242`.
+
+The user is resizing the container; the clean run is the next session's
+first move.
 
 ## 2026-11-10 — Session 11: the regression was never ours, and three records were wrong
 
