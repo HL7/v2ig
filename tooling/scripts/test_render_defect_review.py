@@ -64,17 +64,26 @@ def test_the_superseded_policy_item_is_not_on_the_list():
     assert review.SUPERSEDED["item"] not in everywhere
 
 
-def test_the_superseded_item_is_still_open_in_the_register():
-    """A guard on the story this document tells. The policy item is
-    superseded, not answered: no `resolution` was added for it, because the
-    ruling was that no single answer exists. If somebody later resolves it,
-    this document's framing is wrong and should be revisited."""
+def test_the_register_records_the_same_ruling_as_this_document():
+    """The policy item's ruling lives in two places and they must agree.
+
+    Until 2026-11-13 the item had no `resolution` -- deliberately, on the
+    reasoning that "no single answer" is not an answer. The cost was that
+    the guide's open-items page kept asking the question, a month after
+    V2 Management had ruled. It now carries the ruling as its resolution,
+    which moves it to the evidence page. This document's framing ("this
+    replaces the question; the ruling was ...") is unchanged by that, but
+    the date and ruling text must not drift between the two copies."""
     by_id = {item["id"]: item for item in vocabulary_escalations.ESCALATIONS}
     item = by_id.get(review.SUPERSEDED["item"])
     assert item is not None, "the superseded policy item has been deleted"
-    assert not item.get("resolution"), (
-        "the policy item now carries a resolution, so the review list's "
-        "framing of it as superseded-but-open is out of date")
+    resolution = item.get("resolution")
+    assert resolution, (
+        "the policy item has no resolution, so the guide's open-items page "
+        "is asking a question V2 Management answered on 2026-10-08")
+    assert resolution["date"] == review.SUPERSEDED["date"]
+    assert resolution["ruling"] == review.SUPERSEDED["ruling"]
+    assert resolution["who"] == review.SUPERSEDED["who"]
 
 
 def test_both_renderings_work_without_a_build_report(monkeypatch):

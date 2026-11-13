@@ -20,7 +20,7 @@
 .ri-answered p { margin: 0.35rem 0; }
 </style>
 
-Every finding this guide has already settled, and everything disclosed for completeness: **2,101 values** across **93 groups**. Nothing on this page is asking for anything. What is still open is on [what needs an answer](open-items.html).
+Every finding this guide has already settled, and everything disclosed for completeness: **2,102 values** across **93 groups**. Nothing on this page is asking for anything. What is still open is on [what needs an answer](open-items.html).
 
 This page exists so that any claim the guide makes about the chapter can be checked against the thing that was observed, without reading the pipeline. It is long by design and is meant to be searched rather than read.
 
@@ -59,7 +59,7 @@ line in the comparison, and 32 more artifacts increment.
 
 ---
 
-### Decided <span class="ri-count">&mdash; 75 groups, 1,556 values</span>
+### Decided <span class="ri-count">&mdash; 75 groups, 1,557 values</span>
 
 A judgement was made and applied. The reasoning is recorded with each group.
 
@@ -1590,10 +1590,15 @@ A judgement was made and applied. The reasoning is recorded with each group.
   <div class="ri-who">LLM: <div class="cell"><span class="empty">(empty)</span></div></div>
 </div>
 
-#### For V2 Management / TSMG &mdash; Answered <span class="ri-count">&mdash; 23 items</span>
+#### For V2 Management / TSMG &mdash; Answered <span class="ri-count">&mdash; 24 items</span>
 
 <div class="ri-blurb">Register items a committee has ruled on. The original finding and ask are kept alongside the ruling, so that the record shows what was asked as well as what came back.</div>
 
+<div class="ri-item ri-resolved">
+  <div class="ri-key">policy</div>
+  <p><b>Does &ldquo;publish V2.9.1 as published&rdquo; extend to publishing content that is known to be wrong?</b></p><p>The governing requirement for this IG is fidelity: it carries exactly what Chapter 2C publishes. That is easy to hold while the divergences are typographic. It becomes a real question when the published content is not merely untidy but wrong &mdash; and two of the items below are exactly that. Table 0560 publishes time units under the name Quantity Units, and table 0931 publishes an invalid UCUM code alongside a valid one that means the same thing. There is already a precedent pointing the other way: for 0931, <b>THO chose to correct rather than reproduce</b>. Its <code>ValueSet/v2-0931</code> drops the bad code and records the history in the display text of the good one. So the two bodies have, at least once, answered this question differently. <b>HL7's own errata guidance gives a usable test.</b> A technical correction is defined there as &ldquo;a non-controversial change that alters a document so that it says what the WG intended to say&rdquo;, typically repairing changes to normative content &ldquo;that were not made, were incorrectly made, or were inconsistently made during the editing process&rdquo;. That cleanly separates the items on this list into two kinds. The editing-process defects &mdash; table 0821's grid emptied in publication, table 0411's canonical printed for a resource that does not exist, the links to rendered pages where canonical URLs belong, the missing spaces after a period &mdash; are technical corrections on that definition. The content defects &mdash; 0931's invalid UCUM code, 0560's time units &mdash; change what the standard <i>means</i>, and for normative content the same guidance requires any substantive change to be balloted.</p><p class="ask"><b>The ask:</b> Nothing. Answered &mdash; see the resolution below. The original ask was to decide the rule, not the instance: when Chapter 2C publishes something demonstrably wrong, does this IG (a) reproduce it and record the defect, (b) reproduce it but mark it deprecated or inactive, or (c) correct it and publish the correction with a note?</p>
+  <div class="ri-who">Ruling: <p><b>V2 Management</b> &mdash; V2 Management (the meeting is not recorded in the project files), 2026-10-08.</p><p><b>Ruling:</b> There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.</p><p><b>Effect here:</b> No blanket rule is applied. The defects this question covered are listed individually, grouped into seven classes, in <code>defect-review.md</code>, each with its own decision to take; every one remains an open item on this guide's &ldquo;What needs an answer&rdquo; page. Until a class or instance is decided, this guide continues to reproduce the chapter and record the defect.</p></div>
+</div>
 <div class="ri-item ri-resolved">
   <div class="ri-key">0954, 0957</div>
   <p><b>Tables 0954 and 0957 would have duplicated value sets THO already publishes</b></p><p>Both tables name, in their own Value Set URI field, a value set THO already publishes under a v3 canonical: 0954 points at <code>ValueSet/v3-WorkScheduleODH</code> and 0957 at <code>ValueSet/v3-employmentStatusODH</code>, both active at 3.0.0. This guide was nonetheless writing <code>ValueSet/v2-0954</code> and <code>ValueSet/v2-0957</code> as first publications. <b>Each carried the OID of the value set it duplicated.</b> 0954's <code>2.16.840.1.113883.1.11.20561</code> is the identifier on <code>v3-WorkScheduleODH</code>, and 0957's <code>&hellip;20562</code> on <code>v3-employmentStatusODH</code> &mdash; so publishing either put one OID on two artifacts, the breach <code>esc-oid-conflicts</code> records elsewhere, in the one form this project could still prevent: by not creating the second artifact. <b>The two were not equally harmless.</b> 0957's compose was structurally identical to THO's &mdash; same <code>is-a _EmploymentStatus</code> filter, same exclude of the abstract grouper &mdash; so it duplicated an artifact without contradicting it. 0954's was not: the chapter's content logical definition omits the <i>Exclude codes where code = <code>_WorkSchedule</code></i> clause that THO's value set carries, so <code>v2-0954</code> would have been a second artifact on a live OID <i>and</i> disagreed with the first about whether an abstract grouper is in the value set. That divergence is the subject of <code>esc-0954-cld-exclude</code>, which this ruling makes moot here while leaving it standing against the chapter.</p><p class="ask"><b>The ask:</b> Nothing. Answered &mdash; see the resolution below.</p>

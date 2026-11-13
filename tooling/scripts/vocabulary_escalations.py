@@ -314,18 +314,34 @@ ESCALATIONS = [
             "the standard <i>means</i>, and for normative content the same "
             "guidance requires any substantive change to be balloted.",
         "ask":
-            "Decide the rule, not the instance. When Chapter 2C publishes "
-            "something demonstrably wrong, does this IG (a) reproduce it and "
-            "record the defect, (b) reproduce it but mark it deprecated or "
-            "inactive, or (c) correct it and publish the correction with a "
-            "note? The answer sets the default for every item below, and "
-            "the current answer &mdash; (a) &mdash; is an assumption nobody "
-            "has ratified. "
-            "<b>A narrower question would unblock most of the list:</b> may "
-            "this project treat the editing-process defects above as technical "
-            "corrections, leaving only the substantive ones for a ballot? The "
-            "guidance also notes that where there is doubt, a Work Group may "
-            "ask the TSC to rule.",
+            "Nothing. Answered &mdash; see the resolution below. The "
+            "original ask was to decide the rule, not the instance: when "
+            "Chapter 2C publishes something demonstrably wrong, does this IG "
+            "(a) reproduce it and record the defect, (b) reproduce it but "
+            "mark it deprecated or inactive, or (c) correct it and publish "
+            "the correction with a note?",
+        # Recorded 2026-11-13. The ruling was made on 2026-10-08 and sat in
+        # render_defect_review.py's SUPERSEDED for a month while this item,
+        # with no resolution, kept rendering at the top of open-items.md as
+        # an unanswered question. Keep the two in step if either changes.
+        "resolution": {
+            "who": "V2 Management",
+            "forum": "V2 Management (the meeting is not recorded in the "
+                     "project files)",
+            "date": "2026-10-08",
+            "ruling": "There is no one-size-fits-all answer to "
+                      "reproduce-or-correct. It has to be decided per class "
+                      "of defect and possibly case by case, with individual "
+                      "issues reviewed for decision.",
+            "effect": "No blanket rule is applied. The defects this question "
+                      "covered are listed individually, grouped into seven "
+                      "classes, in <code>defect-review.md</code>, each with "
+                      "its own decision to take; every one remains an open "
+                      "item on this guide's &ldquo;What needs an "
+                      "answer&rdquo; page. Until a class or instance is "
+                      "decided, this guide continues to reproduce the "
+                      "chapter and record the defect.",
+        },
     },
     {
         "id": "esc-0560-content",
