@@ -7,6 +7,10 @@ The comparison renderer lives in `org.hl7.fhir.r5.comparison`.
 trackers and found nothing matching; chat.fhir.org is Zulip and could not be
 searched, so "unreported" is not established.
 
+**On hold (user, 2026-11-13):** do not file yet. Maintainers will want a
+reproduction procedure, and writing one is not a current priority. Revisit
+only when the user asks.
+
 **Versions this was verified against:** `org.hl7.fhir.r5-6.8.1.jar`, as
 shipped inside IG Publisher CLI `2.1.1` (built 2026-02-19). Verified by
 disassembling that jar, not by reading master — see the note on class

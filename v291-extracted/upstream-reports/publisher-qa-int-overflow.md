@@ -4,7 +4,11 @@
 unlike the comparison renderer.
 
 **Status:** drafted 2026-11-10; blank filled 2026-11-13 (see "Outcome with
-comparison pages suppressed" at the end). **Ready to file, not yet filed.**
+comparison pages suppressed" at the end). Content complete, not filed.
+
+**On hold (user, 2026-11-13):** do not file yet. Maintainers will want a
+reproduction procedure, and writing one is not a current priority. Revisit
+only when the user asks.
 
 **Version:** IG Publisher CLI `2.1.1`, built 2026-02-19.
 
