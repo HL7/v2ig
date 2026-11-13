@@ -3,8 +3,8 @@
 **File against:** `HL7/fhir-ig-publisher` — `ValidationPresenter` lives here,
 unlike the comparison renderer.
 
-**Status:** drafted 2026-11-10, **not yet filed — one blank to fill.** See
-"Before filing" at the end.
+**Status:** drafted 2026-11-10; blank filled 2026-11-13 (see "Outcome with
+comparison pages suppressed" at the end). **Ready to file, not yet filed.**
 
 **Version:** IG Publisher CLI `2.1.1`, built 2026-02-19.
 
@@ -77,18 +77,24 @@ about it.
 
 ---
 
-## Before filing
+## Outcome with comparison pages suppressed
 
-Fill in the outcome of the run with comparison pages suppressed
-(`version-comparison` = `n/a`), which removed ~7,300 of the broken links.
-Two possibilities, and they want different framing:
+Measured 2026-11-13 (run 6), same publisher 2.1.1, with
+`version-comparison` = `n/a` and a cleared `temp/`:
 
-- **If `qa.html` now writes:** the report stands as a latent scaling defect —
-  real, architecturally guaranteed above the threshold, but not currently
-  biting anyone. Say so honestly; it is still worth fixing.
-- **If it still overflows:** the page is large for a reason not yet
-  identified, and that is a stronger report. 56,515 total broken links
-  exceeded the 12,284 missing *local* targets we could account for, so the
-  unexplained remainder is where to look first.
+- **`qa.html` writes: 7,247,496 bytes.** No `NegativeArraySizeException`.
+- Summary: errors = 3294, warn = 814, info = 89, **broken links = 0**.
+- "Checking Output HTML" scanned 9,684 html files in 1 min 30 s; the whole
+  publisher run took 15.4 min and peaked at 3 GB of heap.
 
-Do not file with this section unresolved.
+So this is filed as a **latent scaling defect**: real, and certain to recur
+above the threshold, but not affecting this IG now that the comparison pages
+are gone. Building the whole page as one `String` puts a hard ceiling on the
+size of IG the QA report can describe. It is still worth fixing, and option 1
+above (streaming the write) is the fix that removes the ceiling.
+
+Broken links fell from 56,515 to **0**, not by the ~7,300 this draft
+expected. The unexplained remainder the earlier draft pointed at came from
+the comparison pages too, plus pages from earlier runs that Jekyll copied out
+of a stale `temp/` (cleared since). Nothing in the IG's own content was
+contributing.
