@@ -282,12 +282,20 @@ def _qa_broken_link_count():
             "in genQAHtml after creating it. Delete it or complete a build; "
             "do not let it stand in for one.")
     text = qa.read_text(encoding="utf-8", errors="replace")
-    # The publisher writes a line of the form "<n> broken links" / "no broken
-    # links" in its summary. Both forms are accepted; anything else means the
-    # format moved and the test should be looked at rather than trusted.
+    # Publisher 2.1.1 writes the count as "broken links = <n>", both in an
+    # HTML comment on the first line and in the Summary row:
+    #
+    #   errors = 3294, warn = 814, info = 89, broken links = 0, pinned = n/a.
+    #
+    # Match the number AFTER "broken links =". An earlier version matched a
+    # number BEFORE "broken links", which in that row picks up "89," -- the
+    # info count -- and reported 89 broken links for a build with none. It
+    # went unnoticed because no build sat in output/ until 2026-11-13.
+    # If neither form is found, the format moved: return None so the test
+    # skips and gets looked at, rather than trusting a guess.
     if re.search(r"\bno broken links\b", text, re.IGNORECASE):
         return 0
-    match = re.search(r"([\d,]+)\s+broken links?\b", text, re.IGNORECASE)
+    match = re.search(r"broken links\s*=\s*(\d[\d,]*)", text, re.IGNORECASE)
     if match:
         return int(match.group(1).replace(",", ""))
     return None
