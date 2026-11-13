@@ -73,6 +73,38 @@ HTML", something is wrong that session 11 did not find.
   its one blank filled and be filed. A **zero-byte** `qa.html` means the
   overflow struck again.
 
+### Next, after the clean run: bring the remote `vocab` build up to date
+
+**Decided by the user 2026-11-13: do this next, after the clean run.** It is
+not contingent on local builds failing. The aim is that the publisher stops
+depending on this container's size: postproc-g has 1TB, and a container
+recreated at 1.9GB blocked every build in session 12.
+
+`apptainer/remote-build.sh vocab` already exists (`330d7c34`, 2026-09-16,
+`-Xmx16g`) but predates the build-order work and is unsafe as is:
+
+1. **It runs only `stage_vocab_ig.py`, not the seven-step chain.** Run the
+   chain locally (`build_vocab_ig.py`, no `--publish`, ~11s, little memory)
+   and send only the publisher remote. Running the chain remotely fails:
+   step 2 reads `utg/`, which rsync excludes as `/utg`.
+2. **It would reintroduce stale `temp/`.** rsync excludes `temp`, and
+   `--delete` never removes excluded paths, so the remote
+   `vocab-ig/temp/` keeps September's comparison pages and Jekyll copies
+   them into output, which is the run-4 trap. Add an explicit remote
+   `rm -rf vocab-ig/temp` before the publisher.
+3. **It fetches to `output-vocab/`, not `vocab-ig/output/`.** The four
+   build-dependent tests and `snapshot_output()` read `vocab-ig/output/`.
+   Fetch there, or point them at the fetched copy.
+4. **Terminology access from NIST is unestablished.** This IG cannot use
+   `-tx n/a` (NPE at "Generating Narratives"); the archive says
+   `tx.fhir.org` is unreachable from NIST for the v2+ builds. No record was
+   found of a remote vocab build completing. If tx is blocked, populate
+   `input-cache/txcache` on a networked machine and sync it up.
+
+**The user must start it.** postproc-g uses Kerberos, so remote builds run
+from the user's Mac, not this container. The memory check in
+`build_vocab_ig.py` should apply only to local publisher runs.
+
 ### What session 11 found, in one paragraph
 
 The build had not produced a `qa.html` since 2026-09-23 and three runs failed
@@ -235,6 +267,16 @@ unreadable figure lets the build through rather than blocking on a guess.
 
 The user is resizing the container; the clean run is the next session's
 first move.
+
+**Remote builds discussed, and scheduled.** Running the publisher on
+postproc-g would remove the local RAM requirement, and
+`remote-build.sh vocab` already exists. But it is two months behind the
+local build: it runs one step of seven, would inherit stale `temp/` past
+rsync's excludes, fetches to the wrong place, and has never been shown to
+reach a terminology server. The clean run stays local, so that it tests one
+change with no new unknowns. The user decided to update the remote mode
+**next, after the clean run**, not only if local builds fail. Details are in
+ACTIVE.
 
 ## 2026-11-10 — Session 11: the regression was never ours, and three records were wrong
 
