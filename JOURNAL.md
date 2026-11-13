@@ -18,92 +18,46 @@ Everything else relevant to picking up work — paths, build commands, architect
 
 ---
 
-## ACTIVE — 2026-11-12 (session 12: the container was too small to build, and now the build says so)
+## ACTIVE — 2026-11-13 (session 13: the clean build succeeded; remote builds dropped)
 
 **Branch: `dev/v291-vocabulary-ig`. All vocabulary work is on this branch and
 nowhere else;** `dev/framework` carries only the structural-review workstream.
 **Do not commit vocabulary work to `dev/framework`.**
 
-**Everything through `e02d4091` is pushed.** The GitHub token works again
-(`api.github.com/user` returned 200 on 2026-11-12), so session 11's
-expired-token blocker is gone. **Not pushed:** `9aff1242` (the memory check
-below) and the handoff commit after it. Ask the user, then push.
+**Everything through `7dc18af0` is pushed** (2026-11-13). Commits after that
+may be local; check `git status -sb`, and ask the user before pushing.
 
-### First thing next session
+### Status 2026-11-13: the build is fixed and runs locally
 
-**Confirm the container has the memory, then start a clean `--publish` run.**
-The user is resizing the container between sessions because run 5 could not
-run at all:
+**Run 6 (2026-11-13), the clean `--publish`, succeeded** on the resized
+container (32 GB): publisher 15.4 min, heap peak 3 GB, "Checking Output HTML"
+scanned 9,684 html files in 1 min 30 s (down from 95+ min), `qa.html` written
+at 7,247,496 bytes, **broken links 0** (from 56,515), exit 0. The
+`version-comparison` suppression is confirmed. `vocab-ig/output-snapshot/` is
+now this build; September's control case was replaced automatically.
 
-- **Run 5 (2026-11-12) was SIGKILLed by the OOM killer 1.2 minutes in,** while
-  installing `hl7.fhir.r5.core#5.0.0`, long before the scan. The container had
-  1,939 MB and no swap; the publisher runs with `-Xmx12g`. Evidence:
-  `oom_kill 1` in `/sys/fs/cgroup/memory.events`. **The fix is still
-  untested** — no run has reached "Checking Output HTML" since the
-  suppression went in.
-- **`build_vocab_ig.py --publish` now refuses to start below 12GB available**
-  (`9aff1242`): exit 3, in under a second, before the chain. It reads the
-  smaller of `MemAvailable` and the cgroup's remaining limit.
-  `--skip-memory-check` overrides it — the heap peaked at ~7GB, so a machine
-  between 7 and 12GB might finish. If the check still refuses after the
-  resize, the resize did not take; check `free -m` and
-  `/sys/fs/cgroup/memory.max`.
+`qa.html` reports 3,294 errors, but 3,267 are the known
+`designation.language` / `urn:ietf:bcp:47` errors (3 x 1,089 designations),
+matched by `ignoreWarnings.txt` (3,284 uses) yet still counted in the summary.
+About 27 content-level errors remain (16 tx.fhir.org cache errors, 4 URL
+resolves, UCUM/LOINC, 1 narrative). 5 of 7 suppression entries have 0 uses
+and may be stale.
 
-**The ground is still prepared.** `vocab-ig/temp/` and `vocab-ig/output/` do
-not exist; `vocab-ig/output-snapshot/` is September's successful build, 6.9 MB
-`qa.html`, the control case. Run 4's log (`/tmp/publish-run4-keep.log`) is
-**gone** — `/tmp` did not survive the container being recreated.
+**Remote builds: dropped (user, 2026-11-13).** The goal is to finish this IG
+soon, and it builds fast enough locally. Do not propose updating
+`apptainer/remote-build.sh vocab`. It remains out of date (one step of seven,
+stale remote `temp/`, fetches to `output-vocab/`, tx access from NIST
+unknown) and must not be used as is.
 
-```
-python3 tooling/scripts/build_vocab_ig.py --publish > /tmp/publish-run6.log 2>&1
-```
+**Upstream reports: on hold (user, 2026-11-13).** Both are complete, and the
+int-overflow blank is filled ("latent scaling defect"). Filing would mean
+writing a reproduction procedure, which is not a priority. Do not file or
+propose filing until the user asks.
 
-It should be *dramatically* faster than runs 1–4 — roughly 10,082 files to
-scan instead of 29,024. If it still takes over an hour in "Checking Output
-HTML", something is wrong that session 11 did not find.
-
-**Two numbers to read off it, and one trap:**
-
-- **The scan's real duration is on the `... N html files` line, NOT on the
-  `Checking Output HTML` line.** That line is an announce line showing ~3.5s
-  on every run including the ones that then scanned for 95 minutes.
-- **Whether `qa.html` exists and what it weighs.** September's was 6.9 MB.
-  If it writes, the int overflow is resolved in practice and
-  `v291-extracted/upstream-reports/publisher-qa-int-overflow.md` can have
-  its one blank filled and be filed. A **zero-byte** `qa.html` means the
-  overflow struck again.
-
-### Next, after the clean run: bring the remote `vocab` build up to date
-
-**Decided by the user 2026-11-13: do this next, after the clean run.** It is
-not contingent on local builds failing. The aim is that the publisher stops
-depending on this container's size: postproc-g has 1TB, and a container
-recreated at 1.9GB blocked every build in session 12.
-
-`apptainer/remote-build.sh vocab` already exists (`330d7c34`, 2026-09-16,
-`-Xmx16g`) but predates the build-order work and is unsafe as is:
-
-1. **It runs only `stage_vocab_ig.py`, not the seven-step chain.** Run the
-   chain locally (`build_vocab_ig.py`, no `--publish`, ~11s, little memory)
-   and send only the publisher remote. Running the chain remotely fails:
-   step 2 reads `utg/`, which rsync excludes as `/utg`.
-2. **It would reintroduce stale `temp/`.** rsync excludes `temp`, and
-   `--delete` never removes excluded paths, so the remote
-   `vocab-ig/temp/` keeps September's comparison pages and Jekyll copies
-   them into output, which is the run-4 trap. Add an explicit remote
-   `rm -rf vocab-ig/temp` before the publisher.
-3. **It fetches to `output-vocab/`, not `vocab-ig/output/`.** The four
-   build-dependent tests and `snapshot_output()` read `vocab-ig/output/`.
-   Fetch there, or point them at the fetched copy.
-4. **Terminology access from NIST is unestablished.** This IG cannot use
-   `-tx n/a` (NPE at "Generating Narratives"); the archive says
-   `tx.fhir.org` is unreachable from NIST for the v2+ builds. No record was
-   found of a remote vocab build completing. If tx is blocked, populate
-   `input-cache/txcache` on a networked machine and sync it up.
-
-**The user must start it.** postproc-g uses Kerberos, so remote builds run
-from the user's Mac, not this container. The memory check in
-`build_vocab_ig.py` should apply only to local publisher runs.
+**Container memory:** `--publish` refuses below 12 GB available
+(`PUBLISHER_HEAP_GB`). That threshold was set when the heap peaked near 7 GB
+with comparison pages. Run 6 peaked at 3 GB, so it could be lowered if a
+small container ever blocks a build. Left at 12 for now.
 
 ### What session 11 found, in one paragraph
 
@@ -158,7 +112,7 @@ suppressing them: `version-comparison` = `n/a` in `vocab-ig/input/vocabulary.xml
 | CodeSystems / ValueSets | 397 / 424 |
 | Needs-decision | **2** — `0956`, `0963`, both waiting on other people |
 | Register | 57 items, 23 answered |
-| Tests | **612 pass**, 4 skip without a build (they need `vocab-ig/output/`, deleted in session 11) |
+| Tests | **615 pass**, 1 skips (the low-memory refusal test, on a big machine) |
 
 Unchanged in sessions 11 and 12. No ruling was implemented and no artifact
 moved.
