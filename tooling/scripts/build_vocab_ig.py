@@ -48,6 +48,11 @@ JAVA = Path("/home/claude/jdk/bin/java")
 GEM_HOME = "/home/claude/.gems"
 RUBY_BIN = "/home/claude/ruby/arm64/bin"
 
+# The publisher's maximum heap, in gigabytes. Used both for -Xmx and for the
+# memory check that runs before the build starts; see run_publisher() for why
+# it is 12 and check_publisher_memory() for why the check exists.
+PUBLISHER_HEAP_GB = 12
+
 
 # --------------------------------------------------------------------------
 # The chain
@@ -230,7 +235,7 @@ def run_publisher():
     # that as a successful build; test_render_v2mgmt_briefing.py fails loudly
     # on it rather than skipping. Readiness item A1 has the full diagnosis and
     # what to try next -- all of it about shrinking the page, none of it flags.
-    command = [str(JAVA), "-Xmx12g", "-Xss16m", "-jar", str(PUBLISHER_JAR),
+    command = [str(JAVA), f"-Xmx{PUBLISHER_HEAP_GB}g", "-Xss16m", "-jar", str(PUBLISHER_JAR),
                "-ig", str(IG_INI), "-no-sushi"]
 
     print("\n" + "=" * 70)
@@ -248,6 +253,83 @@ def run_publisher():
               "min.", file=sys.stderr)
         raise SystemExit(result.returncode)
     print(f"\nPublisher finished in {elapsed / 60:.1f} min.")
+
+
+def read_available_memory_bytes(meminfo=Path("/proc/meminfo"),
+                                cgroup=Path("/sys/fs/cgroup")):
+    """Return how many bytes this process could still allocate, or None.
+
+    Two limits apply and the smaller one wins:
+
+    - the kernel's MemAvailable in /proc/meminfo, which is the whole
+      machine (or VM) the container runs on;
+    - the container's own cgroup limit, memory.max minus memory.current.
+      memory.max is the word "max" when the cgroup has no limit, and then
+      only the first figure counts.
+
+    Returns None if neither can be read (not Linux, unusual mount), so the
+    caller can choose to carry on rather than block a build on a guess.
+    """
+    limits = []
+
+    try:
+        for line in meminfo.read_text().splitlines():
+            if line.startswith("MemAvailable:"):
+                # The line looks like "MemAvailable:     703512 kB".
+                kilobytes = int(line.split()[1])
+                limits.append(kilobytes * 1024)
+                break
+    except (OSError, ValueError, IndexError):
+        pass
+
+    try:
+        cgroup_max = (cgroup / "memory.max").read_text().strip()
+        if cgroup_max != "max":
+            cgroup_current = int((cgroup / "memory.current").read_text())
+            limits.append(int(cgroup_max) - cgroup_current)
+    except (OSError, ValueError):
+        pass
+
+    if not limits:
+        return None
+    return min(limits)
+
+
+def check_publisher_memory(available_bytes, heap_gb=PUBLISHER_HEAP_GB):
+    """Return an error message if the publisher cannot get its heap, else None.
+
+    Without this check, a too-small machine fails silently: on 2026-11-12 the
+    container had 1.9GB, the JVM was asked for 12g, and the kernel's OOM
+    killer sent SIGKILL 1.2 minutes in -- while the publisher was still
+    installing packages. The only trace was "Publisher exited -9" and an
+    oom_kill count in the cgroup's memory.events. A SIGKILL leaves no Java
+    stack trace and no OutOfMemoryError, so nothing pointed at memory.
+
+    The threshold is the full -Xmx value, not the ~7GB the heap actually
+    peaked at, because the JVM is entitled to grow to -Xmx and the peak
+    depends on the content. A machine between the two may well succeed;
+    --skip-memory-check is for trying that deliberately.
+
+    `available_bytes` of None means the figure could not be read. That is
+    not treated as a failure: the check exists to explain a known failure,
+    not to block builds on machines it does not understand.
+    """
+    if available_bytes is None:
+        return None
+
+    needed_bytes = heap_gb * 1024 ** 3
+    if available_bytes >= needed_bytes:
+        return None
+
+    available_gb = available_bytes / 1024 ** 3
+    return (
+        f"Not enough memory for the IG Publisher: it runs with "
+        f"-Xmx{heap_gb}g, but only {available_gb:.1f}GB is available.\n"
+        f"Started anyway, the kernel would kill it with SIGKILL (exit -9) "
+        f"part-way through, with no Java error to say why.\n"
+        f"Give the container at least {heap_gb}GB plus headroom, or re-run "
+        f"with --skip-memory-check to try regardless (the heap has peaked "
+        f"at ~7GB).")
 
 
 def clear_stale_temp():
@@ -388,6 +470,9 @@ def main():
     parser.add_argument("--no-snapshot", dest="snapshot", action="store_false",
                         help="do not refresh vocab-ig/output-snapshot after a "
                              "successful publish")
+    parser.add_argument("--skip-memory-check", action="store_true",
+                        help="start the publisher even if available memory "
+                             "is below its -Xmx heap size")
     args = parser.parse_args()
 
     # Always check the declared order, even for --list. A broken graph is worth
@@ -406,6 +491,15 @@ def main():
 
     if args.only and args.start_from:
         raise SystemExit("--only and --from do not go together.")
+
+    # Check memory before the chain, not after it, so a machine that cannot
+    # run the publisher is told so in a second rather than after the chain
+    # and a minute of publisher start-up.
+    if args.publish and not args.skip_memory_check:
+        problem = check_publisher_memory(read_available_memory_bytes())
+        if problem:
+            print(problem, file=sys.stderr)
+            raise SystemExit(3)
 
     steps = select_steps(args)
     missing = [s["name"] for s in steps if not script_path(s["name"]).exists()]

@@ -357,3 +357,96 @@ def test_the_publish_path_clears_temp_before_running_the_publisher():
     assert clear > 0, (
         "clear_stale_temp() no longer runs immediately before "
         "run_publisher() on the --publish path")
+
+
+# --------------------------------------------------------------------------
+# The memory check: a too-small machine must be told so, not SIGKILLed.
+# --------------------------------------------------------------------------
+#
+# On 2026-11-12 the publisher was asked for 12g in a 1.9GB container and the
+# OOM killer stopped it 1.2 minutes in, with nothing in the log but "exited -9".
+
+GB = 1024 ** 3
+
+
+def _fake_proc(tmp_path, mem_available_kb, cgroup_max=None, cgroup_current=0):
+    """Write a fake /proc/meminfo and cgroup directory; return their paths."""
+    meminfo = tmp_path / "meminfo"
+    meminfo.write_text(
+        "MemTotal:        1985536 kB\n"
+        "MemFree:          428032 kB\n"
+        f"MemAvailable:   {mem_available_kb} kB\n")
+    cgroup = tmp_path / "cgroup"
+    cgroup.mkdir()
+    if cgroup_max is not None:
+        (cgroup / "memory.max").write_text(f"{cgroup_max}\n")
+        (cgroup / "memory.current").write_text(f"{cgroup_current}\n")
+    return meminfo, cgroup
+
+
+def test_available_memory_is_read_from_meminfo(tmp_path):
+    meminfo, cgroup = _fake_proc(tmp_path, mem_available_kb=703512)
+    assert build.read_available_memory_bytes(meminfo, cgroup) == 703512 * 1024
+
+
+def test_an_unlimited_cgroup_does_not_count(tmp_path):
+    meminfo, cgroup = _fake_proc(tmp_path, mem_available_kb=16 * 1024 ** 2,
+                                 cgroup_max="max")
+    assert build.read_available_memory_bytes(meminfo, cgroup) == 16 * GB
+
+
+def test_a_tighter_cgroup_limit_wins_over_the_machine(tmp_path):
+    """A 32GB host running a 4GB container has 4GB, not 32GB."""
+    meminfo, cgroup = _fake_proc(tmp_path, mem_available_kb=32 * 1024 ** 2,
+                                 cgroup_max=4 * GB, cgroup_current=1 * GB)
+    assert build.read_available_memory_bytes(meminfo, cgroup) == 3 * GB
+
+
+def test_unreadable_memory_is_none_not_a_crash(tmp_path):
+    assert build.read_available_memory_bytes(
+        tmp_path / "absent", tmp_path / "absent-cgroup") is None
+
+
+def test_the_november_container_is_refused():
+    """1.9GB against a 12g heap: the exact case that was SIGKILLed."""
+    message = build.check_publisher_memory(int(1.9 * GB), heap_gb=12)
+    assert message is not None
+    assert "-Xmx12g" in message
+    assert "--skip-memory-check" in message
+
+
+def test_enough_memory_passes():
+    assert build.check_publisher_memory(12 * GB, heap_gb=12) is None
+    assert build.check_publisher_memory(64 * GB, heap_gb=12) is None
+
+
+def test_unknown_memory_does_not_block_the_build():
+    assert build.check_publisher_memory(None) is None
+
+
+def test_the_check_uses_the_same_heap_as_the_publisher_command():
+    """If -Xmx is changed, the check must move with it, not stay at 12."""
+    source = (build.PROJECT_ROOT / "tooling" / "scripts"
+              / "build_vocab_ig.py").read_text(encoding="utf-8")
+    assert 'f"-Xmx{PUBLISHER_HEAP_GB}g"' in source
+    assert not re.search(r'"-Xmx\d+g"', source), (
+        "a literal -Xmx value has crept back into the publisher command")
+
+
+def test_publish_on_a_small_machine_stops_before_the_chain_runs():
+    """The point of the check is to fail in a second, not after the chain.
+
+    Only meaningful on a machine below the heap size; on a big one there is
+    nothing to refuse, so the test skips rather than running a real build.
+    """
+    import pytest
+    available = build.read_available_memory_bytes()
+    if available is None or available >= build.PUBLISHER_HEAP_GB * GB:
+        pytest.skip("this machine has enough memory; nothing to refuse")
+    result = subprocess.run(
+        [sys.executable, str(build.SCRIPT_DIR / "build_vocab_ig.py"),
+         "--publish"],
+        capture_output=True, text=True, timeout=30)
+    assert result.returncode == 3
+    assert "Not enough memory" in result.stderr
+    assert "[1/" not in result.stdout, "the chain started before the check"
