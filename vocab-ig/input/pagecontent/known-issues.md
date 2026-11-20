@@ -16,24 +16,27 @@ publish a code system of that id at that canonical, and anything else is left
 exactly as published and reported. Narrative takes no part in the merge or in
 versioning, so no artifact version moved.
 
-### Two tables with nothing written
+### One table with nothing written
 
-These are blocked on a decision, not on work:
+This is blocked on a decision, not on work:
 
-`0956` `0963`
+`0956`
 
-Each is recorded with its evidence on the [per-table
-ledger](table-ledger.html), and the reason the writer stopped at each one is
-grouped by cause under [what needs an
-answer](open-items.html).
+It is recorded with its evidence on the [per-table
+ledger](table-ledger.html), and the reason the writer stopped is under [what
+needs an answer](open-items.html).
 
-**Both are waiting on somebody else.** `0956` has no durable home — the only
+**It is waiting on somebody else.** `0956` has no durable home — the only
 value sets carrying its codes are a withdrawn FHIR 3.3 ballot draft and a
 PHIN VADS entry the CDC is decommissioning, so pointing at either would bind
-this guide to a location known in advance to be going away. `0963` needs HTA
-approval before its code system can be named at all.
+this guide to a location known in advance to be going away. The new homes
+for PHIN VADS content are going through TSMG.
 
-Both still publish their concept domain in `CodeSystem/conceptdomains`, so a
+`0963` was the second table here until 2026-11-20, when it was ruled to be
+served by FHIR core's `ValueSet/device-safety`: v2+ bindings to table 0963
+are bindings to that value set, and nothing is added to THO.
+
+`0956` still publishes its concept domain in `CodeSystem/conceptdomains`, so a
 binding to the domain remains expressible while the terminology question is
 settled.
 

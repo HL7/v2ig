@@ -3,10 +3,10 @@
     "code-system-and-value-set": 397,
     "concept-domain-only": 356,
     "nothing-to-write": 2,
-    "suppressed-by-ruling": 15,
+    "suppressed-by-ruling": 16,
     "value-set-only": 23,
     "superseded-by-ruling": 3,
-    "needs-decision": 2
+    "needs-decision": 1
   },
   "tentativeOverrides": {
     "count": 1,
@@ -21,7 +21,7 @@
     ]
   },
   "ruledSuppressions": {
-    "count": 15,
+    "count": 16,
     "tables": [
       "0078",
       "0399",
@@ -37,7 +37,8 @@
       "0953",
       "0954",
       "0957",
-      "0960"
+      "0960",
+      "0963"
     ],
     "registerItems": [
       "esc-0078-alias-of-v3",
@@ -46,6 +47,7 @@
       "esc-0725-missing-uri",
       "esc-0954-0957-duplicate-of-v3",
       "esc-0960-duplicate-of-fhir-core",
+      "esc-0963-served-by-fhir-core",
       "esc-served-by-existing-tho-value-sets"
     ]
   },
@@ -14631,12 +14633,12 @@
     },
     {
       "table": "0963",
-      "name": "Device Safety",
-      "action": "needs-decision",
-      "reason": "The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: 'See content logical definition of the referenced value set'.",
+      "action": "suppressed-by-ruling",
+      "reason": "FHIR core's ValueSet/device-safety is the correct value set for table 0963. HTA has approved the NCI Thesaurus, which is an external code system in THO, so there is nothing to add to THO. v2+ vocabulary bindings to table 0963 manifest as bindings to that FHIR core value set.",
+      "registerItem": "esc-0963-served-by-fhir-core",
+      "consequence": "Nothing is written for 0963, as before -- but now by ruling rather than because the chapter's code system URL reads 'Not yet approved by HTA'. The chapter's own Value Set URI is http://hl7.org/fhir/ValueSet/device-safety, so deferring to it follows the chapter, as for 0960.",
       "written": [],
-      "systemUrl": "Not yet approved by HTA",
-      "resolvedBy": "published URI"
+      "name": "Device Safety"
     },
     {
       "table": "0964",

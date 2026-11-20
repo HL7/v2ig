@@ -575,6 +575,20 @@ RULED_SUPPRESSIONS = {
                     "increment earned only by adding display text to the "
                     "three UCUM codes THO leaves bare.",
     ),
+    "0963": Suppression(
+        ruling="FHIR core's ValueSet/device-safety is the correct value set "
+               "for table 0963. HTA has approved the NCI Thesaurus, which is "
+               "an external code system in THO, so there is nothing to add "
+               "to THO. v2+ vocabulary bindings to table 0963 manifest as "
+               "bindings to that FHIR core value set.",
+        register_item="esc-0963-served-by-fhir-core",
+        consequence="Nothing is written for 0963, as before -- but now by "
+                    "ruling rather than because the chapter's code system "
+                    "URL reads 'Not yet approved by HTA'. The chapter's own "
+                    "Value Set URI is http://hl7.org/fhir/ValueSet/"
+                    "device-safety, so deferring to it follows the chapter, "
+                    "as for 0960.",
+    ),
     "0725": Suppression(
         ruling="THO's ValueSet/v2-0725 is correct as it stands and is left "
                "as is. This guide includes no update to table 0725, which "

@@ -439,6 +439,19 @@ Found while checking a generated resource rather than by looking for it. Table 0
 
 Both tables name, in their own Value Set URI field, a value set THO already publishes under a v3 canonical: 0954 points at `ValueSet/v3-WorkScheduleODH` and 0957 at `ValueSet/v3-employmentStatusODH`, both active at 3.0.0. This guide was nonetheless writing `ValueSet/v2-0954` and `ValueSet/v2-0957` as first publications. **Each carried the OID of the value set it duplicated.** 0954's `2.16.840.1.113883.1.11.20561` is the identifier on `v3-WorkScheduleODH`, and 0957's `…20562` on `v3-employmentStatusODH` — so publishing either put one OID on two artifacts, the breach `esc-oid-conflicts` records elsewhere, in the one form this project could still prevent: by not creating the second artifact. **The two were not equally harmless.** 0957's compose was structurally identical to THO's — same `is-a _EmploymentStatus` filter, same exclude of the abstract grouper — so it duplicated an artifact without contradicting it. 0954's was not: the chapter's content logical definition omits the _Exclude codes where code = `_WorkSchedule`_ clause that THO's value set carries, so `v2-0954` would have been a second artifact on a live OID _and_ disagreed with the first about whether an abstract grouper is in the value set. That divergence is the subject of `esc-0954-cld-exclude`, which this ruling makes moot here while leaving it standing against the chapter.
 
+<a id="esc-0963-served-by-fhir-core"></a>
+
+### Table 0963 Device Safety names a code system that was “not yet approved by HTA”
+
+**Tables:** 0963  
+**Answered by:** V2 Management (V2+ tooling group) — V2+ tooling group meeting, 2026-11-20
+
+**Ruling:** The value set published in FHIR core is correct. HTA has approved the NCI Thesaurus and it is an external code system in THO. Nothing to add to THO. For future reference, v2+ vocabulary bindings to this table manifest as bindings to the FHIR core value set.
+
+**Effect here:** Table 0963 is withheld through RULED_SUPPRESSIONS, the same treatment as 0960: nothing is written, and the ledger points at FHIR core's ValueSet/device-safety.
+
+Chapter 2C's Code System URI for table 0963 is the text _Not yet approved by HTA_, so the writer could not build a value set and published nothing. The chapter's Value Set URI is FHIR core's `http://hl7.org/fhir/ValueSet/device-safety`.
+
 <a id="esc-0895-wrong-system-url"></a>
 
 ### THO's ValueSet/v2-0895 composes over the wrong code system URL, and THO's own records say so

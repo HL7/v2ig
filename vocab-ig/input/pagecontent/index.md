@@ -23,8 +23,8 @@ out of this guide entirely:
 | Code system and value set | 397 | Both, at the table's own THO canonical |
 | Concept domain only | 356 | No resource — the table names a domain, not a code set |
 | Value set only | 23 | The codes belong to another authority; only the value set is ours |
-| Needs a decision | 2 | Nothing written — see [Known issues](known-issues.html) |
-| Withheld on a ruling | 15 | A committee ruled this guide should not publish them |
+| Needs a decision | 1 | Nothing written — see [Known issues](known-issues.html) |
+| Withheld on a ruling | 16 | A committee ruled this guide should not publish them |
 | Retired and superseded | 3 | Published retired, pointing at the value set that replaces them |
 | Nothing to write | 2 | Tables 0010 and 0188 |
 

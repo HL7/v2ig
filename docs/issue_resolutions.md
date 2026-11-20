@@ -90,6 +90,7 @@ In general, yes, they should.  See the entry in the conceptdomains CS for the co
 - 0963 Device Safety: nothing published
 The VS published in FHIR core is correct. HTA has approved the NCI Thesaurus and it is an external CS in THO.  Nothing to add to THO.  We just need to know for future reference that v2+ vocab bindings to this table manifest as bindings to the VS in FHIR core.
 
-
+- PhinVads
+I have information about what the new home(s) for vocab formerly hosted by PhinVads will be but I need to drive it through TSMG before we reflect anything here.  If there's a real hold-up, we can just exclude any tables upon which this relies and address them in later Jira tickets.  In fact, it may be just fine to use the old / existing / likely-to-be-broken url for PhinVads now and just do a follow-up ticket once the other pieces of this puzzle are sorted.
 
 

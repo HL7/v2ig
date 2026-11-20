@@ -31,7 +31,7 @@ already applied.
 
 All **5** questions below are for **V2 Management**. TSMG owns the artifact versioning policy; V2 Management owns what Chapter 2C says.
 
-There are **35 open items** below, plus **5 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
+There are **34 open items** below, plus **5 general questions** that have a working answer already applied. Everything this guide has *settled* is on the [evidence page](evidence.html) instead, so that this page stays a list of things somebody still has to do.
 
 **2 questions have since been answered** and moved to the evidence page: [1. Does reordering a code system's concepts count as a change?](evidence.html#gq-does-reordering-a-code-system), [2. The concept status `B`, and where these letters should be defined](evidence.html#gq-the-concept-status-b-and).
 
@@ -445,17 +445,13 @@ artifacts published for it.
 
 Judgements this guide cannot make for itself. Each one has a working answer applied, so none of them blocks a build; each is here because the answer is somebody else's to give.
 
-#### For V2 Management / TSMG &mdash; Tables the XML writer will not guess at <span class="ri-count">&mdash; 2 items</span>
+#### For V2 Management / TSMG &mdash; Tables the XML writer will not guess at <span class="ri-count">&mdash; 1 item</span>
 
 <div class="ri-blurb">The writer produces a CodeSystem or ValueSet only where the chapter says clearly enough what it should be. These tables it leaves alone, and each group below is one decision rather than one per table. Nothing here is a defect in the tooling; each is a place the published chapter is ambiguous, incomplete, or points somewhere that does not resolve.</div>
 
 <div class="ri-item ri-decide">
   <div class="ri-key">1</div>
   <p>The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: &#x27;unspecified&#x27;.</p><p class="ask">0956 <i>Job Supervisory Level or Pay Grade</i></p>
-</div>
-<div class="ri-item ri-decide">
-  <div class="ri-key">1</div>
-  <p>The Content Logical Definition is not one of the shapes we build -- all codes, enumerated per table content, or an is-a filter: &#x27;See content logical definition of the referenced value set&#x27;.</p><p class="ask">0963 <i>Device Safety</i></p>
 </div>
 
 #### For the editor &mdash; Publication metadata Chapter 2C does not carry <span class="ri-count">&mdash; 5 items</span>

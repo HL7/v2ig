@@ -35,6 +35,7 @@ entry's status current: *to file*, *filed* (with the ticket), or *done*.
 | J3 | **Retire THO's `ValueSet/v2-notAllCodes-0347`.** It names ISO 3166 part 1 for a part 2 table and enumerates two codes; this IG replaces it with `ValueSet/v2-0347`. | filed: [UP-901](https://jira.hl7.org/browse/UP-901) | esc-0347-iso3166, 2026-11-20 |
 | J4 | **Retire THO's `ValueSet/v2-0567` and `v2-0568`.** The tables should never have been created; their CodeSystems are already retired. This IG does nothing with them. | to file | esc-0567-0568-deprecation, 2026-09-23 |
 | J5 | **External code system records for the CMS I/OCE code systems** used by 0458, 0459, 0460 (and the HCPCS system for 0467), so their value sets resolve. | raised (ticket number not recorded here) | esc-0459-unresolvable-oid |
+| J6 | **Move PHIN VADS-hosted vocabulary to its new home(s)** once TSMG has settled where that is. Affected: 0956 (excluded from this IG for now, nothing published; esc-0956-no-stable-home stays open); 0955 and 0958 (published, carrying PHIN VADS OIDs; see J2); 0227 (its description links to PHIN VADS, as THO's does). Until then the existing, likely-to-break PHIN VADS references stay as they are. | to file, after TSMG | Issue resolutions, PHIN VADS entry, 2026-11-20 |
 
 If the UCUM dimension filters on 0929–0932 (`canonical` = g, L, Cel, s)
 turn out not to be usable in practice, the fallback agreed on 2026-11-20 is to

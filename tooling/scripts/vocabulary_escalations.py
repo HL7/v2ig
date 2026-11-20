@@ -913,6 +913,33 @@ ESCALATIONS = [
         },
     },
     {
+        "id": "esc-0963-served-by-fhir-core",
+        "who": "V2 Management",
+        "tables": "0963",
+        "title": "Table 0963 Device Safety names a code system that was "
+                 "&ldquo;not yet approved by HTA&rdquo;",
+        "body":
+            "Chapter 2C's Code System URI for table 0963 is the text "
+            "<i>Not yet approved by HTA</i>, so the writer could not build a "
+            "value set and published nothing. The chapter's Value Set URI is "
+            "FHIR core's <code>http://hl7.org/fhir/ValueSet/device-safety</code>.",
+        "ask":
+            "Nothing. Answered &mdash; see the resolution below.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "The value set published in FHIR core is correct. HTA "
+                      "has approved the NCI Thesaurus and it is an external "
+                      "code system in THO. Nothing to add to THO. For future "
+                      "reference, v2+ vocabulary bindings to this table "
+                      "manifest as bindings to the FHIR core value set.",
+            "effect": "Table 0963 is withheld through RULED_SUPPRESSIONS, the "
+                      "same treatment as 0960: nothing is written, and the "
+                      "ledger points at FHIR core's ValueSet/device-safety.",
+        },
+    },
+    {
         "id": "esc-0895-wrong-system-url",
         "who": "V2 Management",
         "tables": "0895",

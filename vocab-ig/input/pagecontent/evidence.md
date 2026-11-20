@@ -20,7 +20,7 @@
 .ri-answered p { margin: 0.35rem 0; }
 </style>
 
-Every finding this guide has already settled, and everything disclosed for completeness: **2,112 values** across **93 groups**. Nothing on this page is asking for anything. What is still open is on [what needs an answer](open-items.html).
+Every finding this guide has already settled, and everything disclosed for completeness: **2,113 values** across **93 groups**. Nothing on this page is asking for anything. What is still open is on [what needs an answer](open-items.html).
 
 This page exists so that any claim the guide makes about the chapter can be checked against the thing that was observed, without reading the pipeline. It is long by design and is meant to be searched rather than read.
 
@@ -122,7 +122,7 @@ a reader to notice.
    legal. Replacing `N` with a non-decaying "version introduced" property would
    be better, and the chapter already records that fact in prose elsewhere.
 
-### Decided <span class="ri-count">&mdash; 75 groups, 1,567 values</span>
+### Decided <span class="ri-count">&mdash; 75 groups, 1,568 values</span>
 
 A judgement was made and applied. The reasoning is recorded with each group.
 
@@ -1653,7 +1653,7 @@ A judgement was made and applied. The reasoning is recorded with each group.
   <div class="ri-who">LLM: <div class="cell"><span class="empty">(empty)</span></div></div>
 </div>
 
-#### For V2 Management / TSMG &mdash; Answered <span class="ri-count">&mdash; 34 items</span>
+#### For V2 Management / TSMG &mdash; Answered <span class="ri-count">&mdash; 35 items</span>
 
 <div class="ri-blurb">Register items a committee has ruled on. The original finding and ask are kept alongside the ruling, so that the record shows what was asked as well as what came back.</div>
 
@@ -1696,6 +1696,11 @@ A judgement was made and applied. The reasoning is recorded with each group.
   <div class="ri-key">0954, 0957</div>
   <p><b>Tables 0954 and 0957 would have duplicated value sets THO already publishes</b></p><p>Both tables name, in their own Value Set URI field, a value set THO already publishes under a v3 canonical: 0954 points at <code>ValueSet/v3-WorkScheduleODH</code> and 0957 at <code>ValueSet/v3-employmentStatusODH</code>, both active at 3.0.0. This guide was nonetheless writing <code>ValueSet/v2-0954</code> and <code>ValueSet/v2-0957</code> as first publications. <b>Each carried the OID of the value set it duplicated.</b> 0954's <code>2.16.840.1.113883.1.11.20561</code> is the identifier on <code>v3-WorkScheduleODH</code>, and 0957's <code>&hellip;20562</code> on <code>v3-employmentStatusODH</code> &mdash; so publishing either put one OID on two artifacts, the breach <code>esc-oid-conflicts</code> records elsewhere, in the one form this project could still prevent: by not creating the second artifact. <b>The two were not equally harmless.</b> 0957's compose was structurally identical to THO's &mdash; same <code>is-a _EmploymentStatus</code> filter, same exclude of the abstract grouper &mdash; so it duplicated an artifact without contradicting it. 0954's was not: the chapter's content logical definition omits the <i>Exclude codes where code = <code>_WorkSchedule</code></i> clause that THO's value set carries, so <code>v2-0954</code> would have been a second artifact on a live OID <i>and</i> disagreed with the first about whether an abstract grouper is in the value set. That divergence is the subject of <code>esc-0954-cld-exclude</code>, which this ruling makes moot here while leaving it standing against the chapter.</p><p class="ask"><b>The ask:</b> Nothing. Answered &mdash; see the resolution below.</p>
   <div class="ri-who">Ruling: <p><b>V2 Management</b> &mdash; V2 Management call, 2026-10-15.</p><p><b>Ruling:</b> This guide should not create value sets for 0954 or 0957. Correct value sets already exist in THO &mdash; <code>v3-WorkScheduleODH</code> and <code>v3-employmentStatusODH</code> &mdash; and those are the ones to use.</p><p><b>Effect here:</b> Both value sets are withheld through <code>RULED_SUPPRESSIONS</code>, so two first publications stop being written and two duplicate OID assignments never reach the field. This follows the precedent set for 0078 on 2026-10-14: where a correct value set already exists under another canonical, the guide lets it serve rather than minting a v2 twin.</p></div>
+</div>
+<div class="ri-item ri-resolved">
+  <div class="ri-key">0963</div>
+  <p><b>Table 0963 Device Safety names a code system that was &ldquo;not yet approved by HTA&rdquo;</b></p><p>Chapter 2C's Code System URI for table 0963 is the text <i>Not yet approved by HTA</i>, so the writer could not build a value set and published nothing. The chapter's Value Set URI is FHIR core's <code>http://hl7.org/fhir/ValueSet/device-safety</code>.</p><p class="ask"><b>The ask:</b> Nothing. Answered &mdash; see the resolution below.</p>
+  <div class="ri-who">Ruling: <p><b>V2 Management (V2+ tooling group)</b> &mdash; V2+ tooling group meeting, 2026-11-20.</p><p><b>Ruling:</b> The value set published in FHIR core is correct. HTA has approved the NCI Thesaurus and it is an external code system in THO. Nothing to add to THO. For future reference, v2+ vocabulary bindings to this table manifest as bindings to the FHIR core value set.</p><p><b>Effect here:</b> Table 0963 is withheld through RULED_SUPPRESSIONS, the same treatment as 0960: nothing is written, and the ledger points at FHIR core's ValueSet/device-safety.</p></div>
 </div>
 <div class="ri-item ri-resolved">
   <div class="ri-key">0895</div>
