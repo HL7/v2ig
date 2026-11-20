@@ -15,6 +15,7 @@
     "definition_differs_from_tho_editorially": 1,
     "definition_differs_from_tho": 4,
     "conflicting_descriptions_within_chapter": 5,
+    "example_codes_added": 3,
     "tho_v2_domain_absent_from_chapter_2c": 8,
     "inherited_undeclared_property": 1
   },
@@ -1635,6 +1636,18 @@
       ]
     },
     {
+      "kind": "example_codes_added",
+      "conceptDomain": "ProcedureCodeModifier",
+      "detail": "Codes printed by a concept-domain-only table, added to the domain's definition as examples (esc-domain-example-codes).",
+      "chapter2C": [
+        "0340 CPTM: CPT Modifier Code",
+        "0340 HPC: CMS (formerly HCFA) Procedure Codes (HCPCS)"
+      ],
+      "tables": [
+        "0340"
+      ]
+    },
+    {
       "kind": "added_from_chapter_2c",
       "conceptDomain": "ProcedureMedication",
       "detail": "Declared in Chapter 2C, absent from THO. Added as a new concept.",
@@ -1890,6 +1903,18 @@
       "chapter2C": "The domain of possible values specifying the type of Reflex Tests/Observations.",
       "tables": [
         "0641"
+      ]
+    },
+    {
+      "kind": "example_codes_added",
+      "conceptDomain": "ReleaseInformation",
+      "detail": "Codes printed by a concept-domain-only table, added to the domain's definition as examples (esc-domain-example-codes).",
+      "chapter2C": [
+        "0093 Y: Yes",
+        "0093 N: No"
+      ],
+      "tables": [
+        "0093"
       ]
     },
     {
@@ -2245,6 +2270,17 @@
       "chapter2C": "The domain of possible values specifying the type of Substance/Treatment Refusal Reason.",
       "tables": [
         "0693"
+      ]
+    },
+    {
+      "kind": "example_codes_added",
+      "conceptDomain": "SubstanceIdentifier",
+      "detail": "Codes printed by a concept-domain-only table, added to the domain's definition as examples (esc-domain-example-codes).",
+      "chapter2C": [
+        "0451 ALL: Used for query of all inventory items"
+      ],
+      "tables": [
+        "0451"
       ]
     },
     {

@@ -29,6 +29,11 @@
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>
+      <filter>
+        <property value="canonical"/>
+        <op value="="/>
+        <value value="s"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

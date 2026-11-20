@@ -29,22 +29,11 @@
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>
-      <concept>
-        <code value="[lb_av]"/>
-        <display value="Pound"/>
-      </concept>
-      <concept>
-        <code value="[oz_av]"/>
-        <display value="Ounce"/>
-      </concept>
-      <concept>
-        <code value="kg"/>
-        <display value="Kilogram"/>
-      </concept>
-      <concept>
-        <code value="g"/>
-        <display value="Gram"/>
-      </concept>
+      <filter>
+        <property value="canonical"/>
+        <op value="="/>
+        <value value="g"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

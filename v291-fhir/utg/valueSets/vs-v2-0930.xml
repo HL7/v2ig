@@ -29,18 +29,11 @@
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>
-      <concept>
-        <code value="l"/>
-        <display value="Liter"/>
-      </concept>
-      <concept>
-        <code value="[pt_us]"/>
-        <display value="Pint"/>
-      </concept>
-      <concept>
-        <code value="ml"/>
-        <display value="Milliliters"/>
-      </concept>
+      <filter>
+        <property value="canonical"/>
+        <op value="="/>
+        <value value="L"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

@@ -340,7 +340,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="B"/>
+      <valueCode value="deprecated"/>
     </property>
     <property>
       <code value="v2-concCommentAsPub"/>
@@ -365,7 +365,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="B"/>
+      <valueCode value="deprecated"/>
     </property>
     <property>
       <code value="v2-concCommentAsPub"/>
@@ -390,7 +390,7 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="B"/>
+      <valueCode value="deprecated"/>
     </property>
     <property>
       <code value="v2-concCommentAsPub"/>

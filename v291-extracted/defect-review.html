@@ -115,82 +115,27 @@ li { margin-bottom: 5px; }
 <div class="brand-sub">Review list for V2 Management</div>
 <a class="top" href="#top">Why this list exists</a>
 <h2>Classes</h2>
-<a href="#publication-damage">Content lost in publication <span class="n">2</span></a>
-<a href="#presentation">Presentation and wording <span class="n">6</span></a>
-<a href="#wrong-identifier">Wrong or missing identifiers <span class="n">6</span></a>
-<a href="#self-contradiction">The chapter contradicting itself <span class="n">6</span></a>
-<a href="#representation">Open representation questions <span class="n">4</span></a>
-<a href="#content-error">Published content that is wrong <span class="n">3</span></a>
+<a href="#presentation">Presentation and wording <span class="n">4</span></a>
+<a href="#wrong-identifier">Wrong or missing identifiers <span class="n">4</span></a>
+<a href="#self-contradiction">The chapter contradicting itself <span class="n">5</span></a>
+<a href="#representation">Open representation questions <span class="n">2</span></a>
+<a href="#content-error">Published content that is wrong <span class="n">2</span></a>
 <a href="#tho-divergence">Where this guide and THO disagree <span class="n">6</span></a>
 </div>
 <div id="main">
 <a id="top"></a>
 <h1>Chapter 2C defects, grouped for decision</h1>
-<p class="sub">Review list for V2 Management &middot; 33 open findings</p>
+<p class="sub">Review list for V2 Management &middot; 23 open findings</p>
 <div class="asks-card">
 <h2 class='plain'>Why this list exists</h2>
 <p>This project asked V2 Management a single policy question: when Chapter 2C publishes something demonstrably wrong, does this IG reproduce it or correct it? The answer, on 2026-10-08, was that <b>There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.</b></p>
 <p>So this document replaces that question. Every known defect is below, grouped by class, ordered so that the classes needing the cheapest answer come first. Each entry says what the chapter publishes, what THO publishes where it differs, <b>what this guide currently publishes</b>, and the decision needed. Nothing here needs a general rule set before an instance can be decided.</p>
 <p>The current-output line under each entry is read from the build's own report, not transcribed, so it is what the guide does today rather than what it did when the finding was written.</p>
 </div>
-<a id="publication-damage"></a>
-<h2>Content lost in publication <span class="n">(2)</span></h2>
-<p class="lede">The chapter is missing content it was meant to carry, and in each case the intended content is recoverable or evidenced. Nothing here is a disagreement about what the standard should say &mdash; only about what the published document failed to say.</p>
-<p class="sub"><b>Cost of granting the class:</b> Republish the affected block. No change to meaning, so nothing to ballot.</p>
-<div class="item k-esc-0821-blank-grid">
-<h3>Table 0821 <i>Gender Identity</i> publishes its coded content grid completely blank</h3>
-<p class="tables">0821 &middot; goes to V2 Management &middot; <code>esc-0821-blank-grid</code></p>
-<p class="sub"><b>Why this class:</b> Six rows by five columns, every cell empty, in a fully populated section. THO&#x27;s matching value set holds exactly the five concepts the row count implies.</p>
-<p>The grid is six rows by five columns and <i>every cell is empty</i>, while the section around it is fully populated: three code systems (SNOMED CT, FHIR DataAbsentReason, V3 NullFlavor), three code system versions, and a value set. Both extraction pipelines independently find zero codes, so this is the document rather than the tooling. The row count is the tell. Six rows is a header plus <b>five</b> code rows, and THO's <code>ValueSet/gender-identity</code> &mdash; whose OID <code>2.16.840.1.113883.4.642.3.3291</code> is exactly the one Chapter 2C prints for this value set &mdash; holds exactly <b>five</b> concepts: three SNOMED CT gender identities, <code>asked-declined</code>, and <code>UNK</code>. The grid was meant to carry those five and lost them somewhere in publication. Compare table 0823 Sexual Orientation, built the same way, which prints its codes. Minor, in the same section: the value set description runs two sentences together with no space &mdash; &ldquo;&hellip;within their community.Used in HL7 Version 2.x messages&rdquo;.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0821</code> Gender Identity: withheld on a ruling</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> Confirm the five intended codes and republish the grid. This project reuses THO's value set in the meantime, so nothing is blocked &mdash; but the published chapter is missing content and a reader of the PDF cannot tell what the table contains.</p>
-</div>
-<div class="item k-esc-truncated-value-set-descriptions">
-<h3>Sixteen Value Set descriptions stop mid-word, all at about 250 characters</h3>
-<p class="tables">0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544 &middot; goes to V2 Management &middot; <code>esc-truncated-value-set-descriptions</code></p>
-<p class="sub"><b>Why this class:</b> Sixteen descriptions stop mid-word at about 250 characters. The cut-off is uniform, so the loss is at publication.</p>
-<p>Found while checking a generated resource rather than by looking for it. Table 0227's value set description ends &ldquo;&hellip; the code system may be acce&rdquo;. Sweeping the corpus for the same shape found <b>sixteen Value Set descriptions that end without terminal punctuation, every one of them between 242 and 252 characters long</b>. Nothing else in the chapter behaves this way: Code System descriptions run to 500 and 800 characters and end in complete sentences, and the same tables' own table-level descriptions are complete &mdash; 0227's runs to 582 characters and finishes cleanly. So this is not extraction loss and not an authoring habit; it is <b>a length cap of roughly 250 characters applied to one field</b> somewhere in the publication toolchain. <b>This one does reach the output.</b> Unlike the Full Name defects, the Value Set Description becomes <code>ValueSet.description</code>, so sixteen generated ValueSets currently carry a sentence that stops mid-word. <b>THO was checked as a recovery source and is not one.</b> All sixteen tables have a ValueSet in <code>hl7.terminology.r5</code>, all sixteen carry a description, and <b>fifteen of them are truncated at exactly the same point</b> &mdash; identical text once whitespace and this project's own text policy are normalized on both sides. So the defect did not originate in this extraction and it did not originate in the chapter's rendering: the same clipped field fed both documents, and the truncated text is already published in THO. <b>The single exception is table 0227, and it is the proof.</b> THO's <code>ValueSet/v2-0227</code> continues past the cut with 171 more characters, completing the very word the chapter stops in the middle of &mdash; &ldquo;may be acce&rdquo; becomes &ldquo;may be accessed via&rdquo; followed by the PHIN VADS link for the MVX code system. One table's full text therefore survives somewhere, which is good evidence the other fifteen do too.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0038</code> Order status: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0170</code> Derived Specimen: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0227</code> Manufacturers of Vaccines (code=MVX): ValueSet published; code system is another body&#x27;s &mdash; VS 4.0.0 (held)</li>
-<li><code>0254</code> Kind of Quantity: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 3.0.0 (held)</li>
-<li><code>0315</code> Living Will Code: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0326</code> Visit Indicator: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 3.0.0 (held)</li>
-<li><code>0335</code> Repeat Pattern: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0389</code> Analyte Repeat Status: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 4.0.0 (incremented)</li>
-<li><code>0392</code> Match Reason: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0406</code> Participant Organization Unit Type: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0508</code> Blood Product Processing Requirements: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0510</code> Blood Product Dispense Status: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0511</code> BP Observation Status Codes Interpretation: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0513</code> Blood Product Transfusion/Disposition Status: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 3.0.0 (held)</li>
-<li><code>0520</code> Message Waiting Priority: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-<li><code>0544</code> Container Condition: CodeSystem + ValueSet published &mdash; CS 3.0.0 (held) VS 3.0.0 (held)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> <b>Recover the fifteen full descriptions from whatever source Chapter 2C is generated from</b> &mdash; most likely whoever maintains the chapter's underlying table content holds them intact, since the loss is at publication rather than at authoring. This project can detect the truncation but cannot reconstruct the text, and inventing an ending would be worse than publishing the fragment. On the errata guidance this is content lost during the editing process rather than a change of meaning, so <b>restoring it should qualify as a technical correction</b> and need no ballot. Two things follow that are worth deciding at the same time. 0227's full text is available now from THO and can be restored immediately on the same reasoning; say whether to take it. And because the truncated text is already published in THO, the correction needs to be made in both places or the two will diverge. Every affected table is listed below with the text as it currently stands.</p>
-</div>
 <a id="presentation"></a>
-<h2>Presentation and wording <span class="n">(6)</span></h2>
+<h2>Presentation and wording <span class="n">(4)</span></h2>
 <p class="lede">Defects a reader notices and no processor does: styling, copy-paste in a metadata field, inconsistent phrasing. They are listed because they are wrong, not because they block anything.</p>
 <p class="sub"><b>Cost of granting the class:</b> Editorial pass on the chapter. No effect on any artifact this guide publishes.</p>
-<div class="item k-esc-ucum-full-name">
-<h3>All six UCUM-backed tables name the code system &ldquo;Donation Duration Units Code System&rdquo;</h3>
-<p class="tables">0567, 0568, 0929, 0930, 0931, 0932 &middot; goes to V2 Management &middot; <code>esc-ucum-full-name</code></p>
-<p class="sub"><b>Why this class:</b> All six UCUM-backed tables carry the same copy-pasted Full Name. A metadata field, not a binding.</p>
-<p>Every table in Chapter 2C backed by UCUM carries the same Code System Identification block &mdash; OID <code>2.16.840.1.113883.6.8</code>, symbolic name <code>ucum</code>, URI <code>http://unitsofmeasure.org</code> &mdash; with <code>Full Name: Donation Duration Units Code System</code>. Only 0932 is about donation duration; the name was copy-pasted across Weight Units, Volume Units and Temperature Units, twice over, since 0567/0568 duplicate 0929/0930. The name is wrong even on 0932. The code system being identified is UCUM, so its full name is the Unified Code for Units of Measure, not the name of whichever table happens to point at it.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0567</code> Weight Units: withheld on a ruling</li>
-<li><code>0568</code> Volume Units: withheld on a ruling</li>
-<li><code>0929</code> Weight Units: ValueSet published; code system is another body&#x27;s &mdash; VS 4.0.0 (incremented)</li>
-<li><code>0930</code> Volume Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-<li><code>0931</code> Temperature Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-<li><code>0932</code> Donation Duration Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> <b>Cleared to correct.</b> Measured against HL7's errata guidance this is squarely a technical correction &mdash; a name inconsistently applied during editing, where fixing it makes the chapter say what was plainly intended. Set the Full Name to UCUM's own name in all six. <b>Note that this changes no generated resource.</b> UCUM is an external code system, so these six tables produce a ValueSet and no CodeSystem, and the ValueSet takes its name and description from the Value Set block rather than the Code System block. The correction is to the chapter, and to the report that mirrors it.</p>
-</div>
 <div class="item k-esc-full-name-copy-paste">
 <h3>The copy-pasted Full Name is not confined to the UCUM tables</h3>
 <p class="tables">0001, 0125, 0180, 0203, 0458, 0820 and others &middot; goes to V2 Management &middot; <code>esc-full-name-copy-paste</code></p>
@@ -217,19 +162,6 @@ li { margin-bottom: 5px; }
 </ul></div>
 <p class="ask"><b>Decision needed:</b> Two questions, and the second is the one that needs both groups. First, should the placeholder blocks be removed from the published chapter, and should a table with no code system simply have no Code System Identification block? Second: <b>0560 and 0910 present identically in the chapter and have been handled in opposite ways downstream.</b> Either 0910 is missing resources or 0560 has resources it should never have had. This project now follows THO on both &mdash; publishing 0560's pair and nothing for 0910 &mdash; which removes the divergence from published THO content but does not answer the question. Confirm whether that split is correct, or whether both tables should be treated the same way. <b>Nothing will be altered in THO's existing records on this project's initiative.</b></p>
 </div>
-<div class="item k-esc-cld-inconsistent">
-<h3>&ldquo;All codes&rdquo; is used where a value set enumerates a handful of UCUM codes</h3>
-<p class="tables">0929, 0930, 0931, 0932 &middot; goes to V2 Management &middot; <code>esc-cld-inconsistent</code></p>
-<p class="sub"><b>Why this class:</b> “All codes” used where a value set enumerates a handful. Classed as wording because the question underneath it -- whether “all codes” is a defined term -- is asked separately.</p>
-<p>Tables 0929 and 0930 give their Content Logical Definition as &ldquo;enumerated per table content&rdquo;, which is accurate. Tables 0931 and 0932 say &ldquo;all codes&rdquo; while doing exactly the same thing &mdash; listing two or three UCUM codes. Read literally, &ldquo;all codes&rdquo; against UCUM would be every unit of measure in existence. THO reads all four the same way and enumerates in every case.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0929</code> Weight Units: ValueSet published; code system is another body&#x27;s &mdash; VS 4.0.0 (incremented)</li>
-<li><code>0930</code> Volume Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-<li><code>0931</code> Temperature Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-<li><code>0932</code> Donation Duration Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> Align the wording on the four tables. More usefully: is &ldquo;all codes&rdquo; meant to be a defined term with a specific mapping to <code>ValueSet.compose</code>, or is it informal prose? The answer affects how every one of the 438 value set blocks in the chapter is translated.</p>
-</div>
 <div class="item k-esc-conflicting-descriptions">
 <h3>Five concept domains are given two different descriptions within Chapter 2C</h3>
 <p class="tables">5 concept domains &middot; goes to V2 Management &middot; <code>esc-conflicting-descriptions</code></p>
@@ -249,19 +181,9 @@ li { margin-bottom: 5px; }
 <p class="ask"><b>Decision needed:</b> Fix the styles in a future publication.</p>
 </div>
 <a id="wrong-identifier"></a>
-<h2>Wrong or missing identifiers <span class="n">(6)</span></h2>
+<h2>Wrong or missing identifiers <span class="n">(4)</span></h2>
 <p class="lede">The chapter names the wrong thing, or omits a name it needs. A URI that points at the wrong code system is not a typographic matter &mdash; it resolves, and it resolves to something else.</p>
 <p class="sub"><b>Cost of granting the class:</b> Correct the identifier. Mechanical, but it changes a normative value, so it needs confirming rather than just fixing.</p>
-<div class="item k-esc-0347-iso3166">
-<h3>Table 0347 <i>State/Province</i> gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set &ldquo;all codes&rdquo;</h3>
-<p class="tables">0347 &middot; goes to V2 Management &middot; <code>esc-0347-iso3166</code></p>
-<p class="sub"><b>Why this class:</b> ISO 3166 part 1&#x27;s URI given for a part 2 code system. It resolves, and it resolves to the wrong code system.</p>
-<p>The Code System Identification block correctly identifies ISO 3166-2 &mdash; OID <code>1.0.3166.2</code>, symbolic name <code>iso3166-2</code>, described as &ldquo;ISO 3166 Part 2 Country Subdivision Codes&rdquo; &mdash; and then gives the URI as <code>urn:iso:std:iso:3166</code>, which is part 1. THO's <code>NamingSystem/ISO3166Part2</code> carries both identifiers for this system and uses <code>urn:iso:std:iso:3166:-2</code>. Separately, the Value Set block gives its Content Logical Definition as &ldquo;all codes&rdquo; while its own URI points at <code>ValueSet-v2-notAllCodes-0347</code>, and THO's value set of that name enumerates two example concepts (<code>CA-AB</code>, <code>US-MI</code>). The published definition contradicts both its own URI and THO. The Full Name is wrong in the same way as the UCUM tables: &ldquo;State/Province Code System&rdquo; names the table, not the code system, which is ISO 3166-2.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0347</code> State/Province: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> Two technical corrections &mdash; the URI, and the Content Logical Definition. Neither should be contentious, but both change published text.</p>
-</div>
 <div class="item k-esc-0956-no-stable-home">
 <h3>Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned</h3>
 <p class="tables">0956 &middot; goes to V2 Management + TSMG &middot; <code>esc-0956-no-stable-home</code></p>
@@ -285,16 +207,6 @@ li { margin-bottom: 5px; }
 </ul></div>
 <p class="ask"><b>Decision needed:</b> <b>This is a question for the Financial Management Work Group</b>, which stewards both this vocabulary and the GP1/GP2 segments that use it, rather than for V2 Management. For each of the four: are the codes CMS's, published in the I/OCE specification, in the way 0458, 0459, 0460 and 0467's are? If so each needs an external code system record in THO and a value set composing over it, and this guide should stop publishing a CodeSystem for it &mdash; the same treatment the other four just received. If the codes are genuinely HL7's, nothing changes and this item closes with that on the record. <b>Nothing is being changed for these four in the meantime.</b> They continue to publish a CodeSystem and a ValueSet at their existing canonicals exactly as before, so no answer is urgent and no artifact is at risk while the question is open.</p>
 </div>
-<div class="item k-esc-0725-missing-uri">
-<h3>Table 0725 <i>Mood Codes</i> omits the URI of the v3 code system it draws from</h3>
-<p class="tables">0725 &middot; goes to V2 Management &middot; <code>esc-0725-missing-uri</code></p>
-<p class="sub"><b>Why this class:</b> The URI of the v3 code system the table draws from is omitted.</p>
-<p>The table's code system block gives a symbolic name <code>actMood</code>, a description of <code>tbd</code>, and OID <code>2.16.840.1.113883.5.1001</code> &mdash; and <b>no URI field at all</b>. The codes are v3 ActMood codes, not v2 codes; THO's own <code>ValueSet/v2-0725</code> draws them from <code>http://terminology.hl7.org/CodeSystem/v3-ActMood</code>. <b>The output is already correct</b>, because the OID the chapter does print resolves through THO to exactly that URL, so the writer emits a value set only and points it at the v3 code system. Recorded because the defect is in the published chapter and will mislead anyone reading it directly: a reader sees a code system with no URI and a description of <code>tbd</code>, with nothing to indicate the codes are v3. It also means the correct result here depends entirely on OID resolution succeeding.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0725</code> Mood Codes: ValueSet published; code system is another body&#x27;s &mdash; VS 4.0.0 (incremented)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> Confirm this as a technical correction under the editing-process test &mdash; add the URI <code>http://terminology.hl7.org/CodeSystem/v3-ActMood</code> and replace the <code>tbd</code> description. Nothing in the generated output changes.</p>
-</div>
 <div class="item k-esc-oid-conflicts">
 <h3>Three artifacts where one OID would end up naming two things, which versioning cannot reconcile</h3>
 <p class="tables">0001, 0719 &middot; goes to V2 Management + TSMG &middot; <code>esc-oid-conflicts</code></p>
@@ -314,7 +226,7 @@ li { margin-bottom: 5px; }
 <p class="ask"><b>Decision needed:</b> Decide where a V2 table OID belongs in a FHIR representation of that table, and whether this guide should start writing it. The options each say something different and none is free. Putting it on the <b>CodeSystem</b> says the code system is the table, which is wrong for the 24 value-set-only tables whose codes belong to another authority. Putting it on <b>both</b> resources asserts one identifier for two artifacts, which is the same shape as the defect registered at <code>esc-oid-conflicts</code>. Putting it on the <b>concept domain</b> concept has no <code>identifier</code> element to hold it. Putting it <b>nowhere</b> is the current behaviour and may well be right &mdash; but it should be a ruling rather than an accident, because the identifier is in the published chapter and its absence from the FHIR artifacts is silent.</p>
 </div>
 <a id="self-contradiction"></a>
-<h2>The chapter contradicting itself <span class="n">(6)</span></h2>
+<h2>The chapter contradicting itself <span class="n">(5)</span></h2>
 <p class="lede">A table says two incompatible things about itself, so no reading of it is faithful. These cannot be reproduced faithfully &mdash; something has to be chosen &mdash; which is why they are the ones most likely to be producing a wrong artifact right now.</p>
 <p class="sub"><b>Cost of granting the class:</b> Decide which reading is correct. Usually one line in the chapter, but somebody has to know the table's history.</p>
 <div class="item k-esc-0954-cld-exclude">
@@ -357,18 +269,6 @@ li { margin-bottom: 5px; }
 <li><code>0340</code> Procedure Code Modifier: concept domain only, no artifact</li>
 </ul></div>
 <p class="ask"><b>Decision needed:</b> Confirm that 0340 is correctly concept-domain-only and that the two rows are documentation of candidate external code systems rather than codes. If they are meant to be usable, they need to be expressed as external code system references rather than as grid rows.</p>
-</div>
-<div class="item k-esc-status-n-b-undefined">
-<h3>The concept statuses <code>N</code> and <code>B</code> are defined nowhere; <code>N</code> is now mapped, <code>B</code> is not</h3>
-<p class="tables">0003, 0125, 0357 for B; 25 tables, 261 concepts for N &middot; goes to V2 Management + TSMG &middot; <code>esc-status-n-b-undefined</code></p>
-<p class="sub"><b>Why this class:</b> Status letters N and B are used and defined nowhere, so the chapter uses a vocabulary it does not publish.</p>
-<p>Chapter 2C carries its own legend for the status column: blank means an active code, <code>B</code> means &ldquo;backwards-compatible use only&rdquo;, <code>D</code> means &ldquo;deprecated or inactive&rdquo;, <code>R</code> means &ldquo;retired&rdquo;, and <code>N</code> means <b>&ldquo;new in this release&rdquo;</b>. Blank, <code>D</code> and <code>R</code> have unambiguous FHIR equivalents and are written as <code>active</code>, <code>deprecated</code> and <code>retired</code>. <code>N</code> and <code>B</code> do not. <b>Neither is defined anywhere.</b> The property they are written to is <code>status</code>, defined by FHIR at <code>http://hl7.org/fhir/concept-properties#status</code>, whose own definition reads &ldquo;a code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired.&rdquo; Neither <code>N</code> nor <code>B</code> is among them. They are not in <code>utg-concept-properties</code> either, and no value set enumerates them. Across the whole of <code>hl7.terminology.r5</code> they appear <i>only</i> in v2 code systems &mdash; 210 concepts carry <code>N</code> and 6 carry <code>B</code>. <b><code>N</code> is worse than undefined, because it decays.</b> &ldquo;New in this release&rdquo; was a statement about whichever release first printed it, and nothing updates it afterwards. That is visible in the data: THO still marks 210 concepts <code>N</code> from past releases while the 2.9.1 chapter marks only 70, and <b>205 of the 261 status disagreements between the chapter and THO are exactly this</b> &mdash; THO saying <code>N</code> where the current chapter says nothing, so this project publishes <code>active</code>. <b><code>N</code> is now mapped to <code>active</code>, as a technical correction.</b> The reviewer ruled on this half on 2026-09-19, and the three findings above are the grounds taken together: &ldquo;new in this release&rdquo; is not a status but a provenance note; it expires with nothing to update it, so a value printed in 2.9.1 is already a claim about some earlier release; and it is not a legal value of the standard FHIR property this guide writes it into, whose own definition enumerates active, experimental, deprecated and retired. A code marked <code>N</code> is in every case an active code, so writing <code>active</code> says what the chapter means and says it in the same vocabulary <code>D</code> and <code>R</code> already use. On the errata test in the first item of this register that is a change that makes the document say what the work group intended, not a change to what the standard means. <b><code>B</code> is deferred, deliberately.</b> &ldquo;Backwards-compatible use only&rdquo; is a real statement about a code and it has no obvious FHIR equivalent: not <code>deprecated</code>, because the code is still correct for existing senders; not <code>retired</code>; and not plainly <code>active</code> either, because the restriction is real. It is also small enough to take one at a time &mdash; <b>five concepts in three tables</b>: <code>0003</code> <i>Event</i> code <code>O57</code> (OMQ &mdash; General Order Message with Document Payload), <code>0125</code> <i>Value Type</i> code <code>IS</code> (Coded value for user-defined tables), and <code>0357</code> <i>Message Error Condition Codes</i> <code>204</code>, <code>205</code> and <code>206</code> (Unknown key identifier, Duplicate key identifier, Application record locked). Five concepts is a review, not a policy.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0003</code> Event: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 4.0.0 (incremented)</li>
-<li><code>0125</code> Value Type: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (held)</li>
-<li><code>0357</code> Message Error Condition Codes: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 3.0.0 (held)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> Two things remain. <b>(1) Rule on <code>B</code>, per concept.</b> Five concepts in three tables is small enough to look at individually, and they are not obviously the same case &mdash; <code>0125</code>'s <code>IS</code> is a data type code, <code>0357</code>'s three are error conditions. For each, say whether the FHIR status should be <code>active</code>, <code>deprecated</code>, or <code>active</code> with a separate marker recording the backwards-compatibility restriction. <b>(2) Decide where, if anywhere, these letters should be defined.</b> Even with <code>N</code> resolved by mapping, THO still publishes 210 concepts carrying it as a literal status value and 6 carrying <code>B</code>, against a property whose definition admits neither. Defining them in <code>utg-concept-properties</code> would at least make what is already published legal; replacing <code>N</code> with a non-decaying &ldquo;version introduced&rdquo; property would be better, and the chapter already records that fact in prose elsewhere. <b>What this guide does now:</b> <code>N</code> is written as <code>active</code>; <code>B</code> is passed through unchanged pending (1); and all 261 chapter-versus-THO status disagreements are still recorded, because mapping <code>N</code> does not make the underlying divergence go away.</p>
 </div>
 <div class="item k-esc-deprecation-flag-contradicts-status">
 <h3>191 concepts say they are active and deprecated as of 2.9 at the same time</h3>
@@ -416,7 +316,7 @@ li { margin-bottom: 5px; }
 <p class="ask"><b>Decision needed:</b> Confirm that a concept whose <code>v2-table-deprecated</code> is <code>2.9</code> should carry <code>status: deprecated</code>. One ruling resolves all 191, because there is nothing case-by-case about it: the flag says the code was deprecated in 2.9, and 2.9 has shipped. <b>This guide has not applied that, and is surfacing it for decision rather than fixing it.</b> Both the status and the flag are published values and both are reproduced, contradiction included. Changing 191 concept statuses is a content change to published normative material &mdash; which is the question the first item in this register asks in general terms &mdash; and it is not something to do on inference. Two smaller things should be settled alongside it. Give <code>v2-table-deprecated</code> a <b>single</b> definition, the concept-level one, since that is what the values are; or split it into two properties with two URIs, because at present one identifier means &ldquo;this table is deprecated&rdquo; in one place and &ldquo;the version this code was deprecated in&rdquo; in another. And decide whether the flag is still wanted once <code>status</code> says the same thing, or whether it becomes the record of <i>when</i>, which <code>status</code> cannot carry.</p>
 </div>
 <a id="representation"></a>
-<h2>Open representation questions <span class="n">(4)</span></h2>
+<h2>Open representation questions <span class="n">(2)</span></h2>
 <p class="lede">Not defects in the chapter: places where the chapter is clear and FHIR offers no settled way to say it. The guide has taken a working answer in each case and the answer is reversible.</p>
 <p class="sub"><b>Cost of granting the class:</b> Confirm the shape, or name another. Sets a precedent beyond this guide.</p>
 <div class="item k-esc-punctuation-codes">
@@ -445,29 +345,6 @@ li { margin-bottom: 5px; }
 </ul></div>
 <p class="ask"><b>Decision needed:</b> <b>Review all 23 and say which are real.</b> The recommendation is: keep the four symbol codes; retire the ellipsis placeholders, which were never concepts; and for the five duplicate pairs retire at least the redundant spelling even if the placeholder itself is kept. Nothing is proposed for this release &mdash; the chapter is reproduced as published, so 0093's placeholder is currently emitted as a concept and the THO-only ones are untouched. But these codes are in published code systems today, so retiring them is a change to content in the field and needs a decision from the owners rather than from this project. Listed in full below.</p>
 </div>
-<div class="item k-esc-domain-example-codes">
-<h3>Where should a concept domain&rsquo;s example codes live?</h3>
-<p class="tables">0093, 0340, 0451 &middot; goes to V2 Management &middot; <code>esc-domain-example-codes</code></p>
-<p class="sub"><b>Why this class:</b> Where a concept domain&#x27;s example codes should live. Extracted and held, published nowhere, pending a shape.</p>
-<p>These three tables are declared <i>Concept Domain Only</i> and yet each publishes a small set of codes &mdash; three, two and one respectively. That is not a contradiction: the V3 requirements for declaring a concept domain <b>call for example codes</b>, so the tables are conforming. It does leave the codes with nowhere obvious to go. A concept domain is not a code system, so the examples cannot be concepts; and a domain is bound with an extension on the binding rather than through a value set, so there is no value set to put them in either. <b>No CodeSystem and no ValueSet is minted for any of the three</b>, and nothing in THO or UTG carries one today, so nothing has to be unpicked whichever way this goes.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0093</code> Release Information: concept domain only, no artifact</li>
-<li><code>0340</code> Procedure Code Modifier: concept domain only, no artifact</li>
-<li><code>0451</code> Substance Identifier: concept domain only, no artifact</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> The likely representation is a <b>concept property on the concept in the concept domain code system</b>, carrying the example codes. Confirm that shape, or name another. Until it is decided the example codes are extracted and held but not published anywhere.</p>
-</div>
-<div class="item k-esc-0929-0930-enumerated-subset">
-<h3>Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?</h3>
-<p class="tables">0929, 0930 &middot; goes to V2 Management &middot; <code>esc-0929-0930-enumerated-subset</code></p>
-<p class="sub"><b>Why this class:</b> Whether the enumerated subset is intended or the value sets should reference the UCUM units for the quantity. Survives the 2026-09-23 ruling that retired 0567 and 0568.</p>
-<p>This is the half of the 0567/0568 question that the 2026-09-23 ruling did not reach. That ruling retires 0567 and 0568, which removes them from this guide &mdash; but it leaves the same question standing against their live replacements, which this guide does publish. <b>The replacements carry byte-identical code lists to the tables being retired.</b> 0929 enumerates the same four codes as 0567 &mdash; <code>[lb_av]</code>, <code>[oz_av]</code>, <code>kg</code>, <code>g</code> &mdash; and 0930 the same three as 0568: <code>l</code>, <code>[pt_us]</code>, <code>ml</code>. So retiring the old pair does not retire the question; it moves it. <b>The description promises more than the value set delivers.</b> 0930's concept domain is &ldquo;the domain of possible values of units of measure that are used to specify volume&rdquo; and its code system is UCUM, which has a great many volume units. Three are enumerated. A sender needing centilitres, fluid ounces or cubic centimetres finds them absent from a value set whose description says it covers the quantity. Whether that is a deliberate interoperability constraint &mdash; a short list implementers can actually support &mdash; or an accident of how the table was first populated is not something this project can determine from the chapter.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0929</code> Weight Units: ValueSet published; code system is another body&#x27;s &mdash; VS 4.0.0 (incremented)</li>
-<li><code>0930</code> Volume Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> Is the enumerated subset intended, or should these value sets be an intensional reference to the UCUM units for the quantity? If the short list is deliberate, the descriptions should say so, because as written they describe the whole quantity. If it is not, these are two value sets that need rebuilding and the replacement tables inherited the defect they were meant to replace.</p>
-</div>
 <div class="item k-esc-0460-user-defined-mint">
 <h3>What should a user-defined table produce? Three of them were treated three different ways</h3>
 <p class="tables">0093 &middot; goes to V2 Management &middot; <code>esc-0460-user-defined-mint</code></p>
@@ -479,7 +356,7 @@ li { margin-bottom: 5px; }
 <p class="ask"><b>Decision needed:</b> <b>Both of the minted canonicals this item was about are gone, and the question underneath them is still open.</b> 0411 was ruled concept-domain-only in October (<code>esc-0411-concept-domain-only</code>). 0460 was realigned in November as CMS I/OCE content (<code>esc-0460-oce-realignment</code>), which withdrew its minted CodeSystem for a reason specific to that table rather than as an answer to this one. <b>This guide now mints no CodeSystem canonical anywhere in the corpus.</b> What remains unanswered is the principle, and <code>0093</code> <i>Release Information</i> is where it still bites: a <code>Type: User</code> table, declared concept-domain-only, listing <code>Y</code> and <code>N</code> in a grid that reaches no artifact. Decide what a user-defined table should produce &mdash; a CodeSystem and ValueSet like any other, a concept domain only, or a ValueSet whose codes are marked as examples &mdash; so that the next such table is handled by a rule rather than case by case. The answer no longer changes any published artifact; it decides what happens to 0093's codes and sets the precedent.</p>
 </div>
 <a id="content-error"></a>
-<h2>Published content that is wrong <span class="n">(3)</span></h2>
+<h2>Published content that is wrong <span class="n">(2)</span></h2>
 <p class="lede">The chapter publishes something that is incorrect as terminology &mdash; an invalid code, codes that do not match the table's own name. Correcting these changes what the standard means.</p>
 <p class="sub"><b>Cost of granting the class:</b> Substantive change to normative content. On HL7's errata guidance this is the kind that needs a ballot rather than a technical correction.</p>
 <div class="item k-esc-0560-content">
@@ -491,16 +368,6 @@ li { margin-bottom: 5px; }
 <li><code>0560</code> Quantity Units: CodeSystem + ValueSet published &mdash; CS 4.0.0 (incremented) VS 3.0.0 (held)</li>
 </ul></div>
 <p class="ask"><b>Decision needed:</b> Is this table salvageable, or is it a concept domain with no usable code system? If it is to be fixed, the fix has to be coordinated with TSMG so Chapter 2C and THO move together. <b>This project's working decision changed on 2026-09-17 (ADR-0010): it now publishes both the CodeSystem and the ValueSet</b>, carrying the chapter's five codes. The earlier decision was concept domain only, and it was reversed because the <code>noObject</code> marker is contradicted by everything around it &mdash; the chapter's own five codes, the value set OID it prints, its <code>all codes</code> content logical definition, and THO's existing pair. Treating the marker as authoritative was losing published content <i>and</i> putting us in conflict with THO rather than agreement with it. <b>The naming problem this item is really about is untouched by that change</b>: four of the five codes are still units of time under a table called Quantity Units, in our output and in THO's alike. That still needs V2 Management and TSMG together, and <b>we are not proposing to alter THO's existing records unilaterally.</b> The contradiction is stated in the guide itself, on the General questions page, so a reader meets it rather than having to find this register.</p>
-</div>
-<div class="item k-esc-0931-temperature">
-<h3>Table 0931 <i>Temperature Units</i> publishes three codes, two of which are the same unit, and one of which is invalid</h3>
-<p class="tables">0931 &middot; goes to V2 Management &middot; <code>esc-0931-temperature</code></p>
-<p class="sub"><b>Why this class:</b> An invalid UCUM code published alongside its own correction. THO has already corrected this one, which makes it the sharpest test of reproduce-versus-correct in the corpus.</p>
-<p>The three codes are <code>degF</code> (status <code>D</code>, comment &ldquo;typo&rdquo;), <code>[degF]</code>, and <code>Cel</code>. <code>degF</code> is not a valid UCUM code &mdash; UCUM requires the square brackets &mdash; so the table publishes a known-invalid code and its correction side by side, with two of the three entries meaning Degrees Fahrenheit. There is no Kelvin and no Rankine, so it is not a complete set of temperature units either. <b>THO has already dealt with this.</b> Its <code>ValueSet/v2-0931</code> v2.0.0 includes only <code>[degF]</code> and <code>Cel</code>, and folds the history into the display text: &ldquo;Degrees Fahrenheit (note that V2 has erroneously published this for many years without the square brackets)&rdquo;. Also in this table: the Code System Version block gives the UCUM version as <code>2</code>, which is not a UCUM version.</p>
-<div class="settled"><b>What this guide publishes today</b><ul>
-<li><code>0931</code> Temperature Units: ValueSet published; code system is another body&#x27;s &mdash; VS 3.0.0 (incremented)</li>
-</ul></div>
-<p class="ask"><b>Decision needed:</b> This is the cleanest test case in the corpus for reproduce-versus-correct, and the one to decide first: Chapter 2C reproduces an error, THO corrected it and said so, and the two cannot both be followed. Which does this IG follow? And separately: should 0931 be filled out into an actual set of temperature units, or is the two-code set intentional?</p>
 </div>
 <div class="item k-esc-duplicate-tables">
 <h3>Two pairs of tables are duplicates of each other</h3>

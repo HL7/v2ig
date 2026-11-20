@@ -390,10 +390,9 @@ def test_the_code_system_element_order_matches_utg():
     # what this guide already publishes wherever THO says N and the 2.9.1
     # chapter no longer flags anything.
     ("N", "active"),
-    # B is deliberately left alone, pending a case-by-case review by V2
-    # Management -- see `esc-status-n-b-undefined`. So four values the
-    # property's value set does not contain are still published knowingly.
-    ("B", "B"),
+    # B ("backwards-compatible use only") is read as deprecated, by the
+    # 2026-11-20 ruling on `esc-status-n-b-undefined`.
+    ("B", "deprecated"),
 ])
 def test_status_column_mapping(chapter_status, expected):
     record = make_record(codedContent=[

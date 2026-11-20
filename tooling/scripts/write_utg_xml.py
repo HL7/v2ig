@@ -219,18 +219,16 @@ PROPERTY_DEFINITIONS = {
 # longer flags anything, so mapping our own 65 the same way makes the treatment
 # consistent rather than introducing a second one.
 #
-# `B` is deliberately NOT mapped. "Backwards-compatible use only" has no FHIR
-# equivalent either, and V2 Management is to review the 5 concepts carrying it
-# (3 tables in the chapter, 4 concepts reaching the output) case by case. So we
-# knowingly continue to emit 4 values the property's value set does not
-# contain. Inventing a mapping would prejudge the review. The question is
-# registered as `esc-status-n-b-undefined` in `vocabulary_escalations.py`.
+# `B` ("backwards-compatible use only") maps to `deprecated`. Ruled on
+# 2026-11-20 by the V2+ tooling group (esc-status-n-b-undefined): B may safely
+# be read as deprecated -- still usable, but not for new implementations,
+# which is what `deprecated` means. 4 concepts reach the output with it.
 STATUS_MAP = {
     "": "active",
     "D": "deprecated",
     "R": "retired",
     "N": "active",
-    "B": "B",
+    "B": "deprecated",
 }
 
 # Steward initials in Chapter 2C against HL7 work group codes. A steward naming
@@ -576,6 +574,18 @@ RULED_SUPPRESSIONS = {
                     "publishing it at 4.0.0 against THO's 3.0.0, an "
                     "increment earned only by adding display text to the "
                     "three UCUM codes THO leaves bare.",
+    ),
+    "0725": Suppression(
+        ruling="THO's ValueSet/v2-0725 is correct as it stands and is left "
+               "as is. This guide includes no update to table 0725, which "
+               "jettisons the chapter's code EXP.",
+        register_item="esc-0725-missing-uri",
+        consequence="ValueSet/v2-0725 is not written. The guide had been "
+                    "publishing it at 4.0.0 with ten codes: THO's nine plus "
+                    "EXP 'Expectation', which is not a code in "
+                    "CodeSystem/v3-ActMood (qa.html flagged it as unknown). "
+                    "THO's 3.0.0 already carries EXPEC, the code EXP was "
+                    "meant to be, and the right system URI.",
     ),
 }
 
@@ -975,7 +985,59 @@ RULED_RECLASSIFICATIONS = {
             "code system OID 2.16.840.1.113883.6.301.8.",
         ),
     ),
+    "0347": Reclassification(
+        action="value-set-only",
+        system_url="urn:iso:std:iso:3166:-2",
+        unresolved=None,
+        ruling="THO's v2-notAllCodes-0347 is wrong and is being retired "
+               "under UP-901. This guide creates a new ValueSet/v2-0347 "
+               "whose content logical definition is all codes from ISO "
+               "3166-2, referenced through THO's existing external code "
+               "system record for it.",
+        register_item="esc-0347-iso3166",
+        rationale=(
+            "The chapter prints ISO 3166 part 1's URI, urn:iso:std:iso:3166, "
+            "for a State/Province table, which is part 2 content; the "
+            "chapter's own code system OID, 1.0.3166.2, is part 2's.",
+            "THO's NamingSystem/ISO3166Part2 is the active external record "
+            "for part 2, with identifiers urn:oid:1.0.3166.2 and "
+            "urn:iso:std:iso:3166:-2.",
+            "The canonical moves to ValueSet/v2-0347 by the same ruling; "
+            "see RULED_CANONICALS.",
+        ),
+    ),
 }
+
+
+# --------------------------------------------------------------------------
+# UCUM value sets defined by dimension, by ruling
+# --------------------------------------------------------------------------
+#
+# Tables 0929-0932 are UCUM unit tables. Read literally, the chapter either
+# lists a handful of units (0929, 0930: "enumerated per table content") or
+# says "all codes" (0931, 0932), which for UCUM means every unit there is.
+# Both were ruled wrong on 2026-11-20: the intent is every unit of the right
+# kind -- every unit of mass, of volume, of temperature, of time.
+#
+# UCUM supports exactly that. THO's UCUM page defines a `canonical` filter:
+# "allows any expression that is comparable to the named unit". So each
+# table names one unit, and the value set is every unit comparable to it.
+#
+# A filter like this cannot be expanded into a list: UCUM is a grammar, and
+# the set of units of mass is unbounded. The IG shows the definition, not an
+# expansion. That is expected, not a defect.
+#
+#   table -> (unit the value set's units must be comparable to, what it means)
+UCUM_DIMENSION_FILTERS = {
+    "0929": ("g", "mass (weight)"),
+    "0930": ("L", "volume"),
+    "0931": ("Cel", "temperature"),
+    "0932": ("s", "time (duration)"),
+}
+UCUM_SYSTEM = "http://unitsofmeasure.org"
+UCUM_FILTER_REGISTER_ITEMS = (
+    "esc-cld-inconsistent", "esc-0929-0930-enumerated-subset",
+    "esc-0931-temperature")
 
 
 # --------------------------------------------------------------------------
@@ -1557,13 +1619,31 @@ def load_published_value_set_urls():
 #   register_item  the id of the register item carrying the resolution
 #   replaces       the canonical this supersedes, so the stale file is pruned
 #                  and a reader can see what moved
-RuledCanonical = namedtuple("RuledCanonical", "url register_item replaces")
+#   replaces_tho   True only where the ruling explicitly replaces an artifact
+#                  THO publishes. Default False, which keeps the rule above:
+#                  a THO canonical is never moved. Table 0347 is the one
+#                  exception -- THO's v2-notAllCodes-0347 is wrong, the
+#                  committee ruled a new ValueSet/v2-0347 instead, and a
+#                  separate Jira ticket (UP-901) retires the old one.
+#   withhold_oid   True to publish no OID. Used where the only OID available
+#                  belongs to the artifact being replaced; a new OID has to be
+#                  requested from TSMG (see the future Jira list).
+RuledCanonical = namedtuple(
+    "RuledCanonical", "url register_item replaces replaces_tho withhold_oid")
+RuledCanonical.__new__.__defaults__ = (False, False)
 
 RULED_CANONICALS = {
     "0820": RuledCanonical(
         url="http://terminology.hl7.org/ValueSet/gender-harmony-attributes",
         register_item="esc-0820-gender-harmony-canonical",
         replaces="http://terminology.hl7.org/ValueSet/v2-0820",
+    ),
+    "0347": RuledCanonical(
+        url="http://terminology.hl7.org/ValueSet/v2-0347",
+        register_item="esc-0347-iso3166",
+        replaces="http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347",
+        replaces_tho=True,
+        withhold_oid=True,
     ),
 }
 
@@ -1604,7 +1684,8 @@ def value_set_identity(table, published_urls=None, utg=None):
     # for the table -- see RULED_CANONICALS. Letting it override a THO
     # canonical would fork an artifact that already exists.
     ruled = ruled_canonical(table)
-    if ruled is not None and not (published_urls or {}).get(table):
+    thos_canonical = (published_urls or {}).get(table)
+    if ruled is not None and (ruled.replaces_tho or not thos_canonical):
         url = ruled.url
     else:
         url = ((published_urls or {}).get(table)
@@ -2335,6 +2416,18 @@ def chapter_compose(record, plan, shape):
     table's own rows; an is-a filter names a subtree. Anything else is not
     interpreted here -- `classify` sends those tables to the report instead.
     """
+    # A ruled UCUM dimension filter replaces whatever the chapter's CLD says.
+    dimension = UCUM_DIMENSION_FILTERS.get(record["tableNumber"])
+    if dimension is not None:
+        return {
+            "include": [{
+                "system": UCUM_SYSTEM,
+                "filter": [{"property": "canonical", "op": "=",
+                            "value": dimension[0]}],
+            }],
+            "exclude": [],
+        }
+
     if shape["kind"] == "filter":
         compose = {
             "include": [{
@@ -2435,6 +2528,11 @@ def plan_value_set(record, plan, utg, published_urls=None, snapshot=None,
 
     oid, changed = tho_merge.merge_identifier(
         value_set.get("Value Set OID"), tho, observe, context)
+    # The chapter's OID is still on the THO artifact this one replaces, so a
+    # ruling can say to publish none until TSMG assigns a new one.
+    ruled = ruled_canonical(table)
+    if ruled is not None and ruled.withhold_oid and identity["url"] == ruled.url:
+        oid = None
     changed += tho_merge.changed_fields(
         fields, tho, tho_merge.COMPARED_VALUE_SET_FIELDS, observe, context)
     if tho and tho_merge.compose_changed(compose, tho):

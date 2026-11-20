@@ -207,6 +207,17 @@ a reader to notice.
    `utg-concept-properties` would at least make what is already published
    legal. Replacing `N` with a non-decaying "version introduced" property would
    be better, and the chapter already records that fact in prose elsewhere.""",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "The value B may safely be interpreted as deprecated.",
+            "effect": "STATUS_MAP maps B to deprecated, so the four concepts "
+                      "that carried it (0003 O57; 0357 204, 205, 206) now "
+                      "publish a legal status. Where such letters should be "
+                      "defined in THO is a THO housekeeping question outside "
+                      "this guide.",
+        },
     },
     {
         "id": "gq-table-0560-a-code-system",

@@ -164,32 +164,14 @@ CLASSES = OrderedDict([
 # `esc-retain-known-errors` is absent deliberately: it is the blanket policy
 # question this list replaces. See SUPERSEDED below.
 CLASSIFICATION = {
-    "esc-0821-blank-grid": (
-        "publication-damage",
-        "Six rows by five columns, every cell empty, in a fully populated "
-        "section. THO's matching value set holds exactly the five concepts "
-        "the row count implies."),
-    "esc-truncated-value-set-descriptions": (
-        "publication-damage",
-        "Sixteen descriptions stop mid-word at about 250 characters. The "
-        "cut-off is uniform, so the loss is at publication."),
     "esc-heading-styles": (
         "presentation",
         "Two headings styled Normal instead of Heading 3. Affects navigation "
         "of the document and nothing else."),
-    "esc-ucum-full-name": (
-        "presentation",
-        "All six UCUM-backed tables carry the same copy-pasted Full Name. A "
-        "metadata field, not a binding."),
     "esc-full-name-copy-paste": (
         "presentation",
         "The same copy-paste beyond the UCUM tables. Separating genuine "
         "exceptions from errors needs somebody who knows the tables."),
-    "esc-cld-inconsistent": (
-        "presentation",
-        "“All codes” used where a value set enumerates a handful. "
-        "Classed as wording because the question underneath it -- whether "
-        "“all codes” is a defined term -- is asked separately."),
     "esc-placeholder-metadata": (
         "presentation",
         "Literal noObject and noDescription placeholder text reaching print. "
@@ -198,13 +180,6 @@ CLASSIFICATION = {
         "presentation",
         "Five concept domains given two different descriptions within the "
         "chapter. Reconcilable at source without deciding anything."),
-    "esc-0347-iso3166": (
-        "wrong-identifier",
-        "ISO 3166 part 1's URI given for a part 2 code system. It resolves, "
-        "and it resolves to the wrong code system."),
-    "esc-0725-missing-uri": (
-        "wrong-identifier",
-        "The URI of the v3 code system the table draws from is omitted."),
     "esc-oid-conflicts": (
         "wrong-identifier",
         "One OID on two artifacts, for 0001 and 0719. An identifier that "
@@ -243,23 +218,10 @@ CLASSIFICATION = {
         "self-contradiction",
         "The chapter publishes a table THO has nothing for, and the guide "
         "cannot settle it mechanically."),
-    "esc-status-n-b-undefined": (
-        "self-contradiction",
-        "Status letters N and B are used and defined nowhere, so the chapter "
-        "uses a vocabulary it does not publish."),
     "esc-deprecation-flag-contradicts-status": (
         "self-contradiction",
         "191 concepts say they are active and deprecated at once. The "
         "largest single class by concept count."),
-    "esc-domain-example-codes": (
-        "representation",
-        "Where a concept domain's example codes should live. Extracted and "
-        "held, published nowhere, pending a shape."),
-    "esc-0929-0930-enumerated-subset": (
-        "representation",
-        "Whether the enumerated subset is intended or the value sets should "
-        "reference the UCUM units for the quantity. Survives the 2026-09-23 "
-        "ruling that retired 0567 and 0568."),
     "esc-0460-user-defined-mint": (
         "representation",
         "Whether a user-defined table gets a minted code system. Sharper "
@@ -269,11 +231,6 @@ CLASSIFICATION = {
         "representation",
         "Twenty-three concepts whose code is nothing but punctuation. Part "
         "placeholder, part real symbol; the split needs review per code."),
-    "esc-0931-temperature": (
-        "content-error",
-        "An invalid UCUM code published alongside its own correction. THO "
-        "has already corrected this one, which makes it the sharpest test of "
-        "reproduce-versus-correct in the corpus."),
     "esc-0560-content": (
         "content-error",
         "A table named Quantity Units publishing four time units out of five "

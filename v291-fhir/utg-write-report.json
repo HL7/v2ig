@@ -3,8 +3,8 @@
     "code-system-and-value-set": 397,
     "concept-domain-only": 356,
     "nothing-to-write": 2,
-    "suppressed-by-ruling": 14,
-    "value-set-only": 24,
+    "suppressed-by-ruling": 15,
+    "value-set-only": 23,
     "superseded-by-ruling": 3,
     "needs-decision": 2
   },
@@ -21,13 +21,14 @@
     ]
   },
   "ruledSuppressions": {
-    "count": 14,
+    "count": 15,
     "tables": [
       "0078",
       "0399",
       "0411",
       "0567",
       "0568",
+      "0725",
       "0821",
       "0822",
       "0824",
@@ -42,14 +43,16 @@
       "esc-0078-alias-of-v3",
       "esc-0411-concept-domain-only",
       "esc-0567-0568-deprecation",
+      "esc-0725-missing-uri",
       "esc-0954-0957-duplicate-of-v3",
       "esc-0960-duplicate-of-fhir-core",
       "esc-served-by-existing-tho-value-sets"
     ]
   },
   "ruledReclassifications": {
-    "count": 9,
+    "count": 10,
     "tables": [
+      "0347",
       "0350",
       "0351",
       "0458",
@@ -61,6 +64,7 @@
       "0895"
     ],
     "registerItems": [
+      "esc-0347-iso3166",
       "esc-0350-0351-not-domain-only",
       "esc-0459-unresolvable-oid",
       "esc-0460-oce-realignment",
@@ -76,6 +80,7 @@
       "0467"
     ],
     "appliedThisRun": [
+      "0347",
       "0350",
       "0351",
       "0458",
@@ -5870,23 +5875,28 @@
       "table": "0347",
       "name": "State/Province",
       "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
+      "reason": "THO's v2-notAllCodes-0347 is wrong and is being retired under UP-901. This guide creates a new ValueSet/v2-0347 whose content logical definition is all codes from ISO 3166-2, referenced through THO's existing external code system record for it.",
       "written": [
-        "valueSets/vs-v2-notAllCodes-0347.xml"
+        "valueSets/vs-v2-0347.xml"
       ],
-      "systemUrl": "urn:iso:std:iso:3166",
-      "resolvedBy": "published URI",
-      "valueSetUrl": "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347",
-      "valueSetUrlNote": "Published at THO's existing canonical rather than one constructed from the table number.",
-      "valueSetVersion": {
-        "version": "3.0.0",
-        "reason": "Changed: compose.include, name, title.",
-        "incremented": true,
-        "triggers": [
-          "compose.include",
-          "name",
-          "title"
+      "systemUrl": "urn:iso:std:iso:3166:-2",
+      "resolvedBy": "committee ruling, esc-0347-iso3166",
+      "ruledReclassification": {
+        "table": "0347",
+        "registerItem": "esc-0347-iso3166",
+        "ruling": "THO's v2-notAllCodes-0347 is wrong and is being retired under UP-901. This guide creates a new ValueSet/v2-0347 whose content logical definition is all codes from ISO 3166-2, referenced through THO's existing external code system record for it.",
+        "rationale": [
+          "The chapter prints ISO 3166 part 1's URI, urn:iso:std:iso:3166, for a State/Province table, which is part 2 content; the chapter's own code system OID, 1.0.3166.2, is part 2's.",
+          "THO's NamingSystem/ISO3166Part2 is the active external record for part 2, with identifiers urn:oid:1.0.3166.2 and urn:iso:std:iso:3166:-2.",
+          "The canonical moves to ValueSet/v2-0347 by the same ruling; see RULED_CANONICALS."
         ],
+        "unresolvedSystem": null
+      },
+      "valueSetVersion": {
+        "version": "1.0.0",
+        "reason": "THO publishes no such artifact, so this is a first publication.",
+        "incremented": false,
+        "triggers": [],
         "judgement": [],
         "newArtifact": []
       }
@@ -12065,24 +12075,12 @@
     },
     {
       "table": "0725",
-      "name": "Mood Codes",
-      "action": "value-set-only",
-      "reason": "The code system belongs to another authority, so only the value set is ours to author.",
-      "written": [
-        "valueSets/vs-v2-0725.xml"
-      ],
-      "systemUrl": "http://terminology.hl7.org/CodeSystem/v3-ActMood",
-      "resolvedBy": "THO resolves OID 2.16.840.1.113883.5.1001",
-      "valueSetVersion": {
-        "version": "4.0.0",
-        "reason": "Changed: compose.include.",
-        "incremented": true,
-        "triggers": [
-          "compose.include"
-        ],
-        "judgement": [],
-        "newArtifact": []
-      }
+      "action": "suppressed-by-ruling",
+      "reason": "THO's ValueSet/v2-0725 is correct as it stands and is left as is. This guide includes no update to table 0725, which jettisons the chapter's code EXP.",
+      "registerItem": "esc-0725-missing-uri",
+      "consequence": "ValueSet/v2-0725 is not written. The guide had been publishing it at 4.0.0 with ten codes: THO's nine plus EXP 'Expectation', which is not a code in CodeSystem/v3-ActMood (qa.html flagged it as unknown). THO's 3.0.0 already carries EXPEC, the code EXP was meant to be, and the right system URI.",
+      "written": [],
+      "name": "Mood Codes"
     },
     {
       "table": "0726",

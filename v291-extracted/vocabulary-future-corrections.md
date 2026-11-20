@@ -21,6 +21,27 @@ free to change it.
 
 ---
 
+## Future Jira tickets
+
+**The list of Jira tickets to submit after this IG's content is incorporated
+into THO**, plus tickets already filed or raised separately so they are all in
+one place. Started 2026-11-20 from the V2+ tooling group's decisions. Keep each
+entry's status current: *to file*, *filed* (with the ticket), or *done*.
+
+| # | Ticket | Status | Source |
+|---|---|---|---|
+| J1 | **Recover the full text of 15 truncated ValueSet descriptions**: 0038, 0170, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544. Each stops mid-word at about 250 characters, in Chapter 2C and in THO alike. One more attempt is being made to get the full text from the source database (Frank); if it turns up before submission, fix the descriptions in this IG instead and drop this ticket. | to file | esc-truncated-value-set-descriptions, 2026-11-20 |
+| J2 | **Request OIDs from TSMG for new artifacts that have no usable OID.** `ValueSet/v2-0347` has none: the chapter's value set OID (2.16.840.1.113883.21.224) stays with THO's v2-notAllCodes-0347, which J3 retires. Also confirm whether these remain usable or need HL7 OIDs: `ValueSet/v2-0955` and `v2-0958` carry CDC PHIN VADS OIDs (2.16.840.1.114222.4.11.7187 / .7186), and PHIN VADS is being decommissioned; `ValueSet/v2-0823` carries a VSAC OID (2.16.840.1.113762.1.4.1021.33). Rule: any new artifact that never had an OID that remains usable needs one. | to file | User note, 2026-11-20 |
+| J3 | **Retire THO's `ValueSet/v2-notAllCodes-0347`.** It names ISO 3166 part 1 for a part 2 table and enumerates two codes; this IG replaces it with `ValueSet/v2-0347`. | filed: [UP-901](https://jira.hl7.org/browse/UP-901) | esc-0347-iso3166, 2026-11-20 |
+| J4 | **Retire THO's `ValueSet/v2-0567` and `v2-0568`.** The tables should never have been created; their CodeSystems are already retired. This IG does nothing with them. | to file | esc-0567-0568-deprecation, 2026-09-23 |
+| J5 | **External code system records for the CMS I/OCE code systems** used by 0458, 0459, 0460 (and the HCPCS system for 0467), so their value sets resolve. | raised (ticket number not recorded here) | esc-0459-unresolvable-oid |
+
+If the UCUM dimension filters on 0929–0932 (`canonical` = g, L, Cel, s)
+turn out not to be usable in practice, the fallback agreed on 2026-11-20 is to
+revert to "all codes" and add a ticket here to fix the definitions.
+
+---
+
 ## 001 — Cross-references to sections of V2, with no version attached
 
 **Raised** 2026-08-18 · **Scope** 5 tables, 97 places

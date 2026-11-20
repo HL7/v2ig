@@ -3,7 +3,7 @@ One section per table: **everything this guide publishes that differs from what 
 
 [What this guide keeps from THO](tho-merge.html) reports the same merge by *class* — what kinds of thing happened and how often. This page is the other axis. Use that page to understand the merge; use this one to check a table.
 
-Measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,274 observations across 432 tables.
+Measured against a local snapshot of the **`hl7.terminology.r5` package, version 7.3.0**, not against a live server. 8,261 observations across 430 tables.
 
 ### How to read a section
 
@@ -37,7 +37,7 @@ THO uses those same two arcs for those same two resource types, so the compariso
 
 ### Tables with a difference from THO or an open item
 
-**93 tables differ from THO** in at least one element that survived into the published artifact, **114 carry an open register item**, and **2 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
+**91 tables differ from THO** in at least one element that survived into the published artifact, **114 carry an open register item**, and **2 are blocked on a decision** and have nothing published for them yet. Everything else either matches THO on every element compared, or is content THO has never seen.
 
 This is about **content and governance**. Whether the right kind of artifact exists at all is a separate question, answered by [the tables whose artifact is missing, unexpected, or cannot expand](table-index.html#coverage-anomalies) on the table index — a much shorter list. A table can appear on both lists, on one, or on neither.
 
@@ -47,15 +47,15 @@ Each of these tables has its section heading shaded below, so the same informati
 
 <p class="tl-jump">Blocked on a decision: <a href="#tbl-0956">0956</a> <a href="#tbl-0963">0963</a></p>
 
-<p class="tl-jump">Differs from THO: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0012">0012</a> <a href="#tbl-0033">0033</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0048">0048</a> <a href="#tbl-0070">0070</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0083">0083</a> <a href="#tbl-0102">0102</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0106">0106</a> <a href="#tbl-0107">0107</a> <a href="#tbl-0108">0108</a> <a href="#tbl-0109">0109</a> <a href="#tbl-0119">0119</a> <a href="#tbl-0123">0123</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0136">0136</a> <a href="#tbl-0156">0156</a> <a href="#tbl-0157">0157</a> <a href="#tbl-0158">0158</a> <a href="#tbl-0174">0174</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0201">0201</a> <a href="#tbl-0202">0202</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0206">0206</a> <a href="#tbl-0208">0208</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0232">0232</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0287">0287</a> <a href="#tbl-0290">0290</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0301">0301</a> <a href="#tbl-0323">0323</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0338">0338</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0356">0356</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0369">0369</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0433">0433</a> <a href="#tbl-0434">0434</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0489">0489</a> <a href="#tbl-0496">0496</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0524">0524</a> <a href="#tbl-0529">0529</a> <a href="#tbl-0548">0548</a> <a href="#tbl-0555">0555</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0717">0717</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0834">0834</a> <a href="#tbl-0906">0906</a> <a href="#tbl-0907">0907</a> <a href="#tbl-0909">0909</a> <a href="#tbl-0912">0912</a> <a href="#tbl-0914">0914</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0937">0937</a> <a href="#tbl-0938">0938</a> <a href="#tbl-0945">0945</a> <a href="#tbl-0948">0948</a> <a href="#tbl-0949">0949</a> <a href="#tbl-0950">0950</a> <a href="#tbl-0951">0951</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0970">0970</a> <a href="#tbl-0971">0971</a> <a href="#tbl-4000">4000</a></p>
+<p class="tl-jump">Differs from THO: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0012">0012</a> <a href="#tbl-0033">0033</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0048">0048</a> <a href="#tbl-0070">0070</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0083">0083</a> <a href="#tbl-0102">0102</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0106">0106</a> <a href="#tbl-0107">0107</a> <a href="#tbl-0108">0108</a> <a href="#tbl-0109">0109</a> <a href="#tbl-0119">0119</a> <a href="#tbl-0123">0123</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0136">0136</a> <a href="#tbl-0156">0156</a> <a href="#tbl-0157">0157</a> <a href="#tbl-0158">0158</a> <a href="#tbl-0174">0174</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0201">0201</a> <a href="#tbl-0202">0202</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0206">0206</a> <a href="#tbl-0208">0208</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0232">0232</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0287">0287</a> <a href="#tbl-0290">0290</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0301">0301</a> <a href="#tbl-0323">0323</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0338">0338</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0356">0356</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0369">0369</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0433">0433</a> <a href="#tbl-0434">0434</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0489">0489</a> <a href="#tbl-0496">0496</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0524">0524</a> <a href="#tbl-0529">0529</a> <a href="#tbl-0548">0548</a> <a href="#tbl-0555">0555</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0717">0717</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0834">0834</a> <a href="#tbl-0906">0906</a> <a href="#tbl-0907">0907</a> <a href="#tbl-0909">0909</a> <a href="#tbl-0912">0912</a> <a href="#tbl-0914">0914</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0937">0937</a> <a href="#tbl-0938">0938</a> <a href="#tbl-0945">0945</a> <a href="#tbl-0948">0948</a> <a href="#tbl-0949">0949</a> <a href="#tbl-0950">0950</a> <a href="#tbl-0951">0951</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0970">0970</a> <a href="#tbl-0971">0971</a> <a href="#tbl-4000">4000</a></p>
 
 <p class="tl-jump">Open register item: <a href="#tbl-0001">0001</a> <a href="#tbl-0003">0003</a> <a href="#tbl-0005">0005</a> <a href="#tbl-0006">0006</a> <a href="#tbl-0010">0010</a> <a href="#tbl-0034">0034</a> <a href="#tbl-0038">0038</a> <a href="#tbl-0065">0065</a> <a href="#tbl-0066">0066</a> <a href="#tbl-0074">0074</a> <a href="#tbl-0076">0076</a> <a href="#tbl-0078">0078</a> <a href="#tbl-0093">0093</a> <a href="#tbl-0104">0104</a> <a href="#tbl-0125">0125</a> <a href="#tbl-0131">0131</a> <a href="#tbl-0133">0133</a> <a href="#tbl-0163">0163</a> <a href="#tbl-0170">0170</a> <a href="#tbl-0175">0175</a> <a href="#tbl-0180">0180</a> <a href="#tbl-0188">0188</a> <a href="#tbl-0191">0191</a> <a href="#tbl-0200">0200</a> <a href="#tbl-0203">0203</a> <a href="#tbl-0207">0207</a> <a href="#tbl-0211">0211</a> <a href="#tbl-0223">0223</a> <a href="#tbl-0227">0227</a> <a href="#tbl-0254">0254</a> <a href="#tbl-0255">0255</a> <a href="#tbl-0272">0272</a> <a href="#tbl-0277">0277</a> <a href="#tbl-0278">0278</a> <a href="#tbl-0279">0279</a> <a href="#tbl-0281">0281</a> <a href="#tbl-0291">0291</a> <a href="#tbl-0292">0292</a> <a href="#tbl-0294">0294</a> <a href="#tbl-0315">0315</a> <a href="#tbl-0326">0326</a> <a href="#tbl-0335">0335</a> <a href="#tbl-0340">0340</a> <a href="#tbl-0347">0347</a> <a href="#tbl-0350">0350</a> <a href="#tbl-0351">0351</a> <a href="#tbl-0354">0354</a> <a href="#tbl-0357">0357</a> <a href="#tbl-0359">0359</a> <a href="#tbl-0365">0365</a> <a href="#tbl-0366">0366</a> <a href="#tbl-0367">0367</a> <a href="#tbl-0389">0389</a> <a href="#tbl-0391">0391</a> <a href="#tbl-0392">0392</a> <a href="#tbl-0396">0396</a> <a href="#tbl-0399">0399</a> <a href="#tbl-0406">0406</a> <a href="#tbl-0411">0411</a> <a href="#tbl-0418">0418</a> <a href="#tbl-0440">0440</a> <a href="#tbl-0451">0451</a> <a href="#tbl-0456">0456</a> <a href="#tbl-0458">0458</a> <a href="#tbl-0459">0459</a> <a href="#tbl-0460">0460</a> <a href="#tbl-0466">0466</a> <a href="#tbl-0467">0467</a> <a href="#tbl-0468">0468</a> <a href="#tbl-0469">0469</a> <a href="#tbl-0470">0470</a> <a href="#tbl-0474">0474</a> <a href="#tbl-0487">0487</a> <a href="#tbl-0492">0492</a> <a href="#tbl-0505">0505</a> <a href="#tbl-0508">0508</a> <a href="#tbl-0510">0510</a> <a href="#tbl-0511">0511</a> <a href="#tbl-0513">0513</a> <a href="#tbl-0520">0520</a> <a href="#tbl-0523">0523</a> <a href="#tbl-0544">0544</a> <a href="#tbl-0560">0560</a> <a href="#tbl-0567">0567</a> <a href="#tbl-0568">0568</a> <a href="#tbl-0626">0626</a> <a href="#tbl-0675">0675</a> <a href="#tbl-0685">0685</a> <a href="#tbl-0719">0719</a> <a href="#tbl-0725">0725</a> <a href="#tbl-0767">0767</a> <a href="#tbl-0820">0820</a> <a href="#tbl-0821">0821</a> <a href="#tbl-0822">0822</a> <a href="#tbl-0823">0823</a> <a href="#tbl-0824">0824</a> <a href="#tbl-0827">0827</a> <a href="#tbl-0828">0828</a> <a href="#tbl-0895">0895</a> <a href="#tbl-0910">0910</a> <a href="#tbl-0916">0916</a> <a href="#tbl-0929">0929</a> <a href="#tbl-0930">0930</a> <a href="#tbl-0931">0931</a> <a href="#tbl-0932">0932</a> <a href="#tbl-0952">0952</a> <a href="#tbl-0953">0953</a> <a href="#tbl-0954">0954</a> <a href="#tbl-0956">0956</a> <a href="#tbl-0957">0957</a> <a href="#tbl-0959">0959</a> <a href="#tbl-0960">0960</a> <a href="#tbl-0962">0962</a> <a href="#tbl-0967">0967</a></p>
 
 <p class="tl-legend">
 <span class="tl-hd tl-hd-attention">Needs special consideration (1)</span>
 <span class="tl-hd tl-hd-decision">Blocked on a decision (2)</span>
-<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (39)</span>
-<span class="tl-hd tl-hd-issue">Carries an open register item (73)</span>
+<span class="tl-hd tl-hd-both">Differs from THO and carries an open register item (37)</span>
+<span class="tl-hd tl-hd-issue">Carries an open register item (75)</span>
 <span class="tl-hd tl-hd-diff">Differs from THO (54)</span>
 </p>
 
@@ -155,7 +155,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 - Code system **4.0.0** — Changed: concept, purpose.
 - Value set **4.0.0** — Changed: name, title.
 
-**Differences from THO (19).** Everything this guide publishes at THO's canonical that THO does not say, or says differently. A further 29 differ only in how the same content is written; those are listed separately below.
+**Differences from THO (19).** Everything this guide publishes at THO's canonical that THO does not say, or says differently. A further 30 differ only in how the same content is written; those are listed separately below.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
@@ -177,9 +177,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Disagreement | `concept.property` (status) | `X01` | deprecated | active | 25 other tables |
 | Disagreement | `name` | — | Hl7VSEvent | Hl7VSEventCode | only here |
 | Disagreement | `purpose` | — | Underlying Master Code System for V2 table 0003 (Event) | Underlying Master Code System for V2 table 0003 (Event Type) | 2 other tables |
-| Disagreement | `title` | — | hl7VS-event | hl7VS-eventCode | 1 other table |
+| Disagreement | `title` | — | hl7VS-event | hl7VS-eventCode | only here |
 
-**Written differently, saying the same thing (29).** The two sides style the same content differently, or THO carries a V2 status letter where this guide carries the FHIR status it maps to. **Nothing here needs a decision.** Each still counts as a change for versioning, and each is listed so that nothing is hidden.
+**Written differently, saying the same thing (30).** The two sides style the same content differently, or THO carries a V2 status letter where this guide carries the FHIR status it maps to. **Nothing here needs a decision.** Each still counts as a change for versioning, and each is listed so that nothing is hidden.
 
 | Element | Code | This guide publishes | THO has | Why it is not a disagreement |
 |---|---|---|---|---|
@@ -193,6 +193,7 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | `concept.property` (status) | `O54` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `O55` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `O56` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
+| `concept.property` (status) | `O57` | deprecated | B | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `O58` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `O59` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `R42` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
@@ -226,7 +227,10 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 **Open issues.**
 
 - `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
-- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management + TSMG*
+
+**Answered by a committee.**
+
+- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">The value B may safely be interpreted as deprecated. (N had already been mapped to active.)</span>
 
 <a id="tbl-0004"></a>
 
@@ -257,8 +261,8 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0005 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0005 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0005 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0005 | 25 other tables |
 
 **Open issues.**
 
@@ -404,9 +408,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Concept definitions kept from THO | 9 |
 | Translations kept from THO | 9 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0052"></a>
 
@@ -709,8 +713,11 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 **Open issues.**
 
 - `esc-0460-user-defined-mint` — What should a user-defined table produce? Three of them were treated three different ways — *V2 Management*
-- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
+
+**Answered by a committee.**
+
+- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Yes, concept domains should carry their example codes, in the definition, the way ActAppointmentType's definition lists its examples. Codes with definitions are fine. Collate every case in one place for review.</span>
 
 <a id="tbl-0098"></a>
 
@@ -970,7 +977,10 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 **Open issues.**
 
 - `esc-full-name-copy-paste` — The copy-pasted Full Name is not confined to the UCUM tables — *V2 Management* <span class="tl-note">(the register lists this table as an example; its list is not exhaustive)</span>
-- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management + TSMG*
+
+**Answered by a committee.**
+
+- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">The value B may safely be interpreted as deprecated. (N had already been mapped to active.)</span>
 
 <a id="tbl-0126"></a>
 
@@ -1073,8 +1083,8 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0133 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0133 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/CodeSystem/v2-0133 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0133 | 25 other tables |
 
 **Answered by a committee.**
 
@@ -1111,8 +1121,8 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `N` | No | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `Y` | Yes | — | 6 other tables |
+| Disagreement | `compose.include.concept.display` | `N` | No | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `Y` | Yes | — | 3 other tables |
 
 <a id="tbl-0137"></a>
 
@@ -1493,9 +1503,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Concept definitions kept from THO | 3 |
 | Translations kept from THO | 3 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0173"></a>
 
@@ -2300,7 +2310,10 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 **Open issues.**
 
 - `esc-tho-descriptions-say-more` — Two THO descriptions carry text the chapter's do not, including THO documenting its own error — *V2 Management + TSMG*
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+
+**Answered by a committee.**
+
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0228"></a>
 
@@ -2716,9 +2729,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Concept definitions kept from THO | 102 |
 | Usage notes kept from THO | 70 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0255"></a>
 
@@ -3242,21 +3255,21 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `BASIC` | ISDN PCM audio data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `DICOM` | Digital Imaging and Communications in Medicine | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `FAX` | Facsimile data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `GIF` | Graphics Interchange Format | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `HTML` | Hypertext Markup Language | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `JOT` | Electronic ink data (Jot 1.0 standard) | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `JPEG` | Joint Photographic Experts Group | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `Octet-stream` | Uninterpreted binary data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `PICT` | PICT format image data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `PostScript` | PostScript program | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `RTF` | Rich Text Format | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `SGML` | Standard Generalized Markup Language (HL7 V2.3.1 and later) | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `TIFF` | TIFF image data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `XML` | Extensible Markup Language (HL7 V2.3.1 and later) | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `x-hl7-cda-level-one` | HL7 Clinical Document Architecture Level One document | — | 6 other tables |
+| Disagreement | `compose.include.concept.display` | `BASIC` | ISDN PCM audio data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `DICOM` | Digital Imaging and Communications in Medicine | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `FAX` | Facsimile data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `GIF` | Graphics Interchange Format | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `HTML` | Hypertext Markup Language | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `JOT` | Electronic ink data (Jot 1.0 standard) | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `JPEG` | Joint Photographic Experts Group | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `Octet-stream` | Uninterpreted binary data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `PICT` | PICT format image data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `PostScript` | PostScript program | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `RTF` | Rich Text Format | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `SGML` | Standard Generalized Markup Language (HL7 V2.3.1 and later) | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `TIFF` | TIFF image data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `XML` | Extensible Markup Language (HL7 V2.3.1 and later) | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `x-hl7-cda-level-one` | HL7 Clinical Document Architecture Level One document | — | 3 other tables |
 
 **Kept from THO (19).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -3474,9 +3487,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 |---|---:|
 | Concept definitions kept from THO | 5 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0316"></a>
 
@@ -3594,9 +3607,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Usage notes kept from THO | 1 |
 | Concept definitions kept from THO | 1 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0329"></a>
 
@@ -3693,9 +3706,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Concept definitions kept from THO | 28 |
 | Comments-as-published kept from THO | 9 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0336"></a>
 
@@ -3742,18 +3755,18 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `CY` | County number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `DEA` | Drug Enforcement Agency no. | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `GL` | General ledger number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `L&I` | Labor and industries number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `LI` | Labor and industries number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `MCD` | Medicaid number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `MCR` | Medicare number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `QA` | QA number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `SL` | State license number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `TAX` | Tax ID number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `TRL` | Training license number | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `UPIN` | Unique physician ID no. | — | 6 other tables |
+| Disagreement | `compose.include.concept.display` | `CY` | County number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `DEA` | Drug Enforcement Agency no. | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `GL` | General ledger number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `L&I` | Labor and industries number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `LI` | Labor and industries number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `MCD` | Medicaid number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `MCR` | Medicare number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `QA` | QA number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `SL` | State license number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `TAX` | Tax ID number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `TRL` | Training license number | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `UPIN` | Unique physician ID no. | — | 3 other tables |
 
 <a id="tbl-0339"></a>
 
@@ -3783,7 +3796,10 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 **Open issues.**
 
 - `esc-0340-code-grid-misuse` — Table 0340's code grid lists code systems, not codes — *V2 Management*
-- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management*
+
+**Answered by a committee.**
+
+- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Yes, concept domains should carry their example codes, in the definition, the way ActAppointmentType's definition lists its examples. Codes with definitions are fine. Collate every case in one place for review.</span>
 
 <a id="tbl-0344"></a>
 
@@ -3810,23 +3826,17 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 
 *Route: value set only.*
 
-- Value set **3.0.0** — Changed: compose.include, name, title.
+- Value set **1.0.0** — THO publishes no such artifact, so this is a first publication.
 
-**Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently. A further 1 differ only in how the same content is written; those are listed separately below.
+**Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `title` | — | hl7VS-stateProvince | HL7 Value Set for State/Province | 1 other table |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">THO's v2-notAllCodes-0347 is wrong and is being retired under UP-901. This guide creates a new ValueSet/v2-0347 whose content logical definition is a…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347 | 25 other tables |
 
-**Written differently, saying the same thing (1).** The two sides style the same content differently, or THO carries a V2 status letter where this guide carries the FHIR status it maps to. **Nothing here needs a decision.** Each still counts as a change for versioning, and each is listed so that nothing is hidden.
+**Answered by a committee.**
 
-| Element | Code | This guide publishes | THO has | Why it is not a disagreement |
-|---|---|---|---|---|
-| `name` | — | Hl7VSStateProvince | Hl7VsStateProvince | Same words; only capitalisation differs. <b>THO is the less capitalised side</b> — which may be correct style or may be a lost capital, so it is shown here rather than absorbed. |
-
-**Open issues.**
-
-- `esc-0347-iso3166` — Table 0347 _State/Province_ gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes” — *V2 Management*
+- `esc-0347-iso3166` — Table 0347 _State/Province_ gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes” — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">THO's v2-notAllCodes-0347 is wrong; a separate ticket, UP-901, retires it. This guide creates a new ValueSet/v2-0347 with the correct system and a content logical definition of all codes from ISO 3166-2, using THO's existing external code system record for ISO 3166-2.</span>
 
 <a id="tbl-0350"></a>
 
@@ -4006,12 +4016,15 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 - Code system **4.0.0** — Changed: concept.
 - Value set **3.0.0** — Nothing the policy counts as a change, so THO's version stands.
 
-**Written differently, saying the same thing (2).** The two sides style the same content differently, or THO carries a V2 status letter where this guide carries the FHIR status it maps to. **Nothing here needs a decision.** Each still counts as a change for versioning, and each is listed so that nothing is hidden.
+**Written differently, saying the same thing (5).** The two sides style the same content differently, or THO carries a V2 status letter where this guide carries the FHIR status it maps to. **Nothing here needs a decision.** Each still counts as a change for versioning, and each is listed so that nothing is hidden.
 
 | Element | Code | This guide publishes | THO has | Why it is not a disagreement |
 |---|---|---|---|---|
 | `concept.property` (status) | `198` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `199` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
+| `concept.property` (status) | `204` | deprecated | B | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
+| `concept.property` (status) | `205` | deprecated | B | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
+| `concept.property` (status) | `206` | deprecated | B | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 
 **Kept from THO (37).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -4021,9 +4034,9 @@ blockquote.tl-callout { border-left: 7px solid #94241a;
 | Translations kept from THO | 13 |
 | Concept definitions kept from THO | 10 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management + TSMG*
+- `esc-status-n-b-undefined` — The concept statuses `N` and `B` are defined nowhere; `N` is now mapped, `B` is not — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">The value B may safely be interpreted as deprecated. (N had already been mapped to active.)</span>
 
 <a id="tbl-0359"></a>
 
@@ -4398,9 +4411,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 4 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0391"></a>
 
@@ -4442,9 +4455,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 4 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0393"></a>
 
@@ -4681,7 +4694,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The correct value set for table 0399 already exists in THO, ValueSet/v2-notAllCodes-0399. It is the one to use; this guide creates nothing for the ta…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The correct value set for table 0399 already exists in THO, ValueSet/v2-notAllCodes-0399. It is the one to use; this guide creates nothing for the ta…</span> | http://terminology.hl7.org/ValueSet/v2-notAllCodes-0399 | 25 other tables |
 
 **Answered by a committee.**
 
@@ -4765,9 +4778,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 7 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0409"></a>
 
@@ -5320,9 +5333,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: concept domain only.*
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management*
+- `esc-domain-example-codes` — Where should a concept domain’s example codes live? — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Yes, concept domains should carry their example codes, in the definition, the way ActAppointmentType's definition lists its examples. Codes with definitions are fine. Collate every case in one place for review.</span>
 
 <a id="tbl-0456"></a>
 
@@ -5337,7 +5350,7 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0456 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Declared concept domain only. A binding to a domain needs no value set.</span> | http://terminology.hl7.org/ValueSet/v2-0456 | 25 other tables |
 
 **Answered by a committee.**
 
@@ -6105,9 +6118,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 11 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0510"></a>
 
@@ -6128,9 +6141,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | Concept definitions kept from THO | 11 |
 | Comments-as-published kept from THO | 11 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0511"></a>
 
@@ -6150,9 +6163,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 6 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0513"></a>
 
@@ -6173,9 +6186,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 | `concept.property` (status) | `TI` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 | `concept.property` (status) | `TS` | active | N | THO carries the V2 status letter; this guide publishes the FHIR status it maps to. The mapping is settled. |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0514"></a>
 
@@ -6257,9 +6270,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 |---|---:|
 | Concept definitions kept from THO | 3 |
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0523"></a>
 
@@ -6450,7 +6463,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - `esc-deprecation-flag-contradicts-status` — 191 concepts say they are active and deprecated as of 2.9 at the same time — *V2 Management*
 - `esc-punctuation-codes` — Twenty-three concepts have a code that is nothing but punctuation — *V2 Management + TSMG*
-- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management*
+
+**Answered by a committee.**
+
+- `esc-truncated-value-set-descriptions` — Sixteen Value Set descriptions stop mid-word, all at about 250 characters — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.</span>
 
 <a id="tbl-0547"></a>
 
@@ -6754,17 +6770,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is…</span> | http://terminology.hl7.org/ValueSet/v2-0567 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is…</span> | http://terminology.hl7.org/ValueSet/v2-0567 | 25 other tables |
 
 **Open issues.**
 
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
-- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
 
 **Answered by a committee.**
 
 - `esc-0567-0568-deprecation` — Chapter 2C deprecates tables 0567 and 0568 — does anything in THO get deprecated with them? — *V2 Management, 2026-09-23*<br/><span class="tl-note">Tables 0567 and 0568 should never have been created. Their value sets will be retired, but not by this IG and not as part of this load: a separate Jira ticket will be raised against THO to retire `ValueSet/v2-0567` and `ValueSet/v2-0568`. This IG is to do nothing with them.</span>
 - `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *V2 Management, 2026-09-23*<br/><span class="tl-note">Both halves are settled, and neither lands on this IG. The 0567/0568 retirement goes to THO as a separate Jira ticket, so no deprecation needs representing here. For table 0005, the value set stays and the code system is correctly retired already; this IG will not link the value set and should not inform any change to it.</span>
+- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *Project lead, 2026-11-20*<br/><span class="tl-note">Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.</span>
 
 <a id="tbl-0568"></a>
 
@@ -6779,17 +6795,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is…</span> | http://terminology.hl7.org/ValueSet/v2-0568 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">Tables 0567 and 0568 should never have been created. Their value sets will be retired by a separate Jira ticket against THO, not by this IG, which is…</span> | http://terminology.hl7.org/ValueSet/v2-0568 | 25 other tables |
 
 **Open issues.**
 
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
-- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
 
 **Answered by a committee.**
 
 - `esc-0567-0568-deprecation` — Chapter 2C deprecates tables 0567 and 0568 — does anything in THO get deprecated with them? — *V2 Management, 2026-09-23*<br/><span class="tl-note">Tables 0567 and 0568 should never have been created. Their value sets will be retired, but not by this IG and not as part of this load: a separate Jira ticket will be raised against THO to retire `ValueSet/v2-0567` and `ValueSet/v2-0568`. This IG is to do nothing with them.</span>
 - `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *V2 Management, 2026-09-23*<br/><span class="tl-note">Both halves are settled, and neither lands on this IG. The 0567/0568 retirement goes to THO as a separate Jira ticket, so no deprecation needs representing here. For table 0005, the value set stays and the code system is correctly retired already; this IG will not link the value set and should not inform any change to it.</span>
+- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *Project lead, 2026-11-20*<br/><span class="tl-note">Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.</span>
 
 <a id="tbl-0569"></a>
 
@@ -7262,33 +7278,17 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 <p class="tl-why tl-why-both">Differs from THO · Open register item</p>
 
-*Route: value set only.*
+*Route: withheld on a ruling.*
 
-- Value set **4.0.0** — Changed: compose.include.
-
-**Differences from THO (9).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
+**Differences from THO (1).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `APT` | Appointment | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `ARQ` | Appointment Request | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `EVN` | Event | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `EVN.CRT` | Event Criterion | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `INT` | Intent | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `PRMS` | Promise | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `PRP` | Proposal | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `RQO` | Request-Order | — | 6 other tables |
-| Added here | `compose.include.concept` | `EXP` | Expectation | nothing | only here |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">THO's ValueSet/v2-0725 is correct as it stands and is left as is. This guide includes no update to table 0725, which jettisons the chapter's code EXP.</span> | http://terminology.hl7.org/ValueSet/v2-0725 | 25 other tables |
 
-**Kept from THO (1).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
+**Answered by a committee.**
 
-| What | Count |
-|---|---:|
-| Value set members kept from THO | 1 |
-
-**Open issues.**
-
-- `esc-0725-missing-uri` — Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from — *V2 Management*
+- `esc-0725-missing-uri` — Table 0725 _Mood Codes_ omits the URI of the v3 code system it draws from — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">THO's current ValueSet/v2-0725 is correct as it stands and is left as is. This guide includes no update to table 0725, which jettisons the code EXP. The goal is to fix what can be fixed; an intractable item may simply be left out of this IG.</span>
 
 <a id="tbl-0728"></a>
 
@@ -7587,12 +7587,9 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 *Route: withheld on a ruling.*
 
-**Open issues.**
-
-- `esc-0821-blank-grid` — Table 0821 _Gender Identity_ publishes its coded content grid completely blank — *V2 Management*
-
 **Answered by a committee.**
 
+- `esc-0821-blank-grid` — Table 0821 _Gender Identity_ publishes its coded content grid completely blank — *Project lead, 2026-11-20*<br/><span class="tl-note">The blank grid is a defect in Chapter 2C only. This IG cares about what goes into THO, and for 0821 that was settled by the ruling to use THO's ValueSet/gender-identity.</span>
 - `esc-served-by-existing-tho-value-sets` — Seven tables are already served by a value set THO publishes, and this guide was about to write a second one — *V2 Management, 2026-11-05*<br/><span class="tl-note">For each of these tables the correct value set already exists in THO and should be used. No new value set and no code system is to be created. There is nothing this guide is using them _instead of_, so nothing needs to be retired or pointed away from — the artifacts simply are not written.</span>
 
 <a id="tbl-0822"></a>
@@ -7682,13 +7679,13 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `application` | Application data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `audio` | Audio data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `image` | Image data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `model` | Model data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `multipart` | MIME multipart package | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `text` | Text data | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `video` | Video data | — | 6 other tables |
+| Disagreement | `compose.include.concept.display` | `application` | Application data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `audio` | Audio data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `image` | Image data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `model` | Model data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `multipart` | MIME multipart package | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `text` | Text data | — | 3 other tables |
+| Disagreement | `compose.include.concept.display` | `video` | Video data | — | 3 other tables |
 
 **Kept from THO (8).** Content THO publishes that Chapter 2C says nothing about. None of it changes the artifact relative to THO, so none of it costs a version increment.
 
@@ -8196,63 +8193,46 @@ Nothing to report: what this guide publishes matches THO on every element compar
 <a id="tbl-0929"></a>
 
 #### 0929 — Weight Units
-{: .tl-hd .tl-hd-both}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
 - Value set **4.0.0** — Changed: compose.include.
 
-**Differences from THO (4).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
-
-| Difference | Element | Code | This guide publishes | THO has | Also affects |
-|---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `[lb_av]` | Pound | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `[oz_av]` | Ounce | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `g` | Gram | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `kg` | Kilogram | — | 6 other tables |
-
 **Open issues.**
 
-- `esc-0929-0930-enumerated-subset` — Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity? — *V2 Management*
-- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management*
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
-- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
 
 **Answered by a committee.**
 
 - `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *V2 Management, 2026-09-23*<br/><span class="tl-note">Both halves are settled, and neither lands on this IG. The 0567/0568 retirement goes to THO as a separate Jira ticket, so no deprecation needs representing here. For table 0005, the value set stays and the code system is correctly retired already; this IG will not link the value set and should not inform any change to it.</span>
+- `esc-0929-0930-enumerated-subset` — Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity? — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">No, the short lists are wrong. The value sets should filter UCUM for the intended units.</span>
+- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">For the UCUM tables, define the value sets by filtering UCUM to the relevant units rather than by the chapter's inconsistent wording.</span>
+- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *Project lead, 2026-11-20*<br/><span class="tl-note">Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.</span>
 
 <a id="tbl-0930"></a>
 
 #### 0930 — Volume Units
-{: .tl-hd .tl-hd-both}
+{: .tl-hd .tl-hd-issue}
 
-<p class="tl-why tl-why-both">Differs from THO · Open register item</p>
+<p class="tl-why tl-why-issue">Open register item</p>
 
 *Route: value set only.*
 
 - Value set **3.0.0** — Changed: compose.include.
 
-**Differences from THO (3).** Everything this guide publishes at THO's canonical that THO does not say, or says differently.
-
-| Difference | Element | Code | This guide publishes | THO has | Also affects |
-|---|---|---|---|---|---|
-| Disagreement | `compose.include.concept.display` | `[pt_us]` | Pint | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `l` | Liter | — | 6 other tables |
-| Disagreement | `compose.include.concept.display` | `ml` | Milliliters | — | 6 other tables |
-
 **Open issues.**
 
-- `esc-0929-0930-enumerated-subset` — Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity? — *V2 Management*
-- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management*
 - `esc-duplicate-tables` — Two pairs of tables are duplicates of each other — *V2 Management*
-- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
 
 **Answered by a committee.**
 
 - `esc-0567-0568-representation` — Deprecating a V2 value set in THO has no established representation, and would be a first — *V2 Management, 2026-09-23*<br/><span class="tl-note">Both halves are settled, and neither lands on this IG. The 0567/0568 retirement goes to THO as a separate Jira ticket, so no deprecation needs representing here. For table 0005, the value set stays and the code system is correctly retired already; this IG will not link the value set and should not inform any change to it.</span>
+- `esc-0929-0930-enumerated-subset` — Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity? — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">No, the short lists are wrong. The value sets should filter UCUM for the intended units.</span>
+- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">For the UCUM tables, define the value sets by filtering UCUM to the relevant units rather than by the chapter's inconsistent wording.</span>
+- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *Project lead, 2026-11-20*<br/><span class="tl-note">Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.</span>
 
 <a id="tbl-0931"></a>
 
@@ -8265,11 +8245,11 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - Value set **3.0.0** — Changed: compose.include.
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-0931-temperature` — Table 0931 _Temperature Units_ publishes three codes, two of which are the same unit, and one of which is invalid — *V2 Management*
-- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management*
-- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
+- `esc-0931-temperature` — Table 0931 _Temperature Units_ publishes three codes, two of which are the same unit, and one of which is invalid — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">Express the intended units with a filter in ValueSet.compose.include rather than reproducing the chapter's list or including all of UCUM. If no usable filter exists, leave all codes and add it to the future Jira list.</span>
+- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">For the UCUM tables, define the value sets by filtering UCUM to the relevant units rather than by the chapter's inconsistent wording.</span>
+- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *Project lead, 2026-11-20*<br/><span class="tl-note">Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.</span>
 
 <a id="tbl-0932"></a>
 
@@ -8282,10 +8262,10 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 - Value set **3.0.0** — Changed: compose.include.
 
-**Open issues.**
+**Answered by a committee.**
 
-- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management*
-- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *V2 Management*
+- `esc-cld-inconsistent` — “All codes” is used where a value set enumerates a handful of UCUM codes — *V2 Management (V2+ tooling group), 2026-11-20*<br/><span class="tl-note">For the UCUM tables, define the value sets by filtering UCUM to the relevant units rather than by the chapter's inconsistent wording.</span>
+- `esc-ucum-full-name` — All six UCUM-backed tables name the code system “Donation Duration Units Code System” — *Project lead, 2026-11-20*<br/><span class="tl-note">Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.</span>
 
 <a id="tbl-0933"></a>
 
@@ -8879,8 +8859,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0012 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0012 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0012 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0012 | 25 other tables |
 
 <a id="tbl-0033"></a>
 
@@ -8895,8 +8875,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0033 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0033 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0033 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0033 | 25 other tables |
 
 <a id="tbl-0034"></a>
 
@@ -8911,8 +8891,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0034 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0034 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0034 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0034 | 25 other tables |
 
 **Open issues.**
 
@@ -8931,8 +8911,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0048 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0048 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0048 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0048 | 25 other tables |
 
 <a id="tbl-0070"></a>
 
@@ -8947,8 +8927,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0070 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0070 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0070 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0070 | 25 other tables |
 
 <a id="tbl-0102"></a>
 
@@ -8963,8 +8943,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0102 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0102 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0102 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0102 | 25 other tables |
 
 <a id="tbl-0106"></a>
 
@@ -8979,8 +8959,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0106 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0106 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0106 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0106 | 25 other tables |
 
 <a id="tbl-0107"></a>
 
@@ -8995,8 +8975,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0107 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0107 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0107 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0107 | 25 other tables |
 
 <a id="tbl-0108"></a>
 
@@ -9011,8 +8991,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0108 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0108 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0108 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0108 | 25 other tables |
 
 <a id="tbl-0109"></a>
 
@@ -9027,8 +9007,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0109 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0109 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0109 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0109 | 25 other tables |
 
 <a id="tbl-0156"></a>
 
@@ -9043,8 +9023,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0156 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0156 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0156 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0156 | 25 other tables |
 
 <a id="tbl-0157"></a>
 
@@ -9059,8 +9039,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0157 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0157 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0157 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0157 | 25 other tables |
 
 <a id="tbl-0158"></a>
 
@@ -9075,8 +9055,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0158 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0158 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0158 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0158 | 25 other tables |
 
 <a id="tbl-0290"></a>
 
@@ -9091,8 +9071,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0290 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0290 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0290 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0290 | 25 other tables |
 
 <a id="tbl-0323"></a>
 
@@ -9107,8 +9087,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0323 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0323 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0323 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0323 | 25 other tables |
 
 <a id="tbl-0524"></a>
 
@@ -9123,8 +9103,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0524 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0524 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0524 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0524 | 25 other tables |
 
 <a id="tbl-0529"></a>
 
@@ -9139,8 +9119,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0529 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0529 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-0529 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-0529 | 25 other tables |
 
 <a id="tbl-4000"></a>
 
@@ -9155,8 +9135,8 @@ Nothing to report: what this guide publishes matches THO on every element compar
 
 | Difference | Element | Code | This guide publishes | THO has | Also affects |
 |---|---|---|---|---|---|
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-4000 | 23 other tables |
-| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-4000 | 23 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/CodeSystem/v2-4000 | 25 other tables |
+| Not published | `resource` | — | nothing<br/><span class="tl-note">The chapter has no section for it.</span> | http://terminology.hl7.org/ValueSet/v2-4000 | 25 other tables |
 
 ### The remaining tables
 

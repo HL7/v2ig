@@ -427,6 +427,13 @@ ESCALATIONS = [
             "This project reuses THO's value set in the meantime, so nothing "
             "is blocked &mdash; but the published chapter is missing content "
             "and a reader of the PDF cannot tell what the table contains.",
+        "resolution": {
+            "who": "Project lead",
+            "forum": "Review of the open-items list",
+            "date": "2026-11-20",
+            "ruling": "The blank grid is a defect in Chapter 2C only. This IG cares about what goes into THO, and for 0821 that was settled by the ruling to use THO's ValueSet/gender-identity.",
+            "effect": "No change. ValueSet/v2-0821 remains withheld (RULED_SUPPRESSIONS, esc-served-by-existing-tho-value-sets); THO's ValueSet/gender-identity serves.",
+        },
     },
     {
         "id": "esc-0931-temperature",
@@ -459,6 +466,13 @@ ESCALATIONS = [
             "separately: "
             "should 0931 be filled out into an actual set of temperature "
             "units, or is the two-code set intentional?",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "Express the intended units with a filter in ValueSet.compose.include rather than reproducing the chapter's list or including all of UCUM. If no usable filter exists, leave all codes and add it to the future Jira list.",
+            "effect": "A usable filter exists: UCUM's canonical filter. ValueSet/v2-0931 now includes every UCUM unit comparable to Cel, i.e. every temperature unit. The invalid degF code question disappears with the enumeration.",
+        },
     },
     {
         "id": "esc-ucum-full-name",
@@ -489,6 +503,13 @@ ESCALATIONS = [
             "no CodeSystem, and the ValueSet takes its name and description "
             "from the Value Set block rather than the Code System block. The "
             "correction is to the chapter, and to the report that mirrors it.",
+        "resolution": {
+            "who": "Project lead",
+            "forum": "Review of the open-items list",
+            "date": "2026-11-20",
+            "ruling": "Obviously wrong in Chapter 2C, already discussed, and dropped: it changes nothing that goes into THO.",
+            "effect": "Verified 2026-11-20: no resource this guide publishes contains the name “Donation Duration Units Code System”. UCUM is external, so these tables produce value sets only, and 0567/0568 are withheld by ruling.",
+        },
     },
     {
         "id": "esc-full-name-copy-paste",
@@ -611,6 +632,13 @@ ESCALATIONS = [
             "Two technical corrections &mdash; the URI, and the Content "
             "Logical Definition. Neither should be contentious, but both "
             "change published text.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "THO's v2-notAllCodes-0347 is wrong; a separate ticket, UP-901, retires it. This guide creates a new ValueSet/v2-0347 with the correct system and a content logical definition of all codes from ISO 3166-2, using THO's existing external code system record for ISO 3166-2.",
+            "effect": "Written as ValueSet/v2-0347 (RULED_CANONICALS and RULED_RECLASSIFICATIONS) composing over urn:iso:std:iso:3166:-2, the identifier of THO's NamingSystem/ISO3166Part2. It carries no OID: the chapter's value set OID is still on the artifact being retired, and a new one is to be requested from TSMG (future Jira list).",
+        },
     },
     {
         "id": "esc-cld-inconsistent",
@@ -632,6 +660,13 @@ ESCALATIONS = [
             "specific mapping to <code>ValueSet.compose</code>, or is it "
             "informal prose? The answer affects how every one of the 438 "
             "value set blocks in the chapter is translated.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "For the UCUM tables, define the value sets by filtering UCUM to the relevant units rather than by the chapter's inconsistent wording.",
+            "effect": "0929-0932 are each defined by UCUM's canonical filter: units comparable to g (mass), L (volume), Cel (temperature) and s (time). See UCUM_DIMENSION_FILTERS in write_utg_xml.py.",
+        },
     },
     {
         "id": "esc-duplicate-tables",
@@ -752,6 +787,13 @@ ESCALATIONS = [
         # and their descriptions would drift the first time the corpus is
         # re-extracted. See `truncation_evidence`.
         "evidence": truncation_evidence,
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "Leave the descriptions as they are for now. One more attempt will be made to recover the full text from the source database; failing that, fixing them goes on the list of Jira tickets to submit after this IG's content is incorporated into THO.",
+            "effect": "No change to the published descriptions, which match THO. Added to the future Jira list in vocabulary-future-corrections.md.",
+        },
     },
     {
         "id": "esc-punctuation-codes",
@@ -1674,6 +1716,13 @@ ESCALATIONS = [
             "example codes. Confirm that shape, or name another. Until it is "
             "decided the example codes are extracted and held but not "
             "published anywhere.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "Yes, concept domains should carry their example codes, in the definition, the way ActAppointmentType's definition lists its examples. Codes with definitions are fine. Collate every case in one place for review.",
+            "effect": "The example codes Chapter 2C prints for concept-domain-only tables are appended to the concept domain's definition under an Examples heading, in ActAppointmentType's format. The cases are listed together for review.",
+        },
     },
     {
         "id": "esc-tables-that-should-be-domains",
@@ -2146,6 +2195,13 @@ ESCALATIONS = [
             "not, these are two value sets that need rebuilding and the "
             "replacement tables inherited the defect they were meant to "
             "replace.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "No, the short lists are wrong. The value sets should filter UCUM for the intended units.",
+            "effect": "ValueSet/v2-0929 is every UCUM unit comparable to g, and ValueSet/v2-0930 every unit comparable to L, replacing the short enumerations.",
+        },
     },
     {
         "id": "esc-0823-not-in-tho",
@@ -2389,6 +2445,13 @@ ESCALATIONS = [
             "<code>http://terminology.hl7.org/CodeSystem/v3-ActMood</code> "
             "and replace the <code>tbd</code> description. Nothing in the "
             "generated output changes.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "THO's current ValueSet/v2-0725 is correct as it stands and is left as is. This guide includes no update to table 0725, which jettisons the code EXP. The goal is to fix what can be fixed; an intractable item may simply be left out of this IG.",
+            "effect": "ValueSet/v2-0725 is withheld through RULED_SUPPRESSIONS, so THO's 3.0.0 stands, with EXPEC and the correct v3-ActMood system URI. The chapter's missing URI is a Chapter 2C defect only.",
+        },
     },
     {
         "id": "esc-0340-code-grid-misuse",
@@ -3120,6 +3183,13 @@ ESCALATIONS = [
             "disagreements are still recorded, because mapping "
             "<code>N</code> does not make the underlying divergence go "
             "away.",
+        "resolution": {
+            "who": "V2 Management (V2+ tooling group)",
+            "forum": "V2+ tooling group meeting",
+            "date": "2026-11-20",
+            "ruling": "The value B may safely be interpreted as deprecated. (N had already been mapped to active.)",
+            "effect": "STATUS_MAP maps B to deprecated, so the four concepts that carried it (0003 O57; 0357 204, 205, 206) now publish status deprecated, a legal value of the property.",
+        },
     },
     {
         "id": "esc-deprecation-flag-contradicts-status",

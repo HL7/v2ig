@@ -1283,11 +1283,12 @@ BATCH_A_DEFAULTS = [
         "414 of 416 UTG CodeSystems and 437 of 439 ValueSets carry "
         "<code>2019-12-01</code> &mdash; the date of the bulk v2 load, not a "
         "date anyone chose per resource.",
-        "Using it for new content asserts the resource existed in 2019, which "
-        "is false. The alternatives are the date this work is published, or "
-        "omitting <code>date</code> on new resources. Note that a build date "
-        "would churn on every regeneration, which is why it is not a "
-        "generated value today.",
+        "<b>Decided (2026-11-20, V2+ tooling group): keep "
+        "<code>2019-12-01</code>, knowingly.</b> It is wrong for the eight "
+        "value sets THO has never published, but among the problems that "
+        "could cause real-world harm it is extremely unlikely to affect "
+        "interoperability or patient safety. <code>DEFAULT_DATE</code> "
+        "stays as it is.",
     ),
     (
         "<code>status</code>, <code>experimental</code>",

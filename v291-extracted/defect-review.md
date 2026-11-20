@@ -1,6 +1,6 @@
 # Chapter 2C defects, grouped for decision
 
-Review list for V2 Management — 33 open findings.
+Review list for V2 Management — 23 open findings.
 
 This document replaces the blanket policy question `esc-retain-known-errors`. V2 Management ruled on 2026-10-08 that There is no one-size-fits-all answer to reproduce-or-correct. It has to be decided per class of defect and possibly case by case, with individual issues reviewed for decision.
 
@@ -8,91 +8,11 @@ Findings are grouped by class and ordered so the classes needing the cheapest an
 
 ---
 
-## Content lost in publication (2)
-
-The chapter is missing content it was meant to carry, and in each case the intended content is recoverable or evidenced. Nothing here is a disagreement about what the standard should say — only about what the published document failed to say.
-
-**Cost of granting the class:** Republish the affected block. No change to meaning, so nothing to ballot.
-
-### Table 0821 Gender Identity publishes its coded content grid completely blank
-
-**Tables:** 0821  
-**Goes to:** V2 Management  
-**Register id:** `esc-0821-blank-grid`
-
-*Why this class: Six rows by five columns, every cell empty, in a fully populated section. THO's matching value set holds exactly the five concepts the row count implies.*
-
-The grid is six rows by five columns and every cell is empty, while the section around it is fully populated: three code systems (SNOMED CT, FHIR DataAbsentReason, V3 NullFlavor), three code system versions, and a value set. Both extraction pipelines independently find zero codes, so this is the document rather than the tooling. The row count is the tell. Six rows is a header plus five code rows, and THO's ValueSet/gender-identity — whose OID 2.16.840.1.113883.4.642.3.3291 is exactly the one Chapter 2C prints for this value set — holds exactly five concepts: three SNOMED CT gender identities, asked-declined, and UNK. The grid was meant to carry those five and lost them somewhere in publication. Compare table 0823 Sexual Orientation, built the same way, which prints its codes. Minor, in the same section: the value set description runs two sentences together with no space — “…within their community.Used in HL7 Version 2.x messages”.
-
-**What this guide publishes today:**
-
-- `0821` Gender Identity: withheld on a ruling
-
-**Decision needed:** Confirm the five intended codes and republish the grid. This project reuses THO's value set in the meantime, so nothing is blocked — but the published chapter is missing content and a reader of the PDF cannot tell what the table contains.
-
----
-
-### Sixteen Value Set descriptions stop mid-word, all at about 250 characters
-
-**Tables:** 0038, 0170, 0227, 0254, 0315, 0326, 0335, 0389, 0392, 0406, 0508, 0510, 0511, 0513, 0520, 0544  
-**Goes to:** V2 Management  
-**Register id:** `esc-truncated-value-set-descriptions`
-
-*Why this class: Sixteen descriptions stop mid-word at about 250 characters. The cut-off is uniform, so the loss is at publication.*
-
-Found while checking a generated resource rather than by looking for it. Table 0227's value set description ends “… the code system may be acce”. Sweeping the corpus for the same shape found sixteen Value Set descriptions that end without terminal punctuation, every one of them between 242 and 252 characters long. Nothing else in the chapter behaves this way: Code System descriptions run to 500 and 800 characters and end in complete sentences, and the same tables' own table-level descriptions are complete — 0227's runs to 582 characters and finishes cleanly. So this is not extraction loss and not an authoring habit; it is a length cap of roughly 250 characters applied to one field somewhere in the publication toolchain. This one does reach the output. Unlike the Full Name defects, the Value Set Description becomes ValueSet.description, so sixteen generated ValueSets currently carry a sentence that stops mid-word. THO was checked as a recovery source and is not one. All sixteen tables have a ValueSet in hl7.terminology.r5, all sixteen carry a description, and fifteen of them are truncated at exactly the same point — identical text once whitespace and this project's own text policy are normalized on both sides. So the defect did not originate in this extraction and it did not originate in the chapter's rendering: the same clipped field fed both documents, and the truncated text is already published in THO. The single exception is table 0227, and it is the proof. THO's ValueSet/v2-0227 continues past the cut with 171 more characters, completing the very word the chapter stops in the middle of — “may be acce” becomes “may be accessed via” followed by the PHIN VADS link for the MVX code system. One table's full text therefore survives somewhere, which is good evidence the other fifteen do too.
-
-**What this guide publishes today:**
-
-- `0038` Order status: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0170` Derived Specimen: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0227` Manufacturers of Vaccines (code=MVX): ValueSet published; code system is another body's — VS 4.0.0 (held)
-- `0254` Kind of Quantity: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
-- `0315` Living Will Code: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0326` Visit Indicator: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
-- `0335` Repeat Pattern: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0389` Analyte Repeat Status: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 4.0.0 (incremented)
-- `0392` Match Reason: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0406` Participant Organization Unit Type: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0508` Blood Product Processing Requirements: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0510` Blood Product Dispense Status: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0511` BP Observation Status Codes Interpretation: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0513` Blood Product Transfusion/Disposition Status: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
-- `0520` Message Waiting Priority: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-- `0544` Container Condition: CodeSystem + ValueSet published — CS 3.0.0 (held) VS 3.0.0 (held)
-
-**Decision needed:** Recover the fifteen full descriptions from whatever source Chapter 2C is generated from — most likely whoever maintains the chapter's underlying table content holds them intact, since the loss is at publication rather than at authoring. This project can detect the truncation but cannot reconstruct the text, and inventing an ending would be worse than publishing the fragment. On the errata guidance this is content lost during the editing process rather than a change of meaning, so restoring it should qualify as a technical correction and need no ballot. Two things follow that are worth deciding at the same time. 0227's full text is available now from THO and can be restored immediately on the same reasoning; say whether to take it. And because the truncated text is already published in THO, the correction needs to be made in both places or the two will diverge. Every affected table is listed below with the text as it currently stands.
-
----
-
-## Presentation and wording (6)
+## Presentation and wording (4)
 
 Defects a reader notices and no processor does: styling, copy-paste in a metadata field, inconsistent phrasing. They are listed because they are wrong, not because they block anything.
 
 **Cost of granting the class:** Editorial pass on the chapter. No effect on any artifact this guide publishes.
-
-### All six UCUM-backed tables name the code system “Donation Duration Units Code System”
-
-**Tables:** 0567, 0568, 0929, 0930, 0931, 0932  
-**Goes to:** V2 Management  
-**Register id:** `esc-ucum-full-name`
-
-*Why this class: All six UCUM-backed tables carry the same copy-pasted Full Name. A metadata field, not a binding.*
-
-Every table in Chapter 2C backed by UCUM carries the same Code System Identification block — OID 2.16.840.1.113883.6.8, symbolic name ucum, URI http://unitsofmeasure.org — with Full Name: Donation Duration Units Code System. Only 0932 is about donation duration; the name was copy-pasted across Weight Units, Volume Units and Temperature Units, twice over, since 0567/0568 duplicate 0929/0930. The name is wrong even on 0932. The code system being identified is UCUM, so its full name is the Unified Code for Units of Measure, not the name of whichever table happens to point at it.
-
-**What this guide publishes today:**
-
-- `0567` Weight Units: withheld on a ruling
-- `0568` Volume Units: withheld on a ruling
-- `0929` Weight Units: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
-- `0930` Volume Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-- `0931` Temperature Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-- `0932` Donation Duration Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-
-**Decision needed:** Cleared to correct. Measured against HL7's errata guidance this is squarely a technical correction — a name inconsistently applied during editing, where fixing it makes the chapter say what was plainly intended. Set the Full Name to UCUM's own name in all six. Note that this changes no generated resource. UCUM is an external code system, so these six tables produce a ValueSet and no CodeSystem, and the ValueSet takes its name and description from the Value Set block rather than the Code System block. The correction is to the chapter, and to the report that mirrors it.
-
----
 
 ### The copy-pasted Full Name is not confined to the UCUM tables
 
@@ -136,27 +56,6 @@ Tables 0560 (Quantity Units) and 0910 (Acquisition Modality) each carry a Code S
 
 ---
 
-### “All codes” is used where a value set enumerates a handful of UCUM codes
-
-**Tables:** 0929, 0930, 0931, 0932  
-**Goes to:** V2 Management  
-**Register id:** `esc-cld-inconsistent`
-
-*Why this class: “All codes” used where a value set enumerates a handful. Classed as wording because the question underneath it -- whether “all codes” is a defined term -- is asked separately.*
-
-Tables 0929 and 0930 give their Content Logical Definition as “enumerated per table content”, which is accurate. Tables 0931 and 0932 say “all codes” while doing exactly the same thing — listing two or three UCUM codes. Read literally, “all codes” against UCUM would be every unit of measure in existence. THO reads all four the same way and enumerates in every case.
-
-**What this guide publishes today:**
-
-- `0929` Weight Units: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
-- `0930` Volume Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-- `0931` Temperature Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-- `0932` Donation Duration Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-
-**Decision needed:** Align the wording on the four tables. More usefully: is “all codes” meant to be a defined term with a specific mapping to ValueSet.compose, or is it informal prose? The answer affects how every one of the 438 value set blocks in the chapter is translated.
-
----
-
 ### Five concept domains are given two different descriptions within Chapter 2C
 
 **Tables:** 5 concept domains  
@@ -190,29 +89,11 @@ Both tables are consequently absent from the document's own table of contents, a
 
 ---
 
-## Wrong or missing identifiers (6)
+## Wrong or missing identifiers (4)
 
 The chapter names the wrong thing, or omits a name it needs. A URI that points at the wrong code system is not a typographic matter — it resolves, and it resolves to something else.
 
 **Cost of granting the class:** Correct the identifier. Mechanical, but it changes a normative value, so it needs confirming rather than just fixing.
-
-### Table 0347 State/Province gives ISO 3166 part 1's URI for a part 2 code system, and calls a partial value set “all codes”
-
-**Tables:** 0347  
-**Goes to:** V2 Management  
-**Register id:** `esc-0347-iso3166`
-
-*Why this class: ISO 3166 part 1's URI given for a part 2 code system. It resolves, and it resolves to the wrong code system.*
-
-The Code System Identification block correctly identifies ISO 3166-2 — OID 1.0.3166.2, symbolic name iso3166-2, described as “ISO 3166 Part 2 Country Subdivision Codes” — and then gives the URI as urn:iso:std:iso:3166, which is part 1. THO's NamingSystem/ISO3166Part2 carries both identifiers for this system and uses urn:iso:std:iso:3166:-2. Separately, the Value Set block gives its Content Logical Definition as “all codes” while its own URI points at ValueSet-v2-notAllCodes-0347, and THO's value set of that name enumerates two example concepts (CA-AB, US-MI). The published definition contradicts both its own URI and THO. The Full Name is wrong in the same way as the UCUM tables: “State/Province Code System” names the table, not the code system, which is ISO 3166-2.
-
-**What this guide publishes today:**
-
-- `0347` State/Province: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-
-**Decision needed:** Two technical corrections — the URI, and the Content Logical Definition. Neither should be contentious, but both change published text.
-
----
 
 ### Table 0956's value set exists only in a withdrawn FHIR draft and a code repository being decommissioned
 
@@ -253,24 +134,6 @@ Between 2026-11-05 and 2026-11-06 four tables in the GP1/GP2 pair were realigned
 
 ---
 
-### Table 0725 Mood Codes omits the URI of the v3 code system it draws from
-
-**Tables:** 0725  
-**Goes to:** V2 Management  
-**Register id:** `esc-0725-missing-uri`
-
-*Why this class: The URI of the v3 code system the table draws from is omitted.*
-
-The table's code system block gives a symbolic name actMood, a description of tbd, and OID 2.16.840.1.113883.5.1001 — and no URI field at all. The codes are v3 ActMood codes, not v2 codes; THO's own ValueSet/v2-0725 draws them from http://terminology.hl7.org/CodeSystem/v3-ActMood. The output is already correct, because the OID the chapter does print resolves through THO to exactly that URL, so the writer emits a value set only and points it at the v3 code system. Recorded because the defect is in the published chapter and will mislead anyone reading it directly: a reader sees a code system with no URI and a description of tbd, with nothing to indicate the codes are v3. It also means the correct result here depends entirely on OID resolution succeeding.
-
-**What this guide publishes today:**
-
-- `0725` Mood Codes: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
-
-**Decision needed:** Confirm this as a technical correction under the editing-process test — add the URI http://terminology.hl7.org/CodeSystem/v3-ActMood and replace the tbd description. Nothing in the generated output changes.
-
----
-
 ### Three artifacts where one OID would end up naming two things, which versioning cannot reconcile
 
 **Tables:** 0001, 0719  
@@ -304,7 +167,7 @@ Chapter 2C carries three OIDs per table, in three separate metadata blocks, and 
 
 ---
 
-## The chapter contradicting itself (6)
+## The chapter contradicting itself (5)
 
 A table says two incompatible things about itself, so no reading of it is faithful. These cannot be reproduced faithfully — something has to be chosen — which is why they are the ones most likely to be producing a wrong artifact right now.
 
@@ -383,26 +246,6 @@ The table is Type: HL7-EXT, stewarded by PA, and declares three code systems —
 
 ---
 
-### The concept statuses N and B are defined nowhere; N is now mapped, B is not
-
-**Tables:** 0003, 0125, 0357 for B; 25 tables, 261 concepts for N  
-**Goes to:** V2 Management + TSMG  
-**Register id:** `esc-status-n-b-undefined`
-
-*Why this class: Status letters N and B are used and defined nowhere, so the chapter uses a vocabulary it does not publish.*
-
-Chapter 2C carries its own legend for the status column: blank means an active code, B means “backwards-compatible use only”, D means “deprecated or inactive”, R means “retired”, and N means “new in this release”. Blank, D and R have unambiguous FHIR equivalents and are written as active, deprecated and retired. N and B do not. Neither is defined anywhere. The property they are written to is status, defined by FHIR at http://hl7.org/fhir/concept-properties#status, whose own definition reads “a code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired.” Neither N nor B is among them. They are not in utg-concept-properties either, and no value set enumerates them. Across the whole of hl7.terminology.r5 they appear only in v2 code systems — 210 concepts carry N and 6 carry B. N is worse than undefined, because it decays. “New in this release” was a statement about whichever release first printed it, and nothing updates it afterwards. That is visible in the data: THO still marks 210 concepts N from past releases while the 2.9.1 chapter marks only 70, and 205 of the 261 status disagreements between the chapter and THO are exactly this — THO saying N where the current chapter says nothing, so this project publishes active. N is now mapped to active, as a technical correction. The reviewer ruled on this half on 2026-09-19, and the three findings above are the grounds taken together: “new in this release” is not a status but a provenance note; it expires with nothing to update it, so a value printed in 2.9.1 is already a claim about some earlier release; and it is not a legal value of the standard FHIR property this guide writes it into, whose own definition enumerates active, experimental, deprecated and retired. A code marked N is in every case an active code, so writing active says what the chapter means and says it in the same vocabulary D and R already use. On the errata test in the first item of this register that is a change that makes the document say what the work group intended, not a change to what the standard means. B is deferred, deliberately. “Backwards-compatible use only” is a real statement about a code and it has no obvious FHIR equivalent: not deprecated, because the code is still correct for existing senders; not retired; and not plainly active either, because the restriction is real. It is also small enough to take one at a time — five concepts in three tables: 0003 Event code O57 (OMQ — General Order Message with Document Payload), 0125 Value Type code IS (Coded value for user-defined tables), and 0357 Message Error Condition Codes 204, 205 and 206 (Unknown key identifier, Duplicate key identifier, Application record locked). Five concepts is a review, not a policy.
-
-**What this guide publishes today:**
-
-- `0003` Event: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 4.0.0 (incremented)
-- `0125` Value Type: ValueSet published; code system is another body's — VS 3.0.0 (held)
-- `0357` Message Error Condition Codes: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
-
-**Decision needed:** Two things remain. (1) Rule on B, per concept. Five concepts in three tables is small enough to look at individually, and they are not obviously the same case — 0125's IS is a data type code, 0357's three are error conditions. For each, say whether the FHIR status should be active, deprecated, or active with a separate marker recording the backwards-compatibility restriction. (2) Decide where, if anywhere, these letters should be defined. Even with N resolved by mapping, THO still publishes 210 concepts carrying it as a literal status value and 6 carrying B, against a property whose definition admits neither. Defining them in utg-concept-properties would at least make what is already published legal; replacing N with a non-decaying “version introduced” property would be better, and the chapter already records that fact in prose elsewhere. What this guide does now: N is written as active; B is passed through unchanged pending (1); and all 261 chapter-versus-THO status disagreements are still recorded, because mapping N does not make the underlying divergence go away.
-
----
-
 ### 191 concepts say they are active and deprecated as of 2.9 at the same time
 
 **Tables:** 0003, 0006, 0065, 0066, 0074, 0076, 0104, 0131, 0163, 0175, 0191, 0200, 0207, 0211, 0223, 0272, 0277, 0278, 0279, 0281, 0291, 0294, 0354, 0359, 0365, 0366, 0367, 0391, 0396, 0418, 0440, 0474, 0487, 0492, 0544, 0916  
@@ -456,7 +299,7 @@ The contradiction. 241 concepts across 36 code systems carry the concept propert
 
 ---
 
-## Open representation questions (4)
+## Open representation questions (2)
 
 Not defects in the chapter: places where the chapter is clear and FHIR offers no settled way to say it. The guide has taken a working answer in each case and the answer is reversible.
 
@@ -496,45 +339,6 @@ Noticed in table 0291, whose code system carries a concept whose code is a singl
 
 ---
 
-### Where should a concept domain’s example codes live?
-
-**Tables:** 0093, 0340, 0451  
-**Goes to:** V2 Management  
-**Register id:** `esc-domain-example-codes`
-
-*Why this class: Where a concept domain's example codes should live. Extracted and held, published nowhere, pending a shape.*
-
-These three tables are declared Concept Domain Only and yet each publishes a small set of codes — three, two and one respectively. That is not a contradiction: the V3 requirements for declaring a concept domain call for example codes, so the tables are conforming. It does leave the codes with nowhere obvious to go. A concept domain is not a code system, so the examples cannot be concepts; and a domain is bound with an extension on the binding rather than through a value set, so there is no value set to put them in either. No CodeSystem and no ValueSet is minted for any of the three, and nothing in THO or UTG carries one today, so nothing has to be unpicked whichever way this goes.
-
-**What this guide publishes today:**
-
-- `0093` Release Information: concept domain only, no artifact
-- `0340` Procedure Code Modifier: concept domain only, no artifact
-- `0451` Substance Identifier: concept domain only, no artifact
-
-**Decision needed:** The likely representation is a concept property on the concept in the concept domain code system, carrying the example codes. Confirm that shape, or name another. Until it is decided the example codes are extracted and held but not published anywhere.
-
----
-
-### Do the UCUM weight and volume value sets mean the handful of codes they list, or the UCUM units for the quantity?
-
-**Tables:** 0929, 0930  
-**Goes to:** V2 Management  
-**Register id:** `esc-0929-0930-enumerated-subset`
-
-*Why this class: Whether the enumerated subset is intended or the value sets should reference the UCUM units for the quantity. Survives the 2026-09-23 ruling that retired 0567 and 0568.*
-
-This is the half of the 0567/0568 question that the 2026-09-23 ruling did not reach. That ruling retires 0567 and 0568, which removes them from this guide — but it leaves the same question standing against their live replacements, which this guide does publish. The replacements carry byte-identical code lists to the tables being retired. 0929 enumerates the same four codes as 0567 — [lb_av], [oz_av], kg, g — and 0930 the same three as 0568: l, [pt_us], ml. So retiring the old pair does not retire the question; it moves it. The description promises more than the value set delivers. 0930's concept domain is “the domain of possible values of units of measure that are used to specify volume” and its code system is UCUM, which has a great many volume units. Three are enumerated. A sender needing centilitres, fluid ounces or cubic centimetres finds them absent from a value set whose description says it covers the quantity. Whether that is a deliberate interoperability constraint — a short list implementers can actually support — or an accident of how the table was first populated is not something this project can determine from the chapter.
-
-**What this guide publishes today:**
-
-- `0929` Weight Units: ValueSet published; code system is another body's — VS 4.0.0 (incremented)
-- `0930` Volume Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-
-**Decision needed:** Is the enumerated subset intended, or should these value sets be an intensional reference to the UCUM units for the quantity? If the short list is deliberate, the descriptions should say so, because as written they describe the whole quantity. If it is not, these are two value sets that need rebuilding and the replacement tables inherited the defect they were meant to replace.
-
----
-
 ### What should a user-defined table produce? Three of them were treated three different ways
 
 **Tables:** 0093  
@@ -553,7 +357,7 @@ This is the half of the 0567/0568 question that the 2026-09-23 ruling did not re
 
 ---
 
-## Published content that is wrong (3)
+## Published content that is wrong (2)
 
 The chapter publishes something that is incorrect as terminology — an invalid code, codes that do not match the table's own name. Correcting these changes what the standard means.
 
@@ -574,24 +378,6 @@ The table is named Quantity Units, its concept domain is “the domain of possib
 - `0560` Quantity Units: CodeSystem + ValueSet published — CS 4.0.0 (incremented) VS 3.0.0 (held)
 
 **Decision needed:** Is this table salvageable, or is it a concept domain with no usable code system? If it is to be fixed, the fix has to be coordinated with TSMG so Chapter 2C and THO move together. This project's working decision changed on 2026-09-17 (ADR-0010): it now publishes both the CodeSystem and the ValueSet, carrying the chapter's five codes. The earlier decision was concept domain only, and it was reversed because the noObject marker is contradicted by everything around it — the chapter's own five codes, the value set OID it prints, its all codes content logical definition, and THO's existing pair. Treating the marker as authoritative was losing published content and putting us in conflict with THO rather than agreement with it. The naming problem this item is really about is untouched by that change: four of the five codes are still units of time under a table called Quantity Units, in our output and in THO's alike. That still needs V2 Management and TSMG together, and we are not proposing to alter THO's existing records unilaterally. The contradiction is stated in the guide itself, on the General questions page, so a reader meets it rather than having to find this register.
-
----
-
-### Table 0931 Temperature Units publishes three codes, two of which are the same unit, and one of which is invalid
-
-**Tables:** 0931  
-**Goes to:** V2 Management  
-**Register id:** `esc-0931-temperature`
-
-*Why this class: An invalid UCUM code published alongside its own correction. THO has already corrected this one, which makes it the sharpest test of reproduce-versus-correct in the corpus.*
-
-The three codes are degF (status D, comment “typo”), [degF], and Cel. degF is not a valid UCUM code — UCUM requires the square brackets — so the table publishes a known-invalid code and its correction side by side, with two of the three entries meaning Degrees Fahrenheit. There is no Kelvin and no Rankine, so it is not a complete set of temperature units either. THO has already dealt with this. Its ValueSet/v2-0931 v2.0.0 includes only [degF] and Cel, and folds the history into the display text: “Degrees Fahrenheit (note that V2 has erroneously published this for many years without the square brackets)”. Also in this table: the Code System Version block gives the UCUM version as 2, which is not a UCUM version.
-
-**What this guide publishes today:**
-
-- `0931` Temperature Units: ValueSet published; code system is another body's — VS 3.0.0 (incremented)
-
-**Decision needed:** This is the cleanest test case in the corpus for reproduce-versus-correct, and the one to decide first: Chapter 2C reproduces an error, THO corrected it and said so, and the two cannot both be followed. Which does this IG follow? And separately: should 0931 be filled out into an actual set of temperature units, or is the two-code set intentional?
 
 ---
 

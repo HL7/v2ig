@@ -15374,7 +15374,7 @@
     {
       "code": "ReleaseInformation",
       "display": "Release Information (0093)",
-      "definition": "The domain of possible values for whether the healthcare provider can release information about a patient and what information can be released.",
+      "definition": "The domain of possible values for whether the healthcare provider can release information about a patient and what information can be released.\r\n\r\n**Examples:**\r\n\r\n *  Y: Yes\r\n *  N: No",
       "property": [
         {
           "code": "source",
@@ -17712,7 +17712,7 @@
     {
       "code": "ProcedureCodeModifier",
       "display": "Procedure Code Modifier (0340)",
-      "definition": "The domain of possible values that specify a procedure code modifier to a procedure code.  Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  The modifiers are sequenced in priority according to user entry.  This is a requirement of the UB and the 1500 claim forms.  Multiple modifiers are allowed and the order placed on the form affects reimbursement.",
+      "definition": "The domain of possible values that specify a procedure code modifier to a procedure code.  Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  The modifiers are sequenced in priority according to user entry.  This is a requirement of the UB and the 1500 claim forms.  Multiple modifiers are allowed and the order placed on the form affects reimbursement.\r\n\r\n**Examples:**\r\n\r\n *  CPTM: CPT Modifier Code\r\n *  HPC: CMS (formerly HCFA) Procedure Codes (HCPCS)",
       "property": [
         {
           "code": "source",
@@ -18801,7 +18801,7 @@
     {
       "code": "SubstanceIdentifier",
       "display": "Substance Identifier (0451)",
-      "definition": "The domain of possible values specifying the substance that is in inventory.",
+      "definition": "The domain of possible values specifying the substance that is in inventory.\r\n\r\n**Examples:**\r\n\r\n *  ALL: Used for query of all inventory items",
       "property": [
         {
           "code": "source",

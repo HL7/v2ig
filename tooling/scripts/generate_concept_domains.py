@@ -100,7 +100,8 @@ def load_chapter_domains():
     than one table -- `VolumeUnits` is used by 0568, 0777 and 0930 -- so every
     declaring table is kept, in table order.
     """
-    domains = defaultdict(lambda: {"tables": [], "descriptions": []})
+    domains = defaultdict(lambda: {"tables": [], "descriptions": [],
+                                   "examples": []})
     for path in sorted(VOCAB_DIR.glob("*.json")):
         record = json.loads(path.read_text())
         if record.get("tableNumber") in write_utg_xml.EXCLUDED_SECTIONS:
@@ -120,7 +121,58 @@ def load_chapter_domains():
         description = (block.get("Description") or "").strip()
         if description not in entry["descriptions"]:
             entry["descriptions"].append(description)
+        # A concept-domain-only table publishes no code system, so any codes
+        # its grid prints can only be examples of the domain. Ruled
+        # 2026-11-20 (esc-domain-example-codes): carry them in the domain's
+        # definition. Placeholder rows such as "..." are not codes.
+        if (block.get("Concept Domain Only") or "").strip().lower() == "yes":
+            for row in record.get("codedContent") or []:
+                code = (row.get("value") or "").strip()
+                if not code or not any(ch.isalnum() for ch in code):
+                    continue
+                entry["examples"].append({
+                    "table": record.get("tableNumber", path.stem),
+                    "code": code,
+                    "display": (row.get("displayName") or "").strip(),
+                    "definition": (row.get("definition") or "").strip(),
+                })
     return dict(domains)
+
+
+def examples_markdown(examples):
+    """Format example codes the way THO's ActAppointmentType lists examples.
+
+    That concept's definition ends with a bold ``Examples:`` heading and a
+    bulleted list, which is the pattern the 2026-11-20 ruling points at.
+    """
+    lines = []
+    for example in examples:
+        text = example["code"]
+        if example["display"]:
+            text += f": {example['display']}"
+        if example["definition"]:
+            text += f" -- {example['definition']}"
+        lines.append(f" *  {text}")
+    return "**Examples:**\r\n\r\n" + "\r\n".join(lines)
+
+
+def with_examples(definition, examples):
+    """Append the examples block to a definition, unless it is already there."""
+    block = examples_markdown(examples)
+    if not definition:
+        return block
+    if block in definition:
+        return definition
+    return f"{definition}\r\n\r\n{block}"
+
+
+def index_concepts(concepts, index=None):
+    """Index a CodeSystem's concepts by code, including nested ones."""
+    index = {} if index is None else index
+    for concept in concepts:
+        index[concept["code"]] = concept
+        index_concepts(concept.get("concept", []), index)
+    return index
 
 
 def next_major_version(version):
@@ -260,6 +312,7 @@ def build(tho_resource, tho_index, chapter_domains):
     resource["version"] = next_major_version(inherited_version)
 
     additions = []
+    resource_concepts = index_concepts(resource.get("concept", []))
 
     for symbolic_name in sorted(chapter_domains):
         entry = chapter_domains[symbolic_name]
@@ -281,6 +334,21 @@ def build(tho_resource, tho_index, chapter_domains):
                    "Used verbatim as the concept code. Contains characters "
                    "unusual in a code, such as spaces, slashes or punctuation.",
                    chapter_value=symbolic_name, tables=tables)
+
+        examples = entry.get("examples") or []
+        if examples:
+            record("example_codes_added", symbolic_name,
+                   "Codes printed by a concept-domain-only table, added to the "
+                   "domain's definition as examples (esc-domain-example-codes).",
+                   chapter_value=[
+                       f"{e['table']} {e['code']}"
+                       + (f": {e['display']}" if e["display"] else "")
+                       for e in examples],
+                   tables=tables)
+            if symbolic_name in resource_concepts:
+                target = resource_concepts[symbolic_name]
+                target["definition"] = with_examples(
+                    target.get("definition", ""), examples)
 
         if symbolic_name in tho_index:
             tho_concept = tho_index[symbolic_name]["concept"]
@@ -325,6 +393,9 @@ def build(tho_resource, tho_index, chapter_domains):
         }
         if description:
             concept["definition"] = description
+        if examples:
+            concept["definition"] = with_examples(
+                concept.get("definition", ""), examples)
         additions.append(concept)
         record("added_from_chapter_2c", symbolic_name,
                "Declared in Chapter 2C, absent from THO. Added as a new concept.",

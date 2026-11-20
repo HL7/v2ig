@@ -3095,7 +3095,7 @@
     <definition value="OMQ- General Order Message with Document Payload"/>
     <property>
       <code value="status"/>
-      <valueCode value="B"/>
+      <valueCode value="deprecated"/>
     </property>
   </concept>
   <concept id="342">
